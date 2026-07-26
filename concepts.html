@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Layout concepts — Therapy Practice Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FBF9F3;--ink:#26241E;--muted:#7C766A;--line:#E7E2D6;--card:#FFFFFF;
+    --pos:#3F9577;--neg:#B5483F;--amber:#C98B4B;--cream:#F6F2E8;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .mast{display:flex;align-items:center;gap:30px;background:var(--cream);
+    border-bottom:1px solid var(--line);padding:7px 24px;flex-wrap:wrap;}
+  .mark{display:flex;align-items:center;gap:9px;text-decoration:none;}
+  .mono{width:22px;height:22px;border-radius:6px;background:var(--ink);color:#fff;
+    font-family:'Fraunces',serif;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;}
+  .wordm{font-family:'Fraunces',serif;font-weight:700;font-size:13.5px;letter-spacing:-.01em;}
+  .backlink{font-size:12px;color:var(--muted);text-decoration:none;}
+  .backlink:hover{color:var(--ink);}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:38px 24px 90px;}
+  .eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+  h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);
+    line-height:1.06;letter-spacing:-.02em;margin:0 0 12px;}
+  h1 .accent{color:var(--neg);}
+  .dek{font-size:15.5px;line-height:1.6;color:var(--muted);max-width:660px;margin:0;}
+
+  .note{border-left:3px solid var(--amber);background:#FDF8EF;padding:13px 16px;
+    border-radius:0 8px 8px 0;margin:24px 0 0;font-size:14px;line-height:1.6;max-width:700px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px;}
+  .cc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;display:flex;flex-direction:column;}
+  .cc-n{font-family:'Fraunces',serif;font-weight:700;font-size:12px;color:var(--muted);margin-bottom:5px;}
+  .cc-t{font-family:'Fraunces',serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin:0 0 8px;}
+  .cc-d{font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 14px;flex:1;}
+  .cc-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px;}
+  .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    padding:3px 9px;border-radius:20px;background:#E6F1EB;color:var(--pos);}
+  .tag.warn{background:#FDF1E0;color:#8A5A26;}
+  .tag.neutral{background:#F1EDE3;color:var(--muted);}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;}
+  .btn{font-size:13px;font-weight:600;text-decoration:none;padding:9px 15px;border-radius:9px;
+    background:var(--ink);color:#fff;border:1px solid var(--ink);}
+  .btn:hover{background:#3A372F;}
+  .btn.ghost{background:#fff;color:var(--ink);border-color:var(--line);}
+  .btn.ghost:hover{background:#FCFAF4;}
+
+  .current{margin-top:34px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;}
+  .current .cc-t{margin-bottom:6px;}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:14px;}
+  th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+    font-weight:700;padding:0 12px 9px 0;border-bottom:1px solid var(--line);}
+  td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+  td:first-child{font-weight:600;white-space:nowrap;}
+  h2{font-family:'Fraunces',serif;font-weight:700;font-size:23px;margin:52px 0 6px;letter-spacing:-.01em;}
+  .sub{font-size:14px;color:var(--muted);margin:0 0 6px;line-height:1.6;}
+  ol{font-size:14px;line-height:1.75;color:var(--muted);padding-left:20px;max-width:680px;}
+  ol b{color:var(--ink);}
+  @media(max-width:720px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <a class="mark" href="index.html"><span class="mono">CA</span><span class="wordm">Therapy Practice</span></a>
+  <a class="backlink" href="index.html">← back to the live Simulator</a>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">Layout test · July 2026</div>
+  <h1>Four ways to open the <span class="accent">Simulator</span></h1>
+  <p class="dek">These are not mockups. Each link below opens the real Simulator — same tax engine, same inputs, same saved data — with a different treatment of the navigation and the first screen. Enter a rate in one and it carries into the others.</p>
+
+  <div class="note">
+    <b>How to judge them:</b> open each, then ask how long it takes to reach the hourly-rate field, and whether you can tell where you are in the site. The current layout spends <b>40% of a 900px-tall screen</b> on chrome before the first input.
+  </div>
+
+  <div class="grid">
+
+    <div class="cc">
+      <div class="cc-n">01</div>
+      <h3 class="cc-t">Title in the masthead</h3>
+      <p class="cc-d">The hero is deleted. The wordmark carries the page identity with "California · 2026 net estimates" underneath, and the destinations move back out to the right edge. One sentence of description survives; the controls start almost immediately.</p>
+      <div class="cc-meta"><span class="tag">chrome 40% → 24%</span><span class="tag neutral">smallest change</span></div>
+      <div class="btns"><a class="btn" href="index.html?v=01">Open 01</a><a class="btn ghost" href="index.html?v=01#grow">Grow page</a></div>
+    </div>
+
+    <div class="cc">
+      <div class="cc-n">02</div>
+      <h3 class="cc-t">Hero earns its space</h3>
+      <p class="cc-d">The hero stays but has to be useful: the running Gross → Net panel moves out of its floating box and sits inside the hero, filling the empty right half. Before you've entered anything it prompts rather than showing four zeros.</p>
+      <div class="cc-meta"><span class="tag">kills the floating panel</span><span class="tag neutral">chrome unchanged, 40%</span><span class="tag neutral">medium change</span></div>
+      <div class="btns"><a class="btn" href="index.html?v=02">Open 02</a><a class="btn ghost" href="index.html?v=02#grow">Grow page</a></div>
+    </div>
+
+    <div class="cc">
+      <div class="cc-n">03</div>
+      <h3 class="cc-t">Sections in a side rail</h3>
+      <p class="cc-d">Section jumps become a fixed vertical rail with their live figures right-aligned — so it reads as a running summary and a navigation at once. Nothing horizontal competes with the site nav any more. Falls back to the current horizontal bar below 900px.</p>
+      <div class="cc-meta"><span class="tag">chrome 40% → 31%</span><span class="tag warn">largest change</span></div>
+      <div class="btns"><a class="btn" href="index.html?v=03">Open 03</a><a class="btn ghost" href="index.html?v=03#grow">Grow page</a></div>
+    </div>
+
+    <div class="cc">
+      <div class="cc-n">04</div>
+      <h3 class="cc-t">Ask first, reveal after</h3>
+      <p class="cc-d">On a first visit the page shows only the two questions everything depends on — no section pills, no zeroed panel, no sections below. Enter a rate or a session count and the whole tool appears. Returning visitors skip it, since saved data counts as answered.</p>
+      <div class="cc-meta"><span class="tag">chrome 40% → 27%</span><span class="tag warn">boldest</span></div>
+      <div class="btns"><a class="btn" href="index.html?v=04">Open 04</a><a class="btn ghost" href="index.html?v=04#grow">Grow page</a></div>
+    </div>
+
+  </div>
+
+  <div class="current">
+    <div class="cc-n">Reference</div>
+    <h3 class="cc-t">The layout that's live now</h3>
+    <p class="cc-d" style="margin-bottom:14px;">Masthead, then a full hero, then the section pills, then the first input at 359px. Open it in another tab to compare against.</p>
+    <div class="btns"><a class="btn ghost" href="index.html">Open current</a></div>
+  </div>
+
+  <h2>What each one fixes</h2>
+  <table>
+    <tr><th>Concept</th><th>Fixes</th><th>Leaves unfixed</th></tr>
+    <tr><td>01 Masthead title</td><td>Dead space right of the nav, the name being said three times, most of the wasted height</td><td>Two nav bars still stacked; pills still show $0</td></tr>
+    <tr><td>02 Working hero</td><td>The orphaned floating panel; the empty right half; the zeroed empty state</td><td>Chrome stays tall; the two bars still look alike</td></tr>
+    <tr><td>03 Side rail</td><td>Two-navigations-that-look-alike, properly; reclaims all vertical space</td><td>Narrows the content column; needs its own mobile pattern</td></tr>
+    <tr><td>04 Ask first</td><td>Empty chips; chrome; gives the page one clear instruction</td><td>Hides navigation on a first visit; extra step if you arrive to browse</td></tr>
+  </table>
+
+  <h2>Worth knowing before you test</h2>
+  <ol>
+    <li><b>They share one engine.</b> Every variant is the same <code>app.js</code> with a different layout class — no forked copies to drift apart, and every number is the real calculation.</li>
+    <li><b>Your data follows you.</b> All variants read the same saved setup, so enter a rate once and compare like for like.</li>
+    <li><b>01 and 02 combine.</b> They fix different things and don't conflict — 01 removes the wasted height, 02 gives what's left a job. Measured on a 900px screen: 01 alone takes chrome from 40% to 24%; adding 02's inline panel keeps that height while giving it something to say.</li>
+    <li><b>Nothing here is permanent.</b> Removing the <code>?v=</code> parameter returns the current layout, so the live site is unaffected while you decide.</li>
+  </ol>
+</div>
+
+</body>
+</html>

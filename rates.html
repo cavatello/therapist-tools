@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The California Therapy Rate Gap — Insurance Reimbursement vs. Private Pay, 2026</title>
+<meta name="description" content="What California therapists actually get paid by insurance panels versus private-pay clients, compiled from clinician reports and published fee schedules.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* same tokens as the simulator */
+    --bg:#FBF9F3; --ink:#26241E; --muted:#7C766A; --muted-2:#9C968A; --line:#E7E2D6;
+    --card:#FFFFFF; --pos:#3F9577; --neg:#B5483F; --amber:#C98B4B;
+    --pos-soft:#E6F1EB; --amber-soft:#FDF8EF; --neg-soft:#FBEAE8;
+    /* legacy aliases so nothing goes unstyled */
+    --paper:#FBF9F3; --pine:#3F9577; --pine-soft:#E6F1EB; --brick:#B5483F;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  .serif,.mono{font-family:'Fraunces','Georgia',serif;}
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+
+  /* ===== Masthead — identical to the simulator ===== */
+  .masthead{display:flex; align-items:center; justify-content:flex-start; gap:30px; flex-wrap:wrap;
+    background:#F6F2E8; border-bottom:1px solid var(--line);
+    max-width:900px; margin:0 auto; padding:7px 32px;
+    position:sticky; top:0; z-index:40;}
+  .masthead-mark{display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--ink);}
+  .sitenav-mono{width:22px; height:22px; border-radius:6px; background:var(--ink); color:#fff;
+    font-family:'Fraunces',serif; font-weight:700; font-size:11px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;}
+  .sitenav-wordmark{font-family:'Fraunces',serif; font-weight:700; font-size:13.5px; letter-spacing:-.01em;}
+  .sitenav{display:flex; align-items:stretch; gap:4px; flex-wrap:wrap;}
+  .sitenav a{display:flex; flex-direction:column; gap:1px; padding:5px 13px; border-radius:8px;
+    text-decoration:none; border:1px solid transparent; white-space:nowrap;
+    transition:background .15s, border-color .15s;}
+  .sitenav a:hover{background:#FCFAF4; border-color:var(--line);}
+  .sitenav-t{font-size:12.5px; font-weight:600; color:var(--muted); line-height:1.25;}
+  .sitenav-d{font-size:9.5px; color:#A39C8E; line-height:1.25;}
+  .sitenav a.on{background:#fff; border-color:var(--line);}
+  .sitenav a.on .sitenav-t{color:var(--ink); font-weight:700;}
+  .sitenav a.on .sitenav-d{color:var(--muted);}
+  .sitenav a:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+
+  /* ===== Footer — identical to the simulator ===== */
+  .sitefoot{display:flex; align-items:center; justify-content:flex-start; gap:26px; flex-wrap:wrap;
+    background:#F6F2E8; border-top:1px solid var(--line); margin:40px auto 0;
+    max-width:900px; padding:13px 32px 20px;}
+  .sitefoot-mark{display:flex; align-items:center; gap:9px;}
+  .sitefoot-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .sitefoot-links a{font-size:12px; color:var(--muted); text-decoration:none;}
+  .sitefoot-links a:hover{color:var(--ink); text-decoration:underline;}
+  .sitefoot-meta{margin-left:auto; font-size:11px; color:#9C968A;}
+
+  /* ===== Hero ===== */
+  .hero{max-width:900px; margin:0 auto; padding:30px 32px 22px;}
+  .hero-eyebrow{font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+    color:var(--muted); margin-bottom:10px;}
+  .hero h1{font-family:'Fraunces','Georgia',serif; font-weight:600;
+    font-size:clamp(28px,3.6vw,42px); line-height:1.06; letter-spacing:-.02em; margin:0 0 12px;}
+  .hero h1 em{font-style:normal; color:var(--neg);}
+  .hero-dek{font-size:15px; line-height:1.6; color:var(--muted); max-width:640px; margin:0 0 8px;}
+  .hero-byline{font-size:11.5px; color:var(--muted-2); margin-top:20px; padding-top:14px;
+    border-top:1px solid var(--line); text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ===== Signature gap-bar, recoloured to the main palette ===== */
+  .gapbar-wrap{max-width:900px; margin:26px auto 0; padding:0 32px;}
+  .gapbar{position:relative; height:60px; border-radius:10px; overflow:hidden; display:flex;
+    border:1px solid var(--line);}
+  .gapbar-seg{position:relative; display:flex; align-items:center; padding:0 18px;
+    font-family:'Fraunces',serif; font-size:14px; font-weight:700; color:#fff;}
+  .gapbar-ins{background:var(--pos); flex:0 0 42%;}
+  .gapbar-pp{background:var(--amber); flex:1;}
+  .gapbar-caption{display:flex; justify-content:space-between; margin-top:9px;
+    font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
+  .gapbar-caption .gap-mid{color:var(--neg); font-weight:700;}
+
+  /* ===== Article shell ===== */
+  .article{max-width:900px; margin:0 auto; padding:34px 32px 30px;}
+  .lede{font-size:17.5px; line-height:1.62; color:var(--ink); margin:0 0 8px;}
+  .lede::first-letter{font-family:'Fraunces',serif; font-size:56px; line-height:.82; float:left;
+    padding:5px 10px 0 0; font-weight:700; color:var(--neg);}
+
+  /* ===== Quick answers ===== */
+  .qa-box{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--amber);
+    border-radius:12px; padding:22px 26px; margin:34px 0;}
+  .qa-box-label{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
+    color:#8A5A26; margin-bottom:14px;}
+  .qa-row{display:grid; grid-template-columns:1fr 1.1fr; gap:20px; padding:12px 0;
+    border-top:1px solid var(--line);}
+  .qa-row:first-of-type{border-top:none;}
+  .qa-q{font-size:14px; color:var(--muted); line-height:1.5;}
+  .qa-a{font-size:14.5px; font-weight:600; line-height:1.5;}
+  .qa-a b{color:var(--pos);}
+
+  /* ===== Numbered parts ===== */
+  .part-head{display:flex; align-items:baseline; gap:16px; margin:54px 0 6px;}
+  .part-num{font-family:'Fraunces',serif; font-weight:700; font-size:15px; color:var(--amber); flex-shrink:0;}
+  .part-head h2{font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:27px;
+    line-height:1.15; margin:0; letter-spacing:-.015em;}
+  .part-dek{font-size:14.5px; color:var(--muted); line-height:1.6; margin:0 0 28px; max-width:620px;}
+
+  h3{font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:19px; margin:34px 0 12px;
+    letter-spacing:-.01em;}
+  p{font-size:15.5px; line-height:1.7; color:var(--ink); margin:0 0 18px;}
+  p b, li b{color:var(--ink);}
+  ul, ol{font-size:15.5px; line-height:1.7; color:var(--ink); padding-left:22px; margin:0 0 18px;}
+  li{margin-bottom:6px;}
+
+  /* ===== Tables ===== */
+  .ledger-wrap{margin:24px 0 28px; border:1px solid var(--line); border-radius:12px;
+    overflow:hidden; background:var(--card);}
+  table{width:100%; border-collapse:collapse; font-size:14px;}
+  thead th{text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--muted); font-weight:700; padding:12px 18px; border-bottom:1px solid var(--line);
+    background:#FBF9F3;}
+  tbody td{padding:11px 18px; border-bottom:1px solid var(--line); font-size:14px;}
+  tbody td:first-child{font-weight:600;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr.hi td{background:var(--pos-soft);}
+  .tag{display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+    letter-spacing:.04em; padding:3px 8px; border-radius:20px; margin-left:8px;}
+  .tag.best{background:var(--pos-soft); color:var(--pos);}
+  .tag.poor{background:var(--neg-soft); color:var(--neg);}
+
+  /* ===== Stat cards ===== */
+  .statpair{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0 28px;}
+  .statcard{border:1px solid var(--line); border-radius:12px; padding:18px 22px; background:var(--card);}
+  .statcard.pine{border-left:3px solid var(--pos);}
+  .statcard.amber{border-left:3px solid var(--amber);}
+  .statcard-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; font-weight:700;
+    color:var(--muted); margin-bottom:7px;}
+  .statcard-val{font-family:'Fraunces',serif; font-size:29px; font-weight:700; letter-spacing:-.01em;}
+  .statcard-note{font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.5;}
+
+  /* ===== Pull quote ===== */
+  blockquote{margin:32px 0; padding:4px 0 4px 24px; border-left:3px solid var(--amber);}
+  blockquote p{font-family:'Fraunces','Georgia',serif; font-size:19px; line-height:1.5;
+    color:var(--ink); margin:0;}
+  blockquote cite{display:block; font-style:normal; font-size:11.5px; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.05em; margin-top:11px;}
+
+  /* ===== Callouts ===== */
+  .callout{background:var(--neg-soft); border-left:3px solid var(--neg); border-radius:0 10px 10px 0;
+    padding:16px 20px; margin:24px 0; font-size:14.5px; line-height:1.62; color:#7A2C27;}
+  .callout b{color:var(--neg);}
+  .note{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 20px;
+    margin:24px 0; font-size:14px; line-height:1.62; color:var(--muted);}
+
+  /* ===== Geography split ===== */
+  .geo-split{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0 28px;}
+  .geo-card{border:1px solid var(--line); border-radius:12px; padding:20px 24px; background:var(--card);}
+  .geo-card h4{font-family:'Fraunces','Georgia',serif; font-size:17px; margin:0 0 4px; font-weight:600;}
+  .geo-card .range{font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--pos);
+    margin:7px 0 11px;}
+  .geo-card ul{font-size:13.5px; padding-left:18px; margin:0;}
+  .geo-card li{margin-bottom:4px; color:var(--muted);}
+
+  /* ===== Colophon ===== */
+  .colophon{max-width:900px; margin:0 auto; padding:34px 32px 30px; border-top:1px solid var(--line);}
+  .colophon h4{font-size:11px; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+    color:var(--muted); margin:0 0 12px;}
+  .colophon p{font-size:13px; line-height:1.7; color:var(--muted-2); margin:0 0 14px;}
+  .colophon .disclaimer{font-style:italic;}
+
+  sup{font-size:10px; color:var(--pos);}
+
+  @media (max-width:720px){
+    .statpair, .geo-split{grid-template-columns:1fr;}
+    .qa-row{grid-template-columns:1fr; gap:4px;}
+    .article, .hero, .colophon{padding-left:20px; padding-right:20px;}
+    .gapbar-wrap{padding-left:20px; padding-right:20px;}
+  }
+  @media (max-width:700px){
+    .masthead{flex-wrap:wrap; gap:9px; padding:8px 20px;}
+    .sitenav{width:100%; gap:2px;}
+    .sitenav a{flex:1; padding:5px 8px;}
+    .sitenav-d{display:none;}
+    .sitefoot{flex-direction:column; align-items:flex-start; gap:12px; padding-left:20px; padding-right:20px;}
+    .sitefoot-meta{margin-left:0;}
+    .masthead{padding-left:20px; padding-right:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="masthead-mark" href="index.html#sim">
+    <span class="sitenav-mono">CA</span>
+    <span class="sitenav-wordmark">Therapy Practice</span>
+  </a>
+  <nav class="sitenav" aria-label="Site">
+    <a href="index.html#sim"><span class="sitenav-t">Simulator</span><span class="sitenav-d">run your numbers</span></a>
+    <a href="index.html#grow"><span class="sitenav-t">Grow Your Practice</span><span class="sitenav-d">marketing and sales</span></a>
+    <a href="rates.html" class="on" aria-current="page"><span class="sitenav-t">Field Notes</span><span class="sitenav-d">what CA actually pays</span></a>
+    <a href="tycoon.html"><span class="sitenav-t">Tycoon</span><span class="sitenav-d">the practice, as a game</span></a>
+  </nav>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Rates &amp; Reimbursement</div>
+  <h1>The gap between what insurance pays and what <em>private pay</em> gets you.</h1>
+  <p class="hero-dek">A California therapist billing insurance for a standard 53-minute session collects somewhere between $80 and $150. The same hour, billed privately in the Bay Area, runs $180&ndash;$350. This is what the data actually says about why &mdash; and what moves the number in your favor.</p>
+  <div class="hero-byline">Sources: clinician self-reports &middot; CMS &amp; Medi-Cal fee schedules &middot; BLS wage data &middot; see colophon</div>
+</div>
+
+<div class="gapbar-wrap">
+  <div class="gapbar">
+    <div class="gapbar-seg gapbar-ins">Insurance, statewide $106&ndash;132</div>
+    <div class="gapbar-seg gapbar-pp">Private pay, Bay Area $180&ndash;350</div>
+  </div>
+  <div class="gapbar-caption">
+    <span>CPT 90837 &middot; 53-minute individual session</span>
+    <span class="gap-mid">&asymp; 2.0&times; gap</span>
+  </div>
+</div>
+
+<div class="article">
+
+  <p class="lede">Roughly half of California therapists don't accept insurance at all. The two reasons cited most often: reimbursement doesn't clear the Bay Area cost of living, and every clinical hour drags about thirty minutes of unpaid paperwork behind it. What follows is what's actually documented &mdash; not the going rumor &mdash; about what panels pay, what private-pay markets bear, and where the two numbers meet.</p>
+
+  <div class="qa-box">
+    <div class="qa-box-label">Quick answers</div>
+    <div class="qa-row"><div class="qa-q">What does insurance pay for 53 minutes in CA?</div><div class="qa-a"><b>$110&ndash;$123</b> typical &middot; $150 top (Kaiser) &middot; $80 bottom (Cigna)</div></div>
+    <div class="qa-row"><div class="qa-q">Bay Area private-pay range?</div><div class="qa-a"><b>$180&ndash;$350</b>, most licensed LMFTs land $200&ndash;$275</div></div>
+    <div class="qa-row"><div class="qa-q">Los Angeles private-pay range?</div><div class="qa-a"><b>$150&ndash;$250</b>, Westside/Santa Monica $175&ndash;$350</div></div>
+    <div class="qa-row"><div class="qa-q">Best-paying panel?</div><div class="qa-a"><b>Kaiser</b>, then Medicare, then Aetna</div></div>
+    <div class="qa-row"><div class="qa-q">Worst-paying?</div><div class="qa-a">Cigna, Blue Shield MHSA <em>(legacy figure &mdash; see note below)</em>, Molina</div></div>
+  </div>
+
+  <div class="part-head"><span class="part-num">I.</span><h2>What insurance actually pays</h2></div>
+  <p class="part-dek">Self-reported rates from California clinicians, cross-checked against published Medicare and Medi-Cal fee schedules.</p>
+
+  <p>The honest caveat first: publicly reported California insurance rates for CPT 90837 are thin. Clinician self-reports pulled from r/therapists total four data points for this table &mdash; payers and platforms treat rate disclosure as confidential, and most insurers won't quote a number until you're already credentialed. Treat the ranking as directional, not authoritative.</p>
+
+  <div class="ledger-wrap">
+    <table>
+      <thead><tr><th>Payer</th><th>Rate</th><th>Channel</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td>Kaiser</td><td>$150</td><td>Direct</td><td>So. Cal, 2023</td></tr>
+        <tr><td>Health Net (SCA)</td><td>$132</td><td>Single case agreement</td><td>CA, 2025</td></tr>
+        <tr><td>BCBS</td><td>$123</td><td>Direct</td><td>CA, 2025</td></tr>
+        <tr><td>UnitedHealthcare</td><td>$122</td><td>Headway</td><td>Long Beach, 2023</td></tr>
+        <tr><td>Optum</td><td>$121</td><td>Direct</td><td>CA, 2025</td></tr>
+        <tr><td>Aetna</td><td>$111&ndash;113</td><td>Direct</td><td>CA, 2025</td></tr>
+        <tr><td>Anthem</td><td>$106</td><td>Headway</td><td>Long Beach, 2023</td></tr>
+        <tr><td>Carelon Behavioral</td><td>$95</td><td>Direct</td><td>Long Beach, 2023</td></tr>
+        <tr><td>Cigna</td><td>$80</td><td>Offered &mdash; declined</td><td>So. Cal, 2025</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Published, verifiable fee schedules</h3>
+  <div class="ledger-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>LMFT / LCSW / LPCC</th><th>Associate</th></tr></thead>
+      <tbody>
+        <tr><td>Medicare, 2026 (90837)</td><td>&asymp;$125</td><td>n/a</td></tr>
+        <tr><td>CalVCB (per hour)</td><td>$105</td><td>$97</td></tr>
+        <tr><td>Medi-Cal, 2026 (90837)</td><td>$98</td><td>$98</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px; color:var(--muted);">Medicare pays LMFTs and LPCCs at 75% of the psychologist rate. LMFTs became independently billable to Medicare in January 2024.<sup>[1]</sup></p>
+
+  <div class="callout">
+    <b>Blue Shield changed everything on January 1, 2026.</b> Through 2025, behavioral health for roughly 1.8 million Blue Shield members was carved out to Magellan &mdash; and Magellan paid poorly (71% of the CA average). Magellan declined to renew. Blue Shield now administers behavioral health directly, is actively signing new contracts, and publishes a dedicated rate-inquiry line: <span class="mono">(800) 258-3091</span>, option 3. Any "Blue Shield pays badly" figure you find dated 2025 or earlier describes a payer relationship that no longer exists.
+  </div>
+
+  <h3>Direct contract or platform &mdash; it depends on the payer</h3>
+  <div class="ledger-wrap">
+    <table>
+      <thead><tr><th>Payer</th><th>Direct</th><th>Platform</th><th>Better</th></tr></thead>
+      <tbody>
+        <tr><td>Kaiser</td><td>$150</td><td>not offered</td><td><span class="tag best">Direct</span></td></tr>
+        <tr><td>Optum / UHC</td><td>$121</td><td>$122 (Headway)</td><td>Tie</td></tr>
+        <tr><td>Aetna</td><td>$111&ndash;113</td><td>$121&ndash;129 (Alma)</td><td><span class="tag best">Platform</span></td></tr>
+        <tr><td>Cigna</td><td>$80</td><td>$102 (Alma)</td><td><span class="tag best">Platform</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Neither channel wins across the board &mdash; the working strategy is usually split: direct where direct pays more, platform where the platform's negotiated rate is higher. What platforms keep varies widely: one documented case had Cigna paying Alma $151.74 for a session where the clinician received $95, a 37% cut. An outside biller, by comparison, typically costs 7&ndash;11% of collections.</p>
+
+  <div class="note">
+    <b>Two rate cuts worth knowing about, both from 2025:</b> Aetna cut rates for Alma clinicians effective August 15 &mdash; one clinician reported a 30% reduction after the dust settled. Optum cut rates in January across Alma and Headway, up to $43 per visit. As of mid-2026, Grow, Headway, Sondermind, and Rula still paid 90837 above the lower 90834 rate &mdash; a structural detail worth confirming before you sign anything, since "code flattening" (paying the same for a 53-minute and 45-minute session) is the main risk to watch for.
+  </div>
+
+  <div class="part-head"><span class="part-num">II.</span><h2>What private pay actually gets</h2></div>
+  <p class="part-dek">The Bay Area and Los Angeles are not the same market. Treat them separately.</p>
+
+  <div class="geo-split">
+    <div class="geo-card">
+      <h4>Bay Area</h4>
+      <div class="range">$180&ndash;$350</div>
+      <ul>
+        <li>Typical licensed LMFT/LCSW: $200&ndash;$275</li>
+        <li>San Francisco general range: $150&ndash;$300</li>
+        <li>Associate (AMFT/ASW/APCC): $100&ndash;$175</li>
+        <li>Specialty (couples, EMDR, sex therapy): $175&ndash;$350</li>
+      </ul>
+    </div>
+    <div class="geo-card">
+      <h4>Los Angeles</h4>
+      <div class="range">$150&ndash;$250</div>
+      <ul>
+        <li>Santa Monica / West LA: $175&ndash;$350</li>
+        <li>Typical Santa Monica LMFT/LCSW: $180&ndash;$260</li>
+        <li>Associate (AMFT/ASW/APCC): $100&ndash;$175</li>
+        <li>Psychologist (PhD/PsyD): $200&ndash;$350</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>The clearest pattern in the private-pay data isn't specialty or licensure &mdash; it's supply density. BLS wage data for MFTs, statewide:</p>
+
+  <div class="ledger-wrap">
+    <table>
+      <thead><tr><th>Metro</th><th>Mean annual wage</th><th>MFTs employed</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td>Vallejo&ndash;Fairfield</td><td>$109,130</td><td>160</td></tr>
+        <tr><td>San Francisco&ndash;Oakland&ndash;Hayward</td><td>$92,370</td><td>3,740</td></tr>
+        <tr><td>San Jose&ndash;Sunnyvale&ndash;Santa Clara</td><td>$86,710</td><td>1,220</td></tr>
+        <tr><td>Sacramento&ndash;Roseville</td><td>$81,080</td><td>1,430</td></tr>
+        <tr><td>California statewide</td><td>$69,780</td><td>&mdash;</td></tr>
+        <tr><td>Los Angeles&ndash;Long Beach&ndash;Anaheim</td><td>$63,420</td><td>10,920</td></tr>
+        <tr><td>San Diego&ndash;Carlsbad</td><td>$62,980</td><td>4,710</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px; color:var(--muted);">Source: Bureau of Labor Statistics, May 2023.</p>
+  <p>Bay Area MFTs earn roughly $29,000/year more than their LA counterparts &mdash; and LA employs nearly three times as many. Vallejo&ndash;Fairfield tops the state with only 160 MFTs working there, which fits the same pattern from the other direction: fewer therapists, higher wages. If you're in the Bay Area, an LA fee survey will understate your market. If you're in LA, a Bay Area figure will overstate it.</p>
+
+  <blockquote>
+    <p>Many rural and low-cost-of-living states reimburse better than California. Midwest peers own homes with reasonable caseloads; California peers often don't.</p>
+    <cite>A California clinician, on relocating from Colorado</cite>
+  </blockquote>
+
+  <h3>Work setting changes the number as much as geography</h3>
+  <div class="ledger-wrap">
+    <table>
+      <thead><tr><th>Setting</th><th>Mean annual wage</th></tr></thead>
+      <tbody>
+        <tr><td>Elementary / secondary schools</td><td>$89,000</td></tr>
+        <tr><td>State government</td><td>$84,770</td></tr>
+        <tr><td>Outpatient care centers</td><td>$67,600</td></tr>
+        <tr><td>Offices of other health practitioners</td><td>$67,230</td></tr>
+        <tr><td>Individual and family services</td><td>$67,150</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>School-based and state roles pay the most among employed positions &mdash; and typically come with benefits a solo private-pay practice doesn't.</p>
+
+  <div class="part-head"><span class="part-num">III.</span><h2>The gap, and what closes it</h2></div>
+  <p class="part-dek">Private pay runs roughly double insurance in the Bay Area, closer to 1.6&times; in LA &mdash; and California trails most of the country either way.</p>
+
+  <div class="statpair">
+    <div class="statcard pine">
+      <div class="statcard-label">Bay Area premium</div>
+      <div class="statcard-val">&asymp; 2.0&times;</div>
+      <div class="statcard-note">$180&ndash;350 private pay vs. $106&ndash;132 insurance</div>
+    </div>
+    <div class="statcard amber">
+      <div class="statcard-label">Los Angeles premium</div>
+      <div class="statcard-val">&asymp; 1.6&times;</div>
+      <div class="statcard-note">$150&ndash;250 private pay vs. $106&ndash;132 insurance</div>
+    </div>
+  </div>
+
+  <h3>California is mid-pack &mdash; and that's before adjusting for cost of living</h3>
+  <div class="ledger-wrap">
+    <table>
+      <thead><tr><th>State / payer</th><th>Rate, 90837</th></tr></thead>
+      <tbody>
+        <tr class="hi"><td>Alaska BCBS</td><td>$196</td></tr>
+        <tr><td>West Virginia BCBS</td><td>$180</td></tr>
+        <tr><td>North Carolina Aetna (State Plan)</td><td>$178</td></tr>
+        <tr><td>Iowa BCBS</td><td>$173</td></tr>
+        <tr><td>Michigan BCBS</td><td>$160</td></tr>
+        <tr><td>Massachusetts Aetna</td><td>$144</td></tr>
+        <tr><td><b>California</b></td><td><b>$110&ndash;123</b></td></tr>
+        <tr><td>Texas BCBS</td><td>$94</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Oregon is the sharpest comparison available: <i>associate</i>-level clinicians there, under group contracts, earn $144&ndash;171 for the same code &mdash; more than a fully licensed California LMFT collects from most CA panels. California is, in short, a mid-tier reimbursement state carrying top-tier living costs. That's the core economic fact of practicing here, and it's the reason the private-pay premium exists at all.</p>
+
+  <div class="part-head"><span class="part-num">IV.</span><h2>What actually moves your number</h2></div>
+  <p class="part-dek">Five decisions, in the order they're usually worth making.</p>
+
+  <ol>
+    <li><b>Start with Kaiser if you're paneling at all.</b> Highest reported CA rate, and clinicians describe them as actively short-staffed and open to negotiating &mdash; especially with a specialty.</li>
+    <li><b>Aetna and Anthem</b> are the reasonable middle ground for a panel-based practice.</li>
+    <li><b>Think hard before signing with Cigna, legacy Blue Shield MHSA terms, or Molina.</b> One CA LMFT was offered $80 by Cigna directly and turned it down.</li>
+    <li><b>Evaluate direct-vs-platform payer by payer</b>, not as a single all-or-nothing decision &mdash; the right answer differs by payer, as the table above shows.</li>
+    <li><b>Confirm which "Blue Shield" you're actually looking at</b> before signing anything &mdash; Anthem Blue Cross and Blue Shield of California are different companies with different reimbursement profiles.</li>
+  </ol>
+
+  <h3>If you're setting a private-pay fee instead</h3>
+  <ul>
+    <li>Anchor to your sub-market, not a statewide average &mdash; SF, South Bay, and West LA run 20&ndash;30% above the state figure.</li>
+    <li>A full caseload is roughly 20&ndash;25 clients/week. At Bay Area private-pay rates, that's $200K&ndash;$350K gross before overhead, cancellations, and tax.</li>
+    <li>Insurance fills a caseload faster; private pay pays more per hour. Most sustainable practices blend both.</li>
+    <li>Offer superbills &mdash; most PPOs reimburse 50&ndash;70% out-of-network after deductible, widening your accessible market at no cost to you.</li>
+  </ul>
+
+  <div class="note">
+    <b>Costs that don't show up in the headline rate:</b> about 30 minutes of unpaid admin per clinical hour &middot; 7&ndash;11% of collections if you outsource billing &middot; no-shows and late cancellations, which some platforms pay and most direct contracts don't &middot; 1099 self-employment tax with no benefits or PTO, meaning 30%-higher 1099 pay may only match a W-2 role paying 30% less &middot; California state tax, plus loss of student-loan interest deductions at higher incomes.
+  </div>
+
+</div>
+
+<div class="colophon">
+  <h4>About this data</h4>
+  <p>Insurance rates come from California clinicians posting publicly (r/therapists rate-sharing threads, 2023 and 2025 &mdash; a small sample of four California clinicians, since most payer and platform contracts prohibit disclosing rates) plus published government fee schedules: CMS Physician Fee Schedule 2026, Medi-Cal 2026, and CalVCB effective 6/1/2024. No Bay Area&ndash;specific insurance figure exists publicly; every geolocated California insurance figure here is Southern California, and Bay Area rates are inferred to be similar, not measured. Private-pay fees are better documented and reported separately by metro above. Payer and platform sources: Blue Shield of California provider communications (Sept&ndash;Dec 2025), Magellan provider transition notice. Wage data: BLS Occupational Employment and Wage Statistics, May 2023. Additional: ClearHealthCosts investigative reporting (2024&ndash;2026); Barbara Griswold, <i>Navigating the Insurance Maze</i> (2025); Psychotherapy Action Network 667-therapist survey (2025); TheraThink payer rankings (Jan 2026).</p>
+  <p class="disclaimer">Verify against your own EOBs and 835 remittance advice before making any financial decision. This page is informational, not personalized financial or legal advice. Rates change &mdash; the Aetna/Alma reduction took effect August 15, 2026, and post-change figures were not yet public at compilation.</p>
+  <p><sup>[1]</sup> LMFTs and LPCCs became independently eligible to bill Medicare under the Consolidated Appropriations Act, effective January 1, 2024.</p>
+</div>
+
+<footer class="sitefoot">
+  <div class="sitefoot-mark"><span class="sitenav-mono">CA</span><span class="sitenav-wordmark">Therapy Practice</span></div>
+  <nav class="sitefoot-links" aria-label="Site, footer">
+    <a href="index.html#sim">Simulator</a>
+    <a href="index.html#grow">Grow Your Practice</a>
+    <a href="rates.html">Field Notes</a>
+    <a href="tycoon.html">Tycoon</a>
+  </nav>
+  <div class="sitefoot-meta">Last updated: July 25, 2026</div>
+</footer>
+
+</body>
+</html>

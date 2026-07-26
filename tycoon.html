@@ -1,0 +1,3028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Therapy Tycoon — Build Your Practice</title>
+<meta name="description" content="A management game about running a solo California therapy practice. Fill your week, keep your energy up, pay your quarterly taxes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky-top:#1B1035; --sky-bottom:#3A1E5C; --ground:#2E7D4F; --ground-dark:#256640;
+    --gold:#FFC542; --gold-dark:#E8A317; --coin:#FFD873;
+    --hud:#241640; --hud-line:#4A2E7A;
+    --panel:#2B1B4D; --panel-line:#5A3B8C; --panel-deep:#1F1440; --panel-deeper:#170F31;
+    --pink:#FF5C93; --cyan:#4DD9E8; --lime:#8BE04D; --orange:#FF8A3D; --violet:#B685FF;
+    --red:#FF6B6B; --white:#FBF7FF; --dim:#B3A3D9; --dimmer:#7C6BA8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; padding:0;}
+  body{
+    font-family:'Rubik',sans-serif;
+    background:var(--sky-bottom);
+    background-image:linear-gradient(180deg,var(--sky-top),var(--sky-bottom) 60%,#2A1547);
+    background-attachment:fixed;
+    color:var(--white); min-height:100vh; font-size:14px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .pixel{font-family:'Press Start 2P',monospace; letter-spacing:0;}
+  button{font-family:inherit; cursor:pointer;}
+  button:disabled{cursor:not-allowed; opacity:.4;}
+  ::-webkit-scrollbar{width:10px; height:10px;}
+  ::-webkit-scrollbar-track{background:var(--panel-deeper);}
+  ::-webkit-scrollbar-thumb{background:var(--panel-line); border-radius:6px;}
+
+  /* ============ HUD ============ */
+  .hud{position:sticky; top:0; z-index:60; background:var(--hud); border-bottom:4px solid var(--hud-line);
+       box-shadow:0 4px 0 rgba(0,0,0,.3); display:flex; align-items:center; gap:14px; padding:9px 16px; flex-wrap:wrap;}
+  .hud-title{display:flex; align-items:center; gap:9px; margin-right:4px;}
+  .hud-title .pixel{font-size:11px; color:var(--gold); text-shadow:2px 2px 0 rgba(0,0,0,.45);}
+  .hud-chip{display:flex; align-items:center; gap:7px; background:var(--panel); border:2px solid var(--panel-line);
+            border-radius:10px; padding:6px 11px; min-height:38px;}
+  .hud-chip .ic{font-size:15px; line-height:1;}
+  .hud-chip .kv{display:flex; flex-direction:column; line-height:1.15;}
+  .hud-chip .k{font-size:8.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--dimmer); font-weight:600;}
+  .hud-chip .v{font-weight:800; font-size:14px;}
+  .v.gold{color:var(--gold);} .v.cyan{color:var(--cyan);} .v.lime{color:var(--lime);}
+  .v.red{color:var(--red);} .v.pink{color:var(--pink);}
+  .meter{width:74px; height:8px; background:#120C26; border-radius:6px; overflow:hidden; border:1.5px solid var(--panel-line); margin-top:3px;}
+  .meter-fill{height:100%; transition:width .35s ease, background .3s;}
+  .hud-spacer{flex:1;}
+  .speedbox{display:flex; flex-direction:column; gap:3px;}
+  .speeds{display:flex; gap:4px; background:var(--panel-deep); border:2px solid var(--panel-line); border-radius:10px; padding:4px;}
+  .spd{background:transparent; border:none; color:var(--dim); font-weight:800; transition:.12s;
+       border-radius:7px; padding:4px 8px; display:flex; flex-direction:column; align-items:center; gap:1px; min-width:40px;}
+  .spd .g{font-size:11px; line-height:1.1;}
+  .spd .w{font-size:8px; text-transform:uppercase; letter-spacing:.05em; font-weight:800; line-height:1;}
+  .spd:hover{background:rgba(255,255,255,.08); color:var(--white);}
+  .spd.on{background:var(--gold); color:#3A2400; box-shadow:0 2px 0 var(--gold-dark);}
+  .speedcap{font-size:8.5px; letter-spacing:.03em; color:var(--dimmer); text-align:center; font-weight:600;}
+  .speedcap b{color:var(--dim); letter-spacing:.07em;}
+  .speedcap.live b{color:var(--lime);}
+  /* a ring that pulses outward — never moves the button, so it stays clickable */
+  @keyframes nudge{
+    0%  {box-shadow:0 2px 0 var(--gold-dark), 0 0 0 0 rgba(255,197,66,.60);}
+    70% {box-shadow:0 2px 0 var(--gold-dark), 0 0 0 9px rgba(255,197,66,0);}
+    100%{box-shadow:0 2px 0 var(--gold-dark), 0 0 0 0 rgba(255,197,66,0);}
+  }
+  .spd.nudge{animation:nudge 1.5s ease-out infinite; background:var(--gold); color:#3A2400;}
+  @media (prefers-reduced-motion:reduce){ .spd.nudge{animation:none; box-shadow:0 2px 0 var(--gold-dark), 0 0 0 3px rgba(255,197,66,.5);} }
+  @media (max-width:620px){ .spd .w{display:none;} .spd{min-width:32px; padding:6px 8px;} }
+  .hud-btn{background:var(--panel); border:2px solid var(--panel-line); color:var(--white); font-weight:700;
+           font-size:12px; padding:8px 12px; border-radius:9px; transition:.12s;}
+  .hud-btn:hover:not(:disabled){background:var(--panel-line); transform:translateY(-1px);}
+
+  /* pulse when money changes */
+  @keyframes pulseGold{0%{transform:scale(1);}40%{transform:scale(1.14);}100%{transform:scale(1);}}
+  .pulse{animation:pulseGold .45s ease;}
+  @keyframes shakeX{0%,100%{transform:translateX(0);}25%{transform:translateX(-3px);}75%{transform:translateX(3px);}}
+  .shake{animation:shakeX .3s ease;}
+
+  /* ============ LAYOUT ============ */
+  .stage{display:grid; grid-template-columns:minmax(0,1fr) 396px; gap:16px; max-width:1420px;
+         margin:0 auto; padding:16px 16px 0;}
+  .col-left{min-width:0; display:flex; flex-direction:column; gap:14px;}
+  .col-right{min-width:0;}
+
+  .card{background:var(--panel); border:3px solid var(--panel-line); border-radius:16px; padding:16px;
+        box-shadow:0 6px 0 #190F30;}
+  .card-h{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; flex-wrap:wrap;}
+  .card-h h2{font-size:14px; font-weight:800; margin:0; display:flex; align-items:center; gap:8px;}
+  .card-h .hint{font-size:11px; color:var(--dim);}
+
+  /* ============ OBJECTIVE BAR ============ */
+  .objective{background:linear-gradient(90deg,rgba(255,197,66,.16),rgba(255,197,66,.04));
+             border:2px solid var(--gold); border-radius:14px; padding:11px 15px; display:flex;
+             align-items:center; gap:13px; box-shadow:0 4px 0 rgba(0,0,0,.25);}
+  .objective .ic{font-size:22px;}
+  .objective .ttl{font-size:9px; text-transform:uppercase; letter-spacing:.09em; color:var(--gold); font-weight:700;}
+  .objective .txt{font-size:13px; font-weight:600; margin-top:2px;}
+  .obj-goals{display:flex; gap:8px; flex-wrap:wrap; margin-top:7px;}
+  .goal{font-size:11px; padding:3px 9px; border-radius:20px; background:var(--panel-deep);
+        border:1.5px solid var(--panel-line); color:var(--dim); font-weight:600;}
+  .goal.done{background:rgba(139,224,77,.18); border-color:var(--lime); color:var(--lime);}
+
+  /* ============ SCHEDULE GRID ============ */
+  .sched-wrap{background:var(--ground); border:4px solid var(--ground-dark); border-radius:16px; padding:12px;
+              box-shadow:0 7px 0 rgba(0,0,0,.25), inset 0 0 0 3px rgba(255,255,255,.07); position:relative; overflow:hidden;}
+  .sched-wrap::before{content:''; position:absolute; inset:0; pointer-events:none;
+      background-image:radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px); background-size:20px 20px;}
+  .sched{display:grid; grid-template-columns:46px repeat(5,minmax(0,1fr)); gap:5px; position:relative; z-index:1;}
+  .sc-head{font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; text-align:center;
+           color:#EAF7EE; padding:4px 0 6px; text-shadow:1px 1px 0 rgba(0,0,0,.3);}
+  .sc-time{font-size:9.5px; color:#CDEBD8; font-weight:700; display:flex; align-items:center; justify-content:flex-end;
+           padding-right:5px; text-shadow:1px 1px 0 rgba(0,0,0,.25);}
+  .slot{border-radius:9px; min-height:46px; padding:5px 6px; cursor:pointer; position:relative;
+        border:2px solid transparent; transition:transform .1s, filter .1s; display:flex; flex-direction:column;
+        justify-content:center; overflow:hidden;}
+  .slot:hover{transform:translateY(-2px); filter:brightness(1.14); z-index:3;}
+  .slot.closed{background:rgba(10,26,16,.5); border:2px dashed rgba(255,255,255,.14);}
+  .slot.closed::after{content:'+'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+                      color:rgba(255,255,255,.22); font-size:18px; font-weight:800;}
+  .slot.open{background:rgba(232,217,168,.9); border:2px solid #C9B173; box-shadow:inset 0 -3px 0 rgba(0,0,0,.12);}
+  .slot.open::after{content:'open'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+                    color:rgba(80,60,20,.42); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em;}
+  .slot.filled{box-shadow:inset 0 -3px 0 rgba(0,0,0,.22), 0 2px 0 rgba(0,0,0,.2); border-color:rgba(0,0,0,.22);}
+  .slot.filled .nm{font-size:10.5px; font-weight:800; line-height:1.2; color:#150C28; white-space:nowrap;
+                   overflow:hidden; text-overflow:ellipsis;}
+  .slot.filled .tg{font-size:8.5px; font-weight:700; color:rgba(21,12,40,.66); line-height:1.25; white-space:nowrap;
+                   overflow:hidden; text-overflow:ellipsis;}
+  .slot.filled .fee{font-size:9px; font-weight:800; color:#0E3A1E;}
+  .slot .mood{position:absolute; top:3px; right:4px; font-size:9px;}
+  .slot.blocked{background:rgba(90,59,140,.55); border:2px solid var(--panel-line); cursor:default;}
+  .slot.blocked .nm{color:var(--dim); font-size:9px;}
+  .slot.span2{min-height:46px;}
+  .slot.admin{background:rgba(60,45,100,.75); border:2px solid rgba(255,255,255,.13);}
+  .slot.admin .nm{font-size:9px; color:#CFC2EE; font-weight:700;}
+  .sched-legend{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; font-size:10.5px; color:#DFF3E6;
+                position:relative; z-index:1; align-items:center;}
+  .lg{display:flex; align-items:center; gap:5px;}
+  .lg .sw{width:12px; height:12px; border-radius:4px; border:1.5px solid rgba(0,0,0,.25);}
+
+  /* ============ TABS ============ */
+  .tabs{display:flex; gap:4px; background:var(--panel-deep); border:2.5px solid var(--panel-line);
+        border-radius:12px; padding:4px; margin-bottom:12px; flex-wrap:wrap;}
+  .tab{flex:1; background:transparent; border:none; color:var(--dim); font-weight:700; font-size:11px;
+       padding:8px 4px; border-radius:8px; transition:.12s; min-width:52px; position:relative;}
+  .tab:hover{background:rgba(255,255,255,.07); color:var(--white);}
+  .tab.on{background:var(--violet); color:#1B0F33; box-shadow:0 2px 0 #7C4FD9;}
+  .tab .badge{position:absolute; top:1px; right:4px; background:var(--red); color:#fff; font-size:8.5px;
+              font-weight:800; border-radius:9px; padding:1px 5px; min-width:15px;}
+
+  .panel-body{max-height:min(62vh,620px); overflow-y:auto; padding-right:4px;}
+
+  /* ============ GENERIC ITEM ROWS ============ */
+  .item{background:var(--panel-deep); border:2px solid var(--panel-line); border-radius:11px; padding:11px 12px;
+        margin-bottom:9px; transition:.12s;}
+  .item.click{cursor:pointer;}
+  .item.click:hover{border-color:var(--violet); transform:translateY(-1px);}
+  .item-h{display:flex; align-items:flex-start; justify-content:space-between; gap:9px;}
+  .item-t{font-size:12.5px; font-weight:800; display:flex; align-items:center; gap:7px; min-width:0;}
+  .item-s{font-size:10.5px; color:var(--dim); margin-top:3px; line-height:1.5;}
+  .item-cost{font-size:12px; font-weight:800; color:var(--gold); white-space:nowrap;}
+  .item.owned{border-color:var(--lime); background:rgba(139,224,77,.09);}
+  .item.locked{opacity:.55;}
+
+  .btn{background:var(--gold); color:#3A2400; border:none; font-weight:800; font-size:11.5px; padding:7px 13px;
+       border-radius:8px; box-shadow:0 3px 0 var(--gold-dark); transition:.1s;}
+  .btn:hover:not(:disabled){transform:translateY(-1px); box-shadow:0 4px 0 var(--gold-dark);}
+  .btn:active:not(:disabled){transform:translateY(2px); box-shadow:0 1px 0 var(--gold-dark);}
+  .btn.sm{font-size:10.5px; padding:5px 10px;}
+  .btn.green{background:var(--lime); box-shadow:0 3px 0 #5AA82F; color:#12330A;}
+  .btn.green:hover:not(:disabled){box-shadow:0 4px 0 #5AA82F;}
+  .btn.red{background:var(--red); box-shadow:0 3px 0 #B93B3B; color:#3A0B0B;}
+  .btn.red:hover:not(:disabled){box-shadow:0 4px 0 #B93B3B;}
+  .btn.ghost{background:transparent; border:2px solid var(--panel-line); color:var(--dim); box-shadow:none;}
+  .btn.ghost:hover:not(:disabled){color:var(--white); border-color:var(--violet); transform:translateY(-1px);}
+  .btn-row{display:flex; gap:7px; margin-top:9px; flex-wrap:wrap;}
+
+  .tagpill{font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; padding:2px 7px;
+           border-radius:20px; white-space:nowrap;}
+  .tp-priv{background:var(--gold); color:#3A2400;}
+  .tp-ins{background:var(--cyan); color:#0A3138;}
+  .tp-slide{background:var(--violet); color:#1B0F33;}
+  .tp-lime{background:var(--lime); color:#12330A;}
+  .tp-red{background:var(--red); color:#3A0B0B;}
+  .tp-dim{background:var(--panel-line); color:var(--white);}
+
+  /* ============ INQUIRY CARDS ============ */
+  .inq{background:linear-gradient(150deg,rgba(77,217,232,.13),var(--panel-deep));
+       border:2px solid var(--cyan); border-radius:11px; padding:11px 12px; margin-bottom:9px;}
+  .inq.expiring{border-color:var(--orange); background:linear-gradient(150deg,rgba(255,138,61,.16),var(--panel-deep));}
+  .inq-meta{display:grid; grid-template-columns:1fr 1fr; gap:5px 10px; margin:8px 0; font-size:10.5px;}
+  .inq-meta .r{display:flex; justify-content:space-between; gap:6px; border-bottom:1px dotted rgba(255,255,255,.13); padding-bottom:2px;}
+  .inq-meta .r b{color:var(--white); font-weight:700;}
+  .inq-meta .r span{color:var(--dim);}
+
+  /* ============ STAT GRID ============ */
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:9px;}
+  .stat{background:var(--panel-deep); border:2px solid var(--panel-line); border-radius:10px; padding:9px 11px;}
+  .stat .l{font-size:9px; text-transform:uppercase; letter-spacing:.06em; color:var(--dimmer); font-weight:700;}
+  .stat .v{font-size:17px; font-weight:800; margin-top:2px;}
+  .stat .n{font-size:9.5px; color:var(--dim); margin-top:1px;}
+
+  .ledger{width:100%; border-collapse:collapse; font-size:11.5px;}
+  .ledger td{padding:5px 2px; border-bottom:1px solid rgba(255,255,255,.08);}
+  .ledger td:last-child{text-align:right; font-weight:800; white-space:nowrap;}
+  .ledger tr.tot td{border-top:2px solid var(--panel-line); border-bottom:none; padding-top:8px; font-weight:800; font-size:13px;}
+  .ledger .neg{color:var(--red);} .ledger .pos{color:var(--lime);}
+  .ledger .sub td{color:var(--dim); font-size:10.5px; padding-left:12px;}
+
+  /* ============ TICKER ============ */
+  .ticker{background:var(--panel-deeper); border-top:4px solid var(--hud-line); margin-top:16px; padding:9px 16px;
+          position:sticky; bottom:0; z-index:40;}
+  .ticker-in{max-width:1420px; margin:0 auto; display:flex; align-items:center; gap:11px;}
+  .ticker-lbl{font-size:8.5px; letter-spacing:.09em; color:var(--gold); font-weight:800; text-transform:uppercase; white-space:nowrap;}
+  .ticker-feed{flex:1; height:34px; overflow:hidden; position:relative;}
+  .tmsg{font-size:12px; padding:2px 0; line-height:1.45; display:flex; align-items:center; gap:7px;
+        animation:slideUp .4s ease;}
+  @keyframes slideUp{from{opacity:0; transform:translateY(9px);}to{opacity:1; transform:translateY(0);}}
+  .tmsg .who{font-weight:800; color:var(--cyan);}
+  .tmsg.evt .who{color:var(--gold);}
+  .tmsg.bad .who{color:var(--red);}
+  .tmsg.good .who{color:var(--lime);}
+
+  /* ============ NOTIFICATIONS (non-blocking) ============ */
+  .notifs{position:fixed; top:70px; right:14px; z-index:70; display:flex; flex-direction:column; gap:8px;
+          width:290px; max-width:calc(100vw - 28px); pointer-events:none;}
+  .notif{background:var(--panel); border:2.5px solid var(--gold); border-radius:13px; padding:11px 13px;
+         box-shadow:0 6px 0 rgba(0,0,0,.3); display:flex; gap:10px; pointer-events:auto; cursor:pointer;
+         animation:notifIn .28s cubic-bezier(.3,1.3,.5,1);}
+  .notif.bad{border-color:var(--red);} .notif.good{border-color:var(--lime);}
+  .notif .ic{font-size:22px; line-height:1.1;}
+  .notif .t{font-size:12px; font-weight:800; line-height:1.3;}
+  .notif .b{font-size:11px; color:var(--dim); line-height:1.5; margin-top:3px;}
+  .notif.out{animation:notifOut .3s ease forwards;}
+  @keyframes notifIn{from{opacity:0; transform:translateX(28px);}to{opacity:1; transform:translateX(0);}}
+  @keyframes notifOut{to{opacity:0; transform:translateX(28px); height:0; padding:0; margin:0; border-width:0;}}
+  @media (max-width:1080px){ .notifs{top:auto; bottom:64px; right:10px; width:250px;} }
+
+  /* ============ MODAL ============ */
+  .veil{position:fixed; inset:0; background:rgba(10,6,24,.82); z-index:100; display:flex; align-items:center;
+        justify-content:center; padding:18px; backdrop-filter:blur(3px);}
+  .veil[hidden]{display:none;}
+  .modal{background:var(--panel); border:4px solid var(--panel-line); border-radius:20px; padding:24px;
+         max-width:560px; width:100%; box-shadow:0 12px 0 rgba(0,0,0,.35); max-height:88vh; overflow-y:auto;
+         animation:popIn .22s cubic-bezier(.3,1.4,.5,1);}
+  @keyframes popIn{from{transform:scale(.9); opacity:0;}to{transform:scale(1); opacity:1;}}
+  .modal h3{margin:0 0 5px; font-size:19px; font-weight:800;}
+  .modal .mp{font-size:13px; color:var(--dim); line-height:1.65; margin:0 0 14px;}
+  .modal-ic{font-size:40px; text-align:center; margin-bottom:8px;}
+
+  .field{margin-bottom:11px;}
+  .field label{display:block; font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--dimmer);
+               font-weight:700; margin-bottom:4px;}
+  input[type=range]{width:100%; accent-color:var(--gold);}
+  .toggle{display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--dim); cursor:pointer; user-select:none;}
+  .toggle input{accent-color:var(--lime); width:15px; height:15px; cursor:pointer;}
+
+  .satbar{height:7px; background:#120C26; border-radius:5px; overflow:hidden; border:1px solid var(--panel-line); margin-top:5px;}
+  .satbar div{height:100%;}
+
+  .empty{text-align:center; color:var(--dimmer); font-size:12px; padding:26px 12px; line-height:1.7;}
+  .empty .big{font-size:32px; display:block; margin-bottom:8px; opacity:.55;}
+
+  .footnote{max-width:1420px; margin:0 auto; padding:18px 16px 90px; font-size:11.5px; color:var(--dimmer); line-height:1.75;}
+  .footnote a{color:var(--dim);}
+  .footnote b{color:var(--dim);}
+
+  @media (max-width:1080px){
+    .stage{grid-template-columns:1fr; padding:12px 12px 0;}
+    .col-right{order:-1;}
+    .panel-body{max-height:none;}
+  }
+  @media (max-width:560px){
+    .hud{padding:7px 10px; gap:8px;}
+    .hud-title .pixel{font-size:9px;}
+    .hud-chip{padding:5px 8px;} .hud-chip .v{font-size:12.5px;} .meter{width:52px;}
+    .sched{grid-template-columns:34px repeat(5,minmax(0,1fr)); gap:3px;}
+    .slot{min-height:40px; padding:3px 4px;}
+    .slot.filled .nm{font-size:9px;} .slot.filled .tg{display:none;}
+    .sc-head{font-size:8.5px;} .sc-time{font-size:8px;}
+    .stat-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-title">
+    <span style="font-size:19px;">🎪</span>
+    <span class="pixel">THERAPY TYCOON</span>
+  </div>
+  <div class="hud-chip" id="chipCash" data-tip="<b>Cash</b> — money in the bank right now. Rent, software, marketing and staff come out every week whether or not anyone books, and estimated tax lands every 13 weeks. Below −$18,000 the practice closes."><span class="ic">🪙</span><div class="kv"><span class="k">Cash</span><span class="v gold" id="hCash">$0</span></div></div>
+  <div class="hud-chip" data-tip="<b>Date</b> — one tick of the clock is one week, 52 to a year. Nothing moves while the game is paused."><span class="ic">📅</span><div class="kv"><span class="k">Date</span><span class="v" id="hDate">Wk 1 · Yr 1</span></div></div>
+  <div class="hud-chip" data-tip="<b>Reputation</b>, 0–100 — how many people call you and what they will pay. Built mainly by clients finishing well, eroded by ones who leave unhappy, and it decays slowly if you do nothing."><span class="ic">⭐</span><div class="kv"><span class="k">Reputation</span><span class="v cyan" id="hRep">0</span><div class="meter"><div class="meter-fill" id="hRepBar" style="width:0%;background:var(--cyan)"></div></div></div></div>
+  <div class="hud-chip" data-tip="<b>Energy</b>, 0–100 — what you have left to give. Every session spends some and each clinical hour drags about half an hour of unpaid admin behind it. Recovers ~22 a week. Below 35 clients notice; at zero for three weeks you stop."><span class="ic">🔋</span><div class="kv"><span class="k">Energy</span><span class="v lime" id="hEnergy">100</span><div class="meter"><div class="meter-fill" id="hEnergyBar" style="width:100%;background:var(--lime)"></div></div></div></div>
+  <div class="hud-chip" data-tip="<b>Caseload</b> — active clients versus the clinical hours you have open, after slots reserved for supervision, marketing and training."><span class="ic">👥</span><div class="kv"><span class="k">Caseload</span><span class="v" id="hLoad">0</span></div></div>
+  <div class="hud-spacer"></div>
+  <div class="speedbox" id="speedbox">
+    <div class="speeds">
+      <button class="spd on" data-spd="0" data-tip="<b>Pause</b> — stops the clock. Nothing happens at all: no sessions, no income, no calls. Take as long as you like to think. Spacebar also toggles pause."><span class="g">❚❚</span><span class="w">Pause</span></button>
+      <button class="spd" data-spd="1" data-tip="<b>Play</b> — one week of your practice every 2 seconds. Use this while you are learning; you can still click anything while it runs."><span class="g">▶</span><span class="w">Play</span></button>
+      <button class="spd" data-spd="2" data-tip="<b>Fast</b> — one week every second. Good once the practice is running and you are waiting on credentialing or training."><span class="g">▶▶</span><span class="w">Fast</span></button>
+      <button class="spd" data-spd="3" data-tip="<b>Faster</b> — one week every 0.4 seconds. Years go by quickly; keep an eye on your energy."><span class="g">▶▶▶</span><span class="w">Faster</span></button>
+    </div>
+    <div class="speedcap" id="speedCap"><b>GAME SPEED</b> — stopped, press Play to begin</div>
+  </div>
+  <button class="hud-btn" id="btnHelp" data-tip="The full manual — mechanics, money, tax, and what every button does.">? Help</button>
+  <button class="hud-btn" id="btnSave" data-tip="Saves to this browser only. Reloading the page resumes where you left off.">💾 Save</button>
+</div>
+
+<div class="stage">
+  <div class="col-left">
+
+    <div class="objective">
+      <span class="ic" id="objIcon">🎯</span>
+      <div style="flex:1;min-width:0;">
+        <div class="ttl" data-tip="Four objectives in sequence. Each unlocks when the one before it is met; after the fourth the game is open-ended. The pill values show your current figure against the target.">Current objective — <span id="objName">Hang Your Shingle</span></div>
+        <div class="txt" id="objText">Loading…</div>
+        <div class="obj-goals" id="objGoals"></div>
+      </div>
+    </div>
+
+    <div class="coach" id="coach"></div>
+    <div class="checklist" id="checklist" hidden></div>
+
+    <div class="card">
+      <div class="card-h">
+        <h2>🗓️ Your Week <span class="hint" id="schSummary"></span></h2>
+        <div class="viewtog" id="viewTog" data-tip="Two ways to look at the same week. <b>Schedule</b> is where you open and close hours and click clients. <b>Office</b> is the same practice drawn as a place.">
+          <button class="vt on" data-view="schedule">🗓️ Schedule</button>
+          <button class="vt" data-view="office">🏠 Office</button>
+          <button class="vt" data-view="caseload">📋 Caseload</button>
+        </div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap;">
+          <button class="btn sm ghost" id="btnOpenBiz" data-tip="Opens all forty hours, Monday to Friday. Fast — and a good way to burn out.">Open 9–5</button>
+          <button class="btn sm ghost" id="btnCloseEmpty" data-tip="Closes every open hour nobody booked, so your week reflects what you actually work.">Close empty</button>
+          <button class="btn sm ghost" id="btnVacation" data-tip="Skips next week&#39;s sessions. No income, about +26 energy, and clients lose a little patience.">🌴 Take a week off</button>
+        </div>
+      </div>
+      <div class="sched-wrap">
+        <div class="sched" id="sched" data-tip="Five days, eight hours. Dark = closed (click to open). Cream = open and unbooked — time you pay for and do not bill. Coloured = a booked client; click any tile for detail."></div>
+        <div class="sched-legend">
+          <span class="lg"><span class="sw" style="background:rgba(10,26,16,.5);border-style:dashed;"></span>Closed — click to open</span>
+          <span class="lg"><span class="sw" style="background:#E8D9A8"></span>Open, unfilled</span>
+          <span class="lg">Left edge = who pays:</span>
+          <span class="lg"><span class="sw" style="background:#FFC542"></span>Private</span>
+          <span class="lg"><span class="sw" style="background:#4DD9E8"></span>Insurance</span>
+          <span class="lg"><span class="sw" style="background:#B685FF"></span>Sliding</span>
+          <span class="lg"><span class="sw" style="background:#8BE04D"></span>Group</span>
+          <span class="lg">Bottom bar = satisfaction · hover a tile for its actions</span>
+          <span class="lg">😀 happy · 😐 unsure · 😞 at risk</span>
+        </div>
+      </div>
+      <div id="caseWrap" hidden></div>
+      <div class="office-wrap" id="officeWrap" hidden>
+        <div id="officeScene"></div>
+        <div class="office-cap" id="officeCap"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-h"><h2>📊 This Week <span class="hint" style="font-weight:500">— what the last simulated week actually did</span></h2><span class="hint" id="weekHint"></span></div>
+      <div class="stat-grid" id="weekStats"></div>
+    </div>
+
+  </div>
+
+  <div class="col-right">
+    <div class="card">
+      <div class="tabs" id="tabs">
+        <button class="tab on" data-tab="inbox" data-tip="People who have called this week, plus anything in progress — credentialing, training. Take them on or refer them out.">📥 Inbox<span class="badge" id="bInbox" hidden>0</span></button>
+        <button class="tab" data-tab="clients" data-tip="Your current caseload, sorted by who is closest to leaving.">👥 Clients</button>
+        <button class="tab" data-tab="build" data-tip="Your room, groups, associates and support staff — everything that changes what a week can hold.">🏗️ Build</button>
+        <button class="tab" data-tab="train" data-tip="Certifications. They cost money and eight slots a week while you are in them, and decide who starts calling you.">🎓 Train</button>
+        <button class="tab" data-tab="market" data-tip="Your fee, how people find you, which insurance panels you are on, and your intake policy.">📣 Market</button>
+        <button class="tab" data-tab="money" data-tip="Profit and loss, the full tax breakdown, business structure, and all-time stats.">💰 Money</button>
+      </div>
+      <div class="panel-body" id="panel"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-in">
+    <span class="ticker-lbl">◤ Practice<br>Feed ◢</span>
+    <div class="ticker-feed" id="feed"></div>
+  </div>
+</div>
+
+<div class="footnote">
+  <b>Therapy Tycoon</b> is a game, not a financial planner — but the numbers underneath it are real ones.
+  Insurance reimbursement for a 53-minute session (CPT 90837) uses California figures: Kaiser $150, Anthem/BCBS $123,
+  Optum $121, Medicare $125, Aetna $113, Medi-Cal $98, Cigna $80. Private-pay fees use the Bay Area range of $180–350.
+  A full caseload is 20–25 clients/week, roughly 30 minutes of unpaid admin follows each clinical hour, and outside
+  billing costs 7–11% of collections. Entity choice is Sole Proprietorship vs. a California Professional Corporation
+  with an S-corp election — California-licensed MFTs cannot form an LLC (Cal. Corp. Code §17701.04(e)).
+  For the real math on your own practice, use the <a href="/">Practice Income Planner</a> or read the
+  <a href='/rates'>field notes on California therapy rates</a>.
+</div>
+
+<div class="notifs" id="notifs"></div>
+<div class="veil" id="veil" hidden><div class="modal" id="modal"></div></div>
+<script>
+"use strict";
+/* ================================================================
+   THERAPY TYCOON — a management game about a solo CA therapy practice
+   Real numbers: CA 90837 reimbursement, Bay Area private-pay ranges,
+   2026 single-filer federal + CA tax, SE tax, S-corp election math.
+   ================================================================ */
+
+/* ---------------- constants ---------------- */
+const DAYS = ["Mon","Tue","Wed","Thu","Fri"];
+const ROWS = ["9a","10a","11a","12p","1p","2p","3p","4p"];
+const NSLOT = DAYS.length * ROWS.length;           // 40
+const slotId = (d,r) => d*ROWS.length + r;
+const slotDay = i => Math.floor(i/ROWS.length);
+const slotRow = i => i % ROWS.length;
+
+const CONCERNS = [
+  {id:"anxiety",   name:"Anxiety",         ic:"😰", w:22, en:1.00, spec:null,        min:8,  max:24},
+  {id:"depression",name:"Depression",      ic:"🌧️", w:17, en:1.15, spec:null,        min:10, max:30},
+  {id:"couples",   name:"Couples",         ic:"💞", w:12, en:1.50, spec:"gottman",   min:8,  max:20, svc:"couples"},
+  {id:"trauma",    name:"Trauma / PTSD",   ic:"⚡", w:11, en:1.45, spec:"emdr",      min:12, max:36},
+  {id:"adhd",      name:"ADHD",            ic:"🌀", w:9,  en:0.95, spec:null,        min:6,  max:18},
+  {id:"teen",      name:"Teen",            ic:"🎒", w:8,  en:1.25, spec:"teen",      min:10, max:28},
+  {id:"grief",     name:"Grief",           ic:"🕯️", w:7,  en:1.20, spec:null,        min:6,  max:16},
+  {id:"perinatal", name:"Perinatal",       ic:"🤱", w:6,  en:1.10, spec:"perinatal", min:8,  max:20},
+  {id:"ocd",       name:"OCD",             ic:"🔁", w:5,  en:1.30, spec:"erp",       min:12, max:26},
+  {id:"sexhealth", name:"Sex & intimacy",  ic:"❤️‍🔥", w:3, en:1.20, spec:"aasect",  min:8,  max:22},
+];
+const concern = id => CONCERNS.find(c=>c.id===id);
+
+/* CA 90837 reimbursement — clinician self-reports + published schedules, 2025–26 */
+const PANELS = [
+  {id:"kaiser",    name:"Kaiser Permanente",  rate:150, weeks:14, vol:9,  note:"Highest reported CA rate. Slow to credential; reportedly negotiable, especially with a specialty."},
+  {id:"medicare",  name:"Medicare",           rate:125, weeks:11, vol:7,  note:"LMFTs independently billable since Jan 2024, at 75% of the psychologist rate."},
+  {id:"anthem",    name:"Anthem Blue Cross",  rate:123, weeks:9,  vol:8,  note:"The reasonable middle of the CA market."},
+  {id:"optum",     name:"Optum / UHC",        rate:121, weeks:10, vol:10, note:"High volume. Cut rates across platforms in Jan 2025."},
+  {id:"blueshield",name:"Blue Shield of CA",  rate:118, weeks:8,  vol:9,  note:"Ended the Magellan carve-out Jan 1 2026 and now runs behavioral health in-house — actively building network."},
+  {id:"aetna",     name:"Aetna",              rate:113, weeks:8,  vol:8,  note:"Fine directly; historically better through a platform."},
+  {id:"medical",   name:"Medi-Cal",           rate:98,  weeks:12, vol:13, note:"The most volume in the state and the least money per hour."},
+  {id:"cigna",     name:"Cigna",              rate:80,  weeks:7,  vol:9,  note:"One California LMFT was offered $80 for a 53-minute session and declined."},
+];
+const panel = id => PANELS.find(p=>p.id===id);
+
+const OFFICES = [
+  {id:"tele",   name:"Telehealth from home",     setup:0,    monthly:0,    q:40, group:false,
+   note:"Free, flexible, and some clients will never fully settle into a screen."},
+  {id:"shared", name:"Shared suite, 2 days/week", setup:0,    monthly:420,  q:64, group:false,
+   note:"A real room with a door, on the days you booked it."},
+  {id:"own",    name:"Your own office",           setup:1800, monthly:1250, q:82, group:false,
+   note:"Yours full-time. Furnish it once, keep it forever."},
+  {id:"suite",  name:"Suite with a group room",   setup:4200, monthly:2450, q:93, group:true,
+   note:"Big enough to run groups and to seat associates. This is the growth unlock."},
+];
+const office = id => OFFICES.find(o=>o.id===id);
+
+const TRAININGS = [
+  {id:"gottman",   name:"Gottman Method, Levels 1–2", ic:"💞", cost:2200, weeks:2, rep:0,
+   desc:"Unlocks couples work — 80-minute sessions at 1.6× your rate."},
+  {id:"emdr",      name:"EMDR Basic Training",        ic:"⚡", cost:3500, weeks:3, rep:0,
+   desc:"Trauma clients seek you out, stay longer, and pay a premium."},
+  {id:"teen",      name:"Adolescent & Family",        ic:"🎒", cost:1200, weeks:1, rep:0,
+   desc:"Teens and their parents. Schools start referring."},
+  {id:"perinatal", name:"PMH-C Perinatal Certification", ic:"🤱", cost:1800, weeks:2, rep:0,
+   desc:"OBs and pediatricians become a referral source."},
+  {id:"erp",       name:"ERP for OCD",                ic:"🔁", cost:1600, weeks:2, rep:0,
+   desc:"A specialty almost nobody in your area offers."},
+  {id:"group",     name:"Group Psychotherapy (CGP)",  ic:"👥", cost:2500, weeks:3, rep:0,
+   desc:"Unlocks groups: up to 8 clients in one 90-minute block. The only real leverage you have."},
+  {id:"supervisor",name:"CAMFT Supervisor Certification", ic:"🎓", cost:1200, weeks:1, rep:35,
+   desc:"Lets you hire and supervise pre-licensed associates."},
+  {id:"aasect",    name:"AASECT Sex Therapy Certification", ic:"❤️‍🔥", cost:6000, weeks:6, rep:55,
+   desc:"The top of the private-pay fee range. Six weeks of your life."},
+  {id:"biz",       name:"Practice-Building Intensive", ic:"📈", cost:900, weeks:1, rep:0,
+   desc:"Marketing converts noticeably better afterward (+35% lead flow)."},
+];
+const training = id => TRAININGS.find(t=>t.id===id);
+
+const MARKETING = [
+  {id:"pt",      name:"Psychology Today listing", ic:"📖", setup:0,    monthly:35,  leads:0.55, slots:0, rep:0,
+   desc:"The default. Steady, unfiltered, mostly insurance-seeking."},
+  {id:"gbp",     name:"Google Business Profile",  ic:"📍", setup:0,    monthly:0,   leads:0.30, slots:0, rep:0,
+   desc:"Free and local. Takes ten minutes and keeps working."},
+  {id:"site",    name:"Website + SEO",            ic:"🌐", setup:1400, monthly:110, leads:0.50, slots:0, rep:2,
+   desc:"Slow to start, compounds with your reputation."},
+  {id:"network", name:"Referral relationships",   ic:"🤝", setup:0,    monthly:60,  leads:0.45, slots:1, rep:3,
+   desc:"Coffee with doctors and school counselors. Costs one slot a week; sends the best-fitting clients."},
+  {id:"content", name:"Writing & talks",          ic:"✍️", setup:0,    monthly:0,   leads:0.38, slots:2, rep:5,
+   desc:"Two slots a week of unpaid time. Builds reputation faster than anything else."},
+];
+const marketing = id => MARKETING.find(m=>m.id===id);
+
+const STAFF = [
+  {id:"biller",     name:"Billing service",   ic:"🧾", monthly:0, pct:0.09,
+   desc:"Takes 9% of insurance collections. Collection rate 74% → 95%, and claims pay 2 weeks sooner."},
+  {id:"va",         name:"Virtual assistant",  ic:"💁", monthly:680, pct:0,
+   desc:"Scheduling, reminders, intake calls. No-shows drop by half and you get about 4 energy back a week."},
+  {id:"accountant", name:"Bookkeeper / CPA",   ic:"📗", monthly:210, pct:0,
+   desc:"Catches roughly 6% more deductions, and is required before you can run a Professional Corp."},
+];
+const staffDef = id => STAFF.find(s=>s.id===id);
+
+/* ---------------- objectives ---------------- */
+const CHAPTERS = [
+  {id:1, name:"Hang Your Shingle", ic:"🚪",
+   text:"You have a license, a laptop and eight thousand dollars. Get some clients in the door before the money runs out.",
+   goals:[
+     {k:"active",  n:8,      label:"8 active clients"},
+     {k:"cash",    n:2000,   label:"Stay above $2,000 cash"},
+   ]},
+  {id:2, name:"Fill the Week", ic:"📆",
+   text:"A handful of clients is a hobby. Build a real caseload and a name people pass along.",
+   goals:[
+     {k:"active",  n:18,     label:"18 active clients"},
+     {k:"rep",     n:45,     label:"Reputation 45"},
+   ]},
+  {id:3, name:"Make It Pay", ic:"💵",
+   text:"Full is not the same as profitable. Fix your payer mix and your rate until the practice actually supports you.",
+   goals:[
+     {k:"netyear", n:90000,  label:"$90,000 net (trailing year)"},
+     {k:"energy",  n:40,     label:"Energy at 40 or better"},
+   ]},
+  {id:4, name:"The Grown-Up Practice", ic:"🏛️",
+   text:"You have hit the ceiling of your own two hands. Leverage it — a group, an associate, or a rate only you can charge.",
+   goals:[
+     {k:"netyear", n:150000, label:"$150,000 net (trailing year)"},
+     {k:"rep",     n:70,     label:"Reputation 70"},
+     {k:"leverage",n:1,      label:"Run a group or supervise an associate"},
+   ]},
+  {id:5, name:"Open Practice", ic:"♾️",
+   text:"Every objective cleared. Keep building, keep your energy up, and see how far it goes.",
+   goals:[]},
+];
+
+/* ---------------- names ---------------- */
+const FIRST = ["Maya","Daniel","Priya","Josh","Elena","Marcus","Nina","Theo","Rosa","Ivan","Claire","Andre","Yuki","Sam","Leah","Omar","Grace","Beto","Iris","Kenji","Nadia","Wes","Simone","Arjun","Tessa","June","Hugo","Farah","Colin","Amara","Lily","Desmond","Paloma","Nico","Ruth","Kwame","Vera","Tomás","Anh","Mira","Gus","Zainab","Pete","Sunny","Ora","Malik","Bea","Rowan","Hana","Curtis"];
+const LAST = "ABCDEFGHIJKLMNOPRSTVWZ".split("");
+
+/* ---------------- rng / math helpers ---------------- */
+let seed = Date.now() % 2147483647;
+function rnd(){ seed = (seed*16807) % 2147483647; return (seed-1)/2147483646; }
+const ri = (a,b) => Math.floor(rnd()*(b-a+1))+a;
+const pick = arr => arr[Math.floor(rnd()*arr.length)];
+function wpick(arr, wf){
+  let t=0; for(const a of arr) t += wf(a);
+  let r = rnd()*t;
+  for(const a of arr){ r -= wf(a); if(r<=0) return a; }
+  return arr[arr.length-1];
+}
+const clamp = (v,a,b) => Math.max(a, Math.min(b,v));
+const fmt0 = n => (n<0?"-":"") + "$" + Math.round(Math.abs(n)).toLocaleString();
+const fmtK = n => Math.abs(n)>=10000 ? (n<0?"-":"")+"$"+(Math.abs(n)/1000).toFixed(0)+"k" : fmt0(n);
+
+/* ---------------- state ---------------- */
+let S = null;
+function newGame(){
+  return {
+    ver: 3,
+    week: 1, year: 1, totalWeeks: 0,
+    cash: 8000, debt: 0,
+    rep: 20, energy: 100,
+    rate: 150,                      // your private-pay fee
+    slots: (()=>{ const a = new Array(NSLOT).fill(false);
+                  for(let d=0;d<5;d++) for(let r=1;r<6;r++) a[slotId(d,r)] = true; return a; })(),
+    clients: [], inquiries: [], groups: [], associates: [],
+    officeId: "tele",
+    entity: "sole",                 // sole | procorp
+    sCorpSalaryPct: 0.55,
+    panels: {},                     // id -> {status:'pending'|'active', weeksLeft}
+    trainings: {},                  // id -> true
+    training: null,                 // {id, weeksLeft}
+    marketing: {},                  // id -> true
+    adBudget: 0,                    // $/month on ads
+    staff: {},                      // id -> true
+    policy: { lateFee:true, autoAccept:false, minFee:0, slidingCap:2, acceptIns:true, acceptSliding:true },
+    ledgerYTD: { gross:0, expenses:0, taxPaid:0 },
+    history: [],                    // weekly {gross, expenses, net}
+    ar: [],                         // accounts receivable {due, amount, payer}
+    chapter: 1, cleared: [],
+    stats: { seen:0, graduated:0, churned:0, referrals:0, sessions:0, vacations:0, peakLoad:0 },
+    flags: {}, log: [], vacation:false,
+    lastEventWeek: 0, gameOver:null, tickPulse:0,
+  };
+}
+
+/* ---------------- derived ---------------- */
+function officeQ(){ return office(S.officeId).q; }
+function hasTrain(id){ return !!S.trainings[id]; }
+function activeClients(){ return S.clients.filter(c=>c.state==="active"); }
+function openSlots(){ return S.slots.filter(Boolean).length; }
+function marketingSlotCost(){
+  let n=0; for(const m of MARKETING) if(S.marketing[m.id]) n += m.slots;
+  return n;
+}
+function supervisionSlots(){ return S.associates.length; }
+function trainingSlotCost(){ return S.training ? 8 : 0; }
+function reservedSlots(){ return marketingSlotCost() + supervisionSlots() + trainingSlotCost(); }
+function clinicalCapacity(){ return Math.max(0, openSlots() - reservedSlots()); }
+
+function collectionRate(){ return S.staff.biller ? 0.95 : 0.74; }
+function claimDelay(){ return S.staff.biller ? 3 : 5; }
+function noShowRate(){
+  let r = 0.085;
+  if(S.staff.va) r -= 0.045;
+  if(S.energy < 35) r += 0.03;
+  return Math.max(0.015, r);
+}
+function activePanels(){ return PANELS.filter(p=>S.panels[p.id] && S.panels[p.id].status==="active"); }
+
+/* fee a private-pay client actually pays */
+function feeFor(c){
+  if(c.payerKind==="ins")     return panel(c.payerId).rate;
+  if(c.payerKind==="sliding") return c.slidingFee;
+  return c.lockedRate;
+}
+/* what a client is actually charged for the session they attend */
+function effFee(c){ return feeFor(c) * (c.svc === "couples" ? 1.6 : 1); }
+/* what a brand-new private client with this concern would be quoted */
+function quotedRate(concernId){
+  const cn = concern(concernId);
+  return S.rate * (cn.svc === "couples" && hasTrain("gottman") ? 1.6 : 1);
+}
+function sessionEnergy(c){
+  const base = 0.75 * concern(c.concernId).en;
+  const mult = c.svc==="couples" ? 1.0 : 1.0;
+  return base * mult;
+}
+</script>
+<script>
+"use strict";
+/* ================= TAX MODEL — 2026 single filer ================= */
+const FED_STD = 16100, CA_STD = 5800, SS_CAP = 176100;
+const FED_BR = [[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]];
+const CA_BR  = [[11000,.01],[26000,.02],[41000,.04],[57000,.06],[72000,.08],[368000,.093],[441000,.103],[735000,.113],[Infinity,.123]];
+const QBI_THRESH = 201000, QBI_PHASE = 50000;   // SSTB phase-out; therapy is an SSTB
+
+function bracketTax(income, brackets){
+  let t = 0, last = 0;
+  for(const [cap, rate] of brackets){
+    if(income <= last) break;
+    t += (Math.min(income, cap) - last) * rate;
+    last = cap;
+  }
+  return t;
+}
+
+/* profit = practice net profit after business expenses, before any owner tax */
+function computeTax(profit, entity, salaryPct, hasCPA){
+  profit = Math.max(0, profit);
+  if(hasCPA) profit *= 0.94;                   // a good CPA finds deductions
+  let se = 0, payroll = 0, salary = 0, distribution = 0, entityTax = 0, entityCost = 0;
+
+  if(entity === "procorp"){
+    salary = Math.round(profit * salaryPct);
+    distribution = Math.max(0, profit - salary);
+    const ssWage = Math.min(salary, SS_CAP);
+    payroll = ssWage * 0.124 + salary * 0.029;  // employer + employee halves
+    entityTax = Math.max(800, distribution * 0.015);   // CA S-corp: 1.5% of net income, $800 min
+    entityCost = 1500;                                  // payroll service + extra accounting
+  } else {
+    const seBase = profit * 0.9235;
+    se = Math.min(seBase, SS_CAP) * 0.124 + seBase * 0.029;
+  }
+
+  const ordinary = entity === "procorp" ? (salary + distribution) : profit;
+  const halfSE = entity === "procorp" ? payroll/2 : se/2;
+
+  // QBI (20%) with SSTB phase-out
+  const preQBI = Math.max(0, ordinary - halfSE);
+  const qbiBase = entity === "procorp" ? distribution : profit;
+  let qbiPct = 0.20;
+  if(preQBI > QBI_THRESH) qbiPct = 0.20 * Math.max(0, 1 - (preQBI - QBI_THRESH)/QBI_PHASE);
+  const qbi = Math.max(0, qbiBase) * qbiPct;
+
+  const fedTaxable = Math.max(0, ordinary - halfSE - FED_STD - qbi);
+  const caTaxable  = Math.max(0, ordinary - CA_STD);
+  const fed = bracketTax(fedTaxable, FED_BR);
+  const ca  = bracketTax(caTaxable,  CA_BR);
+
+  const total = se + payroll + entityTax + entityCost + fed + ca;
+  return {se, payroll, salary, distribution, entityTax, entityCost, fed, ca, qbi, total,
+          eff: profit > 0 ? total/profit : 0};
+}
+
+/* ================= EXPENSES ================= */
+function weeklyFixed(){
+  const o = office(S.officeId);
+  let m = o.monthly;
+  m += 79;                                        // EHR
+  m += 32;                                        // liability insurance
+  m += 26;                                        // phone / VOIP
+  m += 15;                                        // license + CEU amortized
+  for(const mk of MARKETING) if(S.marketing[mk.id]) m += mk.monthly;
+  m += S.adBudget;
+  for(const st of STAFF) if(S.staff[st.id]) m += st.monthly;
+  if(S.entity === "procorp") m += 192;             // franchise + payroll service, amortized
+  return m * 12 / 52;
+}
+
+/* ================= CLIENT / INQUIRY GENERATION ================= */
+function makeInquiry(opts){
+  opts = opts || {};
+  const cn = opts.concernId ? concern(opts.concernId)
+           : wpick(CONCERNS, c => {
+               let w = c.w;
+               if(c.spec && hasTrain(c.spec)) w *= 3.2;      // you attract what you're trained in
+               else if(c.spec) w *= 0.25;
+               return w;
+             });
+
+  // payer mix: insurance-seeking dominates unless your reputation is high
+  const insPool = activePanels();
+  let kind;
+  const r = rnd();
+  const privatePull = 0.18 + S.rep/260 + (hasTrain("aasect")?0.10:0) + (S.marketing.content?0.05:0);
+  if(insPool.length && r < (1 - privatePull) * 0.86) kind = "ins";
+  else if(r > 0.955) kind = "sliding";
+  else kind = "private";
+  if(kind === "ins" && !insPool.length) kind = "private";
+
+  const p = kind === "ins" ? wpick(insPool, x=>x.vol) : null;
+
+  // willingness to pay, Bay Area private-pay range $180–350
+  let willing = 0;
+  if(kind === "private"){
+    willing = 155 + S.rep*1.15 + ri(-45,70);
+    if(cn.spec && hasTrain(cn.spec)) willing += 45;
+    if(cn.id === "couples") willing += 30;
+    if(hasTrain("aasect")) willing += 25;
+    willing = clamp(Math.round(willing/5)*5, 90, 380);
+    if(cn.svc === "couples" && hasTrain("gottman")) willing = Math.round(willing * 1.55);
+  }
+
+  const planned = ri(cn.min, cn.max);
+  return {
+    id: "i"+(S.stats.seen++)+"_"+ri(100,999),
+    name: pick(FIRST)+" "+pick(LAST)+".",
+    concernId: cn.id,
+    payerKind: kind,
+    payerId: p ? p.id : null,
+    willing,
+    slidingFee: kind==="sliding" ? ri(11,17)*5 : 0,
+    planned,
+    urgency: ri(2,4),          // weeks before they give up
+    age: 0,
+    referral: !!opts.referral,
+    wantsRoom: rnd() < 0.34,   // some clients won't do telehealth
+  };
+}
+
+function inquiryFlow(){
+  let leads = 0.15 + S.rep/70;
+  for(const m of MARKETING) if(S.marketing[m.id]) leads += m.leads;
+  if(S.adBudget > 0) leads += Math.sqrt(S.adBudget)/14;
+  if(hasTrain("biz")) leads *= 1.35;
+  for(const p of activePanels()) leads += p.vol * (0.055 + S.rep/4000);
+  leads *= (0.62 + officeQ()/175);
+  if(S.gameOver) leads = 0;
+  return leads;
+}
+
+function acceptInquiry(inq, silent){
+  const cn = concern(inq.concernId);
+  // couples need two consecutive slots and Gottman training
+  const wantsCouples = cn.svc === "couples" && hasTrain("gottman");
+  const need = wantsCouples ? 2 : 1;
+  const free = findFreeSlots(need);
+  if(!free){ 
+    if(!silent) alertModal("No open slot","You need "+(need===2?"two back-to-back open slots":"an open slot")+" before you can take "+inq.name+" on. Open more of your week, or let someone go.");
+    return false;
+  }
+  const c = {
+    id: inq.id, name: inq.name, concernId: inq.concernId,
+    payerKind: inq.payerKind, payerId: inq.payerId,
+    lockedRate: inq.payerKind==="private" ? S.rate : 0,
+    slidingFee: inq.slidingFee,
+    willing: inq.willing,
+    planned: inq.planned, attended: 0, weeks: 0,
+    sat: inq.referral ? 68 : 58,
+    slots: free, svc: wantsCouples ? "couples" : "individual",
+    state: "active", thoughtCool: 0, noShows: 0,
+  };
+  for(const s of free) markSlot(s, c.id);
+  S.clients.push(c);
+  S.inquiries = S.inquiries.filter(x=>x.id!==inq.id);
+  if(!silent) feed(c.name, "booked a first session.", "good");
+  return true;
+}
+
+/* slot occupancy map is derived from clients+groups each time */
+let slotMap = {};
+function rebuildSlotMap(){
+  slotMap = {};
+  for(const c of S.clients) if(c.state==="active") for(const s of c.slots) slotMap[s] = {t:"client", id:c.id};
+  for(const g of S.groups) for(const s of g.slots) slotMap[s] = {t:"group", id:g.id};
+  let reserve = [];
+  for(const m of MARKETING) if(S.marketing[m.id]) for(let k=0;k<m.slots;k++) reserve.push(m.name);
+  for(const a of S.associates) reserve.push("Supervise "+a.name);
+  if(S.training) for(let k=0;k<8;k++) reserve.push("In training");
+  // place reserved blocks in the last open slots
+  const openIdx = [];
+  for(let i=NSLOT-1;i>=0;i--) if(S.slots[i] && !slotMap[i]) openIdx.push(i);
+  for(let k=0;k<reserve.length && k<openIdx.length;k++) slotMap[openIdx[k]] = {t:"block", label:reserve[k]};
+}
+function markSlot(){ /* recomputed via rebuildSlotMap */ }
+function findFreeSlots(n){
+  rebuildSlotMap();
+  if(n===1){
+    for(let i=0;i<NSLOT;i++) if(S.slots[i] && !slotMap[i]) return [i];
+    return null;
+  }
+  for(let d=0;d<DAYS.length;d++)
+    for(let r=0;r+n-1<ROWS.length;r++){
+      const ids = []; let ok = true;
+      for(let k=0;k<n;k++){ const id = slotId(d,r+k); if(!S.slots[id] || slotMap[id]){ ok=false; break; } ids.push(id); }
+      if(ok) return ids;
+    }
+  return null;
+}
+
+/* ================= THOUGHTS ================= */
+function clientThoughts(c){
+  const out = [];
+  const fee = feeFor(c);
+  const cn = concern(c.concernId);
+  const fit = cn.spec && hasTrain(cn.spec);
+  if(c.payerKind==="private" && fee > c.willing + 25) out.push([fee+" for fifty minutes is more than I can keep doing.","bad"]);
+  else if(c.payerKind==="private" && fee > c.willing) out.push(["I keep doing the math on this session in my head.","bad"]);
+  if(c.payerKind==="ins" && !S.staff.biller && rnd()<0.5) out.push(["My insurance still hasn't paid and I got a bill I don't understand.","bad"]);
+  if(S.officeId==="tele" && c.wantsRoom) out.push(["I wish we could do this in a room instead of on my laptop.","bad"]);
+  if(officeQ()>=82) out.push(["I actually look forward to sitting in that chair.","good"]);
+  if(S.energy<32) out.push(["She seemed somewhere else today.","bad"]);
+  if(fit) out.push(["Nobody else in this town does "+cn.name.toLowerCase()+" work like this.","good"]);
+  if(c.sat>=80) out.push(["I told my sister she should call you.","good"]);
+  if(c.sat<=32) out.push(["I'm not sure this is helping.","bad"]);
+  if(c.noShows>=2) out.push(["I keep meaning to reschedule.","bad"]);
+  if(S.staff.va) out.push(["The reminder text is the only reason I make it.","good"]);
+  if(!out.length) out.push([pick(["Same time next week.","Today was a hard one, but a good hard.","I wrote down what we talked about."]),"n"]);
+  return pick(out);
+}
+
+/* ================= EVENTS ================= */
+const EVENTS = [
+  {id:"aetna_cut", w:6, min:20, cond:()=>S.panels.aetna&&S.panels.aetna.status==="active",
+   run(){ const p=panel("aetna"); p.rate=Math.round(p.rate*0.88);
+     return ["📉","Aetna cuts its rates","Effective this month, Aetna's reimbursement drops to $"+p.rate+" a session. The professional associations objected; the cut went through anyway.","bad"]; }},
+  {id:"bs_open", w:5, min:6, once:true, cond:()=>!S.panels.blueshield,
+   run(){ S.flags.bsFast=true;
+     return ["📨","Blue Shield is building a network","Having taken behavioral health back in-house, Blue Shield of California is credentialing fast. Applications are processing in half the usual time.","good"]; }},
+  {id:"colleague", w:7, min:10,
+   run(){ const n=ri(2,4); for(let k=0;k<n;k++) S.inquiries.push(makeInquiry({referral:true}));
+     return ["🎁","A colleague is retiring","She sent "+n+" of her clients your way with a warm introduction. They arrive already trusting you.","good"]; }},
+  {id:"flu", w:6, min:8,
+   run(){ S.flags.sickWeeks=1; S.energy=clamp(S.energy-8,0,100);
+     return ["🤒","You are sick","You cancel the week. No sessions, no income, and the notes still have to get written.","bad"]; }},
+  {id:"clawback", w:5, min:26, cond:()=>activePanels().length>0,
+   run(){ const amt=ri(6,22)*100; S.cash-=amt;
+     return ["🔍","Records request turned recoupment","A payer audited a sample of your notes and is taking back "+fmt0(amt)+" for sessions it says were insufficiently documented.","bad"]; }},
+  {id:"rent", w:4, min:30, cond:()=>S.officeId!=="tele",
+   run(){ const o=office(S.officeId); o.monthly=Math.round(o.monthly*1.09);
+     return ["🏢","Your landlord raises the rent","Nine percent. The new figure is "+fmt0(o.monthly)+" a month.","bad"]; }},
+  {id:"press", w:4, min:20, cond:()=>S.rep>40,
+   run(){ gainRep(7); for(let k=0;k<ri(2,4);k++) S.inquiries.push(makeInquiry());
+     return ["📰","You get quoted","A local paper quoted you in a piece on waitlists for therapy. The phone rings for a week.","good"]; }},
+  {id:"ghost", w:6, min:12, cond:()=>activeClients().length>4,
+   run(){ const c=pick(activeClients()); c.state="churned"; S.stats.churned++; S.rep=clamp(S.rep-2,0,100);
+     return ["👻","A client disappears","No call, no reply. "+c.name+" simply stops coming, and you are left holding a slot and a question.","bad"]; }},
+  {id:"burnout", w:5, min:14, cond:()=>S.energy<30,
+   run(){ S.energy=clamp(S.energy-6,0,100);
+     return ["🕯️","You are running on empty","You caught yourself watching the clock in session. That has never happened before.","bad"]; }},
+  {id:"noshowwave", w:5, min:10, cond:()=>activeClients().length>6,
+   run(){ let n=0; for(const c of activeClients()) if(rnd()<0.3){ c.noShows++; n++; }
+     return ["🌧️","A miserable week of weather","Everyone stayed home. "+n+" sessions evaporated.","bad"]; }},
+  {id:"grant", w:3, min:40, cond:()=>S.marketing.content,
+   run(){ const amt=ri(15,40)*100; S.cash+=amt; gainRep(4);
+     return ["🎤","A paid speaking engagement","A county agency pays you "+fmt0(amt)+" to train their staff for a day. People remember your name.","good"]; }},
+  {id:"licenserenew", w:4, min:50,
+   run(){ S.cash-=180;
+     return ["📜","License renewal","The Board wants $180 and proof of your continuing education. Both are handled.","n"]; }},
+  {id:"referralwave", w:6, min:16, cond:()=>S.rep>55,
+   run(){ const n=ri(3,6); for(let k=0;k<n;k++) S.inquiries.push(makeInquiry({referral:true}));
+     return ["🌊","Word of mouth catches","Something tipped. "+n+" people call this week, and every one of them says a former client's name.","good"]; }},
+  {id:"insdelay", w:5, min:18, cond:()=>!S.staff.biller && activePanels().length>0,
+   run(){ let moved=0; for(const a of S.ar){ if(a.kind==="ins"){ a.due+=3; moved++; } }
+     return ["📮","Claims rejected on a technicality","A batch of "+moved+" claims comes back over a taxonomy code. Nothing is lost; everything is late.","bad"]; }},
+  {id:"goodoutcome", w:6, min:8, cond:()=>activeClients().some(c=>c.sat>78),
+   run(){ const c=pick(activeClients().filter(x=>x.sat>78)); gainRep(3);
+     for(let k=0;k<2;k++) S.inquiries.push(makeInquiry({referral:true}));
+     return ["🌱","A breakthrough","Something shifted for "+c.name+" this week. Two friends call before the month is out.","good"]; }},
+  {id:"equipment", w:3, min:24, cond:()=>S.officeId!=="tele",
+   run(){ const amt=ri(3,9)*100; S.cash-=amt;
+     return ["🔧","The office needs something","A "+pick(["broken heater","leaking window","dead white-noise machine","chair that finally gave up"])+". "+fmt0(amt)+".","bad"]; }},
+];
+
+function maybeEvent(){
+  if(S.totalWeeks - S.lastEventWeek < 3) return;
+  if(rnd() > 0.24) return;
+  const pool = EVENTS.filter(e => S.totalWeeks >= e.min && (!e.cond || e.cond()) && !(e.once && S.flags["ev_"+e.id]));
+  if(!pool.length) return;
+  const e = wpick(pool, x=>x.w);
+  const [ic, title, body, tone] = e.run();
+  S.flags["ev_"+e.id] = true;
+  S.lastEventWeek = S.totalWeeks;
+  toast(title, body, ic, tone === "bad" ? "bad" : (tone === "good" ? "good" : ""));
+  feed("Practice", title, tone==="bad"?"bad":(tone==="good"?"good":"evt"));
+}
+</script>
+<script>
+"use strict";
+/* reputation is harder to build the higher it goes; losses are never softened */
+function gainRep(x){
+  if(x > 0) x *= Math.max(0.08, 1 - S.rep / 105);
+  S.rep = clamp(S.rep + x, 0, 100);
+}
+
+/* ================= THE WEEK ================= */
+function runWeek(){
+  if(S.gameOver) return;
+  const wk = { gross:0, collected:0, expenses:0, sessions:0, noshows:0, energyOut:0 };
+
+  S.totalWeeks++; S.week++;
+  if(S.week > 52){ S.week = 1; S.year++; yearRollover(); }
+
+  /* --- training & credentialing --- */
+  if(S.training){
+    S.training.weeksLeft--;
+    if(S.training.weeksLeft <= 0){
+      const t = training(S.training.id);
+      S.trainings[t.id] = true; S.training = null;
+      gainRep(3);
+      toast("Training complete", t.name + " is done. " + t.desc, t.ic, "good");
+      feed("You", "finished " + t.name + ".", "good");
+    }
+  }
+  for(const id in S.panels){
+    const p = S.panels[id];
+    if(p.status === "pending"){
+      p.weeksLeft -= (S.flags.bsFast && id === "blueshield") ? 2 : 1;
+      if(p.weeksLeft <= 0){
+        p.status = "active";
+        feed("Credentialing", "You are now in-network with " + panel(id).name + " at $" + panel(id).rate + ".", "good");
+      }
+    }
+  }
+
+  /* --- vacation / sick --- */
+  const off = S.vacation || S.flags.sickWeeks > 0;
+  if(S.flags.sickWeeks > 0) S.flags.sickWeeks--;
+
+  /* --- sessions --- */
+  rebuildSlotMap();
+  const ns = noShowRate();
+  if(!off){
+    for(const c of S.clients){
+      if(c.state !== "active") continue;
+      c.weeks++;
+      if(rnd() < ns){
+        c.noShows++; wk.noshows++;
+        if(S.policy.lateFee && c.payerKind === "private"){ S.cash += 75; wk.collected += 75; wk.gross += 75; }
+        c.sat -= 1;
+        continue;
+      }
+      c.attended++; wk.sessions++; S.stats.sessions++;
+      const fee = effFee(c);
+      wk.gross += fee;
+      if(c.payerKind === "ins"){
+        S.ar.push({ due: S.totalWeeks + claimDelay(), amount: fee * collectionRate(), kind: "ins" });
+      } else {
+        S.cash += fee * 0.985; wk.collected += fee * 0.985;
+      }
+      wk.energyOut += sessionEnergy(c) * (c.svc === "couples" ? 1.7 : 1);
+
+      /* satisfaction drifts toward a target set by fit, room, fee and how you are holding up */
+      const cn = concern(c.concernId);
+      let target = 63;
+      if(cn.spec && hasTrain(cn.spec)) target += 14;
+      else if(cn.spec) target -= 13;
+      target += (officeQ() - 55) / 3.0;
+      if(S.officeId === "tele" && c.wantsRoom) target -= 8;
+      if(S.energy < 22) target -= 24; else if(S.energy < 35) target -= 13;
+      if(c.payerKind === "private" && effFee(c) > c.willing) target -= (effFee(c) - c.willing) / 2.5;
+      if(c.payerKind === "ins" && !S.staff.biller) target -= 7;
+      if(c.svc === "group") target -= 3;
+      if(c.noShows >= 2) target -= 5;
+      target = clamp(target, 0, 100);
+      c.sat = clamp(c.sat + (target - c.sat) * 0.22 + (rnd() * 3 - 1.5), 0, 100);
+
+      /* thought */
+      c.thoughtCool--;
+      if(c.thoughtCool <= 0 && rnd() < 0.22){
+        const [txt, tone] = clientThoughts(c);
+        feed(c.name, txt, tone === "bad" ? "bad" : (tone === "good" ? "good" : ""));
+        c.thoughtCool = ri(3, 7);
+      }
+
+      /* endings */
+      if(c.attended >= c.planned){
+        c.state = "graduated"; S.stats.graduated++;
+        if(c.sat >= 62){
+          gainRep(c.sat >= 75 ? 1.1 : 0.55);
+          if(c.sat >= 75){
+            const n = ri(1, 2); S.stats.referrals += n;
+            for(let k = 0; k < n; k++) S.inquiries.push(makeInquiry({ referral: true, concernId: rnd() < 0.5 ? c.concernId : undefined }));
+            feed(c.name, "finished up and sent " + (n === 1 ? "a friend" : n + " friends") + " your way.", "good");
+          } else feed(c.name, "finished up. A good ending.", "good");
+        } else { S.rep = clamp(S.rep - 0.4, 0, 100); feed(c.name, "reached the end of their sessions, unconvinced.", "bad"); }
+      } else if(c.sat < 38 && c.weeks > 3 && rnd() < 0.20){
+        c.state = "churned"; S.stats.churned++; S.rep = clamp(S.rep - 1.2, 0, 100);
+        feed(c.name, "stopped coming.", "bad");
+      }
+    }
+    /* groups */
+    for(const g of S.groups){
+      if(!g.members.length) continue;
+      const fee = Math.round(S.rate * 0.42);
+      for(const id of g.members){
+        const c = S.clients.find(x => x.id === id);
+        if(!c || c.state !== "active") continue;
+        wk.gross += fee; S.cash += fee * 0.985; wk.collected += fee * 0.985; wk.sessions++;
+      }
+      wk.energyOut += 2.1;
+    }
+  } else {
+    for(const c of S.clients) if(c.state === "active") c.sat -= 0.8;
+    if(S.vacation){ S.stats.vacations++; feed("You", "took the week off. The email auto-reply is on.", "evt"); }
+  }
+
+  /* --- associates --- */
+  for(const a of S.associates){
+    if(a.ramp < a.target) a.ramp = Math.min(a.target, a.ramp + (1 + S.rep / 60));
+    const sessions = Math.floor(a.ramp);
+    const gross = sessions * a.fee;
+    wk.gross += gross; S.cash += gross * 0.985; wk.collected += gross * 0.985;
+    a.lifetime = (a.lifetime || 0) + gross * 0.40;
+  }
+
+  /* --- accounts receivable --- */
+  let collected = 0;
+  S.ar = S.ar.filter(a => {
+    if(a.due <= S.totalWeeks){ S.cash += a.amount; collected += a.amount; return false; }
+    return true;
+  });
+  wk.collected += collected;
+
+  /* --- expenses --- */
+  let exp = weeklyFixed();
+  if(S.staff.biller){
+    const insGross = S.clients.filter(c => c.state === "active" && c.payerKind === "ins").length * 120;
+    exp += insGross * 0.09;
+  }
+  for(const a of S.associates) exp += a.ramp * a.fee * 0.60;   // their 60% split
+  S.cash -= exp; wk.expenses = exp;
+
+  /* every clinical hour drags roughly half an hour of unpaid admin behind it */
+  wk.energyOut += wk.sessions * (S.staff.va ? 0.10 : 0.28);
+
+  /* --- energy --- */
+  let recover = 22;
+  if(off) recover += S.vacation ? 26 : 10;
+  if(S.staff.va) recover += 4;
+  if(clinicalCapacity() - wk.sessions > 8) recover += 3;
+  if(S.officeId === "tele") recover += 2;
+  S.energy = clamp(S.energy - wk.energyOut + recover, 0, 100);
+  S.vacation = false;
+
+  /* --- reputation drift --- */
+  let gain = 0;
+  for(const m of MARKETING) if(S.marketing[m.id]) gain += m.rep * 0.045;
+  const act = activeClients();
+  if(act.length){
+    const avg = act.reduce((s, c) => s + c.sat, 0) / act.length;
+    gain += (avg - 55) / 70;
+  }
+  gainRep(gain);
+  S.rep = clamp(S.rep - (0.06 + S.rep * 0.004), 4, 100);
+
+  /* --- new inquiries --- */
+  let flow = inquiryFlow();
+  let n = Math.floor(flow) + (rnd() < (flow % 1) ? 1 : 0);
+  for(let k = 0; k < n; k++) S.inquiries.push(makeInquiry());
+  for(const i of S.inquiries) i.age++;
+  const lost = S.inquiries.filter(i => i.age > i.urgency);
+  for(const i of lost) feed(i.name, "found someone else while waiting.", "bad");
+  S.inquiries = S.inquiries.filter(i => i.age <= i.urgency);
+  if(S.inquiries.length > 14) S.inquiries = S.inquiries.slice(-14);
+
+  /* --- auto-accept --- */
+  if(S.policy.autoAccept){
+    for(const i of [...S.inquiries]){
+      if(i.payerKind === "ins" && !S.policy.acceptIns) continue;
+      if(i.payerKind === "sliding" && !S.policy.acceptSliding) continue;
+      if(i.payerKind === "private" && quotedRate(i.concernId) > i.willing) continue;
+      const f = i.payerKind === "ins" ? panel(i.payerId).rate : (i.payerKind === "sliding" ? i.slidingFee : quotedRate(i.concernId));
+      if(f < S.policy.minFee) continue;
+      if(!acceptInquiry(i, true)) break;
+    }
+  }
+  /* --- fill groups from waiting inquiries --- */
+  for(const g of S.groups){
+    while(g.members.length < 8){
+      const idx = S.inquiries.findIndex(i => i.concernId === g.concernId);
+      if(idx < 0) break;
+      const inq = S.inquiries[idx];
+      const c = { id: inq.id, name: inq.name, concernId: inq.concernId, payerKind: "private",
+                  payerId: null, lockedRate: Math.round(S.rate * 0.42), slidingFee: 0, willing: inq.willing,
+                  planned: 14, attended: 0, weeks: 0, sat: 60, slots: [], svc: "group",
+                  state: "active", thoughtCool: 0, noShows: 0, groupId: g.id };
+      S.clients.push(c); g.members.push(c.id);
+      S.inquiries.splice(idx, 1);
+      feed(c.name, "joined the " + concern(g.concernId).name.toLowerCase() + " group.", "good");
+    }
+    g.members = g.members.filter(id => { const c = S.clients.find(x => x.id === id); return c && c.state === "active"; });
+  }
+
+  /* --- quarterly estimated tax --- */
+  S.ledgerYTD.gross += wk.gross;
+  S.ledgerYTD.expenses += wk.expenses;
+  if(S.week % 13 === 0) payQuarterlyTax();
+
+  maybeEvent();
+
+  /* --- record & check --- */
+  S.history.push({ w: S.totalWeeks, gross: wk.gross, collected: wk.collected, expenses: wk.expenses,
+                   net: wk.collected - wk.expenses, sessions: wk.sessions, cash: S.cash,
+                   rep: S.rep, energy: S.energy, load: act.length });
+  if(S.history.length > 400) S.history.shift();
+  S.stats.peakLoad = Math.max(S.stats.peakLoad, act.length);
+  S.lastWeek = wk;
+
+  if(S.clients.length > 120){
+    const keep = {};
+    for(const g of S.groups) for(const m of g.members) keep[m] = 1;
+    S.clients = S.clients.filter(c => c.state === "active" || keep[c.id]);
+  }
+
+  checkObjectives();
+  checkGameOver();
+}
+
+function payQuarterlyTax(){
+  const profitQ = S.ledgerYTD.gross - S.ledgerYTD.expenses;
+  const annual = profitQ * (52 / Math.max(1, S.week));
+  const t = computeTax(annual, S.entity, S.sCorpSalaryPct, !!S.staff.accountant);
+  const due = Math.max(0, t.total / 4);
+  S.cash -= due;
+  S.ledgerYTD.taxPaid += due;
+  if(S.cash < 0){
+    const pen = due * 0.06;
+    S.cash -= pen;
+    alertModal("Estimated taxes due", "The quarterly payment of " + fmt0(due) + " cleared your account and then some. A " + fmt0(pen) + " underpayment penalty comes with it. This is the bill that ends most new practices — set the money aside before it arrives.", "🏛️");
+    feed("IRS + FTB", "took " + fmt0(due) + " in estimated tax. You were short.", "bad");
+  } else {
+    feed("IRS + FTB", "quarterly estimated tax paid: " + fmt0(due) + ".", "evt");
+  }
+}
+
+function yearRollover(){
+  const p = S.ledgerYTD.gross - S.ledgerYTD.expenses;
+  alertModal("Year " + (S.year - 1) + " closes", "Gross " + fmt0(S.ledgerYTD.gross) + " · business expenses " + fmt0(S.ledgerYTD.expenses) +
+        " · profit " + fmt0(p) + " · estimated tax paid " + fmt0(S.ledgerYTD.taxPaid) + ". A new year of brackets and deductions begins.", "🎊");
+  S.ledgerYTD = { gross: 0, expenses: 0, taxPaid: 0 };
+}
+
+/* ================= trailing-year net ================= */
+function trailingNet(){
+  const h = S.history.slice(-52);
+  if(!h.length) return 0;
+  const collected = h.reduce((s, x) => s + x.collected, 0);
+  const exp = h.reduce((s, x) => s + x.expenses, 0);
+  const profit = collected - exp;
+  const scale = 52 / h.length;
+  const t = computeTax(profit * scale, S.entity, S.sCorpSalaryPct, !!S.staff.accountant);
+  return profit * scale - t.total;
+}
+
+/* ================= OBJECTIVES ================= */
+function goalValue(k){
+  switch(k){
+    case "active":   return activeClients().length;
+    case "cash":     return S.cash;
+    case "rep":      return S.rep;
+    case "energy":   return S.energy;
+    case "netyear":  return S.history.length >= 34 ? trailingNet() : 0;
+    case "leverage": return (S.groups.length > 0 || S.associates.length > 0) ? 1 : 0;
+  }
+  return 0;
+}
+function checkObjectives(){
+  const ch = CHAPTERS.find(c => c.id === S.chapter);
+  if(!ch || !ch.goals.length) return;
+  const all = ch.goals.every(g => goalValue(g.k) >= g.n);
+  if(all){
+    S.cleared.push(ch.id);
+    S.chapter++;
+    const nx = CHAPTERS.find(c => c.id === S.chapter);
+    setSpeed(0);
+    alertModal("Objective complete — " + ch.name,
+      "You cleared it in week " + S.totalWeeks + "." + (nx ? "<br><br><b>Next: " + nx.name + "</b><br>" + nx.text : ""), ch.ic);
+  }
+}
+function checkGameOver(){
+  if(S.gameOver) return;
+  if(S.cash < -18000){
+    S.gameOver = "insolvent";
+    setSpeed(0);
+    alertModal("The practice closes", "You are " + fmt0(-S.cash) + " underwater and the line of credit is gone. The office is sublet and the caseload referred out. It happens to good clinicians, usually because the tax bill arrived before the receivables did.", "🚪");
+  } else if(S.energy <= 1){
+    S.flags.burnWeeks = (S.flags.burnWeeks || 0) + 1;
+    if(S.flags.burnWeeks >= 3){
+      S.gameOver = "burnout";
+      setSpeed(0);
+      alertModal("You stop", "Three weeks at zero. You cancel the week, then the month, then you stop scheduling. The practice was profitable right up until the person running it wasn't. Nobody's caseload is worth this.", "🕯️");
+    }
+  } else S.flags.burnWeeks = 0;
+}
+
+/* ================= ACTIONS ================= */
+function joinPanel(id){
+  if(S.panels[id]) return;
+  const p = panel(id);
+  S.panels[id] = { status: "pending", weeksLeft: p.weeks };
+  feed("You", "applied to " + p.name + ". Credentialing takes about " + p.weeks + " weeks.", "evt");
+  render();
+}
+function leavePanel(id){
+  delete S.panels[id];
+  for(const c of S.clients) if(c.state === "active" && c.payerId === id){ c.state = "churned"; S.stats.churned++; }
+  feed("You", "left the " + panel(id).name + " panel. Those clients had to be referred out.", "bad");
+  render();
+}
+function startTraining(id){
+  const t = training(id);
+  if(S.training || hasTrain(id) || S.cash < t.cost || S.rep < t.rep) return;
+  S.cash -= t.cost;
+  S.training = { id, weeksLeft: t.weeks };
+  feed("You", "started " + t.name + ". Eight slots a week are gone until it's done.", "evt");
+  render();
+}
+function buyOffice(id){
+  const o = office(id);
+  if(S.cash < o.setup) return;
+  S.cash -= o.setup; S.officeId = id;
+  feed("You", "moved into: " + o.name + ".", "good");
+  render();
+}
+function toggleMarketing(id){
+  const m = marketing(id);
+  if(S.marketing[id]) delete S.marketing[id];
+  else { if(S.cash < m.setup) return; S.cash -= m.setup; S.marketing[id] = true; }
+  render();
+}
+function toggleStaff(id){
+  if(S.staff[id]) delete S.staff[id]; else S.staff[id] = true;
+  render();
+}
+function openGroup(concernId){
+  if(!hasTrain("group") || !office(S.officeId).group) return;
+  const slots = findFreeSlots(2);
+  if(!slots){ alertModal("No room in the week", "A group needs two back-to-back open slots. Open more of your week first.", "👥"); return; }
+  S.groups.push({ id: "g" + S.groups.length + "_" + ri(100, 999), concernId, slots, members: [] });
+  feed("You", "opened a " + concern(concernId).name.toLowerCase() + " group. Word will take a few weeks to spread.", "good");
+  render();
+}
+function closeGroup(gid){
+  const g = S.groups.find(x => x.id === gid);
+  if(!g) return;
+  for(const id of g.members){ const c = S.clients.find(x => x.id === id); if(c) c.state = "graduated"; }
+  S.groups = S.groups.filter(x => x.id !== gid);
+  render();
+}
+function hireAssociate(){
+  if(!hasTrain("supervisor") || S.associates.length >= 3) return;
+  if(clinicalCapacity() < 2){ alertModal("No supervision hour", "Every associate costs you an hour of your own week. Open another slot first.", "🎓"); return; }
+  S.associates.push({ id: "a" + S.associates.length, name: pick(FIRST) + " " + pick(LAST) + ".",
+                      fee: 130, target: 16 + ri(0, 6), ramp: 2, lifetime: 0 });
+  feed("You", "hired an associate. You keep 40% of what they bill, and one slot a week goes to supervising them.", "good");
+  render();
+}
+function fireAssociate(id){
+  S.associates = S.associates.filter(a => a.id !== id);
+  render();
+}
+function setEntity(e){
+  if(e === "procorp" && !S.staff.accountant){
+    alertModal("You need a CPA first", "A California Professional Corporation means payroll, a board, minutes, and a separate return. Hire a bookkeeper/CPA before you incorporate.", "📗");
+    return;
+  }
+  if(e === "procorp" && S.entity !== "procorp"){
+    if(S.cash < 1600){ alertModal("Not enough cash", "Incorporating costs about $1,600 in filing and legal fees up front.", "🏛️"); return; }
+    S.cash -= 1600;
+    feed("You", "incorporated as a Marriage and Family Therapy Corporation and elected S-corp treatment.", "good");
+  }
+  S.entity = e;
+  render();
+}
+function dropClient(id){
+  const c = S.clients.find(x => x.id === id);
+  if(!c) return;
+  c.state = "churned"; S.stats.churned++; S.rep = clamp(S.rep - 1, 0, 100);
+  if(c.groupId){ const g = S.groups.find(x => x.id === c.groupId); if(g) g.members = g.members.filter(m => m !== id); }
+  feed(c.name, "was referred out.", "bad");
+  render();
+}
+function reprice(id, newFee){
+  const c = S.clients.find(x => x.id === id);
+  if(!c || c.payerKind !== "private") return;
+  c.lockedRate = newFee;
+  if(newFee > c.willing) c.sat -= 8;
+  render();
+}
+</script>
+<script>
+"use strict";
+/* ================= UI PLUMBING ================= */
+const $ = id => document.getElementById(id);
+let TAB = "inbox", timer = null, SPEED = 0;
+const SPEED_MS = [0, 2200, 1000, 380];
+const PAYCOL = { private:"#FFC542", ins:"#4DD9E8", sliding:"#B685FF", group:"#8BE04D" };
+const PAYTAG = { private:"tp-priv", ins:"tp-ins", sliding:"tp-slide", group:"tp-lime" };
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+/* feed ticker */
+const feedQ = [];
+function feed(who, msg, tone){
+  feedQ.push({who, msg, tone: tone||""});
+  if(feedQ.length > 40) feedQ.shift();
+  drawFeed();
+}
+function drawFeed(){
+  const el = $("feed"); if(!el) return;
+  const last = feedQ.slice(-2);
+  el.innerHTML = last.map(f =>
+    '<div class="tmsg '+f.tone+'"><span class="who">'+esc(f.who)+'</span><span>'+esc(f.msg)+'</span></div>'
+  ).join("");
+}
+
+/* non-blocking corner notification — used for anything the world does on its own */
+function toast(title, body, ic, tone){
+  const stack = $("notifs"); if(!stack) return;
+  const el = document.createElement("div");
+  el.className = "notif " + (tone || "");
+  el.innerHTML = '<span class="ic">'+(ic||"📣")+'</span><div><div class="t">'+esc(title)+'</div><div class="b">'+body+'</div></div>';
+  const kill = () => { if(!el.parentNode) return; el.classList.add("out"); setTimeout(()=>el.remove(), 300); };
+  el.onclick = kill;
+  stack.appendChild(el);
+  while(stack.children.length > 4) stack.firstChild.remove();
+  setTimeout(kill, 9000);
+}
+
+/* blocking modal — reserved for moments that deserve to stop the game */
+let modalQueue = [];
+function alertModal(title, body, ic){
+  modalQueue.push({title, body, ic: ic||"📣"});
+  if($("veil").hidden) showNextModal();
+}
+function showNextModal(){
+  const m = modalQueue.shift();
+  if(!m){ $("veil").hidden = true; return; }
+  $("modal").innerHTML =
+    '<div class="modal-ic">'+m.ic+'</div>'+
+    '<h3 style="text-align:center">'+esc(m.title)+'</h3>'+
+    '<p class="mp" style="text-align:center">'+m.body+'</p>'+
+    '<div style="text-align:center"><button class="btn" id="mOk">Got it</button></div>';
+  $("veil").hidden = false;
+  $("mOk").onclick = showNextModal;
+}
+function customModal(html){
+  $("modal").innerHTML = html;
+  $("veil").hidden = false;
+}
+function closeModal(){ $("veil").hidden = true; modalQueue = []; }
+
+/* speed */
+const SPEED_CAP = [
+  "stopped, press Play to begin",
+  "one week every 2 seconds",
+  "one week every second",
+  "one week every 0.4 seconds",
+];
+function setSpeed(n){
+  SPEED = n;
+  document.querySelectorAll(".spd").forEach(b => b.classList.toggle("on", +b.dataset.spd === n));
+  const cap = document.getElementById("speedCap");
+  if(cap){
+    cap.innerHTML = "<b>GAME SPEED</b> \u2014 " + SPEED_CAP[n];
+    cap.classList.toggle("live", n > 0);
+  }
+  /* a brand-new player is looking at a stopped clock; point at the button */
+  const play = document.querySelector('.spd[data-spd="1"]');
+  if(play) play.classList.toggle("nudge", n === 0 && S && !S.gameOver && S.totalWeeks < 2);
+  if(timer) clearInterval(timer);
+  timer = null;
+  if(n > 0 && !S.gameOver) timer = setInterval(() => { runWeek(); render(); }, SPEED_MS[n]);
+}
+
+/* ================= RENDER ================= */
+function render(){
+  rebuildSlotMap();
+  renderHUD(); renderObjective(); renderSchedule(); renderWeekStats(); renderPanel();
+  if(window.renderCoach) renderCoach();
+  if(window.renderChecklist) renderChecklist();
+  if(window.renderOffice) renderOffice();
+  if(window.renderCaseload) renderCaseload();
+}
+
+function renderHUD(){
+  $("hCash").textContent = fmt0(S.cash);
+  $("hCash").className = "v " + (S.cash < 0 ? "red" : "gold");
+  $("hDate").textContent = "Wk " + S.week + " · Yr " + S.year;
+  $("hRep").textContent = Math.round(S.rep);
+  $("hRepBar").style.width = S.rep + "%";
+  $("hEnergy").textContent = Math.round(S.energy);
+  const e = S.energy;
+  $("hEnergyBar").style.width = e + "%";
+  $("hEnergyBar").style.background = e > 55 ? "var(--lime)" : e > 28 ? "var(--gold)" : "var(--red)";
+  $("hEnergy").className = "v " + (e > 55 ? "lime" : e > 28 ? "gold" : "red");
+  const act = activeClients().length;
+  $("hLoad").textContent = act + " / " + clinicalCapacity();
+  const play = document.querySelector('.spd[data-spd="1"]');
+  if(play) play.classList.toggle("nudge", SPEED === 0 && !S.gameOver && S.totalWeeks < 2);
+  const bad = S.inquiries.length;
+  $("bInbox").hidden = bad === 0;
+  $("bInbox").textContent = bad;
+}
+
+function renderObjective(){
+  const ch = CHAPTERS.find(c => c.id === S.chapter) || CHAPTERS[CHAPTERS.length-1];
+  $("objIcon").textContent = ch.ic;
+  $("objName").textContent = ch.name;
+  $("objText").textContent = ch.text;
+  $("objGoals").innerHTML = ch.goals.map(g => {
+    const v = goalValue(g.k), done = v >= g.n;
+    let cur = g.k === "cash" || g.k === "netyear" ? fmtK(v) : Math.round(v);
+    if(g.k === "leverage") cur = v ? "yes" : "not yet";
+    return '<span class="goal'+(done?" done":"")+'">'+(done?"✓ ":"")+esc(g.label)+' <b>· '+cur+'</b></span>';
+  }).join("");
+}
+
+function renderSchedule(){
+  const g = $("sched");
+  let h = '<div></div>' + DAYS.map(d => '<div class="sc-head">'+d+'</div>').join("");
+  for(let r = 0; r < ROWS.length; r++){
+    h += '<div class="sc-time">'+ROWS[r]+'</div>';
+    for(let d = 0; d < DAYS.length; d++){
+      const i = slotId(d, r);
+      const occ = slotMap[i];
+      if(!S.slots[i]){ h += '<div class="slot closed" data-slot="'+i+'" title="Closed — click to open this hour"></div>'; continue; }
+      if(!occ){ h += '<div class="slot open" data-slot="'+i+'" title="Open and unfilled — click to close"></div>'; continue; }
+      if(occ.t === "block"){
+        h += '<div class="slot admin" title="'+esc(occ.label)+'"><div class="nm">'+esc(occ.label)+'</div></div>';
+        continue;
+      }
+      if(occ.t === "group"){
+        const gr = S.groups.find(x => x.id === occ.id);
+        const first = gr.slots[0] === i;
+        h += '<div class="slot filled" data-group="'+gr.id+'">'+
+             '<div class="edge" style="background:'+PAYCOL.group+'"></div>'+
+             (first ? '<div class="nm">👥 '+esc(concern(gr.concernId).name)+'</div><div class="tg">'+gr.members.length+' / 8 members</div>'
+                    : '<div class="tg">↳ 90 min</div>')+
+             '<div class="satb"><i style="width:'+Math.round(100*gr.members.length/8)+'%;background:#3F9577"></i></div></div>';
+        continue;
+      }
+      const c = S.clients.find(x => x.id === occ.id);
+      if(!c){ h += '<div class="slot open" data-slot="'+i+'"></div>'; continue; }
+      const first = c.slots[0] === i;
+      const mood = c.sat >= 70 ? "😀" : c.sat >= 45 ? "😐" : "😞";
+      const fee = Math.round(effFee(c));
+      const sc2 = c.sat>=70 ? "#3F9577" : c.sat>=45 ? "#C98B4B" : "#B5483F";
+      h += '<div class="slot filled" data-client="'+c.id+'" title="'+esc(c.name)+' — '+esc(concern(c.concernId).name)+
+             ' · $'+fee+' · satisfaction '+Math.round(c.sat)+'">'+
+           '<div class="edge" style="background:'+PAYCOL[c.payerKind]+'"></div>'+
+           '<span class="mood">'+mood+'</span>'+
+           (first ? '<div class="nm">'+esc(c.name)+'</div><div class="tg">'+esc(concern(c.concernId).name)+'</div><div class="fee">$'+fee+'</div>'
+                  : '<div class="tg">↳ 80 min</div>')+
+           '<div class="satb"><i style="width:'+Math.round(c.sat)+'%;background:'+sc2+'"></i></div>'+
+           '<div class="acts">'+
+             (c.payerKind==="private" ? '<b data-tfee="'+c.id+'" data-d="-5">−</b><span>$'+fee+'</span><b data-tfee="'+c.id+'" data-d="5">+</b>' : '')+
+             '<b class="x" data-tdrop="'+c.id+'">Refer</b></div>'+
+           '</div>';
+    }
+  }
+  g.innerHTML = h;
+  g.querySelectorAll("[data-slot]").forEach(el => el.onclick = () => {
+    const i = +el.dataset.slot; S.slots[i] = !S.slots[i]; render();
+  });
+  g.querySelectorAll("[data-client]").forEach(el => el.onclick = e => {
+    if(e.target.closest("[data-tfee],[data-tdrop]")) return;
+    clientModal(el.dataset.client);
+  });
+  g.querySelectorAll("[data-tfee]").forEach(el => el.onclick = e => {
+    e.stopPropagation();
+    const c = S.clients.find(x=>x.id===el.dataset.tfee); if(!c) return;
+    reprice(c.id, clamp(c.lockedRate + (+el.dataset.d), 60, 400));
+  });
+  g.querySelectorAll("[data-tdrop]").forEach(el => el.onclick = e => {
+    e.stopPropagation();
+    const c = S.clients.find(x=>x.id===el.dataset.tdrop); if(!c) return;
+    if(confirm("Refer "+c.name+" out to another therapist?")) dropClient(c.id);
+  });
+  g.querySelectorAll("[data-group]").forEach(el => el.onclick = () => groupModal(el.dataset.group));
+
+  const res = reservedSlots();
+  $("schSummary").textContent = openSlots() + " hours open · " + activeClients().filter(c=>c.svc!=="group").length +
+    " booked" + (res ? " · " + res + " reserved" : "");
+}
+
+function renderWeekStats(){
+  const w = S.lastWeek || {gross:0, collected:0, expenses:0, sessions:0, noshows:0};
+  const act = activeClients();
+  const avgSat = act.length ? act.reduce((s,c)=>s+c.sat,0)/act.length : 0;
+  const ty = trailingNet();
+  const st = [
+    ["Sessions held", w.sessions, w.noshows ? w.noshows + " no-shows" : "everyone showed",
+     "Sessions that actually happened. About 8% of bookings no-show; an assistant halves that."],
+    ["Billed", fmt0(w.gross), "before collection",
+     "The full value of the work you did. You will not receive all of it."],
+    ["Landed in the bank", fmt0(w.collected), S.ar.length ? fmt0(S.ar.reduce((s,a)=>s+a.amount,0)) + " still owed" : "nothing outstanding",
+     "Cash that actually arrived. Private pay lands the same day; insurance pays 74% (95% with a biller) several weeks later. The gap between this and Billed is the most misunderstood number in private practice."],
+    ["Expenses", fmt0(w.expenses), "rent, staff, software",
+     "Charged every week whether or not a single person books: rent, EHR, liability insurance, phone, licence, marketing and staff."],
+    ["Weekly net", fmt0(w.collected - w.expenses), "before income tax",
+     "Collected minus expenses. Personal tax has not been taken out yet — that lands every 13 weeks."],
+    ["Client mood", Math.round(avgSat) + " / 100", act.length + " active",
+     "Average satisfaction across your caseload. Driven by fit, your room, your energy and whether fees are within reach. Below about 38 people start drifting away."],
+    ["Trailing-year take-home", fmtK(ty), "after all tax",
+     "What the last year would leave you after business costs and every tax modelled. This is the number the objectives are scored on."],
+    ["Empty open hours", Math.max(0, clinicalCapacity() - act.filter(c=>c.svc!=="group").length), "unbilled and paid for",
+     "Hours you opened that nobody booked. You pay rent on them either way."],
+  ];
+  $("weekStats").innerHTML = st.map(([l,v,n,tip]) =>
+    '<div class="stat" data-tip="'+tip.replace(/"/g,"&quot;")+'"><div class="l">'+l+'</div><div class="v">'+v+'</div><div class="n">'+n+'</div></div>').join("");
+  $("weekHint").textContent = S.vacation ? "You are off next week" : "";
+}
+
+/* ================= PANELS ================= */
+function renderPanel(){
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("on", t.dataset.tab === TAB));
+  const p = $("panel");
+  p.innerHTML = ({inbox:pInbox, clients:pClients, build:pBuild, train:pTrain, market:pMarket, money:pMoney})[TAB]();
+  bindPanel();
+}
+
+function pInbox(){
+  let h = '<div class="item" style="background:transparent;border-style:dashed"><div class="item-s">'+
+    'Everyone who has called. Taking someone on puts them into your next open hour every week until they finish. '+
+    'They wait two to four weeks before finding someone else — you can also refer them out, and often should.</div></div>';
+  if(S.training) h += '<div class="item"><div class="item-t">🎓 In training: '+esc(training(S.training.id).name)+'</div><div class="item-s">'+S.training.weeksLeft+' week(s) left. Eight of your slots are blocked until it finishes.</div></div>';
+  for(const id in S.panels) if(S.panels[id].status === "pending")
+    h += '<div class="item"><div class="item-t">⏳ '+esc(panel(id).name)+'</div><div class="item-s">Credentialing — about '+S.panels[id].weeksLeft+' more week(s) before you can bill them.</div></div>';
+
+  if(!S.inquiries.length) h += '<div class="empty"><span class="big">📭</span>No one has called this week.<br>Reputation and marketing are what make the phone ring.</div>';
+  h += S.inquiries.map(i => {
+    const cn = concern(i.concernId);
+    const fit = cn.spec && hasTrain(cn.spec);
+    const fee = i.payerKind === "ins" ? panel(i.payerId).rate : i.payerKind === "sliding" ? i.slidingFee : quotedRate(i.concernId);
+    const tooDear = i.payerKind === "private" && fee > i.willing;
+    const left = i.urgency - i.age;
+    return '<div class="inq'+(left<=1?" expiring":"")+'">'+
+      '<div class="item-h"><div class="item-t">'+cn.ic+' '+esc(i.name)+
+        (i.referral?' <span class="tagpill tp-lime">referred</span>':'')+
+        (fit?' <span class="tagpill tp-lime">your specialty</span>':'')+'</div>'+
+        '<span class="tagpill '+PAYTAG[i.payerKind]+'">'+(i.payerKind==="ins"?panel(i.payerId).name:i.payerKind==="sliding"?"sliding scale":"private pay")+'</span></div>'+
+      '<div class="inq-meta">'+
+        '<div class="r"><span>Presenting</span><b>'+esc(cn.name)+'</b></div>'+
+        '<div class="r"><span data-tip="Private clients pay your fee. Insurance pays its own panel rate no matter what you charge. Sliding scale is a reduced fee offered on need.">You would be paid</span><b>$'+Math.round(fee)+'/session</b></div>'+
+        '<div class="r"><span>Likely length</span><b>~'+i.planned+' sessions</b></div>'+
+        '<div class="r"><span data-tip="Fee per session times how many sessions this person is likely to attend. This — not the hourly rate — is what a client is actually worth to the practice.">Lifetime value</span><b>'+fmt0(fee*i.planned)+'</b></div>'+
+        (i.payerKind==="private"?'<div class="r"><span data-tip="The most this person can comfortably pay. Charge above it and their satisfaction falls every week until they quietly stop coming.">Their ceiling</span><b'+(tooDear?' style="color:var(--red)"':'')+'>$'+i.willing+'</b></div>':'')+
+        '<div class="r"><span data-tip="Weeks before they give up and find another therapist.">Patience</span><b>'+left+' week(s)</b></div>'+
+      '</div>'+
+      (tooDear?'<div class="item-s" style="color:var(--red)">You would be asking $'+Math.round(fee)+'. They will start and then quietly stop.</div>':'')+
+      (i.wantsRoom&&S.officeId==="tele"?'<div class="item-s" style="color:var(--orange)">Wants to meet in person. You are telehealth-only.</div>':'')+
+      '<div class="btn-row"><button class="btn sm green" data-accept="'+i.id+'">Take them on</button>'+
+      '<button class="btn sm ghost" data-decline="'+i.id+'">Refer out</button></div></div>';
+  }).join("");
+  return h;
+}
+
+function pClients(){
+  const act = activeClients();
+  if(!act.length) return '<div class="empty"><span class="big">🪑</span>No active clients yet.<br>Check the inbox.</div>';
+  const sorted = [...act].sort((a,b) => a.sat - b.sat);
+  return '<div class="item" style="background:transparent;border-style:dashed"><div class="item-s">Sorted by who is most at risk of leaving. Click any client to change their fee or refer them out.</div></div>' +
+  sorted.map(c => {
+    const cn = concern(c.concernId);
+    const fee = Math.round(effFee(c));
+    const col = c.sat >= 70 ? "var(--lime)" : c.sat >= 45 ? "var(--gold)" : "var(--red)";
+    return '<div class="item click" data-cl="'+c.id+'">'+
+      '<div class="item-h"><div class="item-t">'+cn.ic+' '+esc(c.name)+
+      (c.svc==="couples"?' <span class="tagpill tp-dim">couple</span>':'')+
+      (c.svc==="group"?' <span class="tagpill tp-lime">group</span>':'')+'</div>'+
+      '<span class="item-cost">$'+fee+'</span></div>'+
+      '<div class="item-s">'+esc(cn.name)+' · session '+c.attended+' of ~'+c.planned+
+      ' · '+(c.payerKind==="ins"?esc(panel(c.payerId).name):c.payerKind==="sliding"?"sliding scale":"private pay")+'</div>'+
+      '<div class="satbar"><div style="width:'+c.sat+'%;background:'+col+'"></div></div></div>';
+  }).join("");
+}
+
+function pBuild(){
+  let h = '<div class="item" style="background:transparent;border-style:dashed"><div class="item-s">Your room, your leverage, your people. Everything here changes what a week can hold.</div></div>';
+  h += '<div class="item-t" style="margin:12px 0 8px">🏠 Where you work</div>';
+  h += OFFICES.map(o => {
+    const cur = S.officeId === o.id;
+    const idx = OFFICES.indexOf(o), curIdx = OFFICES.findIndex(x => x.id === S.officeId);
+    return '<div class="item'+(cur?" owned":"")+'"><div class="item-h"><div class="item-t">'+esc(o.name)+
+      (cur?' <span class="tagpill tp-lime">current</span>':'')+'</div>'+
+      '<span class="item-cost">'+(o.monthly?fmt0(o.monthly)+"/mo":"free")+'</span></div>'+
+      '<div class="item-s">'+esc(o.note)+' · comfort '+o.q+'/100'+(o.group?' · groups possible':'')+
+      (o.setup?' · '+fmt0(o.setup)+' to move in':'')+'</div>'+
+      (cur?'':'<div class="btn-row"><button class="btn sm'+(idx<curIdx?" ghost":"")+'" data-office="'+o.id+'"'+(S.cash<o.setup?" disabled":"")+'>'+(idx<curIdx?"Move down":"Move in")+'</button></div>')+
+      '</div>';
+  }).join("");
+
+  h += '<div class="item-t" style="margin:16px 0 8px">👥 Groups <span class="tagpill tp-dim">leverage</span></div>';
+  if(!hasTrain("group")) h += '<div class="item locked"><div class="item-s">Locked — you need Group Psychotherapy training first (see Train).</div></div>';
+  else if(!office(S.officeId).group) h += '<div class="item locked"><div class="item-s">Locked — you need a suite with a group room.</div></div>';
+  else {
+    h += '<div class="item"><div class="item-s">A group is eight clients paying 42% of your rate in one 90-minute block. Two slots, one hour of energy, roughly triple the money.</div>'+
+         '<div class="btn-row">'+CONCERNS.filter(c=>["anxiety","depression","grief","trauma","teen"].includes(c.id))
+         .map(c=>'<button class="btn sm" data-newgroup="'+c.id+'">'+c.ic+' '+esc(c.name)+'</button>').join("")+'</div></div>';
+  }
+  h += S.groups.map(g => '<div class="item owned"><div class="item-h"><div class="item-t">👥 '+esc(concern(g.concernId).name)+' group</div>'+
+    '<span class="item-cost">'+fmt0(g.members.length*Math.round(S.rate*0.42))+'/wk</span></div>'+
+    '<div class="item-s">'+g.members.length+' of 8 seats filled · $'+Math.round(S.rate*0.42)+' per member</div>'+
+    '<div class="btn-row"><button class="btn sm red" data-closegroup="'+g.id+'">Close group</button></div></div>').join("");
+
+  h += '<div class="item-t" style="margin:16px 0 8px">🎓 Associates</div>';
+  if(!hasTrain("supervisor")) h += '<div class="item locked"><div class="item-s">Locked — you need the CAMFT Supervisor Certification.</div></div>';
+  else {
+    h += '<div class="item"><div class="item-s">A pre-licensed associate bills under your supervision at $130. They keep 60%, you keep 40%, and one of your slots each week goes to supervising them. Maximum of three.</div>'+
+      '<div class="btn-row"><button class="btn sm green" id="btnHire"'+(S.associates.length>=3?" disabled":"")+'>Hire an associate</button></div></div>';
+    h += S.associates.map(a => '<div class="item owned"><div class="item-h"><div class="item-t">'+esc(a.name)+'</div>'+
+      '<span class="item-cost">'+fmt0(Math.floor(a.ramp)*a.fee*0.4)+'/wk to you</span></div>'+
+      '<div class="item-s">'+Math.floor(a.ramp)+' of '+a.target+' clients · '+fmt0(a.lifetime||0)+' earned for the practice so far</div>'+
+      '<div class="btn-row"><button class="btn sm red" data-fire="'+a.id+'">Let go</button></div></div>').join("");
+  }
+
+  h += '<div class="item-t" style="margin:16px 0 8px">🧑‍💼 Support</div>';
+  h += STAFF.map(s => '<div class="item'+(S.staff[s.id]?" owned":"")+'"><div class="item-h"><div class="item-t">'+s.ic+' '+esc(s.name)+'</div>'+
+    '<span class="item-cost">'+(s.monthly?fmt0(s.monthly)+"/mo":"9% of claims")+'</span></div>'+
+    '<div class="item-s">'+esc(s.desc)+'</div>'+
+    '<div class="btn-row"><button class="btn sm '+(S.staff[s.id]?"red":"green")+'" data-staff="'+s.id+'">'+(S.staff[s.id]?"Let go":"Hire")+'</button></div></div>').join("");
+  return h;
+}
+
+function pTrain(){
+  let h = '<div class="item" style="background:transparent;border-style:dashed"><div class="item-s">Training costs money and eight slots a week while you are in it. What you train in is what starts calling you — and what you can charge for.</div></div>';
+  if(S.training){
+    const t = training(S.training.id);
+    h += '<div class="item owned"><div class="item-t">'+t.ic+' '+esc(t.name)+'</div><div class="item-s">'+S.training.weeksLeft+' week(s) remaining.</div></div>';
+  }
+  h += TRAININGS.map(t => {
+    const done = hasTrain(t.id);
+    const locked = S.rep < t.rep;
+    return '<div class="item'+(done?" owned":"")+(locked?" locked":"")+'"><div class="item-h">'+
+      '<div class="item-t">'+t.ic+' '+esc(t.name)+(done?' <span class="tagpill tp-lime">done</span>':'')+'</div>'+
+      '<span class="item-cost">'+fmt0(t.cost)+'</span></div>'+
+      '<div class="item-s">'+esc(t.desc)+' · '+t.weeks+' week(s)'+(t.rep?' · needs reputation '+t.rep:'')+'</div>'+
+      (done||locked?'':'<div class="btn-row"><button class="btn sm" data-train="'+t.id+'"'+((S.cash<t.cost||S.training)?" disabled":"")+'>'+(S.training?"Busy":"Enrol")+'</button></div>')+
+      '</div>';
+  }).join("");
+  return h;
+}
+
+function pMarket(){
+  let h = '<div class="item"><div class="item-t">💵 Your private-pay fee</div>'+
+    '<div class="item-s">Bay Area licensed LMFTs run $180–350; most sit at $200–275. Raising it only affects clients you take on <i>after</i> the change.</div>'+
+    '<div style="display:flex;align-items:center;gap:10px;margin-top:9px">'+
+    '<input type="range" id="rateSlider" min="80" max="380" step="5" value="'+S.rate+'">'+
+    '<b style="font-size:19px;color:var(--gold);min-width:62px;text-align:right" id="rateVal">$'+S.rate+'</b></div></div>';
+
+  h += '<div class="item-t" style="margin:14px 0 8px">📣 How people find you</div>';
+  h += MARKETING.map(m => '<div class="item'+(S.marketing[m.id]?" owned":"")+'"><div class="item-h">'+
+    '<div class="item-t">'+m.ic+' '+esc(m.name)+'</div><span class="item-cost">'+(m.monthly?fmt0(m.monthly)+"/mo":"free")+'</span></div>'+
+    '<div class="item-s">'+esc(m.desc)+(m.setup?' · '+fmt0(m.setup)+' to set up':'')+(m.slots?' · costs '+m.slots+' slot(s)/wk':'')+'</div>'+
+    '<div class="btn-row"><button class="btn sm '+(S.marketing[m.id]?"red":"green")+'" data-mkt="'+m.id+'"'+((!S.marketing[m.id]&&S.cash<m.setup)?" disabled":"")+'>'+
+    (S.marketing[m.id]?"Stop":"Start")+'</button></div></div>').join("");
+
+  h += '<div class="item"><div class="item-t">🎯 Paid ads</div><div class="item-s">Buys attention directly. Diminishing returns above a few hundred a month.</div>'+
+    '<div style="display:flex;align-items:center;gap:10px;margin-top:9px">'+
+    '<input type="range" id="adSlider" min="0" max="1200" step="50" value="'+S.adBudget+'">'+
+    '<b style="font-size:16px;color:var(--gold);min-width:70px;text-align:right" id="adVal">'+fmt0(S.adBudget)+'/mo</b></div></div>';
+
+  h += '<div class="item-t" style="margin:16px 0 8px">🏥 Insurance panels <span class="tagpill tp-dim">volume vs. rate</span></div>';
+  h += '<div class="item" style="background:transparent;border-style:dashed"><div class="item-s">Panels fill a week fast and pay their rate, not yours. Credentialing takes months, so apply long before you need the clients. Rates below are real California 90837 figures.</div></div>';
+  h += PANELS.map(p => {
+    const st = S.panels[p.id];
+    return '<div class="item'+(st&&st.status==="active"?" owned":"")+'"><div class="item-h">'+
+      '<div class="item-t">'+esc(p.name)+(st?(st.status==="active"?' <span class="tagpill tp-lime">in network</span>':' <span class="tagpill tp-dim">'+st.weeksLeft+'w</span>'):'')+'</div>'+
+      '<span class="item-cost">$'+p.rate+'</span></div>'+
+      '<div class="item-s">'+esc(p.note)+'</div>'+
+      '<div class="btn-row">'+(st?'<button class="btn sm red" data-leave="'+p.id+'">Leave panel</button>'
+        :'<button class="btn sm green" data-join="'+p.id+'">Apply — '+p.weeks+' weeks</button>')+'</div></div>';
+  }).join("");
+
+  h += '<div class="item-t" style="margin:16px 0 8px">⚙️ Intake policy</div>';
+  h += '<div class="item">'+
+    '<label class="toggle" style="margin-bottom:7px"><input type="checkbox" id="pAuto"'+(S.policy.autoAccept?" checked":"")+'> Auto-accept anyone who fits my filters</label>'+
+    '<label class="toggle" style="margin-bottom:7px"><input type="checkbox" id="pIns"'+(S.policy.acceptIns?" checked":"")+'> Accept insurance clients</label>'+
+    '<label class="toggle" style="margin-bottom:7px"><input type="checkbox" id="pSlide"'+(S.policy.acceptSliding?" checked":"")+'> Accept sliding-scale clients</label>'+
+    '<label class="toggle"><input type="checkbox" id="pLate"'+(S.policy.lateFee?" checked":"")+'> Charge a $75 late-cancellation fee</label>'+
+    '</div>';
+  return h;
+}
+
+function pMoney(){
+  const h52 = S.history.slice(-52);
+  const scale = h52.length ? 52 / h52.length : 1;
+  const collected = h52.reduce((s,x)=>s+x.collected,0) * scale;
+  const exp = h52.reduce((s,x)=>s+x.expenses,0) * scale;
+  const profit = collected - exp;
+  const t = computeTax(profit, S.entity, S.sCorpSalaryPct, !!S.staff.accountant);
+  const other = computeTax(profit, S.entity === "sole" ? "procorp" : "sole", S.sCorpSalaryPct, !!S.staff.accountant);
+  const diff = other.total - t.total;
+  const ar = S.ar.reduce((s,a)=>s+a.amount,0);
+
+  let h = '<div class="item" style="background:transparent;border-style:dashed"><div class="item-s">'+
+    'Your practice as an accountant would see it. Everything below is annualised from what has actually happened '+
+    'so far, so it moves as the practice does.</div></div>'+
+    '<div class="item"><div class="item-t">📈 Annualised, from your last '+h52.length+' week(s)</div>'+
+    '<table class="ledger" style="margin-top:8px">'+
+    '<tr><td data-tip="Money that actually reached the bank — not what you billed. Insurance pays only part of a claim, and pays it weeks later.">Collected</td><td class="pos">'+fmt0(collected)+'</td></tr>'+
+    '<tr><td>Business expenses</td><td class="neg">−'+fmt0(exp)+'</td></tr>'+
+    '<tr><td data-tip="What is left after business costs but before any personal tax. This is the number every tax below is calculated from."><b>Practice profit</b></td><td>'+fmt0(profit)+'</td></tr>'+
+    (S.entity==="sole"
+      ? '<tr class="sub"><td data-tip="15.3% on 92.35% of profit, covering both halves of Social Security and Medicare because you are employer and employee at once. This is on top of income tax, and it is the bill that surprises people.">Self-employment tax</td><td class="neg">−'+fmt0(t.se)+'</td></tr>'
+      : '<tr class="sub"><td>Payroll tax on '+fmt0(t.salary)+' salary</td><td class="neg">−'+fmt0(t.payroll)+'</td></tr>'+
+        '<tr class="sub"><td>CA entity tax + payroll service</td><td class="neg">−'+fmt0(t.entityTax+t.entityCost)+'</td></tr>')+
+    '<tr class="sub"><td>Federal income tax</td><td class="neg">−'+fmt0(t.fed)+'</td></tr>'+
+    '<tr class="sub"><td>California income tax</td><td class="neg">−'+fmt0(t.ca)+'</td></tr>'+
+    '<tr class="tot"><td data-tip="What you keep, after business expenses and every tax modelled here.">Take-home</td><td class="pos">'+fmt0(profit - t.total)+'</td></tr>'+
+    '</table>'+
+    '<div class="item-s" style="margin-top:8px">Effective tax rate '+(t.eff*100).toFixed(1)+'%'+
+    (t.qbi>0?' · QBI deduction '+fmt0(t.qbi):' · QBI phased out — therapy is a specified service trade')+'</div></div>';
+
+  h += '<div class="item"><div class="item-t">🏛️ Business structure</div>'+
+    '<div class="item-s">California-licensed MFTs cannot form an LLC (Cal. Corp. Code §17701.04(e)). The real choice is sole proprietor or a Professional Corporation that elects S-corp treatment.</div>'+
+    '<div class="btn-row">'+
+    '<button class="btn sm '+(S.entity==="sole"?"":"ghost")+'" data-entity="sole">Sole Proprietorship</button>'+
+    '<button class="btn sm '+(S.entity==="procorp"?"":"ghost")+'" data-entity="procorp">Professional Corp (S-corp)</button></div>'+
+    '<div class="item-s" style="margin-top:8px;color:'+(diff>0?"var(--lime)":"var(--red)")+'">'+
+    (Math.abs(diff)<50 ? 'At this profit the two are a wash.'
+      : (diff>0 ? 'Staying put saves you about '+fmt0(diff)+' a year at this profit.'
+                : 'Switching would save you about '+fmt0(-diff)+' a year at this profit.'))+'</div>'+
+    (S.entity==="procorp"
+      ? '<div style="margin-top:9px"><label style="font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--dimmer);font-weight:700">Salary share of profit — '+Math.round(S.sCorpSalaryPct*100)+'%</label>'+
+        '<input type="range" id="salSlider" min="35" max="80" step="5" value="'+Math.round(S.sCorpSalaryPct*100)+'">'+
+        '<div class="item-s">Below about 50% is where the IRS reasonable-compensation argument gets difficult. 35% is the aggressive edge.</div></div>'
+      : '')+'</div>';
+
+  h += '<div class="item"><div class="item-t">💰 Position</div><table class="ledger" style="margin-top:8px">'+
+    '<tr><td>Cash on hand</td><td class="'+(S.cash<0?"neg":"pos")+'">'+fmt0(S.cash)+'</td></tr>'+
+    '<tr><td>Owed by insurers</td><td>'+fmt0(ar)+'</td></tr>'+
+    '<tr><td>Tax paid this year</td><td>'+fmt0(S.ledgerYTD.taxPaid)+'</td></tr>'+
+    '<tr><td>Next estimated payment</td><td>week '+(Math.ceil(S.week/13)*13)+'</td></tr>'+
+    '</table><div class="item-s" style="margin-top:8px">Estimated tax lands every 13 weeks whether the receivables have arrived or not.</div></div>';
+
+  h += '<div class="item"><div class="item-t">📚 All time</div><table class="ledger" style="margin-top:8px">'+
+    '<tr><td>Sessions held</td><td>'+S.stats.sessions.toLocaleString()+'</td></tr>'+
+    '<tr><td>Clients who finished well</td><td class="pos">'+S.stats.graduated+'</td></tr>'+
+    '<tr><td>Clients who left early</td><td class="neg">'+S.stats.churned+'</td></tr>'+
+    '<tr><td>Referrals earned</td><td>'+S.stats.referrals+'</td></tr>'+
+    '<tr><td>Weeks off taken</td><td>'+S.stats.vacations+'</td></tr>'+
+    '<tr><td>Biggest caseload</td><td>'+S.stats.peakLoad+'</td></tr></table></div>';
+  return h;
+}
+
+/* ================= PANEL BINDINGS ================= */
+function bindPanel(){
+  const p = $("panel");
+  p.querySelectorAll("[data-accept]").forEach(b => b.onclick = () => {
+    const i = S.inquiries.find(x => x.id === b.dataset.accept); if(i) acceptInquiry(i); render();
+  });
+  p.querySelectorAll("[data-decline]").forEach(b => b.onclick = () => {
+    S.inquiries = S.inquiries.filter(x => x.id !== b.dataset.decline); render();
+  });
+  p.querySelectorAll("[data-cl]").forEach(b => b.onclick = () => clientModal(b.dataset.cl));
+  p.querySelectorAll("[data-office]").forEach(b => b.onclick = () => buyOffice(b.dataset.office));
+  p.querySelectorAll("[data-train]").forEach(b => b.onclick = () => startTraining(b.dataset.train));
+  p.querySelectorAll("[data-mkt]").forEach(b => b.onclick = () => toggleMarketing(b.dataset.mkt));
+  p.querySelectorAll("[data-staff]").forEach(b => b.onclick = () => toggleStaff(b.dataset.staff));
+  p.querySelectorAll("[data-join]").forEach(b => b.onclick = () => joinPanel(b.dataset.join));
+  p.querySelectorAll("[data-leave]").forEach(b => b.onclick = () => leavePanel(b.dataset.leave));
+  p.querySelectorAll("[data-newgroup]").forEach(b => b.onclick = () => openGroup(b.dataset.newgroup));
+  p.querySelectorAll("[data-closegroup]").forEach(b => b.onclick = () => closeGroup(b.dataset.closegroup));
+  p.querySelectorAll("[data-fire]").forEach(b => b.onclick = () => fireAssociate(b.dataset.fire));
+  p.querySelectorAll("[data-entity]").forEach(b => b.onclick = () => setEntity(b.dataset.entity));
+  const hire = $("btnHire"); if(hire) hire.onclick = hireAssociate;
+
+  const rs = $("rateSlider");
+  if(rs){ rs.oninput = () => $("rateVal").textContent = "$" + rs.value;
+          rs.onchange = () => { S.rate = +rs.value; S.flags.setRate = true; render(); }; }
+  const ad = $("adSlider");
+  if(ad){ ad.oninput = () => $("adVal").textContent = fmt0(+ad.value) + "/mo";
+          ad.onchange = () => { S.adBudget = +ad.value; render(); }; }
+  const sal = $("salSlider");
+  if(sal) sal.onchange = () => { S.sCorpSalaryPct = +sal.value / 100; render(); };
+  const map = { pAuto:"autoAccept", pIns:"acceptIns", pSlide:"acceptSliding", pLate:"lateFee" };
+  for(const id in map){ const el = $(id); if(el) el.onchange = () => { S.policy[map[id]] = el.checked; }; }
+}
+
+/* ================= MODALS ================= */
+function clientModal(id){
+  const c = S.clients.find(x => x.id === id); if(!c) return;
+  const cn = concern(c.concernId);
+  const fee = Math.round(effFee(c));
+  const col = c.sat >= 70 ? "var(--lime)" : c.sat >= 45 ? "var(--gold)" : "var(--red)";
+  customModal(
+    '<div class="modal-ic">'+cn.ic+'</div><h3 style="text-align:center">'+esc(c.name)+'</h3>'+
+    '<p class="mp" style="text-align:center">'+esc(cn.name)+' · '+
+    (c.payerKind==="ins"?esc(panel(c.payerId).name)+' at $'+panel(c.payerId).rate:c.payerKind==="sliding"?"sliding scale at $"+c.slidingFee:"private pay")+
+    ' · session '+c.attended+' of about '+c.planned+'</p>'+
+    '<div class="stat-grid" style="margin-bottom:14px">'+
+      '<div class="stat"><div class="l">You are paid</div><div class="v gold">$'+fee+'</div><div class="n">per session</div></div>'+
+      '<div class="stat"><div class="l">How it is going</div><div class="v" style="color:'+col+'">'+Math.round(c.sat)+'</div>'+
+      '<div class="satbar"><div style="width:'+c.sat+'%;background:'+col+'"></div></div></div>'+
+      '<div class="stat"><div class="l">Missed</div><div class="v">'+c.noShows+'</div><div class="n">sessions</div></div>'+
+      '<div class="stat"><div class="l">Remaining value</div><div class="v cyan">'+fmt0(fee*Math.max(0,c.planned-c.attended))+'</div><div class="n">if they finish</div></div>'+
+    '</div>'+
+    (c.payerKind==="private"
+      ? '<div class="field"><label>Their fee — they can comfortably manage about $'+c.willing+'</label>'+
+        '<div style="display:flex;align-items:center;gap:10px">'+
+        '<input type="range" id="cFee" min="60" max="380" step="5" value="'+c.lockedRate+'">'+
+        '<b id="cFeeV" style="color:var(--gold);min-width:56px;text-align:right">$'+c.lockedRate+'</b></div>'+
+        '<div class="item-s">Charging above their ceiling costs goodwill immediately and the client eventually.</div></div>'
+      : '<p class="mp">Insurance sets this fee, not you. Leaving the panel means referring them out.</p>')+
+    '<div class="btn-row" style="justify-content:space-between">'+
+      '<button class="btn sm red" id="cDrop">Refer out</button>'+
+      '<button class="btn sm" id="cClose">Close</button></div>');
+  const f = $("cFee");
+  if(f){ f.oninput = () => $("cFeeV").textContent = "$" + f.value;
+         f.onchange = () => reprice(id, +f.value); }
+  $("cDrop").onclick = () => { dropClient(id); closeModal(); };
+  $("cClose").onclick = closeModal;
+}
+
+function groupModal(gid){
+  const g = S.groups.find(x => x.id === gid); if(!g) return;
+  const fee = Math.round(S.rate * 0.42);
+  customModal('<div class="modal-ic">👥</div><h3 style="text-align:center">'+esc(concern(g.concernId).name)+' group</h3>'+
+    '<p class="mp" style="text-align:center">'+g.members.length+' of 8 seats · $'+fee+' each · '+fmt0(g.members.length*fee)+' a week from two slots.</p>'+
+    '<div class="btn-row" style="justify-content:center"><button class="btn sm" id="gClose">Close</button></div>');
+  $("gClose").onclick = closeModal;
+}
+
+function helpModal(){
+  customModal('<div class="modal-ic">🎪</div><h3 style="text-align:center">How to run a practice</h3>'+
+   '<p class="mp"><b>The grid is your week.</b> Click a dark square to open that hour; click an open one to close it. Clients fill the hours you open. Every open hour you do not fill is time you paid for and did not bill.</p>'+
+   '<p class="mp"><b>You are the constraint.</b> Every session costs energy. Twenty a week is sustainable; twenty-eight is not. At zero for three weeks the practice ends, and that ending is as real as running out of money.</p>'+
+   '<p class="mp"><b>Volume and rate pull against each other.</b> Insurance panels fill your week in a month but pay $80–150 and take two to three months to credential. Private pay is $180–350 but arrives one call at a time and only as fast as your reputation.</p>'+
+   '<p class="mp"><b>Leverage is the only way past your own two hands.</b> A group is eight people in one block. An associate bills under your license and keeps 60%. Both need training first.</p>'+
+   '<p class="mp"><b>The tax bill is the real boss fight.</b> Estimated tax lands every thirteen weeks on profit you may not have collected yet. Practices die there.</p>'+
+   '<div class="btn-row" style="justify-content:center"><button class="btn" id="hClose">Start</button></div>');
+  $("hClose").onclick = closeModal;
+}
+
+/* ================= SAVE / LOAD ================= */
+const SAVE_KEY = "therapyTycoonSave_v3";
+function saveGame(){
+  try{
+    localStorage.setItem(SAVE_KEY, JSON.stringify({S, rates: PANELS.map(p=>p.rate), rents: OFFICES.map(o=>o.monthly)}));
+    feed("Game", "saved to this browser.", "evt");
+  }catch(e){ feed("Game", "could not save — storage is blocked in this browser.", "bad"); }
+}
+function loadGame(){
+  try{
+    const raw = localStorage.getItem(SAVE_KEY);
+    if(!raw) return false;
+    const d = JSON.parse(raw);
+    if(!d.S || d.S.ver !== 3) return false;
+    S = d.S;
+    if(d.rates) d.rates.forEach((r,i) => PANELS[i].rate = r);
+    if(d.rents) d.rents.forEach((r,i) => OFFICES[i].monthly = r);
+    return true;
+  }catch(e){ return false; }
+}
+
+/* ================= INIT ================= */
+function init(){
+  const loaded = loadGame();
+  if(!loaded){
+    S = newGame();
+    feed("You", "have a license, a laptop and $8,000. Open some hours and see who calls.", "evt");
+  } else feed("Game", "loaded your saved practice.", "evt");
+
+  document.querySelectorAll(".spd").forEach(b => b.onclick = () => setSpeed(+b.dataset.spd));
+  document.querySelectorAll(".tab").forEach(b => b.onclick = () => { TAB = b.dataset.tab; renderPanel(); });
+  $("btnHelp").onclick = helpModal;
+  $("btnSave").onclick = saveGame;
+  $("btnOpenBiz").onclick = () => { for(let d=0;d<5;d++) for(let r=0;r<8;r++) S.slots[slotId(d,r)] = true; render(); };
+  $("btnCloseEmpty").onclick = () => {
+    rebuildSlotMap();
+    for(let i=0;i<NSLOT;i++) if(S.slots[i] && !slotMap[i]) S.slots[i] = false;
+    render();
+  };
+  $("btnVacation").onclick = () => {
+    S.vacation = !S.vacation;
+    feed("You", S.vacation ? "booked next week off." : "cancelled the week off.", "evt");
+    render();
+  };
+  $("veil").onclick = e => { if(e.target === $("veil")) closeModal(); };
+  document.addEventListener("keydown", e => {
+    if(e.key === " " ){ e.preventDefault(); setSpeed(SPEED > 0 ? 0 : 1); }
+    if(e.key === "Escape") closeModal();
+    if(e.key >= "1" && e.key <= "3") setSpeed(+e.key);
+  });
+
+  render();
+}
+document.addEventListener("DOMContentLoaded", init);
+</script>
+<style>
+  /* ===== hover/tap tooltips ===== */
+  .tip{position:fixed; z-index:200; max-width:270px; background:#120C28; color:var(--white);
+       border:2px solid var(--violet); border-radius:10px; padding:9px 11px; font-size:11.5px;
+       line-height:1.55; box-shadow:0 6px 18px rgba(0,0,0,.5); pointer-events:none;
+       opacity:0; transition:opacity .12s;}
+  .tip.on{opacity:1;}
+  .tip b{color:var(--gold);}
+  [data-tip]{cursor:help;}
+  .hud-chip[data-tip], .tab[data-tip], .btn[data-tip], .spd[data-tip]{cursor:pointer;}
+
+  /* ===== coach bar ===== */
+  .coach{display:flex; align-items:center; gap:12px; background:linear-gradient(90deg,rgba(77,217,232,.15),rgba(77,217,232,.03));
+         border:2px solid var(--cyan); border-radius:13px; padding:10px 14px; box-shadow:0 4px 0 rgba(0,0,0,.22);}
+  .coach.warn{border-color:var(--orange); background:linear-gradient(90deg,rgba(255,138,61,.16),rgba(255,138,61,.03));}
+  .coach.bad{border-color:var(--red); background:linear-gradient(90deg,rgba(255,107,107,.16),rgba(255,107,107,.03));}
+  .coach.good{border-color:var(--lime); background:linear-gradient(90deg,rgba(139,224,77,.14),rgba(139,224,77,.03));}
+  .coach .ic{font-size:21px; line-height:1;}
+  .coach .body{flex:1; min-width:0;}
+  .coach .lab{font-size:8.5px; text-transform:uppercase; letter-spacing:.09em; font-weight:800; color:var(--cyan);}
+  .coach.warn .lab{color:var(--orange);} .coach.bad .lab{color:var(--red);} .coach.good .lab{color:var(--lime);}
+  .coach .txt{font-size:12.5px; font-weight:600; margin-top:2px; line-height:1.5;}
+
+  /* ===== starter checklist ===== */
+  .checklist{background:var(--panel); border:3px solid var(--panel-line); border-radius:16px; padding:14px 16px;
+             box-shadow:0 6px 0 #190F30;}
+  .checklist h3{margin:0 0 3px; font-size:13px; font-weight:800; display:flex; align-items:center; gap:7px;}
+  .checklist .sub{font-size:11px; color:var(--dim); margin-bottom:10px; line-height:1.55;}
+  .cl-row{display:flex; align-items:flex-start; gap:9px; padding:7px 0; border-top:1px solid rgba(255,255,255,.07);}
+  .cl-row:first-of-type{border-top:none;}
+  .cl-box{width:17px; height:17px; border-radius:5px; border:2px solid var(--panel-line); flex:none;
+          display:flex; align-items:center; justify-content:center; font-size:11px; margin-top:1px;}
+  .cl-row.done .cl-box{background:var(--lime); border-color:var(--lime); color:#12330A;}
+  .cl-row.done .cl-t{color:var(--dimmer); text-decoration:line-through;}
+  .cl-t{font-size:12px; font-weight:700;}
+  .cl-h{font-size:10.5px; color:var(--dim); margin-top:2px; line-height:1.5;}
+  .cl-go{background:transparent; border:2px solid var(--panel-line); color:var(--dim); font-size:10px;
+         font-weight:800; padding:3px 9px; border-radius:7px; flex:none; margin-top:1px;}
+  .cl-go:hover{color:var(--white); border-color:var(--violet);}
+
+  /* ===== manual ===== */
+  .man{display:grid; grid-template-columns:150px 1fr; gap:16px; text-align:left;}
+  .man-nav{display:flex; flex-direction:column; gap:4px;}
+  .man-nav button{background:transparent; border:2px solid transparent; color:var(--dim); font-size:11.5px;
+                  font-weight:700; padding:7px 9px; border-radius:8px; text-align:left;}
+  .man-nav button:hover{background:rgba(255,255,255,.06); color:var(--white);}
+  .man-nav button.on{background:var(--violet); color:#1B0F33;}
+  .man-body{font-size:12.5px; line-height:1.72; color:var(--dim); max-height:56vh; overflow-y:auto; padding-right:6px;}
+  .man-body h4{color:var(--white); font-size:13.5px; margin:0 0 8px;}
+  .man-body h5{color:var(--gold); font-size:12px; margin:15px 0 5px; text-transform:uppercase; letter-spacing:.05em;}
+  .man-body p{margin:0 0 10px;}
+  .man-body b{color:var(--white);}
+  .man-body ul{margin:0 0 10px; padding-left:17px;} .man-body li{margin-bottom:5px;}
+  .man-body table{width:100%; border-collapse:collapse; font-size:11.5px; margin-bottom:10px;}
+  .man-body td{padding:5px 4px; border-bottom:1px solid rgba(255,255,255,.09); vertical-align:top;}
+  .man-body td:first-child{color:var(--white); font-weight:700; white-space:nowrap; padding-right:10px;}
+  @media (max-width:620px){ .man{grid-template-columns:1fr;} .man-nav{flex-direction:row; flex-wrap:wrap;} }
+
+  /* ===== first-run tour ===== */
+  .tour-veil{position:fixed; inset:0; z-index:150; pointer-events:auto;}
+  .tour-hole{position:absolute; border-radius:14px; box-shadow:0 0 0 9999px rgba(8,4,20,.82);
+             border:3px solid var(--gold); transition:all .3s cubic-bezier(.4,0,.2,1); pointer-events:none;}
+  .tour-box{position:fixed; z-index:151; width:300px; max-width:calc(100vw - 24px); background:var(--panel);
+            border:3px solid var(--gold); border-radius:14px; padding:15px; box-shadow:0 8px 0 rgba(0,0,0,.4);
+            transition:all .3s cubic-bezier(.4,0,.2,1);}
+  .tour-box .step{font-size:8.5px; text-transform:uppercase; letter-spacing:.09em; color:var(--gold); font-weight:800;}
+  .tour-box h4{margin:3px 0 6px; font-size:15px; font-weight:800;}
+  .tour-box p{margin:0 0 12px; font-size:12px; color:var(--dim); line-height:1.6;}
+  .tour-btns{display:flex; gap:7px; align-items:center;}
+</style>
+
+<script>
+"use strict";
+/* ================================================================
+   EXPLAINER LAYER — tooltips, coaching, checklist, manual, tour
+   ================================================================ */
+
+/* ---------- tooltips ---------- */
+let tipEl = null;
+function initTips(){
+  tipEl = document.createElement("div");
+  tipEl.className = "tip";
+  document.body.appendChild(tipEl);
+  const show = t => {
+    const txt = t.getAttribute("data-tip"); if(!txt) return;
+    tipEl.innerHTML = txt;
+    tipEl.classList.add("on");
+    const r = t.getBoundingClientRect();
+    tipEl.style.left = "0px"; tipEl.style.top = "0px";
+    const tr = tipEl.getBoundingClientRect();
+    let x = r.left + r.width/2 - tr.width/2;
+    let y = r.bottom + 9;
+    if(y + tr.height > innerHeight - 8) y = r.top - tr.height - 9;
+    x = Math.max(8, Math.min(x, innerWidth - tr.width - 8));
+    tipEl.style.left = x + "px"; tipEl.style.top = Math.max(8, y) + "px";
+  };
+  const hide = () => tipEl.classList.remove("on");
+  document.addEventListener("mouseover", e => {
+    const t = e.target.closest("[data-tip]");
+    if(t) show(t); else hide();
+  });
+  document.addEventListener("mouseleave", hide);
+  document.addEventListener("scroll", hide, true);
+  /* touch devices: tap-and-hold style — show briefly on tap */
+  document.addEventListener("touchstart", e => {
+    const t = e.target.closest("[data-tip]");
+    if(t){ show(t); setTimeout(hide, 3200); }
+  }, {passive:true});
+}
+
+/* ---------- the coach: one next-best-action, read from live state ---------- */
+function coachHint(){
+  if(S.gameOver) return {t:"bad", ic:"🚪", lab:"The practice is closed",
+    txt:"Reload the page to start again. Everything you learned still counts."};
+
+  const act = activeClients().length;
+  const cap = clinicalCapacity();
+  const anyMarketing = MARKETING.some(m => S.marketing[m.id]);
+  const anyPanel = Object.keys(S.panels).length > 0;
+  const empty = Math.max(0, cap - activeClients().filter(c => c.svc !== "group").length);
+
+  if(openSlots() === 0) return {t:"bad", ic:"🚪", lab:"Your week is closed",
+    txt:"You have no open hours, so nobody can book you. Click the dark squares in Your Week, or press Open 9–5."};
+
+  if(S.energy < 20) return {t:"bad", ic:"🕯️", lab:"You are nearly empty",
+    txt:"At zero for three weeks the practice ends. Press Take a week off, or close some hours and let the caseload shrink."};
+
+  if(S.cash < 1500) return {t:"bad", ic:"🪙", lab:"Cash is tight",
+    txt:"Rent and software come out every week whether or not anyone books. Cut a marketing spend, or fill more hours."};
+
+  if(S.inquiries.length) return {t:"good", ic:"📥", lab:"Someone is waiting",
+    txt:S.inquiries.length + " " + (S.inquiries.length === 1 ? "person has" : "people have") +
+        " called. Open the Inbox tab and take them on before they give up — most wait two to four weeks."};
+
+  if(!anyMarketing && !anyPanel) return {t:"warn", ic:"📣", lab:"Nobody knows you exist",
+    txt:"You have no listings and no insurance panels, so almost nobody is calling. Open the <b>Market</b> tab and start a Psychology Today listing — $35 a month roughly triples your enquiries."};
+
+  if(!anyPanel && act < 8) return {t:"warn", ic:"🏥", lab:"Consider a panel",
+    txt:"Insurance fills a week far faster than word of mouth. Credentialing takes two to three months, so apply in the <b>Market</b> tab long before you need the clients."};
+
+  if(S.totalWeeks < 2) return {t:"", ic:"▶", lab:"Time is paused",
+    txt:"Nothing happens until the clock runs. Press <b>▶</b> in the top right — one tick is one week."};
+
+  if(empty >= 6 && act > 0) return {t:"warn", ic:"🪑", lab:empty + " open hours going unfilled",
+    txt:"You are paying for time nobody booked. Either market harder to fill them, or press Close empty so the week reflects what you actually work."};
+
+  if(S.energy < 38) return {t:"warn", ic:"🔋", lab:"You are running low",
+    txt:"Below 35, clients start noticing and satisfaction slides. A week off restores about 26."};
+
+  const atRisk = activeClients().filter(c => c.sat < 40).length;
+  if(atRisk) return {t:"warn", ic:"😞", lab:atRisk + " " + (atRisk===1?"client is":"clients are") + " at risk",
+    txt:"Check the <b>Clients</b> tab — they are sorted worst first. Usually it is the fee, the room, or how tired you are."};
+
+  if(act >= cap && cap > 0) return {t:"good", ic:"📈", lab:"Your week is full",
+    txt:"This is the ceiling of your own two hands. From here you raise your fee, open a group, or hire an associate — see the <b>Build</b> and <b>Train</b> tabs."};
+
+  if(S.rate < 180 && S.rep > 45) return {t:"good", ic:"💵", lab:"You could charge more",
+    txt:"Bay Area licensed LMFTs run $180–350. Your reputation supports a higher fee for new clients — the slider is in <b>Market</b>."};
+
+  return {t:"", ic:"🧭", lab:"Doing fine",
+    txt:"Keep the week full, the energy above 40, and set money aside for the estimated tax that lands every 13 weeks."};
+}
+function renderCoach(){
+  const el = document.getElementById("coach"); if(!el) return;
+  const h = coachHint();
+  el.className = "coach " + h.t;
+  el.innerHTML = '<span class="ic">'+h.ic+'</span><div class="body"><div class="lab">'+h.lab+
+                 '</div><div class="txt">'+h.txt+'</div></div>';
+}
+
+/* ---------- starter checklist ---------- */
+const STEPS = [
+  {t:"Open some hours in your week",
+   h:"Click the dark squares in the grid, or press Open 9–5. Clients can only book hours you have opened.",
+   done:()=>openSlots() >= 8, tab:null},
+  {t:"Set the fee you want to charge",
+   h:"Market tab. Bay Area licensed therapists run $180–350. Insurance clients pay the panel's rate instead.",
+   done:()=>!!S.flags.setRate, tab:"market"},
+  {t:"Give people a way to find you",
+   h:"Market tab. A Psychology Today listing is $35 a month and is how most private-practice therapists start.",
+   done:()=>MARKETING.some(m=>S.marketing[m.id]), tab:"market"},
+  {t:"Press play and let a week pass",
+   h:"The clock is paused until you press ▶. Spacebar works too.",
+   done:()=>S.totalWeeks >= 2, tab:null},
+  {t:"Take your first client",
+   h:"When someone calls they appear in the Inbox. Take them on and they will fill one of your open hours.",
+   done:()=>S.stats.sessions > 0 || activeClients().length > 0, tab:"inbox"},
+  {t:"Apply to an insurance panel",
+   h:"Market tab. Credentialing takes 7–14 weeks, so apply long before you need the volume.",
+   done:()=>Object.keys(S.panels).length > 0, tab:"market"},
+];
+function renderChecklist(){
+  const el = document.getElementById("checklist"); if(!el) return;
+  if(S.flags.hideChecklist){ el.hidden = true; return; }
+  const done = STEPS.filter(s=>s.done()).length;
+  if(done === STEPS.length){ el.hidden = true; S.flags.hideChecklist = true; return; }
+  el.hidden = false;
+  el.innerHTML = '<h3>🧭 Getting started <span class="tagpill tp-dim">'+done+' / '+STEPS.length+'</span></h3>'+
+    '<div class="sub">Six things that get a practice running. This panel disappears once they are done.</div>'+
+    STEPS.map((s,i) => '<div class="cl-row'+(s.done()?" done":"")+'">'+
+      '<div class="cl-box">'+(s.done()?"✓":"")+'</div>'+
+      '<div style="flex:1;min-width:0"><div class="cl-t">'+esc(s.t)+'</div><div class="cl-h">'+esc(s.h)+'</div></div>'+
+      (!s.done() && s.tab ? '<button class="cl-go" data-clgo="'+s.tab+'">Go</button>' : '')+
+      '</div>').join("")+
+    '<div style="text-align:right;margin-top:9px"><button class="cl-go" id="clHide">Hide this</button></div>';
+  el.querySelectorAll("[data-clgo]").forEach(b => b.onclick = () => {
+    TAB = b.dataset.clgo; renderPanel();
+    document.querySelector(".col-right").scrollIntoView({behavior:"smooth", block:"start"});
+  });
+  const hb = document.getElementById("clHide");
+  if(hb) hb.onclick = () => { S.flags.hideChecklist = true; renderChecklist(); };
+}
+
+/* ---------- the manual ---------- */
+const MANUAL = {
+  "The point": `<h4>You are one therapist, and that is the whole problem</h4>
+    <p>You have a licence, a laptop and $8,000. The goal is a practice that supports you without consuming you —
+    measured in take-home pay, reputation, and whether you still have anything left at the end of the week.</p>
+    <p>Most management games let you build outward forever. You cannot. There are forty hours in your week and one of you.
+    Every route to earning more runs through <b>charging more</b>, <b>leverage</b> (a group, an associate), or
+    <b>burning yourself down</b> — and the last one ends the game.</p>
+    <h5>How you lose</h5>
+    <ul><li><b>Insolvency</b> — cash below −$18,000. Usually the quarterly tax bill arriving before the receivables do.</li>
+    <li><b>Burnout</b> — energy at zero for three straight weeks. The practice was profitable right up until the person running it wasn't.</li></ul>
+    <h5>How you progress</h5>
+    <p>Four objectives, shown in the amber bar at the top. Each unlocks when the one before it is met:
+    hang your shingle, fill the week, make it pay, then build something larger than yourself. After that it is open-ended.</p>`,
+
+  "Your week": `<h4>The grid is the game board</h4>
+    <p>Five days, eight hours, forty slots. Everything else feeds into it.</p>
+    <table>
+    <tr><td>Dark square</td><td>Closed. You are not available. Click to open it.</td></tr>
+    <tr><td>Cream "OPEN"</td><td>Open and unbooked — time you are paying for and not billing. Click to close it.</td></tr>
+    <tr><td>Coloured tile</td><td>A booked client. The colour is who pays: gold private, cyan insurance, violet sliding scale, green group.</td></tr>
+    <tr><td>Purple tile</td><td>Reserved — supervision, marketing time, or training. Not available for clients.</td></tr>
+    <tr><td>😀 😐 😞</td><td>How that client feels about the work. Click any tile to see why.</td></tr>
+    </table>
+    <h5>Sessions that take two slots</h5>
+    <p>Couples run 80 minutes and need two back-to-back open hours. Groups run 90 minutes and take two slots for up to eight people at once.</p>
+    <h5>The three buttons</h5>
+    <table><tr><td>Open 9–5</td><td>Opens all forty hours. Fast, and a good way to burn out.</td></tr>
+    <tr><td>Close empty</td><td>Closes every open hour nobody booked.</td></tr>
+    <tr><td>Take a week off</td><td>Skips next week's sessions. No income, about +26 energy, and clients lose a little patience.</td></tr></table>`,
+
+  "Getting clients": `<h4>Where the phone calls come from</h4>
+    <p>Each week the game rolls a number of enquiries. They land in the <b>Inbox</b> and wait two to four weeks before giving up.
+    You choose whether to take each one — you are not obliged to.</p>
+    <h5>What drives the number</h5>
+    <ul><li><b>Reputation</b> — the slow compounding one. Built mostly by clients finishing well.</li>
+    <li><b>Marketing</b> — Psychology Today, Google, a website, referral relationships, writing and talks. Some cost money, some cost slots.</li>
+    <li><b>Insurance panels</b> — by far the biggest volume lever, and the one with a two-to-three month delay.</li>
+    <li><b>Your room</b> — a real office attracts and holds more people than telehealth alone.</li></ul>
+    <h5>The trade that defines the game</h5>
+    <p>Insurance fills a week in a month and pays its rate, not yours — Kaiser $150 down to Cigna $80.
+    Private pay is $180–350 but arrives one call at a time and only as fast as your name travels.
+    Nearly every real practice blends the two.</p>
+    <h5>Fit matters</h5>
+    <p>Take a client whose presenting problem needs training you don't have and satisfaction sags from the first session.
+    Train in something and those clients start seeking you out, staying longer, and paying more.</p>`,
+
+  "Money": `<h4>Billed is not collected</h4>
+    <p>Private-pay clients pay on the day, less a small card fee. Insurance is a claim: you are paid the panel's rate,
+    only some of it is collected, and it lands weeks later.</p>
+    <table>
+    <tr><td>No biller</td><td>74% collected, about 5 weeks later</td></tr>
+    <tr><td>With a billing service</td><td>95% collected, about 3 weeks later, for 9% of collections</td></tr>
+    </table>
+    <p>The gap between <b>Billed</b> and <b>Landed in the bank</b> in the This Week panel is the single most
+    misunderstood number in private practice. Watch it.</p>
+    <h5>What comes out every week</h5>
+    <p>Rent, EHR software, liability insurance, phone, licence and CEUs, whatever marketing you have running,
+    staff, and any associate's share. These are charged whether or not a single person books.</p>
+    <h5>No-shows</h5>
+    <p>Roughly 8% of sessions, halved if you employ an assistant to send reminders. A late-cancellation
+    policy recovers $75 from private-pay clients; insurance will not pay for a session that did not happen.</p>`,
+
+  "Tax": `<h4>The bill that closes practices</h4>
+    <p>Every 13 weeks the game takes an estimated tax payment based on your profit so far, annualised.
+    It does not care whether the insurance money has arrived. If your account cannot cover it you pay an underpayment penalty on top.</p>
+    <h5>What is actually modelled</h5>
+    <ul><li><b>Self-employment tax</b> — 15.3% on 92.35% of profit. This is the one that surprises people; it is on top of income tax.</li>
+    <li><b>Federal income tax</b> — 2026 single-filer brackets against the standard deduction.</li>
+    <li><b>California income tax</b> — 2026 single-filer brackets.</li>
+    <li><b>QBI deduction</b> — 20% of qualified business income, phasing out above about $201,000 because therapy is a specified service trade.</li></ul>
+    <h5>Sole proprietor or Professional Corporation</h5>
+    <p>California-licensed MFTs, LCSWs, LPCCs and psychologists <b>cannot form an LLC</b> to practise
+    (Cal. Corp. Code §17701.04(e)). The real choice is sole proprietor, or a California Professional Corporation
+    that elects S-corp treatment with the IRS.</p>
+    <p>The S-corp route splits profit into salary (payroll-taxed) and distribution (not), which saves self-employment
+    tax — but costs an $800 minimum franchise tax, 1.5% CA entity tax, payroll service and a CPA. It only pays
+    above roughly $80–100k of profit. The Money tab tells you which is ahead at your current numbers.</p>`,
+
+  "Energy": `<h4>The resource nobody budgets for</h4>
+    <p>Energy runs 0–100 and recovers about 22 a week on its own. Every session spends some — more for
+    trauma, couples and OCD work than for ADHD. And every clinical hour drags roughly half an hour
+    of unpaid admin behind it, which costs energy too.</p>
+    <table>
+    <tr><td>Around 19 sessions/week</td><td>Roughly break-even</td></tr>
+    <tr><td>With an assistant</td><td>Sustainable into the mid-twenties</td></tr>
+    <tr><td>Below 35 energy</td><td>Clients notice. Satisfaction slides across your whole caseload.</td></tr>
+    <tr><td>Zero for three weeks</td><td>You stop. Game over.</td></tr>
+    </table>
+    <p>Ways back up: take a week off (+26), hire an assistant (+4/week), keep spare capacity, or simply
+    carry fewer people. Resting is not a failure state — it is the mechanic.</p>`,
+
+  "Growing": `<h4>Past the ceiling of your own two hands</h4>
+    <p>At a full week your income is capped by arithmetic. There are three ways past it.</p>
+    <h5>Raise your fee</h5>
+    <p>The Market slider sets what <i>new</i> private clients are quoted; existing clients keep their agreed fee
+    until you change it individually. Every client has a private ceiling. Charge above it and satisfaction falls,
+    then they leave — the Inbox warns you before you take someone you have priced out.</p>
+    <h5>Run a group</h5>
+    <p>Eight people paying 42% of your rate in one 90-minute block: roughly triple the money from two slots,
+    for about one session's energy. Needs group psychotherapy training and a suite with a group room.</p>
+    <h5>Hire an associate</h5>
+    <p>A pre-licensed associate bills under your supervision at $130. They keep 60%, you keep 40%,
+    and one of your hours each week goes to supervising them. Needs the supervisor certification. Maximum of three.</p>
+    <h5>Training</h5>
+    <p>Costs money and eight slots a week while you are in it — a real dip in income for a lasting gain.
+    What you train in is what starts calling you.</p>`,
+
+  "Controls": `<h4>Every button</h4>
+    <h5>Top bar</h5>
+    <table>
+    <tr><td>Pause ❚❚</td><td>Stops the clock completely. Nothing happens until you start it again.</td></tr>
+    <tr><td>Play ▶</td><td>One week every 2 seconds. The speed to learn on.</td></tr>
+    <tr><td>Fast ▶▶</td><td>One week every second.</td></tr>
+    <tr><td>Faster ▶▶▶</td><td>One week every 0.4 seconds.</td></tr>
+    <tr><td>Keyboard</td><td>Spacebar toggles pause; keys 1, 2 and 3 set the speed.</td></tr>
+    <tr><td>? Help</td><td>This manual.</td></tr>
+    <tr><td>💾 Save</td><td>Saves to this browser only. Reloading resumes where you left off.</td></tr>
+    </table>
+    <h5>The six tabs</h5>
+    <table>
+    <tr><td>📥 Inbox</td><td>People who have called, and anything in progress like credentialing or training.</td></tr>
+    <tr><td>👥 Clients</td><td>Your caseload, sorted by who is closest to leaving.</td></tr>
+    <tr><td>🏗️ Build</td><td>Your room, groups, associates, and support staff.</td></tr>
+    <tr><td>🎓 Train</td><td>Certifications.</td></tr>
+    <tr><td>📣 Market</td><td>Your fee, marketing channels, insurance panels, intake policy.</td></tr>
+    <tr><td>💰 Money</td><td>Profit and loss, tax detail, business structure, all-time stats.</td></tr>
+    </table>
+    <h5>Elsewhere</h5>
+    <p>Hover anything with a dotted or question cursor for an explanation. The blue bar under the objective
+    always names the single most useful thing you could do next. The strip along the bottom is the practice
+    feed — client thoughts and events as they happen.</p>`,
+
+  "Glossary": `<h4>Words the game uses</h4>
+    <table>
+    <tr><td>90837</td><td>The billing code for a 53-minute individual therapy session. Every insurance rate here is a real California 90837 figure.</td></tr>
+    <tr><td>Panel</td><td>An insurance network you are contracted with. Being "on a panel" means that insurer's members can see you in-network.</td></tr>
+    <tr><td>Credentialing</td><td>The application and verification process before you can bill a panel. Seven to fourteen weeks here, and in life.</td></tr>
+    <tr><td>Collection rate</td><td>The share of what you billed that the insurer actually pays.</td></tr>
+    <tr><td>Receivables</td><td>Work you have done and billed but not yet been paid for.</td></tr>
+    <tr><td>Sliding scale</td><td>A reduced fee offered on the basis of need. Pays little, and clients on it tend to be more loyal.</td></tr>
+    <tr><td>Reputation</td><td>0–100. How many people call and what they will pay. Built by good endings, eroded by bad ones, and it decays if you do nothing.</td></tr>
+    <tr><td>Satisfaction</td><td>Per client, 0–100. Driven by fit, your room, your energy, and whether the fee is within their reach. Below about 38 they start drifting away.</td></tr>
+    <tr><td>SE tax</td><td>Self-employment tax — 15.3% covering both halves of Social Security and Medicare, because you are both employer and employee.</td></tr>
+    <tr><td>QBI</td><td>Qualified Business Income deduction — up to 20% off taxable business income, phased out for therapists at higher incomes.</td></tr>
+    <tr><td>S-corp election</td><td>A tax treatment, not an entity. A Professional Corporation elects it to split profit into salary and distribution.</td></tr>
+    <tr><td>Professional Corporation</td><td>The corporate form California licensed therapists must use if they incorporate. An LLC is not available to them.</td></tr>
+    <tr><td>EHR</td><td>Electronic health record — the notes-and-billing software every practice pays for monthly.</td></tr>
+    </table>`,
+};
+let manSection = "The point";
+function manualModal(sec){
+  manSection = sec || manSection;
+  customModal('<h3 style="text-align:center;margin-bottom:14px">📖 Therapy Tycoon — the manual</h3>'+
+    '<div class="man"><div class="man-nav">'+
+    Object.keys(MANUAL).map(k=>'<button data-man="'+k+'" class="'+(k===manSection?"on":"")+'">'+k+'</button>').join("")+
+    '</div><div class="man-body">'+MANUAL[manSection]+'</div></div>'+
+    '<div class="btn-row" style="justify-content:center;margin-top:16px">'+
+    '<button class="btn ghost sm" id="manTour">Replay the tour</button>'+
+    '<button class="btn" id="manClose">Close</button></div>');
+  document.querySelectorAll("[data-man]").forEach(b => b.onclick = () => manualModal(b.dataset.man));
+  document.getElementById("manClose").onclick = closeModal;
+  document.getElementById("manTour").onclick = () => { closeModal(); startTour(); };
+}
+
+/* ---------- first-run guided tour ---------- */
+const TOUR = [
+  {sel:"#chipCash", t:"These five numbers are the practice",
+   p:"Cash, the date, reputation, energy and caseload. Hover any of them at any time for what it means and what moves it."},
+  {sel:"#sched", t:"This grid is your week",
+   p:"Dark squares are hours you are closed — click one to open it. Cream squares are open and unbooked. Coloured tiles are booked clients; click a tile to see how they are doing."},
+  {sel:"#tabs", t:"Everything you do happens here",
+   p:"Take clients in the Inbox, buy a room in Build, get certified in Train, set your fee and find clients in Market, and read your P&L in Money."},
+  {sel:"#speedbox", t:"This is the clock, and it starts stopped",
+   p:"Pause, Play, Fast, Faster. One tick of the clock is one week of your practice — Play runs a week every 2 seconds. The caption underneath always tells you what the clock is doing. Spacebar pauses."},
+  {sel:"#coach", t:"When you are stuck, read this",
+   p:"This bar looks at your practice every week and names the single most useful thing you could do next. The checklist underneath walks you through the first six."},
+];
+let tourStep = 0, tourEls = null;
+function startTour(){
+  tourStep = 0;
+  if(!tourEls){
+    const veil = document.createElement("div"); veil.className = "tour-veil";
+    const hole = document.createElement("div"); hole.className = "tour-hole";
+    const box  = document.createElement("div"); box.className  = "tour-box";
+    veil.appendChild(hole); document.body.appendChild(veil); document.body.appendChild(box);
+    tourEls = {veil, hole, box};
+  }
+  tourEls.veil.style.display = "block"; tourEls.box.style.display = "block";
+  drawTour();
+}
+function endTour(){
+  if(tourEls){ tourEls.veil.style.display = "none"; tourEls.box.style.display = "none"; }
+  S.flags.sawTour = true;
+}
+function drawTour(){
+  const s = TOUR[tourStep];
+  const el = document.querySelector(s.sel);
+  if(!el){ endTour(); return; }
+  el.scrollIntoView({block:"center", behavior:"smooth"});
+  setTimeout(() => {
+    const r = el.getBoundingClientRect(), pad = 7;
+    tourEls.hole.style.left = (r.left - pad) + "px";
+    tourEls.hole.style.top = (r.top - pad) + "px";
+    tourEls.hole.style.width = (r.width + pad*2) + "px";
+    tourEls.hole.style.height = (r.height + pad*2) + "px";
+    let bx = r.left, by = r.bottom + 18;
+    if(by + 190 > innerHeight) by = Math.max(12, r.top - 200);
+    bx = Math.max(12, Math.min(bx, innerWidth - 312));
+    tourEls.box.style.left = bx + "px"; tourEls.box.style.top = by + "px";
+    tourEls.box.innerHTML =
+      '<div class="step">Step '+(tourStep+1)+' of '+TOUR.length+'</div><h4>'+esc(s.t)+'</h4><p>'+esc(s.p)+'</p>'+
+      '<div class="tour-btns"><button class="btn sm" id="tNext">'+(tourStep===TOUR.length-1?"Start playing":"Next")+'</button>'+
+      '<button class="btn sm ghost" id="tSkip">Skip</button></div>';
+    document.getElementById("tNext").onclick = () => {
+      tourStep++;
+      if(tourStep >= TOUR.length){ endTour(); manualModal("The point"); } else drawTour();
+    };
+    document.getElementById("tSkip").onclick = endTour;
+  }, 260);
+}
+
+/* ---------- boot ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  initTips();
+  const help = document.getElementById("btnHelp");
+  if(help) help.onclick = () => manualModal();
+  setTimeout(() => {
+    if(S && !S.flags.sawTour){ closeModal(); startTour(); }
+    renderCoach(); renderChecklist();
+  }, 120);
+});
+window.addEventListener("resize", () => { if(tourEls && tourEls.veil.style.display === "block") drawTour(); });
+</script>
+
+<style>
+  /* ===== view toggle ===== */
+  .viewtog{display:flex; gap:3px; background:var(--panel-deep); border:2px solid var(--panel-line);
+           border-radius:10px; padding:3px; margin-right:auto;}
+  .vt{background:transparent; border:none; color:var(--dim); font-family:inherit; font-weight:800;
+      font-size:11px; padding:6px 12px; border-radius:7px; cursor:pointer; transition:.12s;}
+  .vt:hover{background:rgba(255,255,255,.07); color:var(--white);}
+  .vt.on{background:var(--violet); color:#1B0F33; box-shadow:0 2px 0 #7C4FD9;}
+
+  /* ===== office stage ===== */
+  .office-wrap{background:#1B1035; border:4px solid #120B26; border-radius:16px; padding:12px;
+               box-shadow:0 7px 0 rgba(0,0,0,.25), inset 0 0 0 3px rgba(255,255,255,.05); position:relative;}
+  .office-wrap svg{display:block; width:100%; max-width:660px; height:auto; margin:0 auto;
+                   image-rendering:pixelated; image-rendering:crisp-edges;}
+  .office-wrap .hot{cursor:pointer;}
+  .office-wrap .hot:hover{fill:rgba(255,255,255,.16);}
+  .office-cap{display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:9px;
+              padding-top:9px; border-top:2px solid rgba(255,255,255,.09); font-size:11.5px; color:var(--dim);}
+  .office-cap b{color:var(--white);}
+  .office-cap .oc{display:flex; align-items:center; gap:5px;}
+  .office-cap .dot{width:9px; height:9px; border-radius:3px; display:inline-block;}
+  .office-empty{text-align:center; color:var(--dimmer); font-size:12px; padding:6px 0 2px; line-height:1.6;}
+</style>
+
+<script>
+"use strict";
+/* ================================================================
+   OFFICE VIEW — clean dimetric isometric pixel art, drawn from state
+   Renders into a real pixel buffer, run-length encoded out, so the
+   diagonals get true 2:1 staircase edges.
+   ================================================================ */
+
+function OBuf(w,h,bg){ this.w=w; this.h=h; this.d=new Array(w*h).fill(bg||null); }
+OBuf.prototype.px=function(x,y,c){ x=Math.round(x); y=Math.round(y);
+  if(c==null||x<0||y<0||x>=this.w||y>=this.h) return; this.d[y*this.w+x]=c; };
+OBuf.prototype.rect=function(x,y,w,h,c){ x=Math.round(x); y=Math.round(y); w=Math.round(w); h=Math.round(h);
+  for(let j=0;j<h;j++) for(let i=0;i<w;i++) this.px(x+i,y+j,c); };
+
+/* a 2:1 diamond built from 1px horizontal runs — 4px of width per row */
+OBuf.prototype.tile=function(cx,cy,W,c,edge){
+  const H=W/2, n=W/4;
+  for(let i=0;i<n;i++){ const w=4*(i+1); this.rect(cx-w/2, cy-H/2+i, w, 1, c); }
+  for(let i=0;i<n;i++){ const w=W-4*i;   this.rect(cx-w/2, cy+i,     w, 1, c); }
+  if(edge){                                   /* 1px darker lower edges so tiles read as tiles */
+    for(let i=0;i<n;i++){ const w=W-4*i;
+      this.rect(cx-w/2, cy+i, 2, 1, edge); this.rect(cx+w/2-2, cy+i, 2, 1, edge); }
+  }
+};
+/* an isometric box standing ON the floor: side faces rise from the base edge */
+OBuf.prototype.box=function(cx,cy,W,hz,top,left,right){
+  for(let x=0;x<=W/2;x++){ const ey=cy+Math.floor((W/2-x)/2); this.rect(cx+x, ey-hz, 1, hz, right); }
+  for(let x=1;x<=W/2;x++){ const ey=cy+Math.floor((W/2-x)/2); this.rect(cx-x, ey-hz, 1, hz, left);  }
+  this.tile(cx, cy-hz, W, top);
+};
+OBuf.prototype.svg=function(scale){
+  const rows=[];
+  for(let y=0;y<this.h;y++){
+    const runs=[]; let x=0;
+    while(x<this.w){
+      const c=this.d[y*this.w+x];
+      if(c==null){ x++; continue; }
+      let x2=x; while(x2+1<this.w && this.d[y*this.w+x2+1]===c) x2++;
+      runs.push([x,x2-x+1,c]); x=x2+1;
+    }
+    rows.push(runs);
+  }
+  let out="", y=0;
+  while(y<this.h){
+    const sig=JSON.stringify(rows[y]);
+    let y2=y; while(y2+1<this.h && JSON.stringify(rows[y2+1])===sig) y2++;
+    const hh=(y2-y+1)*scale;
+    for(const [rx,rw,rc] of rows[y])
+      out += '<rect x="'+(rx*scale)+'" y="'+(y*scale)+'" width="'+(rw*scale)+'" height="'+hh+'" fill="'+rc+'"/>';
+    y=y2+1;
+  }
+  return out;
+};
+
+/* ---------- palette ---------- */
+const OP = {
+  bg:"#1B1035", BW:300, BH:176, scale:2,
+  /* each room gets its own clearly different floor so the suite reads as rooms */
+  floor:{ wait:["#6B5A94","#5F4F86"], you:["#8368B2","#7659A4"],
+          group:["#4F5A92","#455084"], assoc:["#6E4C86","#624178"], home:["#8368B2","#7659A4"] },
+  edge:"#3C2C62", skirt:"#2A1D4A",
+  wallTop:"#B79ADF", wallR:"#7059A6", wallL:"#4E3C7C", wallIn:"#8E76BE", window:"#8FD8E8",
+  deskT:"#D3B48E", deskR:"#9A7448", deskL:"#6E5232",
+  seatT:"#8FA8C8", seatR:"#5E7699", seatL:"#42566F",
+  sofaT:"#D9906B", sofaR:"#A5654A", sofaL:"#7A4634",
+  shelfT:"#9A7ACB", shelfR:"#6B4F96", shelfL:"#4C376E", book:["#E05A6E","#FFC542","#4DD9E8","#8BE04D"],
+  rugA:"#A5525C", rugB:"#C4737C", rugC:"#8E3F49",
+  potT:"#C98B5E", potR:"#9A6540", leaf:"#45A882", leaf2:"#5ACB9E", leaf3:"#379070",
+  lampT:"#FFE9A8", lampPole:"#5D4788",
+  skin:["#F5DCC0","#E8C4A0","#C99A70","#A0714C","#7A4F32"],
+  hair:["#2B2118","#5A3A22","#A8763C","#1F1F26","#8A4B3A","#D8C08A","#6B3B52"],
+  shadow:"#160F2E", screen:"#2B3B5D", screenOn:"#8FD8E8",
+  bubble:"#F7F2FF", bubbleEdge:"#241640"
+};
+const OPAY = { private:"#FFC542", ins:"#4DD9E8", sliding:"#B685FF", group:"#8BE04D", you:"#B685FF", assoc:"#FF5C93" };
+
+/* ---------- 7x7 pixel icons for thought bubbles ---------- */
+const ICON = {
+  coin: {c:{X:"#F0B429",o:"#7A4F08"}, g:[".XXXXX.","XXoXoXX","XXoooXX","XXXoXXX","XXoooXX","XXoXoXX",".XXXXX."]},
+  heart:{c:{X:"#E8556B"}, g:[".XX.XX.","XXXXXXX","XXXXXXX","XXXXXXX",".XXXXX.","..XXX..","...X..."]},
+  rain: {c:{X:"#8493AD",o:"#4DA8E8"}, g:["..XXX..",".XXXXX.","XXXXXXX",".XXXXX.","..o.o..",".o.o.o.","..o.o.."]},
+  quest:{c:{X:"#9B6FE0"}, g:[".XXXXX.","XX...XX","....XX.","...XX..","...X...",".......","...X..."]},
+  house:{c:{X:"#C08A5E",o:"#8FD8E8"}, g:["...X...","..XXX..",".XXXXX.","XXXXXXX",".X.o.X.",".X.o.X.",".XXXXX."]},
+  star: {c:{X:"#F0B429"}, g:["...X...","...X...","XXXXXXX",".XXXXX.","..XXX..",".XX.XX.","X.....X"]},
+  zzz:  {c:{X:"#B3A3D9"}, g:["XXXXX..","...XX..","..XX...",".XXXXX.","...XX..","..XX...",".XXXXX."]},
+  chat: {c:{X:"#8E7FBE"}, g:[".......","..X.X.X","..X.X.X","..X.X.X",".......",".......","......."]}
+};
+
+/* what a client is visibly thinking — deterministic, so it does not flicker */
+function officeThought(c){
+  const cn = concern(c.concernId);
+  const fee = effFee(c);
+  if(c.payerKind === "private" && fee > c.willing)
+    return {i:"coin",  tone:"bad",  s:["$"+Math.round(fee)+" is a lot","for fifty minutes."],
+            t:"$"+Math.round(fee)+" for fifty minutes is more than I can keep doing."};
+  if(c.payerKind === "ins" && !S.staff.biller)
+    return {i:"coin",  tone:"bad",  s:["My insurance","still hasn't paid."],
+            t:"My insurance still hasn't paid and I got a bill I don't understand."};
+  if(S.officeId === "tele" && c.wantsRoom)
+    return {i:"house", tone:"bad",  s:["I wish we could","meet in a room."],
+            t:"I wish we could do this in a room instead of on my laptop."};
+  if(S.energy < 32)
+    return {i:"rain",  tone:"bad",  s:["She seemed","somewhere else today."],
+            t:"She seemed somewhere else today."};
+  if(c.sat >= 78)
+    return {i:"heart", tone:"good", s:["I told my sister","she should call you."],
+            t:"I told my sister she should call you."};
+  if(c.sat < 40)
+    return {i:"rain",  tone:"bad",  s:["I'm not sure","this is helping."],
+            t:"I'm not sure this is helping."};
+  if(cn.spec && hasTrain(cn.spec))
+    return {i:"star",  tone:"good", s:["Nobody else here does","this kind of work."],
+            t:"Nobody else in this town does "+cn.name.toLowerCase()+" work like this."};
+  if(c.noShows >= 2)
+    return {i:"quest", tone:"bad",  s:["I keep meaning","to reschedule."],
+            t:"I keep meaning to reschedule."};
+  const idle = [
+    {s:["Same time","next week."],            t:"Same time next week."},
+    {s:["Today was hard,","but a good hard."], t:"Today was a hard one, but a good hard."},
+    {s:["I wrote down what","we talked about."], t:"I wrote down what we talked about."}
+  ][Math.abs(c.name.charCodeAt(0)) % 3];
+  return {i:"chat", tone:"", s:idle.s, t:idle.t};
+}
+
+/* ---------- layouts: smaller rooms so the tiles come out bigger ---------- */
+const OLAYOUT = {
+  tele:   { rooms:[{gx:0,gy:0,w:4,h:3,r:"home"}],
+            you:[1.2,2.1], desk:[2.3,1.2], shelf:[3.4,0.5], plant:[[0.6,0.5]], rug:[[2.0,2.1]],
+            lamp:[3.5,2.4], client:null, sofa:null, wait:[] },
+  shared: { rooms:[{gx:0,gy:0,w:3,h:3,r:"wait"},{gx:3,gy:0,w:4,h:3,r:"you"}],
+            you:[4.1,2.1], desk:[5.2,1.2], client:[6.2,2.1], sofa:[1.2,0.7], shelf:[6.4,0.5],
+            plant:[[2.4,0.5]], rug:[[5.4,2.1]], lamp:[0.5,2.3], wait:[[0.7,1.8],[1.8,1.8]] },
+  own:    { rooms:[{gx:0,gy:0,w:4,h:3,r:"wait"},{gx:4,gy:0,w:4,h:3,r:"you"}],
+            you:[5.1,2.1], desk:[6.2,1.2], client:[7.2,2.1], sofa:[1.3,0.7], shelf:[7.4,0.5],
+            plant:[[3.4,0.5],[0.6,2.4]], rug:[[6.4,2.1]], lamp:[0.6,0.6],
+            wait:[[0.8,1.9],[1.9,1.9],[3.0,1.9]] },
+  suite:  { rooms:[{gx:0,gy:0,w:4,h:3,r:"wait"},{gx:4,gy:0,w:4,h:3,r:"you"},
+                   {gx:0,gy:3,w:5,h:3,r:"group"},{gx:5,gy:3,w:3,h:3,r:"assoc"}],
+            you:[5.1,2.1], desk:[6.2,1.2], client:[7.2,2.1], sofa:[1.3,0.7], shelf:[7.4,0.5],
+            plant:[[3.4,0.5],[0.5,5.4],[7.6,5.5]], rug:[[6.4,2.1],[2.3,4.4]], lamp:[0.6,2.4],
+            wait:[[0.8,1.9],[1.9,1.9],[3.0,1.9]],
+            groupC:[2.3,4.4], assocDesk:[6.6,3.9], assoc:[5.9,4.7] }
+};
+
+function officeScene(){
+  const L = OLAYOUT[S.officeId] || OLAYOUT.tele;
+  let mgx=0, mgy=0;
+  for(const r of L.rooms){ mgx=Math.max(mgx,r.gx+r.w); mgy=Math.max(mgy,r.gy+r.h); }
+  const span = mgx + mgy;
+
+  let T = Math.min(2*(OP.BW-22)/span, (OP.BH-34)/(span/4 + 0.5));
+  T = Math.max(20, Math.min(64, Math.floor(T/4)*4));
+  const H = T/2, wallH = Math.round(T*0.5/2)*2, partH = Math.round(wallH*0.55/2)*2;
+  const fig = Math.max(3, Math.min(8, Math.round(T/9)));   /* ~65% of a tile wide */
+
+  const B = new OBuf(OP.BW, OP.BH, OP.bg);
+  const hots = [], bubbles = [];
+  const OX = OP.BW/2 - (mgx-mgy)*T/4;
+  const OY = Math.round((OP.BH - (span*H/2) - wallH)/2 + wallH + 4);
+  const SC = (gx,gy) => [ Math.round(OX + (gx-gy)*T/2), Math.round(OY + (gx+gy)*H/2) ];
+
+  /* ---- exterior walls: thin planes along the two back edges ---- */
+  const capH = Math.max(2, Math.round(T/12));
+  function wallRun(ax,ay,bx,by,h,face){
+    const n = Math.abs(bx-ax) || 1, dir = bx>ax ? 1 : -1;
+    for(let i=0;i<=n;i++){
+      const x = ax + i*dir, y = Math.round(ay + (by-ay)*i/n);
+      B.rect(x, y-h, 1, h, face);
+      B.rect(x, y-h-capH, 1, capH, OP.wallTop);
+    }
+  }
+  { const [tx,ty]=SC(0,0), [rx,ry]=SC(mgx,0), [lx,ly]=SC(0,mgy);
+    wallRun(tx,ty,rx,ry,wallH,OP.wallR);
+    wallRun(tx,ty,lx,ly,wallH,OP.wallL);
+    if(mgx>=4){ const ww=Math.round(T*0.7), wx=tx+Math.round((rx-tx)*0.38), wy=Math.round(ty+(ry-ty)*0.38);
+      const gh=Math.max(4,Math.round(wallH*0.5));
+      for(let i=0;i<ww;i++){ const yy=wy+Math.round(i/2)-wallH+Math.round(wallH*0.24);
+        B.rect(wx+i, yy-1, 1, gh+2, OP.wallTop);
+        if(i>0&&i<ww-1) B.rect(wx+i, yy, 1, gh, OP.window); } }
+    /* a picture on the shadowed wall */
+    if(mgy>=3){ const aw=Math.round(T*0.42), ax2=tx-Math.round((tx-lx)*0.42), ay2=Math.round(ty+(ly-ty)*0.42);
+      const ah=Math.round(wallH*0.44);
+      for(let i=0;i<aw;i++){ const yy=ay2-Math.round(i/2)-wallH+Math.round(wallH*0.28);
+        B.rect(ax2-i, yy-2, 1, ah+4, "#7A5334");                       /* frame */
+        if(i>1&&i<aw-2) B.rect(ax2-i, yy, 1, ah, i<aw*0.45?"#6E9BC4":"#8FB8D8");  /* sky over hills */
+        if(i>1&&i<aw-2) B.rect(ax2-i, yy+Math.round(ah*0.55), 1, Math.round(ah*0.45), "#45A882"); } }
+  }
+
+  /* ---- floors ---- */
+  for(const rm of L.rooms){
+    for(let a=0;a<rm.w;a++) for(let b=0;b<rm.h;b++){
+      const [sx,sy]=SC(rm.gx+a+0.5, rm.gy+b+0.5);
+      const pair = OP.floor[rm.r] || OP.floor.you;
+      B.tile(sx, sy, T, pair[(a+b)%2], OP.edge);
+    }
+    /* skirting round the whole room, so one space stops and the next begins */
+    const line=(ax,ay,bx,by)=>{ const n=Math.abs(bx-ax)||1, d=bx>ax?1:-1;
+      for(let i=0;i<=n;i++) B.rect(ax+i*d, Math.round(ay+(by-ay)*i/n), 1, 2, OP.skirt); };
+    const c0=SC(rm.gx,rm.gy), c1=SC(rm.gx+rm.w,rm.gy), c2=SC(rm.gx+rm.w,rm.gy+rm.h), c3=SC(rm.gx,rm.gy+rm.h);
+    line(c0[0],c0[1],c1[0],c1[1]); line(c1[0],c1[1],c2[0],c2[1]);
+    line(c3[0],c3[1],c2[0],c2[1]); line(c0[0],c0[1],c3[0],c3[1]);
+  }
+  /* ---- interior partitions between rooms ---- */
+  for(const rm of L.rooms){
+    if(rm.gy>0){ const [ax,ay]=SC(rm.gx,rm.gy), [bx,by]=SC(rm.gx+rm.w,rm.gy); wallRun(ax,ay,bx,by,partH,OP.wallIn); }
+    if(rm.gx>0){ const [ax,ay]=SC(rm.gx,rm.gy), [bx,by]=SC(rm.gx,rm.gy+rm.h); wallRun(ax,ay,bx,by,partH,OP.wallIn); }
+  }
+  /* ---- rugs with a border ---- */
+  for(const rp of (L.rug||[])){
+    const [sx,sy]=SC(rp[0],rp[1]);
+    const w1=Math.round(T*1.7/4)*4, w2=Math.round(T*1.35/4)*4, w3=Math.round(T*0.8/4)*4;
+    B.tile(sx,sy,w1,OP.rugC); B.tile(sx,sy,w2,OP.rugA); B.tile(sx,sy,w3,OP.rugB);
+  }
+
+  const draws = [];
+  const add = (gx,gy,fn) => draws.push({d:gx+gy, fn});
+
+  /* ---------- furniture ---------- */
+  function deskSet(p,wide){
+    const [sx,sy]=SC(p[0],p[1]); const w=Math.round(T*(wide?0.85:0.7)/4)*4, h=Math.round(T*0.2);
+    B.box(sx,sy+Math.round(T*0.12),w,Math.round(h*0.35),OP.deskL,OP.deskL,OP.deskL);   /* legs in shadow */
+    B.box(sx,sy,w,h,OP.deskT,OP.deskL,OP.deskR);
+    const mw=Math.round(w*0.30), mh=Math.round(h*0.9);
+    B.rect(sx-Math.round(mw*0.2), sy-h-mh, mw, mh, OP.screen);
+    B.rect(sx-Math.round(mw*0.2)+1, sy-h-mh+1, mw-2, mh-2, OP.screenOn);
+    B.rect(sx-Math.round(w*0.34), sy-h-2, Math.round(w*0.2), 3, "#EDE6FA");            /* papers */
+  }
+  function armchair(p){
+    const [sx,sy]=SC(p[0],p[1]);
+    const w=Math.max(8,Math.round(T*0.42/4)*4), h=Math.max(3,Math.round(T*0.12));
+    const bh=Math.max(5,Math.round(T*0.26));
+    /* back panel, sitting behind the seat and following the tile slope */
+    for(let i=0;i<=w/2;i++){
+      const ey=sy+Math.floor((w/2-i)/2)-Math.round(w/4);
+      B.rect(sx+i,   ey-bh, 1, bh, OP.seatR);
+      B.rect(sx-i-1, ey-bh, 1, bh, OP.seatL);
+    }
+    B.box(sx,sy,w,h,OP.seatT,OP.seatL,OP.seatR);
+    /* two arms */
+    const au=Math.max(2,Math.round(T/16));
+    B.rect(sx-Math.round(w/2), sy-h-au, au, au*2, OP.seatL);
+    B.rect(sx+Math.round(w/2)-au, sy-h-au, au, au*2, OP.seatT);
+  }
+  function sofa(p){
+    const [sx,sy]=SC(p[0],p[1]); const w=Math.round(T*1.05/4)*4, h=Math.round(T*0.16);
+    B.box(sx,sy,w,h,OP.sofaT,OP.sofaL,OP.sofaR);
+    const bh=Math.round(T*0.28);
+    for(let i=0;i<w;i++) B.rect(sx-w/2+i, sy-h-bh+Math.round(i/2)+Math.round(w/4)-Math.round(w/4), 1, bh, i%9<4?OP.sofaR:OP.sofaT);
+  }
+  function bookshelf(p){
+    const [sx,sy]=SC(p[0],p[1]); const w=Math.round(T*0.42/4)*4, h=Math.round(T*0.55);
+    B.box(sx,sy,w,h,OP.shelfT,OP.shelfL,OP.shelfR);
+    for(let s=1;s<=3;s++){ const yy=sy-Math.round(h*s/3.4);
+      for(let i=0;i<Math.round(w*0.42);i++)
+        B.rect(sx+2+i, yy-Math.round(T*0.11)+Math.round(i/2), 1, Math.round(T*0.11), OP.book[(s+i)%4]); }
+  }
+  function plantBig(p){
+    const [sx,sy]=SC(p[0],p[1]); const u=Math.max(2,Math.round(T/18));
+    B.box(sx,sy,u*3,u*2,OP.potT,OP.potR,OP.potT);
+    B.rect(sx-u*2, sy-u*5, u*4, u*3, OP.leaf);
+    B.rect(sx-u*3, sy-u*4, u*6, u*2, OP.leaf3);
+    B.rect(sx-u,   sy-u*7, u*2, u*2, OP.leaf2);
+  }
+  function floorLamp(p){
+    const [sx,sy]=SC(p[0],p[1]); const u=Math.max(2,Math.round(T/20));
+    B.rect(sx-u, sy-u, u*2, u, OP.lampPole);
+    B.rect(sx-Math.max(1,Math.round(u/2)), sy-u*6, Math.max(1,Math.round(u)), u*5, OP.lampPole);
+    B.rect(sx-u*2, sy-u*9, u*4, u*3, OP.lampT);
+    B.rect(sx-u*2+1, sy-u*9+1, u*4-2, u-1, "#FFFBE8");
+  }
+
+  /* ---------- figures ---------- */
+  const STAND = ["..hh..",".hhhh.",".ssss.",".eses.","lBBBBd",".BBBB.",".BBBB.",".p..p.",".p..p."];
+  const SIT   = ["......","..hh..",".hhhh.",".ssss.",".eses.","lBBBBd",".BBBB.",".pppp.","......"];
+  const TIRED = ["......","......","..hh..",".hhhh.",".sese.","lBBBBd",".BBBB.",".p..p.","......"];
+  function person(gx,gy,shirt,sat,mode,tag,seed){
+    const [sx,sy]=SC(gx,gy);
+    const rows = mode==="sit" ? SIT : mode==="tired" ? TIRED : STAND;
+    const hair = OP.hair[Math.abs(seed||0) % OP.hair.length];
+    const skin = OP.skin[Math.abs((seed||0)*7+3) % OP.skin.length];
+    const shade = c => "#"+[1,3,5].map(i=>Math.max(0,parseInt(c.substr(i,2),16)-58).toString(16).padStart(2,"0")).join("");
+    const lit   = c => "#"+[1,3,5].map(i=>Math.min(255,parseInt(c.substr(i,2),16)+34).toString(16).padStart(2,"0")).join("");
+    const MAP = {h:hair, s:skin, e:"#2A1F33", B:shirt, l:lit(shirt), d:shade(shirt), p:"#3B3050"};
+    const OUT = "#191030";
+    B.rect(sx-2.5*fig, sy, 5*fig, Math.max(1,Math.round(fig*0.5)), OP.shadow);
+    const ox0 = sx-3*fig, oy0 = sy-(rows.length*fig);
+    /* silhouette first, offset in four directions, so the figure reads against any floor */
+    for(const [dx,dy] of [[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,-1],[-1,1],[1,1]])
+      rows.forEach((row,j)=>row.split("").forEach((ch,i)=>{
+        if(MAP[ch]) B.rect(ox0+i*fig+dx, oy0+j*fig+dy, fig, fig, OUT);
+      }));
+    rows.forEach((row,j)=>row.split("").forEach((ch,i)=>{
+      const c = MAP[ch];
+      if(c) B.rect(ox0+i*fig, oy0+j*fig, fig, fig, c);
+    }));
+    if(sat!=null){
+      const mc = sat>=70?"#8BE04D":sat>=45?"#FFC542":"#FF6B6B";
+      B.rect(sx+fig*1.6, sy-(rows.length+1.5)*fig, Math.round(fig*1.9), Math.round(fig*1.9), OP.shadow);
+      B.rect(sx+fig*1.6+1, sy-(rows.length+1.5)*fig+1, Math.round(fig*1.9)-2, Math.round(fig*1.9)-2, mc);
+    }
+    if(tag) hots.push({x:sx-4*fig, y:sy-(rows.length+3)*fig, w:8*fig, h:(rows.length+4)*fig, tag});
+    return {sx, sy:sy-(rows.length*fig)};
+  }
+  /* ---------- thought bubble: pixel cloud in the buffer, real type on top ---------- */
+  const texts = [];
+  function bubble(sx, topY, icon, lines){
+    lines = lines || [];
+    const u = Math.max(2, Math.round(fig*0.55));
+    const CH = 3.05, LH = 7.4, PADX = 4, PADY = 4;          /* buffer px per char / per line */
+    const longest = lines.reduce((m,l)=>Math.max(m,l.length), 0);
+    const iconW = 8;
+    const W = Math.max(34, Math.round(longest*CH) + PADX*2 + iconW + 3);
+    const H = Math.max(20, Math.round(lines.length*LH) + PADY*2);
+    const bx = Math.max(3, Math.min(OP.BW-W-3, sx - Math.round(W/2)));
+    const by = Math.max(3, topY - H - u*3);
+    /* outline, then fill, with soft bumps top and bottom so it reads as a cloud */
+    B.rect(bx-1, by+3, W+2, H-6, OP.bubbleEdge);
+    B.rect(bx+3, by-1, W-6, H+2, OP.bubbleEdge);
+    B.rect(bx+1, by+1, W-2, H-2, OP.bubble);
+    B.rect(bx+4, by,   W-8, H,   OP.bubble);
+    /* tail */
+    B.rect(sx-u,   topY-u*3, u*2+2, u*2, OP.bubbleEdge);
+    B.rect(sx-u+1, topY-u*3+1, u*2, u*2-2, OP.bubble);
+    B.rect(sx-Math.round(u/2), topY-u, u+1, u, OP.bubbleEdge);
+    B.rect(sx-Math.round(u/2), topY-u, u, u-1, OP.bubble);
+    /* icon down the left of the bubble */
+    const ic = ICON[icon] || ICON.quest, iu = Math.max(1, Math.round(iconW/7));
+    const ox = bx + PADX, oy = by + Math.round((H - 7*iu)/2);
+    ic.g.forEach((row,j)=>row.split("").forEach((ch,i)=>{
+      const c = ic.c[ch]; if(c) B.rect(ox+i*iu, oy+j*iu, iu, iu, c);
+    }));
+    /* the words, as SVG text so they are actually legible */
+    const sc = OP.scale, tx0 = (bx + PADX + iconW + 3) * sc;
+    const ty0 = (by + PADY) * sc + 8;
+    lines.forEach((ln,i)=>{
+      texts.push('<text x="'+tx0+'" y="'+(ty0 + i*LH*sc)+'" fill="#241640" font-size="10.5" '+
+        'font-family="Rubik, sans-serif" font-weight="600">'+esc(ln)+'</text>');
+    });
+  }
+
+  const tired = S.energy < 30;
+  const act = activeClients().filter(c=>c.svc!=="group");
+  const inRoom = act.length ? act[S.totalWeeks % act.length] : null;
+  let capThought = null;
+
+  if(L.shelf) add(L.shelf[0], L.shelf[1], ()=>bookshelf(L.shelf));
+  if(L.lamp)  add(L.lamp[0],  L.lamp[1],  ()=>floorLamp(L.lamp));
+  add(L.desk[0], L.desk[1], ()=>deskSet(L.desk, S.officeId!=="tele"));
+
+  add(L.you[0], L.you[1], ()=>{
+    const r = person(L.you[0],L.you[1],OPAY.you,null,
+      S.officeId==="tele" ? (tired?"tired":"stand") : (tired?"tired":"sit"), null, 3);
+    if(tired) bubbles.push([r.sx, r.sy, "zzz", ["I have nothing","left this week."]]);
+  });
+  if(L.client && inRoom){
+    add(L.client[0], L.client[1], ()=>{
+      const r = person(L.client[0],L.client[1],OPAY[inRoom.payerKind]||OPAY.private,inRoom.sat,"sit",
+        {t:"client", id:inRoom.id}, inRoom.name.charCodeAt(0));
+      const th = officeThought(inRoom);
+      if(th){ bubbles.push([r.sx, r.sy, th.i, th.s]); capThought = {n:inRoom.name, t:th.t, tone:th.tone}; }
+    });
+    add(L.client[0]-0.6, L.client[1], ()=>armchair([L.client[0]-0.05,L.client[1]+0.35]));
+  }
+  if(L.sofa){
+    add(L.sofa[0], L.sofa[1], ()=>sofa(L.sofa));
+    S.inquiries.slice(0, L.wait.length).forEach((q,i)=>{
+      const w=L.wait[i];
+      add(w[0], w[1], ()=>{
+        person(w[0],w[1],OPAY[q.payerKind]||OPAY.private,null,"stand",{t:"inq",id:q.id}, q.name.charCodeAt(0));
+      });
+    });
+  }
+  if(L.groupC){
+    const g = S.groups[0], seats = g ? g.members.length : 0;
+    for(let i=0;i<8;i++){
+      const a=(i/8)*Math.PI*2 - Math.PI/2, gx=L.groupC[0]+Math.cos(a)*1.5, gy=L.groupC[1]+Math.sin(a)*1.05;
+      if(i<seats){
+        const c = S.clients.find(x=>x.id===g.members[i]);
+        add(gx, gy, ()=>{
+          person(gx,gy,OPAY.group,c?c.sat:60,"sit",c?{t:"client",id:c.id}:null, c?c.name.charCodeAt(0):i);
+        });
+      } else add(gx, gy, ()=>armchair([gx,gy]));
+    }
+  }
+  if(L.assocDesk && S.associates.length){
+    add(L.assocDesk[0], L.assocDesk[1], ()=>deskSet(L.assocDesk, false));
+    add(L.assoc[0], L.assoc[1], ()=>person(L.assoc[0],L.assoc[1],OPAY.assoc,null,"sit",null,11));
+  }
+  for(const p of (L.plant||[])) add(p[0], p[1], ()=>plantBig(p));
+
+  draws.sort((a,b)=>a.d-b.d).forEach(x=>x.fn());
+  for(const [bx,by,ic,ln] of bubbles) bubble(bx, by, ic, ln);
+
+  const sc = OP.scale;
+  let svg = '<svg viewBox="0 0 '+(OP.BW*sc)+' '+(OP.BH*sc)+'" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">';
+  svg += B.svg(sc) + texts.join("");
+  for(const h of hots)
+    svg += '<rect class="hot" x="'+(h.x*sc)+'" y="'+(h.y*sc)+'" width="'+(h.w*sc)+'" height="'+(h.h*sc)+
+           '" fill="rgba(255,255,255,0)" data-otag="'+h.tag.t+'" data-oid="'+h.tag.id+'"><title>'+
+           (h.tag.t==="client"?"Open this client":"Someone waiting to hear from you")+'</title></rect>';
+  officeScene.thought = capThought;
+  return svg + '</svg>';
+}
+
+let officeSig = null;
+function renderOffice(force){
+  const wrap = document.getElementById("officeWrap");
+  if(!wrap || wrap.hidden) return;
+  const act = activeClients().filter(c=>c.svc!=="group");
+  const inRoom = act.length ? act[S.totalWeeks % act.length] : null;
+  const g = S.groups[0];
+  const sig = [S.officeId, S.energy<30, inRoom?inRoom.id+":"+Math.round(inRoom.sat/8):"-",
+               S.inquiries.map(q=>q.payerKind).join(""), g?g.members.length:0,
+               S.associates.length, act.length].join("|");
+  if(sig === officeSig && !force) return;
+  officeSig = sig;
+
+  document.getElementById("officeScene").innerHTML = officeScene();
+
+  const seats = g ? g.members.length : 0;
+  const off = office(S.officeId);
+  let cap = '<span class="oc"><b>'+esc(off.name)+'</b></span><span class="oc">·</span>';
+  cap += inRoom
+    ? '<span class="oc"><span class="dot" style="background:'+(OPAY[inRoom.payerKind]||OPAY.private)+'"></span><b>'+esc(inRoom.name)+'</b> is in the room</span>'
+    : '<span class="oc">nobody in the room</span>';
+  if(S.inquiries.length) cap += '<span class="oc">· <b>'+S.inquiries.length+'</b> waiting to hear from you</span>';
+  if(seats) cap += '<span class="oc">· <span class="dot" style="background:'+OPAY.group+'"></span><b>'+seats+'</b> in the group</span>';
+  if(S.associates.length) cap += '<span class="oc">· <span class="dot" style="background:'+OPAY.assoc+'"></span>associate working</span>';
+  if(S.energy<30) cap += '<span class="oc" style="color:var(--red)">· you are running on empty</span>';
+  const th = officeScene.thought;
+  if(th) cap += '<span class="oc thought" style="flex-basis:100%;margin-top:5px;color:'+
+    (th.tone==="good"?"var(--lime)":"var(--orange)")+'">💭 <i>“'+esc(th.t)+'”</i> — '+esc(th.n)+'</span>';
+  document.getElementById("officeCap").innerHTML = cap;
+
+  wrap.querySelectorAll("[data-otag]").forEach(el => el.onclick = () => {
+    if(el.dataset.otag === "client") clientModal(el.dataset.oid);
+    else { TAB = "inbox"; renderPanel(); document.querySelector(".col-right").scrollIntoView({behavior:"smooth",block:"start"}); }
+  });
+}
+
+function setView(v){
+  const sw = document.querySelector(".sched-wrap"), ow = document.getElementById("officeWrap"),
+        cw = document.getElementById("caseWrap");
+  if(!sw || !ow || !cw) return;
+  S.flags.view = v;
+  sw.hidden = v !== "schedule";
+  ow.hidden = v !== "office";
+  cw.hidden = v !== "caseload";
+  document.querySelectorAll(".vt").forEach(b => b.classList.toggle("on", b.dataset.view === v));
+  if(v === "office") renderOffice(true);
+  if(v === "caseload") renderCaseload();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.querySelectorAll(".vt").forEach(b => b.onclick = () => setView(b.dataset.view));
+    setView((S && S.flags && S.flags.view) || "schedule");
+  }, 140);
+});
+</script>
+
+<style>
+  /* ===== upgraded schedule tiles ===== */
+  .slot.filled{background:#F0DFA6 !important; padding-left:10px; padding-bottom:7px;
+               box-shadow:inset 0 -2px 0 rgba(0,0,0,.10), 0 2px 0 rgba(0,0,0,.2); border-color:rgba(0,0,0,.26);}
+  .slot .edge{position:absolute; left:0; top:0; bottom:0; width:5px;}
+  .slot .satb{position:absolute; left:5px; right:0; bottom:0; height:5px; background:rgba(0,0,0,.20);}
+  .slot .satb i{display:block; height:100%;}
+  .slot .acts{position:absolute; left:5px; right:0; bottom:0; background:rgba(22,12,44,.96);
+              display:none; gap:3px; padding:4px 3px; justify-content:center; align-items:center; z-index:4;}
+  .slot.filled:hover .acts{display:flex;}
+  .slot .acts b{font-size:9px; font-weight:800; color:var(--white); background:var(--panel-line);
+                padding:3px 6px; border-radius:5px; line-height:1; cursor:pointer;}
+  .slot .acts b:hover{background:var(--violet); color:#1B0F33;}
+  .slot .acts b.x:hover{background:var(--red); color:#3A0B0B;}
+  .slot .acts span{font-size:9.5px; font-weight:800; color:var(--gold);}
+  @media (hover:none){ .slot .acts{display:none !important;} }
+
+  /* ===== caseload table ===== */
+  .cl-vitals{display:grid; grid-template-columns:repeat(auto-fit,minmax(122px,1fr)); gap:9px; margin-bottom:13px;}
+  .cl-vit{background:var(--panel-deep); border:2px solid var(--panel-line); border-radius:10px; padding:9px 11px;}
+  .cl-vit.warn{border-color:var(--red); background:rgba(255,107,107,.08);}
+  .cl-vit .k{font-size:8.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--dimmer); font-weight:800;}
+  .cl-vit .v{font-size:19px; font-weight:800; margin-top:2px; line-height:1;}
+  .cl-vit .n{font-size:9.5px; color:var(--dim); margin-top:3px;}
+  .cl-mix{display:flex; height:8px; border-radius:5px; overflow:hidden; margin-top:6px; border:1px solid var(--panel-line);}
+  .cl-mix i{display:block; height:100%;}
+
+  .cl-wrap{overflow-x:auto; border:2px solid var(--panel-line); border-radius:12px; background:var(--panel-deeper);}
+  table.cl{width:100%; border-collapse:collapse; font-size:12px; min-width:660px;}
+  table.cl th{font-size:8.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--dimmer); font-weight:800;
+              text-align:left; padding:8px 8px; border-bottom:2px solid var(--panel-line); white-space:nowrap;
+              cursor:pointer; user-select:none; position:sticky; top:0; background:var(--panel-deeper); z-index:2;}
+  table.cl th:hover{color:var(--white);}
+  table.cl th.on{color:var(--gold);}
+  table.cl td{padding:8px; border-bottom:1px solid rgba(255,255,255,.07); vertical-align:middle;}
+  table.cl tr.risk{background:rgba(255,107,107,.10);}
+  table.cl tr.well{background:rgba(139,224,77,.05);}
+  table.cl tr:hover{background:rgba(182,133,255,.12);}
+  .cl-nm{font-weight:800; font-size:12.5px; cursor:pointer;}
+  .cl-nm:hover{color:var(--violet);}
+  .cl-cn{font-size:10px; color:var(--dimmer);}
+  .cl-sat{height:8px; background:#120C26; border-radius:5px; overflow:hidden; border:1px solid var(--panel-line); min-width:60px;}
+  .cl-sat i{display:block; height:100%;}
+  .cl-step{display:inline-flex; align-items:center; gap:4px; background:var(--panel-deep);
+           border:1.5px solid var(--panel-line); border-radius:7px; padding:2px 4px;}
+  .cl-step b{font-size:12px; font-weight:800; min-width:40px; text-align:center; color:var(--gold);}
+  .cl-step span{width:17px; height:17px; border-radius:4px; background:var(--panel-line); color:var(--white);
+                font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; cursor:pointer;}
+  .cl-step span:hover{background:var(--gold); color:#3A2400;}
+  .cl-over{color:var(--red); font-size:9.5px; font-weight:700; margin-top:2px;}
+  .cl-act{background:transparent; border:1.5px solid #7A3A46; color:var(--red); font-size:10px; font-weight:800;
+          padding:4px 9px; border-radius:6px; white-space:nowrap; cursor:pointer;}
+  .cl-act:hover{background:var(--red); color:#3A0B0B;}
+  .cl-empty{text-align:center; color:var(--dimmer); font-size:12px; padding:30px 12px; line-height:1.7;}
+</style>
+
+<script>
+"use strict";
+/* ================================================================
+   CASELOAD — the practice as a roster, not a timetable
+   ================================================================ */
+const satCol = s => s>=70 ? "#8BE04D" : s>=45 ? "#FFC542" : "#FF6B6B";
+const satFace = s => s>=70 ? "😀" : s>=45 ? "😐" : "😞";
+
+function caseRows(){
+  return activeClients().map(c=>{
+    const fee = Math.round(effFee(c));
+    const remain = Math.max(0, c.planned - c.attended);
+    return { c, fee, remain, value: fee*remain, prog: c.planned ? c.attended/c.planned : 0,
+             over: c.payerKind==="private" && fee > c.willing ? fee - c.willing : 0 };
+  });
+}
+const CL_COLS = [
+  {k:"name",  t:"Client",        v:r=>r.c.name.toLowerCase()},
+  {k:"payer", t:"Payer",         v:r=>r.c.payerKind},
+  {k:"fee",   t:"Fee",           v:r=>r.fee},
+  {k:"prog",  t:"Progress",      v:r=>r.prog},
+  {k:"sat",   t:"Satisfaction",  v:r=>r.c.sat},
+  {k:"value", t:"Left to earn",  v:r=>r.value},
+];
+
+function renderCaseload(){
+  const wrap = document.getElementById("caseWrap");
+  if(!wrap || wrap.hidden) return;
+  const rows = caseRows();
+  const sort = S.flags.clSort || (S.flags.clSort = {k:"sat", dir:1});
+  const colDef = CL_COLS.find(c=>c.k===sort.k) || CL_COLS[4];
+  rows.sort((a,b)=>{ const x=colDef.v(a), y=colDef.v(b);
+    return (x<y?-1:x>y?1:0) * sort.dir; });
+
+  const n = rows.length;
+  const avg = n ? Math.round(rows.reduce((a,r)=>a+r.c.sat,0)/n) : 0;
+  const risk = rows.filter(r=>r.c.sat<45);
+  const riskRev = Math.round(risk.reduce((a,r)=>a+r.fee,0));
+  const weekly = Math.round(rows.reduce((a,r)=>a+r.fee,0));
+  const mix = {private:0, ins:0, sliding:0, group:0};
+  for(const r of rows) mix[r.c.svc==="group" ? "group" : r.c.payerKind]++;
+  const mixTot = Math.max(1, n);
+
+  let h = '<div class="cl-vitals">'+
+    '<div class="cl-vit"><div class="k">Active clients</div><div class="v">'+n+'</div>'+
+      '<div class="n">of '+clinicalCapacity()+' open hours</div></div>'+
+    '<div class="cl-vit"><div class="k">Average mood</div><div class="v" style="color:'+satCol(avg)+'">'+avg+'</div>'+
+      '<div class="cl-sat" style="margin-top:5px"><i style="width:'+avg+'%;background:'+satCol(avg)+'"></i></div></div>'+
+    '<div class="cl-vit'+(risk.length?" warn":"")+'"><div class="k">At risk</div>'+
+      '<div class="v" style="color:'+(risk.length?"var(--red)":"var(--lime)")+'">'+risk.length+'</div>'+
+      '<div class="n">'+(risk.length?"likely to leave soon":"nobody is drifting")+'</div></div>'+
+    '<div class="cl-vit'+(riskRev?" warn":"")+'"><div class="k">Income at risk</div>'+
+      '<div class="v" style="color:'+(riskRev?"var(--red)":"var(--lime)")+'">'+fmt0(riskRev)+'</div>'+
+      '<div class="n">per week, if they go</div></div>'+
+    '<div class="cl-vit"><div class="k">Billed weekly</div><div class="v" style="color:var(--gold)">'+fmt0(weekly)+'</div>'+
+      '<div class="n">before collection</div></div>'+
+    '<div class="cl-vit"><div class="k">Payer mix</div>'+
+      '<div class="v" style="font-size:13px">'+mix.private+' · '+mix.ins+' · '+mix.sliding+' · '+mix.group+'</div>'+
+      '<div class="cl-mix">'+
+        '<i style="width:'+(100*mix.private/mixTot)+'%;background:#FFC542"></i>'+
+        '<i style="width:'+(100*mix.ins/mixTot)+'%;background:#4DD9E8"></i>'+
+        '<i style="width:'+(100*mix.sliding/mixTot)+'%;background:#B685FF"></i>'+
+        '<i style="width:'+(100*mix.group/mixTot)+'%;background:#8BE04D"></i></div></div>'+
+  '</div>';
+
+  if(!n){
+    h += '<div class="cl-wrap"><div class="cl-empty">🪑 Nobody on the caseload yet.<br>'+
+         'Open the Inbox and take someone on.</div></div>';
+    wrap.innerHTML = h; return;
+  }
+
+  h += '<div class="cl-wrap"><table class="cl"><tr>'+
+    CL_COLS.map(c=>'<th class="'+(c.k===sort.k?"on":"")+'" data-clsort="'+c.k+'">'+c.t+
+      (c.k===sort.k ? (sort.dir>0?" ▲":" ▼") : "")+'</th>').join("")+
+    '<th></th></tr>';
+
+  for(const r of rows){
+    const c = r.c, cn = concern(c.concernId);
+    const cls = c.sat<45 ? "risk" : c.sat>=70 ? "well" : "";
+    h += '<tr class="'+cls+'">'+
+      '<td><div class="cl-nm" data-clopen="'+c.id+'">'+cn.ic+' '+esc(c.name)+'</div>'+
+        '<div class="cl-cn">'+esc(cn.name)+(c.svc==="couples"?" · couple":c.svc==="group"?" · group":"")+'</div></td>'+
+      '<td><span class="tagpill '+PAYTAG[c.payerKind]+'">'+
+        (c.payerKind==="ins"?esc(panel(c.payerId).name):c.payerKind==="sliding"?"sliding":"private")+'</span></td>'+
+      '<td>'+(c.payerKind==="private" && c.svc!=="group"
+        ? '<div class="cl-step"><span data-clfee="'+c.id+'" data-d="-5">−</span><b>$'+r.fee+'</b>'+
+          '<span data-clfee="'+c.id+'" data-d="5">+</span></div>'+
+          (r.over ? '<div class="cl-over">'+fmt0(r.over)+' over their ceiling</div>'
+                  : '<div class="cl-cn">ceiling $'+c.willing+'</div>')
+        : '<b style="color:var(--gold)">$'+r.fee+'</b><div class="cl-cn">'+
+          (c.svc==="group"?"group seat":c.payerKind==="ins"?"panel rate":"sliding scale")+'</div>')+'</td>'+
+      '<td><div class="cl-cn">'+c.attended+' of ~'+c.planned+'</div>'+
+        '<div class="cl-sat" style="min-width:50px"><i style="width:'+Math.round(100*r.prog)+'%;background:var(--violet)"></i></div></td>'+
+      '<td><div style="display:flex;align-items:center;gap:7px">'+
+        '<div class="cl-sat"><i style="width:'+Math.round(c.sat)+'%;background:'+satCol(c.sat)+'"></i></div>'+
+        '<b style="color:'+satCol(c.sat)+'">'+Math.round(c.sat)+'</b><span>'+satFace(c.sat)+'</span></div></td>'+
+      '<td><b>'+fmt0(r.value)+'</b><div class="cl-cn">'+r.remain+' left</div></td>'+
+      '<td><button class="cl-act" data-cldrop="'+c.id+'">Refer out</button></td></tr>';
+  }
+  h += '</table></div>';
+  wrap.innerHTML = h;
+
+  wrap.querySelectorAll("[data-clsort]").forEach(el => el.onclick = () => {
+    const k = el.dataset.clsort;
+    if(sort.k === k) sort.dir *= -1;                       /* same column: flip */
+    else { sort.k = k; sort.dir = (k === "name" || k === "sat") ? 1 : -1; }  /* new column: sensible default */
+    renderCaseload();
+  });
+  wrap.querySelectorAll("[data-clopen]").forEach(el => el.onclick = () => clientModal(el.dataset.clopen));
+  wrap.querySelectorAll("[data-clfee]").forEach(el => el.onclick = () => {
+    const c = S.clients.find(x=>x.id===el.dataset.clfee); if(!c) return;
+    reprice(c.id, clamp(c.lockedRate + (+el.dataset.d), 60, 400));
+    renderCaseload();
+  });
+  wrap.querySelectorAll("[data-cldrop]").forEach(el => el.onclick = () => {
+    const c = S.clients.find(x=>x.id===el.dataset.cldrop); if(!c) return;
+    if(confirm("Refer "+c.name+" out to another therapist?\n\nThey leave your caseload this week and it costs you a little reputation."))
+      { dropClient(c.id); renderCaseload(); }
+  });
+}
+</script>
+
+</body>
+</html>

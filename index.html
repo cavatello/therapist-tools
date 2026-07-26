@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>California Therapy Practice Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;background:#FBF9F3;}
+  #root{min-height:100vh;}
+  .boot{font-family:Inter,system-ui,sans-serif;color:#7C766A;padding:60px 24px;text-align:center;font-size:14px;}
+</style>
+</head>
+<body>
+<div id="root"><div class="boot">Loading your planner…</div></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/prop-types@15/prop-types.min.js"></script>
+<script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+<script src="./app.js"></script>
+<script>
+  (function () {
+    var el = document.getElementById('root');
+    function fail(msg) {
+      el.innerHTML = '<div class="boot">Could not load: ' + msg + '</div>';
+    }
+    if (!window.React || !window.ReactDOM) return fail('React unavailable');
+    if (!window.Recharts) return fail('Charts library unavailable');
+    if (typeof PracticeIncomePlanner !== 'function') return fail('App bundle unavailable');
+    try {
+      ReactDOM.createRoot(el).render(React.createElement(PracticeIncomePlanner));
+    } catch (e) {
+      fail(e.message);
+    }
+  })();
+</script>
+</body>
+</html>
