@@ -3429,6 +3429,31 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         "Rate and caseload figures apply your current take-home rate of ", Math.round(keepRate * 100),
         "% to the extra billing — a simplification, since more income can push you into a higher bracket. The S-corp figure is net of the running costs you entered."));
   })();
+  const step1Done = taxAge > 0 && retireAge > 0 && investReturn > 0;
+  const returnPresets = /*#__PURE__*/React.createElement("div", {className: "retpresets"},
+    /*#__PURE__*/React.createElement("span", {className: "retpresets-lab"}, "Expected return — pick a starting point:"),
+    [{v: 11, t: "11% — S&P 500, 20yr to 2025", s: "what the market actually did"},
+     {v: 8.3, t: "8.3% — same, after inflation", s: "what it bought"},
+     {v: 5.9, t: "5.9% — Schwab 10yr forecast", s: "what the houses expect next"}
+    ].map(o => /*#__PURE__*/React.createElement("button", {
+      key: o.v, type: "button",
+      className: "retchip" + (Math.abs(investReturn - o.v) < 0.05 ? " on" : ""),
+      onClick: () => setInvestReturn(o.v)
+    }, /*#__PURE__*/React.createElement("b", null, o.t), /*#__PURE__*/React.createElement("span", null, o.s))),
+    /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+      "The last 20 years returned 11% a year. Schwab and Vanguard currently forecast 4–6% for the next decade. Projecting decades at 11% is the optimistic case, not the expected one — which is why this is yours to set."));
+  const step1Lock = /*#__PURE__*/React.createElement("section", {className: "card steplock"},
+    /*#__PURE__*/React.createElement("div", {className: "steplock-n"}, "2"),
+    /*#__PURE__*/React.createElement("div", null,
+      /*#__PURE__*/React.createElement("h2", null, "Sole Proprietorship vs Professional Corp"),
+      /*#__PURE__*/React.createElement("p", null,
+        "Locked until Step 1 is filled in. Everything in this comparison — the retirement projections, the Social Security estimate, the invest-the-difference maths — depends on your age, when you plan to retire, and what return you assume. Without them the figures would be invented."),
+      /*#__PURE__*/React.createElement("div", {className: "steplock-need"},
+        [["Your current age", taxAge > 0], ["Planned retirement age", retireAge > 0], ["Expected annual return", investReturn > 0]]
+          .map(([lbl, ok]) => /*#__PURE__*/React.createElement("span", {
+            key: lbl, className: "steplock-item" + (ok ? " ok" : "")
+          }, ok ? "✓ " : "○ ", lbl))),
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"}, "Fill those in just above and this section opens.")));
   const recGood = !salaryUnset && netDiff > 2000;
   const recBad = !salaryUnset && netDiff < -500;
   const recColor = salaryUnset ? "#C98B4B" : recGood ? "#3F9577" : recBad ? "#B5483F" : "#C98B4B";
@@ -3842,7 +3867,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship / single-member LLC (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, taxProfileSection, businessStructureSection, statsRow, strategiesSection, compareSection, entityCompareSection, seEducation, scorpSection, caSection, analysisSection, leversPanel);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, returnPresets, taxProfileSection, !step1Done && step1Lock, step1Done && businessStructureSection, step1Done && statsRow, step1Done && strategiesSection, step1Done && compareSection, step1Done && entityCompareSection, step1Done && seEducation, step1Done && scorpSection, step1Done && caSection, step1Done && analysisSection, step1Done && leversPanel);
 }
 
 function FunnelTab({
@@ -4847,6 +4872,26 @@ const CSS = `
 .keep-cta{display:inline-block; background:#3F9577; color:#fff; text-decoration:none; font-size:13.5px; font-weight:600; padding:9px 18px; border-radius:8px;}
 .keep-cta:hover{background:#357F65;}
 .levers-empty .card-head p{color:#7C766A;}
+
+/* ===== step 1 gate ===== */
+.retpresets{border:1px solid #E7E2D6; border-radius:12px; background:#fff; padding:16px 18px; margin:0 0 16px;}
+.retpresets-lab{display:block; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:#7C766A; font-weight:600; margin-bottom:10px;}
+.retchip{display:inline-block; text-align:left; border:1px solid #E7E2D6; background:#fff; border-radius:9px; padding:9px 13px; margin:0 8px 8px 0; cursor:pointer; font-family:Inter,sans-serif; color:#26241E;}
+.retchip b{display:block; font-size:13.5px;}
+.retchip span{display:block; font-size:12px; color:#7C766A;}
+.retchip:hover{border-color:#C98B4B;}
+.retchip.on{border:2px solid #3F9577; background:#F7FBF9;}
+.retchip.on span{color:#2C6B53;}
+.steplock{display:flex; gap:16px; align-items:flex-start;
+  background:repeating-linear-gradient(45deg,#FCFAF4,#FCFAF4 12px,#F7F3EA 12px,#F7F3EA 24px);
+  border:1px dashed #D9D1BE;}
+.steplock-n{flex:0 0 34px; height:34px; border-radius:50%; background:#F6F2E8; border:1px solid #E7E2D6;
+  display:flex; align-items:center; justify-content:center; font-family:Fraunces,Georgia,serif; font-weight:600;}
+.steplock h2{font-family:Fraunces,Georgia,serif; font-size:20px; margin:2px 0 8px;}
+.steplock p{margin:0 0 12px; color:#5C574C; font-size:14px; line-height:1.6; max-width:640px;}
+.steplock-need{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;}
+.steplock-item{font-size:13px; padding:6px 12px; border-radius:20px; border:1px solid #E7E2D6; background:#fff; color:#7C766A;}
+.steplock-item.ok{border-color:#3F9577; color:#2C6B53; background:#EAF3EE; font-weight:600;}
 
 /* ===== levers ===== */
 .levers .lever{display:flex; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid #F1EDE3; flex-wrap:wrap;}
