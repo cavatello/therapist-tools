@@ -125,20 +125,81 @@ function computePIA(monthlyAIME) {
   }
   return pia;
 }
+// ---------------------------------------------------------------------------
+// Column identity. Every place in the Tax Strategy section that compares the
+// two structures uses these two colours and nothing else, so a reader can tell
+// which column they are looking at without reading the header again. Neither
+// colour may be green or red - those stay reserved for better/worse verdicts.
+// ---------------------------------------------------------------------------
+const ENT_A = {
+  key: "sole_prop",
+  name: "Sole Proprietorship",
+  short: "Sole Prop",
+  ch: "S",
+  slug: "a",
+  ink: "#3B5A7A",
+  tint: "#EFF4F9",
+  tintOn: "#E1ECF6",
+  line: "#BFD3E5"
+};
+const ENT_B = {
+  key: "s_corp",
+  name: "Professional Corp",
+  short: "Prof Corp",
+  ch: "C",
+  slug: "b",
+  ink: "#6A4A78",
+  tint: "#F5EFF8",
+  tintOn: "#EDE1F3",
+  line: "#D4C3DD"
+};
+const ENT_OF = { sole_prop: ENT_A, s_corp: ENT_B };
+// A small colour-coded name tag. Used inline in prose, on cards, in headings -
+// anywhere a structure is named outside the table itself.
+function entTag(e, opts) {
+  opts = opts || {};
+  return /*#__PURE__*/React.createElement("span", {
+    className: "enttag" + (opts.solid ? " enttag-solid" : "") + (opts.sm ? " enttag-sm" : ""),
+    style: opts.solid
+      ? { background: e.ink, borderColor: e.ink }
+      : { color: e.ink, background: e.tint, borderColor: e.line }
+  }, /*#__PURE__*/React.createElement("i", {
+    style: opts.solid ? null : { background: e.ink }
+  }, e.ch), opts.full ? e.name : e.short);
+}
+
+const SS_FRA_AGE = 67; // full retirement age, everyone born 1960 or later
+
 const RETIRE_2026 = {
   ira: {
     under50: 7500,
     over50: 8600
   },
   solo401k: {
-    employeeUnder50: 24000,
-    employee50to59: 31500,
-    employee60to63: 34500,
-    employee64plus: 31500,
-    overallCapUnder50: 71000,
-    overallCap50plus: 78500,
-    overallCap60to63: 81750,
+    employeeUnder50: 24500,
+    employee50to59: 32500,
+    employee60to63: 35750,
+    employee64plus: 32500,
+    overallCapUnder50: 72000,
+    overallCap50plus: 80000,
+    overallCap60to63: 83250,
     employerPct: 0.20
+  },
+  // IRS Notice 2025-67. 415(c) annual additions $72,000; 401(a)(17) comp cap $360,000.
+  sep: {
+    dcCap: 72000,
+    compCap: 360000,
+    corpPct: 0.25,
+    solePct: 0.20
+  },
+  // Notice 2025-67: general SIMPLE deferral $17,000; $18,100 for employers with
+  // 25 or fewer employees (SECURE 2.0 s.117) - which a solo practice always is.
+  simple: {
+    deferral: 17000,
+    deferralSmallEmployer: 18100,
+    catchUp50: 4000,
+    catchUp60to63: 5250,
+    matchPct: 0.03
   },
   traditionalIraPhaseOut: {
     single: [81000, 91000],
@@ -1332,6 +1393,46 @@ function PracticeIncomePlanner() {
       conversionTax: taxableOnConversion * marginalRate,
       futureValue: fvAnnuity(iraCap)
     };
+    // ---- SEP IRA -----------------------------------------------------
+    // Employer-funded only: no employee deferral, no catch-up at any age.
+    // A corporation contributes 25% of W-2 wages; a sole proprietor's 25% of
+    // post-contribution profit works out to 20% of net SE earnings, which is
+    // why the same plan gives the two structures different room.
+    const sepCompBase = Math.min(netSEEarnings, RETIRE_2026.sep.compCap);
+    const sepPct = entityTypeArg === "s_corp" ? RETIRE_2026.sep.corpPct : RETIRE_2026.sep.solePct;
+    const sepContrib = Math.max(0, Math.min(sepPct * sepCompBase, RETIRE_2026.sep.dcCap));
+    const sepIra = {
+      compBase: sepCompBase,
+      pct: sepPct,
+      pctLabel: entityTypeArg === "s_corp" ? "25% of W-2 wages" : "20% of net self-employment earnings",
+      total: sepContrib,
+      taxSavings: sepContrib * marginalRate,
+      futureValue: fvAnnuity(sepContrib),
+      vsSolo: sepContrib - solo401kTotal
+    };
+
+    // ---- SIMPLE IRA --------------------------------------------------
+    // A solo practice always has 25 or fewer employees, so the higher
+    // SECURE 2.0 s.117 deferral applies. Employer must match 3% of pay.
+    // Cannot be run in the same year as a Solo 401(k) - it is one or the other.
+    const simpleDeferralCap = RETIRE_2026.simple.deferralSmallEmployer
+      + (taxAge >= 60 && taxAge <= 63 ? RETIRE_2026.simple.catchUp60to63
+         : taxAge >= 50 ? RETIRE_2026.simple.catchUp50 : 0);
+    const simpleCompBase = netSEEarnings;
+    const simpleDeferral = Math.max(0, Math.min(simpleDeferralCap, simpleCompBase));
+    const simpleMatch = Math.max(0, RETIRE_2026.simple.matchPct * simpleCompBase);
+    const simpleTotal = simpleDeferral + simpleMatch;
+    const simpleIra = {
+      deferralCap: simpleDeferralCap,
+      deferral: simpleDeferral,
+      match: simpleMatch,
+      compBase: simpleCompBase,
+      total: simpleTotal,
+      taxSavings: simpleTotal * marginalRate,
+      futureValue: fvAnnuity(simpleTotal),
+      vsSolo: simpleTotal - solo401kTotal
+    };
+
     // Social Security impact: only wages (not distributions) earn SS credit.
     // Simplified steady-state projection: assumes this earnings pattern for
     // up to 35 years (SSA always divides by 420 months, even with fewer
@@ -1343,6 +1444,16 @@ function PracticeIncomePlanner() {
     const scorpAIME = scorpCreditedEarnings * yearsForAIME / 420;
     const solePIA = computePIA(soleAIME);
     const scorpPIA = computePIA(scorpAIME);
+    // The other half of the trade-off: the payroll tax you did not pay is real
+    // money you could have invested. Model it honestly - contribute the annual
+    // saving every year until retirement at the user's own assumed return, then
+    // draw it down at 4% a year, and compare that draw with the benefit given up.
+    const ssPayroll = payrollSplit(Math.max(0, soleForSSCompare.schedC), sCorpSalaryInput);
+    const annualPayrollSaved = Math.max(0, ssPayroll.saved);
+    const investedFV = fvAnnuity(annualPayrollSaved);
+    const investedDrawAnnual = investedFV * 0.04;
+    const annualGapV = (solePIA - scorpPIA) * 12;
+    const ssRetireYears = Math.max(0, 90 - SS_FRA_AGE);
     const socialSecurity = {
       soleCreditedEarnings,
       scorpCreditedEarnings,
@@ -1352,7 +1463,17 @@ function PracticeIncomePlanner() {
       soleAnnualPIA: solePIA * 12,
       scorpAnnualPIA: scorpPIA * 12,
       monthlyGap: solePIA - scorpPIA,
-      annualGap: (solePIA - scorpPIA) * 12
+      annualGap: annualGapV,
+      fraAge: SS_FRA_AGE,
+      lifetimeYears: ssRetireYears,
+      soleLifetime: solePIA * 12 * ssRetireYears,
+      scorpLifetime: scorpPIA * 12 * ssRetireYears,
+      lifetimeGap: annualGapV * ssRetireYears,
+      annualPayrollSaved,
+      investedFV,
+      investedDrawAnnual,
+      investWins: investedDrawAnnual > annualGapV,
+      investMargin: investedDrawAnnual - annualGapV
     };
     return {
       netSEEarnings,
@@ -1360,6 +1481,8 @@ function PracticeIncomePlanner() {
       marginalRate: marginalRate,
       yearsToRetire,
       solo401k,
+      sepIra,
+      simpleIra,
       traditionalIra,
       rothIra,
       backdoorRoth,
@@ -2077,13 +2200,21 @@ function PracticeIncomePlanner() {
     value: fmt(cur.grossYr),
     accent: "#26241E",
     note: secondaryOn || retreatOn ? [`therapy ${fmt(cur.grossTherYr)}`, secondaryOn ? `secondary ${fmt(cur.secondaryYr)}` : null, retreatOn ? `retreats ${fmt(cur.retreatYr)}` : null].filter(Boolean).join(" + ") : `at $${rate}/hr · ${sessions} sessions/wk`
-  }), /*#__PURE__*/React.createElement(Stat, {
+  }), cur.expYr <= 0 && /*#__PURE__*/React.createElement("div", {
+    className: "stat statpend"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "stat-label"
+  }, "Net per year"), /*#__PURE__*/React.createElement("div", {
+    className: "stat-value sm"
+  }, "not yet"), /*#__PURE__*/React.createElement("div", {
+    className: "stat-note"
+  }, "What you keep depends on your expenses and your business structure \u2014 neither is entered yet. Add your costs in Expenses below, then pick a structure in Tax Strategy, and the full picture appears there rather than being guessed at here.")), cur.expYr > 0 && /*#__PURE__*/React.createElement(Stat, {
     big: true,
     label: secondaryOn || retreatOn ? "Combined net / year" : "Net per year",
     value: fmt(cur.netYr),
     accent: d.color,
     note: `take-home ${fmt(cur.netMo)}/mo · ${fmt(cur.netWk)}/wk`
-  }), /*#__PURE__*/React.createElement("div", {
+  }), cur.expYr > 0 && /*#__PURE__*/React.createElement("div", {
     className: "stat-col"
   }, /*#__PURE__*/React.createElement(Stat, {
     label: "Expenses / year",
@@ -2597,7 +2728,7 @@ function PracticeIncomePlanner() {
     href: href
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 25, 2026")));
+  }, "Last updated: July 26, 2026")));
 }
 
 // ---------- small components ----------
@@ -3013,17 +3144,27 @@ const seEducation = (function () {
   const recNetProfit = Math.max(1, scorpGrossBasis - scorpExpBasis);
   const psplit = payrollSplit(recNetProfit, sCorpSalaryInput);
   const runCostTotal = (payrollSvcCost || 0) + (corpReturnCost || 0) + (statementOfInfoCost || 0);
+  // -------------------------------------------------------------------------
+  // THE COMPARISON. One table, two structures, always both, always the same
+  // two colours. Sole Prop is ENT_A (blue), Professional Corp is ENT_B (plum).
+  // Green and red are never used for a column - only for the Difference verdict.
+  // -------------------------------------------------------------------------
+  const ssCmp = strategySoleProp.socialSecurity;   // entity-independent by construction
+  const soleSep = strategySoleProp.sepIra, corpSep = strategySCorp.sepIra;
+  const soleSimple = strategySoleProp.simpleIra, corpSimple = strategySCorp.simpleIra;
+
   const structureRows = [{
     label: "Net practice profit",
-    hint: "Where both paths start \u2014 your structure cannot change what you billed",
+    hint: "Where both paths start — your structure cannot change what you billed",
     sole: recNetProfit,
     scorp: recNetProfit,
     big: true
   }, {
-    grp: "How the money reaches you \u2014 the whole difference in one place"
+    grp: "How the money reaches you",
+    grpSub: "the whole difference, in one place"
   }, {
     label: "Owner's draw",
-    hint: "Not a wage. No W-2, no payroll \u2014 a sole proprietor cannot employ themselves.",
+    hint: "Not a wage. No W-2, no payroll — a sole proprietor cannot employ themselves.",
     sole: recNetProfit,
     scorp: 0
   }, {
@@ -3033,37 +3174,42 @@ const seEducation = (function () {
     scorp: sCorpSalaryInput
   }, {
     label: "Distribution",
-    hint: "No payroll tax \u2014 and earns no Social Security credit",
+    hint: "No payroll tax — and earns no Social Security credit",
     sole: 0,
     scorp: psplit.distribution
   }, {
-    grp: "The tax side \u2014 this year"
+    grp: "Tax this year",
+    grpSub: "federal, California and payroll"
   }, {
     label: "Net take-home",
     hint: "After every tax and the CA entity fee",
     sole: soleFullYear.net,
     scorp: sCorpFullYear.net,
-    big: true
+    big: true,
+    cmp: true
   }, {
     label: "Total tax",
     hint: "Federal + CA + payroll, all in",
     sole: soleFullYear.totalTax,
     scorp: sCorpFullYear.totalTax,
-    lowerBetter: true
+    lowerBetter: true,
+    cmp: true
   }, {
     label: "Self-employment + payroll tax",
-    hint: "SE tax plus FICA on any salary, employer half included \u2014 the piece an S-corp split targets",
+    hint: "SE tax plus FICA on any salary, employer half included — the piece an S-corp split targets",
     sole: soleFullYear.seTax + soleFullYear.ssW2 + soleFullYear.medW2 + soleFullYear.employerPayrollTax,
     scorp: sCorpFullYear.seTax + sCorpFullYear.ssW2 + sCorpFullYear.medW2 + sCorpFullYear.employerPayrollTax,
-    lowerBetter: true
+    lowerBetter: true,
+    cmp: true
   }, {
     label: "CA entity fee",
-    hint: "$800 minimum franchise tax, corporations only",
+    hint: "California charges an S-corp the greater of $800 or 1.5% of net income. A sole proprietor pays neither.",
     sole: soleFullYear.caEntityTax,
     scorp: sCorpFullYear.caEntityTax,
     lowerBetter: true
   }, {
-    grp: "Running the corporation \u2014 what it costs to operate"
+    grp: "Running the corporation",
+    grpSub: "what the paperwork costs — zero on the left, by definition"
   }, {
     label: "Payroll service",
     hint: "Filing your own W-2 and the quarterly returns. Zero until you enter a figure above.",
@@ -3072,7 +3218,7 @@ const seEducation = (function () {
     lowerBetter: true
   }, {
     label: "Corporate return prep",
-    hint: "Form 1120-S and CA Form 100S \u2014 a return a sole proprietor does not file at all",
+    hint: "Form 1120-S and CA Form 100S — a return a sole proprietor does not file at all",
     sole: 0,
     scorp: corpReturnCost || 0,
     lowerBetter: true
@@ -3086,123 +3232,307 @@ const seEducation = (function () {
     label: "Net take-home after running costs",
     hint: runCostTotal > 0
       ? "The figure that actually reaches you, once the paperwork is paid for"
-      : "Same as above until you enter your running costs \u2014 so this currently flatters the corporation",
+      : "Same as above until you enter your running costs — so this currently flatters the corporation",
     sole: soleFullYear.net,
     scorp: sCorpFullYear.net - runCostTotal,
-    big: true
+    big: true,
+    cmp: true
   }, {
-    grp: "Retirement room it unlocks"
+    grp: "Retirement room it unlocks",
+    grpSub: "all five plans, both structures — you pick one plan, not all of them"
   }, {
-    label: "Solo 401(k) \u2014 total contribution",
-    hint: "20% of SE earnings vs. 25% of W-2 salary",
+    label: "Solo 401(k) — total contribution",
+    hint: "Employee deferral either way; the employer share is 20% of net SE earnings vs. 25% of W-2 salary",
     sole: strategySoleProp.solo401k.total,
-    scorp: strategySCorp.solo401k.total
+    scorp: strategySCorp.solo401k.total,
+    cmp: true
   }, {
-    label: "Solo 401(k) \u2014 immediate tax savings",
+    label: "Solo 401(k) — immediate tax savings",
     sole: strategySoleProp.solo401k.taxSavings,
     scorp: strategySCorp.solo401k.taxSavings
   }, {
-    label: "Traditional IRA \u2014 deductible amount",
+    label: "SEP IRA — total contribution",
+    hint: "Employer money only — no deferral, no catch-up at any age. 20% of net SE earnings vs. 25% of W-2 wages, capped at $72,000.",
+    sole: soleSep.total,
+    scorp: corpSep.total,
+    cmp: true
+  }, {
+    label: "SEP IRA — immediate tax savings",
+    sole: soleSep.taxSavings,
+    scorp: corpSep.taxSavings
+  }, {
+    label: "SIMPLE IRA — total contribution",
+    hint: "Deferral up to $18,100 plus a mandatory 3% employer match. Lower ceiling than the other two, and it cannot run alongside a Solo 401(k) in the same year.",
+    sole: soleSimple.total,
+    scorp: corpSimple.total,
+    cmp: true
+  }, {
+    label: "SIMPLE IRA — immediate tax savings",
+    sole: soleSimple.taxSavings,
+    scorp: corpSimple.taxSavings
+  }, {
+    label: "Traditional IRA — deductible amount",
+    hint: "Stacks on top of a workplace plan, but the deduction phases out sooner because you have one",
     sole: strategySoleProp.traditionalIra.deductibleAmount,
     scorp: strategySCorp.traditionalIra.deductibleAmount
   }, {
-    label: "Roth IRA \u2014 eligible amount",
+    label: "Roth IRA — eligible amount",
     sole: strategySoleProp.rothIra.eligibleAmount,
     scorp: strategySCorp.rothIra.eligibleAmount
   }, {
-    label: "Backdoor Roth \u2014 taxable on conversion",
-    hint: "Lower is better here",
+    label: "Backdoor Roth — taxable on conversion",
+    hint: "Lower is better here. A SEP or SIMPLE balance counts as pre-tax IRA money and makes this worse.",
     sole: strategySoleProp.backdoorRoth.taxableOnConversion,
     scorp: strategySCorp.backdoorRoth.taxableOnConversion,
     lowerBetter: true
+  }, {
+    grp: "Social Security you are earning",
+    grpSub: "only wages and self-employment earnings count — distributions earn nothing"
+  }, {
+    label: "Earnings credited this year",
+    hint: "Capped at the " + fmt0(SS_WAGE_BASE_2026) + " wage base. For the corporation this is your salary and nothing else.",
+    sole: ssCmp.soleCreditedEarnings,
+    scorp: ssCmp.scorpCreditedEarnings,
+    cmp: true
+  }, {
+    label: "Estimated monthly benefit at 67",
+    hint: "If this year's earnings pattern held for " + ssCmp.yearsForAIME + " years. An approximation, not an SSA statement.",
+    sole: ssCmp.soleMonthlyPIA,
+    scorp: ssCmp.scorpMonthlyPIA,
+    cmp: true
+  }, {
+    label: "A year of benefit at 67",
+    sole: ssCmp.soleAnnualPIA,
+    scorp: ssCmp.scorpAnnualPIA,
+    cmp: true
+  }, {
+    label: "Lifetime benefit, 67 to 90",
+    hint: "Today's dollars, not discounted, and before any cost-of-living increases",
+    sole: ssCmp.soleLifetime,
+    scorp: ssCmp.scorpLifetime,
+    big: true,
+    cmp: true
+  }, {
+    grp: "The other side of that trade",
+    grpSub: "the payroll tax you skipped is real money — what if you invested it instead?"
+  }, {
+    label: "Payroll tax not paid, this year",
+    hint: "The saving the whole strategy exists to capture",
+    sole: 0,
+    scorp: ssCmp.annualPayrollSaved,
+    cmp: true
+  }, {
+    label: "That saving invested every year to retirement",
+    hint: "At your " + investReturn + "% assumed return, for " + strategySoleProp.yearsToRetire + " years",
+    sole: 0,
+    scorp: ssCmp.investedFV
+  }, {
+    label: "What that pot pays out, per year at 4%",
+    hint: "Compare this directly with the benefit you gave up two rows above",
+    sole: 0,
+    scorp: ssCmp.investedDrawAnnual,
+    big: true
   }];
-  const structureColHead = (val, title, sub) => /*#__PURE__*/React.createElement("th", {
-    className: "struct-col" + (entityType === val ? " struct-col-on" : ""),
-    scope: "col"
+
+  const COLS = [ENT_A, ENT_B];
+  const structureColHead = e => /*#__PURE__*/React.createElement("th", {
+    className: "cmp-h cmp-side-" + e.slug + (entityType === e.key ? " cmp-on" : ""),
+    scope: "col",
+    style: {background: entityType === e.key ? e.tintOn : e.tint, borderTopColor: e.ink}
   }, /*#__PURE__*/React.createElement("button", {
     type: "button",
-    className: "struct-colbtn",
-    "aria-pressed": entityType === val,
-    onClick: () => setEntityType(val)
+    className: "cmp-hbtn",
+    "aria-pressed": entityType === e.key,
+    onClick: () => setEntityType(e.key)
   }, /*#__PURE__*/React.createElement("span", {
-    className: "struct-coltitle"
-  }, title), /*#__PURE__*/React.createElement("span", {
-    className: "struct-colsub"
-  }, sub), /*#__PURE__*/React.createElement("span", {
-    className: "struct-colpick"
-  }, entityType === val ? "\u2713 planning as this" : "Plan as this")));
-  const structureBody = structureRows.map(r => r.grp ? /*#__PURE__*/React.createElement("tr", {
-    key: r.grp,
-    className: "struct-grp"
-  }, /*#__PURE__*/React.createElement("td", {
-    colSpan: 4
-  }, r.grp)) : /*#__PURE__*/React.createElement("tr", {
-    key: r.label,
-    className: r.big ? "struct-big" : ""
-  }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("span", {
-    className: "struct-lbl"
-  }, r.label), r.hint && /*#__PURE__*/React.createElement("span", {
-    className: "struct-hint"
-  }, r.hint)), /*#__PURE__*/React.createElement("td", {
-    className: "num-head" + (entityType === "sole_prop" ? " struct-cell-on" : "")
-  }, fmt0(r.sole)), /*#__PURE__*/React.createElement("td", {
-    className: "num-head" + (entityType === "s_corp" ? " struct-cell-on" : "")
-  }, fmt0(r.scorp)), /*#__PURE__*/React.createElement("td", {
-    className: "num-head " + (r.scorp - r.sole === 0 ? "" : (r.lowerBetter ? r.scorp < r.sole : r.scorp > r.sole) ? "pos" : "neg")
-  }, r.scorp - r.sole === 0 ? "\u2014" : (r.scorp - r.sole > 0 ? "+" : "\u2212") + fmt0(Math.abs(r.scorp - r.sole)))));
+    className: "cmp-hname",
+    style: {color: e.ink}
+  }, /*#__PURE__*/React.createElement("i", {
+    className: "cmp-chip",
+    style: {background: e.ink}
+  }, e.ch), e.name), /*#__PURE__*/React.createElement("span", {
+    className: "cmp-hsub"
+  }, e.key === "sole_prop" ? "no payroll, no entity fee, no extra return" : "S-corp election, salary + distribution"), /*#__PURE__*/React.createElement("span", {
+    className: "cmp-hpick",
+    style: entityType === e.key ? {color: "#fff", background: e.ink, borderColor: e.ink} : {color: e.ink, borderColor: e.line}
+  }, entityType === e.key ? "✓ planning as this" : "Plan as this")));
+
+  const cellFor = (e, r, val, isWin) => /*#__PURE__*/React.createElement("td", {
+    className: "cmp-cell cmp-side-" + e.slug + (entityType === e.key ? " cmp-on" : "") + (isWin ? " cmp-win" : ""),
+    "data-lab": e.name,
+    style: {background: entityType === e.key ? e.tintOn : e.tint, borderLeftColor: e.line}
+  }, isWin ? /*#__PURE__*/React.createElement("i", {className: "cmp-wintick", title: "the better of the two on this row"}, "▸") : null,
+     /*#__PURE__*/React.createElement("span", {className: "cmp-v"}, fmt0(val)));
+
+  const structureBody = structureRows.map(r => {
+    if (r.grp) {
+      return /*#__PURE__*/React.createElement("tr", {key: r.grp, className: "cmp-grp"},
+        /*#__PURE__*/React.createElement("td", null,
+          /*#__PURE__*/React.createElement("b", null, r.grp),
+          r.grpSub ? /*#__PURE__*/React.createElement("span", null, r.grpSub) : null),
+        COLS.map(e => /*#__PURE__*/React.createElement("td", {
+          key: e.ch,
+          className: "cmp-grpcol cmp-side-" + e.slug,
+          style: {color: e.ink, background: e.tint, borderLeftColor: e.line}
+        }, /*#__PURE__*/React.createElement("i", {style: {background: e.ink}}, e.ch), e.short)),
+        /*#__PURE__*/React.createElement("td", {className: "cmp-grpdiff"}, "vs"));
+    }
+    const d = r.scorp - r.sole;
+    const corpAhead = r.lowerBetter ? r.scorp < r.sole : r.scorp > r.sole;
+    const showWin = !!r.cmp && Math.abs(d) > 0.5;
+    return /*#__PURE__*/React.createElement("tr", {
+      key: r.label,
+      className: "cmp-row" + (r.big ? " cmp-big" : "")
+    }, /*#__PURE__*/React.createElement("td", {className: "cmp-l"},
+      /*#__PURE__*/React.createElement("span", {className: "cmp-lbl"}, r.label),
+      r.hint ? /*#__PURE__*/React.createElement("span", {className: "cmp-hint"}, r.hint) : null),
+      cellFor(ENT_A, r, r.sole, showWin && !corpAhead),
+      cellFor(ENT_B, r, r.scorp, showWin && corpAhead),
+      /*#__PURE__*/React.createElement("td", {
+        className: "cmp-d " + (Math.abs(d) < 0.5 ? "" : corpAhead ? "pos" : "neg"),
+        "data-lab": "Difference"
+      }, Math.abs(d) < 0.5 ? "—" : (d > 0 ? "+" : "−") + fmt0(Math.abs(d))));
+  });
+
+  const cmpLegend = /*#__PURE__*/React.createElement("div", {className: "cmp-legend"},
+    COLS.map(e => /*#__PURE__*/React.createElement("button", {
+      key: e.ch,
+      type: "button",
+      className: "cmp-legcard" + (entityType === e.key ? " on" : ""),
+      onClick: () => setEntityType(e.key),
+      style: {borderColor: entityType === e.key ? e.ink : e.line, background: entityType === e.key ? e.tintOn : e.tint}
+    }, /*#__PURE__*/React.createElement("span", {className: "cmp-legtop"},
+        /*#__PURE__*/React.createElement("i", {className: "cmp-chip", style: {background: e.ink}}, e.ch),
+        /*#__PURE__*/React.createElement("b", {style: {color: e.ink}}, e.name)),
+       /*#__PURE__*/React.createElement("span", {className: "cmp-legsub"},
+         e.key === "sole_prop"
+           ? "One person, no payroll, no separate return. The default until you file to change it."
+           : "A California professional corporation that has elected S-corp tax treatment. Pays you a salary."),
+       /*#__PURE__*/React.createElement("span", {className: "cmp-legnum"},
+         e.key === "sole_prop" ? fmt0(soleFullYear.net) : fmt0(sCorpFullYear.net - runCostTotal),
+         /*#__PURE__*/React.createElement("small", null, "take-home after everything")),
+       /*#__PURE__*/React.createElement("span", {
+         className: "cmp-legpick",
+         style: entityType === e.key ? {background: e.ink, color: "#fff", borderColor: e.ink} : {color: e.ink, borderColor: e.line}
+       }, entityType === e.key ? "✓ planning as this" : "Plan as this"))));
+
+  const ssVerdict = /*#__PURE__*/React.createElement("div", {
+    className: "cmp-verdict",
+    style: {borderLeftColor: ssCmp.investWins ? "#3F9577" : "#C98B4B"}
+  }, /*#__PURE__*/React.createElement("b", null,
+      ssCmp.annualPayrollSaved <= 0
+        ? "Set a salary above to see this trade-off with your own numbers."
+        : ssCmp.investWins
+          ? "On your assumptions, investing the saving beats the Social Security you give up."
+          : "On your assumptions, the Social Security you give up is worth more than investing the saving."),
+    ssCmp.annualPayrollSaved > 0 ? /*#__PURE__*/React.createElement("span", null,
+      " Skipping ", /*#__PURE__*/React.createElement("b", null, fmt0(ssCmp.annualPayrollSaved)),
+      " of payroll tax a year and investing it at ", investReturn, "% for ",
+      strategySoleProp.yearsToRetire, " years builds ", /*#__PURE__*/React.createElement("b", null, fmt0(ssCmp.investedFV)),
+      ", which draws ", /*#__PURE__*/React.createElement("b", null, fmt0(ssCmp.investedDrawAnnual)),
+      " a year at 4%. The benefit you gave up is ", /*#__PURE__*/React.createElement("b", null, fmt0(ssCmp.annualGap)),
+      " a year — a difference of ", /*#__PURE__*/React.createElement("b", {className: ssCmp.investWins ? "pos" : "neg"},
+        fmt0(Math.abs(ssCmp.investMargin))), ssCmp.investWins ? " in favour of investing." : " in favour of the benefit.",
+      " Change the return at the top of this section and this can flip — that sensitivity is the honest answer.") : null);
+
   const entityCompareSection = /*#__PURE__*/React.createElement("section", {
-    className: "card"
+    className: "card cmp"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Both structures, side by side"), /*#__PURE__*/React.createElement("p", null, "Tax and retirement for Sole Proprietorship and a Professional Corp with an S-corp election, always both, on the same income. Picking one only highlights a column \u2014 the other stays visible so you can see what the choice costs or gains. The S-corp salary above drives the right-hand column.")), /*#__PURE__*/React.createElement("div", {
-    className: "table-wrap"
-  }, /*#__PURE__*/React.createElement("table", {
-    className: "struct-table"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", {
-    scope: "col"
-  }, ""), structureColHead("sole_prop", "Sole Proprietorship", "no payroll, no entity fee"), structureColHead("s_corp", "Professional Corp", "S-corp election"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head",
-    scope: "col"
-  }, "Difference"))), /*#__PURE__*/React.createElement("tbody", null, structureBody))), /*#__PURE__*/React.createElement("p", {
-    className: "pay-note"
-  }, "\u201CDifference\u201D is the Professional Corp column measured against Sole Proprietorship \u2014 green where the corp is ahead, red where it costs more. Solo 401(k) room is computed differently by entity (20% of net self-employment earnings vs. 25% of W-2 salary), which is why those two rows can diverge before any SE-tax saving is counted."))
+  }, /*#__PURE__*/React.createElement("h2", null, "Both structures, side by side"),
+     /*#__PURE__*/React.createElement("p", null, "Every figure below is shown for both structures on the same practice income. Blue is always Sole Proprietorship, plum is always the Professional Corp — the same two colours everywhere in this section. Picking one only highlights its column; the other stays visible so you can see what the choice costs or gains.")),
+    cmpLegend,
+    /*#__PURE__*/React.createElement("div", {className: "cmp-wrap"},
+      /*#__PURE__*/React.createElement("table", {className: "cmp-table"},
+        /*#__PURE__*/React.createElement("colgroup", null,
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-l"}),
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-a"}),
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-b"}),
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-d"})),
+        /*#__PURE__*/React.createElement("thead", null,
+          /*#__PURE__*/React.createElement("tr", null,
+            /*#__PURE__*/React.createElement("th", {scope: "col", className: "cmp-h-l"}, ""),
+            structureColHead(ENT_A),
+            structureColHead(ENT_B),
+            /*#__PURE__*/React.createElement("th", {className: "cmp-h-d", scope: "col"},
+              /*#__PURE__*/React.createElement("span", null, "Difference"),
+              /*#__PURE__*/React.createElement("small", null, "corp vs. sole")))),
+        /*#__PURE__*/React.createElement("tbody", null, structureBody))),
+    ssVerdict,
+    /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+      "“Difference” is the Professional Corp column measured against Sole Proprietorship — green where the corp is ahead, red where it costs more, and ▲ marks the better of the two on rows where one genuinely is better. Retirement rows show what each plan would allow, not a recommendation to open all of them: a Solo 401(k) and a SIMPLE IRA cannot both run in the same year, and a SEP or SIMPLE balance is pre-tax IRA money that makes a backdoor Roth worse. Social Security figures assume this year's earnings pattern repeats and use 2026 bend points, which in reality lock in at age 62 — treat them as an approximation of the gap, not a benefit statement."))
+
   const entityToggle = /*#__PURE__*/React.createElement("div", {
-    className: "residency-toggle",
-    style: {
-      marginBottom: 4
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "pill" + (entityType === "sole_prop" ? " pill-on" : ""),
-    style: entityType === "sole_prop" ? {
-      background: color,
-      borderColor: color
-    } : {},
-    onClick: () => setEntityType("sole_prop")
-  }, "Sole Proprietorship"), /*#__PURE__*/React.createElement("button", {
-    className: "pill" + (entityType === "s_corp" ? " pill-on" : ""),
-    style: entityType === "s_corp" ? {
-      background: color,
-      borderColor: color
-    } : {},
-    onClick: () => setEntityType("s_corp")
-  }, "Professional Corp (S-corp election)"));
+    className: "entpick"
+  }, /*#__PURE__*/React.createElement("span", {className: "entpick-lab"}, "Planning as"),
+     [ENT_A, ENT_B].map(e => /*#__PURE__*/React.createElement("button", {
+       key: e.key,
+       type: "button",
+       className: "entpick-btn" + (entityType === e.key ? " on" : ""),
+       "aria-pressed": entityType === e.key,
+       style: entityType === e.key
+         ? {background: e.ink, borderColor: e.ink, color: "#fff"}
+         : {background: e.tint, borderColor: e.line, color: e.ink},
+       onClick: () => setEntityType(e.key)
+     }, /*#__PURE__*/React.createElement("i", {
+       className: "cmp-chip",
+       style: {background: entityType === e.key ? "rgba(255,255,255,.3)" : e.ink}
+     }, e.ch), e.key === "sole_prop" ? "Sole Proprietorship" : "Professional Corp (S-corp election)")));
+  // One physical control for the whole strategy: drag salary left for more
+  // distribution (more saving, more exposure), right for more salary (safer,
+  // less saving). Both ends are labelled with what that direction costs.
+  const salaryPct = recNetProfit > 0 ? Math.min(1, Math.max(0, sCorpSalaryInput / recNetProfit)) : 0;
+  const sliderBand = salaryBandFor(sCorpSalaryInput, recNetProfit);
   const salaryInputRow = /*#__PURE__*/React.createElement("div", {
-    className: "funnel-input-grid",
-    style: {
-      gridTemplateColumns: "260px",
-      margin: "10px 0 16px"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "funnel-input-field"
-  }, /*#__PURE__*/React.createElement("label", null, "S-corp salary (W-2 wages)"), /*#__PURE__*/React.createElement("span", {
-    className: "funnel-input-hint"
-  }, "Drives the Professional Corp column on both comparisons below \u2014 editable whichever structure you've picked."), /*#__PURE__*/React.createElement("input", {
-    type: "number",
-    min: 0,
-    step: 1000,
-    value: sCorpSalaryInput,
-    onChange: e => setSCorpSalaryInput(+e.target.value || 0)
-  })));
+    className: "salsplit",
+    style: {borderColor: ENT_B.line, background: ENT_B.tint}
+  }, /*#__PURE__*/React.createElement("div", {className: "salsplit-head"},
+      /*#__PURE__*/React.createElement("span", {className: "salsplit-title"},
+        entTag(ENT_B, {sm: true}), " How you split the profit"),
+      /*#__PURE__*/React.createElement("span", {className: "salsplit-note"},
+        "Sole proprietors have no split to make — this control only affects the plum column.")),
+    /*#__PURE__*/React.createElement("div", {className: "salsplit-bar"},
+      /*#__PURE__*/React.createElement("i", {
+        className: "salsplit-w2",
+        style: {width: (salaryPct * 100) + "%", background: ENT_B.ink}
+      }, salaryPct > 0.14 ? /*#__PURE__*/React.createElement("span", null, "W-2 SALARY ", fmt0(sCorpSalaryInput)) : null),
+      /*#__PURE__*/React.createElement("i", {
+        className: "salsplit-dist",
+        style: {width: ((1 - salaryPct) * 100) + "%"}
+      }, (1 - salaryPct) > 0.14 ? /*#__PURE__*/React.createElement("span", null, "DISTRIBUTION ", fmt0(Math.max(0, recNetProfit - sCorpSalaryInput))) : null)),
+    /*#__PURE__*/React.createElement("input", {
+      className: "salsplit-range",
+      type: "range",
+      min: 0,
+      max: Math.max(1000, Math.round(recNetProfit)),
+      step: 1000,
+      value: Math.min(sCorpSalaryInput, Math.max(1000, Math.round(recNetProfit))),
+      "aria-label": "W-2 salary",
+      onChange: e => setSCorpSalaryInput(+e.target.value || 0)
+    }),
+    /*#__PURE__*/React.createElement("div", {className: "salsplit-ends"},
+      /*#__PURE__*/React.createElement("span", null,
+        /*#__PURE__*/React.createElement("b", null, "← more distribution"),
+        "saves more payroll tax · harder to defend · less Social Security"),
+      /*#__PURE__*/React.createElement("span", {className: "r"},
+        /*#__PURE__*/React.createElement("b", null, "more salary →"),
+        "safer if audited · costs 15.3% · earns Social Security")),
+    /*#__PURE__*/React.createElement("div", {className: "salsplit-foot"},
+      /*#__PURE__*/React.createElement("label", null, "Or type it:",
+        /*#__PURE__*/React.createElement("input", {
+          type: "number",
+          min: 0,
+          step: 1000,
+          value: sCorpSalaryInput,
+          onChange: e => setSCorpSalaryInput(+e.target.value || 0)
+        })),
+      sliderBand ? /*#__PURE__*/React.createElement("span", {
+        className: "salsplit-band",
+        style: {background: sliderBand.color}
+      }, sliderBand.label, sCorpSalaryInput > 0 ? " · " + Math.floor(salaryPct * 100) + "% of profit" : "") : null,
+      /*#__PURE__*/React.createElement("span", {className: "salsplit-saving"},
+        psplit.saved > 0 ? fmt0(psplit.saved) + " of payroll tax avoided" : "no saving yet")));
+
 const netDiff = sCorpFullYear.net - soleFullYear.net;
   // An S-corp paying $0 salary is not a lawful option, so it must never be "recommended".
   const salaryUnset = !(sCorpSalaryInput > 0);
@@ -3429,6 +3759,90 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         "Rate and caseload figures apply your current take-home rate of ", Math.round(keepRate * 100),
         "% to the extra billing — a simplification, since more income can push you into a higher bracket. The S-corp figure is net of the running costs you entered."));
   })();
+  // What people who do this for a living actually say. Named sources, real
+  // links, and an honest note about the statistic that does not exist.
+  const expertSection = /*#__PURE__*/React.createElement("details", {
+    className: "card collapsible expert"
+  }, /*#__PURE__*/React.createElement("summary", {className: "card-head"},
+      /*#__PURE__*/React.createElement("h2", null, "What the lawyers and accountants actually say"),
+      /*#__PURE__*/React.createElement("p", null,
+        "Three named sources who work with California therapists specifically — where they agree, where they disagree with each other, and the one statistic everybody asks for that nobody publishes.")),
+    /*#__PURE__*/React.createElement("div", {className: "expert-q"},
+      /*#__PURE__*/React.createElement("div", {className: "expert-who"},
+        /*#__PURE__*/React.createElement("b", null, "Michael J. Leonard, Esq."),
+        /*#__PURE__*/React.createElement("span", null, "San Diego Corporate Law · California business attorney")),
+      /*#__PURE__*/React.createElement("p", null,
+        "Comes down firmly on the corporation: a Professional Marriage and Family Therapy Corporation electing S-corp treatment is, in his words, ",
+        /*#__PURE__*/React.createElement("i", null, "“the California business entity of choice for marriage and family therapists”"),
+        " — on the strength of both the payroll-tax split and the separation of business debts from personal assets."),
+      /*#__PURE__*/React.createElement("div", {className: "expert-caveat"},
+        /*#__PURE__*/React.createElement("b", null, "The part people skip: "),
+        "he is equally clear that incorporating does ", /*#__PURE__*/React.createElement("b", null, "not"),
+        " shield you from your own malpractice. California therapists remain ",
+        /*#__PURE__*/React.createElement("i", null, "“personally liable for their own malpractice or professional misconduct, which liability cannot be shielded by any business entity”"),
+        ". A corporation protects you from the landlord, not from a licensing board complaint. Malpractice insurance is what covers the clinical risk, and it does that whichever structure you pick."),
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        extLink("https://sdcorporatelaw.com/business-newsletter/sole-proprietorship-vs-professional-marriage-and-family-therapy-corporation-in-california/",
+          "Sole Proprietorship vs Professional Marriage and Family Therapy Corporation in California"))),
+    /*#__PURE__*/React.createElement("div", {className: "expert-q"},
+      /*#__PURE__*/React.createElement("div", {className: "expert-who"},
+        /*#__PURE__*/React.createElement("b", null, "Heard"),
+        /*#__PURE__*/React.createElement("span", null, "accounting firm working only with therapists")),
+      /*#__PURE__*/React.createElement("p", null,
+        "Sets a floor rather than a rule: on the basis of doing the books for thousands of therapy practices they recommend ",
+        /*#__PURE__*/React.createElement("b", null, "$100,000 of annual net income"),
+        " before an S-corp election is worth making, and put the ongoing cost of running one at roughly ",
+        /*#__PURE__*/React.createElement("b", null, "$4,400 a year"),
+        " in extra bookkeeping, payroll and filing fees. Their worked California example — $150,000 of income — nets about ",
+        /*#__PURE__*/React.createElement("b", null, "$6,310 a year"),
+        " after those costs. Their Georgia example at $80,000 ", /*#__PURE__*/React.createElement("b", {className: "neg"}, "loses $1,340"), "."),
+      /*#__PURE__*/React.createElement("div", {className: "expert-yours"},
+        recNetProfit > 1
+          ? /*#__PURE__*/React.createElement("span", null,
+              "Your net profit is ", /*#__PURE__*/React.createElement("b", null, fmt0(recNetProfit)), " — ",
+              recNetProfit >= 100000
+                ? /*#__PURE__*/React.createElement("b", {className: "pos"}, "above their threshold.")
+                : /*#__PURE__*/React.createElement("b", {className: "neg"}, "below their threshold."),
+              " This tool puts the election at ", /*#__PURE__*/React.createElement("b", null, fmt0(Math.max(0, netDiff - runCostTotal))),
+              " a year net of the running costs you entered",
+              runCostTotal <= 0 ? " — and you have entered none, so that figure is currently the best case, not the likely one." : ".")
+          : /*#__PURE__*/React.createElement("span", null, "Enter your income and expenses to see where you sit against that threshold.")),
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        extLink("https://www.joinheard.com/articles/how-much-do-therapists-really-save-by-switching-to-an-s-corp",
+          "How Much Do Therapists Really Save With an S Corp?"), " · ",
+        extLink("https://www.joinheard.com/articles/the-complete-guide-to-s-corporations-for-therapists",
+          "The Complete S Corp Guide for Private Practice Therapists"))),
+    /*#__PURE__*/React.createElement("div", {className: "expert-q"},
+      /*#__PURE__*/React.createElement("div", {className: "expert-who"},
+        /*#__PURE__*/React.createElement("b", null, "The IRS"),
+        /*#__PURE__*/React.createElement("span", null, "the only opinion that is binding")),
+      /*#__PURE__*/React.createElement("p", null,
+        "Publishes no percentage and never has. The requirement is that an officer performing more than minor services be paid ",
+        /*#__PURE__*/React.createElement("b", null, "reasonable compensation"),
+        " for the work actually done, before any distribution. The “50% of profit” figure repeated across every private-practice blog is a practitioner convention that has no standing in an audit — what gets defended is a salary you can tie to what a comparable clinician is paid."),
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        extLink("https://www.irs.gov/pub/irs-news/fs-08-25.pdf", "IRS Fact Sheet FS-2008-25 — Wage Compensation for S Corporation Officers"))),
+    /*#__PURE__*/React.createElement("div", {className: "expert-nodata"},
+      /*#__PURE__*/React.createElement("h4", null, "The statistic nobody has"),
+      /*#__PURE__*/React.createElement("p", null,
+        "How do California LMFTs actually file? There is no reliable public answer, and it is worth being blunt about that rather than repeating a number someone made up. IRS Statistics of Income breaks returns out by entity type and by broad industry, not by professional licence. The BBS licenses therapists but does not ask how they are taxed. CAMFT does not appear to publish a tax-structure survey."),
+      /*#__PURE__*/React.createElement("p", null,
+        "The closest thing that exists is Heard's ", /*#__PURE__*/React.createElement("b", null, "Financial State of Private Practice"),
+        " report — now in its fourth year, surveying nearly 2,000 therapists across all 50 states. It is genuinely useful on money: median practice revenue of ",
+        /*#__PURE__*/React.createElement("b", null, "$80,412"), " in 2025, up 18% year over year; about ",
+        /*#__PURE__*/React.createElement("b", null, "$105"), " a session on insurance against roughly ",
+        /*#__PURE__*/React.createElement("b", null, "$150"), " private pay; only ",
+        /*#__PURE__*/React.createElement("b", null, "33%"), " of therapists raised their fees at all in 2025; and taxes named the number-one business headache by ",
+        /*#__PURE__*/React.createElement("b", null, "53.6%"), " of respondents. What it does not publish is the entity mix — so anyone telling you what share of therapists have incorporated is guessing."),
+      /*#__PURE__*/React.createElement("p", null,
+        "One number is worth holding next to your own: that ", /*#__PURE__*/React.createElement("b", null, "$80,412"),
+        " median is below Heard's own $100,000 S-corp threshold. For most therapists in the country, on that evidence, the answer to this entire section is “not yet” — which is not what a page devoted to the comparison naturally implies, so it is said plainly here."),
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        extLink("https://www.joinheard.com/resources/downloads/the-heard-2026-financial-state-of-private-practice-report",
+          "The Heard 2026 Financial State of Private Practice Report"))),
+    /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+      "These are other people's published views, quoted because they are named, findable and specific — not endorsements, and not advice about your situation. Two of the three sell a service related to the answer they give, which is worth holding in mind. A California CPA or business attorney looking at your actual numbers is the only way to settle it."));
+
   const step1Done = taxAge > 0 && retireAge > 0 && investReturn > 0;
   const returnPresets = /*#__PURE__*/React.createElement("div", {className: "retpresets"},
     /*#__PURE__*/React.createElement("span", {className: "retpresets-lab"}, "Expected return — pick a starting point:"),
@@ -3482,7 +3896,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       lineHeight: 1.7,
       margin: "0 0 12px"
     }
-  }, "As a sole proprietor, ", /*#__PURE__*/React.createElement("b", null, "all"), " of your profit is taxed at the 15.3% self-employment rate. A Professional Corp lets you split profit into a ", /*#__PURE__*/React.createElement("b", null, "salary"), " (taxed at 15.3%, same as before) and a ", /*#__PURE__*/React.createElement("b", null, "distribution"), " (taxed at 0% self-employment tax). That split is the whole reason this choice exists."), /*#__PURE__*/React.createElement("p", {
+  }, "As a ", entTag(ENT_A, {sm: true}), ", ", /*#__PURE__*/React.createElement("b", null, "all"), " of your profit is taxed at the 15.3% self-employment rate. A ", entTag(ENT_B, {sm: true}), " lets you split profit into a ", /*#__PURE__*/React.createElement("b", null, "salary"), " (taxed at 15.3%, same as before) and a ", /*#__PURE__*/React.createElement("b", null, "distribution"), " (taxed at 0% self-employment tax). That split is the whole reason this choice exists."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 14,
       lineHeight: 1.7,
@@ -3865,9 +4279,9 @@ const ssSection = (function () {
     className: "card-head"
   }, /*#__PURE__*/React.createElement("h2", null, "What this means for you")), /*#__PURE__*/React.createElement("p", null, recommendation, rothNote), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
-  }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship / single-member LLC (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
+  }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, returnPresets, taxProfileSection, !step1Done && step1Lock, step1Done && businessStructureSection, step1Done && entityCompareSection, step1Done && leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, returnPresets, taxProfileSection, !step1Done && step1Lock, step1Done && businessStructureSection, step1Done && entityCompareSection, step1Done && expertSection, step1Done && leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -4998,36 +5412,201 @@ const CSS = `
   .runcost-row input{width:100%;}
 }
 
-/* ===== Both structures, side by side ===== */
-.struct-table{width:100%; border-collapse:collapse;}
-.struct-table th{padding:0 0 10px; vertical-align:bottom;}
-.struct-col{width:22%; padding:0 4px !important;}
-.struct-colbtn{display:flex; flex-direction:column; gap:2px; width:100%; text-align:left;
-  font-family:inherit; cursor:pointer; background:#fff; border:1.5px solid var(--line);
-  border-radius:10px; padding:9px 12px; transition:border-color .15s, background .15s;}
-.struct-colbtn:hover{background:#FCFAF4; border-color:#C9A876;}
-.struct-col-on .struct-colbtn{background:#F3F7F4; border-color:var(--pos); border-width:2px;}
-.struct-coltitle{font-family:'Fraunces',serif; font-weight:700; font-size:14px; color:var(--ink); line-height:1.15;}
-.struct-colsub{font-size:10px; color:var(--muted); line-height:1.25;}
-.struct-colpick{font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
-  color:var(--muted); margin-top:3px;}
-.struct-col-on .struct-colpick{color:var(--pos);}
-.struct-table tbody td{padding:10px 8px; border-top:1px solid var(--line); font-size:14px; vertical-align:top;}
-.struct-lbl{display:block; font-weight:600; font-size:13.5px;}
-.struct-hint{display:block; font-size:11px; color:var(--muted); margin-top:2px; line-height:1.35;}
-.struct-grp td{background:#F6F2E8; font-size:10px; font-weight:700; text-transform:uppercase;
-  letter-spacing:.07em; color:var(--muted); padding:7px 10px !important; border-top:1px solid var(--line);}
-.struct-cell-on{background:#F3F7F4;}
-.struct-big td{font-size:15px;}
-.struct-big .num-head{font-family:'Fraunces',serif; font-weight:700; font-size:19px;}
-.struct-table .num-head.pos{color:var(--pos);}
-.struct-table .num-head.neg{color:var(--neg);}
-@media (max-width:720px){
-  .struct-table{font-size:12.5px;}
-  .struct-coltitle{font-size:12px;}
-  .struct-colsub,.struct-colpick{display:none;}
-  .struct-table tbody td{padding:8px 5px;}
-  .struct-big .num-head{font-size:16px;}
+/* =========================================================================
+   THE SOLE PROP vs PROFESSIONAL CORP COMPARISON
+   Two column identities, used identically everywhere in the Tax Strategy
+   section. Blue = Sole Proprietorship. Plum = Professional Corp.
+   Green and red are reserved exclusively for better/worse verdicts, so a
+   column colour can never be mistaken for a judgement about that column.
+   ========================================================================= */
+
+.statpend{background:#FCFAF4 !important; border-style:dashed !important;}
+.statpend .stat-value{color:var(--muted) !important; font-style:italic;}
+.statpend .stat-note{line-height:1.5;}
+
+/* named-source commentary */
+.expert-q{border-top:1px solid var(--line); padding:16px 0 4px;}
+.expert-q:first-of-type{border-top:none;}
+.expert-who{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:7px;}
+.expert-who b{font-family:'Fraunces',serif; font-size:16px;}
+.expert-who span{font-size:11.5px; color:var(--muted);}
+.expert-q p{font-size:14px; line-height:1.65; margin:0 0 10px;}
+.expert-q i{color:var(--ink);}
+.expert-caveat{background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 8px 8px 0;
+  padding:11px 14px; font-size:13.5px; line-height:1.6; margin:0 0 10px;}
+.expert-yours{background:#FCFAF4; border:1px dashed var(--line); border-radius:8px;
+  padding:10px 13px; font-size:13.5px; line-height:1.6; margin:0 0 10px;}
+.expert-nodata{background:#F6F2E8; border-radius:12px; padding:16px 18px; margin-top:16px;}
+.expert-nodata h4{font-family:'Fraunces',serif; font-size:16px; margin:0 0 9px;}
+.expert-nodata p{font-size:13.5px; line-height:1.65; margin:0 0 10px;}
+.expert-nodata p:last-of-type{margin-bottom:0;}
+
+/* the salary / distribution split, as one draggable control */
+.salsplit{border:2px solid; border-radius:14px; padding:15px 17px 14px; margin:14px 0 18px;}
+.salsplit-head{display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  flex-wrap:wrap; margin-bottom:12px;}
+.salsplit-title{display:inline-flex; align-items:center; gap:8px; font-family:'Fraunces',serif;
+  font-weight:700; font-size:15.5px;}
+.salsplit-note{font-size:11.5px; color:var(--muted); line-height:1.4;}
+.salsplit-bar{display:flex; height:36px; border-radius:9px; overflow:hidden; border:1px solid #D4C3DD;}
+.salsplit-bar i{display:flex; align-items:center; justify-content:center; font-style:normal;
+  transition:width .12s ease; min-width:0;}
+.salsplit-w2 span{color:#fff; font-size:10.5px; font-weight:800; letter-spacing:.05em; white-space:nowrap;}
+.salsplit-dist{background:repeating-linear-gradient(135deg,#EDE1F3 0 7px,#E3D3EC 7px 14px);}
+.salsplit-dist span{color:#6A4A78; font-size:10.5px; font-weight:800; letter-spacing:.05em; white-space:nowrap;}
+.salsplit-range{width:100%; margin:11px 0 3px; accent-color:#6A4A78; cursor:pointer;}
+.salsplit-ends{display:flex; justify-content:space-between; gap:18px; font-size:11px;
+  color:var(--muted); line-height:1.4;}
+.salsplit-ends span{display:flex; flex-direction:column; max-width:47%;}
+.salsplit-ends span.r{text-align:right; align-items:flex-end;}
+.salsplit-ends b{color:#6A4A78; font-size:11.5px; margin-bottom:1px;}
+.salsplit-foot{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:13px;
+  padding-top:12px; border-top:1px solid #D4C3DD;}
+.salsplit-foot label{display:inline-flex; align-items:center; gap:7px; font-size:12px;
+  font-weight:600; color:var(--muted);}
+.salsplit-foot input{font:inherit; font-family:'Fraunces',serif; font-size:17px; font-weight:600;
+  width:118px; text-align:right; border:1.5px solid #E4D9BE; background:#FBF6E9; border-radius:8px;
+  padding:5px 9px; color:var(--ink);}
+.salsplit-band{color:#fff; font-size:10.5px; font-weight:800; text-transform:uppercase;
+  letter-spacing:.05em; border-radius:20px; padding:4px 11px;}
+.salsplit-saving{margin-left:auto; font-family:'Fraunces',serif; font-weight:700; font-size:14px;
+  color:#3F9577;}
+@media (max-width:760px){
+  .salsplit-saving{margin-left:0;}
+  .salsplit-ends{font-size:10px;}
+}
+
+/* the structure picker - same two colours as the table columns */
+.entpick{display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:16px;}
+.entpick-lab{font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.07em;
+  color:var(--muted);}
+.entpick-btn{display:inline-flex; align-items:center; gap:8px; font:inherit; font-weight:700;
+  font-size:14px; padding:9px 16px 9px 9px; cursor:pointer; border:2px solid; border-radius:24px;
+  transition:all .14s ease;}
+.entpick-btn:hover{filter:brightness(.97);}
+
+/* the inline name tag, used in prose and on cards outside the table */
+.enttag{display:inline-flex; align-items:center; gap:5px; border:1px solid; border-radius:20px;
+  padding:2px 9px 2px 3px; font-size:11.5px; font-weight:700; line-height:1.5; white-space:nowrap;
+  vertical-align:baseline;}
+.enttag i{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px;
+  border-radius:50%; color:#fff; font-size:9px; font-weight:800; font-style:normal;}
+.enttag-solid{color:#fff;}
+.enttag-solid i{background:rgba(255,255,255,.28) !important;}
+.enttag-sm{font-size:10.5px; padding:1px 7px 1px 2px;}
+.enttag-sm i{width:13px; height:13px; font-size:8px;}
+
+/* ---- the two identity cards above the table ---- */
+.cmp-legend{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:4px 0 18px;}
+.cmp-legcard{display:flex; flex-direction:column; gap:7px; text-align:left; font:inherit;
+  cursor:pointer; border:2px solid; border-radius:14px; padding:15px 16px 14px;
+  transition:border-color .15s, background .15s, transform .12s;}
+.cmp-legcard:hover{transform:translateY(-1px);}
+.cmp-legtop{display:flex; align-items:center; gap:8px;}
+.cmp-legtop b{font-family:'Fraunces',serif; font-size:17px; letter-spacing:-.01em; line-height:1.15;}
+.cmp-legsub{font-size:12px; line-height:1.5; color:var(--muted);}
+.cmp-legnum{font-family:'Fraunces',serif; font-weight:700; font-size:23px; color:var(--ink);
+  display:flex; flex-direction:column; margin-top:auto; padding-top:6px;}
+.cmp-legnum small{font-family:'Inter',sans-serif; font-weight:600; font-size:10px; color:var(--muted);
+  text-transform:uppercase; letter-spacing:.06em; margin-top:2px;}
+.cmp-legpick{align-self:flex-start; font-size:10.5px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.05em; border:1.5px solid; border-radius:20px; padding:4px 11px; margin-top:4px;}
+.cmp-chip{display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px;
+  border-radius:50%; color:#fff; font-size:11px; font-weight:800; font-style:normal; flex-shrink:0;}
+
+/* ---- the table ---- */
+.cmp-wrap{overflow:visible;}
+.cmp-table{width:100%; border-collapse:separate; border-spacing:0;}
+.cmp-table th{padding:0; vertical-align:bottom;}
+.cmp-h-l{width:36%;}
+.cmp-col-a,.cmp-col-b{width:21%;}
+.cmp-col-d{width:15%;}
+
+/* sticky header - sits just under the sticky jump-nav, never over it */
+.cmp-table thead th{position:sticky; top:70px; z-index:8;}
+.cmp-h{border-top:4px solid; border-left:1px solid; border-right:1px solid transparent;
+  border-radius:12px 12px 0 0; padding:0 !important; overflow:hidden;}
+.cmp-h-l,.cmp-h-d{background:var(--bg);}
+.cmp-hbtn{display:flex; flex-direction:column; gap:3px; width:100%; text-align:left; font:inherit;
+  cursor:pointer; background:transparent; border:0; padding:11px 12px 12px;}
+.cmp-hname{display:flex; align-items:center; gap:7px; font-family:'Fraunces',serif; font-weight:700;
+  font-size:14.5px; line-height:1.15; letter-spacing:-.01em;}
+.cmp-hsub{font-size:10.5px; color:var(--muted); line-height:1.3;}
+.cmp-hpick{align-self:flex-start; margin-top:4px; font-size:9.5px; font-weight:800;
+  text-transform:uppercase; letter-spacing:.05em; border:1.5px solid; border-radius:20px; padding:3px 9px;}
+.cmp-h-d{text-align:right; padding:0 8px 11px !important; vertical-align:bottom;}
+.cmp-h-d span{display:block; font-size:11.5px; font-weight:700; color:var(--muted);}
+.cmp-h-d small{display:block; font-size:9.5px; color:var(--muted); opacity:.8; margin-top:1px;}
+
+/* body */
+.cmp-table tbody td{padding:10px 10px; border-top:1px solid var(--line); font-size:14px;
+  vertical-align:top;}
+.cmp-l{width:36%;}
+.cmp-lbl{display:block; font-weight:600; font-size:13.5px; line-height:1.35;}
+.cmp-hint{display:block; font-size:11px; color:var(--muted); margin-top:3px; line-height:1.4;}
+.cmp-cell{text-align:right; font-variant-numeric:tabular-nums; border-left:1px solid; position:relative;
+  white-space:nowrap;}
+.cmp-v{font-weight:600;}
+.cmp-wintick{font-style:normal; font-size:10px; color:var(--pos); margin-right:4px; vertical-align:1px;}
+.cmp-win .cmp-v{color:var(--pos);}
+.cmp-d{text-align:right; font-variant-numeric:tabular-nums; font-weight:600; color:var(--muted);
+  padding-left:14px !important;}
+.cmp-d.pos{color:var(--pos);}
+.cmp-d.neg{color:var(--neg);}
+.cmp-big td{padding-top:13px !important; padding-bottom:13px !important;}
+.cmp-big .cmp-lbl{font-size:14.5px;}
+.cmp-big .cmp-v{font-family:'Fraunces',serif; font-weight:700; font-size:19px;}
+.cmp-big .cmp-d{font-size:15px;}
+.cmp-big .cmp-wintick{font-size:12px;}
+
+/* group bands - they repeat the column identity every few rows so you never
+   have to scroll back up to remember which side you are reading */
+.cmp-grp td{background:#F6F2E8; border-top:2px solid var(--line); padding:8px 10px !important;
+  vertical-align:middle;}
+.cmp-grp td:first-child b{display:block; font-size:11px; font-weight:800; text-transform:uppercase;
+  letter-spacing:.07em; color:var(--ink);}
+.cmp-grp td:first-child span{display:block; font-size:11px; color:var(--muted); margin-top:2px;
+  text-transform:none; letter-spacing:0; font-weight:400; line-height:1.35;}
+.cmp-grpcol{text-align:right; border-left:1px solid; font-size:9.5px; font-weight:800;
+  text-transform:uppercase; letter-spacing:.05em; white-space:nowrap;}
+.cmp-grpcol i{display:inline-flex; align-items:center; justify-content:center; width:13px; height:13px;
+  border-radius:50%; color:#fff; font-size:8px; font-weight:800; font-style:normal; margin-right:4px;
+  vertical-align:-2px;}
+.cmp-grpdiff{text-align:right; font-size:9.5px; font-weight:800; text-transform:uppercase;
+  letter-spacing:.05em; color:var(--muted);}
+
+/* the invest-vs-Social-Security verdict under the table */
+.cmp-verdict{margin:16px 0 4px; padding:13px 16px; background:#fff; border:1px solid var(--line);
+  border-left:4px solid; border-radius:10px; font-size:13.5px; line-height:1.6;}
+.cmp-verdict b{color:var(--ink);}
+
+/* ---- phone: the table becomes one card per row, each side still colour-coded ---- */
+@media (max-width:760px){
+  .cmp-legend{grid-template-columns:1fr; gap:10px;}
+  .cmp-legnum{font-size:21px;}
+  .cmp-table thead{display:none;}
+  .cmp-table,.cmp-table tbody,.cmp-table tr,.cmp-table td,.cmp-table colgroup,.cmp-table col{display:block;}
+  .cmp-table colgroup{display:none;}
+  .cmp-row{border:1px solid var(--line); border-radius:12px; background:#fff; overflow:hidden;
+    margin-bottom:9px;}
+  .cmp-table tbody td{border-top:none; width:auto !important;}
+  .cmp-l{padding:11px 13px 9px !important; background:#FCFAF4; border-bottom:1px solid var(--line);}
+  .cmp-cell{display:flex !important; align-items:baseline; justify-content:space-between;
+    text-align:right; border-left:4px solid; padding:9px 13px !important; white-space:normal;}
+  .cmp-cell::before{content:attr(data-lab); font-size:11px; font-weight:800; text-transform:uppercase;
+    letter-spacing:.05em; opacity:.85;}
+  .cmp-side-a::before{color:#3B5A7A;}
+  .cmp-side-b::before{color:#6A4A78;}
+
+  .cmp-d{display:flex !important; align-items:baseline; justify-content:space-between;
+    padding:8px 13px !important; background:#FBF9F3; border-top:1px solid var(--line);}
+  .cmp-d::before{content:attr(data-lab); font-size:11px; font-weight:800; text-transform:uppercase;
+    letter-spacing:.05em; color:var(--muted);}
+  .cmp-grp{margin:18px 0 9px;}
+  .cmp-grp td{background:transparent !important; border-top:none !important; padding:0 2px !important;}
+  .cmp-grpcol,.cmp-grpdiff{display:none !important;}
+  .cmp-grp td:first-child b{font-size:12px;}
+  .cmp-big .cmp-v{font-size:17px;}
 }
 
 /* ================= LAYOUT VARIANTS (?v=01..04) ================= */
