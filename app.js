@@ -3002,8 +3002,33 @@ const seEducation = (function () {
   const scorpExpBasis = expYrBase + cur.bizFee;
   const soleFullYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0);
   const sCorpFullYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", sCorpSalaryInput);
+  const recNetProfit = Math.max(1, scorpGrossBasis - scorpExpBasis);
+  const psplit = payrollSplit(recNetProfit, sCorpSalaryInput);
   const runCostTotal = (payrollSvcCost || 0) + (corpReturnCost || 0) + (statementOfInfoCost || 0);
   const structureRows = [{
+    label: "Net practice profit",
+    hint: "Where both paths start \u2014 your structure cannot change what you billed",
+    sole: recNetProfit,
+    scorp: recNetProfit,
+    big: true
+  }, {
+    grp: "How the money reaches you \u2014 the whole difference in one place"
+  }, {
+    label: "Owner's draw",
+    hint: "Not a wage. No W-2, no payroll \u2014 a sole proprietor cannot employ themselves.",
+    sole: recNetProfit,
+    scorp: 0
+  }, {
+    label: "W-2 salary",
+    hint: "Only a corporation can do this. Earns Social Security; payroll tax applies.",
+    sole: 0,
+    scorp: sCorpSalaryInput
+  }, {
+    label: "Distribution",
+    hint: "No payroll tax \u2014 and earns no Social Security credit",
+    sole: 0,
+    scorp: psplit.distribution
+  }, {
     grp: "The tax side \u2014 this year"
   }, {
     label: "Net take-home",
@@ -3173,7 +3198,6 @@ const seEducation = (function () {
 const netDiff = sCorpFullYear.net - soleFullYear.net;
   // An S-corp paying $0 salary is not a lawful option, so it must never be "recommended".
   const salaryUnset = !(sCorpSalaryInput > 0);
-  const recNetProfit = Math.max(1, scorpGrossBasis - scorpExpBasis);
   const recMinSalary = Math.ceil(recNetProfit * 0.5 / 1000) * 1000;
   const salaryBand = salaryBandFor(sCorpSalaryInput, recNetProfit);
   const salaryGuidance = /*#__PURE__*/React.createElement("div", {
@@ -3298,7 +3322,6 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       "Adding ", /*#__PURE__*/React.createElement("b", null, fmt0(runCostTotal)), " a year that a sole proprietor does not pay. This is carried into the comparison below."),
     !(runCostTotal > 0) && /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
       "While these are zero the comparison below shows the tax difference only, which will overstate what an S-corp is worth to you."));
-  const psplit = payrollSplit(recNetProfit, sCorpSalaryInput);
   const keepOpener = keepBar(cur.grossYr, cur.expYr, cur.totalTax, cur.netYr, sessionRate);
   const payrollMechanic = /*#__PURE__*/React.createElement("div", {className: "mechanic"},
     /*#__PURE__*/React.createElement("h4", null, "Where the saving actually comes from"),
@@ -3355,6 +3378,43 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         psplit.aboveCap
           ? /*#__PURE__*/React.createElement("b", {className: "neg"}, "Your salary is above the cap, so extra distribution is working at the weaker 2.9% rate.")
           : /*#__PURE__*/React.createElement("b", null, "Your salary is below the cap, so the split is working at full strength."))));
+  const leversPanel = (function () {
+    if (!(cur.grossYr > 0) || !(sessionRate > 0)) return null;
+    const keepRate = cur.netYr / cur.grossYr;
+    const sess = cur.grossYr / sessionRate;                       // sessions a year at the current fee
+    const rows = [
+      {k: "rate", label: "Raise your rate " + fmt0(sessionRate) + " → " + fmt0(sessionRate + 25),
+       sub: "same caseload, same hours", v: 25 * sess * keepRate},
+      {k: "sess", label: "Add 2 sessions a week",
+       sub: fmt0(sessionRate * 2 * 52) + " more billed", v: sessionRate * 2 * 52 * keepRate},
+      {k: "scorp", label: "Elect S-corp treatment",
+       sub: "after payroll, filings and the CA entity fee", v: Math.max(0, netDiff - runCostTotal)},
+      {k: "exp", label: "Cut running costs 10%",
+       sub: "on " + fmt0(cur.expYr) + " of expenses", v: cur.expYr * 0.10 * keepRate}
+    ].sort((a, b) => b.v - a.v);
+    const top = Math.max(1, rows[0].v);
+    return /*#__PURE__*/React.createElement("section", {className: "card levers"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("h2", null, "What actually moves the number"),
+        /*#__PURE__*/React.createElement("p", null,
+          "Every lever below, measured the same way — what it adds to what you keep in a year. Ranked honestly, including when that ranking is inconvenient for the tax advice above.")),
+      rows.map(r => /*#__PURE__*/React.createElement("div", {className: "lever", key: r.k},
+        /*#__PURE__*/React.createElement("span", {className: "lever-name"},
+          /*#__PURE__*/React.createElement("b", null, r.label),
+          /*#__PURE__*/React.createElement("span", null, r.sub)),
+        /*#__PURE__*/React.createElement("span", {className: "lever-bar"},
+          /*#__PURE__*/React.createElement("i", {style: {width: Math.max(2, r.v / top * 100) + "%", background: r.k === "scorp" ? "#C98B4B" : "#3F9577"}})),
+        /*#__PURE__*/React.createElement("span", {className: "lever-val"}, "+" + fmt0(r.v)))),
+      rows[0].k !== "scorp" && netDiff > 0 ? /*#__PURE__*/React.createElement("p", {className: "lever-note"},
+        /*#__PURE__*/React.createElement("b", null, "Worth sitting with: "),
+        "the entity decision is worth ", /*#__PURE__*/React.createElement("b", null, fmt0(Math.max(0, netDiff - runCostTotal))),
+        " a year. “", rows[0].label, "” is worth ", /*#__PURE__*/React.createElement("b", null, fmt0(rows[0].v)),
+        " — roughly ", /*#__PURE__*/React.createElement("b", null, Math.max(1, Math.round(rows[0].v / Math.max(1, netDiff - runCostTotal))) + "×"),
+        " as much, with no filings, no payroll and no audit exposure. Incorporating is a real lever, but it is rarely the biggest one on this page.") : null,
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        "Rate and caseload figures apply your current take-home rate of ", Math.round(keepRate * 100),
+        "% to the extra billing — a simplification, since more income can push you into a higher bracket. The S-corp figure is net of the running costs you entered."));
+  })();
   const recGood = !salaryUnset && netDiff > 2000;
   const recBad = !salaryUnset && netDiff < -500;
   const recColor = salaryUnset ? "#C98B4B" : recGood ? "#3F9577" : recBad ? "#B5483F" : "#C98B4B";
@@ -3768,7 +3828,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship / single-member LLC (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, taxProfileSection, businessStructureSection, statsRow, strategiesSection, compareSection, entityCompareSection, seEducation, scorpSection, caSection, analysisSection);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, taxProfileSection, businessStructureSection, statsRow, strategiesSection, compareSection, entityCompareSection, seEducation, scorpSection, caSection, analysisSection, leversPanel);
 }
 
 function FunnelTab({
@@ -4767,6 +4827,18 @@ const CSS = `
   .sec-intro-title{font-size:24px;}
   .sec-intro{margin:26px 0 14px;}
 }
+
+/* ===== levers ===== */
+.levers .lever{display:flex; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid #F1EDE3; flex-wrap:wrap;}
+.levers .lever:last-of-type{border-bottom:0;}
+.lever-name{flex:1 1 240px; min-width:200px; font-size:14px;}
+.lever-name b{display:block;}
+.lever-name span{display:block; font-size:12.5px; color:#7C766A;}
+.lever-bar{flex:2 1 180px; height:12px; background:#F1EDE3; border-radius:6px; overflow:hidden; min-width:120px;}
+.lever-bar i{display:block; height:100%; border-radius:6px;}
+.lever-val{flex:0 0 96px; text-align:right; font-family:Fraunces,Georgia,serif; font-weight:600; font-variant-numeric:tabular-nums;}
+.lever-note{background:#FBF1E2; border-left:3px solid #C98B4B; border-radius:0 8px 8px 0; padding:12px 14px; font-size:13.5px; line-height:1.65; margin:16px 0 8px;}
+@media (max-width:640px){ .lever-bar{flex:1 1 100%; order:3;} .lever-val{flex:0 0 auto;} }
 
 /* ===== What I keep opener ===== */
 .keepwrap{background:#fff; border:1px solid #E7E2D6; border-radius:12px; padding:26px 24px; margin:0 0 18px;}
