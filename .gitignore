@@ -1,0 +1,6 @@
+# Local dev server and scratch — not part of the site
+_dev/
+_to_delete/
+_publish/
+.DS_Store
+*.fuse_hidden*

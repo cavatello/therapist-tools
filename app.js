@@ -1533,7 +1533,7 @@ function PracticeIncomePlanner() {
   }, "California \u00B7 2026 net estimates")), /*#__PURE__*/React.createElement("nav", {
     className: "sitenav-links",
     "aria-label": "Site"
-  }, [["#sim", "Simulator", "run your numbers", page === "sim"], ["#grow", "Grow Your Practice", "marketing and sales", page === "grow"], ["rates.html", "Field Notes", "what CA actually pays", false], ["tycoon.html", "Tycoon", "the practice, as a game", false]].map(([href, t, dsc, on]) => /*#__PURE__*/React.createElement("a", {
+  }, [["#sim", "Simulator", "run your numbers", page === "sim"], ["#grow", "Grow Your Practice", "marketing and sales", page === "grow"], ["rates.html", "Field Notes", "what CA actually pays", false], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon", "the practice, as a game", false]].map(([href, t, dsc, on]) => /*#__PURE__*/React.createElement("a", {
     key: href,
     href: href,
     className: "sitenav-item" + (on ? " sitenav-on" : ""),
@@ -2525,7 +2525,7 @@ function PracticeIncomePlanner() {
   }, "Therapy Practice")), /*#__PURE__*/React.createElement("nav", {
     className: "sitefoot-links",
     "aria-label": "Site, footer"
-  }, [["#sim", "Simulator"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
+  }, [["#sim", "Simulator"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
     key: href,
     href: href
   }, t))), /*#__PURE__*/React.createElement("div", {

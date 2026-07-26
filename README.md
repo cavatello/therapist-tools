@@ -1,14 +1,13 @@
 # Therapy Practice Simulator — local working copy
 
-**This folder is the source of truth.** The live site is Netlify's *post-processed
-output* of these files, not the source — Netlify rewrites links and normalises
-quotes on deploy, so re-downloading the live files gives you something subtly
-different from what you wrote. Edit here.
+**This folder is the source of truth.**
 
-Live: https://practice-income-planner.netlify.app
+**Live site: https://cavatello.github.io/therapist-tools/** (GitHub Pages, free)
 
-**In sync as of 25 July 2026, 17:19 PT** — everything in this folder is deployed.
-The earlier "Skipped due to account credit usage exceeded" block has cleared.
+`practice-income-planner.netlify.app` is **no longer a website** — as of 25 July 2026
+it holds nothing but a `_redirects` file that 301s every path to GitHub Pages. Do not
+deploy the site there again unless you mean to undo that.
+
 
 ---
 
@@ -116,3 +115,82 @@ so always re-download it immediately before deploying.
 
 `_to_delete/` holds files I could not remove from this side (the bridge is
 read-write but not delete-capable). Safe to drag to the Trash.
+
+---
+
+## Publishing to GitHub Pages (free, for phone review)
+
+Public preview: **https://cavatello.github.io/therapist-tools/**
+Repo: https://github.com/cavatello/therapist-tools
+
+This is separate from Netlify and costs nothing. Use it to look at the site on a
+phone or send it to someone.
+
+```bash
+# one time only
+./_dev/publish.sh setup
+
+# afterwards, push whatever changed
+./_dev/publish.sh
+
+# or leave this running and it pushes by itself
+./_dev/publish.sh watch
+```
+
+`watch` polls every 5s and pushes once edits have stopped for 15 seconds, so a burst
+of changes becomes one commit rather than twenty. GitHub Pages rebuilds about a
+minute after each push.
+
+`_dev/` and `_to_delete/` are gitignored, so the dev server and scratch files never
+reach the repo.
+
+**Authentication.** `git push` over HTTPS will not accept your GitHub account
+password. The simplest fix, once:
+
+```bash
+brew install gh && gh auth login
+```
+
+Alternatively create a fine-grained Personal Access Token with Contents: Read and
+write, and paste it when git asks for a password.
+
+**The repo is public** — required for free Pages — so `app.js` is readable, including
+the mailto address in the feedback form. Same exposure as the Netlify site.
+
+### Which one to use
+
+| | Local server | GitHub Pages | Netlify |
+|---|---|---|---|
+| Cost | free | free | build credit |
+| Live reload | yes | no | no |
+| Works on a phone | same Wi-Fi only | anywhere | anywhere |
+| Purpose | building | reviewing, sharing | the real site |
+
+---
+
+## The Netlify redirect (25 July 2026)
+
+The Netlify site now contains exactly one file, `_redirects`:
+
+```
+/index.html     .../index.html     301!
+/rates.html     .../rates.html     301!
+/tycoon.html    .../tycoon.html    301!
+/app.js         .../app.js         301!
+/*              .../index.html     301!
+```
+
+Known pages keep their deep links; anything else lands on the simulator. Query
+strings (`?v=01`) and hash fragments (`#sim`, and `#s=` share links) survive a 301,
+so old links still work.
+
+**Why `301!` and not `301`.** Netlify serves an existing file in preference to a
+redirect rule. The `!` forces the redirect regardless. It does not matter while
+`_redirects` is the only file, but it will the moment anything else is added.
+
+**Caution.** A Netlify deploy replaces the *entire* file set. On 25 July a deploy
+containing only a hand-written redirect `index.html` deleted `app.js`, `rates.html`,
+`concepts.html` and `tycoon.html` from the live site. Nothing was lost — every file
+existed on GitHub Pages and in this folder, and `tycoon.html` was verified
+byte-identical (`abb342744a732277b04044cbdbc71552`) — but that is the failure mode to
+watch for. That page also pointed at `https://github.io`, which is not a site.
