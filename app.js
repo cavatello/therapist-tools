@@ -226,6 +226,64 @@ function extLink(href, text) {
   }, text);
 }
 
+
+// ---------- "What I keep" opener + payroll mechanics ----------
+const SS_WAGE_BASE_2026 = 184500;   // ssa.gov/oact/cola/cbb.html
+const OASDI_RATE = 0.124;           // 6.2% employee + 6.2% employer
+const MEDICARE_RATE = 0.029;        // 1.45% + 1.45%
+const SE_FACTOR = 0.9235;
+
+function payrollSplit(profit, salary) {
+  const seBase = Math.max(0, profit) * SE_FACTOR;
+  const soleSS = OASDI_RATE * Math.min(seBase, SS_WAGE_BASE_2026);
+  const soleMed = MEDICARE_RATE * seBase;
+  const sal = Math.max(0, salary);
+  const corpSS = OASDI_RATE * Math.min(sal, SS_WAGE_BASE_2026);
+  const corpMed = MEDICARE_RATE * sal;
+  return {
+    seBase: seBase, soleSS: soleSS, soleMed: soleMed, soleTotal: soleSS + soleMed,
+    corpSS: corpSS, corpMed: corpMed, corpTotal: corpSS + corpMed,
+    savedSS: soleSS - corpSS, savedMed: soleMed - corpMed,
+    saved: (soleSS + soleMed) - (corpSS + corpMed),
+    distribution: Math.max(0, profit - sal), aboveCap: sal >= SS_WAGE_BASE_2026
+  };
+}
+
+function keepBar(grossYr, expYr, taxYr, netYr, rate) {
+  if (!(grossYr > 0)) return null;
+  const pct = n => Math.max(0, (n / grossYr) * 100);
+  const keepPct = Math.round((netYr / grossYr) * 100);
+  const unit = (h, v, s2) => /*#__PURE__*/React.createElement("div", {className: "keep-unit", key: h},
+    /*#__PURE__*/React.createElement("h4", null, h),
+    /*#__PURE__*/React.createElement("div", {className: "keep-unit-v"}, v),
+    /*#__PURE__*/React.createElement("span", null, s2));
+  return /*#__PURE__*/React.createElement("div", {className: "keepwrap"},
+    /*#__PURE__*/React.createElement("div", {className: "keephero"},
+      /*#__PURE__*/React.createElement("div", {className: "keep-eyebrow"}, "Of the " + fmt(grossYr) + " you bill this year"),
+      /*#__PURE__*/React.createElement("div", {className: "keep-big"}, fmt(netYr)),
+      /*#__PURE__*/React.createElement("div", {className: "keep-sub"}, "is actually yours — ",
+        /*#__PURE__*/React.createElement("b", null, keepPct + "¢ of every dollar you charge"))),
+    /*#__PURE__*/React.createElement("div", {className: "keep-bar"},
+      /*#__PURE__*/React.createElement("i", {className: "kb-exp", style: {width: pct(expYr) + "%"}}),
+      /*#__PURE__*/React.createElement("i", {className: "kb-tax", style: {width: pct(taxYr) + "%"}}, pct(taxYr) > 12 ? "TAX " + Math.round(pct(taxYr)) + "%" : ""),
+      /*#__PURE__*/React.createElement("i", {className: "kb-net", style: {width: pct(netYr) + "%"}}, pct(netYr) > 18 ? "YOU KEEP " + keepPct + "%" : "")),
+    /*#__PURE__*/React.createElement("div", {className: "keep-legend"},
+      /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {className: "kdot kb-exp"}), "Running costs ", fmt(expYr)),
+      /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {className: "kdot kb-tax"}), "Federal + CA + self-employment tax ", fmt(taxYr)),
+      /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("i", {className: "kdot kb-net"}), "Yours ", fmt(netYr))),
+    /*#__PURE__*/React.createElement("div", {className: "keep-chain"},
+      /*#__PURE__*/React.createElement("b", null, fmt(grossYr)), " billed − ",
+      /*#__PURE__*/React.createElement("b", null, fmt(expYr)), " costs = ",
+      /*#__PURE__*/React.createElement("b", null, fmt(grossYr - expYr)), " profit − ",
+      /*#__PURE__*/React.createElement("b", null, fmt(taxYr)), " tax = ",
+      /*#__PURE__*/React.createElement("b", {className: "pos"}, fmt(netYr)), " yours"),
+    /*#__PURE__*/React.createElement("div", {className: "keep-units"},
+      rate > 0 ? unit("Per session", fmt(rate * (netYr / grossYr)), "of your " + fmt(rate) + " fee") : null,
+      unit("Per month", fmt(netYr / 12), "after tax"),
+      unit("Per week", fmt(netYr / 52), "take-home"),
+      unit("Effective tax rate", Math.round((taxYr / Math.max(1, grossYr - expYr)) * 100) + "%", "of profit, all taxes")));
+}
+
 function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependents, employerRetirement, employeeRetirement, entityType, sCorpSalary) {
   filingStatus = filingStatus || "single";
   numDependents = numDependents || 0;
@@ -1451,7 +1509,7 @@ function PracticeIncomePlanner() {
       lines.push("New clients last month: " + funnelCalc.totalConverted + ", lost: " + monthlyChurn);
     }
     lines.push("");
-    lines.push("Full interactive tool: https://practice-income-planner.netlify.app");
+    lines.push("Full interactive tool: https://cavatello.github.io/therapist-tools/");
     lines.push("(Estimates only, not tax advice \u2014 see the tool for full disclaimers.)");
     return lines.join("\n");
   };
@@ -1786,7 +1844,7 @@ function PracticeIncomePlanner() {
   className: "sticky-summary-hint"
 }, "\uD83D\uDCBE Save copies, emails, or prints this exact setup."))), viewMode === "current" && /*#__PURE__*/React.createElement("nav", {
     className: "tabs"
-  }, [["income", "Income", "what you bill"], ["expenses", "Expenses", "what it costs"], ["profit", "Profit", "what you keep"], ["taxstrategy", "USA Tax Strategy", "keep more of it"], ["residency", "Residency", "compare locations"], ["funnel", "Sales Funnel", "grow your caseload"]].map(([k, lbl, sub]) => /*#__PURE__*/React.createElement("button", {
+  }, [["income", "Income", "what you bill"], ["expenses", "Expenses", "what it costs"], ["profit", "Profit", "before tax"], ["taxstrategy", "USA Tax Strategy", "keep more of it"], ["residency", "Residency", "compare locations"], ["funnel", "Sales Funnel", "grow your caseload"]].map(([k, lbl, sub]) => /*#__PURE__*/React.createElement("button", {
     key: k,
     className: "tab" + (tab === k ? " tab-on" : ""),
     style: tab === k ? {
@@ -2214,6 +2272,7 @@ function PracticeIncomePlanner() {
     setEntityType: setEntityType,
     sCorpSalaryInput: sCorpSalaryInput,
     setSCorpSalaryInput: setSCorpSalaryInput,
+    sessionRate: rate,
     payrollSvcCost: payrollSvcCost,
     setPayrollSvcCost: setPayrollSvcCost,
     corpReturnCost: corpReturnCost,
@@ -2649,6 +2708,7 @@ function TaxStrategyTab({
   setEntityType,
   sCorpSalaryInput,
   setSCorpSalaryInput,
+  sessionRate,
   payrollSvcCost,
   setPayrollSvcCost,
   corpReturnCost,
@@ -3238,6 +3298,63 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       "Adding ", /*#__PURE__*/React.createElement("b", null, fmt0(runCostTotal)), " a year that a sole proprietor does not pay. This is carried into the comparison below."),
     !(runCostTotal > 0) && /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
       "While these are zero the comparison below shows the tax difference only, which will overstate what an S-corp is worth to you."));
+  const psplit = payrollSplit(recNetProfit, sCorpSalaryInput);
+  const keepOpener = keepBar(cur.grossYr, cur.expYr, cur.totalTax, cur.netYr, sessionRate);
+  const payrollMechanic = /*#__PURE__*/React.createElement("div", {className: "mechanic"},
+    /*#__PURE__*/React.createElement("h4", null, "Where the saving actually comes from"),
+    /*#__PURE__*/React.createElement("p", {className: "salguide-lede"},
+      "Moving a dollar from salary to distribution does not dodge income tax — it dodges ",
+      /*#__PURE__*/React.createElement("b", null, "payroll tax"), ". That is the entire mechanism."),
+    /*#__PURE__*/React.createElement("div", {className: "mech-cols"},
+      /*#__PURE__*/React.createElement("div", {className: "mech-col"},
+        /*#__PURE__*/React.createElement("h5", null, "One dollar as W-2 salary"),
+        /*#__PURE__*/React.createElement("div", {className: "mech-stack"},
+          /*#__PURE__*/React.createElement("i", {className: "m-ss"}, /*#__PURE__*/React.createElement("span", null, "Social Security — 6.2% you + 6.2% the corp"), /*#__PURE__*/React.createElement("b", null, "12.4¢")),
+          /*#__PURE__*/React.createElement("i", {className: "m-med"}, /*#__PURE__*/React.createElement("span", null, "Medicare — 1.45% + 1.45%"), /*#__PURE__*/React.createElement("b", null, "2.9¢")),
+          /*#__PURE__*/React.createElement("i", {className: "m-sdi"}, /*#__PURE__*/React.createElement("span", null, "CA SDI (employee)"), /*#__PURE__*/React.createElement("b", null, "1.2¢")),
+          /*#__PURE__*/React.createElement("i", {className: "m-inc"}, /*#__PURE__*/React.createElement("span", null, "Income tax — federal + CA"), /*#__PURE__*/React.createElement("b", null, "varies"))),
+        /*#__PURE__*/React.createElement("p", {className: "mech-foot"}, /*#__PURE__*/React.createElement("b", null, "16.5¢ of payroll tax"), " before income tax is even considered.")),
+      /*#__PURE__*/React.createElement("div", {className: "mech-col"},
+        /*#__PURE__*/React.createElement("h5", null, "One dollar as a distribution"),
+        /*#__PURE__*/React.createElement("div", {className: "mech-stack"},
+          /*#__PURE__*/React.createElement("i", {className: "m-none"}, "No Social Security · No Medicare · No SDI"),
+          /*#__PURE__*/React.createElement("i", {className: "m-inc"}, /*#__PURE__*/React.createElement("span", null, "Income tax — federal + CA"), /*#__PURE__*/React.createElement("b", null, "varies"))),
+        /*#__PURE__*/React.createElement("p", {className: "mech-foot"}, /*#__PURE__*/React.createElement("b", null, "0¢ of payroll tax."),
+          " Income tax is identical to the salary dollar — that part never changes."))),
+    /*#__PURE__*/React.createElement("div", {className: "compliance-goodnews", style: {borderLeftColor: "#C98B4B", background: "#FBF1E2"}},
+      /*#__PURE__*/React.createElement("b", null, "A distribution is not tax-free. "),
+      "You still pay federal and California income tax on every dollar of it, at the same rate as salary. What you skip is Social Security and Medicare — nothing else."),
+    sCorpSalaryInput > 0 && recNetProfit > 0 ? /*#__PURE__*/React.createElement("div", {className: "mech-yours"},
+      /*#__PURE__*/React.createElement("h5", null, "Your numbers — where the ", fmt0(psplit.saved), " comes from"),
+      /*#__PURE__*/React.createElement("div", {className: "mech-row"},
+        /*#__PURE__*/React.createElement("span", null, "Sole proprietor pays self-employment tax on 92.35% of ", fmt0(recNetProfit), " = ", fmt0(psplit.seBase)),
+        /*#__PURE__*/React.createElement("b", null, fmt0(psplit.soleTotal))),
+      /*#__PURE__*/React.createElement("div", {className: "mech-row"},
+        /*#__PURE__*/React.createElement("span", null, "Corporation pays payroll tax on the ", fmt0(sCorpSalaryInput), " salary only — the ", fmt0(psplit.distribution), " distribution is not payroll"),
+        /*#__PURE__*/React.createElement("b", null, fmt0(psplit.corpTotal))),
+      /*#__PURE__*/React.createElement("div", {className: "mech-row mech-tot"},
+        /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, "Payroll tax avoided")),
+        /*#__PURE__*/React.createElement("b", {className: "pos"}, fmt0(psplit.saved))),
+      psplit.saved > 0 ? /*#__PURE__*/React.createElement("div", {className: "mech-bar"},
+        /*#__PURE__*/React.createElement("i", {className: "m-ss", style: {width: (psplit.savedSS / psplit.saved * 100) + "%"}}, "SOCIAL SECURITY " + fmt0(psplit.savedSS)),
+        /*#__PURE__*/React.createElement("i", {className: "m-med", style: {width: (psplit.savedMed / psplit.saved * 100) + "%"}}, "MEDICARE " + fmt0(psplit.savedMed))) : null,
+      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        "Most of that is Social Security you are choosing not to pay into — which is the same money as the benefit you give up later. Two views of one decision.")) : null,
+    /*#__PURE__*/React.createElement("div", {className: "mech-cliff-wrap"},
+      /*#__PURE__*/React.createElement("h5", null, "The catch nobody explains — the cap"),
+      /*#__PURE__*/React.createElement("div", {className: "mech-cliff"},
+        /*#__PURE__*/React.createElement("i", {className: "cliff-hi"}, "15.3¢ saved per dollar"),
+        /*#__PURE__*/React.createElement("i", {className: "cliff-lo"}, "2.9¢")),
+      /*#__PURE__*/React.createElement("div", {className: "mech-cliff-lab"},
+        /*#__PURE__*/React.createElement("span", null, "salary below ", fmt0(SS_WAGE_BASE_2026)),
+        /*#__PURE__*/React.createElement("span", null, "above the Social Security cap")),
+      /*#__PURE__*/React.createElement("p", {style: {fontSize: 13.5, marginTop: 12}},
+        "Below the Social Security cap every dollar shifted out of salary saves the full ",
+        /*#__PURE__*/React.createElement("b", null, "15.3%"), ". Above it you have already stopped paying Social Security, so shifting more only dodges Medicare — ",
+        /*#__PURE__*/React.createElement("b", null, "2.9%"), ". ",
+        psplit.aboveCap
+          ? /*#__PURE__*/React.createElement("b", {className: "neg"}, "Your salary is above the cap, so extra distribution is working at the weaker 2.9% rate.")
+          : /*#__PURE__*/React.createElement("b", null, "Your salary is below the cap, so the split is working at full strength."))));
   const recGood = !salaryUnset && netDiff > 2000;
   const recBad = !salaryUnset && netDiff < -500;
   const recColor = salaryUnset ? "#C98B4B" : recGood ? "#3F9577" : recBad ? "#B5483F" : "#C98B4B";
@@ -3304,7 +3421,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
     className: "card decision-impact"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Business structure"), /*#__PURE__*/React.createElement("p", null, "Sole Proprietorship vs. Professional Corp with an S-corp election \u2014 this choice is global and changes the tax math on every tab.")), educationBlock, entityToggle, salaryInputRow, salaryGuidance, complianceGuide, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Business structure"), /*#__PURE__*/React.createElement("p", null, "Sole Proprietorship vs. Professional Corp with an S-corp election \u2014 this choice is global and changes the tax math on every tab.")), educationBlock, entityToggle, salaryInputRow, salaryGuidance, payrollMechanic, complianceGuide, /*#__PURE__*/React.createElement("div", {
     className: "resid-invest-note",
     style: {
       borderLeft: "4px solid " + recColor,
@@ -3651,7 +3768,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship / single-member LLC (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, introSection, taxProfileSection, businessStructureSection, statsRow, strategiesSection, compareSection, entityCompareSection, seEducation, scorpSection, caSection, analysisSection);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, taxProfileSection, businessStructureSection, statsRow, strategiesSection, compareSection, entityCompareSection, seEducation, scorpSection, caSection, analysisSection);
 }
 
 function FunnelTab({
@@ -4649,6 +4766,54 @@ const CSS = `
 @media (max-width:640px){
   .sec-intro-title{font-size:24px;}
   .sec-intro{margin:26px 0 14px;}
+}
+
+/* ===== What I keep opener ===== */
+.keepwrap{background:#fff; border:1px solid #E7E2D6; border-radius:12px; padding:26px 24px; margin:0 0 18px;}
+.keephero{text-align:center;}
+.keep-eyebrow{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:#7C766A; font-weight:600;}
+.keep-big{font-family:Fraunces,Georgia,serif; font-size:58px; line-height:1.02; font-weight:600; color:#3F9577; margin:6px 0 0;}
+.keep-sub{color:#7C766A; font-size:15px; margin-top:6px;}
+.keep-bar{display:flex; height:48px; border-radius:10px; overflow:hidden; margin:22px 0 10px; border:1px solid #E7E2D6;}
+.keep-bar i{display:flex; align-items:center; justify-content:center; font-size:11.5px; font-weight:600; color:#fff; letter-spacing:.03em; white-space:nowrap; overflow:hidden;}
+.kb-exp{background:#B99A63;} .kb-tax{background:#B5483F;} .kb-net{background:#3F9577;}
+.keep-legend{display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:#4A463D;}
+.keep-legend span{display:flex; align-items:center; gap:7px;}
+.kdot{width:11px; height:11px; border-radius:3px; display:inline-block; flex:0 0 11px;}
+.keep-chain{font-size:14px; color:#4A463D; margin-top:16px; line-height:2;}
+.keep-chain b{font-family:Fraunces,Georgia,serif; font-variant-numeric:tabular-nums;}
+.keep-units{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
+.keep-unit{flex:1 1 140px; border:1px solid #E7E2D6; border-radius:10px; padding:13px;}
+.keep-unit h4{margin:0 0 5px; font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:#7C766A;}
+.keep-unit-v{font-family:Fraunces,Georgia,serif; font-size:24px; font-weight:600; font-variant-numeric:tabular-nums;}
+.keep-unit span{font-size:12.5px; color:#7C766A;}
+/* ===== payroll mechanic ===== */
+.mechanic{border:1px solid #E7E2D6; border-radius:12px; background:#fff; padding:18px 20px; margin:0 0 16px;}
+.mechanic h4{font-family:Fraunces,Georgia,serif; font-size:18px; margin:0 0 8px;}
+.mechanic h5{font-family:Fraunces,Georgia,serif; font-size:15px; margin:0 0 8px;}
+.mech-cols{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:14px 0;}
+.mech-stack{border:1px solid #E7E2D6; border-radius:10px; overflow:hidden;}
+.mech-stack i{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 12px; font-size:12.5px; color:#fff; font-style:normal;}
+.mech-stack i b{font-variant-numeric:tabular-nums; white-space:nowrap;}
+.m-ss{background:#B5483F;} .m-med{background:#C97F63;} .m-sdi{background:#D8A98F;} .m-inc{background:#7C766A;}
+.m-none{background:#EAF3EE; color:#2C6B53 !important; font-weight:600; justify-content:center !important; padding:20px 12px !important; text-align:center;}
+.mech-foot{font-size:12.5px; color:#7C766A; margin:8px 0 0;}
+.mech-yours{border-top:1px solid #E7E2D6; margin-top:16px; padding-top:14px;}
+.mech-row{display:flex; justify-content:space-between; gap:14px; align-items:flex-start; padding:9px 0; border-bottom:1px solid #F1EDE3; font-size:13.5px;}
+.mech-row b{font-family:Fraunces,Georgia,serif; font-variant-numeric:tabular-nums; white-space:nowrap;}
+.mech-tot{border-top:2px solid #26241E; border-bottom:2px solid #26241E; font-size:15px;}
+.mech-bar{display:flex; height:40px; border-radius:9px; overflow:hidden; border:1px solid #E7E2D6; margin:14px 0 6px;}
+.mech-bar i{display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; font-weight:600; font-style:normal; white-space:nowrap; overflow:hidden;}
+.mech-cliff-wrap{border-top:1px solid #E7E2D6; margin-top:16px; padding-top:14px;}
+.mech-cliff{display:flex; align-items:flex-end; height:96px; gap:3px;}
+.mech-cliff i{display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; font-weight:600; font-style:normal; border-radius:6px 6px 0 0;}
+.cliff-hi{flex:0 0 60%; height:100%; background:#B5483F;}
+.cliff-lo{flex:1; height:19%; background:#C97F63; font-size:11px !important;}
+.mech-cliff-lab{display:flex; justify-content:space-between; font-size:11.5px; color:#7C766A; margin-top:6px;}
+@media (max-width:700px){
+  .keep-big{font-size:40px;}
+  .mech-cols{grid-template-columns:1fr;}
+  .keep-chain{font-size:13px;}
 }
 
 /* ===== S-corp salary guidance + compliance ===== */
