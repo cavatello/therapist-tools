@@ -250,7 +250,15 @@ function payrollSplit(profit, salary) {
 }
 
 function keepBar(grossYr, expYr, taxYr, netYr, rate) {
-  if (!(grossYr > 0)) return null;
+  if (!(grossYr > 0)) {
+    return /*#__PURE__*/React.createElement("div", {className: "keepwrap keepwrap-empty"},
+      /*#__PURE__*/React.createElement("div", {className: "keep-eyebrow"}, "What you actually keep"),
+      /*#__PURE__*/React.createElement("p", null,
+        "Enter your ", /*#__PURE__*/React.createElement("b", null, "hourly rate"), " and ",
+        /*#__PURE__*/React.createElement("b", null, "sessions per week"),
+        " in the Income section and this fills in — what you bill, what tax takes, and what lands in your account, down to the cents you keep per session."),
+      /*#__PURE__*/React.createElement("a", {href: "#sec-income", className: "keep-cta"}, "Go to Income →"));
+  }
   const pct = n => Math.max(0, (n / grossYr) * 100);
   const keepPct = Math.round((netYr / grossYr) * 100);
   const unit = (h, v, s2) => /*#__PURE__*/React.createElement("div", {className: "keep-unit", key: h},
@@ -3379,7 +3387,13 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
           ? /*#__PURE__*/React.createElement("b", {className: "neg"}, "Your salary is above the cap, so extra distribution is working at the weaker 2.9% rate.")
           : /*#__PURE__*/React.createElement("b", null, "Your salary is below the cap, so the split is working at full strength."))));
   const leversPanel = (function () {
-    if (!(cur.grossYr > 0) || !(sessionRate > 0)) return null;
+    if (!(cur.grossYr > 0) || !(sessionRate > 0)) {
+      return /*#__PURE__*/React.createElement("section", {className: "card levers levers-empty"},
+        /*#__PURE__*/React.createElement("div", {className: "card-head"},
+          /*#__PURE__*/React.createElement("h2", null, "What actually moves the number"),
+          /*#__PURE__*/React.createElement("p", null,
+            "Once your rate and caseload are in, this ranks every lever you have \u2014 raising your rate, adding sessions, electing S-corp, cutting costs \u2014 by what each one adds to what you keep. The ranking is often surprising.")));
+    }
     const keepRate = cur.netYr / cur.grossYr;
     const sess = cur.grossYr / sessionRate;                       // sessions a year at the current fee
     const rows = [
@@ -4827,6 +4841,12 @@ const CSS = `
   .sec-intro-title{font-size:24px;}
   .sec-intro{margin:26px 0 14px;}
 }
+
+.keepwrap-empty{text-align:center; padding:30px 24px;}
+.keepwrap-empty p{max-width:520px; margin:10px auto 16px; color:#5C574C; font-size:14.5px; line-height:1.65;}
+.keep-cta{display:inline-block; background:#3F9577; color:#fff; text-decoration:none; font-size:13.5px; font-weight:600; padding:9px 18px; border-radius:8px;}
+.keep-cta:hover{background:#357F65;}
+.levers-empty .card-head p{color:#7C766A;}
 
 /* ===== levers ===== */
 .levers .lever{display:flex; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid #F1EDE3; flex-wrap:wrap;}
