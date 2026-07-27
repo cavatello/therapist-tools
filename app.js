@@ -199,6 +199,11 @@ const MFT_WAGES = [
 const MFT_NAT_P90 = 104710, MFT_NAT_MEDIAN = 58510, MFT_CA_MEAN = 69780;
 
 const SS_FRA_AGE = 67; // full retirement age, everyone born 1960 or later
+// SSA's published maximum benefit at full retirement age, 2026. A simplified
+// PIA built from flat capped earnings can exceed this, because SSA indexes
+// past earnings by the Average Wage Index and historical caps were lower in
+// real terms. Bounding to the published maximum keeps the estimate honest.
+const SS_MAX_PIA_AT_FRA = 4152;
 
 const RETIRE_2026 = {
   ira: {
@@ -1160,6 +1165,7 @@ function PracticeIncomePlanner() {
     + (filingStatus ? 1 : 0);
   const [secondaryRate, setSecondaryRate] = useState(SAVED.secondaryRate != null ? SAVED.secondaryRate : "");
   const [secondarySessions, setSecondarySessions] = useState(SAVED.secondarySessions != null ? SAVED.secondarySessions : "");
+  const [careerStart, setCareerStart] = useState(SAVED.careerStart != null ? SAVED.careerStart : 0);
   const [wageMetro, setWageMetro] = useState(SAVED.wageMetro != null ? SAVED.wageMetro : 3);
   const [vacationOn, setVacationOn] = useState(SAVED.vacationOn != null ? SAVED.vacationOn : false);
   const [vacationWeeks, setVacationWeeks] = useState(SAVED.vacationWeeks != null ? SAVED.vacationWeeks : 0);
@@ -1193,6 +1199,7 @@ function PracticeIncomePlanner() {
         retreatParticipants: retreatParticipants,
         retreatRate: retreatRate,
         retreatPerMonth: retreatPerMonth,
+        careerStart: careerStart,
         wageMetro: wageMetro,
         vacationOn: vacationOn,
         vacationWeeks: vacationWeeks,
@@ -1218,7 +1225,7 @@ function PracticeIncomePlanner() {
         wizardStep: wizardStep
       }));
     } catch (e) {}
-  }, [tab, rate, sessions, goal, chartMode, secondaryOn, secondaryRate, secondarySessions, retreatOn, retreatParticipants, retreatRate, retreatPerMonth, vacationOn, vacationWeeks, wageMetro, usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn, expenses, cityKey, manualCityFee, viewMode, wizardStep]);
+  }, [tab, rate, sessions, goal, chartMode, secondaryOn, secondaryRate, secondarySessions, retreatOn, retreatParticipants, retreatRate, retreatPerMonth, vacationOn, vacationWeeks, wageMetro, careerStart, usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn, expenses, cityKey, manualCityFee, viewMode, wizardStep]);
   const d = {
     color: colorForRate(rate)
   };
@@ -1504,11 +1511,17 @@ function PracticeIncomePlanner() {
     // years worked) — does not reflect your actual past earnings history.
     const soleCreditedEarnings = Math.min(soleNetSEEarnings, SS_WAGE_BASE);
     const scorpCreditedEarnings = Math.min(sCorpSalaryInput, SS_WAGE_BASE);
-    const yearsForAIME = Math.min(35, yearsToRetire);
+    // Years of covered work across the whole career, past and future - not
+    // years remaining. Falls back to years-remaining only if the user has not
+    // said when they started, and the UI labels that case as an underestimate.
+    const careerYears = careerStart > 0 && retireAge > careerStart
+      ? retireAge - careerStart
+      : yearsToRetire;
+    const yearsForAIME = Math.min(35, Math.max(1, careerYears));
     const soleAIME = soleCreditedEarnings * yearsForAIME / 420;
     const scorpAIME = scorpCreditedEarnings * yearsForAIME / 420;
-    const solePIA = computePIA(soleAIME);
-    const scorpPIA = computePIA(scorpAIME);
+    const solePIA = Math.min(computePIA(soleAIME), SS_MAX_PIA_AT_FRA);
+    const scorpPIA = Math.min(computePIA(scorpAIME), SS_MAX_PIA_AT_FRA);
     // The other half of the trade-off: the payroll tax you did not pay is real
     // money you could have invested. Model it honestly - contribute the annual
     // saving every year until retirement at the user's own assumed return, then
@@ -1523,6 +1536,7 @@ function PracticeIncomePlanner() {
       soleCreditedEarnings,
       scorpCreditedEarnings,
       yearsForAIME,
+      careerKnown: careerStart > 0 && retireAge > careerStart,
       soleMonthlyPIA: solePIA,
       scorpMonthlyPIA: scorpPIA,
       soleAnnualPIA: solePIA * 12,
@@ -1762,7 +1776,7 @@ function PracticeIncomePlanner() {
       rate, sessions, goal, chartMode,
       secondaryOn, secondaryRate, secondarySessions,
       retreatOn, retreatParticipants, retreatRate, retreatPerMonth,
-      vacationOn, vacationWeeks, wageMetro,
+      vacationOn, vacationWeeks, wageMetro, careerStart,
       usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel,
       filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA,
       taxAge, retireAge, investReturn,
@@ -2521,6 +2535,8 @@ function PracticeIncomePlanner() {
     sCorpSalaryInput: sCorpSalaryInput,
     setSCorpSalaryInput: setSCorpSalaryInput,
     weeksWorkedProp: weeksWorked,
+    careerStart: careerStart,
+    setCareerStart: setCareerStart,
     wageMetro: wageMetro,
     setWageMetro: setWageMetro,
     sessionRate: rate,
@@ -3064,6 +3080,8 @@ function TaxStrategyTab({
   color,
   cur,
   weeksWorkedProp,
+  careerStart,
+  setCareerStart,
   wageMetro,
   setWageMetro,
   filingStatus,
@@ -3130,8 +3148,8 @@ function TaxStrategyTab({
     }),
     hint ? /*#__PURE__*/React.createElement("span", {className: "sfield-hint"}, hint) : null);
 
-  const step1Count = (taxAge > 0 ? 1 : 0) + (retireAge > 0 ? 1 : 0) + (investReturn > 0 ? 1 : 0)
-    + (filingStatus ? 1 : 0);
+  const step1Count = (taxAge > 0 ? 1 : 0) + (careerStart > 0 ? 1 : 0) + (retireAge > 0 ? 1 : 0)
+    + (investReturn > 0 ? 1 : 0);
   const introSection = /*#__PURE__*/React.createElement("section", {
     id: "taxstep1",
     className: "card stepcard" + (step1Count >= 4 ? " stepcard-done" : "")
@@ -3140,12 +3158,13 @@ function TaxStrategyTab({
       /*#__PURE__*/React.createElement("div", null,
         /*#__PURE__*/React.createElement("h2", null, "About you"),
         /*#__PURE__*/React.createElement("p", null,
-          "Four answers. They set the contribution limits you qualify for, your tax brackets, and how long your money has to grow \u2014 the long-range projections further down are impossible without them.")),
+          "Four answers. They set the contribution limits you qualify for, how long your money has to grow, and how many years of earnings Social Security will average \u2014 the long-range projections further down are impossible without them.")),
       /*#__PURE__*/React.createElement("div", {className: "stepcard-count"},
         /*#__PURE__*/React.createElement("b", null, step1Count + " / 4"),
         /*#__PURE__*/React.createElement("span", null, "answered"))),
     /*#__PURE__*/React.createElement("div", {className: "sfields"},
       stepField("Your age", taxAge, setTaxAge, 18, 80, "e.g. 40", "Sets which catch-up limits you qualify for"),
+      stepField("Earning since age", careerStart, setCareerStart, 14, 70, "e.g. 26", "Social Security averages your highest 35 years \u2014 without this the estimate counts only the years you have left, and understates badly"),
       stepField("Retiring at", retireAge, setRetireAge, 40, 80, "e.g. 67", "67 is full retirement age if you were born after 1960"),
       stepField("Expected annual return %", investReturn, setInvestReturn, 0, 15, "pick below", "Or choose a starting point from the presets")));
 
@@ -3522,7 +3541,7 @@ const seEducation = (function () {
     scorp: corpSep.taxSavings
   }, {
     label: "SIMPLE IRA — total contribution",
-    hint: "Deferral up to $18,100 plus a mandatory 3% employer match. Lower ceiling than the other two, and it cannot run alongside a Solo 401(k) in the same year.",
+    hint: "Deferral up to $18,100 plus a mandatory 3% employer match. Lower ceiling than the other two, and it cannot run alongside a Solo 401(k) in the same year — though since 2024 a SIMPLE can be swapped for a safe-harbour 401(k) mid-year.",
     sole: soleSimple.total,
     scorp: corpSimple.total,
     cmp: true
@@ -3597,7 +3616,7 @@ const seEducation = (function () {
   }, {
     horizon: true,
     label: "What that pot pays out, per year at 4%",
-    hint: "Compare this directly with the benefit you gave up two rows above",
+    hint: "Compare this with the benefit two rows above. Morningstar's 2026 safe starting rate is actually 3.9%, on a 30-year horizon and a 30–50% equity mix — 4% is the familiar shorthand, not a promise.",
     sole: 0,
     scorp: ssCmp.investedDrawAnnual,
     big: true
@@ -3705,7 +3724,7 @@ const seEducation = (function () {
         fmt0(Math.abs(ssCmp.investMargin))), ssCmp.investWins ? " in favour of investing." : " in favour of the benefit.",
       " Change the return at the top of this section and this can flip — that sensitivity is the honest answer.") : null);
 
-  const horizonNeeds = [["Your age", taxAge > 0], ["Retirement age", retireAge > 0], ["Expected return", investReturn > 0]];
+  const horizonNeeds = [["Your age", taxAge > 0], ["Earning since", careerStart > 0], ["Retirement age", retireAge > 0], ["Expected return", investReturn > 0]];
   const horizonMissing = horizonNeeds.filter(n => !n[1]).length;
   const horizonPeek = /*#__PURE__*/React.createElement("div", {className: "peek"},
     /*#__PURE__*/React.createElement("div", {className: "peek-blur", "aria-hidden": "true"},
@@ -4405,6 +4424,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         /*#__PURE__*/React.createElement("li", null, "Benefits use your ", /*#__PURE__*/React.createElement("b", null, "highest 35 years"), ". Fewer than 35 working years and SSA fills the gaps with zeros, pulling the average down."),
         /*#__PURE__*/React.createElement("li", null, "Lifetime totals run ", /*#__PURE__*/React.createElement("b", null, SS_FRA_AGE + " to 90"), " — ", ssCmp.lifetimeYears, " years of payments. Live longer and Social Security wins by more; die earlier and it wins by less. That is what an annuity is."),
         /*#__PURE__*/React.createElement("li", null, "Figures are in ", /*#__PURE__*/React.createElement("b", null, "today's dollars"), ", before cost-of-living increases, and use ", /*#__PURE__*/React.createElement("b", null, "2026 bend points"), " — which in reality lock in at age 62, not today."),
+        /*#__PURE__*/React.createElement("li", null, "Capped at SSA's published maximum at full retirement age, ", /*#__PURE__*/React.createElement("b", null, "$4,152 a month"), " for 2026. A simplified model built from flat earnings can otherwise exceed what anyone can actually receive."),
         /*#__PURE__*/React.createElement("li", null, "You need ", /*#__PURE__*/React.createElement("b", null, "40 credits"), " — about 10 years of covered work — to qualify at all. A corporation paying you nothing earns none."),
         /*#__PURE__*/React.createElement("li", null, "The only official figure is your own ", extLink("https://www.ssa.gov/myaccount/", "my Social Security"), " statement, which uses your real earnings history. This tool has never seen it."))),
     /*#__PURE__*/React.createElement("div", {className: "ssd-port"},
@@ -4441,7 +4461,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       onClick: () => setInvestReturn(o.v)
     }, /*#__PURE__*/React.createElement("b", null, o.t), /*#__PURE__*/React.createElement("span", null, o.s))),
     /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
-      "The last 20 years returned 11% a year. Schwab and Vanguard currently forecast 4–6% for the next decade. Projecting decades at 11% is the optimistic case, not the expected one — which is why this is yours to set."));
+      "The last 20 years returned 11% a year. Looking forward, Schwab publishes 5.9% for US large-cap over 2026–35, and Vanguard 4.2–6.2% as of 30 June 2026. The gap matters: over 25 years, 11% against 5.9% is roughly 3.4× the final pot. Projecting decades at 11% is the optimistic case, not the expected one — which is why this is yours to set, and why the verdict further down can flip."));
   const step1Lock = /*#__PURE__*/React.createElement("section", {className: "card steplock"},
     /*#__PURE__*/React.createElement("div", {className: "steplock-n"}, "2"),
     /*#__PURE__*/React.createElement("div", null,
@@ -4830,13 +4850,13 @@ const ssSection = (function () {
     }
   }, "The catch: \u201Creasonable compensation\u201D"), /*#__PURE__*/React.createElement("p", null, "The IRS requires an S-corp shareholder who performs substantial services to be paid a fair-market salary ", /*#__PURE__*/React.createElement("b", null, "before"), " taking any distribution.", /*#__PURE__*/React.createElement("sup", null, "[3]"), " Salary set too low relative to distributions is exactly the pattern the IRS looks for. Reasonableness is judged on facts and circumstances, not a formula \u2014 the factors that show up consistently in court decisions and IRS guidance are:", /*#__PURE__*/React.createElement("sup", null, "[4]")), /*#__PURE__*/React.createElement("ul", {
     className: "cite-list"
-  }, /*#__PURE__*/React.createElement("li", null, "Training, experience, and licensure"), /*#__PURE__*/React.createElement("li", null, "Duties and responsibilities actually performed"), /*#__PURE__*/React.createElement("li", null, "Time and effort devoted to the practice (full-time vs. part-time)"), /*#__PURE__*/React.createElement("li", null, "What comparable businesses pay for similar clinical work"), /*#__PURE__*/React.createElement("li", null, "Dividend/distribution history \u2014 a pattern of high distributions and minimal salary is a specific red flag"), /*#__PURE__*/React.createElement("li", null, "What you pay any non-owner employees for similar work")), /*#__PURE__*/React.createElement("p", null, "Getting this wrong is a real, citable audit risk, not a theoretical one: in ", /*#__PURE__*/React.createElement("a", {href: "https://ecf.ca8.uscourts.gov/opndir/12/02/111589P.pdf", target: "_blank", rel: "noopener noreferrer", className: "extlink"}, /*#__PURE__*/React.createElement("i", null, "David E. Watson, P.C. v. United States")), ", a CPA who paid himself a $24,000 salary against $203,651 in distributions had his compensation reclassified upward to $91,044 by the Eighth Circuit; in ", /*#__PURE__*/React.createElement("i", null, "Nu-Look Design v. Commissioner"), ", shareholder-employees taking $0 salary lost similarly at the Third Circuit.", /*#__PURE__*/React.createElement("sup", null, "[5]"), " When the IRS reclassifies a distribution as wages, it comes with back payroll taxes, penalties, and interest \u2014 without any offsetting new deduction to soften it.", /*#__PURE__*/React.createElement("sup", null, "[6]")), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("li", null, "Training, experience, and licensure"), /*#__PURE__*/React.createElement("li", null, "Duties and responsibilities actually performed"), /*#__PURE__*/React.createElement("li", null, "Time and effort devoted to the practice (full-time vs. part-time)"), /*#__PURE__*/React.createElement("li", null, "What comparable businesses pay for similar clinical work"), /*#__PURE__*/React.createElement("li", null, "Dividend/distribution history \u2014 a pattern of high distributions and minimal salary is a specific red flag"), /*#__PURE__*/React.createElement("li", null, "What you pay any non-owner employees for similar work")), /*#__PURE__*/React.createElement("p", null, "Getting this wrong is a real, citable audit risk, not a theoretical one: in ", /*#__PURE__*/React.createElement("a", {href: "https://ecf.ca8.uscourts.gov/opndir/12/02/111589P.pdf", target: "_blank", rel: "noopener noreferrer", className: "extlink"}, /*#__PURE__*/React.createElement("i", null, "David E. Watson, P.C. v. United States")), ", a CPA who paid himself a $24,000 salary against $203,651 in distributions had his compensation reclassified upward to $91,044 by the Eighth Circuit; in ", /*#__PURE__*/React.createElement("i", null, "Nu-Look Design, Inc. v. Commissioner"), ", 356 F.3d 290 (3d Cir. 2004), a sole shareholder-officer taking $0 salary lost the same argument.", /*#__PURE__*/React.createElement("sup", null, "[5]"), " When the IRS reclassifies a distribution as wages, it comes with back payroll taxes, penalties, and interest \u2014 without any offsetting new deduction to soften it.", /*#__PURE__*/React.createElement("sup", null, "[6]")), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
   }, citeList([
     {n:1, cite:"IRC \u00A71373", url:"https://www.law.cornell.edu/uscode/text/26/1373", note:"Rev. Rul. 59-221, 1959-1 C.B. 225 \u2014 S-corp flow-through profit distributed as such is not subject to self-employment tax; compensation for services is."},
     {n:2, cite:"IRC \u00A7199A(c)(4)", url:"https://www.law.cornell.edu/uscode/text/26/199A", note:"excludes reasonable compensation from qualified business income."},
     {n:3, cite:"Treas. Reg. \u00A731.3121(d)-1(b)", url:"https://www.law.cornell.edu/cfr/text/26/31.3121(d)-1", note:"treats more-than-minor services for remuneration as employment; see also IRS Fact Sheet FS-2008-25, \u201CWage Compensation for S Corporation Officers.\u201D"},
-    {n:4, cite:"Davis v. United States", url:"https://scholar.google.com/scholar?q=Davis+v.+United+States+reasonable+compensation+S+corporation", note:"and subsequent reasonable-compensation case law as summarized in IRS training materials."},
+    {n:4, cite:"IRS \u2014 S corporation employees, shareholders and corporate officers", url:"https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-employees-shareholders-and-corporate-officers", note:"the IRS\u0027s current live guidance on officer compensation, which supersedes the 2008 fact sheet as the primary statement of its position."},
     {n:5, cite:"David E. Watson, P.C. v. United States, 668 F.3d 1008 (8th Cir. 2012)", url:"https://ecf.ca8.uscourts.gov/opndir/12/02/111589P.pdf", note:"a $24,000 salary alongside $203,651 in distributions was recharacterised to $91,044 of wages."},
     {n:6, cite:"Nu-Look Design, Inc. v. Commissioner, 356 F.3d 290 (3d Cir. 2004)", url:"https://scholar.google.com/scholar?q=Nu-Look+Design+v.+Commissioner+356+F.3d+290", note:null},
     {n:7, cite:"IRC \u00A76651 and \u00A76656", url:"https://www.law.cornell.edu/uscode/text/26/6651", note:"standard IRS penalty and interest provisions on reclassified back payroll tax assessments."},
