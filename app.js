@@ -20,10 +20,19 @@ const {
 } = Recharts;
 const STORE_KEY = 'practice_planner_v3';
 // Feedback endpoint. GitHub Pages is static and cannot process a form, so the
-// form POSTs to a Google Apps Script web app which appends a row to a Google
-// Sheet and emails a copy. Paste the /exec URL here to switch it on; while it
-// is empty the form falls back to opening a mail draft, exactly as before.
+// form POSTs somewhere else. Two options, both free — paste either URL here:
+//
+//   Google Apps Script  https://script.google.com/macros/s/.../exec
+//     Sheet + email. See _dev/feedback-endpoint.gs. Sent no-cors, so the
+//     browser cannot read the reply and success is reported optimistically.
+//
+//   Formspree           https://formspree.io/f/xxxxxxxx
+//     Email + a dashboard, no Google OAuth. Answers CORS properly, so we get
+//     a real success or failure back and can tell the user the truth.
+//
+// While this is empty the form opens a mail draft, exactly as it always has.
 const FEEDBACK_ENDPOINT = "";
+const FEEDBACK_IS_FORMSPREE = /formspree\.io/.test(FEEDBACK_ENDPOINT);
 function encodeShareState(obj) {
   try {
     return btoa(encodeURIComponent(JSON.stringify(obj))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -2752,22 +2761,35 @@ function PracticeIncomePlanner() {
       const setupLine = "$" + rate + "/hr, " + sessions + " sessions/week";
       if (FEEDBACK_ENDPOINT) {
         setFbSent("sending");
-        // text/plain keeps this a CORS "simple request", so no preflight -
-        // Apps Script does not answer OPTIONS and a JSON content-type fails.
-        fetch(FEEDBACK_ENDPOINT, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {"Content-Type": "text/plain;charset=utf-8"},
-          body: JSON.stringify({
-            name: fbName || "", type: fbType, message: fbMessage,
-            setup: setupLine, share: share,
-            page: (typeof location !== "undefined" ? location.href : ""),
-            agent: (typeof navigator !== "undefined" ? navigator.userAgent : "")
-          })
-        }).then(() => {
+        const payload = {
+          name: fbName || "", type: fbType, message: fbMessage,
+          setup: setupLine, share: share,
+          page: (typeof location !== "undefined" ? location.href : ""),
+          agent: (typeof navigator !== "undefined" ? navigator.userAgent : "")
+        };
+        const ok = () => {
           setFbSent("done"); setFbName(""); setFbMessage("");
           setTimeout(() => setFbSent(false), 6000);
-        }).catch(() => { setFbSent("error"); setTimeout(() => setFbSent(false), 6000); });
+        };
+        const bad = () => { setFbSent("error"); setTimeout(() => setFbSent(false), 8000); };
+        if (FEEDBACK_IS_FORMSPREE) {
+          // Formspree answers CORS, so we can report a real result.
+          fetch(FEEDBACK_ENDPOINT, {
+            method: "POST",
+            headers: {"Content-Type": "application/json", "Accept": "application/json"},
+            body: JSON.stringify(payload)
+          }).then(r => r.ok ? ok() : bad()).catch(bad);
+        } else {
+          // Apps Script does not answer a CORS preflight, so the request has
+          // to stay a "simple" one: no-cors plus a text/plain content type.
+          // The reply is opaque, so success here means "sent", not "stored".
+          fetch(FEEDBACK_ENDPOINT, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {"Content-Type": "text/plain;charset=utf-8"},
+            body: JSON.stringify(payload)
+          }).then(ok).catch(bad);
+        }
         return;
       }
       const subject = encodeURIComponent("[" + fbType + "] Therapy Practice Simulator feedback");
