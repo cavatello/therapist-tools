@@ -4069,20 +4069,50 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       /*#__PURE__*/React.createElement("span", null, "everything saves as you type")));
 
   // ---- where the money actually goes ----------------------------------
-  const mfContrib = strategy.solo401k.total;
-  const mfSaved = strategy.solo401k.taxSavings;
-  const mfTaxNow = cur.totalTax, mfBankNow = cur.netYr;
-  const mfProfit = Math.max(1, mfTaxNow + mfBankNow);
-  const mfTaxAfter = Math.max(0, mfTaxNow - mfSaved);
-  const mfBankAfter = mfBankNow - (mfContrib - mfSaved);
-  const mfTotalAfter = mfBankAfter + mfContrib;
-  const mfCost = mfContrib - mfSaved;
-  const mfGrown = horizonReady ? mfContrib * Math.pow(1 + investReturn / 100, Math.max(0, retireAge - taxAge)) : 0;
-  const pctOf = v => Math.max(0, v) / mfProfit * 100 + "%";
-  const moneyFlow = mfContrib <= 0 ? null : /*#__PURE__*/React.createElement("section", {className: "card flowc"},
+  // Computed by running the engine twice, WITH and WITHOUT the contribution.
+  // The old version multiplied the contribution by the *marginal* rate, which
+  // overstated the saving badly: the marginal rate at the top of the range is
+  // ~55% (the SSTB QBI phase-out amplifies it) but it falls away as income
+  // drops, so the true effective rate across a $72k deduction is nearer 38%.
+  const mfEmp = strategy.solo401k.employeeContrib || 0;
+  const mfEr = strategy.solo401k.employerContrib || 0;
+  const mfContrib = mfEmp + mfEr;
+  const mfNone = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+  const mfWith = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, mfEr, mfEmp, entityType, sCorpSalaryInput);
+  const mfTaxNone = mfNone.totalTax, mfBankNone = mfNone.net;
+  const mfTaxWith = mfWith.totalTax, mfBankWith = mfWith.net;
+  const mfProfit = Math.max(1, mfTaxNone + mfBankNone);
+  const mfSaved = mfTaxNone - mfTaxWith;
+  const mfTotalWith = mfBankWith + mfContrib;
+  const mfCost = mfBankNone - mfBankWith;
+  const mfEffRate = mfContrib > 0 ? mfSaved / mfContrib : 0;
+  const mfYears = Math.max(0, retireAge - taxAge);
+  const mfGrown = horizonReady ? mfContrib * Math.pow(1 + investReturn / 100, mfYears) : 0;
+
+  const MF_A = {k: "none", name: "Contribute nothing", ink: "#7C766A", tint: "#F6F3EC", tintOn: "#EFEAE0", line: "#DCD5C6"};
+  const MF_B = {k: "max", name: "Max the Solo 401(k)", ink: "#2F7A61", tint: "#F1F7F4", tintOn: "#E4F0EA", line: "#B7D6C7"};
+  const mfBar = (tax, inv, bank) => /*#__PURE__*/React.createElement("span", {className: "mfmini"},
+    /*#__PURE__*/React.createElement("i", {style: {width: (tax / mfProfit * 100) + "%", background: "#B5483F"}}),
+    inv > 0 ? /*#__PURE__*/React.createElement("i", {style: {width: (inv / mfProfit * 100) + "%", background: "#3F9577"}}) : null,
+    /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, bank) / mfProfit * 100) + "%", background: "#26241E"}}));
+
+  const mfRows = [
+    {label: "Tax — to the IRS and California", hint: "Gone for good either way. This is the only figure the contribution actually changes.",
+     a: mfTaxNone, b: mfTaxWith, lowerBetter: true, cmp: true},
+    {label: "Into your investment account", hint: "Still yours. Locked until 59½ with narrow exceptions.",
+     a: 0, b: mfContrib, cmp: true},
+    {label: "Into your bank account", hint: "Spendable this year — this is the number that goes down",
+     a: mfBankNone, b: mfBankWith, cmp: true},
+    {label: "Total you end up with", hint: "Bank account plus investment account. Both are yours; only one is liquid.",
+     a: mfBankNone, b: mfTotalWith, big: true, cmp: true}
+  ];
+
+  const moneyFlow = mfContrib <= 0 ? null : /*#__PURE__*/React.createElement("section", {className: "card cmp mfc"},
     /*#__PURE__*/React.createElement("div", {className: "card-head"},
-      /*#__PURE__*/React.createElement("h2", null, "Where your ", fmt0(mfProfit), " of profit actually goes"),
-      /*#__PURE__*/React.createElement("p", null, "The same profit, two choices. Red is tax leaving for good — watch it shrink.")),
+      /*#__PURE__*/React.createElement("h2", null, "Contribute nothing, or max the Solo 401(k)"),
+      /*#__PURE__*/React.createElement("p", null,
+        "The same ", fmt0(mfProfit), " of profit, split two ways, side by side — grey is doing nothing, green is contributing ",
+        fmt0(mfContrib), ". Read down a column to see where that profit lands; read across a row to see what changes.")),
     /*#__PURE__*/React.createElement("div", {className: "fkey"},
       [["#B5483F", "Tax", "gone, to the IRS and California"],
        ["#3F9577", "Invested", "still yours, locked until 59½"],
@@ -4090,68 +4120,71 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       ].map(([c, t, d]) => /*#__PURE__*/React.createElement("span", {key: t},
         /*#__PURE__*/React.createElement("i", {style: {background: c}}), /*#__PURE__*/React.createElement("b", null, t),
         /*#__PURE__*/React.createElement("em", null, "— " + d)))),
-    /*#__PURE__*/React.createElement("div", {className: "scen"},
-      /*#__PURE__*/React.createElement("div", {className: "scen-lab"},
-        /*#__PURE__*/React.createElement("b", null, "① If you contribute nothing"),
-        /*#__PURE__*/React.createElement("span", null, "everything is either taxed or spendable")),
-      /*#__PURE__*/React.createElement("div", {className: "fbar"},
-        /*#__PURE__*/React.createElement("i", {className: "s-irs", style: {width: pctOf(mfTaxNow)}},
-          /*#__PURE__*/React.createElement("span", null, "to the IRS & CA"), /*#__PURE__*/React.createElement("b", null, fmt0(mfTaxNow))),
-        /*#__PURE__*/React.createElement("i", {className: "s-bank", style: {width: pctOf(mfBankNow)}},
-          /*#__PURE__*/React.createElement("span", null, "your bank account"), /*#__PURE__*/React.createElement("b", null, fmt0(mfBankNow))))),
-    /*#__PURE__*/React.createElement("div", {className: "arrowrow"},
-      /*#__PURE__*/React.createElement("span", {className: "big"}, fmt0(mfSaved), " ⟶"),
-      /*#__PURE__*/React.createElement("span", null,
-        "Maxing the Solo 401(k) takes ", /*#__PURE__*/React.createElement("b", null, fmt0(mfSaved) + " that was going to the IRS"),
-        " and sends it to your investment account instead. That money was never going to reach your bank account under either choice — the only question was who ended up with it.")),
-    /*#__PURE__*/React.createElement("div", {className: "scen"},
-      /*#__PURE__*/React.createElement("div", {className: "scen-lab"},
-        /*#__PURE__*/React.createElement("b", null, "② If you max the Solo 401(k) — ", fmt0(mfContrib)),
-        /*#__PURE__*/React.createElement("span", null, "the tax block shrinks, a third block appears")),
-      /*#__PURE__*/React.createElement("div", {className: "fbar"},
-        /*#__PURE__*/React.createElement("i", {className: "s-irs", style: {width: pctOf(mfTaxAfter)}},
-          /*#__PURE__*/React.createElement("span", null, "to the IRS & CA"), /*#__PURE__*/React.createElement("b", null, fmt0(mfTaxAfter))),
-        /*#__PURE__*/React.createElement("i", {className: "s-inv", style: {width: pctOf(mfContrib)}},
-          /*#__PURE__*/React.createElement("span", null, "invested, yours"), /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib))),
-        /*#__PURE__*/React.createElement("i", {className: "s-bank", style: {width: pctOf(mfBankAfter)}},
-          /*#__PURE__*/React.createElement("span", null, "your bank account"), /*#__PURE__*/React.createElement("b", null, fmt0(mfBankAfter))))),
-    /*#__PURE__*/React.createElement("div", {className: "mftotals"},
-      /*#__PURE__*/React.createElement("div", {className: "mftot"},
-        /*#__PURE__*/React.createElement("span", {className: "l"}, "① Total you end up with"),
-        /*#__PURE__*/React.createElement("b", null, fmt0(mfBankNow)),
-        /*#__PURE__*/React.createElement("span", {className: "n"}, "All of it liquid. ", fmt0(mfTaxNow), " gone to tax.")),
-      /*#__PURE__*/React.createElement("div", {className: "mftot win"},
-        /*#__PURE__*/React.createElement("span", {className: "l"}, "② Total you end up with"),
-        /*#__PURE__*/React.createElement("b", null, fmt0(mfTotalAfter)),
-        /*#__PURE__*/React.createElement("span", {className: "n"}, fmt0(mfBankAfter), " in the bank + ", fmt0(mfContrib),
-          " invested. Only ", fmt0(mfTaxAfter), " gone to tax."))),
+    /*#__PURE__*/React.createElement("div", {className: "cmp-wrap"},
+      /*#__PURE__*/React.createElement("table", {className: "cmp-table mftable"},
+        /*#__PURE__*/React.createElement("colgroup", null,
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-l"}),
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-a"}),
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-b"}),
+          /*#__PURE__*/React.createElement("col", {className: "cmp-col-d"})),
+        /*#__PURE__*/React.createElement("thead", null,
+          /*#__PURE__*/React.createElement("tr", null,
+            /*#__PURE__*/React.createElement("th", {className: "cmp-h-l", scope: "col"}, ""),
+            [MF_A, MF_B].map(e => /*#__PURE__*/React.createElement("th", {
+              key: e.k, scope: "col", className: "cmp-h mfh",
+              style: {background: e.tint, borderTopColor: e.ink}
+            }, /*#__PURE__*/React.createElement("span", {className: "mfh-in"},
+                /*#__PURE__*/React.createElement("b", {style: {color: e.ink}}, e.name),
+                /*#__PURE__*/React.createElement("small", null, e.k === "none" ? "the default" : fmt0(mfContrib) + " a year"),
+                e.k === "none" ? mfBar(mfTaxNone, 0, mfBankNone) : mfBar(mfTaxWith, mfContrib, mfBankWith)))),
+            /*#__PURE__*/React.createElement("th", {className: "cmp-h-d", scope: "col"},
+              /*#__PURE__*/React.createElement("span", null, "Difference"),
+              /*#__PURE__*/React.createElement("small", null, "max vs. nothing")))),
+        /*#__PURE__*/React.createElement("tbody", null, mfRows.map(r => {
+          const d = r.b - r.a;
+          const bAhead = r.lowerBetter ? r.b < r.a : r.b > r.a;
+          const win = r.cmp && Math.abs(d) > 0.5;
+          return /*#__PURE__*/React.createElement("tr", {key: r.label, className: "cmp-row" + (r.big ? " cmp-big" : "")},
+            /*#__PURE__*/React.createElement("td", {className: "cmp-l"},
+              /*#__PURE__*/React.createElement("span", {className: "cmp-lbl"}, r.label),
+              r.hint ? /*#__PURE__*/React.createElement("span", {className: "cmp-hint"}, r.hint) : null),
+            [[MF_A, r.a, win && !bAhead], [MF_B, r.b, win && bAhead]].map(([e, v, isWin]) =>
+              /*#__PURE__*/React.createElement("td", {
+                key: e.k, className: "cmp-cell mf-" + e.k + (isWin ? " cmp-win" : ""),
+                "data-lab": e.name, style: {background: e.tint, borderLeftColor: e.line}
+              }, isWin ? /*#__PURE__*/React.createElement("i", {className: "cmp-wintick"}, "▸") : null,
+                 /*#__PURE__*/React.createElement("span", {className: "cmp-v"}, fmt0(v)))),
+            /*#__PURE__*/React.createElement("td", {
+              className: "cmp-d " + (Math.abs(d) < 0.5 ? "" : bAhead ? "pos" : "neg"), "data-lab": "Difference"
+            }, Math.abs(d) < 0.5 ? "—" : (d > 0 ? "+" : "−") + fmt0(Math.abs(d))));
+        })))),
     /*#__PURE__*/React.createElement("div", {className: "mfpunch"},
-      /*#__PURE__*/React.createElement("b", null, "You are ", fmt0(mfSaved), " better off — but ", fmt0(mfCost), " less liquid."),
-      "Both are true at once, and confusing them is why this decision feels harder than it is. Your ",
-      /*#__PURE__*/React.createElement("b", null, "spending money"), " falls from ", fmt0(mfBankNow), " to ", fmt0(mfBankAfter),
-      ". Your ", /*#__PURE__*/React.createElement("b", null, "total for the year"), " rises from ", fmt0(mfBankNow),
-      " to ", fmt0(mfTotalAfter), ". The gap between those two sentences is exactly the tax you did not pay."),
+      /*#__PURE__*/React.createElement("b", null, "You end up ", fmt0(mfSaved), " ahead — and ", fmt0(mfCost), " less liquid."),
+      "Both are true at once, and confusing them is why this feels harder than it is. Your ",
+      /*#__PURE__*/React.createElement("b", null, "spendable cash"), " falls from ", fmt0(mfBankNone), " to ", fmt0(mfBankWith),
+      ". Your ", /*#__PURE__*/React.createElement("b", null, "total for the year"), " rises from ", fmt0(mfBankNone),
+      " to ", fmt0(mfTotalWith), ". The gap between those two sentences is exactly the ", fmt0(mfSaved),
+      " of tax you did not pay — money that was leaving your hands either way. The only question was whether the IRS got it or you did."),
     /*#__PURE__*/React.createElement("div", {className: "mftrade"},
       /*#__PURE__*/React.createElement("div", {className: "mft cost"},
         /*#__PURE__*/React.createElement("b", null, "What it costs — ", fmt0(mfCost)),
-        "Less cash reaching your bank this year, and it is locked until 59½ with narrow exceptions. If you need it for a deposit or a thin year, that is a real cost, not a technicality."),
+        "Cash that does not reach your bank this year, locked until 59½ with narrow exceptions. If you need it for a deposit or a thin year, that is a real cost, not a technicality."),
       /*#__PURE__*/React.createElement("div", {className: "mft gain"},
         /*#__PURE__*/React.createElement("b", null, "What you gain — ", fmt0(mfSaved)),
-        "Tax you would have paid, working for you instead. At your ", (strategy.marginalRate * 100).toFixed(0),
-        "% combined marginal rate, every dollar contributed keeps ", (strategy.marginalRate * 100).toFixed(0),
-        "¢ that was already spoken for.")),
+        "Tax you would have paid, working for you instead. Across the whole ", fmt0(mfContrib),
+        " that is an effective ", (mfEffRate * 100).toFixed(0), "% — the first dollars you shelter save more than the last, because your rate falls as your taxable income comes down.")),
     horizonReady && mfGrown > 0 ? /*#__PURE__*/React.createElement("div", {className: "mflater"},
       /*#__PURE__*/React.createElement("div", {className: "mflater-h"}, "And then it grows — this one year's contribution, held to ", retireAge),
       /*#__PURE__*/React.createElement("div", {className: "mflater-b"},
         /*#__PURE__*/React.createElement("span", {className: "n"}, fmt0(mfGrown)),
         /*#__PURE__*/React.createElement("span", {className: "d"},
-          /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib) + " compounding at " + investReturn + "% for " + Math.max(0, retireAge - taxAge) + " years."),
+          /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib) + " compounding at " + investReturn + "% for " + mfYears + " years."),
           " That is a single year's contribution. Repeat it annually and the comparison table's projection applies instead."))) : null,
     /*#__PURE__*/React.createElement("div", {className: "mfwarn"},
       /*#__PURE__*/React.createElement("b", null, "The honest asterisk: "),
       "a Solo 401(k) is tax-", /*#__PURE__*/React.createElement("i", null, "deferred"),
       ", not tax-free. You will pay ordinary income tax when you draw it down — the bet is that your rate in retirement is lower than the ",
-      (strategy.marginalRate * 100).toFixed(0), "% you are avoiding today. A Roth version reverses that bet. Neither is free money; both are timing."));
+      (mfEffRate * 100).toFixed(0), "% you are avoiding today. A Roth version reverses that bet. Neither is free money; both are timing."));
 
   // ---- Social Security, in the units people actually think in ----------
   const ssClaim = [
@@ -6079,6 +6112,21 @@ const CSS = `
 .mflater-b .d{font-size:12.5px; color:var(--muted); line-height:1.55; flex:1; min-width:230px;}
 .mfwarn{margin-top:13px; background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 9px 9px 0;
   padding:12px 15px; font-size:12.5px; line-height:1.6;}
+
+/* ---- contribute-nothing vs max: reuses the comparison-table pattern ---- */
+.mfh{padding:0 !important;}
+.mfh-in{display:flex; flex-direction:column; gap:3px; padding:11px 12px 12px;}
+.mfh-in b{font-family:'Fraunces',serif; font-size:14.5px; line-height:1.15; letter-spacing:-.01em;}
+.mfh-in small{font-size:10.5px; color:var(--muted);}
+.mfmini{display:flex; height:9px; border-radius:5px; overflow:hidden; margin-top:5px;}
+.mfmini i{display:block;}
+.mftable .cmp-l{width:34%;}
+@media (max-width:760px){
+  .mftable .mfh-in{padding:9px 10px;}
+  .mfc .cmp-cell::before{content:attr(data-lab);}
+  .mf-none::before{color:#7C766A;}
+  .mf-max::before{color:#2F7A61;}
+}
 
 /* ---- Social Security detail ---- */
 .ssd-tbl{width:100%; border-collapse:separate; border-spacing:0; font-size:13px;}
