@@ -168,6 +168,22 @@ function entTag(e, opts) {
   }, e.ch), opts.full ? e.name : e.short);
 }
 
+// BLS Occupational Employment and Wage Statistics, Marriage and Family
+// Therapists (SOC 21-1013), May 2023. Annual mean wage for EMPLOYED MFTs -
+// which is exactly the comparison the reasonable-compensation test calls for,
+// and a far better anchor than any percentage of profit.
+const MFT_WAGES = [
+  {p: "San Francisco–Oakland", v: 92370},
+  {p: "San Jose–Sunnyvale", v: 86710},
+  {p: "Sacramento", v: 81080},
+  {p: "California, all metros", v: 69780, state: true},
+  {p: "Los Angeles–Long Beach", v: 63420},
+  {p: "San Diego–Carlsbad", v: 62980},
+  {p: "Riverside–San Bernardino", v: 59120},
+  {p: "Oxnard–Ventura", v: 57820}
+];
+const MFT_NAT_P90 = 104710, MFT_NAT_MEDIAN = 58510, MFT_CA_MEAN = 69780;
+
 const SS_FRA_AGE = 67; // full retirement age, everyone born 1960 or later
 
 const RETIRE_2026 = {
@@ -1100,6 +1116,12 @@ function PracticeIncomePlanner() {
   const [taxAge, setTaxAge] = useState(SAVED.taxAge != null ? SAVED.taxAge : 0);
   const [retireAge, setRetireAge] = useState(SAVED.retireAge != null ? SAVED.retireAge : 0);
   const [investReturn, setInvestReturn] = useState(SAVED.investReturn != null ? SAVED.investReturn : 0);
+  // Progress for the Tax Strategy nav pill. Mirrors the stepper inside the
+  // section: about-you, salary, running costs, and the long-horizon inputs.
+  const taxStepsDone = (taxAge > 0 && retireAge > 0 && investReturn > 0 ? 1 : 0)
+    + (sCorpSalaryInput > 0 ? 1 : 0)
+    + ((payrollSvcCost || 0) + (corpReturnCost || 0) + (statementOfInfoCost || 0) > 0 ? 1 : 0)
+    + (filingStatus ? 1 : 0);
   const [secondaryRate, setSecondaryRate] = useState(SAVED.secondaryRate != null ? SAVED.secondaryRate : "");
   const [secondarySessions, setSecondarySessions] = useState(SAVED.secondarySessions != null ? SAVED.secondarySessions : "");
   const [retreatOn, setRetreatOn] = useState(SAVED.retreatOn != null ? SAVED.retreatOn : false);
@@ -1992,7 +2014,7 @@ function PracticeIncomePlanner() {
     className: "jumpnav-group"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-group-lbl"
-  }, "Your finances"), [["sec-income", "Income", fmt(cur.grossYr)], ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr)], ["sec-profit", "Profit", fmt(cur.netYr)], ["sec-taxstrategy", "Tax Strategy", Math.round(cur.takeHomePct * 100) + "%"]].map(([id, lbl, val]) => /*#__PURE__*/React.createElement("a", {
+  }, "Your finances"), [["sec-income", "Income", fmt(cur.grossYr)], ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr)], ["sec-profit", "Profit", fmt(cur.netYr)], ["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0]].map(([id, lbl, val, prog]) => /*#__PURE__*/React.createElement("a", {
     key: id,
     href: "#" + id,
     className: "jumpnav-pill" + (activeSection === id ? " jumpnav-active" : "")
@@ -2000,7 +2022,9 @@ function PracticeIncomePlanner() {
     className: "jumpnav-lbl"
   }, lbl), /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-val"
-  }, val))))), viewMode === "wizard" && /*#__PURE__*/React.createElement("div", {
+  }, val), prog ? /*#__PURE__*/React.createElement("span", {
+    className: "jumpnav-prog"
+  }, /*#__PURE__*/React.createElement("i", {style: {width: (prog * 100) + "%"}})) : null)))), viewMode === "wizard" && /*#__PURE__*/React.createElement("div", {
     className: "wizard-stepper"
   }, wizardSteps.map((k, i) => /*#__PURE__*/React.createElement(React.Fragment, {
     key: k
@@ -2437,7 +2461,7 @@ function PracticeIncomePlanner() {
     className: "card-head"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sub-eyebrow"
-  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted.")), /*#__PURE__*/React.createElement("div", {
+  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same limits apply in New York, Pennsylvania or anywhere else you would practise in the US, and the deduction comes off state taxable income too. Which means the same contribution is ", /*#__PURE__*/React.createElement("b", null, "worth more where the tax rate is higher"), ": sheltering a dollar in California or New York City saves more than sheltering it where there is no state income tax. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here.")), /*#__PURE__*/React.createElement("div", {
     className: "residency-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "stat",
@@ -2459,7 +2483,25 @@ function PracticeIncomePlanner() {
     className: "stat-note"
   }, fmt(cur.totalTax), " total tax"), residBreakdown(cur.grossYr, cur.totalTax, cur.netYr, d.color, cur.expYr), /*#__PURE__*/React.createElement("div", {
     className: "resid-invest-note"
-  }, /*#__PURE__*/React.createElement("b", null, "If you max your Solo 401(k) "), "(see USA Tax Strategy): ", fmt(taxStrategy.solo401k.total), " moves to your investment account, ", fmt(cur.netYr - taxStrategy.solo401k.total + taxStrategy.solo401k.taxSavings), " lands in your bank account \u2014 ", fmt(taxStrategy.solo401k.taxSavings), " of the contribution is tax you'd have paid anyway."), /*#__PURE__*/React.createElement("div", {
+  }, (function () {
+    const c = taxStrategy.solo401k.total, sv = taxStrategy.solo401k.taxSavings;
+    const bank = cur.netYr - c + sv, tot = Math.max(1, cur.totalTax + cur.netYr);
+    if (!(c > 0)) return /*#__PURE__*/React.createElement("span", null,
+      /*#__PURE__*/React.createElement("b", null, "Retirement accounts apply here too. "),
+      "Fill in Tax Strategy and this shows what a Solo 401(k) would move out of tax and into your own account.");
+    return /*#__PURE__*/React.createElement("div", {className: "locret"},
+      /*#__PURE__*/React.createElement("div", {className: "locret-lab"}, "If you max your Solo 401(k)"),
+      /*#__PURE__*/React.createElement("div", {className: "locret-bar"},
+        /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, cur.totalTax - sv) / tot * 100) + "%", background: "#B5483F"}}),
+        /*#__PURE__*/React.createElement("i", {style: {width: (c / tot * 100) + "%", background: "#3F9577"}}),
+        /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, bank) / tot * 100) + "%", background: "#26241E"}})),
+      /*#__PURE__*/React.createElement("div", {className: "locret-sp"},
+        /*#__PURE__*/React.createElement("span", null, "Invested ", /*#__PURE__*/React.createElement("b", null, fmt(c))),
+        /*#__PURE__*/React.createElement("span", null, "Bank ", /*#__PURE__*/React.createElement("b", null, fmt(bank)))),
+      /*#__PURE__*/React.createElement("div", {className: "locret-why"},
+        "Costs you ", /*#__PURE__*/React.createElement("b", null, fmt(c - sv)), " of spending money \u2014 the other ",
+        /*#__PURE__*/React.createElement("b", null, fmt(sv)), " was tax leaving anyway."));
+  })()), /*#__PURE__*/React.createElement("div", {
     className: "residency-includes"
   }, /*#__PURE__*/React.createElement("b", null, "Includes: "), "federal income tax, self-employment tax, and CA state income tax (progressive to 13.3%), with the same QBI deduction and expense treatment used throughout this tool.")), [{
     key: "nyc",
@@ -2728,7 +2770,7 @@ function PracticeIncomePlanner() {
     href: href
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 26, 2026")));
+  }, "Last updated: July 27, 2026")));
 }
 
 // ---------- small components ----------
@@ -2868,6 +2910,12 @@ function TaxStrategyTab({
   strategySoleProp,
   strategySCorp
 }) {
+  // Two gates, not one. The this-year comparison needs only income, expenses
+  // and a salary - all already entered - so withholding it behind a retirement
+  // date was never defensible. Only the long-horizon rows genuinely need these.
+  // Declared here, at the top of the component: structureRows is evaluated
+  // early and anything it references must exist before it. (TDZ, again.)
+  const horizonReady = taxAge > 0 && retireAge > 0 && investReturn > 0;
   const fmt0 = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
   const pct1 = n => (n * 100).toFixed(1) + "%";
   const inputField = (label, value, onChange, min, max) => /*#__PURE__*/React.createElement("div", {
@@ -2881,13 +2929,40 @@ function TaxStrategyTab({
     onChange: e => onChange(+e.target.value || 0)
   }));
 
+  // A 0 in a number field looks like an answer. These render blank with a
+  // placeholder until the user actually types something, which is what makes
+  // the "2 of 4 answered" counter and the gate below honest.
+  const stepField = (label, value, onChange, min, max, ph, hint) => /*#__PURE__*/React.createElement("div", {
+    className: "sfield" + (value > 0 ? " ok" : ""),
+    key: label
+  }, /*#__PURE__*/React.createElement("label", null,
+      /*#__PURE__*/React.createElement("i", {className: "sfield-tick" + (value > 0 ? " on" : "")},
+        value > 0 ? "\u2713" : "\u25CB"), label),
+    /*#__PURE__*/React.createElement("input", {
+      type: "number", min: min, max: max, placeholder: ph,
+      value: value > 0 ? value : "",
+      onChange: e => onChange(+e.target.value || 0)
+    }),
+    hint ? /*#__PURE__*/React.createElement("span", {className: "sfield-hint"}, hint) : null);
+
+  const step1Count = (taxAge > 0 ? 1 : 0) + (retireAge > 0 ? 1 : 0) + (investReturn > 0 ? 1 : 0)
+    + (filingStatus ? 1 : 0);
   const introSection = /*#__PURE__*/React.createElement("section", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "USA tax strategy"), /*#__PURE__*/React.createElement("p", null, "Retirement accounts are the main legal lever a self-employed therapist has to reduce this year's taxable income while building long-term savings. This tab simulates each option against your actual practice income \u2014 estimates only, not personalized advice.")), /*#__PURE__*/React.createElement("div", {
-    className: "funnel-input-grid"
-  }, inputField("Your current age", taxAge, setTaxAge, 18, 80), inputField("Planned retirement age", retireAge, setRetireAge, 40, 80), inputField("Expected annual return %", investReturn, setInvestReturn, 0, 15)));
+    id: "taxstep1",
+    className: "card stepcard" + (step1Count >= 4 ? " stepcard-done" : "")
+  }, /*#__PURE__*/React.createElement("div", {className: "stepcard-head"},
+      /*#__PURE__*/React.createElement("div", {className: "stepcard-n"}, step1Count >= 4 ? "\u2713" : "1"),
+      /*#__PURE__*/React.createElement("div", null,
+        /*#__PURE__*/React.createElement("h2", null, "About you"),
+        /*#__PURE__*/React.createElement("p", null,
+          "Four answers. They set the contribution limits you qualify for, your tax brackets, and how long your money has to grow \u2014 the long-range projections further down are impossible without them.")),
+      /*#__PURE__*/React.createElement("div", {className: "stepcard-count"},
+        /*#__PURE__*/React.createElement("b", null, step1Count + " / 4"),
+        /*#__PURE__*/React.createElement("span", null, "answered"))),
+    /*#__PURE__*/React.createElement("div", {className: "sfields"},
+      stepField("Your age", taxAge, setTaxAge, 18, 80, "e.g. 40", "Sets which catch-up limits you qualify for"),
+      stepField("Retiring at", retireAge, setRetireAge, 40, 80, "e.g. 67", "67 is full retirement age if you were born after 1960"),
+      stepField("Expected annual return %", investReturn, setInvestReturn, 0, 15, "pick below", "Or choose a starting point from the presets")));
 
   const taxProfileSection = /*#__PURE__*/React.createElement("section", {
     className: "job2 decision-impact"
@@ -3286,26 +3361,31 @@ const seEducation = (function () {
     scorp: strategySCorp.backdoorRoth.taxableOnConversion,
     lowerBetter: true
   }, {
+    horizon: true,
     grp: "Social Security you are earning",
     grpSub: "only wages and self-employment earnings count — distributions earn nothing"
   }, {
+    horizon: true,
     label: "Earnings credited this year",
     hint: "Capped at the " + fmt0(SS_WAGE_BASE_2026) + " wage base. For the corporation this is your salary and nothing else.",
     sole: ssCmp.soleCreditedEarnings,
     scorp: ssCmp.scorpCreditedEarnings,
     cmp: true
   }, {
+    horizon: true,
     label: "Estimated monthly benefit at 67",
     hint: "If this year's earnings pattern held for " + ssCmp.yearsForAIME + " years. An approximation, not an SSA statement.",
     sole: ssCmp.soleMonthlyPIA,
     scorp: ssCmp.scorpMonthlyPIA,
     cmp: true
   }, {
+    horizon: true,
     label: "A year of benefit at 67",
     sole: ssCmp.soleAnnualPIA,
     scorp: ssCmp.scorpAnnualPIA,
     cmp: true
   }, {
+    horizon: true,
     label: "Lifetime benefit, 67 to 90",
     hint: "Today's dollars, not discounted, and before any cost-of-living increases",
     sole: ssCmp.soleLifetime,
@@ -3313,20 +3393,24 @@ const seEducation = (function () {
     big: true,
     cmp: true
   }, {
+    horizon: true,
     grp: "The other side of that trade",
     grpSub: "the payroll tax you skipped is real money — what if you invested it instead?"
   }, {
+    horizon: true,
     label: "Payroll tax not paid, this year",
     hint: "The saving the whole strategy exists to capture",
     sole: 0,
     scorp: ssCmp.annualPayrollSaved,
     cmp: true
   }, {
+    horizon: true,
     label: "That saving invested every year to retirement",
     hint: "At your " + investReturn + "% assumed return, for " + strategySoleProp.yearsToRetire + " years",
     sole: 0,
     scorp: ssCmp.investedFV
   }, {
+    horizon: true,
     label: "What that pot pays out, per year at 4%",
     hint: "Compare this directly with the benefit you gave up two rows above",
     sole: 0,
@@ -3364,7 +3448,8 @@ const seEducation = (function () {
   }, isWin ? /*#__PURE__*/React.createElement("i", {className: "cmp-wintick", title: "the better of the two on this row"}, "▸") : null,
      /*#__PURE__*/React.createElement("span", {className: "cmp-v"}, fmt0(val)));
 
-  const structureBody = structureRows.map(r => {
+  const visibleRows = structureRows.filter(r => horizonReady || !r.horizon);
+  const structureBody = visibleRows.map(r => {
     if (r.grp) {
       return /*#__PURE__*/React.createElement("tr", {key: r.grp, className: "cmp-grp"},
         /*#__PURE__*/React.createElement("td", null,
@@ -3435,6 +3520,30 @@ const seEducation = (function () {
         fmt0(Math.abs(ssCmp.investMargin))), ssCmp.investWins ? " in favour of investing." : " in favour of the benefit.",
       " Change the return at the top of this section and this can flip — that sensitivity is the honest answer.") : null);
 
+  const horizonNeeds = [["Your age", taxAge > 0], ["Retirement age", retireAge > 0], ["Expected return", investReturn > 0]];
+  const horizonMissing = horizonNeeds.filter(n => !n[1]).length;
+  const horizonPeek = /*#__PURE__*/React.createElement("div", {className: "peek"},
+    /*#__PURE__*/React.createElement("div", {className: "peek-blur", "aria-hidden": "true"},
+      ["Earnings credited this year", "Estimated monthly benefit at 67", "Lifetime benefit, 67 to 90",
+       "Payroll tax not paid, this year", "What that pot pays out, per year at 4%"].map(t =>
+        /*#__PURE__*/React.createElement("div", {className: "peek-row", key: t},
+          /*#__PURE__*/React.createElement("span", null, t),
+          /*#__PURE__*/React.createElement("i", {style: {background: ENT_A.tintOn, color: ENT_A.ink}}, "$000,000"),
+          /*#__PURE__*/React.createElement("i", {style: {background: ENT_B.tintOn, color: ENT_B.ink}}, "$000,000")))),
+    /*#__PURE__*/React.createElement("div", {className: "peek-over"},
+      /*#__PURE__*/React.createElement("h4", null,
+        "Nine more rows, waiting on " + horizonMissing + " answer" + (horizonMissing === 1 ? "" : "s")),
+      /*#__PURE__*/React.createElement("p", null,
+        "Social Security, the lifetime comparison and the invest-the-difference maths all need to know how long your money has to grow. Everything above needs none of it \u2014 which is why it is already showing."),
+      /*#__PURE__*/React.createElement("div", {className: "peek-need"},
+        horizonNeeds.map(([lbl, ok]) => /*#__PURE__*/React.createElement("span", {
+          key: lbl, className: ok ? "ok" : ""
+        }, ok ? "\u2713 " : "\u25CB ", lbl))),
+      /*#__PURE__*/React.createElement("button", {
+        type: "button", className: "peek-go",
+        onClick: () => { const el = document.getElementById("taxstep1"); if (el) el.scrollIntoView({behavior: "smooth", block: "center"}); }
+      }, "Answer them \u2191")));
+
   const entityCompareSection = /*#__PURE__*/React.createElement("section", {
     className: "card cmp"
   }, /*#__PURE__*/React.createElement("div", {
@@ -3458,7 +3567,7 @@ const seEducation = (function () {
               /*#__PURE__*/React.createElement("span", null, "Difference"),
               /*#__PURE__*/React.createElement("small", null, "corp vs. sole")))),
         /*#__PURE__*/React.createElement("tbody", null, structureBody))),
-    ssVerdict,
+    horizonReady ? ssVerdict : horizonPeek,
     /*#__PURE__*/React.createElement("p", {className: "pay-note"},
       "“Difference” is the Professional Corp column measured against Sole Proprietorship — green where the corp is ahead, red where it costs more, and ▲ marks the better of the two on rows where one genuinely is better. Retirement rows show what each plan would allow, not a recommendation to open all of them: a Solo 401(k) and a SIMPLE IRA cannot both run in the same year, and a SEP or SIMPLE balance is pre-tax IRA money that makes a backdoor Roth worse. Social Security figures assume this year's earnings pattern repeats and use 2026 bend points, which in reality lock in at age 62 — treat them as an approximation of the gap, not a benefit statement."))
 
@@ -3531,7 +3640,27 @@ const seEducation = (function () {
         style: {background: sliderBand.color}
       }, sliderBand.label, sCorpSalaryInput > 0 ? " · " + Math.floor(salaryPct * 100) + "% of profit" : "") : null,
       /*#__PURE__*/React.createElement("span", {className: "salsplit-saving"},
-        psplit.saved > 0 ? fmt0(psplit.saved) + " of payroll tax avoided" : "no saving yet")));
+        psplit.saved > 0 ? fmt0(psplit.saved) + " of payroll tax avoided" : "no saving yet")),
+    /*#__PURE__*/React.createElement("div", {className: "salsplit-counters"},
+      /*#__PURE__*/React.createElement("div", {className: "sc up"},
+        /*#__PURE__*/React.createElement("i", null, "↑"),
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, fmt0(psplit.saved)),
+          "payroll tax avoided")),
+      /*#__PURE__*/React.createElement("div", {className: "sc dn"},
+        /*#__PURE__*/React.createElement("i", null, "↓"),
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, fmt0(strategySCorp.solo401k.total)),
+          "Solo 401(k) room — 25% of salary, so it shrinks with it")),
+      /*#__PURE__*/React.createElement("div", {className: "sc dn"},
+        /*#__PURE__*/React.createElement("i", null, "↓"),
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, fmt0(ssCmp.scorpMonthlyPIA), "/mo"),
+          "Social Security at 67 — only wages count"))),
+    /*#__PURE__*/React.createElement("p", {className: "salsplit-warn"},
+      "Dragging left saves payroll tax and costs you the other two. Those effects are the same order of magnitude — moving from the 50% benchmark to the 35% line saves roughly ",
+      fmt0(recNetProfit * 0.15 * 0.153), " of payroll tax while destroying about ",
+      fmt0(recNetProfit * 0.15 * 0.25), " of pre-tax retirement room. At any plausible marginal rate those very nearly cancel."));
 
 const netDiff = sCorpFullYear.net - soleFullYear.net;
   // An S-corp paying $0 salary is not a lawful option, so it must never be "recommended".
@@ -3624,7 +3753,28 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const complianceGuide = /*#__PURE__*/React.createElement("div", {
     className: "compliance"
   },
-    /*#__PURE__*/React.createElement("h4", null, "What running a corporation actually requires"),
+    /*#__PURE__*/React.createElement("h4", null, "First, how you actually become one"),
+    /*#__PURE__*/React.createElement("p", {className: "salguide-lede"},
+      "None of the numbers on this page are true until these are done. The S-corp election in particular is a single form with a hard deadline — miss it and you have a C corporation, which is taxed quite differently."),
+    /*#__PURE__*/React.createElement("div", {className: "setuptl"},
+      [["1", "Articles of Incorporation",
+        "Filed with the California Secretary of State, $100. The name must contain “marriage”, “family” or “child” together with “counseling”, “counselor”, “therapy” or “therapist”, plus a corporate designator — that is a statutory naming rule, not a style choice.", null],
+       ["2", "Bylaws, shares and first minutes",
+        "Shares may only ever be issued to licensed professionals, and a marriage and family therapy corporation must be at least 51% MFT-owned. A buy-sell agreement matters: if a shareholder dies or is disciplined, the shares must be repurchased rather than pass to someone unlicensed.",
+        ["https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=13401.5.&lawCode=CORP", "Cal. Corp. Code §13401.5"]],
+       ["3", "EIN, a separate bank account, a payroll account",
+        "The separate account is not a formality. Commingling personal and corporate money is the fastest way to lose the liability separation you incorporated for.", null],
+       ["4", "Form 2553 — the S election itself",
+        "The form the entire strategy depends on. Generally due within 2 months and 15 days of the beginning of the tax year it is to take effect. Without it you have a C corporation and none of the figures on this page apply to you.",
+        ["https://www.irs.gov/forms-pubs/about-form-2553", "IRS Form 2553"]],
+       ["5", "Register as an employer with the EDD",
+        "Within 15 days of paying more than $100 in wages in a calendar quarter. Any officer salary trips this immediately.", null]
+      ].map(([n, t, d, lk]) => /*#__PURE__*/React.createElement("div", {className: "stl", key: n},
+        /*#__PURE__*/React.createElement("i", null, n),
+        /*#__PURE__*/React.createElement("div", null,
+          /*#__PURE__*/React.createElement("b", null, t),
+          /*#__PURE__*/React.createElement("p", null, d, lk ? " " : null, lk ? extLink(lk[0], lk[1]) : null))))),
+    /*#__PURE__*/React.createElement("h4", {style: {marginTop: 22}}, "Then, every year, forever"),
     /*#__PURE__*/React.createElement("p", {className: "salguide-lede"},
       "A sole proprietor files none of the following — practice income goes on Schedule C inside the personal return you already file. Electing S-corp treatment makes you your own employer, and that creates real, recurring paperwork. Every link opens in a new tab."),
     /*#__PURE__*/React.createElement("div", {className: "compliance-cols"},
@@ -3633,14 +3783,14 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         /*#__PURE__*/React.createElement("ul", null,
           /*#__PURE__*/React.createElement("li", null, extLink("https://www.irs.gov/forms-pubs/about-form-941", "Form 941"), " — every quarter. Reports the income tax, Social Security and Medicare withheld from your own wages, plus the employer half."),
           /*#__PURE__*/React.createElement("li", null, extLink("https://www.irs.gov/forms-pubs/about-form-940", "Form 940"), " — once a year, federal unemployment tax. Paid by the employer only."),
-          /*#__PURE__*/React.createElement("li", null, extLink("https://www.irs.gov/forms-pubs/about-form-w-2", "Form W-2"), " and a W-3 — every January, issued by you, to you."),
-          /*#__PURE__*/React.createElement("li", null, extLink("https://www.irs.gov/forms-pubs/about-form-1120-s", "Form 1120-S"), " plus a Schedule K-1 — the corporation's own tax return, separate from your 1040."))),
+          /*#__PURE__*/React.createElement("li", null, extLink("https://www.irs.gov/forms-pubs/about-form-w-2", "Form W-2"), " and a W-3 — by ", /*#__PURE__*/React.createElement("b", null, "31 January"), ", issued by you, to you."),
+          /*#__PURE__*/React.createElement("li", null, extLink("https://www.irs.gov/forms-pubs/about-form-1120-s", "Form 1120-S"), " plus a Schedule K-1 — due ", /*#__PURE__*/React.createElement("b", null, "15 March"), ", a month before your personal return. This is the deadline people miss in year one."))),
       /*#__PURE__*/React.createElement("div", {className: "compliance-col"},
         /*#__PURE__*/React.createElement("h5", null, "California"),
         /*#__PURE__*/React.createElement("ul", null,
           /*#__PURE__*/React.createElement("li", null, extLink("https://edd.ca.gov/en/payroll_taxes/Am_I_Required_to_Register_as_an_Employer/", "Register with the EDD"), " — required once you pay more than $100 in wages in a calendar quarter, within 15 days. Any officer salary trips this immediately."),
           /*#__PURE__*/React.createElement("li", null, extLink("https://edd.ca.gov/en/payroll_taxes/required_filings_and_due_dates/", "DE 9 and DE 9C"), " — every quarter, wage reconciliation and per-employee detail."),
-          /*#__PURE__*/React.createElement("li", null, extLink("https://www.ftb.ca.gov/file/business/types/corporations/s-corporations.html", "Form 100S"), " — the CA S-corp return. 1.5% of net income, with an $800 minimum."),
+          /*#__PURE__*/React.createElement("li", null, extLink("https://www.ftb.ca.gov/file/business/types/corporations/s-corporations.html", "Form 100S"), " — the CA S-corp return, also due ", /*#__PURE__*/React.createElement("b", null, "15 March"), ". 1.5% of net income, with an $800 minimum — waived in the first year only."),
           /*#__PURE__*/React.createElement("li", null, extLink("https://www.sos.ca.gov/business-programs/business-entities/forms/corporations-statement-information", "Statement of Information"), " — $25, every year, to the Secretary of State.")))),
     /*#__PURE__*/React.createElement("div", {className: "compliance-goodnews"},
       /*#__PURE__*/React.createElement("b", null, "Two things that are less painful than they look. "),
@@ -3659,7 +3809,18 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
     runCostTotal > 0 && /*#__PURE__*/React.createElement("p", {className: "runcost-total"},
       "Adding ", /*#__PURE__*/React.createElement("b", null, fmt0(runCostTotal)), " a year that a sole proprietor does not pay. This is carried into the comparison below."),
     !(runCostTotal > 0) && /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
-      "While these are zero the comparison below shows the tax difference only, which will overstate what an S-corp is worth to you."));
+      "While these are zero the comparison below shows the tax difference only, which will overstate what an S-corp is worth to you."),
+    /*#__PURE__*/React.createElement("div", {className: "habit"},
+      /*#__PURE__*/React.createElement("h5", null, "And two things that are habit rather than cost"),
+      /*#__PURE__*/React.createElement("p", null,
+        /*#__PURE__*/React.createElement("b", null, "Run payroll on a real schedule. "),
+        "“I'll true it up in December” is how reasonable-compensation arguments are lost. Keep separate books, and keep a written file supporting your salary — the wage data for your metro, your hours, the roles you perform. Cheap to keep as you go, near-impossible to reconstruct three years later under examination."),
+      /*#__PURE__*/React.createElement("p", null,
+        /*#__PURE__*/React.createElement("b", null, "Keep the annual minutes. "),
+        "Nobody enforces them until something goes wrong, at which point their absence becomes the argument against you.")),
+    /*#__PURE__*/React.createElement("div", {className: "exitnote"},
+      /*#__PURE__*/React.createElement("b", null, "The door out, which most write-ups skip. "),
+      "Dissolving a California corporation takes its own filings, a final return and a final Statement of Information — and the $800 minimum applies for any year the entity exists, including a year you barely trade. If your income falls back under six figures, unwinding is not free. Worth knowing before you walk in."));
   const keepOpener = keepBar(cur.grossYr, cur.expYr, cur.totalTax, cur.netYr, sessionRate);
   const payrollMechanic = /*#__PURE__*/React.createElement("div", {className: "mechanic"},
     /*#__PURE__*/React.createElement("h4", null, "Where the saving actually comes from"),
@@ -3843,7 +4004,197 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
     /*#__PURE__*/React.createElement("p", {className: "pay-note"},
       "These are other people's published views, quoted because they are named, findable and specific — not endorsements, and not advice about your situation. Two of the three sell a service related to the answer they give, which is worth holding in mind. A California CPA or business attorney looking at your actual numbers is the only way to settle it."));
 
-  const step1Done = taxAge > 0 && retireAge > 0 && investReturn > 0;
+  // =====================================================================
+  // The opener, the stepper, the money flow and Social Security in full.
+  // All four are pure output - every variable they touch is declared above.
+  // =====================================================================
+  const secOpener = /*#__PURE__*/React.createElement("section", {className: "card opener"},
+    /*#__PURE__*/React.createElement("div", {className: "opener-eyebrow"}, "Section 4 of 4 · about 5 minutes"),
+    /*#__PURE__*/React.createElement("h2", null, "What you keep, and the two decisions that change it"),
+    /*#__PURE__*/React.createElement("p", null,
+      "Your income and expenses are settled by now. This section is about the part you still control: ",
+      /*#__PURE__*/React.createElement("b", null, "how your practice is structured"), ", and ",
+      /*#__PURE__*/React.createElement("b", null, "where you put money before it is taxed"),
+      ". Those are the only two legal levers most solo therapists have, and together they can move your take-home by five figures a year."),
+    /*#__PURE__*/React.createElement("p", null,
+      "It works by running your real numbers twice — once as a Sole Proprietorship, once as a Professional Corp with an S-corp election — and showing every figure side by side. Nothing here is a rule of thumb; each number traces back to your own rate and caseload."),
+    /*#__PURE__*/React.createElement("div", {className: "opener-qs"},
+      [["Should I incorporate?", "What the election is worth on your income, net of what it costs to run."],
+       ["What salary do I pay myself?", "Where your number sits against published wages for your licence — and against the percentage conventions."],
+       ["Which retirement account?", "All five, both structures, with your actual contribution room."],
+       ["What am I giving up?", "The Social Security you do not earn — and whether investing the difference beats it."]
+      ].map(([q, a]) => /*#__PURE__*/React.createElement("div", {className: "opener-q", key: q},
+        /*#__PURE__*/React.createElement("b", null, q), /*#__PURE__*/React.createElement("span", null, a)))),
+    /*#__PURE__*/React.createElement("div", {className: "opener-cant"},
+      /*#__PURE__*/React.createElement("b", null, "What this cannot do"),
+      "It does not know your past earnings, a spouse's income, where you will live next year, or anything about your clinical risk. It is a model to argue with and to take to a CPA — not a filing."));
+
+  const stepStates = [
+    {n: "1", t: "About you", s: step1Count >= 4 ? "age " + taxAge + " · retiring " + retireAge + " · " + investReturn + "%" : step1Count + " of 4 answered", done: step1Count >= 4},
+    {n: "2", t: "Structure & salary", s: sCorpSalaryInput > 0 ? "salary " + fmt0(sCorpSalaryInput) : "no salary set", done: sCorpSalaryInput > 0},
+    {n: "3", t: "Running costs", s: runCostTotal > 0 ? fmt0(runCostTotal) + " a year" : "optional — zero flatters the corp", done: runCostTotal > 0, opt: true},
+    {n: "→", t: "Compare & decide", s: horizonReady ? "all 28 rows open" : "9 rows need step 1", done: horizonReady, out: true}
+  ];
+  const stepsDone = stepStates.filter(x => x.done).length;
+  const stepperRail = /*#__PURE__*/React.createElement("div", {className: "rail-wrap"},
+    /*#__PURE__*/React.createElement("div", {className: "rail"},
+      stepStates.map(x => /*#__PURE__*/React.createElement("div", {
+        key: x.t,
+        className: "rail-step" + (x.done ? " done" : x.opt ? " opt" : "") + (x.out ? " out" : "")
+      }, /*#__PURE__*/React.createElement("span", {className: "rail-top"},
+          /*#__PURE__*/React.createElement("i", {className: "rail-n"}, x.done ? "✓" : x.n),
+          /*#__PURE__*/React.createElement("b", null, x.t)),
+        /*#__PURE__*/React.createElement("span", {className: "rail-s"}, x.s)))),
+    /*#__PURE__*/React.createElement("div", {className: "rail-bar"},
+      /*#__PURE__*/React.createElement("i", {style: {width: (stepsDone / 4 * 100) + "%"}})),
+    /*#__PURE__*/React.createElement("div", {className: "rail-meta"},
+      /*#__PURE__*/React.createElement("b", null, stepsDone + " of 4 done"),
+      /*#__PURE__*/React.createElement("span", null, "everything saves as you type")));
+
+  // ---- where the money actually goes ----------------------------------
+  const mfContrib = strategy.solo401k.total;
+  const mfSaved = strategy.solo401k.taxSavings;
+  const mfTaxNow = cur.totalTax, mfBankNow = cur.netYr;
+  const mfProfit = Math.max(1, mfTaxNow + mfBankNow);
+  const mfTaxAfter = Math.max(0, mfTaxNow - mfSaved);
+  const mfBankAfter = mfBankNow - (mfContrib - mfSaved);
+  const mfTotalAfter = mfBankAfter + mfContrib;
+  const mfCost = mfContrib - mfSaved;
+  const mfGrown = horizonReady ? mfContrib * Math.pow(1 + investReturn / 100, Math.max(0, retireAge - taxAge)) : 0;
+  const pctOf = v => Math.max(0, v) / mfProfit * 100 + "%";
+  const moneyFlow = mfContrib <= 0 ? null : /*#__PURE__*/React.createElement("section", {className: "card flowc"},
+    /*#__PURE__*/React.createElement("div", {className: "card-head"},
+      /*#__PURE__*/React.createElement("h2", null, "Where your ", fmt0(mfProfit), " of profit actually goes"),
+      /*#__PURE__*/React.createElement("p", null, "The same profit, two choices. Red is tax leaving for good — watch it shrink.")),
+    /*#__PURE__*/React.createElement("div", {className: "fkey"},
+      [["#B5483F", "Tax", "gone, to the IRS and California"],
+       ["#3F9577", "Invested", "still yours, locked until 59½"],
+       ["#26241E", "Bank account", "yours, spendable now"]
+      ].map(([c, t, d]) => /*#__PURE__*/React.createElement("span", {key: t},
+        /*#__PURE__*/React.createElement("i", {style: {background: c}}), /*#__PURE__*/React.createElement("b", null, t),
+        /*#__PURE__*/React.createElement("em", null, "— " + d)))),
+    /*#__PURE__*/React.createElement("div", {className: "scen"},
+      /*#__PURE__*/React.createElement("div", {className: "scen-lab"},
+        /*#__PURE__*/React.createElement("b", null, "① If you contribute nothing"),
+        /*#__PURE__*/React.createElement("span", null, "everything is either taxed or spendable")),
+      /*#__PURE__*/React.createElement("div", {className: "fbar"},
+        /*#__PURE__*/React.createElement("i", {className: "s-irs", style: {width: pctOf(mfTaxNow)}},
+          /*#__PURE__*/React.createElement("span", null, "to the IRS & CA"), /*#__PURE__*/React.createElement("b", null, fmt0(mfTaxNow))),
+        /*#__PURE__*/React.createElement("i", {className: "s-bank", style: {width: pctOf(mfBankNow)}},
+          /*#__PURE__*/React.createElement("span", null, "your bank account"), /*#__PURE__*/React.createElement("b", null, fmt0(mfBankNow))))),
+    /*#__PURE__*/React.createElement("div", {className: "arrowrow"},
+      /*#__PURE__*/React.createElement("span", {className: "big"}, fmt0(mfSaved), " ⟶"),
+      /*#__PURE__*/React.createElement("span", null,
+        "Maxing the Solo 401(k) takes ", /*#__PURE__*/React.createElement("b", null, fmt0(mfSaved) + " that was going to the IRS"),
+        " and sends it to your investment account instead. That money was never going to reach your bank account under either choice — the only question was who ended up with it.")),
+    /*#__PURE__*/React.createElement("div", {className: "scen"},
+      /*#__PURE__*/React.createElement("div", {className: "scen-lab"},
+        /*#__PURE__*/React.createElement("b", null, "② If you max the Solo 401(k) — ", fmt0(mfContrib)),
+        /*#__PURE__*/React.createElement("span", null, "the tax block shrinks, a third block appears")),
+      /*#__PURE__*/React.createElement("div", {className: "fbar"},
+        /*#__PURE__*/React.createElement("i", {className: "s-irs", style: {width: pctOf(mfTaxAfter)}},
+          /*#__PURE__*/React.createElement("span", null, "to the IRS & CA"), /*#__PURE__*/React.createElement("b", null, fmt0(mfTaxAfter))),
+        /*#__PURE__*/React.createElement("i", {className: "s-inv", style: {width: pctOf(mfContrib)}},
+          /*#__PURE__*/React.createElement("span", null, "invested, yours"), /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib))),
+        /*#__PURE__*/React.createElement("i", {className: "s-bank", style: {width: pctOf(mfBankAfter)}},
+          /*#__PURE__*/React.createElement("span", null, "your bank account"), /*#__PURE__*/React.createElement("b", null, fmt0(mfBankAfter))))),
+    /*#__PURE__*/React.createElement("div", {className: "mftotals"},
+      /*#__PURE__*/React.createElement("div", {className: "mftot"},
+        /*#__PURE__*/React.createElement("span", {className: "l"}, "① Total you end up with"),
+        /*#__PURE__*/React.createElement("b", null, fmt0(mfBankNow)),
+        /*#__PURE__*/React.createElement("span", {className: "n"}, "All of it liquid. ", fmt0(mfTaxNow), " gone to tax.")),
+      /*#__PURE__*/React.createElement("div", {className: "mftot win"},
+        /*#__PURE__*/React.createElement("span", {className: "l"}, "② Total you end up with"),
+        /*#__PURE__*/React.createElement("b", null, fmt0(mfTotalAfter)),
+        /*#__PURE__*/React.createElement("span", {className: "n"}, fmt0(mfBankAfter), " in the bank + ", fmt0(mfContrib),
+          " invested. Only ", fmt0(mfTaxAfter), " gone to tax."))),
+    /*#__PURE__*/React.createElement("div", {className: "mfpunch"},
+      /*#__PURE__*/React.createElement("b", null, "You are ", fmt0(mfSaved), " better off — but ", fmt0(mfCost), " less liquid."),
+      "Both are true at once, and confusing them is why this decision feels harder than it is. Your ",
+      /*#__PURE__*/React.createElement("b", null, "spending money"), " falls from ", fmt0(mfBankNow), " to ", fmt0(mfBankAfter),
+      ". Your ", /*#__PURE__*/React.createElement("b", null, "total for the year"), " rises from ", fmt0(mfBankNow),
+      " to ", fmt0(mfTotalAfter), ". The gap between those two sentences is exactly the tax you did not pay."),
+    /*#__PURE__*/React.createElement("div", {className: "mftrade"},
+      /*#__PURE__*/React.createElement("div", {className: "mft cost"},
+        /*#__PURE__*/React.createElement("b", null, "What it costs — ", fmt0(mfCost)),
+        "Less cash reaching your bank this year, and it is locked until 59½ with narrow exceptions. If you need it for a deposit or a thin year, that is a real cost, not a technicality."),
+      /*#__PURE__*/React.createElement("div", {className: "mft gain"},
+        /*#__PURE__*/React.createElement("b", null, "What you gain — ", fmt0(mfSaved)),
+        "Tax you would have paid, working for you instead. At your ", (strategy.marginalRate * 100).toFixed(0),
+        "% combined marginal rate, every dollar contributed keeps ", (strategy.marginalRate * 100).toFixed(0),
+        "¢ that was already spoken for.")),
+    horizonReady && mfGrown > 0 ? /*#__PURE__*/React.createElement("div", {className: "mflater"},
+      /*#__PURE__*/React.createElement("div", {className: "mflater-h"}, "And then it grows — this one year's contribution, held to ", retireAge),
+      /*#__PURE__*/React.createElement("div", {className: "mflater-b"},
+        /*#__PURE__*/React.createElement("span", {className: "n"}, fmt0(mfGrown)),
+        /*#__PURE__*/React.createElement("span", {className: "d"},
+          /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib) + " compounding at " + investReturn + "% for " + Math.max(0, retireAge - taxAge) + " years."),
+          " That is a single year's contribution. Repeat it annually and the comparison table's projection applies instead."))) : null,
+    /*#__PURE__*/React.createElement("div", {className: "mfwarn"},
+      /*#__PURE__*/React.createElement("b", null, "The honest asterisk: "),
+      "a Solo 401(k) is tax-", /*#__PURE__*/React.createElement("i", null, "deferred"),
+      ", not tax-free. You will pay ordinary income tax when you draw it down — the bet is that your rate in retirement is lower than the ",
+      (strategy.marginalRate * 100).toFixed(0), "% you are avoiding today. A Roth version reverses that bet. Neither is free money; both are timing."));
+
+  // ---- Social Security, in the units people actually think in ----------
+  const ssClaim = [
+    {age: 62, f: 0.70, note: "permanently reduced 30%"},
+    {age: SS_FRA_AGE, f: 1.00, note: "everyone born 1960 or later"},
+    {age: 70, f: 1.24, note: "+8% a year of delayed credit"}
+  ];
+  const ssDetail = !horizonReady ? null : /*#__PURE__*/React.createElement("section", {className: "card ssd"},
+    /*#__PURE__*/React.createElement("div", {className: "card-head"},
+      /*#__PURE__*/React.createElement("h2", null, "What you would actually receive each month"),
+      /*#__PURE__*/React.createElement("p", null, "Claiming age is your choice too — and on these numbers it moves the cheque by more than the structure does.")),
+    /*#__PURE__*/React.createElement("div", {className: "table-wrap"},
+      /*#__PURE__*/React.createElement("table", {className: "ssd-tbl"},
+        /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null,
+          /*#__PURE__*/React.createElement("th", null, "If you claim at…"),
+          /*#__PURE__*/React.createElement("th", {className: "cA", style: {color: ENT_A.ink}}, ENT_A.short),
+          /*#__PURE__*/React.createElement("th", {className: "cB", style: {color: ENT_B.ink}}, ENT_B.short),
+          /*#__PURE__*/React.createElement("th", null, "Monthly gap"))),
+        /*#__PURE__*/React.createElement("tbody", null, ssClaim.map(c => {
+          const a = ssCmp.soleMonthlyPIA * c.f, b = ssCmp.scorpMonthlyPIA * c.f;
+          return /*#__PURE__*/React.createElement("tr", {key: c.age, className: c.age === SS_FRA_AGE ? "hi" : ""},
+            /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("b", null, c.age),
+              c.age === SS_FRA_AGE ? " — full retirement age" : c.age === 62 ? " — earliest possible" : " — latest worth waiting for",
+              /*#__PURE__*/React.createElement("span", null, c.note)),
+            /*#__PURE__*/React.createElement("td", {className: "cA", style: {background: ENT_A.tint, color: ENT_A.ink}}, fmt0(a)),
+            /*#__PURE__*/React.createElement("td", {className: "cB", style: {background: ENT_B.tint, color: ENT_B.ink}}, fmt0(b)),
+            /*#__PURE__*/React.createElement("td", {className: "gap"}, b - a === 0 ? "—" : "−" + fmt0(Math.abs(a - b))));
+        })))),
+    /*#__PURE__*/React.createElement("div", {className: "ssd-ass"},
+      /*#__PURE__*/React.createElement("b", null, "What this projection assumes — read before trusting a figure"),
+      /*#__PURE__*/React.createElement("ul", null,
+        /*#__PURE__*/React.createElement("li", null, "That ", /*#__PURE__*/React.createElement("b", null, "this year's earnings repeat for " + ssCmp.yearsForAIME + " years"), ", until you turn ", SS_FRA_AGE, ". One good year does not produce these numbers."),
+        /*#__PURE__*/React.createElement("li", null, "Benefits use your ", /*#__PURE__*/React.createElement("b", null, "highest 35 years"), ". Fewer than 35 working years and SSA fills the gaps with zeros, pulling the average down."),
+        /*#__PURE__*/React.createElement("li", null, "Lifetime totals run ", /*#__PURE__*/React.createElement("b", null, SS_FRA_AGE + " to 90"), " — ", ssCmp.lifetimeYears, " years of payments. Live longer and Social Security wins by more; die earlier and it wins by less. That is what an annuity is."),
+        /*#__PURE__*/React.createElement("li", null, "Figures are in ", /*#__PURE__*/React.createElement("b", null, "today's dollars"), ", before cost-of-living increases, and use ", /*#__PURE__*/React.createElement("b", null, "2026 bend points"), " — which in reality lock in at age 62, not today."),
+        /*#__PURE__*/React.createElement("li", null, "You need ", /*#__PURE__*/React.createElement("b", null, "40 credits"), " — about 10 years of covered work — to qualify at all. A corporation paying you nothing earns none."),
+        /*#__PURE__*/React.createElement("li", null, "The only official figure is your own ", extLink("https://www.ssa.gov/myaccount/", "my Social Security"), " statement, which uses your real earnings history. This tool has never seen it."))),
+    /*#__PURE__*/React.createElement("div", {className: "ssd-port"},
+      /*#__PURE__*/React.createElement("div", {className: "ssd-port-h"},
+        /*#__PURE__*/React.createElement("b", null, "Does it follow you abroad?"),
+        /*#__PURE__*/React.createElement("span", null, "Relevant because this tool also asks you to compare five other places to live")),
+      [["United States", "Paid normally. Medicare available.", "Full", true],
+       ["Berlin", "Payments continue. Totalization agreement with Germany — work in both countries can be combined to qualify.", "Paid + treaty", true],
+       ["Portugal", "Payments continue. Totalization agreement in force.", "Paid + treaty", true],
+       ["Bordeaux", "Payments continue. Totalization agreement with France.", "Paid + treaty", true],
+       ["Brisbane", "Payments continue. Totalization agreement with Australia.", "Paid + treaty", true],
+       ["UAE", "Payments still reach you as a US citizen — but there is no totalization agreement, so years worked there build no US credit and cannot be combined.", "Paid, no treaty", false],
+       ["Cuba · North Korea", "SSA cannot send payments at all. Restrictions also apply in Azerbaijan, Belarus, Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan and Uzbekistan.", "Blocked", false]
+      ].map(([pl, ex, st, ok]) => /*#__PURE__*/React.createElement("div", {className: "ssd-row", key: pl},
+        /*#__PURE__*/React.createElement("b", null, pl),
+        /*#__PURE__*/React.createElement("span", null, ex),
+        /*#__PURE__*/React.createElement("i", {className: ok ? "yes" : "no"}, st)))),
+    /*#__PURE__*/React.createElement("div", {className: "ssd-med"},
+      /*#__PURE__*/React.createElement("b", null, "Medicare does not travel — and this is the one that catches people."),
+      "Social Security follows you almost anywhere; Medicare generally covers nothing outside the United States. Retiring abroad means buying local or private cover for the rest of your life, which is a real annual cost rather than a footnote."),
+    /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+      "Sources: ", extLink("https://www.ssa.gov/pubs/EN-05-10137.pdf", "SSA, Your Payments While You Are Outside the United States"),
+      " · ", extLink("https://www.ssa.gov/international/agreement_descriptions.html", "SSA, International Agreements"), "."));
+
+  const step1Done = true;
   const returnPresets = /*#__PURE__*/React.createElement("div", {className: "retpresets"},
     /*#__PURE__*/React.createElement("span", {className: "retpresets-lab"}, "Expected return — pick a starting point:"),
     [{v: 11, t: "11% — S&P 500, 20yr to 2025", s: "what the market actually did"},
@@ -3930,11 +4281,78 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
     url: "https://www.irs.gov/pub/irs-news/fs-08-25.pdf",
     note: "\u201CWage Compensation for S Corporation Officers\u201D \u2014 shareholder-employees performing more than minor services must be paid reasonable compensation before any distribution."
   }]));
+  // The IRS test is what the work is worth, not a share of profit. Watson was
+  // decided on comparable professional wages. So anchor to published wage data
+  // and show BOTH tests, because they disagree in opposite directions at the
+  // two ends of the income range.
+  const wageMax = Math.max(MFT_NAT_P90, sCorpSalaryInput, 1);
+  const wageVerdict = sCorpSalaryInput <= 0 ? null
+    : sCorpSalaryInput >= MFT_NAT_P90 ? {t: "Above the national 90th percentile", c: "#3F9577",
+        d: "Higher than nine in ten employed MFTs anywhere in the country. On a wage-comparability argument this is about as strong as it gets."}
+    : sCorpSalaryInput >= MFT_WAGES[0].v ? {t: "Above every California metro mean", c: "#3F9577",
+        d: "Above what any California employer pays an MFT on average. A strong position to defend."}
+    : sCorpSalaryInput >= MFT_CA_MEAN ? {t: "Above the California average", c: "#3F9577",
+        d: "Above the statewide mean for an employed MFT, though below the Bay Area figure. Defensible for most of the state."}
+    : sCorpSalaryInput >= MFT_NAT_MEDIAN ? {t: "Between the national median and the CA average", c: "#C98B4B",
+        d: "Arguable, but you would want your own metro's figure and your hours documented — especially if you practise in the Bay Area."}
+    : {t: "Below the national median wage", c: "#B5483F",
+        d: "Below what a typical employed MFT earns anywhere. Hard to argue that a practice generating this much profit is worth less than an entry-level salaried post."};
+  const pctOfProfitNow = recNetProfit > 0 ? sCorpSalaryInput / recNetProfit : 0;
+  const wageAnchor = /*#__PURE__*/React.createElement("div", {className: "wagea"},
+    /*#__PURE__*/React.createElement("h4", null, "What the work is actually worth"),
+    /*#__PURE__*/React.createElement("p", {className: "salguide-lede"},
+      "The bands above use a percentage of profit, because that is how the internet talks about this. It is not the test. The IRS asks what your services are worth, and in ",
+      /*#__PURE__*/React.createElement("i", null, "Watson"),
+      " the court accepted a figure built from comparable professional wages — not a share of profit. Published wage data for your licence is free, and it is the stronger argument."),
+    /*#__PURE__*/React.createElement("div", {className: "wagebars"},
+      MFT_WAGES.map(w => /*#__PURE__*/React.createElement("div", {className: "wrow" + (w.state ? " st" : ""), key: w.p},
+        /*#__PURE__*/React.createElement("span", {className: "nm"}, w.p),
+        /*#__PURE__*/React.createElement("span", {className: "tr"},
+          /*#__PURE__*/React.createElement("i", {style: {width: (w.v / wageMax * 100) + "%", background: w.state ? "#3B5A7A" : "#8AA6BF"}})),
+        /*#__PURE__*/React.createElement("span", {className: "vl"}, fmt0(w.v)))),
+      /*#__PURE__*/React.createElement("div", {className: "wrow", key: "p90"},
+        /*#__PURE__*/React.createElement("span", {className: "nm"}, "National 90th percentile"),
+        /*#__PURE__*/React.createElement("span", {className: "tr"},
+          /*#__PURE__*/React.createElement("i", {style: {width: (MFT_NAT_P90 / wageMax * 100) + "%", background: "#B9CBE0"}})),
+        /*#__PURE__*/React.createElement("span", {className: "vl"}, fmt0(MFT_NAT_P90))),
+      sCorpSalaryInput > 0 ? /*#__PURE__*/React.createElement("div", {className: "wrow you", key: "you"},
+        /*#__PURE__*/React.createElement("span", {className: "nm"}, "Your salary"),
+        /*#__PURE__*/React.createElement("span", {className: "tr"},
+          /*#__PURE__*/React.createElement("i", {style: {width: (sCorpSalaryInput / wageMax * 100) + "%", background: ENT_B.ink}})),
+        /*#__PURE__*/React.createElement("span", {className: "vl", style: {color: ENT_B.ink}}, fmt0(sCorpSalaryInput))) : null),
+    /*#__PURE__*/React.createElement("div", {className: "wagetests"},
+      /*#__PURE__*/React.createElement("div", {className: "wt", style: {borderColor: wageVerdict ? wageVerdict.c : "#E7E2D6"}},
+        /*#__PURE__*/React.createElement("span", {className: "l"}, "The wage test — what the IRS actually asks"),
+        /*#__PURE__*/React.createElement("b", {style: {color: wageVerdict ? wageVerdict.c : "inherit"}},
+          wageVerdict ? wageVerdict.t : "Set a salary to see this"),
+        /*#__PURE__*/React.createElement("span", {className: "n"},
+          wageVerdict ? wageVerdict.d : "Your salary is compared against published wages for employed MFTs in California.")),
+      /*#__PURE__*/React.createElement("div", {className: "wt"},
+        /*#__PURE__*/React.createElement("span", {className: "l"}, "The percentage convention — what blogs repeat"),
+        /*#__PURE__*/React.createElement("b", null, fmt0(recNetProfit * 0.35), " – ", fmt0(recNetProfit * 0.5)),
+        /*#__PURE__*/React.createElement("span", {className: "n"},
+          "35% to 50% of your ", fmt0(recNetProfit), " profit. Yours is ",
+          /*#__PURE__*/React.createElement("b", null, Math.floor(pctOfProfitNow * 100) + "%"),
+          recNetProfit * 0.5 > MFT_WAGES[0].v
+            ? ". Note the 50% convention here asks for more than any California employer pays an MFT."
+            : "."))),
+    /*#__PURE__*/React.createElement("div", {className: "wagenote"},
+      /*#__PURE__*/React.createElement("b", null, "Why this matters more as you earn more. "),
+      "A percentage scales with profit; a wage does not. At $100,000 of profit, 50% is $50,000 — below the California mean, so the percentage is the lenient test. At $400,000 of profit, 50% is $200,000 — roughly double any published clinician wage, so the percentage becomes the punitive one. Both tests are shown because they disagree, and which one you fail changes the conversation."),
+    /*#__PURE__*/React.createElement("div", {className: "wagenote counter"},
+      /*#__PURE__*/React.createElement("b", null, "The honest counter-argument. "),
+      "You are not only a clinician — you also run the practice, and the IRS values every role you perform, not just the clinical hours. A defensible file usually adds a management component on top of the clinical wage. It also matters that you generate this revenue yourself; an employed MFT on ",
+      fmt0(MFT_WAGES[0].v), " is not carrying a practice. Treat the wage figure as the floor of the argument, not the answer."),
+    /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+      extLink("https://www.bls.gov/oes/2023/may/oes211013.htm",
+        "BLS Occupational Employment and Wage Statistics — Marriage and Family Therapists, May 2023"),
+      ". Annual mean wages for employed MFTs; self-employed practitioners are excluded, which is the comparison the reasonable-compensation test calls for."));
+
   const businessStructureSection = /*#__PURE__*/React.createElement("section", {
     className: "card decision-impact"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Business structure"), /*#__PURE__*/React.createElement("p", null, "Sole Proprietorship vs. Professional Corp with an S-corp election \u2014 this choice is global and changes the tax math on every tab.")), educationBlock, entityToggle, salaryInputRow, salaryGuidance, payrollMechanic, complianceGuide, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Business structure"), /*#__PURE__*/React.createElement("p", null, "Sole Proprietorship vs. Professional Corp with an S-corp election \u2014 this choice is global and changes the tax math on every tab.")), educationBlock, entityToggle, salaryInputRow, salaryGuidance, wageAnchor, payrollMechanic, complianceGuide, /*#__PURE__*/React.createElement("div", {
     className: "resid-invest-note",
     style: {
       borderLeft: "4px solid " + recColor,
@@ -4281,7 +4699,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, introSection, returnPresets, taxProfileSection, !step1Done && step1Lock, step1Done && businessStructureSection, step1Done && entityCompareSection, step1Done && expertSection, step1Done && leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, secOpener, stepperRail, introSection, returnPresets, taxProfileSection, businessStructureSection, entityCompareSection, ssDetail, moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -5476,6 +5894,265 @@ const CSS = `
   .salsplit-ends{font-size:10px;}
 }
 
+/* ---- per-location retirement callout ---- */
+.locret-lab{font-size:9.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+  color:#3F9577; margin-bottom:7px;}
+.locret-bar{display:flex; height:22px; border-radius:6px; overflow:hidden; margin-bottom:7px;}
+.locret-bar i{display:block;}
+.locret-sp{display:flex; justify-content:space-between; font-size:11.5px; color:var(--muted);}
+.locret-sp b{font-family:'Fraunces',serif; font-size:13.5px; color:var(--ink); margin-left:3px;}
+.locret-why{font-size:11.5px; color:var(--muted); line-height:1.5; margin-top:7px;}
+.locret-why b{color:var(--ink);}
+.resid-retnote{font-size:13px; line-height:1.65; color:var(--muted); max-width:760px; margin:10px 0 0;}
+.resid-retnote b{color:var(--ink);}
+
+/* ---- the wage anchor: what the work is worth ---- */
+.wagea{margin-top:22px; padding-top:20px; border-top:1px solid var(--line);}
+.wagea h4{font-family:'Fraunces',serif; font-size:17px; margin:0 0 7px;}
+.wagebars{margin:14px 0 0;}
+.wrow{display:flex; align-items:center; gap:11px; padding:6px 0; font-size:13px;}
+.wrow .nm{width:186px; flex-shrink:0; color:var(--muted);}
+.wrow.st .nm{color:var(--ink); font-weight:600;}
+.wrow .tr{flex:1; background:#F1EDE3; border-radius:5px; height:19px; overflow:hidden;}
+.wrow .tr i{display:block; height:100%; border-radius:5px;}
+.wrow .vl{width:80px; text-align:right; font-family:'Fraunces',serif; font-weight:700; font-size:14px;
+  flex-shrink:0;}
+.wrow.you{background:#FBF6E9; margin:6px -8px; padding:9px 8px; border-radius:8px;}
+.wrow.you .nm{font-weight:700; color:var(--ink);}
+.wagetests{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;}
+.wt{border:1.5px solid var(--line); border-radius:12px; padding:13px 15px;}
+.wt .l{display:block; font-size:9.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:4px;}
+.wt > b{display:block; font-family:'Fraunces',serif; font-weight:700; font-size:17px; line-height:1.2;
+  margin-bottom:5px;}
+.wt .n{font-size:12px; color:var(--muted); line-height:1.55;}
+.wagenote{margin-top:14px; background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 9px 9px 0;
+  padding:12px 15px; font-size:12.5px; line-height:1.65;}
+.wagenote.counter{background:#F5EFF8; border-left-color:#6A4A78;}
+
+/* ---- salary slider: three counters, not one ---- */
+.salsplit-counters{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:13px;
+  padding-top:13px; border-top:1px solid #D4C3DD;}
+.sc{display:flex; align-items:flex-start; gap:8px; background:#fff; border:1px solid var(--line);
+  border-radius:10px; padding:10px 12px;}
+.sc i{font-style:normal; font-weight:800; font-size:13px; width:19px; height:19px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.sc.up i{background:#E7F1EC; color:var(--pos);}
+.sc.dn i{background:#F7E7E5; color:var(--neg);}
+.sc span{font-size:11px; color:var(--muted); line-height:1.45;}
+.sc b{display:block; font-family:'Fraunces',serif; font-size:16px; color:var(--ink); margin-bottom:1px;}
+.salsplit-warn{font-size:11.5px; color:var(--muted); line-height:1.6; margin:11px 0 0;}
+
+/* ---- setup timeline, habit, exit ---- */
+.setuptl{margin:14px 0 4px;}
+.stl{display:flex; gap:13px; align-items:flex-start; padding:11px 0; border-top:1px solid var(--line);}
+.stl:first-child{border-top:0;}
+.stl > i{display:flex; align-items:center; justify-content:center; width:24px; height:24px; flex-shrink:0;
+  border-radius:50%; background:#6A4A78; color:#fff; font-style:normal; font-weight:800; font-size:11px;}
+.stl b{display:block; font-size:14px; margin-bottom:3px;}
+.stl p{margin:0; font-size:12.5px; color:var(--muted); line-height:1.6;}
+.habit{margin-top:18px; background:#FCFAF4; border:1px solid var(--line); border-radius:11px;
+  padding:14px 16px;}
+.habit h5{font-family:'Fraunces',serif; font-size:15px; margin:0 0 8px;}
+.habit p{font-size:12.5px; line-height:1.65; color:var(--muted); margin:0 0 9px;}
+.habit p:last-child{margin-bottom:0;}
+.habit b{color:var(--ink);}
+.exitnote{margin-top:13px; background:#F7E7E5; border-left:4px solid #B5483F; border-radius:0 9px 9px 0;
+  padding:12px 15px; font-size:12.5px; line-height:1.65;}
+
+@media (max-width:820px){
+  .wagetests,.salsplit-counters{grid-template-columns:1fr;}
+  .wrow{flex-wrap:wrap;}
+  .wrow .nm{width:100%; font-size:12px;}
+  .wrow .vl{width:auto;}
+}
+
+/* ---- the opener: what this section is, before it asks anything ---- */
+.opener{border:2px solid var(--line) !important;}
+.opener-eyebrow{font-size:10.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:#C98B4B; margin-bottom:9px;}
+.opener h2{font-size:26px !important; margin:0 0 11px !important;}
+.opener p{font-size:14.5px; line-height:1.7; margin:0 0 14px; max-width:690px; color:var(--ink);}
+.opener-qs{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0 0;}
+.opener-q{background:#FCFAF4; border:1px solid var(--line); border-radius:11px; padding:13px 15px;}
+.opener-q b{display:block; font-family:'Fraunces',serif; font-size:14.5px; margin-bottom:4px;}
+.opener-q span{font-size:12.5px; color:var(--muted); line-height:1.5;}
+.opener-cant{margin-top:18px; background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 10px 10px 0;
+  padding:13px 16px; font-size:13px; line-height:1.6;}
+.opener-cant b{display:block; margin-bottom:3px;}
+
+/* ---- the stepper ---- */
+.rail-wrap{margin:0 0 22px; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff;}
+.rail{display:flex;}
+.rail-step{flex:1; display:flex; flex-direction:column; gap:5px; padding:13px 15px;
+  border-right:1px solid var(--line);}
+.rail-step:last-child{border-right:0;}
+.rail-top{display:flex; align-items:center; gap:8px;}
+.rail-n{display:inline-flex; align-items:center; justify-content:center; width:21px; height:21px;
+  border-radius:50%; font-size:11px; font-weight:800; font-style:normal; background:#EFEAE0;
+  color:var(--muted); flex-shrink:0;}
+.rail-top b{font-size:12.5px; letter-spacing:-.01em;}
+.rail-s{font-size:10.5px; color:var(--muted); line-height:1.35;}
+.rail-step.done{background:#F4F8F6;}
+.rail-step.done .rail-n{background:var(--pos); color:#fff;}
+.rail-step.opt .rail-n{background:#EFEAE0;}
+.rail-step.out{background:#FCFAF4;}
+.rail-step.out.done{background:#F4F8F6;}
+.rail-bar{height:4px; background:#EFEAE0;}
+.rail-bar i{display:block; height:100%; background:var(--pos); transition:width .3s;}
+.rail-meta{display:flex; justify-content:space-between; align-items:baseline; padding:9px 15px;
+  font-size:11px; color:var(--muted); background:#FCFAF4;}
+.rail-meta b{color:var(--ink); font-size:11.5px;}
+
+/* ---- money flow ---- */
+.fkey{display:flex; gap:8px; flex-wrap:wrap; margin:4px 0 16px;}
+.fkey span{display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line);
+  background:#FCFAF4; border-radius:9px; padding:7px 12px 7px 9px; font-size:12px; line-height:1.35;}
+.fkey i{width:13px; height:13px; border-radius:4px; flex-shrink:0;}
+.fkey em{font-style:normal; color:var(--muted);}
+.scen{margin-bottom:6px;}
+.scen-lab{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:6px;}
+.scen-lab b{font-size:12.5px;}
+.scen-lab span{font-size:11.5px; color:var(--muted);}
+.fbar{display:flex; height:54px; border-radius:9px; overflow:hidden;}
+.fbar i{display:flex; flex-direction:column; align-items:center; justify-content:center; font-style:normal;
+  color:#fff; text-align:center; padding:0 5px; min-width:0; transition:width .3s;}
+.fbar i b{font-family:'Fraunces',serif; font-size:16px; line-height:1.1; order:2;}
+.fbar i span{font-size:8.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  opacity:.92; order:1; margin-bottom:2px;}
+.s-irs{background:#B5483F;} .s-bank{background:var(--ink);} .s-inv{background:var(--pos);}
+.arrowrow{display:flex; align-items:center; gap:12px; margin:13px 0; padding:12px 15px;
+  background:#F4F8F6; border:1px dashed #9FC4AF; border-radius:10px; font-size:13px; line-height:1.55;}
+.arrowrow .big{font-family:'Fraunces',serif; font-weight:700; font-size:19px; color:var(--pos); white-space:nowrap;}
+.mftotals{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:18px;}
+.mftot{border:2px solid var(--line); border-radius:12px; padding:14px 16px; display:flex; flex-direction:column;}
+.mftot.win{border-color:#9FC4AF; background:#F4F8F6;}
+.mftot .l{font-size:10px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--muted);}
+.mftot b{font-family:'Fraunces',serif; font-weight:700; font-size:27px; margin:5px 0 6px;}
+.mftot.win b{color:var(--pos);}
+.mftot .n{font-size:12px; color:var(--muted); line-height:1.55;}
+.mfpunch{margin-top:16px; background:#F4F8F6; border:1px solid #9FC4AF; border-radius:12px;
+  padding:15px 17px; font-size:14px; line-height:1.7;}
+.mfpunch > b:first-child{font-family:'Fraunces',serif; font-size:17px; display:block; margin-bottom:5px;}
+.mftrade{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px;}
+.mft{border-radius:11px; padding:13px 15px; font-size:13px; line-height:1.6;}
+.mft b{display:block; font-family:'Fraunces',serif; font-size:15px; margin-bottom:3px;}
+.mft.cost{background:#FBF1E2; border-left:4px solid #C98B4B;}
+.mft.gain{background:#F4F8F6; border-left:4px solid var(--pos);}
+.mflater{margin-top:16px; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+.mflater-h{padding:11px 15px; background:#F6F2E8; font-size:11px; font-weight:800; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--muted);}
+.mflater-b{padding:15px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+.mflater-b .n{font-family:'Fraunces',serif; font-weight:700; font-size:30px; color:var(--pos);}
+.mflater-b .d{font-size:12.5px; color:var(--muted); line-height:1.55; flex:1; min-width:230px;}
+.mfwarn{margin-top:13px; background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 9px 9px 0;
+  padding:12px 15px; font-size:12.5px; line-height:1.6;}
+
+/* ---- Social Security detail ---- */
+.ssd-tbl{width:100%; border-collapse:separate; border-spacing:0; font-size:13px;}
+.ssd-tbl th{font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted); padding:0 10px 8px; text-align:right;}
+.ssd-tbl th:first-child{text-align:left;}
+.ssd-tbl td{padding:12px 10px; border-top:1px solid var(--line); text-align:right;
+  font-variant-numeric:tabular-nums; font-family:'Fraunces',serif; font-weight:700; font-size:18px;}
+.ssd-tbl td:first-child{text-align:left; font-family:'Inter',sans-serif; font-weight:400; font-size:13px;}
+.ssd-tbl td:first-child b{font-size:15px;}
+.ssd-tbl td:first-child span{display:block; font-size:11.5px; color:var(--muted); margin-top:2px;}
+.ssd-tbl tr.hi td{box-shadow:inset 0 0 0 99px rgba(251,246,233,.55);}
+.ssd-tbl .gap{color:var(--neg); font-size:15px;}
+.ssd-ass{margin-top:18px; border:1px dashed var(--line); border-radius:11px; padding:14px 16px;
+  background:#FCFAF4;}
+.ssd-ass > b{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--muted); display:block; margin-bottom:9px;}
+.ssd-ass ul{margin:0; padding-left:17px; font-size:12.5px; line-height:1.8; color:var(--muted);}
+.ssd-ass ul b{color:var(--ink);}
+.ssd-port{margin-top:16px; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+.ssd-port-h{padding:12px 16px; background:#F6F2E8;}
+.ssd-port-h b{font-family:'Fraunces',serif; font-size:15px;}
+.ssd-port-h span{display:block; font-size:11.5px; color:var(--muted); margin-top:2px;}
+.ssd-row{display:flex; align-items:center; gap:12px; padding:10px 16px; border-top:1px solid var(--line);
+  font-size:13px; flex-wrap:wrap;}
+.ssd-row > b{min-width:118px; font-weight:600;}
+.ssd-row > span{flex:1; min-width:200px; font-size:11.5px; color:var(--muted); line-height:1.5;}
+.ssd-row > i{font-style:normal; font-size:10.5px; font-weight:800; letter-spacing:.05em;
+  text-transform:uppercase; padding:3px 10px; border-radius:20px; white-space:nowrap;}
+.ssd-row > i.yes{background:#E7F1EC; color:var(--pos);}
+.ssd-row > i.no{background:#F7E7E5; color:var(--neg);}
+.ssd-med{margin-top:14px; background:#F7E7E5; border-left:4px solid var(--neg); border-radius:0 9px 9px 0;
+  padding:12px 15px; font-size:13px; line-height:1.6;}
+.ssd-med b{display:block; margin-bottom:3px;}
+
+@media (max-width:820px){
+  .opener-qs,.mftotals,.mftrade{grid-template-columns:1fr;}
+  .rail{flex-wrap:wrap;}
+  .rail-step{flex:1 1 46%; border-bottom:1px solid var(--line);}
+  .fbar{flex-direction:column; height:auto;}
+  .fbar i{width:100% !important; flex-direction:row; align-items:center; justify-content:space-between;
+    padding:11px 14px; min-height:44px; text-align:left;}
+  .fbar i span{margin-bottom:0; order:1;} .fbar i b{order:2;}
+  .scen-lab{flex-direction:column; align-items:flex-start; gap:2px;}
+  .scen{margin-bottom:14px;}
+  .arrowrow{flex-direction:column; align-items:flex-start; gap:6px;}
+  .ssd-tbl td{font-size:15px; padding:10px 6px;}
+  .ssd-tbl th{padding:0 6px 8px;}
+}
+
+/* ---- Step 1: numbered, self-counting, and blank when it is blank ---- */
+.stepcard{border:2px solid var(--amber) !important;}
+.stepcard-done{border-color:#9FC4AF !important;}
+.stepcard-head{display:flex; align-items:flex-start; gap:14px; margin:-4px 0 16px;}
+.stepcard-n{display:flex; align-items:center; justify-content:center; width:34px; height:34px;
+  border-radius:50%; background:var(--ink); color:#fff; font-family:'Fraunces',serif; font-weight:700;
+  font-size:16px; flex-shrink:0;}
+.stepcard-done .stepcard-n{background:var(--pos);}
+.stepcard-head h2{margin:0 0 3px !important;}
+.stepcard-head p{margin:0 !important; max-width:600px;}
+.stepcard-count{margin-left:auto; text-align:right; flex-shrink:0;}
+.stepcard-count b{display:block; font-family:'Fraunces',serif; font-size:19px;}
+.stepcard-count span{font-size:10px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted);}
+.sfields{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+.sfield label{display:flex; align-items:center; gap:6px; font-size:10.5px; font-weight:800;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:7px;}
+.sfield-tick{display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px;
+  border-radius:50%; font-size:8px; font-weight:800; font-style:normal; background:#EFEAE0; color:#fff;}
+.sfield-tick.on{background:var(--pos);}
+.sfield input{width:100%; font-family:'Fraunces',serif; font-size:21px; font-weight:600; color:var(--ink);
+  border:1.5px dashed #D8D2C4; background:#fff; border-radius:9px; padding:9px 12px;}
+.sfield input::placeholder{color:#BDB6A6; font-style:italic; font-size:15px;}
+.sfield input:focus{outline:none; border-color:#B5483F; border-style:solid;}
+.sfield.ok input{border-style:solid; border-color:#9FC4AF; background:#F4F8F6;}
+.sfield-hint{display:block; font-size:11px; color:var(--muted); margin-top:6px; line-height:1.4;}
+
+/* ---- the smaller gate: a look at what is behind it, not a grey wall ---- */
+.peek{position:relative; border:2px dashed var(--line); border-radius:14px; overflow:hidden;
+  background:#fff; margin-top:16px;}
+.peek-blur{filter:blur(3.5px); opacity:.45; pointer-events:none; padding:16px 18px; user-select:none;}
+.peek-row{display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13px;
+  border-top:1px solid var(--line);}
+.peek-row:first-child{border-top:0;}
+.peek-row span{flex:1; font-weight:600;}
+.peek-row i{font-style:normal; font-family:'Fraunces',serif; font-weight:700; font-size:14px;
+  width:104px; text-align:right; padding:4px 8px; border-radius:5px;}
+.peek-over{position:absolute; inset:0; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; gap:11px; text-align:center; padding:22px;
+  background:linear-gradient(rgba(251,249,243,.80),rgba(251,249,243,.96));}
+.peek-over h4{font-family:'Fraunces',serif; font-weight:700; font-size:19px; margin:0; letter-spacing:-.015em;}
+.peek-over p{font-size:13px; color:var(--muted); margin:0; max-width:470px; line-height:1.6;}
+.peek-need{display:flex; gap:7px; flex-wrap:wrap; justify-content:center;}
+.peek-need span{display:inline-flex; align-items:center; background:#fff; border:1.5px solid var(--line);
+  border-radius:20px; padding:5px 12px; font-size:12px; font-weight:600;}
+.peek-need span.ok{border-color:#9FC4AF; background:#F4F8F6; color:var(--pos);}
+.peek-go{background:var(--ink); color:#fff; border:0; border-radius:24px; padding:9px 19px; font:inherit;
+  font-weight:700; font-size:13px; cursor:pointer;}
+.peek-go:hover{background:#3D3931;}
+@media (max-width:760px){
+  .sfields{grid-template-columns:1fr;}
+  .stepcard-count{margin-left:0; text-align:left; width:100%; display:flex; align-items:baseline; gap:7px;}
+  .peek-row span{font-size:11.5px;}
+  .peek-row i{width:78px; font-size:12px;}
+}
+
 /* the structure picker - same two colours as the table columns */
 .entpick{display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-bottom:16px;}
 .entpick-lab{font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.07em;
@@ -5795,6 +6472,9 @@ const CSS = `
 .jumpnav-pill:hover{border-color:#C9A876;}
 .jumpnav-lbl{font-size:10.5px; font-weight:600; color:var(--muted);}
 .jumpnav-val{font-family:'Fraunces',serif; font-size:13px; font-weight:700; color:var(--ink);}
+.jumpnav-prog{display:block; height:3px; background:#EFEAE0; border-radius:2px; margin-top:4px; overflow:hidden;}
+.jumpnav-prog i{display:block; height:100%; background:#C98B4B; transition:width .3s;}
+.jumpnav-active .jumpnav-prog{background:rgba(255,255,255,.25);}
 .jumpnav-active{border-color:#26241E; background:#26241E;}
 .jumpnav-active .jumpnav-lbl{color:#C9BEE0;}
 .jumpnav-active .jumpnav-val{color:#fff;}
@@ -5975,7 +6655,9 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 .two-up .card{margin-bottom:24px;}
 
 /* table */
-.table-wrap{overflow-x:auto;}
+.table-wrap{overflow-x:auto; max-width:100%; -webkit-overflow-scrolling:touch;}
+.card,.job2,.stats,.residency-grid{min-width:0;}
+.planner{overflow-x:hidden;}
 table{width:100%; border-collapse:collapse; font-size:14px;}
 th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-weight:600; padding:0 14px 12px; border-bottom:1px solid var(--line);}
 .num-head{text-align:right;}
