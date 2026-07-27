@@ -2192,8 +2192,8 @@ function PracticeIncomePlanner() {
       /*#__PURE__*/React.createElement("i", null, "\u00D7"),
       /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, weeksWorked), " weeks"),
       /*#__PURE__*/React.createElement("i", null, "="),
-      /*#__PURE__*/React.createElement("span", {className: "inc-eq-res"}, fmt(grossYr(rate, sessions, weeksWorked))))), showIncomeAddons && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
-    className: "job2"
+      /*#__PURE__*/React.createElement("span", {className: "inc-eq-res"}, fmt(grossYr(rate, sessions, weeksWorked))))), showIncomeAddons && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {className: "income-mods"}, /*#__PURE__*/React.createElement("section", {
+    className: "job2" + (secondaryOn ? " job2-open" : ""),
   }, /*#__PURE__*/React.createElement("div", {
     className: "job2-head"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2249,7 +2249,7 @@ function PracticeIncomePlanner() {
   }, fmt(cur.secondaryNet), "/yr")), /*#__PURE__*/React.createElement("div", {
     className: "job2-sum-note"
   }, "*marginal — taxed together with your primary rate at the combined self-employment rate, so this is what the secondary source actually adds to take-home")))), /*#__PURE__*/React.createElement("section", {
-    className: "job2"
+    className: "job2" + (retreatOn ? " job2-open" : ""),
   }, /*#__PURE__*/React.createElement("div", {
     className: "job2-head"
   }, /*#__PURE__*/React.createElement("div", {
@@ -2311,7 +2311,7 @@ function PracticeIncomePlanner() {
     }
   }, fmt(cur.retreatNet), "/yr")), /*#__PURE__*/React.createElement("div", {
     className: "job2-sum-note"
-  }, "*marginal — taxed together with your primary rate at the combined self-employment rate, so this is what retreats/events actually add to take-home")))), /*#__PURE__*/React.createElement("p", {
+  }, "*marginal — taxed together with your primary rate at the combined self-employment rate, so this is what retreats/events actually add to take-home"))))), /*#__PURE__*/React.createElement("p", {
     className: "term-clarify"
   }, /*#__PURE__*/React.createElement("b", null, "Gross"), " = what you bill, before anything is taken out. ", /*#__PURE__*/React.createElement("b", null, "Expenses"), " = what it costs to run the practice. ", /*#__PURE__*/React.createElement("b", null, "Profit"), " (sometimes called net practice income) = gross minus expenses, before tax. ", /*#__PURE__*/React.createElement("b", null, "Net"), " = what actually lands in your bank account, after tax too."), /*#__PURE__*/React.createElement("section", {
     className: "stats"
@@ -6305,6 +6305,22 @@ const CSS = `
   .wrow .vl{width:auto;}
 }
 
+/* ---- the two optional income modules ---- */
+/* Off by default and rarely used - so when they are off they get one quiet
+   row, not a full card competing with the control that actually matters. */
+.planner .job2{transition:background .15s, border-color .15s;}
+.planner .job2:not(.decision-impact):not(.job2-open){
+  padding:13px 20px; box-shadow:none; background:#FCFAF4; border-color:#EDE8DC;}
+.planner .job2:not(.decision-impact):not(.job2-open) .job2-head{gap:12px;}
+.planner .job2:not(.decision-impact):not(.job2-open) .job2-title h3{font-size:15.5px;}
+.planner .job2:not(.decision-impact):not(.job2-open) .job2-tag{font-size:11.5px;}
+.planner .job2:not(.decision-impact):not(.job2-open):hover{background:#FBF6E9; border-color:#E4D9BE;}
+.planner .job2.job2-open{border-color:#C9A876; background:#fff;}
+.income-mods{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:28px;}
+.income-mods > .job2{margin-bottom:0 !important;}
+.income-mods > .job2.job2-open{grid-column:1 / -1;}
+@media (max-width:760px){ .income-mods{grid-template-columns:1fr;} }
+
 /* ---- Income: time off, and the arithmetic made visible ---- */
 .controls{grid-template-columns:1fr 1fr !important;}
 .timeoff{grid-column:1 / -1; display:flex; align-items:center; gap:13px; flex-wrap:wrap;
@@ -6981,6 +6997,9 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 .funnel-mini-stats{display:flex; gap:22px; margin-top:14px; font-size:13px; flex-wrap:wrap;}
 .funnel-target-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0;}
 .stat-col{display:flex; flex-direction:column; gap:14px;}
+.stats > .stat{display:flex; flex-direction:column; justify-content:center;}
+.stats > .stat > .stat-label{margin-bottom:8px;}
+.stats > .stat-col > .stat{justify-content:flex-start;}
 .stat-col .stat{flex:1;}
 .stat{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px;}
 .stat-big{background:linear-gradient(160deg,#fff,#FCFAF4); display:flex; flex-direction:column; justify-content:center;}
