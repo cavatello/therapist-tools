@@ -3591,15 +3591,30 @@ const seEducation = (function () {
   // distribution (more saving, more exposure), right for more salary (safer,
   // less saving). Both ends are labelled with what that direction costs.
   const salaryPct = recNetProfit > 0 ? Math.min(1, Math.max(0, sCorpSalaryInput / recNetProfit)) : 0;
+  // A sole proprietor has no split to make, and an S-corp paying $0 salary is
+  // not a lawful option - so neither state may display a "saving".
+  const splitLive = sCorpSalaryInput > 0;
+  const isSole = entityType === "sole_prop";
+  const realSaved = splitLive ? psplit.saved : 0;
   const sliderBand = salaryBandFor(sCorpSalaryInput, recNetProfit);
   const salaryInputRow = /*#__PURE__*/React.createElement("div", {
-    className: "salsplit",
+    className: "salsplit" + (isSole ? " salsplit-inert" : ""),
     style: {borderColor: ENT_B.line, background: ENT_B.tint}
   }, /*#__PURE__*/React.createElement("div", {className: "salsplit-head"},
       /*#__PURE__*/React.createElement("span", {className: "salsplit-title"},
         entTag(ENT_B, {sm: true}), " How you split the profit"),
       /*#__PURE__*/React.createElement("span", {className: "salsplit-note"},
-        "Sole proprietors have no split to make — this control only affects the plum column.")),
+        isSole
+          ? "You are planning as a sole proprietor, so this does not apply to you — there is no salary to set. It drives the Professional Corp column of the comparison below, so you can still see what the choice would be worth."
+          : "Only a corporation has a salary. This drives every plum figure on the page.")),
+    isSole ? /*#__PURE__*/React.createElement("div", {className: "salsplit-na"},
+      /*#__PURE__*/React.createElement("b", null, "Not your decision as a sole proprietor. "),
+      "All ", fmt0(recNetProfit), " of profit is self-employment income — there is no wage, no payroll and no distribution. Switch structure to make this control yours.",
+      /*#__PURE__*/React.createElement("button", {
+        type: "button", className: "salsplit-switch",
+        style: {background: ENT_B.ink},
+        onClick: () => setEntityType("s_corp")
+      }, "Plan as a Professional Corp →")) : null,
     /*#__PURE__*/React.createElement("div", {className: "salsplit-bar"},
       /*#__PURE__*/React.createElement("i", {
         className: "salsplit-w2",
@@ -3639,24 +3654,26 @@ const seEducation = (function () {
         className: "salsplit-band",
         style: {background: sliderBand.color}
       }, sliderBand.label, sCorpSalaryInput > 0 ? " · " + Math.floor(salaryPct * 100) + "% of profit" : "") : null,
-      /*#__PURE__*/React.createElement("span", {className: "salsplit-saving"},
-        psplit.saved > 0 ? fmt0(psplit.saved) + " of payroll tax avoided" : "no saving yet")),
+      /*#__PURE__*/React.createElement("span", {className: "salsplit-saving" + (splitLive ? "" : " none")},
+        splitLive
+          ? fmt0(realSaved) + " of payroll tax avoided"
+          : "No saving — a $0 salary is not a lawful S-corp")),
     /*#__PURE__*/React.createElement("div", {className: "salsplit-counters"},
-      /*#__PURE__*/React.createElement("div", {className: "sc up"},
-        /*#__PURE__*/React.createElement("i", null, "↑"),
+      /*#__PURE__*/React.createElement("div", {className: "sc" + (splitLive ? " up" : " nil")},
+        /*#__PURE__*/React.createElement("i", null, splitLive ? "↑" : "–"),
         /*#__PURE__*/React.createElement("span", null,
-          /*#__PURE__*/React.createElement("b", null, fmt0(psplit.saved)),
-          "payroll tax avoided")),
-      /*#__PURE__*/React.createElement("div", {className: "sc dn"},
-        /*#__PURE__*/React.createElement("i", null, "↓"),
+          /*#__PURE__*/React.createElement("b", null, fmt0(realSaved)),
+          splitLive ? "payroll tax avoided" : "nothing avoided until a salary is set")),
+      /*#__PURE__*/React.createElement("div", {className: "sc" + (splitLive ? " dn" : " nil")},
+        /*#__PURE__*/React.createElement("i", null, splitLive ? "↓" : "–"),
         /*#__PURE__*/React.createElement("span", null,
-          /*#__PURE__*/React.createElement("b", null, fmt0(strategySCorp.solo401k.total)),
-          "Solo 401(k) room — 25% of salary, so it shrinks with it")),
-      /*#__PURE__*/React.createElement("div", {className: "sc dn"},
-        /*#__PURE__*/React.createElement("i", null, "↓"),
+          /*#__PURE__*/React.createElement("b", null, fmt0(splitLive ? strategySCorp.solo401k.total : 0)),
+          "Solo 401(k) room — the employer share is 25% of salary")),
+      /*#__PURE__*/React.createElement("div", {className: "sc" + (splitLive ? " dn" : " nil")},
+        /*#__PURE__*/React.createElement("i", null, splitLive ? "↓" : "–"),
         /*#__PURE__*/React.createElement("span", null,
-          /*#__PURE__*/React.createElement("b", null, fmt0(ssCmp.scorpMonthlyPIA), "/mo"),
-          "Social Security at 67 — only wages count"))),
+          /*#__PURE__*/React.createElement("b", null, fmt0(splitLive ? ssCmp.scorpMonthlyPIA : 0), "/mo"),
+          "Social Security at 67 — only wages earn credit"))),
     /*#__PURE__*/React.createElement("p", {className: "salsplit-warn"},
       "Dragging left saves payroll tax and costs you the other two. Those effects are the same order of magnitude — moving from the 50% benchmark to the 35% line saves roughly ",
       fmt0(recNetProfit * 0.15 * 0.153), " of payroll tax while destroying about ",
@@ -4247,7 +4264,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       lineHeight: 1.7,
       margin: "0 0 12px"
     }
-  }, "As a ", entTag(ENT_A, {sm: true}), ", ", /*#__PURE__*/React.createElement("b", null, "all"), " of your profit is taxed at the 15.3% self-employment rate. A ", entTag(ENT_B, {sm: true}), " lets you split profit into a ", /*#__PURE__*/React.createElement("b", null, "salary"), " (taxed at 15.3%, same as before) and a ", /*#__PURE__*/React.createElement("b", null, "distribution"), " (taxed at 0% self-employment tax). That split is the whole reason this choice exists."), /*#__PURE__*/React.createElement("p", {
+  }, "As a ", entTag(ENT_A, {sm: true}), " there is ", /*#__PURE__*/React.createElement("b", null, "no salary to set"), " — you cannot employ yourself, so ", /*#__PURE__*/React.createElement("b", null, "every dollar of profit"), " is self-employment income and self-employment tax applies to all of it: 12.4% for Social Security up to ", fmt0(SS_WAGE_BASE_2026), " of earnings, then 2.9% for Medicare on everything above. Nothing to decide, and nothing to defend. A ", entTag(ENT_B, {sm: true}), " is the only structure that creates a choice, because a corporation ", /*#__PURE__*/React.createElement("b", null, "can"), " employ you: it pays part of the profit as a ", /*#__PURE__*/React.createElement("b", null, "W-2 salary"), " (payroll tax applies, exactly as before) and the rest as a ", /*#__PURE__*/React.createElement("b", null, "distribution"), " (no payroll tax). That split is the whole reason this choice exists."), /*#__PURE__*/React.createElement("p", {
     style: {
       fontSize: 14,
       lineHeight: 1.7,
@@ -5905,6 +5922,21 @@ const CSS = `
 .locret-why b{color:var(--ink);}
 .resid-retnote{font-size:13px; line-height:1.65; color:var(--muted); max-width:760px; margin:10px 0 0;}
 .resid-retnote b{color:var(--ink);}
+
+/* a sole proprietor has no split to make - say so, and look inert */
+.salsplit-inert{opacity:.72;}
+.salsplit-inert .salsplit-bar,.salsplit-inert .salsplit-range,
+.salsplit-inert .salsplit-ends{filter:grayscale(.55);}
+.salsplit-na{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:14px;
+  background:#fff; border:1px dashed #D4C3DD; border-radius:11px; padding:12px 15px;
+  font-size:13px; line-height:1.6; color:var(--muted);}
+.salsplit-na b{color:var(--ink);}
+.salsplit-switch{margin-left:auto; border:0; border-radius:22px; color:#fff; font:inherit;
+  font-weight:700; font-size:12.5px; padding:8px 15px; cursor:pointer; white-space:nowrap;}
+.salsplit-saving.none{color:var(--neg); font-family:'Inter',sans-serif; font-weight:600; font-size:12.5px;}
+.sc.nil{opacity:.6;}
+.sc.nil i{background:#EFEAE0; color:var(--muted);}
+.sc.nil b{color:var(--muted);}
 
 /* ---- the wage anchor: what the work is worth ---- */
 .wagea{margin-top:22px; padding-top:20px; border-top:1px solid var(--line);}
