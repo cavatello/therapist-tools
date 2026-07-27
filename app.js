@@ -198,6 +198,15 @@ const MFT_WAGES = [
 ];
 const MFT_NAT_P90 = 104710, MFT_NAT_MEDIAN = 58510, MFT_CA_MEAN = 69780;
 
+// US Census, County Business Patterns 2023, California, NAICS 621330,
+// S-corporation establishments in the 1-4 employee class: 4,201 establishments,
+// 4,963 employees, $294,021,000 total annual payroll. That is $69,988 of payroll
+// per establishment and $59,243 per employee - a federal administrative figure
+// for what California solo-ish therapy S-corps actually run through payroll,
+// and a much stronger anchor than any percentage-of-profit convention.
+const CENSUS_SCORP_PAYROLL = 69988, CENSUS_SCORP_PER_EMP = 59243,
+      CENSUS_SCORP_ESTABS = 4201;
+
 const SS_FRA_AGE = 67; // full retirement age, everyone born 1960 or later
 // SSA's published maximum benefit at full retirement age, 2026. A simplified
 // PIA built from flat capped earnings can exceed this, because SSA indexes
@@ -4142,13 +4151,14 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         "% to the extra billing — a simplification, since more income can push you into a higher bracket. The S-corp figure is net of the running costs you entered."));
   })();
   // What people who do this for a living actually say. Named sources, real
-  // links, and an honest note about the statistic that does not exist.
+  // links, plus the federal Census data on how CA practices are actually
+  // structured - the number everybody asks for and nobody in this space uses.
   const expertSection = /*#__PURE__*/React.createElement("details", {
     className: "card collapsible expert"
   }, /*#__PURE__*/React.createElement("summary", {className: "card-head"},
       /*#__PURE__*/React.createElement("h2", null, "What the lawyers and accountants actually say"),
       /*#__PURE__*/React.createElement("p", null,
-        "Three named sources who work with California therapists specifically — where they agree, where they disagree with each other, and the one statistic everybody asks for that nobody publishes.")),
+        "Three named sources who work with California therapists specifically — where they agree, where they disagree with each other — plus federal data on how California practices are actually structured.")),
     /*#__PURE__*/React.createElement("div", {className: "expert-q"},
       /*#__PURE__*/React.createElement("div", {className: "expert-who"},
         /*#__PURE__*/React.createElement("b", null, "Michael J. Leonard, Esq."),
@@ -4204,22 +4214,64 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         " for the work actually done, before any distribution. The “50% of profit” figure repeated across every private-practice blog is a practitioner convention that has no standing in an audit — what gets defended is a salary you can tie to what a comparable clinician is paid."),
       /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
         extLink("https://www.irs.gov/pub/irs-news/fs-08-25.pdf", "IRS Fact Sheet FS-2008-25 — Wage Compensation for S Corporation Officers"))),
-    /*#__PURE__*/React.createElement("div", {className: "expert-nodata"},
-      /*#__PURE__*/React.createElement("h4", null, "The statistic nobody has"),
+    /*#__PURE__*/React.createElement("div", {className: "expert-nodata census"},
+      /*#__PURE__*/React.createElement("h4", null, "What California therapists actually do"),
       /*#__PURE__*/React.createElement("p", null,
-        "How do California LMFTs actually file? There is no reliable public answer, and it is worth being blunt about that rather than repeating a number someone made up. IRS Statistics of Income breaks returns out by entity type and by broad industry, not by professional licence. The BBS licenses therapists but does not ask how they are taxed. CAMFT does not appear to publish a tax-structure survey."),
+        "Nobody surveys this. CAMFT's last demographic survey was 2015 and never asked about legal form; the BBS licenses therapists without asking how they are taxed; the one national survey that does ask reports “LLC/PLLC” as its largest category — a form California-licensed therapists ",
+        /*#__PURE__*/React.createElement("i", null, "cannot legally use"), " for licensed services. So the figures below come from somewhere else: federal business statistics built from tax filings, not from a questionnaire. No self-selection, no response bias."),
       /*#__PURE__*/React.createElement("p", null,
-        "The closest thing that exists is Heard's ", /*#__PURE__*/React.createElement("b", null, "Financial State of Private Practice"),
-        " report — now in its fourth year, surveying nearly 2,000 therapists across all 50 states. It is genuinely useful on money: median practice revenue of ",
-        /*#__PURE__*/React.createElement("b", null, "$80,412"), " in 2025, up 18% year over year; about ",
-        /*#__PURE__*/React.createElement("b", null, "$105"), " a session on insurance against roughly ",
-        /*#__PURE__*/React.createElement("b", null, "$150"), " private pay; only ",
-        /*#__PURE__*/React.createElement("b", null, "33%"), " of therapists raised their fees at all in 2025; and taxes named the number-one business headache by ",
-        /*#__PURE__*/React.createElement("b", null, "53.6%"), " of respondents. What it does not publish is the entity mix — so anyone telling you what share of therapists have incorporated is guessing."),
+        "The answer flips depending on which universe you count, and that turns out to be the whole point."),
+      /*#__PURE__*/React.createElement("div", {className: "cendual"},
+        [{k: "all", lab: "All CA mental-health practices", n: "33,660 establishments",
+          you: isSole,
+          seg: [{p: 78.0, c: ENT_A.ink, t: "Sole prop", v: "78%"},
+                {p: 18.1, c: ENT_B.ink, t: "S corp", v: "18%"},
+                {p: 3.9, c: "#B7B0A2", t: "Other", v: "4%"}]},
+         {k: "pay", lab: "CA practices large enough to run payroll", n: "6,953 establishments",
+          you: !isSole,
+          seg: [{p: 11.1, c: ENT_A.ink, t: "Sole prop", v: "11%"},
+                {p: 72.4, c: ENT_B.ink, t: "S corp", v: "72%"},
+                {p: 16.5, c: "#B7B0A2", t: "Other", v: "17%"}]}
+        ].map(r => /*#__PURE__*/React.createElement("div", {className: "cenrow" + (r.you ? " you" : ""), key: r.k},
+          /*#__PURE__*/React.createElement("div", {className: "cenhead"},
+            /*#__PURE__*/React.createElement("b", null, r.lab),
+            /*#__PURE__*/React.createElement("span", null, r.n),
+            r.you ? /*#__PURE__*/React.createElement("em", null, "the group you are in") : null),
+          /*#__PURE__*/React.createElement("div", {className: "cenbar"},
+            r.seg.map(g => /*#__PURE__*/React.createElement("i", {
+              key: g.t, style: {width: g.p + "%", background: g.c}
+            }, g.p >= 6 ? /*#__PURE__*/React.createElement("span", null, g.v) : null))),
+          /*#__PURE__*/React.createElement("div", {className: "cenkey"},
+            r.seg.map(g => /*#__PURE__*/React.createElement("span", {key: g.t},
+              /*#__PURE__*/React.createElement("i", {style: {background: g.c}}), g.t, " ", g.v)))))),
       /*#__PURE__*/React.createElement("p", null,
-        "One number is worth holding next to your own: that ", /*#__PURE__*/React.createElement("b", null, "$80,412"),
-        " median is below Heard's own $100,000 S-corp threshold. For most therapists in the country, on that evidence, the answer to this entire section is “not yet” — which is not what a page devoted to the comparison naturally implies, so it is said plainly here."),
+        /*#__PURE__*/React.createElement("b", null, "Why the two rows disagree. "),
+        "A sole proprietor has no payroll, so she is counted in the nonemployer file. A professional corporation that pays its owner a W-2 salary has payroll by definition, so it is counted in the employer file. The two universes are near-mutually-exclusive ",
+        /*#__PURE__*/React.createElement("i", null, "on exactly the axis being measured"),
+        " — which is why “78% are sole proprietors” and “72% are S corps” are both true and neither settles anything on its own. The first row is dominated by very small and part-time practices: nationally, 43% of nonemployer practices in this category bill under $25,000 a year."),
+      /*#__PURE__*/React.createElement("div", {className: "cenflag"},
+        /*#__PURE__*/React.createElement("b", null, "1,049"),
+        /*#__PURE__*/React.createElement("span", null,
+          "California S corporations in this category run ", /*#__PURE__*/React.createElement("b", null, "zero payroll"),
+          " — shareholders taking distributions and paying themselves no salary at all. That is the reasonable-compensation exposure this section warns about, as a counted number rather than a hypothetical. Their average receipts are $89,112, against $60,563 for sole proprietors.")),
+      /*#__PURE__*/React.createElement("p", null,
+        /*#__PURE__*/React.createElement("b", null, "What this does not say. "),
+        "The industry code covers all non-physician mental health practitioners — LMFTs, LCSWs, LPCCs, psychologists — with no licence-level cut. It counts establishments, not therapists, so a group practice with two offices counts twice. And because the classification follows the tax filing, a single-member LLC that has not elected corporate treatment is coded “sole proprietorship” — which matters little in California, where licensed therapists cannot use an LLC anyway, but means the label reads as “files Schedule C.”"),
+      /*#__PURE__*/React.createElement("p", null,
+        "For income rather than structure, the useful survey is Heard's ", /*#__PURE__*/React.createElement("b", null, "Financial State of Private Practice"),
+        " — median practice revenue of ", /*#__PURE__*/React.createElement("b", null, "$80,412"),
+        " in 2025, up 18% year over year; about ", /*#__PURE__*/React.createElement("b", null, "$105"),
+        " a session on insurance against roughly ", /*#__PURE__*/React.createElement("b", null, "$150"),
+        " private pay; only ", /*#__PURE__*/React.createElement("b", null, "33%"),
+        " raised their fees at all in 2025; taxes named the number-one headache by ",
+        /*#__PURE__*/React.createElement("b", null, "53.6%"), ". Hold that ", /*#__PURE__*/React.createElement("b", null, "$80,412"),
+        " median next to Heard's own $100,000 S-corp threshold: for most therapists in the country, on that evidence, the answer to this entire section is “not yet.”"),
       /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
+        extLink("https://www.census.gov/programs-surveys/cbp.html",
+          "US Census Bureau, County Business Patterns"), " and ",
+        extLink("https://www.census.gov/programs-surveys/nonemployer-statistics.html",
+          "Nonemployer Statistics"),
+        ", 2023 reference year, NAICS 621330 (Offices of Mental Health Practitioners, except Physicians), California. Legal form of organization derived from tax filings. · ",
         extLink("https://www.joinheard.com/resources/downloads/the-heard-2026-financial-state-of-private-practice-report",
           "The Heard 2026 Financial State of Private Practice Report"))),
     /*#__PURE__*/React.createElement("p", {className: "pay-note"},
@@ -4669,7 +4721,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   // and show BOTH tests, because they disagree in opposite directions at the
   // two ends of the income range.
   const myMetro = MFT_WAGES[Math.min(Math.max(0, wageMetro | 0), MFT_WAGES.length - 1)];
-  const wageMax = Math.max(MFT_NAT_P90, sCorpSalaryInput, 1);
+  const wageMax = Math.max(MFT_NAT_P90, CENSUS_SCORP_PAYROLL, sCorpSalaryInput, 1);
   const wageRatio = myMetro.v > 0 ? sCorpSalaryInput / myMetro.v : 0;
   const wageVerdict = sCorpSalaryInput <= 0 ? null
     : sCorpSalaryInput >= MFT_NAT_P90 ? {t: "Above the national 90th percentile", c: "#3F9577",
@@ -4706,6 +4758,12 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         /*#__PURE__*/React.createElement("span", {className: "tr"},
           /*#__PURE__*/React.createElement("i", {style: {width: (MFT_NAT_P90 / wageMax * 100) + "%", background: "#B9CBE0"}})),
         /*#__PURE__*/React.createElement("span", {className: "vl"}, fmt0(MFT_NAT_P90))),
+      /*#__PURE__*/React.createElement("div", {className: "wrow peer", key: "census"},
+        /*#__PURE__*/React.createElement("span", {className: "nm"}, "CA therapy S-corps \u2014 actual payroll",
+          /*#__PURE__*/React.createElement("em", null, "census")),
+        /*#__PURE__*/React.createElement("span", {className: "tr"},
+          /*#__PURE__*/React.createElement("i", {style: {width: (CENSUS_SCORP_PAYROLL / wageMax * 100) + "%", background: "#8AA98F"}})),
+        /*#__PURE__*/React.createElement("span", {className: "vl"}, fmt0(CENSUS_SCORP_PAYROLL))),
       sCorpSalaryInput > 0 ? /*#__PURE__*/React.createElement("div", {className: "wrow you", key: "you"},
         /*#__PURE__*/React.createElement("span", {className: "nm"}, "Your salary"),
         /*#__PURE__*/React.createElement("span", {className: "tr"},
@@ -4718,6 +4776,16 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
           wageVerdict ? wageVerdict.t : "Set a salary to see this"),
         /*#__PURE__*/React.createElement("span", {className: "n"},
           wageVerdict ? wageVerdict.d : "Your salary is compared against published wages for employed MFTs in California.")),
+      /*#__PURE__*/React.createElement("div", {className: "wt"},
+        /*#__PURE__*/React.createElement("span", {className: "l"}, "The peer test — what CA therapy S-corps actually pay"),
+        /*#__PURE__*/React.createElement("b", null, fmt0(CENSUS_SCORP_PAYROLL)),
+        /*#__PURE__*/React.createElement("span", {className: "n"},
+          "Average annual payroll per California therapy S-corp with one to four employees — ",
+          CENSUS_SCORP_ESTABS.toLocaleString(), " of them, straight from federal tax filings. ",
+          sCorpSalaryInput > 0
+            ? /*#__PURE__*/React.createElement("b", null, "Yours is " +
+                Math.round(sCorpSalaryInput / CENSUS_SCORP_PAYROLL * 100) + "% of that.")
+            : "Set a salary to see how yours compares.")),
       /*#__PURE__*/React.createElement("div", {className: "wt"},
         /*#__PURE__*/React.createElement("span", {className: "l"}, "The percentage convention — what blogs repeat"),
         /*#__PURE__*/React.createElement("b", null, fmt0(recNetProfit * 0.35), " – ", fmt0(recNetProfit * 0.5)),
@@ -4734,10 +4802,21 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       /*#__PURE__*/React.createElement("b", null, "The honest counter-argument. "),
       "You are not only a clinician — you also run the practice, and the IRS values every role you perform, not just the clinical hours. A defensible file usually adds a management component on top of the clinical wage. It also matters that you generate this revenue yourself; an employed MFT on ",
       fmt0(MFT_WAGES[0].v), " is not carrying a practice. Treat the wage figure as the floor of the argument, not the answer."),
+    /*#__PURE__*/React.createElement("div", {className: "wagenote peer"},
+      /*#__PURE__*/React.createElement("b", null, "The peer figure, and what it is not. "),
+      "The ", fmt0(CENSUS_SCORP_PAYROLL), " row is not a published salary recommendation — it is total payroll divided by establishments, taken from federal tax filings for the ",
+      CENSUS_SCORP_ESTABS.toLocaleString(), " California therapy S-corps with one to four employees. Two things pull it around: employment is counted at a single point in time (12 March) while payroll is counted for the whole year, so part-year staff drag the ",
+      fmt0(CENSUS_SCORP_PER_EMP), "-per-employee figure down; and payroll covers ",
+      /*#__PURE__*/React.createElement("i", null, "everyone"),
+      " on the books, not just the owner-shareholder, so a practice with an admin on staff splits that total. Read it as evidence of what your peers actually run through payroll — not as a target, and not as a safe harbour."),
     /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
       extLink("https://www.bls.gov/oes/2023/may/oes211013.htm",
         "BLS Occupational Employment and Wage Statistics — Marriage and Family Therapists, May 2023"),
-      ". Annual mean wages for employed MFTs; self-employed practitioners are excluded, which is the comparison the reasonable-compensation test calls for."));
+      ". Annual mean wages for employed MFTs; self-employed practitioners are excluded, which is the comparison the reasonable-compensation test calls for. · ",
+      extLink("https://www.census.gov/programs-surveys/cbp.html",
+        "US Census Bureau, County Business Patterns 2023"),
+      " — California, NAICS 621330, S-corporation establishments with 1–4 employees: ",
+      CENSUS_SCORP_ESTABS.toLocaleString(), " establishments, 4,963 employees, $294,021,000 of annual payroll."));
 
   const businessStructureSection = /*#__PURE__*/React.createElement("section", {
     className: "card decision-impact"
@@ -6251,6 +6330,26 @@ const CSS = `
 .expert-nodata h4{font-family:'Fraunces',serif; font-size:16px; margin:0 0 9px;}
 .expert-nodata p{font-size:13.5px; line-height:1.65; margin:0 0 10px;}
 .expert-nodata p:last-of-type{margin-bottom:0;}
+.cendual{display:flex; flex-direction:column; gap:14px; margin:14px 0 16px;}
+.cenrow{background:#FFFDF8; border:1px solid #E7E2D6; border-radius:10px; padding:11px 13px 10px;}
+.cenrow.you{border-color:#C98B4B; box-shadow:0 0 0 2px rgba(201,139,75,.13);}
+.cenhead{display:flex; align-items:baseline; flex-wrap:wrap; gap:8px; margin:0 0 8px;}
+.cenhead b{font-size:13.5px;}
+.cenhead span{font-size:11.5px; color:#8A8375; font-variant-numeric:tabular-nums;}
+.cenhead em{font-style:normal; font-size:10.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#8A5B24; background:#F7EBDA; border-radius:99px; padding:2px 8px; margin-left:auto;}
+.cenbar{display:flex; height:26px; border-radius:6px; overflow:hidden;}
+.cenbar i{display:flex; align-items:center; justify-content:center; min-width:0;}
+.cenbar i span{font-size:11.5px; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-shadow:0 1px 1px rgba(0,0,0,.18);}
+.cenkey{display:flex; flex-wrap:wrap; gap:4px 15px; margin-top:7px;}
+.cenkey span{display:flex; align-items:center; gap:5px; font-size:11.5px; color:#5F594E;}
+.cenkey span i{width:9px; height:9px; border-radius:2px; flex:none;}
+.cenflag{display:flex; align-items:flex-start; gap:13px; background:#FBF1EE; border-left:4px solid #B5483F; border-radius:0 8px 8px 0; padding:12px 14px; margin:0 0 12px;}
+.cenflag>b{font-family:'Fraunces',serif; font-size:24px; line-height:1; color:#B5483F; flex:none; font-variant-numeric:tabular-nums;}
+.cenflag>span{font-size:13px; line-height:1.6;}
+@media (max-width:560px){
+  .cenbar i span{font-size:10.5px;}
+  .cenhead em{margin-left:0;}
+}
 
 /* the salary / distribution split, as one draggable control */
 .salsplit{border:2px solid; border-radius:14px; padding:15px 17px 14px; margin:14px 0 18px;}
@@ -6385,7 +6484,11 @@ const CSS = `
   flex-shrink:0;}
 .wrow.you{background:#FBF6E9; margin:6px -8px; padding:9px 8px; border-radius:8px;}
 .wrow.you .nm{font-weight:700; color:var(--ink);}
-.wagetests{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;}
+.wrow.peer{margin-top:4px; padding-top:9px; border-top:1px dashed #DED7C7;}
+.wrow.peer .nm{color:#4C6B52; font-weight:600;}
+.wrow.peer .nm em{background:#E7EFE6; color:#4C6B52;}
+.wagetests{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px;}
+@media (max-width:900px){.wagetests{grid-template-columns:1fr 1fr;}}
 .wt{border:1.5px solid var(--line); border-radius:12px; padding:13px 15px;}
 .wt .l{display:block; font-size:9.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
   color:var(--muted); margin-bottom:4px;}
@@ -6395,6 +6498,7 @@ const CSS = `
 .wagenote{margin-top:14px; background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 9px 9px 0;
   padding:12px 15px; font-size:12.5px; line-height:1.65;}
 .wagenote.counter{background:#F5EFF8; border-left-color:#6A4A78;}
+.wagenote.peer{background:#EEF4EE; border-left-color:#4C6B52;}
 
 /* ---- salary slider: three counters, not one ---- */
 .salsplit-counters{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:13px;
