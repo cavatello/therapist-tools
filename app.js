@@ -92,39 +92,39 @@ const INITIAL_PAGE = pageFromHash();
 const SESSIONS = Array.from({
   length: 16
 }, (_, i) => 15 + i);
-const FED_STD = 15750,
+const FED_STD = 16100,
   CA_STD = 5540;
 const FED_STD_BY_STATUS = {
-  single: 15750,
-  mfj: 31500,
-  mfj_dependents: 31500,
-  hoh: 23625
+  single: 16100,
+  mfj: 32200,
+  mfj_dependents: 32200,
+  hoh: 24150
 };
 const CA_STD_BY_STATUS = {
-  single: 5540,
-  mfj: 11080,
-  mfj_dependents: 11080,
-  hoh: 11080
+  single: 5706,
+  mfj: 11412,
+  mfj_dependents: 11412,
+  hoh: 11412
 };
 const FED_BRACKETS_BY_STATUS = {
   single: [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [640600, 0.37]],
-  mfj: [[0, 0.10], [25700, 0.12], [104600, 0.22], [223000, 0.24], [425800, 0.32], [540600, 0.35], [811200, 0.37]],
-  mfj_dependents: [[0, 0.10], [25700, 0.12], [104600, 0.22], [223000, 0.24], [425800, 0.32], [540600, 0.35], [811200, 0.37]],
-  hoh: [[0, 0.10], [18450, 0.12], [70450, 0.22], [112050, 0.24], [214300, 0.32], [271650, 0.35], [678100, 0.37]]
+  mfj: [[0, 0.10], [24800, 0.12], [100800, 0.22], [211400, 0.24], [403550, 0.32], [512450, 0.35], [768700, 0.37]],
+  mfj_dependents: [[0, 0.10], [24800, 0.12], [100800, 0.22], [211400, 0.24], [403550, 0.32], [512450, 0.35], [768700, 0.37]],
+  hoh: [[0, 0.10], [17700, 0.12], [67450, 0.22], [105700, 0.24], [201750, 0.32], [256200, 0.35], [640600, 0.37]]
 };
 const CA_BRACKETS_BY_STATUS = {
-  single: [[0, 0.01], [11080, 0.02], [26268, 0.04], [41468, 0.06], [57568, 0.08], [72716, 0.093], [371510, 0.103], [445830, 0.113], [743100, 0.123]],
-  mfj: [[0, 0.01], [22160, 0.02], [52536, 0.04], [82936, 0.06], [115136, 0.08], [145432, 0.093], [743020, 0.103], [891660, 0.113], [1486200, 0.123]],
-  mfj_dependents: [[0, 0.01], [22160, 0.02], [52536, 0.04], [82936, 0.06], [115136, 0.08], [145432, 0.093], [743020, 0.103], [891660, 0.113], [1486200, 0.123]],
-  hoh: [[0, 0.01], [22160, 0.02], [52536, 0.04], [82936, 0.06], [115136, 0.08], [145432, 0.093], [743020, 0.103], [891660, 0.113], [1486200, 0.123]]
+  single: [[0, 0.01], [11079, 0.02], [26264, 0.04], [41452, 0.06], [57542, 0.08], [72724, 0.093], [371479, 0.103], [445771, 0.113], [742953, 0.123]],
+  mfj: [[0, 0.01], [22158, 0.02], [52528, 0.04], [82904, 0.06], [115084, 0.08], [145448, 0.093], [742958, 0.103], [891542, 0.113], [1485906, 0.123]],
+  mfj_dependents: [[0, 0.01], [22158, 0.02], [52528, 0.04], [82904, 0.06], [115084, 0.08], [145448, 0.093], [742958, 0.103], [891542, 0.113], [1485906, 0.123]],
+  hoh: [[0, 0.01], [22173, 0.02], [52530, 0.04], [67716, 0.06], [83805, 0.08], [98990, 0.093], [505208, 0.103], [606251, 0.113], [1010417, 0.123]]
 };
 const QBI_PHASE_BY_STATUS = {
-  single: [197300, 247300],
-  hoh: [197300, 247300],
-  mfj: [394600, 494600],
-  mfj_dependents: [394600, 494600]
+  single: [201750, 276750],
+  hoh: [201750, 276750],
+  mfj: [403500, 553500],
+  mfj_dependents: [403500, 553500]
 };
-const CTC_PER_CHILD = 2000;
+const CTC_PER_CHILD = 2200;
 const SS_WAGE_BASE = 184500;
 const SS_BEND1 = 1286,
   SS_BEND2 = 7749;
@@ -246,11 +246,21 @@ const RETIRE_2026 = {
 };
 const ADDL_MED_THRESH = 200000,
   ADDL_MED_RATE = 0.009;
+// IRC s.1401(b)(2): $200k single/HOH, $250k joint, $125k MFS. Not indexed.
+const ADDL_MED_THRESH_BY_STATUS = {
+  single: 200000,
+  hoh: 200000,
+  mfj: 250000,
+  mfj_dependents: 250000
+};
 const QBI_RATE = 0.20,
-  QBI_PHASE_START = 197300,
-  QBI_PHASE_END = 247300;
+  QBI_PHASE_START = 201750,
+  QBI_PHASE_END = 276750;
 const FED_BRACKETS = [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [640600, 0.37]];
-const CA_BRACKETS = [[0, 0.01], [11080, 0.02], [26268, 0.04], [41468, 0.06], [57568, 0.08], [72716, 0.093], [371510, 0.103], [445830, 0.113], [743100, 0.123]];
+// CA Prop 63 mental health services tax: 1% on taxable income over $1,000,000.
+// RTC s.17043 - the threshold is NOT indexed and is $1m for joint filers too.
+const CA_MHS_THRESH = 1000000, CA_MHS_RATE = 0.01;
+const CA_BRACKETS = [[0, 0.01], [11079, 0.02], [26264, 0.04], [41452, 0.06], [57542, 0.08], [72724, 0.093], [371479, 0.103], [445771, 0.113], [742953, 0.123]];
 function bracketTax(income, brackets) {
   if (income <= 0) return 0;
   let t = 0;
@@ -408,8 +418,9 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   const totalW2 = w2Wages + salary;
   const ssW2 = Math.min(totalW2, SS_WAGE_BASE) * 0.062;
   const medW2 = totalW2 * 0.0145;
-  const sdi = totalW2 * 0.012;
-  const addlMed = Math.max(0, totalW2 + seBase - ADDL_MED_THRESH) * ADDL_MED_RATE;
+  const sdi = totalW2 * 0.013;   // EDD 2026 rate; no wage cap since SB 951
+  const addlMedThresh = ADDL_MED_THRESH_BY_STATUS[filingStatus] || ADDL_MED_THRESH;
+  const addlMed = Math.max(0, totalW2 + seBase - addlMedThresh) * ADDL_MED_RATE;
   const agi = Math.max(0, schedC + kDistribution + totalW2 - halfSE - employeeRetirement);
   const taxableBeforeQBI = Math.max(0, agi - fedStd);
   const qbiIncome = entityType === "s_corp" ? Math.max(0, kDistribution) : Math.max(0, schedC - halfSE);
@@ -419,7 +430,12 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   const fedTaxBeforeCredits = bracketTax(Math.max(0, taxableBeforeQBI - qbiDed), fedBrackets);
   const ctc = filingStatus === "mfj_dependents" ? Math.min(numDependents * CTC_PER_CHILD, fedTaxBeforeCredits) : 0;
   const fedTax = Math.max(0, fedTaxBeforeCredits - ctc);
-  const caTax = bracketTax(Math.max(0, agi - caStd), caBrackets);
+  const caTaxableIncome = Math.max(0, agi - caStd);
+  // Prop 63 mental health services tax, RTC s.17043 - 1% over $1m, threshold
+  // not indexed and not doubled for joint filers. This is what makes the
+  // often-quoted "13.3% top rate" true rather than 12.3%.
+  const caTax = bracketTax(caTaxableIncome, caBrackets)
+    + Math.max(0, caTaxableIncome - CA_MHS_THRESH) * CA_MHS_RATE;
   const totalTax = fedTax + caTax + seTax + ssW2 + medW2 + sdi + addlMed + employerPayrollTax + caEntityTax;
   const grossAll = practiceGross + w2Wages;
   return {
@@ -463,7 +479,7 @@ function computeYearState(practiceGross, expenses, w2Wages, stateStd, stateBrack
   const halfSE = seTax / 2;
   const ssW2 = Math.min(w2Wages, SS_WAGE_BASE) * 0.062;
   const medW2 = w2Wages * 0.0145;
-  const addlMed = Math.max(0, w2Wages + seBase - ADDL_MED_THRESH) * ADDL_MED_RATE;
+  const addlMed = Math.max(0, w2Wages + seBase - ADDL_MED_THRESH) * ADDL_MED_RATE;   // single-filer model
   const agi = schedC + w2Wages - halfSE;
   const taxableBeforeQBI = Math.max(0, agi - FED_STD);
   const qbiIncome = Math.max(0, schedC - halfSE);
@@ -2575,7 +2591,7 @@ function PracticeIncomePlanner() {
         /*#__PURE__*/React.createElement("b", null, fmt(sv)), " was tax leaving anyway."));
   })()), /*#__PURE__*/React.createElement("div", {
     className: "residency-includes"
-  }, /*#__PURE__*/React.createElement("b", null, "Includes: "), "federal income tax, self-employment tax, and CA state income tax (progressive to 13.3%), with the same QBI deduction and expense treatment used throughout this tool.")), [{
+  }, /*#__PURE__*/React.createElement("b", null, "Includes: "), "federal income tax, self-employment tax, and CA state income tax (progressive to 12.3%, plus the 1% Prop 63 mental health surcharge above $1m taxable \u2014 which is where the often-quoted 13.3% comes from), with the same QBI deduction and expense treatment used throughout this tool.")), [{
     key: "nyc",
     label: "New York City, USA",
     net: residency.nyc.netUSD,
@@ -2918,7 +2934,7 @@ function PracticeIncomePlanner() {
       ? "Sends straight through \u2014 no email app needed. A link back to your exact setup goes with it so I can see what you're seeing. Nothing else is collected."
       : "Opens your email app with everything filled in, including a link back to your exact setup so I can see what you're seeing. Nothing is sent automatically \u2014 you'll see the draft before it goes anywhere.")), /*#__PURE__*/React.createElement("footer", {
     className: "foot"
-  }, /*#__PURE__*/React.createElement("strong", null, "Estimates only — not tax advice."), " 2026 CA single-filer model. Practice income is treated as ", /*#__PURE__*/React.createElement("strong", null, "1099 / self-employed"), ": business expenses are deducted on Schedule\xA0C, self-employment tax (15.3% on 92.35% of net earnings) applies, and the QBI deduction is included with the SSTB phase-out that affects therapists at higher incomes. California has no city or county ", /*#__PURE__*/React.createElement("em", null, "income"), " tax — state tax is identical everywhere in CA. The second job is treated as W-2 wages with employee FICA and CA SDI; its wages share the Social Security wage base with your self-employment income. Federal and CA tax use standard deductions and projected 2026 brackets. Real figures depend on your entity type (sole prop vs. S-corp), retirement contributions, home-office and mileage deductions, quarterly estimated payments, and actual filing status — talk to a CPA before making decisions on these numbers."), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("strong", null, "Estimates only — not tax advice."), " 2026 CA single-filer model. Practice income is treated as ", /*#__PURE__*/React.createElement("strong", null, "1099 / self-employed"), ": business expenses are deducted on Schedule\xA0C, self-employment tax (15.3% on 92.35% of net earnings) applies, and the QBI deduction is included with the SSTB phase-out that affects therapists at higher incomes. California has no city or county ", /*#__PURE__*/React.createElement("em", null, "income"), " tax — state tax is identical everywhere in CA. The second job is treated as W-2 wages with employee FICA and CA SDI; its wages share the Social Security wage base with your self-employment income. Federal figures are the final 2026 amounts from IRS Rev. Proc. 2025-32, including the wider \u00A7199A phase-out and the $2,200 child tax credit enacted by the One Big Beautiful Bill Act (Pub. L. 119-21). California has not published 2026 rate schedules yet \u2014 the FTB\u0027s own 2026 Form 540-ES instructs filers to use the 2025 tables, so that is what this uses, together with the 2026 SDI rate of 1.3% and no wage cap. Real figures depend on your entity type (sole prop vs. S-corp), retirement contributions, home-office and mileage deductions, quarterly estimated payments, and actual filing status — talk to a CPA before making decisions on these numbers."), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-mark"
@@ -6811,6 +6827,7 @@ const CSS = `
 .planner.guided-mode .foot{order:100;}
 .planner.guided-mode .sitefoot{order:110;}
 .planner.guided-mode .sitenav{order:-1;}
+.planner.guided-mode #sec-statement{order:65;}
 .planner.guided-mode .feedback-section{order:70;}
 .section-divider{display:flex; align-items:center; gap:16px; margin:36px 0 20px; color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;}
 .section-divider::before, .section-divider::after{content:""; flex:1; height:1.5px; background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);}
