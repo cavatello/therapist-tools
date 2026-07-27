@@ -19,6 +19,11 @@ const {
   ReferenceLine
 } = Recharts;
 const STORE_KEY = 'practice_planner_v3';
+// Feedback endpoint. GitHub Pages is static and cannot process a form, so the
+// form POSTs to a Google Apps Script web app which appends a row to a Google
+// Sheet and emails a copy. Paste the /exec URL here to switch it on; while it
+// is empty the form falls back to opening a mail draft, exactly as before.
+const FEEDBACK_ENDPOINT = "";
 function encodeShareState(obj) {
   try {
     return btoa(encodeURIComponent(JSON.stringify(obj))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -1747,6 +1752,8 @@ function PracticeIncomePlanner() {
   }, [["#sim", "Simulator", "run your numbers", page === "sim"], ["#grow", "Grow Your Practice", "marketing and sales", page === "grow"], ["rates.html", "Field Notes", "what CA actually pays", false], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon", "the practice, as a game", false]].map(([href, t, dsc, on]) => /*#__PURE__*/React.createElement("a", {
     key: href,
     href: href,
+    target: /^https?:/.test(href) ? "_blank" : null,
+    rel: /^https?:/.test(href) ? "noopener noreferrer" : null,
     className: "sitenav-item" + (on ? " sitenav-on" : ""),
     "aria-current": on ? "page" : null
   }, /*#__PURE__*/React.createElement("span", {
@@ -2738,21 +2745,46 @@ function PracticeIncomePlanner() {
       display: "inline-block",
       padding: "11px 24px"
     },
+    disabled: fbSent === "sending",
     onClick: () => {
       if (!fbMessage.trim()) return;
+      const share = buildShareURL();
+      const setupLine = "$" + rate + "/hr, " + sessions + " sessions/week";
+      if (FEEDBACK_ENDPOINT) {
+        setFbSent("sending");
+        // text/plain keeps this a CORS "simple request", so no preflight -
+        // Apps Script does not answer OPTIONS and a JSON content-type fails.
+        fetch(FEEDBACK_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {"Content-Type": "text/plain;charset=utf-8"},
+          body: JSON.stringify({
+            name: fbName || "", type: fbType, message: fbMessage,
+            setup: setupLine, share: share,
+            page: (typeof location !== "undefined" ? location.href : ""),
+            agent: (typeof navigator !== "undefined" ? navigator.userAgent : "")
+          })
+        }).then(() => {
+          setFbSent("done"); setFbName(""); setFbMessage("");
+          setTimeout(() => setFbSent(false), 6000);
+        }).catch(() => { setFbSent("error"); setTimeout(() => setFbSent(false), 6000); });
+        return;
+      }
       const subject = encodeURIComponent("[" + fbType + "] Therapy Practice Simulator feedback");
-      const bodyLines = [fbName ? "From: " + fbName : null, "Type: " + fbType, "", fbMessage, "", "\u2014\u2014\u2014", "Current setup: $" + rate + "/hr, " + sessions + " sessions/week", buildShareURL()].filter(Boolean);
-      const body = encodeURIComponent(bodyLines.join("\n"));
-      window.location.href = "mailto:shawn@shawnwalters.com?subject=" + subject + "&body=" + body;
-      setFbSent(true);
+      const bodyLines = [fbName ? "From: " + fbName : null, "Type: " + fbType, "", fbMessage, "", "\u2014\u2014\u2014", "Current setup: " + setupLine, share].filter(Boolean);
+      window.location.href = "mailto:shawn@shawnwalters.com?subject=" + subject + "&body=" + encodeURIComponent(bodyLines.join("\n"));
+      setFbSent("mail");
       setTimeout(() => setFbSent(false), 3000);
     }
-  }, fbSent ? "Opening your email app\u2026" : "Send feedback"), /*#__PURE__*/React.createElement("p", {
+  }, fbSent === "sending" ? "Sending\u2026" : fbSent === "done" ? "\u2713 Sent \u2014 thank you"
+     : fbSent === "error" ? "Didn\u0027t send \u2014 try again" : fbSent === "mail" ? "Opening your email app\u2026" : "Send feedback"), /*#__PURE__*/React.createElement("p", {
     className: "pay-note",
     style: {
       marginTop: 10
     }
-  }, "Opens your email app with everything filled in, including a link back to your exact setup so I can see what you're seeing. Nothing is sent automatically \u2014 you'll see the draft before it goes anywhere.")), /*#__PURE__*/React.createElement("footer", {
+  }, FEEDBACK_ENDPOINT
+      ? "Sends straight through \u2014 no email app needed. A link back to your exact setup goes with it so I can see what you're seeing. Nothing else is collected."
+      : "Opens your email app with everything filled in, including a link back to your exact setup so I can see what you're seeing. Nothing is sent automatically \u2014 you'll see the draft before it goes anywhere.")), /*#__PURE__*/React.createElement("footer", {
     className: "foot"
   }, /*#__PURE__*/React.createElement("strong", null, "Estimates only — not tax advice."), " 2026 CA single-filer model. Practice income is treated as ", /*#__PURE__*/React.createElement("strong", null, "1099 / self-employed"), ": business expenses are deducted on Schedule\xA0C, self-employment tax (15.3% on 92.35% of net earnings) applies, and the QBI deduction is included with the SSTB phase-out that affects therapists at higher incomes. California has no city or county ", /*#__PURE__*/React.createElement("em", null, "income"), " tax — state tax is identical everywhere in CA. The second job is treated as W-2 wages with employee FICA and CA SDI; its wages share the Social Security wage base with your self-employment income. Federal and CA tax use standard deductions and projected 2026 brackets. Real figures depend on your entity type (sole prop vs. S-corp), retirement contributions, home-office and mileage deductions, quarterly estimated payments, and actual filing status — talk to a CPA before making decisions on these numbers."), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot"
@@ -2767,7 +2799,9 @@ function PracticeIncomePlanner() {
     "aria-label": "Site, footer"
   }, [["#sim", "Simulator"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
     key: href,
-    href: href
+    href: href,
+    target: /^https?:/.test(href) ? "_blank" : null,
+    rel: /^https?:/.test(href) ? "noopener noreferrer" : null
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
   }, "Last updated: July 27, 2026")));
