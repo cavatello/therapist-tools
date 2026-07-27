@@ -1120,7 +1120,7 @@ function PracticeIncomePlanner() {
     taxstrategy: {
       n: 4,
       title: "Tax strategy",
-      blurb: "The levers that change what you keep: filing status, business structure, and retirement accounts. Everything here is an estimate, not personalised advice.",
+      blurb: "The two levers that change what you keep: where you put money before it is taxed, and how your practice is structured \u2014 in that order, because that is the order they are worth. Everything here is an estimate, not personalised advice.",
       stat: () => Math.round(cur.takeHomePct * 100) + "% take-home"
     }
   };
@@ -4629,6 +4629,166 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const workingToggle = !vReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
     /*#__PURE__*/React.createElement("span", null, "Everything below is the working — the full comparison, the compliance calendar, the retirement plans and the Social Security trade-off. Almost nobody needs it. If you want to check my arithmetic, it is all here."));
 
+  // =====================================================================
+  // THE BIGGER LEVER. This runs FIRST in the rendered order, above the
+  // structure question, because on almost every set of numbers this tool
+  // has been run against it is worth an order of magnitude more - and it
+  // needs no filings, no payroll and carries no audit exposure.
+  //
+  // Every figure here comes from running the engine twice (mfNone / mfWith)
+  // rather than multiplying a contribution by a marginal rate. That mistake
+  // overstated this block by $12,200 once already; do not reintroduce it.
+  // =====================================================================
+  const rReady = mfContrib > 0 && recNetProfit > 1000;
+  // Honesty guard: the copy below asserts this is the bigger lever. On every
+  // set of numbers this tool has been swept across it is, by a wide margin -
+  // but assert it from the arithmetic rather than from the assumption.
+  const rBigger = mfSaved > vNet;
+  // True saving for each alternative account, engine-run rather than rate-multiplied.
+  const rRun = (er, emp) => computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus,
+    numDependents, er, emp, entityType, sCorpSalaryInput);
+  const rSepTotal = strategy.sepIra ? strategy.sepIra.total || 0 : 0;
+  const rSimpleDef = strategy.simpleIra ? strategy.simpleIra.deferral || 0 : 0;
+  const rSimpleMatch = strategy.simpleIra ? strategy.simpleIra.match || 0 : 0;
+  const rIraDed = strategy.traditionalIra ? strategy.traditionalIra.deductibleAmount || 0 : 0;
+  const rSepSaved = rSepTotal > 0 ? mfTaxNone - rRun(rSepTotal, 0).totalTax : 0;
+  const rSimpleSaved = rSimpleDef + rSimpleMatch > 0 ? mfTaxNone - rRun(rSimpleMatch, rSimpleDef).totalTax : 0;
+  const rIraSaved = rIraDed > 0 ? mfTaxNone - rRun(0, rIraDed).totalTax : 0;
+
+  const retVerdict = /*#__PURE__*/React.createElement("section", {
+    className: "card vcard rcard" + (rReady ? " vcard-yes" : "")
+  }, /*#__PURE__*/React.createElement("div", {className: "vc-k"},
+      rBigger ? "Your biggest lever" : "The lever with no paperwork"),
+    rReady
+      ? /*#__PURE__*/React.createElement(React.Fragment, null,
+          /*#__PURE__*/React.createElement("h2", {style: {color: "#2F7A61"}},
+            fmt0(mfSaved), " of tax, redirected into an account you own."),
+          /*#__PURE__*/React.createElement("p", {className: "vc-p"},
+            "Nothing about your business has to change. Opening a Solo 401(k) and contributing the full ",
+            /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib)),
+            " cuts this year's tax from ", /*#__PURE__*/React.createElement("b", null, fmt0(mfTaxNone)),
+            " to ", /*#__PURE__*/React.createElement("b", null, fmt0(mfTaxWith)), " — a saving of ",
+            /*#__PURE__*/React.createElement("b", {className: "pos"}, fmt0(mfSaved)),
+            ", which is ", /*#__PURE__*/React.createElement("b", null, Math.round(mfEffRate * 100) + "%"),
+            " of everything you put in. That money was never going to be yours to spend; the only question was whether it went to the IRS or into your own account."),
+          /*#__PURE__*/React.createElement("div", {className: "rcomp"},
+            /*#__PURE__*/React.createElement("div", {className: "rcomp-r"},
+              /*#__PURE__*/React.createElement("span", {className: "l"}, "This lever — fund a Solo 401(k)"),
+              /*#__PURE__*/React.createElement("span", {className: "b"},
+                /*#__PURE__*/React.createElement("i", {style: {width: "100%", background: "#2F7A61"}})),
+              /*#__PURE__*/React.createElement("b", {className: "v pos"}, "+" + fmt0(mfSaved))),
+            /*#__PURE__*/React.createElement("div", {className: "rcomp-r"},
+              /*#__PURE__*/React.createElement("span", {className: "l"}, "The structure question, below"),
+              /*#__PURE__*/React.createElement("span", {className: "b"},
+                /*#__PURE__*/React.createElement("i", {style: {
+                  width: (Math.min(100, Math.abs(vNet) / Math.max(1, mfSaved) * 100)) + "%",
+                  background: vNet > 0 ? "#8AA98F" : "#C99A93"
+                }})),
+              /*#__PURE__*/React.createElement("b", {className: "v " + (vNet > 0 ? "pos" : "neg")},
+                (vNet >= 0 ? "+" : "−") + fmt0(Math.abs(vNet)))),
+            /*#__PURE__*/React.createElement("span", {className: "rcomp-n"},
+              !rBigger
+                ? "On your numbers the structure question is worth more than the retirement one — unusual, and worth opening the full comparison below. This block still comes first because it needs no filings and no payroll."
+                : mfSaved > Math.abs(vNet) * 3
+                ? "Same profit, same year. This is why the retirement question comes first on this page and the incorporation question comes second."
+                : "Both are worth reading, but only one of them needs a payroll service.")),
+          /*#__PURE__*/React.createElement("p", {className: "vc-fine"},
+            "The cost is liquidity, not money: ", /*#__PURE__*/React.createElement("b", null, fmt0(mfCost)),
+            " less lands in your bank account this year, and the balance is locked until 59½ with narrow exceptions. What you ",
+            /*#__PURE__*/React.createElement("i", null, "own"), " at the end of the year rises by ",
+            /*#__PURE__*/React.createElement("b", null, fmt0(mfSaved)), "."))
+      : /*#__PURE__*/React.createElement(React.Fragment, null,
+          /*#__PURE__*/React.createElement("h2", {style: {color: "#7C766A"}}, "Enter your income first"),
+          /*#__PURE__*/React.createElement("p", {className: "vc-p"},
+            "Once your rate and caseload are in, this shows what a retirement account is worth on your numbers — before you read a word about incorporating.")));
+
+  const retReceipt = !rReady ? null : /*#__PURE__*/React.createElement("section", {className: "card vrec rvrec"},
+    /*#__PURE__*/React.createElement("div", {className: "card-head"},
+      /*#__PURE__*/React.createElement("h2", null, "Where the ", fmt0(mfContrib), " comes from"),
+      /*#__PURE__*/React.createElement("p", null, "Two lines. Only one of them is money you would otherwise have spent.")),
+    /*#__PURE__*/React.createElement("div", {className: "vrec-b"},
+      /*#__PURE__*/React.createElement("div", {className: "vrec-r"},
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, "Tax you would have paid anyway"),
+          /*#__PURE__*/React.createElement("i", null, "Federal, California and self-employment tax that the contribution removes. Not yours today under either choice — this simply changes who ends up holding it.")),
+        /*#__PURE__*/React.createElement("b", {className: "v"}, "+" + fmt0(mfSaved))),
+      /*#__PURE__*/React.createElement("div", {className: "vrec-r"},
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, "Your own spendable cash, moved across"),
+          /*#__PURE__*/React.createElement("i", null, "The real cost. This leaves your bank account and cannot come back until 59½ without a penalty.")),
+        /*#__PURE__*/React.createElement("b", {className: "v"}, "+" + fmt0(mfCost))),
+      /*#__PURE__*/React.createElement("div", {className: "vrec-r tot"},
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, "Into the account")),
+        /*#__PURE__*/React.createElement("b", {className: "v pos"}, fmt0(mfContrib)))),
+    /*#__PURE__*/React.createElement("div", {className: "vrec-say"},
+      "So ", fmt0(mfSaved), " of the ", fmt0(mfContrib), " — ",
+      Math.round(mfEffRate * 100), "% of it — is funded by tax you would have paid regardless. You are out of pocket ",
+      fmt0(mfCost), " this year and up ", fmt0(mfContrib), " in assets.",
+      horizonReady && mfGrown > 0
+        ? " Left alone at " + investReturn + "% for the " + mfYears + " years to " + retireAge + ", this one year's contribution is worth " + fmt0(mfGrown) + "."
+        : " Fill in your age and retirement age above to see what one year of this compounds to."));
+
+  const retLever = !rReady ? null : (function () {
+    const opts = [
+      {t: "Solo 401(k)", room: mfContrib, saved: mfSaved,
+       s: "Employee deferral plus an employer contribution from the same profit. The most room of any plan available to a solo practice."},
+      {t: "SEP IRA", room: rSepTotal, saved: rSepSaved,
+       s: strategy.sepIra ? strategy.sepIra.pctLabel + ". Employer-funded only — no deferral, and no catch-up at any age." : ""},
+      {t: "SIMPLE IRA", room: rSimpleDef + rSimpleMatch, saved: rSimpleSaved,
+       s: "Deferral plus a mandatory 3% employer match. Cannot be run in the same year as a Solo 401(k)."},
+      {t: "Traditional IRA", room: rIraDed, saved: rIraSaved,
+       s: rIraDed > 0 ? "Deductible portion at your income. Small, but it stacks on top of an employer plan."
+                      : "Fully phased out at your income — the contribution is allowed, the deduction is not."}
+    ].sort((a, b) => b.room - a.room);
+    const top = opts[0].room || 1;
+    return /*#__PURE__*/React.createElement("section", {className: "card vlev rlev"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("h2", null, "How much room each account gives you"),
+        /*#__PURE__*/React.createElement("p", null,
+          "Your own profit, run through all four. These are alternatives, not a shopping list — the tax saved is what the engine actually computes, not a contribution multiplied by a rate.")),
+      opts.map((o, i) => /*#__PURE__*/React.createElement("div", {
+        className: "rlev-r" + (i === 0 ? " best" : ""), key: o.t
+      }, /*#__PURE__*/React.createElement("i", null, i + 1),
+        /*#__PURE__*/React.createElement("span", {className: "t"},
+          /*#__PURE__*/React.createElement("b", null, o.t, i === 0 ? /*#__PURE__*/React.createElement("em", null, "most room") : null),
+          /*#__PURE__*/React.createElement("span", null, o.s)),
+        /*#__PURE__*/React.createElement("span", {className: "bar"},
+          /*#__PURE__*/React.createElement("i", {style: {width: (o.room / top * 100) + "%"}})),
+        /*#__PURE__*/React.createElement("b", {className: "v"}, fmt0(o.room),
+          /*#__PURE__*/React.createElement("em", null, o.saved > 0 ? fmt0(o.saved) + " tax saved" : "no deduction")))),
+      /*#__PURE__*/React.createElement("p", {className: "vlev-note"},
+        taxAge >= 50
+          ? "Your catch-up contributions are already included above" + (taxAge >= 60 && taxAge <= 63 ? " — you are in the 60–63 band, which is the highest one there is." : ".")
+          : "Catch-up contributions start at 50 and step up again for ages 60–63, so this ceiling rises twice more before you retire."));
+  })();
+
+  const retWorking = !rReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
+    /*#__PURE__*/React.createElement("span", null, rBigger
+      ? "The second decision — whether to incorporate — is below. On these numbers it is worth far less, so it is folded away; open it if you want the full comparison."
+      : "The second decision — whether to incorporate — is below, and on your numbers it is the larger of the two. It is opened for you."));
+
+  // The structure question, folded to one line. It used to open the section;
+  // it now sits under the retirement block because on virtually every set of
+  // numbers this tool has been run against it is worth an order of magnitude
+  // less. The full verdict, receipt and levers are all still here, unchanged.
+  const scorpAutoOpen = vReady && (vNet > 1500 || !rBigger);
+  const scorpFold = /*#__PURE__*/React.createElement("details", {
+    className: "card collapsible vfold",
+    ref: el => { if (el && !el.dataset.autoinit) { el.dataset.autoinit = "1"; el.open = scorpAutoOpen; } }},
+    /*#__PURE__*/React.createElement("summary", {className: "vfold-s"},
+      /*#__PURE__*/React.createElement("span", {className: "vfold-k"}, "The second decision"),
+      /*#__PURE__*/React.createElement("span", {className: "vfold-q"}, "Should you incorporate?"),
+      /*#__PURE__*/React.createElement("b", {className: "vfold-a", style: {color: vVerdict.c}}, vVerdict.t),
+      vReady ? /*#__PURE__*/React.createElement("span", {className: "vfold-v"},
+        /*#__PURE__*/React.createElement("b", {className: vNet > 0 ? "pos" : "neg"},
+          (vNet >= 0 ? "+" : "−") + fmt0(Math.abs(vNet))),
+        /*#__PURE__*/React.createElement("i", null, "a year, at a salary you could defend")) : null,
+      /*#__PURE__*/React.createElement("span", {className: "vfold-o"},
+        /*#__PURE__*/React.createElement("em", {className: "o"}, "Open the full comparison"),
+        /*#__PURE__*/React.createElement("em", {className: "c"}, "Close"))),
+    verdictCard, receiptCard, leverCard);
+
   const step1Done = true;
   const returnPresets = /*#__PURE__*/React.createElement("div", {className: "retpresets"},
     /*#__PURE__*/React.createElement("span", {className: "retpresets-lab"}, "Expected return — pick a starting point:"),
@@ -5169,7 +5329,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, verdictCard, receiptCard, leverCard, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection, businessStructureSection, entityCompareSection, ssDetail, moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection, businessStructureSection, entityCompareSection, ssDetail, moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -6644,11 +6804,79 @@ const CSS = `
 .vwork{margin:6px 0 22px; padding:13px 18px; background:#F6F2E8; border-radius:11px;
   font-size:12.5px; line-height:1.6; color:var(--muted); border:1px dashed var(--line);}
 
+/* ---- the retirement verdict: the lever that comes first ---- */
+.rvrec .vrec-say{background:#EEF4F1;}
+.rvrec .vrec-r.tot .v{color:var(--pos);}
+.rcard{border-color:#2F7A61 !important; background:#F4F8F6 !important;}
+.rcomp{margin:16px 0 4px; background:#fff; border:1px solid #D9E5DE; border-radius:12px; padding:13px 15px 11px;}
+.rcomp-r{display:flex; align-items:center; gap:12px; padding:5px 0;}
+.rcomp-r .l{width:210px; flex-shrink:0; font-size:12.5px; color:#4A5A52;}
+.rcomp-r .b{flex:1; height:15px; background:#F1EDE3; border-radius:4px; overflow:hidden; min-width:40px;}
+.rcomp-r .b i{display:block; height:100%; border-radius:4px;}
+.rcomp-r .v{width:86px; text-align:right; font-family:'Fraunces',serif; font-weight:700;
+  font-size:15px; flex-shrink:0;}
+.rcomp-n{display:block; margin-top:9px; padding-top:9px; border-top:1px dotted #D9E5DE;
+  font-size:12px; line-height:1.6; color:#4A5A52;}
+.rcard .vrec-say, .rlev + * {}
+.rlev-r{display:flex; align-items:center; gap:13px; padding:12px 0;
+  border-bottom:1px dotted var(--line);}
+.rlev-r:last-of-type{border-bottom:0;}
+.rlev-r > i{width:25px; height:25px; border-radius:7px; background:#F1EDE3; color:var(--muted);
+  font-style:normal; font-size:11px; font-weight:800; display:flex; align-items:center;
+  justify-content:center; flex-shrink:0;}
+.rlev-r.best > i{background:#E7F1EC; color:var(--pos);}
+.rlev-r .t{width:264px; flex-shrink:0;}
+.rlev-r .t b{display:flex; align-items:baseline; gap:7px; font-size:13.5px;}
+.rlev-r .t b em{font-style:normal; font-size:9.5px; font-weight:800; letter-spacing:.05em;
+  text-transform:uppercase; color:var(--pos); background:#E7F1EC; border-radius:99px; padding:2px 7px;}
+.rlev-r .t > span{display:block; font-size:11.5px; color:var(--muted); line-height:1.5; margin-top:2px;}
+.rlev-r .bar{flex:1; height:15px; background:#F1EDE3; border-radius:4px; overflow:hidden; min-width:30px;}
+.rlev-r .bar i{display:block; height:100%; border-radius:4px; background:#8AA98F;}
+.rlev-r.best .bar i{background:#2F7A61;}
+.rlev-r .v{width:104px; text-align:right; font-family:'Fraunces',serif; font-weight:700;
+  font-size:16px; flex-shrink:0;}
+.rlev-r .v em{display:block; font-family:'Inter',sans-serif; font-style:normal; font-weight:500;
+  font-size:10.5px; color:var(--muted); margin-top:1px;}
+
+/* ---- the structure question, folded to one line ---- */
+.vfold{border:1.5px solid var(--line) !important;}
+.vfold[open]{border-color:var(--ink) !important;}
+.vfold-s{display:flex; align-items:baseline; flex-wrap:wrap; gap:6px 12px; cursor:pointer;
+  list-style:none; padding:2px 0;}
+.vfold-s::-webkit-details-marker{display:none;}
+.vfold-k{font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); width:100%;}
+.vfold-q{font-family:'Fraunces',serif; font-size:18px; font-weight:700;}
+.vfold-a{font-family:'Fraunces',serif; font-size:18px; font-weight:700;}
+.vfold-v{display:flex; align-items:baseline; gap:6px;}
+.vfold-v b{font-family:'Fraunces',serif; font-size:18px;}
+.vfold-v i{font-style:normal; font-size:11.5px; color:var(--muted);}
+.vfold-o{margin-left:auto; font-size:11.5px; font-weight:700; color:var(--muted);
+  border:1px solid var(--line); border-radius:99px; padding:4px 12px; white-space:nowrap;}
+.vfold-o em{font-style:normal;}
+.vfold-o .c{display:none;}
+.vfold[open] .vfold-o .o{display:none;}
+.vfold[open] .vfold-o .c{display:inline;}
+.vfold[open] .vfold-s{margin-bottom:14px; padding-bottom:12px; border-bottom:1px solid var(--line);}
+.vfold > .card{border:1px solid var(--line) !important; box-shadow:none !important; margin-bottom:14px;}
+.vfold > .vcard{border:2px solid var(--ink) !important;}
+
 @media (max-width:760px){
   .vrec-r{flex-wrap:wrap; gap:6px;}
   .vrec-r .v{font-size:16px;}
   .vrec-r.tot .v{font-size:22px;}
   .vc-p{font-size:14px;}
+  .rcomp-r{flex-wrap:wrap; gap:4px 10px;}
+  .rcomp-r .l{width:auto; flex:1;}
+  .rcomp-r .b{order:3; flex-basis:100%; min-width:0;}
+  .rlev-r{flex-wrap:wrap; align-items:flex-start; gap:3px 0;}
+  .rlev-r > i{margin-right:13px;}
+  .rlev-r .t{width:auto; flex:1 1 calc(100% - 38px);}
+  .rlev-r .v{order:2; width:auto; flex-basis:100%; margin-left:38px; text-align:left;
+    display:flex; align-items:baseline; gap:8px; margin-top:5px;}
+  .rlev-r .v em{margin-top:0;}
+  .rlev-r .bar{order:3; flex-basis:calc(100% - 38px); margin:6px 0 2px 38px;}
+  .vfold-o{margin-left:0;}
 }
 
 /* ---- the opener: what this section is, before it asks anything ---- */
