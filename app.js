@@ -31,7 +31,7 @@ const STORE_KEY = 'practice_planner_v3';
 //     a real success or failure back and can tell the user the truth.
 //
 // While this is empty the form opens a mail draft, exactly as it always has.
-const FEEDBACK_ENDPOINT = "";
+const FEEDBACK_ENDPOINT = "https://formspree.io/f/xzdnyabp";
 const FEEDBACK_IS_FORMSPREE = /formspree\.io/.test(FEEDBACK_ENDPOINT);
 function encodeShareState(obj) {
   try {
