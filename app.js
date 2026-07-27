@@ -4449,6 +4449,134 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       "Sources: ", extLink("https://www.ssa.gov/pubs/EN-05-10137.pdf", "SSA, Your Payments While You Are Outside the United States"),
       " · ", extLink("https://www.ssa.gov/international/agreement_descriptions.html", "SSA, International Agreements"), "."));
 
+  // =====================================================================
+  // THE VERDICT. Everything below this used to be the answer; now it is the
+  // working. Computed at a DEFENSIBLE 50% salary rather than whatever the
+  // user has set, because that is the honest basis for a recommendation -
+  // the election only turns positive at 35-40%, which is the audit-risk band.
+  // =====================================================================
+  const vSalary = Math.ceil(recNetProfit * 0.5 / 1000) * 1000;
+  const vAggr = Math.ceil(recNetProfit * 0.35 / 1000) * 1000;
+  const vSole = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0);
+  const vCorp = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", vSalary);
+  const vCorpAggr = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", vAggr);
+  const vRun = runCostTotal > 0 ? runCostTotal : 4400;   // Heard's published average
+  const vRunIsDefault = !(runCostTotal > 0);
+  const vGain = vCorp.net - vSole.net;
+  const vNet = vGain - vRun;
+  const vNetAggr = (vCorpAggr.net - vSole.net) - vRun;
+  const vReady = recNetProfit > 1000;
+
+  // the receipt lines, reconciled to the penny against the engine
+  const vPayroll = (vSole.seTax + vSole.ssW2 + vSole.medW2 + vSole.employerPayrollTax)
+    - (vCorp.seTax + vCorp.ssW2 + vCorp.medW2 + vCorp.employerPayrollTax);
+  const vCaFee = vCorp.caEntityTax - vSole.caEntityTax;
+  const vQbiCost = Math.max(0, vSole.qbiDed - vCorp.qbiDed) * Math.max(0.2, strategy.marginalRate);
+  const vElse = vGain - (vPayroll - vCaFee - vQbiCost);
+
+  const vVerdict = !vReady ? {t: "Enter your income first", c: "#7C766A",
+      d: "Once your rate and caseload are in, this answers the incorporation question before you read anything else."}
+    : vNet < -500 ? {t: "Stay a sole proprietor.", c: "#26241E", good: false,
+      d: "On a salary you could actually defend, incorporating would leave you worse off."}
+    : vNet < 1500 ? {t: "Too close to call — and that is the answer.", c: "#C98B4B", good: false,
+      d: "The gain is smaller than the hassle. A payroll run every fortnight and a second tax return every March, for this."}
+    : {t: "Worth a conversation with a CPA.", c: "#3F9577", good: true,
+      d: "On a defensible salary the election clears its own running costs, which is not true for most practices."};
+
+  const verdictCard = /*#__PURE__*/React.createElement("section", {
+    className: "card vcard" + (vVerdict.good ? " vcard-yes" : "")
+  }, /*#__PURE__*/React.createElement("div", {className: "vc-k"}, "Our read on your numbers"),
+    /*#__PURE__*/React.createElement("h2", {style: {color: vVerdict.c}}, vVerdict.t),
+    vReady ? /*#__PURE__*/React.createElement("p", {className: "vc-p"},
+      vVerdict.d, " At a salary of ", /*#__PURE__*/React.createElement("b", null, fmt0(vSalary)),
+      " — half your ", fmt0(recNetProfit), " profit, the figure most accountants will defend — the election is worth ",
+      /*#__PURE__*/React.createElement("b", null, fmt0(vGain)), " in tax and costs about ",
+      /*#__PURE__*/React.createElement("b", null, fmt0(vRun)), " a year to run. Net: ",
+      /*#__PURE__*/React.createElement("b", {className: vNet > 0 ? "pos" : "neg"},
+        (vNet > 0 ? "+" : "−") + fmt0(Math.abs(vNet)) + " a year"), ".")
+      : /*#__PURE__*/React.createElement("p", {className: "vc-p"}, vVerdict.d),
+    vReady && vNetAggr > vNet + 500 ? /*#__PURE__*/React.createElement("p", {className: "vc-aggr"},
+      /*#__PURE__*/React.createElement("b", null, "The number that changes this is not your income — it is your salary. "),
+      "Drop it to ", fmt0(vAggr), " (35% of profit) and the election is worth ",
+      /*#__PURE__*/React.createElement("b", null, fmt0(vNetAggr)), " a year instead. That is the audit-risk band. The saving is bought with exposure, not with earnings.") : null,
+    vRunIsDefault && vReady ? /*#__PURE__*/React.createElement("p", {className: "vc-fine"},
+      "Running cost assumed at ", fmt0(4400), " — the average across the therapy practices Heard does the books for. Enter your own accountant's quote further down and this recalculates.") : null);
+
+  const receiptCard = !vReady ? null : /*#__PURE__*/React.createElement("section", {className: "card vrec"},
+    /*#__PURE__*/React.createElement("div", {className: "card-head"},
+      /*#__PURE__*/React.createElement("h2", null, "Where that number comes from"),
+      /*#__PURE__*/React.createElement("p", null, "Four lines, at a ", fmt0(vSalary), " salary. Everything further down this page is the working behind them.")),
+    /*#__PURE__*/React.createElement("div", {className: "vrec-b"},
+      [["Payroll tax you would avoid", vPayroll, true,
+        "Self-employment tax on all your profit, versus payroll tax on the salary only"],
+       ["California franchise tax", -vCaFee, false,
+        "The greater of $800 or 1.5% of net income — a sole proprietor pays neither"],
+       ["Smaller QBI deduction", -vQbiCost, false,
+        "Paying yourself a wage shrinks the 20% deduction on what is left. The line most write-ups leave out."],
+       ["Payroll service, 1120-S, Form 100S, Statement of Information", -vRun, false,
+        vRunIsDefault ? "Heard's published average — replace it with your own quote below" : "Your own figures, entered below"]
+      ].map(([lbl, val, good, hint]) => /*#__PURE__*/React.createElement("div", {
+        className: "vrec-r" + (val < 0 ? " neg" : ""), key: lbl
+      }, /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, lbl),
+          /*#__PURE__*/React.createElement("i", null, hint)),
+        /*#__PURE__*/React.createElement("b", {className: "v"}, (val >= 0 ? "+" : "−") + fmt0(Math.abs(val))))),
+      Math.abs(vElse) > 50 ? /*#__PURE__*/React.createElement("div", {
+        className: "vrec-r" + (vElse < 0 ? " neg" : "")
+      }, /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, "Everything else"),
+          /*#__PURE__*/React.createElement("i", null, "bracket effects and the half-SE-tax deduction, which move in both directions")),
+        /*#__PURE__*/React.createElement("b", {className: "v"}, (vElse >= 0 ? "+" : "−") + fmt0(Math.abs(vElse)))) : null,
+      /*#__PURE__*/React.createElement("div", {className: "vrec-r tot"},
+        /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, "Net, per year")),
+        /*#__PURE__*/React.createElement("b", {className: "v " + (vNet > 0 ? "pos" : "neg")},
+          (vNet >= 0 ? "+" : "−") + fmt0(Math.abs(vNet))))),
+    /*#__PURE__*/React.createElement("div", {className: "vrec-say"},
+      vNet < 0
+        ? ["Incorporating would cost you about ", fmt0(Math.abs(vNet) / 12), " a month, plus a payroll run every fortnight and a second tax return every March."]
+        : ["That is about ", fmt0(vNet / 12), " a month, in exchange for a payroll run every fortnight and a second tax return every March."]));
+
+  const leverCard = !vReady ? null : (function () {
+    const cheap = Math.max(0, vRun - 2500);
+    const upTo = Math.max(0, 200000 - recNetProfit);
+    const rows = [
+      {n: 1, good: vNetAggr > vNet, t: "Pay yourself 35% instead of 50%",
+       s: "The only lever that reliably flips the answer — and the one that carries audit risk",
+       v: vNetAggr - vNet},
+      {n: 2, good: cheap > 0, t: "Find a cheaper accountant",
+       s: vRunIsDefault ? "$4,400 is the average; a clean single-shareholder return can be done for about $2,500"
+                        : "You have entered " + fmt0(vRun) + "; a clean single-shareholder return can be done for about $2,500",
+       v: cheap},
+      {n: 3, good: upTo > 0, t: upTo > 0 ? "Earn " + fmt0(upTo) + " more profit" : "You are already past the sweet spot",
+       s: upTo > 0
+          ? "About " + Math.round(upTo / Math.max(1, sessionRate)) + " more sessions a year, or a rate rise of " + fmt0(upTo / Math.max(1, (cur.grossYr / Math.max(1, sessionRate))))
+          : "Past roughly $200,000 the CA franchise tax outgrows the payroll saving",
+       v: null},
+      {n: 4, good: false, t: "Keep growing well past that",
+       s: "Above about $250,000 it gets worse again — California's 1.5% keeps scaling while the payroll saving stops at the " + fmt0(SS_WAGE_BASE_2026) + " wage base",
+       v: null}
+    ];
+    return /*#__PURE__*/React.createElement("section", {className: "card vlev"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("h2", null, "What would have to change"),
+        /*#__PURE__*/React.createElement("p", null, "A verdict that only says no is a dead end. Here is every lever, and what each is actually worth.")),
+      rows.map(r => /*#__PURE__*/React.createElement("div", {
+        className: "vlev-r" + (r.good ? " good" : " bad"), key: r.n
+      }, /*#__PURE__*/React.createElement("i", null, r.n),
+        /*#__PURE__*/React.createElement("span", {className: "t"},
+          /*#__PURE__*/React.createElement("b", null, r.t),
+          /*#__PURE__*/React.createElement("span", null, r.s)),
+        r.v != null ? /*#__PURE__*/React.createElement("b", {className: "v"},
+          (r.v >= 0 ? "+" : "−") + fmt0(Math.abs(r.v))) : null)),
+      /*#__PURE__*/React.createElement("p", {className: "vlev-note"},
+        vNetAggr - vNet > Math.max(0, vRun - 2500)
+          ? "Notice that changing your salary is worth more than changing anything about your practice. That is worth sitting with — most of what is written about S-corps assumes the saving scales with success, and on these numbers it does not. It scales with how much risk you are willing to carry."
+          : "Notice that changing your accountant is worth more than raising your rate. Most of what is written about S-corps assumes the saving scales with success; on these numbers it mostly scales with what you pay in fees."));
+  })();
+
+  const workingToggle = !vReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
+    /*#__PURE__*/React.createElement("span", null, "Everything below is the working — the full comparison, the compliance calendar, the retirement plans and the Social Security trade-off. Almost nobody needs it. If you want to check my arithmetic, it is all here."));
+
   const step1Done = true;
   const returnPresets = /*#__PURE__*/React.createElement("div", {className: "retpresets"},
     /*#__PURE__*/React.createElement("span", {className: "retpresets-lab"}, "Expected return — pick a starting point:"),
@@ -4962,7 +5090,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, secOpener, stepperRail, introSection, returnPresets, taxProfileSection, businessStructureSection, entityCompareSection, ssDetail, moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, verdictCard, receiptCard, leverCard, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection, businessStructureSection, entityCompareSection, ssDetail, moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -6357,6 +6485,66 @@ const CSS = `
   .inc-eq b{font-size:15px;}
   .inc-eq-res,.inc-eq-res b{font-size:20px;}
   .jumpnav-n{width:17px; height:17px; font-size:9.5px;}
+}
+
+/* ---- THE VERDICT: the answer before the working ---- */
+.vcard{border:2px solid var(--ink) !important; background:#FCFAF4 !important;}
+.vcard-yes{border-color:#9FC4AF !important; background:#F4F8F6 !important;}
+.vc-k{font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:8px;}
+.vcard h2{font-family:'Fraunces',serif; font-weight:700; font-size:clamp(24px,3vw,31px);
+  letter-spacing:-.02em; line-height:1.12; margin:0 0 11px !important;}
+.vc-p{font-size:15px; line-height:1.7; margin:0; max-width:720px;}
+.vc-p b{color:var(--ink);}
+.vc-aggr{margin:14px 0 0; background:#FBF1E2; border-left:4px solid #C98B4B; border-radius:0 10px 10px 0;
+  padding:13px 16px; font-size:13.5px; line-height:1.65; max-width:760px;}
+.vc-fine{font-size:11.5px; color:var(--muted); line-height:1.6; margin:12px 0 0;}
+
+/* the receipt */
+.vrec-b{border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;}
+.vrec-r{display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+  padding:13px 16px; border-bottom:1px dotted var(--line);}
+.vrec-r span{flex:1;}
+.vrec-r span b{display:block; font-size:13.5px; font-weight:600;}
+.vrec-r span i{display:block; font-style:normal; font-size:11.5px; color:var(--muted);
+  line-height:1.5; margin-top:2px;}
+.vrec-r .v{font-family:'Fraunces',serif; font-weight:700; font-size:17px; white-space:nowrap;
+  font-variant-numeric:tabular-nums;}
+.vrec-r.neg .v{color:var(--neg);}
+.vrec-r.neg span b{color:var(--ink);}
+.vrec-r.neg span i{color:var(--muted);}
+.vrec-r.tot{border-bottom:0; border-top:2px solid var(--ink); background:#FCFAF4; padding:15px 16px;}
+.vrec-r.tot span b{font-size:14.5px;}
+.vrec-r.tot .v{font-size:26px;}
+.vrec-r.tot .v.pos{color:var(--pos);} .vrec-r.tot .v.neg{color:var(--neg);}
+.vrec-say{margin-top:13px; background:#F7E7E5; border-radius:10px; padding:12px 15px;
+  font-size:13px; line-height:1.6;}
+
+/* the levers */
+.vlev-r{display:flex; align-items:flex-start; gap:13px; padding:12px 0;
+  border-bottom:1px dotted var(--line);}
+.vlev-r:last-of-type{border-bottom:0;}
+.vlev-r > i{width:25px; height:25px; border-radius:7px; background:#F1EDE3; color:var(--muted);
+  font-style:normal; font-size:11px; font-weight:800; display:flex; align-items:center;
+  justify-content:center; flex-shrink:0;}
+.vlev-r.good > i{background:#E7F1EC; color:var(--pos);}
+.vlev-r .t{flex:1;}
+.vlev-r .t b{display:block; font-size:13.5px;}
+.vlev-r .t span{display:block; font-size:11.5px; color:var(--muted); line-height:1.5; margin-top:2px;}
+.vlev-r .v{font-family:'Fraunces',serif; font-weight:700; font-size:16px; white-space:nowrap;}
+.vlev-r.good .v{color:var(--pos);} .vlev-r.bad .v{color:var(--neg);}
+.vlev-note{margin:14px 0 0; padding-top:13px; border-top:1px solid var(--line);
+  font-size:13px; line-height:1.65;}
+
+/* the line between the answer and the working */
+.vwork{margin:6px 0 22px; padding:13px 18px; background:#F6F2E8; border-radius:11px;
+  font-size:12.5px; line-height:1.6; color:var(--muted); border:1px dashed var(--line);}
+
+@media (max-width:760px){
+  .vrec-r{flex-wrap:wrap; gap:6px;}
+  .vrec-r .v{font-size:16px;}
+  .vrec-r.tot .v{font-size:22px;}
+  .vc-p{font-size:14px;}
 }
 
 /* ---- the opener: what this section is, before it asks anything ---- */
