@@ -834,9 +834,15 @@ const RATE_DATA = Object.fromEntries(RATES.map(r => [r, {
 }]));
 
 // Therapy-only gross helpers
+// Weeks worked is a real input, not a constant. The tool used to hardcode 52
+// everywhere, which quietly assumed a therapist takes no holiday at all and
+// overstated every downstream figure - tax, profit, the S-corp comparison and
+// the retirement projections all inherit it. Default stays 52 so any caller
+// that has not been updated behaves exactly as before.
+const WEEKS_FULL = 52;
 const grossWk = (rate, s) => rate * s;
-const grossYr = (rate, s) => rate * s * 52;
-const grossMo = (rate, s) => Math.round(rate * s * 52 / 12);
+const grossYr = (rate, s, w) => rate * s * (w > 0 ? w : WEEKS_FULL);
+const grossMo = (rate, s, w) => Math.round(rate * s * (w > 0 ? w : WEEKS_FULL) / 12);
 const fmt = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
 const fmtK = n => "$" + Math.round(n / 1000) + "k";
 
@@ -1138,6 +1144,9 @@ function PracticeIncomePlanner() {
     + (filingStatus ? 1 : 0);
   const [secondaryRate, setSecondaryRate] = useState(SAVED.secondaryRate != null ? SAVED.secondaryRate : "");
   const [secondarySessions, setSecondarySessions] = useState(SAVED.secondarySessions != null ? SAVED.secondarySessions : "");
+  const [wageMetro, setWageMetro] = useState(SAVED.wageMetro != null ? SAVED.wageMetro : 3);
+  const [vacationOn, setVacationOn] = useState(SAVED.vacationOn != null ? SAVED.vacationOn : false);
+  const [vacationWeeks, setVacationWeeks] = useState(SAVED.vacationWeeks != null ? SAVED.vacationWeeks : 0);
   const [retreatOn, setRetreatOn] = useState(SAVED.retreatOn != null ? SAVED.retreatOn : false);
   const [retreatParticipants, setRetreatParticipants] = useState(SAVED.retreatParticipants != null ? SAVED.retreatParticipants : "");
   const [retreatRate, setRetreatRate] = useState(SAVED.retreatRate != null ? SAVED.retreatRate : "");
@@ -1168,6 +1177,9 @@ function PracticeIncomePlanner() {
         retreatParticipants: retreatParticipants,
         retreatRate: retreatRate,
         retreatPerMonth: retreatPerMonth,
+        wageMetro: wageMetro,
+        vacationOn: vacationOn,
+        vacationWeeks: vacationWeeks,
         usLocation: usLocation,
         avgTenure: avgTenure,
         currentClients: currentClients,
@@ -1190,16 +1202,17 @@ function PracticeIncomePlanner() {
         wizardStep: wizardStep
       }));
     } catch (e) {}
-  }, [tab, rate, sessions, goal, chartMode, secondaryOn, secondaryRate, secondarySessions, retreatOn, retreatParticipants, retreatRate, retreatPerMonth, usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn, expenses, cityKey, manualCityFee, viewMode, wizardStep]);
+  }, [tab, rate, sessions, goal, chartMode, secondaryOn, secondaryRate, secondarySessions, retreatOn, retreatParticipants, retreatRate, retreatPerMonth, vacationOn, vacationWeeks, wageMetro, usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn, expenses, cityKey, manualCityFee, viewMode, wizardStep]);
   const d = {
     color: colorForRate(rate)
   };
   const nearestRate = RATES.reduce((best, r) => Math.abs(r - rate) < Math.abs(best - rate) ? r : best, RATES[0]);
   const job2Yr = 0;
-  const secondaryYr = secondaryOn ? (parseFloat(secondaryRate) || 0) * (parseFloat(secondarySessions) || 0) * 52 : 0;
+  const weeksWorked = vacationOn ? Math.max(1, WEEKS_FULL - (parseFloat(vacationWeeks) || 0)) : WEEKS_FULL;
+  const secondaryYr = secondaryOn ? (parseFloat(secondaryRate) || 0) * (parseFloat(secondarySessions) || 0) * weeksWorked : 0;
   const retreatYr = retreatOn ? (parseFloat(retreatParticipants) || 0) * (parseFloat(retreatRate) || 0) * (parseFloat(retreatPerMonth) || 0) * 12 : 0;
   const otherIncomeYr = secondaryYr + retreatYr;
-  const grossMoForExp = (grossYr(rate, sessions) + otherIncomeYr) / 12;
+  const grossMoForExp = (grossYr(rate, sessions, weeksWorked) + otherIncomeYr) / 12;
   const expMo = expenses.reduce((a, e) => a + (e.pct != null ? grossMoForExp * e.pct : +e.monthly || 0), 0);
   const expYrBase = expMo * 12;
   const setExpense = (id, val) => setExpenses(xs => xs.map(e => e.id === id ? {
@@ -1221,20 +1234,20 @@ function PracticeIncomePlanner() {
 
   // City business-license fee is based on practice gross receipts only (not the
   // W-2 second job), and is itself a deductible business expense.
-  const bizFeeAt = (r, s) => cityLicenseFee(cityKey, grossYr(r, s) + otherIncomeYr, manualCityFee);
+  const bizFeeAt = (r, s) => cityLicenseFee(cityKey, grossYr(r, s, weeksWorked) + otherIncomeYr, manualCityFee);
   const bizFee = bizFeeAt(rate, sessions);
   const expYr = expYrBase + bizFee;
 
   // Year computation at any rate/sessions, using current expenses + secondary source + second job
-  const yearAt = (r, s) => computeYear(grossYr(r, s) + otherIncomeYr, expYrBase + bizFeeAt(r, s), job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+  const yearAt = (r, s) => computeYear(grossYr(r, s, weeksWorked) + otherIncomeYr, expYrBase + bizFeeAt(r, s), job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
   const netYr = (r, s) => Math.round(yearAt(r, s).net);
 
   // Current scenario, fully broken out
   const cur = useMemo(() => {
-    const y = computeYear(grossYr(rate, sessions) + otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-    const noExp = computeYear(grossYr(rate, sessions) + otherIncomeYr, 0, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-    const withoutSecondary = computeYear(grossYr(rate, sessions) + retreatYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-    const withoutRetreat = computeYear(grossYr(rate, sessions) + secondaryYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+    const y = computeYear(grossYr(rate, sessions, weeksWorked) + otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+    const noExp = computeYear(grossYr(rate, sessions, weeksWorked) + otherIncomeYr, 0, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+    const withoutSecondary = computeYear(grossYr(rate, sessions, weeksWorked) + retreatYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+    const withoutRetreat = computeYear(grossYr(rate, sessions, weeksWorked) + secondaryYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
     return {
       ...y,
       netYr: Math.round(y.net),
@@ -1243,7 +1256,7 @@ function PracticeIncomePlanner() {
       grossYr: y.grossAll,
       grossMo: Math.round(y.grossAll / 12),
       grossWk: Math.round(y.grossAll / 52),
-      grossTherYr: grossYr(rate, sessions),
+      grossTherYr: grossYr(rate, sessions, weeksWorked),
       secondaryYr,
       retreatYr,
       otherIncomeYr,
@@ -1553,7 +1566,7 @@ function PracticeIncomePlanner() {
     };
     RATES.forEach(r => {
       row[`net_${r}`] = netYr(r, s);
-      row[`gross_${r}`] = grossYr(r, s) + job2Yr + otherIncomeYr;
+      row[`gross_${r}`] = grossYr(r, s, weeksWorked) + job2Yr + otherIncomeYr;
     });
     return row;
   });
@@ -1567,7 +1580,7 @@ function PracticeIncomePlanner() {
 
   // Chart 3: take-home efficiency — net as % of gross (combined)
   const effData = SESSIONS.map(s => {
-    const g = grossYr(rate, s) + job2Yr;
+    const g = grossYr(rate, s, weeksWorked) + job2Yr;
     return {
       s,
       pct: +(netYr(rate, s) / g * 100).toFixed(1)
@@ -1733,6 +1746,7 @@ function PracticeIncomePlanner() {
       rate, sessions, goal, chartMode,
       secondaryOn, secondaryRate, secondarySessions,
       retreatOn, retreatParticipants, retreatRate, retreatPerMonth,
+      vacationOn, vacationWeeks, wageMetro,
       usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel,
       filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA,
       taxAge, retireAge, investReturn,
@@ -2030,17 +2044,26 @@ function PracticeIncomePlanner() {
     className: "jumpnav-group"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-group-lbl"
-  }, "Your finances"), [["sec-income", "Income", fmt(cur.grossYr)], ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr)], ["sec-profit", "Profit", fmt(cur.netYr)], ["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0]].map(([id, lbl, val, prog]) => /*#__PURE__*/React.createElement("a", {
+  }, "Your finances"), [["sec-income", "Income", fmt(cur.grossYr), 0, "1", rate > 0 && sessions > 0],
+    ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr), 0, "2", cur.expYr > 0],
+    ["sec-profit", "Profit", fmt(cur.netYr), 0, "=", null],
+    ["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0, "3", taxStepsDone >= 4]
+   ].map(([id, lbl, val, prog, n, done]) => /*#__PURE__*/React.createElement("a", {
     key: id,
     href: "#" + id,
     className: "jumpnav-pill" + (activeSection === id ? " jumpnav-active" : "")
+      + (done === null ? " jumpnav-derived" : done ? " jumpnav-done" : "")
+  }, /*#__PURE__*/React.createElement("i", {
+    className: "jumpnav-n"
+  }, done === true ? "\u2713" : n), /*#__PURE__*/React.createElement("span", {
+    className: "jumpnav-txt"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-lbl"
   }, lbl), /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-val"
   }, val), prog ? /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-prog"
-  }, /*#__PURE__*/React.createElement("i", {style: {width: (prog * 100) + "%"}})) : null)))), viewMode === "wizard" && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("i", {style: {width: (prog * 100) + "%"}})) : null))))), viewMode === "wizard" && /*#__PURE__*/React.createElement("div", {
     className: "wizard-stepper"
   }, wizardSteps.map((k, i) => /*#__PURE__*/React.createElement(React.Fragment, {
     key: k
@@ -2111,7 +2134,35 @@ function PracticeIncomePlanner() {
     }
   }), /*#__PURE__*/React.createElement("div", {
     className: "slider-ends"
-  }, /*#__PURE__*/React.createElement("span", null, "15"), /*#__PURE__*/React.createElement("span", null, "30")))), showIncomeAddons && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
+  }, /*#__PURE__*/React.createElement("span", null, "15"), /*#__PURE__*/React.createElement("span", null, "30"))),
+    /*#__PURE__*/React.createElement("div", {className: "timeoff" + (vacationOn ? " on" : "")},
+      /*#__PURE__*/React.createElement("button", {
+        type: "button",
+        className: "toggle" + (vacationOn ? " toggle-on" : ""),
+        onClick: () => setVacationOn(!vacationOn)
+      }, /*#__PURE__*/React.createElement("span", {className: "toggle-knob"}), "Time off"),
+      vacationOn
+        ? /*#__PURE__*/React.createElement("span", {className: "timeoff-body"},
+            /*#__PURE__*/React.createElement("input", {
+              type: "number", min: 0, max: 20, step: 1,
+              value: vacationWeeks === 0 ? "" : vacationWeeks,
+              placeholder: "0",
+              onChange: e => setVacationWeeks(Math.max(0, Math.min(20, +e.target.value || 0)))
+            }),
+            "weeks a year not working")
+        : /*#__PURE__*/React.createElement("span", {className: "timeoff-off"},
+            "Off \u2014 the year below assumes you work all 52 weeks"),
+      /*#__PURE__*/React.createElement("span", {className: "timeoff-out"},
+        /*#__PURE__*/React.createElement("b", null, weeksWorked), " working weeks \u00B7 ",
+        /*#__PURE__*/React.createElement("b", null, (sessions * weeksWorked).toLocaleString()), " sessions")),
+    /*#__PURE__*/React.createElement("div", {className: "inc-eq"},
+      /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, fmt(rate)), " a session"),
+      /*#__PURE__*/React.createElement("i", null, "\u00D7"),
+      /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, sessions), " a week"),
+      /*#__PURE__*/React.createElement("i", null, "\u00D7"),
+      /*#__PURE__*/React.createElement("span", null, /*#__PURE__*/React.createElement("b", null, weeksWorked), " weeks"),
+      /*#__PURE__*/React.createElement("i", null, "="),
+      /*#__PURE__*/React.createElement("span", {className: "inc-eq-res"}, fmt(grossYr(rate, sessions, weeksWorked))))), showIncomeAddons && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "job2"
   }, /*#__PURE__*/React.createElement("div", {
     className: "job2-head"
@@ -2311,7 +2362,7 @@ function PracticeIncomePlanner() {
   }, "Tax"), /*#__PURE__*/React.createElement("th", {
     className: "num-head"
   }, "Keeps"), /*#__PURE__*/React.createElement("th", null, "vs. current net"), /*#__PURE__*/React.createElement("th", null))), /*#__PURE__*/React.createElement("tbody", null, RATES.map(r => {
-    const gy = grossYr(r, sessions) + job2Yr + otherIncomeYr;
+    const gy = grossYr(r, sessions, weeksWorked) + job2Yr + otherIncomeYr;
     const ny = netYr(r, sessions);
     const tax = gy - ny;
     const keepPct = Math.round(ny / gy * 100);
@@ -2385,6 +2436,7 @@ function PracticeIncomePlanner() {
   }, fmt(p.cumulative), " ytd")))), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
   }, "Shows the next 12 paydays. A biweekly schedule lands 26 checks a year, so two months each year carry a third check — those are the bonus-feeling paydays."))))), isVisible("expenses") && /*#__PURE__*/React.createElement("div", {id:"sec-expenses"}, sectionIntro("expenses"), /*#__PURE__*/React.createElement(ExpensesTab, {
+    weeksWorked: weeksWorked,
     expenses: expenses,
     expMo: expMo,
     expYr: expYr,
@@ -2402,8 +2454,9 @@ function PracticeIncomePlanner() {
     manualCityFee: manualCityFee,
     setManualCityFee: setManualCityFee,
     bizFee: bizFee,
-    grossTherYr: grossYr(rate, sessions) + otherIncomeYr
+    grossTherYr: grossYr(rate, sessions, weeksWorked) + otherIncomeYr
   })), isVisible("profit") && /*#__PURE__*/React.createElement("div", {id:"sec-profit"}, sectionIntro("profit"), /*#__PURE__*/React.createElement(ProfitTab, {
+    weeksWorked: weeksWorked,
     cur: cur,
     color: d.color,
     rate: rate,
@@ -2451,6 +2504,9 @@ function PracticeIncomePlanner() {
     setEntityType: setEntityType,
     sCorpSalaryInput: sCorpSalaryInput,
     setSCorpSalaryInput: setSCorpSalaryInput,
+    weeksWorkedProp: weeksWorked,
+    wageMetro: wageMetro,
+    setWageMetro: setWageMetro,
     sessionRate: rate,
     payrollSvcCost: payrollSvcCost,
     setPayrollSvcCost: setPayrollSvcCost,
@@ -2477,7 +2533,7 @@ function PracticeIncomePlanner() {
     className: "card-head"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sub-eyebrow"
-  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same limits apply in New York, Pennsylvania or anywhere else you would practise in the US, and the deduction comes off state taxable income too. Which means the same contribution is ", /*#__PURE__*/React.createElement("b", null, "worth more where the tax rate is higher"), ": sheltering a dollar in California or New York City saves more than sheltering it where there is no state income tax. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here.")), /*#__PURE__*/React.createElement("div", {
+  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same limits apply in New York, Pennsylvania or anywhere else you would practise in the US, and the deduction comes off state taxable income too. Which means the same contribution is ", /*#__PURE__*/React.createElement("b", null, "worth more where the tax rate is higher"), ": sheltering a dollar in California or New York City saves more than sheltering it where there is no state income tax. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here."), /*#__PURE__*/React.createElement("div", {className: "medcost"}, /*#__PURE__*/React.createElement("b", null, "Not counted in any figure below: health cover once you retire abroad. "), "Social Security follows a US citizen almost anywhere \u2014 Germany, Portugal, France and Australia all have totalization agreements with the US, and the UAE does not, though payments still reach you there. ", /*#__PURE__*/React.createElement("b", null, "Medicare does not travel at all"), ". It covers essentially nothing outside the United States, so every non-US card below quietly omits a lifelong private or local insurance premium that a California retiree would not pay. Treat the overseas net figures as better than they will feel.")), /*#__PURE__*/React.createElement("div", {
     className: "residency-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "stat",
@@ -2685,7 +2741,61 @@ function PracticeIncomePlanner() {
   }, "Continue \u2192") : /*#__PURE__*/React.createElement("button", {
     className: "wizard-btn primary",
     onClick: () => setViewMode("current")
-  }, "Done \u2014 see full dashboard \u2192")), /*#__PURE__*/React.createElement("section", {
+  }, "Done \u2014 see full dashboard \u2192")), (function () {
+    // The year on one page, in the language of a pay statement. Everything
+    // above is a decision; this is the receipt for the decisions you made.
+    const wk = weeksWorked, sess = sessions * wk;
+    const ent = entityType === "s_corp" ? "Professional Corp (S-corp election)" : "Sole Proprietorship";
+    const entInk = entityType === "s_corp" ? "#6A4A78" : "#3B5A7A";
+    const contrib = taxStrategy && taxStrategy.solo401k ? taxStrategy.solo401k.total : 0;
+    const line = (k, v, o) => /*#__PURE__*/React.createElement("div", {
+      className: "yr-line" + (o && o.sub ? " sub" : "") + (o && o.tot ? " tot" : "") + (o && o.neg ? " neg" : ""),
+      key: k
+    }, /*#__PURE__*/React.createElement("span", null, k), /*#__PURE__*/React.createElement("b", null, v));
+    return /*#__PURE__*/React.createElement("section", {className: "card yrstmt", id: "sec-statement"},
+      /*#__PURE__*/React.createElement("div", {className: "yr-head"},
+        /*#__PURE__*/React.createElement("div", null,
+          /*#__PURE__*/React.createElement("span", {className: "yr-kicker"}, "Your year, on one page"),
+          /*#__PURE__*/React.createElement("h2", null, "The statement")),
+        /*#__PURE__*/React.createElement("div", {className: "yr-ent", style: {borderColor: entInk, color: entInk}},
+          "Planning as ", /*#__PURE__*/React.createElement("b", null, ent))),
+      /*#__PURE__*/React.createElement("div", {className: "yr-cols"},
+        /*#__PURE__*/React.createElement("div", {className: "yr-col"},
+          /*#__PURE__*/React.createElement("h4", null, "What you billed"),
+          line("Rate a session", fmt(rate)),
+          line("Sessions a week", String(sessions)),
+          line("Weeks worked", wk + (vacationOn ? " (" + (52 - wk) + " off)" : " (no time off set)")),
+          line("Sessions a year", sess.toLocaleString()),
+          secondaryOn ? line("Secondary income", fmt(cur.secondaryYr)) : null,
+          retreatOn ? line("Retreats and events", fmt(cur.retreatYr)) : null,
+          line("Gross a year", fmt(cur.grossYr), {tot: true})),
+        /*#__PURE__*/React.createElement("div", {className: "yr-col"},
+          /*#__PURE__*/React.createElement("h4", null, "What came out"),
+          line("Running the practice", "\u2212" + fmt(cur.expYr), {neg: true}),
+          line("Profit before tax", fmt(cur.grossYr - cur.expYr), {sub: true}),
+          line("Federal, CA and payroll tax", "\u2212" + fmt(cur.totalTax), {neg: true}),
+          line("Effective rate on profit", Math.round(cur.totalTax / Math.max(1, cur.grossYr - cur.expYr) * 100) + "%", {sub: true}),
+          line("Net for the year", fmt(cur.netYr), {tot: true}))),
+      /*#__PURE__*/React.createElement("div", {className: "yr-strip"},
+        [["Per session", fmt(sess > 0 ? cur.netYr / sess : 0), "after everything"],
+         ["Per week", fmt(cur.netWk), "over " + wk + " working weeks"],
+         ["Per month", fmt(cur.netMo), "averaged"],
+         ["You keep", Math.round(cur.takeHomePct * 100) + "\u00A2", "of every dollar billed"]
+        ].map(([k, v, n]) => /*#__PURE__*/React.createElement("div", {className: "yr-cell", key: k},
+          /*#__PURE__*/React.createElement("span", {className: "k"}, k),
+          /*#__PURE__*/React.createElement("b", null, v),
+          /*#__PURE__*/React.createElement("span", {className: "n"}, n)))),
+      contrib > 0 ? /*#__PURE__*/React.createElement("div", {className: "yr-note"},
+        /*#__PURE__*/React.createElement("b", null, "Not shown above: retirement. "),
+        "Maxing a Solo 401(k) would move ", /*#__PURE__*/React.createElement("b", null, fmt(contrib)),
+        " out of this statement and into an account that is still yours \u2014 lowering the net figure while raising your total for the year. See the Tax Strategy section for what that actually costs.") : null,
+      /*#__PURE__*/React.createElement("p", {className: "yr-fine"},
+        "Every figure here is the same calculation used throughout the tool, on the choices you have made: ",
+        fmt(rate), " a session, ", sessions, " a week, ", wk, " weeks, ",
+        vacationOn ? (52 - wk) + " weeks off, " : "no time off, ",
+        ent.toLowerCase(), ", ", filingStatus === "mfj" ? "married filing jointly" : filingStatus === "mfj_dependents" ? "married with dependants" : filingStatus === "hoh" ? "head of household" : "filing single",
+        ". Estimates, not a filing."));
+  })(), /*#__PURE__*/React.createElement("section", {
     className: "card feedback-section"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -2937,6 +3047,9 @@ function EffTip({
 function TaxStrategyTab({
   color,
   cur,
+  weeksWorkedProp,
+  wageMetro,
+  setWageMetro,
   filingStatus,
   setFilingStatus,
   numDependents,
@@ -3964,7 +4077,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       {k: "rate", label: "Raise your rate " + fmt0(sessionRate) + " → " + fmt0(sessionRate + 25),
        sub: "same caseload, same hours", v: 25 * sess * keepRate},
       {k: "sess", label: "Add 2 sessions a week",
-       sub: fmt0(sessionRate * 2 * 52) + " more billed", v: sessionRate * 2 * 52 * keepRate},
+       sub: fmt0(sessionRate * 2 * weeksWorkedProp) + " more billed", v: sessionRate * 2 * weeksWorkedProp * keepRate},
       {k: "scorp", label: "Elect S-corp treatment",
        sub: "after payroll, filings and the CA entity fee", v: Math.max(0, netDiff - runCostTotal)},
       {k: "exp", label: "Cut running costs 10%",
@@ -4391,18 +4504,18 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   // decided on comparable professional wages. So anchor to published wage data
   // and show BOTH tests, because they disagree in opposite directions at the
   // two ends of the income range.
+  const myMetro = MFT_WAGES[Math.min(Math.max(0, wageMetro | 0), MFT_WAGES.length - 1)];
   const wageMax = Math.max(MFT_NAT_P90, sCorpSalaryInput, 1);
+  const wageRatio = myMetro.v > 0 ? sCorpSalaryInput / myMetro.v : 0;
   const wageVerdict = sCorpSalaryInput <= 0 ? null
     : sCorpSalaryInput >= MFT_NAT_P90 ? {t: "Above the national 90th percentile", c: "#3F9577",
-        d: "Higher than nine in ten employed MFTs anywhere in the country. On a wage-comparability argument this is about as strong as it gets."}
-    : sCorpSalaryInput >= MFT_WAGES[0].v ? {t: "Above every California metro mean", c: "#3F9577",
-        d: "Above what any California employer pays an MFT on average. A strong position to defend."}
-    : sCorpSalaryInput >= MFT_CA_MEAN ? {t: "Above the California average", c: "#3F9577",
-        d: "Above the statewide mean for an employed MFT, though below the Bay Area figure. Defensible for most of the state."}
-    : sCorpSalaryInput >= MFT_NAT_MEDIAN ? {t: "Between the national median and the CA average", c: "#C98B4B",
-        d: "Arguable, but you would want your own metro's figure and your hours documented — especially if you practise in the Bay Area."}
-    : {t: "Below the national median wage", c: "#B5483F",
-        d: "Below what a typical employed MFT earns anywhere. Hard to argue that a practice generating this much profit is worth less than an entry-level salaried post."};
+        d: "Higher than nine in ten employed MFTs anywhere in the country, and " + Math.round(wageRatio * 100) + "% of the " + myMetro.p + " mean. On a wage-comparability argument this is about as strong as it gets."}
+    : sCorpSalaryInput >= myMetro.v ? {t: "Above the " + myMetro.p + " mean", c: "#3F9577",
+        d: "You are paying yourself " + Math.round(wageRatio * 100) + "% of what an employed MFT earns on average where you practise. A strong position to defend."}
+    : sCorpSalaryInput >= myMetro.v * 0.8 ? {t: "Close to the " + myMetro.p + " mean", c: "#C98B4B",
+        d: Math.round(wageRatio * 100) + "% of the local mean. Arguable, but document your hours and the roles you perform \u2014 the gap is what an examiner would ask about."}
+    : {t: "Well below the " + myMetro.p + " mean", c: "#B5483F",
+        d: "Only " + Math.round(wageRatio * 100) + "% of what an employed MFT earns where you practise. Hard to argue a practice generating " + fmt0(recNetProfit) + " of profit is worth less than a salaried post."};
   const pctOfProfitNow = recNetProfit > 0 ? sCorpSalaryInput / recNetProfit : 0;
   const wageAnchor = /*#__PURE__*/React.createElement("div", {className: "wagea"},
     /*#__PURE__*/React.createElement("h4", null, "What the work is actually worth"),
@@ -4410,11 +4523,19 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       "The bands above use a percentage of profit, because that is how the internet talks about this. It is not the test. The IRS asks what your services are worth, and in ",
       /*#__PURE__*/React.createElement("i", null, "Watson"),
       " the court accepted a figure built from comparable professional wages — not a share of profit. Published wage data for your licence is free, and it is the stronger argument."),
+    /*#__PURE__*/React.createElement("div", {className: "metropick"},
+      /*#__PURE__*/React.createElement("span", {className: "metropick-lab"}, "Where you practise"),
+      /*#__PURE__*/React.createElement("select", {
+        value: wageMetro, onChange: e => setWageMetro(+e.target.value)
+      }, MFT_WAGES.map((w, i) => /*#__PURE__*/React.createElement("option", {key: w.p, value: i},
+        w.p + " \u2014 " + fmt0(w.v)))),
+      /*#__PURE__*/React.createElement("span", {className: "metropick-note"},
+        "Sets which figure your salary is judged against. All eight stay visible below.")),
     /*#__PURE__*/React.createElement("div", {className: "wagebars"},
-      MFT_WAGES.map(w => /*#__PURE__*/React.createElement("div", {className: "wrow" + (w.state ? " st" : ""), key: w.p},
-        /*#__PURE__*/React.createElement("span", {className: "nm"}, w.p),
+      MFT_WAGES.map((w, i) => /*#__PURE__*/React.createElement("div", {className: "wrow" + (w.state ? " st" : "") + (i === (wageMetro | 0) ? " mine" : ""), key: w.p},
+        /*#__PURE__*/React.createElement("span", {className: "nm"}, w.p, i === (wageMetro | 0) ? /*#__PURE__*/React.createElement("em", null, "yours") : null),
         /*#__PURE__*/React.createElement("span", {className: "tr"},
-          /*#__PURE__*/React.createElement("i", {style: {width: (w.v / wageMax * 100) + "%", background: w.state ? "#3B5A7A" : "#8AA6BF"}})),
+          /*#__PURE__*/React.createElement("i", {style: {width: (w.v / wageMax * 100) + "%", background: i === (wageMetro | 0) ? "#3B5A7A" : "#A9BFD3"}})),
         /*#__PURE__*/React.createElement("span", {className: "vl"}, fmt0(w.v)))),
       /*#__PURE__*/React.createElement("div", {className: "wrow", key: "p90"},
         /*#__PURE__*/React.createElement("span", {className: "nm"}, "National 90th percentile"),
@@ -5097,6 +5218,7 @@ const channelBlock = c => {
 }
 
 function ExpensesTab({
+  weeksWorked,
   expenses,
   expMo,
   expYr,
@@ -5178,7 +5300,7 @@ function ExpensesTab({
       className: "exp-del-spacer"
     }));
   });
-  const perSession = sessions > 0 ? expYr / (sessions * 52) : 0;
+  const perSession = sessions > 0 ? expYr / (sessions * weeksWorked) : 0;
   const cityInfo = CITY_LICENSE[cityKey];
   const resetRow = /*#__PURE__*/React.createElement("div", {
     className: "residency-toggle",
@@ -5264,6 +5386,7 @@ function ExpensesTab({
 
 // ---------- PROFIT TAB ----------
 function ProfitTab({
+  weeksWorked,
   cur,
   color,
   rate,
@@ -5310,7 +5433,7 @@ function ProfitTab({
   }];
   const maxAbs = Math.max(...waterfall.map(w => Math.abs(w.v)));
   const profitByRate = rates.map(r => {
-    const g = r * sessions * 52;
+    const g = r * sessions * weeksWorked;
     const fee = cityLicenseFee(cityKey, g, manualCityFee);
     return {
       rate: r,
@@ -5318,7 +5441,7 @@ function ProfitTab({
     };
   });
   const profitBySessions = sessionsList.map(s => {
-    const g = rate * s * 52;
+    const g = rate * s * weeksWorked;
     const fee = cityLicenseFee(cityKey, g, manualCityFee);
     return {
       s,
@@ -5327,7 +5450,7 @@ function ProfitTab({
   });
   const breakEven = (() => {
     for (let s = 1; s <= 60; s++) {
-      const g = rate * s * 52;
+      const g = rate * s * weeksWorked;
       const fee = cityLicenseFee(cityKey, g, manualCityFee);
       if (computeYear(g, expYrBase + fee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput).net > 0) return s;
     }
@@ -5594,7 +5717,7 @@ function ProfitTab({
     className: "strip-k"
   }, "Per session hour"), /*#__PURE__*/React.createElement("span", {
     className: "strip-v"
-  }, fmt(sessions > 0 ? cur.netYr / (sessions * 52) : 0)), /*#__PURE__*/React.createElement("span", {
+  }, fmt(sessions > 0 ? cur.netYr / (sessions * weeksWorked) : 0)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
   }, "of your $", rate, " billed rate")))), hypotheticalsSection);
 }
@@ -6000,6 +6123,64 @@ const CSS = `
   .salsplit-ends{font-size:10px;}
 }
 
+/* ---- the year, as a statement ---- */
+.yrstmt{border:2px solid var(--ink) !important;}
+.yr-head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;
+  padding-bottom:14px; margin-bottom:4px; border-bottom:2px solid var(--ink);}
+.yr-kicker{font-size:10.5px; font-weight:800; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); display:block; margin-bottom:4px;}
+.yr-head h2{margin:0 !important;}
+.yr-ent{border:1.5px solid; border-radius:22px; padding:6px 14px; font-size:12px; white-space:nowrap;}
+.yr-cols{display:grid; grid-template-columns:1fr 1fr; gap:0 34px; margin-top:18px;}
+.yr-col h4{font-size:10.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--muted); margin:0 0 4px;}
+.yr-line{display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  padding:9px 0; border-bottom:1px dotted var(--line); font-size:13.5px;}
+.yr-line span{color:var(--muted);}
+.yr-line b{font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap;}
+.yr-line.neg b{color:var(--neg);}
+.yr-line.sub{background:#FCFAF4; margin:0 -8px; padding-left:8px; padding-right:8px;}
+.yr-line.tot{border-bottom:0; border-top:2px solid var(--ink); margin-top:4px; padding-top:12px;}
+.yr-line.tot span{color:var(--ink); font-weight:600;}
+.yr-line.tot b{font-family:'Fraunces',serif; font-weight:700; font-size:24px;}
+.yr-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:20px; padding-top:18px;
+  border-top:1px solid var(--line);}
+.yr-cell{background:#FCFAF4; border:1px solid var(--line); border-radius:11px; padding:12px 14px;
+  display:flex; flex-direction:column;}
+.yr-cell .k{font-size:9.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted);}
+.yr-cell b{font-family:'Fraunces',serif; font-weight:700; font-size:22px; margin:4px 0 2px;}
+.yr-cell .n{font-size:11px; color:var(--muted); line-height:1.4;}
+.yr-note{margin-top:16px; background:#F4F8F6; border:1px solid #9FC4AF; border-radius:11px;
+  padding:13px 16px; font-size:13px; line-height:1.65;}
+.yr-fine{font-size:11.5px; color:var(--muted); line-height:1.6; margin:14px 0 0;}
+@media (max-width:760px){
+  .yr-cols{grid-template-columns:1fr; gap:0;}
+  .yr-col + .yr-col{margin-top:20px;}
+  .yr-strip{grid-template-columns:1fr 1fr;}
+  .yr-ent{white-space:normal;}
+}
+
+/* the metro picker for the wage anchor */
+.metropick{display:flex; align-items:center; gap:11px; flex-wrap:wrap; margin:14px 0 4px;
+  background:#FCFAF4; border:1px solid var(--line); border-radius:11px; padding:11px 14px;}
+.metropick-lab{font-size:10.5px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--muted);}
+.metropick select{font:inherit; font-size:13.5px; font-weight:600; color:var(--ink); padding:7px 10px;
+  border:1.5px solid #E4D9BE; background:#FBF6E9; border-radius:8px; cursor:pointer;}
+.metropick select:focus{outline:none; border-color:#B5483F;}
+.metropick-note{font-size:11.5px; color:var(--muted); flex:1; min-width:200px;}
+.wrow.mine{background:#EFF4F9; margin:3px -8px; padding:7px 8px; border-radius:8px;}
+.wrow.mine .nm{color:var(--ink); font-weight:700;}
+.wrow .nm em{font-style:normal; font-size:9.5px; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; color:#3B5A7A; background:#DCE8F3; border-radius:20px;
+  padding:2px 7px; margin-left:7px;}
+
+/* Medicare does not travel - this belongs with the residency cards, not in a footnote */
+.medcost{margin:14px 0 0; background:#F7E7E5; border-left:4px solid #B5483F; border-radius:0 10px 10px 0;
+  padding:13px 16px; font-size:13px; line-height:1.65; color:var(--muted); max-width:820px;}
+.medcost b{color:var(--ink);}
+
 /* ---- per-location retirement callout ---- */
 .locret-lab{font-size:9.5px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
   color:#3F9577; margin-bottom:7px;}
@@ -6086,6 +6267,44 @@ const CSS = `
   .wrow{flex-wrap:wrap;}
   .wrow .nm{width:100%; font-size:12px;}
   .wrow .vl{width:auto;}
+}
+
+/* ---- Income: time off, and the arithmetic made visible ---- */
+.controls{grid-template-columns:1fr 1fr !important;}
+.timeoff{grid-column:1 / -1; display:flex; align-items:center; gap:13px; flex-wrap:wrap;
+  padding:13px 0 0; margin-top:4px; border-top:1px dashed var(--line);}
+.timeoff-body{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted);}
+.timeoff-body input{font-family:'Fraunces',serif; font-weight:700; font-size:17px; width:58px;
+  text-align:center; border:1.5px solid #E4D9BE; background:#FBF6E9; border-radius:8px; padding:5px 6px;
+  color:var(--ink);}
+.timeoff-body input:focus{outline:none; border-color:#B5483F; background:#fff;}
+.timeoff-off{font-size:12.5px; color:var(--muted);}
+.timeoff-out{margin-left:auto; font-size:12.5px; color:var(--muted);}
+.timeoff-out b{font-family:'Fraunces',serif; font-size:15px; color:var(--ink);}
+.inc-eq{grid-column:1 / -1; display:flex; align-items:baseline; justify-content:center; gap:10px;
+  flex-wrap:wrap; margin-top:14px; padding-top:14px; border-top:1px solid var(--line);
+  font-size:13.5px; color:var(--muted);}
+.inc-eq b{font-family:'Fraunces',serif; font-size:17px; color:var(--ink);}
+.inc-eq i{font-style:normal; color:#BDB6A6;}
+.inc-eq-res b,.inc-eq-res{font-family:'Fraunces',serif; font-weight:700; font-size:26px; color:var(--ink);}
+
+/* ---- jump nav: numbered track, with derived sections marked as derived ---- */
+.jumpnav-pill{display:flex; align-items:center; gap:8px;}
+.jumpnav-n{display:inline-flex; align-items:center; justify-content:center; width:20px; height:20px;
+  border-radius:50%; font-style:normal; font-size:10.5px; font-weight:800; flex-shrink:0;
+  background:#E4DED0; color:var(--muted);}
+.jumpnav-done .jumpnav-n{background:var(--pos); color:#fff;}
+.jumpnav-derived .jumpnav-n{background:transparent; color:#BDB6A6; font-family:'Fraunces',serif;
+  font-size:14px; border:1px dashed #D8D2C4;}
+.jumpnav-txt{display:flex; flex-direction:column; min-width:0;}
+.jumpnav-active .jumpnav-n{background:#fff; color:var(--ink);}
+.jumpnav-active.jumpnav-done .jumpnav-n{background:var(--pos); color:#fff;}
+@media (max-width:760px){
+  .timeoff-out{margin-left:0; width:100%;}
+  .inc-eq{font-size:12px; gap:7px;}
+  .inc-eq b{font-size:15px;}
+  .inc-eq-res,.inc-eq-res b{font-size:20px;}
+  .jumpnav-n{width:17px; height:17px; font-size:9.5px;}
 }
 
 /* ---- the opener: what this section is, before it asks anything ---- */
