@@ -2515,8 +2515,6 @@ function PracticeIncomePlanner() {
     color: d.color,
     rate: rate,
     sessions: sessions,
-    rates: RATES,
-    rateData: RATE_DATA,
     sessionsList: SESSIONS,
     expYr: expYr,
     expYrBase: expYrBase,
@@ -5813,8 +5811,6 @@ function ProfitTab({
   color,
   rate,
   sessions,
-  rates,
-  rateData,
   sessionsList,
   expYr,
   expYrBase,
@@ -5854,14 +5850,6 @@ function ProfitTab({
     type: "out"
   }];
   const maxAbs = Math.max(...waterfall.map(w => Math.abs(w.v)));
-  const profitByRate = rates.map(r => {
-    const g = r * sessions * weeksWorked;
-    const fee = cityLicenseFee(cityKey, g, manualCityFee);
-    return {
-      rate: r,
-      profit: Math.round(computeYear(g, expYrBase + fee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput).net)
-    };
-  });
   const profitBySessions = sessionsList.map(s => {
     const g = rate * s * weeksWorked;
     const fee = cityLicenseFee(cityKey, g, manualCityFee);
@@ -5954,56 +5942,8 @@ function ProfitTab({
       color
     }
   }, fmt(cur.netYr))))), /*#__PURE__*/React.createElement("section", {
-    className: "two-up"
+    className: "one-up"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Profit by rate"), /*#__PURE__*/React.createElement("p", null, "At ", sessions, " sessions a week, holding expenses fixed.")), /*#__PURE__*/React.createElement(ResponsiveContainer, {
-    width: "100%",
-    height: 260
-  }, /*#__PURE__*/React.createElement(BarChart, {
-    data: profitByRate,
-    margin: {
-      top: 6,
-      right: 8,
-      left: 8,
-      bottom: 4
-    }
-  }, /*#__PURE__*/React.createElement(CartesianGrid, {
-    stroke: "#E7E2D6",
-    vertical: false
-  }), /*#__PURE__*/React.createElement(XAxis, {
-    dataKey: "rate",
-    tickFormatter: v => "$" + v,
-    tick: {
-      fill: "#6F6A5E",
-      fontSize: 11
-    },
-    tickLine: false,
-    axisLine: {
-      stroke: "#D8D2C4"
-    }
-  }), /*#__PURE__*/React.createElement(YAxis, {
-    tickFormatter: fmtK,
-    tick: {
-      fill: "#6F6A5E",
-      fontSize: 11
-    },
-    tickLine: false,
-    axisLine: false,
-    width: 48
-  }), /*#__PURE__*/React.createElement(Tooltip, {
-    content: /*#__PURE__*/React.createElement(ProfitTip, {
-      label1: "rate"
-    })
-  }), /*#__PURE__*/React.createElement(Bar, {
-    dataKey: "profit",
-    radius: [3, 3, 0, 0]
-  }, profitByRate.map((p, i) => /*#__PURE__*/React.createElement(Cell, {
-    key: i,
-    fill: p.rate === rate ? rateData[p.rate].color : rateData[p.rate].color + "55"
-  })))))), /*#__PURE__*/React.createElement("div", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -7646,6 +7586,7 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 
 /* two-up */
 .two-up{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+.one-up{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:14px;}
 .two-up .card{margin-bottom:24px;}
 
 /* table */
