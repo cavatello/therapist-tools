@@ -4724,6 +4724,42 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
           /*#__PURE__*/React.createElement("p", {className: "vc-p"},
             "Once your rate and caseload are in, this shows what a retirement account is worth on your numbers — before you read a word about incorporating.")));
 
+  // "Your biggest lever" assumed the reader knows what a tax-deferred retirement
+  // account is. Plenty of therapists have never had an employer offering one and
+  // have no idea this option exists at all, so name the category and explain the
+  // mechanism before quoting a number at them.
+  const retPrimer = !rReady ? null : /*#__PURE__*/React.createElement("section", {className: "card rprim"},
+    /*#__PURE__*/React.createElement("div", {className: "card-head"},
+      /*#__PURE__*/React.createElement("h2", null, "What this actually is"),
+      /*#__PURE__*/React.createElement("p", null,
+        "The strategy above has a name: a ", /*#__PURE__*/React.createElement("b", null, "tax-deferred retirement account"),
+        " for self-employed people. If you have never had an employer offering a 401(k), you may not know you can open one for yourself. You can, and it is the single largest legal tax lever a solo practice has.")),
+    /*#__PURE__*/React.createElement("div", {className: "rprim-steps"},
+      [["1", "You move money into an account you own",
+        "Not a payment, not a fee. It is your money, in your name, at a broker you choose. You pick what it is invested in."],
+       ["2", "That money is not counted as income this year",
+        "Your taxable profit drops by the amount you put in, so your federal, California and self-employment tax all fall. That is where the " + fmt0(mfSaved) + " comes from."],
+       ["3", "It is taxed later, when you take it out",
+        "Deferred, not erased. Most people withdraw in retirement on a lower income than they earn now, so the eventual rate is usually lower \u2014 and in the meantime the whole amount has been growing instead of a post-tax fraction of it."],
+       ["4", "The catch is access",
+        "Locked until 59\u00bd, with narrow exceptions and a penalty otherwise. That is the real trade: not money lost, money you cannot reach."]
+      ].map(([n, h, b]) => /*#__PURE__*/React.createElement("div", {className: "rprim-step", key: n},
+        /*#__PURE__*/React.createElement("i", null, n),
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("b", null, h),
+          /*#__PURE__*/React.createElement("span", null, b))))),
+    /*#__PURE__*/React.createElement("div", {className: "rprim-foot"},
+      /*#__PURE__*/React.createElement("p", null,
+        /*#__PURE__*/React.createElement("b", null, "This is ordinary, not clever. "),
+        "It is the same arrangement an employee with a workplace 401(k) gets by default. Being self-employed means nobody sets it up for you \u2014 which is the only reason it goes unused."),
+      /*#__PURE__*/React.createElement("p", null,
+        /*#__PURE__*/React.createElement("b", null, "You pick one employer plan, not several. "),
+        "Solo 401(k), SEP IRA and SIMPLE IRA are alternatives to each other. A Traditional IRA is separate and can sit alongside whichever you choose. The card below prices all four on your numbers."),
+      /*#__PURE__*/React.createElement("p", {className: "rprim-fine"},
+        "Contribution limits are 2026 figures from ",
+        extLink("https://www.irs.gov/retirement-plans/retirement-topics-contributions", "IRS retirement plan contribution limits"),
+        ". Which plan fits, and when you can still open one for a year already ended, is worth one conversation with a CPA.")));
+
   const retReceipt = !rReady ? null : /*#__PURE__*/React.createElement("section", {className: "card vrec rvrec"},
     /*#__PURE__*/React.createElement("div", {className: "card-head"},
       /*#__PURE__*/React.createElement("h2", null, "Where the ", fmt0(mfContrib), " comes from"),
@@ -4752,37 +4788,85 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         : " Fill in your age and retirement age in step 1 below to see what one year of this compounds to."));
 
   const retLever = !rReady ? null : (function () {
+    const se = Math.round(strategy.netSEEarnings || 0);
+    const k = strategy.solo401k || {}, sep = strategy.sepIra || {},
+          sim = strategy.simpleIra || {}, ira = strategy.traditionalIra || {};
+    // Every row can show its own arithmetic, because the engine already holds the
+    // parts. "Where does $28,316 come from?" should never need a second source.
     const opts = [
       {t: "Solo 401(k)", room: mfContrib, saved: mfSaved,
-       s: "Employee deferral plus an employer contribution from the same profit. The most room of any plan available to a solo practice."},
+       s: "Employee deferral plus an employer contribution from the same profit. The most room of any plan available to a solo practice.",
+       math: [["Your deferral, as the employee", fmt0(k.employeeContrib || 0),
+               "Capped at " + fmt0(taxAge >= 60 && taxAge <= 63 ? RETIRE_2026.solo401k.employee60to63 : taxAge >= 50 ? RETIRE_2026.solo401k.employee50to59 : RETIRE_2026.solo401k.employeeUnder50) + " at your age."],
+              ["Your contribution, as the employer", fmt0(k.employerContrib || 0),
+               (k.employerPctLabel || "20%") + " of " + fmt0(se) + " \u2014 " + (k.employerBasis || "net self-employment earnings") + "."],
+              ["Total into the account", fmt0(mfContrib), "Both halves are you. The plan just counts them separately."]],
+       who: "You are self-employed with no employees other than a spouse. That is the whole eligibility test.",
+       when: "The plan has to exist before you can fund it, and the employee and employer halves have different cut-offs. If you are close to a deadline, ask your CPA rather than this page."},
       {t: "SEP IRA", room: rSepTotal, saved: rSepSaved,
-       s: strategy.sepIra ? strategy.sepIra.pctLabel + ". Employer-funded only — no deferral, and no catch-up at any age." : ""},
+       s: (sep.pctLabel || "20% of net self-employment earnings") + ". Employer-funded only \u2014 no deferral, and no catch-up at any age.",
+       math: [["Your earnings base", fmt0(sep.compBase || 0),
+               "Net self-employment earnings, capped for this purpose at " + fmt0(RETIRE_2026.sep.compCap) + "."],
+              [Math.round((sep.pct || 0.2) * 100) + "% of that base", fmt0(rSepTotal),
+               "The only contribution a SEP allows \u2014 there is no employee half, which is why it lands below the Solo 401(k)."],
+              ["Ceiling", fmt0(RETIRE_2026.sep.dcCap), "You are " + (rSepTotal >= RETIRE_2026.sep.dcCap ? "at it." : fmt0(RETIRE_2026.sep.dcCap - rSepTotal) + " below it.")]],
+       who: "Simplest plan to run \u2014 no annual filing, and you can open and fund it right up to your filing deadline, extensions included. That makes it the usual choice when the year is already over.",
+       when: "If you later hire anyone, a SEP generally requires you to contribute the same percentage for them as for yourself."},
       {t: "SIMPLE IRA", room: rSimpleDef + rSimpleMatch, saved: rSimpleSaved,
-       s: "Deferral plus a mandatory 3% employer match. Cannot be run in the same year as a Solo 401(k)."},
+       s: "Deferral plus a mandatory 3% employer match. Cannot be run in the same year as a Solo 401(k).",
+       math: [["Your deferral", fmt0(rSimpleDef), "Capped at " + fmt0(sim.deferralCap || 0) + " at your age. A solo practice always qualifies for the higher small-employer limit."],
+              ["Employer match, 3%", fmt0(rSimpleMatch), "3% of " + fmt0(sim.compBase || 0) + ", and it is mandatory rather than optional."],
+              ["Total", fmt0(rSimpleDef + rSimpleMatch), "Less room than either plan above, at similar effort."]],
+       who: "Rarely the right pick for a solo practice with no staff \u2014 it is built for small teams, and the Solo 401(k) beats it on room at the same income.",
+       when: "Must be set up earlier in the year than the others, and money taken out within the first two years carries a steeper penalty than a normal early withdrawal."},
       {t: "Traditional IRA", room: rIraDed, saved: rIraSaved,
        s: rIraDed > 0 ? "Deductible portion at your income. Small, but it stacks on top of an employer plan."
-                      : "Fully phased out at your income — the contribution is allowed, the deduction is not."}
+                      : "Fully phased out at your income \u2014 the contribution is allowed, the deduction is not.",
+       math: [["Annual limit at your age", fmt0(ira.cap || 0), taxAge >= 50 ? "Includes the age-50 catch-up." : "Rises at 50."],
+              ["Deductible share", fmt0(rIraDed),
+               ira.deductPct >= 1 ? "Fully deductible at your income."
+                 : ira.deductPct > 0 ? Math.round((ira.deductPct || 0) * 100) + "% deductible \u2014 the deduction phases out once you are covered by a workplace plan and your income passes the threshold."
+                 : "None. Once you have a plan of your own and income above the threshold, the deduction disappears \u2014 though a non-deductible contribution is still permitted."]],
+       who: "This is the one account here that is not tied to self-employment, so it works alongside any of the others.",
+       when: "Fundable up to the filing deadline, no extensions."}
     ].sort((a, b) => b.room - a.room);
     const top = opts[0].room || 1;
     return /*#__PURE__*/React.createElement("section", {className: "card vlev rlev"},
       /*#__PURE__*/React.createElement("div", {className: "card-head"},
         /*#__PURE__*/React.createElement("h2", null, "How much room each account gives you"),
         /*#__PURE__*/React.createElement("p", null,
-          "Your own profit, run through all four. These are alternatives, not a shopping list — the tax saved is what the engine actually computes, not a contribution multiplied by a rate.")),
-      opts.map((o, i) => /*#__PURE__*/React.createElement("div", {
+          "Your own profit, run through all four. These are alternatives, not a shopping list \u2014 you pick one employer plan, not several. The tax saved is what the engine actually computes, not a contribution multiplied by a rate. ",
+          /*#__PURE__*/React.createElement("b", null, "Open any row"), " to see where its number comes from.")),
+      opts.map((o, i) => /*#__PURE__*/React.createElement("details", {
         className: "rlev-r" + (i === 0 ? " best" : ""), key: o.t
-      }, /*#__PURE__*/React.createElement("i", null, i + 1),
-        /*#__PURE__*/React.createElement("span", {className: "t"},
-          /*#__PURE__*/React.createElement("b", null, o.t, i === 0 ? /*#__PURE__*/React.createElement("em", null, "most room") : null),
-          /*#__PURE__*/React.createElement("span", null, o.s)),
-        /*#__PURE__*/React.createElement("span", {className: "bar"},
-          /*#__PURE__*/React.createElement("i", {style: {width: (o.room / top * 100) + "%"}})),
-        /*#__PURE__*/React.createElement("b", {className: "v"}, fmt0(o.room),
-          /*#__PURE__*/React.createElement("em", null, o.saved > 0 ? fmt0(o.saved) + " tax saved" : "no deduction")))),
+      }, /*#__PURE__*/React.createElement("summary", null,
+          /*#__PURE__*/React.createElement("i", null, i + 1),
+          /*#__PURE__*/React.createElement("span", {className: "t"},
+            /*#__PURE__*/React.createElement("b", null, o.t, i === 0 ? /*#__PURE__*/React.createElement("em", null, "most room") : null),
+            /*#__PURE__*/React.createElement("span", null, o.s)),
+          /*#__PURE__*/React.createElement("span", {className: "bar"},
+            /*#__PURE__*/React.createElement("i", {style: {width: (o.room / top * 100) + "%"}})),
+          /*#__PURE__*/React.createElement("b", {className: "v"}, fmt0(o.room),
+            /*#__PURE__*/React.createElement("em", null, o.saved > 0 ? fmt0(o.saved) + " tax saved" : "no deduction"))),
+        /*#__PURE__*/React.createElement("div", {className: "rlev-why"},
+          /*#__PURE__*/React.createElement("div", {className: "rlev-math"},
+            o.math.map(([lbl, val, note], n) => /*#__PURE__*/React.createElement("div", {
+              className: "rlev-mrow" + (n === o.math.length - 1 ? " tot" : ""), key: lbl
+            }, /*#__PURE__*/React.createElement("span", null,
+                /*#__PURE__*/React.createElement("b", null, lbl),
+                /*#__PURE__*/React.createElement("i", null, note)),
+              /*#__PURE__*/React.createElement("b", {className: "mv"}, val)))),
+          /*#__PURE__*/React.createElement("div", {className: "rlev-notes"},
+            /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "Who it suits. "), o.who),
+            /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("b", null, "Worth knowing. "), o.when),
+            o.saved > 0 ? /*#__PURE__*/React.createElement("p", {className: "rlev-saved"},
+              "On your numbers this one cuts your tax bill by ",
+              /*#__PURE__*/React.createElement("b", null, fmt0(o.saved)),
+              " \u2014 ", Math.round(o.saved / Math.max(1, o.room) * 100), "% of what you put in.") : null)))),
       /*#__PURE__*/React.createElement("p", {className: "vlev-note"},
         taxAge >= 50
-          ? "Your catch-up contributions are already included above" + (taxAge >= 60 && taxAge <= 63 ? " — you are in the 60–63 band, which is the highest one there is." : ".")
-          : "Catch-up contributions start at 50 and step up again for ages 60–63, so this ceiling rises twice more before you retire."));
+          ? "Your catch-up contributions are already included above" + (taxAge >= 60 && taxAge <= 63 ? " \u2014 you are in the 60\u201363 band, which is the highest one there is." : ".")
+          : "Catch-up contributions start at 50 and step up again for ages 60\u201363, so this ceiling rises twice more before you retire."));
   })();
 
   const retWorking = !rReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
@@ -5351,7 +5435,7 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
     mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection),
     mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection),
     ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null,
@@ -7769,5 +7853,55 @@ td.num-head{text-align:right;}
 .sitefoot-by{flex-basis:100%; margin-top:2px; padding-top:11px; border-top:1px solid var(--line);
   font-size:12px; line-height:1.6; color:var(--muted);}
 .sitefoot-by b{color:var(--ink); font-weight:600;}
+
+/* the primer: what a tax-deferred retirement account is, for someone who has
+   never had an employer offer one */
+.rprim{border-left:4px solid #2F7A61 !important;}
+.rprim-steps{display:grid; grid-template-columns:1fr 1fr; gap:14px 22px; margin:4px 0 4px;}
+.rprim-step{display:flex; gap:12px; align-items:flex-start;}
+.rprim-step > i{width:24px; height:24px; border-radius:7px; background:#E7F1EC; color:#2F7A61;
+  font-style:normal; font-size:11.5px; font-weight:800; display:flex; align-items:center;
+  justify-content:center; flex:none; margin-top:1px;}
+.rprim-step > span{display:block;}
+.rprim-step b{display:block; font-size:13.5px; margin-bottom:3px;}
+.rprim-step > span > span{display:block; font-size:12.5px; line-height:1.6; color:var(--muted);}
+.rprim-foot{margin-top:16px; padding-top:14px; border-top:1px solid var(--line);}
+.rprim-foot p{font-size:13px; line-height:1.65; margin:0 0 9px;}
+.rprim-foot p:last-child{margin-bottom:0;}
+.rprim-foot b{font-family:'Fraunces',serif;}
+.rprim-fine{font-size:11.5px !important; color:var(--muted);}
+
+/* expandable account rows - each one can show its own arithmetic */
+details.rlev-r > summary{display:flex; align-items:center; gap:13px; cursor:pointer;
+  list-style:none; padding:12px 0;}
+details.rlev-r > summary::-webkit-details-marker{display:none;}
+details.rlev-r{display:block; padding:0; border-bottom:1px dotted var(--line);}
+details.rlev-r:last-of-type{border-bottom:0;}
+details.rlev-r > summary:hover{background:#FBF9F3;}
+/* an affordance, so the rows read as openable rather than decorative */
+details.rlev-r > summary::after{content:"\\2304"; flex:none; width:20px; text-align:center;
+  font-size:17px; line-height:1; color:var(--muted); transition:transform .2s;}
+details.rlev-r[open] > summary::after{transform:rotate(180deg); color:var(--ink);}
+details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
+.rlev-why{padding:14px 0 18px 38px; display:grid; grid-template-columns:1.15fr 1fr; gap:20px 26px;}
+.rlev-math{border:1px solid var(--line); border-radius:11px; overflow:hidden; background:#FDFCF8; align-self:start;}
+.rlev-mrow{display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+  padding:10px 13px; border-bottom:1px dotted var(--line);}
+.rlev-mrow:last-child{border-bottom:0;}
+.rlev-mrow.tot{border-top:2px solid var(--ink); background:#F6F2E8;}
+.rlev-mrow span b{display:block; font-size:12.5px;}
+.rlev-mrow span i{display:block; font-style:normal; font-size:11px; color:var(--muted);
+  line-height:1.5; margin-top:2px;}
+.rlev-mrow .mv{font-family:'Fraunces',serif; font-weight:700; font-size:15px; white-space:nowrap;}
+.rlev-mrow.tot .mv{font-size:18px;}
+.rlev-notes p{font-size:12.5px; line-height:1.65; margin:0 0 9px;}
+.rlev-notes p:last-child{margin-bottom:0;}
+.rlev-notes b{font-family:'Fraunces',serif;}
+.rlev-saved{background:#EEF4F1; border-radius:9px; padding:9px 12px;}
+@media (max-width:780px){
+  .rprim-steps{grid-template-columns:1fr; gap:13px;}
+  .rlev-why{grid-template-columns:1fr; padding:12px 0 16px 0; gap:14px;}
+  details.rlev-r > summary{flex-wrap:wrap; align-items:baseline; gap:3px 10px;}
+}
 
 `;
