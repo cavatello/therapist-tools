@@ -580,8 +580,52 @@ function computeYearState(practiceGross, expenses, w2Wages, stateStd, stateBrack
 // ----------------------------------------------------------------------------
 const EUR_TO_USD = 1.14;
 const USD_TO_EUR = 1 / EUR_TO_USD;
-const MCTMT_THRESHOLD = 50000,
-  MCTMT_RATE = 0.0034;
+// Metropolitan Commuter Transportation Mobility Tax, self-employed, Zone 1
+// (Bronx, Kings, New York, Queens, Richmond - so Brooklyn is Zone 1). Rate and
+// threshold both changed for tax years beginning on or after 1 Jan 2026: the
+// old 0.34% above $50,000 was Zone-2-era and is wrong for a Brooklyn practice
+// in both directions - it charged someone at $100k who owes nothing, and
+// undercharged everyone above $150k by nearly half.
+// tax.ny.gov/legal/2025/pit-corp-changes.htm
+const MCTMT_THRESHOLD = 150000,
+  MCTMT_RATE = 0.0060;
+
+// NYC Unincorporated Business Tax. The tax a self-employed New Yorker is most
+// likely never to have heard of until they owe it: 4% on business income, and
+// a sole proprietorship practising a profession is squarely inside it. Figures
+// from the 2025 Form NYC-202S:
+//   allowance for the taxpayer's own services  lesser of 20% of income or $10,000
+//   specific exemption                         $5,000
+//   rate                                       4%
+//   business tax credit  full at or below $3,400 of tax, none at or above
+//                        $5,400, and tax x (5,400 - tax) / 2,000 in between
+// nyc.gov/site/finance/business/business-unincorporated-business-tax-ubt.page
+const UBT_RATE = 0.04,
+  UBT_SERVICES_PCT = 0.20,
+  UBT_SERVICES_CAP = 10000,
+  UBT_EXEMPTION = 5000,
+  UBT_CREDIT_FULL = 3400,
+  UBT_CREDIT_NONE = 5400;
+// A NYC resident can then credit part of the UBT against their city income tax
+// (Form IT-219): 100% at or below $42,000 of city taxable income, sliding to
+// 23% at $142,000 and flat 23% above. Capped at the city tax itself.
+const UBT_PIT_LOW = 42000, UBT_PIT_HIGH = 142000, UBT_PIT_FLOOR = 0.23;
+
+function computeUBT(businessIncome, nycTaxableIncome, nycTax) {
+  if (!(businessIncome > 0)) return {gross: 0, credit: 0, net: 0, pitCredit: 0, afterPit: 0};
+  const allowance = Math.min(UBT_SERVICES_PCT * businessIncome, UBT_SERVICES_CAP);
+  const taxable = Math.max(0, businessIncome - allowance - UBT_EXEMPTION);
+  const gross = taxable * UBT_RATE;
+  const credit = gross <= UBT_CREDIT_FULL ? gross
+    : gross >= UBT_CREDIT_NONE ? 0
+    : gross * (UBT_CREDIT_NONE - gross) / (UBT_CREDIT_NONE - UBT_CREDIT_FULL);
+  const net = Math.max(0, gross - credit);
+  const pct = nycTaxableIncome <= UBT_PIT_LOW ? 1
+    : nycTaxableIncome >= UBT_PIT_HIGH ? UBT_PIT_FLOOR
+    : 1 - (nycTaxableIncome - UBT_PIT_LOW) / (UBT_PIT_HIGH - UBT_PIT_LOW) * (1 - UBT_PIT_FLOOR);
+  const pitCredit = Math.min(net * pct, Math.max(0, nycTax));
+  return {gross, credit, net, pitCredit, afterPit: net - pitCredit};
+}
 function computeNYC(revenueUSD, expensesUSD) {
   const schedC = Math.max(0, revenueUSD - expensesUSD);
   const seBase = schedC * 0.9235;
@@ -598,7 +642,8 @@ function computeNYC(revenueUSD, expensesUSD) {
   const nyTax = bracketTax(nyTaxable, NY_BRACKETS);
   const nycTax = bracketTax(nyTaxable, NYC_BRACKETS);
   const mctmt = schedC > MCTMT_THRESHOLD ? schedC * MCTMT_RATE : 0;
-  const totalTax = fedTax + seTax + nyTax + nycTax + mctmt;
+  const ubt = computeUBT(schedC, nyTaxable, nycTax);
+  const totalTax = fedTax + seTax + nyTax + nycTax + mctmt + ubt.afterPit;
   return {
     netUSD: schedC - totalTax,
     taxUSD: totalTax,
@@ -606,7 +651,12 @@ function computeNYC(revenueUSD, expensesUSD) {
     seTaxUSD: seTax,
     nyTaxUSD: nyTax,
     nycTaxUSD: nycTax,
-    mctmtUSD: mctmt
+    mctmtUSD: mctmt,
+    ubtGrossUSD: ubt.gross,
+    ubtCreditUSD: ubt.credit,
+    ubtNetUSD: ubt.net,
+    ubtPitCreditUSD: ubt.pitCredit,
+    ubtUSD: ubt.afterPit
   };
 }
 const PA_FLAT_RATE = 0.0307;
@@ -3195,9 +3245,22 @@ function PracticeIncomePlanner() {
     label: "New York City, USA",
     net: residency.nyc.netUSD,
     tax: residency.nyc.taxUSD,
-    taxNote: "tax (fed + SE + NY + NYC)",
+    taxNote: "tax (fed + SE + NY + NYC + UBT + MCTMT)",
     sub: null,
-    includes: "federal income tax, self-employment tax, NY State income tax (9 brackets, 3.9%\u201310.9%), NYC resident tax (3.078%\u20133.876%), and the MCTMT (0.34% on self-employment earnings over $50k). Excludes: NY disability/paid-family-leave employee contribution (small)."
+    includes: /*#__PURE__*/React.createElement(React.Fragment, null,
+      "Federal income tax, self-employment tax, NY State income tax (9 brackets, 3.9%\u201310.9%) and NYC resident tax (3.078%\u20133.876%) \u2014 a Brooklyn address is NYC for tax, so the city rate applies in full. Plus the two a self-employed New Yorker is most likely never to have heard of until they owe them: the ",
+      /*#__PURE__*/React.createElement("b", null, "Unincorporated Business Tax"),
+      " at 4% of business income, after an allowance for your own services (the lesser of 20% or $10,000) and a $5,000 exemption, with the credit that zeroes it below about $95,000 of income and disappears above roughly $135,000",
+      residency.nyc.ubtGrossUSD > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null,
+        " \u2014 ", /*#__PURE__*/React.createElement("b", null, fmt(residency.nyc.ubtNetUSD)),
+        " on your numbers, reduced to ", /*#__PURE__*/React.createElement("b", null, fmt(residency.nyc.ubtUSD)),
+        " by the resident credit against city tax") : null,
+      "; and the ", /*#__PURE__*/React.createElement("b", null, "MCTMT"),
+      " at 0.60% of self-employment earnings over $150,000 \u2014 Brooklyn is Zone 1, and both the rate and the threshold changed for 2026",
+      residency.nyc.mctmtUSD > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null,
+        " \u2014 ", /*#__PURE__*/React.createElement("b", null, fmt(residency.nyc.mctmtUSD)),
+        " here") : null,
+      ". Excludes: the NY disability and paid-family-leave employee contributions (small), and the federal deduction for the UBT you paid, which would claw a little of it back.")
   }, {
     key: "berlin",
     label: "Berlin, Germany",
@@ -3265,7 +3328,12 @@ function PracticeIncomePlanner() {
     className: "residency-includes"
   }, /*#__PURE__*/React.createElement("b", null, "Includes: "), c.includes))), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
-  }, "Estimates only, not tax or immigration advice. Converts at \u22481 EUR = $1.14 (July 2026), which moves with the market. Assumes the same running costs are portable and unchanged. None of these models account for local licensing to practice therapy, work-visa or right-to-work requirements, or double-taxation treaty mechanics for a U.S. citizen abroad \u2014 talk to a cross-border tax advisor before acting on this.")), /*#__PURE__*/React.createElement("details", {
+  }, "Estimates only, not tax or immigration advice. Converts at \u22481 EUR = $1.14 (July 2026), which moves with the market. Assumes the same running costs are portable and unchanged. None of these models account for local licensing to practice therapy, work-visa or right-to-work requirements, or double-taxation treaty mechanics for a U.S. citizen abroad \u2014 talk to a cross-border tax advisor before acting on this."),
+    /*#__PURE__*/React.createElement("p", {className: "pay-note"}, citeList([
+      {n: 1, cite: "NYC Department of Finance \u2014 Unincorporated Business Tax", url: "https://www.nyc.gov/site/finance/business/business-unincorporated-business-tax-ubt.page", note: "4% on income allocated to the city; a full credit at or below $3,400 of tax, none at or above $5,400. The allowance for the taxpayer's own services (lesser of 20% or $10,000) and the $5,000 specific exemption are lines 3 and 4 of Form NYC-202S."},
+      {n: 2, cite: "NY Form IT-219 \u2014 credit for NYC unincorporated business tax", url: "https://www.tax.ny.gov/pdf/current_forms/it/it219i.pdf", note: "a city resident credits 100% of the UBT below $42,000 of city taxable income, sliding to 23% at $142,000 and flat 23% above, capped at the city tax itself."},
+      {n: 3, cite: "NY Dept. of Taxation and Finance \u2014 2025 personal income tax changes", url: "https://www.tax.ny.gov/legal/2025/pit-corp-changes.htm", note: "MCTMT for the self-employed rises to 0.60% of net earnings in Zone 1 for tax years beginning on or after 1 January 2026, once net earnings from self-employment exceed $150,000. Brooklyn (Kings County) is Zone 1."}
+    ]))), /*#__PURE__*/React.createElement("details", {
     className: "card collapsible"
   }, /*#__PURE__*/React.createElement("summary", {
     className: "card-head"
@@ -3416,7 +3484,17 @@ function PracticeIncomePlanner() {
     className: "card feedback-section"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Found a bug? Have an idea?"), /*#__PURE__*/React.createElement("p", null, "This tool is actively maintained \u2014 tell me what's broken, what's confusing, or what you'd like to see next. Goes right to ", /*#__PURE__*/React.createElement("b", null, "Cavatello"), ", therapist and tool builder.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Found a bug? Have an idea?"), /*#__PURE__*/React.createElement("p", null, "This tool is actively maintained \u2014 tell me what's broken, what's confusing, what a number should say instead, or what you'd like to see next. Every message is read by a person. Goes right to ", /*#__PURE__*/React.createElement("b", null, "Cavatello"), ", therapist and tool builder.")),
+  /*#__PURE__*/React.createElement("div", {className: "fbhelp"},
+    /*#__PURE__*/React.createElement("div", {className: "fbhelp-h"}, "What makes a report easy to act on"),
+    /*#__PURE__*/React.createElement("ul", {className: "fbhelp-l"},
+      [["Show me the screen.", "A screenshot is worth three paragraphs \u2014 especially for anything that looks wrong, overlaps, or is cut off on a phone. See below for how to send one."],
+       ["Say what you expected.", "\u201CThis says $4,900 and I think it should be about $2,400, because supervision is usually an hour not two\u201D tells me more than \u201Cthe number is wrong\u201D."],
+       ["Tell me where you were.", "Which section, and whether you were on a phone or a computer. A link back to your exact setup is attached automatically, so I can load the same numbers you were looking at."],
+       ["Suggestions are as welcome as bugs.", "A field that should exist, a default that is wrong for your practice, a rule that changed, wording that confused you \u2014 most of what is on this page started as somebody's note."]
+      ].map(([b, t]) => /*#__PURE__*/React.createElement("li", {key: b},
+        /*#__PURE__*/React.createElement("b", null, b), " ", t)))),
+  /*#__PURE__*/React.createElement("div", {
     className: "funnel-input-grid",
     style: {
       gridTemplateColumns: "160px 1fr"
@@ -3526,13 +3604,53 @@ function PracticeIncomePlanner() {
       setTimeout(() => setFbSent(false), 3000);
     }
   }, fbSent === "sending" ? "Sending\u2026" : fbSent === "done" ? "\u2713 Sent \u2014 thank you"
-     : fbSent === "error" ? "Didn\u0027t send \u2014 try again" : fbSent === "mail" ? "Opening your email app\u2026" : "Send feedback"), /*#__PURE__*/React.createElement("p", {
+     : fbSent === "error" ? "Didn\u0027t send \u2014 try again" : fbSent === "mail" ? "Opening your email app\u2026" : "Send feedback"),
+  // The form posts JSON, which cannot carry a file. Rather than pretend
+  // otherwise with an upload box that silently drops the image, screenshots
+  // go by email - the draft arrives pre-filled and the person drags the
+  // picture in. Works on every device and costs nothing.
+  /*#__PURE__*/React.createElement("div", {className: "fbshot"},
+    /*#__PURE__*/React.createElement("div", {className: "fbshot-in"},
+      /*#__PURE__*/React.createElement("b", null, "Sending a screenshot?"),
+      /*#__PURE__*/React.createElement("p", null,
+        "The box above cannot take an image. Use the button instead \u2014 it opens your email app with the type, your message and a link to your exact setup already filled in. Drag the screenshot into the draft and send. Nothing leaves your device until you press send."),
+      /*#__PURE__*/React.createElement("details", {className: "fbshot-how"},
+        /*#__PURE__*/React.createElement("summary", null, "How to take one"),
+        /*#__PURE__*/React.createElement("ul", null,
+          [["Mac", "\u2318 + Shift + 4, then drag a box round the part that looks wrong. It lands on your desktop."],
+           ["Windows", "Windows key + Shift + S, drag a box, then paste it straight into the email."],
+           ["iPhone", "Side button and volume-up together, then share it to Mail."],
+           ["Android", "Power and volume-down together, then share it to your email app."]
+          ].map(([k, t]) => /*#__PURE__*/React.createElement("li", {key: k},
+            /*#__PURE__*/React.createElement("b", null, k, ": "), t))))),
+    /*#__PURE__*/React.createElement("button", {
+      type: "button", className: "fbshot-btn",
+      onClick: () => {
+        const share = buildShareURL();
+        const setupLine = "$" + rate + "/hr, " + sessions + " sessions/week";
+        const subject = encodeURIComponent("[" + fbType + "] Therapy Practice Simulator \u2014 with screenshot");
+        const bodyLines = [
+          fbName ? "From: " + fbName : null,
+          "Type: " + fbType, "",
+          fbMessage || "(describe what you saw, and what you expected instead)",
+          "", "\u2014\u2014\u2014",
+          "ATTACH YOUR SCREENSHOT TO THIS EMAIL BEFORE SENDING.",
+          "", "Current setup: " + setupLine,
+          "My exact numbers: " + share,
+          "Page: " + (typeof location !== "undefined" ? location.href : "")
+        ].filter(Boolean);
+        window.location.href = "mailto:shawn@shawnwalters.com?subject=" + subject
+          + "&body=" + encodeURIComponent(bodyLines.join("\n"));
+      }
+    }, /*#__PURE__*/React.createElement("b", null, "Email it with a screenshot"),
+      /*#__PURE__*/React.createElement("span", null, "opens a pre-filled draft \u2192"))),
+  /*#__PURE__*/React.createElement("p", {
     className: "pay-note",
     style: {
       marginTop: 10
     }
   }, FEEDBACK_ENDPOINT
-      ? "Sends straight through \u2014 no email app needed. A link back to your exact setup goes with it so I can see what you're seeing. Nothing else is collected."
+      ? "Text goes straight through \u2014 no email app needed. A link back to your exact setup travels with it, so I can load the same numbers you were looking at. Your name is optional and nothing else is collected."
       : "Opens your email app with everything filled in, including a link back to your exact setup so I can see what you're seeing. Nothing is sent automatically \u2014 you'll see the draft before it goes anywhere.")), /*#__PURE__*/React.createElement("footer", {
     className: "foot"
   }, /*#__PURE__*/React.createElement("strong", null, "Estimates only — not tax advice."), " 2026 CA single-filer model. Practice income is treated as ", /*#__PURE__*/React.createElement("strong", null, "1099 / self-employed"), ": business expenses are deducted on Schedule\xA0C, self-employment tax (15.3% on 92.35% of net earnings) applies, and the QBI deduction is included with the SSTB phase-out that affects therapists at higher incomes. California has no city or county ", /*#__PURE__*/React.createElement("em", null, "income"), " tax — state tax is identical everywhere in CA. The second job is treated as W-2 wages with employee FICA and CA SDI; its wages share the Social Security wage base with your self-employment income. Federal figures are the final 2026 amounts from IRS Rev. Proc. 2025-32, including the wider \u00A7199A phase-out and the $2,200 child tax credit enacted by the One Big Beautiful Bill Act (Pub. L. 119-21). California has not published 2026 rate schedules yet \u2014 the FTB\u0027s own 2026 Form 540-ES instructs filers to use the 2025 tables, so that is what this uses, together with the 2026 SDI rate of 1.3% and no wage cap. Real figures depend on your entity type (sole prop vs. S-corp), retirement contributions, home-office and mileage deductions, quarterly estimated payments, and actual filing status — talk to a CPA before making decisions on these numbers."), /*#__PURE__*/React.createElement("div", {
@@ -6878,6 +6996,35 @@ const CSS = `
 .steplock-need{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;}
 .steplock-item{font-size:13px; padding:6px 12px; border-radius:20px; border:1px solid #E7E2D6; background:#fff; color:#7C766A;}
 .steplock-item.ok{border-color:#3F9577; color:#2C6B53; background:#EAF3EE; font-weight:600;}
+
+/* ===== feedback: how to report well, and how to send a picture ===== */
+.fbhelp{margin:2px 0 18px; padding:14px 16px; background:#FBF9F3; border:1px solid #E7E2D6; border-radius:11px;}
+.fbhelp-h{font-size:11.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#9A9385; margin-bottom:9px;}
+.fbhelp-l{margin:0; padding:0; list-style:none; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px 20px;}
+.fbhelp-l li{font-size:13px; line-height:1.55; color:#5C574C; padding-left:16px; position:relative;}
+.fbhelp-l li::before{content:"\\2022"; position:absolute; left:0; color:#C98B4B; font-weight:700;}
+.fbhelp-l b{color:#26241E;}
+.fbshot{display:flex; align-items:flex-start; gap:20px; flex-wrap:wrap; margin-top:16px;
+  padding:16px 18px; background:#FBF6E9; border:1px solid #E4D9BE; border-radius:11px;}
+.fbshot-in{flex:1 1 340px; min-width:0;}
+.fbshot-in > b{display:block; font-family:Fraunces,Georgia,serif; font-size:16px; margin-bottom:5px;}
+.fbshot-in > p{margin:0; font-size:13.5px; line-height:1.6; color:#5C574C;}
+.fbshot-how{margin-top:9px;}
+.fbshot-how > summary{cursor:pointer; font-size:12.5px; font-weight:600; color:#7C6A4B; list-style:none;}
+.fbshot-how > summary::-webkit-details-marker{display:none;}
+.fbshot-how > summary::before{content:"+ "; font-weight:700;}
+.fbshot-how[open] > summary::before{content:"\\2212 ";}
+.fbshot-how ul{margin:8px 0 0; padding-left:18px;}
+.fbshot-how li{font-size:12.5px; line-height:1.6; color:#5C574C; margin-bottom:3px;}
+.fbshot-btn{flex:0 0 auto; display:flex; flex-direction:column; gap:2px; cursor:pointer; text-align:left;
+  font-family:Inter,sans-serif; background:#26241E; color:#fff; border:0; border-radius:10px; padding:13px 20px;}
+.fbshot-btn b{font-family:Fraunces,Georgia,serif; font-size:15.5px; font-weight:600;}
+.fbshot-btn span{font-size:12px; color:rgba(255,255,255,.72);}
+.fbshot-btn:hover{background:#3D3931;}
+@media (max-width:780px){
+  .fbhelp-l{grid-template-columns:1fr;}
+  .fbshot-btn{width:100%; align-items:center; text-align:center;}
+}
 
 /* ===== supervising associates =====
    Full-width bar under the two half-width income modules, because it needs
