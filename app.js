@@ -5,6 +5,10 @@ const {
 } = React;
 const STORE_KEY = 'practice_planner_v3';
 const ORIENT_KEY = 'practice_planner_orient_dismissed_v1';
+// The tax page opens with a primer for someone who has never run a business.
+// Its own key, not ORIENT_KEY: having seen the site's intro is not the same as
+// having been taught how self-employment tax works.
+const BASICS_KEY = 'practice_planner_basics_seen_v1';
 // Feedback endpoint. GitHub Pages is static and cannot process a form, so the
 // form POSTs somewhere else. Two options, both free — paste either URL here:
 //
@@ -3442,6 +3446,25 @@ function TaxStrategyTab({
   // been told "don't incorporate" should not have to scroll past all of it.
   // Corp users always see it (they need the salary control). Session-only.
   const [showStructure, setShowStructure] = useState(false);
+  // Expanded for a first-time visitor; collapsed for anyone whose browser
+  // already holds a rate and caseload, which means they have been here before.
+  // A share link populates from the hash rather than localStorage, so someone
+  // arriving on a forum link still gets the full thing.
+  const [basicsOpen, setBasicsOpen] = useState(() => {
+    try {
+      if (localStorage.getItem(BASICS_KEY) === "1") return false;
+      // Read localStorage directly, NOT SAVED: loadSaved() prefers the share
+      // -link hash, so someone arriving from a forum post would have looked
+      // like a returning user and been shown the collapsed version - exactly
+      // the reader this card exists for.
+      const prev = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+      return !(prev.rate > 0 && prev.sessions > 0);
+    } catch (e) { return true; }
+  });
+  const closeBasics = () => {
+    setBasicsOpen(false);
+    try { localStorage.setItem(BASICS_KEY, "1"); } catch (e) {}
+  };
   const fmt0 = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
   const pct1 = n => (n * 100).toFixed(1) + "%";
   const inputField = (label, value, onChange, min, max) => /*#__PURE__*/React.createElement("div", {
@@ -4372,6 +4395,107 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       /*#__PURE__*/React.createElement("b", null, "The door out, which most write-ups skip. "),
       "Dissolving a California corporation takes its own filings, a final return and a final Statement of Information — and the $800 minimum applies for any year the entity exists, including a year you barely trade. If your income falls back under six figures, unwinding is not free. Worth knowing before you walk in."));
   const keepOpener = keepBar(cur.grossYr, cur.expYr, cur.totalTax, cur.netYr, sessionRate);
+
+  // =====================================================================
+  // THE LADDER AND THE PRIMER. This page used to open on an optimisation -
+  // "$24,883 of tax, redirected" - which assumes the reader already knows
+  // what self-employment tax is, that nobody withholds it for them, and
+  // that it is due four times a year. A therapist a year out of grad school
+  // knows none of that; they have only ever had a paycheque. So: name the
+  // five rungs, then teach the two the site never covered. Every figure is
+  // theirs, not an illustration.
+  // =====================================================================
+  const bReady = cur.grossYr > 0 && cur.totalTax > 0;
+  const basicsBlock = !bReady ? null : (function () {
+    const taxYr = Math.round(cur.totalTax);
+    const perMonth = Math.round(taxYr / 12);
+    const profit = Math.max(1, cur.profitYr);
+    const reservePct = Math.round(taxYr / profit * 100);
+    const sessYr = sessionRate > 0 ? Math.round(cur.grossTherYr / sessionRate) : 0;
+    const perSession = sessYr > 0 ? Math.round(taxYr / sessYr) : 0;
+    // Both halves of FICA, however the entity is set up: a sole proprietor
+    // pays it as SE tax, a corp splits it into employee and employer payroll.
+    const fica = cur.seTax + cur.ssW2 + cur.medW2 + cur.employerPayrollTax + (cur.addlMed || 0);
+    const employerHalf = Math.round(fica / 2);
+
+    const rungs = [
+      ["1", "Understand what you owe", "here"],
+      ["2", "Set money aside", "here"],
+      ["3", "Reduce it before it is taxed", "below"],
+      ["4", "Choose a structure", "below"],
+      ["5", "Consider where you practise", "below"]
+    ];
+    const cards = [
+      ["Nobody is withholding anything.",
+        /*#__PURE__*/React.createElement(React.Fragment, null,
+          "An employer used to take tax out before you saw the money. Now nobody does. You owe ",
+          /*#__PURE__*/React.createElement("b", null, fmt0(taxYr)), " this year \u2014 roughly ",
+          /*#__PURE__*/React.createElement("b", null, fmt0(perMonth)),
+          " a month you have to move yourself, and pay the IRS and FTB in four instalments rather than one bill in April.")],
+      ["You are taxed on profit, not on what you pay yourself.",
+        /*#__PURE__*/React.createElement(React.Fragment, null,
+          "There is no salary as a sole proprietor. Moving money from the business account to your own is not a payslip and is not the taxable event \u2014 you are taxed on all ",
+          /*#__PURE__*/React.createElement("b", null, fmt0(profit)),
+          " of profit whether it leaves the account or sits there.")],
+      ["You now pay both halves of Social Security and Medicare.",
+        /*#__PURE__*/React.createElement(React.Fragment, null,
+          /*#__PURE__*/React.createElement("b", null, fmt0(Math.round(fica))),
+          " of your bill is payroll tax. About ", /*#__PURE__*/React.createElement("b", null, fmt0(employerHalf)),
+          " of that is the employer half \u2014 the part a job quietly paid on your behalf and never showed you. This is the single biggest surprise of the first year.")],
+      ["Only part of it is fixed.",
+        /*#__PURE__*/React.createElement(React.Fragment, null,
+          "What you earn sets the rate; what is ", /*#__PURE__*/React.createElement("i", null, "counted"),
+          " is partly yours to decide. Money routed into a retirement account before tax, and the way the practice is structured, both change the number. That is rungs three and four, and the rest of this page.")]
+    ];
+
+    return /*#__PURE__*/React.createElement("section", {className: "card basics" + (basicsOpen ? "" : " shut")},
+      /*#__PURE__*/React.createElement("div", {className: "basics-head"},
+        /*#__PURE__*/React.createElement("div", null,
+          /*#__PURE__*/React.createElement("div", {className: "basics-k"}, "New to running a practice?"),
+          /*#__PURE__*/React.createElement("h2", {className: "basics-h"},
+            basicsOpen ? "Where the money goes, and what you can actually do about it"
+              : "The four things nobody tells you about self-employment tax")),
+        /*#__PURE__*/React.createElement("button", {
+          type: "button", className: "basics-x",
+          "aria-expanded": basicsOpen ? "true" : "false",
+          onClick: () => basicsOpen ? closeBasics() : setBasicsOpen(true)
+        }, basicsOpen ? "Got it, hide this" : "Read it")),
+      /*#__PURE__*/React.createElement("ol", {className: "ladder"},
+        rungs.map(([n, t, where]) => /*#__PURE__*/React.createElement("li", {
+          key: n, className: "lad lad-" + where
+        }, /*#__PURE__*/React.createElement("b", null, n),
+          /*#__PURE__*/React.createElement("span", null, t),
+          /*#__PURE__*/React.createElement("em", null, where === "here" ? "this card" : "further down")))),
+      !basicsOpen ? null : /*#__PURE__*/React.createElement(React.Fragment, null,
+        /*#__PURE__*/React.createElement("div", {className: "basics-rung"},
+          /*#__PURE__*/React.createElement("i", null, "Rung 1"), "What changed when you stopped being an employee"),
+        /*#__PURE__*/React.createElement("div", {className: "basics-cards"},
+          cards.map(([h, p]) => /*#__PURE__*/React.createElement("div", {key: h, className: "basics-c"},
+            /*#__PURE__*/React.createElement("b", null, h),
+            /*#__PURE__*/React.createElement("p", null, p)))),
+        /*#__PURE__*/React.createElement("div", {className: "basics-rung"},
+          /*#__PURE__*/React.createElement("i", null, "Rung 2"), "Set it aside as it arrives, not in April"),
+        /*#__PURE__*/React.createElement("div", {className: "reserve"},
+          /*#__PURE__*/React.createElement("div", {className: "reserve-big"},
+            sessYr > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null,
+                /*#__PURE__*/React.createElement("b", null, fmt0(perSession)),
+                /*#__PURE__*/React.createElement("span", null, "of every ", fmt0(sessionRate), " session is not yours")) 
+              : /*#__PURE__*/React.createElement(React.Fragment, null,
+                /*#__PURE__*/React.createElement("b", null, reservePct + "%"),
+                /*#__PURE__*/React.createElement("span", null, "of your profit is not yours"))),
+          /*#__PURE__*/React.createElement("p", {className: "reserve-p"},
+            "The reliable habit is a second bank account and a standing rule: every time a client pays, move ",
+            /*#__PURE__*/React.createElement("b", null, reservePct + "%"),
+            " of it across and forget it exists. Over a year that is ",
+            /*#__PURE__*/React.createElement("b", null, fmt0(taxYr)),
+            sessYr > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null,
+                " across roughly ", /*#__PURE__*/React.createElement("b", null, sessYr.toLocaleString()),
+                " sessions.") : ".",
+            " People who skip this are not bad with money \u2014 they simply spent tax they never thought of as tax.")),
+        /*#__PURE__*/React.createElement("p", {className: "basics-note"},
+          /*#__PURE__*/React.createElement("b", null, "The percentage is a reserve, not a payment schedule. "),
+          "Federal estimated payments are due 15 April, 15 June, 15 September and 15 January; California asks for its instalments on a different, front-loaded schedule. A CPA will set the actual amounts \u2014 the point of the reserve is that the money is there when they do.")));
+  })();
   const payrollMechanic = /*#__PURE__*/React.createElement("div", {className: "mechanic"},
     /*#__PURE__*/React.createElement("h4", null, "Where the saving actually comes from"),
     /*#__PURE__*/React.createElement("p", {className: "salguide-lede"},
@@ -5640,7 +5764,7 @@ const ssSection = (function () {
       ? "Sole Proprietorship vs Professional Corp side by side, the salary split, and what each does to Social Security."
       : "Both structures side by side, the salary split, and what each does to Social Security. Long \u2014 about six screens.")) : null;
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, basicsBlock, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
     structureGate,
     structureOpen ? mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection) : null,
     structureOpen ? mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection) : null,
@@ -6148,7 +6272,12 @@ function ProfitTab({
       ? Math.round(hypoBaseline.totalTax - hypoSolo401k.totalTax) : 0;
     const room = taxStrategy ? Math.round(taxStrategy.solo401k.total) : 0;
     return /*#__PURE__*/React.createElement("section", {className: "card handoff"},
-      /*#__PURE__*/React.createElement("div", {className: "handoff-k"}, "That is the business. Now the tax."),
+      /*#__PURE__*/React.createElement("div", {className: "handoff-k"},
+        /*#__PURE__*/React.createElement("span", null, "Next step"),
+        "You have finished the business. Now the tax."),
+      /*#__PURE__*/React.createElement("h2", {className: "handoff-h"},
+        "There is ", /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
+        " on the table. Some of it is yours to keep."),
       /*#__PURE__*/React.createElement("div", {className: "handoff-chain"},
         /*#__PURE__*/React.createElement("span", null,
           /*#__PURE__*/React.createElement("i", null, "Profit before tax"),
@@ -6174,7 +6303,14 @@ function ProfitTab({
               /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
               " gap is a separate question with its own levers \u2014 what you set aside before tax, and how the practice is structured.")),
       /*#__PURE__*/React.createElement("a", {href: "#tax", className: "handoff-go"},
-        "Work on the tax \u2192"));
+        /*#__PURE__*/React.createElement("b", null, "Work out your tax strategy"),
+        /*#__PURE__*/React.createElement("span", null, "takes about five minutes \u2192")),
+      /*#__PURE__*/React.createElement("div", {className: "handoff-what"},
+        ["Retirement accounts, and what each one is worth",
+         "Sole proprietor vs professional corporation",
+         "What it does to your Social Security",
+         "Whether practising somewhere else would pay more"
+        ].map(x => /*#__PURE__*/React.createElement("span", {key: x}, x))));
   })();
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "stats"
@@ -6481,11 +6617,98 @@ const CSS = `
 .steplock-item{font-size:13px; padding:6px 12px; border-radius:20px; border:1px solid #E7E2D6; background:#fff; color:#7C766A;}
 .steplock-item.ok{border-color:#3F9577; color:#2C6B53; background:#EAF3EE; font-weight:600;}
 
+/* ===== the tax page primer =====
+   Rungs one and two of the ladder, for a reader who has only ever had a
+   paycheque. Cream rather than white so it reads as orientation, not another
+   result card. Collapses to its head once the browser has been here before. */
+section.card.basics{background:#FBF6E9; border:1px solid #E4D9BE;}
+.basics-head{display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;}
+.basics-k{font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:#9A8F72; font-weight:700; margin-bottom:6px;}
+.basics-h{font-family:Fraunces,Georgia,serif; font-size:23px; line-height:1.25; margin:0 0 4px; max-width:640px;}
+.basics-x{flex:0 0 auto; font-family:Inter,sans-serif; font-size:12.5px; font-weight:600; cursor:pointer;
+  background:#fff; border:1px solid #E4D9BE; border-radius:20px; padding:7px 15px; color:#5C574C;}
+.basics-x:hover{border-color:#C98B4B;}
+.ladder{list-style:none; display:flex; gap:8px; margin:18px 0 0; padding:0; flex-wrap:wrap;}
+.lad{flex:1 1 150px; display:flex; flex-direction:column; gap:3px; background:#fff;
+  border:1px solid #EDE4CE; border-radius:10px; padding:11px 13px;}
+.lad b{font-family:Fraunces,Georgia,serif; font-size:15px; color:#9A8F72;}
+.lad span{font-size:13px; line-height:1.35;}
+.lad em{font-style:normal; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:#A9A08B; font-weight:700;}
+.lad-here{border-color:#C98B4B; background:#FFFDF7;}
+.lad-here b, .lad-here em{color:#C98B4B;}
+.basics-rung{display:flex; align-items:baseline; gap:10px; margin:26px 0 12px;
+  font-family:Fraunces,Georgia,serif; font-size:17px;}
+.basics-rung i{font-style:normal; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
+  font-family:Inter,sans-serif; font-weight:700; color:#fff; background:#C98B4B; border-radius:20px; padding:4px 10px;}
+.basics-cards{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;}
+.basics-c{background:#fff; border:1px solid #EDE4CE; border-radius:11px; padding:15px 17px;}
+.basics-c > b{display:block; font-size:14.5px; margin-bottom:6px; line-height:1.35;}
+.basics-c p{margin:0; font-size:13.5px; line-height:1.6; color:#5C574C;}
+.reserve{display:flex; align-items:flex-start; gap:22px; flex-wrap:wrap;
+  background:#fff; border:1px solid #EDE4CE; border-radius:11px; padding:18px 20px;}
+.reserve-big{flex:0 0 auto; display:flex; flex-direction:column; gap:2px; max-width:230px;}
+.reserve-big b{font-family:Fraunces,Georgia,serif; font-size:38px; line-height:1; color:#B5483F;}
+.reserve-big span{font-size:12.5px; color:#7C766A; line-height:1.4;}
+.reserve-p{flex:1 1 320px; margin:0; font-size:14px; line-height:1.65; color:#4A463C;}
+.basics-note{margin:14px 0 0; font-size:12.5px; line-height:1.6; color:#7C766A;}
+@media (max-width:780px){
+  .basics-h{font-size:19px;}
+  .basics-cards{grid-template-columns:1fr;}
+  .lad{flex:1 1 100%;}
+  .reserve-big b{font-size:32px;}
+  .reserve-big{max-width:none;}
+}
+
 /* ===== the page-1 -> tax handoff =====
-   Page 1 stops at pre-tax profit. This card is the seam: it carries the net
-   number across the boundary so the reader is not left doing the subtraction
-   in their head. Declared after .card so the border-left shorthand wins. */
-section.card.handoff{border-left:3px solid #3F9577; background:#FCFDFC;}
+   The one doorway on the simulator page, and the only dark card on the site.
+   It is deliberately not styled like the data cards above it: those are things
+   to read, this is a thing to click. Reads as a destination, not another
+   result. Declared after .card so the background and border win. */
+section.card.handoff{
+  background:linear-gradient(135deg,#2C6350 0%,#3F9577 100%);
+  border:0; color:#EFF5F2; padding:36px 34px 32px; margin:36px 0 26px;
+  box-shadow:0 8px 26px rgba(44,99,80,.22);
+}
+section.card.handoff .handoff-k{display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  font-size:13px; letter-spacing:.03em; color:rgba(255,255,255,.9); margin-bottom:12px;}
+section.card.handoff .handoff-k span{font-size:10.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase;
+  background:rgba(255,255,255,.17); color:#fff; border-radius:20px; padding:5px 11px;}
+section.card.handoff .handoff-h{font-family:Fraunces,Georgia,serif; font-weight:600; font-size:clamp(25px,2.6vw,34px);
+  line-height:1.15; letter-spacing:-.01em; margin:0 0 22px; color:#fff; max-width:760px;}
+section.card.handoff .handoff-h b{font-weight:600; color:#FFE3B8;}
+section.card.handoff .handoff-chain{display:flex; align-items:flex-end; gap:20px; flex-wrap:wrap; margin-bottom:20px;
+  background:rgba(255,255,255,.10); border-radius:12px; padding:16px 20px;}
+section.card.handoff .handoff-chain > span{display:flex; flex-direction:column; gap:4px;}
+section.card.handoff .handoff-chain i{font-style:normal; font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+  color:rgba(255,255,255,.82); font-weight:700;}
+section.card.handoff .handoff-chain b{font-family:Fraunces,Georgia,serif; font-size:25px; font-variant-numeric:tabular-nums; color:#fff;}
+section.card.handoff .handoff-chain b.neg{color:#FFC9BE;}
+section.card.handoff .handoff-chain em{font-style:normal; font-family:Fraunces,Georgia,serif; font-size:19px;
+  color:rgba(255,255,255,.6); padding-bottom:3px;}
+section.card.handoff .handoff-net b{font-size:31px; color:#FFE3B8 !important;}
+section.card.handoff .handoff-p{margin:0 0 22px; font-size:15px; line-height:1.65; color:rgba(255,255,255,.9); max-width:700px;}
+section.card.handoff .handoff-p b{color:#fff;}
+section.card.handoff .handoff-go{display:inline-flex; flex-direction:column; gap:2px; text-decoration:none;
+  background:#fff; color:#2C6350; border-radius:11px; padding:14px 26px;
+  box-shadow:0 3px 10px rgba(20,50,40,.2); transition:transform .12s ease, box-shadow .12s ease;}
+section.card.handoff .handoff-go b{font-family:Fraunces,Georgia,serif; font-size:18px; font-weight:600;}
+section.card.handoff .handoff-go span{font-size:12.5px; color:#5E8C7B; font-weight:600;}
+section.card.handoff .handoff-go:hover{transform:translateY(-1px); box-shadow:0 6px 16px rgba(20,50,40,.26);}
+section.card.handoff .handoff-what{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 26px;
+  margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,.2);}
+section.card.handoff .handoff-what span{font-size:13.5px; color:rgba(255,255,255,.9); padding-left:20px; position:relative;}
+section.card.handoff .handoff-what span::before{content:"\\2192"; position:absolute; left:0; color:rgba(255,255,255,.5);}
+@media (max-width:780px){
+  section.card.handoff{padding:26px 20px 24px;}
+  section.card.handoff .handoff-h{font-size:23px;}
+  section.card.handoff .handoff-chain{flex-direction:column; align-items:stretch; gap:6px; padding:14px 16px;}
+  section.card.handoff .handoff-chain > span{flex-direction:row; align-items:baseline; justify-content:space-between; gap:12px;}
+  section.card.handoff .handoff-chain b{font-size:21px;}
+  section.card.handoff .handoff-net b{font-size:25px;}
+  section.card.handoff .handoff-chain em{align-self:center; font-size:15px; line-height:1; padding:0;}
+  section.card.handoff .handoff-go{display:flex; text-align:center; align-items:center;}
+  section.card.handoff .handoff-what{grid-template-columns:1fr;}
+}
 
 /* ===== residency verdict gate =====
    Same job as .sgate: answer first, working on request. Declared after
