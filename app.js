@@ -4,6 +4,7 @@ const {
   useEffect
 } = React;
 const STORE_KEY = 'practice_planner_v3';
+const ORIENT_KEY = 'practice_planner_orient_dismissed_v1';
 // Feedback endpoint. GitHub Pages is static and cannot process a form, so the
 // form POSTs somewhere else. Two options, both free — paste either URL here:
 //
@@ -1084,9 +1085,18 @@ function PracticeIncomePlanner() {
     window.addEventListener("resize", sync);
     return () => { if (ro) ro.disconnect(); window.removeEventListener("resize", sync); };
   }, [navOpen]);
+  // Most people arrive from a link posted in a therapist group with no idea what
+  // this is, so the strip shows by default and stays until it is dismissed.
+  // It first keyed off STORE_KEY - "have they used the tool" - which was the wrong
+  // question: it hid the intro from anyone who had ever touched an input, including
+  // the person trying to check the intro. Dismissal gets its own key.
   const [showOrient, setShowOrient] = useState(() => {
-    try { return !localStorage.getItem(STORE_KEY); } catch (e) { return true; }
+    try { return localStorage.getItem(ORIENT_KEY) !== "1"; } catch (e) { return true; }
   });
+  const dismissOrient = () => {
+    setShowOrient(false);
+    try { localStorage.setItem(ORIENT_KEY, "1"); } catch (e) {}
+  };
   useEffect(() => {
     setJustPulsed(true);
     const t = setTimeout(() => setJustPulsed(false), 1200);
@@ -1961,7 +1971,7 @@ function PracticeIncomePlanner() {
     /*#__PURE__*/React.createElement("b", null, "For California-licensed therapists"),
     " \u2014 LMFT, LCSW, LPCC and psychologists. What your practice actually pays, from your session rate through entity structure to retirement. 2026 federal and California rates."),
     /*#__PURE__*/React.createElement("button", {
-      className: "orient-x", onClick: () => setShowOrient(false), "aria-label": "Dismiss"
+      className: "orient-x", onClick: dismissOrient, "aria-label": "Dismiss this introduction"
     }, "\u00D7")), VARIANT === "02" && /*#__PURE__*/React.createElement("div", {
     className: "v02-kpi"
   }, [["Gross", fmt(cur.grossYr), ""], ["\u2212 Expenses", fmt(cur.expYr), "neg"], ["\u2212 Tax", fmt(cur.totalTax), "neg"]].map(([k, v, cls]) => /*#__PURE__*/React.createElement("div", {
