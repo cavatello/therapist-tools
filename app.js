@@ -9,6 +9,18 @@ const ORIENT_KEY = 'practice_planner_orient_dismissed_v1';
 // Its own key, not ORIENT_KEY: having seen the site's intro is not the same as
 // having been taught how self-employment tax works.
 const BASICS_KEY = 'practice_planner_basics_seen_v1';
+// Snapshot at module load, BEFORE React mounts and before the app persists
+// anything this visit. Checking localStorage later - from inside a component's
+// useState initialiser - is too late: arriving on a share link, reading the
+// simulator page and clicking through to the tax page is enough for the app to
+// have written a rate and caseload, so a genuinely new reader looked like a
+// returning one and got the collapsed primer.
+const RETURNING_USER = (() => {
+  try {
+    const prev = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+    return prev.rate > 0 && prev.sessions > 0;
+  } catch (e) { return false; }
+})();
 // Feedback endpoint. GitHub Pages is static and cannot process a form, so the
 // form POSTs somewhere else. Two options, both free — paste either URL here:
 //
@@ -3453,12 +3465,7 @@ function TaxStrategyTab({
   const [basicsOpen, setBasicsOpen] = useState(() => {
     try {
       if (localStorage.getItem(BASICS_KEY) === "1") return false;
-      // Read localStorage directly, NOT SAVED: loadSaved() prefers the share
-      // -link hash, so someone arriving from a forum post would have looked
-      // like a returning user and been shown the collapsed version - exactly
-      // the reader this card exists for.
-      const prev = JSON.parse(localStorage.getItem(STORE_KEY)) || {};
-      return !(prev.rate > 0 && prev.sessions > 0);
+      return !RETURNING_USER;
     } catch (e) { return true; }
   });
   const closeBasics = () => {
