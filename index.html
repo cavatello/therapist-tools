@@ -20,7 +20,6 @@
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/prop-types@15/prop-types.min.js"></script>
-<script crossorigin src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
 <script src="./app.js"></script>
 <script>
   (function () {
@@ -29,7 +28,6 @@
       el.innerHTML = '<div class="boot">Could not load: ' + msg + '</div>';
     }
     if (!window.React || !window.ReactDOM) return fail('React unavailable');
-    if (!window.Recharts) return fail('Charts library unavailable');
     if (typeof PracticeIncomePlanner !== 'function') return fail('App bundle unavailable');
     try {
       ReactDOM.createRoot(el).render(React.createElement(PracticeIncomePlanner));

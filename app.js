@@ -3,21 +3,6 @@ const {
   useMemo,
   useEffect
 } = React;
-const {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  BarChart,
-  Bar,
-  Cell,
-  ReferenceLine
-} = Recharts;
 const STORE_KEY = 'practice_planner_v3';
 // Feedback endpoint. GitHub Pages is static and cannot process a form, so the
 // form POSTs somewhere else. Two options, both free — paste either URL here:
@@ -2489,7 +2474,6 @@ function PracticeIncomePlanner() {
     color: d.color,
     rate: rate,
     sessions: sessions,
-    sessionsList: SESSIONS,
     expYr: expYr,
     expYrBase: expYrBase,
     job2Yr: job2Yr,
@@ -5785,7 +5769,6 @@ function ProfitTab({
   color,
   rate,
   sessions,
-  sessionsList,
   expYr,
   expYrBase,
   job2Yr,
@@ -5824,14 +5807,6 @@ function ProfitTab({
     type: "out"
   }];
   const maxAbs = Math.max(...waterfall.map(w => Math.abs(w.v)));
-  const profitBySessions = sessionsList.map(s => {
-    const g = rate * s * weeksWorked;
-    const fee = cityLicenseFee(cityKey, g, manualCityFee);
-    return {
-      s,
-      profit: Math.round(computeYear(g, expYrBase + fee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput).net)
-    };
-  });
   const breakEven = (() => {
     for (let s = 1; s <= 60; s++) {
       const g = rate * s * weeksWorked;
@@ -5910,79 +5885,6 @@ function ProfitTab({
       color
     }
   }, fmt(cur.netYr))))), /*#__PURE__*/React.createElement("section", {
-    className: "one-up"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Profit by caseload"), /*#__PURE__*/React.createElement("p", null, "At $", rate, "/hr. The line crosses zero at your break-even point.")), /*#__PURE__*/React.createElement(ResponsiveContainer, {
-    width: "100%",
-    height: 260
-  }, /*#__PURE__*/React.createElement(AreaChart, {
-    data: profitBySessions,
-    margin: {
-      top: 6,
-      right: 8,
-      left: 8,
-      bottom: 4
-    }
-  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "profFill",
-    x1: "0",
-    y1: "0",
-    x2: "0",
-    y2: "1"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    stopColor: color,
-    stopOpacity: 0.35
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "100%",
-    stopColor: color,
-    stopOpacity: 0.02
-  }))), /*#__PURE__*/React.createElement(CartesianGrid, {
-    stroke: "#E7E2D6",
-    vertical: false
-  }), /*#__PURE__*/React.createElement(XAxis, {
-    dataKey: "s",
-    tick: {
-      fill: "#6F6A5E",
-      fontSize: 11
-    },
-    tickLine: false,
-    axisLine: {
-      stroke: "#D8D2C4"
-    },
-    interval: 2
-  }), /*#__PURE__*/React.createElement(YAxis, {
-    tickFormatter: fmtK,
-    tick: {
-      fill: "#6F6A5E",
-      fontSize: 11
-    },
-    tickLine: false,
-    axisLine: false,
-    width: 48
-  }), /*#__PURE__*/React.createElement(Tooltip, {
-    content: /*#__PURE__*/React.createElement(ProfitTip, {
-      label1: "sessions"
-    })
-  }), /*#__PURE__*/React.createElement(ReferenceLine, {
-    y: 0,
-    stroke: "#B5483F",
-    strokeDasharray: "4 3"
-  }), /*#__PURE__*/React.createElement(ReferenceLine, {
-    x: sessions,
-    stroke: color,
-    strokeDasharray: "5 4"
-  }), /*#__PURE__*/React.createElement(Area, {
-    type: "monotone",
-    dataKey: "profit",
-    stroke: color,
-    strokeWidth: 2.5,
-    fill: "url(#profFill)",
-    dot: false
-  }))))), /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -6016,25 +5918,6 @@ function ProfitTab({
   }, fmt(sessions > 0 ? cur.netYr / (sessions * weeksWorked) : 0)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
   }, "of your $", rate, " billed rate")))), retirePointer);
-}
-function ProfitTip({
-  active,
-  payload,
-  label,
-  label1
-}) {
-  if (!active || !payload?.length) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    className: "tip"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "tip-head"
-  }, label1 === "rate" ? "$" + label + "/hr" : label + " sessions / week"), /*#__PURE__*/React.createElement("div", {
-    className: "tip-row"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "tip-name"
-  }, "net profit"), /*#__PURE__*/React.createElement("span", {
-    className: "tip-val"
-  }, fmt(payload[0].value))));
 }
 const CSS = `
 .planner{
@@ -7557,7 +7440,6 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 
 /* two-up */
 .two-up{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-.one-up{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:14px;}
 .two-up .card{margin-bottom:24px;}
 
 /* table */
