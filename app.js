@@ -7445,7 +7445,7 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 /* table */
 .table-wrap{overflow-x:auto; max-width:100%; -webkit-overflow-scrolling:touch;}
 .card,.job2,.stats,.residency-grid{min-width:0;}
-.planner{overflow-x:hidden;}
+.planner{overflow-x:clip;}
 table{width:100%; border-collapse:collapse; font-size:14px;}
 th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-weight:600; padding:0 14px 12px; border-bottom:1px solid var(--line);}
 .num-head{text-align:right;}
