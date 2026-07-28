@@ -376,10 +376,6 @@ function keepBar(grossYr, expYr, taxYr, netYr, rate) {
   }
   const pct = n => Math.max(0, (n / grossYr) * 100);
   const keepPct = Math.round((netYr / grossYr) * 100);
-  const unit = (h, v, s2) => /*#__PURE__*/React.createElement("div", {className: "keep-unit", key: h},
-    /*#__PURE__*/React.createElement("h4", null, h),
-    /*#__PURE__*/React.createElement("div", {className: "keep-unit-v"}, v),
-    /*#__PURE__*/React.createElement("span", null, s2));
   return /*#__PURE__*/React.createElement("div", {className: "keepwrap"},
     /*#__PURE__*/React.createElement("div", {className: "keephero"},
       /*#__PURE__*/React.createElement("div", {className: "keep-eyebrow"}, "Of the " + fmt(grossYr) + " you bill this year"),
@@ -399,12 +395,26 @@ function keepBar(grossYr, expYr, taxYr, netYr, rate) {
       /*#__PURE__*/React.createElement("b", null, fmt(expYr)), " costs = ",
       /*#__PURE__*/React.createElement("b", null, fmt(grossYr - expYr)), " profit − ",
       /*#__PURE__*/React.createElement("b", null, fmt(taxYr)), " tax = ",
-      /*#__PURE__*/React.createElement("b", {className: "pos"}, fmt(netYr)), " yours"),
-    /*#__PURE__*/React.createElement("div", {className: "keep-units"},
-      rate > 0 ? unit("Per session", fmt(rate * (netYr / grossYr)), "of your " + fmt(rate) + " fee") : null,
-      unit("Per month", fmt(netYr / 12), "after tax"),
-      unit("Per week", fmt(netYr / 52), "take-home"),
-      unit("Effective tax rate", Math.round((taxYr / Math.max(1, grossYr - expYr)) * 100) + "%", "of profit, all taxes")));
+      /*#__PURE__*/React.createElement("b", {className: "pos"}, fmt(netYr)), " yours"));
+}
+
+// Fold a heavy block on phones only. Desktop keeps it open; a narrow viewport
+// gets a one-line summary and one tap. The open state is set ONCE on mount via a
+// ref - never as a controlled `open` prop, which React re-applies on every render
+// so the panel snaps shut while the user is typing.
+function mobileFold(key, title, sub, content) {
+  return /*#__PURE__*/React.createElement("details", {
+    key: key, className: "card collapsible mfold",
+    ref: el => {
+      if (el && !el.dataset.autoinit) {
+        el.dataset.autoinit = "1";
+        el.open = !(typeof window !== "undefined" && window.innerWidth < 760);
+      }
+    }
+  }, /*#__PURE__*/React.createElement("summary", {className: "mfold-s"},
+      /*#__PURE__*/React.createElement("b", null, title),
+      sub ? /*#__PURE__*/React.createElement("span", null, sub) : null),
+    content);
 }
 
 function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependents, employerRetirement, employeeRetirement, entityType, sCorpSalary) {
@@ -2378,103 +2388,108 @@ function PracticeIncomePlanner() {
     className: "strip-v"
   }, fmt(cur.grossMo)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "net ", fmt(cur.netMo))), /*#__PURE__*/React.createElement("div", {
-    className: "strip-cell"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "strip-k"
-  }, "Gross / year"), /*#__PURE__*/React.createElement("span", {
-    className: "strip-v"
-  }, fmt(cur.grossYr)), /*#__PURE__*/React.createElement("span", {
-    className: "strip-sub"
-  }, "net ", fmt(cur.netYr)))), /*#__PURE__*/React.createElement("section", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Side by side, at ", sessions, " sessions a week"), /*#__PURE__*/React.createElement("p", null, "Holding your caseload fixed, here's what each therapy rate delivers", secondaryOn ? ", with your other income sources included in gross, net, and tax" : "", ". The jump from one row to the next is pure pricing power — same hours, more money kept.")), /*#__PURE__*/React.createElement("div", {
-    className: "table-wrap"
-  }, /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Rate"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, "Gross / year"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, "Net / year"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, "Tax"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, "Keeps"), /*#__PURE__*/React.createElement("th", null, "vs. current net"), /*#__PURE__*/React.createElement("th", null))), /*#__PURE__*/React.createElement("tbody", null, RATES.map(r => {
-    const gy = grossYr(r, sessions, weeksWorked) + job2Yr + otherIncomeYr;
-    const ny = netYr(r, sessions);
-    const tax = gy - ny;
-    const keepPct = Math.round(ny / gy * 100);
-    const delta = ny - cur.netYr;
-    const isCur = r === nearestRate;
-    return /*#__PURE__*/React.createElement("tr", {
-      key: r,
-      className: isCur ? "row-on" : "",
-      onClick: () => setRate(r)
-    }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("span", {
-      className: "tdot",
-      style: {
-        background: RATE_DATA[r].color
-      }
-    }), "$", r, "/hr"), /*#__PURE__*/React.createElement("td", {
-      className: "num-head"
-    }, fmt(gy)), /*#__PURE__*/React.createElement("td", {
-      className: "num-head strong"
-    }, fmt(ny)), /*#__PURE__*/React.createElement("td", {
-      className: "num-head muted"
-    }, "\u2212" + fmt(tax)), /*#__PURE__*/React.createElement("td", {
-      className: "num-head muted"
-    }, keepPct, "%"), /*#__PURE__*/React.createElement("td", {
-      className: delta === 0 ? "muted" : delta > 0 ? "pos" : "neg"
-    }, delta === 0 ? "—" : (delta > 0 ? "+" : "\u2212") + fmt(Math.abs(delta))), /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement("div", {
-      className: "bar-cell"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "bar-fill",
-      style: {
-        width: ny / netYr(200, 30) * 100 + "%",
-        background: RATE_DATA[r].color
-      }
-    }))));
-  }))))), /*#__PURE__*/React.createElement("section", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head card-head-row"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Biweekly take-home calendar"), /*#__PURE__*/React.createElement("p", null, "Net pay split across 26 checks a year, anchored to a payday of ", /*#__PURE__*/React.createElement("strong", null, "Fri, Jul 3 2026"), " and every other Friday after. Each check is your annual net ÷ 26 at $", rate, "/hr · ", sessions, " sessions/wk.")), /*#__PURE__*/React.createElement("div", {
-    className: "paycheck-badge",
-    style: {
-      borderColor: d.color
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "paycheck-k"
-  }, "Per check"), /*#__PURE__*/React.createElement("span", {
-    className: "paycheck-v",
-    style: {
-      color: d.color
-    }
-  }, fmt(payPerCheck)), /*#__PURE__*/React.createElement("span", {
-    className: "paycheck-sub"
-  }, "every 2 weeks"))), /*#__PURE__*/React.createElement("div", {
-    className: "pay-grid"
-  }, paydays.map((p, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "pay-cell" + (p.isAnchor ? " pay-anchor" : ""),
-    style: p.isAnchor ? {
-      borderColor: d.color
-    } : {}
-  }, p.isAnchor && /*#__PURE__*/React.createElement("span", {
-    className: "pay-flag",
-    style: {
-      background: d.color
-    }
-  }, "anchor"), /*#__PURE__*/React.createElement("span", {
-    className: "pay-date"
-  }, fmtDate(p.date)), /*#__PURE__*/React.createElement("span", {
-    className: "pay-amt"
-  }, fmt(p.amount)), /*#__PURE__*/React.createElement("span", {
-    className: "pay-cum"
-  }, fmt(p.cumulative), " ytd")))), /*#__PURE__*/React.createElement("p", {
-    className: "pay-note"
-  }, "Shows the next 12 paydays. A biweekly schedule lands 26 checks a year, so two months each year carry a third check — those are the bonus-feeling paydays."))))), isVisible("expenses") && /*#__PURE__*/React.createElement("div", {id:"sec-expenses"}, sectionIntro("expenses"), /*#__PURE__*/React.createElement(ExpensesTab, {
+  }, "net ", fmt(cur.netMo)))), (function () {
+    const rateRow = r => {
+      const gy = grossYr(r, sessions, weeksWorked) + job2Yr + otherIncomeYr;
+      const ny = netYr(r, sessions);
+      return {r: r, gy: gy, ny: ny, tax: gy - ny, keepPct: Math.round(ny / Math.max(1, gy) * 100),
+        delta: ny - cur.netYr, isCur: r === nearestRate};
+    };
+    const all = RATES.map(rateRow);
+    const curIdx = Math.max(0, all.findIndex(x => x.isCur));
+    const focus = all.slice(curIdx, curIdx + 3);
+    const next = focus[1] || null;
+    const scale = Math.max(1, ...focus.map(x => x.ny));
+    return /*#__PURE__*/React.createElement("section", {className: "card"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("h2", null, "What a rate rise is worth"),
+        /*#__PURE__*/React.createElement("p", null,
+          "Same caseload, same hours, ", sessions, " sessions a week",
+          secondaryOn ? ", with your other income sources included" : "",
+          ". This is pure pricing power \u2014 the only lever here that costs you nothing.")),
+      /*#__PURE__*/React.createElement("div", {className: "uro-list"},
+        focus.map(x => /*#__PURE__*/React.createElement("div", {
+          key: x.r, className: "uro" + (x.isCur ? " on" : ""),
+          role: "button", tabIndex: 0, onClick: () => setRate(x.r),
+          onKeyDown: e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setRate(x.r); } }
+        }, /*#__PURE__*/React.createElement("span", {className: "uro-l"},
+            "$", x.r, "/hr",
+            x.isCur ? /*#__PURE__*/React.createElement("em", null, "yours") : null),
+          /*#__PURE__*/React.createElement("span", {className: "uro-b"},
+            /*#__PURE__*/React.createElement("i", {style: {
+              width: (x.ny / scale * 100) + "%", background: RATE_DATA[x.r].color}})),
+          /*#__PURE__*/React.createElement("b", {className: "uro-v"}, fmt(x.ny),
+            /*#__PURE__*/React.createElement("em", null, x.keepPct, "% kept")),
+          /*#__PURE__*/React.createElement("b", {
+            className: "uro-d " + (x.delta === 0 ? "muted" : x.delta > 0 ? "pos" : "neg")
+          }, x.delta === 0 ? "\u2014" : (x.delta > 0 ? "+" : "\u2212") + fmt(Math.abs(x.delta)))))),
+      next && next.delta > 0 ? /*#__PURE__*/React.createElement("div", {className: "sec-point"},
+        /*#__PURE__*/React.createElement("b", null, "+", fmt(next.delta), " a year"),
+        " for charging $", next.r - focus[0].r, " more a session \u2014 no extra hours, no new clients, nothing to file. You would keep ",
+        next.keepPct, "\u00a2 of each extra dollar instead of ", focus[0].keepPct, "\u00a2, because the bracket above takes a little more.") : null,
+      /*#__PURE__*/React.createElement("details", {className: "ratefold"},
+        /*#__PURE__*/React.createElement("summary", null,
+          /*#__PURE__*/React.createElement("b", null, "Every rate from $", RATES[0], " to $", RATES[RATES.length - 1]),
+          /*#__PURE__*/React.createElement("span", null, "gross, net, tax and keep-rate \u00b7 tap a row to set it"),
+          /*#__PURE__*/React.createElement("i", null, "Show")),
+        /*#__PURE__*/React.createElement("div", {className: "table-wrap"},
+          /*#__PURE__*/React.createElement("table", null,
+            /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null,
+              /*#__PURE__*/React.createElement("th", null, "Rate"),
+              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Gross / year"),
+              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Net / year"),
+              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Tax"),
+              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Keeps"),
+              /*#__PURE__*/React.createElement("th", null, "vs. current net"),
+              /*#__PURE__*/React.createElement("th", null))),
+            /*#__PURE__*/React.createElement("tbody", null, all.map(x =>
+              /*#__PURE__*/React.createElement("tr", {
+                key: x.r, className: x.isCur ? "row-on" : "", onClick: () => setRate(x.r)
+              }, /*#__PURE__*/React.createElement("td", null,
+                  /*#__PURE__*/React.createElement("span", {className: "tdot",
+                    style: {background: RATE_DATA[x.r].color}}), "$", x.r, "/hr"),
+                /*#__PURE__*/React.createElement("td", {className: "num-head"}, fmt(x.gy)),
+                /*#__PURE__*/React.createElement("td", {className: "num-head strong"}, fmt(x.ny)),
+                /*#__PURE__*/React.createElement("td", {className: "num-head muted"}, "\u2212" + fmt(x.tax)),
+                /*#__PURE__*/React.createElement("td", {className: "num-head muted"}, x.keepPct, "%"),
+                /*#__PURE__*/React.createElement("td", {
+                  className: x.delta === 0 ? "muted" : x.delta > 0 ? "pos" : "neg"
+                }, x.delta === 0 ? "\u2014" : (x.delta > 0 ? "+" : "\u2212") + fmt(Math.abs(x.delta))),
+                /*#__PURE__*/React.createElement("td", null,
+                  /*#__PURE__*/React.createElement("div", {className: "bar-cell"},
+                    /*#__PURE__*/React.createElement("div", {className: "bar-fill", style: {
+                      width: x.ny / netYr(200, 30) * 100 + "%", background: RATE_DATA[x.r].color}}))))))))));
+  })(), (function () {
+    const payCell = (p, i) => /*#__PURE__*/React.createElement("div", {
+      key: i, className: "pay-cell" + (p.isAnchor ? " pay-anchor" : ""),
+      style: p.isAnchor ? {borderColor: d.color} : {}
+    }, p.isAnchor ? /*#__PURE__*/React.createElement("span", {
+      className: "pay-flag", style: {background: d.color}}, "anchor") : null,
+      /*#__PURE__*/React.createElement("span", {className: "pay-date"}, fmtDate(p.date)),
+      /*#__PURE__*/React.createElement("span", {className: "pay-amt"}, fmt(p.amount)),
+      /*#__PURE__*/React.createElement("span", {className: "pay-cum"}, fmt(p.cumulative), " ytd"));
+    return /*#__PURE__*/React.createElement("section", {className: "card"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("h2", null, "Biweekly take-home"),
+        /*#__PURE__*/React.createElement("p", null,
+          "Your annual net split across 26 checks, anchored to a payday of ",
+          /*#__PURE__*/React.createElement("strong", null, "Fri, Jul 3 2026"),
+          " and every other Friday after, at $", rate, "/hr \u00b7 ", sessions, " sessions/wk.")),
+      /*#__PURE__*/React.createElement("div", {className: "paylede"},
+        /*#__PURE__*/React.createElement("b", {style: {color: d.color}}, fmt(payPerCheck)),
+        /*#__PURE__*/React.createElement("span", null, "every 2 weeks \u00b7 26 checks a year \u00b7 ",
+          fmt(payPerCheck * 26), " in total")),
+      /*#__PURE__*/React.createElement("div", {className: "pay-grid pay-next"},
+        paydays.slice(0, 3).map(payCell)),
+      paydays.length > 3 ? /*#__PURE__*/React.createElement("details", {className: "payfold"},
+        /*#__PURE__*/React.createElement("summary", null,
+          /*#__PURE__*/React.createElement("b", null, "The next ", paydays.length, " paydays"),
+          /*#__PURE__*/React.createElement("span", null, "with a running year-to-date"),
+          /*#__PURE__*/React.createElement("i", null, "Show")),
+        /*#__PURE__*/React.createElement("div", {className: "pay-grid"}, paydays.map(payCell)),
+        /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+          "A biweekly schedule lands 26 checks a year, so two months each year carry a third check \u2014 those are the bonus-feeling paydays.")) : null);
+  })()))), isVisible("expenses") && /*#__PURE__*/React.createElement("div", {id:"sec-expenses"}, sectionIntro("expenses"), /*#__PURE__*/React.createElement(ExpensesTab, {
     weeksWorked: weeksWorked,
     expenses: expenses,
     expMo: expMo,
@@ -4727,7 +4742,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       fmt0(mfCost), " this year and up ", fmt0(mfContrib), " in assets.",
       horizonReady && mfGrown > 0
         ? " Left alone at " + investReturn + "% for the " + mfYears + " years to " + retireAge + ", this one year's contribution is worth " + fmt0(mfGrown) + "."
-        : " Fill in your age and retirement age above to see what one year of this compounds to."));
+        : " Fill in your age and retirement age in step 1 below to see what one year of this compounds to."));
 
   const retLever = !rReady ? null : (function () {
     const opts = [
@@ -5329,7 +5344,11 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection, businessStructureSection, entityCompareSection, ssDetail, moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
+    mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection),
+    mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection),
+    ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null,
+    moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -5860,52 +5879,18 @@ function ProfitTab({
     return null;
   })();
   const fmtH = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
-  const hypotheticalsSection = taxStrategy ? (function () {
-    const rows = [{
-      label: "Baseline (no retirement contribution)",
-      contrib: 0,
-      tax: hypoBaseline.totalTax,
-      net: hypoBaseline.net
-    }, {
-      label: "Max Solo 401(k)",
-      contrib: taxStrategy.solo401k.total,
-      tax: hypoSolo401k.totalTax,
-      net: hypoSolo401k.net
-    }, {
-      label: "Max Solo 401(k) + Traditional IRA",
-      contrib: taxStrategy.solo401k.total + taxStrategy.traditionalIra.deductibleAmount,
-      tax: hypoSolo401kIra.totalTax,
-      net: hypoSolo401kIra.net
-    }].map(row => /*#__PURE__*/React.createElement("tr", {
-      key: row.label
-    }, /*#__PURE__*/React.createElement("td", null, row.label), /*#__PURE__*/React.createElement("td", {
-      className: "num-head strong"
-    }, row.contrib === 0 ? "\u2014" : fmtH(row.contrib)), /*#__PURE__*/React.createElement("td", {
-      className: "num-head neg"
-    }, fmtH(row.tax)), /*#__PURE__*/React.createElement("td", {
-      className: "num-head strong"
-    }, fmtH(row.net)), /*#__PURE__*/React.createElement("td", {
-      className: "num-head " + (row.net - hypoBaseline.net >= 0 ? "pos" : "neg")
-    }, row.net - hypoBaseline.net === 0 ? "\u2014" : (row.net - hypoBaseline.net > 0 ? "+" : "\u2212") + fmtH(Math.abs(row.net - hypoBaseline.net)))));
-    const table = /*#__PURE__*/React.createElement("div", {
-      className: "table-wrap"
-    }, /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Scenario"), /*#__PURE__*/React.createElement("th", {
-      className: "num-head"
-    }, "Invested"), /*#__PURE__*/React.createElement("th", {
-      className: "num-head"
-    }, "Taxes paid"), /*#__PURE__*/React.createElement("th", {
-      className: "num-head"
-    }, "Bank account"), /*#__PURE__*/React.createElement("th", {
-      className: "num-head"
-    }, "vs. baseline"))), /*#__PURE__*/React.createElement("tbody", null, rows)));
-    return /*#__PURE__*/React.createElement("section", {
-      className: "card"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "card-head"
-    }, /*#__PURE__*/React.createElement("h2", null, "If you maxed your tax strategy"), /*#__PURE__*/React.createElement("p", null, "Same practice profit (after expenses), three ways to split it: what moves into ", /*#__PURE__*/React.createElement("b", null, "tax-advantaged investments"), ", what goes to ", /*#__PURE__*/React.createElement("b", null, "taxes"), ", and what actually lands as ", /*#__PURE__*/React.createElement("b", null, "spendable cash"), " in your bank account. Invested + Taxes paid + Bank account always adds back up to your profit after expenses.")), table, /*#__PURE__*/React.createElement("p", {
-      className: "pay-note"
-    }, "Maxing both costs ", fmtH(taxStrategy.solo401k.total + taxStrategy.traditionalIra.deductibleAmount), " out of pocket this year, but ", fmtH(hypoBaseline.totalTax - hypoSolo401kIra.totalTax), " of that is tax you'd have paid anyway \u2014 so the real cash trade-off is smaller than the sticker price on the contribution."));
-  })() : null;
+  const retirePointer = !(taxStrategy && hypoBaseline && hypoSolo401k) ? null : (function () {
+    const saved = Math.round(hypoBaseline.totalTax - hypoSolo401k.totalTax);
+    const room = Math.round(taxStrategy.solo401k.total);
+    if (!(saved > 0 && room > 0)) return null;
+    return /*#__PURE__*/React.createElement("div", {className: "sec-point"},
+      /*#__PURE__*/React.createElement("b", null, fmtH(saved), " of that tax is optional."),
+      " A Solo 401(k) has room for ", /*#__PURE__*/React.createElement("b", null, fmtH(room)),
+      " of your profit this year, and roughly ",
+      /*#__PURE__*/React.createElement("b", null, Math.round(saved / room * 100) + "%"),
+      " of that contribution is funded by tax you would have paid anyway. The full receipt \u2014 and what it costs you in spendable cash \u2014 opens the ",
+      /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy"}, "Tax strategy"), " section below.");
+  })();
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "stats"
   }, /*#__PURE__*/React.createElement(Stat, {
@@ -6122,7 +6107,7 @@ function ProfitTab({
     className: "strip-v"
   }, fmt(sessions > 0 ? cur.netYr / (sessions * weeksWorked) : 0)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "of your $", rate, " billed rate")))), hypotheticalsSection);
+  }, "of your $", rate, " billed rate")))), retirePointer);
 }
 function ProfitTip({
   active,
@@ -6803,6 +6788,84 @@ const CSS = `
 /* the line between the answer and the working */
 .vwork{margin:6px 0 22px; padding:13px 18px; background:#F6F2E8; border-radius:11px;
   font-size:12.5px; line-height:1.6; color:var(--muted); border:1px dashed var(--line);}
+
+/* ---- mobileFold: heavy blocks get a summary line on phones, stay open on desktop ---- */
+.mfold{padding:14px 16px !important;}
+.mfold-s{display:flex; align-items:baseline; flex-wrap:wrap; gap:5px 11px; cursor:pointer;
+  list-style:none;}
+.mfold-s::-webkit-details-marker{display:none;}
+.mfold-s b{font-family:'Fraunces',serif; font-size:19px; font-weight:700;}
+.mfold-s span{font-size:12px; color:var(--muted);}
+.mfold[open] > .mfold-s{margin-bottom:4px;}
+/* the wrapped section keeps its own explanatory paragraph but not its heading,
+   because the summary above is now that heading */
+.mfold > .card{border:0 !important; box-shadow:none !important; background:transparent !important;
+  padding:0 !important; margin:0 !important; border-radius:0 !important;}
+.mfold > .card > .card-head > h2{display:none;}
+.mfold > .card.decision-impact{border-left:0 !important;}
+@media (max-width:780px){
+  .mfold-s b{font-size:17px;}
+  .mfold{padding:13px 15px !important;}
+}
+
+/* ---- the shared row: label, bar on a common scale, value. Used by the rate
+   ladder, the profit waterfall and anywhere a small table used to sit. This is
+   the same shape as .rlev-r in Tax strategy - one vocabulary across the tool. --- */
+.uro-list{display:flex; flex-direction:column;}
+.uro{display:flex; align-items:center; gap:13px; padding:11px 0;
+  border-bottom:1px dotted var(--line);}
+.uro:last-child{border-bottom:0;}
+.uro[role="button"]{cursor:pointer; border-radius:9px; margin:0 -9px; padding-left:9px; padding-right:9px;}
+.uro[role="button"]:hover{background:#FBF6E9;}
+.uro[role="button"]:focus-visible{outline:2px solid var(--ink); outline-offset:2px;}
+.uro.on{background:#FBF6E9; margin:0 -9px; padding-left:9px; padding-right:9px; border-radius:9px;}
+.uro-l{width:104px; flex-shrink:0; font-size:13.5px; font-weight:600;
+  display:flex; align-items:baseline; gap:7px;}
+.uro-l em{font-style:normal; font-size:9.5px; font-weight:800; letter-spacing:.05em;
+  text-transform:uppercase; color:#8A5B24; background:#F7EBDA; border-radius:99px; padding:2px 7px;}
+.uro-b{flex:1; height:17px; background:#F1EDE3; border-radius:5px; overflow:hidden; min-width:30px;}
+.uro-b i{display:block; height:100%; border-radius:5px;}
+.uro-v{width:112px; text-align:right; flex-shrink:0;
+  font-family:'Fraunces',serif; font-weight:700; font-size:16px;}
+.uro-v em{display:block; font-family:'Inter',sans-serif; font-style:normal; font-weight:500;
+  font-size:10.5px; color:var(--muted); margin-top:1px;}
+.uro-d{width:86px; text-align:right; flex-shrink:0;
+  font-family:'Fraunces',serif; font-weight:700; font-size:14px;}
+.uro-d.muted{color:var(--muted);} .uro-d.pos{color:var(--pos);} .uro-d.neg{color:var(--neg);}
+@media (max-width:760px){
+  .uro{flex-wrap:wrap; align-items:baseline; gap:3px 10px; padding:12px 0;}
+  .uro-l{width:auto; flex:1;}
+  .uro-d{width:auto;}
+  .uro-v{width:auto; text-align:left; order:3; flex-basis:100%; display:flex;
+    align-items:baseline; gap:9px; margin-top:3px;}
+  .uro-v em{display:inline; margin-top:0;}
+  .uro-b{order:4; flex-basis:100%; margin-top:5px;}
+}
+
+/* ---- shared fold: one summary line, content behind it ---- */
+.payfold, .ratefold{margin-top:14px; border-top:1px solid var(--line); padding-top:12px;}
+.payfold > summary, .ratefold > summary{display:flex; align-items:baseline; gap:9px; cursor:pointer;
+  list-style:none; padding:2px 0;}
+.payfold > summary::-webkit-details-marker, .ratefold > summary::-webkit-details-marker{display:none;}
+.payfold > summary b, .ratefold > summary b{font-family:'Fraunces',serif; font-size:14px;}
+.payfold > summary span, .ratefold > summary span{font-size:11.5px; color:var(--muted);}
+.payfold > summary i, .ratefold > summary i{margin-left:auto; font-style:normal; font-size:11px;
+  font-weight:700; color:var(--muted); border:1px solid var(--line); border-radius:99px;
+  padding:3px 11px; white-space:nowrap;}
+.payfold[open] > summary i::after, .ratefold[open] > summary i::after{content:"n";
+  font-size:0;}
+.payfold[open] > summary i, .ratefold[open] > summary i{color:var(--ink);}
+.payfold > summary + *, .ratefold > summary + *{margin-top:12px;}
+.paylede{display:flex; align-items:baseline; flex-wrap:wrap; gap:5px 12px; margin:0 0 13px;}
+.paylede b{font-family:'Fraunces',serif; font-size:31px; font-weight:700; line-height:1;}
+.paylede span{font-size:12.5px; color:var(--muted);}
+.pay-next{margin-bottom:0;}
+
+/* ---- shared: a section-closing pointer to the decision that matters ---- */
+.sec-point{background:#F1F7F4; border-left:4px solid #2F7A61; border-radius:0 11px 11px 0;
+  padding:13px 16px; margin:14px 0 0; font-size:13px; line-height:1.65;}
+.sec-point b{font-family:'Fraunces',serif; font-weight:700;}
+.sec-point a{color:#2F7A61; font-weight:600;}
 
 /* ---- the retirement verdict: the lever that comes first ---- */
 .rvrec .vrec-say{background:#EEF4F1;}
@@ -7532,7 +7595,7 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 .a-subhead{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:16px 0 8px;}
 
 /* gross/net strip */
-.strip{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-bottom:28px;}
+.strip{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-bottom:28px;}
 .strip-cell{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 20px; display:flex; flex-direction:column;}
 .strip-k{font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);}
 .strip-v{font-family:'Fraunces',serif; font-weight:600; font-size:24px; letter-spacing:-.02em; margin-top:8px; line-height:1;}
@@ -7678,16 +7741,24 @@ td.num-head{text-align:right;}
 .shield-note{font-size:13px; color:var(--muted); margin:14px 0 0; line-height:1.5;}
 
 /* waterfall */
-.wf{display:flex; flex-direction:column; gap:9px;}
-.wf-row{display:grid; grid-template-columns:180px 1fr 120px; gap:14px; align-items:center;}
+.wf{display:flex; flex-direction:column;}
+.wf-row{display:grid; grid-template-columns:180px 1fr 120px; gap:13px; align-items:center;
+  padding:11px 0; border-bottom:1px dotted var(--line);}
+.wf-row:last-child{border-bottom:0;}
 .wf-k{font-size:13.5px; color:var(--muted); font-weight:500;}
-.wf-track{height:22px; background:#F7F3EA; border-radius:6px; overflow:hidden;}
-.wf-bar{height:100%; border-radius:6px; transition:width .2s;}
+.wf-track{height:17px; background:#F1EDE3; border-radius:5px; overflow:hidden;}
+.wf-bar{height:100%; border-radius:5px; transition:width .2s;}
 .wf-out{background:#D9A9A2;}
-.wf-v{font-family:'Fraunces',serif; font-size:15px; font-weight:600; text-align:right;}
-.wf-final{border-top:2px solid var(--line); padding-top:13px; margin-top:6px;}
+.wf-v{font-family:'Fraunces',serif; font-size:16px; font-weight:700; text-align:right;}
+.wf-final{border-top:2px solid var(--ink); border-bottom:0; padding-top:13px; margin-top:4px;}
 .wf-final .wf-k{color:var(--ink); font-weight:700; font-size:15px;}
-.wf-final .wf-v{font-size:19px;}
+.wf-final .wf-v{font-size:21px;}
+@media (max-width:780px){
+  .wf-row{grid-template-columns:1fr auto; gap:2px 10px; padding:12px 0;}
+  .wf-k{grid-area:1 / 1 / 2 / 2; align-self:baseline;}
+  .wf-v{grid-area:1 / 2 / 2 / 3; align-self:baseline;}
+  .wf-track{grid-area:2 / 1 / 3 / 3; margin-top:5px;}
+}
 
 /* footer */
 .foot{font-size:12px; line-height:1.6; color:var(--muted); border-top:1px solid var(--line); padding-top:20px; margin-top:8px;}
@@ -7714,19 +7785,24 @@ td.num-head{text-align:right;}
 .term-clarify b{color:var(--ink);}
 
 @media(max-width:780px){
-  .controls,.stats,.two-up,.goal-body,.strip,.job2-body,.residency-grid,.funnel-input-grid,.funnel-score-row,.funnel-target-grid{grid-template-columns:1fr;}
+  .controls,.two-up,.goal-body,.job2-body,.residency-grid,.funnel-input-grid,.funnel-score-row,.funnel-target-grid{grid-template-columns:1fr;}
+  /* two-up rather than one: eight full-width stat cards was most of the Income
+     section's height on a phone, for numbers that read fine at half the width */
+  .stats,.strip{grid-template-columns:1fr 1fr; gap:10px;}
+  .stats > .stat-big, .stats > .statpend{grid-column:1 / -1;}
+  .stats > .stat-col{grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .stat-col{flex-direction:row;}
+  .strip-cell{padding:12px 14px;}
+  .strip-v{font-size:20px; margin-top:6px;}
   .tabs{grid-template-columns:1fr 1fr;}
   .tab{padding:12px 14px;}
   .city-picker{grid-template-columns:1fr;}
   .exp-row{grid-template-columns:1fr 110px 28px; gap:10px;}
   .exp-bar{display:none;}
   .exp-yr{display:none;}
-  .wf-row{grid-template-columns:130px 1fr 100px; gap:9px;}
-  .wf-k{font-size:12px;}
-  .stat-col{flex-direction:column;}
+  .wf-k{font-size:12.5px;}
   .card-head-row{flex-direction:column;}
   .pay-grid{grid-template-columns:repeat(2,1fr);}
-  .stats .stat-big{order:-1;}
   /* larger tap targets on touch screens */
   .pill{padding:12px 16px; min-height:44px;}
   .toggle{padding:9px 16px 9px 8px; min-height:40px;}
