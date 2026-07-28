@@ -65,8 +65,27 @@ function normalizeFunnel(f) {
 }
 const VARIANT = (() => { try { const v = new URLSearchParams(window.location.search).get('v');
   return ['01','02','03','04'].indexOf(v) > -1 ? v : ''; } catch (e) { return ''; } })();
+// Which page each section lives on. Three pages now: the simulator models the
+// business and stops at pre-tax profit, tax and retirement is its own thing,
+// and growth is the funnel. Keeping the map here (rather than inline in
+// isVisible) means the hash router and the visibility test cannot disagree.
+const SECTION_PAGE = {income: 'sim', expenses: 'sim', profit: 'sim',
+  taxstrategy: 'tax', residency: 'tax', funnel: 'grow'};
 const PAGE_RE = /(^|[#&])grow(&|$)/;
-const pageFromHash = () => PAGE_RE.test(window.location.hash || '') ? 'grow' : 'sim';
+const TAX_RE = /(^|[#&])tax(&|$)/;
+// A hash carries either a page token (#tax, #s=...&tax) or a section anchor
+// (#sec-taxstrategy). Both have to resolve to a page, or clicking a deep link
+// to a section on another page would silently bounce you back to the
+// simulator. The anchor form is the fallback so old links keep working.
+// Note TAX_RE cannot match "#sec-taxstrategy" - "tax" there is preceded by a
+// hyphen, not # or &.
+const pageFromHash = () => {
+  const h = window.location.hash || '';
+  if (PAGE_RE.test(h)) return 'grow';
+  if (TAX_RE.test(h)) return 'tax';
+  const m = h.match(/#sec-([a-z]+)/);
+  return (m && SECTION_PAGE[m[1]]) || 'sim';
+};
 const INITIAL_PAGE = pageFromHash();
 
 // ----------------------------------------------------------------------------
@@ -1066,6 +1085,10 @@ function PracticeIncomePlanner() {
   const [fbSent, setFbSent] = useState(false);
   const [showSaveMenu, setShowSaveMenu] = useState(false);
   const [widgetCollapsed, setWidgetCollapsed] = useState(false);
+  // "Print entire simulation" predates the three-page split. Without this the
+  // button would silently print only whichever page you happened to be on.
+  // Setting it renders every section for one paint, then we print and reset.
+  const [printing, setPrinting] = useState(false);
   // Most people arrive here from a link posted in a therapist group, with no idea
   // what this is. They get one line saying who it is for; everyone else does not.
   // Saved state is the signal - the app already writes it under STORE_KEY.
@@ -1124,7 +1147,7 @@ function PracticeIncomePlanner() {
   const [wizardStep, setWizardStep] = useState(SAVED.wizardStep || 1);
   const TAB_ORDER = ["income", "expenses", "profit", "taxstrategy", "residency", "funnel"];
   const WIZARD_ORDER = ["income", "income-addons", "expenses", "profit", "taxstrategy", "residency", "funnel"];
-  const isVisible = key => VARIANT === "04" && !(rate > 0 || sessions > 0) && key !== "income" && key !== "funnel" ? false : key === "funnel" ? page === "grow" : page === "sim" && (viewMode === "guided" ? true : viewMode === "wizard" ? (key === "income" ? WIZARD_ORDER[wizardStep - 1] === "income" || WIZARD_ORDER[wizardStep - 1] === "income-addons" : WIZARD_ORDER[wizardStep - 1] === key) : tab === key);
+  const isVisible = key => VARIANT === "04" && !(rate > 0 || sessions > 0) && key !== "income" && key !== "funnel" ? false : printing ? true : key === "funnel" ? page === "grow" : page === (SECTION_PAGE[key] || "sim") && (viewMode === "guided" ? true : viewMode === "wizard" ? (key === "income" ? WIZARD_ORDER[wizardStep - 1] === "income" || WIZARD_ORDER[wizardStep - 1] === "income-addons" : WIZARD_ORDER[wizardStep - 1] === key) : tab === key);
   const SECTION_INTROS = {
     income: {
       n: 1,
@@ -1145,7 +1168,8 @@ function PracticeIncomePlanner() {
       stat: () => fmt(cur.profitYr) + " profit a year"
     },
     taxstrategy: {
-      n: 4,
+      n: 1,
+      kicker: "Tax & retirement \u00B7 its own page for a reason",
       title: "Tax strategy",
       blurb: "The two levers that change what you keep: where you put money before it is taxed, and how your practice is structured \u2014 in that order, because that is the order they are worth. Everything here is an estimate, not personalised advice.",
       stat: () => Math.round(cur.takeHomePct * 100) + "% take-home"
@@ -1160,7 +1184,7 @@ function PracticeIncomePlanner() {
       className: "sec-intro-top"
     }, /*#__PURE__*/React.createElement("span", {
       className: "sec-intro-kicker"
-    }, d.n + " of 4 \u00B7 Your finances"), /*#__PURE__*/React.createElement("span", {
+    }, d.kicker || (d.n + " of 3 \u00B7 Your practice")), /*#__PURE__*/React.createElement("span", {
       className: "sec-intro-stat"
     }, d.stat())), /*#__PURE__*/React.createElement("h2", {
       className: "sec-intro-title"
@@ -1851,7 +1875,7 @@ function PracticeIncomePlanner() {
   }, navOpen ? "\u00D7" : "\u2630"), /*#__PURE__*/React.createElement("nav", {
     className: "sitenav-links" + (navOpen ? " open" : ""),
     "aria-label": "Site"
-  }, [["#sim", "Simulator", "run your numbers", page === "sim"], ["#grow", "Grow Your Practice", "marketing and sales", page === "grow"], ["rates.html", "Field Notes", "what CA actually pays", false], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon", "the practice, as a game", false]].map(([href, t, dsc, on]) => /*#__PURE__*/React.createElement("a", {
+  }, [["#sim", "Simulator", "run your numbers", page === "sim"], ["#tax", "Tax & Retirement", "what you actually keep", page === "tax"], ["#grow", "Grow Your Practice", "marketing and sales", page === "grow"], ["rates.html", "Field Notes", "what CA actually pays", false], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon", "the practice, as a game", false]].map(([href, t, dsc, on]) => /*#__PURE__*/React.createElement("a", {
     key: href,
     href: href,
     target: /^https?:/.test(href) ? "_blank" : null,
@@ -1974,7 +1998,7 @@ function PracticeIncomePlanner() {
     className: "growlanding-cost growcard-calc-empty"
   }, "Enter a rate and target sessions above to see what a quiet month would cost you."), /*#__PURE__*/React.createElement("p", {
     className: "growlanding-bridge"
-  }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement(React.Fragment, null, showOrient && /*#__PURE__*/React.createElement("div", {
+  }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement(React.Fragment, null, showOrient && page === "sim" && /*#__PURE__*/React.createElement("div", {
     className: "orient"
   }, /*#__PURE__*/React.createElement("div", {className: "orient-rule"},
       /*#__PURE__*/React.createElement("i", {style: {width: "34%", background: "#B5483F"}}),
@@ -2018,15 +2042,15 @@ function PracticeIncomePlanner() {
   }, "Enter a rate below and this fills in."))), (widgetCollapsed ? /*#__PURE__*/React.createElement("button", {
   className: "sticky-summary-tab",
   onClick: () => setWidgetCollapsed(false),
-  title: "Show gross / expenses / tax / net"
+  title: page === "tax" ? "Show gross / expenses / tax / net" : "Show gross / expenses / profit"
 }, /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-tab-val",
   style: {
     color: d.color
   }
-}, fmt(cur.netYr)), /*#__PURE__*/React.createElement("span", {
+}, fmt(page === "tax" ? cur.netYr : cur.profitYr)), /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-tab-lbl"
-}, "net \u25C2")) : /*#__PURE__*/React.createElement("div", {
+}, (page === "tax" ? "net" : "profit") + " \u25C2")) : /*#__PURE__*/React.createElement("div", {
   className: "sticky-summary" + (justPulsed ? " pulsing" : ""),
   style: {
     borderColor: d.color
@@ -2047,22 +2071,27 @@ function PracticeIncomePlanner() {
   className: "sticky-summary-label"
 }, "\u2212 Expenses"), /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-val neg"
-}, fmt(cur.expYr))), /*#__PURE__*/React.createElement("div", {
+}, fmt(cur.expYr))),
+  // The simulator page stops at pre-tax profit, so the widget stops there
+  // too - a floating "= Net" while the section below says "Profit before
+  // tax" is exactly the contradiction the split was meant to remove. On the
+  // tax page it shows the whole chain, because that page earns it.
+  page === "tax" ? /*#__PURE__*/React.createElement("div", {
   className: "sticky-summary-row"
 }, /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-label"
 }, "\u2212 Tax"), /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-val neg"
-}, fmt(cur.totalTax))), /*#__PURE__*/React.createElement("div", {
+}, fmt(cur.totalTax))) : null, /*#__PURE__*/React.createElement("div", {
   className: "sticky-summary-row sticky-summary-net"
 }, /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-label"
-}, "= Net"), /*#__PURE__*/React.createElement("span", {
+}, page === "tax" ? "= Net" : "= Profit"), /*#__PURE__*/React.createElement("span", {
   className: "sticky-summary-val",
   style: {
     color: d.color
   }
-}, fmt(cur.netYr))), /*#__PURE__*/React.createElement("div", {
+}, fmt(page === "tax" ? cur.netYr : cur.profitYr))), /*#__PURE__*/React.createElement("div", {
   className: "sticky-summary-sub"
 }, "$", rate, "/hr \u00B7 ", sessions, " sessions/wk"), /*#__PURE__*/React.createElement("div", {
   style: {
@@ -2102,7 +2131,11 @@ function PracticeIncomePlanner() {
 }, "\u2709\uFE0F Email URL"), /*#__PURE__*/React.createElement("button", {
   onClick: () => {
     setShowSaveMenu(false);
-    setTimeout(() => window.print(), 100);
+    setPrinting(true);
+    // One paint to get every page's sections into the DOM, then print.
+    setTimeout(() => {
+      try { window.print(); } finally { setPrinting(false); }
+    }, 250);
   }
 }, "\uD83D\uDDA8\uFE0F Print entire simulation"))), /*#__PURE__*/React.createElement("button", {
   className: "summary-btn",
@@ -2135,14 +2168,20 @@ function PracticeIncomePlanner() {
     className: "jumpnav-group"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jumpnav-group-lbl"
-  }, "Your finances"), [["sec-income", "Income", fmt(cur.grossYr), 0, "1", rate > 0 && sessions > 0],
-    ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr), 0, "2", cur.expYr > 0],
-    ["sec-profit", "Profit", fmt(cur.profitYr), 0, "=", null],
-    ["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0, "3", taxStepsDone >= 4]
-   ].map(([id, lbl, val, prog, n, done]) => /*#__PURE__*/React.createElement("a", {
+  }, page === "tax" ? "Tax & retirement" : "Your practice"),
+    (page === "tax"
+      ? [["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0, "1", taxStepsDone >= 4],
+         ["sec-residency", "Residency", "compare", 0, "2", null],
+         ["sim", "\u2190 Back to the numbers", fmt(cur.profitYr) + " profit", 0, "\u21A9", null]]
+      : [["sec-income", "Income", fmt(cur.grossYr), 0, "1", rate > 0 && sessions > 0],
+         ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr), 0, "2", cur.expYr > 0],
+         ["sec-profit", "Profit", fmt(cur.profitYr), 0, "=", null],
+         ["tax", "Tax & Retirement", fmt(cur.netYr) + " after tax", 0, "\u2192", null]]
+   ).map(([id, lbl, val, prog, n, done]) => /*#__PURE__*/React.createElement("a", {
     key: id,
     href: "#" + id,
     className: "jumpnav-pill" + (activeSection === id ? " jumpnav-active" : "")
+      + (/^sec-/.test(id) ? "" : " jumpnav-cross")
       + (done === null ? " jumpnav-derived" : done ? " jumpnav-done" : "")
   }, /*#__PURE__*/React.createElement("i", {
     className: "jumpnav-n"
@@ -2447,7 +2486,7 @@ function PracticeIncomePlanner() {
         /*#__PURE__*/React.createElement("b", null, "+", fmt(next.delta), " a year"),
         " for charging $", next.r - focus[0].r, " more a session \u2014 no extra hours, no new clients, nothing to file. Your running costs do not move when your rate does, so every dollar of the rise lands in profit; your margin goes from ",
         focus[0].keepPct, "% to ", next.keepPct, "%. Tax takes its share of it later, in ",
-        /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy"}, "Tax strategy"), ".") : null,
+        /*#__PURE__*/React.createElement("a", {href: "#tax"}, "Tax & Retirement"), ".") : null,
       /*#__PURE__*/React.createElement("details", {className: "ratefold"},
         /*#__PURE__*/React.createElement("summary", null,
           /*#__PURE__*/React.createElement("b", null, "Every rate from $", RATES[0], " to $", RATES[RATES.length - 1]),
@@ -2834,9 +2873,11 @@ function PracticeIncomePlanner() {
   }, "Continue \u2192") : /*#__PURE__*/React.createElement("button", {
     className: "wizard-btn primary",
     onClick: () => setViewMode("current")
-  }, "Done \u2014 see full dashboard \u2192")), (function () {
+  }, "Done \u2014 see full dashboard \u2192")), (page === "tax" || printing) && (function () {
     // The year on one page, in the language of a pay statement. Everything
     // above is a decision; this is the receipt for the decisions you made.
+    // Lives on the tax page: it is a net-of-everything figure, and the
+    // simulator page deliberately stops at pre-tax profit.
     const wk = weeksWorked, sess = sessions * wk;
     const ent = entityType === "s_corp" ? "Professional Corp (S-corp election)" : "Sole Proprietorship";
     const entInk = entityType === "s_corp" ? "#6A4A78" : "#3B5A7A";
@@ -3022,7 +3063,7 @@ function PracticeIncomePlanner() {
   }, "California Therapy Practice Simulator")), /*#__PURE__*/React.createElement("nav", {
     className: "sitefoot-links",
     "aria-label": "Site, footer"
-  }, [["#sim", "Simulator"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
+  }, [["#sim", "Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
     key: href,
     href: href,
     target: /^https?:/.test(href) ? "_blank" : null,
@@ -5829,7 +5870,7 @@ function ExpensesTab({
   }, fmt(expYr), /*#__PURE__*/React.createElement("em", null, "/yr"))))), /*#__PURE__*/React.createElement("p", {className: "exp-point"},
     /*#__PURE__*/React.createElement("b", null, "None of this costs you the sticker price. "),
     "Every line above is a Schedule\u00a0C deduction, so each dollar you spend also lowers what you are taxed on. Exactly how much comes back is a tax question, and it is answered in ",
-    /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy"}, "Tax strategy"),
+    /*#__PURE__*/React.createElement("a", {href: "#tax"}, "Tax & Retirement"),
     " along with everything else tax does to these numbers."));
 }
 
@@ -5920,8 +5961,8 @@ function ProfitTab({
               "Everything above this line is the business you run. The ",
               /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
               " gap is a separate question with its own levers \u2014 what you set aside before tax, and how the practice is structured.")),
-      /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy", className: "handoff-go"},
-        "Work on the tax \u2193"));
+      /*#__PURE__*/React.createElement("a", {href: "#tax", className: "handoff-go"},
+        "Work on the tax \u2192"));
   })();
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "stats"
