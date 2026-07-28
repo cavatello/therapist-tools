@@ -1065,6 +1065,28 @@ function PracticeIncomePlanner() {
   const [fbSent, setFbSent] = useState(false);
   const [showSaveMenu, setShowSaveMenu] = useState(false);
   const [widgetCollapsed, setWidgetCollapsed] = useState(false);
+  // Most people arrive here from a link posted in a therapist group, with no idea
+  // what this is. They get one line saying who it is for; everyone else does not.
+  // Saved state is the signal - the app already writes it under STORE_KEY.
+  const [navOpen, setNavOpen] = useState(false);
+  // Two sticky rows, and the second has to sit exactly under the first. The bar's
+  // height changes with viewport width, the menu being open, and the wordmark
+  // wrapping - so measure it rather than hard-coding an offset. Three hand-guessed
+  // offsets is what made the first attempt at this overlap.
+  useEffect(() => {
+    const bar = document.querySelector(".sitenav");
+    if (!bar) return;
+    const sync = () => document.documentElement.style.setProperty(
+      "--navh", Math.round(bar.getBoundingClientRect().height) + "px");
+    sync();
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(sync) : null;
+    if (ro) ro.observe(bar);
+    window.addEventListener("resize", sync);
+    return () => { if (ro) ro.disconnect(); window.removeEventListener("resize", sync); };
+  }, [navOpen]);
+  const [showOrient, setShowOrient] = useState(() => {
+    try { return !localStorage.getItem(STORE_KEY); } catch (e) { return true; }
+  });
   useEffect(() => {
     setJustPulsed(true);
     const t = setTimeout(() => setJustPulsed(false), 1200);
@@ -1801,10 +1823,14 @@ function PracticeIncomePlanner() {
     className: "sitenav-mono"
   }, "CA"), /*#__PURE__*/React.createElement("span", {
     className: "sitenav-wordmark"
-  }, "Therapy Practice"), VARIANT === "01" && /*#__PURE__*/React.createElement("span", {
+  }, "California Therapy Practice Simulator"), VARIANT === "01" && /*#__PURE__*/React.createElement("span", {
     className: "v01-tagline"
-  }, "California \u00B7 2026 net estimates")), /*#__PURE__*/React.createElement("nav", {
-    className: "sitenav-links",
+  }, "California \u00B7 2026 net estimates")), /*#__PURE__*/React.createElement("button", {
+    className: "sitenav-menu" + (navOpen ? " on" : ""),
+    onClick: () => setNavOpen(v => !v),
+    "aria-expanded": navOpen, "aria-label": "Other pages"
+  }, navOpen ? "\u00D7" : "\u2630"), /*#__PURE__*/React.createElement("nav", {
+    className: "sitenav-links" + (navOpen ? " open" : ""),
     "aria-label": "Site"
   }, [["#sim", "Simulator", "run your numbers", page === "sim"], ["#grow", "Grow Your Practice", "marketing and sales", page === "grow"], ["rates.html", "Field Notes", "what CA actually pays", false], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon", "the practice, as a game", false]].map(([href, t, dsc, on]) => /*#__PURE__*/React.createElement("a", {
     key: href,
@@ -1929,17 +1955,14 @@ function PracticeIncomePlanner() {
     className: "growlanding-cost growcard-calc-empty"
   }, "Enter a rate and target sessions above to see what a quiet month would cost you."), /*#__PURE__*/React.createElement("p", {
     className: "growlanding-bridge"
-  }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement("header", {
-    className: "hero"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-eyebrow"
-  }, "2026 net estimates"), /*#__PURE__*/React.createElement("h1", {
-    className: "hero-title"
-  }, "California Therapy Practice", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
-    className: "accent"
-  }, "Simulator")), /*#__PURE__*/React.createElement("p", {
-    className: "hero-sub"
-  }, "What your practice actually pays \u2014 from your session rate to your entity structure to your retirement, worked out together for a California license."), VARIANT === "02" && /*#__PURE__*/React.createElement("div", {
+  }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement(React.Fragment, null, showOrient && /*#__PURE__*/React.createElement("div", {
+    className: "orient"
+  }, /*#__PURE__*/React.createElement("span", null,
+    /*#__PURE__*/React.createElement("b", null, "For California-licensed therapists"),
+    " \u2014 LMFT, LCSW, LPCC and psychologists. What your practice actually pays, from your session rate through entity structure to retirement. 2026 federal and California rates."),
+    /*#__PURE__*/React.createElement("button", {
+      className: "orient-x", onClick: () => setShowOrient(false), "aria-label": "Dismiss"
+    }, "\u00D7")), VARIANT === "02" && /*#__PURE__*/React.createElement("div", {
     className: "v02-kpi"
   }, [["Gross", fmt(cur.grossYr), ""], ["\u2212 Expenses", fmt(cur.expYr), "neg"], ["\u2212 Tax", fmt(cur.totalTax), "neg"]].map(([k, v, cls]) => /*#__PURE__*/React.createElement("div", {
     key: k,
@@ -7607,4 +7630,92 @@ td.num-head{text-align:right;}
   .slider{height:28px; margin:-11px 0;}
   .leg{padding:8px 13px; min-height:36px;}
 }
+/* ===================================================================
+   THE HEADER. Two sticky rows: who this is, and where you are in it.
+   The hero used to sit between them - 186px on a laptop, 204px on a
+   phone, static for the life of the page, and it pushed the first
+   control to y=653 / y=1,203. Its job (telling a cold visitor what
+   this is) now belongs to the wordmark, which is always visible
+   because the bar is sticky, plus a one-line strip on a first visit.
+   =================================================================== */
+.sitenav{position:sticky; top:0; z-index:40; background:#F3EFE5;
+  border-bottom:1px solid var(--line); margin:0; padding:10px 22px;
+  display:flex; align-items:center; flex-wrap:nowrap; gap:16px; max-width:100%;}
+.sitenav-mark{flex:none;}
+.sitenav-wordmark{white-space:nowrap;}
+.sitenav-links{flex-wrap:nowrap; min-width:0;}
+.guided-jumpnav{position:sticky; top:var(--navh,56px); z-index:35; order:-1; margin:0;
+  padding:9px 22px; box-shadow:0 1px 0 var(--line); border-bottom:0;}
+.guided-jumpnav .jumpnav-group-lbl{display:none;}
+.guided-jumpnav .jumpnav-group{flex:1;}
+.guided-jumpnav .jumpnav-pill{flex:1; justify-content:flex-start;}
+
+/* first visit only - who this is for, in one line */
+.orient{order:-1; display:flex; align-items:flex-start; gap:12px;
+  background:#FBF1E2; border-bottom:1px solid #E8D9BE;
+  padding:11px 22px; font-size:13px; line-height:1.55; color:#5C4A33;}
+.orient b{color:var(--ink);}
+.orient-x{margin-left:auto; flex:none; border:0; background:transparent;
+  color:#A08B6B; font-size:17px; line-height:1; cursor:pointer; padding:0 2px;}
+.orient-x:hover{color:var(--ink);}
+
+/* the sticky nav already says which section you are in and what it is worth */
+.sec-intro-kicker, .sec-intro-stat{display:none;}
+.sec-intro-top{margin-bottom:0;}
+
+@media (max-width:780px){
+  .sitenav{padding:9px 14px; gap:9px;}
+  .sitenav-wordmark{font-size:12.5px; line-height:1.2; white-space:normal; max-width:150px;}
+  .sitenav-links{display:none;}
+  .guided-jumpnav{padding:8px 14px;}
+  .guided-jumpnav .jumpnav-pill{padding:6px 8px;}
+  .guided-jumpnav .jumpnav-lbl{font-size:9px;}
+  .guided-jumpnav .jumpnav-val{font-size:11.5px;}
+  .orient{padding:10px 14px; font-size:12px;}
+}
+
+
+/* The running total used to float over the page: fixed, 150px wide, with a close
+   button and a collapsed tab - three affordances that existed only because it
+   covered content. It is now the third line of the sticky header, so it covers
+   nothing and needs none of them. Same JSX, same handlers; layout only. */
+.sticky-summary{position:static !important; right:auto; width:auto !important;
+  order:-1; display:flex; align-items:center; flex-wrap:wrap; gap:4px 18px;
+  border:0 !important; border-bottom:1px solid var(--line) !important; border-radius:0 !important;
+  box-shadow:none !important; padding:7px 22px !important; background:rgba(251,249,243,.97);}
+.sticky-summary-row.sticky-summary-net{border-top:0 !important; padding-top:0 !important; margin-top:0 !important;}
+.sitenav-mark{margin-right:auto;}
+.sticky-summary-close, .sticky-summary-tab, .sticky-summary-hint{display:none !important;}
+.sticky-summary-row{display:flex; align-items:baseline; gap:6px;}
+.sticky-summary-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--muted);}
+.sticky-summary-val{font-family:'Fraunces',serif; font-weight:700; font-size:14px;}
+.sticky-summary-row.sticky-summary-net .sticky-summary-val{font-size:18px;}
+.sticky-summary-sub{font-size:11px; color:var(--muted);}
+.sticky-summary > div[style]{margin-left:auto;}
+.sticky-summary .summary-btn{width:auto !important; margin:0 !important; flex:none;
+  font-size:11px !important; padding:5px 13px !important; white-space:nowrap;}
+.sticky-summary .save-menu{right:0; left:auto;}
+@media (max-width:780px){
+  .sticky-summary{padding:6px 14px !important; gap:3px 12px;}
+  .sticky-summary-label{font-size:9px;}
+  .sticky-summary-val{font-size:12px;}
+  .sticky-summary-row.sticky-summary-net .sticky-summary-val{font-size:15px;}
+  .sticky-summary-sub{display:none;}
+  .sticky-summary .summary-btn{font-size:10px !important; padding:4px 10px !important;}
+}
+
+/* On a phone the four links and their descriptions were 129px of permanent
+   explanation for three pages you did not click. They are one tap away instead. */
+.sitenav-menu{display:none; flex:none; border:1px solid var(--line); background:#fff;
+  border-radius:99px; width:34px; height:34px; font-size:15px; line-height:1;
+  color:var(--muted); cursor:pointer; padding:0;}
+.sitenav-menu.on{background:var(--ink); color:#fff; border-color:var(--ink);}
+@media (max-width:780px){
+  .sitenav{flex-wrap:wrap;}
+  .sitenav-menu{display:block; margin-left:8px;}
+  .sitenav-links.open{display:flex !important; flex-wrap:wrap; flex-basis:100%;
+    gap:4px; margin-top:8px; padding-top:8px; border-top:1px solid var(--line);}
+  .sitenav-links.open .sitenav-item{flex:1 1 45%;}
+}
+
 `;
