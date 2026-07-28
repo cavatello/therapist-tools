@@ -3150,6 +3150,12 @@ function TaxStrategyTab({
   // Declared here, at the top of the component: structureRows is evaluated
   // early and anything it references must exist before it. (TDZ, again.)
   const horizonReady = taxAge > 0 && retireAge > 0 && investReturn > 0;
+  // Phase 2 gate. Business structure, the 28-row side-by-side and the Social
+  // Security detail total ~8,700px and are only actionable if you are already
+  // incorporated or are actively considering it. A sole proprietor who has
+  // been told "don't incorporate" should not have to scroll past all of it.
+  // Corp users always see it (they need the salary control). Session-only.
+  const [showStructure, setShowStructure] = useState(false);
   const fmt0 = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
   const pct1 = n => (n * 100).toFixed(1) + "%";
   const inputField = (label, value, onChange, min, max) => /*#__PURE__*/React.createElement("div", {
@@ -3830,6 +3836,9 @@ const seEducation = (function () {
   // not a lawful option - so neither state may display a "saving".
   const splitLive = sCorpSalaryInput > 0;
   const isSole = entityType === "sole_prop";
+  // Declared here, well above the stepper rail and the gate card themselves,
+  // because both read it and this file punishes forward references. (TDZ.)
+  const structureOpen = !isSole || showStructure;
   const realSaved = splitLive ? psplit.saved : 0;
   const sliderBand = salaryBandFor(sCorpSalaryInput, recNetProfit);
   const soleNoSplit = /*#__PURE__*/React.createElement("div", {className: "nosplit"},
@@ -4275,10 +4284,14 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
     {n: "3", t: "Running costs", s: runCostTotal > 0 ? fmt0(runCostTotal) + " a year" : "optional — zero flatters the corp", done: runCostTotal > 0, opt: true},
     {n: "→", t: "Compare & decide", s: horizonReady ? "all 28 rows open" : "9 rows need step 1", done: horizonReady, out: true}
   ];
-  const stepsDone = stepStates.filter(x => x.done).length;
+  // With the structure detail gated, steps 2-4 live inside content the reader
+  // cannot see. Promising "1 of 4 done" against three invisible steps is a
+  // lie the rail should not tell — so show only what is actually reachable.
+  const railSteps = structureOpen ? stepStates : stepStates.slice(0, 1);
+  const stepsDone = railSteps.filter(x => x.done).length;
   const stepperRail = /*#__PURE__*/React.createElement("div", {className: "rail-wrap"},
     /*#__PURE__*/React.createElement("div", {className: "rail"},
-      stepStates.map(x => /*#__PURE__*/React.createElement("div", {
+      railSteps.map(x => /*#__PURE__*/React.createElement("div", {
         key: x.t,
         className: "rail-step" + (x.done ? " done" : x.opt ? " opt" : "") + (x.out ? " out" : "")
       }, /*#__PURE__*/React.createElement("span", {className: "rail-top"},
@@ -4286,9 +4299,9 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
           /*#__PURE__*/React.createElement("b", null, x.t)),
         /*#__PURE__*/React.createElement("span", {className: "rail-s"}, x.s)))),
     /*#__PURE__*/React.createElement("div", {className: "rail-bar"},
-      /*#__PURE__*/React.createElement("i", {style: {width: (stepsDone / 4 * 100) + "%"}})),
+      /*#__PURE__*/React.createElement("i", {style: {width: (stepsDone / railSteps.length * 100) + "%"}})),
     /*#__PURE__*/React.createElement("div", {className: "rail-meta"},
-      /*#__PURE__*/React.createElement("b", null, stepsDone + " of 4 done"),
+      /*#__PURE__*/React.createElement("b", null, stepsDone + " of " + railSteps.length + " done"),
       /*#__PURE__*/React.createElement("span", null, "everything saves as you type")));
 
   // ---- where the money actually goes ----------------------------------
@@ -4307,7 +4320,8 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const mfProfit = Math.max(1, mfTaxNone + mfBankNone);
   const mfSaved = mfTaxNone - mfTaxWith;
   const mfTotalWith = mfBankWith + mfContrib;
-  const mfCost = mfBankNone - mfBankWith;
+  const mfCost = Math.max(0, Math.round(mfContrib) - Math.round(mfSaved));
+  const mfCostEngine = mfBankNone - mfBankWith;       // raw engine delta, kept for reference
   const mfEffRate = mfContrib > 0 ? mfSaved / mfContrib : 0;
   const mfYears = Math.max(0, retireAge - taxAge);
   const mfGrown = horizonReady ? mfContrib * Math.pow(1 + investReturn / 100, mfYears) : 0;
@@ -4516,7 +4530,9 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   })();
 
   const workingToggle = !vReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
-    /*#__PURE__*/React.createElement("span", null, "The second decision — whether to incorporate — is below, folded to one line. Everything after it is the working: the full comparison, the compliance calendar and the Social Security trade-off. Almost nobody needs it; it is here if you want to check the arithmetic."));
+    /*#__PURE__*/React.createElement("span", null, structureOpen
+      ? "The second decision — whether to incorporate — is above, folded to one line. Everything below it is the working: the full comparison, the compliance calendar and the Social Security trade-off. Almost nobody needs it; it is here if you want to check the arithmetic."
+      : "The second decision — whether to incorporate — is above, folded to one line. The working behind it — the full comparison, the compliance calendar and the Social Security trade-off — runs to about six screens and is tucked away further down. Almost nobody needs it; it is one click away if you want to check the arithmetic."));
 
   // =====================================================================
   // THE BIGGER LEVER. This runs FIRST in the rendered order, above the
@@ -5299,10 +5315,50 @@ const ssSection = (function () {
     className: "pay-note"
   }, "Figures use projected 2026 IRS contribution limits and income phase-out ranges, and a simplified compounding model (same contribution repeated every year at a flat return, no fees or taxes on withdrawal modeled). Solo 401(k) employer contributions assume a sole proprietorship (20% of net self-employment earnings); an S-corp election changes this calculation to 25% of W-2 wages instead. This isn't personalized investment or tax advice \u2014 a CPA or fee-only fiduciary advisor can confirm what's actually deductible and suitable for you."));
 
+  // =====================================================================
+  // THE STRUCTURE GATE. Three blocks below \u2014 the structure picker, the
+  // 28-row side-by-side and the Social Security detail \u2014 run to roughly
+  // 8,700px. For a sole proprietor who has just been told the election
+  // would cost them money, none of it is actionable. So state the answer
+  // and the price, and let them ask for the working. Anyone already
+  // incorporated skips the gate: they need the salary control.
+  // =====================================================================
+  const gateLine = !vReady
+    ? "Enter your rate and caseload above and this answers itself."
+    : vNet < -500
+      ? React.createElement(React.Fragment, null,
+          "Incorporating would cost you about ", React.createElement("b", null, fmt0(Math.abs(vNet))),
+          " a year at a salary you could defend \u2014 after payroll, California's entity tax and the second tax return. What sits behind this button is ",
+          React.createElement("b", null, "the working, not a decision you need to make."))
+      : vNet < 1500
+        ? React.createElement(React.Fragment, null,
+            "Incorporating would net you roughly ", React.createElement("b", null, fmt0(Math.abs(vNet))),
+            " a year \u2014 a payroll run every fortnight and a second tax return every March, for that. Open it below if you want to see how thin the margin is.")
+        : React.createElement(React.Fragment, null,
+            "Incorporating could net you about ", React.createElement("b", null, fmt0(vNet)),
+            " a year at a defensible salary, after all the running costs. This is the one case where the detail behind this button is worth reading properly.");
+
+  const structureGate = isSole ? /*#__PURE__*/React.createElement("section", {className: "card sgate"},
+    /*#__PURE__*/React.createElement("div", {className: "sgate-k"}, "The structure question"),
+    /*#__PURE__*/React.createElement("h2", {className: "sgate-h", style: {color: vVerdict.c}}, vVerdict.t),
+    /*#__PURE__*/React.createElement("p", {className: "sgate-p"}, gateLine),
+    /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "sgate-b" + (showStructure ? " on" : ""),
+      "aria-expanded": showStructure ? "true" : "false",
+      onClick: () => setShowStructure(v => !v)
+    }, showStructure
+      ? "Hide the structure detail"
+      : "Show the full comparison \u2014 and how to switch"),
+    /*#__PURE__*/React.createElement("p", {className: "sgate-f"}, showStructure
+      ? "Sole Proprietorship vs Professional Corp side by side, the salary split, and what each does to Social Security."
+      : "Both structures side by side, the salary split, and what each does to Social Security. Long \u2014 about six screens.")) : null;
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
-    mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection),
-    mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection),
-    ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+    structureGate,
+    structureOpen ? mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection) : null,
+    structureOpen ? mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection) : null,
+    structureOpen && ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null, expertSection, leversPanel, step1Done &&/*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -6131,6 +6187,24 @@ const CSS = `
 .steplock-item{font-size:13px; padding:6px 12px; border-radius:20px; border:1px solid #E7E2D6; background:#fff; color:#7C766A;}
 .steplock-item.ok{border-color:#3F9577; color:#2C6B53; background:#EAF3EE; font-weight:600;}
 
+/* ===== structure gate =====
+   Stands in for ~8,700px of corp-only detail when the user is a sole
+   proprietor. Amber left border marks it as decision-tier, same as the
+   other choices that cascade across the whole tool. */
+section.card.sgate{border-left:3px solid #C98B4B;}
+.sgate-k{font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:#9A9385; font-weight:600; margin-bottom:6px;}
+.sgate-h{font-family:Fraunces,Georgia,serif; font-size:23px; line-height:1.25; margin:0 0 10px;}
+.sgate-p{margin:0 0 16px; font-size:14.5px; line-height:1.65; color:#4A463C; max-width:660px;}
+.sgate-b{font-family:Inter,sans-serif; font-size:14px; font-weight:600; color:#26241E; cursor:pointer;
+  background:#fff; border:1px solid #D9D1BE; border-radius:9px; padding:11px 18px;}
+.sgate-b:hover{border-color:#C98B4B; background:#FDFBF6;}
+.sgate-b.on{background:#F6F2E8; border-color:#C98B4B;}
+.sgate-f{margin:10px 0 0; font-size:12.5px; color:#7C766A; line-height:1.55; max-width:620px;}
+@media (max-width:780px){
+  .sgate-h{font-size:20px;}
+  .sgate-b{width:100%; text-align:center;}
+}
+
 /* ===== levers ===== */
 .levers .lever{display:flex; align-items:center; gap:14px; padding:11px 0; border-bottom:1px solid #F1EDE3; flex-wrap:wrap;}
 .levers .lever:last-of-type{border-bottom:0;}
@@ -6927,7 +7001,12 @@ const CSS = `
 .peek-go:hover{background:#3D3931;}
 @media (max-width:760px){
   .sfields{grid-template-columns:1fr;}
-  .stepcard-count{margin-left:0; text-align:left; width:100%; display:flex; align-items:baseline; gap:7px;}
+  /* .stepcard-count wants a full-width row of its own on a phone, but its
+     parent is a non-wrapping flex row and the item is flex-shrink:0 — so
+     width:100% pushed it ~97px past the viewport. Let the row wrap and give
+     the counter its own line properly. */
+  .stepcard-head{flex-wrap:wrap;}
+  .stepcard-count{margin-left:0; text-align:left; flex:1 0 100%; width:auto; display:flex; align-items:baseline; gap:7px;}
   .peek-row span{font-size:11.5px;}
   .peek-row i{width:78px; font-size:12px;}
 }
