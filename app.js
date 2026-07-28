@@ -2333,45 +2333,7 @@ function PracticeIncomePlanner() {
   }, "*marginal — taxed together with your primary rate at the combined self-employment rate, so this is what retreats/events actually add to take-home"))))), /*#__PURE__*/React.createElement("p", {
     className: "term-clarify"
   }, /*#__PURE__*/React.createElement("b", null, "Gross"), " = what you bill, before anything is taken out. ", /*#__PURE__*/React.createElement("b", null, "Expenses"), " = what it costs to run the practice. ", /*#__PURE__*/React.createElement("b", null, "Profit"), " (sometimes called net practice income) = gross minus expenses, before tax. ", /*#__PURE__*/React.createElement("b", null, "Net"), " = what actually lands in your bank account, after tax too."), /*#__PURE__*/React.createElement("section", {
-    className: "stats"
-  }, /*#__PURE__*/React.createElement(Stat, {
-    big: true,
-    label: secondaryOn || retreatOn ? "Combined gross / year" : "Gross per year",
-    value: fmt(cur.grossYr),
-    accent: "#26241E",
-    note: secondaryOn || retreatOn ? [`therapy ${fmt(cur.grossTherYr)}`, secondaryOn ? `secondary ${fmt(cur.secondaryYr)}` : null, retreatOn ? `retreats ${fmt(cur.retreatYr)}` : null].filter(Boolean).join(" + ") : `at $${rate}/hr · ${sessions} sessions/wk`
-  }), cur.expYr <= 0 && /*#__PURE__*/React.createElement("div", {
-    className: "stat statpend"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "stat-label"
-  }, "Net per year"), /*#__PURE__*/React.createElement("div", {
-    className: "stat-value sm"
-  }, "not yet"), /*#__PURE__*/React.createElement("div", {
-    className: "stat-note"
-  }, "What you keep depends on your expenses and your business structure \u2014 neither is entered yet. Add your costs in Expenses below, then pick a structure in Tax Strategy, and the full picture appears there rather than being guessed at here.")), cur.expYr > 0 && /*#__PURE__*/React.createElement(Stat, {
-    big: true,
-    label: secondaryOn || retreatOn ? "Combined net / year" : "Net per year",
-    value: fmt(cur.netYr),
-    accent: d.color,
-    note: `take-home ${fmt(cur.netMo)}/mo · ${fmt(cur.netWk)}/wk`
-  }), cur.expYr > 0 && /*#__PURE__*/React.createElement("div", {
-    className: "stat-col"
-  }, /*#__PURE__*/React.createElement(Stat, {
-    label: "Expenses / year",
-    value: "\u2212" + fmt(cur.expYr),
-    neg: true,
-    note: `${fmt(cur.expMo)}/mo \u00B7 Schedule C deductions`
-  }), /*#__PURE__*/React.createElement(Stat, {
-    label: "Tax & withholding",
-    value: "\u2212" + fmt(cur.totalTax),
-    neg: true,
-    note: "federal · CA · FICA · SDI"
-  }), /*#__PURE__*/React.createElement(Stat, {
-    label: "Take-home rate",
-    value: Math.round(cur.takeHomePct * 100) + "%",
-    note: "of gross, after tax"
-  }))), /*#__PURE__*/React.createElement("section", {
-    className: "strip"
+    className: "strip strip-lede"
   }, /*#__PURE__*/React.createElement("div", {
     className: "strip-cell"
   }, /*#__PURE__*/React.createElement("span", {
@@ -2380,7 +2342,7 @@ function PracticeIncomePlanner() {
     className: "strip-v"
   }, fmt(cur.grossWk)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "net ", fmt(cur.netWk))), /*#__PURE__*/React.createElement("div", {
+  }, "$", rate, " \u00d7 ", sessions, " sessions")), /*#__PURE__*/React.createElement("div", {
     className: "strip-cell"
   }, /*#__PURE__*/React.createElement("span", {
     className: "strip-k"
@@ -2388,7 +2350,19 @@ function PracticeIncomePlanner() {
     className: "strip-v"
   }, fmt(cur.grossMo)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "net ", fmt(cur.netMo)))), (function () {
+  }, sessions * 4.33 >= 1 ? Math.round(sessions * 4.33) + " sessions" : "")),
+    /*#__PURE__*/React.createElement("div", {
+    className: "strip-cell strip-year"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "strip-k"
+  }, secondaryOn || retreatOn ? "Combined gross / year" : "Gross / year"), /*#__PURE__*/React.createElement("span", {
+    className: "strip-v"
+  }, fmt(cur.grossYr)), /*#__PURE__*/React.createElement("span", {
+    className: "strip-sub"
+  }, secondaryOn || retreatOn
+      ? [`therapy ${fmt(cur.grossTherYr)}`, secondaryOn ? `secondary ${fmt(cur.secondaryYr)}` : null,
+         retreatOn ? `retreats ${fmt(cur.retreatYr)}` : null].filter(Boolean).join(" + ")
+      : `${weeksWorked} working weeks`))), (function () {
     const rateRow = r => {
       const gy = grossYr(r, sessions, weeksWorked) + job2Yr + otherIncomeYr;
       const ny = netYr(r, sessions);
@@ -5887,12 +5861,6 @@ function ProfitTab({
     value: fmt(cur.netYr),
     accent: color,
     note: `after ${fmt(cur.expYr)} expenses and ${fmt(Math.round(cur.totalTax))} tax`
-  }), /*#__PURE__*/React.createElement(Stat, {
-    big: true,
-    label: "Net profit / month",
-    value: fmt(cur.netMo),
-    accent: "#26241E",
-    note: `${fmt(cur.netWk)} per week`
   }), /*#__PURE__*/React.createElement("div", {
     className: "stat-col"
   }, /*#__PURE__*/React.createElement(Stat, {
@@ -7536,6 +7504,9 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 
 /* gross/net strip */
 .strip{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; margin-bottom:28px;}
+.strip-lede{margin-top:4px;}
+.strip-lede .strip-year{background:#F4F8F6; border-color:#C9DED4;}
+.strip-lede .strip-year .strip-v{font-size:30px; color:#2F7A61;}
 .strip-cell{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 20px; display:flex; flex-direction:column;}
 .strip-k{font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);}
 .strip-v{font-family:'Fraunces',serif; font-weight:600; font-size:24px; letter-spacing:-.02em; margin-top:8px; line-height:1;}
