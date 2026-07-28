@@ -3832,8 +3832,11 @@ const seEducation = (function () {
   const isSole = entityType === "sole_prop";
   const realSaved = splitLive ? psplit.saved : 0;
   const sliderBand = salaryBandFor(sCorpSalaryInput, recNetProfit);
-  const salaryInputRow = /*#__PURE__*/React.createElement("div", {
-    className: "salsplit" + (isSole ? " salsplit-inert" : ""),
+  const soleNoSplit = /*#__PURE__*/React.createElement("div", {className: "nosplit"},
+    /*#__PURE__*/React.createElement("b", null, "There is no salary to set as a sole proprietor. "),
+    "All of your profit is self-employment income and all of it is taxed the same way \u2014 the salary-versus-distribution split only exists inside a corporation. Switch to Professional Corp above and this becomes a live control.");
+  const salaryInputRow = isSole ? soleNoSplit : /*#__PURE__*/React.createElement("div", {
+    className: "salsplit",
     style: {borderColor: ENT_B.line, background: ENT_B.tint}
   }, /*#__PURE__*/React.createElement("div", {className: "salsplit-head"},
       /*#__PURE__*/React.createElement("span", {className: "salsplit-title"},
@@ -4129,49 +4132,11 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
         psplit.aboveCap
           ? /*#__PURE__*/React.createElement("b", {className: "neg"}, "Your salary is above the cap, so extra distribution is working at the weaker 2.9% rate.")
           : /*#__PURE__*/React.createElement("b", null, "Your salary is below the cap, so the split is working at full strength."))));
-  const leversPanel = (function () {
-    if (!(cur.grossYr > 0) || !(sessionRate > 0)) {
-      return /*#__PURE__*/React.createElement("section", {className: "card levers levers-empty"},
-        /*#__PURE__*/React.createElement("div", {className: "card-head"},
-          /*#__PURE__*/React.createElement("h2", null, "What actually moves the number"),
-          /*#__PURE__*/React.createElement("p", null,
-            "Once your rate and caseload are in, this ranks every lever you have \u2014 raising your rate, adding sessions, electing S-corp, cutting costs \u2014 by what each one adds to what you keep. The ranking is often surprising.")));
-    }
-    const keepRate = cur.netYr / cur.grossYr;
-    const sess = cur.grossYr / sessionRate;                       // sessions a year at the current fee
-    const rows = [
-      {k: "rate", label: "Raise your rate " + fmt0(sessionRate) + " → " + fmt0(sessionRate + 25),
-       sub: "same caseload, same hours", v: 25 * sess * keepRate},
-      {k: "sess", label: "Add 2 sessions a week",
-       sub: fmt0(sessionRate * 2 * weeksWorkedProp) + " more billed", v: sessionRate * 2 * weeksWorkedProp * keepRate},
-      {k: "scorp", label: "Elect S-corp treatment",
-       sub: "after payroll, filings and the CA entity fee", v: Math.max(0, netDiff - runCostTotal)},
-      {k: "exp", label: "Cut running costs 10%",
-       sub: "on " + fmt0(cur.expYr) + " of expenses", v: cur.expYr * 0.10 * keepRate}
-    ].sort((a, b) => b.v - a.v);
-    const top = Math.max(1, rows[0].v);
-    return /*#__PURE__*/React.createElement("section", {className: "card levers"},
-      /*#__PURE__*/React.createElement("div", {className: "card-head"},
-        /*#__PURE__*/React.createElement("h2", null, "What actually moves the number"),
-        /*#__PURE__*/React.createElement("p", null,
-          "Every lever below, measured the same way — what it adds to what you keep in a year. Ranked honestly, including when that ranking is inconvenient for the tax advice above.")),
-      rows.map(r => /*#__PURE__*/React.createElement("div", {className: "lever", key: r.k},
-        /*#__PURE__*/React.createElement("span", {className: "lever-name"},
-          /*#__PURE__*/React.createElement("b", null, r.label),
-          /*#__PURE__*/React.createElement("span", null, r.sub)),
-        /*#__PURE__*/React.createElement("span", {className: "lever-bar"},
-          /*#__PURE__*/React.createElement("i", {style: {width: Math.max(2, r.v / top * 100) + "%", background: r.k === "scorp" ? "#C98B4B" : "#3F9577"}})),
-        /*#__PURE__*/React.createElement("span", {className: "lever-val"}, "+" + fmt0(r.v)))),
-      rows[0].k !== "scorp" && netDiff > 0 ? /*#__PURE__*/React.createElement("p", {className: "lever-note"},
-        /*#__PURE__*/React.createElement("b", null, "Worth sitting with: "),
-        "the entity decision is worth ", /*#__PURE__*/React.createElement("b", null, fmt0(Math.max(0, netDiff - runCostTotal))),
-        " a year. “", rows[0].label, "” is worth ", /*#__PURE__*/React.createElement("b", null, fmt0(rows[0].v)),
-        " — roughly ", /*#__PURE__*/React.createElement("b", null, Math.max(1, Math.round(rows[0].v / Math.max(1, netDiff - runCostTotal))) + "×"),
-        " as much, with no filings, no payroll and no audit exposure. Incorporating is a real lever, but it is rarely the biggest one on this page.") : null,
-      /*#__PURE__*/React.createElement("p", {className: "salguide-fine"},
-        "Rate and caseload figures apply your current take-home rate of ", Math.round(keepRate * 100),
-        "% to the extra billing — a simplification, since more income can push you into a higher bracket. The S-corp figure is net of the running costs you entered."));
-  })();
+  // leversPanel removed. It was the third "levers" card in one section and the only
+  // place still quoting the S-corp at a $0 salary (+$19,408) against the verdict's
+  // -$904, and a flat-rate rate-rise estimate against the engine's real figure.
+  // The honest ranking now lives in retLever.
+  const leversPanel = null;
   // What people who do this for a living actually say. Named sources, real
   // links, plus the federal Census data on how CA practices are actually
   // structured - the number everybody asks for and nobody in this space uses.
@@ -4303,27 +4268,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   // The opener, the stepper, the money flow and Social Security in full.
   // All four are pure output - every variable they touch is declared above.
   // =====================================================================
-  const secOpener = /*#__PURE__*/React.createElement("section", {className: "card opener"},
-    /*#__PURE__*/React.createElement("div", {className: "opener-eyebrow"}, "Section 4 of 4 · about 5 minutes"),
-    /*#__PURE__*/React.createElement("h2", null, "What you keep, and the two decisions that change it"),
-    /*#__PURE__*/React.createElement("p", null,
-      "Your income and expenses are settled by now. This section is about the part you still control: ",
-      /*#__PURE__*/React.createElement("b", null, "how your practice is structured"), ", and ",
-      /*#__PURE__*/React.createElement("b", null, "where you put money before it is taxed"),
-      ". Those are the only two legal levers most solo therapists have, and together they can move your take-home by five figures a year."),
-    /*#__PURE__*/React.createElement("p", null,
-      "It works by running your real numbers twice — once as a Sole Proprietorship, once as a Professional Corp with an S-corp election — and showing every figure side by side. Nothing here is a rule of thumb; each number traces back to your own rate and caseload."),
-    /*#__PURE__*/React.createElement("div", {className: "opener-qs"},
-      [["Should I incorporate?", "What the election is worth on your income, net of what it costs to run."],
-       ["What salary do I pay myself?", "Where your number sits against published wages for your licence — and against the percentage conventions."],
-       ["Which retirement account?", "All five, both structures, with your actual contribution room."],
-       ["What am I giving up?", "The Social Security you do not earn — and whether investing the difference beats it."]
-      ].map(([q, a]) => /*#__PURE__*/React.createElement("div", {className: "opener-q", key: q},
-        /*#__PURE__*/React.createElement("b", null, q), /*#__PURE__*/React.createElement("span", null, a)))),
-    /*#__PURE__*/React.createElement("div", {className: "opener-cant"},
-      /*#__PURE__*/React.createElement("b", null, "What this cannot do"),
-      "It does not know your past earnings, a spouse's income, where you will live next year, or anything about your clinical risk. It is a model to argue with and to take to a CPA — not a filing."));
-
+  const secOpener = null; // 235-word preamble, rendered after the answers it explained
   const stepStates = [
     {n: "1", t: "About you", s: step1Count >= 4 ? "age " + taxAge + " · retiring " + retireAge + " · " + investReturn + "%" : step1Count + " of 4 answered", done: step1Count >= 4},
     {n: "2", t: "Structure & salary", s: sCorpSalaryInput > 0 ? "salary " + fmt0(sCorpSalaryInput) : "no salary set", done: sCorpSalaryInput > 0},
@@ -4385,91 +4330,13 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
      a: mfBankNone, b: mfTotalWith, big: true, cmp: true}
   ];
 
-  const moneyFlow = mfContrib <= 0 ? null : /*#__PURE__*/React.createElement("section", {className: "card cmp mfc"},
-    /*#__PURE__*/React.createElement("div", {className: "card-head"},
-      /*#__PURE__*/React.createElement("h2", null, "Contribute nothing, or max the Solo 401(k)"),
-      /*#__PURE__*/React.createElement("p", null,
-        "The same ", fmt0(mfProfit), " of profit, split two ways, side by side — grey is doing nothing, green is contributing ",
-        fmt0(mfContrib), ". Read down a column to see where that profit lands; read across a row to see what changes.")),
-    /*#__PURE__*/React.createElement("div", {className: "fkey"},
-      [["#B5483F", "Tax", "gone, to the IRS and California"],
-       ["#3F9577", "Invested", "still yours, locked until 59½"],
-       ["#26241E", "Bank account", "yours, spendable now"]
-      ].map(([c, t, d]) => /*#__PURE__*/React.createElement("span", {key: t},
-        /*#__PURE__*/React.createElement("i", {style: {background: c}}), /*#__PURE__*/React.createElement("b", null, t),
-        /*#__PURE__*/React.createElement("em", null, "— " + d)))),
-    /*#__PURE__*/React.createElement("div", {className: "cmp-wrap"},
-      /*#__PURE__*/React.createElement("table", {className: "cmp-table mftable"},
-        /*#__PURE__*/React.createElement("colgroup", null,
-          /*#__PURE__*/React.createElement("col", {className: "cmp-col-l"}),
-          /*#__PURE__*/React.createElement("col", {className: "cmp-col-a"}),
-          /*#__PURE__*/React.createElement("col", {className: "cmp-col-b"}),
-          /*#__PURE__*/React.createElement("col", {className: "cmp-col-d"})),
-        /*#__PURE__*/React.createElement("thead", null,
-          /*#__PURE__*/React.createElement("tr", null,
-            /*#__PURE__*/React.createElement("th", {className: "cmp-h-l", scope: "col"}, ""),
-            [MF_A, MF_B].map(e => /*#__PURE__*/React.createElement("th", {
-              key: e.k, scope: "col", className: "cmp-h mfh",
-              style: {background: e.tint, borderTopColor: e.ink}
-            }, /*#__PURE__*/React.createElement("span", {className: "mfh-in"},
-                /*#__PURE__*/React.createElement("b", {style: {color: e.ink}}, e.name),
-                /*#__PURE__*/React.createElement("small", null, e.k === "none" ? "the default" : fmt0(mfContrib) + " a year"),
-                e.k === "none" ? mfBar(mfTaxNone, 0, mfBankNone) : mfBar(mfTaxWith, mfContrib, mfBankWith)))),
-            /*#__PURE__*/React.createElement("th", {className: "cmp-h-d", scope: "col"},
-              /*#__PURE__*/React.createElement("span", null, "Difference"),
-              /*#__PURE__*/React.createElement("small", null, "max vs. nothing")))),
-        /*#__PURE__*/React.createElement("tbody", null, mfRows.map(r => {
-          const d = r.b - r.a;
-          const bAhead = r.lowerBetter ? r.b < r.a : r.b > r.a;
-          const win = r.cmp && Math.abs(d) > 0.5;
-          return /*#__PURE__*/React.createElement("tr", {key: r.label, className: "cmp-row" + (r.big ? " cmp-big" : "")},
-            /*#__PURE__*/React.createElement("td", {className: "cmp-l"},
-              /*#__PURE__*/React.createElement("span", {className: "cmp-lbl"}, r.label),
-              r.hint ? /*#__PURE__*/React.createElement("span", {className: "cmp-hint"}, r.hint) : null),
-            [[MF_A, r.a, win && !bAhead], [MF_B, r.b, win && bAhead]].map(([e, v, isWin]) =>
-              /*#__PURE__*/React.createElement("td", {
-                key: e.k, className: "cmp-cell mf-" + e.k + (isWin ? " cmp-win" : ""),
-                "data-lab": e.name, style: {background: e.tint, borderLeftColor: e.line}
-              }, isWin ? /*#__PURE__*/React.createElement("i", {className: "cmp-wintick"}, "▸") : null,
-                 /*#__PURE__*/React.createElement("span", {className: "cmp-v"}, fmt0(v)))),
-            /*#__PURE__*/React.createElement("td", {
-              className: "cmp-d " + (Math.abs(d) < 0.5 ? "" : bAhead ? "pos" : "neg"), "data-lab": "Difference"
-            }, Math.abs(d) < 0.5 ? "—" : (d > 0 ? "+" : "−") + fmt0(Math.abs(d))));
-        })))),
-    /*#__PURE__*/React.createElement("div", {className: "mfpunch"},
-      /*#__PURE__*/React.createElement("b", null, "You end up ", fmt0(mfSaved), " ahead — and ", fmt0(mfCost), " less liquid."),
-      "Both are true at once, and confusing them is why this feels harder than it is. Your ",
-      /*#__PURE__*/React.createElement("b", null, "spendable cash"), " falls from ", fmt0(mfBankNone), " to ", fmt0(mfBankWith),
-      ". Your ", /*#__PURE__*/React.createElement("b", null, "total for the year"), " rises from ", fmt0(mfBankNone),
-      " to ", fmt0(mfTotalWith), ". The gap between those two sentences is exactly the ", fmt0(mfSaved),
-      " of tax you did not pay — money that was leaving your hands either way. The only question was whether the IRS got it or you did."),
-    /*#__PURE__*/React.createElement("div", {className: "mftrade"},
-      /*#__PURE__*/React.createElement("div", {className: "mft cost"},
-        /*#__PURE__*/React.createElement("b", null, "What it costs — ", fmt0(mfCost)),
-        "Cash that does not reach your bank this year, locked until 59½ with narrow exceptions. If you need it for a deposit or a thin year, that is a real cost, not a technicality."),
-      /*#__PURE__*/React.createElement("div", {className: "mft gain"},
-        /*#__PURE__*/React.createElement("b", null, "What you gain — ", fmt0(mfSaved)),
-        "Tax you would have paid, working for you instead. Across the whole ", fmt0(mfContrib),
-        " that is an effective ", (mfEffRate * 100).toFixed(0), "% — the first dollars you shelter save more than the last, because your rate falls as your taxable income comes down.")),
-    horizonReady && mfGrown > 0 ? /*#__PURE__*/React.createElement("div", {className: "mflater"},
-      /*#__PURE__*/React.createElement("div", {className: "mflater-h"}, "And then it grows — this one year's contribution, held to ", retireAge),
-      /*#__PURE__*/React.createElement("div", {className: "mflater-b"},
-        /*#__PURE__*/React.createElement("span", {className: "n"}, fmt0(mfGrown)),
-        /*#__PURE__*/React.createElement("span", {className: "d"},
-          /*#__PURE__*/React.createElement("b", null, fmt0(mfContrib) + " compounding at " + investReturn + "% for " + mfYears + " years."),
-          " That is a single year's contribution. Repeat it annually and the comparison table's projection applies instead."))) : null,
-    /*#__PURE__*/React.createElement("div", {className: "mfwarn"},
-      /*#__PURE__*/React.createElement("b", null, "The honest asterisk: "),
-      "a Solo 401(k) is tax-", /*#__PURE__*/React.createElement("i", null, "deferred"),
-      ", not tax-free. You will pay ordinary income tax when you draw it down — the bet is that your rate in retirement is lower than the ",
-      (mfEffRate * 100).toFixed(0), "% you are avoiding today. A Roth version reverses that bet. Neither is free money; both are timing."));
-
-  // ---- Social Security, in the units people actually think in ----------
   const ssClaim = [
     {age: 62, f: 0.70, note: "permanently reduced 30%"},
     {age: SS_FRA_AGE, f: 1.00, note: "everyone born 1960 or later"},
     {age: 70, f: 1.24, note: "+8% a year of delayed credit"}
   ];
+  // moneyFlow removed - retVerdict and retReceipt above make the same comparison
+  // from the same two engine runs (mfNone / mfWith), which are still computed above.
   const ssDetail = !horizonReady ? null : /*#__PURE__*/React.createElement("section", {className: "card ssd"},
     /*#__PURE__*/React.createElement("div", {className: "card-head"},
       /*#__PURE__*/React.createElement("h2", null, "What you would actually receive each month"),
@@ -4649,7 +4516,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   })();
 
   const workingToggle = !vReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
-    /*#__PURE__*/React.createElement("span", null, "Everything below is the working — the full comparison, the compliance calendar, the retirement plans and the Social Security trade-off. Almost nobody needs it. If you want to check my arithmetic, it is all here."));
+    /*#__PURE__*/React.createElement("span", null, "The second decision — whether to incorporate — is below, folded to one line. Everything after it is the working: the full comparison, the compliance calendar and the Social Security trade-off. Almost nobody needs it; it is here if you want to check the arithmetic."));
 
   // =====================================================================
   // THE BIGGER LEVER. This runs FIRST in the rendered order, above the
@@ -4869,10 +4736,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
           : "Catch-up contributions start at 50 and step up again for ages 60\u201363, so this ceiling rises twice more before you retire."));
   })();
 
-  const retWorking = !rReady ? null : /*#__PURE__*/React.createElement("div", {className: "vwork"},
-    /*#__PURE__*/React.createElement("span", null, rBigger
-      ? "The second decision — whether to incorporate — is below. On these numbers it is worth far less, so it is folded away; open it if you want the full comparison."
-      : "The second decision — whether to incorporate — is below, and on your numbers it is the larger of the two. It is opened for you."));
+  const retWorking = null; // merged into workingToggle - two grey notes, 94px apart
 
   // The structure question, folded to one line. It used to open the section;
   // it now sits under the retirement block because on virtually every set of
@@ -5438,8 +5302,7 @@ const ssSection = (function () {
   return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
     mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection),
     mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection),
-    ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null,
-    moneyFlow, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "The same numbers, broken out"), /*#__PURE__*/React.createElement("p", null, "Headline stats, each retirement account on its own, and the single-structure view. Everything here also appears in the table above — open it if you want a figure isolated rather than compared.")), statsRow, strategiesSection, compareSection), step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+    ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null, expertSection, leversPanel, step1Done && /*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -7903,5 +7766,9 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .rlev-why{grid-template-columns:1fr; padding:12px 0 16px 0; gap:14px;}
   details.rlev-r > summary{flex-wrap:wrap; align-items:baseline; gap:3px 10px;}
 }
+
+.nosplit{background:#F6F2E8; border-left:4px solid #D4C3DD; border-radius:0 10px 10px 0;
+  padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
+.nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
 `;
