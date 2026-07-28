@@ -2948,7 +2948,7 @@ function PracticeIncomePlanner() {
     rel: /^https?:/.test(href) ? "noopener noreferrer" : null
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 27, 2026")));
+  }, "Last updated: July 28, 2026")));
 }
 
 // ---------- small components ----------
