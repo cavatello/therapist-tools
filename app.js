@@ -629,16 +629,61 @@ function computeFrance(revenueUSD, expensesUSD) {
   };
 }
 const USD_TO_AED = 3.6725;
-function computeUAE(revenueUSD, expensesUSD) {
+// 2026 foreign earned income exclusion, Rev. Proc. 2025-32 (up from $130,000).
+// irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026
+const FEIE_2026 = 132900;
+
+// The UAE is the only card here where "local tax" is not a fair proxy for what
+// a US citizen actually pays, and it was wrong for two compounding reasons:
+//
+//   1. The FEIE does not touch self-employment tax. The IRS is explicit: "You
+//      must take all your self-employment income into account in figuring your
+//      net earnings from self-employment, even if all, or a portion of, gross
+//      income was excluded." Only a totalization agreement removes it - and
+//      the UAE has none, a fact this app already states two paragraphs above
+//      the card while the arithmetic ignored it.
+//   2. Everywhere else on this list, the foreign tax credit roughly cancels
+//      the US income tax, because Germany, France, Portugal and Australia all
+//      tax more heavily than the US does. The UAE taxes almost nothing, so
+//      there is no credit to claim and the US bill lands in full above the
+//      exclusion.
+//
+// Net effect: this card used to show pre-tax profit as though it were
+// take-home, which made the single most eye-catching option on the page also
+// the least true. Stacking follows IRC 911(f): the non-excluded income is
+// taxed at the rate it would have faced had the excluded income been counted,
+// so tax the whole amount and subtract the tax on the exclusion. No QBI -
+// 199A needs a US trade or business.
+function computeUAE(revenueUSD, expensesUSD, filingStatus) {
   const revenueAED = revenueUSD * USD_TO_AED;
   const expensesAED = expensesUSD * USD_TO_AED;
   const profitAED = Math.max(0, revenueAED - expensesAED);
   const corpTax = revenueAED > 1000000 ? Math.max(0, profitAED - 375000) * 0.09 : 0;
-  const netAED = profitAED - corpTax;
+  const profitUSD = profitAED / USD_TO_AED;
+  const uaeTax = corpTax / USD_TO_AED;
+
+  const seBase = profitUSD * 0.9235;
+  const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
+  // Additional Medicare tax rides along with SE tax and, like it, is untouched
+  // by the exclusion. Included so this card models US federal tax the same way
+  // every other US location on this page does.
+  const addlMedThresh = ADDL_MED_THRESH_BY_STATUS[filingStatus] || ADDL_MED_THRESH_BY_STATUS.single;
+  const addlMed = Math.max(0, seBase - addlMedThresh) * ADDL_MED_RATE;
+
+  const fedStd = FED_STD_BY_STATUS[filingStatus] || FED_STD_BY_STATUS.single;
+  const brackets = FED_BRACKETS_BY_STATUS[filingStatus] || FED_BRACKETS_BY_STATUS.single;
+  const taxableAll = Math.max(0, profitUSD - seTax / 2 - fedStd);
+  const excluded = Math.min(profitUSD, FEIE_2026);
+  const fedTax = Math.max(0, bracketTax(taxableAll, brackets)
+    - bracketTax(Math.min(excluded, taxableAll), brackets));
+
+  const usTax = seTax + addlMed + fedTax;
+  const netUSD = profitUSD - uaeTax - usTax;
   return {
-    netUSD: netAED / USD_TO_AED,
-    netAED,
-    taxUSD: corpTax / USD_TO_AED
+    netUSD,
+    netAED: netUSD * USD_TO_AED,
+    taxUSD: uaeTax + usTax,
+    uaeTax, usTax, seTax, addlMed, fedTax, excluded
   };
 }
 const AU_BRACKETS = [[0, 0], [18200, 0.16], [45000, 0.30], [135000, 0.37], [190000, 0.45]];
@@ -1374,9 +1419,25 @@ function PracticeIncomePlanner() {
     nyc: computeNYC(cur.grossYr, expYr),
     pittsburgh: computePittsburgh(cur.grossYr, expYr),
     france: computeFrance(cur.grossYr, expYr),
-    uae: computeUAE(cur.grossYr, expYr),
+    uae: computeUAE(cur.grossYr, expYr, filingStatus),
     brisbane: computeBrisbane(cur.grossYr, expYr)
-  }), [cur.grossYr, expYr]);
+  }), [cur.grossYr, expYr, filingStatus]);
+
+  // Residency, ranked. The section used to open with eight equally-weighted
+  // cards and no answer, which left the reader to do the sorting - and the
+  // sorting is the whole point. Everything is measured against California,
+  // because that is where the reader already is.
+  const [showResidency, setShowResidency] = useState(false);
+  const residencyRows = useMemo(() => [
+    {k: "pittsburgh", label: "Pittsburgh, PA", net: residency.pittsburgh.netUSD, us: true},
+    {k: "nyc", label: "New York City", net: residency.nyc.netUSD, us: true},
+    {k: "uae", label: "Dubai, UAE", net: residency.uae.netUSD, us: false},
+    {k: "brisbane", label: "Brisbane", net: residency.brisbane.netUSD, us: false},
+    {k: "berlin", label: "Berlin", net: residency.berlin.netUSD, us: false},
+    {k: "portugal", label: "Portugal", net: residency.portugal.netUSD, us: false},
+    {k: "bordeaux", label: "Bordeaux", net: residency.france.netUSD, us: false}
+  ].map(x => ({...x, delta: Math.round(x.net - cur.netYr)}))
+   .sort((a, b) => b.delta - a.delta), [residency, cur.netYr]);
   const usBaseline = usLocation === "nyc" ? residency.nyc.netUSD : cur.netYr;
 
   // Sales funnel: turn last month's marketing numbers into a caseload-growth plan.
@@ -2171,7 +2232,10 @@ function PracticeIncomePlanner() {
   }, page === "tax" ? "Tax & retirement" : "Your practice"),
     (page === "tax"
       ? [["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0, "1", taxStepsDone >= 4],
-         ["sec-residency", "Residency", "compare", 0, "2", null],
+         ["sec-residency", "Residency",
+           !(cur.netYr > 0) ? "compare"
+             : residencyRows[0].delta > 0 ? "+" + fmt(residencyRows[0].delta) + " best"
+             : "CA wins", 0, "2", null],
          ["sim", "\u2190 Back to the numbers", fmt(cur.profitYr) + " profit", 0, "\u21A9", null]]
       : [["sec-income", "Income", fmt(cur.grossYr), 0, "1", rate > 0 && sessions > 0],
          ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr), 0, "2", cur.expYr > 0],
@@ -2659,7 +2723,65 @@ function PracticeIncomePlanner() {
         /*#__PURE__*/React.createElement("div", {className: "pay-grid"}, paydays.map(payCell)),
         /*#__PURE__*/React.createElement("p", {className: "pay-note"},
           "A biweekly schedule lands 26 checks a year, so two months each year carry a third check \u2014 those are the bonus-feeling paydays.")) : null);
-  })()), isVisible("residency") && /*#__PURE__*/React.createElement("div", {id:"sec-residency"}, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
+  })()), isVisible("residency") && /*#__PURE__*/React.createElement("div", {id:"sec-residency"}, /*#__PURE__*/React.createElement(React.Fragment, null,
+  // ===================================================================
+  // RESIDENCY, VERDICT FIRST. Same treatment the structure question got:
+  // say what the numbers add up to, name the thing that actually decides
+  // it, and put the eight cards behind a button for anyone who wants the
+  // working. A ranked list with no answer is a table, not advice.
+  // ===================================================================
+  (function () {
+    const beat = residencyRows.filter(x => x.delta > 0);
+    const best = residencyRows[0];
+    const ready = cur.grossYr > 0 && cur.netYr > 0;
+    const usBeat = beat.filter(x => x.us);
+    const verdict = !ready
+      ? {t: "Enter your income first", c: "#7C766A"}
+      : beat.length === 0
+        ? {t: "California already pays you the most.", c: "#3F9577"}
+        : best.delta < 6000
+          ? {t: "Nowhere is far enough ahead to move for.", c: "#C98B4B"}
+          : {t: best.label + " is the only one clearly ahead.", c: "#26241E"};
+    return /*#__PURE__*/React.createElement("section", {className: "card rgate"},
+      /*#__PURE__*/React.createElement("div", {className: "rgate-k"}, "The last lever \u2014 and the weakest"),
+      /*#__PURE__*/React.createElement("h2", {className: "rgate-h", style: {color: verdict.c}}, verdict.t),
+      !ready ? /*#__PURE__*/React.createElement("p", {className: "rgate-p"},
+          "Set your rate and caseload and this ranks seven other places to practise against California, on your numbers.")
+        : /*#__PURE__*/React.createElement(React.Fragment, null,
+          /*#__PURE__*/React.createElement("div", {className: "rgate-rank"},
+            residencyRows.slice(0, 3).map(x => /*#__PURE__*/React.createElement("span", {
+              key: x.k, className: "rgate-row" + (x.delta > 0 ? " up" : " down")
+            }, /*#__PURE__*/React.createElement("i", null, x.label),
+              /*#__PURE__*/React.createElement("b", null, (x.delta > 0 ? "+" : "\u2212") + fmt(Math.abs(x.delta))),
+              /*#__PURE__*/React.createElement("em", null, "a year vs California")))),
+          /*#__PURE__*/React.createElement("p", {className: "rgate-p"},
+            beat.length === 0
+              ? /*#__PURE__*/React.createElement(React.Fragment, null,
+                  "On your numbers, every one of the seven leaves you with less than California does. That is unusual and worth knowing: California taxes heavily, but it also has the rate ceiling that produced ",
+                  /*#__PURE__*/React.createElement("b", null, fmt(cur.grossYr)), " in the first place.")
+              : /*#__PURE__*/React.createElement(React.Fragment, null,
+                  /*#__PURE__*/React.createElement("b", null, beat.length === 1 ? "One" : beat.length + " of the seven"),
+                  " beat California on tax alone",
+                  usBeat.length ? ", and " + (usBeat.length === 1 ? "one of them is" : usBeat.length + " are") + " still in the US" : "",
+                  ". The largest gap is ", /*#__PURE__*/React.createElement("b", null, fmt(best.delta)),
+                  " a year \u2014 real money, but smaller than it looks once you count what these figures do not.")),
+          /*#__PURE__*/React.createElement("div", {className: "rgate-buts"},
+            [["Your licence does not travel.",
+              "An LMFT, LCSW or LPCC is licensed by the state that issued it. Pennsylvania means relicensing; outside the US it may not be recognised at all. That is a year or more of income at risk, against a gap measured in thousands."],
+             ["Medicare does not travel either.",
+              "It covers essentially nothing outside the United States, so every overseas figure quietly omits a lifelong private premium a California retiree would never pay."],
+             ["The US taxes you wherever you live.",
+              "Citizenship-based taxation follows you. In high-tax countries the foreign tax credit absorbs it; in a no-tax one like the UAE it does not, and self-employment tax is owed in full."]
+            ].map(([h, p]) => /*#__PURE__*/React.createElement("span", {key: h, className: "rgate-but"},
+              /*#__PURE__*/React.createElement("b", null, h), /*#__PURE__*/React.createElement("i", null, p)))),
+          /*#__PURE__*/React.createElement("button", {
+            type: "button",
+            className: "rgate-b" + (showResidency ? " on" : ""),
+            "aria-expanded": showResidency ? "true" : "false",
+            onClick: () => setShowResidency(v => !v)
+          }, showResidency ? "Hide the eight locations" : "Show all eight, with what each one counts")));
+  })(),
+  showResidency && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -2744,9 +2866,9 @@ function PracticeIncomePlanner() {
     label: "United Arab Emirates",
     net: residency.uae.netUSD,
     tax: residency.uae.taxUSD,
-    taxNote: "corporate tax (0% below AED 1M turnover)",
+    taxNote: "UAE corporate tax + the US tax you still owe",
     sub: "\u2248AED " + Math.round(residency.uae.netAED).toLocaleString(),
-    includes: "0% personal income tax (the UAE has none). 0% corporate tax on the first AED 375,000 of profit, 9% above it \u2014 but only once a natural person's business turnover exceeds the AED 1,000,000 registration threshold in a year. No self-employment or social-security tax applies to foreign residents. Excludes: Small Business Relief (can zero out corporate tax below AED 3M turnover through 2026 if elected), VAT, freelance-permit and visa costs."
+    includes: /*#__PURE__*/React.createElement(React.Fragment, null, "0% personal income tax (the UAE has none). 0% corporate tax on the first AED 375,000 of profit, 9% above it \u2014 but only once a natural person's business turnover exceeds the AED 1,000,000 registration threshold in a year, and the UAE levies no social-security tax on foreign residents. ", /*#__PURE__*/React.createElement("b", null, "The tax here is almost entirely American."), " A US citizen keeps filing: the ", /*#__PURE__*/React.createElement("b", null, "foreign earned income exclusion"), " covers the first ", fmt(FEIE_2026), " of profit, everything above it is taxed at the rate it would have faced anyway (the stacking rule), and ", /*#__PURE__*/React.createElement("b", null, "self-employment tax applies in full"), " \u2014 the exclusion never touches it, and only a totalization agreement would, which the UAE does not have. Unlike every other country here, there is no meaningful foreign tax to credit against the US bill. Excludes: Small Business Relief (can zero out UAE corporate tax below AED 3M turnover through 2026 if elected), VAT, freelance-permit and visa costs, and the cost of renouncing or keeping US citizenship.")
   }, {
     key: "pittsburgh",
     label: "Pittsburgh, PA (15232)",
@@ -2826,7 +2948,7 @@ function PracticeIncomePlanner() {
       fontSize: 14,
       lineHeight: 1.6
     }
-  }, /*#__PURE__*/React.createElement("b", null, "This is the one clean case."), " Since the UAE has no personal income tax at all, there's no foreign tax to conflict with \u2014 your Solo 401(k)/IRA contribution, deferral, and eventual Roth tax-free withdrawal all work exactly as US law intends, with zero UAE-side complication.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("b", null, "This is the one clean case for the accounts, and the messiest for the tax."), " Since the UAE has no personal income tax, there's no foreign tax to conflict with \u2014 your Solo 401(k)/IRA contribution, deferral, and eventual Roth withdrawal all work exactly as US law intends, with zero UAE-side complication. The catch is the other direction: with no foreign tax to credit, the US bill above the exclusion lands in full, and self-employment tax is owed on every dollar of profit because the UAE has no totalization agreement. The deduction is worth having precisely because there is a real US tax to deduct it against.")), /*#__PURE__*/React.createElement("div", {
     className: "funnel-channel"
   }, /*#__PURE__*/React.createElement("div", {
     className: "funnel-channel-head"
@@ -2859,7 +2981,7 @@ function PracticeIncomePlanner() {
   ])), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
   }, "None of this is personalized tax advice \u2014 cross-border retirement taxation depends heavily on treaty elections, timing of withdrawals, and whether you keep or renounce US citizenship."))
-))), viewMode === "wizard" && /*#__PURE__*/React.createElement("div", {
+)))), viewMode === "wizard" && /*#__PURE__*/React.createElement("div", {
     className: "wizard-nav"
   }, /*#__PURE__*/React.createElement("button", {
     className: "wizard-btn",
@@ -6274,6 +6396,36 @@ const CSS = `
    number across the boundary so the reader is not left doing the subtraction
    in their head. Declared after .card so the border-left shorthand wins. */
 section.card.handoff{border-left:3px solid #3F9577; background:#FCFDFC;}
+
+/* ===== residency verdict gate =====
+   Same job as .sgate: answer first, working on request. Declared after
+   .card so the border-left shorthand does not get overwritten. */
+section.card.rgate{border-left:3px solid #C98B4B;}
+.rgate-k{font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:#9A9385; font-weight:600; margin-bottom:6px;}
+.rgate-h{font-family:Fraunces,Georgia,serif; font-size:23px; line-height:1.25; margin:0 0 16px;}
+.rgate-rank{display:flex; flex-direction:column; gap:0; margin:0 0 16px; max-width:520px;}
+.rgate-row{display:flex; align-items:baseline; gap:12px; padding:9px 0; border-bottom:1px dashed #E7E2D6;}
+.rgate-row:last-child{border-bottom:0;}
+.rgate-row i{font-style:normal; font-size:14.5px; flex:1 1 auto;}
+.rgate-row b{font-family:Fraunces,Georgia,serif; font-size:17px; font-variant-numeric:tabular-nums;}
+.rgate-row.up b{color:#3F9577;}
+.rgate-row.down b{color:#B5483F;}
+.rgate-row em{font-style:normal; font-size:11.5px; color:#9A9385; flex:0 0 122px; text-align:right;}
+.rgate-p{margin:0 0 16px; font-size:14.5px; line-height:1.65; color:#4A463C; max-width:660px;}
+.rgate-buts{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:0 0 18px;}
+.rgate-but{display:block; background:#FBF9F3; border:1px solid #E7E2D6; border-radius:10px; padding:12px 14px;}
+.rgate-but b{display:block; font-size:13.5px; margin-bottom:5px;}
+.rgate-but i{font-style:normal; font-size:12.5px; line-height:1.55; color:#5C574C;}
+.rgate-b{font-family:Inter,sans-serif; font-size:14px; font-weight:600; color:#26241E; cursor:pointer;
+  background:#fff; border:1px solid #D9D1BE; border-radius:9px; padding:11px 18px;}
+.rgate-b:hover{border-color:#C98B4B; background:#FDFBF6;}
+.rgate-b.on{background:#F6F2E8; border-color:#C98B4B;}
+@media (max-width:780px){
+  .rgate-h{font-size:20px;}
+  .rgate-buts{grid-template-columns:1fr;}
+  .rgate-row em{display:none;}
+  .rgate-b{width:100%; text-align:center;}
+}
 .exp-point{margin:18px 0 0; padding:14px 16px; background:#FBF9F3; border:1px solid #E7E2D6;
   border-radius:10px; font-size:14px; line-height:1.6; color:#4A463C;}
 .exp-point a{color:#26241E;}
