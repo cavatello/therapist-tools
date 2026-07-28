@@ -6490,7 +6490,7 @@ const CSS = `
 @media (max-width:760px){ .income-mods{grid-template-columns:1fr;} }
 
 /* ---- Income: time off, and the arithmetic made visible ---- */
-.controls{grid-template-columns:1fr 1fr !important;}
+.controls{grid-template-columns:1fr 1fr;}
 .timeoff{grid-column:1 / -1; display:flex; align-items:center; gap:13px; flex-wrap:wrap;
   padding:13px 0 0; margin-top:4px; border-top:1px dashed var(--line);}
 .timeoff-body{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted);}
