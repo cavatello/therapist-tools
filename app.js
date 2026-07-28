@@ -154,6 +154,11 @@ const UI_WAGE_BASE = 7000;   // CA UI/ETT and FUTA all stop at the first $7,000
 const CA_UI_NEW = 0.034;     // new-employer rate, first two to three years
 const CA_ETT = 0.001;
 const FUTA_NET = 0.006;      // 6.0% less the 5.4% state credit
+// BBS: one unit of supervision a week, and a second unit in any week the
+// associate claims MORE THAN ten client contact hours. A unit is one hour of
+// individual or two hours of group supervision. Sessions are used as the proxy
+// for client contact hours, which is fair for a therapy caseload.
+const ASSOC_SUP_THRESHOLD = 10;
 const SS_BEND1 = 1286,
   SS_BEND2 = 7749;
 function computePIA(monthlyAIME) {
@@ -1332,7 +1337,8 @@ function PracticeIncomePlanner() {
   const [assocSessions, setAssocSessions] = useState(SAVED.assocSessions != null ? SAVED.assocSessions : "");
   const [assocVacWeeks, setAssocVacWeeks] = useState(SAVED.assocVacWeeks != null ? SAVED.assocVacWeeks : "");
   const [assocSplitPct, setAssocSplitPct] = useState(SAVED.assocSplitPct != null ? SAVED.assocSplitPct : "");
-  const [assocSupHrs, setAssocSupHrs] = useState(SAVED.assocSupHrs != null ? SAVED.assocSupHrs : "");
+  const [assocLiabYear, setAssocLiabYear] = useState(SAVED.assocLiabYear != null ? SAVED.assocLiabYear : "");
+  const [assocEhrMo, setAssocEhrMo] = useState(SAVED.assocEhrMo != null ? SAVED.assocEhrMo : "");
   const [assocSupRate, setAssocSupRate] = useState(SAVED.assocSupRate != null ? SAVED.assocSupRate : "");
   const [assocOfficeMo, setAssocOfficeMo] = useState(SAVED.assocOfficeMo != null ? SAVED.assocOfficeMo : "");
   const [assocWcRate, setAssocWcRate] = useState(SAVED.assocWcRate != null ? SAVED.assocWcRate : "");
@@ -1369,7 +1375,8 @@ function PracticeIncomePlanner() {
         assocSessions: assocSessions,
         assocVacWeeks: assocVacWeeks,
         assocSplitPct: assocSplitPct,
-        assocSupHrs: assocSupHrs,
+        assocLiabYear: assocLiabYear,
+        assocEhrMo: assocEhrMo,
         assocSupRate: assocSupRate,
         assocOfficeMo: assocOfficeMo,
         assocWcRate: assocWcRate,
@@ -1400,7 +1407,7 @@ function PracticeIncomePlanner() {
         wizardStep: wizardStep
       }));
     } catch (e) {}
-  }, [tab, rate, sessions, goal, chartMode, secondaryOn, secondaryRate, secondarySessions, retreatOn, retreatParticipants, retreatRate, retreatPerMonth, assocOn, assocCount, assocRate, assocSessions, assocVacWeeks, assocSplitPct, assocSupHrs, assocSupRate, assocOfficeMo, assocWcRate, assocPayrollMo, vacationOn, vacationWeeks, wageMetro, careerStart, usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn, expenses, cityKey, manualCityFee, viewMode, wizardStep]);
+  }, [tab, rate, sessions, goal, chartMode, secondaryOn, secondaryRate, secondarySessions, retreatOn, retreatParticipants, retreatRate, retreatPerMonth, assocOn, assocCount, assocRate, assocSessions, assocVacWeeks, assocSplitPct, assocLiabYear, assocEhrMo, assocSupRate, assocOfficeMo, assocWcRate, assocPayrollMo, vacationOn, vacationWeeks, wageMetro, careerStart, usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn, expenses, cityKey, manualCityFee, viewMode, wizardStep]);
   const d = {
     color: colorForRate(rate)
   };
@@ -1433,27 +1440,52 @@ function PracticeIncomePlanner() {
   // ===================================================================
   const assocWeeks = Math.max(0, WEEKS_FULL - (parseFloat(assocVacWeeks) || 0));
   const assocN = Math.max(0, parseFloat(assocCount) || 0);
-  const assocSessYr = assocN * (parseFloat(assocSessions) || 0) * assocWeeks;
+  const assocSessWk = parseFloat(assocSessions) || 0;
+  const assocSessYr = assocN * assocSessWk * assocWeeks;
   const assocRevenueYr = assocOn ? assocSessYr * (parseFloat(assocRate) || 0) : 0;
-  const assocWagesYr = assocRevenueYr * ((parseFloat(assocSplitPct) || 0) / 100);
+  const assocSplit = (parseFloat(assocSplitPct) || 0) / 100;
+  const assocSessionPay = assocRevenueYr * assocSplit;
+
+  // Supervision is NOT optional and NOT free. The BBS requires one unit of
+  // supervision a week, and a second unit in any week the associate claims
+  // more than ten client contact hours - a unit being one hour individual or
+  // two hours group. So the hours are derived from their caseload, never
+  // typed in. And because the associate is a W-2 employee, the time they
+  // spend in supervision is hours worked: it must be paid, usually at an
+  // admin rate, and it attracts the same payroll taxes as session pay.
+  const assocSupHrsWk = assocSessWk > ASSOC_SUP_THRESHOLD ? 2 : 1;
+  const assocSupPay = assocOn ? assocN * assocSupHrsWk * assocWeeks * (parseFloat(assocSupRate) || 0) : 0;
+
+  // California requires at least 40 hours or five days of paid sick leave a
+  // year (SB 616, from 2024). On a share-of-collections wage that is roughly
+  // one working week of their pay, paid for a week they do not work.
+  const assocSickPay = assocOn ? assocN * assocSessWk * (parseFloat(assocRate) || 0) * assocSplit : 0;
+
+  const assocWagesYr = assocSessionPay + assocSupPay + assocSickPay;
   const assocWagesPer = assocN > 0 ? assocWagesYr / assocN : 0;
   // Each component kept separate so the card can itemise it. The employer's
   // Social Security share stops at the wage base exactly as it does for the
   // owner; Medicare does not stop at all. A flat 7.65% would overstate the
   // cost of a very well paid associate.
+  // Rounded at source, not at render. The card prints these six as separate
+  // lines and then prints their total; rounding each independently at display
+  // time made the six add up to one dollar more than the total beside them.
   const assocUiBase = assocN * Math.min(assocWagesPer, UI_WAGE_BASE);
-  const assocSs = assocN * Math.min(assocWagesPer, SS_WAGE_BASE) * 0.062;
-  const assocMed = assocWagesYr * 0.0145;
-  const assocUi = assocUiBase * CA_UI_NEW;
-  const assocEtt = assocUiBase * CA_ETT;
-  const assocFuta = assocUiBase * FUTA_NET;
-  const assocWc = assocWagesYr * ((parseFloat(assocWcRate) || 0) / 100);
+  const assocSs = Math.round(assocN * Math.min(assocWagesPer, SS_WAGE_BASE) * 0.062);
+  const assocMed = Math.round(assocWagesYr * 0.0145);
+  const assocUi = Math.round(assocUiBase * CA_UI_NEW);
+  const assocEtt = Math.round(assocUiBase * CA_ETT);
+  const assocFuta = Math.round(assocUiBase * FUTA_NET);
+  const assocWc = Math.round(assocWagesYr * ((parseFloat(assocWcRate) || 0) / 100));
   const assocFica = assocSs + assocMed;
   const assocPayrollYr = assocOn ? (parseFloat(assocPayrollMo) || 0) * 12 : 0;
-  const assocSupYr = assocN * (parseFloat(assocSupHrs) || 0) * assocWeeks * (parseFloat(assocSupRate) || 0);
-  const assocOfficeYr = assocN * (parseFloat(assocOfficeMo) || 0) * 12;
+  const assocLiabYr = assocOn ? assocN * (parseFloat(assocLiabYear) || 0) : 0;
+  const assocEhrYr = assocOn ? assocN * (parseFloat(assocEhrMo) || 0) * 12 : 0;
+  const assocOfficeYr = assocOn ? assocN * (parseFloat(assocOfficeMo) || 0) * 12 : 0;
   const assocEmployerTax = assocFica + assocUi + assocEtt + assocFuta + assocWc;
-  const assocCostYr = assocOn ? assocWagesYr + assocEmployerTax + assocPayrollYr + assocSupYr + assocOfficeYr : 0;
+  const assocCostYr = assocOn
+    ? assocWagesYr + assocEmployerTax + assocPayrollYr + assocLiabYr + assocEhrYr + assocOfficeYr
+    : 0;
   const assocNetYr = assocRevenueYr - assocCostYr;
   const otherIncomeYr = secondaryYr + retreatYr + assocRevenueYr;
   const grossMoForExp = (grossYr(rate, sessions, weeksWorked) + otherIncomeYr) / 12;
@@ -1987,7 +2019,8 @@ function PracticeIncomePlanner() {
     setAssocSessions("");
     setAssocVacWeeks("");
     setAssocSplitPct("");
-    setAssocSupHrs("");
+    setAssocLiabYear("");
+    setAssocEhrMo("");
     setAssocSupRate("");
     setAssocOfficeMo("");
     setAssocWcRate("");
@@ -2036,7 +2069,8 @@ function PracticeIncomePlanner() {
       secondaryOn, secondaryRate, secondarySessions,
       retreatOn, retreatParticipants, retreatRate, retreatPerMonth,
       assocOn, assocCount, assocRate, assocSessions, assocVacWeeks,
-      assocSplitPct, assocSupHrs, assocSupRate, assocOfficeMo, assocWcRate, assocPayrollMo,
+      assocSplitPct, assocSupRate, assocOfficeMo, assocWcRate, assocPayrollMo,
+      assocLiabYear, assocEhrMo,
       vacationOn, vacationWeeks, wageMetro, careerStart,
       usLocation, avgTenure, currentClients, sessionsPerClientWk, monthlyChurn, monthsToTarget, funnel,
       filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA,
@@ -2626,17 +2660,20 @@ function PracticeIncomePlanner() {
       " (or a volunteer) and ", /*#__PURE__*/React.createElement("b", null, "may not bill clients directly"),
       ". Your practice bills the client, so all of it is your revenue, and the \u201Csplit\u201D is simply how you work out their wage. That matters here because a wage brings employer-side costs a split never mentions \u2014 they are broken out below."),
     /*#__PURE__*/React.createElement("div", {className: "assoc-grid"},
-      [["How many associates", assocCount, setAssocCount, "", "people"],
-       ["What you bill per session", assocRate, setAssocRate, "$", "their client rate, not yours"],
-       ["Sessions each, per week", assocSessions, setAssocSessions, "", "per associate"],
-       ["Their time off", assocVacWeeks, setAssocVacWeeks, "", "weeks a year"],
-       ["Their share of collections", assocSplitPct, setAssocSplitPct, "", "% \u2014 paid as wages"],
-       ["Supervision hours", assocSupHrs, setAssocSupHrs, "", "per associate, per week"],
-       ["Supervision rate", assocSupRate, setAssocSupRate, "$", "an hour \u2014 leave at 0 if you supervise"],
-       ["Office or room cost", assocOfficeMo, setAssocOfficeMo, "$", "a month, per associate"],
-       ["Workers' comp rate", assocWcRate, setAssocWcRate, "", "% of payroll \u2014 ask your carrier"],
-       ["Payroll service", assocPayrollMo, setAssocPayrollMo, "$", "a month \u2014 0 if already in your corp costs"]
-      ].map(([lbl, val, setter, pre, hint]) => /*#__PURE__*/React.createElement("div", {
+      [["How many associates", assocCount, setAssocCount, "", "people", null],
+       ["What you bill per session", assocRate, setAssocRate, "$", "their client rate, not yours", null],
+       ["Sessions each, per week", assocSessions, setAssocSessions, "", "per associate", null],
+       ["Their time off", assocVacWeeks, setAssocVacWeeks, "", "weeks a year", null],
+       ["Their share of collections", assocSplitPct, setAssocSplitPct, "", "% of what they bill, paid as wages", null],
+       ["Supervision & admin rate", assocSupRate, setAssocSupRate, "$",
+         "an hour, paid to them for supervision time", 25],
+       ["Liability insurance", assocLiabYear, setAssocLiabYear, "$", "a year, per associate", null],
+       ["Office or room cost", assocOfficeMo, setAssocOfficeMo, "$", "a month, per associate", null],
+       ["EHR / software seat", assocEhrMo, setAssocEhrMo, "$", "a month, per associate", null],
+       ["Workers' comp rate", assocWcRate, setAssocWcRate, "",
+         "% of payroll \u2014 class code 8832, statewide", 0.3],
+       ["Payroll service", assocPayrollMo, setAssocPayrollMo, "$", "a month \u2014 0 if already in your corp costs", null]
+      ].map(([lbl, val, setter, pre, hint, typical]) => /*#__PURE__*/React.createElement("div", {
         key: lbl, className: "assoc-f"
       }, /*#__PURE__*/React.createElement("label", null, lbl),
         /*#__PURE__*/React.createElement("div", {className: "assoc-in"},
@@ -2645,18 +2682,38 @@ function PracticeIncomePlanner() {
             type: "number", min: 0, value: val,
             onChange: e => setter(e.target.value === "" ? "" : Number(e.target.value))
           })),
-        /*#__PURE__*/React.createElement("span", {className: "assoc-hint"}, hint))),
+        /*#__PURE__*/React.createElement("span", {className: "assoc-hint"}, hint,
+          typical != null && !(parseFloat(val) > 0)
+            ? /*#__PURE__*/React.createElement("button", {
+                type: "button", className: "assoc-typ",
+                onClick: () => setter(typical)
+              }, "use ", pre === "$" ? "$" + typical : typical + "%")
+            : null))),
+      // Not an input. The BBS sets it, so the tool sets it.
+      /*#__PURE__*/React.createElement("div", {className: "assoc-f"},
+        /*#__PURE__*/React.createElement("label", null, "Supervision required"),
+        /*#__PURE__*/React.createElement("div", {className: "assoc-in assoc-locked"},
+          /*#__PURE__*/React.createElement("b", null, assocSessWk > 0 ? assocSupHrsWk : "\u2014"),
+          /*#__PURE__*/React.createElement("i", null, assocSupHrsWk === 1 ? "hour a week each" : "hours a week each")),
+        /*#__PURE__*/React.createElement("span", {className: "assoc-hint"},
+          assocSessWk > ASSOC_SUP_THRESHOLD
+            ? "two units \u2014 they claim more than 10 client hours a week"
+            : "one unit \u2014 rises to two above 10 client hours a week")),
       assocN > 0 && assocRevenueYr > 0 ? /*#__PURE__*/React.createElement("div", {
         className: "assoc-out"
       }, /*#__PURE__*/React.createElement("div", {className: "assoc-out-h"},
           "What ", assocN === 1 ? "one associate" : assocN + " associates", " add to the practice"),
         [["They bill", assocRevenueYr, "in", assocSessYr.toLocaleString() + " sessions a year"],
-         ["Their wages", -assocWagesYr, "out", (parseFloat(assocSplitPct) || 0) + "% of collections"],
+         ["Session pay", -assocSessionPay, "out", (parseFloat(assocSplitPct) || 0) + "% of what they bill"],
+         ["Supervision & admin pay", -assocSupPay, "out",
+           assocSupHrsWk + (assocSupHrsWk === 1 ? " hour" : " hours") + " a week each, paid to them"],
+         ["Paid sick leave", -assocSickPay, "out", "CA minimum \u2014 five days each, roughly a week of pay"],
          ["Employer payroll tax", -assocEmployerTax, "out", "every line itemised below"],
+         ["Liability insurance", -assocLiabYr, "out", "cover for them"],
+         ["EHR / software seats", -assocEhrYr, "out", "one each"],
          ["Payroll service", -assocPayrollYr, "out", "filing and running the payroll"],
-         ["Supervision", -assocSupYr, "out", assocSupYr > 0 ? "paid hours" : "your own time \u2014 not costed"],
          ["Space", -assocOfficeYr, "out", "rooms or hours"]
-        ].filter(r => Math.abs(r[1]) > 0 || r[0] === "Supervision").map(([k, v, dir, note]) =>
+        ].filter(r => Math.abs(r[1]) > 0 || r[0] === "Supervision & admin pay").map(([k, v, dir, note]) =>
           /*#__PURE__*/React.createElement("div", {key: k, className: "assoc-row"},
             /*#__PURE__*/React.createElement("span", {className: "assoc-row-k"},
               /*#__PURE__*/React.createElement("b", null, k),
@@ -2682,7 +2739,9 @@ function PracticeIncomePlanner() {
               /*#__PURE__*/React.createElement("i", null, note)))),
           /*#__PURE__*/React.createElement("p", {className: "assoc-items-n"},
             /*#__PURE__*/React.createElement("b", null, "Not here, on purpose: "),
-            "California SDI is withheld from the associate's pay, not paid by you, so counting it would overstate what hiring costs. Their federal and CA income tax withholding is their money too \u2014 you only forward it.")),
+            "California SDI is withheld from the associate's pay, not paid by you, so counting it would overstate what hiring costs. Their federal and CA income tax withholding is their money too \u2014 you only forward it. Workers' comp is priced by ",
+            /*#__PURE__*/React.createElement("b", null, "class code and your claims history, not by city"),
+            " \u2014 clinical staff sit in code 8832, so there is no separate Bay Area rate to look up; a Menlo Park practice and a Fresno one start from the same schedule and diverge on experience.")),
         /*#__PURE__*/React.createElement("div", {className: "assoc-row assoc-row-tot"},
           /*#__PURE__*/React.createElement("span", {className: "assoc-row-k"},
             /*#__PURE__*/React.createElement("b", null, "Left for the practice"),
@@ -2708,7 +2767,8 @@ function PracticeIncomePlanner() {
       {n: 3, cite: "Workers' compensation is mandatory for any California employee", url: "https://www.dir.ca.gov/dwc/faqs.html", note: "the rate depends on your carrier and class code, which is why it is an input rather than an assumption."}
     ])),
     /*#__PURE__*/React.createElement("p", {className: "assoc-fine"},
-      "Excluded, and each is a real cost: the associate's own licensing and registration fees, health benefits, California's mandatory paid sick leave (at least 40 hours or five days a year, which you pay and cannot bill), EHR seats, and any bonus or productivity pay. Employment law, supervision ratios and the BBS documentation rules are outside this tool \u2014 talk to an employment lawyer before hiring.")))
+      /*#__PURE__*/React.createElement("b", null, "This pays them for sessions and supervision only. "),
+      "It assumes nothing for progress notes, case management, client advocacy, treatment planning, no-shows or team meetings. For a non-exempt W-2 employee that time is still hours worked and still has to be paid, and a share-of-collections wage that ignores it can fall below minimum wage once the real hours are counted \u2014 which is the practice's problem, not the associate's. Treat what is left below as the optimistic case. Also excluded, each a real cost: the associate's own licensing and registration fees, health benefits, and any bonus or productivity pay. Employment law, supervision ratios and the BBS documentation rules are outside this tool \u2014 talk to an employment lawyer before hiring.")))
   , /*#__PURE__*/React.createElement("p", {
     className: "term-clarify"
   }, /*#__PURE__*/React.createElement("b", null, "Gross"), " = what you bill, before anything is taken out. ", /*#__PURE__*/React.createElement("b", null, "Expenses"), " = what it costs to run the practice. ", /*#__PURE__*/React.createElement("b", null, "Profit"), " (sometimes called net practice income) = gross minus expenses, before tax. ", /*#__PURE__*/React.createElement("b", null, "Net"), " = what actually lands in your bank account, after tax too."), /*#__PURE__*/React.createElement("section", {
@@ -6852,6 +6912,13 @@ const CSS = `
 .assoc-row-tot{border-top:2px solid #E7E2D6; border-bottom:0; margin-top:4px; padding-top:11px;}
 .assoc-row-tot .assoc-row-k b{font-size:15px;}
 .assoc-row-tot .assoc-row-v{font-size:21px;}
+.assoc-locked{background:repeating-linear-gradient(45deg,#FCFAF4,#FCFAF4 8px,#F6F2E8 8px,#F6F2E8 16px);
+  border-style:dashed; border-color:#D9D1BE; gap:7px;}
+.assoc-locked b{font-family:Fraunces,Georgia,serif; font-size:16px;}
+.assoc-locked i{font-style:normal; font-size:12px; color:#7C766A;}
+.assoc-typ{margin-left:6px; font-family:Inter,sans-serif; font-size:10.5px; font-weight:700; cursor:pointer;
+  background:#F6F2E8; border:1px solid #E4D9BE; border-radius:20px; padding:2px 8px; color:#7C6A4B;}
+.assoc-typ:hover{border-color:#C98B4B; color:#26241E;}
 .assoc-items{margin:14px 0 0; padding:14px 15px; background:#fff; border:1px solid #EAE4D6; border-radius:10px;}
 .assoc-items-h{font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
   color:#9A9385; margin-bottom:11px; line-height:1.45;}
