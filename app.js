@@ -2453,7 +2453,9 @@ function PracticeIncomePlanner() {
              : "CA wins", 0, "2", null],
          ["sim", "\u2190 Back to the numbers", fmt(cur.profitYr) + " profit", 0, "\u21A9", null]]
       : [["sec-income", "Income", fmt(cur.grossYr), 0, "1", rate > 0 && sessions > 0],
-         ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr), 0, "2", cur.expYr > 0],
+         // Same derivation as the Profit headline and the waterfall, so every
+    // expense figure on the page is the same number.
+    ["sec-expenses", "Expenses", "\u2212" + fmt(Math.round(cur.grossYr) - Math.round(cur.profitYr)), 0, "2", cur.expYr > 0],
          ["sec-profit", "Profit", fmt(cur.profitYr), 0, "=", null],
          ["tax", "Tax & Retirement", fmt(cur.netYr) + " after tax", 0, "\u2192", null]]
    ).map(([id, lbl, val, prog, n, done]) => /*#__PURE__*/React.createElement("a", {
@@ -2963,7 +2965,12 @@ function PracticeIncomePlanner() {
     numDependents: numDependents,
     entityType: entityType,
     sCorpSalaryInput: sCorpSalaryInput,
-    taxStrategy: taxStrategy
+    taxStrategy: taxStrategy,
+    assocOn: assocOn,
+    assocRevenueYr: assocRevenueYr,
+    assocCostYr: assocCostYr,
+    secondaryOn: secondaryOn,
+    retreatOn: retreatOn
   })), isVisible("funnel") && /*#__PURE__*/React.createElement("div", {id:"sec-funnel"}, /*#__PURE__*/React.createElement(FunnelTab, {
     color: d.color,
     rate: funnelRate,
@@ -6592,6 +6599,11 @@ function ExpensesTab({
 
 // ---------- PROFIT TAB ----------
 function ProfitTab({
+  assocOn,
+  assocRevenueYr,
+  assocCostYr,
+  secondaryOn,
+  retreatOn,
   weeksWorked,
   cur,
   color,
@@ -6617,25 +6629,73 @@ function ProfitTab({
   // Tax strategy section, where they can be explained rather than just
   // subtracted. This section answers "does the business work?", not
   // "what does the government take?".
+  // Every inflow and every outflow, or the arithmetic on screen is a lie.
+  // This used to be two rows - your own sessions, then ALL expenses - which
+  // was fine until income could arrive from somewhere other than your own
+  // caseload. With associates on it showed "$187,500 less $177,477 equals
+  // $235,024", because the revenue line counted only your sessions while the
+  // expense line carried the associates' payroll and the total was computed
+  // off the full gross. Three different bases in four numbers.
+  const assocBase = assocOn ? Math.max(0, assocCostYr) : 0;
+  const assocOut = Math.round(assocBase);
+  const inflowTotal = Math.round(cur.grossTherYr)
+    + (secondaryOn ? Math.round(cur.secondaryYr || 0) : 0)
+    + (retreatOn ? Math.round(cur.retreatYr || 0) : 0)
+    + (assocOn ? Math.round(assocRevenueYr) : 0);
+  // Derive the business-expense line from the rounded inflows, the rounded
+  // associate cost and the rounded profit, so the column adds up exactly as
+  // printed. Rounding each independently leaves the reader looking at four
+  // numbers that are a dollar out - which this project has shipped twice.
+  const ownExpenses = Math.max(0, inflowTotal - assocOut - Math.round(cur.profitYr));
   const waterfall = [{
     k: "Practice revenue",
-    v: cur.grossTherYr,
+    v: Math.round(cur.grossTherYr),
     type: "in"
-  }, {
+  }, secondaryOn && cur.secondaryYr > 0 ? {
+    k: "Secondary source",
+    v: Math.round(cur.secondaryYr),
+    type: "in"
+  } : null, retreatOn && cur.retreatYr > 0 ? {
+    k: "Retreats and events",
+    v: Math.round(cur.retreatYr),
+    type: "in"
+  } : null, assocOn && assocRevenueYr > 0 ? {
+    k: "Associates bill",
+    v: Math.round(assocRevenueYr),
+    type: "in"
+  } : null, {
     k: "Business expenses",
-    v: -Math.round(expYrBase),
+    v: -ownExpenses,
     type: "out"
-  }];
-  const maxAbs = Math.max(...waterfall.map(w => Math.abs(w.v)));
+  }, assocOn && assocOut > 0 ? {
+    k: "Cost of the associates",
+    v: -assocOut,
+    type: "out",
+    note: "wages, employer tax, supervision, space"
+  } : null].filter(Boolean);
+  // Scale the bars against the largest thing on the chart INCLUDING the total,
+  // or a profit bigger than any single row renders past the end of its track.
+  const maxAbs = Math.max(1, ...waterfall.map(w => Math.abs(w.v)), Math.abs(cur.profitYr));
   // Pre-tax break-even: how many sessions a week cover the running costs.
   // This used to solve for net-of-tax > 0, which conflated "the business
   // washes its face" with "you owe no tax" and quietly moved with filing
   // status. Costs are the thing a caseload has to clear.
-  const breakEven = (() => {
+  // How many of YOUR sessions a week it takes for the whole business to clear
+  // its costs. Everything that is not your own caseload - secondary work,
+  // retreats, what the associates bill and what they cost - is netted off
+  // first, so this answers "how much do I personally have to work", not "how
+  // big is the payroll". Before this it solved your sessions against ALL
+  // expenses including the associates' wages, and told a practice with three
+  // profitable associates that it needed 24 sessions a week to break even.
+  // With profitable associates the honest answer can be none.
+  const otherNet = (cur.secondaryYr || 0) + (cur.retreatYr || 0)
+    + (assocOn ? Math.round(assocRevenueYr) - Math.round(assocCostYr) : 0);
+  const breakEvenCovered = otherNet - ownExpenses > 0;
+  const breakEven = breakEvenCovered ? 0 : (() => {
     for (let s = 1; s <= 60; s++) {
       const g = rate * s * weeksWorked;
       const fee = cityLicenseFee(cityKey, g, manualCityFee);
-      if (g - (expYrBase + fee) > 0) return s;
+      if (g + otherNet - (ownExpenses + fee) > 0) return s;
     }
     return null;
   })();
@@ -6699,7 +6759,7 @@ function ProfitTab({
     label: "Profit / year",
     value: fmt(cur.profitYr),
     accent: color,
-    note: `${fmt(cur.grossYr)} billed less ${fmt(cur.expYr)} expenses \u00b7 before tax`
+    note: `${fmt(cur.grossYr)} billed less ${fmt(Math.round(cur.grossYr) - Math.round(cur.profitYr))} expenses \u00b7 before tax`
   }), /*#__PURE__*/React.createElement("div", {
     className: "stat-col"
   }, /*#__PURE__*/React.createElement(Stat, {
@@ -6708,8 +6768,10 @@ function ProfitTab({
     note: "of every gross dollar"
   }), /*#__PURE__*/React.createElement(Stat, {
     label: "Break-even caseload",
-    value: breakEven ? breakEven + " / wk" : "—",
-    note: `sessions to clear costs at $${rate}/hr`
+    value: breakEvenCovered ? "covered" : breakEven ? breakEven + " / wk" : "—",
+    note: breakEvenCovered
+      ? "your other income already clears the costs"
+      : `your own sessions to clear costs at $${rate}/hr`
   }))), /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
@@ -6731,7 +6793,7 @@ function ProfitTab({
     }
   })), /*#__PURE__*/React.createElement("span", {
     className: "wf-v " + (w.type === "in" ? "pos" : "neg")
-  }, w.v > 0 ? "+" : "\u2212", fmt(Math.abs(w.v))))), /*#__PURE__*/React.createElement("div", {
+  }, w.v > 0 ? "+" : w.v < 0 ? "\u2212" : "", fmt(Math.abs(w.v))))), /*#__PURE__*/React.createElement("div", {
     className: "wf-row wf-final"
   }, /*#__PURE__*/React.createElement("span", {
     className: "wf-k"
@@ -6781,7 +6843,9 @@ function ProfitTab({
     className: "strip-v"
   }, fmt(sessions > 0 ? cur.profitYr / (sessions * weeksWorked) : 0)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "of your $", rate, " billed rate")))), handoffCard);
+  }, (assocOn && assocRevenueYr > 0) || (secondaryOn && cur.secondaryYr > 0) || (retreatOn && cur.retreatYr > 0)
+      ? "all profit \u00f7 your own sessions"
+      : "of your $" + rate + " billed rate")))), handoffCard);
 }
 const CSS = `
 .planner{
@@ -7066,6 +7130,7 @@ const CSS = `
 .assoc-typ{margin-left:6px; font-family:Inter,sans-serif; font-size:10.5px; font-weight:700; cursor:pointer;
   background:#F6F2E8; border:1px solid #E4D9BE; border-radius:20px; padding:2px 8px; color:#7C6A4B;}
 .assoc-typ:hover{border-color:#C98B4B; color:#26241E;}
+.wf-n{display:block; font-style:normal; font-size:11.5px; color:#9A9385; margin-top:2px; line-height:1.35;}
 .assoc-items{margin:14px 0 0; padding:14px 15px; background:#fff; border:1px solid #EAE4D6; border-radius:10px;}
 .assoc-items-h{font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
   color:#9A9385; margin-bottom:11px; line-height:1.45;}
