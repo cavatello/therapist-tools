@@ -612,6 +612,9 @@ function computePittsburgh(revenueUSD, expensesUSD) {
 }
 const FR_BRACKETS = [[0, 0], [11600, 0.11], [29579, 0.30], [84577, 0.41], [181917, 0.45]];
 const FR_COTISATION_RATE = 0.40;
+// CSG (9.2%) + CRDS (0.5%) on 98.25% of activity income. Carved out of the
+// blended rate above only so the foreign-tax-credit maths below can name it.
+const FR_CSG_RATE = 0.097;
 function computeFrance(revenueUSD, expensesUSD) {
   const revenueEUR = revenueUSD * USD_TO_EUR;
   const expensesEUR = expensesUSD * USD_TO_EUR;
@@ -620,15 +623,35 @@ function computeFrance(revenueUSD, expensesUSD) {
   const taxableEUR = Math.max(0, profitEUR - cotisationsEUR);
   const incomeTaxEUR = bracketTax(taxableEUR, FR_BRACKETS);
   const netEUR = profitEUR - cotisationsEUR - incomeTaxEUR;
+  // CSG + CRDS sit inside the blended cotisation rate above, but they are the
+  // one part of it a US citizen can claim as a foreign tax credit: the US and
+  // France memorialised in 2019 that CSG/CRDS are NOT social taxes covered by
+  // the totalization agreement, and the IRS no longer challenges the credit.
+  // France is the only card where the no-residual-US-tax conclusion depends on
+  // this - without it, roughly $8,500 a year would still be owed at $253,500
+  // of profit. rsmus.com/insights/tax-alerts/2019/irs-allows-credit-for-certain-french-social-taxes.html
+  const csgEUR = profitEUR * FR_CSG_RATE;
   return {
     netUSD: netEUR * EUR_TO_USD,
     netEUR,
     taxUSD: (cotisationsEUR + incomeTaxEUR) * EUR_TO_USD,
     cotisationsUSD: cotisationsEUR * EUR_TO_USD,
-    incomeTaxUSD: incomeTaxEUR * EUR_TO_USD
+    incomeTaxUSD: incomeTaxEUR * EUR_TO_USD,
+    csgUSD: csgEUR * EUR_TO_USD
   };
 }
 const USD_TO_AED = 3.6725;
+// What a US citizen abroad would owe Washington on this profit if no foreign
+// tax credit applied. No self-employment tax - the US has totalization
+// agreements with Germany, Portugal, France and Australia - and no QBI, since
+// 199A needs a US trade or business. This exists so the section can *show*
+// that the credit covers the US bill rather than asserting it.
+function usFedAbroad(profitUSD, filingStatus) {
+  const std = FED_STD_BY_STATUS[filingStatus] || FED_STD_BY_STATUS.single;
+  const br = FED_BRACKETS_BY_STATUS[filingStatus] || FED_BRACKETS_BY_STATUS.single;
+  return bracketTax(Math.max(0, profitUSD - std), br);
+}
+
 // 2026 foreign earned income exclusion, Rev. Proc. 2025-32 (up from $130,000).
 // irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026
 const FEIE_2026 = 132900;
@@ -2781,7 +2804,74 @@ function PracticeIncomePlanner() {
             onClick: () => setShowResidency(v => !v)
           }, showResidency ? "Hide the eight locations" : "Show all eight, with what each one counts")));
   })(),
-  showResidency && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
+  showResidency && /*#__PURE__*/React.createElement(React.Fragment, null,
+  // ===================================================================
+  // WHY THE OVERSEAS CARDS CAN QUOTE LOCAL TAX ONLY. A US citizen is
+  // taxed on worldwide income wherever they live, so a reader is right
+  // to ask where the US tax went on these figures. The answer is the
+  // foreign tax credit - and rather than assert it, this shows the
+  // headroom per location. It is also what makes the UAE different:
+  // no meaningful foreign tax means no meaningful credit.
+  // ===================================================================
+  (function () {
+    const profit = Math.max(0, cur.grossYr - expYr);
+    if (!(profit > 0)) return null;
+    const owed = usFedAbroad(profit, filingStatus);
+    // The four credit-route rows fall straight out of owed - creditable.
+    // Dubai does not, and must not be computed that way: with no credit worth
+    // claiming, its card takes the exclusion route instead and adds
+    // self-employment tax, so its real US bill is residency.uae.usTax. Deriving
+    // it here would print a number the card below disagrees with.
+    const rows = [
+      {n: "Berlin", credit: residency.berlin.incomeTaxUSD + residency.berlin.soliUSD,
+        what: "income tax + solidarity surcharge"},
+      {n: "Portugal", credit: residency.portugal.irsUSD + residency.portugal.solidarityUSD,
+        what: "IRS + solidarity"},
+      {n: "Bordeaux", credit: residency.france.incomeTaxUSD + residency.france.csgUSD,
+        what: "imp\u00F4t sur le revenu + CSG-CRDS"},
+      {n: "Brisbane", credit: residency.brisbane.taxUSD,
+        what: "income tax + Medicare levy"}
+    ].map(r => ({...r, left: Math.max(0, owed - r.credit), leftNote: "nothing left owing"}));
+    rows.push({n: "Dubai", credit: residency.uae.uaeTax, what: "UAE corporate tax only",
+      left: residency.uae.usTax, leftNote: "exclusion route + SE tax"});
+    return /*#__PURE__*/React.createElement("section", {className: "card ftc"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("div", {className: "sub-eyebrow"}, "Before you trust the numbers below"),
+        /*#__PURE__*/React.createElement("h2", null, "Where the US tax went"),
+        /*#__PURE__*/React.createElement("p", null,
+          "A US citizen is taxed on worldwide income, so moving abroad does not end your US filing. On ",
+          /*#__PURE__*/React.createElement("b", null, fmt(profit)), " of profit, Washington would want ",
+          /*#__PURE__*/React.createElement("b", null, fmt(owed)),
+          " if nothing offset it. The foreign tax credit is what offsets it \u2014 and in four of these five places, it more than covers the bill, which is why those cards quote local tax alone.")),
+      /*#__PURE__*/React.createElement("div", {className: "ftc-rows"},
+        rows.map(r => /*#__PURE__*/React.createElement("div", {
+          key: r.n, className: "ftc-row" + (r.left > 0 ? " short" : "")
+        }, /*#__PURE__*/React.createElement("span", {className: "ftc-n"},
+            /*#__PURE__*/React.createElement("b", null, r.n),
+            /*#__PURE__*/React.createElement("i", null, r.what)),
+          /*#__PURE__*/React.createElement("span", {className: "ftc-c"}, fmt(r.credit),
+            /*#__PURE__*/React.createElement("em", null, "creditable")),
+          /*#__PURE__*/React.createElement("span", {className: "ftc-l"},
+            r.left > 0 ? fmt(r.left) : "covered",
+            /*#__PURE__*/React.createElement("em", null, r.leftNote))))),
+      /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+        /*#__PURE__*/React.createElement("b", null, "Dubai is the exception, and it is the reason its card looks different. "),
+        "With almost no foreign tax to credit, the US bill lands in full above the ",
+        fmt(FEIE_2026), " foreign earned income exclusion, and self-employment tax is owed on every dollar of profit because the UAE has no totalization agreement \u2014 unlike Germany, Portugal, France and Australia, which all do. ",
+        /*#__PURE__*/React.createElement("b", null, "France is the closest call. "),
+        "Its income tax alone would leave roughly ",
+        fmt(Math.max(0, owed - residency.france.incomeTaxUSD)),
+        " owing; the gap closes only because CSG-CRDS is creditable, which the US and France memorialised in 2019."),
+      /*#__PURE__*/React.createElement("p", {className: "pay-note"}, citeList([
+        {n: 1, cite: "IRS, Foreign Tax Credit", url: "https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit", note: "the credit is limited to the US tax on foreign-source income; foreign social security taxes covered by a totalization agreement are not creditable."},
+        {n: 2, cite: "IRS, Self-employment tax for businesses abroad", url: "https://www.irs.gov/individuals/international-taxpayers/self-employment-tax-for-businesses-abroad", note: "\u201CYou must take all your self-employment income into account in figuring your net earnings from self-employment, even if all, or a portion of, gross income was excluded\u201D \u2014 the exclusion does not reduce SE tax."},
+        {n: 3, cite: "IRS, agreement with France on CSG and CRDS (2019)", url: "https://rsmus.com/insights/tax-alerts/2019/irs-allows-credit-for-certain-french-social-taxes.html", note: "the US and France memorialised that CSG and CRDS are not social taxes covered by the totalization agreement, so the IRS no longer challenges the credit."},
+        {n: 4, cite: "Rev. Proc. 2025-32 \u2014 2026 foreign earned income exclusion, $132,900", url: "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill", note: "up from $130,000 for 2025."}
+      ])),
+      /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+        "This models the credit route only (foreign tax credit on everything, no exclusion), which is the usual choice in a high-tax country. Real returns often mix the two, and the credit is basket-limited and carries forward. Not personalised advice."));
+  })(),
+  /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -6401,6 +6491,25 @@ section.card.handoff{border-left:3px solid #3F9577; background:#FCFDFC;}
    Same job as .sgate: answer first, working on request. Declared after
    .card so the border-left shorthand does not get overwritten. */
 section.card.rgate{border-left:3px solid #C98B4B;}
+
+/* ===== foreign tax credit headroom ===== */
+.ftc-rows{display:flex; flex-direction:column; gap:0; margin:4px 0 16px;}
+.ftc-row{display:flex; align-items:baseline; gap:16px; padding:11px 0; border-bottom:1px solid #F1EDE3;}
+.ftc-row:last-child{border-bottom:0;}
+.ftc-n{flex:1 1 auto; min-width:0;}
+.ftc-n b{display:block; font-size:14.5px;}
+.ftc-n i{display:block; font-style:normal; font-size:12px; color:#7C766A; margin-top:2px;}
+.ftc-c, .ftc-l{flex:0 0 auto; text-align:right; font-family:Fraunces,Georgia,serif; font-size:16px; font-variant-numeric:tabular-nums;}
+.ftc-c{min-width:104px;}
+.ftc-l{min-width:104px; color:#3F9577;}
+.ftc-row.short .ftc-l{color:#B5483F;}
+.ftc-c em, .ftc-l em{display:block; font-family:Inter,sans-serif; font-style:normal; font-size:10.5px;
+  letter-spacing:.04em; text-transform:uppercase; color:#9A9385; margin-top:3px; font-weight:600;}
+@media (max-width:780px){
+  .ftc-row{flex-wrap:wrap; gap:8px 14px;}
+  .ftc-n{flex:1 0 100%;}
+  .ftc-c, .ftc-l{flex:1 1 0; text-align:left; min-width:0; font-size:15px;}
+}
 .rgate-k{font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:#9A9385; font-weight:600; margin-bottom:6px;}
 .rgate-h{font-family:Fraunces,Georgia,serif; font-size:23px; line-height:1.25; margin:0 0 16px;}
 .rgate-rank{display:flex; flex-direction:column; gap:0; margin:0 0 16px; max-width:520px;}
