@@ -1967,9 +1967,24 @@ function PracticeIncomePlanner() {
     className: "growlanding-bridge"
   }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement(React.Fragment, null, showOrient && /*#__PURE__*/React.createElement("div", {
     className: "orient"
-  }, /*#__PURE__*/React.createElement("span", null,
-    /*#__PURE__*/React.createElement("b", null, "For California-licensed therapists"),
-    " \u2014 LMFT, LCSW, LPCC and psychologists. What your practice actually pays, from your session rate through entity structure to retirement. 2026 federal and California rates."),
+  }, /*#__PURE__*/React.createElement("div", {className: "orient-rule"},
+      /*#__PURE__*/React.createElement("i", {style: {width: "34%", background: "#B5483F"}}),
+      /*#__PURE__*/React.createElement("i", {style: {width: "4%", background: "#C9A227"}}),
+      /*#__PURE__*/React.createElement("i", {style: {width: "62%", background: "#3F9577"}})),
+    /*#__PURE__*/React.createElement("div", {className: "orient-in"},
+      /*#__PURE__*/React.createElement("h1", {className: "orient-h"},
+        "What a California therapy practice ",
+        /*#__PURE__*/React.createElement("em", null, "actually pays")),
+      /*#__PURE__*/React.createElement("p", {className: "orient-p"},
+        "A free simulator for CA-licensed ",
+        /*#__PURE__*/React.createElement("b", null, "LMFTs, LCSWs, LPCCs and psychologists"),
+        " \u2014 session rate, expenses, sole prop vs professional corp, retirement and Social Security. 2026 rates, every figure traceable."),
+      /*#__PURE__*/React.createElement("div", {className: "orient-cta"},
+        /*#__PURE__*/React.createElement("a", {href: "#sec-income", onClick: dismissOrient},
+          "Start with your rate \u2193"),
+        /*#__PURE__*/React.createElement("button", {
+          className: "orient-skip", onClick: dismissOrient
+        }, "Skip the intro"))),
     /*#__PURE__*/React.createElement("button", {
       className: "orient-x", onClick: dismissOrient, "aria-label": "Dismiss this introduction"
     }, "\u00D7")), VARIANT === "02" && /*#__PURE__*/React.createElement("div", {
@@ -2844,7 +2859,7 @@ function PracticeIncomePlanner() {
     className: "card feedback-section"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Found a bug? Have an idea?"), /*#__PURE__*/React.createElement("p", null, "This tool is actively maintained \u2014 tell me what's broken, what's confusing, or what you'd like to see next. Goes straight to my inbox.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Found a bug? Have an idea?"), /*#__PURE__*/React.createElement("p", null, "This tool is actively maintained \u2014 tell me what's broken, what's confusing, or what you'd like to see next. Goes right to ", /*#__PURE__*/React.createElement("b", null, "Cavatello"), ", therapist and tool builder.")), /*#__PURE__*/React.createElement("div", {
     className: "funnel-input-grid",
     style: {
       gridTemplateColumns: "160px 1fr"
@@ -2971,7 +2986,7 @@ function PracticeIncomePlanner() {
     className: "sitenav-mono"
   }, "CA"), /*#__PURE__*/React.createElement("span", {
     className: "sitenav-wordmark"
-  }, "Therapy Practice")), /*#__PURE__*/React.createElement("nav", {
+  }, "California Therapy Practice Simulator")), /*#__PURE__*/React.createElement("nav", {
     className: "sitefoot-links",
     "aria-label": "Site, footer"
   }, [["#sim", "Simulator"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
@@ -2981,7 +2996,10 @@ function PracticeIncomePlanner() {
     rel: /^https?:/.test(href) ? "noopener noreferrer" : null
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 28, 2026")));
+  }, "Last updated: July 28, 2026"), /*#__PURE__*/React.createElement("div", {
+    className: "sitefoot-by"
+  }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."),
+    " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
 }
 
 // ---------- small components ----------
@@ -7660,15 +7678,6 @@ td.num-head{text-align:right;}
 .guided-jumpnav .jumpnav-group{flex:1;}
 .guided-jumpnav .jumpnav-pill{flex:1; justify-content:flex-start;}
 
-/* first visit only - who this is for, in one line */
-.orient{order:-1; display:flex; align-items:flex-start; gap:12px;
-  background:#FBF1E2; border-bottom:1px solid #E8D9BE;
-  padding:11px 22px; font-size:13px; line-height:1.55; color:#5C4A33;}
-.orient b{color:var(--ink);}
-.orient-x{margin-left:auto; flex:none; border:0; background:transparent;
-  color:#A08B6B; font-size:17px; line-height:1; cursor:pointer; padding:0 2px;}
-.orient-x:hover{color:var(--ink);}
-
 /* the sticky nav already says which section you are in and what it is worth */
 .sec-intro-kicker, .sec-intro-stat{display:none;}
 .sec-intro-top{margin-bottom:0;}
@@ -7727,5 +7736,38 @@ td.num-head{text-align:right;}
     gap:4px; margin-top:8px; padding-top:8px; border-top:1px solid var(--line);}
   .sitenav-links.open .sitenav-item{flex:1 1 45%;}
 }
+
+/* The intro. Deliberately the same composition as og-image.png, so clicking the
+   preview card in a forum post lands on something that looks like the card you
+   clicked. Shown until dismissed - see ORIENT_KEY. */
+.orient{order:-1; position:relative; background:var(--card);
+  border-bottom:1px solid var(--line); padding:0;}
+.orient-rule{display:flex; height:6px;}
+.orient-rule i{display:block; height:100%;}
+.orient-in{padding:34px 22px 30px; max-width:900px;}
+.orient-h{font-family:'Fraunces',serif; font-weight:700; letter-spacing:-.015em;
+  font-size:clamp(28px,4.4vw,50px); line-height:1.06; margin:0 0 16px;}
+.orient-h em{font-style:normal; color:#B5483F;}
+.orient-p{font-size:clamp(14.5px,1.35vw,18px); line-height:1.55; color:#5F594E; margin:0; max-width:820px;}
+.orient-p b{color:var(--ink); font-weight:600;}
+.orient-cta{display:flex; align-items:center; gap:18px; flex-wrap:wrap; margin-top:22px;}
+.orient-cta a{display:inline-block; background:var(--ink); color:#fff; text-decoration:none;
+  font-size:14px; font-weight:600; border-radius:99px; padding:11px 22px;}
+.orient-cta a:hover{background:#3F3B32;}
+.orient-skip{border:0; background:transparent; color:var(--muted); font-size:13px;
+  text-decoration:underline; text-underline-offset:3px; cursor:pointer; padding:4px;}
+.orient-skip:hover{color:var(--ink);}
+.orient-x{position:absolute; top:16px; right:16px; border:0; background:transparent;
+  color:#A9A192; font-size:22px; line-height:1; cursor:pointer; padding:4px 8px;}
+.orient-x:hover{color:var(--ink);}
+@media (max-width:780px){
+  .orient-in{padding:24px 14px 22px;}
+  .orient-cta{margin-top:18px; gap:12px;}
+  .orient-x{top:11px; right:8px; font-size:20px;}
+}
+
+.sitefoot-by{flex-basis:100%; margin-top:2px; padding-top:11px; border-top:1px solid var(--line);
+  font-size:12px; line-height:1.6; color:var(--muted);}
+.sitefoot-by b{color:var(--ink); font-weight:600;}
 
 `;
