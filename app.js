@@ -1135,14 +1135,14 @@ function PracticeIncomePlanner() {
     expenses: {
       n: 2,
       title: "Expenses",
-      blurb: "What it costs to keep the doors open. These are Schedule C deductions, so each dollar also lowers your taxable income \u2014 the real cost is less than the sticker price.",
+      blurb: "What it costs to keep the doors open. Everything here comes off what you bill, before tax is worked out at all.",
       stat: () => fmt(cur.expYr) + " a year"
     },
     profit: {
       n: 3,
       title: "Profit",
-      blurb: "What is actually left once expenses and every tax are taken out, and where each dollar of your gross ends up.",
-      stat: () => fmt(cur.netYr) + " net a year"
+      blurb: "What the business makes: everything you bill, less what it costs to bill it. Tax has not come out yet \u2014 that is the next section, and it is a separate question with its own levers.",
+      stat: () => fmt(cur.profitYr) + " profit a year"
     },
     taxstrategy: {
       n: 4,
@@ -1329,7 +1329,16 @@ function PracticeIncomePlanner() {
       trueCostOfExpenses: Math.round(noExp.net - y.net),
       taxShield: Math.round(expYr - (noExp.net - y.net)),
       takeHomePct: y.grossAll > 0 ? y.net / y.grossAll : 0,
-      marginPct: y.grossAll > 0 ? y.net / y.grossAll : 0
+      marginPct: y.grossAll > 0 ? y.net / y.grossAll : 0,
+      // Pre-tax profit. Page 1 (Income / Expenses / Profit) models the
+      // business and stops here; tax is a separate concern with its own
+      // section. The glossary has always defined profit this way — the
+      // Profit section used to contradict it by labelling y.net (after tax)
+      // "Net profit / year". These fields are what page 1 now shows.
+      profitYr: Math.round(y.grossAll - expYr),
+      profitMo: Math.round((y.grossAll - expYr) / 12),
+      profitWk: Math.round((y.grossAll - expYr) / 52),
+      profitMarginPct: y.grossAll > 0 ? (y.grossAll - expYr) / y.grossAll : 0
     };
   }, [rate, sessions, expYr, job2Yr, secondaryYr, secondaryOn, retreatYr, retreatOn, filingStatus, numDependents, entityType, sCorpSalaryInput]);
 
@@ -2128,7 +2137,7 @@ function PracticeIncomePlanner() {
     className: "jumpnav-group-lbl"
   }, "Your finances"), [["sec-income", "Income", fmt(cur.grossYr), 0, "1", rate > 0 && sessions > 0],
     ["sec-expenses", "Expenses", "\u2212" + fmt(cur.expYr), 0, "2", cur.expYr > 0],
-    ["sec-profit", "Profit", fmt(cur.netYr), 0, "=", null],
+    ["sec-profit", "Profit", fmt(cur.profitYr), 0, "=", null],
     ["sec-taxstrategy", "Tax Strategy", taxStepsDone < 4 ? taxStepsDone + " of 4" : Math.round(cur.takeHomePct * 100) + "%", taxStepsDone < 4 ? taxStepsDone / 4 : 0, "3", taxStepsDone >= 4]
    ].map(([id, lbl, val, prog, n, done]) => /*#__PURE__*/React.createElement("a", {
     key: id,
@@ -2396,11 +2405,15 @@ function PracticeIncomePlanner() {
       ? [`therapy ${fmt(cur.grossTherYr)}`, secondaryOn ? `secondary ${fmt(cur.secondaryYr)}` : null,
          retreatOn ? `retreats ${fmt(cur.retreatYr)}` : null].filter(Boolean).join(" + ")
       : `${weeksWorked} working weeks`))), (function () {
+    // Pre-tax. `ny` is now profit (gross less running costs), not net of
+    // tax - the Income section models the business, and every tax figure
+    // moved to the Tax strategy section. Keeping the property name means
+    // the bar widths and sort below did not have to change.
     const rateRow = r => {
       const gy = grossYr(r, sessions, weeksWorked) + job2Yr + otherIncomeYr;
-      const ny = netYr(r, sessions);
-      return {r: r, gy: gy, ny: ny, tax: gy - ny, keepPct: Math.round(ny / Math.max(1, gy) * 100),
-        delta: ny - cur.netYr, isCur: r === nearestRate};
+      const ny = Math.round(gy - (expYrBase + bizFeeAt(r, sessions)));
+      return {r: r, gy: gy, ny: ny, keepPct: Math.round(ny / Math.max(1, gy) * 100),
+        delta: ny - cur.profitYr, isCur: r === nearestRate};
     };
     const all = RATES.map(rateRow);
     const curIdx = Math.max(0, all.findIndex(x => x.isCur));
@@ -2426,28 +2439,28 @@ function PracticeIncomePlanner() {
             /*#__PURE__*/React.createElement("i", {style: {
               width: (x.ny / scale * 100) + "%", background: RATE_DATA[x.r].color}})),
           /*#__PURE__*/React.createElement("b", {className: "uro-v"}, fmt(x.ny),
-            /*#__PURE__*/React.createElement("em", null, x.keepPct, "% kept")),
+            /*#__PURE__*/React.createElement("em", null, x.keepPct, "% margin")),
           /*#__PURE__*/React.createElement("b", {
             className: "uro-d " + (x.delta === 0 ? "muted" : x.delta > 0 ? "pos" : "neg")
           }, x.delta === 0 ? "\u2014" : (x.delta > 0 ? "+" : "\u2212") + fmt(Math.abs(x.delta)))))),
       next && next.delta > 0 ? /*#__PURE__*/React.createElement("div", {className: "sec-point"},
         /*#__PURE__*/React.createElement("b", null, "+", fmt(next.delta), " a year"),
-        " for charging $", next.r - focus[0].r, " more a session \u2014 no extra hours, no new clients, nothing to file. You would keep ",
-        next.keepPct, "\u00a2 of each extra dollar instead of ", focus[0].keepPct, "\u00a2, because the bracket above takes a little more.") : null,
+        " for charging $", next.r - focus[0].r, " more a session \u2014 no extra hours, no new clients, nothing to file. Your running costs do not move when your rate does, so every dollar of the rise lands in profit; your margin goes from ",
+        focus[0].keepPct, "% to ", next.keepPct, "%. Tax takes its share of it later, in ",
+        /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy"}, "Tax strategy"), ".") : null,
       /*#__PURE__*/React.createElement("details", {className: "ratefold"},
         /*#__PURE__*/React.createElement("summary", null,
           /*#__PURE__*/React.createElement("b", null, "Every rate from $", RATES[0], " to $", RATES[RATES.length - 1]),
-          /*#__PURE__*/React.createElement("span", null, "gross, net, tax and keep-rate \u00b7 tap a row to set it"),
+          /*#__PURE__*/React.createElement("span", null, "gross, profit and margin \u00b7 tap a row to set it"),
           /*#__PURE__*/React.createElement("i", null, "Show")),
         /*#__PURE__*/React.createElement("div", {className: "table-wrap"},
           /*#__PURE__*/React.createElement("table", null,
             /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null,
               /*#__PURE__*/React.createElement("th", null, "Rate"),
               /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Gross / year"),
-              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Net / year"),
-              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Tax"),
-              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Keeps"),
-              /*#__PURE__*/React.createElement("th", null, "vs. current net"),
+              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Profit / year"),
+              /*#__PURE__*/React.createElement("th", {className: "num-head"}, "Margin"),
+              /*#__PURE__*/React.createElement("th", null, "vs. current profit"),
               /*#__PURE__*/React.createElement("th", null))),
             /*#__PURE__*/React.createElement("tbody", null, all.map(x =>
               /*#__PURE__*/React.createElement("tr", {
@@ -2457,7 +2470,6 @@ function PracticeIncomePlanner() {
                     style: {background: RATE_DATA[x.r].color}}), "$", x.r, "/hr"),
                 /*#__PURE__*/React.createElement("td", {className: "num-head"}, fmt(x.gy)),
                 /*#__PURE__*/React.createElement("td", {className: "num-head strong"}, fmt(x.ny)),
-                /*#__PURE__*/React.createElement("td", {className: "num-head muted"}, "\u2212" + fmt(x.tax)),
                 /*#__PURE__*/React.createElement("td", {className: "num-head muted"}, x.keepPct, "%"),
                 /*#__PURE__*/React.createElement("td", {
                   className: x.delta === 0 ? "muted" : x.delta > 0 ? "pos" : "neg"
@@ -2465,37 +2477,8 @@ function PracticeIncomePlanner() {
                 /*#__PURE__*/React.createElement("td", null,
                   /*#__PURE__*/React.createElement("div", {className: "bar-cell"},
                     /*#__PURE__*/React.createElement("div", {className: "bar-fill", style: {
-                      width: x.ny / netYr(200, 30) * 100 + "%", background: RATE_DATA[x.r].color}}))))))))));
-  })(), (function () {
-    const payCell = (p, i) => /*#__PURE__*/React.createElement("div", {
-      key: i, className: "pay-cell" + (p.isAnchor ? " pay-anchor" : ""),
-      style: p.isAnchor ? {borderColor: d.color} : {}
-    }, p.isAnchor ? /*#__PURE__*/React.createElement("span", {
-      className: "pay-flag", style: {background: d.color}}, "anchor") : null,
-      /*#__PURE__*/React.createElement("span", {className: "pay-date"}, fmtDate(p.date)),
-      /*#__PURE__*/React.createElement("span", {className: "pay-amt"}, fmt(p.amount)),
-      /*#__PURE__*/React.createElement("span", {className: "pay-cum"}, fmt(p.cumulative), " ytd"));
-    return /*#__PURE__*/React.createElement("section", {className: "card"},
-      /*#__PURE__*/React.createElement("div", {className: "card-head"},
-        /*#__PURE__*/React.createElement("h2", null, "Biweekly take-home"),
-        /*#__PURE__*/React.createElement("p", null,
-          "Your annual net split across 26 checks, anchored to a payday of ",
-          /*#__PURE__*/React.createElement("strong", null, "Fri, Jul 3 2026"),
-          " and every other Friday after, at $", rate, "/hr \u00b7 ", sessions, " sessions/wk.")),
-      /*#__PURE__*/React.createElement("div", {className: "paylede"},
-        /*#__PURE__*/React.createElement("b", {style: {color: d.color}}, fmt(payPerCheck)),
-        /*#__PURE__*/React.createElement("span", null, "every 2 weeks \u00b7 26 checks a year \u00b7 ",
-          fmt(payPerCheck * 26), " in total")),
-      /*#__PURE__*/React.createElement("div", {className: "pay-grid pay-next"},
-        paydays.slice(0, 3).map(payCell)),
-      paydays.length > 3 ? /*#__PURE__*/React.createElement("details", {className: "payfold"},
-        /*#__PURE__*/React.createElement("summary", null,
-          /*#__PURE__*/React.createElement("b", null, "The next ", paydays.length, " paydays"),
-          /*#__PURE__*/React.createElement("span", null, "with a running year-to-date"),
-          /*#__PURE__*/React.createElement("i", null, "Show")),
-        /*#__PURE__*/React.createElement("div", {className: "pay-grid"}, paydays.map(payCell)),
-        /*#__PURE__*/React.createElement("p", {className: "pay-note"},
-          "A biweekly schedule lands 26 checks a year, so two months each year carry a third check \u2014 those are the bonus-feeling paydays.")) : null);
+                      width: x.ny / Math.max(1, 200 * 30 * weeksWorked - expYrBase) * 100 + "%",
+                      background: RATE_DATA[x.r].color}}))))))))));
   })()))), isVisible("expenses") && /*#__PURE__*/React.createElement("div", {id:"sec-expenses"}, sectionIntro("expenses"), /*#__PURE__*/React.createElement(ExpensesTab, {
     weeksWorked: weeksWorked,
     expenses: expenses,
@@ -2587,7 +2570,57 @@ function PracticeIncomePlanner() {
     strategy: taxStrategy,
     strategySoleProp: taxStrategySoleProp,
     strategySCorp: taxStrategySCorp
-  })), isVisible("residency") && /*#__PURE__*/React.createElement("div", {id:"sec-residency"}, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
+  }), /*#__PURE__*/React.createElement("section", {
+    className: "card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "card-head"
+  }, /*#__PURE__*/React.createElement("h2", null, "Why a $1 expense doesn't cost you $1"), /*#__PURE__*/React.createElement("p", null, "Business expenses come off your income before tax is calculated. At your current numbers, spending ", fmt(expYr), " reduces take-home by only ", fmt(cur.trueCostOfExpenses), " — the rest comes back as tax you no longer owe.")), /*#__PURE__*/React.createElement("div", {
+    className: "shield"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "shield-bar"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "shield-cost",
+    style: {
+      width: cur.trueCostOfExpenses / Math.max(expYr, 1) * 100 + "%"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, fmt(cur.trueCostOfExpenses), " real cost")), /*#__PURE__*/React.createElement("div", {
+    className: "shield-back",
+    style: {
+      width: cur.taxShield / Math.max(expYr, 1) * 100 + "%"
+    }
+  }, /*#__PURE__*/React.createElement("span", null, fmt(cur.taxShield), " tax shield"))), /*#__PURE__*/React.createElement("p", {
+    className: "shield-note"
+  }, "Effective: about ", Math.round(cur.taxShield / Math.max(expYr, 1) * 100), "% of every business dollar you spend is offset by reduced federal, CA, and self-employment tax."))), (function () {
+    const payCell = (p, i) => /*#__PURE__*/React.createElement("div", {
+      key: i, className: "pay-cell" + (p.isAnchor ? " pay-anchor" : ""),
+      style: p.isAnchor ? {borderColor: d.color} : {}
+    }, p.isAnchor ? /*#__PURE__*/React.createElement("span", {
+      className: "pay-flag", style: {background: d.color}}, "anchor") : null,
+      /*#__PURE__*/React.createElement("span", {className: "pay-date"}, fmtDate(p.date)),
+      /*#__PURE__*/React.createElement("span", {className: "pay-amt"}, fmt(p.amount)),
+      /*#__PURE__*/React.createElement("span", {className: "pay-cum"}, fmt(p.cumulative), " ytd"));
+    return /*#__PURE__*/React.createElement("section", {className: "card"},
+      /*#__PURE__*/React.createElement("div", {className: "card-head"},
+        /*#__PURE__*/React.createElement("h2", null, "Biweekly take-home"),
+        /*#__PURE__*/React.createElement("p", null,
+          "What all of the above comes to, paid the way a salary would be. Your annual net \u2014 after expenses and after every tax on this page \u2014 split across 26 checks, anchored to a payday of ",
+          /*#__PURE__*/React.createElement("strong", null, "Fri, Jul 3 2026"),
+          " and every other Friday after, at $", rate, "/hr \u00b7 ", sessions, " sessions/wk.")),
+      /*#__PURE__*/React.createElement("div", {className: "paylede"},
+        /*#__PURE__*/React.createElement("b", {style: {color: d.color}}, fmt(payPerCheck)),
+        /*#__PURE__*/React.createElement("span", null, "every 2 weeks \u00b7 26 checks a year \u00b7 ",
+          fmt(payPerCheck * 26), " in total")),
+      /*#__PURE__*/React.createElement("div", {className: "pay-grid pay-next"},
+        paydays.slice(0, 3).map(payCell)),
+      paydays.length > 3 ? /*#__PURE__*/React.createElement("details", {className: "payfold"},
+        /*#__PURE__*/React.createElement("summary", null,
+          /*#__PURE__*/React.createElement("b", null, "The next ", paydays.length, " paydays"),
+          /*#__PURE__*/React.createElement("span", null, "with a running year-to-date"),
+          /*#__PURE__*/React.createElement("i", null, "Show")),
+        /*#__PURE__*/React.createElement("div", {className: "pay-grid"}, paydays.map(payCell)),
+        /*#__PURE__*/React.createElement("p", {className: "pay-note"},
+          "A biweekly schedule lands 26 checks a year, so two months each year carry a third check \u2014 those are the bonus-feeling paydays.")) : null);
+  })()), isVisible("residency") && /*#__PURE__*/React.createElement("div", {id:"sec-residency"}, /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -5769,18 +5802,18 @@ function ExpensesTab({
   }), /*#__PURE__*/React.createElement("div", {
     className: "stat-col"
   }, /*#__PURE__*/React.createElement(Stat, {
-    label: "True cost after deduction",
-    value: fmt(cur.trueCostOfExpenses),
-    note: "what it actually reduces take-home by"
+    label: "Share of gross",
+    value: Math.round(expYr / Math.max(1, cur.grossYr) * 100) + "%",
+    note: "of everything you bill"
   }), /*#__PURE__*/React.createElement(Stat, {
-    label: "Tax shield",
-    value: "+" + fmt(cur.taxShield),
-    note: "returned via lower taxable income"
+    label: "Leaves as profit",
+    value: fmt(cur.profitYr),
+    note: "before tax"
   }))), /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "What it costs to keep the practice open"), /*#__PURE__*/React.createElement("p", null, "Enter monthly amounts. These are Schedule\xA0C deductions, so every dollar here lowers your taxable income — which is why the true cost is less than the sticker price.")), resetRow, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "What it costs to keep the practice open"), /*#__PURE__*/React.createElement("p", null, "Enter monthly amounts. Everything here is a Schedule\xA0C business deduction, which is why it comes off before profit rather than out of it.")), resetRow, /*#__PURE__*/React.createElement("div", {
     className: "exp-list"
   }, expenseRows), /*#__PURE__*/React.createElement("div", {
     className: "exp-foot"
@@ -5793,27 +5826,11 @@ function ExpensesTab({
     style: {
       color
     }
-  }, fmt(expYr), /*#__PURE__*/React.createElement("em", null, "/yr"))))), /*#__PURE__*/React.createElement("section", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Why a $1 expense doesn't cost you $1"), /*#__PURE__*/React.createElement("p", null, "Business expenses come off your income before tax is calculated. At your current numbers, spending ", fmt(expYr), " reduces take-home by only ", fmt(cur.trueCostOfExpenses), " — the rest comes back as tax you no longer owe.")), /*#__PURE__*/React.createElement("div", {
-    className: "shield"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "shield-bar"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "shield-cost",
-    style: {
-      width: cur.trueCostOfExpenses / Math.max(expYr, 1) * 100 + "%"
-    }
-  }, /*#__PURE__*/React.createElement("span", null, fmt(cur.trueCostOfExpenses), " real cost")), /*#__PURE__*/React.createElement("div", {
-    className: "shield-back",
-    style: {
-      width: cur.taxShield / Math.max(expYr, 1) * 100 + "%"
-    }
-  }, /*#__PURE__*/React.createElement("span", null, fmt(cur.taxShield), " tax shield"))), /*#__PURE__*/React.createElement("p", {
-    className: "shield-note"
-  }, "Effective: about ", Math.round(cur.taxShield / Math.max(expYr, 1) * 100), "% of every business dollar you spend is offset by reduced federal, CA, and self-employment tax."))));
+  }, fmt(expYr), /*#__PURE__*/React.createElement("em", null, "/yr"))))), /*#__PURE__*/React.createElement("p", {className: "exp-point"},
+    /*#__PURE__*/React.createElement("b", null, "None of this costs you the sticker price. "),
+    "Every line above is a Schedule\u00a0C deduction, so each dollar you spend also lowers what you are taxed on. Exactly how much comes back is a tax question, and it is answered in ",
+    /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy"}, "Tax strategy"),
+    " along with everything else tax does to these numbers."));
 }
 
 // ---------- PROFIT TAB ----------
@@ -5839,6 +5856,10 @@ function ProfitTab({
   const hypoBaseline = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
   const hypoSolo401k = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib, entityType, sCorpSalaryInput) : null;
   const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib + taxStrategy.traditionalIra.deductibleAmount, entityType, sCorpSalaryInput) : null;
+  // Pre-tax by design. The three tax rows that used to sit here moved to the
+  // Tax strategy section, where they can be explained rather than just
+  // subtracted. This section answers "does the business work?", not
+  // "what does the government take?".
   const waterfall = [{
     k: "Practice revenue",
     v: cur.grossTherYr,
@@ -5847,54 +5868,74 @@ function ProfitTab({
     k: "Business expenses",
     v: -Math.round(expYrBase),
     type: "out"
-  }, {
-    k: "Self-employment tax",
-    v: -Math.round(cur.seTax),
-    type: "out"
-  }, {
-    k: "Federal income tax",
-    v: -Math.round(cur.fedTax),
-    type: "out"
-  }, {
-    k: "CA income tax",
-    v: -Math.round(cur.caTax),
-    type: "out"
   }];
   const maxAbs = Math.max(...waterfall.map(w => Math.abs(w.v)));
+  // Pre-tax break-even: how many sessions a week cover the running costs.
+  // This used to solve for net-of-tax > 0, which conflated "the business
+  // washes its face" with "you owe no tax" and quietly moved with filing
+  // status. Costs are the thing a caseload has to clear.
   const breakEven = (() => {
     for (let s = 1; s <= 60; s++) {
       const g = rate * s * weeksWorked;
       const fee = cityLicenseFee(cityKey, g, manualCityFee);
-      if (computeYear(g, expYrBase + fee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput).net > 0) return s;
+      if (g - (expYrBase + fee) > 0) return s;
     }
     return null;
   })();
   const fmtH = n => (n < 0 ? "\u2212$" : "$") + Math.abs(Math.round(n)).toLocaleString();
-  const retirePointer = !(taxStrategy && hypoBaseline && hypoSolo401k) ? null : (function () {
-    const saved = Math.round(hypoBaseline.totalTax - hypoSolo401k.totalTax);
-    const room = Math.round(taxStrategy.solo401k.total);
-    if (!(saved > 0 && room > 0)) return null;
-    return /*#__PURE__*/React.createElement("div", {className: "sec-point"},
-      /*#__PURE__*/React.createElement("b", null, fmtH(saved), " of that tax is optional."),
-      " A Solo 401(k) has room for ", /*#__PURE__*/React.createElement("b", null, fmtH(room)),
-      " of your profit this year, and roughly ",
-      /*#__PURE__*/React.createElement("b", null, Math.round(saved / room * 100) + "%"),
-      " of that contribution is funded by tax you would have paid anyway. The full receipt \u2014 and what it costs you in spendable cash \u2014 opens the ",
-      /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy"}, "Tax strategy"), " section below.");
+  // THE HANDOFF. Page 1 stops at profit; this card is the seam. It carries
+  // the one number the reader needs across the boundary - what actually
+  // lands in their account once tax is taken - and says plainly that the
+  // gap between the two figures is the thing the next section is about.
+  // One card, not a scattering of tax asides. Renders nothing until there
+  // is a real profit to hand over.
+  const handoffCard = !(cur.profitYr > 0) ? null : (function () {
+    const taxYr = Math.round(cur.totalTax);
+    const optional = (taxStrategy && hypoBaseline && hypoSolo401k)
+      ? Math.round(hypoBaseline.totalTax - hypoSolo401k.totalTax) : 0;
+    const room = taxStrategy ? Math.round(taxStrategy.solo401k.total) : 0;
+    return /*#__PURE__*/React.createElement("section", {className: "card handoff"},
+      /*#__PURE__*/React.createElement("div", {className: "handoff-k"}, "That is the business. Now the tax."),
+      /*#__PURE__*/React.createElement("div", {className: "handoff-chain"},
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("i", null, "Profit before tax"),
+          /*#__PURE__*/React.createElement("b", null, fmt(cur.profitYr))),
+        /*#__PURE__*/React.createElement("em", null, "\u2212"),
+        /*#__PURE__*/React.createElement("span", null,
+          /*#__PURE__*/React.createElement("i", null, "Federal + CA + SE tax"),
+          /*#__PURE__*/React.createElement("b", {className: "neg"}, fmtH(taxYr))),
+        /*#__PURE__*/React.createElement("em", null, "="),
+        /*#__PURE__*/React.createElement("span", {className: "handoff-net"},
+          /*#__PURE__*/React.createElement("i", null, "Actually yours"),
+          /*#__PURE__*/React.createElement("b", {style: {color: color}}, fmt(cur.netYr)))),
+      /*#__PURE__*/React.createElement("p", {className: "handoff-p"},
+        optional > 0 && room > 0
+          ? /*#__PURE__*/React.createElement(React.Fragment, null,
+              "Everything above this line is the business you run. The ",
+              /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
+              " gap is the part you can still do something about \u2014 about ",
+              /*#__PURE__*/React.createElement("b", null, fmtH(optional)),
+              " of it is optional, if you put money somewhere before it is taxed.")
+          : /*#__PURE__*/React.createElement(React.Fragment, null,
+              "Everything above this line is the business you run. The ",
+              /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
+              " gap is a separate question with its own levers \u2014 what you set aside before tax, and how the practice is structured.")),
+      /*#__PURE__*/React.createElement("a", {href: "#sec-taxstrategy", className: "handoff-go"},
+        "Work on the tax \u2193"));
   })();
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
     className: "stats"
   }, /*#__PURE__*/React.createElement(Stat, {
     big: true,
-    label: "Net profit / year",
-    value: fmt(cur.netYr),
+    label: "Profit / year",
+    value: fmt(cur.profitYr),
     accent: color,
-    note: `after ${fmt(cur.expYr)} expenses and ${fmt(Math.round(cur.totalTax))} tax`
+    note: `${fmt(cur.grossYr)} billed less ${fmt(cur.expYr)} expenses \u00b7 before tax`
   }), /*#__PURE__*/React.createElement("div", {
     className: "stat-col"
   }, /*#__PURE__*/React.createElement(Stat, {
     label: "Profit margin",
-    value: Math.round(cur.marginPct * 100) + "%",
+    value: Math.round(cur.profitMarginPct * 100) + "%",
     note: "of every gross dollar"
   }), /*#__PURE__*/React.createElement(Stat, {
     label: "Break-even caseload",
@@ -5904,7 +5945,7 @@ function ProfitTab({
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Where every dollar goes"), /*#__PURE__*/React.createElement("p", null, "Starting from what you bill, subtracting what you spend and what you owe. What's left is yours.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Where every dollar goes"), /*#__PURE__*/React.createElement("p", null, "What you bill, less what it costs to bill it. What's left is the profit the business makes \u2014 tax comes out of this, and gets its own section.")), /*#__PURE__*/React.createElement("div", {
     className: "wf"
   }, waterfall.map((w, i) => /*#__PURE__*/React.createElement("div", {
     className: "wf-row",
@@ -5925,12 +5966,12 @@ function ProfitTab({
     className: "wf-row wf-final"
   }, /*#__PURE__*/React.createElement("span", {
     className: "wf-k"
-  }, "Net profit"), /*#__PURE__*/React.createElement("div", {
+  }, "Profit before tax"), /*#__PURE__*/React.createElement("div", {
     className: "wf-track"
   }, /*#__PURE__*/React.createElement("div", {
     className: "wf-bar",
     style: {
-      width: cur.netYr / maxAbs * 100 + "%",
+      width: Math.max(0, cur.profitYr) / maxAbs * 100 + "%",
       background: color
     }
   })), /*#__PURE__*/React.createElement("span", {
@@ -5938,11 +5979,11 @@ function ProfitTab({
     style: {
       color
     }
-  }, fmt(cur.netYr))))), /*#__PURE__*/React.createElement("section", {
+  }, fmt(cur.profitYr))))), /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Monthly profit at a glance"), /*#__PURE__*/React.createElement("p", null, "Your net profit divided across the year, and what it means per session hour actually worked.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Monthly profit at a glance"), /*#__PURE__*/React.createElement("p", null, "Your profit before tax divided across the year, and what it means per session hour actually worked.")), /*#__PURE__*/React.createElement("div", {
     className: "strip"
   }, /*#__PURE__*/React.createElement("div", {
     className: "strip-cell"
@@ -5953,15 +5994,15 @@ function ProfitTab({
     style: {
       color
     }
-  }, fmt(cur.netMo)), /*#__PURE__*/React.createElement("span", {
+  }, fmt(cur.profitMo)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, fmt(cur.netYr), " per year")), /*#__PURE__*/React.createElement("div", {
+  }, fmt(cur.profitYr), " per year")), /*#__PURE__*/React.createElement("div", {
     className: "strip-cell"
   }, /*#__PURE__*/React.createElement("span", {
     className: "strip-k"
   }, "Profit / week"), /*#__PURE__*/React.createElement("span", {
     className: "strip-v"
-  }, fmt(cur.netWk)), /*#__PURE__*/React.createElement("span", {
+  }, fmt(cur.profitWk)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
   }, "across ", sessions, " sessions")), /*#__PURE__*/React.createElement("div", {
     className: "strip-cell"
@@ -5969,9 +6010,9 @@ function ProfitTab({
     className: "strip-k"
   }, "Per session hour"), /*#__PURE__*/React.createElement("span", {
     className: "strip-v"
-  }, fmt(sessions > 0 ? cur.netYr / (sessions * weeksWorked) : 0)), /*#__PURE__*/React.createElement("span", {
+  }, fmt(sessions > 0 ? cur.profitYr / (sessions * weeksWorked) : 0)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "of your $", rate, " billed rate")))), retirePointer);
+  }, "of your $", rate, " billed rate")))), handoffCard);
 }
 const CSS = `
 .planner{
@@ -6186,6 +6227,39 @@ const CSS = `
 .steplock-need{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;}
 .steplock-item{font-size:13px; padding:6px 12px; border-radius:20px; border:1px solid #E7E2D6; background:#fff; color:#7C766A;}
 .steplock-item.ok{border-color:#3F9577; color:#2C6B53; background:#EAF3EE; font-weight:600;}
+
+/* ===== the page-1 -> tax handoff =====
+   Page 1 stops at pre-tax profit. This card is the seam: it carries the net
+   number across the boundary so the reader is not left doing the subtraction
+   in their head. Declared after .card so the border-left shorthand wins. */
+section.card.handoff{border-left:3px solid #3F9577; background:#FCFDFC;}
+.exp-point{margin:18px 0 0; padding:14px 16px; background:#FBF9F3; border:1px solid #E7E2D6;
+  border-radius:10px; font-size:14px; line-height:1.6; color:#4A463C;}
+.exp-point a{color:#26241E;}
+.handoff-k{font-family:Fraunces,Georgia,serif; font-size:20px; margin:0 0 16px;}
+.handoff-chain{display:flex; align-items:flex-end; gap:16px; flex-wrap:wrap; margin-bottom:16px;}
+.handoff-chain > span{display:flex; flex-direction:column; gap:3px;}
+.handoff-chain i{font-style:normal; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:#9A9385; font-weight:600;}
+.handoff-chain b{font-family:Fraunces,Georgia,serif; font-size:24px; font-variant-numeric:tabular-nums;}
+.handoff-chain b.neg{color:#B5483F;}
+.handoff-chain em{font-style:normal; font-family:Fraunces,Georgia,serif; font-size:19px; color:#9A9385; padding-bottom:2px;}
+.handoff-net b{font-size:29px;}
+.handoff-p{margin:0 0 16px; font-size:14.5px; line-height:1.65; color:#4A463C; max-width:660px;}
+.handoff-go{display:inline-block; font-size:14px; font-weight:600; text-decoration:none;
+  color:#fff; background:#3F9577; border-radius:9px; padding:11px 18px;}
+.handoff-go:hover{background:#357F65;}
+@media (max-width:780px){
+  .handoff-k{font-size:18px;}
+  /* Stack the chain. Left to right, the operators end up orphaned beside a
+     wrapped value; as a column each figure gets its own label/value row and
+     the operator sits centred between them, which still reads as arithmetic. */
+  .handoff-chain{flex-direction:column; align-items:stretch; gap:6px;}
+  .handoff-chain > span{flex-direction:row; align-items:baseline; justify-content:space-between; gap:12px;}
+  .handoff-chain b{font-size:21px;}
+  .handoff-net b{font-size:25px;}
+  .handoff-chain em{align-self:center; font-size:15px; line-height:1; padding:0;}
+  .handoff-go{display:block; text-align:center;}
+}
 
 /* ===== structure gate =====
    Stands in for ~8,700px of corp-only detail when the user is a sole
