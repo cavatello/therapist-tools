@@ -9395,6 +9395,21 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
+/* Twelve expense categories in one column is a long scroll for what is
+   really a checklist. Two columns above 1180px, where there is room for both
+   columns AND the relative-size bar - the bar is the only thing on the row
+   that shows proportion, so it is not worth trading away for the layout.
+   The row grid tightens rather than dropping a field. Below 1180px it stays
+   single-column, which is still the honest layout at that width. */
+@media (min-width:1180px){
+  .planner .exp-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:34px; align-content:start;}
+  .planner .exp-list .exp-row{grid-template-columns:1.4fr .9fr 76px 84px 24px; gap:10px;}
+  /* A custom row's rename field and the "add" row want the whole width. */
+  .planner .exp-list .exp-row.exp-row-add,
+  .planner .exp-list .exp-row.exp-total{grid-column:1/-1;}
+}
+
 /* The phone menu button appears at 780px, but the five nav items stay wider
    than the bar until about 1000px - on an iPad in portrait (834px) the links
    ran 117px off the right edge. Nothing scrolled, because .planner uses
