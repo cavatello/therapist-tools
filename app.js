@@ -9395,6 +9395,32 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
+/* The phone menu button appears at 780px, but the five nav items stay wider
+   than the bar until about 1000px - on an iPad in portrait (834px) the links
+   ran 117px off the right edge. Nothing scrolled, because .planner uses
+   overflow-x:clip, so it was silently cut off rather than reachable. Drop the
+   second line of each item and let the bar wrap through that band. */
+@media (min-width:781px) and (max-width:1000px){
+  .planner .sitenav{flex-wrap:wrap; row-gap:8px;}
+  .planner .sitenav-links{flex-wrap:wrap; row-gap:6px;}
+  .planner .sitenav-item{padding:5px 9px;}
+  .planner .sitenav-d{display:none;}
+}
+
+/* The two primary controls read as one undifferentiated panel. Giving each
+   the same cream field treatment used everywhere else for editable inputs
+   makes it obvious at a glance which parts of this card you can change -
+   which is the whole job of the "Start here" badge above them. */
+.planner .controls{gap:18px; align-items:stretch; padding:24px 22px 20px;}
+.planner .controls .control-block{
+  background:var(--fieldbg,#FBF6E9); border:1px solid #E4D9BE; border-radius:12px;
+  padding:14px 16px 16px;}
+.planner .controls .control-block .control-label{margin-bottom:2px;}
+@media (max-width:780px){
+  .planner .controls{grid-template-columns:1fr !important; gap:12px;}
+  .planner .controls .control-block{padding:12px 14px 14px;}
+}
+
 /* ==================================================================
    LANDING BAND  -  the top of the simulator page.
    Same family as the tax hero and the profit handoff card, so the three
@@ -9471,12 +9497,13 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .lnd-cov p{margin:0; font-size:11.5px; line-height:1.58; color:var(--muted);}
 .lnd-cov-f{font-size:12px; line-height:1.62; color:var(--muted); margin:13px 0 0; max-width:96ch;}
 
-/* The KPI widget and the jump nav printed the same three figures within 60px
-   of each other. On the simulator page the nav keeps them (it also carries
-   the after-tax figure the widget never had) and the widget keeps only what
-   is unique to it: the rate context and the Save / Reset actions. The tax
-   page is untouched - there the widget shows a chain the nav does not. */
-.planner:not(.page-tax) .sticky-summary .sticky-summary-row{display:none;}
+/* One header, not two. The jump nav and the KPI widget printed the same
+   figures within 60px of each other; the nav row is retired and the widget
+   keeps the money, the rate context and the Save / Reset actions. Scroll
+   position is already signalled by the section headings and the landing
+   band's own call to action, so the nav was carrying navigation nobody used
+   and duplication everybody saw. */
+.planner .guided-jumpnav{display:none;}
 
 /* ---- tablet ---- */
 @media (max-width:1000px){
