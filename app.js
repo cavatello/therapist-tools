@@ -584,38 +584,48 @@ function retireArgsFor(entityTypeArg, employerContrib, employeeContrib) {
 const NY_STD = 8000;
 const NY_BRACKETS = [[0, 0.039], [8500, 0.044], [11700, 0.0515], [13900, 0.054], [80650, 0.059], [215400, 0.0685], [1077550, 0.0965], [5000000, 0.103], [25000000, 0.109]];
 const NYC_BRACKETS = [[0, 0.03078], [12000, 0.03762], [25000, 0.03819], [50000, 0.03876]];
-// Generic version of computeYear parameterized by state (+ optional city) tax
-// layer, used only for the residency "home" picker (California vs. New York
-// City). Federal SE tax, FICA, and QBI logic are identical to computeYear.
-function computeYearState(practiceGross, expenses, w2Wages, stateStd, stateBrackets, cityBrackets) {
-  const schedC = Math.max(0, practiceGross - expenses);
-  const seBase = schedC * 0.9235;
-  const ssRoom = Math.max(0, SS_WAGE_BASE - w2Wages);
-  const seTax = Math.min(seBase, ssRoom) * 0.124 + seBase * 0.029;
-  const halfSE = seTax / 2;
-  const ssW2 = Math.min(w2Wages, SS_WAGE_BASE) * 0.062;
-  const medW2 = w2Wages * 0.0145;
-  const addlMed = Math.max(0, w2Wages + seBase - ADDL_MED_THRESH) * ADDL_MED_RATE;   // single-filer model
-  const agi = schedC + w2Wages - halfSE;
-  const taxableBeforeQBI = Math.max(0, agi - FED_STD);
-  const qbiIncome = Math.max(0, schedC - halfSE);
+
+// Every US residency card sits on an identical federal layer: same deductible
+// half of SE tax, same standard deduction, same QBI rules. That block used to
+// be copy-pasted into each location function and every copy was hardcoded to
+// the single-filer constants - so a married user compared a status-aware
+// California against a single-filer New York and a single-filer Pittsburgh,
+// and the gap between the cards was partly just the filing status changing
+// underneath them. One helper now, status-aware, shared by all of them.
+//
+// personalRetirement carries the same meaning as in computeYear: the slice of
+// retireDed that is a personal IRA rather than a business plan, and so reduces
+// AGI without reducing QBI. No US card passes a non-zero value today; the
+// parameter is here so a future one cannot silently get it wrong.
+function fedLayer(schedC, w2Wages, halfSE, retireDed, filingStatus, personalRetirement) {
+  filingStatus = filingStatus || "single";
+  retireDed = retireDed || 0;
+  w2Wages = w2Wages || 0;
+  const fedStd = FED_STD_BY_STATUS[filingStatus] || FED_STD;
+  const fedBrackets = FED_BRACKETS_BY_STATUS[filingStatus] || FED_BRACKETS;
+  const qbiWindow = QBI_PHASE_BY_STATUS[filingStatus] || [QBI_PHASE_START, QBI_PHASE_END];
+  const qbiStart = qbiWindow[0], qbiEnd = qbiWindow[1];
+  const agi = Math.max(0, schedC + w2Wages - halfSE - retireDed);
+  const taxableBeforeQBI = Math.max(0, agi - fedStd);
+  // Treas. Reg. s.1.199A-3(b)(1)(vi) - see the longer note in computeYear.
+  const bizRetireDed = Math.max(0, retireDed - (personalRetirement || 0));
+  const qbiIncome = Math.max(0, schedC - halfSE - bizRetireDed);
   let pct;
-  if (taxableBeforeQBI <= QBI_PHASE_START) pct = 1;else if (taxableBeforeQBI >= QBI_PHASE_END) pct = 0;else pct = 1 - (taxableBeforeQBI - QBI_PHASE_START) / (QBI_PHASE_END - QBI_PHASE_START);
+  if (taxableBeforeQBI <= qbiStart) pct = 1;else if (taxableBeforeQBI >= qbiEnd) pct = 0;else pct = 1 - (taxableBeforeQBI - qbiStart) / (qbiEnd - qbiStart);
   const qbiDed = Math.min(QBI_RATE * qbiIncome, QBI_RATE * taxableBeforeQBI) * pct;
-  const fedTax = bracketTax(Math.max(0, taxableBeforeQBI - qbiDed), FED_BRACKETS);
-  const stateTaxableIncome = Math.max(0, agi - stateStd);
-  const stateTax = bracketTax(stateTaxableIncome, stateBrackets);
-  const cityTax = cityBrackets ? bracketTax(stateTaxableIncome, cityBrackets) : 0;
-  const totalTax = fedTax + stateTax + cityTax + seTax + ssW2 + medW2 + addlMed;
-  const grossAll = practiceGross + w2Wages;
   return {
-    net: grossAll - expenses - totalTax,
-    totalTax,
-    fedTax,
-    stateTax,
-    cityTax,
-    seTax
+    agi,
+    taxableBeforeQBI,
+    qbiDed,
+    fedTax: bracketTax(Math.max(0, taxableBeforeQBI - qbiDed), fedBrackets)
   };
+}
+// IRC s.1401(b)(2). California's own path has always charged this; the NYC and
+// Pittsburgh cards never did, which quietly favoured them at high income by up
+// to 0.9% of everything over the threshold.
+function addlMedFor(seBase, w2Wages, filingStatus) {
+  const thresh = ADDL_MED_THRESH_BY_STATUS[filingStatus || "single"] || ADDL_MED_THRESH;
+  return Math.max(0, seBase + (w2Wages || 0) - thresh) * ADDL_MED_RATE;
 }
 
 // ----------------------------------------------------------------------------
@@ -697,30 +707,28 @@ function computeUBT(businessIncome, nycTaxableIncome, nycTax) {
 //   MCTMT          NO  - base is net earnings from self-employment (s.1402),
 //                        a Schedule SE figure the adjustment never reaches
 //   SE tax         NO  - same reason
-function computeNYC(revenueUSD, expensesUSD, retireDed) {
+function computeNYC(revenueUSD, expensesUSD, retireDed, filingStatus) {
   retireDed = retireDed || 0;
   const schedC = Math.max(0, revenueUSD - expensesUSD);
   const seBase = schedC * 0.9235;
   const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
   const halfSE = seTax / 2;
-  const agi = schedC - halfSE - retireDed;
-  const taxableBeforeQBI = Math.max(0, agi - FED_STD);
-  const qbiIncome = Math.max(0, schedC - halfSE);
-  let pct;
-  if (taxableBeforeQBI <= QBI_PHASE_START) pct = 1;else if (taxableBeforeQBI >= QBI_PHASE_END) pct = 0;else pct = 1 - (taxableBeforeQBI - QBI_PHASE_START) / (QBI_PHASE_END - QBI_PHASE_START);
-  const qbiDed = Math.min(QBI_RATE * qbiIncome, QBI_RATE * taxableBeforeQBI) * pct;
-  const fedTax = bracketTax(Math.max(0, taxableBeforeQBI - qbiDed), FED_BRACKETS);
+  const fed = fedLayer(schedC, 0, halfSE, retireDed, filingStatus);
+  const agi = fed.agi;
+  const fedTax = fed.fedTax;
+  const addlMed = addlMedFor(seBase, 0, filingStatus);
   const nyTaxable = Math.max(0, agi - NY_STD);
   const nyTax = bracketTax(nyTaxable, NY_BRACKETS);
   const nycTax = bracketTax(nyTaxable, NYC_BRACKETS);
   const mctmt = schedC > MCTMT_THRESHOLD ? schedC * MCTMT_RATE : 0;
   const ubt = computeUBT(schedC, nyTaxable, nycTax);
-  const totalTax = fedTax + seTax + nyTax + nycTax + mctmt + ubt.afterPit;
+  const totalTax = fedTax + seTax + addlMed + nyTax + nycTax + mctmt + ubt.afterPit;
   return {
     netUSD: schedC - totalTax,
     taxUSD: totalTax,
     fedTaxUSD: fedTax,
     seTaxUSD: seTax,
+    addlMedUSD: addlMed,
     nyTaxUSD: nyTax,
     nycTaxUSD: nycTax,
     mctmtUSD: mctmt,
@@ -743,28 +751,24 @@ const PITTSBURGH_LST = 52;
 // therefore fully taxable by PA in the year contributed. The Local Tax
 // Enabling Act defines the local EIT base by reference to that same PA
 // figure, so Pittsburgh's 3% follows it. Only the federal tax moves.
-function computePittsburgh(revenueUSD, expensesUSD, retireDed) {
+function computePittsburgh(revenueUSD, expensesUSD, retireDed, filingStatus) {
   retireDed = retireDed || 0;
   const schedC = Math.max(0, revenueUSD - expensesUSD);
   const seBase = schedC * 0.9235;
   const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
   const halfSE = seTax / 2;
-  const agi = schedC - halfSE - retireDed;
-  const taxableBeforeQBI = Math.max(0, agi - FED_STD);
-  const qbiIncome = Math.max(0, schedC - halfSE);
-  let pct;
-  if (taxableBeforeQBI <= QBI_PHASE_START) pct = 1;else if (taxableBeforeQBI >= QBI_PHASE_END) pct = 0;else pct = 1 - (taxableBeforeQBI - QBI_PHASE_START) / (QBI_PHASE_END - QBI_PHASE_START);
-  const qbiDed = Math.min(QBI_RATE * qbiIncome, QBI_RATE * taxableBeforeQBI) * pct;
-  const fedTax = bracketTax(Math.max(0, taxableBeforeQBI - qbiDed), FED_BRACKETS);
+  const fedTax = fedLayer(schedC, 0, halfSE, retireDed, filingStatus).fedTax;
+  const addlMed = addlMedFor(seBase, 0, filingStatus);
   const paTax = schedC * PA_FLAT_RATE;
   const eitTax = schedC * PITTSBURGH_EIT_RATE;
   const lst = PITTSBURGH_LST;
-  const totalTax = fedTax + seTax + paTax + eitTax + lst;
+  const totalTax = fedTax + seTax + addlMed + paTax + eitTax + lst;
   return {
     netUSD: schedC - totalTax,
     taxUSD: totalTax,
     fedTaxUSD: fedTax,
     seTaxUSD: seTax,
+    addlMedUSD: addlMed,
     paTaxUSD: paTax,
     eitTaxUSD: eitTax,
     lstUSD: lst
@@ -920,12 +924,12 @@ function computeResidency(revenueUSD, realExpensesUSD, homeJurisdiction) {
   const ptSolidarity = portugalSolidarity(ptTaxable);
   const ptSocialSecurity = revenueEUR * 0.15;
   const ptNetEUR = revenueEUR - realExpensesEUR - ptIrs - ptSolidarity - ptSocialSecurity;
-  const nyc = computeYearState(revenueUSD, realExpensesUSD, 0, NY_STD, NY_BRACKETS, NYC_BRACKETS);
+  // No `nyc` key here. It used to be computed by a generic computeYearState()
+  // that knew nothing about the UBT, the MCTMT or the filing status - and the
+  // caller overwrote it one line later with computeNYC(), so the figure was
+  // never once rendered. The function and its call are gone rather than fixed;
+  // a dead second opinion on New York is worse than none.
   return {
-    nyc: {
-      netUSD: nyc.net,
-      taxUSD: nyc.totalTax
-    },
     berlin: {
       netUSD: deNetEUR * EUR_TO_USD,
       netEUR: deNetEUR,
@@ -1714,8 +1718,8 @@ function PracticeIncomePlanner() {
   // Bordeaux (France) rules respectively.
   const residency = useMemo(() => ({
     ...computeResidency(cur.grossYr, expYr),
-    nyc: computeNYC(cur.grossYr, expYr),
-    pittsburgh: computePittsburgh(cur.grossYr, expYr),
+    nyc: computeNYC(cur.grossYr, expYr, 0, filingStatus),
+    pittsburgh: computePittsburgh(cur.grossYr, expYr, 0, filingStatus),
     france: computeFrance(cur.grossYr, expYr),
     uae: computeUAE(cur.grossYr, expYr, filingStatus),
     brisbane: computeBrisbane(cur.grossYr, expYr)
@@ -2042,9 +2046,9 @@ function PracticeIncomePlanner() {
     return {
       california: mk(cur.totalTax, caWith.totalTax, cur.netYr,
         "Comes off federal and California taxable income alike \u2014 California conforms to federal adjusted gross income here."),
-      nyc: mk(residency.nyc.taxUSD, computeNYC(cur.grossYr, expYr, soloContrib).taxUSD, residency.nyc.netUSD,
+      nyc: mk(residency.nyc.taxUSD, computeNYC(cur.grossYr, expYr, soloContrib, filingStatus).taxUSD, residency.nyc.netUSD,
         "Comes off federal, New York State and NYC resident tax. It does not touch the UBT, the MCTMT or self-employment tax \u2014 all three are charged on a business-income figure this deduction never reaches, so they stay exactly where they were."),
-      pittsburgh: mk(residency.pittsburgh.taxUSD, computePittsburgh(cur.grossYr, expYr, soloContrib).taxUSD, residency.pittsburgh.netUSD,
+      pittsburgh: mk(residency.pittsburgh.taxUSD, computePittsburgh(cur.grossYr, expYr, soloContrib, filingStatus).taxUSD, residency.pittsburgh.netUSD,
         "Federal tax only. Pennsylvania does not recognise a self-employed person's own retirement contribution, and Pittsburgh's 3% rides on the PA figure \u2014 so 6.07% of every dollar you shelter is taxed in the year you shelter it. The offset comes decades later: PA generally does not tax the money again on the way out.")
     };
   }, [soloContrib, taxStrategy, cur, expYr, job2Yr, filingStatus, numDependents, entityType,
