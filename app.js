@@ -2424,6 +2424,19 @@ function PracticeIncomePlanner() {
   // printed beside them.
   const lndBank = Math.max(0, lndGross - lndExp - lndTax);
   const lndW = n => (Math.max(0, n) / Math.max(1, lndGross) * 100) + "%";
+  // A bar segment narrower than this cannot hold its own figure. The 2.5%
+  // merchant-fee slice is 16px wide on a 390px phone, and .lnd-bar i sets
+  // overflow:hidden - so it clipped "Costs" and "$5,200" to an unreadable
+  // stub sitting at the left edge of the bar. Below the threshold the segment
+  // still draws (its width is the honest part) but its text moves to the note
+  // line underneath, where it fits. Same rule the census bar already uses.
+  const LND_SEG_MIN_PCT = 20;
+  const lndSegs = [
+    lndExp > 0 ? {cls: "lb-exp", k: "Costs", v: lndExp} : null,
+    {cls: "lb-tax", k: "Tax", v: lndTax},
+    {cls: "lb-bank", k: "Yours", v: lndBank}
+  ].filter(Boolean).map(sg => ({...sg, pct: lndGross > 0 ? sg.v / lndGross * 100 : 0}));
+  const lndTooNarrow = lndSegs.filter(sg => sg.pct < LND_SEG_MIN_PCT);
   const lndKept = lndGross > 0 ? Math.round(lndNet / lndGross * 100) : 0;
   const lndMargin = lndGross > 0 ? Math.round(lndProfit / lndGross * 100) : 0;
 
@@ -2435,7 +2448,7 @@ function PracticeIncomePlanner() {
         "California Therapy ",
         /*#__PURE__*/React.createElement("em", null, "Practice Simulator")),
       /*#__PURE__*/React.createElement("p", {className: "lnd-lede"},
-        "What a California practice actually pays, worked out on your own numbers. Put in your rate and caseload and it works out what you bill, what it costs to run, what the IRS and the FTB take, and what is genuinely left — then shows you the levers that change it. ",
+        "What a California practice actually pays, worked out on your own numbers. Put in your rate and caseload and it works out what you bill, what it costs to run, what the IRS and the FTB take, and what is genuinely left — then shows you how to keep more of it: which retirement accounts move money out of this year's tax bill and into an account you own, what each one is worth in real dollars, and whether incorporating earns its paperwork. ",
         /*#__PURE__*/React.createElement("b", null, "Every figure is a real calculation with a citation, not a rule of thumb.")),
       /*#__PURE__*/React.createElement("div", {className: "lnd-who"},
         ["LMFT", "LCSW", "LPCC", "Psychologist", "AMFT / associate", "Group practice owner"]
@@ -2455,16 +2468,15 @@ function PracticeIncomePlanner() {
             /*#__PURE__*/React.createElement("span", null, "Where the ", fmt(lndGross), " goes"),
             /*#__PURE__*/React.createElement("span", null, "before any tax strategy")),
           /*#__PURE__*/React.createElement("div", {className: "lnd-bar"},
-            lndExp > 0 ? /*#__PURE__*/React.createElement("i", {className: "lb-exp", style: {width: lndW(lndExp)}},
-              /*#__PURE__*/React.createElement("em", null, "Costs"),
-              /*#__PURE__*/React.createElement("strong", null, fmt(lndExp))) : null,
-            /*#__PURE__*/React.createElement("i", {className: "lb-tax", style: {width: lndW(lndTax)}},
-              /*#__PURE__*/React.createElement("em", null, "Tax"),
-              /*#__PURE__*/React.createElement("strong", null, fmt(lndTax))),
-            /*#__PURE__*/React.createElement("i", {className: "lb-bank", style: {width: lndW(lndBank)}},
-              /*#__PURE__*/React.createElement("em", null, "Yours"),
-              /*#__PURE__*/React.createElement("strong", null, fmt(lndBank)))),
+            lndSegs.map(sg => /*#__PURE__*/React.createElement("i", {
+              key: sg.cls, className: sg.cls, style: {width: lndW(sg.v)},
+              title: sg.k + " " + fmt(sg.v)
+            }, sg.pct < LND_SEG_MIN_PCT ? null : /*#__PURE__*/React.createElement(React.Fragment, null,
+              /*#__PURE__*/React.createElement("em", null, sg.k),
+              /*#__PURE__*/React.createElement("strong", null, fmt(sg.v)))))),
           /*#__PURE__*/React.createElement("div", {className: "lnd-barnote"},
+            lndTooNarrow.map(sg => /*#__PURE__*/React.createElement("span", {key: sg.cls},
+              sg.k, " ", /*#__PURE__*/React.createElement("b", null, fmt(sg.v)))),
             /*#__PURE__*/React.createElement("span", null, "Margin ", /*#__PURE__*/React.createElement("b", null, lndMargin + "%")),
             /*#__PURE__*/React.createElement("span", null, "Kept ", /*#__PURE__*/React.createElement("b", null, lndKept + "¢"), " per dollar billed"),
             /*#__PURE__*/React.createElement("span", null, "Some of that tax is optional — see Tax & Retirement")))
@@ -2490,9 +2502,14 @@ function PracticeIncomePlanner() {
                 onKeyDown: e => { if (e.key === "Enter") e.target.blur(); }
               }),
               suf ? /*#__PURE__*/React.createElement("span", null, suf) : null))),
-        /*#__PURE__*/React.createElement("div", {className: "lnd-ctl-res"},
-          /*#__PURE__*/React.createElement("span", null, lndWarm ? "You bill" : "Enter a rate to begin"),
-          lndWarm ? fmt(lndGross) : "—"),
+        /* Cold state only. When warm this printed "You bill $208,000" directly
+           above a proof tile printing "You bill $208,000" - the same label and
+           the same number, twice, and on a phone the two sit adjacent. The tile
+           wins: it carries the formula and opens the bill -> profit -> take-home
+           run. What is left here is the prompt, which the tiles cannot give
+           because in the cold state there are no tiles. */
+        lndWarm ? null : /*#__PURE__*/React.createElement("div", {className: "lnd-ctl-res"},
+          /*#__PURE__*/React.createElement("span", null, "Enter a rate to begin"), "—"),
         /*#__PURE__*/React.createElement("p", {className: "lnd-ctl-n"},
           weeksWorked, " working weeks · ", (sessions * weeksWorked).toLocaleString(), " sessions · change time off in Income")),
       /*#__PURE__*/React.createElement("div", {className: "lnd-ctas"},
@@ -9805,8 +9822,14 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .planner .lnd{display:flex; flex-direction:column;}
   .planner .lnd-kick{order:1}
   .planner .lnd-h{order:2}
-  .planner .lnd-lede{order:3}
-  .planner .lnd-ctl{order:4; margin:2px 0 4px;}
+  /* The controls come BEFORE the lede on a phone. The lede explains what the
+     tool does and now also what it does about tax - which is the message worth
+     lengthening it for - but explanation is what you read second. Putting the
+     rate field first costs the lede nothing (it is still the next thing on
+     screen) and is what keeps the input above the fold on a 667px iPhone SE
+     after the copy grew. Same move as the tax hero's CTA-above-lede reorder. */
+  .planner .lnd-ctl{order:3; margin:2px 0 14px;}
+  .planner .lnd-lede{order:4}
   .planner .lnd-proof{order:5}
   .planner .lnd-barwrap{order:6}
   .planner .lnd-cold{order:6}
