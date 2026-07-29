@@ -4124,6 +4124,12 @@ function TaxStrategyTab({
   // been told "don't incorporate" should not have to scroll past all of it.
   // Corp users always see it (they need the salary control). Session-only.
   const [showStructure, setShowStructure] = useState(false);
+  // On a phone the hero's two comparison bars plus the lede push the call to
+  // action to y=914, below the fold on every handset. Measured, not guessed.
+  // The second bar is the payoff, not the premise: show "do nothing" first,
+  // reveal "max the account" on tap. Desktop always shows both - the CSS
+  // below only collapses it under 780px.
+  const [bothBars, setBothBars] = useState(false);
   // Expanded for a first-time visitor; collapsed for anyone whose browser
   // already holds a rate and caseload, which means they have been here before.
   // A share link populates from the hash rather than localStorage, so someone
@@ -6512,9 +6518,12 @@ const ssSection = (function () {
         /*#__PURE__*/React.createElement("i", {className: "sw-bank", style: {width: hw(hBank0)}},
           /*#__PURE__*/React.createElement("em", null, "Your bank"),
           /*#__PURE__*/React.createElement("strong", null, fmt0(hBank0)))),
-      /*#__PURE__*/React.createElement("div", {className: "thero-l"},
-        /*#__PURE__*/React.createElement("b", null, "Max the account"), "Solo 401(k), at your numbers"),
-      /*#__PURE__*/React.createElement("div", {className: "thero-bar"},
+      /*#__PURE__*/React.createElement("div", {
+        className: "thero-l thero-row2" + (bothBars ? " on" : "")
+      }, /*#__PURE__*/React.createElement("b", null, "Max the account"), "Solo 401(k), at your numbers"),
+      /*#__PURE__*/React.createElement("div", {
+        className: "thero-bar thero-row2" + (bothBars ? " on" : "")
+      },
         /*#__PURE__*/React.createElement("i", {className: "sw-tax2", style: {width: hw(hTax1)}},
           /*#__PURE__*/React.createElement("em", null, "Tax"),
           /*#__PURE__*/React.createElement("strong", null, fmt0(hTax1))),
@@ -6526,7 +6535,12 @@ const ssSection = (function () {
         /*#__PURE__*/React.createElement("i", {className: "sw-bank", style: {width: hw(hBank1)}},
           /*#__PURE__*/React.createElement("em", null, "Your bank"),
           /*#__PURE__*/React.createElement("strong", null, fmt0(hBank1)))),
-      /*#__PURE__*/React.createElement("div", {className: "thero-d"},
+      /*#__PURE__*/React.createElement("button", {
+        type: "button", className: "thero-more" + (bothBars ? " on" : ""),
+        "aria-expanded": bothBars ? "true" : "false",
+        onClick: () => setBothBars(v => !v)
+      }, bothBars ? "Hide the comparison" : "Show what maxing the account does \u2193"),
+      /*#__PURE__*/React.createElement("div", {className: "thero-d" + (bothBars ? " on" : "")},
         /*#__PURE__*/React.createElement("span", null, "Tax falls ", /*#__PURE__*/React.createElement("b", null, fmt0(hSaved))),
         /*#__PURE__*/React.createElement("span", null, "Spendable falls ", /*#__PURE__*/React.createElement("b", null, fmt0(hOut))),
         /*#__PURE__*/React.createElement("span", null, "What you ",
@@ -9424,6 +9438,50 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .nosplit{background:#F6F2E8; border-left:4px solid #D4C3DD; border-radius:0 10px 10px 0;
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
+
+/* The reveal button exists only on a phone. Everywhere else both bars and
+   the delta line are always visible and the button is not rendered at all,
+   so nothing about the desktop reading changes. */
+.thero-more{display:none;}
+@media (max-width:780px){
+  .planner .thero-row2:not(.on){display:none;}
+  .planner .thero-d:not(.on){display:none;}
+  .planner .thero-more{
+    display:block; width:100%; min-height:44px; margin-top:12px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.3);
+    color:#fff; border-radius:11px; font-family:inherit; font-size:13.5px;
+    font-weight:600; padding:11px 14px; cursor:pointer;}
+  .planner .thero-more.on{background:rgba(255,255,255,.08);}
+  /* Hiding the second bar only bought 44px; the lede is what actually sits
+     between the figures and the button. It explains the bars, so it reads
+     just as well after the call to action - and on an iPhone SE that is the
+     difference between a reachable button and a scroll. */
+  .planner .thero{display:flex; flex-direction:column;}
+  .planner .thero-k{order:1}
+  .planner .thero-h{order:2}
+  .planner .thero-panel{order:3}
+  .planner .thero-ctarow{order:4; margin-top:14px;}
+  .planner .thero-p{order:5; margin:14px 0 0;}
+  .planner .thero-rule{order:6}
+  .planner .thero-what{order:7}
+}
+/* An iPhone SE is 375x667 and its nav wraps to two lines, so chrome costs
+   240px there against 193px on an iPhone 12 - which is exactly the gap
+   keeping the button below the fold. Stop the wrap. */
+@media (max-width:390px){
+  .planner .sitenav{padding:5px 12px; flex-wrap:nowrap;}
+  .planner .sitenav-wordmark{font-size:11.5px; line-height:1.25; max-width:190px;}
+  .planner .sitenav-mark{min-height:38px;}
+  .planner .sticky-summary{padding:6px 12px;}
+  .planner .sticky-summary-row{font-size:11px;}
+  .planner .thero{padding:15px 13px 18px;}
+  .planner .thero-h{font-size:20.5px; margin-bottom:10px;}
+  .planner .thero-panel{padding:10px 10px 11px;}
+  /* the share banner was ~225px on a phone - more than a quarter of the
+     screen, before any content, for anyone arriving from a shared link */
+  .planner .share-banner{padding:10px 12px; font-size:12px; line-height:1.5;}
+  .planner .share-banner b{display:inline;}
+}
 
 /* ==================================================================
    ABOVE THE FOLD ON A PHONE
