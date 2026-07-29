@@ -6265,7 +6265,163 @@ const ssSection = (function () {
       ? "Sole Proprietorship vs Professional Corp side by side, the salary split, and what each does to Social Security."
       : "Both structures side by side, the salary split, and what each does to Social Security. Long \u2014 about six screens.")) : null;
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, keepOpener, basicsBlock, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
+  // ===================================================================
+  // The landing hero.
+  //
+  // The page used to open on a form: the stepper rail, then four empty
+  // fields. Everything persuasive - the verdict, the levers, the receipt
+  // - only rendered once age and expected return existed, so the page
+  // showed its best argument exclusively to people who had already
+  // believed enough to fill the form in. This puts the argument first.
+  //
+  // It needs no new input. Profit, tax and bank come from the two engine
+  // runs already computed above (mfNone / mfWith); contribution room
+  // needs only net self-employment earnings. Age changes the catch-up
+  // cap, not whether a number exists.
+  //
+  // Two states: before step 1 it argues from this year's tax (A), after
+  // step 1 it argues from what one year compounds to (C), because that
+  // is the better argument and it is only available once a horizon does.
+  //
+  // Every figure is derived from the ROUNDED values, never rounded
+  // independently, so the three bar segments sum to exactly the profit
+  // printed above them. Rounding each at render is what caused the $1
+  // drifts in the waterfall and the employer-cost chips.
+  // ===================================================================
+  const hProfit = Math.round(mfTaxNone) + Math.round(mfBankNone);
+  const hTax0 = Math.round(mfTaxNone);
+  const hBank0 = hProfit - hTax0;
+  const hTax1 = Math.round(mfTaxWith);
+  const hInv = Math.round(mfContrib);
+  const hBank1 = hProfit - hTax1 - hInv;
+  const hSaved = hTax0 - hTax1;
+  const hOut = hInv - hSaved;
+  const hPct = hInv > 0 ? Math.round(hSaved / hInv * 100) : 0;
+  const hOwn0 = hProfit - hTax0;
+  const hOwn1 = hInv + hBank1;
+  const hw = n => (Math.max(0, n) / Math.max(1, hProfit) * 100) + "%";
+  // Only argue when the argument holds up: a real contribution, a real
+  // saving, and enough bank left to fund it without going negative.
+  const heroOk = rReady && hInv > 0 && hSaved > 0 && hBank1 >= 0 && hProfit > 0;
+
+  const heroShell = (kick, head, panel, lede, ctaLabel, ctaSub) =>
+    /*#__PURE__*/React.createElement("section", {className: "card thero"},
+      /*#__PURE__*/React.createElement("div", {className: "thero-k"}, kick),
+      /*#__PURE__*/React.createElement("h2", {className: "thero-h"}, head),
+      panel,
+      /*#__PURE__*/React.createElement("p", {className: "thero-p"}, lede),
+      /*#__PURE__*/React.createElement("div", {className: "thero-ctarow"},
+        /*#__PURE__*/React.createElement("a", {className: "thero-go", href: "#taxstep1"},
+          /*#__PURE__*/React.createElement("b", null, ctaLabel),
+          /*#__PURE__*/React.createElement("span", null, ctaSub)),
+        /*#__PURE__*/React.createElement("p", {className: "thero-aside"},
+          horizonReady
+            ? "Change any answer and every figure on this page moves with it."
+            : "Or read on — every section below fills in as you answer.")),
+      /*#__PURE__*/React.createElement("hr", {className: "thero-rule"}),
+      /*#__PURE__*/React.createElement("div", {className: "thero-what"},
+        /*#__PURE__*/React.createElement("span", null, "Which retirement account gives you the most room"),
+        /*#__PURE__*/React.createElement("span", null, "Sole proprietor vs professional corporation"),
+        /*#__PURE__*/React.createElement("span", null, "What today's choice does to your Social Security"),
+        /*#__PURE__*/React.createElement("span", null, "Whether practising elsewhere would cost less")));
+
+  // ---- A: two bars on a shared scale, before and after ----------------
+  const heroBarsPanel = /*#__PURE__*/React.createElement("div", {className: "thero-panel"},
+    /*#__PURE__*/React.createElement("div", {className: "thero-ph"},
+      /*#__PURE__*/React.createElement("span", null, "Your ", fmt0(hProfit), " of profit, drawn two ways"),
+      /*#__PURE__*/React.createElement("span", null, "same total, both rows")),
+    /*#__PURE__*/React.createElement("div", {className: "thero-tb"},
+      /*#__PURE__*/React.createElement("div", {className: "thero-l"},
+        /*#__PURE__*/React.createElement("b", null, "Do nothing"), "what happens by default"),
+      /*#__PURE__*/React.createElement("div", {className: "thero-bar"},
+        /*#__PURE__*/React.createElement("i", {className: "sw-tax", style: {width: hw(hTax0)}},
+          /*#__PURE__*/React.createElement("em", null, "Tax"),
+          /*#__PURE__*/React.createElement("strong", null, fmt0(hTax0))),
+        /*#__PURE__*/React.createElement("i", {className: "sw-bank", style: {width: hw(hBank0)}},
+          /*#__PURE__*/React.createElement("em", null, "Your bank"),
+          /*#__PURE__*/React.createElement("strong", null, fmt0(hBank0)))),
+      /*#__PURE__*/React.createElement("div", {className: "thero-l"},
+        /*#__PURE__*/React.createElement("b", null, "Max the account"), "Solo 401(k), at your numbers"),
+      /*#__PURE__*/React.createElement("div", {className: "thero-bar"},
+        /*#__PURE__*/React.createElement("i", {className: "sw-tax2", style: {width: hw(hTax1)}},
+          /*#__PURE__*/React.createElement("em", null, "Tax"),
+          /*#__PURE__*/React.createElement("strong", null, fmt0(hTax1))),
+        /*#__PURE__*/React.createElement("i", {className: "sw-inv", style: {width: hw(hInv)}},
+          /*#__PURE__*/React.createElement("em", null,
+            /*#__PURE__*/React.createElement("span", {className: "lbl-lg"}, "Invested — still yours"),
+            /*#__PURE__*/React.createElement("span", {className: "lbl-sm"}, "Invested")),
+          /*#__PURE__*/React.createElement("strong", null, fmt0(hInv))),
+        /*#__PURE__*/React.createElement("i", {className: "sw-bank", style: {width: hw(hBank1)}},
+          /*#__PURE__*/React.createElement("em", null, "Your bank"),
+          /*#__PURE__*/React.createElement("strong", null, fmt0(hBank1)))),
+      /*#__PURE__*/React.createElement("div", {className: "thero-d"},
+        /*#__PURE__*/React.createElement("span", null, "Tax falls ", /*#__PURE__*/React.createElement("b", null, fmt0(hSaved))),
+        /*#__PURE__*/React.createElement("span", null, "Spendable falls ", /*#__PURE__*/React.createElement("b", null, fmt0(hOut))),
+        /*#__PURE__*/React.createElement("span", null, "What you ",
+          /*#__PURE__*/React.createElement("i", null, "own"), " rises ",
+          /*#__PURE__*/React.createElement("b", null, fmt0(hOwn1 - hOwn0))))));
+
+  const heroA = heroShell(
+    "Step 2 of 3 · The tax",
+    /*#__PURE__*/React.createElement(React.Fragment, null,
+      "You will pay ", /*#__PURE__*/React.createElement("em", null, fmt0(hTax0)),
+      " in tax this year. Not all of it is compulsory."),
+    heroBarsPanel,
+    /*#__PURE__*/React.createElement(React.Fragment, null,
+      "Read the second row left to right. The dark block got smaller by ",
+      /*#__PURE__*/React.createElement("span", {className: "amb"}, fmt0(hSaved)),
+      " — that is tax that stopped being tax. The gold block is ",
+      /*#__PURE__*/React.createElement("b", null, "not spent"),
+      ": it is still your money, in an account with your name on it. Only the white block shrank in a way you will feel. Put another way, ",
+      /*#__PURE__*/React.createElement("b", null, hPct + "% of that contribution was tax money"),
+      " — the government funded that share of your retirement because you asked it to."),
+    "Show me my number", "four questions · about five minutes →");
+
+  // ---- C: what one year becomes, once there is a horizon --------------
+  const hGrown = Math.round(mfGrown);
+  const hMidYears = Math.max(0, Math.round(mfYears / 2));
+  const hMid = Math.round(mfContrib * Math.pow(1 + investReturn / 100, hMidYears));
+  const hMult = hInv > 0 ? (hGrown / hInv) : 0;
+  const hgh = n => Math.max(6, Math.min(100, n / Math.max(1, hGrown) * 100)) + "%";
+
+  const heroGrowPanel = /*#__PURE__*/React.createElement("div", {className: "thero-panel"},
+    /*#__PURE__*/React.createElement("div", {className: "thero-ph"},
+      /*#__PURE__*/React.createElement("span", null, "One year's contribution at ", investReturn, "% a year"),
+      /*#__PURE__*/React.createElement("span", null, mfYears, " years to ", retireAge)),
+    /*#__PURE__*/React.createElement("div", {className: "thero-grow"},
+      [{k: "now", v: hInv, l: "this year", h: hgh(hInv)},
+       {k: "mid", v: hMid, l: "in " + hMidYears + " years", h: hgh(hMid)},
+       {k: "end", v: hGrown, l: "at " + retireAge, h: hgh(hGrown)}
+      ].map(x => /*#__PURE__*/React.createElement("div", {key: x.k, className: "tg " + x.k},
+        /*#__PURE__*/React.createElement("b", null, fmt0(x.v)),
+        /*#__PURE__*/React.createElement("i", {style: {height: x.h}}),
+        /*#__PURE__*/React.createElement("span", null, x.l)))),
+    /*#__PURE__*/React.createElement("div", {className: "thero-d"},
+      /*#__PURE__*/React.createElement("span", null, "Of which ", /*#__PURE__*/React.createElement("b", null, fmt0(hSaved)), " was tax leaving anyway"),
+      /*#__PURE__*/React.createElement("span", null, "Out of your own pocket ", /*#__PURE__*/React.createElement("b", null, fmt0(hOut)))));
+
+  const heroC = heroShell(
+    "Step 2 of 3 · The tax",
+    /*#__PURE__*/React.createElement(React.Fragment, null,
+      "One year's contribution. ",
+      /*#__PURE__*/React.createElement("em", null, hMult >= 2 ? hMult.toFixed(1) + "× the size" : "Bigger"),
+      " by the time you need it."),
+    heroGrowPanel,
+    /*#__PURE__*/React.createElement(React.Fragment, null,
+      fmt0(hInv), " into a Solo 401(k) this year — of which ",
+      /*#__PURE__*/React.createElement("span", {className: "amb"}, fmt0(hSaved)),
+      " was tax leaving anyway, so ",
+      /*#__PURE__*/React.createElement("b", null, hPct + "% of it was funded by tax you no longer owe"),
+      " — compounds to roughly ", /*#__PURE__*/React.createElement("b", null, fmt0(hGrown)),
+      " by ", retireAge, ". Do it again next year and the year after, and it stops being about tax at all.",
+      /*#__PURE__*/React.createElement("i", {className: "thero-caveat"},
+        "One year's contribution at a flat ", investReturn,
+        "%, no fees and no tax on withdrawal modelled. Change the return in step 1 and this moves a long way.")),
+    "Check your assumptions", "age, horizon and return →");
+
+  const taxHero = !heroOk ? null : (horizonReady ? heroC : heroA);
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, taxHero, taxHero ? null : keepOpener, basicsBlock, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
     structureGate,
     structureOpen ? mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection) : null,
     structureOpen ? mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection) : null,
@@ -9096,5 +9252,158 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .nosplit{background:#F6F2E8; border-left:4px solid #D4C3DD; border-radius:0 10px 10px 0;
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
+
+/* ==================================================================
+   TAX STRATEGY HERO
+   Same family as the green handoff card that closes the Profit page,
+   deliberately: that card promises this page, and this card delivers
+   on the promise, so they should look like two halves of one thing.
+   ================================================================== */
+section.card.thero{
+  background:linear-gradient(135deg,#24503F 0%,#2C6350 45%,#3F9577 100%);
+  border:0; color:#EFF5F2; padding:42px 40px 36px; margin:0 0 26px;
+  box-shadow:0 14px 40px rgba(35,80,64,.24); position:relative; overflow:hidden;
+}
+section.card.thero::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(1100px 380px at 88% -10%, rgba(255,227,184,.15), transparent 62%);}
+section.card.thero > *{position:relative;}
+.thero-k{display:inline-flex; align-items:center; gap:9px; font-size:10.5px; font-weight:800;
+  letter-spacing:.13em; text-transform:uppercase; background:rgba(255,255,255,.16);
+  border-radius:30px; padding:7px 15px; margin-bottom:18px; color:#fff;}
+.thero-h{font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:clamp(27px,3vw,42px);
+  line-height:1.12; letter-spacing:-.018em; margin:0 0 26px; color:#fff; max-width:21ch;}
+.thero-h em{font-style:normal; color:#FFE3B8;}
+.thero-p{font-size:16px; line-height:1.62; color:rgba(255,255,255,.9); max-width:62ch; margin:24px 0 26px;}
+.thero-p b{color:#fff; font-weight:600;}
+.thero-p .amb{color:#FFE3B8; font-weight:600;}
+.thero-caveat{display:block; font-style:normal; font-size:12.5px; line-height:1.55;
+  color:rgba(255,255,255,.62); margin-top:11px;}
+.thero-panel{background:rgba(255,255,255,.09); border-radius:16px; padding:22px 24px 24px;}
+.thero-ph{font-size:11px; letter-spacing:.09em; text-transform:uppercase; font-weight:700;
+  color:rgba(255,255,255,.76); margin-bottom:16px; display:flex; justify-content:space-between;
+  gap:10px; flex-wrap:wrap;}
+
+/* two bars on a shared scale */
+.thero-tb{display:grid; grid-template-columns:118px 1fr; gap:14px 16px; align-items:center;}
+.thero-l{font-size:12px; line-height:1.35; text-align:right; color:rgba(255,255,255,.82);}
+.thero-l b{display:block; font-family:'Fraunces',Georgia,serif; font-size:14.5px; color:#fff;}
+.thero-bar{display:flex; height:56px; border-radius:10px; overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);}
+.thero-bar i{display:flex; flex-direction:column; justify-content:center; padding:0 12px;
+  font-style:normal; min-width:0; overflow:hidden;}
+.thero-bar i em{font-style:normal; font-size:9.5px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; opacity:.82; white-space:nowrap;}
+/* The invested segment is the narrowest of the three on a phone, so it
+   carries a short label there - the full one clipped mid-word. */
+.thero-bar i em .lbl-sm{display:none;}
+.thero-bar i strong{font-family:'Fraunces',Georgia,serif; font-size:17px; font-weight:600;
+  white-space:nowrap; font-variant-numeric:tabular-nums;}
+.thero-bar .sw-tax{background:#8E4B45; color:#FFE0DA;}
+.thero-bar .sw-tax2{background:#6E3A36; color:#FFD8D1;}
+.thero-bar .sw-inv{background:linear-gradient(180deg,#FFE3B8,#E9B979); color:#4A3A1E;}
+.thero-bar .sw-bank{background:rgba(255,255,255,.16); color:#fff;}
+.thero-d{grid-column:2; display:flex; gap:20px; flex-wrap:wrap; font-size:12.5px;
+  color:rgba(255,255,255,.78); margin-top:-2px;}
+.thero-d b{color:#FFE3B8;}
+.thero-d i{font-style:italic;}
+
+/* what one year becomes */
+.thero-grow{display:flex; align-items:flex-end; gap:18px; height:190px; padding:0 4px;}
+.thero-grow .tg{flex:1; display:flex; flex-direction:column; justify-content:flex-end;
+  align-items:center; gap:9px; height:100%;}
+.thero-grow .tg i{display:block; width:100%; border-radius:9px 9px 0 0;}
+/* Opaque, not translucent: an alpha gold over the green gradient reads
+   olive and the three steps stop looking like one scale. */
+.thero-grow .tg.now i{background:#8FB3A3;}
+.thero-grow .tg.mid i{background:linear-gradient(180deg,#F0DCB4,#D9C08E);}
+.thero-grow .tg.end i{background:linear-gradient(180deg,#FFE3B8,#E9B979);}
+.thero-grow .tg b{font-family:'Fraunces',Georgia,serif; font-size:17px; color:#fff;
+  font-variant-numeric:tabular-nums;}
+.thero-grow .tg.end b{color:#FFE3B8; font-size:21px;}
+.thero-grow .tg span{font-size:11px; letter-spacing:.07em; text-transform:uppercase;
+  color:rgba(255,255,255,.65); font-weight:700; text-align:center;}
+.thero-grow + .thero-d{grid-column:auto; margin-top:16px;}
+
+/* call to action */
+.thero-ctarow{display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
+.thero-go{display:inline-flex; flex-direction:column; gap:3px; text-decoration:none; background:#fff;
+  color:#2C6350 !important; border-radius:13px; padding:15px 28px;
+  box-shadow:0 5px 16px rgba(15,45,35,.26); transition:transform .12s ease, box-shadow .12s ease;}
+.thero-go:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(15,45,35,.32);}
+.thero-go b{font-family:'Fraunces',Georgia,serif; font-size:18.5px; font-weight:600; color:#2C6350;}
+.thero-go span{font-size:12.5px; color:#5E8C7B; font-weight:600;}
+.thero-aside{font-size:13px; color:rgba(255,255,255,.7); line-height:1.55; max-width:32ch; margin:0;}
+.thero-rule{border:0; border-top:1px solid rgba(255,255,255,.2); margin:30px 0 0;}
+.thero-what{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 30px; margin-top:22px;}
+.thero-what span{font-size:13.5px; color:rgba(255,255,255,.9); padding-left:22px; position:relative;}
+.thero-what span::before{content:"\\2192"; position:absolute; left:0; color:rgba(255,255,255,.5);}
+
+@media (max-width:780px){
+  section.card.thero{padding:28px 20px 26px; border-radius:16px;}
+  .thero-h{font-size:26px; max-width:none;}
+  .thero-panel{padding:16px 15px 18px;}
+  .thero-tb{grid-template-columns:1fr; gap:8px;}
+  .thero-l{text-align:left;}
+  .thero-l b{display:inline; margin-right:7px;}
+  .thero-bar{height:50px;}
+  .thero-bar i{padding:0 8px;}
+  .thero-bar i strong{font-size:14px;}
+  .thero-bar i em{font-size:8.5px;}
+  .thero-bar i em .lbl-lg{display:none;}
+  .thero-bar i em .lbl-sm{display:inline;}
+  .thero-d{grid-column:auto; gap:4px 16px; font-size:12px;}
+  .thero-grow{height:150px; gap:11px;}
+  .thero-grow .tg b{font-size:14px;} .thero-grow .tg.end b{font-size:17px;}
+  .thero-grow .tg span{font-size:9.5px; letter-spacing:.04em;}
+  .thero-what{grid-template-columns:1fr;}
+  .thero-p{font-size:15px;}
+  .thero-go{width:100%;}
+}
+
+/* ==================================================================
+   READING MEASURE - applies at every width, not just big screens.
+
+   Measured with canvas text metrics rather than estimated: these
+   blocks ran 170-207 characters per rendered line on a 1280px laptop,
+   against 60-75 for comfortable sustained reading. The 1080px
+   container was the only thing keeping them tolerable, which is why
+   simply widening the page for a large display would have made it
+   worse rather than better.
+
+   66ch, not a pixel value, so the box grows with the font size and
+   the measure stays constant at every type scale below.
+
+   Deliberately NOT capped: tables, .locret and waterfall bars, .stats
+   and .assoc-chips grids, comparison rows. Those are scanned, not
+   read, and they are the things that genuinely want the extra width.
+   ================================================================== */
+.planner .term-clarify,
+.planner .exp-point,
+.planner .pay-note,
+.planner .assoc-fine,
+.planner .assoc-lede,
+.planner .assoc-items-n,
+.planner .rprim-fine,
+.planner .rprim-foot p,
+.planner .vc-fine,
+.planner .vc-p,
+.planner .vc-aggr,
+.planner .yr-fine,
+.planner .vlev-note,
+.planner .salguide-fine,
+.planner .growlanding-cost,
+.planner .growlanding-lede,
+.planner .sec-intro-blurb,
+.planner .handoff-p,
+.planner .sgate-p,
+.planner .rgate-p,
+.planner .expert-nodata p,
+.planner .expert-q p,
+.planner .funnel-channel p,
+.planner .fbshot-in p,
+.planner .card > p,
+.planner .card-head p{
+  max-width:66ch;
+}
 
 `;
