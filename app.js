@@ -3792,7 +3792,7 @@ function PracticeIncomePlanner() {
     rel: /^https?:/.test(href) ? "noopener noreferrer" : null
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 28, 2026"), /*#__PURE__*/React.createElement("div", {
+  }, "Last updated: July 29, 2026"), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-by"
   }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."),
     " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
