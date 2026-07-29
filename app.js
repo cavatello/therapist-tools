@@ -9477,6 +9477,39 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .planner .thero{padding:15px 13px 18px;}
   .planner .thero-h{font-size:20.5px; margin-bottom:10px;}
   .planner .thero-panel{padding:10px 10px 11px;}
+}
+/* The real cost on a small phone was never padding. A max-width:640px rule
+   turns .sitenav into a COLUMN, so the wordmark and the menu button stack -
+   112px of nav. And the sticky summary stacks its rows for another 128px.
+   240px of chrome before a single word of content on a 667px screen.
+   Both go back to a single row; the figures are short enough to sit side by
+   side, and the menu button belongs beside the wordmark, not under it. */
+@media (max-width:640px){
+  .planner .sitenav{flex-direction:row !important; align-items:center !important;
+    flex-wrap:nowrap !important; gap:10px !important; margin-bottom:0 !important;
+    padding:5px 12px !important;}
+  .planner .sitenav-mark{flex:1 1 auto; min-width:0;}
+  .planner .sitenav-wordmark{font-size:11.5px; line-height:1.2; max-width:none;
+    overflow:hidden; text-overflow:ellipsis;}
+  .planner .sitenav-menu{flex:0 0 auto; margin-left:auto;}
+
+  .planner .sticky-summary{padding:6px 12px !important;}
+  .planner .sticky-summary-rows,
+  .planner .sticky-summary > div:not(.summary-btns){display:flex; flex-wrap:wrap;
+    align-items:baseline; gap:2px 14px;}
+  .planner .sticky-summary-row{display:inline-flex; align-items:baseline; gap:5px;
+    padding:0 !important; border:0 !important; font-size:10.5px;}
+  .planner .sticky-summary-val{font-size:13px;}
+}
+/* 11px short on a 667px iPhone SE after everything above. The headline and
+   the bar are the only things left with slack, and neither loses a figure. */
+@media (max-width:390px){
+  .planner .thero-h{font-size:19.5px; line-height:1.15; margin-bottom:9px;}
+  .planner .thero-bar{height:38px;}
+  .planner .thero-bar i strong{font-size:12.5px;}
+  .planner .thero-panel{padding:9px 9px 10px;}
+  .planner .thero-ctarow{margin-top:11px;}
+  .planner .thero-go{padding:11px 14px;}
   /* the share banner was ~225px on a phone - more than a quarter of the
      screen, before any content, for anyone arriving from a shared link */
   .planner .share-banner{padding:10px 12px; font-size:12px; line-height:1.5;}
