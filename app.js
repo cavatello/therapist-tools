@@ -2317,14 +2317,13 @@ function PracticeIncomePlanner() {
 
   const landingBand = page !== "sim" ? null : /*#__PURE__*/React.createElement(React.Fragment, null,
     /*#__PURE__*/React.createElement("section", {className: "lnd"},
-      /*#__PURE__*/React.createElement("div", {className: "lnd-kick"},
-        "Free · no sign-up · nothing leaves your browser"),
+      /* The "free / no sign-up" pill was reassurance nobody asked for, and it
+         cost a line above the fold. The point survives in the fine print. */
       /*#__PURE__*/React.createElement("h1", {className: "lnd-h"},
-        "What a California therapy practice ",
-        /*#__PURE__*/React.createElement("em", null, "actually pays"),
-        " — worked out on your own numbers."),
+        "California Therapy ",
+        /*#__PURE__*/React.createElement("em", null, "Practice Simulator")),
       /*#__PURE__*/React.createElement("p", {className: "lnd-lede"},
-        "A planning tool for therapists in private practice. Put in your rate and caseload and it works out what you bill, what it costs to run, what the IRS and the FTB take, and what is genuinely left — then shows you the levers that change it. ",
+        "What a California practice actually pays, worked out on your own numbers. Put in your rate and caseload and it works out what you bill, what it costs to run, what the IRS and the FTB take, and what is genuinely left — then shows you the levers that change it. ",
         /*#__PURE__*/React.createElement("b", null, "Every figure is a real calculation with a citation, not a rule of thumb.")),
       /*#__PURE__*/React.createElement("div", {className: "lnd-who"},
         ["LMFT", "LCSW", "LPCC", "Psychologist", "AMFT / associate", "Group practice owner"]
@@ -2360,6 +2359,30 @@ function PracticeIncomePlanner() {
       ) : /*#__PURE__*/React.createElement("p", {className: "lnd-cold"},
         "Nothing is filled in yet. Enter a session rate below and every figure on this page — and on the tax, retirement and residency pages — builds itself from it. Or load a worked example and pull it apart first."),
 
+      /*#__PURE__*/React.createElement("div", {className: "lnd-ctl"},
+        /*#__PURE__*/React.createElement("div", {className: "lnd-ctl-h"},
+          "Start here — everything on this page moves with these"),
+        [["Hourly rate", "$", rateDraft, setRateDraft,
+          () => setRate(Math.max(50, Math.min(300, +rateDraft || 50))), "/hr", 50, 300],
+         ["Sessions a week", "", sessionsDraft, setSessionsDraft,
+          () => setSessions(Math.max(0, Math.min(60, +sessionsDraft || 0))), "", 0, 60]
+        ].map(([lab, pre, val, setD, commit, suf, mn, mx]) =>
+          /*#__PURE__*/React.createElement("div", {key: lab, className: "lnd-ctl-row"},
+            /*#__PURE__*/React.createElement("em", null, lab),
+            /*#__PURE__*/React.createElement("label", null,
+              pre ? /*#__PURE__*/React.createElement("span", null, pre) : null,
+              /*#__PURE__*/React.createElement("input", {
+                type: "number", min: mn, max: mx, value: val,
+                onChange: e => setD(e.target.value),
+                onBlur: commit,
+                onKeyDown: e => { if (e.key === "Enter") e.target.blur(); }
+              }),
+              suf ? /*#__PURE__*/React.createElement("span", null, suf) : null))),
+        /*#__PURE__*/React.createElement("div", {className: "lnd-ctl-res"},
+          /*#__PURE__*/React.createElement("span", null, lndWarm ? "You bill" : "Enter a rate to begin"),
+          lndWarm ? fmt(lndGross) : "—"),
+        /*#__PURE__*/React.createElement("p", {className: "lnd-ctl-n"},
+          weeksWorked, " working weeks · ", (sessions * weeksWorked).toLocaleString(), " sessions · change time off in Income")),
       /*#__PURE__*/React.createElement("div", {className: "lnd-ctas"},
         /*#__PURE__*/React.createElement("a", {className: "lnd-go", href: "#sec-income", onClick: jumpTo("sec-income")},
           /*#__PURE__*/React.createElement("b", null, lndWarm ? "Change my numbers" : "Put in my own numbers"),
@@ -9401,6 +9424,113 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .nosplit{background:#F6F2E8; border-left:4px solid #D4C3DD; border-radius:0 10px 10px 0;
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
+
+/* ==================================================================
+   OPTION B - the controls live inside the landing band.
+   Measured: the rate control used to sit at y=1642 against an 800px
+   fold, two full screens down. Putting it in the band puts it at ~130.
+
+   This deliberately breaks the "bands never take input" rule I wrote
+   earlier. That rule was wrong here: a simulator whose first screen you
+   cannot touch is a brochure. The controls appear twice - here and in
+   Income - which is fine, they are the same two pieces of state.
+
+   Done with grid placement rather than by restructuring the JSX: the
+   band's existing children flow down column one, and .lnd-ctl is pinned
+   to column two spanning the rows beside them.
+   ================================================================== */
+@media (min-width:900px){
+  .planner .lnd{display:grid; grid-template-columns:1.18fr .82fr; column-gap:28px;
+    align-items:start; padding:30px 34px 28px;}
+  .planner .lnd > *{grid-column:1;}
+  .planner .lnd > .lnd-ctl{grid-column:2; grid-row:2 / span 20; align-self:start;}
+  .planner .lnd-h{font-size:clamp(26px,2.9vw,38px); margin-bottom:14px; max-width:none;}
+  .planner .lnd-lede{font-size:14.5px; margin-bottom:14px;}
+  .planner .lnd-who{margin-bottom:14px;}
+  .planner .lnd-who span{font-size:10.5px; padding:5px 11px;}
+  .planner .lnd-proof{gap:10px; margin-bottom:12px;}
+  .planner .lnd-pf{padding:12px 13px 13px;}
+  .planner .lnd-pf strong{font-size:clamp(19px,1.8vw,23px);}
+  .planner .lnd-pf p{font-size:10.5px; margin-top:6px;}
+  .planner .lnd-barwrap{padding:15px 16px 16px;}
+  .planner .lnd-bar{height:42px;}
+  .planner .lnd-ctas{margin-top:16px;}
+  .planner .lnd-fine{margin-top:14px; font-size:11.5px;}
+}
+.lnd-ctl{background:rgba(255,255,255,.11); border-radius:14px; padding:16px 17px 17px;}
+.lnd-ctl-h{font-size:9.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(255,255,255,.62); margin-bottom:12px; line-height:1.5;}
+.lnd-ctl-row{margin-bottom:12px;}
+.lnd-ctl-row em{font-style:normal; display:block; font-size:10px; font-weight:700;
+  letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.72); margin-bottom:5px;}
+.lnd-ctl-row label{display:flex; align-items:baseline; gap:4px; background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.26); border-radius:10px; padding:8px 12px;}
+.lnd-ctl-row label span{font-family:'Fraunces',serif; font-size:17px; color:rgba(255,255,255,.7);}
+.lnd-ctl-row input{flex:1; min-width:0; background:transparent; border:0; outline:0;
+  font-family:'Fraunces',Georgia,serif; font-size:23px; font-weight:600; color:#fff;
+  font-variant-numeric:tabular-nums; padding:0;}
+.lnd-ctl-row input::-webkit-outer-spin-button,
+.lnd-ctl-row input::-webkit-inner-spin-button{opacity:.5;}
+.lnd-ctl-res{margin-top:14px; padding-top:12px; border-top:1px solid rgba(255,255,255,.22);
+  font-family:'Fraunces',serif; font-size:25px; color:#FFE3B8; font-variant-numeric:tabular-nums;}
+.lnd-ctl-res span{display:block; font-family:Inter,sans-serif; font-size:9.5px; font-weight:800;
+  letter-spacing:.11em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:3px;}
+.lnd-ctl-n{margin:10px 0 0; font-size:11px; line-height:1.5; color:rgba(255,255,255,.58);}
+/* On a phone the band stacks, and stacking in DOM order put the controls
+   below the proof tiles and the bar - y=1344 against an 844px fold. The
+   band becomes a flex column so the controls can sit directly under the
+   lede, where they are the first thing you can touch. */
+@media (max-width:899px){
+  .planner .lnd{display:flex; flex-direction:column;}
+  .planner .lnd-kick{order:1}
+  .planner .lnd-h{order:2}
+  .planner .lnd-lede{order:3}
+  .planner .lnd-ctl{order:4; margin:2px 0 4px;}
+  .planner .lnd-proof{order:5}
+  .planner .lnd-barwrap{order:6}
+  .planner .lnd-cold{order:6}
+  .planner .lnd-ctas{order:7}
+  .planner .lnd-who{order:8; margin:16px 0 0;}
+  .planner .lnd-fine{order:9}
+  .lnd-ctl-row label{padding:10px 13px;}
+}
+@media (max-width:780px){
+  /* the lede and the chips are the two things a phone can afford to lose
+     from the first screen - both are still there, just after the action */
+  .planner .lnd-lede{font-size:14px; margin-bottom:14px;}
+  .planner .lnd-h{font-size:25px; margin-bottom:12px;}
+  .planner .lnd-kick{margin-bottom:12px;}
+}
+
+/* ==================================================================
+   ABOVE THE FOLD - tax page.
+   The band was starting at y=560 on a laptop because a section heading
+   and a three-line intro sat above it saying, less well, exactly what
+   the band says. The band supersedes them, so they go - the same call
+   already made for the .orient banner on the simulator page.
+   The headline was also wrapping to three lines at 21ch; 26ch gives it
+   two, which is worth ~90px on its own.
+   ================================================================== */
+.planner.page-tax #sec-taxstrategy > .sec-intro-title,
+.planner.page-tax #sec-taxstrategy > .sec-intro{display:none;}
+.planner .thero{margin-top:0;}
+.planner .thero-h{max-width:26ch;}
+@media (min-width:900px){
+  .planner .thero{padding:30px 36px 28px;}
+  .planner .thero-h{font-size:clamp(26px,2.7vw,38px); margin-bottom:18px;}
+  .planner .thero-panel{padding:17px 20px 18px;}
+  /* the lede sat between the bars and the button and pushed the call to
+     action 2px under an 800px fold. Tightened until it clears. */
+  .planner .thero-p{margin:15px 0 16px; font-size:15px;}
+  .planner .thero-rule{margin-top:20px;}
+  .planner .thero-what{margin-top:15px;}
+}
+@media (max-width:780px){
+  .planner .thero{padding:22px 16px 22px;}
+  .planner .thero-h{font-size:24px; margin-bottom:14px;}
+  .planner .thero-panel{padding:13px 12px 14px;}
+  .planner .thero-p{margin:14px 0 15px; font-size:14px;}
+}
 
 /* ==================================================================
    VERSION A - a band per decision.
