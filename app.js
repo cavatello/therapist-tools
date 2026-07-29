@@ -9426,6 +9426,57 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
 /* ==================================================================
+   MOBILE UI PASS
+   Audited on seven real device viewports (iPhone SE / 12 / 15 Pro Max,
+   Pixel 7, Galaxy S8, iPad mini, iPad Pro 11) across all three pages.
+   Three classes of defect, all of them present on every phone:
+
+   1. Touch targets under Apple's and Google's 44px / 48dp minimum -
+      the nav menu button at 34x34, the share-banner close at 20x20,
+      and the brand wordmark link at 30px tall.
+   2. Sentence-length text below 11px - hints at 9.5px and 10.5px that
+      are readable on a desktop at arm's length and not on a phone.
+   3. Both were invisible to the earlier tests because those checked
+      the landing band only, not the whole page.
+   ================================================================== */
+@media (max-width:900px){
+  /* --- touch targets --- */
+  .planner .sitenav-menu{min-width:44px; min-height:44px; display:grid; place-items:center;}
+  .planner .sitenav-mark{min-height:44px; display:flex; align-items:center;}
+  .planner .share-banner-close{min-width:44px; min-height:44px; display:grid; place-items:center;
+    /* the glyph stays small; only the hit area grows */
+    font-size:16px; line-height:1; padding:0; margin:-10px -10px -10px 0;}
+  /* Second pass: the audit found more once the first three were fixed.
+     Save / Reset were 22px tall, every number input 26-38px, and the
+     primer dismiss 30px. All are things a thumb has to hit. */
+  .planner .summary-btn{min-height:44px; padding-top:0; padding-bottom:0;
+    display:inline-flex; align-items:center;}
+  .planner .basics-x{min-width:44px; min-height:44px; display:grid; place-items:center;}
+  .planner input[type="number"],
+  .planner input[type="text"],
+  .planner .growrate-input,
+  .planner .control-val-input,
+  .planner .exp-input{min-height:44px;}
+  .planner .lnd-ctl-row label{min-height:48px; align-items:center;}
+  /* fold summaries were 14px tall - the chevron was the only thing to aim
+     at. Range inputs get a taller hit area without a taller track. */
+  .planner summary{min-height:44px; display:flex; align-items:center;}
+  .planner input[type="range"]{height:44px; margin-top:-10px; margin-bottom:-10px;
+    background:transparent;}
+  .planner .slider{min-height:44px; display:flex; align-items:center;}
+  /* the footer nav is five real navigation links, 14px tall. Not an inline
+     prose link, not exempt - a thumb has to hit them. */
+  .planner .sitefoot-links a{min-height:44px; min-width:44px; display:flex; align-items:center;}
+  .planner .exp-add{min-height:44px; display:inline-flex; align-items:center;}
+
+  /* --- legible text --- */
+  .planner .sticky-summary-hint{font-size:11.5px; line-height:1.5;}
+  .planner .lnd-ctl-h{font-size:11px; letter-spacing:.09em; line-height:1.45;}
+  .planner .funnel-input-hint,
+  .planner .ltv-formula-label{font-size:11.5px; line-height:1.5;}
+}
+
+/* ==================================================================
    OPTION B - the controls live inside the landing band.
    Measured: the rate control used to sit at y=1642 against an 800px
    fold, two full screens down. Putting it in the band puts it at ~130.
