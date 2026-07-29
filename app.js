@@ -522,6 +522,23 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   };
 }
 
+// A sole proprietor's Solo 401(k) - BOTH the salary deferral and the employer
+// profit share - is an above-the-line deduction on Form 1040 Schedule 1, not a
+// Schedule C expense. It reduces income tax but NOT self-employment tax, and
+// not the additional Medicare tax either, because Schedule SE runs off Schedule
+// C net profit, which the adjustment never touches.
+//
+// computeYear's employerRetirement argument subtracts from business profit.
+// That is correct for a corporation (the company takes the deduction and the
+// K-1 distribution falls) and WRONG for a sole proprietor, where it quietly
+// shaves SE tax off the bill and overstates what the contribution saves. This
+// returns the right pair for whichever entity is in play.
+function retireArgsFor(entityTypeArg, employerContrib, employeeContrib) {
+  return entityTypeArg === "s_corp"
+    ? [employerContrib || 0, employeeContrib || 0]
+    : [0, (employerContrib || 0) + (employeeContrib || 0)];
+}
+
 const NY_STD = 8000;
 const NY_BRACKETS = [[0, 0.039], [8500, 0.044], [11700, 0.0515], [13900, 0.054], [80650, 0.059], [215400, 0.0685], [1077550, 0.0965], [5000000, 0.103], [25000000, 0.109]];
 const NYC_BRACKETS = [[0, 0.03078], [12000, 0.03762], [25000, 0.03819], [50000, 0.03876]];
@@ -626,12 +643,25 @@ function computeUBT(businessIncome, nycTaxableIncome, nycTax) {
   const pitCredit = Math.min(net * pct, Math.max(0, nycTax));
   return {gross, credit, net, pitCredit, afterPit: net - pitCredit};
 }
-function computeNYC(revenueUSD, expensesUSD) {
+// retireDed is a maxed Solo 401(k)/IRA deduction. It is an above-the-line
+// federal adjustment (Schedule 1), NOT a Schedule C expense, which decides
+// exactly which of New York's five taxes it touches:
+//   NY State PIT   yes - NY starts from federal AGI and has no addback for it
+//   NYC resident   yes - same base, per NYC Admin Code s.11-1712(a)
+//   NYC UBT        NO  - s.11-507 allows only deductions allowable federally
+//                        and "directly connected with the business", and
+//                        s.11-507(3) bars amounts paid to a proprietor. The
+//                        deduction is simply never in the UBT base.
+//   MCTMT          NO  - base is net earnings from self-employment (s.1402),
+//                        a Schedule SE figure the adjustment never reaches
+//   SE tax         NO  - same reason
+function computeNYC(revenueUSD, expensesUSD, retireDed) {
+  retireDed = retireDed || 0;
   const schedC = Math.max(0, revenueUSD - expensesUSD);
   const seBase = schedC * 0.9235;
   const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
   const halfSE = seTax / 2;
-  const agi = schedC - halfSE;
+  const agi = schedC - halfSE - retireDed;
   const taxableBeforeQBI = Math.max(0, agi - FED_STD);
   const qbiIncome = Math.max(0, schedC - halfSE);
   let pct;
@@ -662,12 +692,22 @@ function computeNYC(revenueUSD, expensesUSD) {
 const PA_FLAT_RATE = 0.0307;
 const PITTSBURGH_EIT_RATE = 0.03;
 const PITTSBURGH_LST = 52;
-function computePittsburgh(revenueUSD, expensesUSD) {
+// retireDed here buys far less than it does in California or New York, and
+// that is the point of showing it. Pennsylvania does not start from federal
+// AGI: it computes net profits under its own rules, and 61 Pa. Code s.101.6(c)(8)
+// says contributions "by, on behalf of or attributable to a self-employed
+// person are not excludable from either compensation or net profits". Both
+// halves of a Solo 401(k) - the deferral and the employer profit share - are
+// therefore fully taxable by PA in the year contributed. The Local Tax
+// Enabling Act defines the local EIT base by reference to that same PA
+// figure, so Pittsburgh's 3% follows it. Only the federal tax moves.
+function computePittsburgh(revenueUSD, expensesUSD, retireDed) {
+  retireDed = retireDed || 0;
   const schedC = Math.max(0, revenueUSD - expensesUSD);
   const seBase = schedC * 0.9235;
   const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
   const halfSE = seTax / 2;
-  const agi = schedC - halfSE;
+  const agi = schedC - halfSE - retireDed;
   const taxableBeforeQBI = Math.max(0, agi - FED_STD);
   const qbiIncome = Math.max(0, schedC - halfSE);
   let pct;
@@ -1533,12 +1573,24 @@ function PracticeIncomePlanner() {
   const assocEhrYr = assocOn ? assocN * (parseFloat(assocEhrMo) || 0) * 12 : 0;
   const assocOfficeYr = assocOn ? assocN * (parseFloat(assocOfficeMo) || 0) * 12 : 0;
   const assocEmployerTax = assocFica + assocUi + assocEtt + assocFuta + assocWc;
+  // Card processing is charged on every dollar collected, and the associates'
+  // billings run through the same merchant account as your own. The percentage
+  // expense rows (Billing / merchant fees) already applied that rate to
+  // associate revenue - but inside the general expense pool, where it was
+  // invisible, which made "left for the practice" read better than it is.
+  // Charged here instead and removed from the pool below: same total, honest
+  // receipt.
+  const pctExpRate = expenses.reduce((a, e) => a + (e.pct != null ? e.pct : 0), 0);
+  const assocCardFee = assocOn ? Math.round(assocRevenueYr * pctExpRate) : 0;
   const assocCostYr = assocOn
-    ? assocWagesYr + assocEmployerTax + assocPayrollYr + assocLiabYr + assocEhrYr + assocOfficeYr
+    ? assocWagesYr + assocEmployerTax + assocPayrollYr + assocLiabYr + assocEhrYr + assocOfficeYr + assocCardFee
     : 0;
   const assocNetYr = assocRevenueYr - assocCostYr;
   const otherIncomeYr = secondaryYr + retreatYr + assocRevenueYr;
-  const grossMoForExp = (grossYr(rate, sessions, weeksWorked) + otherIncomeYr) / 12;
+  // Associate revenue is deliberately outside the percentage-expense base -
+  // assocCardFee above already charged it. Double-counting here would inflate
+  // expenses and understate profit.
+  const grossMoForExp = (grossYr(rate, sessions, weeksWorked) + secondaryYr + retreatYr) / 12;
   const expMo = expenses.reduce((a, e) => a + (e.pct != null ? grossMoForExp * e.pct : +e.monthly || 0), 0);
   // Associate costs are ordinary business expenses, so they join the same
   // pool everything else deducts from - profit, tax, residency all follow.
@@ -1901,6 +1953,73 @@ function PracticeIncomePlanner() {
   const taxStrategy = useMemo(() => computeRetireStrategyFor(entityType), [cur, expYr, job2Yr, filingStatus, numDependents, entityType, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn]);
   const taxStrategySoleProp = useMemo(() => computeRetireStrategyFor("sole_prop"), [cur, expYr, job2Yr, filingStatus, numDependents, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn]);
   const taxStrategySCorp = useMemo(() => computeRetireStrategyFor("s_corp"), [cur, expYr, job2Yr, filingStatus, numDependents, sCorpSalaryInput, existingPretaxIRA, taxAge, retireAge, investReturn]);
+
+  // ===================================================================
+  // What a maxed Solo 401(k) is actually worth, location by location.
+  //
+  // The contribution room is federal and identical everywhere. What is not
+  // identical is how much tax it removes, because the deduction is an
+  // above-the-line federal adjustment (Schedule 1) and each state decides
+  // for itself whether to follow federal AGI:
+  //
+  //   California    follows  - federal and CA tax both fall
+  //   New York      follows  - federal, NY State and NYC resident tax fall.
+  //                            The UBT, the MCTMT and SE tax do not: all
+  //                            three are charged on a business-income figure
+  //                            the adjustment never reaches.
+  //   Pennsylvania  does NOT - 61 Pa. Code s.101.6(c)(8). PA taxes the
+  //                            contribution in the year it is made, and the
+  //                            local EIT base is defined by reference to the
+  //                            PA figure, so Pittsburgh's 3% follows it down.
+  //                            Only federal tax moves.
+  //
+  // Measured rather than approximated: each location's tax is recomputed
+  // with the deduction applied under that jurisdiction's own rules, and the
+  // saving is the difference between the two runs. No marginal-rate proxy,
+  // because the proxy cannot express "PA ignores this deduction entirely".
+  // ===================================================================
+  const soloContrib = taxStrategy ? Math.round(taxStrategy.solo401k.total) : 0;
+  const soloByLocation = useMemo(() => {
+    if (!(soloContrib > 0)) return null;
+    const caArgs = retireArgsFor(entityType, taxStrategy.solo401k.employerContrib,
+      taxStrategy.solo401k.employeeContrib);
+    const caWith = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYr, job2Yr, filingStatus,
+      numDependents, caArgs[0], caArgs[1], entityType, sCorpSalaryInput);
+    // Rounded at source so the three bar segments add to the same total the
+    // card prints above them - the recurring $1-drift trap in this file.
+    const mk = (taxNow, taxAfter, netNow, reach) => {
+      const t = Math.round(taxNow), n = Math.round(netNow);
+      const saved = Math.max(0, Math.min(t, t - Math.round(taxAfter)));
+      return {contrib: soloContrib, saved: saved, cost: soloContrib - saved,
+        taxAfter: t - saved, bank: n - soloContrib + saved, total: t + n, reach: reach};
+    };
+    return {
+      california: mk(cur.totalTax, caWith.totalTax, cur.netYr,
+        "Comes off federal and California taxable income alike \u2014 California conforms to federal adjusted gross income here."),
+      nyc: mk(residency.nyc.taxUSD, computeNYC(cur.grossYr, expYr, soloContrib).taxUSD, residency.nyc.netUSD,
+        "Comes off federal, New York State and NYC resident tax. It does not touch the UBT, the MCTMT or self-employment tax \u2014 all three are charged on a business-income figure this deduction never reaches, so they stay exactly where they were."),
+      pittsburgh: mk(residency.pittsburgh.taxUSD, computePittsburgh(cur.grossYr, expYr, soloContrib).taxUSD, residency.pittsburgh.netUSD,
+        "Federal tax only. Pennsylvania does not recognise a self-employed person's own retirement contribution, and Pittsburgh's 3% rides on the PA figure \u2014 so 6.07% of every dollar you shelter is taxed in the year you shelter it. The offset comes decades later: PA generally does not tax the money again on the way out.")
+    };
+  }, [soloContrib, taxStrategy, cur, expYr, job2Yr, filingStatus, numDependents, entityType,
+      sCorpSalaryInput, residency]);
+
+  // One renderer for all three US cards, so the comparison is like-for-like.
+  // Segments: tax still owed, the contribution itself, what reaches the bank.
+  // They sum to tax + net by construction.
+  const locRetBlock = d => /*#__PURE__*/React.createElement("div", {className: "locret"},
+    /*#__PURE__*/React.createElement("div", {className: "locret-lab"}, "If you max your Solo 401(k)"),
+    /*#__PURE__*/React.createElement("div", {className: "locret-bar"},
+      /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, d.taxAfter) / Math.max(1, d.total) * 100) + "%", background: "#B5483F"}}),
+      /*#__PURE__*/React.createElement("i", {style: {width: (d.contrib / Math.max(1, d.total) * 100) + "%", background: "#3F9577"}}),
+      /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, d.bank) / Math.max(1, d.total) * 100) + "%", background: "#26241E"}})),
+    /*#__PURE__*/React.createElement("div", {className: "locret-sp"},
+      /*#__PURE__*/React.createElement("span", null, "Invested ", /*#__PURE__*/React.createElement("b", null, fmt(d.contrib))),
+      /*#__PURE__*/React.createElement("span", null, "Bank ", /*#__PURE__*/React.createElement("b", null, fmt(d.bank)))),
+    /*#__PURE__*/React.createElement("div", {className: "locret-why"},
+      "Costs you ", /*#__PURE__*/React.createElement("b", null, fmt(d.cost)),
+      " of spending money \u2014 the other ", /*#__PURE__*/React.createElement("b", null, fmt(d.saved)),
+      " was tax leaving anyway. ", d.reach));
 
 
   // Goal solver against net profit
@@ -2764,6 +2883,8 @@ function PracticeIncomePlanner() {
          ["Liability insurance", -assocLiabYr, "out", "cover for them"],
          ["EHR / software seats", -assocEhrYr, "out", "one each"],
          ["Payroll service", -assocPayrollYr, "out", "filing and running the payroll"],
+         ["Card processing on their billings", -assocCardFee, "out",
+           (pctExpRate * 100).toFixed(1) + "% \u2014 same merchant rate as your own sessions"],
          ["Space", -assocOfficeYr, "out", "rooms or hours"]
         ].filter(r => Math.abs(r[1]) > 0 || r[0] === "Supervision & admin pay").map(([k, v, dir, note]) =>
           /*#__PURE__*/React.createElement("div", {key: k, className: "assoc-row"},
@@ -3205,7 +3326,7 @@ function PracticeIncomePlanner() {
     className: "card-head"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sub-eyebrow"
-  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same limits apply in New York, Pennsylvania or anywhere else you would practise in the US, and the deduction comes off state taxable income too. Which means the same contribution is ", /*#__PURE__*/React.createElement("b", null, "worth more where the tax rate is higher"), ": sheltering a dollar in California or New York City saves more than sheltering it where there is no state income tax. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here."), /*#__PURE__*/React.createElement("div", {className: "medcost"}, /*#__PURE__*/React.createElement("b", null, "Not counted in any figure below: health cover once you retire abroad. "), "Social Security follows a US citizen almost anywhere \u2014 Germany, Portugal, France and Australia all have totalization agreements with the US, and the UAE does not, though payments still reach you there. ", /*#__PURE__*/React.createElement("b", null, "Medicare does not travel at all"), ". It covers essentially nothing outside the United States, so every non-US card below quietly omits a lifelong private or local insurance premium that a California retiree would not pay. Treat the overseas net figures as better than they will feel.")), /*#__PURE__*/React.createElement("div", {
+  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same contribution room applies in New York, Pennsylvania or anywhere else you would practise in the US. What the contribution is ", /*#__PURE__*/React.createElement("b", null, "worth"), " is not federal at all, because each state decides separately whether to follow the federal deduction. California and New York do, so a dollar sheltered there removes state and city tax as well as federal. ", /*#__PURE__*/React.createElement("b", null, "Pennsylvania does not"), " \u2014 it taxes a self-employed person's own contribution in the year it is made, and Pittsburgh's local tax follows the state figure, so the same dollar saves federal tax only. The panel on each US card below shows the real number. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here."), /*#__PURE__*/React.createElement("div", {className: "medcost"}, /*#__PURE__*/React.createElement("b", null, "Not counted in any figure below: health cover once you retire abroad. "), "Social Security follows a US citizen almost anywhere \u2014 Germany, Portugal, France and Australia all have totalization agreements with the US, and the UAE does not, though payments still reach you there. ", /*#__PURE__*/React.createElement("b", null, "Medicare does not travel at all"), ". It covers essentially nothing outside the United States, so every non-US card below quietly omits a lifelong private or local insurance premium that a California retiree would not pay. Treat the overseas net figures as better than they will feel.")), /*#__PURE__*/React.createElement("div", {
     className: "residency-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "stat",
@@ -3227,25 +3348,11 @@ function PracticeIncomePlanner() {
     className: "stat-note"
   }, fmt(cur.totalTax), " total tax"), residBreakdown(cur.grossYr, cur.totalTax, cur.netYr, d.color, cur.expYr), /*#__PURE__*/React.createElement("div", {
     className: "resid-invest-note"
-  }, (function () {
-    const c = taxStrategy.solo401k.total, sv = taxStrategy.solo401k.taxSavings;
-    const bank = cur.netYr - c + sv, tot = Math.max(1, cur.totalTax + cur.netYr);
-    if (!(c > 0)) return /*#__PURE__*/React.createElement("span", null,
-      /*#__PURE__*/React.createElement("b", null, "Retirement accounts apply here too. "),
-      "Fill in Tax Strategy and this shows what a Solo 401(k) would move out of tax and into your own account.");
-    return /*#__PURE__*/React.createElement("div", {className: "locret"},
-      /*#__PURE__*/React.createElement("div", {className: "locret-lab"}, "If you max your Solo 401(k)"),
-      /*#__PURE__*/React.createElement("div", {className: "locret-bar"},
-        /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, cur.totalTax - sv) / tot * 100) + "%", background: "#B5483F"}}),
-        /*#__PURE__*/React.createElement("i", {style: {width: (c / tot * 100) + "%", background: "#3F9577"}}),
-        /*#__PURE__*/React.createElement("i", {style: {width: (Math.max(0, bank) / tot * 100) + "%", background: "#26241E"}})),
-      /*#__PURE__*/React.createElement("div", {className: "locret-sp"},
-        /*#__PURE__*/React.createElement("span", null, "Invested ", /*#__PURE__*/React.createElement("b", null, fmt(c))),
-        /*#__PURE__*/React.createElement("span", null, "Bank ", /*#__PURE__*/React.createElement("b", null, fmt(bank)))),
-      /*#__PURE__*/React.createElement("div", {className: "locret-why"},
-        "Costs you ", /*#__PURE__*/React.createElement("b", null, fmt(c - sv)), " of spending money \u2014 the other ",
-        /*#__PURE__*/React.createElement("b", null, fmt(sv)), " was tax leaving anyway."));
-  })()), /*#__PURE__*/React.createElement("div", {
+  }, soloByLocation
+    ? locRetBlock(soloByLocation.california)
+    : /*#__PURE__*/React.createElement("span", null,
+        /*#__PURE__*/React.createElement("b", null, "Retirement accounts apply here too. "),
+        "Fill in Tax Strategy and this shows what a Solo 401(k) would move out of tax and into your own account.")), /*#__PURE__*/React.createElement("div", {
     className: "residency-includes"
   }, /*#__PURE__*/React.createElement("b", null, "Includes: "), "federal income tax, self-employment tax, and CA state income tax (progressive to 12.3%, plus the 1% Prop 63 mental health surcharge above $1m taxable \u2014 which is where the often-quoted 13.3% comes from), with the same QBI deduction and expense treatment used throughout this tool.")), [{
     key: "nyc",
@@ -3307,7 +3414,7 @@ function PracticeIncomePlanner() {
     tax: residency.pittsburgh.taxUSD,
     taxNote: "tax (fed + SE + PA + Pittsburgh EIT + LST)",
     sub: null,
-    includes: /*#__PURE__*/React.createElement(React.Fragment, null, "Pennsylvania's flat 3.07% state income tax (no standard deduction, no brackets), Pittsburgh's combined 3% local Earned Income Tax (2% city + 1% school district, per Act 32), and the $52/yr Local Services Tax (occupational privilege tax, split between city and school district). Federal income tax, self-employment tax, and QBI deduction calculated the same way as every other location in this tool. Excludes: PA has no separate business-entity-level tax comparable to CA's, and does not tax retirement income for residents 60+.", /*#__PURE__*/React.createElement("sup", null, "[12]"))
+    includes: /*#__PURE__*/React.createElement(React.Fragment, null, "Pennsylvania's flat 3.07% state income tax (no standard deduction, no brackets), Pittsburgh's combined 3% local Earned Income Tax (1% city + 2% school district, per Act 32), and the $52/yr Local Services Tax (occupational privilege tax, split between city and school district). Federal income tax, self-employment tax, and QBI deduction calculated the same way as every other location in this tool. Excludes: PA has no separate business-entity-level tax comparable to CA's. Note that PA also gives no deduction for a self-employed person's own retirement contribution \u2014 see the Solo 401(k) panel above \u2014 and in exchange generally does not tax qualified distributions again on the way out, provided the plan's own age or service conditions were met.", /*#__PURE__*/React.createElement("sup", null, "[12]"))
   }, {
     key: "brisbane",
     label: "Brisbane, Australia",
@@ -3331,7 +3438,10 @@ function PracticeIncomePlanner() {
     className: "stat-note"
   }, fmt(c.tax), " ", c.taxNote), residBreakdown(cur.grossYr, c.tax, c.net, "#6F6A5E", cur.expYr), /*#__PURE__*/React.createElement("div", {
     className: c.net - cur.netYr === 0 ? "stat-note" : c.net - cur.netYr > 0 ? "pos" : "neg"
-  }, c.net - cur.netYr >= 0 ? "+" : "\u2212", fmt(Math.abs(c.net - cur.netYr)), " vs. California"), /*#__PURE__*/React.createElement("div", {
+  }, c.net - cur.netYr >= 0 ? "+" : "\u2212", fmt(Math.abs(c.net - cur.netYr)), " vs. California"),
+  soloByLocation && soloByLocation[c.key] ? /*#__PURE__*/React.createElement("div", {
+    className: "resid-invest-note"
+  }, locRetBlock(soloByLocation[c.key])) : null, /*#__PURE__*/React.createElement("div", {
     className: "residency-includes"
   }, /*#__PURE__*/React.createElement("b", null, "Includes: "), c.includes))), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
@@ -3339,7 +3449,11 @@ function PracticeIncomePlanner() {
     /*#__PURE__*/React.createElement("p", {className: "pay-note"}, citeList([
       {n: 1, cite: "NYC Department of Finance \u2014 Unincorporated Business Tax", url: "https://www.nyc.gov/site/finance/business/business-unincorporated-business-tax-ubt.page", note: "4% on income allocated to the city; a full credit at or below $3,400 of tax, none at or above $5,400. The allowance for the taxpayer's own services (lesser of 20% or $10,000) and the $5,000 specific exemption are lines 3 and 4 of Form NYC-202S."},
       {n: 2, cite: "NY Form IT-219 \u2014 credit for NYC unincorporated business tax", url: "https://www.tax.ny.gov/pdf/current_forms/it/it219i.pdf", note: "a city resident credits 100% of the UBT below $42,000 of city taxable income, sliding to 23% at $142,000 and flat 23% above, capped at the city tax itself."},
-      {n: 3, cite: "NY Dept. of Taxation and Finance \u2014 2025 personal income tax changes", url: "https://www.tax.ny.gov/legal/2025/pit-corp-changes.htm", note: "MCTMT for the self-employed rises to 0.60% of net earnings in Zone 1 for tax years beginning on or after 1 January 2026, once net earnings from self-employment exceed $150,000. Brooklyn (Kings County) is Zone 1."}
+      {n: 3, cite: "NY Dept. of Taxation and Finance \u2014 2025 personal income tax changes", url: "https://www.tax.ny.gov/legal/2025/pit-corp-changes.htm", note: "MCTMT for the self-employed rises to 0.60% of net earnings in Zone 1 for tax years beginning on or after 1 January 2026, once net earnings from self-employment exceed $150,000. Brooklyn (Kings County) is Zone 1."},
+      {n: 4, cite: "PA Personal Income Tax Guide \u2014 Net Income (Loss) from a Business or Profession", url: "https://www.pa.gov/agencies/revenue/forms-and-publications/pa-personal-income-tax-guide/net-income-loss-from-the-operation-of-a-business,-profession-or-farm", note: "\u201CContributions made by a self-employed individual to his own pension plan, such as an IRA or Keogh or welfare benefit program, are not deductible as a business expense \u2026 nor are such contributions otherwise excludable from taxable income.\u201D Contributions for the practice's own employees are deductible \u2014 it is only the owner's that PA refuses. This is why the Pittsburgh Solo 401(k) panel shows a federal-only saving."},
+      {n: 5, cite: "61 Pa. Code \u00A7101.6(c)(8)(ii)(B)", url: "https://www.law.cornell.edu/regulations/pennsylvania/61-Pa-Code-SS-101-6", note: "\u201CContributions by, on behalf of or attributable to a self-employed person are not excludable from either compensation or net profits.\u201D The wording covers the employer profit-share as well as the salary deferral, so neither half of a Solo 401(k) reduces PA tax. Pennsylvania generally does not tax the qualified distribution again later, provided the plan's own age or service conditions were met \u2014 the deferral is in the timing, not the total."},
+      {n: 6, cite: "City of Pittsburgh \u2014 PGH-40 Earned Income Tax instructions", url: "https://apps.pittsburghpa.gov/finance/10_PGH-40_instructions.pdf", note: "\u201CThe City of Pittsburgh Earned Income Tax is levied at the rate of 1%\u201D and \u201CThe Pittsburgh School District Earned Income Tax is levied at the rate of 2%\u201D \u2014 3% combined for a full-year resident. Self-employed filers attach the Pennsylvania Schedule C, not the federal one, which is the mechanism by which the PA add-back flows into the local tax."},
+      {n: 7, cite: "NYC Administrative Code \u00A711-1712(a) and \u00A711-507", url: "https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYCadmin/0-0-0-13695", note: "City adjusted gross income starts from federal AGI, so a Solo 401(k) deduction reduces NY State and NYC resident tax. The UBT is different: \u00A711-507 allows only deductions \u201Cdirectly connected with\u201D the business and allowable federally, and bars amounts paid to a proprietor \u2014 the deduction never enters that base. The MCTMT is charged on net earnings from self-employment under \u00A71402, which the adjustment does not reach either."}
     ]))), /*#__PURE__*/React.createElement("details", {
     className: "card collapsible"
   }, /*#__PURE__*/React.createElement("summary", {
@@ -6623,8 +6737,10 @@ function ProfitTab({
   taxStrategy
 }) {
   const hypoBaseline = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-  const hypoSolo401k = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib, entityType, sCorpSalaryInput) : null;
-  const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib + taxStrategy.traditionalIra.deductibleAmount, entityType, sCorpSalaryInput) : null;
+  const hypoArgs = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib) : [0, 0];
+  const hypoArgsIra = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib + taxStrategy.traditionalIra.deductibleAmount) : [0, 0];
+  const hypoSolo401k = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgs[0], hypoArgs[1], entityType, sCorpSalaryInput) : null;
+  const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgsIra[0], hypoArgsIra[1], entityType, sCorpSalaryInput) : null;
   // Pre-tax by design. The three tax rows that used to sit here moved to the
   // Tax strategy section, where they can be explained rather than just
   // subtracted. This section answers "does the business work?", not
