@@ -3157,8 +3157,15 @@ function PracticeIncomePlanner() {
           }, x.delta === 0 ? "\u2014" : (x.delta > 0 ? "+" : "\u2212") + fmt(Math.abs(x.delta)))))),
       next && next.delta > 0 ? /*#__PURE__*/React.createElement("div", {className: "sec-point"},
         /*#__PURE__*/React.createElement("b", null, "+", fmt(next.delta), " a year"),
-        " for charging $", next.r - focus[0].r, " more a session \u2014 no extra hours, no new clients, nothing to file. Your running costs do not move when your rate does, so every dollar of the rise lands in profit; your margin goes from ",
-        focus[0].keepPct, "% to ", next.keepPct, "%. Tax takes its share of it later, in ",
+        " for charging $", next.r - focus[0].r, " more a session \u2014 no extra hours, no new clients, nothing to file. Your running costs do not move when your rate does, so every dollar of the rise lands in profit",
+        // Margins are shown rounded, so at low expense levels both ends of the
+        // comparison round to the same integer and the sentence read "your
+        // margin goes from 98% to 98%". Only make the margin claim when the
+        // rounded figures actually differ.
+        next.keepPct !== focus[0].keepPct
+          ? "; your margin goes from " + focus[0].keepPct + "% to " + next.keepPct + "%"
+          : ", and your margin barely moves because it is already " + focus[0].keepPct + "%",
+        ". Tax takes its share of it later, in ",
         /*#__PURE__*/React.createElement("a", {href: "#tax"}, "Tax & Retirement"), ".") : null,
       /*#__PURE__*/React.createElement("details", {className: "ratefold"},
         /*#__PURE__*/React.createElement("summary", null,
