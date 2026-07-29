@@ -9402,6 +9402,108 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
+/* ==================================================================
+   VERSION A - a band per decision.
+   The tax page already had a verdict card at each of the three
+   decisions; this promotes them to the same dark ground as the hero so
+   the page reads claim -> working -> claim -> working, and matches the
+   landing band and the profit handoff card.
+
+   Restyle only - no markup moved. The three targets are:
+     .vcard.rcard  the retirement verdict   (chapter two)
+     .sgate        the structure verdict    (chapter three)
+     .rgate        the residency verdict    (chapter four)
+   The structure verdict INSIDE the collapsed fold stays on paper: a
+   band inside a fold reads as a mistake.
+
+   Everything inside a band has to be re-coloured explicitly. The
+   existing verdict palette - green .pos, red .neg, muted grey - is
+   invisible on dark green, so those are remapped to gold and blush
+   rather than left to fail quietly.
+   ================================================================== */
+.planner .card.vcard.rcard,
+.planner .card.sgate,
+.planner .card.rgate{
+  background:linear-gradient(135deg,#1E4436 0%,#2C6350 50%,#3F9577 100%) !important;
+  border:0 !important; border-radius:18px; color:#EFF5F2;
+  padding:32px 32px 30px; position:relative; overflow:hidden;
+  box-shadow:0 12px 34px rgba(35,80,64,.22);
+}
+.planner .card.vcard.rcard::after,
+.planner .card.sgate::after,
+.planner .card.rgate::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(760px 300px at 90% -14%, rgba(255,227,184,.16), transparent 62%);}
+.planner .card.vcard.rcard > *,
+.planner .card.sgate > *,
+.planner .card.rgate > *{position:relative;}
+
+/* headings and body */
+.planner .card.vcard.rcard .vc-h,
+.planner .card.sgate .sgate-h,
+.planner .card.rgate .rgate-h{color:#fff !important; font-size:30px; letter-spacing:-.018em;
+  line-height:1.14; max-width:24ch;}
+.planner .card.vcard.rcard .vc-k,
+.planner .card.sgate .sgate-k,
+.planner .card.rgate .rgate-k{
+  display:inline-flex; color:#fff !important; background:rgba(255,255,255,.16);
+  border-radius:30px; padding:6px 14px; margin-bottom:14px; letter-spacing:.13em;}
+.planner .card.vcard.rcard p,
+.planner .card.sgate p,
+.planner .card.rgate p{color:rgba(255,255,255,.88) !important;}
+.planner .card.vcard.rcard b,
+.planner .card.sgate b,
+.planner .card.rgate b{color:#fff;}
+
+/* Everything inside gets light text by default. Enumerating the classes
+   failed: a contrast test found four survivors - the .vc-h heading in
+   green #2F7A61, two label classes in #4A5A52, the gate button's own
+   colour, and the residency row labels in #9A9385. A blanket rule plus
+   explicit accents is the only version that cannot quietly miss one. */
+.planner .card.vcard.rcard *,
+.planner .card.sgate *,
+.planner .card.rgate *{color:#EFF5F2 !important;}
+/* the verdict heading is a bare <h2> coloured by an !important rule, so
+   the blanket needs !important too - specificity alone loses to it */
+.planner .card.vcard.rcard h2,
+.planner .card.sgate h2,
+.planner .card.rgate h2{color:#fff !important;}
+
+/* the verdict palette does not survive dark ground - remap it */
+.planner .card.vcard.rcard .pos, .planner .card.sgate .pos, .planner .card.rgate .pos,
+.planner .card.vcard.rcard .v.pos{color:#FFE3B8 !important;}
+.planner .card.vcard.rcard .neg, .planner .card.sgate .neg, .planner .card.rgate .neg{color:#FFC9BE !important;}
+.planner .card.vcard.rcard .muted, .planner .card.sgate .muted, .planner .card.rgate .muted{color:rgba(255,255,255,.62) !important;}
+
+/* inner panels and bars */
+.planner .card.vcard.rcard .rcomp,
+.planner .card.rgate .rgate-rows{background:rgba(255,255,255,.09); border-radius:13px; padding:16px 18px;}
+.planner .card.vcard.rcard .rcomp-t,
+.planner .card.rgate .rgate-rows *{border-color:rgba(255,255,255,.18) !important;}
+
+/* the gate buttons become the light call to action */
+.planner .card.sgate .sgate-b, .planner .card.sgate .sgate-b *,
+.planner .card.rgate .rgate-b, .planner .card.rgate .rgate-b *{
+  background:#fff !important; color:#2C6350 !important; border:0 !important;
+  font-family:'Fraunces',Georgia,serif; font-size:16px; font-weight:600;
+  border-radius:12px; padding:14px 24px; box-shadow:0 5px 16px rgba(15,45,35,.24);
+  width:auto; display:inline-block;}
+.planner .card.sgate .sgate-f,
+.planner .card.rgate .rgate-f{color:rgba(255,255,255,.66) !important; margin-top:12px;}
+.planner .card.rgate .rgate-buts{gap:11px;}
+.planner .card.rgate .rgate-buts > *{background:rgba(255,255,255,.13) !important;
+  border:1px solid rgba(255,255,255,.28) !important; color:#fff !important;}
+
+@media (max-width:780px){
+  .planner .card.vcard.rcard,
+  .planner .card.sgate,
+  .planner .card.rgate{padding:22px 18px 20px; border-radius:14px;}
+  .planner .card.vcard.rcard .vc-h,
+  .planner .card.sgate .sgate-h,
+  .planner .card.rgate .rgate-h{font-size:23px; max-width:none;}
+  .planner .card.sgate .sgate-b,
+  .planner .card.rgate .rgate-b{width:100%; text-align:center;}
+}
+
 /* Three income modules on one row. The associates module is a SIBLING of
    .income-mods in the JSX, not a child, so this is done without moving any
    markup: the section becomes a grid, everything in it spans full width by
