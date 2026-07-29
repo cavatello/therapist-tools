@@ -533,6 +533,14 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
 // K-1 distribution falls) and WRONG for a sole proprietor, where it quietly
 // shaves SE tax off the bill and overstates what the contribution saves. This
 // returns the right pair for whichever entity is in play.
+// The worked example the landing offers to load. $150 is close to the modal
+// California private-pay rate, which is the point: it should read as typical,
+// not as a recommendation. Expenses are a plausible solo setup, not zeros -
+// an example with no costs in it teaches the wrong lesson.
+const EXAMPLE_STATE = {rate: 150, sessions: 25, vacationWeeks: 2};
+const EXAMPLE_EXP = {rent: 600, liability: 60, health: 0, ehr: 70, super: 50,
+  marketing: 30, phone: 25, legal: 45, license: 15, ce: 20, office: 15};
+
 function retireArgsFor(entityTypeArg, employerContrib, employeeContrib) {
   return entityTypeArg === "s_corp"
     ? [employerContrib || 0, employeeContrib || 0]
@@ -2250,8 +2258,119 @@ function PracticeIncomePlanner() {
     const base = window.location.origin + window.location.pathname;
     return encoded ? base + "#s=" + encoded : base;
   };
+  const loadExample = () => {
+    setRate(EXAMPLE_STATE.rate);
+    setSessions(EXAMPLE_STATE.sessions);
+    setVacationOn(true);
+    setVacationWeeks(EXAMPLE_STATE.vacationWeeks);
+    setExpenses(xs => xs.map(e => EXAMPLE_EXP[e.id] != null ? {...e, monthly: EXAMPLE_EXP[e.id]} : e));
+    if (typeof window !== "undefined") window.location.hash = "#sec-income";
+  };
+
+  // ===================================================================
+  // Landing band.
+  //
+  // The page used to open on an empty rate field, which asks the reader to
+  // supply information before telling them what it is for. This says what
+  // the tool is, who it is for, and - once there are numbers - answers the
+  // question the reader arrived with before asking anything.
+  //
+  // Two states, because an empty page cannot make a claim:
+  //   cold    no rate yet -> what it is, who it is for, and two doors, one
+  //           of which fills the whole page in
+  //   warm    rate entered -> the same band with three live proof figures
+  //           and the where-it-goes bar
+  //
+  // The "everything it covers" strip only renders on a first visit. A
+  // returning reader already knows what is in here and does not need 130px
+  // of contents every time.
+  // ===================================================================
+  const lndProfit = Math.round(cur.profitYr || 0);
+  const lndGross = Math.round(cur.grossYr || 0);
+  const lndExp = Math.round(expYr || 0);
+  const lndTax = Math.round(cur.totalTax || 0);
+  const lndNet = Math.round(cur.netYr || 0);
+  const lndWarm = lndGross > 0 && lndProfit > 0;
+  // Derived from the rounded values so the three segments sum to the gross
+  // printed beside them.
+  const lndBank = Math.max(0, lndGross - lndExp - lndTax);
+  const lndW = n => (Math.max(0, n) / Math.max(1, lndGross) * 100) + "%";
+  const lndKept = lndGross > 0 ? Math.round(lndNet / lndGross * 100) : 0;
+  const lndMargin = lndGross > 0 ? Math.round(lndProfit / lndGross * 100) : 0;
+
+  const landingBand = page !== "sim" ? null : /*#__PURE__*/React.createElement(React.Fragment, null,
+    /*#__PURE__*/React.createElement("section", {className: "lnd"},
+      /*#__PURE__*/React.createElement("div", {className: "lnd-kick"},
+        "Free · no sign-up · nothing leaves your browser"),
+      /*#__PURE__*/React.createElement("h1", {className: "lnd-h"},
+        "What a California therapy practice ",
+        /*#__PURE__*/React.createElement("em", null, "actually pays"),
+        " — worked out on your own numbers."),
+      /*#__PURE__*/React.createElement("p", {className: "lnd-lede"},
+        "A planning tool for therapists in private practice. Put in your rate and caseload and it works out what you bill, what it costs to run, what the IRS and the FTB take, and what is genuinely left — then shows you the levers that change it. ",
+        /*#__PURE__*/React.createElement("b", null, "Every figure is a real calculation with a citation, not a rule of thumb.")),
+      /*#__PURE__*/React.createElement("div", {className: "lnd-who"},
+        ["LMFT", "LCSW", "LPCC", "Psychologist", "AMFT / associate", "Group practice owner"]
+          .map(x => /*#__PURE__*/React.createElement("span", {key: x}, x))),
+
+      lndWarm ? /*#__PURE__*/React.createElement(React.Fragment, null,
+        /*#__PURE__*/React.createElement("div", {className: "lnd-proof"},
+          [["You bill", lndGross, fmt(rate) + " × " + sessions + " sessions × " + weeksWorked + " working weeks."],
+           ["The business makes", lndProfit, "After every running cost — a " + lndMargin + "% margin, which is itself the finding."],
+           ["You take home", lndNet, "After federal, California and self-employment tax. That is " + lndKept + "¢ of every dollar billed."]
+          ].map(([k, v, note]) => /*#__PURE__*/React.createElement("div", {key: k, className: "lnd-pf"},
+            /*#__PURE__*/React.createElement("em", null, k),
+            /*#__PURE__*/React.createElement("strong", null, fmt(v)),
+            /*#__PURE__*/React.createElement("p", null, note)))),
+        /*#__PURE__*/React.createElement("div", {className: "lnd-barwrap"},
+          /*#__PURE__*/React.createElement("div", {className: "lnd-barh"},
+            /*#__PURE__*/React.createElement("span", null, "Where the ", fmt(lndGross), " goes"),
+            /*#__PURE__*/React.createElement("span", null, "before any tax strategy")),
+          /*#__PURE__*/React.createElement("div", {className: "lnd-bar"},
+            lndExp > 0 ? /*#__PURE__*/React.createElement("i", {className: "lb-exp", style: {width: lndW(lndExp)}},
+              /*#__PURE__*/React.createElement("em", null, "Costs"),
+              /*#__PURE__*/React.createElement("strong", null, fmt(lndExp))) : null,
+            /*#__PURE__*/React.createElement("i", {className: "lb-tax", style: {width: lndW(lndTax)}},
+              /*#__PURE__*/React.createElement("em", null, "Tax"),
+              /*#__PURE__*/React.createElement("strong", null, fmt(lndTax))),
+            /*#__PURE__*/React.createElement("i", {className: "lb-bank", style: {width: lndW(lndBank)}},
+              /*#__PURE__*/React.createElement("em", null, "Yours"),
+              /*#__PURE__*/React.createElement("strong", null, fmt(lndBank)))),
+          /*#__PURE__*/React.createElement("div", {className: "lnd-barnote"},
+            /*#__PURE__*/React.createElement("span", null, "Margin ", /*#__PURE__*/React.createElement("b", null, lndMargin + "%")),
+            /*#__PURE__*/React.createElement("span", null, "Kept ", /*#__PURE__*/React.createElement("b", null, lndKept + "¢"), " per dollar billed"),
+            /*#__PURE__*/React.createElement("span", null, "Some of that tax is optional — see Tax & Retirement")))
+      ) : /*#__PURE__*/React.createElement("p", {className: "lnd-cold"},
+        "Nothing is filled in yet. Enter a session rate below and every figure on this page — and on the tax, retirement and residency pages — builds itself from it. Or load a worked example and pull it apart first."),
+
+      /*#__PURE__*/React.createElement("div", {className: "lnd-ctas"},
+        /*#__PURE__*/React.createElement("a", {className: "lnd-go", href: "#sec-income"},
+          /*#__PURE__*/React.createElement("b", null, lndWarm ? "Change my numbers" : "Put in my own numbers"),
+          /*#__PURE__*/React.createElement("span", null, "rate and caseload · everything follows →")),
+        /*#__PURE__*/React.createElement("button", {
+          type: "button", className: "lnd-go ghost", onClick: loadExample
+        }, /*#__PURE__*/React.createElement("b", null, "Load a worked example"),
+          /*#__PURE__*/React.createElement("span", null, "$150/hr, 25 sessions · change it after →"))),
+
+      /*#__PURE__*/React.createElement("p", {className: "lnd-fine"},
+        "Built for California specifically: a licensed practice here cannot use an LLC (Corp. Code §17701.04(e)), associates must be W-2 employees (B&P §4980.43.3), and the state has its own brackets, a 1.3% SDI rate with no wage cap, and a 1.5% entity-level fee. Most calculators get at least one of those wrong.")),
+
+    RETURNING_USER ? null : /*#__PURE__*/React.createElement("section", {className: "lnd-covers"},
+      /*#__PURE__*/React.createElement("p", {className: "lnd-cov-h"}, "Everything it covers"),
+      /*#__PURE__*/React.createElement("div", {className: "lnd-cov"},
+        [["The business", "Income & expenses", "Rate, caseload, vacation weeks, secondary income, retreats. Twelve expense categories including card processing as a live percentage of what you collect.", false],
+         ["Hiring", "Supervising associates", "Associates must be W-2 in California. Employer payroll tax itemised six ways, paid supervision hours, sick leave, liability cover and workers' comp.", false],
+         ["The big one", "Tax & retirement", "Federal, CA and self-employment tax with QBI. Solo 401(k), SEP, SIMPLE, IRA and backdoor Roth priced side by side. Sole proprietor vs professional corporation.", true],
+         ["The long view", "Social Security, residency & growth", "What a lower salary costs you at 67. Seven places compared, including Brooklyn and Pittsburgh. Client value, funnels and lead targets.", false]
+        ].map(([e, t, p, gold]) => /*#__PURE__*/React.createElement("div", {key: t, className: gold ? "gold" : ""},
+          /*#__PURE__*/React.createElement("em", null, e),
+          /*#__PURE__*/React.createElement("b", null, t),
+          /*#__PURE__*/React.createElement("p", null, p)))),
+      /*#__PURE__*/React.createElement("p", {className: "lnd-cov-f"},
+        "2026 rates throughout — IRS Rev. Proc. 2025-32 and the §199A phase-out widened by the One Big Beautiful Bill Act. Every legal and regulatory claim links to its actual source, not a bracketed number.")));
+
   return /*#__PURE__*/React.createElement("div", {
-    className: "planner" + (viewMode === "guided" ? " guided-mode" : "") + (page === "grow" ? " grow-mode" : "") + (VARIANT ? " v" + VARIANT : "") + (VARIANT === "04" && !(rate > 0 || sessions > 0) ? " v04-empty" : "")
+    className: "planner" + (viewMode === "guided" ? " guided-mode" : "") + (page === "grow" ? " grow-mode" : "") + (page === "tax" ? " page-tax" : "") + (VARIANT ? " v" + VARIANT : "") + (VARIANT === "04" && !(rate > 0 || sessions > 0) ? " v04-empty" : "")
   }, /*#__PURE__*/React.createElement("style", null, CSS), /*#__PURE__*/React.createElement("div", {
     className: "sitenav"
   }, /*#__PURE__*/React.createElement("a", {
@@ -2393,7 +2512,11 @@ function PracticeIncomePlanner() {
     className: "growlanding-cost growcard-calc-empty"
   }, "Enter a rate and target sessions above to see what a quiet month would cost you."), /*#__PURE__*/React.createElement("p", {
     className: "growlanding-bridge"
-  }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement(React.Fragment, null, showOrient && page === "sim" && /*#__PURE__*/React.createElement("div", {
+  }, "So: work out what a client is worth, how many enquiries it takes to land one, and how far ahead you need to start. That is what the rest of this page does.")), /*#__PURE__*/React.createElement(React.Fragment, null, /* The orient banner said what the
+     landing band now says, better and with live figures in it. Retired rather
+     than deleted so the dismiss state and CSS stay available if the band is
+     ever gated behind a first visit. */
+    false && showOrient && page === "sim" && /*#__PURE__*/React.createElement("div", {
     className: "orient"
   }, /*#__PURE__*/React.createElement("div", {className: "orient-rule"},
       /*#__PURE__*/React.createElement("i", {style: {width: "34%", background: "#B5483F"}}),
@@ -2601,7 +2724,7 @@ function PracticeIncomePlanner() {
     className: "wizard-dot" + (i + 1 < wizardStep ? " done" : i + 1 === wizardStep ? " now" : "")
   }, i + 1 < wizardStep ? "\u2713" : i + 1), i < wizardSteps.length - 1 && /*#__PURE__*/React.createElement("div", {
     className: "wizard-line"
-  })))), isVisible("income") && /*#__PURE__*/React.createElement("div", {id:"sec-income"}, sectionIntro("income"), /*#__PURE__*/React.createElement(React.Fragment, null, showIncomePrimary && /*#__PURE__*/React.createElement("section", {
+  })))), landingBand, isVisible("income") && /*#__PURE__*/React.createElement("div", {id:"sec-income"}, sectionIntro("income"), /*#__PURE__*/React.createElement(React.Fragment, null, showIncomePrimary && /*#__PURE__*/React.createElement("section", {
     className: "controls"
   }, /*#__PURE__*/React.createElement("span", {
     className: "controls-badge"
@@ -9252,6 +9375,128 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .nosplit{background:#F6F2E8; border-left:4px solid #D4C3DD; border-radius:0 10px 10px 0;
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
+
+/* ==================================================================
+   LANDING BAND  -  the top of the simulator page.
+   Same family as the tax hero and the profit handoff card, so the three
+   green surfaces read as one system rather than three coincidences.
+   ================================================================== */
+.lnd{background:linear-gradient(135deg,#1E4436 0%,#2C6350 50%,#3F9577 100%);
+  border-radius:20px; color:#EFF5F2; padding:42px 40px 38px; margin:0 0 16px;
+  position:relative; overflow:hidden; box-shadow:0 14px 40px rgba(35,80,64,.22);}
+.lnd::after{content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(900px 380px at 90% -12%, rgba(255,227,184,.18), transparent 62%);}
+.lnd > *{position:relative;}
+.lnd-kick{display:inline-flex; font-size:10px; font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; background:rgba(255,255,255,.16); border-radius:30px;
+  padding:6px 14px; margin-bottom:18px; color:#fff;}
+.lnd-h{font-family:'Fraunces',Georgia,serif; font-weight:600;
+  font-size:clamp(28px,3.6vw,48px); line-height:1.08; letter-spacing:-.022em;
+  margin:0 0 18px; max-width:20ch; color:#fff;}
+.lnd-h em{font-style:normal; color:#FFE3B8;}
+.lnd-lede{font-size:16px; line-height:1.62; color:rgba(255,255,255,.88); max-width:64ch; margin:0 0 20px;}
+.lnd-lede b{color:#fff; font-weight:600;}
+.lnd-cold{font-size:15px; line-height:1.62; color:rgba(255,255,255,.82); max-width:62ch;
+  margin:0 0 4px; padding:16px 18px; background:rgba(255,255,255,.08); border-radius:13px;}
+.lnd-who{display:flex; gap:8px; flex-wrap:wrap; margin:0 0 24px;}
+.lnd-who span{font-size:11.5px; font-weight:600; border-radius:20px; padding:6px 13px;
+  background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.93);}
+.lnd-proof{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-bottom:14px;}
+.lnd-pf{background:rgba(255,255,255,.10); border-radius:14px; padding:17px 18px 18px;}
+.lnd-pf em{font-style:normal; display:block; font-size:9.5px; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:rgba(255,255,255,.58); margin-bottom:8px;}
+.lnd-pf strong{font-family:'Fraunces',serif; font-size:clamp(22px,2.3vw,29px); display:block;
+  line-height:1; letter-spacing:-.02em; color:#FFE3B8; font-variant-numeric:tabular-nums;}
+.lnd-pf p{margin:9px 0 0; font-size:11.5px; line-height:1.55; color:rgba(255,255,255,.76);}
+.lnd-barwrap{background:rgba(255,255,255,.09); border-radius:15px; padding:19px 20px 20px;}
+.lnd-barh{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; font-weight:700;
+  color:rgba(255,255,255,.76); margin-bottom:13px; display:flex; justify-content:space-between; gap:10px;}
+.lnd-bar{display:flex; height:52px; border-radius:10px; overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);}
+.lnd-bar i{display:flex; flex-direction:column; justify-content:center; padding:0 12px;
+  font-style:normal; min-width:0; overflow:hidden;}
+.lnd-bar i em{font-style:normal; font-size:9px; font-weight:800; letter-spacing:.08em;
+  text-transform:uppercase; opacity:.82; white-space:nowrap;}
+.lnd-bar i strong{font-family:'Fraunces',serif; font-size:16px; font-weight:600;
+  white-space:nowrap; font-variant-numeric:tabular-nums;}
+.lnd-bar .lb-exp{background:rgba(255,255,255,.32); color:#fff;}
+.lnd-bar .lb-tax{background:#8E4B45; color:#FFE0DA;}
+.lnd-bar .lb-bank{background:rgba(255,255,255,.16); color:#fff;}
+.lnd-barnote{display:flex; gap:20px; flex-wrap:wrap; font-size:12px;
+  color:rgba(255,255,255,.78); margin-top:12px;}
+.lnd-barnote b{color:#FFE3B8;}
+.lnd-ctas{display:flex; gap:13px; align-items:stretch; flex-wrap:wrap; margin-top:22px;}
+.lnd-go{display:inline-flex; flex-direction:column; justify-content:center; gap:2px; text-align:left;
+  text-decoration:none; background:#fff; color:#2C6350 !important; border:0; cursor:pointer;
+  border-radius:12px; padding:14px 24px; box-shadow:0 5px 16px rgba(15,45,35,.25);
+  font-family:inherit; transition:transform .12s ease, box-shadow .12s ease;}
+.lnd-go:hover{transform:translateY(-2px); box-shadow:0 9px 24px rgba(15,45,35,.3);}
+.lnd-go b{font-family:'Fraunces',serif; font-size:17px; font-weight:600; color:#2C6350;}
+.lnd-go span{font-size:12px; color:#5E8C7B; font-weight:600;}
+.lnd-go.ghost{background:rgba(255,255,255,.14); box-shadow:none;
+  border:1px solid rgba(255,255,255,.34); color:#fff !important;}
+.lnd-go.ghost b{color:#fff;} .lnd-go.ghost span{color:rgba(255,255,255,.72);}
+.lnd-fine{font-size:12.5px; line-height:1.6; color:rgba(255,255,255,.6); margin:20px 0 0; max-width:88ch;}
+
+.lnd-covers{margin:0 0 18px;}
+.lnd-cov-h{font-size:10.5px; font-weight:800; letter-spacing:.15em; text-transform:uppercase;
+  color:#2C6350; margin:0 0 11px;}
+.lnd-cov{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:13px;}
+.lnd-cov > div{background:#fff; border:1px solid var(--line); border-radius:13px;
+  padding:15px 16px 16px; border-top:2px solid #2C6350;}
+.lnd-cov > div.gold{border-top-color:#C98B4B;}
+.lnd-cov em{font-style:normal; display:block; font-size:9.5px; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:#2C6350; margin-bottom:7px;}
+.lnd-cov > div.gold em{color:#A9761F;}
+.lnd-cov b{font-family:'Fraunces',serif; font-size:16px; display:block; margin-bottom:7px;}
+.lnd-cov p{margin:0; font-size:11.5px; line-height:1.58; color:var(--muted);}
+.lnd-cov-f{font-size:12px; line-height:1.62; color:var(--muted); margin:13px 0 0; max-width:96ch;}
+
+/* The KPI widget and the jump nav printed the same three figures within 60px
+   of each other. On the simulator page the nav keeps them (it also carries
+   the after-tax figure the widget never had) and the widget keeps only what
+   is unique to it: the rate context and the Save / Reset actions. The tax
+   page is untouched - there the widget shows a chain the nav does not. */
+.planner:not(.page-tax) .sticky-summary .sticky-summary-row{display:none;}
+
+/* ---- tablet ---- */
+@media (max-width:1000px){
+  .lnd-cov{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lnd-proof{grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;}
+  .lnd-pf{padding:14px 14px 15px;}
+  .lnd-pf p{font-size:11px;}
+}
+/* ---- phone ---- */
+@media (max-width:780px){
+  .lnd{padding:26px 18px 24px; border-radius:16px;}
+  .lnd-h{font-size:27px; max-width:none; line-height:1.12;}
+  .lnd-lede{font-size:14.5px;}
+  .lnd-who{gap:6px; margin-bottom:18px;}
+  .lnd-who span{font-size:10.5px; padding:5px 10px;}
+  .lnd-proof{grid-template-columns:1fr; gap:9px;}
+  .lnd-pf{display:grid; grid-template-columns:1fr auto; align-items:baseline; gap:2px 12px; padding:13px 15px;}
+  .lnd-pf em{margin:0;}
+  .lnd-pf strong{font-size:22px; text-align:right;}
+  .lnd-pf p{grid-column:1/-1; margin-top:5px;}
+  .lnd-barwrap{padding:15px 14px 16px;}
+  .lnd-barh{flex-direction:column; gap:2px;}
+  .lnd-bar{height:46px;}
+  .lnd-bar i{padding:0 8px;}
+  .lnd-bar i em{font-size:8px;}
+  .lnd-bar i strong{font-size:13px;}
+  .lnd-barnote{gap:3px 14px; font-size:11.5px;}
+  .lnd-ctas{flex-direction:column; gap:9px;}
+  .lnd-go{width:100%; padding:13px 18px;}
+  .lnd-fine{font-size:11.5px;}
+  .lnd-cov{grid-template-columns:1fr; gap:9px;}
+  .lnd-cov > div{padding:13px 14px 14px;}
+  .lnd-cold{font-size:14px; padding:14px 15px;}
+}
+/* Very narrow: the three bar segments cannot all hold a figure. */
+@media (max-width:420px){
+  .lnd-bar i em{display:none;}
+  .lnd-bar i strong{font-size:12px;}
+}
 
 /* ==================================================================
    TAX STRATEGY HERO
