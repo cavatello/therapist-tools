@@ -9500,6 +9500,16 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .planner .sticky-summary-row{display:inline-flex; align-items:baseline; gap:5px;
     padding:0 !important; border:0 !important; font-size:10.5px;}
   .planner .sticky-summary-val{font-size:13px;}
+  /* The last remaining 8px on an iPhone SE was not a figure and not type
+     size - it was the caption. On one line the summary ends with
+     "$150/hr - 25 sessions/wk" (122px) + Save (68px) + Reset (96px) + two
+     12px gaps = 310px, against 303px of room at 375 wide. Reset wraps alone
+     and the widget grows a whole 47px button row. Giving the caption its own
+     line costs 12px and buys back 47, and the layout stops depending on
+     seven pixels of slack that only exist on some phones. Nothing is
+     dropped: every figure and both buttons stay. */
+  .planner .sticky-summary-sub{flex:0 0 100%; width:100%; text-align:left;
+    margin-top:1px;}
 }
 /* 11px short on a 667px iPhone SE after everything above. The headline and
    the bar are the only things left with slack, and neither loses a figure. */
