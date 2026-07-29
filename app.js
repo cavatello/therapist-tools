@@ -9395,6 +9395,29 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   padding:13px 16px; margin:0 0 18px; font-size:13px; line-height:1.65; color:var(--muted);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
+/* Three income modules on one row. The associates module is a SIBLING of
+   .income-mods in the JSX, not a child, so this is done without moving any
+   markup: the section becomes a grid, everything in it spans full width by
+   default, and .income-mods uses display:contents so its two cards drop into
+   the parent grid alongside .assoc.
+   The associates module goes back to full width the moment it is switched
+   on - open it is eleven inputs, an itemised payroll receipt and six tax
+   chips, which is not a third of a row. .assoc-open drives that. */
+@media (min-width:900px){
+  .planner #sec-income{display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+    column-gap:14px; align-items:start;}
+  .planner #sec-income > *{grid-column:1/-1;}
+  .planner #sec-income > .income-mods{display:contents;}
+  .planner #sec-income > .income-mods > .job2,
+  .planner #sec-income > .assoc:not(.assoc-open){
+    grid-column:span 1; margin-bottom:28px;
+    /* equal height, so the three read as one row rather than three loose
+       blocks. Do NOT push the head to the bottom with margin-top:auto - the
+       head holds the title as well as the toggle, so it drags the heading
+       down with it and the row stops scanning left to right. */
+    align-self:stretch;}
+}
+
 /* Twelve expense categories in one column is a long scroll for what is
    really a checklist. Two columns above 1180px, where there is room for both
    columns AND the relative-size bar - the bar is the only thing on the row
