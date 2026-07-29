@@ -450,7 +450,12 @@ function mobileFold(key, title, sub, content) {
     content);
 }
 
-function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependents, employerRetirement, employeeRetirement, entityType, sCorpSalary) {
+// personalRetirement: the slice of employeeRetirement that is a PERSONAL
+// traditional-IRA deduction rather than a business plan. It still reduces AGI
+// like any other above-the-line deduction, but it is not "attributable to the
+// trade or business", so unlike a Solo 401(k)/SEP/SIMPLE it does not reduce
+// QBI. Callers that pass only business-plan money can omit it.
+function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependents, employerRetirement, employeeRetirement, entityType, sCorpSalary, personalRetirement) {
   filingStatus = filingStatus || "single";
   numDependents = numDependents || 0;
   employerRetirement = employerRetirement || 0;
@@ -480,7 +485,23 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   const addlMed = Math.max(0, totalW2 + seBase - addlMedThresh) * ADDL_MED_RATE;
   const agi = Math.max(0, schedC + kDistribution + totalW2 - halfSE - employeeRetirement);
   const taxableBeforeQBI = Math.max(0, agi - fedStd);
-  const qbiIncome = entityType === "s_corp" ? Math.max(0, kDistribution) : Math.max(0, schedC - halfSE);
+  // Treas. Reg. s.1.199A-3(b)(1)(vi): qualified business income is net of
+  // deductions "attributable to the trade or business" - which the regulation
+  // and IRS Pub. 535 both read to include the deductible half of SE tax AND a
+  // self-employed person's own s.404 retirement contribution. Leaving the
+  // contribution in the QBI base overstated the deduction whenever the QBI
+  // component - rather than the 20%-of-taxable-income cap below - is the
+  // binding limit. With practice income alone the cap always binds and this
+  // changes nothing; add a second W-2 job and it is real money. Measured on a
+  // $187.5k practice plus a $60k salary it had overstated the yearly saving
+  // from a Solo 401(k) by $1,920. employerRetirement is already out of schedC (it
+  // came off profitBeforeSalary), so only the employee slice is subtracted
+  // here, less any part of it that is a personal IRA rather than a plan.
+  // An S-corp's QBI is the K-1 distribution, which is already net of the
+  // company's plan contribution, and wages are excluded from QBI entirely -
+  // so nothing to adjust on that side.
+  const bizRetireDed = Math.max(0, (employeeRetirement || 0) - (personalRetirement || 0));
+  const qbiIncome = entityType === "s_corp" ? Math.max(0, kDistribution) : Math.max(0, schedC - halfSE - bizRetireDed);
   let pct;
   if (taxableBeforeQBI <= qbiStart) pct = 1;else if (taxableBeforeQBI >= qbiEnd) pct = 0;else pct = 1 - (taxableBeforeQBI - qbiStart) / (qbiEnd - qbiStart);
   const qbiDed = Math.min(QBI_RATE * qbiIncome, QBI_RATE * taxableBeforeQBI) * pct;
@@ -5403,7 +5424,14 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const mfEr = strategy.solo401k.employerContrib || 0;
   const mfContrib = mfEmp + mfEr;
   const mfNone = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-  const mfWith = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, mfEr, mfEmp, entityType, sCorpSalaryInput);
+  // Must go through retireArgsFor. A sole proprietor's own plan contribution
+  // is deducted on Schedule 1, not Schedule C, so it never reduces net
+  // earnings from self-employment and never reduces SE tax. Passing the
+  // employer slice straight through put it on Schedule C and cut SE tax with
+  // it - inflating the headline saving on the hero panel by ~2.9-15.3% of the
+  // employer contribution, for the one entity type most users start on.
+  const mfArgs = retireArgsFor(entityType, mfEr, mfEmp);
+  const mfWith = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, mfArgs[0], mfArgs[1], entityType, sCorpSalaryInput);
   const mfTaxNone = mfNone.totalTax, mfBankNone = mfNone.net;
   const mfTaxWith = mfWith.totalTax, mfBankWith = mfWith.net;
   const mfProfit = Math.max(1, mfTaxNone + mfBankNone);
@@ -5639,15 +5667,21 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   // but assert it from the arithmetic rather than from the assumption.
   const rBigger = mfSaved > vNet;
   // True saving for each alternative account, engine-run rather than rate-multiplied.
-  const rRun = (er, emp) => computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus,
-    numDependents, er, emp, entityType, sCorpSalaryInput);
+  // Same two corrections as mfWith: route through retireArgsFor so a sole
+  // proprietor's contribution stays off Schedule C, and declare how much of
+  // it is a personal IRA so QBI is only reduced by business-plan money.
+  const rRun = (er, emp, personal) => {
+    const a = retireArgsFor(entityType, er, emp);
+    return computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus,
+      numDependents, a[0], a[1], entityType, sCorpSalaryInput, personal || 0);
+  };
   const rSepTotal = strategy.sepIra ? strategy.sepIra.total || 0 : 0;
   const rSimpleDef = strategy.simpleIra ? strategy.simpleIra.deferral || 0 : 0;
   const rSimpleMatch = strategy.simpleIra ? strategy.simpleIra.match || 0 : 0;
   const rIraDed = strategy.traditionalIra ? strategy.traditionalIra.deductibleAmount || 0 : 0;
   const rSepSaved = rSepTotal > 0 ? mfTaxNone - rRun(rSepTotal, 0).totalTax : 0;
   const rSimpleSaved = rSimpleDef + rSimpleMatch > 0 ? mfTaxNone - rRun(rSimpleMatch, rSimpleDef).totalTax : 0;
-  const rIraSaved = rIraDed > 0 ? mfTaxNone - rRun(0, rIraDed).totalTax : 0;
+  const rIraSaved = rIraDed > 0 ? mfTaxNone - rRun(0, rIraDed, rIraDed).totalTax : 0;
 
   const retVerdict = /*#__PURE__*/React.createElement("section", {
     className: "card vcard rcard" + (rReady ? " vcard-yes" : "")
@@ -7082,7 +7116,7 @@ function ProfitTab({
   const hypoArgs = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib) : [0, 0];
   const hypoArgsIra = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib + taxStrategy.traditionalIra.deductibleAmount) : [0, 0];
   const hypoSolo401k = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgs[0], hypoArgs[1], entityType, sCorpSalaryInput) : null;
-  const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgsIra[0], hypoArgsIra[1], entityType, sCorpSalaryInput) : null;
+  const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgsIra[0], hypoArgsIra[1], entityType, sCorpSalaryInput, taxStrategy.traditionalIra.deductibleAmount) : null;
   // Pre-tax by design. The three tax rows that used to sit here moved to the
   // Tax strategy section, where they can be explained rather than just
   // subtracted. This section answers "does the business work?", not
