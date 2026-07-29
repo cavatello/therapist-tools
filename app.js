@@ -9426,6 +9426,39 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .nosplit b{font-family:'Fraunces',serif; color:var(--ink);}
 
 /* ==================================================================
+   ABOVE THE FOLD ON A PHONE
+   Measured with the share banner dismissed, so this is what a normal
+   visitor sees. Two problems:
+     1. 194px of chrome - nav plus the sticky summary - on a 667px
+        iPhone SE that is 29% of the screen gone before any content.
+     2. The tax hero's call to action landed at y=922, below the fold on
+        every phone, because the headline, two bars and a lede all sit
+        above it.
+   The tablet was already fine; these rules are phone-only so they
+   cannot regress it.
+   ================================================================== */
+@media (max-width:780px){
+  .planner .sitenav{padding:7px 14px;}
+  .planner .sitenav-wordmark{font-size:12px;}
+  .planner .sticky-summary{padding:8px 14px;}
+  .planner .sticky-summary-row{padding:1px 0; font-size:11.5px;}
+  .planner .sticky-summary-val{font-size:14px;}
+  .planner .summary-btns{gap:6px;}
+  .planner .summary-btn{min-height:40px; font-size:12px; padding-left:11px; padding-right:11px;}
+
+  /* tax hero: the lede is the only thing between the bars and the button
+     that can give up space without losing a figure */
+  .planner .thero{padding:18px 15px 20px;}
+  .planner .thero-h{font-size:22px; margin-bottom:12px; line-height:1.16;}
+  .planner .thero-panel{padding:12px 11px 13px;}
+  .planner .thero-tb{gap:6px;}
+  .planner .thero-bar{height:42px;}
+  .planner .thero-p{margin:12px 0 13px; font-size:13.5px; line-height:1.55;}
+  .planner .thero-d{font-size:11px;}
+  .planner .thero-go{padding:12px 16px;}
+}
+
+/* ==================================================================
    MOBILE UI PASS
    Audited on seven real device viewports (iPhone SE / 12 / 15 Pro Max,
    Pixel 7, Galaxy S8, iPad mini, iPad Pro 11) across all three pages.
