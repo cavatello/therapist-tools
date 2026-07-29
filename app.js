@@ -450,12 +450,22 @@ function mobileFold(key, title, sub, content) {
     content);
 }
 
-// personalRetirement: the slice of employeeRetirement that is a PERSONAL
-// traditional-IRA deduction rather than a business plan. It still reduces AGI
-// like any other above-the-line deduction, but it is not "attributable to the
-// trade or business", so unlike a Solo 401(k)/SEP/SIMPLE it does not reduce
-// QBI. Callers that pass only business-plan money can omit it.
-function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependents, employerRetirement, employeeRetirement, entityType, sCorpSalary, personalRetirement) {
+// opts (all optional) - an object rather than two more positional arguments,
+// because this function already takes nine and a bare `, 0, 14400` at a call
+// site is unreadable and easy to get out of order:
+//
+//   personalRetirement - the slice of employeeRetirement that is a PERSONAL
+//     traditional-IRA deduction rather than a business plan. It still reduces
+//     AGI like any other above-the-line deduction, but it is not "attributable
+//     to the trade or business", so unlike a Solo 401(k)/SEP/SIMPLE it does not
+//     reduce QBI.
+//   sehi - the year's self-employed health insurance premium. It must ALSO
+//     still be inside `expenses`; this function adds it back to Schedule C
+//     rather than expecting the caller to remove it. See the note below.
+function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependents, employerRetirement, employeeRetirement, entityType, sCorpSalary, opts) {
+  opts = opts || {};
+  const personalRetirement = opts.personalRetirement || 0;
+  const sehiPremium = Math.max(0, opts.sehi || 0);
   filingStatus = filingStatus || "single";
   numDependents = numDependents || 0;
   employerRetirement = employerRetirement || 0;
@@ -467,12 +477,25 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   const fedBrackets = FED_BRACKETS_BY_STATUS[filingStatus];
   const caBrackets = CA_BRACKETS_BY_STATUS[filingStatus];
   const [qbiStart, qbiEnd] = QBI_PHASE_BY_STATUS[filingStatus];
-  const profitBeforeSalary = Math.max(0, practiceGross - expenses - employerRetirement);
+  const rawProfit = practiceGross - expenses - employerRetirement;
+  const profitBeforeSalary = Math.max(0, rawProfit);
   const salary = Math.min(sCorpSalary, profitBeforeSalary);
   const employerPayrollTax = entityType === "s_corp" ? Math.min(salary, SS_WAGE_BASE) * 0.062 + salary * 0.0145 : 0;
   const kDistribution = entityType === "s_corp" ? Math.max(0, profitBeforeSalary - salary - employerPayrollTax) : 0;
   const caEntityTax = entityType === "s_corp" ? Math.max(800, kDistribution * 0.015) : 0;
-  const schedC = entityType === "s_corp" ? 0 : profitBeforeSalary;
+  // IRC s.162(l): a self-employed person's own health insurance premium is an
+  // above-the-line deduction on Schedule 1, NOT a Schedule C expense. It cuts
+  // income tax and QBI but never self-employment tax, because Schedule SE runs
+  // off Schedule C net profit and this adjustment never touches it. The premium
+  // was being summed into `expenses` alongside rent and software, which quietly
+  // shaved 15.3% off the bill on every dollar of it.
+  // It STAYS in `expenses` - the money really does leave, so every cash figure
+  // must keep subtracting it - and is added back here for the tax layer only.
+  // An S-corp is different and already right: the company deducts the premium
+  // (so the K-1 distribution falls, which is what subtracting it from expenses
+  // does) and it is excluded from FICA wages, so no payroll tax is due on it.
+  const sehiAddBack = entityType === "s_corp" ? 0 : sehiPremium;
+  const schedC = entityType === "s_corp" ? 0 : Math.max(0, rawProfit + sehiAddBack);
   const seBase = schedC * 0.9235;
   const ssRoom = Math.max(0, SS_WAGE_BASE - w2Wages);
   const seTax = Math.min(seBase, ssRoom) * 0.124 + seBase * 0.029;
@@ -483,7 +506,12 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   const sdi = totalW2 * 0.013;   // EDD 2026 rate; no wage cap since SB 951
   const addlMedThresh = ADDL_MED_THRESH_BY_STATUS[filingStatus] || ADDL_MED_THRESH;
   const addlMed = Math.max(0, totalW2 + seBase - addlMedThresh) * ADDL_MED_RATE;
-  const agi = Math.max(0, schedC + kDistribution + totalW2 - halfSE - employeeRetirement);
+  // s.162(l)(2)(A) caps the deduction at earned income derived from the trade
+  // or business, so a premium larger than the profit is only deductible up to
+  // the profit. Not modelled: the s.162(l)(2)(B) bar when the taxpayer is
+  // eligible for a subsidised plan through a spouse's employer.
+  const sehiDed = Math.min(sehiAddBack, Math.max(0, schedC - halfSE));
+  const agi = Math.max(0, schedC + kDistribution + totalW2 - halfSE - sehiDed - employeeRetirement);
   const taxableBeforeQBI = Math.max(0, agi - fedStd);
   // Treas. Reg. s.1.199A-3(b)(1)(vi): qualified business income is net of
   // deductions "attributable to the trade or business" - which the regulation
@@ -500,8 +528,10 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   // An S-corp's QBI is the K-1 distribution, which is already net of the
   // company's plan contribution, and wages are excluded from QBI entirely -
   // so nothing to adjust on that side.
+  // The same regulation lists the s.162(l) health-insurance deduction among the
+  // items attributable to the business, so it comes out of the QBI base too.
   const bizRetireDed = Math.max(0, (employeeRetirement || 0) - (personalRetirement || 0));
-  const qbiIncome = entityType === "s_corp" ? Math.max(0, kDistribution) : Math.max(0, schedC - halfSE - bizRetireDed);
+  const qbiIncome = entityType === "s_corp" ? Math.max(0, kDistribution) : Math.max(0, schedC - halfSE - bizRetireDed - sehiDed);
   let pct;
   if (taxableBeforeQBI <= qbiStart) pct = 1;else if (taxableBeforeQBI >= qbiEnd) pct = 0;else pct = 1 - (taxableBeforeQBI - qbiStart) / (qbiEnd - qbiStart);
   const qbiDed = Math.min(QBI_RATE * qbiIncome, QBI_RATE * taxableBeforeQBI) * pct;
@@ -532,6 +562,7 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
     sdi,
     addlMed,
     qbiDed,
+    sehiDed,
     fedTax,
     ctc,
     caTax,
@@ -707,13 +738,26 @@ function computeUBT(businessIncome, nycTaxableIncome, nycTax) {
 //   MCTMT          NO  - base is net earnings from self-employment (s.1402),
 //                        a Schedule SE figure the adjustment never reaches
 //   SE tax         NO  - same reason
-function computeNYC(revenueUSD, expensesUSD, retireDed, filingStatus) {
+function computeNYC(revenueUSD, expensesUSD, retireDed, filingStatus, sehi) {
   retireDed = retireDed || 0;
-  const schedC = Math.max(0, revenueUSD - expensesUSD);
+  const sehiPremium = Math.max(0, sehi || 0);
+  // IRC s.162(l) again - the premium is inside expensesUSD but belongs on
+  // Schedule 1, so add it back before Schedule C and take it above the line.
+  // cashProfit is what actually reaches the bank and keeps the premium
+  // subtracted; schedC is the tax figure and does not.
+  const cashProfit = Math.max(0, revenueUSD - expensesUSD);
+  const schedC = Math.max(0, revenueUSD - expensesUSD + sehiPremium);
   const seBase = schedC * 0.9235;
   const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
   const halfSE = seTax / 2;
-  const fed = fedLayer(schedC, 0, halfSE, retireDed, filingStatus);
+  // sehiDed rides in alongside retireDed: both cut AGI without touching
+  // Schedule C and both come out of the QBI base, so fedLayer treats them
+  // identically. New York starts from federal AGI, so the deduction reaches
+  // the NY and NYC income taxes automatically - and reaches neither the UBT
+  // (s.11-507(3) bars amounts paid to a proprietor) nor the MCTMT nor SE tax,
+  // all three of which run off the business figure below.
+  const sehiDed = Math.min(sehiPremium, Math.max(0, schedC - halfSE));
+  const fed = fedLayer(schedC, 0, halfSE, retireDed + sehiDed, filingStatus);
   const agi = fed.agi;
   const fedTax = fed.fedTax;
   const addlMed = addlMedFor(seBase, 0, filingStatus);
@@ -724,7 +768,7 @@ function computeNYC(revenueUSD, expensesUSD, retireDed, filingStatus) {
   const ubt = computeUBT(schedC, nyTaxable, nycTax);
   const totalTax = fedTax + seTax + addlMed + nyTax + nycTax + mctmt + ubt.afterPit;
   return {
-    netUSD: schedC - totalTax,
+    netUSD: cashProfit - totalTax,
     taxUSD: totalTax,
     fedTaxUSD: fedTax,
     seTaxUSD: seTax,
@@ -751,20 +795,30 @@ const PITTSBURGH_LST = 52;
 // therefore fully taxable by PA in the year contributed. The Local Tax
 // Enabling Act defines the local EIT base by reference to that same PA
 // figure, so Pittsburgh's 3% follows it. Only the federal tax moves.
-function computePittsburgh(revenueUSD, expensesUSD, retireDed, filingStatus) {
+function computePittsburgh(revenueUSD, expensesUSD, retireDed, filingStatus, sehi) {
   retireDed = retireDed || 0;
-  const schedC = Math.max(0, revenueUSD - expensesUSD);
+  const sehiPremium = Math.max(0, sehi || 0);
+  const cashProfit = Math.max(0, revenueUSD - expensesUSD);
+  const schedC = Math.max(0, revenueUSD - expensesUSD + sehiPremium);
   const seBase = schedC * 0.9235;
   const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
   const halfSE = seTax / 2;
-  const fedTax = fedLayer(schedC, 0, halfSE, retireDed, filingStatus).fedTax;
+  const sehiDed = Math.min(sehiPremium, Math.max(0, schedC - halfSE));
+  const fedTax = fedLayer(schedC, 0, halfSE, retireDed + sehiDed, filingStatus).fedTax;
   const addlMed = addlMedFor(seBase, 0, filingStatus);
-  const paTax = schedC * PA_FLAT_RATE;
-  const eitTax = schedC * PITTSBURGH_EIT_RATE;
+  // PA deliberately keeps the premium deducted (cashProfit, not schedC).
+  // Pennsylvania computes net profits under its own rules and I could not find
+  // a citable PA source either way on a proprietor's own health premium - the
+  // PIT Guide's "Net Income (Loss) from the Operation of a Business" chapter
+  // covers retirement contributions explicitly and says nothing about health
+  // insurance. Leaving PA's treatment exactly as it was is the honest default;
+  // do not "fix" this to match the federal add-back without a citation.
+  const paTax = cashProfit * PA_FLAT_RATE;
+  const eitTax = cashProfit * PITTSBURGH_EIT_RATE;
   const lst = PITTSBURGH_LST;
   const totalTax = fedTax + seTax + addlMed + paTax + eitTax + lst;
   return {
-    netUSD: schedC - totalTax,
+    netUSD: cashProfit - totalTax,
     taxUSD: totalTax,
     fedTaxUSD: fedTax,
     seTaxUSD: seTax,
@@ -1058,7 +1112,7 @@ const DEFAULT_EXPENSES = [{
   id: 'health',
   label: 'Health insurance',
   monthly: 0,
-  note: 'self-employed premium'
+  note: 'your own premium — deducted, but not from self-employment tax'
 }, {
   id: 'ehr',
   label: 'EHR / practice software',
@@ -1548,6 +1602,13 @@ function PracticeIncomePlanner() {
     color: colorForRate(rate)
   };
   const nearestRate = RATES.reduce((best, r) => Math.abs(r - rate) < Math.abs(best - rate) ? r : best, RATES[0]);
+  // The second-job (W-2) feature was removed; this is the stub every call site
+  // still threads through. It is NOT inert if it ever comes back: computeYear
+  // handles W-2 wages properly, but computeNYC / computePittsburgh / the five
+  // overseas functions all take practice revenue as Schedule C income and have
+  // no wage layer at all. Switching this on without giving them one would tax a
+  // salary as self-employment income and, in New York, run it through the
+  // unincorporated business tax. See residGross below.
   const job2Yr = 0;
   const weeksWorked = vacationOn ? Math.max(1, WEEKS_FULL - (parseFloat(vacationWeeks) || 0)) : WEEKS_FULL;
   const secondaryYr = secondaryOn ? (parseFloat(secondaryRate) || 0) * (parseFloat(secondarySessions) || 0) * weeksWorked : 0;
@@ -1638,6 +1699,13 @@ function PracticeIncomePlanner() {
   // expenses and understate profit.
   const grossMoForExp = (grossYr(rate, sessions, weeksWorked) + secondaryYr + retreatYr) / 12;
   const expMo = expenses.reduce((a, e) => a + (e.pct != null ? grossMoForExp * e.pct : +e.monthly || 0), 0);
+  // IRC s.162(l) - see the long note in computeYear. Identified by row id, so
+  // it stays inside expMo above (the premium is a real cost and every cash
+  // figure must keep subtracting it) while the tax layer can add it back.
+  // Known limit: only the built-in "Health insurance" row is recognised. A
+  // premium entered as a custom row is still treated as a Schedule C expense,
+  // which is why the row's own note now says where it belongs.
+  const sehiYr = expenses.reduce((a, e) => a + (e.id === "health" ? (+e.monthly || 0) * 12 : 0), 0);
   // Associate costs are ordinary business expenses, so they join the same
   // pool everything else deducts from - profit, tax, residency all follow.
   const expYrBase = expMo * 12 + assocCostYr;
@@ -1665,15 +1733,19 @@ function PracticeIncomePlanner() {
   const expYr = expYrBase + bizFee;
 
   // Year computation at any rate/sessions, using current expenses + secondary source + second job
-  const yearAt = (r, s) => computeYear(grossYr(r, s, weeksWorked) + otherIncomeYr, expYrBase + bizFeeAt(r, s), job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+  const yearAt = (r, s) => computeYear(grossYr(r, s, weeksWorked) + otherIncomeYr, expYrBase + bizFeeAt(r, s), job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: sehiYr});
   const netYr = (r, s) => Math.round(yearAt(r, s).net);
 
   // Current scenario, fully broken out
   const cur = useMemo(() => {
-    const y = computeYear(grossYr(rate, sessions, weeksWorked) + otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+    const y = computeYear(grossYr(rate, sessions, weeksWorked) + otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: sehiYr});
+    // No `sehi` here on purpose: this run passes zero expenses, so there is no
+    // premium inside them to add back. It answers "what would tax be if the
+    // practice had no costs at all", which is what makes trueCostOfExpenses
+    // and taxShield below mean anything.
     const noExp = computeYear(grossYr(rate, sessions, weeksWorked) + otherIncomeYr, 0, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-    const withoutSecondary = computeYear(grossYr(rate, sessions, weeksWorked) + retreatYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
-    const withoutRetreat = computeYear(grossYr(rate, sessions, weeksWorked) + secondaryYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+    const withoutSecondary = computeYear(grossYr(rate, sessions, weeksWorked) + retreatYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: sehiYr});
+    const withoutRetreat = computeYear(grossYr(rate, sessions, weeksWorked) + secondaryYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: sehiYr});
     return {
       ...y,
       netYr: Math.round(y.net),
@@ -1696,6 +1768,11 @@ function PracticeIncomePlanner() {
       job2Net: 0,
       expYr,
       expMo: expYr / 12,
+      // Hung off `cur` rather than threaded as a prop, because every component
+      // that needs it already receives `cur` - and a prop added to one of the
+      // two tax components and forgotten on the other is exactly how the
+      // residency cards ended up on a different filing status to California.
+      sehiYr,
       bizFee,
       trueCostOfExpenses: Math.round(noExp.net - y.net),
       taxShield: Math.round(expYr - (noExp.net - y.net)),
@@ -1716,14 +1793,24 @@ function PracticeIncomePlanner() {
   // Residency comparison: same practice revenue and running costs, taxed
   // under California, New York City, Berlin (Germany), Portugal, and
   // Bordeaux (France) rules respectively.
+  //
+  // PRACTICE INCOME ONLY. These functions take their first argument as
+  // *practice revenue* and put all of it on Schedule C, so W-2 wages must never
+  // be folded in: doing that would charge a salary full self-employment tax and
+  // run it through New York's unincorporated business tax, while California
+  // correctly treats the same money as wages. Today that cannot happen, because
+  // job2Yr is hardwired to 0 and cur.grossYr therefore already equals this
+  // figure - residGross is named and used anyway so the basis is explicit and
+  // the trap stays shut if the second job is ever switched back on.
+  const residGross = cur.grossTherYr + (cur.otherIncomeYr || 0);
   const residency = useMemo(() => ({
-    ...computeResidency(cur.grossYr, expYr),
-    nyc: computeNYC(cur.grossYr, expYr, 0, filingStatus),
-    pittsburgh: computePittsburgh(cur.grossYr, expYr, 0, filingStatus),
-    france: computeFrance(cur.grossYr, expYr),
-    uae: computeUAE(cur.grossYr, expYr, filingStatus),
-    brisbane: computeBrisbane(cur.grossYr, expYr)
-  }), [cur.grossYr, expYr, filingStatus]);
+    ...computeResidency(residGross, expYr),
+    nyc: computeNYC(residGross, expYr, 0, filingStatus, sehiYr),
+    pittsburgh: computePittsburgh(residGross, expYr, 0, filingStatus, sehiYr),
+    france: computeFrance(residGross, expYr),
+    uae: computeUAE(residGross, expYr, filingStatus),
+    brisbane: computeBrisbane(residGross, expYr)
+  }), [residGross, expYr, filingStatus, sehiYr]);
 
   // Residency, ranked. The section used to open with eight equally-weighted
   // cards and no answer, which left the reader to do the sorting - and the
@@ -1830,13 +1917,13 @@ function PracticeIncomePlanner() {
 
   // USA Tax Strategy: retirement account simulation (Solo 401k, Traditional & Roth IRA)
   const computeRetireStrategyFor = entityTypeArg => {
-    const entityForRetirement = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput);
-    const soleForSSCompare = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0);
+    const entityForRetirement = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput, {sehi: sehiYr});
+    const soleForSSCompare = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0, {sehi: sehiYr});
     const soleNetSEEarnings = Math.max(0, soleForSSCompare.schedC - soleForSSCompare.seTax / 2);
     const netSEEarnings = entityTypeArg === "s_corp" ? Math.max(0, entityForRetirement.salary) : Math.max(0, entityForRetirement.schedC - entityForRetirement.seTax / 2);
     const employerPctForEntity = entityTypeArg === "s_corp" ? 0.25 : RETIRE_2026.solo401k.employerPct;
     const magi = Math.max(0, cur.schedC + cur.kDistribution + cur.w2Wages + cur.salary - cur.seTax / 2);
-    const marginalRate = Math.max(0, Math.min(0.55, (entityForRetirement.totalTax - computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr + 1000, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput).totalTax) / 1000));
+    const marginalRate = Math.max(0, Math.min(0.55, (entityForRetirement.totalTax - computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr + 1000, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput, {sehi: sehiYr}).totalTax) / 1000));
     const yearsToRetire = Math.max(1, retireAge - taxAge);
     const r = investReturn / 100;
     const fvAnnuity = amt => amt <= 0 ? 0 : r === 0 ? amt * yearsToRetire : amt * ((Math.pow(1 + r, yearsToRetire) - 1) / r);
@@ -2033,8 +2120,8 @@ function PracticeIncomePlanner() {
     if (!(soloContrib > 0)) return null;
     const caArgs = retireArgsFor(entityType, taxStrategy.solo401k.employerContrib,
       taxStrategy.solo401k.employeeContrib);
-    const caWith = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYr, job2Yr, filingStatus,
-      numDependents, caArgs[0], caArgs[1], entityType, sCorpSalaryInput);
+    const caWith = computeYear(residGross, expYr, 0, filingStatus,
+      numDependents, caArgs[0], caArgs[1], entityType, sCorpSalaryInput, {sehi: sehiYr});
     // Rounded at source so the three bar segments add to the same total the
     // card prints above them - the recurring $1-drift trap in this file.
     const mk = (taxNow, taxAfter, netNow, reach) => {
@@ -2046,13 +2133,13 @@ function PracticeIncomePlanner() {
     return {
       california: mk(cur.totalTax, caWith.totalTax, cur.netYr,
         "Comes off federal and California taxable income alike \u2014 California conforms to federal adjusted gross income here."),
-      nyc: mk(residency.nyc.taxUSD, computeNYC(cur.grossYr, expYr, soloContrib, filingStatus).taxUSD, residency.nyc.netUSD,
+      nyc: mk(residency.nyc.taxUSD, computeNYC(residGross, expYr, soloContrib, filingStatus, sehiYr).taxUSD, residency.nyc.netUSD,
         "Comes off federal, New York State and NYC resident tax. It does not touch the UBT, the MCTMT or self-employment tax \u2014 all three are charged on a business-income figure this deduction never reaches, so they stay exactly where they were."),
-      pittsburgh: mk(residency.pittsburgh.taxUSD, computePittsburgh(cur.grossYr, expYr, soloContrib, filingStatus).taxUSD, residency.pittsburgh.netUSD,
+      pittsburgh: mk(residency.pittsburgh.taxUSD, computePittsburgh(residGross, expYr, soloContrib, filingStatus, sehiYr).taxUSD, residency.pittsburgh.netUSD,
         "Federal tax only. Pennsylvania does not recognise a self-employed person's own retirement contribution, and Pittsburgh's 3% rides on the PA figure \u2014 so 6.07% of every dollar you shelter is taxed in the year you shelter it. The offset comes decades later: PA generally does not tax the money again on the way out.")
     };
-  }, [soloContrib, taxStrategy, cur, expYr, job2Yr, filingStatus, numDependents, entityType,
-      sCorpSalaryInput, residency]);
+  }, [soloContrib, taxStrategy, residGross, cur, expYr, filingStatus, numDependents, entityType,
+      sCorpSalaryInput, residency, sehiYr]);
 
   // One renderer for all three US cards, so the comparison is like-for-like.
   // Segments: tax still owed, the contribution itself, what reaches the bank.
@@ -3362,7 +3449,7 @@ function PracticeIncomePlanner() {
     }
   }, /*#__PURE__*/React.createElement("span", null, fmt(cur.taxShield), " tax shield"))), /*#__PURE__*/React.createElement("p", {
     className: "shield-note"
-  }, "Effective: about ", Math.round(cur.taxShield / Math.max(expYr, 1) * 100), "% of every business dollar you spend is offset by reduced federal, CA, and self-employment tax."))), (function () {
+  }, "Effective: about ", Math.round(cur.taxShield / Math.max(expYr, 1) * 100), "% of every business dollar you spend is offset by reduced federal, CA, and self-employment tax."), cur.sehiYr > 0 ? /*#__PURE__*/React.createElement("p", {className: "shield-note"}, /*#__PURE__*/React.createElement("b", null, "Your health insurance premium is the exception. "), "It comes off federal and California income tax, but ", /*#__PURE__*/React.createElement("b", null, "not"), " self-employment tax \u2014 the IRS treats a self-employed person's own premium as a personal deduction on Schedule\u00A01 rather than a business expense on Schedule\u00A0C (IRC \u00A7162(l)). The ", fmt(cur.sehiYr), " above is still a real cost; it just shields about 15% less than the rows around it.") : null)), (function () {
     const payCell = (p, i) => /*#__PURE__*/React.createElement("div", {
       key: i, className: "pay-cell" + (p.isAnchor ? " pay-anchor" : ""),
       style: p.isAnchor ? {borderColor: d.color} : {}
@@ -3523,7 +3610,7 @@ function PracticeIncomePlanner() {
     className: "card-head"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sub-eyebrow"
-  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(cur.grossYr), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same contribution room applies in New York, Pennsylvania or anywhere else you would practise in the US. What the contribution is ", /*#__PURE__*/React.createElement("b", null, "worth"), " is not federal at all, because each state decides separately whether to follow the federal deduction. California and New York do, so a dollar sheltered there removes state and city tax as well as federal. ", /*#__PURE__*/React.createElement("b", null, "Pennsylvania does not"), " \u2014 it taxes a self-employed person's own contribution in the year it is made, and Pittsburgh's local tax follows the state figure, so the same dollar saves federal tax only. The panel on each US card below shows the real number. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here."), /*#__PURE__*/React.createElement("div", {className: "medcost"}, /*#__PURE__*/React.createElement("b", null, "Not counted in any figure below: health cover once you retire abroad. "), "Social Security follows a US citizen almost anywhere \u2014 Germany, Portugal, France and Australia all have totalization agreements with the US, and the UAE does not, though payments still reach you there. ", /*#__PURE__*/React.createElement("b", null, "Medicare does not travel at all"), ". It covers essentially nothing outside the United States, so every non-US card below quietly omits a lifelong private or local insurance premium that a California retiree would not pay. Treat the overseas net figures as better than they will feel.")), /*#__PURE__*/React.createElement("div", {
+  }, "Still your tax strategy \u2014 one more lever"), /*#__PURE__*/React.createElement("h2", null, "If you practiced somewhere else"), /*#__PURE__*/React.createElement("p", null, "Same practice revenue and running costs (", fmt(residGross), "/yr gross, ", fmt(expYr), "/yr expenses), estimated as a self-employed therapist based in each location instead. Each card lists exactly what's counted."), /*#__PURE__*/React.createElement("p", {className: "resid-retnote"}, /*#__PURE__*/React.createElement("b", null, "Retirement accounts are not a California feature. "), "A Solo 401(k), SEP or SIMPLE is federal \u2014 the same contribution room applies in New York, Pennsylvania or anywhere else you would practise in the US. What the contribution is ", /*#__PURE__*/React.createElement("b", null, "worth"), " is not federal at all, because each state decides separately whether to follow the federal deduction. California and New York do, so a dollar sheltered there removes state and city tax as well as federal. ", /*#__PURE__*/React.createElement("b", null, "Pennsylvania does not"), " \u2014 it taxes a self-employed person's own contribution in the year it is made, and Pittsburgh's local tax follows the state figure, so the same dollar saves federal tax only. The panel on each US card below shows the real number. Outside the US these accounts stop making sense and local pension rules take over \u2014 not modelled here."), /*#__PURE__*/React.createElement("div", {className: "medcost"}, /*#__PURE__*/React.createElement("b", null, "Not counted in any figure below: health cover once you retire abroad. "), "Social Security follows a US citizen almost anywhere \u2014 Germany, Portugal, France and Australia all have totalization agreements with the US, and the UAE does not, though payments still reach you there. ", /*#__PURE__*/React.createElement("b", null, "Medicare does not travel at all"), ". It covers essentially nothing outside the United States, so every non-US card below quietly omits a lifelong private or local insurance premium that a California retiree would not pay. Treat the overseas net figures as better than they will feel.")), /*#__PURE__*/React.createElement("div", {
     className: "residency-grid"
   }, /*#__PURE__*/React.createElement("div", {
     className: "stat",
@@ -3534,7 +3621,7 @@ function PracticeIncomePlanner() {
     className: "stat-label"
   }, "California, USA"), /*#__PURE__*/React.createElement("div", {
     className: "stat-sub"
-  }, "gross ", fmt(cur.grossYr), "/yr"), /*#__PURE__*/React.createElement("div", {
+  }, "gross ", fmt(residGross), "/yr"), /*#__PURE__*/React.createElement("div", {
     className: "stat-value",
     style: {
       color: d.color
@@ -3543,7 +3630,7 @@ function PracticeIncomePlanner() {
     className: "stat-sub"
   }, "net / year \u00B7 current setup"), /*#__PURE__*/React.createElement("div", {
     className: "stat-note"
-  }, fmt(cur.totalTax), " total tax"), residBreakdown(cur.grossYr, cur.totalTax, cur.netYr, d.color, cur.expYr), /*#__PURE__*/React.createElement("div", {
+  }, fmt(cur.totalTax), " total tax"), residBreakdown(residGross, cur.totalTax, cur.netYr, d.color, cur.expYr), /*#__PURE__*/React.createElement("div", {
     className: "resid-invest-note"
   }, soloByLocation
     ? locRetBlock(soloByLocation.california)
@@ -3627,13 +3714,13 @@ function PracticeIncomePlanner() {
     className: "stat-label"
   }, c.label), /*#__PURE__*/React.createElement("div", {
     className: "stat-sub"
-  }, "gross ", fmt(cur.grossYr), "/yr"), /*#__PURE__*/React.createElement("div", {
+  }, "gross ", fmt(residGross), "/yr"), /*#__PURE__*/React.createElement("div", {
     className: "stat-value"
   }, fmt(c.net)), /*#__PURE__*/React.createElement("div", {
     className: "stat-sub"
   }, "net / year (est.)", c.sub ? " \u00B7 " + c.sub : ""), /*#__PURE__*/React.createElement("div", {
     className: "stat-note"
-  }, fmt(c.tax), " ", c.taxNote), residBreakdown(cur.grossYr, c.tax, c.net, "#6F6A5E", cur.expYr), /*#__PURE__*/React.createElement("div", {
+  }, fmt(c.tax), " ", c.taxNote), residBreakdown(residGross, c.tax, c.net, "#6F6A5E", cur.expYr), /*#__PURE__*/React.createElement("div", {
     className: c.net - cur.netYr === 0 ? "stat-note" : c.net - cur.netYr > 0 ? "pos" : "neg"
   }, c.net - cur.netYr >= 0 ? "+" : "\u2212", fmt(Math.abs(c.net - cur.netYr)), " vs. California"),
   soloByLocation && soloByLocation[c.key] ? /*#__PURE__*/React.createElement("div", {
@@ -4468,8 +4555,8 @@ const seEducation = (function () {
   })();
   const scorpGrossBasis = cur.grossTherYr + (cur.otherIncomeYr || 0);
   const scorpExpBasis = expYrBase + cur.bizFee;
-  const soleFullYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0);
-  const sCorpFullYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", sCorpSalaryInput);
+  const soleFullYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0, {sehi: cur.sehiYr});
+  const sCorpFullYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", sCorpSalaryInput, {sehi: cur.sehiYr});
   const recNetProfit = Math.max(1, scorpGrossBasis - scorpExpBasis);
   const psplit = payrollSplit(recNetProfit, sCorpSalaryInput);
   const runCostTotal = (payrollSvcCost || 0) + (corpReturnCost || 0) + (statementOfInfoCost || 0);
@@ -5427,7 +5514,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const mfEmp = strategy.solo401k.employeeContrib || 0;
   const mfEr = strategy.solo401k.employerContrib || 0;
   const mfContrib = mfEmp + mfEr;
-  const mfNone = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+  const mfNone = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: cur.sehiYr});
   // Must go through retireArgsFor. A sole proprietor's own plan contribution
   // is deducted on Schedule 1, not Schedule C, so it never reduces net
   // earnings from self-employment and never reduces SE tax. Passing the
@@ -5435,7 +5522,7 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   // it - inflating the headline saving on the hero panel by ~2.9-15.3% of the
   // employer contribution, for the one entity type most users start on.
   const mfArgs = retireArgsFor(entityType, mfEr, mfEmp);
-  const mfWith = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, mfArgs[0], mfArgs[1], entityType, sCorpSalaryInput);
+  const mfWith = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, mfArgs[0], mfArgs[1], entityType, sCorpSalaryInput, {sehi: cur.sehiYr});
   const mfTaxNone = mfNone.totalTax, mfBankNone = mfNone.net;
   const mfTaxWith = mfWith.totalTax, mfBankWith = mfWith.net;
   const mfProfit = Math.max(1, mfTaxNone + mfBankNone);
@@ -5533,9 +5620,9 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   // =====================================================================
   const vSalary = Math.ceil(recNetProfit * 0.5 / 1000) * 1000;
   const vAggr = Math.ceil(recNetProfit * 0.35 / 1000) * 1000;
-  const vSole = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0);
-  const vCorp = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", vSalary);
-  const vCorpAggr = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", vAggr);
+  const vSole = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "sole_prop", 0, {sehi: cur.sehiYr});
+  const vCorp = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", vSalary, {sehi: cur.sehiYr});
+  const vCorpAggr = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", vAggr, {sehi: cur.sehiYr});
   const vRun = runCostTotal > 0 ? runCostTotal : 4400;   // Heard's published average
   const vRunIsDefault = !(runCostTotal > 0);
   const vGain = vCorp.net - vSole.net;
@@ -5677,7 +5764,8 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const rRun = (er, emp, personal) => {
     const a = retireArgsFor(entityType, er, emp);
     return computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus,
-      numDependents, a[0], a[1], entityType, sCorpSalaryInput, personal || 0);
+      numDependents, a[0], a[1], entityType, sCorpSalaryInput,
+      {sehi: cur.sehiYr, personalRetirement: personal || 0});
   };
   const rSepTotal = strategy.sepIra ? strategy.sepIra.total || 0 : 0;
   const rSimpleDef = strategy.simpleIra ? strategy.simpleIra.deferral || 0 : 0;
@@ -5943,8 +6031,8 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   }, "\u26A0\uFE0F This salary is only ", Math.round(salaryRatio * 100), "% of net profit \u2014 well below what's typically defensible as \u201Creasonable compensation.\u201D The tax savings above assume the IRS never questions it; see the audit-risk section further down before setting a number this low.");
   const minSalary = Math.round(netProfitForRatio * 0.5 / 1000) * 1000;
   const aggressiveSalary = Math.round(netProfitForRatio * 0.35 / 1000) * 1000;
-  const minSalaryYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", minSalary);
-  const aggressiveSalaryYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", aggressiveSalary);
+  const minSalaryYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", minSalary, {sehi: cur.sehiYr});
+  const aggressiveSalaryYear = computeYear(scorpGrossBasis, scorpExpBasis, job2Yr, filingStatus, numDependents, 0, 0, "s_corp", aggressiveSalary, {sehi: cur.sehiYr});
   const educationBlock = /*#__PURE__*/React.createElement("div", {
     style: {
       marginBottom: 20
@@ -7116,11 +7204,11 @@ function ProfitTab({
   sCorpSalaryInput,
   taxStrategy
 }) {
-  const hypoBaseline = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput);
+  const hypoBaseline = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: cur.sehiYr});
   const hypoArgs = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib) : [0, 0];
   const hypoArgsIra = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib + taxStrategy.traditionalIra.deductibleAmount) : [0, 0];
-  const hypoSolo401k = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgs[0], hypoArgs[1], entityType, sCorpSalaryInput) : null;
-  const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgsIra[0], hypoArgsIra[1], entityType, sCorpSalaryInput, taxStrategy.traditionalIra.deductibleAmount) : null;
+  const hypoSolo401k = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgs[0], hypoArgs[1], entityType, sCorpSalaryInput, {sehi: cur.sehiYr}) : null;
+  const hypoSolo401kIra = taxStrategy ? computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, hypoArgsIra[0], hypoArgsIra[1], entityType, sCorpSalaryInput, {sehi: cur.sehiYr, personalRetirement: taxStrategy.traditionalIra.deductibleAmount}) : null;
   // Pre-tax by design. The three tax rows that used to sit here moved to the
   // Tax strategy section, where they can be explained rather than just
   // subtracted. This section answers "does the business work?", not
@@ -7248,27 +7336,30 @@ function ProfitTab({
          "Whether practising somewhere else would pay more"
         ].map(x => /*#__PURE__*/React.createElement("span", {key: x}, x))));
   })();
+  // Profit's headline row, restyled to the same three-cell strip Income uses -
+  // the last piece of the approved home mockup. It was a wide stat-big beside a
+  // stacked stat-col, which put the three figures on two different scales and
+  // made the section read as a different component to the one directly above
+  // it. Same three figures, same order, one shape. The lede cell carries
+  // Profit / year, the number the whole section exists to produce.
+  const profitStrip = [
+    {k: "Profit / year", v: fmt(cur.profitYr), lede: true,
+     sub: `${fmt(cur.grossYr)} billed less ${fmt(Math.round(cur.grossYr) - Math.round(cur.profitYr))} expenses \u00b7 before tax`},
+    {k: "Profit margin", v: Math.round(cur.profitMarginPct * 100) + "%",
+     sub: "of every gross dollar"},
+    {k: "Break-even caseload",
+     v: breakEvenCovered ? "covered" : breakEven ? breakEven + " / wk" : "—",
+     sub: breakEvenCovered
+       ? "your other income already clears the costs"
+       : `your own sessions to clear costs at $${rate}/hr`}
+  ];
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("section", {
-    className: "stats"
-  }, /*#__PURE__*/React.createElement(Stat, {
-    big: true,
-    label: "Profit / year",
-    value: fmt(cur.profitYr),
-    accent: color,
-    note: `${fmt(cur.grossYr)} billed less ${fmt(Math.round(cur.grossYr) - Math.round(cur.profitYr))} expenses \u00b7 before tax`
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "stat-col"
-  }, /*#__PURE__*/React.createElement(Stat, {
-    label: "Profit margin",
-    value: Math.round(cur.profitMarginPct * 100) + "%",
-    note: "of every gross dollar"
-  }), /*#__PURE__*/React.createElement(Stat, {
-    label: "Break-even caseload",
-    value: breakEvenCovered ? "covered" : breakEven ? breakEven + " / wk" : "—",
-    note: breakEvenCovered
-      ? "your other income already clears the costs"
-      : `your own sessions to clear costs at $${rate}/hr`
-  }))), /*#__PURE__*/React.createElement("section", {
+    className: "strip strip-lede strip-profit"
+  }, profitStrip.map(c => /*#__PURE__*/React.createElement("div", {
+    key: c.k, className: "strip-cell" + (c.lede ? " strip-year" : "")
+  }, /*#__PURE__*/React.createElement("div", {className: "strip-k"}, c.k),
+     /*#__PURE__*/React.createElement("div", {className: "strip-v"}, c.v),
+     /*#__PURE__*/React.createElement("div", {className: "strip-sub"}, c.sub)))), /*#__PURE__*/React.createElement("section", {
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
@@ -9094,6 +9185,13 @@ sup{font-size:10px; color:var(--muted); margin-left:1px;}
 .strip-lede{margin-top:4px;}
 .strip-lede .strip-year{background:#F4F8F6; border-color:#C9DED4;}
 .strip-lede .strip-year .strip-v{font-size:30px; color:#2F7A61;}
+/* Profit's headline row. Income's lede is its LAST cell (gross / year is
+   where that section lands); Profit's is its FIRST, because profit / year
+   is the answer and margin and break-even qualify it. Same component,
+   same scale, one shape across both sections. */
+.strip-profit{grid-template-columns:repeat(3,1fr);}
+.strip-profit .strip-cell:first-child .strip-v{font-size:30px;}
+@media (max-width:900px){.strip-profit{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));}}
 .strip-cell{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 20px; display:flex; flex-direction:column;}
 .strip-k{font-size:11px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);}
 .strip-v{font-family:'Fraunces',serif; font-weight:600; font-size:24px; letter-spacing:-.02em; margin-top:8px; line-height:1;}
