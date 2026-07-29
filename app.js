@@ -405,7 +405,7 @@ function keepBar(grossYr, expYr, taxYr, netYr, rate) {
         "Enter your ", /*#__PURE__*/React.createElement("b", null, "hourly rate"), " and ",
         /*#__PURE__*/React.createElement("b", null, "sessions per week"),
         " in the Income section and this fills in — what you bill, what tax takes, and what lands in your account, down to the cents you keep per session."),
-      /*#__PURE__*/React.createElement("a", {href: "#sec-income", className: "keep-cta"}, "Go to Income →"));
+      /*#__PURE__*/React.createElement("a", {href: "#sec-income", onClick: jumpTo("sec-income"), className: "keep-cta"}, "Go to Income →"));
   }
   const pct = n => Math.max(0, (n / grossYr) * 100);
   const keepPct = Math.round((netYr / grossYr) * 100);
@@ -540,6 +540,19 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
 const EXAMPLE_STATE = {rate: 150, sessions: 25, vacationWeeks: 2};
 const EXAMPLE_EXP = {rent: 600, liability: 60, health: 0, ehr: 70, super: 50,
   marketing: 30, phone: 25, legal: 45, license: 15, ce: 20, office: 15};
+
+// In-page anchors must NOT write to location.hash. The hash carries two
+// things at once: which page you are on (#...&tax) and the entire saved
+// setup (#s=...). A bare href="#taxstep1" replaced both - so clicking the
+// tax hero's own call to action navigated back to the simulator AND threw
+// away a shared link's numbers. Scroll instead; leave the URL alone.
+function jumpTo(id) {
+  return function (e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var el = typeof document !== "undefined" ? document.getElementById(id) : null;
+    if (el && el.scrollIntoView) el.scrollIntoView({behavior: "smooth", block: "start"});
+  };
+}
 
 function retireArgsFor(entityTypeArg, employerContrib, employeeContrib) {
   return entityTypeArg === "s_corp"
@@ -1643,7 +1656,11 @@ function PracticeIncomePlanner() {
       netWk: Math.round(y.net / 52),
       grossYr: y.grossAll,
       grossMo: Math.round(y.grossAll / 12),
-      grossWk: Math.round(y.grossAll / 52),
+      // A working week, not an averaged one. This used to divide by 52 while
+      // the label beside it read "$rate x sessions" - two different weeks
+      // asserted to be the same number. It was only ever right when nobody
+      // took time off; the vacation-weeks control made it wrong for everyone.
+      grossWk: Math.round(y.grossAll / (weeksWorked > 0 ? weeksWorked : WEEKS_FULL)),
       grossTherYr: grossYr(rate, sessions, weeksWorked),
       secondaryYr,
       retreatYr,
@@ -2264,7 +2281,7 @@ function PracticeIncomePlanner() {
     setVacationOn(true);
     setVacationWeeks(EXAMPLE_STATE.vacationWeeks);
     setExpenses(xs => xs.map(e => EXAMPLE_EXP[e.id] != null ? {...e, monthly: EXAMPLE_EXP[e.id]} : e));
-    if (typeof window !== "undefined") window.location.hash = "#sec-income";
+    jumpTo("sec-income")();
   };
 
   // ===================================================================
@@ -2344,7 +2361,7 @@ function PracticeIncomePlanner() {
         "Nothing is filled in yet. Enter a session rate below and every figure on this page — and on the tax, retirement and residency pages — builds itself from it. Or load a worked example and pull it apart first."),
 
       /*#__PURE__*/React.createElement("div", {className: "lnd-ctas"},
-        /*#__PURE__*/React.createElement("a", {className: "lnd-go", href: "#sec-income"},
+        /*#__PURE__*/React.createElement("a", {className: "lnd-go", href: "#sec-income", onClick: jumpTo("sec-income")},
           /*#__PURE__*/React.createElement("b", null, lndWarm ? "Change my numbers" : "Put in my own numbers"),
           /*#__PURE__*/React.createElement("span", null, "rate and caseload · everything follows →")),
         /*#__PURE__*/React.createElement("button", {
@@ -2531,7 +2548,7 @@ function PracticeIncomePlanner() {
         /*#__PURE__*/React.createElement("b", null, "LMFTs, LCSWs, LPCCs and psychologists"),
         " \u2014 session rate, expenses, sole prop vs professional corp, retirement and Social Security. 2026 rates, every figure traceable."),
       /*#__PURE__*/React.createElement("div", {className: "orient-cta"},
-        /*#__PURE__*/React.createElement("a", {href: "#sec-income", onClick: dismissOrient},
+        /*#__PURE__*/React.createElement("a", {href: "#sec-income", onClick: jumpTo("sec-income"), onClick: dismissOrient},
           "Start with your rate \u2193"),
         /*#__PURE__*/React.createElement("button", {
           className: "orient-skip", onClick: dismissOrient
@@ -3077,7 +3094,9 @@ function PracticeIncomePlanner() {
     className: "strip-v"
   }, fmt(cur.grossWk)), /*#__PURE__*/React.createElement("span", {
     className: "strip-sub"
-  }, "$", rate, " \u00d7 ", sessions, " sessions")), /*#__PURE__*/React.createElement("div", {
+  }, otherIncomeYr > 0
+      ? "all sources, in a working week"
+      : "$" + rate + " \u00d7 " + sessions + " sessions")), /*#__PURE__*/React.createElement("div", {
     className: "strip-cell"
   }, /*#__PURE__*/React.createElement("span", {
     className: "strip-k"
@@ -6434,7 +6453,7 @@ const ssSection = (function () {
       panel,
       /*#__PURE__*/React.createElement("p", {className: "thero-p"}, lede),
       /*#__PURE__*/React.createElement("div", {className: "thero-ctarow"},
-        /*#__PURE__*/React.createElement("a", {className: "thero-go", href: "#taxstep1"},
+        /*#__PURE__*/React.createElement("a", {className: "thero-go", href: "#taxstep1", onClick: jumpTo("taxstep1")},
           /*#__PURE__*/React.createElement("b", null, ctaLabel),
           /*#__PURE__*/React.createElement("span", null, ctaSub)),
         /*#__PURE__*/React.createElement("p", {className: "thero-aside"},
