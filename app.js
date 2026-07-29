@@ -9407,18 +9407,38 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .planner .sitenav-d{display:none;}
 }
 
-/* The two primary controls read as one undifferentiated panel. Giving each
-   the same cream field treatment used everywhere else for editable inputs
-   makes it obvious at a glance which parts of this card you can change -
-   which is the whole job of the "Start here" badge above them. */
-.planner .controls{gap:18px; align-items:stretch; padding:24px 22px 20px;}
-.planner .controls .control-block{
+/* The three things you can actually change - rate, caseload and time off -
+   were laid out as two columns plus a full-width strip, so time off read as
+   an afterthought rather than the third input it is. They are now three
+   equal cream cards, and the equation spans beneath them as the result of
+   all three. Cream + tan is the same treatment every editable field on the
+   site uses, so "what can I change here?" is answerable at a glance. */
+.planner .controls{
+  grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px 18px;
+  align-items:stretch; padding:24px 22px 20px;}
+.planner .controls .control-block,
+.planner .controls .timeoff{
   background:var(--fieldbg,#FBF6E9); border:1px solid #E4D9BE; border-radius:12px;
-  padding:14px 16px 16px;}
+  padding:14px 16px 16px; margin:0;}
 .planner .controls .control-block .control-label{margin-bottom:2px;}
+.planner .controls .timeoff{display:flex; flex-wrap:wrap; align-items:center;
+  gap:9px 12px; align-content:center;
+  /* the base rule sets grid-column:1/-1 and a dashed top border, both of
+     which belonged to the old full-width strip */
+  grid-column:auto; border-top:1px solid #E4D9BE;}
+.planner .controls .timeoff-out{flex-basis:100%; margin:0;}
+/* The equation is the answer to all three, so it sits under all three. */
+.planner .controls .inc-eq{grid-column:1/-1; margin-top:2px;}
+
+@media (max-width:1000px){
+  .planner .controls{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .planner .controls .timeoff{grid-column:1/-1;}
+}
 @media (max-width:780px){
   .planner .controls{grid-template-columns:1fr !important; gap:12px;}
-  .planner .controls .control-block{padding:12px 14px 14px;}
+  .planner .controls .control-block,
+  .planner .controls .timeoff{padding:12px 14px 14px;}
+  .planner .controls .timeoff{grid-column:auto;}
 }
 
 /* ==================================================================
