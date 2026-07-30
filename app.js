@@ -1749,6 +1749,22 @@ function PracticeIncomePlanner() {
     custom: true
   }]);
   const toggleSehi = id => setExpenses(xs => xs.map(e => e.id === id ? {...e, sehi: !e.sehi} : e));
+  // A percentage row was computed-only: no input at all, so the one row whose
+  // rate actually varies between practices was the one row you could not touch.
+  // The percentage is now typeable, and the row can be switched to a flat
+  // monthly amount and back - merchant fees are a percentage for most people
+  // and a fixed plan fee for some.
+  const setExpensePct = (id, val) => setExpenses(xs => xs.map(e => e.id === id
+    ? {...e, pct: Math.max(0, Math.min(1, (parseFloat(val) || 0) / 100))} : e));
+  const toggleExpenseMode = (id, effMonthly) => setExpenses(xs => xs.map(e => {
+    if (e.id !== id) return e;
+    // Carry the amount across so switching modes never silently zeroes a cost.
+    // Keep the cents. Rounding to whole dollars here moved the yearly figure by
+    // $1 the instant you switched mode - 3.5% of $15,625 is $546.875/mo, and
+    // 547 x 12 is not 546.875 x 12. Same drift this file has hit four times.
+    if (e.pct != null) return {...e, pct: null, pctWas: e.pct, monthly: Math.round((effMonthly || 0) * 100) / 100};
+    return {...e, pct: e.pctWas != null ? e.pctWas : 0.025, pctWas: null};
+  }));
   const removeExpense = id => setExpenses(xs => xs.filter(e => e.id !== id));
   const renameExpense = (id, label) => setExpenses(xs => xs.map(e => e.id === id ? {
     ...e,
@@ -3436,6 +3452,8 @@ function PracticeIncomePlanner() {
     setExpenses: setExpenses,
     addExpense: addExpense,
     removeExpense: removeExpense,
+    setExpensePct: setExpensePct,
+    toggleExpenseMode: toggleExpenseMode,
     toggleSehi: toggleSehi,
     renameExpense: renameExpense,
     rate: rate,
@@ -7054,6 +7072,8 @@ function ExpensesTab({
   addExpense,
   removeExpense,
   renameExpense,
+  setExpensePct,
+  toggleExpenseMode,
   toggleSehi,
   rate,
   sessions,
@@ -7070,12 +7090,15 @@ function ExpensesTab({
     var inputEl;
     if (e.pct != null) {
       inputEl = /*#__PURE__*/React.createElement("div", {
-        className: "exp-input exp-input-locked"
-      }, /*#__PURE__*/React.createElement("span", {
-        className: "exp-locked-val"
-      }, (e.pct * 100).toFixed(1), "%"), /*#__PURE__*/React.createElement("span", {
+        className: "exp-input exp-input-pct"
+      }, /*#__PURE__*/React.createElement("input", {
+        type: "number", min: 0, max: 100, step: 0.1,
+        value: Math.round(e.pct * 1000) / 10,
+        "aria-label": e.label + " — percentage of gross",
+        onChange: function (ev) { setExpensePct(e.id, ev.target.value); }
+      }), /*#__PURE__*/React.createElement("span", {
         className: "exp-per"
-      }, "of gross"));
+      }, "% of gross"));
     } else {
       inputEl = /*#__PURE__*/React.createElement("div", {
         className: "exp-input"
@@ -7130,7 +7153,18 @@ function ExpensesTab({
        explanation on screen. */
     e.note && /*#__PURE__*/React.createElement("span", {
       className: "exp-note"
-    }, e.note)), /*#__PURE__*/React.createElement("div", {
+    }, e.note),
+    /* Only offered on rows that support a percentage at all - every other row
+       is a flat amount by nature and a switch there would be noise. */
+    (e.pct != null || e.pctWas != null) ? /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "exp-mode",
+      title: e.pct != null
+        ? "Switch this row to a flat monthly amount instead of a percentage of gross"
+        : "Switch this row back to a percentage of gross",
+      onClick: function () { toggleExpenseMode(e.id, effMonthly); }
+    }, e.pct != null ? "enter a flat $/mo instead" : "use a % of gross instead") : null
+    ), /*#__PURE__*/React.createElement("div", {
       className: "exp-bar"
     }, /*#__PURE__*/React.createElement("div", {
       className: "exp-bar-fill",
@@ -9337,7 +9371,7 @@ td.num-head{text-align:right;}
 
 /* expenses */
 .exp-list{display:flex; flex-direction:column;}
-.exp-row{display:grid; grid-template-columns:1.5fr 1fr 130px 90px 28px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #F1ECE1;}
+.exp-row{display:grid; grid-template-columns:1.5fr 1fr 148px 90px 28px; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #F1ECE1;}
 .exp-row-city{background:#FAF7F0; margin:0 -24px; padding:11px 24px; border-bottom:none; border-top:2px solid var(--line);}
 .exp-name{display:flex; flex-direction:column; gap:2px; min-width:0;}
 .exp-lbl{font-size:14px; font-weight:600; color:var(--ink);}
@@ -9366,9 +9400,36 @@ td.num-head{text-align:right;}
 .exp-input:hover{border-color:#C9A876;}
 .exp-input:focus-within{border-color:#B5483F;}
 .exp-input-locked{background:#F3F0E7; border-style:dashed;}
+/* A percentage row is now a normal editable field, not a dashed read-only one -
+   it was the only cost on the card you could not change, and it is the one whose
+   rate genuinely differs between practices. */
+.exp-input-pct input{text-align:right; min-width:42px;}
+/* "% of gross" wrapped to two lines and crowded the field. A percentage needs
+   four characters, not five, so the suffix gets the room back. */
+.exp-input-pct .exp-per{white-space:nowrap;}
+.exp-mode{display:inline-flex; align-items:center; min-height:24px; margin-top:2px;
+  padding:0; border:none; background:none;
+  font:inherit; font-size:11px; color:var(--muted); text-decoration:underline;
+  text-underline-offset:2px; cursor:pointer; text-align:left;}
+.exp-mode:hover{color:var(--ink);}
+/* 12px of underlined text is a 12px tap target. WCAG 2.5.8 wants 24 minimum and
+   this project's own sweep wants 44 on a phone, so the hit area grows on touch
+   widths while the type stays where it is. */
+@media (max-width:780px){
+  .planner .exp-mode{min-height:44px; padding:10px 0; margin-top:0;}
+}
 .exp-locked-val{font-family:'Fraunces',serif; font-size:16px; font-weight:600; color:var(--ink);}
 .exp-input span{color:var(--muted); font-size:13px;}
-.exp-input input{border:none; outline:none; font:inherit; font-family:'Fraunces',serif; font-size:16px; font-weight:600; width:100%; background:transparent; color:var(--ink);}
+.exp-input input{border:none; outline:none; font:inherit; font-family:'Fraunces',serif; font-size:16px; font-weight:600; background:transparent; color:var(--ink);
+  /* The amount box measured 20x20px - the browser's number spinners were eating
+     the whole 130px column, leaving no room to see what you type. They are also
+     a poor control here: step=5 means the arrows move in $5 jumps, which nobody
+     wants for a $1,247 premium. Hidden, and the field given real width. */
+  flex:1 1 auto; min-width:62px; width:100%;
+  -moz-appearance:textfield; appearance:textfield;}
+.exp-input input::-webkit-outer-spin-button,
+.exp-input input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+.exp-input input::placeholder{color:#B9B1A0; font-weight:500;}
 .exp-input-locked{background:#F1ECE1; border-style:dashed;}
 .exp-locked-val{font-family:'Fraunces',serif; font-size:16px; font-weight:600; color:var(--ink);}
 .exp-per{font-size:11px !important;}
