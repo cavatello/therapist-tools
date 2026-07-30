@@ -145,6 +145,9 @@ const QBI_PHASE_BY_STATUS = {
   mfj: [403500, 553500],
   mfj_dependents: [403500, 553500]
 };
+// Assumed age a therapist's covered earnings begin, used only when the user
+// has not told us. See the note at careerYears.
+const SS_CAREER_START_DEFAULT = 26;
 const CTC_PER_CHILD = 2200;
 const SS_WAGE_BASE = 184500;
 // Employer-side payroll costs for a W-2 associate. SDI is deliberately absent:
@@ -1112,6 +1115,7 @@ const DEFAULT_EXPENSES = [{
   id: 'health',
   label: 'Health insurance',
   monthly: 0,
+  sehi: true,
   note: 'your own premium — deducted, but not from self-employment tax'
 }, {
   id: 'ehr',
@@ -1705,7 +1709,11 @@ function PracticeIncomePlanner() {
   // Known limit: only the built-in "Health insurance" row is recognised. A
   // premium entered as a custom row is still treated as a Schedule C expense,
   // which is why the row's own note now says where it belongs.
-  const sehiYr = expenses.reduce((a, e) => a + (e.id === "health" ? (+e.monthly || 0) * 12 : 0), 0);
+  // e.sehi is the flag; e.id === "health" is kept as a fallback because saved
+  // setups and shared links carry expense arrays written before the flag
+  // existed, and dropping it would silently change their tax overnight.
+  const isSehiRow = e => e.sehi === true || e.id === "health";
+  const sehiYr = expenses.reduce((a, e) => a + (isSehiRow(e) ? (+e.monthly || 0) * 12 : 0), 0);
   // Associate costs are ordinary business expenses, so they join the same
   // pool everything else deducts from - profit, tax, residency all follow.
   const expYrBase = expMo * 12 + assocCostYr;
@@ -1720,6 +1728,7 @@ function PracticeIncomePlanner() {
     note: "",
     custom: true
   }]);
+  const toggleSehi = id => setExpenses(xs => xs.map(e => e.id === id ? {...e, sehi: !e.sehi} : e));
   const removeExpense = id => setExpenses(xs => xs.filter(e => e.id !== id));
   const renameExpense = (id, label) => setExpenses(xs => xs.map(e => e.id === id ? {
     ...e,
@@ -1923,7 +1932,36 @@ function PracticeIncomePlanner() {
     const netSEEarnings = entityTypeArg === "s_corp" ? Math.max(0, entityForRetirement.salary) : Math.max(0, entityForRetirement.schedC - entityForRetirement.seTax / 2);
     const employerPctForEntity = entityTypeArg === "s_corp" ? 0.25 : RETIRE_2026.solo401k.employerPct;
     const magi = Math.max(0, cur.schedC + cur.kDistribution + cur.w2Wages + cur.salary - cur.seTax / 2);
-    const marginalRate = Math.max(0, Math.min(0.55, (entityForRetirement.totalTax - computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr + 1000, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput, {sehi: sehiYr}).totalTax) / 1000));
+    // The rate on the NEXT dollar, measured by running the engine $1,000 apart.
+    // The old ceiling was 0.55 and it really did bind - at $300k of single-filer
+    // profit the measured rate is 62.8%, because the SSTB QBI phase-out claws
+    // back the deduction as income rises and stacks on top of the bracket. That
+    // is a true number, not an artefact, so the cap is now only a sanity rail
+    // against a nonsense reading. Use it for a marginal question (one more
+    // dollar), never to price a whole deduction - see savedBy below.
+    const rateProbe = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr + 1000, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput, {sehi: sehiYr});
+    const marginalRate = Math.max(0, Math.min(0.90, (entityForRetirement.totalTax - rateProbe.totalTax) / 1000));
+    // Income tax only (federal + CA), no SE tax. A Roth conversion is ordinary
+    // income and owes no self-employment tax, so pricing it at the all-in
+    // marginal rate overcharged it by the SE component.
+    const incomeMarginalRate = Math.max(0, Math.min(0.90,
+      ((entityForRetirement.fedTax + entityForRetirement.caTax) - (rateProbe.fedTax + rateProbe.caTax)) / 1000));
+    // THE fix for this section. Every "tax savings" figure on screen used to be
+    // contribution x marginalRate. That is the error this project already found
+    // and fixed once in the money-flow block, and it survived everywhere else:
+    // the Solo 401(k) card, the Traditional IRA card, the side-by-side table and
+    // the recommendation prose. Measured on real numbers it overstated the
+    // saving by $2,165 to $12,312 - at $187.5k filing jointly the card claimed
+    // $22,258 against a true $9,946, more than double. The rate falls as taxable
+    // income comes down, so it can only ever be right for the first dollar.
+    // Run the engine twice instead, once per account.
+    const savedBy = (er, emp, personal) => {
+      const a = retireArgsFor(entityTypeArg, er, emp);
+      const withIt = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr, job2Yr,
+        filingStatus, numDependents, a[0], a[1], entityTypeArg, sCorpSalaryInput,
+        {sehi: sehiYr, personalRetirement: personal || 0});
+      return Math.max(0, entityForRetirement.totalTax - withIt.totalTax);
+    };
     const yearsToRetire = Math.max(1, retireAge - taxAge);
     const r = investReturn / 100;
     const fvAnnuity = amt => amt <= 0 ? 0 : r === 0 ? amt * yearsToRetire : amt * ((Math.pow(1 + r, yearsToRetire) - 1) / r);
@@ -1938,7 +1976,7 @@ function PracticeIncomePlanner() {
       employeeContrib,
       employerContrib,
       total: solo401kTotal,
-      taxSavings: solo401kTotal * marginalRate,
+      taxSavings: savedBy(employerContrib, employeeContrib),
       futureValue: fvAnnuity(solo401kTotal),
       employerBasis: entityTypeArg === "s_corp" ? "25% of W-2 salary" : "20% of net self-employment earnings",
       employerPctLabel: entityTypeArg === "s_corp" ? "25%" : "20%"
@@ -1952,7 +1990,8 @@ function PracticeIncomePlanner() {
       cap: iraCap,
       deductibleAmount: iraCap * tDeductPct,
       deductPct: tDeductPct,
-      taxSavings: iraCap * tDeductPct * marginalRate,
+      // a personal IRA reduces AGI but not QBI, hence the third argument
+      taxSavings: savedBy(0, iraCap * tDeductPct, iraCap * tDeductPct),
       futureValue: fvAnnuity(iraCap)
     };
 
@@ -1981,7 +2020,7 @@ function PracticeIncomePlanner() {
       existingPretaxIRA,
       taxableFraction,
       taxableOnConversion,
-      conversionTax: taxableOnConversion * marginalRate,
+      conversionTax: taxableOnConversion * incomeMarginalRate,
       futureValue: fvAnnuity(iraCap)
     };
     // ---- SEP IRA -----------------------------------------------------
@@ -1997,7 +2036,7 @@ function PracticeIncomePlanner() {
       pct: sepPct,
       pctLabel: entityTypeArg === "s_corp" ? "25% of W-2 wages" : "20% of net self-employment earnings",
       total: sepContrib,
-      taxSavings: sepContrib * marginalRate,
+      taxSavings: savedBy(sepContrib, 0),
       futureValue: fvAnnuity(sepContrib),
       vsSolo: sepContrib - solo401kTotal
     };
@@ -2019,7 +2058,7 @@ function PracticeIncomePlanner() {
       match: simpleMatch,
       compBase: simpleCompBase,
       total: simpleTotal,
-      taxSavings: simpleTotal * marginalRate,
+      taxSavings: savedBy(simpleMatch, simpleDeferral),
       futureValue: fvAnnuity(simpleTotal),
       vsSolo: simpleTotal - solo401kTotal
     };
@@ -2033,9 +2072,16 @@ function PracticeIncomePlanner() {
     // Years of covered work across the whole career, past and future - not
     // years remaining. Falls back to years-remaining only if the user has not
     // said when they started, and the UI labels that case as an underestimate.
+    // The fallback used to be yearsToRetire - years REMAINING - which is not a
+    // career length and understates badly the older you are: at 60 it counts 7
+    // years against a real 35+, roughly a fifth of the true benefit. Assume a
+    // typical start age instead. 26 is deliberately late for this audience (an
+    // LMFT usually finishes a master's around then), which offsets the model's
+    // opposite bias: it applies THIS year's earnings to every past year, so a
+    // later assumed start keeps the estimate conservative rather than rosy.
     const careerYears = careerStart > 0 && retireAge > careerStart
       ? retireAge - careerStart
-      : yearsToRetire;
+      : Math.max(1, retireAge - SS_CAREER_START_DEFAULT);
     const yearsForAIME = Math.min(35, Math.max(1, careerYears));
     const soleAIME = soleCreditedEarnings * yearsForAIME / 420;
     const scorpAIME = scorpCreditedEarnings * yearsForAIME / 420;
@@ -3361,6 +3407,7 @@ function PracticeIncomePlanner() {
     setExpenses: setExpenses,
     addExpense: addExpense,
     removeExpense: removeExpense,
+    toggleSehi: toggleSehi,
     renameExpense: renameExpense,
     rate: rate,
     sessions: sessions,
@@ -4446,48 +4493,13 @@ function TaxStrategyTab({
     className: "card-head"
   }, /*#__PURE__*/React.createElement("h2", null, "Your options, simulated")), strategyCard("Solo 401(k)", "You wear two hats: as \u201Cemployee\u201D you can defer income directly from pay, and as \u201Cemployer\u201D your practice can contribute up to 20% of net self-employment earnings on top \u2014 both reduce this year's taxable income, and both grow tax-deferred until withdrawal. Usually the largest contribution room available to a solo owner, and the one to max first.", solo401kBody, "Highest capacity"), strategyCard("Traditional IRA", "A separate, simpler account funded with pre-tax dollars (if your income is under the deduction phase-out) or after-tax dollars (if over it \u2014 still useful as a \u201Cbackdoor Roth\u201D building block). Grows tax-deferred; withdrawals in retirement are taxed as ordinary income. Because you're an active participant in a Solo 401(k), the deduction phases out at a lower income than someone with no workplace plan.", traditionalBody, strategy.traditionalIra.deductPct <= 0 ? "Fully phased out \u2014 nondeductible" : strategy.traditionalIra.deductPct < 1 ? "Partially phased out" : "Fully deductible"), strategyCard("Roth IRA", "Funded with after-tax dollars \u2014 no deduction today \u2014 but grows completely tax-free, and qualified withdrawals in retirement owe nothing at all. The direct contribution phases out at higher income levels than you might expect; above the top of that range, a \u201Cbackdoor Roth\u201D (nondeductible Traditional IRA contribution, immediately converted) is the common workaround.", rothBody, strategy.rothIra.eligiblePct < 1 ? "Phased out \u2014 consider backdoor" : "Fully eligible"), strategyCard("Backdoor Roth IRA", "If you're phased out of a direct Roth contribution, you can still get Roth-equivalent tax-free growth: contribute to a Traditional IRA without claiming a deduction (no income limit on nondeductible contributions), then convert it to Roth right away (no income limit on conversions either, since 2010). The catch is the IRC \u00A7408(d)(2) \u201Cpro-rata rule\u201D: if you hold "+"any"+" other pre-tax Traditional/SEP/SIMPLE IRA money, the conversion isn't treated as 100% basis \u2014 it's taxed in proportion to your "+"total"+" IRA balance, pre-tax and after-tax combined. Enter your existing pre-tax IRA balance below to see the real tax cost.", backdoorBody, strategy.backdoorRoth.taxableFraction > 0.05 ? "Pro-rata rule applies \u2014 partially taxable" : "Clean \u2014 minimal pro-rata drag"), strategyCard("SEP IRA", "Employer money only \u2014 there is no employee deferral and no catch-up at any age, which is what separates it from the Solo 401(k). A corporation contributes 25% of your W-2 wages; a sole proprietor's equivalent works out to 20% of net self-employment earnings, capped either way at the $72,000 annual-additions limit. Simpler to open and to run than a Solo 401(k), with no annual Form 5500 until the balance is large \u2014 but because it has no deferral, it usually gives a solo owner less room. Its real cost is downstream: a SEP balance is pre-tax IRA money, so it makes a backdoor Roth conversion partly taxable under the pro-rata rule.", null, "Simplest to run \u2014 usually less room"), strategyCard("SIMPLE IRA", "Built for small businesses with staff: you defer up to $18,100 (a solo practice always qualifies for the higher small-employer limit), and the business must add a 3% matching contribution. It cannot run alongside a Solo 401(k) in the same year \u2014 it is one or the other. For a solo owner the ceiling is simply lower than either alternative, as the comparison table above shows with your own numbers, and the balance carries the same pro-rata problem as a SEP. Worth a look mainly if you hire staff and want lower administration than a 401(k).", null, "Lowest ceiling of the three"));
 
-  const compareRows = [{
-    label: "Solo 401(k)",
-    contrib: strategy.solo401k.total,
-    savings: strategy.solo401k.taxSavings,
-    fv: strategy.solo401k.futureValue
-  }, {
-    label: "Traditional IRA",
-    contrib: strategy.traditionalIra.cap,
-    savings: strategy.traditionalIra.taxSavings,
-    fv: strategy.traditionalIra.futureValue
-  }, {
-    label: "Roth IRA",
-    contrib: strategy.rothIra.eligibleAmount,
-    savings: 0,
-    fv: strategy.rothIra.futureValue
-  }].map(row => /*#__PURE__*/React.createElement("tr", {
-    key: row.label
-  }, /*#__PURE__*/React.createElement("td", null, row.label), /*#__PURE__*/React.createElement("td", {
-    className: "num-head strong"
-  }, fmt0(row.contrib)), /*#__PURE__*/React.createElement("td", {
-    className: "num-head strong"
-  }, fmt0(row.savings)), /*#__PURE__*/React.createElement("td", {
-    className: "num-head muted"
-  }, fmt0(row.fv))));
-
-  const totalMaxSavings = strategy.solo401k.taxSavings + strategy.traditionalIra.taxSavings;
-  const totalMaxContrib = strategy.solo401k.total + (strategy.traditionalIra.deductPct > 0 ? 0 : strategy.rothIra.eligibleAmount);
-  const compareSection = /*#__PURE__*/React.createElement("section", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Side by side")), /*#__PURE__*/React.createElement("div", {
-    className: "table-wrap"
-  }, /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Strategy"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, "Contribution this year"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, "Immediate tax savings"), /*#__PURE__*/React.createElement("th", {
-    className: "num-head"
-  }, retireAge > taxAge ? `Value at ${retireAge}` : "Value at retirement"))), /*#__PURE__*/React.createElement("tbody", null, compareRows))));
-
-
+  // compareRows / compareSection removed - a whole "Side by side" table of
+  // contribution, tax saving and future value, built and then never rendered.
+  // Third piece of dead code found in this file (after computeYearState and
+  // totalMaxSavings), and the most misleading: it looked like a live surface,
+  // so it read as something that had to be kept correct. The living surfaces
+  // for these figures are the "Your options, simulated" cards and the
+  // Sole-vs-Corp comparison table.
   const recommendation = strategy.solo401k.total >= strategy.netSEEarnings * 0.15 ? `With ${fmt0(strategy.netSEEarnings)} in net self-employment earnings and a ${pct1(strategy.marginalRate)} marginal rate, maxing the Solo 401(k) employee deferral first (${fmt0(strategy.solo401k.employeeContrib)}) gives you the single biggest deduction available \u2014 it comes off your taxable income regardless of income level. Layering the employer profit-share on top (${fmt0(strategy.solo401k.employerContrib)}) brings total tax savings to roughly ${fmt0(strategy.solo401k.taxSavings)} this year alone.` : `Your practice income leaves room to contribute more than the Solo 401(k) alone captures \u2014 consider using ${strategy.traditionalIra.deductPct > 0 ? "a Traditional IRA for the additional deduction" : "a Roth IRA, since your income is past the Traditional deduction phase-out"} to extend your tax-advantaged savings further.`;
   const rothNote = strategy.rothIra.eligiblePct < 1 ? ` Since your income phases out ${strategy.rothIra.eligiblePct <= 0 ? "all of" : "part of"} direct Roth IRA eligibility, a backdoor Roth (nondeductible Traditional IRA \u2192 immediate conversion) is worth asking your CPA about \u2014 it's not modeled here as a separate number since it uses the same contribution room as the Traditional IRA above.` : " You're still under the Roth IRA income limit, so a direct contribution works without any extra steps.";
 
@@ -4732,7 +4744,9 @@ const seEducation = (function () {
   }, {
     horizon: true,
     label: "Estimated monthly benefit at 67",
-    hint: "If this year's earnings pattern held for " + ssCmp.yearsForAIME + " years. An approximation, not an SSA statement.",
+    hint: "If this year's earnings pattern held for " + ssCmp.yearsForAIME + " years"
+      + (ssCmp.careerKnown ? "" : ", assuming you started earning at " + SS_CAREER_START_DEFAULT)
+      + ". An approximation, not an SSA statement.",
     sole: ssCmp.soleMonthlyPIA,
     scorp: ssCmp.scorpMonthlyPIA,
     cmp: true
@@ -5601,6 +5615,9 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
       /*#__PURE__*/React.createElement("b", null, "What this projection assumes — read before trusting a figure"),
       /*#__PURE__*/React.createElement("ul", null,
         /*#__PURE__*/React.createElement("li", null, "That ", /*#__PURE__*/React.createElement("b", null, "this year's earnings repeat for " + ssCmp.yearsForAIME + " years"), ", until you turn ", SS_FRA_AGE, ". One good year does not produce these numbers."),
+        ssCmp.careerKnown ? null : /*#__PURE__*/React.createElement("li", null,
+          "That you started earning at ", /*#__PURE__*/React.createElement("b", null, "age " + SS_CAREER_START_DEFAULT),
+          " \u2014 an assumption, because you have not filled in \u201CEarning since age\u201D. Social Security averages your highest 35 years, so the start age drives the figure as much as the income does. Enter your real one above and this recalculates."),
         /*#__PURE__*/React.createElement("li", null, "Benefits use your ", /*#__PURE__*/React.createElement("b", null, "highest 35 years"), ". Fewer than 35 working years and SSA fills the gaps with zeros, pulling the average down."),
         /*#__PURE__*/React.createElement("li", null, "Lifetime totals run ", /*#__PURE__*/React.createElement("b", null, SS_FRA_AGE + " to 90"), " — ", ssCmp.lifetimeYears, " years of payments. Live longer and Social Security wins by more; die earlier and it wins by less. That is what an annuity is."),
         /*#__PURE__*/React.createElement("li", null, "Figures are in ", /*#__PURE__*/React.createElement("b", null, "today's dollars"), ", before cost-of-living increases, and use ", /*#__PURE__*/React.createElement("b", null, "2026 bend points"), " — which in reality lock in at age 62, not today."),
@@ -6264,7 +6281,7 @@ const ssSection = (function () {
       style: {
         marginTop: 20
       }
-    }, "If this holds for your remaining ", ss.yearsForAIME, " working years"), /*#__PURE__*/React.createElement("p", {
+    }, "If this holds across ", ss.yearsForAIME, " working years"), /*#__PURE__*/React.createElement("p", {
       style: {
         margin: "0 0 10px",
         fontSize: 12.5,
@@ -7057,6 +7074,7 @@ function ExpensesTab({
   addExpense,
   removeExpense,
   renameExpense,
+  toggleSehi,
   rate,
   sessions,
   cityKey,
@@ -7106,7 +7124,31 @@ function ExpensesTab({
       }
     }) : /*#__PURE__*/React.createElement("span", {
       className: "exp-lbl"
-    }, e.label), e.note && /*#__PURE__*/React.createElement("span", {
+    }, e.label),
+    /* IRC s.162(l) only applied to the built-in Health insurance row, matched
+       by id. Anyone who deleted it and typed their own row got the premium
+       taxed as an ordinary Schedule C expense - which quietly reinstates the
+       15.3% error the engine fix removed. Custom rows can now carry the flag
+       themselves; the built-in row shows it as a fixed marker. */
+    e.custom ? /*#__PURE__*/React.createElement("button", {
+      type: "button",
+      className: "exp-sehi" + (e.sehi ? " on" : ""),
+      "aria-pressed": e.sehi ? "true" : "false",
+      title: e.sehi
+        ? "Treated as your own health cover: deducted from income tax, but not from self-employment tax (IRC s.162(l)). Click to turn off."
+        : "Tick this if the row is your own health insurance premium. It changes how the tax is worked out.",
+      onClick: function () { toggleSehi(e.id); }
+    }, e.sehi ? "\u2713 own health cover" : "own health cover?")
+      : ((e.sehi || e.id === "health") ? /*#__PURE__*/React.createElement("span", {
+          className: "exp-sehi on static",
+          title: "Deducted from income tax, but not from self-employment tax (IRC s.162(l))."
+        }, "\u2713 own health cover") : null),
+    /* The id fallback matters here as much as in the engine: a saved setup from
+       before the flag existed carries {id:"health"} with no sehi, and gets the
+       s.162(l) treatment. Marking it only on e.sehi would apply the tax rule
+       silently while showing nothing - the figure would move with no
+       explanation on screen. */
+    e.note && /*#__PURE__*/React.createElement("span", {
       className: "exp-note"
     }, e.note)), /*#__PURE__*/React.createElement("div", {
       className: "exp-bar"
@@ -7176,7 +7218,7 @@ function ExpensesTab({
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "What it costs to keep the practice open"), /*#__PURE__*/React.createElement("p", null, "Enter monthly amounts. Everything here is a Schedule\xA0C business deduction, which is why it comes off before profit rather than out of it.")), resetRow, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "What it costs to keep the practice open"), /*#__PURE__*/React.createElement("p", null, "Enter monthly amounts. Almost everything here is a Schedule\xA0C business deduction, which is why it comes off before profit rather than out of it. ", /*#__PURE__*/React.createElement("b", null, "Your own health cover is the exception"), " \u2014 it is deducted on Schedule\xA01 instead, so it lowers income tax but not self-employment tax (IRC \u00A7162(l)). Rows marked ", /*#__PURE__*/React.createElement("span", {className: "exp-sehi-key"}, "\u2713 own health cover"), " are treated that way; tag a row of your own if you entered the premium separately.")), resetRow, /*#__PURE__*/React.createElement("div", {
     className: "exp-list"
   }, expenseRows), /*#__PURE__*/React.createElement("div", {
     className: "exp-foot"
@@ -9320,6 +9362,23 @@ td.num-head{text-align:right;}
 .exp-name{display:flex; flex-direction:column; gap:2px; min-width:0;}
 .exp-lbl{font-size:14px; font-weight:600; color:var(--ink);}
 .exp-rename{font:inherit; font-size:14px; font-weight:600; color:var(--ink); border:1px solid var(--line); border-radius:7px; padding:5px 8px; background:#FCFAF4; outline:none; width:100%;}
+.exp-sehi{display:inline-flex; align-items:center; gap:4px; margin-left:8px;
+  font-size:10px; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+  border:1px dashed #D8CDB4; background:transparent; color:var(--muted);
+  border-radius:999px; padding:3px 9px; cursor:pointer; font-family:inherit;
+  min-height:24px; white-space:nowrap;}
+.exp-sehi:hover{border-color:#C98B4B; color:var(--ink);}
+.exp-sehi.on{border-style:solid; border-color:#C98B4B; background:#FBF1E2; color:#8A5A22;}
+.exp-sehi.static{cursor:default;}
+/* the same chip inline in prose, as a legend. Deliberately NOT .exp-sehi:
+   that class means "a marker on an expense row", and selectors (and tests)
+   that count row markers must not pick up a mention in a sentence. */
+.exp-sehi-key{display:inline-flex; align-items:center; font-size:10px; font-weight:700;
+  letter-spacing:.03em; text-transform:uppercase; border:1px solid #C98B4B;
+  background:#FBF1E2; color:#8A5A22; border-radius:999px; padding:2px 8px;
+  white-space:nowrap; vertical-align:baseline;}
+/* the pill is a second line on a phone, where the row is already tight */
+@media (max-width:640px){.exp-sehi{margin-left:0; margin-top:4px;}}
 .exp-note{font-size:11.5px; color:var(--muted);}
 .exp-bar{height:7px; background:#F1ECE1; border-radius:4px; overflow:hidden;}
 .exp-bar-fill{height:100%; border-radius:4px; opacity:.75; transition:width .2s;}
