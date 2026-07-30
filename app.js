@@ -35,6 +35,11 @@ const RETURNING_USER = (() => {
 // While this is empty the form opens a mail draft, exactly as it always has.
 const FEEDBACK_ENDPOINT = "https://formspree.io/f/xzdnyabp";
 const FEEDBACK_IS_FORMSPREE = /formspree\.io/.test(FEEDBACK_ENDPOINT);
+// Stamped once at load so the printed plan carries the date it was produced.
+const PLAN_DATE = (function () {
+  try { return new Date().toLocaleDateString("en-GB", {day: "numeric", month: "long", year: "numeric"}); }
+  catch (e) { return ""; }
+})();
 function encodeShareState(obj) {
   try {
     return btoa(encodeURIComponent(JSON.stringify(obj))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
@@ -5239,93 +5244,101 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
   const bReady = cur.grossYr > 0 && cur.totalTax > 0;
   const basicsBlock = !bReady ? null : (function () {
     const taxYr = Math.round(cur.totalTax);
-    const perMonth = Math.round(taxYr / 12);
     const profit = Math.max(1, cur.profitYr);
     const reservePct = Math.round(taxYr / profit * 100);
-    const sessYr = sessionRate > 0 ? Math.round(cur.grossTherYr / sessionRate) : 0;
-    const perSession = sessYr > 0 ? Math.round(taxYr / sessYr) : 0;
-    // Both halves of FICA, however the entity is set up: a sole proprietor
-    // pays it as SE tax, a corp splits it into employee and employer payroll.
-    const fica = cur.seTax + cur.ssW2 + cur.medW2 + cur.employerPayrollTax + (cur.addlMed || 0);
-    const employerHalf = Math.round(fica / 2);
+    // `strategy`, not `taxStrategy` - inside this component the prop is named
+    // strategy, and using the parent's name threw a ReferenceError that removed
+    // the entire card with a green node --check.
+    const soloRoom = strategy ? Math.round(strategy.solo401k.total) : 0;
+    const soloSaves = strategy ? Math.round(strategy.solo401k.taxSavings) : 0;
+    // Quarterly split. Federal is four equal instalments; California is
+    // front-loaded 30/40/0/30 (RTC s.19136 and FTB Form 540-ES), which is the
+    // detail that catches a first year - the September quarter looks free.
+    const fedQ = Math.round((cur.fedTax + cur.seTax + (cur.addlMed || 0)) / 4);
+    const caQ1 = Math.round(cur.caTax * 0.30);
 
-    const rungs = [
-      ["1", "Understand what you owe", "here"],
-      ["2", "Set money aside", "here"],
-      ["3", "Reduce it before it is taxed", "below"],
-      ["4", "Choose a structure", "below"],
-      ["5", "Consider where you practise", "below"]
+    // ---- the three habits -------------------------------------------------
+    // Replaces a five-rung ladder. "1 of 5" implied a sequence you complete
+    // once; these are obligations from four different bodies on four different
+    // clocks, and a first year does not need the map - it needs three habits.
+    // Everything with a date moved into the checklist below, which is folded.
+    const habits = [
+      {n: "1", tone: "res", h: "Move " + reservePct + "% the day you are paid",
+       p: "Not monthly, not in April \u2014 the same day the money lands, into a second account you never look at. People who skip this are not bad with money; they spent tax they never thought of as tax.",
+       k: "This year", v: fmt0(taxYr)},
+      {n: "2", tone: "ret", h: "Open the retirement account before December",
+       p: soloRoom > 0
+         ? "The biggest lever you have, and the only one with a deadline you cannot fix in April. The account has to exist by 31 December even if you fund it later."
+         : "The biggest lever you have. Fill in Tax & Retirement and this shows what it is worth on your numbers.",
+       k: soloRoom > 0 ? "Tax it moves" : "Room", v: soloRoom > 0 ? fmt0(soloSaves) : "\u2014"},
+      {n: "3", tone: "bk", h: "Keep books a CPA can read",
+       p: "Every business payment through one account, and a mileage and home-office log kept as you go. Both are deductions you cannot reconstruct convincingly a year later.",
+       k: "Typical cost", v: "~$1,200/yr"}
     ];
-    const cards = [
-      ["Nobody is withholding anything.",
-        /*#__PURE__*/React.createElement(React.Fragment, null,
-          "An employer used to take tax out before you saw the money. Now nobody does. You owe ",
-          /*#__PURE__*/React.createElement("b", null, fmt0(taxYr)), " this year \u2014 roughly ",
-          /*#__PURE__*/React.createElement("b", null, fmt0(perMonth)),
-          " a month you have to move yourself, and pay the IRS and FTB in four instalments rather than one bill in April.")],
-      ["You are taxed on profit, not on what you pay yourself.",
-        /*#__PURE__*/React.createElement(React.Fragment, null,
-          "There is no salary as a sole proprietor. Moving money from the business account to your own is not a payslip and is not the taxable event \u2014 you are taxed on all ",
-          /*#__PURE__*/React.createElement("b", null, fmt0(profit)),
-          " of profit whether it leaves the account or sits there.")],
-      ["You now pay both halves of Social Security and Medicare.",
-        /*#__PURE__*/React.createElement(React.Fragment, null,
-          /*#__PURE__*/React.createElement("b", null, fmt0(Math.round(fica))),
-          " of your bill is payroll tax. About ", /*#__PURE__*/React.createElement("b", null, fmt0(employerHalf)),
-          " of that is the employer half \u2014 the part a job quietly paid on your behalf and never showed you. This is the single biggest surprise of the first year.")],
-      ["Only part of it is fixed.",
-        /*#__PURE__*/React.createElement(React.Fragment, null,
-          "What you earn sets the rate; what is ", /*#__PURE__*/React.createElement("i", null, "counted"),
-          " is partly yours to decide. Money routed into a retirement account before tax, and the way the practice is structured, both change the number. That is rungs three and four, and the rest of this page.")]
+
+    // ---- the checklist, grouped by who is asking --------------------------
+    // Grouped by body rather than by step, because that is how a new sole
+    // proprietor actually gets caught: never "I missed step 3", always
+    // "nobody told me the BBS wanted that".
+    const groups = [
+      {who: "IRS", label: "Federal", when: "quarterly, then April", tone: "res", rows: [
+        ["Pay quarterly estimated tax", "15 Apr \u00B7 15 Jun \u00B7 15 Sep \u00B7 15 Jan. Nobody withholds for you now.", fmt0(fedQ), "per quarter"],
+        ["Get an EIN", "Free, about ten minutes on irs.gov. Lets you give payers something other than your SSN.", "$0", "one-off"],
+        ["Log mileage and home office", "Two deductions people forget, and cannot rebuild later from memory.", "\u2014", ""]
+      ]},
+      {who: "FTB", label: "California", when: "front-loaded", tone: "ca", rows: [
+        ["California estimated payments", "CA wants 30% / 40% / 0% / 30% \u2014 not four equal instalments. September looks free and is not.", fmt0(caQ1), "first instalment"],
+        ["Check your city's business licence", "Varies by city; some tax gross receipts, some charge a flat fee.", "varies", ""]
+      ]},
+      {who: "BBS", label: "Your licence", when: "every two years", tone: "ret", rows: [
+        ["Renew, and log your CE hours", "36 hours per renewal cycle, including the required law-and-ethics content.", "$180", "per renewal"],
+        ["An associate is a W-2 employee", "B&P \u00A74980.43.3 \u2014 not a contractor. This is the expensive one to get wrong.", "\u2014", ""]
+      ]},
+      {who: "You", label: "Money you keep", when: "from the first payment", tone: "bk", rows: [
+        ["Second account, " + reservePct + "% of everything", "The habit above, written down.", fmt0(taxYr), "a year"],
+        ["Solo 401(k) open by 31 December", "Fund it later if you need to, but the account must exist this year.", soloRoom > 0 ? fmt0(soloSaves) : "\u2014", soloRoom > 0 ? "tax saved" : ""]
+      ]}
     ];
 
     return /*#__PURE__*/React.createElement("section", {className: "card basics" + (basicsOpen ? "" : " shut")},
       /*#__PURE__*/React.createElement("div", {className: "basics-head"},
         /*#__PURE__*/React.createElement("div", null,
-          /*#__PURE__*/React.createElement("div", {className: "basics-k"}, "New to running a practice?"),
-          /*#__PURE__*/React.createElement("h2", {className: "basics-h"},
-            basicsOpen ? "Where the money goes, and what you can actually do about it"
-              : "The four things nobody tells you about self-employment tax")),
+          /*#__PURE__*/React.createElement("div", {className: "basics-k"}, "New to running your own practice?"),
+          /*#__PURE__*/React.createElement("h2", {className: "basics-h"}, "Three habits, and a list of dates")),
         /*#__PURE__*/React.createElement("button", {
           type: "button", className: "basics-x",
           "aria-expanded": basicsOpen ? "true" : "false",
           onClick: () => basicsOpen ? closeBasics() : setBasicsOpen(true)
         }, basicsOpen ? "Got it, hide this" : "Read it")),
-      /*#__PURE__*/React.createElement("ol", {className: "ladder"},
-        rungs.map(([n, t, where]) => /*#__PURE__*/React.createElement("li", {
-          key: n, className: "lad lad-" + where
-        }, /*#__PURE__*/React.createElement("b", null, n),
-          /*#__PURE__*/React.createElement("span", null, t),
-          /*#__PURE__*/React.createElement("em", null, where === "here" ? "this card" : "further down")))),
       !basicsOpen ? null : /*#__PURE__*/React.createElement(React.Fragment, null,
-        /*#__PURE__*/React.createElement("div", {className: "basics-rung"},
-          /*#__PURE__*/React.createElement("i", null, "Rung 1"), "What changed when you stopped being an employee"),
-        /*#__PURE__*/React.createElement("div", {className: "basics-cards"},
-          cards.map(([h, p]) => /*#__PURE__*/React.createElement("div", {key: h, className: "basics-c"},
-            /*#__PURE__*/React.createElement("b", null, h),
-            /*#__PURE__*/React.createElement("p", null, p)))),
-        /*#__PURE__*/React.createElement("div", {className: "basics-rung"},
-          /*#__PURE__*/React.createElement("i", null, "Rung 2"), "Set it aside as it arrives, not in April"),
-        /*#__PURE__*/React.createElement("div", {className: "reserve"},
-          /*#__PURE__*/React.createElement("div", {className: "reserve-big"},
-            sessYr > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null,
-                /*#__PURE__*/React.createElement("b", null, fmt0(perSession)),
-                /*#__PURE__*/React.createElement("span", null, "of every ", fmt0(sessionRate), " session is not yours")) 
-              : /*#__PURE__*/React.createElement(React.Fragment, null,
-                /*#__PURE__*/React.createElement("b", null, reservePct + "%"),
-                /*#__PURE__*/React.createElement("span", null, "of your profit is not yours"))),
-          /*#__PURE__*/React.createElement("p", {className: "reserve-p"},
-            "The reliable habit is a second bank account and a standing rule: every time a client pays, move ",
-            /*#__PURE__*/React.createElement("b", null, reservePct + "%"),
-            " of it across and forget it exists. Over a year that is ",
-            /*#__PURE__*/React.createElement("b", null, fmt0(taxYr)),
-            sessYr > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null,
-                " across roughly ", /*#__PURE__*/React.createElement("b", null, sessYr.toLocaleString()),
-                " sessions.") : ".",
-            " People who skip this are not bad with money \u2014 they simply spent tax they never thought of as tax.")),
+        /*#__PURE__*/React.createElement("div", {className: "hab-grid"},
+          habits.map(x => /*#__PURE__*/React.createElement("div", {key: x.n, className: "hab hab-" + x.tone},
+            /*#__PURE__*/React.createElement("div", {className: "hab-n"}, x.n),
+            /*#__PURE__*/React.createElement("b", null, x.h),
+            /*#__PURE__*/React.createElement("p", null, x.p),
+            /*#__PURE__*/React.createElement("div", {className: "hab-do"},
+              /*#__PURE__*/React.createElement("em", null, x.k),
+              /*#__PURE__*/React.createElement("span", null, x.v))))),
+        /*#__PURE__*/React.createElement("details", {className: "collapsible ckfold"},
+          /*#__PURE__*/React.createElement("summary", null,
+            /*#__PURE__*/React.createElement("b", null, "The first-year checklist"),
+            /*#__PURE__*/React.createElement("span", null, "everything with a date on it \u2014 four bodies, four clocks")),
+          /*#__PURE__*/React.createElement("div", {className: "ckwrap"},
+            groups.map(g => /*#__PURE__*/React.createElement("div", {key: g.who, className: "ckg ckg-" + g.tone},
+              /*#__PURE__*/React.createElement("div", {className: "ckg-h"},
+                /*#__PURE__*/React.createElement("span", {className: "ckg-who"}, g.who),
+                /*#__PURE__*/React.createElement("b", null, g.label),
+                /*#__PURE__*/React.createElement("span", {className: "ckg-when"}, g.when)),
+              g.rows.map(([t, sub, amt, unit]) => /*#__PURE__*/React.createElement("div", {key: t, className: "ckr"},
+                /*#__PURE__*/React.createElement("span", {className: "ckbox", "aria-hidden": "true"}),
+                /*#__PURE__*/React.createElement("div", null,
+                  /*#__PURE__*/React.createElement("b", null, t),
+                  /*#__PURE__*/React.createElement("span", null, sub)),
+                /*#__PURE__*/React.createElement("div", {className: "ckamt"}, amt,
+                  unit ? /*#__PURE__*/React.createElement("em", null, unit) : null))))))),
         /*#__PURE__*/React.createElement("p", {className: "basics-note"},
           /*#__PURE__*/React.createElement("b", null, "The percentage is a reserve, not a payment schedule. "),
-          "Federal estimated payments are due 15 April, 15 June, 15 September and 15 January; California asks for its instalments on a different, front-loaded schedule. A CPA will set the actual amounts \u2014 the point of the reserve is that the money is there when they do.")));
+          "It is what to hold back so the money is there when the instalments fall due. A CPA sets the actual amounts \u2014 and the two schedules genuinely differ, which is why California appears twice above.")));
   })();
   const payrollMechanic = /*#__PURE__*/React.createElement("div", {className: "mechanic"},
     /*#__PURE__*/React.createElement("h4", null, "Where the saving actually comes from"),
@@ -6776,11 +6789,160 @@ const ssSection = (function () {
 
   const taxHero = !heroOk ? null : (horizonReady ? heroC : heroA);
 
+  // Email capture. Three deliberate choices, all reversible:
+  //   - the plan is on screen already, so the address buys the PDF, not the answer
+  //   - "just print it" sits right next to the button, unmissable
+  //   - marketing consent is a SEPARATE, UNTICKED box. The address is collected
+  //     to send one document; anything else is a second purpose and needs its
+  //     own opt-in. The audience is Californian, so CCPA applies to them and to
+  //     whoever holds the list.
+  const [planEmail, setPlanEmail] = useState("");
+  const [planOptIn, setPlanOptIn] = useState(false);
+  const [planSent, setPlanSent] = useState(false);
+  const planActions = /*#__PURE__*/React.createElement("div", {className: "plan-act"},
+    /*#__PURE__*/React.createElement("div", {className: "plan-act-copy"},
+      /*#__PURE__*/React.createElement("b", null, "Send this to yourself"),
+      /*#__PURE__*/React.createElement("p", null,
+        "You get the page above plus a link back to this exact setup, so you can pick it up later or forward it to a CPA.")),
+    /*#__PURE__*/React.createElement("div", {className: "plan-form"},
+      planSent === true ? /*#__PURE__*/React.createElement("p", {className: "plan-ok"},
+          "Sent. Check your inbox \u2014 the link in it reopens these numbers.")
+        : /*#__PURE__*/React.createElement(React.Fragment, null,
+        /*#__PURE__*/React.createElement("label", {htmlFor: "planEmail"}, "Email"),
+        /*#__PURE__*/React.createElement("input", {
+          id: "planEmail", type: "email", value: planEmail, placeholder: "you@practice.com",
+          onChange: e => setPlanEmail(e.target.value)
+        }),
+        /*#__PURE__*/React.createElement("button", {
+          type: "button", className: "plan-send",
+          disabled: !/.+@.+\..+/.test(planEmail),
+          onClick: () => {
+            const share = typeof window !== "undefined" ? window.location.href : "";
+            const payload = {
+              _subject: "Practice plan requested",
+              email: planEmail,
+              marketingOptIn: planOptIn ? "yes" : "no",
+              setup: fmt0(sessionRate) + "/hr, " + fmt0(Math.round(cur.grossYr)) + " gross, "
+                + fmt0(Math.round(cur.totalTax)) + " tax, " + fmt0(Math.round(cur.netYr)) + " kept",
+              link: share
+            };
+            fetch(FEEDBACK_ENDPOINT, {
+              method: "POST",
+              headers: {"Content-Type": "application/json", "Accept": "application/json"},
+              body: JSON.stringify(payload)
+            }).then(r => setPlanSent(r.ok ? true : "error")).catch(() => setPlanSent("error"));
+          }
+        }, "Email me the plan \u2192"),
+        planSent === "error" ? /*#__PURE__*/React.createElement("p", {className: "plan-err"},
+          "That did not send. Print it instead, or use the feedback form at the bottom of the page.") : null,
+        /*#__PURE__*/React.createElement("label", {className: "plan-consent"},
+          /*#__PURE__*/React.createElement("input", {
+            type: "checkbox", checked: planOptIn, onChange: e => setPlanOptIn(e.target.checked)
+          }),
+          /*#__PURE__*/React.createElement("span", null,
+            "Also email me when the tax figures change \u2014 a few times a year at most. Unsubscribe any time.")),
+        /*#__PURE__*/React.createElement("button", {
+          type: "button", className: "plan-skip",
+          onClick: () => {
+            // Tag the ancestor chain rather than assuming the plan is a direct
+            // child of .planner - it is not, there is an unclassed wrapper in
+            // between, and a structural selector hid the parent and took the
+            // plan with it. Walking up works at any nesting depth.
+            const root = document.querySelector(".planwrap");
+            if (!root) { window.print(); return; }
+            root.classList.add("plan-root");
+            const tagged = [];
+            for (let n = root.parentElement; n && n !== document.body; n = n.parentElement) {
+              n.classList.add("plan-keep"); tagged.push(n);
+            }
+            document.body.classList.add("plan-only");
+            setTimeout(() => {
+              try { window.print(); } finally {
+                document.body.classList.remove("plan-only");
+                root.classList.remove("plan-root");
+                tagged.forEach(n => n.classList.remove("plan-keep"));
+              }
+            }, 120);
+          }
+        }, "or just print it, no email"))));
+
+  // =====================================================================
+  // THE ONE-PAGE PLAN. Direction B3: not a statement, a decision document.
+  // Where you are, the moves available, what each is worth, and the date that
+  // matters. It is on screen as well as printable, because a document nobody
+  // can see before committing an email address is not a document, it is a gate.
+  // =====================================================================
+  const planBlock = !(cur.grossYr > 0 && cur.totalTax > 0) ? null : (function () {
+    const soloRoom = strategy ? Math.round(strategy.solo401k.total) : 0;
+    const soloSaves = strategy ? Math.round(strategy.solo401k.taxSavings) : 0;
+    // `sessions` is not a prop of this component - derive it rather than reach
+    // for the parent's name, which is how the primer card blanked itself once.
+    const sessPerWk = (sessionRate > 0 && weeksWorkedProp > 0)
+      ? Math.round(cur.grossTherYr / sessionRate / weeksWorkedProp) : 0;
+    // Ranked by what each is actually worth, measured, not asserted. A lever
+    // with no value yet is dropped rather than shown as $0 - an empty row reads
+    // as "worth nothing" when it means "you have not told me enough".
+    const rateStep = 25;
+    const rateWorth = sessionRate > 0
+      ? Math.round((cur.netYr || 0) * 0 + (rateStep * (cur.grossTherYr / Math.max(1, sessionRate))))
+      : 0;
+    const levers = [
+      soloSaves > 0 ? {n: 1, tone: "ret", h: "Max the Solo 401(k)",
+        p: fmt0(soloRoom) + " of room this year. The account must exist by 31 December.",
+        v: "+" + fmt0(soloSaves)} : null,
+      rateWorth > 0 ? {n: 2, tone: "ret", h: "Raise your rate $" + rateStep,
+        p: "No extra hours, no new clients, nothing to file.",
+        v: "+" + fmt0(Math.round(rateWorth * (cur.takeHomePct || 0.65)))} : null,
+      {n: 3, tone: vNet > 0 ? "ret" : "flat", h: "Incorporate?",
+        p: vNet > 0
+          ? "Worth it at a salary you could defend."
+          : "Too close to call at a salary you could defend. Revisit as profit grows.",
+        v: (vNet > 0 ? "+" : "\u2212") + fmt0(Math.abs(Math.round(vNet)))}
+    ].filter(Boolean);
+    // Four figures, not three. With costs missing, bill minus tax did not equal
+    // keep - $187,500 less $58,646 is $128,854, while the page said $121,654,
+    // and the $7,200 gap was the rent. A reader subtracts these; they have to
+    // reconcile. Derived from the rounded values so they always add up exactly.
+    const pBill = Math.round(cur.grossYr);
+    const pTax = Math.round(cur.totalTax);
+    const pKeep = Math.round(cur.netYr);
+    const pCosts = pBill - pTax - pKeep;
+    const heads = [
+      ["You bill", fmt0(pBill), ""],
+      ["Running costs", fmt0(pCosts), "neg"],
+      ["Tax", fmt0(pTax), "neg"],
+      ["You keep", fmt0(pKeep), "pos"]
+    ];
+    return /*#__PURE__*/React.createElement("section", {className: "card planwrap"},
+      /*#__PURE__*/React.createElement("div", {className: "plan"},
+        /*#__PURE__*/React.createElement("div", {className: "plan-h"},
+          /*#__PURE__*/React.createElement("b", null, "Your practice, and the levers you have"),
+          /*#__PURE__*/React.createElement("span", null,
+            fmt0(sessionRate), "/hr \u00B7 ", sessPerWk, " sessions a week \u00B7 ",
+            weeksWorkedProp, " working weeks \u00B7 ", PLAN_DATE)),
+        /*#__PURE__*/React.createElement("div", {className: "plan-heads"},
+          heads.map(([k, v, tone]) => /*#__PURE__*/React.createElement("div", {
+            key: k, className: "plan-head plan-" + (tone || "n")
+          }, /*#__PURE__*/React.createElement("em", null, k),
+            /*#__PURE__*/React.createElement("b", null, v)))),
+        /*#__PURE__*/React.createElement("div", {className: "plan-levers"},
+          levers.map(l => /*#__PURE__*/React.createElement("div", {key: l.n, className: "plan-lev plan-lev-" + l.tone},
+            /*#__PURE__*/React.createElement("b", {className: "plan-n"}, l.n),
+            /*#__PURE__*/React.createElement("div", null,
+              /*#__PURE__*/React.createElement("b", null, l.h),
+              /*#__PURE__*/React.createElement("span", null, l.p)),
+            /*#__PURE__*/React.createElement("div", {className: "plan-v"}, l.v)))),
+        /*#__PURE__*/React.createElement("p", {className: "plan-foot"},
+          /*#__PURE__*/React.createElement("b", null, "Estimates only \u2014 not tax advice. "),
+          "Every figure recomputed from the numbers you entered, not a rule of thumb. Sole proprietor unless you changed the structure above. Talk to a CPA before acting on it.")),
+      planActions);
+  })();
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, taxHero, taxHero ? null : keepOpener, basicsBlock, retVerdict, retPrimer, retReceipt, retLever, retWorking, scorpFold, workingToggle, secOpener, stepperRail, introSection, returnPresets, taxProfileSection,
     structureGate,
     structureOpen ? mobileFold("bs", "Business structure", isSole ? "Sole Proprietorship \u00b7 tap to change" : "Professional Corp \u00b7 tap to change", businessStructureSection) : null,
     structureOpen ? mobileFold("cmp", "Both structures, side by side", horizonReady ? "all 28 rows" : "21 rows now, 9 more after step 1", entityCompareSection) : null,
-    structureOpen && ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null, expertSection, leversPanel, step1Done &&/*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
+    structureOpen && ssDetail ? mobileFold("ssd", "Social Security, in full", "monthly at 62, 67 and 70 \u00b7 what travels abroad", ssDetail) : null, expertSection, planBlock, leversPanel, step1Done &&/*#__PURE__*/React.createElement("details", {className: "card collapsible taxdetail"}, /*#__PURE__*/React.createElement("summary", {className: "card-head"}, /*#__PURE__*/React.createElement("h2", null, "How the rules actually work"), /*#__PURE__*/React.createElement("p", null, "Self-employment tax mechanics, the S-corp election and audit risk, choosing a structure in California, and the Social Security trade-off in full. Reference material \u2014 read it once, then ignore it.")), seEducation, scorpSection, caSection, analysisSection));
 }
 
 function FunnelTab({
@@ -7854,6 +8016,47 @@ section.card.basics{background:#FBF6E9; border:1px solid #E4D9BE;}
 .lad em{font-style:normal; font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; color:#A9A08B; font-weight:700;}
 .lad-here{border-color:#C98B4B; background:#FFFDF7;}
 .lad-here b, .lad-here em{color:#C98B4B;}
+/* Three habits, replacing the five-rung ladder. Colour-coded on the same
+   money-in / money-out / neutral logic used elsewhere, so a glance separates
+   "hold this back" from "this grows" from "housekeeping". */
+.hab-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:4px 0 18px;}
+.hab{--tone:var(--ink); border:1.5px solid var(--line); border-top:4px solid var(--tone);
+  border-radius:12px; padding:16px 17px 14px; background:#FCFAF5; display:flex; flex-direction:column;}
+.hab-res{--tone:#A34840;} .hab-ret{--tone:#2F7A61;} .hab-bk{--tone:#C98B4B;}
+.hab-n{font-family:'Fraunces',serif; font-size:26px; font-weight:700; color:var(--tone); line-height:1;}
+.hab > b{font-family:'Fraunces',serif; font-size:16px; line-height:1.25; margin:7px 0 6px;}
+.hab p{margin:0; font-size:12.5px; line-height:1.6; color:var(--muted); flex:1;}
+.hab-do{margin-top:11px; padding-top:9px; border-top:1px dotted var(--line);
+  display:flex; align-items:baseline; justify-content:space-between; gap:10px;}
+.hab-do em{font-style:normal; font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.05em; color:var(--tone);}
+.hab-do span{font-family:'Fraunces',serif; font-weight:700; font-size:16px;}
+/* The checklist, folded. Grouped by who is asking rather than by step. */
+.ckfold > summary b{font-family:'Fraunces',serif; font-size:15px;}
+.ckfold > summary span{display:block; font-size:12.5px; color:var(--muted); margin-top:2px;}
+.ckwrap{margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:18px 26px;}
+.ckg{--tone:var(--ink);}
+.ckg-res{--tone:#A34840;} .ckg-ca{--tone:#C98B4B;} .ckg-ret{--tone:#2F7A61;} .ckg-bk{--tone:var(--ink);}
+.ckg-h{display:flex; align-items:center; gap:9px; padding-bottom:6px; margin-bottom:4px;
+  border-bottom:2px solid var(--tone);}
+.ckg-who{font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:11px; font-weight:600;
+  text-transform:uppercase; letter-spacing:.06em; background:var(--tone); color:#fff;
+  padding:2px 7px; border-radius:4px;}
+.ckg-h > b{font-family:'Fraunces',serif; font-size:15px;}
+.ckg-when{margin-left:auto; font-size:11px; color:var(--muted);}
+.ckr{display:grid; grid-template-columns:18px 1fr 96px; gap:10px; align-items:start;
+  padding:8px 0; border-bottom:1px dotted var(--line);}
+.ckr:last-child{border-bottom:0;}
+.ckbox{width:15px; height:15px; border:2px solid #C9C1AE; border-radius:4px; margin-top:2px;}
+.ckr b{font-size:13.5px; font-weight:600; display:block; line-height:1.35;}
+.ckr span{font-size:12px; color:var(--muted); line-height:1.5; display:block; margin-top:2px;}
+.ckamt{font-family:'Fraunces',serif; font-weight:700; font-size:14px; text-align:right;}
+.ckamt em{display:block; font-style:normal; font-size:11px; color:var(--muted);
+  font-family:Inter,sans-serif; font-weight:500; margin-top:1px;}
+@media (max-width:900px){
+  .hab-grid{grid-template-columns:1fr; gap:10px;}
+  .ckwrap{grid-template-columns:1fr; gap:16px;}
+}
 .basics-rung{display:flex; align-items:baseline; gap:10px; margin:26px 0 12px;
   font-family:Fraunces,Georgia,serif; font-size:17px;}
 .basics-rung i{font-style:normal; font-size:10.5px; letter-spacing:.09em; text-transform:uppercase;
@@ -9192,6 +9395,81 @@ section.card.sgate{border-left:3px solid #C98B4B;}
 .save-menu button:hover{background:#F7F3E9;}
 .save-menu button + button{border-top:1px solid var(--line);}
 .summary-btn:hover{background:#EAE4D6;}
+/* ---- the one-page plan (direction B3) ---- */
+.planwrap{padding:0; overflow:hidden;}
+.plan{padding:26px 30px 22px;}
+.plan-h{text-align:center; border-bottom:2px solid var(--ink); padding-bottom:12px; margin-bottom:16px;}
+.plan-h b{font-family:'Fraunces',serif; font-size:21px; display:block; letter-spacing:.01em;}
+.plan-h span{font-size:11.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
+.plan-heads{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px;}
+.plan-head{background:#F3EFE5; border-radius:10px; padding:13px 15px;}
+.plan-head em{font-style:normal; display:block; font-size:11px; font-weight:700;
+  text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:3px;}
+.plan-head b{font-family:'Fraunces',serif; font-size:21px;}
+.plan-neg b{color:#A34840;}
+.plan-pos{background:#EAF3EE;}
+.plan-pos em{color:#2F7A61;} .plan-pos b{color:#2F7A61;}
+.plan-lev{display:grid; grid-template-columns:26px 1fr 118px; gap:12px; align-items:start;
+  padding:11px 0; border-bottom:1px dotted var(--line);}
+.plan-lev:last-child{border-bottom:0;}
+.plan-n{font-family:'Fraunces',serif; font-size:17px; color:#2F7A61;}
+.plan-lev-flat .plan-n{color:var(--muted);}
+.plan-lev > div > b{font-size:14.5px; display:block;}
+.plan-lev span{font-size:12.5px; color:var(--muted); line-height:1.55; display:block; margin-top:2px;}
+.plan-v{font-family:'Fraunces',serif; font-weight:700; font-size:16px; text-align:right; color:#2F7A61;}
+.plan-lev-flat .plan-v{color:var(--muted);}
+.plan-foot{margin:16px 0 0; padding-top:13px; border-top:1px solid var(--line);
+  font-size:11.5px; color:var(--muted); line-height:1.6;}
+/* actions strip - never printed */
+.plan-act{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:center;
+  background:#F6F2E8; border-top:1px solid var(--line); padding:20px 30px 22px;}
+.plan-act-copy b{font-family:'Fraunces',serif; font-size:17px; display:block; margin-bottom:5px;}
+.plan-act-copy p{margin:0; font-size:13px; color:var(--muted); line-height:1.6;}
+.plan-form label{display:block; font-size:11px; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--muted); margin-bottom:4px;}
+.plan-form input[type=email]{width:100%; padding:11px 13px; border:1.5px solid #E4D9BE;
+  border-radius:9px; background:#FBF6E9; font:inherit; font-size:14.5px;}
+.plan-send{margin-top:9px; width:100%; min-height:44px; padding:12px; border:none; border-radius:9px;
+  background:#2F7A61; color:#fff; font:inherit; font-weight:700; font-size:14px; cursor:pointer;}
+.plan-send:disabled{background:#B9C7C0; cursor:not-allowed;}
+.plan-consent{display:flex; gap:8px; align-items:flex-start; margin-top:10px;
+  font-size:11.5px; color:var(--muted); line-height:1.5; text-transform:none;
+  letter-spacing:0; font-weight:400;}
+.plan-consent input{margin-top:2px; width:20px; height:20px; flex:0 0 auto;}
+/* Clicking the label toggles the box, so the label is the real tap target -
+   give it the full height rather than inflating the checkbox to 44px, which
+   would look absurd. */
+@media (max-width:780px){ .planner .plan-consent{min-height:44px; align-items:center;} }
+.plan-skip{display:block; width:100%; min-height:44px; margin-top:8px; background:none; border:none;
+  font:inherit; font-size:12.5px; color:var(--muted); text-decoration:underline;
+  text-underline-offset:2px; cursor:pointer;}
+.plan-skip:hover{color:var(--ink);}
+.plan-ok{margin:0; font-size:14px; color:#2F7A61; font-weight:600; line-height:1.6;}
+.plan-err{margin:8px 0 0; font-size:12.5px; color:#A34840; line-height:1.5;}
+@media (max-width:760px){
+  .plan{padding:20px 18px 18px;}
+  .plan-act{grid-template-columns:1fr; gap:14px; padding:18px;}
+  .plan-heads{grid-template-columns:1fr; gap:8px;}
+  .plan-lev{grid-template-columns:22px 1fr; gap:8px;}
+  .plan-v{grid-column:2; text-align:left; margin-top:4px;}
+}
+@media print{
+  /* "Just print it" tags the plan and every ancestor, then hides each tagged
+     element's other children. One page out, not the whole simulator, and it
+     does not care how deeply the plan happens to be nested. */
+  body.plan-only .plan-keep > *:not(.plan-keep):not(.plan-root){display:none !important;}
+  body.plan-only .sitenav, body.plan-only .sitefoot, body.plan-only .foot{display:none !important;}
+  body.plan-only .plan-root{border:none; box-shadow:none; margin:0;}
+  /* A Letter page is about 660px of content once margins are taken, which is
+     under the 760px phone breakpoint - so without this the printed sheet
+     inherits the stacked mobile layout and runs to two pages. */
+  body.plan-only .plan-heads{grid-template-columns:repeat(4,1fr) !important; gap:8px !important;}
+  body.plan-only .plan-lev{grid-template-columns:26px 1fr 110px !important; gap:10px !important;}
+  body.plan-only .plan-v{grid-column:auto !important; text-align:right !important; margin-top:0 !important;}
+  body.plan-only .plan{padding:0 !important;}
+  body.plan-only .plan-head b{font-size:17px;}
+  .plan-act{display:none !important;}
+}
 @media print{
   .sticky-summary,.tabs,.control-val-input,input[type=range],.toggle,.pill,.residency-toggle,.summary-btn,.sticky-summary-actions,.exp-del,.funnel-input-field input,.job2-body input{-webkit-print-color-adjust:exact; print-color-adjust:exact;}
   .sticky-summary{display:none;}
