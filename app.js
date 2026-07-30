@@ -1489,7 +1489,12 @@ function PracticeIncomePlanner() {
     const d = SECTION_INTROS[key];
     if (!d) return null;
     return /*#__PURE__*/React.createElement("div", {
-      className: "sec-intro"
+      // Per-section accent. Income / Expenses / Profit were typographically
+      // identical - same 30px ink heading, no background, no rule - so landing
+      // mid-page told you nothing about which one you were in. The colours are
+      // the ones the waterfall already uses for the same three quantities:
+      // money in, money out, what is left. Nothing new invented.
+      className: "sec-intro sec-intro-" + key
     }, /*#__PURE__*/React.createElement("div", {
       className: "sec-intro-top"
     }, /*#__PURE__*/React.createElement("span", {
@@ -2612,8 +2617,10 @@ function PracticeIncomePlanner() {
         }, /*#__PURE__*/React.createElement("b", null, "Load a worked example"),
           /*#__PURE__*/React.createElement("span", null, "$150/hr, 25 sessions · change it after →"))),
 
-      /*#__PURE__*/React.createElement("p", {className: "lnd-fine"},
-        "Built for California specifically: a licensed practice here cannot use an LLC (Corp. Code §17701.04(e)), associates must be W-2 employees (B&P §4980.43.3), and the state has its own brackets, a 1.3% SDI rate with no wage cap, and a 1.5% entity-level fee. Most calculators get at least one of those wrong.")),
+      /* The "Built for California specifically" note moved to the footer, beside
+         the other disclaimers. It is a credibility line, not something you need
+         before entering a rate, and it was the last thing between the call to
+         action and the fold. */),
 
     RETURNING_USER ? null : /*#__PURE__*/React.createElement("section", {className: "lnd-covers"},
       /*#__PURE__*/React.createElement("p", {className: "lnd-cov-h"}, "Everything it covers"),
@@ -4169,7 +4176,11 @@ function PracticeIncomePlanner() {
       ? "Text goes straight through \u2014 no email app needed. A link back to your exact setup travels with it, so I can load the same numbers you were looking at. Your name is optional and nothing else is collected."
       : "Opens your email app with everything filled in, including a link back to your exact setup so I can see what you're seeing. Nothing is sent automatically \u2014 you'll see the draft before it goes anywhere.")), /*#__PURE__*/React.createElement("footer", {
     className: "foot"
-  }, /*#__PURE__*/React.createElement("strong", null, "Estimates only — not tax advice."), " 2026 CA single-filer model. Practice income is treated as ", /*#__PURE__*/React.createElement("strong", null, "1099 / self-employed"), ": business expenses are deducted on Schedule\xA0C, self-employment tax (15.3% on 92.35% of net earnings) applies, and the QBI deduction is included with the SSTB phase-out that affects therapists at higher incomes. California has no city or county ", /*#__PURE__*/React.createElement("em", null, "income"), " tax — state tax is identical everywhere in CA. The second job is treated as W-2 wages with employee FICA and CA SDI; its wages share the Social Security wage base with your self-employment income. Federal figures are the final 2026 amounts from IRS Rev. Proc. 2025-32, including the wider \u00A7199A phase-out and the $2,200 child tax credit enacted by the One Big Beautiful Bill Act (Pub. L. 119-21). California has not published 2026 rate schedules yet \u2014 the FTB\u0027s own 2026 Form 540-ES instructs filers to use the 2025 tables, so that is what this uses, together with the 2026 SDI rate of 1.3% and no wage cap. Real figures depend on your entity type (sole prop vs. S-corp), retirement contributions, home-office and mileage deductions, quarterly estimated payments, and actual filing status — talk to a CPA before making decisions on these numbers."), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("strong", null, "Estimates only — not tax advice."), " 2026 CA single-filer model. Practice income is treated as ", /*#__PURE__*/React.createElement("strong", null, "1099 / self-employed"), ": business expenses are deducted on Schedule\xA0C, self-employment tax (15.3% on 92.35% of net earnings) applies, and the QBI deduction is included with the SSTB phase-out that affects therapists at higher incomes. California has no city or county ", /*#__PURE__*/React.createElement("em", null, "income"), " tax — state tax is identical everywhere in CA. The second job is treated as W-2 wages with employee FICA and CA SDI; its wages share the Social Security wage base with your self-employment income. Federal figures are the final 2026 amounts from IRS Rev. Proc. 2025-32, including the wider \u00A7199A phase-out and the $2,200 child tax credit enacted by the One Big Beautiful Bill Act (Pub. L. 119-21). California has not published 2026 rate schedules yet \u2014 the FTB\u0027s own 2026 Form 540-ES instructs filers to use the 2025 tables, so that is what this uses, together with the 2026 SDI rate of 1.3% and no wage cap. Real figures depend on your entity type (sole prop vs. S-corp), retirement contributions, home-office and mileage deductions, quarterly estimated payments, and actual filing status — talk to a CPA before making decisions on these numbers."), /*#__PURE__*/React.createElement("p", {
+    className: "foot foot-ca"
+  }, /*#__PURE__*/React.createElement("strong", null, "Built for California specifically."),
+    " A licensed practice here cannot use an LLC (Corp. Code \u00A717701.04(e)), associates must be W-2 employees (B&P \u00A74980.43.3), and the state has its own brackets, a 1.3% SDI rate with no wage cap, and a 1.5% entity-level fee. Most calculators get at least one of those wrong."),
+  /*#__PURE__*/React.createElement("div", {
     className: "sitefoot"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-mark"
@@ -4939,7 +4950,7 @@ const seEducation = (function () {
         /*#__PURE__*/React.createElement("tbody", null, structureBody))),
     horizonReady ? ssVerdict : horizonPeek,
     /*#__PURE__*/React.createElement("p", {className: "pay-note"},
-      "“Difference” is the Professional Corp column measured against Sole Proprietorship — green where the corp is ahead, red where it costs more, and ▲ marks the better of the two on rows where one genuinely is better. Retirement rows show what each plan would allow, not a recommendation to open all of them: a Solo 401(k) and a SIMPLE IRA cannot both run in the same year, and a SEP or SIMPLE balance is pre-tax IRA money that makes a backdoor Roth worse. Social Security figures assume this year's earnings pattern repeats and use 2026 bend points, which in reality lock in at age 62 — treat them as an approximation of the gap, not a benefit statement."))
+      "“Difference” is the Professional Corp column measured against Sole Proprietorship — green where the corp is ahead, red where it costs more, and ▲ marks the better of the two on rows where one genuinely is better. Retirement rows show what each plan would allow, not a recommendation to open all of them: a Solo 401(k) and a SIMPLE IRA cannot both run in the same year, and a SEP or SIMPLE balance is pre-tax IRA money that makes a backdoor Roth worse. Social Security figures assume this year's earnings pattern repeats, keeping pace with national wage growth, and are expressed in today's dollars — treat them as an approximation of the gap, not a benefit statement."))
 
   const entityToggle = /*#__PURE__*/React.createElement("div", {
     className: "entpick"
@@ -5612,13 +5623,13 @@ const netDiff = sCorpFullYear.net - soleFullYear.net;
     /*#__PURE__*/React.createElement("div", {className: "ssd-ass"},
       /*#__PURE__*/React.createElement("b", null, "What this projection assumes — read before trusting a figure"),
       /*#__PURE__*/React.createElement("ul", null,
-        /*#__PURE__*/React.createElement("li", null, "That ", /*#__PURE__*/React.createElement("b", null, "this year's earnings repeat for " + ssCmp.yearsForAIME + " years"), ", until you turn ", SS_FRA_AGE, ". One good year does not produce these numbers."),
+        /*#__PURE__*/React.createElement("li", null, "That ", /*#__PURE__*/React.createElement("b", null, "this year's earnings repeat for " + ssCmp.yearsForAIME + " years"), ", until you turn ", SS_FRA_AGE, ". One good year does not produce these numbers. And \u201Crepeat\u201D here means keeping pace with national wage growth \u2014 SSA\u2019s own Statement instead assumes your pay stays flat in ", /*#__PURE__*/React.createElement("em", null, "nominal"), " terms, which is more conservative. The younger you are, the wider that gap, so read this as the optimistic end."),
         ssCmp.careerKnown ? null : /*#__PURE__*/React.createElement("li", null,
           "That you started earning at ", /*#__PURE__*/React.createElement("b", null, "age " + SS_CAREER_START_DEFAULT),
           " \u2014 an assumption, because you have not filled in \u201CEarning since age\u201D. Social Security averages your highest 35 years, so the start age drives the figure as much as the income does. Enter your real one above and this recalculates."),
         /*#__PURE__*/React.createElement("li", null, "Benefits use your ", /*#__PURE__*/React.createElement("b", null, "highest 35 years"), ". Fewer than 35 working years and SSA fills the gaps with zeros, pulling the average down."),
         /*#__PURE__*/React.createElement("li", null, "Lifetime totals run ", /*#__PURE__*/React.createElement("b", null, SS_FRA_AGE + " to 90"), " — ", ssCmp.lifetimeYears, " years of payments. Live longer and Social Security wins by more; die earlier and it wins by less. That is what an annuity is."),
-        /*#__PURE__*/React.createElement("li", null, "Figures are in ", /*#__PURE__*/React.createElement("b", null, "today's dollars"), ", before cost-of-living increases, and use ", /*#__PURE__*/React.createElement("b", null, "2026 bend points"), " — which in reality lock in at age 62, not today."),
+        /*#__PURE__*/React.createElement("li", null, "Figures are in ", /*#__PURE__*/React.createElement("b", null, "today's dollars"), ", before cost-of-living increases. Bend points do lock in at 62 — but they and your earnings are both indexed to national wage growth, so pairing this year's bend points with this year's earnings is exactly how a future benefit gets expressed in today's money. It is what SSA's own Statement does.", /*#__PURE__*/React.createElement("sup", null, "[8]")),
         /*#__PURE__*/React.createElement("li", null, "Capped at SSA's published maximum at full retirement age, ", /*#__PURE__*/React.createElement("b", null, "$4,152 a month"), " for 2026. A simplified model built from flat earnings can otherwise exceed what anyone can actually receive."),
         /*#__PURE__*/React.createElement("li", null, "You need ", /*#__PURE__*/React.createElement("b", null, "40 credits"), " — about 10 years of covered work — to qualify at all. A corporation paying you nothing earns none."),
         /*#__PURE__*/React.createElement("li", null, "The only official figure is your own ", extLink("https://www.ssa.gov/myaccount/", "my Social Security"), " statement, which uses your real earnings history. This tool has never seen it."))),
@@ -6460,7 +6471,7 @@ const ssSection = (function () {
     {n:5, cite:"David E. Watson, P.C. v. United States, 668 F.3d 1008 (8th Cir. 2012)", url:"https://ecf.ca8.uscourts.gov/opndir/12/02/111589P.pdf", note:"a $24,000 salary alongside $203,651 in distributions was recharacterised to $91,044 of wages."},
     {n:6, cite:"Nu-Look Design, Inc. v. Commissioner, 356 F.3d 290 (3d Cir. 2004)", url:"https://scholar.google.com/scholar?q=Nu-Look+Design+v.+Commissioner+356+F.3d+290", note:null},
     {n:7, cite:"IRC \u00A76651 and \u00A76656", url:"https://www.law.cornell.edu/uscode/text/26/6651", note:"standard IRS penalty and interest provisions on reclassified back payroll tax assessments."},
-    {n:8, cite:"Social Security Act \u00A7215(a)(1)(A)", url:"https://www.ssa.gov/OP_Home/ssact/title02/0215.htm", note:"2026 bend points ($1,286 / $7,749) and wage base ($184,500) per SSA/Congressional Research Service published figures \u2014 AIME divides your highest 35 years of indexed earnings by 420 months."}
+    {n:8, cite:"Social Security Act \u00A7215(a)(1)(A)", url:"https://www.ssa.gov/OP_Home/ssact/title02/0215.htm", note:"2026 bend points ($1,286 / $7,749) and wage base ($184,500) per SSA/Congressional Research Service published figures \u2014 AIME divides your highest 35 years of indexed earnings by 420 months. Bend points are indexed to the national average wage and lock in at age 62, and earnings are wage-indexed on the same series, so current bend points paired with current earnings give a benefit in today\u2019s dollars \u2014 the presentation SSA uses in its own Statement."}
   ])), /*#__PURE__*/React.createElement("p", {
     className: "pay-note"
   }, "None of this is personalized legal or tax advice \u2014 reasonable-compensation determinations are fact-specific; work with a CPA before electing S-corp status or setting a salary."));
@@ -7665,7 +7676,22 @@ const CSS = `
 /* jumps must clear the sticky nav, or you arrive underneath it */
 .planner #sec-income,.planner #sec-expenses,.planner #sec-profit,
 .planner #sec-taxstrategy,.planner #sec-residency,.planner #sec-funnel{scroll-margin-top:86px;}
-.sec-intro{border-top:2px solid var(--ink); padding:18px 0 4px; margin:34px 0 18px;}
+/* Per-section accent. Income / Expenses / Profit shared one ink rule and one
+   30px ink heading, so arriving mid-page — from the nav or a scroll — told you
+   nothing about which of the three you were in. Three signals now, none of
+   which cost any height: the rule takes the section's colour, a short heavy tab
+   sits at its left, and the kicker matches. The colours are the ones the
+   waterfall already uses for these same three quantities: money in, money out,
+   what is left. Darker than the bar fills because this is small text and has to
+   clear 4.5:1 on cream. */
+.sec-intro{--accent:var(--ink); border-top:2px solid var(--accent);
+  padding:18px 0 4px; margin:34px 0 18px; position:relative;}
+.sec-intro::before{content:""; position:absolute; top:-2px; left:0; width:64px; height:6px;
+  background:var(--accent); border-radius:0 0 3px 0;}
+.sec-intro .sec-intro-kicker{color:var(--accent);}
+.sec-intro-income{--accent:#2F7A61;}
+.sec-intro-expenses{--accent:#A34840;}
+.sec-intro-profit{--accent:#26241E;}
 .sec-intro-top{display:flex; align-items:baseline; justify-content:space-between; gap:16px;
   flex-wrap:wrap; margin-bottom:7px;}
 .sec-intro-kicker{font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
@@ -10185,6 +10211,10 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .lnd-cold{font-size:15px; line-height:1.62; color:rgba(255,255,255,.82); max-width:62ch;
   margin:0 0 4px; padding:16px 18px; background:rgba(255,255,255,.08); border-radius:13px;}
 .lnd-who{display:flex; gap:8px; flex-wrap:wrap; margin:0 0 24px;}
+/* Hidden on desktop. The chips answer "is this for me?", which is worth a row on
+   a phone where the band is one narrow column, but on a wide screen they were a
+   full-width strip of nouns sitting between the headline and the controls. */
+@media (min-width:900px){ .planner .lnd-who{display:none;} }
 .lnd-who span{font-size:11.5px; font-weight:600; border-radius:20px; padding:6px 13px;
   background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.93);}
 .lnd-proof{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-bottom:14px;}
