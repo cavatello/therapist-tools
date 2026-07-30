@@ -4203,7 +4203,7 @@ function PracticeIncomePlanner() {
     rel: /^https?:/.test(href) ? "noopener noreferrer" : null
   }, t))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 29, 2026"), /*#__PURE__*/React.createElement("div", {
+  }, "Last updated: July 30, 2026"), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-by"
   }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."),
     " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
@@ -10185,7 +10185,13 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .planner .lnd{display:grid; grid-template-columns:1.18fr .82fr; column-gap:28px;
     align-items:start; padding:30px 34px 28px;}
   .planner .lnd > *{grid-column:1;}
-  .planner .lnd > .lnd-ctl{grid-column:2; grid-row:2 / span 20; align-self:start;}
+  .planner .lnd > .lnd-ctl{grid-column:2; grid-row:2 / span 20; align-self:stretch;
+    display:flex; flex-direction:column;}
+  /* The panel is shorter than the lede plus the three stat cards beside it,
+     which left a block of bare green in the corner. Stretching it to the
+     full height of the rows it spans and pushing the working-weeks line to
+     the bottom fills that corner with the panel instead of with nothing. */
+  .planner .lnd > .lnd-ctl > .lnd-ctl-n{margin-top:auto; padding-top:10px;}
   .planner .lnd-h{font-size:clamp(26px,2.9vw,38px); margin-bottom:14px; max-width:none;}
   .planner .lnd-lede{font-size:14.5px; margin-bottom:14px;}
   .planner .lnd-who{margin-bottom:14px;}
@@ -10198,6 +10204,78 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   .planner .lnd-bar{height:42px;}
   .planner .lnd-ctas{margin-top:16px;}
   .planner .lnd-fine{margin-top:14px; font-size:11.5px;}
+}
+
+/* ------------------------------------------------------------------
+   THE 14-INCH FOLD.
+
+   A 14" MacBook running Safari with a tab strip and a bookmarks bar
+   leaves roughly 760px of page. Measured on the worked example, the
+   band was 915px tall, so the two calls to action - the only things
+   on the first screen that move you forward - were exactly the part
+   that fell off. Two separate fixes:
+
+   1. The button row spans both columns. It was confined to column
+      one, which is about 620px wide, and the pair needs more than
+      that, so it wrapped and cost 81px in height for no reason.
+   2. Below 900px of viewport height everything above the buttons
+      gives up a few pixels of padding and type size. This is keyed
+      on height, not width, so a desktop monitor keeps the roomier
+      version and only the laptop case tightens.
+   ------------------------------------------------------------------ */
+@media (min-width:900px){
+  .planner .lnd > .lnd-barwrap,
+  .planner .lnd > .lnd-cold,
+  .planner .lnd > .lnd-ctas{grid-column:1 / -1;}
+}
+@media (min-width:900px) and (max-height:900px){
+  .planner .lnd{padding:22px 34px 22px;}
+  .planner .lnd-h{font-size:clamp(26px,2.7vw,35px); margin-bottom:10px;}
+  .planner .lnd-lede{line-height:1.58; margin-bottom:12px;}
+  .planner .lnd-ctl{padding:13px 15px 14px;}
+  .planner .lnd-ctl-h{margin-bottom:9px; letter-spacing:.085em;}
+  .planner .lnd-ctl-row{margin-bottom:9px;}
+  .planner .lnd-ctl-row label{padding:7px 12px;}
+  .planner .lnd-ctl-res{margin-top:10px; padding-top:9px;}
+  .planner .lnd-ctl-n{margin-top:8px; font-size:10.5px;}
+  .planner .lnd-proof{gap:10px; margin-bottom:11px;}
+  .planner .lnd-pf{padding:11px 13px 12px;}
+  .planner .lnd-pf em{margin-bottom:6px;}
+  .planner .lnd-pf strong{font-size:clamp(19px,1.8vw,22px);}
+  .planner .lnd-pf p{font-size:10.5px; margin-top:6px; line-height:1.5;}
+  .planner .lnd-barwrap{padding:13px 15px 14px;}
+  .planner .lnd-barh{margin-bottom:9px;}
+  .planner .lnd-bar{height:38px;}
+  .planner .lnd-barnote{margin-top:9px; font-size:11.5px; gap:18px;}
+  .planner .lnd-cold{padding:12px 15px; font-size:13.5px;}
+  .planner .lnd-ctas{margin-top:12px;}
+  .planner .lnd-go{padding:12px 22px;}
+  .planner .lnd-go b{font-size:16.5px;}
+  .planner .lnd-go span{font-size:11.5px;}
+}
+/* Second tier, for a small window on a laptop rather than a full screen.
+   Below 720px of page the first tier still leaves the buttons about 25px
+   short, so the lede drops a size and the remaining boxes give up the
+   last of their padding. */
+@media (min-width:900px) and (max-height:720px){
+  .planner .lnd{padding:16px 30px 13px;}
+  .planner .lnd-cold{padding:10px 13px; font-size:13px;}
+  .planner .lnd-h{font-size:clamp(24px,2.4vw,30px); margin-bottom:8px;}
+  .planner .lnd-lede{font-size:13.5px; line-height:1.55; margin-bottom:10px;}
+  .planner .lnd-ctl{padding:12px 14px 12px;}
+  .planner .lnd-ctl-row{margin-bottom:8px;}
+  .planner .lnd-proof{gap:9px; margin-bottom:9px;}
+  .planner .lnd-pf{padding:9px 11px 10px;}
+  .planner .lnd-pf strong{font-size:clamp(18px,1.7vw,20px);}
+  .planner .lnd-pf p{font-size:10px; margin-top:5px;}
+  .planner .lnd-barwrap{padding:11px 13px 12px;}
+  .planner .lnd-barh{margin-bottom:7px;}
+  .planner .lnd-bar{height:34px;}
+  .planner .lnd-barnote{margin-top:7px; font-size:11px;}
+  .planner .lnd-ctas{margin-top:9px;}
+  .planner .lnd-go{padding:9px 19px;}
+  .planner .lnd-go b{font-size:15.5px;}
+  .planner .lnd-go span{font-size:11px;}
 }
 .lnd-ctl{background:rgba(255,255,255,.11); border-radius:14px; padding:16px 17px 17px;}
 .lnd-ctl-h{font-size:9.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
