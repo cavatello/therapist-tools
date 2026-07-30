@@ -810,12 +810,24 @@ function computePittsburgh(revenueUSD, expensesUSD, retireDed, filingStatus, seh
   const fedTax = fedLayer(schedC, 0, halfSE, retireDed + sehiDed, filingStatus).fedTax;
   const addlMed = addlMedFor(seBase, 0, filingStatus);
   // PA deliberately keeps the premium deducted (cashProfit, not schedC).
-  // Pennsylvania computes net profits under its own rules and I could not find
-  // a citable PA source either way on a proprietor's own health premium - the
-  // PIT Guide's "Net Income (Loss) from the Operation of a Business" chapter
-  // covers retirement contributions explicitly and says nothing about health
-  // insurance. Leaving PA's treatment exactly as it was is the honest default;
-  // do not "fix" this to match the federal add-back without a citation.
+  // Pennsylvania computes net profits under its own rules and there is no
+  // citable PA source either way on a proprietor's OWN health premium. Two PA
+  // Department of Revenue PIT Guide chapters were read in full and both are
+  // silent on it:
+  //   "Net Income (Loss) from the Operation of a Business, Profession or Farm"
+  //     - covers retirement contributions explicitly, health insurance not at all
+  //   "Gross Compensation"
+  //     - says PA allows no deduction for "personal expenses, federal itemized
+  //       deductions, or federal standard deductions", which implies PA would
+  //       not honour the federal s.162(l) ADJUSTMENT - but that chapter is about
+  //       employee compensation, and it does not answer whether the premium is
+  //       an allowable business expense on PA Schedule C, which is the actual
+  //       question here and the mechanism this code uses.
+  // So: genuinely unresolved, not merely unchecked. Leaving PA's treatment
+  // exactly as it was is the honest default. Do not "fix" this to match the
+  // federal add-back without a citation, and do not re-run the same search -
+  // it needs a PA-40 Schedule C instruction or a Department ruling, not a
+  // general PIT Guide chapter.
   const paTax = cashProfit * PA_FLAT_RATE;
   const eitTax = cashProfit * PITTSBURGH_EIT_RATE;
   const lst = PITTSBURGH_LST;
