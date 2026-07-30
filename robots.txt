@@ -1,2 +1,11 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+# Internal mockups, not content. concepts.html is a layout scratchpad and
+# tycoon.html is an illustrative game-styled mockup with no real calculations
+# behind it - neither should turn up in search results for a therapist looking
+# for tax figures.
+Disallow: /concepts.html
+Disallow: /tycoon.html
+
+Sitemap: https://cavatello.github.io/therapist-tools/sitemap.xml

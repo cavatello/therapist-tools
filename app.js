@@ -469,6 +469,14 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   opts = opts || {};
   const personalRetirement = opts.personalRetirement || 0;
   const sehiPremium = Math.max(0, opts.sehi || 0);
+  // otherOrdinaryIncome: income taxed at ordinary rates that carries NO
+  // self-employment tax and NO FICA - a Roth conversion is the case this exists
+  // for. It lands in AGI, so it raises taxable income and therefore interacts
+  // with the QBI limits, which is exactly the effect a flat marginal rate
+  // cannot express. It is deliberately NOT added to grossAll, so a run using it
+  // answers "what tax would this cost", not "what is my net" - read totalTax
+  // from such a run, never net.
+  const otherOrdinaryIncome = Math.max(0, opts.otherOrdinaryIncome || 0);
   filingStatus = filingStatus || "single";
   numDependents = numDependents || 0;
   employerRetirement = employerRetirement || 0;
@@ -514,7 +522,7 @@ function computeYear(practiceGross, expenses, w2Wages, filingStatus, numDependen
   // the profit. Not modelled: the s.162(l)(2)(B) bar when the taxpayer is
   // eligible for a subsidised plan through a spouse's employer.
   const sehiDed = Math.min(sehiAddBack, Math.max(0, schedC - halfSE));
-  const agi = Math.max(0, schedC + kDistribution + totalW2 - halfSE - sehiDed - employeeRetirement);
+  const agi = Math.max(0, schedC + kDistribution + totalW2 + otherOrdinaryIncome - halfSE - sehiDed - employeeRetirement);
   const taxableBeforeQBI = Math.max(0, agi - fedStd);
   // Treas. Reg. s.1.199A-3(b)(1)(vi): qualified business income is net of
   // deductions "attributable to the trade or business" - which the regulation
@@ -1953,11 +1961,20 @@ function PracticeIncomePlanner() {
     // dollar), never to price a whole deduction - see savedBy below.
     const rateProbe = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr + 1000, job2Yr, filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput, {sehi: sehiYr});
     const marginalRate = Math.max(0, Math.min(0.90, (entityForRetirement.totalTax - rateProbe.totalTax) / 1000));
-    // Income tax only (federal + CA), no SE tax. A Roth conversion is ordinary
-    // income and owes no self-employment tax, so pricing it at the all-in
-    // marginal rate overcharged it by the SE component.
-    const incomeMarginalRate = Math.max(0, Math.min(0.90,
-      ((entityForRetirement.fedTax + entityForRetirement.caTax) - (rateProbe.fedTax + rateProbe.caTax)) / 1000));
+    // What a slice of extra ORDINARY income actually costs - a Roth conversion,
+    // which owes no SE tax and no FICA. This replaced a flat marginal rate, for
+    // the same reason every other figure here did: a rate measured on one dollar
+    // cannot price a band. Usually the flat rate was $50-$175 low. At $312.5k of
+    // single-filer profit it was $1,136 HIGH, because the probe reads the steep
+    // QBI phase-out slope while the conversion only has $2,681 of QBI deduction
+    // left to destroy. Wrong in both directions, so measure it.
+    const taxOnExtraIncome = amt => {
+      if (!(amt > 0)) return 0;
+      const withIt = computeYear(cur.grossTherYr + cur.otherIncomeYr, expYr, job2Yr,
+        filingStatus, numDependents, 0, 0, entityTypeArg, sCorpSalaryInput,
+        {sehi: sehiYr, otherOrdinaryIncome: amt});
+      return Math.max(0, withIt.totalTax - entityForRetirement.totalTax);
+    };
     // THE fix for this section. Every "tax savings" figure on screen used to be
     // contribution x marginalRate. That is the error this project already found
     // and fixed once in the money-flow block, and it survived everywhere else:
@@ -2032,7 +2049,7 @@ function PracticeIncomePlanner() {
       existingPretaxIRA,
       taxableFraction,
       taxableOnConversion,
-      conversionTax: taxableOnConversion * incomeMarginalRate,
+      conversionTax: taxOnExtraIncome(taxableOnConversion),
       futureValue: fvAnnuity(iraCap)
     };
     // ---- SEP IRA -----------------------------------------------------
@@ -4433,79 +4450,20 @@ function TaxStrategyTab({
     note: `at ${retireAge}, assuming ${investReturn}%/yr growth`
   }));
 
-  const strategyCard = (title, tag, body, badge) => /*#__PURE__*/React.createElement("div", {
-    className: "funnel-channel",
-    key: title
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "funnel-channel-head"
-  }, /*#__PURE__*/React.createElement("h3", null, title), badge && /*#__PURE__*/React.createElement("span", {
-    className: "funnel-channel-value",
-    style: {
-      color: color
-    }
-  }, badge)), /*#__PURE__*/React.createElement("p", {
-    className: "pay-note",
-    style: {
-      marginTop: 0
-    }
-  }, tag), body);
-
-  const traditionalBody = /*#__PURE__*/React.createElement("div", {
-    className: "funnel-mini-stats",
-    style: {
-      marginTop: 8
-    }
-  }, /*#__PURE__*/React.createElement("div", null, "Contribution limit ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.traditionalIra.cap))), /*#__PURE__*/React.createElement("div", null, "Deductible this year ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.traditionalIra.deductibleAmount), " (", Math.round(strategy.traditionalIra.deductPct * 100), "%)")), /*#__PURE__*/React.createElement("div", {
-    className: "pos"
-  }, "Tax savings ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.traditionalIra.taxSavings))), /*#__PURE__*/React.createElement("div", null, "Future value ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.traditionalIra.futureValue))));
-
-  const rothBody = /*#__PURE__*/React.createElement("div", {
-    className: "funnel-mini-stats",
-    style: {
-      marginTop: 8
-    }
-  }, /*#__PURE__*/React.createElement("div", null, "Contribution limit ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.rothIra.cap))), /*#__PURE__*/React.createElement("div", null, "Eligible this year ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.rothIra.eligibleAmount), " (", Math.round(strategy.rothIra.eligiblePct * 100), "%)")), /*#__PURE__*/React.createElement("div", null, "Tax savings now ", /*#__PURE__*/React.createElement("b", null, "$0 (after-tax)")), /*#__PURE__*/React.createElement("div", {
-    className: "pos"
-  }, "Future value, tax-free ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.rothIra.futureValue))));
-
-  const backdoorBody = /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    className: "funnel-input-grid",
-    style: {
-      gridTemplateColumns: "260px",
-      margin: "8px 0"
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "funnel-input-field"
-  }, /*#__PURE__*/React.createElement("label", null, "Existing pre-tax IRA/SEP/SIMPLE balance"), /*#__PURE__*/React.createElement("input", {
-    type: "number",
-    min: 0,
-    step: 1000,
-    value: existingPretaxIRA,
-    onChange: e => setExistingPretaxIRA(+e.target.value || 0)
-  }))), /*#__PURE__*/React.createElement("div", {
-    className: "funnel-mini-stats"
-  }, /*#__PURE__*/React.createElement("div", null, "Contribute (nondeductible) ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.backdoorRoth.contribution))), /*#__PURE__*/React.createElement("div", null, "Captures phased-out Roth room ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.backdoorRoth.phasedOutRoom))), /*#__PURE__*/React.createElement("div", {
-    className: strategy.backdoorRoth.taxableFraction > 0 ? "neg" : "pos"
-  }, "Taxable on conversion (pro-rata) ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.backdoorRoth.taxableOnConversion), " (", (strategy.backdoorRoth.taxableFraction * 100).toFixed(0), "%)")), /*#__PURE__*/React.createElement("div", null, "Conversion tax owed ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.backdoorRoth.conversionTax))), /*#__PURE__*/React.createElement("div", {
-    className: "pos"
-  }, "Future value, tax-free ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.backdoorRoth.futureValue)))));
-
-  const solo401kBody = /*#__PURE__*/React.createElement("div", {
-    className: "funnel-mini-stats",
-    style: {
-      marginTop: 8
-    }
-  }, /*#__PURE__*/React.createElement("div", null, "Employee deferral ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.solo401k.employeeContrib))), /*#__PURE__*/React.createElement("div", null, "Employer profit-share (", strategy.solo401k.employerPctLabel, " of ", strategy.solo401k.employerBasis.replace(/^\d+% of /, ""), ") ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.solo401k.employerContrib))), /*#__PURE__*/React.createElement("div", null, "Combined total ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.solo401k.total))), /*#__PURE__*/React.createElement("div", {
-    className: "pos"
-  }, "Tax savings ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.solo401k.taxSavings))), /*#__PURE__*/React.createElement("div", null, "Future value ", /*#__PURE__*/React.createElement("b", null, fmt0(strategy.solo401k.futureValue))));
-
-  const strategiesSection = /*#__PURE__*/React.createElement("section", {
-    className: "card"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "Your options, simulated")), strategyCard("Solo 401(k)", "You wear two hats: as \u201Cemployee\u201D you can defer income directly from pay, and as \u201Cemployer\u201D your practice can contribute up to 20% of net self-employment earnings on top \u2014 both reduce this year's taxable income, and both grow tax-deferred until withdrawal. Usually the largest contribution room available to a solo owner, and the one to max first.", solo401kBody, "Highest capacity"), strategyCard("Traditional IRA", "A separate, simpler account funded with pre-tax dollars (if your income is under the deduction phase-out) or after-tax dollars (if over it \u2014 still useful as a \u201Cbackdoor Roth\u201D building block). Grows tax-deferred; withdrawals in retirement are taxed as ordinary income. Because you're an active participant in a Solo 401(k), the deduction phases out at a lower income than someone with no workplace plan.", traditionalBody, strategy.traditionalIra.deductPct <= 0 ? "Fully phased out \u2014 nondeductible" : strategy.traditionalIra.deductPct < 1 ? "Partially phased out" : "Fully deductible"), strategyCard("Roth IRA", "Funded with after-tax dollars \u2014 no deduction today \u2014 but grows completely tax-free, and qualified withdrawals in retirement owe nothing at all. The direct contribution phases out at higher income levels than you might expect; above the top of that range, a \u201Cbackdoor Roth\u201D (nondeductible Traditional IRA contribution, immediately converted) is the common workaround.", rothBody, strategy.rothIra.eligiblePct < 1 ? "Phased out \u2014 consider backdoor" : "Fully eligible"), strategyCard("Backdoor Roth IRA", "If you're phased out of a direct Roth contribution, you can still get Roth-equivalent tax-free growth: contribute to a Traditional IRA without claiming a deduction (no income limit on nondeductible contributions), then convert it to Roth right away (no income limit on conversions either, since 2010). The catch is the IRC \u00A7408(d)(2) \u201Cpro-rata rule\u201D: if you hold "+"any"+" other pre-tax Traditional/SEP/SIMPLE IRA money, the conversion isn't treated as 100% basis \u2014 it's taxed in proportion to your "+"total"+" IRA balance, pre-tax and after-tax combined. Enter your existing pre-tax IRA balance below to see the real tax cost.", backdoorBody, strategy.backdoorRoth.taxableFraction > 0.05 ? "Pro-rata rule applies \u2014 partially taxable" : "Clean \u2014 minimal pro-rata drag"), strategyCard("SEP IRA", "Employer money only \u2014 there is no employee deferral and no catch-up at any age, which is what separates it from the Solo 401(k). A corporation contributes 25% of your W-2 wages; a sole proprietor's equivalent works out to 20% of net self-employment earnings, capped either way at the $72,000 annual-additions limit. Simpler to open and to run than a Solo 401(k), with no annual Form 5500 until the balance is large \u2014 but because it has no deferral, it usually gives a solo owner less room. Its real cost is downstream: a SEP balance is pre-tax IRA money, so it makes a backdoor Roth conversion partly taxable under the pro-rata rule.", null, "Simplest to run \u2014 usually less room"), strategyCard("SIMPLE IRA", "Built for small businesses with staff: you defer up to $18,100 (a solo practice always qualifies for the higher small-employer limit), and the business must add a 3% matching contribution. It cannot run alongside a Solo 401(k) in the same year \u2014 it is one or the other. For a solo owner the ceiling is simply lower than either alternative, as the comparison table above shows with your own numbers, and the balance carries the same pro-rata problem as a SEP. Worth a look mainly if you hire staff and want lower administration than a 401(k).", null, "Lowest ceiling of the three"));
-
-  // compareRows / compareSection removed - a whole "Side by side" table of
+  // "Your options, simulated" removed - strategyCard, the four card bodies and
+  // strategiesSection, 72 lines, defined and never rendered. Fifth block of dead
+  // code found in this file, and the one that looked most alive.
+  //
+  // It was also ~85% duplication. The four accounts it explained are already in
+  // the levers panel directly above where it would have landed, with the same
+  // figures - and each row there expands into the actual working line by line
+  // ("your deferral, as the employee - capped at $24,500 at your age"), which
+  // beats the cards' prose. Rendering it added 1,521px, 16.8% of the tax page.
+  //
+  // One figure in it existed nowhere else: the tax owed on a backdoor Roth
+  // conversion. That is now a row in the Sole-vs-Corp comparison table, beside
+  // the taxable-on-conversion row it belongs with.
+    // compareRows / compareSection removed - a whole "Side by side" table of
   // contribution, tax saving and future value, built and then never rendered.
   // Third piece of dead code found in this file (after computeYearState and
   // totalMaxSavings), and the most misleading: it looked like a live surface,
@@ -4741,6 +4699,16 @@ const seEducation = (function () {
     hint: "Lower is better here. A SEP or SIMPLE balance counts as pre-tax IRA money and makes this worse.",
     sole: strategySoleProp.backdoorRoth.taxableOnConversion,
     scorp: strategySCorp.backdoorRoth.taxableOnConversion,
+    lowerBetter: true
+  }, {
+    // Promoted here from the "Your options, simulated" cards, which were deleted
+    // as duplication - this was the one figure in that whole block that existed
+    // nowhere else on the page. It is what the conversion actually COSTS, as
+    // against the row above, which is only the amount exposed to tax.
+    label: "Backdoor Roth — tax owed on the conversion",
+    hint: "The row above is how much of the conversion is taxable; this is the tax on it, measured by running the year with and without that income rather than multiplying by a rate.",
+    sole: strategySoleProp.backdoorRoth.conversionTax,
+    scorp: strategySCorp.backdoorRoth.conversionTax,
     lowerBetter: true
   }, {
     horizon: true,
