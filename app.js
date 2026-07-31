@@ -7573,8 +7573,10 @@ function ProfitTab({
               /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
               " gap is a separate question with its own levers \u2014 what you set aside before tax, and how the practice is structured.")),
       /*#__PURE__*/React.createElement("a", {href: "#tax", className: "handoff-go"},
-        /*#__PURE__*/React.createElement("b", null, "Work out your tax strategy"),
-        /*#__PURE__*/React.createElement("span", null, "takes about five minutes \u2192")),
+        /*#__PURE__*/React.createElement("span", {className: "handoff-go-t"},
+          /*#__PURE__*/React.createElement("b", null, "Work out your tax strategy"),
+          /*#__PURE__*/React.createElement("span", null, "takes about five minutes")),
+        /*#__PURE__*/React.createElement("i", {className: "handoff-go-a", "aria-hidden": "true"}, "\u2192")),
       /*#__PURE__*/React.createElement("div", {className: "handoff-what"},
         ["Retirement accounts, and what each one is worth",
          "Sole proprietor vs professional corporation",
@@ -8109,12 +8111,28 @@ section.card.handoff .handoff-chain em{font-style:normal; font-family:Fraunces,G
 section.card.handoff .handoff-net b{font-size:31px; color:#FFE3B8 !important;}
 section.card.handoff .handoff-p{margin:0 0 22px; font-size:15px; line-height:1.65; color:rgba(255,255,255,.9); max-width:700px;}
 section.card.handoff .handoff-p b{color:#fff;}
-section.card.handoff .handoff-go{display:inline-flex; flex-direction:column; gap:2px; text-decoration:none;
-  background:#fff; color:#2C6350; border-radius:11px; padding:14px 26px;
-  box-shadow:0 3px 10px rgba(20,50,40,.2); transition:transform .12s ease, box-shadow .12s ease;}
-section.card.handoff .handoff-go b{font-family:Fraunces,Georgia,serif; font-size:18px; font-weight:600;}
-section.card.handoff .handoff-go span{font-size:12.5px; color:#5E8C7B; font-weight:600;}
-section.card.handoff .handoff-go:hover{transform:translateY(-1px); box-shadow:0 6px 16px rgba(20,50,40,.26);}
+/* The one thing to click on this card, sized like it. It used to be an
+   inline button the width of its own label, sitting in a band whose headline
+   runs the full width - so the largest element on screen was a sentence and
+   the next step was a small white rectangle in the corner. Full width, a
+   headline-sized label and a circular arrow at the far end: the card now has
+   an obvious bottom edge you press. */
+section.card.handoff .handoff-go{display:flex; align-items:center; justify-content:space-between;
+  gap:20px; width:100%; box-sizing:border-box; text-decoration:none; text-align:left;
+  background:#fff; color:#2C6350; border-radius:15px; padding:22px 26px;
+  box-shadow:0 6px 18px rgba(20,50,40,.24);
+  transition:transform .12s ease, box-shadow .12s ease;}
+section.card.handoff .handoff-go-t{display:flex; flex-direction:column; gap:4px; min-width:0;}
+section.card.handoff .handoff-go b{font-family:Fraunces,Georgia,serif;
+  font-size:clamp(20px,2.1vw,26px); font-weight:600; line-height:1.15; color:#2C6350;}
+section.card.handoff .handoff-go-t > span{font-size:13.5px; color:#5E8C7B; font-weight:600;}
+section.card.handoff .handoff-go-a{font-style:normal; font-size:25px; line-height:1; color:#2C6350;
+  background:#EAF3DE; border-radius:50%; width:54px; height:54px; flex:0 0 54px;
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .12s ease, background .12s ease;}
+section.card.handoff .handoff-go:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(20,50,40,.3);}
+section.card.handoff .handoff-go:hover .handoff-go-a{transform:translateX(4px); background:#DDEBCB;}
+section.card.handoff .handoff-go:focus-visible{outline:3px solid #FFE3B8; outline-offset:3px;}
 section.card.handoff .handoff-what{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 26px;
   margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,.2);}
 section.card.handoff .handoff-what span{font-size:13.5px; color:rgba(255,255,255,.9); padding-left:20px; position:relative;}
@@ -8127,7 +8145,10 @@ section.card.handoff .handoff-what span::before{content:"\\2192"; position:absol
   section.card.handoff .handoff-chain b{font-size:21px;}
   section.card.handoff .handoff-net b{font-size:25px;}
   section.card.handoff .handoff-chain em{align-self:center; font-size:15px; line-height:1; padding:0;}
-  section.card.handoff .handoff-go{display:flex; text-align:center; align-items:center;}
+  section.card.handoff .handoff-go{padding:18px 18px 18px 20px; gap:14px; border-radius:13px;}
+  section.card.handoff .handoff-go b{font-size:19px;}
+  section.card.handoff .handoff-go-t > span{font-size:12.5px;}
+  section.card.handoff .handoff-go-a{width:44px; height:44px; flex:0 0 44px; font-size:21px;}
   section.card.handoff .handoff-what{grid-template-columns:1fr;}
 }
 
