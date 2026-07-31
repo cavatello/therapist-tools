@@ -3,6 +3,17 @@ const {
   useMemo,
   useEffect
 } = React;
+// The Therapist Support mark. A pixel drawing of the analyst in his chair,
+// inlined as a data URI rather than a separate file: the site publishes by
+// whole-folder sync and the watcher only fingerprints js/html/css/txt/md, so a
+// new .svg would not reliably trigger a deploy. At 5.6 kB it is cheaper than
+// the extra request anyway.
+//
+// The 32px drawing, not the 96px hero scaled down - below about 48px the
+// waistcoat buttons and watch chain turn into dirt, so the small sizes are
+// separate drawings. See claude/brand-art-assets.md in the project.
+const BRAND_MARK = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M1%201h30v1h-30zM1%202h1v1h-1zM30%202h1v1h-1zM1%203h1v1h-1zM30%203h1v1h-1zM1%204h1v1h-1zM30%204h1v1h-1zM1%205h1v1h-1zM30%205h1v1h-1zM1%206h1v1h-1zM30%206h1v1h-1zM1%207h1v1h-1zM30%207h1v1h-1zM1%208h1v1h-1zM12%208h1v1h-1zM18%208h1v1h-1zM30%208h1v1h-1zM1%209h1v1h-1zM30%209h1v1h-1zM1%2010h1v1h-1zM30%2010h1v1h-1zM1%2011h1v1h-1zM30%2011h1v1h-1zM1%2012h1v1h-1zM30%2012h1v1h-1zM1%2013h1v1h-1zM30%2013h1v1h-1zM0%2014h2v1h-2zM30%2014h2v1h-2zM0%2015h1v1h-1zM31%2015h1v1h-1zM0%2016h1v1h-1zM31%2016h1v1h-1zM0%2017h1v1h-1zM31%2017h1v1h-1zM0%2018h1v1h-1zM31%2018h1v1h-1zM0%2019h1v1h-1zM31%2019h1v1h-1zM0%2020h1v1h-1zM31%2020h1v1h-1zM0%2021h1v1h-1zM31%2021h1v1h-1zM0%2022h1v1h-1zM31%2022h1v1h-1zM0%2023h1v1h-1zM31%2023h1v1h-1zM0%2024h1v1h-1zM31%2024h1v1h-1zM0%2025h1v1h-1zM31%2025h1v1h-1zM0%2026h1v1h-1zM31%2026h1v1h-1zM0%2027h1v1h-1zM31%2027h1v1h-1zM0%2028h1v1h-1zM2%2028h11v1h-11zM31%2028h1v1h-1zM0%2029h13v1h-13zM19%2029h13v1h-13zM2%2030h26v1h-26zM2%2031h11v1h-11zM17%2031h11v1h-11z%22%2F%3E%3Cpath%20fill%3D%22%237E5127%22%20d%3D%22M2%202h1v1h-1zM29%202h1v1h-1zM2%203h1v1h-1zM29%203h1v1h-1zM2%204h1v1h-1zM29%204h1v1h-1zM2%205h1v1h-1zM29%205h1v1h-1zM2%206h1v1h-1zM29%206h1v1h-1zM2%207h1v1h-1zM29%207h1v1h-1zM2%208h1v1h-1zM29%208h1v1h-1zM2%209h1v1h-1zM29%209h1v1h-1zM2%2010h1v1h-1zM29%2010h1v1h-1zM2%2011h1v1h-1zM29%2011h1v1h-1zM2%2012h1v1h-1zM29%2012h1v1h-1zM2%2013h1v1h-1zM29%2013h1v1h-1zM2%2014h1v1h-1zM29%2014h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23C08C58%22%20d%3D%22M3%202h26v1h-26zM3%203h8v1h-8zM19%203h10v1h-10zM3%204h8v1h-8zM19%204h10v1h-10zM3%205h5v1h-5zM24%205h5v1h-5zM3%206h5v1h-5zM24%206h5v1h-5zM3%207h5v1h-5zM24%207h5v1h-5zM3%208h5v1h-5zM24%208h5v1h-5zM3%209h5v1h-5zM24%209h5v1h-5zM3%2010h5v1h-5zM24%2010h5v1h-5zM3%2011h5v1h-5zM24%2011h5v1h-5zM3%2012h5v1h-5zM24%2012h5v1h-5zM3%2013h5v1h-5zM24%2013h5v1h-5zM3%2014h5v1h-5zM24%2014h5v1h-5zM1%2015h7v1h-7zM24%2015h7v1h-7zM1%2016h6v1h-6zM25%2016h6v1h-6zM1%2017h6v1h-6zM25%2017h6v1h-6zM5%2022h2v1h-2zM25%2022h2v1h-2zM5%2023h2v1h-2zM25%2023h2v1h-2zM5%2024h2v1h-2zM25%2024h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23EFC79C%22%20d%3D%22M11%203h8v1h-8zM11%204h8v1h-8zM11%205h8v1h-8zM12%206h7v1h-7z%22%2F%3E%3Cpath%20fill%3D%22%23A26B39%22%20d%3D%22M8%205h2v1h-2zM20%205h4v1h-4zM8%206h2v1h-2zM20%206h4v1h-4zM8%207h2v1h-2zM20%207h4v1h-4zM8%208h2v1h-2zM22%208h2v1h-2zM8%209h2v1h-2zM21%209h3v1h-3zM8%2010h2v1h-2zM21%2010h3v1h-3zM8%2011h2v1h-2zM21%2011h3v1h-3zM8%2012h3v1h-3zM20%2012h4v1h-4zM8%2013h3v1h-3zM20%2013h4v1h-4zM8%2014h2v1h-2zM22%2014h2v1h-2zM8%2015h2v1h-2zM22%2015h2v1h-2zM1%2018h6v1h-6zM25%2018h6v1h-6zM1%2019h6v1h-6zM25%2019h6v1h-6zM1%2020h6v1h-6zM25%2020h6v1h-6zM1%2021h4v1h-4zM27%2021h4v1h-4zM1%2022h4v1h-4zM27%2022h4v1h-4zM1%2023h4v1h-4zM27%2023h4v1h-4zM1%2024h4v1h-4zM27%2024h4v1h-4zM1%2025h6v1h-6zM25%2025h6v1h-6zM1%2026h5v1h-5zM26%2026h5v1h-5zM1%2027h5v1h-5zM26%2027h5v1h-5z%22%2F%3E%3Cpath%20fill%3D%22%23DCAA7C%22%20d%3D%22M10%205h1v1h-1zM19%205h1v1h-1zM14%208h3v1h-3zM12%209h7v1h-7zM10%2010h1v1h-1zM12%2010h7v1h-7zM20%2010h1v1h-1zM10%2011h1v1h-1zM20%2011h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23ABA496%22%20d%3D%22M10%206h2v1h-2zM19%206h1v1h-1zM10%207h1v1h-1zM10%208h1v1h-1zM20%208h1v1h-1zM10%209h2v1h-2zM19%209h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23DCEEF5%22%20d%3D%22M11%207h3v1h-3zM17%207h3v1h-3zM11%208h1v1h-1zM13%208h1v1h-1zM17%208h1v1h-1zM19%208h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23A79F90%22%20d%3D%22M14%207h3v1h-3z%22%2F%3E%3Cpath%20fill%3D%22%235A3719%22%20d%3D%22M21%208h1v1h-1zM1%2028h1v1h-1zM26%2028h5v1h-5z%22%2F%3E%3Cpath%20fill%3D%22%23C7C1B2%22%20d%3D%22M11%2010h1v1h-1zM19%2010h1v1h-1zM11%2011h1v1h-1zM18%2011h2v1h-2zM11%2012h1v1h-1zM18%2012h2v1h-2zM11%2013h1v1h-1zM18%2013h2v1h-2zM11%2014h1v1h-1zM18%2014h2v1h-2zM11%2015h9v1h-9z%22%2F%3E%3Cpath%20fill%3D%22%23E0DBCE%22%20d%3D%22M12%2011h6v1h-6zM12%2012h2v1h-2zM17%2012h1v1h-1zM12%2013h6v1h-6zM12%2014h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%233E1715%22%20d%3D%22M14%2012h3v1h-3z%22%2F%3E%3Cpath%20fill%3D%22%232B2926%22%20d%3D%22M10%2014h1v1h-1zM20%2014h2v1h-2zM10%2015h1v1h-1zM20%2015h2v1h-2zM8%2016h5v1h-5zM19%2016h5v1h-5zM8%2017h5v1h-5zM19%2017h5v1h-5zM8%2018h5v1h-5zM19%2018h5v1h-5zM8%2019h5v1h-5zM19%2019h5v1h-5zM19%2026h7v1h-7zM19%2027h7v1h-7zM19%2028h7v1h-7z%22%2F%3E%3Cpath%20fill%3D%22%231B1A18%22%20d%3D%22M7%2016h1v1h-1zM24%2016h1v1h-1zM7%2017h1v1h-1zM24%2017h1v1h-1zM7%2018h1v1h-1zM24%2018h1v1h-1zM7%2019h1v1h-1zM24%2019h1v1h-1zM7%2020h1v1h-1zM7%2021h1v1h-1zM7%2022h1v1h-1zM7%2023h1v1h-1zM7%2024h1v1h-1zM7%2025h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%234A3A28%22%20d%3D%22M13%2016h1v1h-1zM18%2016h1v1h-1zM13%2017h1v1h-1zM18%2017h1v1h-1zM13%2018h2v1h-2zM17%2018h2v1h-2zM13%2019h2v1h-2zM17%2019h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23F4F0E4%22%20d%3D%22M14%2016h1v1h-1zM17%2016h1v1h-1zM14%2017h1v1h-1zM17%2017h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%235E2421%22%20d%3D%22M15%2016h2v1h-2zM15%2017h2v1h-2zM15%2018h2v1h-2zM15%2019h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23FFFCF2%22%20d%3D%22M8%2020h17v1h-17z%22%2F%3E%3Cpath%20fill%3D%22%23DFB182%22%20d%3D%22M5%2021h2v1h-2zM25%2021h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23FFE3B8%22%20d%3D%22M8%2021h17v1h-17z%22%2F%3E%3Cpath%20fill%3D%22%23F5F0E1%22%20d%3D%22M8%2022h17v1h-17zM8%2023h17v1h-17zM8%2024h2v1h-2zM23%2024h2v1h-2zM8%2025h17v1h-17z%22%2F%3E%3Cpath%20fill%3D%22%23C4BBA2%22%20d%3D%22M10%2024h13v1h-13z%22%2F%3E%3Cpath%20fill%3D%22%233D3A35%22%20d%3D%22M6%2026h13v1h-13zM6%2027h13v1h-13zM13%2028h6v1h-6zM13%2029h6v1h-6z%22%2F%3E%3C%2Fsvg%3E";
+const BRAND_FAVICON = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%237E5127%22%20d%3D%22M0%200h1v1h-1zM15%200h1v1h-1zM0%201h1v1h-1zM15%201h1v1h-1zM0%202h1v1h-1zM15%202h1v1h-1zM0%203h1v1h-1zM15%203h1v1h-1zM0%204h1v1h-1zM15%204h1v1h-1zM0%205h1v1h-1zM15%205h1v1h-1zM0%206h1v1h-1zM15%206h1v1h-1zM0%207h1v1h-1zM15%207h1v1h-1zM0%208h1v1h-1zM15%208h1v1h-1zM0%209h1v1h-1zM15%209h1v1h-1zM0%2010h1v1h-1zM15%2010h1v1h-1zM0%2011h1v1h-1zM15%2011h1v1h-1zM0%2012h1v1h-1zM15%2012h1v1h-1zM0%2013h1v1h-1zM15%2013h1v1h-1zM0%2014h1v1h-1zM15%2014h1v1h-1zM0%2015h1v1h-1zM15%2015h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23C08C58%22%20d%3D%22M1%200h14v1h-14zM1%201h14v1h-14zM1%202h2v1h-2zM13%202h2v1h-2zM1%203h2v1h-2zM13%203h2v1h-2zM1%204h2v1h-2zM13%204h2v1h-2zM1%205h2v1h-2zM13%205h2v1h-2zM1%206h2v1h-2zM13%206h2v1h-2zM1%207h2v1h-2zM13%207h2v1h-2zM1%208h2v1h-2zM13%208h2v1h-2zM1%209h2v1h-2zM13%209h2v1h-2zM1%2010h2v1h-2zM13%2010h2v1h-2zM1%2011h2v1h-2zM13%2011h2v1h-2zM1%2012h2v1h-2zM13%2012h2v1h-2zM1%2013h2v1h-2zM13%2013h2v1h-2zM1%2014h2v1h-2zM13%2014h2v1h-2zM1%2015h2v1h-2zM13%2015h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23A26B39%22%20d%3D%22M3%202h2v1h-2zM11%202h2v1h-2zM3%203h1v1h-1zM12%203h1v1h-1zM3%208h1v1h-1zM12%208h1v1h-1zM3%209h1v1h-1zM12%209h1v1h-1zM3%2010h1v1h-1zM12%2010h1v1h-1zM3%2011h1v1h-1zM12%2011h1v1h-1zM3%2012h1v1h-1zM12%2012h1v1h-1zM3%2013h1v1h-1zM12%2013h1v1h-1zM3%2014h1v1h-1zM12%2014h1v1h-1zM3%2015h1v1h-1zM12%2015h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23EFC79C%22%20d%3D%22M5%202h6v1h-6zM5%203h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%23DCAA7C%22%20d%3D%22M4%203h1v1h-1zM11%203h1v1h-1zM5%204h6v1h-6zM6%205h4v1h-4zM6%206h1v1h-1zM9%206h1v1h-1zM5%207h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%23ABA496%22%20d%3D%22M3%204h2v1h-2zM11%204h2v1h-2zM3%205h1v1h-1zM12%205h1v1h-1zM3%206h1v1h-1zM12%206h1v1h-1zM3%207h2v1h-2zM11%207h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23DCEEF5%22%20d%3D%22M4%205h2v1h-2zM10%205h2v1h-2zM5%206h1v1h-1zM10%206h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M4%206h1v1h-1zM11%206h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23A79F90%22%20d%3D%22M7%206h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23C7C1B2%22%20d%3D%22M4%208h8v1h-8zM4%209h3v1h-3zM9%209h3v1h-3zM4%2010h2v1h-2zM10%2010h2v1h-2zM4%2011h8v1h-8zM4%2012h8v1h-8z%22%2F%3E%3Cpath%20fill%3D%22%233E1715%22%20d%3D%22M7%209h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23E0DBCE%22%20d%3D%22M6%2010h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%232B2926%22%20d%3D%22M4%2013h2v1h-2zM10%2013h2v1h-2zM4%2014h2v1h-2zM10%2014h2v1h-2zM4%2015h2v1h-2zM10%2015h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23F4F0E4%22%20d%3D%22M6%2013h1v1h-1zM9%2013h1v1h-1zM6%2014h4v1h-4zM6%2015h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%235E2421%22%20d%3D%22M7%2013h2v1h-2z%22%2F%3E%3C%2Fsvg%3E";
 const STORE_KEY = 'practice_planner_v3';
 const ORIENT_KEY = 'practice_planner_orient_dismissed_v1';
 // The tax page opens with a primer for someone who has never run a business.
@@ -2648,11 +2659,14 @@ function PracticeIncomePlanner() {
   }, /*#__PURE__*/React.createElement("a", {
     className: "sitenav-mark",
     href: "index.html"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "sitenav-mono"
-  }, "CA"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "sitenav-fig", src: BRAND_MARK, width: 28, height: 28,
+    alt: "", "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
     className: "sitenav-wordmark"
-  }, "California Therapy Practice Simulator"), VARIANT === "01" && /*#__PURE__*/React.createElement("span", {
+  }, "Therapist Support", /*#__PURE__*/React.createElement("span", {
+    className: "sitenav-sub"
+  }, "California Therapy Practice Simulator")), VARIANT === "01" && /*#__PURE__*/React.createElement("span", {
     className: "v01-tagline"
   }, "California \u00B7 2026 net estimates")), /*#__PURE__*/React.createElement("button", {
     className: "sitenav-menu" + (navOpen ? " on" : ""),
@@ -4189,11 +4203,14 @@ function PracticeIncomePlanner() {
     className: "sitefoot"
   }, /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-mark"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "sitenav-mono"
-  }, "CA"), /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "sitenav-fig", src: BRAND_MARK, width: 28, height: 28,
+    alt: "", "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
     className: "sitenav-wordmark"
-  }, "California Therapy Practice Simulator")), /*#__PURE__*/React.createElement("nav", {
+  }, "Therapist Support", /*#__PURE__*/React.createElement("span", {
+    className: "sitenav-sub"
+  }, "California Therapy Practice Simulator"))), /*#__PURE__*/React.createElement("nav", {
     className: "sitefoot-links",
     "aria-label": "Site, footer"
   }, [["#sim", "Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
@@ -9253,6 +9270,18 @@ section.card.sgate{border-left:3px solid #C98B4B;}
   font-family:'Fraunces',serif; font-weight:700; font-size:11px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;}
 .sitenav-wordmark{font-family:'Fraunces',serif; font-weight:700; font-size:13.5px; letter-spacing:-.01em;}
+/* The brand mark. image-rendering:pixelated is belt-and-braces - the SVG
+   already carries shape-rendering:crispEdges - but a browser that resamples a
+   pixel drawing ruins the one thing it must not. */
+.sitenav-fig{width:28px; height:28px; flex-shrink:0; display:block; image-rendering:pixelated;}
+.sitefoot-mark .sitenav-fig{width:26px; height:26px;}
+/* The page title kept beside the site name, so a deep link into #tax still
+   says what the site is. Dropped on narrow screens before it can wrap - the
+   masthead is sticky and its height feeds --navh and the fold. */
+.sitenav-sub{font-family:'Inter',system-ui,sans-serif; font-weight:600; font-size:11px;
+  color:#A39C8E; letter-spacing:.005em; white-space:nowrap;
+  margin-left:9px; padding-left:9px; border-left:1px solid var(--line);}
+@media (max-width:1040px){ .sitenav-sub{display:none;} }
 .sitenav-links{display:flex; align-items:stretch; gap:4px; flex-wrap:wrap;}
 .sitenav-item{display:flex; flex-direction:column; gap:1px; padding:5px 13px; border-radius:8px;
   text-decoration:none; border:1px solid transparent; white-space:nowrap;
