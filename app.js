@@ -1575,6 +1575,10 @@ function PracticeIncomePlanner() {
   const [secondarySessions, setSecondarySessions] = useState(SAVED.secondarySessions != null ? SAVED.secondarySessions : "");
   const [careerStart, setCareerStart] = useState(SAVED.careerStart != null ? SAVED.careerStart : 0);
   const [wageMetro, setWageMetro] = useState(SAVED.wageMetro != null ? SAVED.wageMetro : 3);
+  /* Which hero module drawer is open. Session-only on purpose: it is a view
+     state, not a setting, and restoring an open drawer on a share link would
+     put the visitor into an editor they did not ask for. */
+  const [openMod, setOpenMod] = useState(null);
   const [vacationOn, setVacationOn] = useState(SAVED.vacationOn != null ? SAVED.vacationOn : false);
   const [vacationWeeks, setVacationWeeks] = useState(SAVED.vacationWeeks != null ? SAVED.vacationWeeks : 0);
   const [retreatOn, setRetreatOn] = useState(SAVED.retreatOn != null ? SAVED.retreatOn : false);
@@ -2569,6 +2573,58 @@ function PracticeIncomePlanner() {
   const lndKept = lndGross > 0 ? Math.round(lndNet / lndGross * 100) : 0;
   const lndMargin = lndGross > 0 ? Math.round(lndProfit / lndGross * 100) : 0;
 
+  /* The three hero modules that are actually enterable, with only the fields
+     that move the number. `yr` is the real computed contribution, so the tile
+     and the drawer both report a figure that came out of the engine rather than
+     a re-derivation — the two can never disagree. */
+  const HERO_MODS = [
+    {k: "assoc", lab: "Associates", ic: "assoc", on: assocOn, enable: setAssocOn,
+     blurb: "pre-licensed AMFTs, ASWs or APCCs seeing clients under your licence",
+     /* The WHOLE module, costs included — same labels and the same setters as
+        the full section, so the two are one set of fields shown twice. Nothing
+        entered here is lost by scrolling down, and nothing entered down there
+        is lost by opening this.
+
+        Costs are not optional detail on this module: an associate's split is
+        wages, and wages drag employer payroll tax, workers' comp and a seat
+        licence behind them. Revenue-only would report an associate as far more
+        profitable than they are. */
+     groups: [["What they bring in",
+               [["How many associates", "", assocCount, setAssocCount, 0, 40],
+                ["What you bill per session", "$", assocRate, setAssocRate, 0, 400],
+                ["Sessions each, per week", "", assocSessions, setAssocSessions, 0, 40],
+                ["Their time off", "", assocVacWeeks, setAssocVacWeeks, 0, 26],
+                ["Their share of collections", "%", assocSplitPct, setAssocSplitPct, 0, 100]]],
+              ["What they cost you",
+               [["Supervision & admin rate", "$", assocSupRate, setAssocSupRate, 0, 300],
+                ["Liability insurance", "$", assocLiabYear, setAssocLiabYear, 0, 20000],
+                ["Office or room cost", "$", assocOfficeMo, setAssocOfficeMo, 0, 20000],
+                ["EHR / software seat", "$", assocEhrMo, setAssocEhrMo, 0, 2000],
+                ["Workers' comp rate", "%", assocWcRate, setAssocWcRate, 0, 20],
+                ["Payroll service", "$", assocPayrollMo, setAssocPayrollMo, 0, 5000]]]],
+     yr: assocNetYr,
+     warn: assocRevenueYr > 0 && !(parseFloat(assocSplitPct) > 0)
+       ? "Their split is still 0% — this figure is before paying them anything."
+       : null,
+     note: "after their wages, employer payroll tax and fixed cost per head",
+     more: "#sec-income", moreLab: "Open the full associates section \u2192"},
+    {k: "retreat", lab: "Retreats & events", ic: "retreat", on: retreatOn, enable: setRetreatOn,
+     blurb: "workshops, group intensives, or one-off events",
+     groups: [[null,
+               [["People per event", "", retreatParticipants, setRetreatParticipants, 0, 200],
+                ["Price per person", "$", retreatRate, setRetreatRate, 0, 5000],
+                ["Events a month", "", retreatPerMonth, setRetreatPerMonth, 0, 30]]]],
+     yr: retreatYr, note: "revenue before the expenses it brings with it",
+     more: "#sec-expenses", moreLab: "What running them costs \u2192"},
+    {k: "second", lab: "Second income", ic: "second", on: secondaryOn, enable: setSecondaryOn,
+     blurb: "a different rate — insurance-reimbursed clients, EAP, contract work",
+     groups: [[null,
+               [["Rate", "$", secondaryRate, setSecondaryRate, 0, 400],
+                ["Sessions a week", "", secondarySessions, setSecondarySessions, 0, 40]]]],
+     yr: secondaryYr, note: "at " + weeksWorked + " working weeks, same as your main caseload",
+     more: "#sec-income", moreLab: "See it in the income breakdown \u2192"},
+  ];
+
   const landingBand = page !== "sim" ? null : /*#__PURE__*/React.createElement(React.Fragment, null,
     /*#__PURE__*/React.createElement("section", {className: "lnd"},
       /* The "free / no sign-up" pill was reassurance nobody asked for, and it
@@ -2622,20 +2678,79 @@ function PracticeIncomePlanner() {
           /*#__PURE__*/React.createElement("span", {className: "lnd-stat-v"},
             lndWarm ? fmt(cur.netYr) : "—"))),
 
-      /* Everything else that changes the answer, as one row of doors. Off by
-         default and dashed while off, so the row reads as "there is more here"
-         rather than as four settings you have to deal with. */
+      /* Everything else that changes the answer, as one row of doors — and the
+         doors OPEN. An earlier version linked these down to the sections, which
+         technically got you there and entirely missed the point: the row exists
+         so you can add an income stream and watch the take-home move without
+         leaving the band.
+
+         Only the fields that actually move the number live here. Associates has
+         eleven inputs in its full section (liability, EHR, supervision rate,
+         workers' comp, payroll admin...) and putting eleven fields in the hero
+         would blow the fold this band is regression-tested against. Three
+         headline fields plus a link to the rest is the honest split. */
       /*#__PURE__*/React.createElement("div", {className: "lnd-mods"},
-        [["Associates", "assoc", assocOn, "#sec-income"],
-         ["Retreats & events", "retreat", retreatOn, "#sec-income"],
-         ["Second income", "second", secondaryOn, "#sec-income"],
-         ["Where you live", "where", false, "#sec-residency"]
-        ].map(([lab, ic, on, href]) => /*#__PURE__*/React.createElement("a", {
-          key: lab, href: href, className: "lnd-mod" + (on ? " on" : "")
-        }, /*#__PURE__*/React.createElement("img", {src: HERO_ICON[ic], alt: "", "aria-hidden": "true"}),
+        HERO_MODS.map(m => /*#__PURE__*/React.createElement("button", {
+          key: m.k, type: "button",
+          className: "lnd-mod" + (m.on ? " on" : "") + (openMod === m.k ? " open" : ""),
+          "aria-expanded": openMod === m.k,
+          onClick: () => { const next = openMod === m.k ? null : m.k;
+                           setOpenMod(next); if (next && !m.on) m.enable(true); }
+        }, /*#__PURE__*/React.createElement("img", {src: HERO_ICON[m.ic], alt: "", "aria-hidden": "true"}),
            /*#__PURE__*/React.createElement("span", null,
-             /*#__PURE__*/React.createElement("b", null, lab),
-             /*#__PURE__*/React.createElement("i", null, on ? "on \u2014 edit \u2192" : "set it up \u2192"))))),
+             /*#__PURE__*/React.createElement("b", null, m.lab),
+             /*#__PURE__*/React.createElement("i", null,
+               m.on && m.yr > 0 && !m.warn ? "+" + fmt(m.yr) + " a year"
+               : m.warn ? "needs their split"
+               : openMod === m.k ? "close \u2013" : "set it up \u2192")))),
+        /*#__PURE__*/React.createElement("a", {
+          href: "#sec-residency", className: "lnd-mod"
+        }, /*#__PURE__*/React.createElement("img", {src: HERO_ICON.where, alt: "", "aria-hidden": "true"}),
+           /*#__PURE__*/React.createElement("span", null,
+             /*#__PURE__*/React.createElement("b", null, "Where you live"),
+             /*#__PURE__*/React.createElement("i", null, "compare \u2192")))),
+
+      /* The drawer. Sits under the row rather than inside a tile so the grid
+         does not reflow and the other three tiles stay where your eye left them. */
+      openMod && (() => {
+        const m = HERO_MODS.find(x => x.k === openMod);
+        return /*#__PURE__*/React.createElement("div", {className: "lnd-draw"},
+          /*#__PURE__*/React.createElement("div", {className: "lnd-draw-h"},
+            /*#__PURE__*/React.createElement("img", {src: HERO_ICON[m.ic], alt: "", "aria-hidden": "true"}),
+            /*#__PURE__*/React.createElement("b", null, m.lab),
+            /*#__PURE__*/React.createElement("span", null, m.blurb),
+            /*#__PURE__*/React.createElement("button", {
+              type: "button", className: "lnd-draw-x", "aria-label": "Close",
+              onClick: () => setOpenMod(null)
+            }, "\u00D7")),
+          m.groups.map(([title, fields], gi) => /*#__PURE__*/React.createElement("div", {
+            key: title || gi, className: "lnd-draw-g"
+          }, title ? /*#__PURE__*/React.createElement("h5", null, title) : null,
+            /*#__PURE__*/React.createElement("div", {className: "lnd-draw-f"},
+              fields.map(([lab, pre, val, setD, mn, mx]) =>
+                /*#__PURE__*/React.createElement("label", {key: lab, className: "lnd-draw-row"},
+                  /*#__PURE__*/React.createElement("em", null, lab),
+                  /*#__PURE__*/React.createElement("span", null,
+                    pre === "$" ? /*#__PURE__*/React.createElement("i", null, pre) : null,
+                    /*#__PURE__*/React.createElement("input", {
+                      type: "number", min: mn, max: mx, value: val,
+                      "aria-label": lab,
+                      /* Same coercion as the full section. Storing a string here
+                         and a number there would be two shapes for one field. */
+                      onChange: e => setD(e.target.value === "" ? "" : Number(e.target.value)),
+                      onKeyDown: e => { if (e.key === "Enter") e.target.blur(); }
+                    }),
+                    pre === "%" ? /*#__PURE__*/React.createElement("i", null, pre) : null)))))),
+          m.warn ? /*#__PURE__*/React.createElement("p", {className: "lnd-draw-w"},
+            m.warn) : null,
+          /*#__PURE__*/React.createElement("div", {className: "lnd-draw-r"},
+            /*#__PURE__*/React.createElement("strong", null,
+              m.yr > 0 ? "+" + fmt(m.yr) + " a year" : "Fill these in to see the effect"),
+            /*#__PURE__*/React.createElement("span", null, m.note),
+            /*#__PURE__*/React.createElement("a", {
+              href: m.more, onClick: () => setOpenMod(null)
+            }, m.moreLab)));
+      })(),
 
       lndWarm ? /*#__PURE__*/React.createElement(React.Fragment, null,
         /*#__PURE__*/React.createElement("div", {className: "lnd-proof"},
@@ -10444,11 +10559,12 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
      what keeps it above the fold on a 667px iPhone SE. */
   .planner .lnd-stats{order:5}
   .planner .lnd-mods{order:6}
-  .planner .lnd-proof{order:7}
-  .planner .lnd-barwrap{order:8}
-  .planner .lnd-cold{order:8}
-  .planner .lnd-ctas{order:9}
-  .planner .lnd-fine{order:10}
+  .planner .lnd-draw{order:7}
+  .planner .lnd-proof{order:8}
+  .planner .lnd-barwrap{order:9}
+  .planner .lnd-cold{order:9}
+  .planner .lnd-ctas{order:10}
+  .planner .lnd-fine{order:11}
 }
 @media (max-width:780px){
   /* the lede and the chips are the two things a phone can afford to lose
@@ -10721,6 +10837,48 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .lnd-stat-v input::-webkit-outer-spin-button,
 .lnd-stat-v input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
 .lnd-mods{display:grid; grid-template-columns:repeat(4,1fr); gap:11px; margin:0 0 18px;}
+.lnd-mod{font:inherit; text-align:left; cursor:pointer; width:100%;}
+.lnd-mod.open{border-style:solid; border-color:#F6C560; background:rgba(246,197,96,.14);}
+.lnd-mod.open i{color:#F6C560;}
+/* The drawer. Under the row, not inside a tile: opening it inside would reflow
+   the grid and move the other three tiles out from under your eye. */
+.lnd-draw{background:rgba(20,42,34,.42); border:1px solid rgba(246,197,96,.4);
+  border-radius:13px; padding:14px 16px 15px; margin:-6px 0 18px;}
+.lnd-draw-h{display:flex; align-items:center; gap:10px; margin-bottom:12px;}
+.lnd-draw-h img{width:24px; height:24px; flex:none; image-rendering:pixelated;}
+.lnd-draw-h b{font-family:'Fraunces',serif; font-size:16px; color:#fff; flex:none;}
+.lnd-draw-h span{font-size:11.5px; color:rgba(255,255,255,.55); line-height:1.4; flex:1; min-width:0;}
+.lnd-draw-x{flex:none; background:none; border:0; color:rgba(255,255,255,.6);
+  font-size:19px; line-height:1; cursor:pointer; padding:0 2px;}
+.lnd-draw-x:hover{color:#fff;}
+.lnd-draw-g + .lnd-draw-g{margin-top:12px; padding-top:12px;
+  border-top:1px solid rgba(255,255,255,.13);}
+.lnd-draw-g h5{margin:0 0 9px; font-size:9.5px; font-weight:800; letter-spacing:.12em;
+  text-transform:uppercase; color:#F6C560;}
+.lnd-draw-f{display:grid; grid-template-columns:repeat(auto-fit,minmax(148px,1fr)); gap:10px;}
+.lnd-draw-row{display:block; background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:9px 12px 10px; cursor:text;}
+.lnd-draw-row:focus-within{border-color:#F6C560; background:rgba(255,255,255,.14);}
+.lnd-draw-row em{display:block; font-style:normal; font-size:9px; font-weight:800;
+  letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.6); margin-bottom:4px;}
+.lnd-draw-row span{display:flex; align-items:baseline; gap:1px;
+  font-family:'Fraunces',serif; font-size:20px; font-weight:700; color:#fff;}
+.lnd-draw-row i{font-style:normal;}
+.lnd-draw-row input{width:100%; min-width:0; background:none; border:0; padding:0;
+  font:inherit; color:inherit; -moz-appearance:textfield;}
+.lnd-draw-row input:focus{outline:none;}
+.lnd-draw-row input::-webkit-outer-spin-button,
+.lnd-draw-row input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+.lnd-draw-w{margin:11px 0 0; padding:9px 12px; border-radius:9px;
+  background:rgba(246,197,96,.16); border:1px solid rgba(246,197,96,.42);
+  font-size:12px; line-height:1.5; color:#FFE3B8;}
+.lnd-draw-r{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-top:11px;
+  padding-top:11px; border-top:1px solid rgba(255,255,255,.14);}
+.lnd-draw-r strong{font-family:'Fraunces',serif; font-size:19px; color:#F6C560;}
+.lnd-draw-r span{font-size:11.5px; color:rgba(255,255,255,.55); flex:1; min-width:140px;}
+.lnd-draw-r a{font-size:12px; font-weight:600; color:#fff; text-decoration:underline;
+  text-underline-offset:3px; white-space:nowrap;}
+@media (max-width:760px){ .lnd-draw-f{grid-template-columns:1fr;} }
 .lnd-mod{display:flex; align-items:center; gap:10px; text-decoration:none;
   border:1px dashed rgba(255,255,255,.3); border-radius:12px; padding:10px 13px;
   transition:background .15s, border-color .15s;}
