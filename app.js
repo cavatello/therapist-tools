@@ -13,6 +13,11 @@ const {
 // waistcoat buttons and watch chain turn into dirt, so the small sizes are
 // separate drawings. See claude/brand-art-assets.md in the project.
 const BRAND_MARK = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M1%201h30v1h-30zM1%202h1v1h-1zM30%202h1v1h-1zM1%203h1v1h-1zM30%203h1v1h-1zM1%204h1v1h-1zM30%204h1v1h-1zM1%205h1v1h-1zM30%205h1v1h-1zM1%206h1v1h-1zM30%206h1v1h-1zM1%207h1v1h-1zM30%207h1v1h-1zM1%208h1v1h-1zM12%208h1v1h-1zM18%208h1v1h-1zM30%208h1v1h-1zM1%209h1v1h-1zM30%209h1v1h-1zM1%2010h1v1h-1zM30%2010h1v1h-1zM1%2011h1v1h-1zM30%2011h1v1h-1zM1%2012h1v1h-1zM30%2012h1v1h-1zM1%2013h1v1h-1zM30%2013h1v1h-1zM0%2014h2v1h-2zM30%2014h2v1h-2zM0%2015h1v1h-1zM31%2015h1v1h-1zM0%2016h1v1h-1zM31%2016h1v1h-1zM0%2017h1v1h-1zM31%2017h1v1h-1zM0%2018h1v1h-1zM31%2018h1v1h-1zM0%2019h1v1h-1zM31%2019h1v1h-1zM0%2020h1v1h-1zM31%2020h1v1h-1zM0%2021h1v1h-1zM31%2021h1v1h-1zM0%2022h1v1h-1zM31%2022h1v1h-1zM0%2023h1v1h-1zM31%2023h1v1h-1zM0%2024h1v1h-1zM31%2024h1v1h-1zM0%2025h1v1h-1zM31%2025h1v1h-1zM0%2026h1v1h-1zM31%2026h1v1h-1zM0%2027h1v1h-1zM31%2027h1v1h-1zM0%2028h1v1h-1zM2%2028h11v1h-11zM31%2028h1v1h-1zM0%2029h13v1h-13zM19%2029h13v1h-13zM2%2030h26v1h-26zM2%2031h11v1h-11zM17%2031h11v1h-11z%22%2F%3E%3Cpath%20fill%3D%22%237E5127%22%20d%3D%22M2%202h1v1h-1zM29%202h1v1h-1zM2%203h1v1h-1zM29%203h1v1h-1zM2%204h1v1h-1zM29%204h1v1h-1zM2%205h1v1h-1zM29%205h1v1h-1zM2%206h1v1h-1zM29%206h1v1h-1zM2%207h1v1h-1zM29%207h1v1h-1zM2%208h1v1h-1zM29%208h1v1h-1zM2%209h1v1h-1zM29%209h1v1h-1zM2%2010h1v1h-1zM29%2010h1v1h-1zM2%2011h1v1h-1zM29%2011h1v1h-1zM2%2012h1v1h-1zM29%2012h1v1h-1zM2%2013h1v1h-1zM29%2013h1v1h-1zM2%2014h1v1h-1zM29%2014h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23C08C58%22%20d%3D%22M3%202h26v1h-26zM3%203h8v1h-8zM19%203h10v1h-10zM3%204h8v1h-8zM19%204h10v1h-10zM3%205h5v1h-5zM24%205h5v1h-5zM3%206h5v1h-5zM24%206h5v1h-5zM3%207h5v1h-5zM24%207h5v1h-5zM3%208h5v1h-5zM24%208h5v1h-5zM3%209h5v1h-5zM24%209h5v1h-5zM3%2010h5v1h-5zM24%2010h5v1h-5zM3%2011h5v1h-5zM24%2011h5v1h-5zM3%2012h5v1h-5zM24%2012h5v1h-5zM3%2013h5v1h-5zM24%2013h5v1h-5zM3%2014h5v1h-5zM24%2014h5v1h-5zM1%2015h7v1h-7zM24%2015h7v1h-7zM1%2016h6v1h-6zM25%2016h6v1h-6zM1%2017h6v1h-6zM25%2017h6v1h-6zM5%2022h2v1h-2zM25%2022h2v1h-2zM5%2023h2v1h-2zM25%2023h2v1h-2zM5%2024h2v1h-2zM25%2024h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23EFC79C%22%20d%3D%22M11%203h8v1h-8zM11%204h8v1h-8zM11%205h8v1h-8zM12%206h7v1h-7z%22%2F%3E%3Cpath%20fill%3D%22%23A26B39%22%20d%3D%22M8%205h2v1h-2zM20%205h4v1h-4zM8%206h2v1h-2zM20%206h4v1h-4zM8%207h2v1h-2zM20%207h4v1h-4zM8%208h2v1h-2zM22%208h2v1h-2zM8%209h2v1h-2zM21%209h3v1h-3zM8%2010h2v1h-2zM21%2010h3v1h-3zM8%2011h2v1h-2zM21%2011h3v1h-3zM8%2012h3v1h-3zM20%2012h4v1h-4zM8%2013h3v1h-3zM20%2013h4v1h-4zM8%2014h2v1h-2zM22%2014h2v1h-2zM8%2015h2v1h-2zM22%2015h2v1h-2zM1%2018h6v1h-6zM25%2018h6v1h-6zM1%2019h6v1h-6zM25%2019h6v1h-6zM1%2020h6v1h-6zM25%2020h6v1h-6zM1%2021h4v1h-4zM27%2021h4v1h-4zM1%2022h4v1h-4zM27%2022h4v1h-4zM1%2023h4v1h-4zM27%2023h4v1h-4zM1%2024h4v1h-4zM27%2024h4v1h-4zM1%2025h6v1h-6zM25%2025h6v1h-6zM1%2026h5v1h-5zM26%2026h5v1h-5zM1%2027h5v1h-5zM26%2027h5v1h-5z%22%2F%3E%3Cpath%20fill%3D%22%23DCAA7C%22%20d%3D%22M10%205h1v1h-1zM19%205h1v1h-1zM14%208h3v1h-3zM12%209h7v1h-7zM10%2010h1v1h-1zM12%2010h7v1h-7zM20%2010h1v1h-1zM10%2011h1v1h-1zM20%2011h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23ABA496%22%20d%3D%22M10%206h2v1h-2zM19%206h1v1h-1zM10%207h1v1h-1zM10%208h1v1h-1zM20%208h1v1h-1zM10%209h2v1h-2zM19%209h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23DCEEF5%22%20d%3D%22M11%207h3v1h-3zM17%207h3v1h-3zM11%208h1v1h-1zM13%208h1v1h-1zM17%208h1v1h-1zM19%208h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23A79F90%22%20d%3D%22M14%207h3v1h-3z%22%2F%3E%3Cpath%20fill%3D%22%235A3719%22%20d%3D%22M21%208h1v1h-1zM1%2028h1v1h-1zM26%2028h5v1h-5z%22%2F%3E%3Cpath%20fill%3D%22%23C7C1B2%22%20d%3D%22M11%2010h1v1h-1zM19%2010h1v1h-1zM11%2011h1v1h-1zM18%2011h2v1h-2zM11%2012h1v1h-1zM18%2012h2v1h-2zM11%2013h1v1h-1zM18%2013h2v1h-2zM11%2014h1v1h-1zM18%2014h2v1h-2zM11%2015h9v1h-9z%22%2F%3E%3Cpath%20fill%3D%22%23E0DBCE%22%20d%3D%22M12%2011h6v1h-6zM12%2012h2v1h-2zM17%2012h1v1h-1zM12%2013h6v1h-6zM12%2014h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%233E1715%22%20d%3D%22M14%2012h3v1h-3z%22%2F%3E%3Cpath%20fill%3D%22%232B2926%22%20d%3D%22M10%2014h1v1h-1zM20%2014h2v1h-2zM10%2015h1v1h-1zM20%2015h2v1h-2zM8%2016h5v1h-5zM19%2016h5v1h-5zM8%2017h5v1h-5zM19%2017h5v1h-5zM8%2018h5v1h-5zM19%2018h5v1h-5zM8%2019h5v1h-5zM19%2019h5v1h-5zM19%2026h7v1h-7zM19%2027h7v1h-7zM19%2028h7v1h-7z%22%2F%3E%3Cpath%20fill%3D%22%231B1A18%22%20d%3D%22M7%2016h1v1h-1zM24%2016h1v1h-1zM7%2017h1v1h-1zM24%2017h1v1h-1zM7%2018h1v1h-1zM24%2018h1v1h-1zM7%2019h1v1h-1zM24%2019h1v1h-1zM7%2020h1v1h-1zM7%2021h1v1h-1zM7%2022h1v1h-1zM7%2023h1v1h-1zM7%2024h1v1h-1zM7%2025h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%234A3A28%22%20d%3D%22M13%2016h1v1h-1zM18%2016h1v1h-1zM13%2017h1v1h-1zM18%2017h1v1h-1zM13%2018h2v1h-2zM17%2018h2v1h-2zM13%2019h2v1h-2zM17%2019h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23F4F0E4%22%20d%3D%22M14%2016h1v1h-1zM17%2016h1v1h-1zM14%2017h1v1h-1zM17%2017h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%235E2421%22%20d%3D%22M15%2016h2v1h-2zM15%2017h2v1h-2zM15%2018h2v1h-2zM15%2019h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23FFFCF2%22%20d%3D%22M8%2020h17v1h-17z%22%2F%3E%3Cpath%20fill%3D%22%23DFB182%22%20d%3D%22M5%2021h2v1h-2zM25%2021h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23FFE3B8%22%20d%3D%22M8%2021h17v1h-17z%22%2F%3E%3Cpath%20fill%3D%22%23F5F0E1%22%20d%3D%22M8%2022h17v1h-17zM8%2023h17v1h-17zM8%2024h2v1h-2zM23%2024h2v1h-2zM8%2025h17v1h-17z%22%2F%3E%3Cpath%20fill%3D%22%23C4BBA2%22%20d%3D%22M10%2024h13v1h-13z%22%2F%3E%3Cpath%20fill%3D%22%233D3A35%22%20d%3D%22M6%2026h13v1h-13zM6%2027h13v1h-13zM13%2028h6v1h-6zM13%2029h6v1h-6z%22%2F%3E%3C%2Fsvg%3E";
+// The footer room: shelf, lamp, sofa, plant and rug standing on one floor
+// line. Composed into a SINGLE svg on purpose - five separate images would
+// each need their own baseline nudge in CSS, and the whole effect is that
+// they share a floor.
+const FOOTER_ROOM = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%2052%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M5%2015h30v1h-30zM5%2016h1v1h-1zM34%2016h1v1h-1zM5%2017h1v1h-1zM34%2017h1v1h-1zM47%2017h18v1h-18zM5%2018h1v1h-1zM34%2018h1v1h-1zM47%2018h1v1h-1zM64%2018h1v1h-1zM78%2018h37v1h-37zM5%2019h1v1h-1zM34%2019h1v1h-1zM47%2019h1v1h-1zM64%2019h1v1h-1zM78%2019h1v1h-1zM114%2019h1v1h-1zM5%2020h1v1h-1zM34%2020h1v1h-1zM47%2020h1v1h-1zM64%2020h1v1h-1zM78%2020h1v1h-1zM114%2020h1v1h-1zM5%2021h1v1h-1zM34%2021h1v1h-1zM47%2021h1v1h-1zM64%2021h1v1h-1zM78%2021h1v1h-1zM114%2021h1v1h-1zM5%2022h1v1h-1zM34%2022h1v1h-1zM47%2022h1v1h-1zM64%2022h1v1h-1zM78%2022h1v1h-1zM114%2022h1v1h-1zM136%2022h12v1h-12zM5%2023h1v1h-1zM34%2023h1v1h-1zM47%2023h1v1h-1zM64%2023h1v1h-1zM78%2023h1v1h-1zM114%2023h1v1h-1zM136%2023h1v1h-1zM147%2023h1v1h-1zM5%2024h1v1h-1zM34%2024h1v1h-1zM47%2024h1v1h-1zM64%2024h1v1h-1zM78%2024h1v1h-1zM114%2024h1v1h-1zM136%2024h1v1h-1zM147%2024h1v1h-1zM5%2025h1v1h-1zM34%2025h1v1h-1zM47%2025h1v1h-1zM64%2025h1v1h-1zM73%2025h6v1h-6zM114%2025h6v1h-6zM136%2025h1v1h-1zM147%2025h1v1h-1zM5%2026h1v1h-1zM34%2026h1v1h-1zM47%2026h1v1h-1zM64%2026h1v1h-1zM73%2026h1v1h-1zM119%2026h1v1h-1zM136%2026h1v1h-1zM147%2026h1v1h-1zM5%2027h1v1h-1zM34%2027h1v1h-1zM47%2027h7v1h-7zM58%2027h7v1h-7zM73%2027h1v1h-1zM119%2027h1v1h-1zM136%2027h1v1h-1zM147%2027h1v1h-1zM5%2028h1v1h-1zM34%2028h1v1h-1zM53%2028h1v1h-1zM58%2028h1v1h-1zM73%2028h1v1h-1zM119%2028h1v1h-1zM131%2028h6v1h-6zM147%2028h6v1h-6zM5%2029h1v1h-1zM34%2029h1v1h-1zM53%2029h1v1h-1zM58%2029h1v1h-1zM73%2029h1v1h-1zM119%2029h1v1h-1zM131%2029h1v1h-1zM152%2029h1v1h-1zM5%2030h1v1h-1zM34%2030h1v1h-1zM53%2030h1v1h-1zM58%2030h1v1h-1zM73%2030h1v1h-1zM119%2030h1v1h-1zM131%2030h1v1h-1zM140%2030h4v1h-4zM152%2030h1v1h-1zM5%2031h1v1h-1zM34%2031h1v1h-1zM53%2031h1v1h-1zM58%2031h1v1h-1zM73%2031h1v1h-1zM119%2031h1v1h-1zM131%2031h1v1h-1zM152%2031h1v1h-1zM5%2032h1v1h-1zM34%2032h1v1h-1zM53%2032h1v1h-1zM58%2032h1v1h-1zM73%2032h1v1h-1zM119%2032h1v1h-1zM131%2032h1v1h-1zM152%2032h1v1h-1zM5%2033h1v1h-1zM34%2033h1v1h-1zM53%2033h1v1h-1zM58%2033h1v1h-1zM73%2033h1v1h-1zM119%2033h1v1h-1zM131%2033h1v1h-1zM152%2033h1v1h-1zM5%2034h1v1h-1zM34%2034h1v1h-1zM53%2034h1v1h-1zM58%2034h1v1h-1zM73%2034h1v1h-1zM119%2034h1v1h-1zM131%2034h1v1h-1zM152%2034h1v1h-1zM160%2034h32v1h-32zM5%2035h1v1h-1zM34%2035h1v1h-1zM53%2035h1v1h-1zM58%2035h1v1h-1zM73%2035h1v1h-1zM119%2035h1v1h-1zM131%2035h9v1h-9zM144%2035h9v1h-9zM158%2035h3v1h-3zM191%2035h3v1h-3zM5%2036h1v1h-1zM34%2036h1v1h-1zM53%2036h1v1h-1zM58%2036h1v1h-1zM73%2036h1v1h-1zM119%2036h1v1h-1zM139%2036h1v1h-1zM144%2036h1v1h-1zM158%2036h1v1h-1zM193%2036h1v1h-1zM5%2037h1v1h-1zM34%2037h1v1h-1zM53%2037h1v1h-1zM58%2037h1v1h-1zM73%2037h1v1h-1zM119%2037h1v1h-1zM139%2037h1v1h-1zM144%2037h1v1h-1zM158%2037h1v1h-1zM193%2037h1v1h-1zM5%2038h1v1h-1zM34%2038h1v1h-1zM53%2038h1v1h-1zM58%2038h1v1h-1zM73%2038h1v1h-1zM119%2038h1v1h-1zM135%2038h5v1h-5zM144%2038h6v1h-6zM158%2038h1v1h-1zM193%2038h1v1h-1zM5%2039h1v1h-1zM34%2039h1v1h-1zM53%2039h1v1h-1zM58%2039h1v1h-1zM73%2039h1v1h-1zM119%2039h1v1h-1zM135%2039h1v1h-1zM149%2039h1v1h-1zM158%2039h1v1h-1zM193%2039h1v1h-1zM5%2040h1v1h-1zM34%2040h1v1h-1zM53%2040h1v1h-1zM58%2040h1v1h-1zM73%2040h1v1h-1zM119%2040h1v1h-1zM135%2040h1v1h-1zM149%2040h1v1h-1zM158%2040h1v1h-1zM193%2040h1v1h-1zM5%2041h1v1h-1zM34%2041h1v1h-1zM53%2041h1v1h-1zM58%2041h1v1h-1zM73%2041h2v1h-2zM118%2041h2v1h-2zM135%2041h1v1h-1zM149%2041h1v1h-1zM158%2041h1v1h-1zM193%2041h1v1h-1zM5%2042h1v1h-1zM34%2042h1v1h-1zM48%2042h6v1h-6zM58%2042h6v1h-6zM74%2042h1v1h-1zM118%2042h1v1h-1zM135%2042h1v1h-1zM149%2042h1v1h-1zM158%2042h1v1h-1zM193%2042h1v1h-1zM5%2043h1v1h-1zM34%2043h1v1h-1zM48%2043h1v1h-1zM63%2043h1v1h-1zM74%2043h1v1h-1zM118%2043h1v1h-1zM135%2043h1v1h-1zM149%2043h1v1h-1zM158%2043h1v1h-1zM193%2043h1v1h-1zM5%2044h30v1h-30zM48%2044h1v1h-1zM63%2044h1v1h-1zM74%2044h1v1h-1zM118%2044h1v1h-1zM135%2044h1v1h-1zM149%2044h1v1h-1zM158%2044h1v1h-1zM193%2044h1v1h-1zM48%2045h1v1h-1zM63%2045h1v1h-1zM74%2045h3v1h-3zM82%2045h29v1h-29zM116%2045h3v1h-3zM135%2045h1v1h-1zM149%2045h1v1h-1zM158%2045h1v1h-1zM193%2045h1v1h-1zM76%2048h1v1h-1zM82%2048h1v1h-1zM110%2048h1v1h-1zM116%2048h1v1h-1zM76%2049h7v1h-7zM110%2049h7v1h-7z%22%2F%3E%3Cpath%20fill%3D%22%23C98B4B%22%20d%3D%22M6%2016h28v1h-28zM6%2017h28v1h-28zM6%2018h2v1h-2zM32%2018h2v1h-2zM6%2019h2v1h-2zM32%2019h2v1h-2zM6%2020h2v1h-2zM33%2020h1v1h-1zM6%2021h2v1h-2zM33%2021h1v1h-1zM6%2022h2v1h-2zM33%2022h1v1h-1zM6%2023h2v1h-2zM33%2023h1v1h-1zM6%2024h2v1h-2zM33%2024h1v1h-1zM6%2025h2v1h-2zM33%2025h1v1h-1zM6%2026h2v1h-2zM33%2026h1v1h-1zM6%2027h2v1h-2zM33%2027h1v1h-1zM54%2027h4v1h-4zM6%2028h2v1h-2zM33%2028h1v1h-1zM54%2028h4v1h-4zM6%2029h28v1h-28zM54%2029h4v1h-4zM6%2030h2v1h-2zM32%2030h2v1h-2zM54%2030h4v1h-4zM6%2031h2v1h-2zM32%2031h2v1h-2zM54%2031h4v1h-4zM6%2032h2v1h-2zM32%2032h2v1h-2zM54%2032h4v1h-4zM6%2033h2v1h-2zM32%2033h2v1h-2zM54%2033h4v1h-4zM91%2033h1v1h-1zM101%2033h1v1h-1zM6%2034h2v1h-2zM32%2034h2v1h-2zM54%2034h4v1h-4zM91%2034h1v1h-1zM101%2034h1v1h-1zM6%2035h2v1h-2zM32%2035h2v1h-2zM54%2035h4v1h-4zM91%2035h1v1h-1zM101%2035h1v1h-1zM6%2036h2v1h-2zM32%2036h2v1h-2zM54%2036h4v1h-4zM91%2036h1v1h-1zM101%2036h1v1h-1zM6%2037h2v1h-2zM32%2037h2v1h-2zM54%2037h4v1h-4zM91%2037h1v1h-1zM101%2037h1v1h-1zM6%2038h2v1h-2zM32%2038h2v1h-2zM54%2038h4v1h-4zM91%2038h1v1h-1zM101%2038h1v1h-1zM6%2039h2v1h-2zM32%2039h2v1h-2zM54%2039h4v1h-4zM91%2039h1v1h-1zM101%2039h1v1h-1zM6%2040h2v1h-2zM32%2040h2v1h-2zM54%2040h4v1h-4zM6%2041h2v1h-2zM32%2041h2v1h-2zM54%2041h4v1h-4zM136%2041h13v1h-13zM6%2042h28v1h-28zM54%2042h4v1h-4zM136%2042h13v1h-13zM6%2043h28v1h-28zM136%2043h13v1h-13zM49%2044h14v1h-14zM136%2044h13v1h-13zM49%2045h14v1h-14zM77%2045h5v1h-5zM111%2045h5v1h-5zM136%2045h13v1h-13zM0%2046h208v1h-208zM77%2048h5v1h-5zM111%2048h5v1h-5z%22%2F%3E%3Cpath%20fill%3D%22%238E5F33%22%20d%3D%22M8%2018h24v1h-24zM8%2019h24v1h-24zM8%2020h1v1h-1zM13%2020h1v1h-1zM18%2020h1v1h-1zM23%2020h1v1h-1zM28%2020h1v1h-1zM8%2021h1v1h-1zM13%2021h1v1h-1zM18%2021h1v1h-1zM23%2021h1v1h-1zM28%2021h1v1h-1zM8%2022h1v1h-1zM13%2022h1v1h-1zM18%2022h1v1h-1zM23%2022h1v1h-1zM28%2022h1v1h-1zM8%2023h1v1h-1zM13%2023h1v1h-1zM18%2023h1v1h-1zM23%2023h1v1h-1zM28%2023h1v1h-1zM8%2024h1v1h-1zM13%2024h1v1h-1zM18%2024h1v1h-1zM23%2024h1v1h-1zM28%2024h1v1h-1zM8%2025h1v1h-1zM13%2025h1v1h-1zM18%2025h1v1h-1zM23%2025h1v1h-1zM28%2025h1v1h-1zM8%2026h1v1h-1zM13%2026h1v1h-1zM18%2026h1v1h-1zM23%2026h1v1h-1zM28%2026h1v1h-1zM8%2027h1v1h-1zM13%2027h1v1h-1zM18%2027h1v1h-1zM23%2027h1v1h-1zM28%2027h1v1h-1zM8%2028h1v1h-1zM13%2028h1v1h-1zM18%2028h1v1h-1zM23%2028h1v1h-1zM28%2028h1v1h-1zM8%2030h24v1h-24zM8%2031h2v1h-2zM14%2031h1v1h-1zM19%2031h1v1h-1zM24%2031h1v1h-1zM29%2031h3v1h-3zM8%2032h2v1h-2zM14%2032h1v1h-1zM19%2032h1v1h-1zM24%2032h1v1h-1zM29%2032h3v1h-3zM8%2033h2v1h-2zM14%2033h1v1h-1zM19%2033h1v1h-1zM24%2033h1v1h-1zM29%2033h3v1h-3zM8%2034h2v1h-2zM14%2034h1v1h-1zM19%2034h1v1h-1zM24%2034h1v1h-1zM29%2034h3v1h-3zM8%2035h2v1h-2zM14%2035h1v1h-1zM19%2035h1v1h-1zM24%2035h1v1h-1zM29%2035h3v1h-3zM8%2036h2v1h-2zM14%2036h1v1h-1zM19%2036h1v1h-1zM24%2036h1v1h-1zM29%2036h3v1h-3zM8%2037h2v1h-2zM14%2037h1v1h-1zM19%2037h1v1h-1zM24%2037h1v1h-1zM29%2037h3v1h-3zM8%2038h2v1h-2zM14%2038h1v1h-1zM19%2038h1v1h-1zM24%2038h1v1h-1zM29%2038h3v1h-3zM8%2039h2v1h-2zM14%2039h1v1h-1zM19%2039h1v1h-1zM24%2039h1v1h-1zM29%2039h3v1h-3zM8%2040h24v1h-24zM8%2041h24v1h-24z%22%2F%3E%3Cpath%20fill%3D%22%23FFE3B8%22%20d%3D%22M48%2018h1v1h-1zM63%2018h1v1h-1zM48%2019h1v1h-1zM63%2019h1v1h-1zM19%2020h4v1h-4zM48%2020h16v1h-16zM19%2021h4v1h-4zM48%2021h16v1h-16zM19%2022h4v1h-4zM48%2022h16v1h-16zM19%2023h4v1h-4zM48%2023h16v1h-16zM19%2024h4v1h-4zM48%2024h16v1h-16zM19%2025h4v1h-4zM48%2025h16v1h-16zM19%2026h4v1h-4zM48%2026h16v1h-16zM19%2027h4v1h-4zM19%2028h4v1h-4zM10%2031h4v1h-4zM10%2032h4v1h-4zM10%2033h4v1h-4zM80%2033h11v1h-11zM92%2033h9v1h-9zM102%2033h11v1h-11zM10%2034h4v1h-4zM80%2034h11v1h-11zM92%2034h9v1h-9zM102%2034h11v1h-11zM10%2035h4v1h-4zM80%2035h11v1h-11zM92%2035h9v1h-9zM102%2035h11v1h-11zM10%2036h4v1h-4zM80%2036h11v1h-11zM92%2036h9v1h-9zM102%2036h11v1h-11zM10%2037h4v1h-4zM80%2037h11v1h-11zM92%2037h9v1h-9zM102%2037h11v1h-11zM10%2038h4v1h-4zM80%2038h11v1h-11zM92%2038h9v1h-9zM102%2038h11v1h-11zM162%2038h28v1h-28zM10%2039h4v1h-4zM80%2039h11v1h-11zM92%2039h9v1h-9zM102%2039h11v1h-11zM162%2039h4v1h-4zM186%2039h4v1h-4zM162%2040h4v1h-4zM170%2040h12v1h-12zM186%2040h4v1h-4zM162%2041h4v1h-4zM170%2041h12v1h-12zM186%2041h4v1h-4zM162%2042h4v1h-4zM186%2042h4v1h-4zM162%2043h28v1h-28z%22%2F%3E%3Cpath%20fill%3D%22%23FFF3DC%22%20d%3D%22M49%2018h14v1h-14zM49%2019h14v1h-14zM80%2032h33v1h-33z%22%2F%3E%3Cpath%20fill%3D%22%232C6350%22%20d%3D%22M79%2019h1v1h-1zM113%2019h1v1h-1zM9%2020h4v1h-4zM29%2020h4v1h-4zM79%2020h1v1h-1zM113%2020h1v1h-1zM9%2021h4v1h-4zM29%2021h4v1h-4zM79%2021h1v1h-1zM113%2021h1v1h-1zM9%2022h4v1h-4zM29%2022h4v1h-4zM79%2022h35v1h-35zM9%2023h4v1h-4zM29%2023h4v1h-4zM79%2023h35v1h-35zM9%2024h4v1h-4zM29%2024h4v1h-4zM79%2024h6v1h-6zM86%2024h6v1h-6zM93%2024h6v1h-6zM100%2024h6v1h-6zM107%2024h7v1h-7zM9%2025h4v1h-4zM29%2025h4v1h-4zM79%2025h35v1h-35zM9%2026h4v1h-4zM29%2026h4v1h-4zM82%2026h29v1h-29zM9%2027h4v1h-4zM29%2027h4v1h-4zM82%2027h29v1h-29zM9%2028h4v1h-4zM29%2028h4v1h-4zM82%2028h3v1h-3zM86%2028h6v1h-6zM93%2028h6v1h-6zM100%2028h6v1h-6zM107%2028h4v1h-4zM74%2029h45v1h-45zM74%2030h45v1h-45zM15%2031h4v1h-4zM74%2031h45v1h-45zM15%2032h4v1h-4zM74%2032h6v1h-6zM113%2032h6v1h-6zM15%2033h4v1h-4zM74%2033h6v1h-6zM113%2033h6v1h-6zM15%2034h4v1h-4zM74%2034h6v1h-6zM113%2034h6v1h-6zM15%2035h4v1h-4zM74%2035h6v1h-6zM113%2035h6v1h-6zM15%2036h4v1h-4zM74%2036h6v1h-6zM113%2036h6v1h-6zM15%2037h4v1h-4zM74%2037h6v1h-6zM113%2037h6v1h-6zM15%2038h4v1h-4zM15%2039h4v1h-4zM75%2041h43v1h-43zM75%2042h43v1h-43zM75%2043h43v1h-43zM75%2044h43v1h-43z%22%2F%3E%3Cpath%20fill%3D%22%233F9577%22%20d%3D%22M80%2019h33v1h-33zM80%2020h33v1h-33zM80%2021h33v1h-33zM139%2024h6v1h-6zM139%2025h6v1h-6zM74%2026h8v1h-8zM111%2026h8v1h-8zM139%2026h6v1h-6zM74%2027h8v1h-8zM111%2027h8v1h-8zM74%2028h8v1h-8zM111%2028h8v1h-8z%22%2F%3E%3Cpath%20fill%3D%22%238E4B45%22%20d%3D%22M14%2020h4v1h-4zM14%2021h4v1h-4zM14%2022h4v1h-4zM14%2023h4v1h-4zM14%2024h4v1h-4zM14%2025h4v1h-4zM14%2026h4v1h-4zM14%2027h4v1h-4zM14%2028h4v1h-4zM20%2031h4v1h-4zM20%2032h4v1h-4zM20%2033h4v1h-4zM20%2034h4v1h-4zM20%2035h4v1h-4zM161%2035h30v1h-30zM20%2036h4v1h-4zM159%2036h34v1h-34zM20%2037h4v1h-4zM159%2037h34v1h-34zM20%2038h4v1h-4zM159%2038h3v1h-3zM190%2038h3v1h-3zM20%2039h4v1h-4zM159%2039h3v1h-3zM166%2039h20v1h-20zM190%2039h3v1h-3zM159%2040h3v1h-3zM166%2040h4v1h-4zM182%2040h4v1h-4zM190%2040h3v1h-3zM159%2041h3v1h-3zM166%2041h4v1h-4zM182%2041h4v1h-4zM190%2041h3v1h-3zM159%2042h3v1h-3zM166%2042h20v1h-20zM190%2042h3v1h-3zM159%2043h3v1h-3zM190%2043h3v1h-3zM159%2044h34v1h-34zM159%2045h34v1h-34z%22%2F%3E%3Cpath%20fill%3D%22%236E9B5B%22%20d%3D%22M24%2020h4v1h-4zM24%2021h4v1h-4zM24%2022h4v1h-4zM24%2023h4v1h-4zM137%2023h10v1h-10zM24%2024h4v1h-4zM137%2024h2v1h-2zM145%2024h2v1h-2zM24%2025h4v1h-4zM137%2025h2v1h-2zM145%2025h2v1h-2zM24%2026h4v1h-4zM137%2026h2v1h-2zM145%2026h2v1h-2zM24%2027h4v1h-4zM137%2027h10v1h-10zM24%2028h4v1h-4zM137%2028h10v1h-10zM132%2029h20v1h-20zM132%2030h8v1h-8zM144%2030h8v1h-8zM25%2031h4v1h-4zM132%2031h20v1h-20zM25%2032h4v1h-4zM132%2032h20v1h-20zM25%2033h4v1h-4zM132%2033h20v1h-20zM25%2034h4v1h-4zM132%2034h20v1h-20zM25%2035h4v1h-4zM140%2035h4v1h-4zM25%2036h4v1h-4zM140%2036h4v1h-4zM25%2037h4v1h-4zM140%2037h4v1h-4zM25%2038h4v1h-4zM140%2038h4v1h-4zM25%2039h4v1h-4zM140%2039h4v1h-4zM140%2040h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%231F4A3B%22%20d%3D%22M85%2024h1v1h-1zM92%2024h1v1h-1zM99%2024h1v1h-1zM106%2024h1v1h-1zM85%2028h1v1h-1zM92%2028h1v1h-1zM99%2028h1v1h-1zM106%2028h1v1h-1zM74%2038h6v1h-6zM113%2038h6v1h-6zM74%2039h6v1h-6zM113%2039h6v1h-6zM74%2040h45v1h-45z%22%2F%3E%3Cpath%20fill%3D%22%23F6C560%22%20d%3D%22M136%2039h4v1h-4zM144%2039h5v1h-5zM136%2040h4v1h-4zM144%2040h5v1h-5zM49%2043h14v1h-14z%22%2F%3E%3Cpath%20fill%3D%22%238A6023%22%20d%3D%22M0%2047h208v1h-208z%22%2F%3E%3C%2Fsvg%3E";
 const BRAND_FAVICON = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%237E5127%22%20d%3D%22M0%200h1v1h-1zM15%200h1v1h-1zM0%201h1v1h-1zM15%201h1v1h-1zM0%202h1v1h-1zM15%202h1v1h-1zM0%203h1v1h-1zM15%203h1v1h-1zM0%204h1v1h-1zM15%204h1v1h-1zM0%205h1v1h-1zM15%205h1v1h-1zM0%206h1v1h-1zM15%206h1v1h-1zM0%207h1v1h-1zM15%207h1v1h-1zM0%208h1v1h-1zM15%208h1v1h-1zM0%209h1v1h-1zM15%209h1v1h-1zM0%2010h1v1h-1zM15%2010h1v1h-1zM0%2011h1v1h-1zM15%2011h1v1h-1zM0%2012h1v1h-1zM15%2012h1v1h-1zM0%2013h1v1h-1zM15%2013h1v1h-1zM0%2014h1v1h-1zM15%2014h1v1h-1zM0%2015h1v1h-1zM15%2015h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23C08C58%22%20d%3D%22M1%200h14v1h-14zM1%201h14v1h-14zM1%202h2v1h-2zM13%202h2v1h-2zM1%203h2v1h-2zM13%203h2v1h-2zM1%204h2v1h-2zM13%204h2v1h-2zM1%205h2v1h-2zM13%205h2v1h-2zM1%206h2v1h-2zM13%206h2v1h-2zM1%207h2v1h-2zM13%207h2v1h-2zM1%208h2v1h-2zM13%208h2v1h-2zM1%209h2v1h-2zM13%209h2v1h-2zM1%2010h2v1h-2zM13%2010h2v1h-2zM1%2011h2v1h-2zM13%2011h2v1h-2zM1%2012h2v1h-2zM13%2012h2v1h-2zM1%2013h2v1h-2zM13%2013h2v1h-2zM1%2014h2v1h-2zM13%2014h2v1h-2zM1%2015h2v1h-2zM13%2015h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23A26B39%22%20d%3D%22M3%202h2v1h-2zM11%202h2v1h-2zM3%203h1v1h-1zM12%203h1v1h-1zM3%208h1v1h-1zM12%208h1v1h-1zM3%209h1v1h-1zM12%209h1v1h-1zM3%2010h1v1h-1zM12%2010h1v1h-1zM3%2011h1v1h-1zM12%2011h1v1h-1zM3%2012h1v1h-1zM12%2012h1v1h-1zM3%2013h1v1h-1zM12%2013h1v1h-1zM3%2014h1v1h-1zM12%2014h1v1h-1zM3%2015h1v1h-1zM12%2015h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23EFC79C%22%20d%3D%22M5%202h6v1h-6zM5%203h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%23DCAA7C%22%20d%3D%22M4%203h1v1h-1zM11%203h1v1h-1zM5%204h6v1h-6zM6%205h4v1h-4zM6%206h1v1h-1zM9%206h1v1h-1zM5%207h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%23ABA496%22%20d%3D%22M3%204h2v1h-2zM11%204h2v1h-2zM3%205h1v1h-1zM12%205h1v1h-1zM3%206h1v1h-1zM12%206h1v1h-1zM3%207h2v1h-2zM11%207h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23DCEEF5%22%20d%3D%22M4%205h2v1h-2zM10%205h2v1h-2zM5%206h1v1h-1zM10%206h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M4%206h1v1h-1zM11%206h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23A79F90%22%20d%3D%22M7%206h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23C7C1B2%22%20d%3D%22M4%208h8v1h-8zM4%209h3v1h-3zM9%209h3v1h-3zM4%2010h2v1h-2zM10%2010h2v1h-2zM4%2011h8v1h-8zM4%2012h8v1h-8z%22%2F%3E%3Cpath%20fill%3D%22%233E1715%22%20d%3D%22M7%209h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23E0DBCE%22%20d%3D%22M6%2010h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%232B2926%22%20d%3D%22M4%2013h2v1h-2zM10%2013h2v1h-2zM4%2014h2v1h-2zM10%2014h2v1h-2zM4%2015h2v1h-2zM10%2015h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23F4F0E4%22%20d%3D%22M6%2013h1v1h-1zM9%2013h1v1h-1zM6%2014h4v1h-4zM6%2015h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%235E2421%22%20d%3D%22M7%2013h2v1h-2z%22%2F%3E%3C%2Fsvg%3E";
 const STORE_KEY = 'practice_planner_v3';
 const ORIENT_KEY = 'practice_planner_orient_dismissed_v1';
@@ -2666,7 +2671,7 @@ function PracticeIncomePlanner() {
     className: "sitenav-wordmark"
   }, "Therapist Support", /*#__PURE__*/React.createElement("span", {
     className: "sitenav-sub"
-  }, "California Therapy Practice Simulator")), VARIANT === "01" && /*#__PURE__*/React.createElement("span", {
+  }, "Supporting California therapists")), VARIANT === "01" && /*#__PURE__*/React.createElement("span", {
     className: "v01-tagline"
   }, "California \u00B7 2026 net estimates")), /*#__PURE__*/React.createElement("button", {
     className: "sitenav-menu" + (navOpen ? " on" : ""),
@@ -4023,7 +4028,7 @@ function PracticeIncomePlanner() {
         ent.toLowerCase(), ", ", filingStatus === "mfj" ? "married filing jointly" : filingStatus === "mfj_dependents" ? "married with dependants" : filingStatus === "hoh" ? "head of household" : "filing single",
         ". Estimates, not a filing."));
   })(), /*#__PURE__*/React.createElement("section", {
-    className: "card feedback-section"
+    className: "card feedback-section", id: "feedback"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
   }, /*#__PURE__*/React.createElement("h2", null, "Found a bug? Have an idea?"), /*#__PURE__*/React.createElement("p", null, "This tool is actively maintained \u2014 tell me what's broken, what's confusing, what a number should say instead, or what you'd like to see next. Every message is read by a person. Goes right to ", /*#__PURE__*/React.createElement("b", null, "Cavatello"), ", therapist and tool builder.")),
@@ -4201,29 +4206,27 @@ function PracticeIncomePlanner() {
     " A licensed practice here cannot use an LLC (Corp. Code \u00A717701.04(e)), associates must be W-2 employees (B&P \u00A74980.43.3), and the state has its own brackets, a 1.3% SDI rate with no wage cap, and a 1.5% entity-level fee. Most calculators get at least one of those wrong."),
   /*#__PURE__*/React.createElement("div", {
     className: "sitefoot"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "sitefoot-mark"
   }, /*#__PURE__*/React.createElement("img", {
-    className: "sitenav-fig", src: BRAND_MARK, width: 28, height: 28,
-    alt: "", "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "sitenav-wordmark"
-  }, "Therapist Support", /*#__PURE__*/React.createElement("span", {
-    className: "sitenav-sub"
-  }, "California Therapy Practice Simulator"))), /*#__PURE__*/React.createElement("nav", {
-    className: "sitefoot-links",
-    "aria-label": "Site, footer"
-  }, [["#sim", "Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"], ["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]].map(([href, t]) => /*#__PURE__*/React.createElement("a", {
-    key: href,
+    className: "sitefoot-room", src: FOOTER_ROOM, alt: "", "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: "sitefoot-cols"
+  }, [["Tools", [["#sim", "Practice Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"]]],
+      ["Learn", [["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]]],
+      ["About", [["#feedback", "Feedback"], ["#feedback", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
+    key: h,
+    className: "sitefoot-col"
+  }, /*#__PURE__*/React.createElement("h4", null, h), items.map(([href, t]) => /*#__PURE__*/React.createElement("a", {
+    key: h + t,
     href: href,
     target: /^https?:/.test(href) ? "_blank" : null,
     rel: /^https?:/.test(href) ? "noopener noreferrer" : null
-  }, t))), /*#__PURE__*/React.createElement("div", {
+  }, t)))), /*#__PURE__*/React.createElement("div", {
+    className: "sitefoot-col"
+  }, /*#__PURE__*/React.createElement("h4", null, "The small print"), /*#__PURE__*/React.createElement("p", null, "2026 federal and California rates. Estimates only \u2014 not tax advice."), /*#__PURE__*/React.createElement("p", null, "Nothing is saved and nothing is sent. Your setup lives in the URL."))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
   }, "Last updated: July 31, 2026"), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-by"
-  }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."),
-    " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
+  }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."), " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
 }
 
 // ---------- small components ----------
@@ -9263,13 +9266,15 @@ section.card.sgate{border-left:3px solid #C98B4B;}
 
 /* site masthead (top) */
 .sitenav{display:flex; align-items:center; justify-content:flex-start; gap:30px; flex-wrap:wrap;
-  background:#F6F2E8; border-bottom:1px solid var(--line);
-  margin:-32px -24px 20px; padding:7px 24px;}
+  background:#141712; border-bottom:0; box-shadow:inset 0 -2px 0 #C98B4B;
+  margin:-32px -24px 20px; padding:9px 24px;}
 .sitenav-mark{display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--ink);}
 .sitenav-mono{width:22px; height:22px; border-radius:6px; background:var(--ink); color:#fff;
   font-family:'Fraunces',serif; font-weight:700; font-size:11px; flex-shrink:0;
   display:flex; align-items:center; justify-content:center;}
-.sitenav-wordmark{font-family:'Fraunces',serif; font-weight:700; font-size:13.5px; letter-spacing:-.01em;}
+.sitenav-wordmark{font-family:'Fraunces',serif; font-weight:700; font-size:15px; letter-spacing:-.012em;
+  color:#fff; line-height:1.15;}
+.sitenav-mark{color:#fff;}
 /* The brand mark. image-rendering:pixelated is belt-and-braces - the SVG
    already carries shape-rendering:crispEdges - but a browser that resamples a
    pixel drawing ruins the one thing it must not. */
@@ -9278,33 +9283,49 @@ section.card.sgate{border-left:3px solid #C98B4B;}
 /* The page title kept beside the site name, so a deep link into #tax still
    says what the site is. Dropped on narrow screens before it can wrap - the
    masthead is sticky and its height feeds --navh and the fold. */
-.sitenav-sub{font-family:'Inter',system-ui,sans-serif; font-weight:600; font-size:11px;
-  color:#A39C8E; letter-spacing:.005em; white-space:nowrap;
-  margin-left:9px; padding-left:9px; border-left:1px solid var(--line);}
-@media (max-width:1040px){ .sitenav-sub{display:none;} }
+.sitenav-sub{display:block; font-family:'Inter',system-ui,sans-serif; font-weight:700;
+  font-size:8.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:rgba(255,255,255,.5); margin-top:3px; white-space:nowrap;}
+
 .sitenav-links{display:flex; align-items:stretch; gap:4px; flex-wrap:wrap;}
 .sitenav-item{display:flex; flex-direction:column; gap:1px; padding:5px 13px; border-radius:8px;
   text-decoration:none; border:1px solid transparent; white-space:nowrap;
   transition:background .15s, border-color .15s;}
-.sitenav-item:hover{background:#FCFAF4; border-color:var(--line);}
-.sitenav-t{font-size:12.5px; font-weight:600; color:var(--muted); line-height:1.25;}
-.sitenav-d{font-size:9.5px; color:#A39C8E; line-height:1.25;}
-.sitenav-on{background:#fff; border-color:var(--line);}
+/* Dark bar. These are edited in place rather than overridden later: the light-bar
+   greys measured 4.3:1 on near-black, which is under AA for 12.5px text, and an
+   override block placed earlier in the sheet loses to them silently. */
+.sitenav-item:hover{background:rgba(255,255,255,.08); border-color:transparent;}
+.sitenav-t{font-size:12.5px; font-weight:600; color:rgba(255,255,255,.84); line-height:1.25;}
+.sitenav-d{font-size:9.5px; color:rgba(255,255,255,.56); line-height:1.25;}
+.sitenav-on{background:#fff; border-color:transparent;}
 .sitenav-on .sitenav-t{color:var(--ink); font-weight:700;}
 .sitenav-on .sitenav-d{color:var(--muted);}
-.sitenav-item:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--amber-focus,#C98B4B); outline-offset:2px;}
+.sitenav-menu{color:#fff !important; border-color:rgba(255,255,255,.28) !important;
+  background:transparent !important;}
+.sitenav-item:focus-visible,.sitenav-mark:focus-visible{outline:2px solid #F6C560; outline-offset:2px;}
 
 /* site footer (bottom) — mirrors the masthead */
-.sitefoot{display:flex; align-items:center; justify-content:flex-start; gap:26px; flex-wrap:wrap;
-  background:#F6F2E8; border-top:1px solid var(--line);
-  margin:34px -24px -60px; padding:13px 24px 20px;}
-.sitefoot-meta{margin-left:auto;}
-.sitefoot-mark{display:flex; align-items:center; gap:9px; color:var(--ink);}
-.sitefoot-links{display:flex; gap:16px; flex-wrap:wrap;}
-.sitefoot-links a{font-size:12px; color:var(--muted); text-decoration:none;}
-.sitefoot-links a:hover{color:var(--ink); text-decoration:underline;}
-.sitefoot-links a:focus-visible{outline:2px solid #C98B4B; outline-offset:2px;}
-.sitefoot-meta{font-size:11px; color:#9C968A;}
+/* The footer room. It costs nothing, it loads instantly, and it turns the
+   bottom of every page into somewhere rather than nothing. It is also the one
+   place the pixel style can be loud without touching the credibility of the
+   numbers above it. */
+.sitefoot{display:block; background:#141712; border-top:0;
+  margin:34px -24px -60px; padding:0 24px 22px;}
+.sitefoot-room{display:block; width:100%; max-width:560px; height:auto;
+  margin:0 auto; image-rendering:pixelated;}
+.sitefoot-cols{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+  border-top:1px solid rgba(255,255,255,.1); padding:20px 0 4px;}
+.sitefoot-col h4{margin:0 0 11px; font-family:'Inter',system-ui,sans-serif;
+  font-size:9.5px; font-weight:800; letter-spacing:.13em; text-transform:uppercase;
+  color:#F6C560;}
+.sitefoot-col a{display:block; font-size:12.5px; color:rgba(255,255,255,.72);
+  text-decoration:none; margin-bottom:8px;}
+.sitefoot-col a:hover{color:#fff; text-decoration:underline;}
+.sitefoot-col a:focus-visible{outline:2px solid #F6C560; outline-offset:2px;}
+.sitefoot-col p{margin:0 0 8px; font-size:12px; line-height:1.5; color:rgba(255,255,255,.5);}
+.sitefoot-meta{font-size:11px; color:rgba(255,255,255,.38); margin-top:6px;}
+@media (max-width:820px){ .sitefoot-cols{grid-template-columns:repeat(2,1fr); gap:18px;} }
+@media (max-width:460px){ .sitefoot-cols{grid-template-columns:1fr;} }
 
 /* subsection eyebrow (residency inside tax strategy) */
 .sub-eyebrow{font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em;
@@ -9888,8 +9909,8 @@ td.num-head{text-align:right;}
    this is) now belongs to the wordmark, which is always visible
    because the bar is sticky, plus a one-line strip on a first visit.
    =================================================================== */
-.sitenav{position:sticky; top:0; z-index:40; background:#F3EFE5;
-  border-bottom:1px solid var(--line); margin:0; padding:10px 22px;
+.sitenav{position:sticky; top:0; z-index:40; background:#141712;
+  border-bottom:0; box-shadow:inset 0 -2px 0 #C98B4B; margin:0; padding:10px 22px;
   display:flex; align-items:center; flex-wrap:nowrap; gap:16px; max-width:100%;}
 .sitenav-mark{flex:none;}
 .sitenav-wordmark{white-space:nowrap;}
@@ -9988,9 +10009,12 @@ td.num-head{text-align:right;}
   .orient-x{top:11px; right:8px; font-size:20px;}
 }
 
-.sitefoot-by{flex-basis:100%; margin-top:2px; padding-top:11px; border-top:1px solid var(--line);
-  font-size:12px; line-height:1.6; color:var(--muted);}
-.sitefoot-by b{color:var(--ink); font-weight:600;}
+/* Dark footer. Edited here rather than overridden earlier — this rule sits ~700
+   lines further down the sheet and was quietly winning, so the by-line rendered
+   as near-black ink on a near-black band. */
+.sitefoot-by{margin-top:2px; padding-top:11px; border-top:1px solid rgba(255,255,255,.1);
+  font-size:12px; line-height:1.6; color:rgba(255,255,255,.5);}
+.sitefoot-by b{color:rgba(255,255,255,.78); font-weight:600;}
 
 /* the primer: what a tax-deferred retirement account is, for someone who has
    never had an employer offer one */
