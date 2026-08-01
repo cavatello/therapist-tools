@@ -2455,6 +2455,7 @@ function PracticeIncomePlanner() {
     return lines.join("\n");
   };
   const resetToZero = () => {
+    setOpenMod(null);
     setRate(0);
     setSessions(0);
     setSecondaryOn(false);
@@ -2742,8 +2743,22 @@ function PracticeIncomePlanner() {
             /*#__PURE__*/React.createElement("img", {src: HERO_ICON[m.ic], alt: "", "aria-hidden": "true"}),
             /*#__PURE__*/React.createElement("b", null, m.lab),
             /*#__PURE__*/React.createElement("span", null, m.blurb),
+            /* Closing the drawer used to be the ONLY control here, so once a
+               module was switched on by opening it there was no way back: the
+               tile kept reporting income for fields you could no longer see a
+               way to clear. This empties the module's own fields, switches it
+               off and closes, which is what "close" was being mistaken for. */
             /*#__PURE__*/React.createElement("button", {
-              type: "button", className: "lnd-draw-x", "aria-label": "Close",
+              type: "button", className: "lnd-draw-off",
+              onClick: () => {
+                m.groups.forEach(([, fields]) => fields.forEach(([, , , setD]) => setD("")));
+                m.enable(false);
+                setOpenMod(null);
+              }
+            }, "Turn it off"),
+            /*#__PURE__*/React.createElement("button", {
+              type: "button", className: "lnd-draw-x", "aria-label": "Close, keep the numbers",
+              title: "Close \u2014 keeps what you entered",
               onClick: () => setOpenMod(null)
             }, "\u00D7")),
           m.groups.map(([title, fields], gi) => /*#__PURE__*/React.createElement("div", {
@@ -10946,6 +10961,16 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .lnd-draw-x{flex:none; background:none; border:0; color:rgba(255,255,255,.6);
   font-size:19px; line-height:1; cursor:pointer; padding:0 2px;}
 .lnd-draw-x:hover{color:#fff;}
+.lnd-draw-off{flex:none; margin-left:auto; background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.24); color:rgba(255,255,255,.86);
+  font:inherit; font-size:11.5px; font-weight:700; letter-spacing:.01em;
+  padding:5px 11px; border-radius:8px; cursor:pointer; white-space:nowrap;}
+.lnd-draw-off:hover{background:rgba(255,255,255,.17); color:#fff;}
+.lnd-draw-off:focus-visible,.lnd-draw-x:focus-visible{outline:2px solid #F6C560;
+  outline-offset:2px;}
+@media (max-width:620px){
+  .lnd-draw-off{font-size:11px; padding:5px 9px;}
+}
 .lnd-draw-g + .lnd-draw-g{margin-top:12px; padding-top:12px;
   border-top:1px solid rgba(255,255,255,.13);}
 .lnd-draw-g h5{margin:0 0 9px; font-size:9.5px; font-weight:800; letter-spacing:.12em;
