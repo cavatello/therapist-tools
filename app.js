@@ -9813,7 +9813,12 @@ section.card.sgate{border-left:3px solid #C98B4B;}
    scrollbar, and overflow-clip-margin keeps that guarantee while letting this
    one element paint past the edge. Padding tracks the same 1080px column so the
    text below stays aligned with everything above it. */
-.planner{overflow-clip-margin:100vw;}
+/* overflow-clip-margin is not honoured everywhere, and where it is not the
+   footer stayed clipped to the 1080px column. Let .planner stop clipping and
+   move the no-horizontal-scrollbar guarantee up to the document, where a
+   100vw child is exactly the viewport and cannot overflow anything. */
+html{overflow-x:clip;}
+.planner{overflow-x:visible !important; overflow-clip-margin:100vw;}
 .sitefoot{display:block; background:#141712; border-top:0;
   margin:34px calc(50% - 50vw) -60px; width:100vw;
   padding:0 max(24px, calc(50vw - 540px)) 22px;}
