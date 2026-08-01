@@ -29,6 +29,51 @@ const HERO_ICON = {
   second: "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2026%2024%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M1%201h4v1h-4zM18%201h7v1h-7zM1%202h1v1h-1zM4%202h1v1h-1zM18%202h1v1h-1zM24%202h1v1h-1zM1%203h1v1h-1zM4%203h1v1h-1zM18%203h1v1h-1zM24%203h1v1h-1zM1%204h1v1h-1zM4%204h1v1h-1zM18%204h1v1h-1zM24%204h1v1h-1zM1%205h1v1h-1zM4%205h1v1h-1zM14%205h5v1h-5zM24%205h1v1h-1zM1%206h1v1h-1zM4%206h1v1h-1zM14%206h1v1h-1zM24%206h1v1h-1zM1%207h1v1h-1zM4%207h1v1h-1zM12%207h3v1h-3zM19%207h1v1h-1zM24%207h1v1h-1zM1%208h1v1h-1zM4%208h1v1h-1zM10%208h3v1h-3zM19%208h1v1h-1zM24%208h1v1h-1zM1%209h1v1h-1zM4%209h1v1h-1zM8%209h3v1h-3zM19%209h1v1h-1zM24%209h1v1h-1zM1%2010h1v1h-1zM4%2010h1v1h-1zM6%2010h3v1h-3zM14%2010h1v1h-1zM19%2010h1v1h-1zM24%2010h1v1h-1zM1%2011h1v1h-1zM4%2011h3v1h-3zM14%2011h1v1h-1zM19%2011h1v1h-1zM24%2011h1v1h-1zM1%2012h1v1h-1zM4%2012h2v1h-2zM9%2012h1v1h-1zM14%2012h1v1h-1zM19%2012h1v1h-1zM24%2012h1v1h-1zM1%2013h1v1h-1zM4%2013h2v1h-2zM7%2013h3v1h-3zM14%2013h1v1h-1zM19%2013h1v1h-1zM24%2013h1v1h-1zM1%2014h1v1h-1zM4%2014h1v1h-1zM9%2014h1v1h-1zM14%2014h1v1h-1zM19%2014h1v1h-1zM24%2014h1v1h-1zM1%2015h1v1h-1zM4%2015h1v1h-1zM9%2015h1v1h-1zM14%2015h1v1h-1zM19%2015h1v1h-1zM24%2015h1v1h-1zM1%2016h1v1h-1zM4%2016h1v1h-1zM9%2016h1v1h-1zM14%2016h1v1h-1zM19%2016h1v1h-1zM24%2016h1v1h-1zM1%2017h1v1h-1zM4%2017h1v1h-1zM9%2017h1v1h-1zM14%2017h1v1h-1zM19%2017h1v1h-1zM24%2017h1v1h-1zM1%2018h1v1h-1zM4%2018h1v1h-1zM9%2018h1v1h-1zM14%2018h1v1h-1zM19%2018h1v1h-1zM24%2018h1v1h-1zM1%2019h1v1h-1zM4%2019h1v1h-1zM9%2019h1v1h-1zM14%2019h1v1h-1zM19%2019h1v1h-1zM24%2019h1v1h-1zM1%2020h1v1h-1zM24%2020h1v1h-1zM1%2021h1v1h-1zM24%2021h1v1h-1zM1%2022h24v1h-24z%22%2F%3E%3Cpath%20fill%3D%22%23CFC7B4%22%20d%3D%22M2%202h2v1h-2zM2%203h2v1h-2zM2%204h2v1h-2zM2%205h2v1h-2zM2%206h2v1h-2zM2%207h2v1h-2zM2%208h2v1h-2zM2%209h2v1h-2zM2%2010h2v1h-2zM2%2011h2v1h-2zM2%2012h2v1h-2zM2%2013h2v1h-2zM2%2014h2v1h-2zM2%2015h2v1h-2zM2%2016h2v1h-2zM2%2017h2v1h-2zM2%2018h2v1h-2zM2%2019h2v1h-2zM2%2020h22v1h-22zM2%2021h22v1h-22z%22%2F%3E%3Cpath%20fill%3D%22%238E4B45%22%20d%3D%22M19%202h5v1h-5zM19%203h5v1h-5zM19%204h5v1h-5zM19%205h3v1h-3zM17%206h4v1h-4zM15%207h4v1h-4zM13%208h4v1h-4zM11%209h4v1h-4zM9%2010h4v1h-4zM7%2011h4v1h-4zM6%2012h3v1h-3zM6%2013h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23F6C560%22%20d%3D%22M22%205h2v1h-2zM21%206h3v1h-3zM20%207h4v1h-4zM20%208h4v1h-4zM20%209h4v1h-4zM20%2010h4v1h-4zM20%2011h4v1h-4zM20%2012h4v1h-4zM20%2013h4v1h-4zM20%2014h4v1h-4zM20%2015h4v1h-4zM20%2016h4v1h-4zM20%2017h4v1h-4zM20%2018h4v1h-4zM20%2019h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%23FFE3B8%22%20d%3D%22M15%206h2v1h-2zM17%208h2v1h-2zM15%209h4v1h-4zM15%2010h4v1h-4zM15%2011h4v1h-4zM15%2012h4v1h-4zM15%2013h4v1h-4zM15%2014h4v1h-4zM15%2015h4v1h-4zM15%2016h4v1h-4zM15%2017h4v1h-4zM15%2018h4v1h-4zM15%2019h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%233F9577%22%20d%3D%22M13%2010h1v1h-1zM11%2011h3v1h-3zM10%2012h4v1h-4zM10%2013h4v1h-4zM10%2014h4v1h-4zM10%2015h4v1h-4zM10%2016h4v1h-4zM10%2017h4v1h-4zM10%2018h4v1h-4zM10%2019h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%232C6350%22%20d%3D%22M5%2014h4v1h-4zM5%2015h4v1h-4zM5%2016h4v1h-4zM5%2017h4v1h-4zM5%2018h4v1h-4zM5%2019h4v1h-4z%22%2F%3E%3C%2Fsvg%3E",
   where: "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M11%200h2v1h-2zM19%200h2v1h-2zM11%201h1v1h-1zM20%201h1v1h-1zM9%202h3v1h-3zM20%202h4v1h-4zM9%203h1v1h-1zM11%203h1v1h-1zM20%203h2v1h-2zM23%203h1v1h-1zM7%204h5v1h-5zM20%204h6v1h-6zM7%205h1v1h-1zM9%205h1v1h-1zM11%205h2v1h-2zM19%205h2v1h-2zM23%205h1v1h-1zM25%205h1v1h-1zM7%206h3v1h-3zM12%206h8v1h-8zM23%206h3v1h-3zM6%207h21v1h-21zM6%208h1v1h-1zM26%208h1v1h-1zM6%209h1v1h-1zM26%209h1v1h-1zM6%2010h1v1h-1zM26%2010h1v1h-1zM6%2011h1v1h-1zM26%2011h1v1h-1zM6%2012h1v1h-1zM26%2012h1v1h-1zM6%2013h1v1h-1zM26%2013h1v1h-1zM6%2014h1v1h-1zM26%2014h1v1h-1zM6%2015h1v1h-1zM26%2015h1v1h-1zM6%2016h1v1h-1zM26%2016h1v1h-1zM6%2017h1v1h-1zM26%2017h1v1h-1zM6%2018h1v1h-1zM26%2018h1v1h-1zM6%2019h1v1h-1zM26%2019h1v1h-1zM6%2020h1v1h-1zM26%2020h1v1h-1zM6%2021h1v1h-1zM26%2021h1v1h-1zM6%2022h1v1h-1zM26%2022h1v1h-1zM6%2023h1v1h-1zM26%2023h1v1h-1zM6%2024h1v1h-1zM26%2024h1v1h-1zM6%2025h1v1h-1zM26%2025h1v1h-1zM6%2026h1v1h-1zM26%2026h1v1h-1zM6%2027h1v1h-1zM26%2027h1v1h-1zM6%2028h1v1h-1zM26%2028h1v1h-1zM6%2029h1v1h-1zM26%2029h1v1h-1zM6%2030h1v1h-1zM26%2030h1v1h-1zM6%2031h1v1h-1zM26%2031h1v1h-1z%22%2F%3E%3Cpath%20fill%3D%22%23F6C560%22%20d%3D%22M13%200h6v1h-6zM12%201h2v1h-2zM18%201h2v1h-2zM12%202h2v1h-2zM18%202h2v1h-2zM10%203h1v1h-1zM12%203h2v1h-2zM18%203h2v1h-2zM22%203h1v1h-1zM12%204h2v1h-2zM18%204h2v1h-2zM8%205h1v1h-1zM13%205h6v1h-6zM24%205h1v1h-1zM21%2021h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%23FFF3DC%22%20d%3D%22M14%201h4v1h-4zM14%202h4v1h-4zM14%203h4v1h-4zM14%204h4v1h-4zM12%2016h3v1h-3zM16%2016h3v1h-3zM20%2016h3v1h-3z%22%2F%3E%3Cpath%20fill%3D%22%23C98B4B%22%20d%3D%22M7%208h19v1h-19zM7%209h19v1h-19zM7%2010h2v1h-2zM24%2010h2v1h-2zM7%2011h2v1h-2zM24%2011h2v1h-2zM7%2012h2v1h-2zM11%2012h11v1h-11zM24%2012h2v1h-2zM7%2013h2v1h-2zM11%2013h11v1h-11zM24%2013h2v1h-2zM7%2014h2v1h-2zM24%2014h2v1h-2zM7%2015h2v1h-2zM24%2015h2v1h-2zM7%2016h2v1h-2zM24%2016h2v1h-2zM7%2017h2v1h-2zM24%2017h2v1h-2zM7%2018h2v1h-2zM24%2018h2v1h-2zM7%2019h2v1h-2zM11%2019h11v1h-11zM24%2019h2v1h-2zM7%2020h2v1h-2zM24%2020h2v1h-2zM7%2021h2v1h-2zM24%2021h2v1h-2zM7%2022h2v1h-2zM11%2022h11v1h-11zM24%2022h2v1h-2zM7%2023h2v1h-2zM11%2023h11v1h-11zM24%2023h2v1h-2zM7%2024h2v1h-2zM11%2024h11v1h-11zM24%2024h2v1h-2zM7%2025h2v1h-2zM11%2025h11v1h-11zM24%2025h2v1h-2zM7%2026h2v1h-2zM11%2026h11v1h-11zM24%2026h2v1h-2zM7%2027h2v1h-2zM11%2027h11v1h-11zM24%2027h2v1h-2zM7%2028h2v1h-2zM11%2028h11v1h-11zM24%2028h2v1h-2zM7%2029h2v1h-2zM11%2029h11v1h-11zM24%2029h2v1h-2zM7%2030h2v1h-2zM11%2030h11v1h-11zM24%2030h2v1h-2zM7%2031h2v1h-2zM24%2031h2v1h-2z%22%2F%3E%3Cpath%20fill%3D%22%238E5F33%22%20d%3D%22M9%2010h15v1h-15zM9%2011h15v1h-15zM9%2012h2v1h-2zM22%2012h2v1h-2zM9%2013h2v1h-2zM22%2013h2v1h-2zM9%2014h1v1h-1zM23%2014h1v1h-1zM9%2015h1v1h-1zM23%2015h1v1h-1zM9%2016h1v1h-1zM23%2016h1v1h-1zM9%2017h1v1h-1zM23%2017h1v1h-1zM9%2018h1v1h-1zM23%2018h1v1h-1zM9%2019h2v1h-2zM22%2019h2v1h-2zM9%2020h15v1h-15zM9%2021h12v1h-12zM23%2021h1v1h-1zM9%2022h2v1h-2zM22%2022h2v1h-2zM9%2023h2v1h-2zM22%2023h2v1h-2zM9%2024h2v1h-2zM22%2024h2v1h-2zM9%2025h2v1h-2zM22%2025h2v1h-2zM9%2026h2v1h-2zM22%2026h2v1h-2zM9%2027h2v1h-2zM22%2027h2v1h-2zM9%2028h2v1h-2zM22%2028h2v1h-2zM9%2029h2v1h-2zM22%2029h2v1h-2zM9%2030h2v1h-2zM22%2030h2v1h-2zM9%2031h15v1h-15z%22%2F%3E%3Cpath%20fill%3D%22%232C6350%22%20d%3D%22M10%2014h1v1h-1zM22%2014h1v1h-1zM10%2015h13v1h-13zM10%2016h2v1h-2zM15%2016h1v1h-1zM19%2016h1v1h-1zM10%2017h13v1h-13zM10%2018h13v1h-13z%22%2F%3E%3Cpath%20fill%3D%22%233F9577%22%20d%3D%22M11%2014h11v1h-11z%22%2F%3E%3C%2Fsvg%3E",
 };
+const INCOME_INPUTS_BELOW = false;
+
+/* ---------- knowledge panels ----------
+   What the old full associates section was really carrying: the W-2 rule, the
+   employer-side costs a split never mentions, what the wage does not cover, and
+   the citations. None of that belongs between two inputs, so it lives here and
+   opens on demand. Add a key to open the same panel from anywhere. */
+const INFO_PANELS = {
+  assoc: {
+    title: "Associates \u2014 what you need to know",
+    warn: ["This is not a revenue split \u2014 it is payroll.",
+      " In California a registered associate must be a W-2 employee (or a volunteer) and " +
+      "may not bill clients directly. Your practice bills the client, so all of it is your " +
+      "revenue, and the \u201Csplit\u201D is simply how you work out their wage. That matters " +
+      "because a wage brings employer-side costs a split never mentions."],
+    rows: [["Social Security & Medicare", "7.65% of wages"],
+           ["Federal unemployment (FUTA)", "0.6% of the first $7,000 each"],
+           ["CA unemployment insurance", "3.4% new-employer rate, same base"],
+           ["CA employment training tax", "0.1%, same base"],
+           ["Workers\u2019 compensation", "your carrier\u2019s rate, class code 8832"],
+           ["Employee SDI", "withheld from them \u2014 not your cost"]],
+    body: [["What the wage does not pay for",
+      "Progress notes, case management, client advocacy, treatment planning, no-shows and " +
+      "team meetings. For a non-exempt employee that time is still hours worked and still has " +
+      "to be paid \u2014 a share-of-collections wage that ignores it can fall below minimum " +
+      "wage once the real hours are counted, which is the practice\u2019s problem, not the " +
+      "associate\u2019s. Treat the figure this tool gives you as the optimistic case."],
+      ["Also excluded, each a real cost",
+      "Their own licensing and registration fees, health benefits, and any bonus or " +
+      "productivity pay. Employment law, supervision ratios and the BBS documentation rules " +
+      "are outside this tool \u2014 talk to an employment lawyer before hiring."]],
+    cites: [["Cal. Bus. & Prof. Code \u00A74980.43.3 and 16 CCR \u00A71833",
+             "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4980.43.3.&lawCode=BPC",
+             "associates and trainees must be W-2 employees or volunteers and may not bill " +
+             "clients directly; the Board audits it."],
+            ["EDD, California payroll taxes", "https://edd.ca.gov/en/payroll_taxes/",
+             "UI at the new-employer rate and ETT are employer-paid on the first $7,000 of " +
+             "each employee\u2019s wages; SDI is withheld from the employee."],
+            ["Workers\u2019 compensation is mandatory for any California employee",
+             "https://www.dir.ca.gov/dwc/employer.htm",
+             "the rate depends on your carrier and class code, which is why it is an input " +
+             "rather than an assumption."]]
+  }
+};
+
 const NAV_ICON = {
   piggy: "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2028%2024%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M10%200h6v1h-6zM10%201h1v1h-1zM15%201h1v1h-1zM10%202h1v1h-1zM15%202h1v1h-1zM10%203h1v1h-1zM15%203h1v1h-1zM8%204h3v1h-3zM15%204h1v1h-1zM7%205h2v1h-2zM15%205h4v1h-4zM5%206h3v1h-3zM18%206h3v1h-3zM4%207h2v1h-2zM20%207h2v1h-2zM3%208h2v1h-2zM21%208h6v1h-6zM2%209h2v1h-2zM26%209h2v1h-2zM2%2010h1v1h-1zM27%2010h1v1h-1zM2%2011h1v1h-1zM22%2011h1v1h-1zM27%2011h1v1h-1zM2%2012h1v1h-1zM27%2012h1v1h-1zM2%2013h1v1h-1zM27%2013h1v1h-1zM2%2014h1v1h-1zM26%2014h2v1h-2zM2%2015h1v1h-1zM24%2015h3v1h-3zM2%2016h1v1h-1zM24%2016h1v1h-1zM2%2017h1v1h-1zM24%2017h1v1h-1zM2%2018h1v1h-1zM24%2018h1v1h-1zM2%2019h3v1h-3zM21%2019h4v1h-4zM4%2020h1v1h-1zM9%2020h8v1h-8zM21%2020h1v1h-1zM4%2021h1v1h-1zM9%2021h1v1h-1zM16%2021h1v1h-1zM21%2021h1v1h-1zM4%2022h1v1h-1zM9%2022h1v1h-1zM16%2022h1v1h-1zM21%2022h1v1h-1zM4%2023h6v1h-6zM16%2023h6v1h-6z%22%2F%3E%3Cpath%20fill%3D%22%23F6C560%22%20d%3D%22M11%201h4v1h-4zM11%202h4v1h-4zM11%203h4v1h-4zM11%204h4v1h-4zM11%205h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%238E4B45%22%20d%3D%22M9%205h2v1h-2zM8%206h1v1h-1zM17%206h1v1h-1zM6%207h3v1h-3zM17%207h3v1h-3zM5%208h16v1h-16zM4%209h22v1h-22zM3%2010h24v1h-24zM3%2011h19v1h-19zM23%2011h4v1h-4zM3%2012h24v1h-24zM3%2013h24v1h-24zM3%2014h23v1h-23zM3%2015h21v1h-21zM3%2016h21v1h-21zM3%2017h21v1h-21zM3%2018h21v1h-21zM5%2019h16v1h-16zM5%2020h4v1h-4zM17%2020h4v1h-4zM5%2021h4v1h-4zM17%2021h4v1h-4zM5%2022h4v1h-4zM17%2022h4v1h-4z%22%2F%3E%3Cpath%20fill%3D%22%23FFE3B8%22%20d%3D%22M9%206h8v1h-8zM9%207h8v1h-8z%22%2F%3E%3C%2Fsvg%3E",
   dollar: "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2020%2024%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%2317271F%22%20d%3D%22M5%200h10v1h-10zM4%201h2v1h-2zM14%201h2v1h-2zM3%202h2v1h-2zM9%202h3v1h-3zM15%202h2v1h-2zM2%203h2v1h-2zM9%203h3v1h-3zM16%203h2v1h-2zM1%204h2v1h-2zM9%204h3v1h-3zM17%204h2v1h-2zM1%205h1v1h-1zM9%205h3v1h-3zM18%205h1v1h-1zM0%206h2v1h-2zM5%206h11v1h-11zM18%206h2v1h-2zM0%207h1v1h-1zM5%207h11v1h-11zM19%207h1v1h-1zM0%208h1v1h-1zM5%208h11v1h-11zM19%208h1v1h-1zM0%209h1v1h-1zM5%209h3v1h-3zM9%209h3v1h-3zM19%209h1v1h-1zM0%2010h1v1h-1zM5%2010h3v1h-3zM9%2010h3v1h-3zM19%2010h1v1h-1zM0%2011h1v1h-1zM5%2011h11v1h-11zM19%2011h1v1h-1zM0%2012h1v1h-1zM5%2012h11v1h-11zM19%2012h1v1h-1zM0%2013h1v1h-1zM5%2013h11v1h-11zM19%2013h1v1h-1zM0%2014h1v1h-1zM9%2014h3v1h-3zM13%2014h3v1h-3zM19%2014h1v1h-1zM0%2015h1v1h-1zM9%2015h3v1h-3zM13%2015h3v1h-3zM19%2015h1v1h-1zM0%2016h1v1h-1zM5%2016h11v1h-11zM19%2016h1v1h-1zM0%2017h2v1h-2zM5%2017h11v1h-11zM18%2017h2v1h-2zM1%2018h1v1h-1zM5%2018h11v1h-11zM18%2018h1v1h-1zM1%2019h2v1h-2zM9%2019h3v1h-3zM17%2019h2v1h-2zM2%2020h2v1h-2zM9%2020h3v1h-3zM16%2020h2v1h-2zM3%2021h2v1h-2zM9%2021h3v1h-3zM15%2021h2v1h-2zM4%2022h2v1h-2zM14%2022h2v1h-2zM5%2023h10v1h-10z%22%2F%3E%3Cpath%20fill%3D%22%23F6C560%22%20d%3D%22M6%201h8v1h-8zM5%202h4v1h-4zM12%202h3v1h-3zM4%203h3v1h-3zM13%203h3v1h-3zM3%204h2v1h-2zM15%204h2v1h-2zM2%205h3v1h-3zM15%205h3v1h-3zM2%206h2v1h-2zM16%206h2v1h-2zM1%207h2v1h-2zM17%207h2v1h-2zM1%208h2v1h-2zM17%208h2v1h-2zM1%209h2v1h-2zM17%209h2v1h-2zM1%2010h2v1h-2zM17%2010h2v1h-2zM1%2011h2v1h-2zM17%2011h2v1h-2zM1%2012h2v1h-2zM17%2012h2v1h-2zM1%2013h2v1h-2zM17%2013h2v1h-2zM1%2014h2v1h-2zM17%2014h2v1h-2zM1%2015h2v1h-2zM17%2015h2v1h-2zM1%2016h2v1h-2zM17%2016h2v1h-2zM2%2017h2v1h-2zM16%2017h2v1h-2zM2%2018h3v1h-3zM16%2018h2v1h-2zM3%2019h2v1h-2zM15%2019h2v1h-2zM4%2020h3v1h-3zM13%2020h3v1h-3zM5%2021h4v1h-4zM12%2021h3v1h-3zM6%2022h8v1h-8z%22%2F%3E%3Cpath%20fill%3D%22%23FFE3B8%22%20d%3D%22M7%203h2v1h-2zM12%203h1v1h-1zM5%204h4v1h-4zM12%204h3v1h-3zM5%205h4v1h-4zM12%205h3v1h-3zM4%206h1v1h-1zM3%207h2v1h-2zM16%207h1v1h-1zM3%208h2v1h-2zM16%208h1v1h-1zM3%209h2v1h-2zM8%209h1v1h-1zM12%209h5v1h-5zM3%2010h2v1h-2zM8%2010h1v1h-1zM12%2010h5v1h-5zM3%2011h2v1h-2zM16%2011h1v1h-1zM3%2012h2v1h-2zM16%2012h1v1h-1zM3%2013h2v1h-2zM16%2013h1v1h-1zM3%2014h6v1h-6zM12%2014h1v1h-1zM16%2014h1v1h-1zM3%2015h6v1h-6zM12%2015h1v1h-1zM16%2015h1v1h-1zM3%2016h2v1h-2zM16%2016h1v1h-1zM4%2017h1v1h-1zM5%2019h4v1h-4zM12%2019h3v1h-3zM7%2020h2v1h-2zM12%2020h1v1h-1z%22%2F%3E%3C%2Fsvg%3E",
@@ -1507,7 +1552,7 @@ function PracticeIncomePlanner() {
     income: {
       n: 1,
       title: "Income",
-      blurb: "What you bill before anything comes out. Set your rate and caseload here \u2014 every number further down is built from these two.",
+      blurb: "What you bill, from every source, before anything comes out. Set the numbers at the top of the page \u2014 this is the receipt for them, and every figure further down is built from it.",
       stat: () => fmt(cur.grossYr) + " gross a year"
     },
     expenses: {
@@ -1552,8 +1597,16 @@ function PracticeIncomePlanner() {
       className: "sec-intro-blurb"
     }, d.blurb));
   };
-  const showIncomePrimary = !(viewMode === "wizard") || WIZARD_ORDER[wizardStep - 1] === "income";
-  const showIncomeAddons = !(viewMode === "wizard") || WIZARD_ORDER[wizardStep - 1] === "income-addons";
+  /* The hero owns every input on this page. Income used to carry a SECOND copy
+     of the rate/sessions/time-off card, a second Secondary source card, a second
+     Retreats card and a second set of eleven associate fields - the same values,
+     typed twice, which is a bug waiting to happen rather than a redundancy.
+     Flipping INCOME_INPUTS_BELOW back to true restores all four at once; the
+     markup is untouched. */
+  const showIncomePrimary = INCOME_INPUTS_BELOW
+    && (!(viewMode === "wizard") || WIZARD_ORDER[wizardStep - 1] === "income");
+  const showIncomeAddons = INCOME_INPUTS_BELOW
+    && (!(viewMode === "wizard") || WIZARD_ORDER[wizardStep - 1] === "income-addons");
   const wizardSteps = viewMode === "wizard" ? WIZARD_ORDER : TAB_ORDER;
   const [shareFeedback, setShareFeedback] = useState("");
   const [showShareBanner, setShowShareBanner] = useState(OPENED_FROM_SHARE_LINK);
@@ -1591,8 +1644,16 @@ function PracticeIncomePlanner() {
      state, not a setting, and restoring an open drawer on a share link would
      put the visitor into an editor they did not ask for. */
   const [openMod, setOpenMod] = useState(null);
+  /* The explanation the eleven-field drawer never had. Opened from the drawer
+     head and from the "not a split" tag on the income receipt, so the rules
+     have somewhere to live that is not between two inputs - and somewhere they
+     can grow without making the form longer. */
+  const [infoKey, setInfoKey] = useState(null);
   const [vacationOn, setVacationOn] = useState(SAVED.vacationOn != null ? SAVED.vacationOn : false);
-  const [vacationWeeks, setVacationWeeks] = useState(SAVED.vacationWeeks != null ? SAVED.vacationWeeks : 0);
+  /* Two weeks, not zero. Every other field defaults blank because a number
+     there would be a guess about YOUR practice - but nobody works 52 weeks, so
+     zero is the one default that is actively wrong rather than merely unset. */
+  const [vacationWeeks, setVacationWeeks] = useState(SAVED.vacationWeeks != null ? SAVED.vacationWeeks : 2);
   const [retreatOn, setRetreatOn] = useState(SAVED.retreatOn != null ? SAVED.retreatOn : false);
   const [retreatParticipants, setRetreatParticipants] = useState(SAVED.retreatParticipants != null ? SAVED.retreatParticipants : "");
   const [retreatRate, setRetreatRate] = useState(SAVED.retreatRate != null ? SAVED.retreatRate : "");
@@ -2690,7 +2751,10 @@ function PracticeIncomePlanner() {
          ["Weeks off", "clock", "", vacationWeeks, v => { setVacationWeeks(v); setVacationOn(true); },
           () => { const n = Math.max(0, Math.min(26, +vacationWeeks || 0)); setVacationWeeks(n); setVacationOn(n > 0); }, "", 0, 26]
         ].map(([lab, ic, pre, val, setD, commit, suf, mn, mx]) =>
-          /*#__PURE__*/React.createElement("label", {key: lab, className: "lnd-stat"},
+          /*#__PURE__*/React.createElement("label", {
+            key: lab,
+            className: "lnd-stat" + (!(parseFloat(val) > 0) ? " empty" : "")
+          },
             /*#__PURE__*/React.createElement("em", null, lab),
             /*#__PURE__*/React.createElement("img", {className: "lnd-stat-i", src: HERO_ICON[ic], alt: "", "aria-hidden": "true"}),
             /*#__PURE__*/React.createElement("span", {className: "lnd-stat-v"},
@@ -2748,6 +2812,10 @@ function PracticeIncomePlanner() {
                tile kept reporting income for fields you could no longer see a
                way to clear. This empties the module's own fields, switches it
                off and closes, which is what "close" was being mistaken for. */
+            INFO_PANELS[m.k] ? /*#__PURE__*/React.createElement("button", {
+              type: "button", className: "lnd-draw-learn",
+              onClick: () => setInfoKey(m.k)
+            }, "What you need to know \u2192") : null,
             /*#__PURE__*/React.createElement("button", {
               type: "button", className: "lnd-draw-off",
               onClick: () => {
@@ -2820,9 +2888,9 @@ function PracticeIncomePlanner() {
         "Nothing is filled in yet. Put in a rate above and every figure on this page — and on the tax, retirement and residency pages — builds itself from it. Or load a worked example and pull it apart first."),
 
       /*#__PURE__*/React.createElement("div", {className: "lnd-ctas"},
-        /*#__PURE__*/React.createElement("a", {className: "lnd-go", href: "#sec-income", onClick: jumpTo("sec-income")},
-          /*#__PURE__*/React.createElement("b", null, lndWarm ? "Change my numbers" : "Put in my own numbers"),
-          /*#__PURE__*/React.createElement("span", null, "rate and caseload · everything follows →")),
+        /* "Change my numbers" used to scroll to the duplicate controls in Income.
+           With the hero holding the only inputs it pointed at nothing, so it is
+           gone; the fields it advertised are two inches above it. */
         /*#__PURE__*/React.createElement("button", {
           type: "button", className: "lnd-go ghost", onClick: loadExample
         }, /*#__PURE__*/React.createElement("b", null, "Load a worked example"),
@@ -3224,7 +3292,127 @@ function PracticeIncomePlanner() {
     className: "wizard-dot" + (i + 1 < wizardStep ? " done" : i + 1 === wizardStep ? " now" : "")
   }, i + 1 < wizardStep ? "\u2713" : i + 1), i < wizardSteps.length - 1 && /*#__PURE__*/React.createElement("div", {
     className: "wizard-line"
-  })))), landingBand, isVisible("income") && /*#__PURE__*/React.createElement("div", {id:"sec-income"}, sectionIntro("income"), /*#__PURE__*/React.createElement(React.Fragment, null, showIncomePrimary && /*#__PURE__*/React.createElement("section", {
+  })))),
+  infoKey && INFO_PANELS[infoKey] ? /*#__PURE__*/React.createElement("div", {
+    className: "infowrap", role: "dialog", "aria-modal": "true",
+    "aria-label": INFO_PANELS[infoKey].title,
+    onClick: e => { if (e.target === e.currentTarget) setInfoKey(null); }
+  }, /*#__PURE__*/React.createElement("div", {className: "infopanel"},
+    /*#__PURE__*/React.createElement("div", {className: "info-h"},
+      /*#__PURE__*/React.createElement("b", null, INFO_PANELS[infoKey].title),
+      /*#__PURE__*/React.createElement("button", {
+        type: "button", className: "info-x", "aria-label": "Close",
+        onClick: () => setInfoKey(null)
+      }, "\u00D7")),
+    /*#__PURE__*/React.createElement("div", {className: "info-b"},
+      /*#__PURE__*/React.createElement("p", {className: "info-warn"},
+        /*#__PURE__*/React.createElement("b", null, INFO_PANELS[infoKey].warn[0]),
+        INFO_PANELS[infoKey].warn[1]),
+      /*#__PURE__*/React.createElement("h5", null, "What a wage costs on top of the wage"),
+      /*#__PURE__*/React.createElement("div", {className: "info-rows"},
+        INFO_PANELS[infoKey].rows.map(([k, v]) => /*#__PURE__*/React.createElement("div", {
+          key: k
+        }, /*#__PURE__*/React.createElement("span", null, k),
+           /*#__PURE__*/React.createElement("i", null, v)))),
+      INFO_PANELS[infoKey].body.map(([h, p]) => /*#__PURE__*/React.createElement(
+        React.Fragment, {key: h},
+        /*#__PURE__*/React.createElement("h5", null, h),
+        /*#__PURE__*/React.createElement("p", null, p))),
+      /*#__PURE__*/React.createElement("h5", null, "Sources"),
+      /*#__PURE__*/React.createElement("ul", {className: "info-cites"},
+        INFO_PANELS[infoKey].cites.map(([t, href, note]) => /*#__PURE__*/React.createElement("li", {
+          key: t
+        }, /*#__PURE__*/React.createElement("a", {
+          href: href, target: "_blank", rel: "noopener noreferrer"
+        }, t), " \u2014 ", note)))))) : null,
+  landingBand, isVisible("income") && /*#__PURE__*/React.createElement("div", {id:"sec-income"}, sectionIntro("income"),
+    /* Income is the RECEIPT for the hero, not a second form. One line per
+       source with its own arithmetic, read-only, and an edit link that opens the
+       control that owns it. The associate wages and employer costs sit under
+       their revenue line because that is the whole argument: a split is not a
+       cost. */
+    (() => {
+      const jump = () => { const el = document.querySelector(".lnd-mods"); if (el)
+        el.scrollIntoView({behavior: "smooth", block: "center"}); };
+      const openTile = k => () => { jump(); setOpenMod(k); };
+      const ownYr = grossYr(rate, sessions, weeksWorked);
+      const rcRow = (key, lab, note, amt, act, cls, tag) =>
+        /*#__PURE__*/React.createElement("div", {key: key, className: "rc-row" + (cls ? " " + cls : "")},
+          /*#__PURE__*/React.createElement("span", {className: "rc-lab"},
+            /*#__PURE__*/React.createElement("b", null, lab),
+            note ? /*#__PURE__*/React.createElement("i", null, note) : null,
+            tag ? /*#__PURE__*/React.createElement("button", {
+              type: "button", className: "rc-tag", onClick: () => setInfoKey(tag[1])
+            }, tag[0]) : null),
+          /*#__PURE__*/React.createElement("span", {
+            className: "rc-amt" + (typeof amt === "number" && amt < 0 ? " neg" : "")
+          }, typeof amt === "number" ? (amt < 0 ? "\u2212" + fmt(Math.round(-amt)) : fmt(Math.round(amt))) : amt),
+          act ? /*#__PURE__*/React.createElement("button", {
+            type: "button", className: "rc-edit", onClick: act[1]
+          }, act[0]) : /*#__PURE__*/React.createElement("span", null));
+      const rows = [];
+      rows.push(rcRow("own", "Your own sessions",
+        rate > 0 && sessions > 0
+          ? fmt(rate) + " \u00D7 " + sessions + " a week \u00D7 " + weeksWorked + " weeks"
+          : "no rate or caseload entered yet",
+        ownYr, ["Edit rate & caseload", jump]));
+      if (assocOn) {
+        rows.push(rcRow("as", "Associate billings",
+          assocN > 0 ? assocN + " \u00D7 " + assocSessWk + " a week \u00D7 " + assocWeeks
+            + " weeks at " + fmt(parseFloat(assocRate) || 0) : "not filled in yet",
+          assocRevenueYr, ["Edit associates", openTile("assoc")]));
+      } else {
+        rows.push(rcRow("as0", "Associates", "not switched on", "\u2014",
+          ["Set it up", openTile("assoc")]));
+      }
+      rows.push(retreatOn
+        ? rcRow("rt", "Retreats & events", "workshops, group intensives, one-off events",
+            cur.retreatYr, ["Edit retreats", openTile("retreat")])
+        : rcRow("rt0", "Retreats & events", "not switched on", "\u2014",
+            ["Set it up", openTile("retreat")]));
+      rows.push(secondaryOn
+        ? rcRow("sc", "Second income", "a different rate, e.g. insurance clients",
+            cur.secondaryYr, ["Edit second income", openTile("second")])
+        : rcRow("sc0", "Second income", "not switched on", "\u2014",
+            ["Set it up", openTile("second")]));
+      rows.push(rcRow("tot", "Gross, all sources", "before any practice expense",
+        cur.grossYr, null, "tot"));
+      /* The associate costs belong BELOW the gross line, not inside it. They are
+         expenses, deducted further down before profit - showing them as
+         indented minus signs above a total they do not reduce reads as broken
+         arithmetic, which is worse than not showing them at all. */
+      const costs = [];
+      if (assocOn && assocRevenueYr > 0) {
+        costs.push(/*#__PURE__*/React.createElement("p", {key: "h", className: "rc-cost-h"},
+          "Of that ", /*#__PURE__*/React.createElement("b", null, fmt(Math.round(assocRevenueYr))),
+          " of associate billings, here is what it costs to earn \u2014 counted further down, before profit."));
+        /* These three MUST sum to assocCostYr exactly, or the block prints a
+           net that its own rows do not produce. Two traps, both hit once while
+           building this: assocSupPay is already inside assocWagesYr, so adding
+           it again double-counts supervision; and assocCardFee is a real cost of
+           associate revenue that is easy to leave out. Row three is therefore
+           assocCostYr minus the two rows above it, derived rather than retyped,
+           so it cannot drift if the cost formula changes. */
+        const fixedRest = assocCostYr - assocWagesYr - assocEmployerTax;
+        costs.push(rcRow("aw", "Their wages",
+          (parseFloat(assocSplitPct) || 0) + "% of collections, plus paid supervision and sick time",
+          -assocWagesYr, null, "sub", ["not a split", "assoc"]));
+        costs.push(rcRow("at", "Employer payroll tax",
+          "FICA, FUTA, UI, ETT and workers\u2019 comp", -assocEmployerTax, null, "sub"));
+        costs.push(rcRow("af", "Cover, room, seats and card fees",
+          "liability, office, EHR, payroll service and card processing on what they bill",
+          -fixedRest, null, "sub"));
+        costs.push(rcRow("an", "What the associates leave you",
+          assocRevenueYr > 0 ? Math.round(assocNetYr / assocRevenueYr * 100)
+            + "% of what they bill" : "", assocNetYr, null, "net"));
+      }
+      return /*#__PURE__*/React.createElement("section", {className: "rc"},
+        /*#__PURE__*/React.createElement("div", {className: "rc-h"},
+          /*#__PURE__*/React.createElement("h3", null, "Everything you bill"),
+          /*#__PURE__*/React.createElement("span", null,
+            "Nothing is typed here \u2014 every figure comes from the controls at the top of the page.")),
+        rows, costs.length ? /*#__PURE__*/React.createElement("div", {className: "rc-costs"}, costs) : null);
+    })(), /*#__PURE__*/React.createElement(React.Fragment, null, showIncomePrimary && /*#__PURE__*/React.createElement("section", {
     className: "controls"
   }, /*#__PURE__*/React.createElement("span", {
     className: "controls-badge"
@@ -10926,6 +11114,29 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
   border:1px solid rgba(255,255,255,.16); border-radius:12px; padding:11px 14px 12px;
   cursor:text; transition:border-color .15s, background .15s;}
 .lnd-stat:hover{background:rgba(255,255,255,.13); border-color:rgba(255,255,255,.3);}
+/* These are the only inputs on the page now, and they were reading as read-only
+   stat cards: same shape, same weight, no field affordance. An editable one gets
+   the app's own cream-and-tan input treatment; an EMPTY one says so, in amber,
+   because a blank card and a filled card looked identical at a glance. */
+.planner .lnd-stat:not(.out){background:rgba(251,246,233,.13);
+  border:1.5px solid rgba(228,217,190,.5); box-shadow:inset 0 -1px 0 rgba(255,255,255,.07);}
+.planner .lnd-stat:not(.out):hover{background:rgba(251,246,233,.2);
+  border-color:rgba(246,197,96,.65);}
+.planner .lnd-stat:not(.out):focus-within{border-color:#F6C560;
+  background:rgba(251,246,233,.22); box-shadow:0 0 0 3px rgba(246,197,96,.22);}
+.planner .lnd-stat:not(.out):after{content:"tap to edit"; position:absolute;
+  right:12px; bottom:9px; font-size:8.5px; font-weight:700; letter-spacing:.07em;
+  text-transform:uppercase; color:rgba(255,255,255,.4); pointer-events:none;
+  transition:color .15s;}
+.planner .lnd-stat:not(.out):hover:after{color:rgba(255,255,255,.6);}
+.planner .lnd-stat.empty{border-color:rgba(246,197,96,.75);
+  background:rgba(246,197,96,.11);}
+.planner .lnd-stat.empty:after{content:"enter a number"; color:#F6C560;}
+.planner .lnd-stat.empty .lnd-stat-v{color:rgba(246,197,96,.55);}
+@media (max-width:620px){
+  .planner .lnd-stat:not(.out):after{display:none;}
+  .planner .lnd-stat.empty:after{display:block; right:10px; bottom:7px; font-size:8px;}
+}
 .lnd-stat:focus-within{border-color:#F6C560; background:rgba(255,255,255,.14);}
 .lnd-stat.out{cursor:default; background:rgba(20,40,32,.28); border-color:rgba(246,197,96,.32);}
 .lnd-stat em{display:block; font-style:normal; font-size:9.5px; font-weight:800;
@@ -10961,6 +11172,88 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .lnd-draw-x{flex:none; background:none; border:0; color:rgba(255,255,255,.6);
   font-size:19px; line-height:1; cursor:pointer; padding:0 2px;}
 .lnd-draw-x:hover{color:#fff;}
+.lnd-draw-learn{flex:none; margin-left:auto; background:rgba(246,197,96,.17);
+  border:1px solid rgba(246,197,96,.5); color:#F6C560; font:inherit; font-size:11.5px;
+  font-weight:700; padding:5px 11px; border-radius:8px; cursor:pointer; white-space:nowrap;}
+.lnd-draw-learn:hover{background:rgba(246,197,96,.3);}
+.lnd-draw-learn:focus-visible{outline:2px solid #F6C560; outline-offset:2px;}
+/* .lnd-draw-off no longer needs margin-left:auto - the learn button takes it. */
+.lnd-draw-h .lnd-draw-learn ~ .lnd-draw-off{margin-left:0;}
+
+/* ---------- the knowledge panel ---------- */
+.infowrap{position:fixed; inset:0; z-index:200; background:rgba(24,30,25,.55);
+  display:flex; align-items:flex-start; justify-content:center; padding:5vh 18px;
+  overflow-y:auto; backdrop-filter:blur(2px);}
+.infopanel{background:#fff; border-radius:16px; max-width:620px; width:100%;
+  box-shadow:0 26px 70px rgba(0,0,0,.42); overflow:hidden;}
+.info-h{display:flex; align-items:center; gap:12px; padding:16px 20px;
+  border-bottom:1px solid var(--line); background:#FBF9F3;}
+.info-h b{font-family:'Fraunces',serif; font-size:16.5px; flex:1;}
+.info-x{background:none; border:0; font-size:22px; line-height:1; color:var(--muted-2);
+  cursor:pointer; padding:0 3px;}
+.info-x:hover{color:var(--ink);}
+.info-b{padding:18px 20px 22px;}
+.info-warn{background:#FBEFD5; border:1px solid #E8D5A8; border-radius:11px;
+  padding:12px 14px; font-size:12.6px; line-height:1.65; color:#5E4818; margin:0 0 15px;}
+.info-warn b{color:#3D2F10;}
+.info-b h5{font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--amber); margin:17px 0 8px;}
+.info-b h5:first-of-type{margin-top:0;}
+.info-b p{font-size:12.6px; line-height:1.7; color:#4E4940; margin:0 0 10px;}
+.info-rows{border:1px solid var(--line); border-radius:11px; overflow:hidden;
+  margin-bottom:12px;}
+.info-rows div{display:flex; justify-content:space-between; gap:12px; padding:8px 12px;
+  border-bottom:1px solid #EFEADC; font-size:12.2px; color:#4E4940;}
+.info-rows div:last-child{border-bottom:0;}
+.info-rows i{font-style:normal; font-family:'IBM Plex Mono',monospace; text-align:right;
+  flex:none;}
+.info-cites{margin:0; padding-left:18px; font-size:11.6px; line-height:1.65;
+  color:var(--muted);}
+.info-cites li{margin-bottom:7px;}
+.info-cites a{color:var(--amber); font-weight:600;}
+
+/* ---------- income as a receipt ---------- */
+.rc{background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:20px 24px 22px; margin-bottom:28px;}
+.rc-h{display:flex; align-items:baseline; gap:13px; flex-wrap:wrap; margin-bottom:14px;}
+.rc-h h3{font-family:'Fraunces',serif; font-size:20px; margin:0; font-weight:600;}
+.rc-h span{font-size:12px; color:var(--muted);}
+.rc-row{display:grid; grid-template-columns:1fr 130px 150px; gap:14px; align-items:baseline;
+  padding:11px 0; border-bottom:1px dotted #E0DACB;}
+.rc-lab{display:flex; gap:9px; align-items:baseline; flex-wrap:wrap; min-width:0;}
+.rc-lab b{font-size:13.6px;}
+.rc-lab i{font-style:normal; font-size:11.6px; color:var(--muted);}
+.rc-amt{font-family:'IBM Plex Mono',monospace; font-size:14px; text-align:right;
+  font-weight:500;}
+.rc-amt.neg{color:var(--neg);}
+.rc-edit{justify-self:end; background:none; border:0; font:inherit; font-size:11.8px;
+  font-weight:700; color:var(--pos); cursor:pointer; padding:0 0 1px;
+  border-bottom:1px solid #A9C6B8; text-align:right;}
+.rc-edit:hover{color:#2C6350; border-bottom-color:#2C6350;}
+.rc-edit:focus-visible,.rc-tag:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+.rc-tag{background:#FBEFD5; border:1px solid #E8D5A8; color:#8A6A2E; font:inherit;
+  font-size:10px; font-weight:800; border-radius:20px; padding:2px 9px; cursor:pointer;}
+.rc-tag:hover{background:#F6E3BC;}
+.rc-row.sub{background:#FBF9F3; margin:0 -24px; padding-left:24px; padding-right:24px;}
+.rc-row.sub .rc-lab b{font-size:12.4px; font-weight:600; color:#4E4940;}
+.rc-row.sub .rc-lab i{font-size:11px;}
+.rc-row.tot{border-top:2px solid var(--ink); border-bottom:0; margin-top:7px; padding-top:13px;}
+.rc-row.tot .rc-lab b{font-family:'Fraunces',serif; font-size:17px;}
+.rc-row.tot .rc-amt{font-family:'Fraunces',serif; font-size:21px;}
+.rc-costs{margin-top:16px; border-top:1px solid var(--line); padding-top:4px;}
+.rc-cost-h{font-size:12.2px; line-height:1.6; color:var(--muted); margin:11px 0 2px;}
+.rc-cost-h b{color:var(--ink); font-family:'IBM Plex Mono',monospace; font-size:12px;}
+.rc-row.net{border-bottom:0; border-top:1px solid var(--line); margin-top:2px;}
+.rc-row.net .rc-lab b{font-size:14px; color:var(--pos);}
+.rc-row.net .rc-amt{color:var(--pos); font-weight:600;}
+@media (max-width:780px){
+  .rc{padding:16px 15px 18px;}
+  .rc-row{grid-template-columns:1fr 100px; row-gap:4px;}
+  .rc-edit{grid-column:1/-1; justify-self:start; text-align:left;}
+  .rc-row.sub{margin:0 -15px; padding-left:15px; padding-right:15px;}
+  .infowrap{padding:0;}
+  .infopanel{border-radius:0; min-height:100vh;}
+}
 .lnd-draw-off{flex:none; margin-left:auto; background:rgba(255,255,255,.09);
   border:1px solid rgba(255,255,255,.24); color:rgba(255,255,255,.86);
   font:inherit; font-size:11.5px; font-weight:700; letter-spacing:.01em;
