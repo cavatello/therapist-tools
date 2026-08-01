@@ -369,6 +369,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .consent input{width:16px;height:16px;flex:none;margin:1px 0 0;accent-color:var(--pop)}
 .consent span{font-size:11.8px;line-height:1.55;color:rgba(255,255,255,.66)}
 .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
+.nlok{display:flex;gap:12px;align-items:flex-start;background:rgba(246,197,96,.09);
+ border:1px solid rgba(246,197,96,.34);border-radius:13px;padding:15px 17px;
+ animation:nlin .28s ease-out}
+@keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:#F6C560;
+ color:#2A2010;font-size:15px;font-weight:800;line-height:26px;text-align:center}
+.nlok b{display:block;font-family:Fraunces,serif;font-size:16px;color:#fff;margin-bottom:5px}
+.nlok p{font-size:12.6px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
+.nlok p + p{margin-top:7px;font-size:11.4px;color:rgba(255,255,255,.5)}
+.nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
+.nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 
 /* ---- issue sample */
 .issue{background:#fff;border:1px solid var(--line);border-radius:14px;padding:19px 21px}
@@ -394,10 +405,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ftnl h2{font-family:Fraunces,serif;font-size:23px;color:#fff;margin:0 0 9px;line-height:1.24}
 .ftnl h2 em{font-style:normal;color:var(--pop)}
 .ftnl p{font-size:13.2px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.ftnl .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.44);margin:12px 0 0;max-width:60ch}
 .ftnl .nlform{flex:1;min-width:320px}
-.sitefoot{background:var(--carbon);padding:0 0 26px}
+.sitefoot{background:var(--carbon);padding:22px 0 26px;margin:0}
 .ftcols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
- border-top:1px solid rgba(255,255,255,.1);padding:24px 0 6px;margin-top:22px}
+ border-top:1px solid rgba(255,255,255,.1);padding:24px 0 6px;margin-top:0}
 .ftcols h5{margin:0 0 12px;font-size:9.5px;font-weight:800;letter-spacing:.13em;
  text-transform:uppercase;color:var(--pop)}
 .ftcols a{display:block;font-size:12.5px;color:rgba(255,255,255,.72);text-decoration:none;
@@ -722,5 +734,54 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 })();
 </script>
 
+<script>
+(function(){
+  // Post the signup in the background instead of letting the browser navigate.
+  // Formspree's own "Thanks! The form was submitted successfully. Go back" page
+  // is a dead end - it throws the reader off the site mid-thought and gives them
+  // a back button as the only way home. Same request, same endpoint, but the
+  // answer lands where they were standing.
+  function ok(f){
+    var email = (f.querySelector('input[type=email]') || {}).value || '';
+    var d = document.createElement('div');
+    d.className = 'nlok';
+    d.setAttribute('role', 'status');
+    d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+      + '<b>You\u2019re on the list.</b>'
+      + '<p><b style="display:inline;font-family:inherit;font-size:inherit">'
+      + email.replace(/[<>&"]/g, '') + '</b> is on it. The next issue goes out at the start of '
+      + 'the month \u2014 a free tool or two, what colleagues are charging, and whatever caught '
+      + 'someone out.</p>'
+      + '<p>Nothing else happens in the meantime. One click leaves, any time.</p></div>';
+    f.parentNode.replaceChild(d, f);
+    if (window.gtag) gtag('event', 'newsletter_signup');
+  }
+  function fail(f){
+    var e = f.querySelector('.nlerr');
+    if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
+    e.textContent = 'That did not go through. Check the address, or email '
+      + 'shawn@shawnwalters.com and I will add you by hand.';
+  }
+  document.querySelectorAll('form.nlform').forEach(function(f){
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var btn = f.querySelector('button[type=submit]'), label = btn ? btn.textContent : '';
+      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
+                 btn.textContent = 'Sending\u2026'; }
+      fetch(f.action, {method: 'POST', body: new FormData(f),
+                       headers: {'Accept': 'application/json'}})
+        .then(function(r){
+          if (r.ok) { ok(f); return; }
+          throw new Error('http ' + r.status);
+        })
+        .catch(function(){
+          fail(f);
+          if (btn) { btn.removeAttribute('aria-busy'); btn.disabled = false;
+                     btn.textContent = label; }
+        });
+    });
+  });
+})();
+</script>
 </body>
 </html>

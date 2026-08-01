@@ -4402,7 +4402,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-cols"
   }, [["Tools", [["#sim", "Practice Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"]]],
       ["Learn", [["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]]],
-      ["About", [["#feedback", "Feedback"], ["#feedback", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
+      ["About", [["about.html", "What this is"], ["newsletter.html", "Newsletter"], ["#feedback", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
     key: h,
     className: "sitefoot-col"
   }, /*#__PURE__*/React.createElement("h4", null, h), items.map(([href, t]) => /*#__PURE__*/React.createElement("a", {
@@ -4414,7 +4414,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-col"
   }, /*#__PURE__*/React.createElement("h4", null, "The small print"), /*#__PURE__*/React.createElement("p", null, "2026 federal and California rates. Estimates only \u2014 not tax advice."), /*#__PURE__*/React.createElement("p", null, "Nothing is saved and nothing is sent. Your setup lives in the URL."))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: July 31, 2026"), /*#__PURE__*/React.createElement("div", {
+  }, "Last updated: August 1, 2026"), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-by"
   }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."), " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
 }
