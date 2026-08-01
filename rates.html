@@ -844,8 +844,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   function fail(f){
     var e = f.querySelector('.nlerr');
     if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
-    e.textContent = 'That did not go through. Check the address, or email '
-      + 'shawn@shawnwalters.com and I will add you by hand.';
+    e.textContent = 'That did not go through, and nothing was sent. Check the address and '
+      + 'try again.';
   }
   document.querySelectorAll('form.nlform').forEach(function(f){
     f.addEventListener('submit', function(ev){

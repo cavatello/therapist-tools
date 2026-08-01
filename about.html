@@ -479,8 +479,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
         + (email ? ', and any reply goes to <b style="display:inline;font-family:inherit;'
             + 'font-size:inherit">' + esc(email) + '</b>' : '')
         + '. If it is a bug, the fix and the date it landed go on the page it affects.</p>'
-        + '<p>Sending a screenshot as well? Email it to shawn@shawnwalters.com and '
-        + 'mention what you just sent.</p></div>';
+        + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
+        + 'with a link to it, or just describe what looked wrong.</p></div>';
       f.parentNode.replaceChild(d, f);
       if (window.gtag) gtag('event', 'contact_message');
       return;
@@ -499,9 +499,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
     var e = f.querySelector('.nlerr');
     if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
     e.textContent = f.dataset.kind === 'contact'
-      ? 'That did not go through. Email shawn@shawnwalters.com instead and it will reach me.'
-      : 'That did not go through. Check the address, or email '
-        + 'shawn@shawnwalters.com and I will add you by hand.';
+      ? 'That did not go through, and nothing was sent. Copy your message somewhere safe and '
+        + 'try again in a few minutes.'
+      : 'That did not go through, and nothing was sent. Check the address and try again.';
   }
   // Both form kinds, or the contact page silently falls back to a native
   // POST and navigates to Formspree's dead-end thanks page - the exact

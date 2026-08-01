@@ -1483,6 +1483,10 @@ function PracticeIncomePlanner() {
   const [fbName, setFbName] = useState("");
   const [fbMessage, setFbMessage] = useState("");
   const [fbSent, setFbSent] = useState(false);
+  // Declared here with the rest of the feedback state, above everything that
+  // reads it. React state is not hoisted, and a const used inside an
+  // early-evaluated expression below its declaration blanks the whole page.
+  const [fbCopied, setFbCopied] = useState(false);
   const [showSaveMenu, setShowSaveMenu] = useState(false);
   const [widgetCollapsed, setWidgetCollapsed] = useState(false);
   // "Print entire simulation" predates the three-page split. Without this the
@@ -4553,53 +4557,52 @@ function PracticeIncomePlanner() {
         }
         return;
       }
-      const subject = encodeURIComponent("[" + fbType + "] Therapy Practice Simulator feedback");
-      const bodyLines = [fbName ? "From: " + fbName : null, "Type: " + fbType, "", fbMessage, "", "\u2014\u2014\u2014", "Current setup: " + setupLine, share].filter(Boolean);
-      window.location.href = "mailto:shawn@shawnwalters.com?subject=" + subject + "&body=" + encodeURIComponent(bodyLines.join("\n"));
-      setFbSent("mail");
-      setTimeout(() => setFbSent(false), 3000);
+      // No endpoint configured. There is deliberately no mail fallback: opening
+      // a draft would put a personal address into every shipped copy of this
+      // bundle, and this branch is unreachable whenever FEEDBACK_ENDPOINT is set.
+      setFbSent("noendpoint");
+      setTimeout(() => setFbSent(false), 8000);
     }
   }, fbSent === "sending" ? "Sending\u2026" : fbSent === "done" ? "\u2713 Sent \u2014 thank you"
-     : fbSent === "error" ? "Didn\u0027t send \u2014 try again" : fbSent === "mail" ? "Opening your email app\u2026" : "Send feedback"),
-  // The form posts JSON, which cannot carry a file. Rather than pretend
-  // otherwise with an upload box that silently drops the image, screenshots
-  // go by email - the draft arrives pre-filled and the person drags the
-  // picture in. Works on every device and costs nothing.
+     : fbSent === "error" ? "Didn\u0027t send \u2014 try again"
+     : fbSent === "noendpoint" ? "Not set up yet \u2014 use the contact page" : "Send feedback"),
+  // This used to open a pre-filled mail draft so a screenshot could be dragged
+  // in. The form posts JSON and cannot carry a file, and Formspree's upload
+  // support is paid-only, so there is no like-for-like replacement. What a
+  // screenshot was mostly FOR, though, is reproducing the reader's exact
+  // numbers - and the share link already does that better than a picture,
+  // because it loads them rather than showing them. So the button now copies
+  // that link, which is the useful half of what the draft was carrying.
   /*#__PURE__*/React.createElement("div", {className: "fbshot"},
     /*#__PURE__*/React.createElement("div", {className: "fbshot-in"},
-      /*#__PURE__*/React.createElement("b", null, "Sending a screenshot?"),
+      /*#__PURE__*/React.createElement("b", null, "Something looks wrong on screen?"),
       /*#__PURE__*/React.createElement("p", null,
-        "The box above cannot take an image. Use the button instead \u2014 it opens your email app with the type, your message and a link to your exact setup already filled in. Drag the screenshot into the draft and send. Nothing leaves your device until you press send."),
+        "The box above cannot take an image. In most cases it does not need to \u2014 a link to your setup loads the exact numbers you are looking at, which is more use than a picture of them. Copy it, paste it into your message, and say what looked wrong and where."),
       /*#__PURE__*/React.createElement("details", {className: "fbshot-how"},
-        /*#__PURE__*/React.createElement("summary", null, "How to take one"),
+        /*#__PURE__*/React.createElement("summary", null, "If a picture really is the only way to show it"),
         /*#__PURE__*/React.createElement("ul", null,
-          [["Mac", "\u2318 + Shift + 4, then drag a box round the part that looks wrong. It lands on your desktop."],
-           ["Windows", "Windows key + Shift + S, drag a box, then paste it straight into the email."],
-           ["iPhone", "Side button and volume-up together, then share it to Mail."],
-           ["Android", "Power and volume-down together, then share it to your email app."]
+          [["Take one", "Mac: \u2318 + Shift + 4. Windows: Windows key + Shift + S. iPhone: side button and volume-up together. Android: power and volume-down."],
+           ["Put it somewhere", "Drive, Dropbox, iCloud or any image host \u2014 anywhere that gives you a link."],
+           ["Paste the link", "Into your message above, with a line about what it shows."]
           ].map(([k, t]) => /*#__PURE__*/React.createElement("li", {key: k},
             /*#__PURE__*/React.createElement("b", null, k, ": "), t))))),
     /*#__PURE__*/React.createElement("button", {
       type: "button", className: "fbshot-btn",
       onClick: () => {
         const share = buildShareURL();
-        const setupLine = "$" + rate + "/hr, " + sessions + " sessions/week";
-        const subject = encodeURIComponent("[" + fbType + "] Therapy Practice Simulator \u2014 with screenshot");
-        const bodyLines = [
-          fbName ? "From: " + fbName : null,
-          "Type: " + fbType, "",
-          fbMessage || "(describe what you saw, and what you expected instead)",
-          "", "\u2014\u2014\u2014",
-          "ATTACH YOUR SCREENSHOT TO THIS EMAIL BEFORE SENDING.",
-          "", "Current setup: " + setupLine,
-          "My exact numbers: " + share,
-          "Page: " + (typeof location !== "undefined" ? location.href : "")
-        ].filter(Boolean);
-        window.location.href = "mailto:shawn@shawnwalters.com?subject=" + subject
-          + "&body=" + encodeURIComponent(bodyLines.join("\n"));
+        const done = () => { setFbCopied(true); setTimeout(() => setFbCopied(false), 4000); };
+        // The clipboard API needs a secure context and a user gesture. Both
+        // hold here, but older Safari still rejects, so fall back to a prompt
+        // the reader can copy out of by hand rather than failing silently.
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(share).then(done).catch(() => window.prompt("Copy your link:", share));
+        } else {
+          window.prompt("Copy your link:", share);
+        }
       }
-    }, /*#__PURE__*/React.createElement("b", null, "Email it with a screenshot"),
-      /*#__PURE__*/React.createElement("span", null, "opens a pre-filled draft \u2192"))),
+    }, /*#__PURE__*/React.createElement("b", null, fbCopied ? "\u2713 Copied" : "Copy a link to my numbers"),
+      /*#__PURE__*/React.createElement("span", null,
+        fbCopied ? "paste it into your message above" : "loads this exact setup \u2192"))),
   /*#__PURE__*/React.createElement("p", {
     className: "pay-note",
     style: {
