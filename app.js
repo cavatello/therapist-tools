@@ -2665,7 +2665,7 @@ function PracticeIncomePlanner() {
     ["About", [["plant2", "What this is", "tools, reference and support for CA MFTs", "about.html"],
                ["mug", "Newsletter", "one email a month, from someone doing the same work",
                 "newsletter.html"],
-               ["check", "Contact", "bugs, ideas, corrections", "#feedback"]]],
+               ["check", "Contact", "bugs, ideas, corrections", "contact.html"]]],
   ];
 
   const HERO_MODS = [
@@ -4621,7 +4621,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-cols"
   }, [["Tools", [["tools.html", "All free tools"], ["#sim", "Practice Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"]]],
       ["Learn", [["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]]],
-      ["About", [["about.html", "What this is"], ["newsletter.html", "Newsletter"], ["#feedback", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
+      ["About", [["about.html", "What this is"], ["newsletter.html", "Newsletter"], ["contact.html", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
     key: h,
     className: "sitefoot-col"
   }, /*#__PURE__*/React.createElement("h4", null, h), items.map(([href, t]) => /*#__PURE__*/React.createElement("a", {
