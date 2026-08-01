@@ -2944,15 +2944,16 @@ function PracticeIncomePlanner() {
       className: "sitenav-top" + (navOpen ? " on" : ""),
       "aria-expanded": navOpen, "aria-controls": "navpanel",
       onClick: () => setNavOpen(v => !v)
-    }, h)),
-      /* The always-on newsletter ask. The panel promo only shows once someone
-         opens the menu; this one is on screen the whole way down the page. */
-      /*#__PURE__*/React.createElement("a", {
-        className: "sitenav-cta", href: "newsletter.html"
-      }, /*#__PURE__*/React.createElement("img", {
-        src: NAV_ICON.mug, alt: "", "aria-hidden": "true"
-      }), /*#__PURE__*/React.createElement("span", {className: "long"}, "Get the newsletter"),
-         /*#__PURE__*/React.createElement("span", {className: "short"}, "Newsletter"))),
+    }, h))),
+    /* The CTA is a SIBLING of the segmented track, not a child of it. Inside, it
+       became a fourth item in a three-column grid and wrapped onto its own row
+       underneath the segments. */
+    /*#__PURE__*/React.createElement("a", {
+      className: "sitenav-cta", href: "newsletter.html"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: NAV_ICON.mug, alt: "", "aria-hidden": "true"
+    }), /*#__PURE__*/React.createElement("span", {className: "long"}, "Get the newsletter"),
+       /*#__PURE__*/React.createElement("span", {className: "short"}, "Newsletter")),
     navOpen && /*#__PURE__*/React.createElement("div", {
       className: "navpanel", id: "navpanel"
     }, NAV_PANEL.map(([h, items]) => /*#__PURE__*/React.createElement("div", {
@@ -9737,6 +9738,92 @@ section.card.sgate{border-left:3px solid #C98B4B;}
 .sitenav-cta img{width:16px; height:16px; flex:none; image-rendering:pixelated;}
 .sitenav-cta .long{display:inline;}
 .sitenav-cta .short{display:none;}
+
+/* ===== Header 06 — a capsule floating on green, not a bar welded on top =====
+   Appended rather than edited in place so the original bar is one block away if
+   this is reverted. Every track inside is a GRID with equal columns, so nothing
+   can push a sibling out at any width. */
+.planner .sitenav{background:linear-gradient(150deg,#16382B 0%, #2C6350 46%, #48A382 100%);
+  box-shadow:none; border-bottom:0; padding:14px 22px 15px;}
+.planner .sitenav-in{max-width:1180px; margin:0 auto; padding:10px 11px 10px 18px;
+  position:relative; background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.26); border-radius:22px;
+  backdrop-filter:blur(14px); box-shadow:0 10px 28px rgba(10,30,22,.26);
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:16px;
+  justify-content:initial; flex-wrap:nowrap;}
+.planner .sitenav-links{display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:2px; background:rgba(0,0,0,.26); border-radius:999px; padding:3px;
+  justify-self:center; width:100%; max-width:330px;}
+.planner .sitenav-top{font-size:12.5px; font-weight:600; color:rgba(255,255,255,.74);
+  padding:7px 6px; border-radius:999px; min-height:38px; display:flex;
+  align-items:center; justify-content:center; text-align:center; white-space:nowrap;
+  overflow:hidden; text-overflow:ellipsis; transition:background .15s, color .15s;}
+.planner .sitenav-top:hover{background:rgba(255,255,255,.1); color:#fff;}
+.planner .sitenav-top.on{background:#fff; color:#1E4436;}
+.planner .sitenav-top.on:hover{background:#fff;}
+.planner .sitenav-cta{padding:10px 17px; border-radius:999px; min-height:38px;
+  margin-left:0; font-weight:700; justify-content:center;
+  box-shadow:0 3px 0 rgba(140,96,18,.35);}
+.planner .sitenav-cta:active{transform:translateY(2px);
+  box-shadow:0 1px 0 rgba(140,96,18,.35);}
+.planner .navpanel{top:calc(100% + 10px); left:0; right:0;}
+@media (max-width:1000px){
+  .planner .sitenav{padding:12px 16px 13px;}
+  .planner .sitenav-in{gap:12px; padding-left:14px;}
+  .planner .sitenav-links{max-width:none;}
+  .planner .sitenav-top{font-size:12px; padding:7px 4px;}
+  .planner .sitenav-cta{padding:10px 14px;}
+}
+@media (max-width:860px){
+  .planner .sitenav-sub{display:none;}
+  .planner .sitenav-wordmark{font-size:14px;}
+  .planner .sitenav-fig{width:26px; height:26px;}
+  .planner .sitenav-cta .long{display:none;}
+  .planner .sitenav-cta .short{display:inline;}
+}
+/* Two rows in the same capsule: identity and action above, navigation full width
+   beneath — which is also the order of importance. */
+@media (max-width:640px){
+  .planner .sitenav{padding:10px 10px 11px;}
+  /* minmax(0,1fr), not auto: an auto column is floored at its content's
+     min-content width, and the lockup's min-content width is set by the
+     tagline, which is white-space:nowrap. That floor was 11px wider than the
+     capsule's content box, so the segmented track underneath sat ON the
+     capsule border rather than inside it. A 1fr column can shrink; the CTA
+     column stays auto because it must never be cut. */
+  .planner .sitenav-in{grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:"mark cta" "nav nav"; gap:11px; padding:11px; border-radius:20px;}
+  .planner .sitenav-mark{grid-area:mark; min-width:0;}
+  .planner .sitenav-wordmark{min-width:0; overflow:hidden; text-overflow:ellipsis;}
+  .planner .sitenav-cta{grid-area:cta; justify-self:end;}
+  .planner .sitenav-links{grid-area:nav; max-width:none; width:100%;}
+  .planner .sitenav-top{font-size:12.5px; padding:9px 4px;}
+  /* The tagline stays hidden here, as it is from 860px down. Restoring it was
+     what pushed the lockup past the capsule, and at 390px there is no width
+     for it beside the newsletter button. */
+  .planner .navpanel{grid-template-columns:1fr;}
+}
+/* Short viewports: the capsule is taller than the bar it replaced, which pushed
+   the hero band past the fold at 1024x640. Give the height back here rather than
+   shrinking the header at every size. */
+@media (max-height:720px){
+  /* Height comes out of PADDING, never out of the tap target - 38px is the one
+     rule that holds at every size. */
+  .planner .sitenav{padding:4px 18px 5px;}
+  .planner .sitenav-in{padding:4px 6px 4px 12px; gap:11px; border-radius:18px;}
+  .planner .sitenav-top{min-height:38px; padding:5px 6px;}
+  .planner .sitenav-cta{min-height:38px; padding:7px 14px;}
+  .planner .sitenav-fig{width:26px; height:26px;}
+  .planner .sitenav-sub{display:none;}
+}
+@media (max-width:380px){
+  .planner .sitenav-in{grid-template-columns:1fr;
+    grid-template-areas:"mark" "nav" "cta"; gap:10px;}
+  .planner .sitenav-cta{justify-self:stretch; width:100%;}
+  /* the chevron is decorative and is what tips each label into an ellipsis here */
+  .planner .sitenav-top{font-size:11.5px; overflow:visible;}
+  .planner .sitenav-top:after{display:none;}
+}
 @media (max-width:620px){
   .sitenav-cta .long{display:none;}
   .sitenav-cta .short{display:inline;}
