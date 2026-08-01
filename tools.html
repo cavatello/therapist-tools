@@ -100,8 +100,13 @@ a{color:inherit}
 h1{font-family:Fraunces,serif;font-size:clamp(28px,3.4vw,40px);font-weight:600;
  letter-spacing:-.022em;line-height:1.1;margin:0 0 14px;color:#fff}
 h1 em{font-style:normal;color:var(--pop)}
-.lede{font-size:15.5px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;max-width:58ch}
-.lede b{color:#fff}
+/* SCOPED to the band. Unscoped, this white-on-transparent rule leaked into
+ rates.html - which appends page.css after its own sheet - and painted the
+ article's opening paragraph 84% white on cream. Invisible, and only on the
+ one page that is not generated from here. */
+.band .lede{font-size:15.5px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
+ max-width:58ch}
+.band .lede b{color:#fff}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 .who span{font-size:12.5px;font-weight:600;color:#EFF5F2;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
