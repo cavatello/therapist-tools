@@ -97,9 +97,12 @@ a{color:inherit}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
 .kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
  color:var(--pop);margin:0 0 10px}
-h1{font-family:Fraunces,serif;font-size:clamp(28px,3.4vw,40px);font-weight:600;
+/* SCOPED, for the same reason .lede is: rates.html appends this sheet after its
+   own, so a bare h1{color:#fff} painted that article's headline white on cream.
+   Every colour rule in this file must name the surface it belongs to. */
+.band h1{font-family:Fraunces,serif;font-size:clamp(28px,3.4vw,40px);font-weight:600;
  letter-spacing:-.022em;line-height:1.1;margin:0 0 14px;color:#fff}
-h1 em{font-style:normal;color:var(--pop)}
+.band h1 em{font-style:normal;color:var(--pop)}
 /* SCOPED to the band. Unscoped, this white-on-transparent rule leaked into
  rates.html - which appends page.css after its own sheet - and painted the
  article's opening paragraph 84% white on cream. Invisible, and only on the
