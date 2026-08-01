@@ -1218,7 +1218,7 @@ const DEFAULT_EXPENSES = [{
   note: 'suite or shared space'
 }, {
   id: 'liability',
-  label: 'Malpractice / liability ins.',
+  label: 'Malpractice insurance',
   monthly: 0,
   note: '$400/yr'
 }, {
@@ -1229,7 +1229,7 @@ const DEFAULT_EXPENSES = [{
   note: 'your own premium — deducted, but not from self-employment tax'
 }, {
   id: 'ehr',
-  label: 'EHR / practice software',
+  label: 'EHR & software',
   monthly: 0,
   note: 'SimplePractice, TherapyNotes'
 }, {
@@ -1240,9 +1240,9 @@ const DEFAULT_EXPENSES = [{
   note: '2.5% of gross \u2014 card processing surcharge'
 }, {
   id: 'super',
-  label: 'Supervision / consultation',
+  label: 'Supervision',
   monthly: 0,
-  note: 'peer or clinical consult'
+  note: 'peer or clinical consultation'
 }, {
   id: 'marketing',
   label: 'Marketing & directories',
@@ -1270,7 +1270,7 @@ const DEFAULT_EXPENSES = [{
   note: 'CEUs, trainings'
 }, {
   id: 'office',
-  label: 'Office supplies & misc.',
+  label: 'Office supplies',
   monthly: 0,
   note: 'materials, furnishings'
 }];
@@ -7688,7 +7688,7 @@ function ExpensesTab({
         onChange: function (ev) { setExpensePct(e.id, ev.target.value); }
       }), /*#__PURE__*/React.createElement("span", {
         className: "exp-per"
-      }, "% of gross"));
+      }, "%"));
     } else {
       inputEl = /*#__PURE__*/React.createElement("div", {
         className: "exp-input"
@@ -7763,7 +7763,7 @@ function ExpensesTab({
         background: color
       }
     })), inputEl, /*#__PURE__*/React.createElement("div", {
-      className: "exp-yr"
+      className: "exp-yr" + (effMonthly > 0 ? "" : " zero")
     }, fmt(effMonthly * 12), /*#__PURE__*/React.createElement("span", null, "/yr")), e.custom ? /*#__PURE__*/React.createElement("button", {
       className: "exp-del",
       onClick: function () {
@@ -7822,7 +7822,18 @@ function ExpensesTab({
     className: "card"
   }, /*#__PURE__*/React.createElement("div", {
     className: "card-head"
-  }, /*#__PURE__*/React.createElement("h2", null, "What it costs to keep the practice open"), /*#__PURE__*/React.createElement("p", null, "Enter monthly amounts. Almost everything here is a Schedule\xA0C business deduction, which is why it comes off before profit rather than out of it. ", /*#__PURE__*/React.createElement("b", null, "Your own health cover is the exception"), " \u2014 it is deducted on Schedule\xA01 instead, so it lowers income tax but not self-employment tax (IRC \u00A7162(l)). Rows marked ", /*#__PURE__*/React.createElement("span", {className: "exp-sehi-key"}, "\u2713 own health cover"), " are treated that way; tag a row of your own if you entered the premium separately.")), resetRow, /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "What it costs to keep the practice open"), /*#__PURE__*/React.createElement("p", null,
+    "Monthly amounts. Almost all of this is a Schedule\xA0C deduction, so it comes off before profit rather than out of it."),
+  /* The \u00A7162(l) exception matters, but it was five lines of tax law standing
+     between the heading and the first field. It folds instead, and the rows it
+     applies to carry the tag themselves. */
+  /*#__PURE__*/React.createElement("details", {className: "collapsible exp-sehi-note"},
+    /*#__PURE__*/React.createElement("summary", null,
+      "One row is treated differently \u2014 your own health cover"),
+    /*#__PURE__*/React.createElement("p", null,
+      "Your health insurance premium is deducted on Schedule\xA01, not Schedule\xA0C, so it lowers income tax but not self-employment tax (IRC \u00A7162(l)). Rows marked ",
+      /*#__PURE__*/React.createElement("span", {className: "exp-sehi-key"}, "\u2713 own health cover"),
+      " are treated that way. Tag a row of your own if you entered the premium separately."))), resetRow, /*#__PURE__*/React.createElement("div", {
     className: "exp-list"
   }, expenseRows), /*#__PURE__*/React.createElement("div", {
     className: "exp-foot"
@@ -10255,6 +10266,31 @@ td.num-head{text-align:right;}
 .exp-per{font-size:11px !important;}
 .exp-yr{font-family:'Fraunces',serif; font-size:15px; font-weight:600; color:var(--muted); text-align:right;}
 .exp-yr span{font-family:'Inter',sans-serif; font-size:10.5px; font-weight:500; margin-left:2px;}
+/* A row is a grid, but its cells were free to paint over their neighbours: the
+   percentage input's suffix ran straight across the year figure at the
+   two-column breakpoint. Every cell is now clipped to its own track. */
+.planner .exp-input,.planner .exp-name,.planner .exp-yr{min-width:0;}
+.planner .exp-input{overflow:hidden;}
+.planner .exp-input input{min-width:0;}
+.planner .exp-input-pct input{text-align:right; min-width:0; flex:1;}
+.planner .exp-input-pct .exp-per{flex:none;}
+/* Twelve rows reading "$0/yr" is twelve figures competing with the one that is
+   not zero. An untouched row states its unit quietly instead. */
+.planner .exp-yr.zero{color:var(--muted-2); opacity:.5; font-weight:500;}
+/* The label column carries up to four things (name, tag, note, mode switch).
+   Give it a rhythm rather than letting each row find its own height. */
+.planner .exp-lbl{line-height:1.3;}
+.planner .exp-note{line-height:1.4;}
+.planner .exp-row{align-items:start; padding:13px 0;}
+.planner .exp-row > .exp-bar,
+.planner .exp-row > .exp-input,
+.planner .exp-row > .exp-yr{margin-top:3px;}
+.planner .exp-row > .exp-yr{margin-top:11px;}
+.planner .exp-bar{margin-top:16px;}
+.planner .exp-sehi-note{margin:10px 0 0;}
+.planner .exp-sehi-note{max-width:560px;}
+.planner .exp-sehi-note > summary{font-size:12.5px;}
+.planner .exp-sehi-note p{font-size:12.5px; line-height:1.65; margin:8px 0 0; max-width:74ch;}
 .exp-del{font:inherit; font-size:20px; line-height:1; color:#C7C0AF; background:transparent; border:none; cursor:pointer; padding:2px 6px; border-radius:6px;}
 .exp-del:hover{color:#B5483F; background:#FBF0EE;}
 .exp-del-spacer{display:block; width:28px;}
@@ -11036,7 +11072,8 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 @media (min-width:1180px){
   .planner .exp-list{display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
     column-gap:34px; align-content:start;}
-  .planner .exp-list .exp-row{grid-template-columns:1.4fr .9fr 76px 84px 24px; gap:10px;}
+  .planner .exp-list .exp-row{grid-template-columns:minmax(0,1.7fr) .5fr 96px 78px 22px;
+    gap:11px;}
   /* A custom row's rename field and the "add" row want the whole width. */
   .planner .exp-list .exp-row.exp-row-add,
   .planner .exp-list .exp-row.exp-total{grid-column:1/-1;}
