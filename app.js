@@ -2730,13 +2730,20 @@ function PracticeIncomePlanner() {
          say which part of the tool you are in, which is a different question
          and the one people actually have at this point. */
       /*#__PURE__*/React.createElement("nav", {className: "lnd-pills", "aria-label": "Sections"},
-        [["#sim", "Simulator", page === "sim"],
-         ["#tax", "Tax & Retirement", page === "tax"],
-         ["#grow", "Grow", page === "grow"],
-         ["#sec-residency", "Residency", false]
-        ].map(([href, t, on]) => /*#__PURE__*/React.createElement("a", {
+        /* Was: Simulator / Tax & Retirement / Grow / Residency. Three problems,
+           and the labels fixed all three. "Simulator" was the name of the whole
+           tool AND of one quarter of it, which can never scan. The four were
+           four different kinds of thing - a product name, a topic, a verb and a
+           place. And they contradicted the site nav, which splits the money
+           question from the growth one. They now name the question each answers,
+           in the order the money moves. */
+        [["#sim", "What you earn", "rate, caseload, expenses", page === "sim"],
+         ["#tax", "What you keep", "tax, structure, retirement", page === "tax"],
+         ["#grow", "How you grow", "funnels and lead targets", page === "grow"],
+         ["#sec-residency", "Where you live", "seven places compared", false]
+        ].map(([href, t, sub, on]) => /*#__PURE__*/React.createElement("a", {
           key: t, href: href, className: "lnd-pill" + (on ? " on" : ""),
-          "aria-current": on ? "page" : null
+          title: sub, "aria-current": on ? "page" : null
         }, t))),
 
       /* The four numbers that move everything. Three are inputs and the fourth
@@ -3914,7 +3921,10 @@ function PracticeIncomePlanner() {
     assocRevenueYr: assocRevenueYr,
     assocCostYr: assocCostYr,
     secondaryOn: secondaryOn,
-    retreatOn: retreatOn
+    retreatOn: retreatOn,
+    taxAge: taxAge,
+    retireAge: retireAge,
+    investReturn: investReturn
   })), isVisible("funnel") && /*#__PURE__*/React.createElement("div", {id:"sec-funnel"}, /*#__PURE__*/React.createElement(FunnelTab, {
     color: d.color,
     rate: funnelRate,
@@ -7876,7 +7886,10 @@ function ProfitTab({
   numDependents,
   entityType,
   sCorpSalaryInput,
-  taxStrategy
+  taxStrategy,
+  taxAge,
+  retireAge,
+  investReturn
 }) {
   const hypoBaseline = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: cur.sehiYr});
   const hypoArgs = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib) : [0, 0];
@@ -7969,6 +7982,16 @@ function ProfitTab({
     const optional = (taxStrategy && hypoBaseline && hypoSolo401k)
       ? Math.round(hypoBaseline.totalTax - hypoSolo401k.totalTax) : 0;
     const room = taxStrategy ? Math.round(taxStrategy.solo401k.total) : 0;
+    /* The card was selling the tax SAVED and stopping there, which undersells it
+       by an order of magnitude. The saving is only the deposit - what it is
+       worth is the deposit compounded to the year you need it. Both figures come
+       from state the user has actually entered; with no horizon entered the card
+       says what it would take to show the number rather than inventing one. */
+    const hzOK = taxAge > 0 && retireAge > taxAge && investReturn > 0;
+    const hzYears = hzOK ? retireAge - taxAge : 0;
+    const grown = hzOK ? Math.round(room * Math.pow(1 + investReturn / 100, hzYears)) : 0;
+    const fromTax = hzOK && room > 0
+      ? Math.round(optional * Math.pow(1 + investReturn / 100, hzYears)) : 0;
     return /*#__PURE__*/React.createElement("section", {className: "card handoff"},
       /*#__PURE__*/React.createElement("div", {className: "handoff-k"},
         /*#__PURE__*/React.createElement("span", null, "Next step"),
@@ -8000,6 +8023,34 @@ function ProfitTab({
               "Everything above this line is the business you run. The ",
               /*#__PURE__*/React.createElement("b", null, fmtH(taxYr)),
               " gap is a separate question with its own levers \u2014 what you set aside before tax, and how the practice is structured.")),
+      optional > 0 && room > 0 ? /*#__PURE__*/React.createElement("div", {
+        className: "handoff-comp"
+      }, /*#__PURE__*/React.createElement("div", {className: "hc-row"},
+          /*#__PURE__*/React.createElement("span", null,
+            /*#__PURE__*/React.createElement("i", null, "Tax you would not pay"),
+            /*#__PURE__*/React.createElement("b", null, fmtH(optional))),
+          /*#__PURE__*/React.createElement("em", null, "+"),
+          /*#__PURE__*/React.createElement("span", null,
+            /*#__PURE__*/React.createElement("i", null, "Your own money, moved across"),
+            /*#__PURE__*/React.createElement("b", null, fmtH(Math.max(0, room - optional)))),
+          /*#__PURE__*/React.createElement("em", null, "="),
+          /*#__PURE__*/React.createElement("span", {className: "hc-in"},
+            /*#__PURE__*/React.createElement("i", null, "Into an account you own"),
+            /*#__PURE__*/React.createElement("b", null, fmtH(room)))),
+        hzOK
+          ? /*#__PURE__*/React.createElement("p", {className: "hc-p"},
+              "That is ", /*#__PURE__*/React.createElement("b", null, fmtH(optional)),
+              " of tax turned into ", /*#__PURE__*/React.createElement("b", null, fmtH(fromTax)),
+              " of yours by ", retireAge, " \u2014 and the whole ",
+              fmtH(room), " contribution reaches ",
+              /*#__PURE__*/React.createElement("b", {className: "hc-big"}, fmtH(grown)),
+              " at ", investReturn, "% over ", hzYears,
+              " years. One year\u2019s contribution. Do it again next year and it stops being about tax at all.")
+          : /*#__PURE__*/React.createElement("p", {className: "hc-p"},
+              "The money you do not hand over does not just sit there \u2014 it compounds "
+              + "in an account you own. Enter your age, when you want to stop, and a return "
+              + "in the next section and this line will say exactly what this year\u2019s "
+              + fmtH(optional) + " is worth by then.")) : null,
       /*#__PURE__*/React.createElement("a", {href: "#tax", className: "handoff-go"},
         /*#__PURE__*/React.createElement("span", {className: "handoff-go-t"},
           /*#__PURE__*/React.createElement("b", null, "Work out your tax strategy"),
@@ -10289,6 +10340,30 @@ td.num-head{text-align:right;}
 .planner .exp-bar{margin-top:16px;}
 .planner .exp-sehi-note{margin:10px 0 0;}
 .planner .exp-sehi-note{max-width:560px;}
+
+/* ---------- the compounding case on the hand-off card ---------- */
+.handoff-comp{background:rgba(255,255,255,.11); border:1px solid rgba(255,255,255,.2);
+  border-radius:14px; padding:15px 18px 16px; margin:0 0 18px;}
+.hc-row{display:flex; align-items:flex-end; gap:14px; flex-wrap:wrap; margin-bottom:11px;}
+.hc-row span{display:block;}
+.hc-row i{display:block; font-style:normal; font-size:9px; font-weight:800;
+  letter-spacing:.11em; text-transform:uppercase; color:rgba(255,255,255,.6);
+  margin-bottom:4px;}
+.hc-row b{font-family:'Fraunces',serif; font-size:21px; color:#fff; line-height:1;}
+.hc-row em{font-style:normal; font-family:'Fraunces',serif; font-size:17px;
+  color:rgba(255,255,255,.45); padding-bottom:2px;}
+.hc-in b{color:#F6C560;}
+.hc-p{font-size:13.2px; line-height:1.68; color:rgba(255,255,255,.78); margin:0;
+  max-width:70ch;}
+.hc-p b{color:#fff;}
+.hc-p b.hc-big{font-family:'Fraunces',serif; font-size:17px; color:#F6C560;}
+@media (max-width:620px){
+  .handoff-comp{padding:13px 14px 14px;}
+  .hc-row{gap:10px;}
+  .hc-row b{font-size:17px;}
+  .hc-row em{display:none;}
+  .hc-p{font-size:12.6px;}
+}
 .planner .exp-sehi-note > summary{font-size:12.5px;}
 .planner .exp-sehi-note p{font-size:12.5px; line-height:1.65; margin:8px 0 0; max-width:74ch;}
 .exp-del{font:inherit; font-size:20px; line-height:1; color:#C7C0AF; background:transparent; border:none; cursor:pointer; padding:2px 6px; border-radius:6px;}
