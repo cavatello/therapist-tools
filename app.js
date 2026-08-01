@@ -38,7 +38,7 @@ const INCOME_INPUTS_BELOW = false;
    opens on demand. Add a key to open the same panel from anywhere. */
 const INFO_PANELS = {
   assoc: {
-    title: "Associates \u2014 what you need to know",
+    title: "Employing associates \u2014 what you need to know",
     warn: ["This is not a revenue split \u2014 it is payroll.",
       " In California a registered associate must be a W-2 employee (or a volunteer) and " +
       "may not bill clients directly. Your practice bills the client, so all of it is your " +
@@ -2669,7 +2669,7 @@ function PracticeIncomePlanner() {
   ];
 
   const HERO_MODS = [
-    {k: "assoc", lab: "Associates", ic: "assoc", on: assocOn, enable: setAssocOn,
+    {k: "assoc", lab: "Employ associates", ic: "assoc", on: assocOn, enable: setAssocOn,
      blurb: "pre-licensed AMFTs, ASWs or APCCs seeing clients under your licence",
      /* The WHOLE module, costs included — same labels and the same setters as
         the full section, so the two are one set of fields shown twice. Nothing
@@ -3132,7 +3132,11 @@ function PracticeIncomePlanner() {
     className: "v02-kpi-note"
   }, fmt(rate) + "/hr \u00B7 " + sessions + " sessions/wk") : /*#__PURE__*/React.createElement("p", {
     className: "v02-kpi-note"
-  }, "Enter a rate below and this fills in."))), (widgetCollapsed ? /*#__PURE__*/React.createElement("button", {
+  }, "Enter a rate below and this fills in."))),
+  /* Gross $0 - Expenses $0 = Profit $0 is four zeroes and a Save button for a
+     setup that does not exist yet. The strip earns its place the moment there is
+     a figure in it and not before. */
+  (rate > 0 || sessions > 0) && (widgetCollapsed ? /*#__PURE__*/React.createElement("button", {
   className: "sticky-summary-tab",
   onClick: () => setWidgetCollapsed(false),
   title: page === "tax" ? "Show gross / expenses / tax / net" : "Show gross / expenses / profit"
@@ -3921,10 +3925,7 @@ function PracticeIncomePlanner() {
     assocRevenueYr: assocRevenueYr,
     assocCostYr: assocCostYr,
     secondaryOn: secondaryOn,
-    retreatOn: retreatOn,
-    taxAge: taxAge,
-    retireAge: retireAge,
-    investReturn: investReturn
+    retreatOn: retreatOn
   })), isVisible("funnel") && /*#__PURE__*/React.createElement("div", {id:"sec-funnel"}, /*#__PURE__*/React.createElement(FunnelTab, {
     color: d.color,
     rate: funnelRate,
@@ -7886,10 +7887,7 @@ function ProfitTab({
   numDependents,
   entityType,
   sCorpSalaryInput,
-  taxStrategy,
-  taxAge,
-  retireAge,
-  investReturn
+  taxStrategy
 }) {
   const hypoBaseline = computeYear(cur.grossTherYr + (cur.otherIncomeYr || 0), expYrBase + cur.bizFee, job2Yr, filingStatus, numDependents, 0, 0, entityType, sCorpSalaryInput, {sehi: cur.sehiYr});
   const hypoArgs = taxStrategy ? retireArgsFor(entityType, taxStrategy.solo401k.employerContrib, taxStrategy.solo401k.employeeContrib) : [0, 0];
@@ -7982,16 +7980,13 @@ function ProfitTab({
     const optional = (taxStrategy && hypoBaseline && hypoSolo401k)
       ? Math.round(hypoBaseline.totalTax - hypoSolo401k.totalTax) : 0;
     const room = taxStrategy ? Math.round(taxStrategy.solo401k.total) : 0;
-    /* The card was selling the tax SAVED and stopping there, which undersells it
-       by an order of magnitude. The saving is only the deposit - what it is
-       worth is the deposit compounded to the year you need it. Both figures come
-       from state the user has actually entered; with no horizon entered the card
-       says what it would take to show the number rather than inventing one. */
-    const hzOK = taxAge > 0 && retireAge > taxAge && investReturn > 0;
-    const hzYears = hzOK ? retireAge - taxAge : 0;
-    const grown = hzOK ? Math.round(room * Math.pow(1 + investReturn / 100, hzYears)) : 0;
-    const fromTax = hzOK && room > 0
-      ? Math.round(optional * Math.pow(1 + investReturn / 100, hzYears)) : 0;
+    /* No projection here. This card sits BEFORE anything asks your age, so any
+       "worth $X by 67" line would be built on a horizon nobody has given - and
+       an invented assumption is worse than a smaller true claim. The age-free
+       argument is complete on its own: the tax was leaving anyway, so a share of
+       the contribution costs nothing. The compounding lives in Tax &
+       Retirement, where the horizon is a real input. */
+    const funded = room > 0 ? Math.round(optional / room * 100) : 0;
     return /*#__PURE__*/React.createElement("section", {className: "card handoff"},
       /*#__PURE__*/React.createElement("div", {className: "handoff-k"},
         /*#__PURE__*/React.createElement("span", null, "Next step"),
@@ -8037,20 +8032,15 @@ function ProfitTab({
           /*#__PURE__*/React.createElement("span", {className: "hc-in"},
             /*#__PURE__*/React.createElement("i", null, "Into an account you own"),
             /*#__PURE__*/React.createElement("b", null, fmtH(room)))),
-        hzOK
-          ? /*#__PURE__*/React.createElement("p", {className: "hc-p"},
-              "That is ", /*#__PURE__*/React.createElement("b", null, fmtH(optional)),
-              " of tax turned into ", /*#__PURE__*/React.createElement("b", null, fmtH(fromTax)),
-              " of yours by ", retireAge, " \u2014 and the whole ",
-              fmtH(room), " contribution reaches ",
-              /*#__PURE__*/React.createElement("b", {className: "hc-big"}, fmtH(grown)),
-              " at ", investReturn, "% over ", hzYears,
-              " years. One year\u2019s contribution. Do it again next year and it stops being about tax at all.")
-          : /*#__PURE__*/React.createElement("p", {className: "hc-p"},
-              "The money you do not hand over does not just sit there \u2014 it compounds "
-              + "in an account you own. Enter your age, when you want to stop, and a return "
-              + "in the next section and this line will say exactly what this year\u2019s "
-              + fmtH(optional) + " is worth by then.")) : null,
+        /*#__PURE__*/React.createElement("p", {className: "hc-p"},
+          "The ", /*#__PURE__*/React.createElement("b", null, fmtH(optional)),
+          " was leaving anyway, so ",
+          /*#__PURE__*/React.createElement("b", {className: "hc-big"}, funded + "%"),
+          " of that contribution is funded by tax you no longer owe \u2014 and it lands in "
+          + "an account you own rather than at the FTB. It does not sit there either. "
+          + "Set your age and a return in ",
+          /*#__PURE__*/React.createElement("b", null, "What you keep"),
+          " and it will work out what this year is worth by the time you need it.")) : null,
       /*#__PURE__*/React.createElement("a", {href: "#tax", className: "handoff-go"},
         /*#__PURE__*/React.createElement("span", {className: "handoff-go-t"},
           /*#__PURE__*/React.createElement("b", null, "Work out your tax strategy"),
@@ -9816,8 +9806,17 @@ section.card.sgate{border-left:3px solid #C98B4B;}
    bottom of every page into somewhere rather than nothing. It is also the one
    place the pixel style can be loud without touching the credibility of the
    numbers above it. */
+/* Full-bleed. The footer lives inside .planner, which is capped at 1080px, so
+   the dark block stopped short of both edges and read as a card rather than the
+   end of the page. Pulling it out to the viewport needs the ancestor's
+   overflow-x:clip to allow it - that clip exists to stop a horizontal
+   scrollbar, and overflow-clip-margin keeps that guarantee while letting this
+   one element paint past the edge. Padding tracks the same 1080px column so the
+   text below stays aligned with everything above it. */
+.planner{overflow-clip-margin:100vw;}
 .sitefoot{display:block; background:#141712; border-top:0;
-  margin:34px -24px -60px; padding:0 24px 22px;}
+  margin:34px calc(50% - 50vw) -60px; width:100vw;
+  padding:0 max(24px, calc(50vw - 540px)) 22px;}
 .sitefoot-room{display:block; width:100%; max-width:560px; height:auto;
   margin:0 auto; image-rendering:pixelated;}
 .sitefoot-cols{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
@@ -11270,7 +11269,13 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
 .lnd-stat-v input::-webkit-outer-spin-button,
 .lnd-stat-v input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
 .lnd-mods{display:grid; grid-template-columns:repeat(3,1fr); gap:11px; margin:0 0 18px;}
-.lnd-mod{font:inherit; text-align:left; cursor:pointer; width:100%;}
+/* These tiles are <button> elements. With no background of their own the UA
+   fell back to ButtonFace - a light grey panel behind white text, which is
+   how they turned into three unreadable white slabs on the cold state. An
+   explicit background is the only thing standing between a translucent tile
+   and the browser's default button chrome. */
+.lnd-mod{font:inherit; text-align:left; cursor:pointer; width:100%;
+  background:rgba(255,255,255,.06); color:inherit;}
 .lnd-mod.open{border-style:solid; border-color:#F6C560; background:rgba(246,197,96,.14);}
 .lnd-mod.open i{color:#F6C560;}
 /* The drawer. Under the row, not inside a tile: opening it inside would reflow
