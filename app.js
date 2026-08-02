@@ -2958,8 +2958,8 @@ function PracticeIncomePlanner() {
       className: "sitenav-cta", href: "newsletter.html"
     }, /*#__PURE__*/React.createElement("img", {
       src: NAV_ICON.mug, alt: "", "aria-hidden": "true"
-    }), /*#__PURE__*/React.createElement("span", {className: "long"}, "Get the newsletter"),
-       /*#__PURE__*/React.createElement("span", {className: "short"}, "Newsletter")),
+    }), /*#__PURE__*/React.createElement("span", {className: "long"}, "Stay updated"),
+       /*#__PURE__*/React.createElement("span", {className: "short"}, "Updates")),
     navOpen && /*#__PURE__*/React.createElement("div", {
       className: "navpanel", id: "navpanel"
     }, NAV_PANEL.map(([h, items]) => /*#__PURE__*/React.createElement("div", {
@@ -2982,7 +2982,7 @@ function PracticeIncomePlanner() {
     }), /*#__PURE__*/React.createElement("b", null, "One email a month"),
        /*#__PURE__*/React.createElement("p", null,
          "What other California therapists are doing, and anything new here."),
-       /*#__PURE__*/React.createElement("span", null, "Get the newsletter"))))), showShareBanner && /*#__PURE__*/React.createElement("div", {
+       /*#__PURE__*/React.createElement("span", null, "Stay updated"))))), showShareBanner && /*#__PURE__*/React.createElement("div", {
     className: "share-banner"
   }, /*#__PURE__*/React.createElement("span", null, "\uD83D\uDD17 ", /*#__PURE__*/React.createElement("b", null, "You're viewing a shared setup"), " \u2014 every number below reflects the rates, expenses, and choices someone saved into this link. Change anything and it's yours to explore; click "), /*#__PURE__*/React.createElement("b", null, "Share"), /*#__PURE__*/React.createElement("span", null, " anytime (top right) to save your own version as a new link."), /*#__PURE__*/React.createElement("button", {
     className: "share-banner-close",
