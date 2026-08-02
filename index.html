@@ -1357,9 +1357,15 @@ function blank(){
 }
 var S = blank();
 
+/* The worked example is ONE therapist seeing their own clients, plus running
+   costs. It deliberately does NOT employ associates. It used to: two associates
+   billing $225,000, which is a third of the headline - and the whole associates
+   module sits inside a closed "Add an income source" drawer, so the reader got
+   a $475,000 number with no visible reason for two thirds of it. An example
+   that has to be unfolded before it makes sense is not an example. */
 var EXAMPLE = {rate:200, sessions:25, weeksOff:2, billingPct:2.5,
-  assocOn:true, assocCount:2, assocRate:125, assocSessions:18, assocVac:2, assocSplit:52,
-  assocSup:25, assocLiab:40, assocOffice:500, assocEhr:40, assocWc:3, assocPayroll:50,
+  assocOn:false, assocCount:"", assocRate:"", assocSessions:"", assocVac:"", assocSplit:"",
+  assocSup:"", assocLiab:"", assocOffice:"", assocEhr:"", assocWc:"", assocPayroll:"",
   retreatOn:false, retPeople:"", retRate:"", retPerYear:"",
   secondOn:false, secRate:"", secSessions:"",
   filing:"single", age:40, entity:"sole", contrib:"",
@@ -1842,6 +1848,21 @@ document.querySelectorAll("[data-drawer]").forEach(function(btn){
   });
 });
 
+/* An income drawer may never stay shut while it is contributing money. A shared
+   link, or a reader who switches a module on and then collapses the drawer,
+   would otherwise leave a headline whose largest component is invisible. This
+   forces the earnings drawer open whenever any of the three modules is on, and
+   is called from paint() so it re-runs on load, on hash, and on every toggle. */
+function syncEarnDrawer(){
+  var on = !!(S.assocOn || S.retreatOn || S.secondOn);
+  var d = $("d-earn");
+  if (!d || !on || !d.hidden) return;
+  d.hidden = false;
+  document.querySelectorAll('[data-drawer="d-earn"]').forEach(function(b){
+    if (b.classList.contains("adj")) b.setAttribute("aria-expanded", "true");
+  });
+}
+
 /* expenses grid */
 $("exp-grid").innerHTML = EXPENSES.map(function(e){
   return '<label class="f sm"><em>' + e[1] + '</em><span class="fv">$<input type="number" '
@@ -2010,6 +2031,7 @@ function paint(){
   document.querySelectorAll("[data-chan]").forEach(function(el){
     el.value = S.chan[el.getAttribute("data-chan")][el.getAttribute("data-k")];
   });
+  syncEarnDrawer();
 }
 
 /* an empty field says so, in amber */
