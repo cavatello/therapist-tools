@@ -2659,12 +2659,12 @@ function PracticeIncomePlanner() {
      opens. Three separate menus would be three chances to miss something, and
      the point of collapsing five links to three was never to hide the tools. */
   const NAV_PANEL = [
-    ["Tools", [["piggy", "All free tools", "every calculator and widget, in one place", "tools.html"],
-               ["dollar", "Full simulator", "residency, Social Security, associates in detail", "practice-simulator.html"],
-               ["calc", "Associate Job Advisor", "compare AMFT jobs, pay and your 3,000 hours", "associate-mft-job-advisor.html"],
-               ["dollar", "Practice Simulator", "what a California practice actually pays", "#sim"],
+    ["Tools", [["dollar", "Practice Simulator", "what a California practice actually pays", "index.html"],
                ["calc", "Tax & Retirement", "how much of your tax bill is optional", "therapist-tax-strategy-california.html"],
-               ["chart_up", "Grow Your Practice", "what a client is worth, and where they come from", "grow-your-therapy-practice.html"]]],
+               ["chart_up", "Grow Your Practice", "what a client is worth, and where they come from", "grow-your-therapy-practice.html"],
+               ["calc", "Associate Job Advisor", "compare AMFT jobs, pay and your 3,000 hours", "associate-mft-job-advisor.html"],
+               ["dollar", "Full simulator", "residency, Social Security, associates in detail", "practice-simulator.html"],
+               ["piggy", "All free tools", "every calculator and widget, in one place", "tools.html"]]],
     ["Learn", [["notepad", "Field Notes", "what CA therapy actually pays", "rates.html"],
                ["bubbles", "Tycoon", "the practice, as a game",
                 "https://cavatello.github.io/therapist-tycoon/tycoon.html"]]],
@@ -2743,7 +2743,7 @@ function PracticeIncomePlanner() {
            place. And they contradicted the site nav, which splits the money
            question from the growth one. They now name the question each answers,
            in the order the money moves. */
-        [["#sim", "What you earn", "rate, caseload, expenses", page === "sim"],
+        [["index.html", "What you earn", "rate, caseload, expenses", page === "sim"],
          ["#tax", "What you keep", "tax, structure, retirement", page === "tax"],
          ["#grow", "How you grow", "funnels and lead targets", page === "grow"],
          ["#sec-residency", "Where you live", "seven places compared", false]
@@ -4624,7 +4624,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-room", src: FOOTER_ROOM, alt: "", "aria-hidden": "true"
   }), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-cols"
-  }, [["Tools", [["tools.html", "All free tools"], ["associate-mft-job-advisor.html", "Associate Job Advisor"], ["#sim", "Practice Simulator"], ["therapist-tax-strategy-california.html", "Tax & Retirement"], ["grow-your-therapy-practice.html", "Grow Your Practice"]]],
+  }, [["Tools", [["tools.html", "All free tools"], ["associate-mft-job-advisor.html", "Associate Job Advisor"], ["index.html", "Practice Simulator"], ["therapist-tax-strategy-california.html", "Tax & Retirement"], ["grow-your-therapy-practice.html", "Grow Your Practice"]]],
       ["Learn", [["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]]],
       ["About", [["about.html", "What this is"], ["newsletter.html", "Newsletter"], ["contact.html", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
     key: h,
