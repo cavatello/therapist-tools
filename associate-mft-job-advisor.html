@@ -455,6 +455,16 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   background:var(--paper);color:var(--ink);padding-bottom:0}
 .adv *{box-sizing:border-box}
 .adv .in{max-width:1060px;margin:0 auto;padding:0 26px}
+/* The hidden ATTRIBUTE is styled by the UA sheet as `[hidden]{display:none}`,
+   which is the weakest rule in the cascade. Every one of this page's fields is
+   a `.f` label carrying `display:block` — a class selector — so it beat the UA
+   rule outright and `el.hidden = true` did nothing at all. That is why the
+   annual-salary box stayed on screen with "Rate per clinical hour" selected,
+   and why the supervision-cost box never hid either.
+
+   The prototype's own stylesheet carries this exact rule for the same reason.
+   It has to come with the `.f` pattern wherever that pattern goes. */
+.adv [hidden]{display:none !important}
 .adv button{font:inherit}
 
 /* ---------- hero ---------- */
