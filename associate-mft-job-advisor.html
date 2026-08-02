@@ -443,322 +443,307 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 </style>
 <style>
 
-/* ==========================================================================
-   Associate MFT Job Advisor
-   Prototype visual language: Fraunces headings, Inter body, IBM Plex Mono for
-   figures; inset slabs on paper; gold (--pop) reserved for the one number the
-   reader came for.
-   ========================================================================== */
-.adv{--paper:#FBF9F3;--ink:#26241E;--muted:#7C766A;--line:#E7E2D6;
-  --pine:#2C6350;--brick:#8E4B45;--gold:#B08430;--carbon:#1E241C;--indigo:#241A44;
-  --pop:#F6C560;--neg:#B5483F;--pos:#3F9577;
-  background:var(--paper);color:var(--ink);padding-bottom:0}
+.adv{--paper:#FBF9F3;--white:#FFFFFF;--ink:#26241E;--muted:#6E695E;--line:#E7E2D6;
+ --field:#FBF6E9;--fieldline:#E4D9BE;
+ --pine:#2C6350;--brick:#8E4B45;--gold:#B08430;--carbon:#26241E;--indigo:#4B3B93;
+ --pop:#F6C560;--neg:#B5483F;--pos:#3F9577;
+ background:var(--paper);color:var(--ink)}
 .adv *{box-sizing:border-box}
 .adv .in{max-width:1060px;margin:0 auto;padding:0 26px}
 /* The hidden ATTRIBUTE is styled by the UA sheet as `[hidden]{display:none}`,
-   which is the weakest rule in the cascade. Every one of this page's fields is
-   a `.f` label carrying `display:block` — a class selector — so it beat the UA
-   rule outright and `el.hidden = true` did nothing at all. That is why the
-   annual-salary box stayed on screen with "Rate per clinical hour" selected,
-   and why the supervision-cost box never hid either.
-
-   The prototype's own stylesheet carries this exact rule for the same reason.
-   It has to come with the `.f` pattern wherever that pattern goes. */
+   the weakest rule in the cascade. Every field here is a `.f` label carrying
+   `display:block` — a class selector — which beat it outright, so `el.hidden`
+   did nothing and the salary box stayed on screen in hourly mode. This rule has
+   to travel with the `.f` pattern wherever that pattern goes. */
 .adv [hidden]{display:none !important}
 .adv button{font:inherit}
 
-/* ---------- hero ---------- */
+/* ---------- hero: the one coloured surface ---------- */
 .ahero{background:linear-gradient(135deg,#173B2E 0%,#2C6350 52%,#3F9577 100%);
-  color:#EFF5F2;padding:38px 0 36px}
+ color:#EFF5F2;padding:40px 0 38px}
 .ahero .in{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
 .akick{font-size:9.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--pop);margin:0 0 11px}
+ color:var(--pop);margin:0 0 11px}
 .ahero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(28px,3.6vw,42px);line-height:1.04;
-  letter-spacing:-.024em;margin:0 0 10px;color:#fff;font-weight:600;max-width:16ch}
+ letter-spacing:-.024em;margin:0 0 10px;color:#fff;font-weight:600;max-width:17ch}
 .ahero h1 em{font-style:normal;color:var(--pop)}
 .atag{font-family:Fraunces,Georgia,serif;font-size:clamp(16px,1.8vw,21px);color:var(--pop);
-  margin:0 0 13px}
+ margin:0 0 13px}
 .alede{font-size:14.2px;line-height:1.72;color:rgba(255,255,255,.86);margin:0 0 16px;
-  max-width:56ch}
+ max-width:58ch}
 .alede b{color:#fff}
 .aherocta{display:flex;gap:9px;flex-wrap:wrap;align-items:stretch}
 .aherocta a,.aherocta button{background:var(--pop);color:#2A2010;border:0;border-radius:11px;
-  padding:11px 18px;font-size:13.5px;font-weight:800;cursor:pointer;text-decoration:none;
-  display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+ padding:11px 18px;font-size:13.5px;font-weight:800;cursor:pointer;text-decoration:none;
+ display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
 .aherocta .ghost{background:none;color:#fff;border:1.5px solid rgba(255,255,255,.5);
-  font-weight:700}
+ font-weight:700}
 .aherocta a:hover,.aherocta button:hover{filter:brightness(1.06)}
-/* the live answer panel */
 .apanel{background:rgba(0,0,0,.24);border:1px solid rgba(255,255,255,.18);border-radius:20px;
-  padding:18px 20px 17px}
+ padding:18px 20px 17px}
 .aart{display:block;width:100%;height:auto;margin:0 0 14px;border-radius:12px}
 .apanel .arow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;
-  align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+ align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14)}
 .apanel .arow:last-of-type{border-bottom:0}
 .apanel .arow span{font-size:11.4px;color:rgba(255,255,255,.62);line-height:1.4}
 .apanel .arow b{font-family:Fraunces,Georgia,serif;font-size:23px;color:#fff;line-height:1;
-  white-space:nowrap}
+ white-space:nowrap}
 .apanel .arow b.gold{color:var(--pop)}
 .apanel .anote{font-size:10.6px;color:rgba(255,255,255,.5);margin:11px 0 0;line-height:1.55}
 
-/* ---------- slabs ---------- */
-.adv .slab{max-width:1060px;margin:15px auto 0;border-radius:22px;padding:26px 28px 30px;
-  box-shadow:0 16px 34px rgba(40,50,40,.1);scroll-margin-top:70px}
-.adv .slab.pine{background:linear-gradient(135deg,#1E4436 0%,#2C6350 55%,#3F9577 100%);
-  color:#EFF5F2}
-.adv .slab.brick{background:linear-gradient(135deg,#7E3630 0%,#8E4B45 55%,#A25A52 100%);
-  color:#F7EDEB}
-.adv .slab.gold{background:linear-gradient(135deg,#8A6320 0%,#B08430 55%,#C99C46 100%);
-  color:#2A1F08}
-.adv .slab.carbon{background:linear-gradient(135deg,#141712 0%,#1E241C 60%,#2A3327 100%);
-  color:#E6E4DC}
-.adv .slab.indigo{background:linear-gradient(140deg,#1B1236 0%,#241A44 55%,#332654 100%);
-  color:#E9E6F5}
+/* ---------- slabs: white cards, identity in a 3px top rule ---------- */
+.adv .slab{max-width:1060px;margin:16px auto 0;border-radius:16px;padding:28px 30px 32px;
+ background:var(--white);border:1px solid var(--line);border-top:3px solid var(--line);
+ box-shadow:0 1px 2px rgba(40,50,40,.03);scroll-margin-top:70px;color:var(--ink)}
+.adv .slab.pine{border-top-color:var(--pine)}
+.adv .slab.carbon{border-top-color:var(--carbon)}
+.adv .slab.brick{border-top-color:var(--brick)}
+.adv .slab.indigo{border-top-color:var(--indigo)}
+.adv .slab.gold{border-top-color:var(--gold)}
 .ch-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px}
 .ch-h h2{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,28px);margin:0;
-  font-weight:600;letter-spacing:-.02em}
-.ch-n{font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;opacity:.62}
-.dek{font-size:13px;line-height:1.66;margin:0 0 17px;opacity:.8;max-width:66ch}
-.dek b{opacity:1}
+ font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.ch-n{font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+ color:var(--gold)}
+.slab.pine .ch-n{color:var(--pine)}
+.slab.brick .ch-n{color:var(--brick)}
+.slab.indigo .ch-n{color:var(--indigo)}
+.dek{font-size:13.4px;line-height:1.7;margin:0 0 18px;color:var(--muted);max-width:68ch}
+.dek b{color:var(--ink);font-weight:600}
 
 /* ---------- the one field pattern ---------- */
-.f{background:rgba(251,246,233,.14);border:1.5px solid rgba(228,217,190,.5);border-radius:12px;
-  padding:8px 12px 9px;position:relative;display:block;cursor:text;
-  transition:border-color .15s,background .15s;min-width:0}
-.f:hover{background:rgba(251,246,233,.2);border-color:rgba(246,197,96,.6)}
-.f:focus-within{border-color:var(--pop);background:rgba(251,246,233,.22);
-  box-shadow:0 0 0 3px rgba(246,197,96,.22)}
+.f{background:var(--field);border:1.5px solid var(--fieldline);border-radius:12px;
+ padding:8px 12px 9px;position:relative;display:block;cursor:text;min-width:0;
+ transition:border-color .15s,box-shadow .15s}
+.f:hover{border-color:var(--gold)}
+.f:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,132,48,.16)}
 .f em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:3px;line-height:1.35}
+ text-transform:uppercase;color:#7C766A;margin-bottom:3px;line-height:1.35}
 .f .fv{display:flex;align-items:baseline;gap:3px;font-family:Fraunces,Georgia,serif;
-  font-weight:600;font-size:19px;color:#fff}
+ font-weight:600;font-size:19px;color:var(--ink)}
 .f input,.f select{width:100%;min-width:0;background:none;border:0;padding:0;font:inherit;
-  color:inherit;-moz-appearance:textfield;outline:none}
+ color:inherit;-moz-appearance:textfield;outline:none}
 .f input::-webkit-outer-spin-button,.f input::-webkit-inner-spin-button{
-  -webkit-appearance:none;margin:0}
+ -webkit-appearance:none;margin:0}
 .f select{font-size:14.5px;cursor:pointer}
 .f select option{color:#26241E}
 .f .unit{flex:none;font-family:Inter,sans-serif;font-size:10.5px;font-weight:700;
-  letter-spacing:.05em;text-transform:uppercase;opacity:.6;white-space:nowrap}
+ letter-spacing:.05em;text-transform:uppercase;color:#9A9384;white-space:nowrap}
 .f.sm .fv{font-size:16px}
-/* gold slab is light, so the field's white-on-dark palette inverts */
-.slab.gold .f em{color:rgba(42,31,8,.72)}
-.slab.gold .f .fv{color:#2A1F08}
-.slab.gold .f{background:rgba(255,255,255,.34);border-color:rgba(255,255,255,.5)}
 
-/* ---------- the two offer columns ---------- */
+/* ---------- the offer columns ---------- */
 .jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:4px}
-.job{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.15);border-radius:18px;
-  padding:17px 18px 19px;min-width:0}
-.job.b{border-style:dashed;border-color:rgba(246,197,96,.42)}
+/* one job on the page = one column, capped at a readable form width rather
+   than stretched across 1060px */
+.jobs.solo{grid-template-columns:minmax(0,620px)}
+.job{background:var(--paper);border:1px solid var(--line);border-radius:16px;
+ padding:17px 18px 19px;min-width:0}
+.job.b{border-style:dashed;border-color:var(--fieldline)}
 .jobhead{display:flex;align-items:center;gap:10px;margin-bottom:13px;flex-wrap:wrap}
-.jobtag{flex:none;width:26px;height:26px;border-radius:8px;background:var(--pop);color:#2A1F08;
-  font-family:Fraunces,Georgia,serif;font-size:14px;font-weight:700;display:flex;
-  align-items:center;justify-content:center}
+.jobtag{flex:none;width:26px;height:26px;border-radius:8px;background:var(--pine);color:#fff;
+ font-family:Fraunces,Georgia,serif;font-size:14px;font-weight:700;display:flex;
+ align-items:center;justify-content:center}
 .jobhead .jn{flex:1;min-width:100px}
-/* padding, not height: the name field is a bare input rather than a wrapped
-   .f label, so nothing else is giving it a 40px touch surface. */
+/* padding, not height: the name field is a bare input rather than a wrapped .f
+   label, so nothing else gives it a 40px touch surface. */
 .jobhead .jn input{width:100%;background:none;border:0;border-bottom:1.5px dashed
-  rgba(255,255,255,.3);color:#fff;font-family:Fraunces,Georgia,serif;font-size:16px;
-  font-weight:600;padding:9px 0;outline:none;min-height:40px}
-.jobhead .jn input:focus{border-bottom-color:var(--pop)}
+ var(--fieldline);color:var(--ink);font-family:Fraunces,Georgia,serif;font-size:16px;
+ font-weight:600;padding:9px 0;outline:none;min-height:40px}
+.jobhead .jn input:focus{border-bottom-color:var(--gold)}
 .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .fgrid .wide{grid-column:1 / -1}
 .fsub{font-size:8.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--pop);margin:16px 0 8px}
-.jobfoot{font-size:11.3px;line-height:1.6;opacity:.62;margin:11px 0 0}
-.addb{display:inline-flex;align-items:center;gap:8px;background:rgba(251,246,233,.16);
-  border:1.5px solid rgba(228,217,190,.55);border-radius:11px;padding:9px 16px;
-  font-size:12.5px;font-weight:700;color:inherit;cursor:pointer;min-height:44px}
-.addb:hover{background:rgba(251,246,233,.26)}
+ color:var(--gold);margin:16px 0 8px}
+.jobfoot{font-size:11.9px;line-height:1.64;color:var(--muted);margin:11px 0 0}
+.jobfoot b{color:var(--ink)}
+.addb{display:inline-flex;align-items:center;gap:8px;background:var(--white);
+ border:1.5px solid var(--fieldline);border-radius:11px;padding:9px 16px;
+ font-size:12.5px;font-weight:700;color:var(--ink);cursor:pointer;min-height:44px}
+.addb:hover{background:var(--field);border-color:var(--gold)}
 
 /* ---------- receipt rows ---------- */
 .rec{display:grid;grid-template-columns:minmax(0,1fr) 108px;gap:12px;align-items:baseline;
-  padding:9px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+ padding:9px 0;border-bottom:1px solid var(--line)}
 .rec:last-child{border-bottom:0}
-.rec b{font-size:13.2px;font-weight:600}
-.rec i{font-style:normal;font-size:11.3px;opacity:.62;display:block;margin-top:3px;
-  line-height:1.5}
+.rec b{font-size:13.2px;font-weight:600;color:var(--ink)}
+.rec i{font-style:normal;font-size:11.5px;color:var(--muted);display:block;margin-top:3px;
+ line-height:1.5}
 .rec .v{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.2px;text-align:right;
-  white-space:nowrap}
-.rec .v.neg{color:#E5928A}
-.rec.tot{border-top:2px solid rgba(255,255,255,.32);border-bottom:0;margin-top:6px;
-  padding-top:12px}
+ white-space:nowrap;color:var(--ink)}
+.rec .v.neg{color:var(--neg)}
+.rec.tot{border-top:2px solid var(--ink);border-bottom:0;margin-top:6px;padding-top:12px}
 .rec.tot b{font-family:Fraunces,Georgia,serif;font-size:16px}
-.rec.tot .v{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--pop)}
+.rec.tot .v{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--gold)}
 
 /* ---------- stat tiles ---------- */
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
-  margin-top:16px}
-.tile{border-radius:14px;padding:13px 15px 14px;background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.18);min-width:0}
-.tile.hi{background:rgba(246,197,96,.15);border-color:rgba(246,197,96,.45)}
+ margin-top:16px}
+.tile{border-radius:13px;padding:13px 15px 14px;background:var(--white);
+ border:1px solid var(--line);min-width:0}
+.tile.hi{background:#FDF4DF;border-color:#E8D3A0}
 .tile em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.11em;
-  text-transform:uppercase;opacity:.66;margin-bottom:5px;line-height:1.35}
+ text-transform:uppercase;color:#7C766A;margin-bottom:5px;line-height:1.35}
 .tile b{font-family:Fraunces,Georgia,serif;font-size:24px;display:block;line-height:1.02;
-  color:#fff}
-.tile.hi b{color:var(--pop)}
-.tile u{text-decoration:none;display:block;font-size:10.4px;opacity:.55;margin-top:4px;
-  line-height:1.45}
-.slab.gold .tile{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.44)}
-.slab.gold .tile b{color:#2A1F08}
+ color:var(--ink)}
+.tile.hi b{color:var(--gold)}
+.tile u{text-decoration:none;display:block;font-size:10.5px;color:#8A8477;margin-top:4px;
+ line-height:1.45}
 
 /* ---------- compare table ---------- */
-.cmpwrap{overflow-x:auto;overflow-y:hidden;margin-top:18px;
-  -webkit-overflow-scrolling:touch}
+.cmpwrap{overflow-x:auto;overflow-y:hidden;margin-top:18px;-webkit-overflow-scrolling:touch}
 .cmp{width:100%;border-collapse:collapse;min-width:520px}
 .cmp th,.cmp td{text-align:right;padding:11px 12px;font-size:13px;
-  border-bottom:1px solid rgba(255,255,255,.14)}
+ border-bottom:1px solid var(--line)}
 .cmp th:first-child,.cmp td:first-child{text-align:left}
 .cmp thead th{font-family:Fraunces,Georgia,serif;font-size:15px;font-weight:600;
-  border-bottom:2px solid rgba(255,255,255,.3)}
-.cmp td.n{font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap}
-.cmp td .lab{font-weight:600;display:block}
-.cmp td .sub{font-size:11.2px;opacity:.6;display:block;margin-top:3px;line-height:1.5}
-.win{position:relative}
+ border-bottom:2px solid var(--ink);color:var(--ink)}
+.cmp td.n{font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap;
+ color:var(--ink)}
+.cmp td .lab{font-weight:600;display:block;color:var(--ink)}
+.cmp td .sub{font-size:11.2px;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+.win{position:relative;background:#F3FAF6}
 .win:after{content:"BETTER";position:absolute;top:50%;right:8px;transform:translateY(-50%);
-  font-size:7.5px;font-weight:800;letter-spacing:.1em;background:var(--pop);color:#2A1F08;
-  padding:3px 6px;border-radius:4px}
+ font-size:7.5px;font-weight:800;letter-spacing:.1em;background:var(--pos);color:#fff;
+ padding:3px 6px;border-radius:4px}
 .cmp td.win{padding-right:64px}
-.verdict{margin-top:18px;background:rgba(0,0,0,.24);border:1.5px solid rgba(246,197,96,.45);
-  border-radius:18px;padding:19px 21px}
+.verdict{margin-top:18px;background:#FDF4DF;border:1.5px solid #E8D3A0;border-radius:16px;
+ padding:19px 21px}
 .verdict h3{font-family:Fraunces,Georgia,serif;font-size:clamp(19px,2.4vw,25px);margin:0 0 9px;
-  color:#fff;font-weight:600;letter-spacing:-.016em}
-.verdict h3 b{color:var(--pop);font-weight:600}
-.verdict p{font-size:13px;line-height:1.7;opacity:.82;margin:0;max-width:70ch}
+ color:var(--ink);font-weight:600;letter-spacing:-.016em}
+.verdict h3 b{color:var(--gold);font-weight:600}
+.verdict p{font-size:13px;line-height:1.72;color:#4E4940;margin:0;max-width:70ch}
 .verdict p + p{margin-top:10px}
 
 /* ---------- the hours ladder ---------- */
 .gates{display:grid;gap:11px;margin-top:18px}
-.gate{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);border-radius:15px;
-  padding:14px 17px 15px}
-.gate.block{border-color:rgba(246,197,96,.6);background:rgba(246,197,96,.1)}
+.gate{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+ padding:14px 17px 15px}
+.gate.block{border-color:#E8D3A0;background:#FDF4DF}
 .gatehead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;
-  margin-bottom:9px}
-.gatehead b{font-family:Fraunces,Georgia,serif;font-size:16px}
+ margin-bottom:9px}
+.gatehead b{font-family:Fraunces,Georgia,serif;font-size:16px;color:var(--ink)}
 .gatehead .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;
-  white-space:nowrap;opacity:.86}
-.gtrack{height:15px;background:rgba(0,0,0,.4);border-radius:5px;overflow:hidden;position:relative}
-.gtrack i{display:block;height:100%;border-radius:5px;transition:width .35s ease;
-  background:linear-gradient(90deg,#3F9577,#8FD9B6)}
-.gate.block .gtrack i{background:linear-gradient(90deg,#B08430,#F6C560)}
-.gate p{font-size:11.5px;line-height:1.6;opacity:.62;margin:9px 0 0;max-width:76ch}
-.gate .eta{font-size:11.8px;opacity:.86;margin:8px 0 0;font-weight:600}
-.gate .eta b{color:var(--pop)}
-.finish{margin-top:16px;background:linear-gradient(150deg,rgba(246,197,96,.18),
-  rgba(246,197,96,.06));border:1.5px solid rgba(246,197,96,.45);border-radius:18px;
-  padding:19px 21px}
+ white-space:nowrap;color:var(--muted)}
+.gtrack{height:15px;background:var(--white);border:1px solid var(--line);border-radius:5px;
+ overflow:hidden;position:relative}
+.gtrack i{display:block;height:100%;border-radius:4px;transition:width .35s ease;
+ background:var(--pos)}
+.gate.block .gtrack i{background:var(--gold)}
+.gate p{font-size:11.7px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
+.gate .eta{font-size:12px;color:#4E4940;margin:8px 0 0;font-weight:600}
+.gate .eta b{color:var(--gold)}
+.finish{margin-top:16px;background:#FDF4DF;border:1.5px solid #E8D3A0;border-radius:16px;
+ padding:19px 21px}
 .finish em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--pop);margin-bottom:7px}
-.finish b{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,40px);color:#fff;
-  display:block;line-height:1.05}
-.finish p{font-size:12.6px;line-height:1.68;opacity:.78;margin:10px 0 0;max-width:72ch}
-.finish p b{display:inline;font-family:inherit;font-size:inherit;color:var(--pop)}
+ text-transform:uppercase;color:#8A6620;margin-bottom:7px}
+.finish b{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,40px);color:var(--ink);
+ display:block;line-height:1.05}
+.finish p{font-size:12.8px;line-height:1.7;color:#4E4940;margin:10px 0 0;max-width:72ch}
+.finish p b{display:inline;font-family:inherit;font-size:inherit;color:#8A6620}
 
 /* ---------- warnings ---------- */
 .warns{display:grid;gap:9px;margin-top:16px}
 .warn{display:flex;gap:11px;align-items:flex-start;border-radius:12px;padding:12px 15px;
-  font-size:12.4px;line-height:1.62;background:rgba(200,90,80,.16);
-  border:1px solid rgba(200,90,80,.42)}
-.warn.ok{background:rgba(63,149,119,.14);border-color:rgba(63,149,119,.4)}
-.warn .ic{flex:none;font-style:normal;font-weight:800}
-.warn b{color:#fff}
-.slab.gold .warn b{color:#2A1F08}
+ font-size:12.5px;line-height:1.64;background:#FBEFEC;border:1px solid #EBC7BE;
+ color:#4E4940}
+.warn.ok{background:#EFF7F3;border-color:#BEDFD1}
+.warn .ic{flex:none;font-style:normal;font-weight:800;color:var(--neg)}
+.warn.ok .ic{color:var(--pos)}
+.warn b{color:var(--ink)}
 
 /* ---------- rules and flags ---------- */
 .rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
-.rule{background:rgba(255,255,255,.055);border:1px solid rgba(142,123,224,.4);
-  border-radius:15px;padding:15px 17px 16px;min-width:0}
+.rule{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+ padding:15px 17px 16px;min-width:0}
 .rule b{display:block;font-family:Fraunces,Georgia,serif;font-size:15.5px;margin-bottom:7px;
-  color:#fff;line-height:1.28}
-.rule p{font-size:12.3px;line-height:1.68;opacity:.74;margin:0}
+ color:var(--ink);line-height:1.28}
+.rule p{font-size:12.5px;line-height:1.7;color:var(--muted);margin:0}
 .rule .src{display:inline-block;margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9.5px;letter-spacing:.04em;color:var(--pop);opacity:.85}
+ font-size:9.5px;letter-spacing:.04em;color:var(--gold)}
 .flags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
-.flag{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.14);border-left:3px solid
-  #E5928A;border-radius:0 13px 13px 0;padding:13px 16px 14px;min-width:0}
+.flag{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--neg);
+ border-radius:0 13px 13px 0;padding:13px 16px 14px;min-width:0}
 .flag b{display:block;font-family:Fraunces,Georgia,serif;font-size:15px;margin-bottom:6px;
-  color:#fff}
-.flag p{font-size:12.2px;line-height:1.66;opacity:.72;margin:0}
-.ribbon{display:inline-block;background:var(--pop);color:#2A1F08;font-size:9.5px;font-weight:800;
-  letter-spacing:.16em;text-transform:uppercase;padding:5px 13px;border-radius:5px;
-  margin-bottom:12px;box-shadow:0 3px 0 #B08430}
+ color:var(--ink)}
+.flag p{font-size:12.4px;line-height:1.68;color:var(--muted);margin:0}
+.ribbon{display:inline-block;background:var(--indigo);color:#fff;font-size:9.5px;font-weight:800;
+ letter-spacing:.16em;text-transform:uppercase;padding:5px 13px;border-radius:5px;
+ margin-bottom:12px}
 
 /* ---------- pay reference + fees ---------- */
 .paytab{width:100%;border-collapse:collapse;margin-top:15px}
-.paytab th,.paytab td{text-align:left;padding:10px 12px;font-size:12.6px;
-  border-bottom:1px solid rgba(255,255,255,.13)}
+.paytab th,.paytab td{text-align:left;padding:10px 12px;font-size:12.7px;
+ border-bottom:1px solid var(--line);color:#4E4940}
 .paytab td:last-child,.paytab th:last-child{text-align:right;
-  font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap}
+ font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap}
 .paytab thead th{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
-  opacity:.6}
-.paytab td i{font-style:normal;display:block;font-size:11px;opacity:.58;margin-top:3px}
+ color:#8A8477}
+.paytab td i{font-style:normal;display:block;font-size:11.2px;color:#8A8477;margin-top:3px}
 
 /* ---------- deep detail ---------- */
-.how{margin-top:17px;background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);
-  border-radius:14px;overflow:hidden}
+.how{margin-top:17px;background:var(--paper);border:1px solid var(--line);border-radius:13px;
+ overflow:hidden}
 .how > summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;
-  align-items:baseline;gap:10px;flex-wrap:wrap;min-height:44px}
+ align-items:baseline;gap:10px;flex-wrap:wrap;min-height:44px}
 .how > summary::-webkit-details-marker{display:none}
-.how > summary:after{content:"\25BE";margin-left:auto;opacity:.55;font-size:11px;
-  transition:transform .2s}
+.how > summary:after{content:"\25BE";margin-left:auto;color:#9A9384;font-size:11px;
+ transition:transform .2s}
 .how[open] > summary:after{transform:rotate(180deg)}
-.how > summary b{font-family:Fraunces,Georgia,serif;font-size:15px}
-.how > summary span{font-size:11.6px;opacity:.62}
-.howb{padding:2px 17px 17px;border-top:1px solid rgba(255,255,255,.1)}
-.howb p,.howb li{font-size:12.5px;line-height:1.72;opacity:.84;max-width:76ch}
+.how[open]{background:var(--white)}
+.how > summary b{font-family:Fraunces,Georgia,serif;font-size:15px;color:var(--ink)}
+.how > summary span{font-size:11.7px;color:var(--muted)}
+.howb{padding:2px 17px 17px;border-top:1px solid var(--line)}
+.howb p,.howb li{font-size:12.7px;line-height:1.74;color:#4E4940;max-width:76ch}
 .howb ul{margin:0;padding-left:19px}
 .howb li{margin-bottom:8px}
-.howb b{color:#fff}
+.howb b{color:var(--ink)}
 
 /* ---------- closing CTA ---------- */
 .acta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
-  width:100%;text-align:center;background:var(--pop);color:#2A2010;border-radius:18px;
-  padding:clamp(20px,2.6vw,30px) clamp(18px,3vw,38px);text-decoration:none;margin-top:18px;
-  box-shadow:0 7px 0 rgba(140,96,18,.55);transition:transform .1s,box-shadow .1s,background .15s;
-  min-height:44px}
+ width:100%;text-align:center;background:var(--pop);color:#2A2010;border-radius:16px;
+ padding:clamp(20px,2.6vw,30px) clamp(18px,3vw,38px);text-decoration:none;margin-top:18px;
+ box-shadow:0 6px 0 rgba(140,96,18,.35);transition:transform .1s,box-shadow .1s,background .15s;
+ min-height:44px}
 .acta:hover{background:#FFD57A}
-.acta:active{transform:translateY(6px);box-shadow:0 1px 0 rgba(140,96,18,.55)}
-.acta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.acta:active{transform:translateY(5px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
+.acta:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 .acta strong{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,3vw,38px);font-weight:600;
-  line-height:1.1;letter-spacing:-.018em;max-width:22ch}
-.acta span{font-size:clamp(12px,1.1vw,14.5px);font-weight:700;opacity:.72}
+ line-height:1.1;letter-spacing:-.018em;max-width:22ch}
+.acta span{font-size:clamp(12px,1.1vw,14.5px);font-weight:700;opacity:.66}
 .alist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 22px;margin:18px 0 0;
-  padding:17px 0 0;border-top:1px solid rgba(255,255,255,.14)}
-.alist div{display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.7}
-.alist i{font-style:normal;color:var(--pop);flex:none}
-.alist b{color:#fff;font-weight:600}
+ padding:17px 0 0;border-top:1px solid var(--line)}
+.alist div{display:flex;gap:9px;font-size:12.6px;line-height:1.6;color:var(--muted)}
+.alist i{font-style:normal;color:var(--gold);flex:none}
+.alist b{color:var(--ink);font-weight:600}
 
 /* ---------- citations + footer ---------- */
-.cites{max-width:1060px;margin:18px auto 0;padding:0 26px}
+.cites{max-width:1060px;margin:20px auto 0;padding:0 26px}
 .cites h3{font-family:Fraunces,Georgia,serif;font-size:17px;margin:0 0 10px;color:var(--ink)}
 .cite{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:8px 0;
-  border-bottom:1px solid var(--line);font-size:12.2px;line-height:1.62;color:var(--muted)}
+ border-bottom:1px solid var(--line);font-size:12.3px;line-height:1.64;color:var(--muted)}
 .cite:last-of-type{border-bottom:0}
 .cite .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--gold)}
 .cite a{color:var(--pine);font-weight:600}
 .cite b{color:var(--ink)}
-.disc{max-width:1060px;margin:6px auto 0;padding:14px 26px 34px;font-size:11.6px;
-  line-height:1.7;color:var(--muted)}
+.disc{max-width:1060px;margin:6px auto 0;padding:14px 26px 40px;font-size:11.8px;
+ line-height:1.72;color:#8A8477}
 .disc b{color:var(--ink)}
 
 /* ---------- responsive ---------- */
 @media (max-width:900px){
-  .ahero .in{grid-template-columns:1fr;gap:24px}
-  .jobs,.rules,.flags,.alist{grid-template-columns:1fr}
+ .ahero .in{grid-template-columns:1fr;gap:24px}
+ .jobs,.rules,.flags,.alist{grid-template-columns:1fr}
 }
 @media (max-width:640px){
-  .adv .slab{border-radius:0;margin-left:0;margin-right:0;padding:22px 18px 26px;
-    box-shadow:none;border-top:1px solid rgba(255,255,255,.1)}
-  .adv .in{padding:0 18px}
-  .cites,.disc{padding-left:18px;padding-right:18px}
-  .fgrid{grid-template-columns:1fr}
-  .rec{grid-template-columns:minmax(0,1fr) 92px;gap:10px}
-  .tiles{grid-template-columns:1fr}
+ .adv .slab{border-radius:0;border-left:0;border-right:0;padding:22px 18px 26px;
+   box-shadow:none;margin-top:12px}
+ .adv .in{padding:0 18px}
+ .cites,.disc{padding-left:18px;padding-right:18px}
+ .fgrid{grid-template-columns:1fr}
+ .rec{grid-template-columns:minmax(0,1fr) 92px;gap:10px}
+ .tiles{grid-template-columns:1fr}
 }
-@media (prefers-reduced-motion:reduce){
-  .adv *{transition:none !important;animation:none !important}
-}
+@media (prefers-reduced-motion:reduce){.adv *{transition:none !important;animation:none !important}}
 
 </style>
 </head>
@@ -768,10 +753,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div class="adv">
 <section class="ahero"><div class="in"><div>
 <p class="akick">For practicum students and new associates &middot; California</p>
-<h1>Two offers. <em>One licence.</em> Only one of them gets you there.</h1>
-<p class="atag">Compare AMFT jobs on what they actually pay, and on what they actually count.</p>
-<p class="alede">A placement is two decisions wearing one coat: <b>what it pays you now</b>, and <b>how fast it closes your 3,000 hours</b>. The offer letter only tells you about the first, and it rounds that up. Put both offers in and this works out the take-home after California tax, what an hour of your life is really worth once the unpaid notes are counted, and the date all four BBS gates close.</p>
-<div class="aherocta"><a href="#offers">Compare two offers</a><a class="ghost" href="#hours">Just the hours plan</a><a class="ghost" href="#rules">What the BBS requires</a></div>
+<h1>What a placement <em>actually pays you</em> &mdash; and what it costs in hours.</h1>
+<p class="atag">Put one job in. Add a second only if you are choosing between them.</p>
+<p class="alede">A placement is two decisions wearing one coat: <b>what it pays you now</b>, and <b>how fast it closes your 3,000 hours</b>. The offer letter only tells you about the first, and it rounds that up. Enter one job and this works out the take-home after California tax, what an hour of your life is really worth once the unpaid notes are counted, and the date all four BBS gates close. <b>Comparing a second is optional.</b></p>
+<div class="aherocta"><a href="#offers">Start with one job</a><a class="ghost" href="#hours">Just the hours plan</a><a class="ghost" href="#rules">What the BBS requires</a></div>
 </div><div class="apanel">
 <svg class="aart" viewBox="0 0 520 300" role="img"
      aria-label="A staircase of four steps rising to 3,000 supervised hours, with the 500 relational-hours step marked as the one most associates finish last.">
@@ -832,11 +817,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 </svg>
 <div id="apanel"></div></div>
 </div></section>
-<section class="slab pine" id="offers"><div class="ch-h"><span class="ch-n">01</span><h2>The offers</h2></div>
-<p class="dek">Fill in one and everything below wakes up. The fields that people skip &mdash; show rate, unpaid hours, who pays for supervision &mdash; are the ones that decide the comparison, so they are not hidden in an advanced panel. <b>Nothing is saved anywhere.</b></p>
+<section class="slab pine" id="offers"><div class="ch-h"><span class="ch-n">01</span><h2>The placement</h2></div>
+<p class="dek">Fill in one and everything below wakes up &mdash; take-home, the real hourly rate, and your licence date. The fields people skip &mdash; how many sessions actually happen, unpaid hours, who pays for supervision &mdash; are the ones that change the answer most, so they are not buried in an advanced panel. <b>Nothing is saved anywhere.</b></p>
 <div class="fgrid" style="max-width:420px;margin-bottom:18px"><label class="f sm wide"><em>Your tax filing status</em><span class="fv"><select id="i-filing"><option value="single">Single</option><option value="mfj">Married filing jointly</option><option value="hoh">Head of household</option></select></span></label></div>
-<div class="jobs"><div class="job"><div class="jobhead"><span class="jobtag">A</span><span class="jn"><input id="i-a_name" type="text" maxlength="34" aria-label="Name for offer A" value="Job A"></span></div><div class="fsub">What they pay</div><div class="fgrid"><label class="f sm wide"><em>How you are paid</em><span class="fv"><select id="i-a_pay"><option value="salary">Annual salary</option><option value="hourly">Rate per clinical hour</option></select></span></label><label class="f wide" id="a_amtwrap"><em>Annual salary</em><span class="fv"><span class="unit">$</span><input id="i-a_amt" type="number" min="0" max="400000" step="500" placeholder="60000"></span></label><label class="f " id="a_hrwrap"><em>Per clinical hour</em><span class="fv"><span class="unit">$</span><input id="i-a_hr" type="number" min="0" max="300" step="1" placeholder="45"></span></label><label class="f " id="a_adminhrwrap"><em>Per admin hour</em><span class="fv"><span class="unit">$</span><input id="i-a_adminhr" type="number" min="0" max="300" step="1" placeholder="22"></span></label></div><p class="jobfoot">Most hourly associate posts pay one rate for clinical hours and a second, lower one for everything else &mdash; notes, training, team meetings, supervision. If yours pays nothing for those, put 0 in and watch what happens to the real rate.</p><div class="fsub">Your week</div><div class="fgrid"><label class="f "><em>Client hours a week</em><span class="fv"><input id="i-a_client" type="number" min="0" max="60" step="0.5" placeholder="25"><span class="unit">hrs</span></span></label><label class="f "><em>Show rate</em><span class="fv"><input id="i-a_show" type="number" min="0" max="100" step="1" placeholder="85"><span class="unit">%</span></span></label><label class="f "><em>Paid admin hours</em><span class="fv"><input id="i-a_admin" type="number" min="0" max="60" step="0.5" placeholder="10"><span class="unit">hrs</span></span></label><label class="f "><em>Unpaid hours a week</em><span class="fv"><input id="i-a_unpaid" type="number" min="0" max="40" step="0.5" placeholder="5"><span class="unit">hrs</span></span></label><label class="f "><em>Weeks you work a year</em><span class="fv"><input id="i-a_weeks" type="number" min="1" max="52" step="1" placeholder="48"><span class="unit">wks</span></span></label></div><div class="fsub">Supervision</div><div class="fgrid"><label class="f sm wide"><em>How it is arranged</em><span class="fv"><select id="i-a_sup"><option value="onclock">Provided, on the clock</option><option value="owntime">Provided, but on your own time</option><option value="youpay">You arrange it and pay for it</option></select></span></label><label class="f "><em>Individual or triadic</em><span class="fv"><input id="i-a_indiv" type="number" min="0" max="10" step="0.5" placeholder="1"><span class="unit">hrs</span></span></label><label class="f "><em>Group</em><span class="fv"><input id="i-a_group" type="number" min="0" max="12" step="0.5" placeholder="0"><span class="unit">hrs</span></span></label><label class="f wide" id="a_supcostwrap"><em>What you pay for it</em><span class="fv"><input id="i-a_supcost" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label></div><div class="fsub">Everything that is not pay</div><div class="fgrid"><label class="f "><em>Employer health contribution</em><span class="fv"><input id="i-a_health" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label><label class="f "><em>Match, stipends, reimbursements</em><span class="fv"><input id="i-a_extra" type="number" min="0" max="40000" step="100" placeholder="1200"><span class="unit">$/yr</span></span></label></div></div><div class="job b" id="jobB" hidden><div class="jobhead"><span class="jobtag">B</span><span class="jn"><input id="i-b_name" type="text" maxlength="34" aria-label="Name for offer B" value="Job B"></span></div><div class="fsub">What they pay</div><div class="fgrid"><label class="f sm wide"><em>How you are paid</em><span class="fv"><select id="i-b_pay"><option value="salary">Annual salary</option><option value="hourly">Rate per clinical hour</option></select></span></label><label class="f wide" id="b_amtwrap"><em>Annual salary</em><span class="fv"><span class="unit">$</span><input id="i-b_amt" type="number" min="0" max="400000" step="500" placeholder="60000"></span></label><label class="f " id="b_hrwrap"><em>Per clinical hour</em><span class="fv"><span class="unit">$</span><input id="i-b_hr" type="number" min="0" max="300" step="1" placeholder="45"></span></label><label class="f " id="b_adminhrwrap"><em>Per admin hour</em><span class="fv"><span class="unit">$</span><input id="i-b_adminhr" type="number" min="0" max="300" step="1" placeholder="22"></span></label></div><p class="jobfoot">Most hourly associate posts pay one rate for clinical hours and a second, lower one for everything else &mdash; notes, training, team meetings, supervision. If yours pays nothing for those, put 0 in and watch what happens to the real rate.</p><div class="fsub">Your week</div><div class="fgrid"><label class="f "><em>Client hours a week</em><span class="fv"><input id="i-b_client" type="number" min="0" max="60" step="0.5" placeholder="25"><span class="unit">hrs</span></span></label><label class="f "><em>Show rate</em><span class="fv"><input id="i-b_show" type="number" min="0" max="100" step="1" placeholder="85"><span class="unit">%</span></span></label><label class="f "><em>Paid admin hours</em><span class="fv"><input id="i-b_admin" type="number" min="0" max="60" step="0.5" placeholder="10"><span class="unit">hrs</span></span></label><label class="f "><em>Unpaid hours a week</em><span class="fv"><input id="i-b_unpaid" type="number" min="0" max="40" step="0.5" placeholder="5"><span class="unit">hrs</span></span></label><label class="f "><em>Weeks you work a year</em><span class="fv"><input id="i-b_weeks" type="number" min="1" max="52" step="1" placeholder="48"><span class="unit">wks</span></span></label></div><div class="fsub">Supervision</div><div class="fgrid"><label class="f sm wide"><em>How it is arranged</em><span class="fv"><select id="i-b_sup"><option value="onclock">Provided, on the clock</option><option value="owntime">Provided, but on your own time</option><option value="youpay">You arrange it and pay for it</option></select></span></label><label class="f "><em>Individual or triadic</em><span class="fv"><input id="i-b_indiv" type="number" min="0" max="10" step="0.5" placeholder="1"><span class="unit">hrs</span></span></label><label class="f "><em>Group</em><span class="fv"><input id="i-b_group" type="number" min="0" max="12" step="0.5" placeholder="0"><span class="unit">hrs</span></span></label><label class="f wide" id="b_supcostwrap"><em>What you pay for it</em><span class="fv"><input id="i-b_supcost" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label></div><div class="fsub">Everything that is not pay</div><div class="fgrid"><label class="f "><em>Employer health contribution</em><span class="fv"><input id="i-b_health" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label><label class="f "><em>Match, stipends, reimbursements</em><span class="fv"><input id="i-b_extra" type="number" min="0" max="40000" step="100" placeholder="1200"><span class="unit">$/yr</span></span></label></div></div></div>
+<div class="jobs"><div class="job"><div class="jobhead"><span class="jobtag">A</span><span class="jn"><input id="i-a_name" type="text" maxlength="34" aria-label="Name for offer A" value="This placement"></span></div><div class="fsub">What they pay</div><div class="fgrid"><label class="f sm wide"><em>How you are paid</em><span class="fv"><select id="i-a_pay"><option value="salary">Annual salary</option><option value="hourly">Rate per clinical hour</option><option value="split">Share of the fee</option></select></span></label><label class="f wide" id="a_amtwrap"><em>Annual salary</em><span class="fv"><span class="unit">$</span><input id="i-a_amt" type="number" min="0" max="400000" step="500" placeholder="60000"></span></label><label class="f " id="a_hrwrap"><em>Per clinical hour</em><span class="fv"><span class="unit">$</span><input id="i-a_hr" type="number" min="0" max="300" step="1" placeholder="45"></span></label><label class="f " id="a_adminhrwrap"><em>Per admin hour</em><span class="fv"><span class="unit">$</span><input id="i-a_adminhr" type="number" min="0" max="300" step="1" placeholder="22"></span></label><label class="f " id="a_feewrap"><em>What the practice bills</em><span class="fv"><span class="unit">$</span><input id="i-a_fee" type="number" min="0" max="1000" step="5" placeholder="150"></span></label><label class="f " id="a_splitwrap"><em>Your share of it</em><span class="fv"><input id="i-a_split" type="number" min="0" max="100" step="1" placeholder="60"><span class="unit">%</span></span></label></div><p class="jobfoot" id="a_paynote"></p><div class="fsub">Your week</div><div class="fgrid"><label class="f "><em>Client hours booked a week</em><span class="fv"><input id="i-a_client" type="number" min="0" max="60" step="0.5" placeholder="25"><span class="unit">hrs</span></span></label><label class="f "><em>Of those, actually happen</em><span class="fv"><input id="i-a_show" type="number" min="0" max="100" step="1" placeholder="85"><span class="unit">%</span></span></label><label class="f "><em>Paid admin hours</em><span class="fv"><input id="i-a_admin" type="number" min="0" max="60" step="0.5" placeholder="10"><span class="unit">hrs</span></span></label><label class="f "><em>Unpaid hours a week</em><span class="fv"><input id="i-a_unpaid" type="number" min="0" max="40" step="0.5" placeholder="5"><span class="unit">hrs</span></span></label><label class="f "><em>Weeks you work a year</em><span class="fv"><input id="i-a_weeks" type="number" min="1" max="52" step="1" placeholder="48"><span class="unit">wks</span></span></label></div><p class="jobfoot"><b>&ldquo;Of those, actually happen&rdquo; is the show rate</b> &mdash; the share of booked sessions that are not cancelled or no-showed. Around 85% is normal; below 75% is worth asking about. It counts twice: a session that does not happen is an hour you do not get towards your 3,000, and on an hourly or fee-split job it is money you do not get either.</p><div class="fsub">Supervision</div><div class="fgrid"><label class="f sm wide"><em>How it is arranged</em><span class="fv"><select id="i-a_sup"><option value="onclock">Provided, on the clock</option><option value="owntime">Provided, but on your own time</option><option value="youpay">You arrange it and pay for it</option></select></span></label><label class="f "><em>Individual or triadic</em><span class="fv"><input id="i-a_indiv" type="number" min="0" max="10" step="0.5" placeholder="1"><span class="unit">hrs</span></span></label><label class="f "><em>Group</em><span class="fv"><input id="i-a_group" type="number" min="0" max="12" step="0.5" placeholder="0"><span class="unit">hrs</span></span></label><label class="f wide" id="a_supcostwrap"><em>What you pay for it</em><span class="fv"><input id="i-a_supcost" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label></div><div class="fsub">Everything that is not pay</div><div class="fgrid"><label class="f "><em>Employer health contribution</em><span class="fv"><input id="i-a_health" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label><label class="f "><em>Match, stipends, reimbursements</em><span class="fv"><input id="i-a_extra" type="number" min="0" max="40000" step="100" placeholder="1200"><span class="unit">$/yr</span></span></label></div></div><div class="job b" id="jobB" hidden><div class="jobhead"><span class="jobtag">B</span><span class="jn"><input id="i-b_name" type="text" maxlength="34" aria-label="Name for offer B" value="The other one"></span></div><div class="fsub">What they pay</div><div class="fgrid"><label class="f sm wide"><em>How you are paid</em><span class="fv"><select id="i-b_pay"><option value="salary">Annual salary</option><option value="hourly">Rate per clinical hour</option><option value="split">Share of the fee</option></select></span></label><label class="f wide" id="b_amtwrap"><em>Annual salary</em><span class="fv"><span class="unit">$</span><input id="i-b_amt" type="number" min="0" max="400000" step="500" placeholder="60000"></span></label><label class="f " id="b_hrwrap"><em>Per clinical hour</em><span class="fv"><span class="unit">$</span><input id="i-b_hr" type="number" min="0" max="300" step="1" placeholder="45"></span></label><label class="f " id="b_adminhrwrap"><em>Per admin hour</em><span class="fv"><span class="unit">$</span><input id="i-b_adminhr" type="number" min="0" max="300" step="1" placeholder="22"></span></label><label class="f " id="b_feewrap"><em>What the practice bills</em><span class="fv"><span class="unit">$</span><input id="i-b_fee" type="number" min="0" max="1000" step="5" placeholder="150"></span></label><label class="f " id="b_splitwrap"><em>Your share of it</em><span class="fv"><input id="i-b_split" type="number" min="0" max="100" step="1" placeholder="60"><span class="unit">%</span></span></label></div><p class="jobfoot" id="b_paynote"></p><div class="fsub">Your week</div><div class="fgrid"><label class="f "><em>Client hours booked a week</em><span class="fv"><input id="i-b_client" type="number" min="0" max="60" step="0.5" placeholder="25"><span class="unit">hrs</span></span></label><label class="f "><em>Of those, actually happen</em><span class="fv"><input id="i-b_show" type="number" min="0" max="100" step="1" placeholder="85"><span class="unit">%</span></span></label><label class="f "><em>Paid admin hours</em><span class="fv"><input id="i-b_admin" type="number" min="0" max="60" step="0.5" placeholder="10"><span class="unit">hrs</span></span></label><label class="f "><em>Unpaid hours a week</em><span class="fv"><input id="i-b_unpaid" type="number" min="0" max="40" step="0.5" placeholder="5"><span class="unit">hrs</span></span></label><label class="f "><em>Weeks you work a year</em><span class="fv"><input id="i-b_weeks" type="number" min="1" max="52" step="1" placeholder="48"><span class="unit">wks</span></span></label></div><p class="jobfoot"><b>&ldquo;Of those, actually happen&rdquo; is the show rate</b> &mdash; the share of booked sessions that are not cancelled or no-showed. Around 85% is normal; below 75% is worth asking about. It counts twice: a session that does not happen is an hour you do not get towards your 3,000, and on an hourly or fee-split job it is money you do not get either.</p><div class="fsub">Supervision</div><div class="fgrid"><label class="f sm wide"><em>How it is arranged</em><span class="fv"><select id="i-b_sup"><option value="onclock">Provided, on the clock</option><option value="owntime">Provided, but on your own time</option><option value="youpay">You arrange it and pay for it</option></select></span></label><label class="f "><em>Individual or triadic</em><span class="fv"><input id="i-b_indiv" type="number" min="0" max="10" step="0.5" placeholder="1"><span class="unit">hrs</span></span></label><label class="f "><em>Group</em><span class="fv"><input id="i-b_group" type="number" min="0" max="12" step="0.5" placeholder="0"><span class="unit">hrs</span></span></label><label class="f wide" id="b_supcostwrap"><em>What you pay for it</em><span class="fv"><input id="i-b_supcost" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label></div><div class="fsub">Everything that is not pay</div><div class="fgrid"><label class="f "><em>Employer health contribution</em><span class="fv"><input id="i-b_health" type="number" min="0" max="3000" step="25" placeholder="450"><span class="unit">$/mo</span></span></label><label class="f "><em>Match, stipends, reimbursements</em><span class="fv"><input id="i-b_extra" type="number" min="0" max="40000" step="100" placeholder="1200"><span class="unit">$/yr</span></span></label></div></div></div>
 <button class="addb" id="addB" type="button">+&nbsp; Compare a second offer</button>
+<p class="jobfoot">Optional &mdash; everything below works on one job.</p>
 <details class="how"><summary><b>What these fields mean, and why these ones</b><span>show rate, unpaid hours, and the supervision question</span></summary><div class="howb"><ul><li><b>Show rate.</b> The share of booked sessions that actually happen. A no-show costs you the hour towards your licence whatever the pay model is. On fee-for-service it costs you the fee as well, which is why that model can pay far less than it advertises.</li><li><b>Paid admin hours.</b> Notes, case conferences, team meetings, trainings &mdash; the hours you are on the clock and not with a client. These count towards your 3,000 as non-clinical experience, up to the 1,250 ceiling.</li><li><b>Unpaid hours.</b> Work you do that nobody is paying for. Writing notes at home is the usual one. It is the single biggest difference between the hourly rate on the offer and the hourly rate you live on.</li><li><b>Who arranges supervision.</b> Agency posts almost always provide it on the clock. Group private practice often bills it back to you at roughly $450 a month, which is about $5,400 a year out of your take-home. Both are legal; only one is in the salary figure.</li><li><b>Employer health contribution.</b> Not pay, but money you do not spend. Two offers $4,000 apart on salary can be level once one of them covers a premium.</li></ul></div></details>
 </section>
 <section class="slab carbon" id="takehome"><div class="ch-h"><span class="ch-n">02</span><h2>What you actually take home</h2></div>
@@ -849,7 +835,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div id="hour"></div>
 </section>
 <section class="slab gold" id="compare"><div class="ch-h"><span class="ch-n">04</span><h2>Side by side</h2></div>
-<p class="dek">The row that wins is marked. Read the bottom three before the top one: gross pay is the number that misleads, and hours towards licensure are the currency you are actually short of.</p>
+<p class="dek">Only fills in once you have added a second job. The row that wins is marked. Read the bottom three before the top one: gross pay is the number that misleads, and hours towards licensure are the currency you are actually short of.</p>
 <div id="cmp"></div>
 </section>
 <section class="slab pine" id="hours"><div class="ch-h"><span class="ch-n">05</span><h2>Your hours plan</h2></div>
@@ -995,17 +981,26 @@ function $(id){ return document.getElementById(id); }
    notes, training and supervision. Fee-per-session is the same shape as the
    second one and is not a third model.
 
-   The salary and the two hourly rates are SEPARATE state keys on purpose. They
+   A THIRD model was added after the first version shipped: a share of the fee.
+   Very common in California group practice - the practice bills $150 and the
+   associate takes an agreed percentage of it, with nothing at all for admin.
+   It is not the same shape as an hourly rate, because the split is quoted
+   against a fee rather than against an hour, and because admin is unpaid by
+   construction rather than by a second rate.
+
+   The salary, the two hourly rates and the fee pair are SEPARATE state keys. They
    used to share one "the number in the offer" field, so switching from salary to
    hourly left 60000 sitting in a box now labelled a rate per hour - which is the
    bug this replaces. Nothing can carry over now, because there is nowhere for it
    to carry to. */
 var S = {
   filing:"single", showB:0,
-  a_name:"Job A", a_pay:"salary", a_amt:"", a_hr:"", a_adminhr:"",
+  a_name:"This placement", a_pay:"salary", a_amt:"", a_hr:"", a_adminhr:"",
+  a_fee:"", a_split:"",
   a_client:"", a_show:85, a_admin:"", a_unpaid:"",
   a_weeks:48, a_sup:"onclock", a_indiv:1, a_group:0, a_supcost:"", a_health:"", a_extra:"",
-  b_name:"Job B", b_pay:"hourly", b_amt:"", b_hr:"", b_adminhr:"",
+  b_name:"The other one", b_pay:"hourly", b_amt:"", b_hr:"", b_adminhr:"",
+  b_fee:"", b_split:"",
   b_client:"", b_show:85, b_admin:"", b_unpaid:"",
   b_weeks:48, b_sup:"youpay", b_indiv:1, b_group:0, b_supcost:"", b_health:"", b_extra:"",
   h_ind:"", h_rel:"", h_grp:"", h_non:"", h_sup:1, h_weeks:48,
@@ -1016,12 +1011,16 @@ var S = {
    Returns null when there is nothing to work with, so every caller has one
    empty state to handle rather than a screen of $0 that looks like an answer. */
 function jobCalc(p){
-  var salaried = S[p + "_pay"] === "salary";
+  var mode = S[p + "_pay"];
+  var salaried = mode === "salary", split = mode === "split";
   var amt = num(S[p + "_amt"]);                 /* annual salary */
   var hr = num(S[p + "_hr"]);                   /* per clinical hour */
   var adminhr = num(S[p + "_adminhr"]);         /* per admin/supervision hour */
+  var fee = num(S[p + "_fee"]);                 /* what the practice bills */
+  var splitPct = num(S[p + "_split"]) / 100;    /* your share of it */
   var client = num(S[p + "_client"]);
-  if ((salaried ? amt : hr) <= 0 && client <= 0) return null;
+  var headline = salaried ? amt : split ? fee * splitPct : hr;
+  if (headline <= 0 && client <= 0) return null;
 
   var showRate = Math.min(100, Math.max(0, num(S[p + "_show"], 85))) / 100;
   var weeks = Math.min(52, Math.max(1, num(S[p + "_weeks"], 48)));
@@ -1033,15 +1032,20 @@ function jobCalc(p){
      model is; under fee-for-service it costs you the fee as well. */
   var kept = client * showRate;
   var onClock = (supMode === "onclock");
-  var paidHrs = kept + admin + (onClock ? supHrs : 0);
+  var paidHrs = kept + (S[p + "_pay"] === "split" ? 0
+                        : admin + (onClock ? supHrs : 0));
   var workedHrs = kept + admin + unpaid + supHrs;
 
   /* A salary is paid whether or not the client showed. An hourly associate is
      paid for the clinical hours that actually happened, plus admin hours at the
      admin rate - which is the rate nobody puts in the advert. */
-  var paidAdminHrs = admin + (onClock ? supHrs : 0);
+  /* On a fee split you are paid per session that happened and nothing for
+     anything else - that is the model, not an oversight - so paidAdminHrs is
+     zero and every admin hour is unpaid by construction. */
+  var paidAdminHrs = split ? 0 : admin + (onClock ? supHrs : 0);
+  var perClinical = split ? fee * splitPct : hr;
   var gross = salaried ? amt
-            : (kept * hr + paidAdminHrs * adminhr) * weeks;
+            : (kept * perClinical + paidAdminHrs * adminhr) * weeks;
 
   /* W-2 withholding. Pre-tax deferrals are deliberately absent: an associate on
      $58,000 is not the reader this page is for, and a fake 401(k) line would
@@ -1073,7 +1077,8 @@ function jobCalc(p){
 
   return {
     label: S[p + "_name"] || (p === "a" ? "Job A" : "Job B"),
-    salaried: salaried, hr: hr, adminhr: adminhr, paidAdminHrs: paidAdminHrs,
+    salaried: salaried, split: split, hr: hr, adminhr: adminhr, fee: fee,
+    splitPct: splitPct, perClinical: perClinical, paidAdminHrs: paidAdminHrs,
     gross: gross, ss: ss, med: med, sdi: sdi, fed: fed, ca: ca, tax: tax, net: net,
     health: health, extra: extra, supPaid: supPaid, value: value,
     weeks: weeks, kept: kept, client: client, admin: admin, unpaid: unpaid,
@@ -1201,7 +1206,9 @@ function drawPanel(a, b, h){
   var el = $("apanel"); if (!el) return;
   var rows = "";
   if (a){
-    rows += '<div class="arow"><span>Take-home from ' + esc(a.label) + '<br>after tax, plus benefits</span>'
+    rows += '<div class="arow"><span>'
+          + (b ? "Take-home from " + esc(a.label) : "Your take-home")
+          + '<br>after tax, plus benefits</span>'
           + '<b class="gold">' + fmt(a.value) + '</b></div>';
     rows += '<div class="arow"><span>What an hour of your life is worth<br>every hour you work, not just the billable ones</span>'
           + '<b>' + fmt2(a.realHourly) + '</b></div>';
@@ -1233,7 +1240,10 @@ function drawTake(a, b){
     var s = '<div class="job"><div class="jobhead"><span class="jobtag">'
       + (c === a ? 'A' : 'B') + '</span><b style="font-family:Fraunces,Georgia,serif;'
       + 'font-size:16px">' + esc(c.label) + '</b></div>';
-    s += rec("Gross pay", c.salaried ? "the salary, before anything comes out"
+    s += rec("Gross pay",
+             c.salaried ? "the salary, before anything comes out"
+             : c.split ? Math.round(c.splitPct * 100) + "% of a " + fmt(c.fee)
+                 + " fee, " + n1(c.kept) + " sessions a week over " + c.weeks + " weeks"
              : fmt2(c.hr) + " a clinical hour and " + fmt2(c.adminhr)
                + " an admin hour, over " + c.weeks + " weeks",
              fmt(c.gross));
@@ -1275,13 +1285,17 @@ function drawHour(a, b){
     /* For an hourly post the advertised number is the CLINICAL rate, and it is
        not what any hour pays once admin hours at a lower rate are mixed in.
        Showing both is the single most useful thing this section does. */
-    if (!c.salaried && c.hr > 0){
+    if (c.split && c.perClinical > 0){
+      s += tile("What a session pays you", fmt2(c.perClinical),
+                Math.round(c.splitPct * 100) + "% of a " + fmt(c.fee) + " fee");
+    } else if (!c.salaried && c.hr > 0){
       s += tile("The rate in the advert", fmt2(c.hr), "per clinical hour");
     }
     s += tile(c.salaried ? "Advertised, per paid hour" : "Blended, per paid hour",
               fmt2(c.grossHourly),
               c.salaried ? "gross ÷ the hours they pay you for"
-                         : "clinical and admin hours together");
+              : c.split ? "you are only paid for sessions that happen"
+              : "clinical and admin hours together");
     s += tile("What an hour is really worth", fmt2(c.realHourly),
               "after tax and benefits, ÷ every hour you actually work", true);
     s += tile("Per BBS hour earned", fmt2(c.perBbsHour),
@@ -1291,11 +1305,20 @@ function drawHour(a, b){
               "on this caseload alone, ignoring the other three gates");
     s += '</div>';
     if (unpaidShare > 0.001){
-      s += '<p class="jobfoot"><b style="color:#fff">' + Math.round(unpaidShare * 100)
+      /* Under a fee split there IS no "rate for the rest" - grossHourly equals
+         what a session pays, so valuing note-writing at it claimed $69,120 of
+         unpaid admin on a $91,800 job. True arithmetic, nonsense as a number.
+         The split case states the hours and lets the blended rate above carry
+         the consequence; only salary and hourly get a dollar valuation, and
+         theirs is at the BLENDED rate, which is what those hours would
+         actually have been paid. */
+      s += '<p class="jobfoot"><b>' + Math.round(unpaidShare * 100)
          + '% of the hours you work here are unpaid.</b> That is '
-         + n0((c.workedHrs - c.paidHrs) * c.weeks) + ' hours a year, worth '
-         + fmt((c.workedHrs - c.paidHrs) * c.weeks * c.grossHourly)
-         + ' at the rate they are paying you for the rest.</p>';
+         + n0((c.workedHrs - c.paidHrs) * c.weeks) + ' hours a year'
+         + (c.split ? ', which is the whole difference between what a session pays and '
+             + 'what an hour of your life is worth.'
+           : ', worth ' + fmt((c.workedHrs - c.paidHrs) * c.weeks * c.grossHourly)
+             + ' at the rate they are paying you for the rest.') + '</p>';
     }
     if (c.client > 0 && c.kept < c.client){
       /* "At a 85%" and "At an 85%" are both wrong half the time, so the sentence
@@ -1305,11 +1328,19 @@ function drawHour(a, b){
          + n1(c.client) + '. Over a year that is ' + n0((c.client - c.kept) * c.weeks)
          + ' BBS hours that never happen'
          + (c.salaried ? '.'
-            : ' — and at ' + fmt2(c.hr) + ' a clinical hour, '
-              + fmt((c.client - c.kept) * c.weeks * c.hr) + ' of pay you never see either.')
+            : ' — and at ' + fmt2(c.perClinical) + ' a session, '
+              + fmt((c.client - c.kept) * c.weeks * c.perClinical)
+              + ' of pay you never see either.')
          + '</p>';
     }
-    if (!c.salaried && c.hr > 0 && c.paidAdminHrs > 0 && c.adminhr < c.hr){
+    if (c.split && (c.admin + c.supHrs) > 0){
+      s += '<p class="jobfoot"><b>A fee split pays you for sessions and nothing else.</b> '
+         + 'Your ' + n1(c.admin + c.supHrs + c.unpaid) + ' hours a week of notes, meetings '
+         + 'and supervision are unpaid by construction — that is '
+         + n0((c.admin + c.supHrs + c.unpaid) * c.weeks) + ' hours a year, and it is why the '
+         + 'blended figure sits so far below what a session pays.</p>';
+    }
+    if (!c.salaried && !c.split && c.hr > 0 && c.paidAdminHrs > 0 && c.adminhr < c.hr){
       s += '<p class="jobfoot">Your admin, notes and supervision hours pay '
          + fmt2(c.adminhr) + ', not ' + fmt2(c.hr) + '. That is '
          + n1(c.paidAdminHrs) + ' hours a week at '
@@ -1317,12 +1348,12 @@ function drawHour(a, b){
          + '% less, which is why the blended figure sits below the advertised one.</p>';
     }
     if (c.overWeek){
-      s += '<p class="jobfoot"><b style="color:#F6C560">Over the weekly ceiling.</b> The BBS '
+      s += '<p class="jobfoot"><b>Over the weekly ceiling.</b> The BBS '
          + 'credits at most 40 hours in a week, so ' + n1(c.lostWeek)
          + ' hours a week here are worked and not counted.</p>';
     }
     if (c.supShort){
-      s += '<p class="jobfoot"><b style="color:#F6C560">Supervision looks short.</b> More than '
+      s += '<p class="jobfoot"><b>Supervision looks short.</b> More than '
          + '10 face-to-face hours in a week requires two units, and this is '
          + n1(c.units) + '. One hour individual is a unit; two hours of group is a unit.</p>';
     }
@@ -1521,6 +1552,12 @@ function render(){
   drawCompare(a, b);
   drawHours(h);
   var col = $("jobB"); if (col) col.hidden = !S.showB;
+  /* Every .jobs grid is two equal columns. With the second job hidden that left
+     a form pinned to the left half of a 1060px card and an empty right half.
+     The page is single-job-first now, so the grid collapses. */
+  document.querySelectorAll(".jobs").forEach(function(g){
+    g.classList.toggle("solo", !S.showB);
+  });
   var add = $("addB"); if (add) add.textContent = S.showB
     ? "✕  Remove the second offer" : "+  Compare a second offer";
   ["a","b"].forEach(function(p){
@@ -1528,10 +1565,24 @@ function render(){
     /* The salary box and the two rate boxes are never on screen together. The
        one that is hidden keeps its own value, so switching back and forth does
        not lose what was typed. */
-    var salaried = S[p + "_pay"] === "salary";
-    var sw = $(p + "_amtwrap"); if (sw) sw.hidden = !salaried;
-    var hw = $(p + "_hrwrap"); if (hw) hw.hidden = salaried;
-    var aw = $(p + "_adminhrwrap"); if (aw) aw.hidden = salaried;
+    var m = S[p + "_pay"];
+    var sw = $(p + "_amtwrap"); if (sw) sw.hidden = (m !== "salary");
+    var hw = $(p + "_hrwrap"); if (hw) hw.hidden = (m !== "hourly");
+    var aw = $(p + "_adminhrwrap"); if (aw) aw.hidden = (m !== "hourly");
+    var fw = $(p + "_feewrap"); if (fw) fw.hidden = (m !== "split");
+    var pw = $(p + "_splitwrap"); if (pw) pw.hidden = (m !== "split");
+    var nt = $(p + "_paynote");
+    if (nt) nt.textContent = m === "salary"
+      ? "A salary is paid whether or not the client showed up, which is the single "
+        + "biggest thing it buys you."
+      : m === "split"
+      ? "A fee split pays you a share of what the practice bills, per session that "
+        + "actually happens. Nothing is paid for notes, meetings, training or "
+        + "supervision — that is the model, and it is what the real hourly figure below "
+        + "is going to show you."
+      : "Most hourly associate posts pay one rate for clinical hours and a second, lower "
+        + "one for everything else. If yours pays nothing for those, put 0 in and watch "
+        + "what happens to the real rate.";
   });
   writeHash();
 }
