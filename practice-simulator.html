@@ -1017,6 +1017,19 @@ button{font:inherit}
   .bscore{grid-template-columns:1fr}
   .r{grid-template-columns:1fr 96px;gap:10px}
 }
+
+/* the pay calendar */
+.paylede{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.paylede b{font-family:Fraunces,Georgia,serif;font-size:30px;line-height:1;color:var(--gold)}
+.paylede span{font-size:13px;color:var(--muted)}
+.paygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.paycell{border:1px solid var(--line);border-radius:10px;padding:10px 12px;
+  background:var(--white)}
+.paycell.next{border-color:var(--gold);background:#FFFCF4}
+.paycell em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.paycell b{display:block;font-family:Fraunces,Georgia,serif;font-size:17px;margin-top:3px}
+.paycell i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px}
 </style>
 </head>
 <body>
@@ -1207,6 +1220,23 @@ button{font:inherit}
   <div class="drawer" id="d-profit" hidden>
     <div class="dh"><h5>Every line, in order</h5></div>
     <div class="rows" id="profit-rows"></div>
+  </div>
+  <!-- The pay calendar. It lives with PROFIT rather than with tax because the
+       question it answers is cashflow - when does the money actually arrive -
+       not strategy. Ported from the retired React simulator, which was the only
+       place it existed. -->
+  <button class="adj" type="button" data-drawer="d-pay" aria-expanded="false"
+    aria-controls="d-pay">Pay yourself like a salary <span class="chev">&#9660;</span></button>
+  <div class="drawer" id="d-pay" hidden>
+    <div class="dh"><h5>The same money, arriving every other Friday</h5></div>
+    <p class="hint" style="margin:0 0 12px">A practice pays you whenever clients pay. This
+    is what it would look like smoothed into 26 equal cheques &mdash; useful for deciding
+    what to actually move into a personal account each fortnight, and for spotting the two
+    months a year that carry a third payday.</p>
+    <p class="paylede"><b id="pay-each">&mdash;</b><span id="pay-sub">Set a rate and
+      caseload above.</span></p>
+    <div class="paygrid" id="pay-grid"></div>
+    <p class="hint" id="pay-note"></p>
   </div>
 </section>
 
@@ -1711,6 +1741,7 @@ function render(){
   }).join("");
 
   markEmpty();
+  drawPay(c);
   writeHash();
 }
 
@@ -2061,6 +2092,47 @@ function readHash(){
 if (!readHash()) { S.weeksOff = 2; S.billingPct = 2.5; }
 paint();
 render();
+
+/* ---------- pay calendar ----------------------------------------------
+   Net for the year, smoothed into 26 cheques. The anchor is the next Friday
+   from today rather than a date typed into the source: the old React version
+   hard-coded "Fri, Jul 3 2026", which was correct for about a fortnight. */
+function drawPay(c){
+  var each = $("pay-each"), sub = $("pay-sub"), grid = $("pay-grid"), note = $("pay-note");
+  if (!each || !grid) return;
+  var net = c ? c.net : 0;
+  if (!(net > 0)){
+    each.textContent = "—";
+    sub.textContent = "Set a rate and caseload above.";
+    grid.innerHTML = ""; note.textContent = "";
+    return;
+  }
+  var per = net / 26;
+  each.textContent = fmt(Math.round(per));
+  sub.textContent = "every two weeks · 26 cheques · " + fmt(Math.round(per * 26)) + " a year";
+
+  var d = new Date();
+  d.setHours(12, 0, 0, 0);
+  d.setDate(d.getDate() + ((5 - d.getDay() + 7) % 7 || 7));   /* the next Friday */
+  var MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var cells = [], cum = 0, months = {};
+  for (var i = 0; i < 26; i++){
+    cum += per;
+    months[d.getFullYear() + "-" + d.getMonth()] =
+      (months[d.getFullYear() + "-" + d.getMonth()] || 0) + 1;
+    cells.push('<div class="paycell' + (i === 0 ? " next" : "") + '"><em>'
+      + MON[d.getMonth()] + " " + d.getDate() + "</em><b>" + fmt(Math.round(per))
+      + "</b><i>" + fmt(Math.round(cum)) + " so far</i></div>");
+    d.setDate(d.getDate() + 14);
+  }
+  grid.innerHTML = cells.join("");
+  var three = 0;
+  for (var k in months) if (months[k] >= 3) three++;
+  note.textContent = "Twenty-six fortnightly cheques do not divide evenly into twelve "
+    + "months, so " + (three === 1 ? "one month in this run carries" : three + " months in "
+    + "this run carry") + " a third payday. Those are the ones that feel like a bonus and "
+    + "are not.";
+}
 </script>
 <script>
 
