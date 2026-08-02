@@ -9746,8 +9746,19 @@ section.card.sgate{border-left:3px solid #C98B4B;}
    Appended rather than edited in place so the original bar is one block away if
    this is reverted. Every track inside is a GRID with equal columns, so nothing
    can push a sibling out at any width. */
+/* Full-bleed, like the footer. The green field is a FIELD - the capsule floats
+   on it - so stopping it at the planner's max-width left cream gutters either
+   side of the bar on the home page while rates.html (which is not inside
+   .planner) ran edge to edge. Same margin trick the footer already uses, and
+   the inner padding keeps the capsule on the same 1180px grid as before. */
 .planner .sitenav{background:linear-gradient(150deg,#16382B 0%, #2C6350 46%, #48A382 100%);
-  box-shadow:none; border-bottom:0; padding:14px 22px 15px;}
+  box-shadow:none; border-bottom:0;
+  /* .planner is a flex container in guided mode, so this bar is a flex ITEM:
+     width:100vw is only a base size and flex-shrink pulled it straight back to
+     the container's 1080px. flex:none is what actually holds the 100vw. */
+  margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  width:100vw; flex:none; max-width:none;
+  padding:14px max(22px, calc(50vw - 590px)) 15px;}
 .planner .sitenav-in{max-width:1180px; margin:0 auto; padding:10px 11px 10px 18px;
   position:relative; background:rgba(255,255,255,.14);
   border:1px solid rgba(255,255,255,.26); border-radius:22px;
@@ -9771,7 +9782,7 @@ section.card.sgate{border-left:3px solid #C98B4B;}
   box-shadow:0 1px 0 rgba(140,96,18,.35);}
 .planner .navpanel{top:calc(100% + 10px); left:0; right:0;}
 @media (max-width:1000px){
-  .planner .sitenav{padding:12px 16px 13px;}
+  .planner .sitenav{padding:12px max(16px, calc(50vw - 590px)) 13px;}
   .planner .sitenav-in{gap:12px; padding-left:14px;}
   .planner .sitenav-links{max-width:none;}
   .planner .sitenav-top{font-size:12px; padding:7px 4px;}
@@ -9787,7 +9798,7 @@ section.card.sgate{border-left:3px solid #C98B4B;}
 /* Two rows in the same capsule: identity and action above, navigation full width
    beneath — which is also the order of importance. */
 @media (max-width:640px){
-  .planner .sitenav{padding:10px 10px 11px;}
+  .planner .sitenav{padding:10px max(10px, calc(50vw - 590px)) 11px;}
   /* minmax(0,1fr), not auto: an auto column is floored at its content's
      min-content width, and the lockup's min-content width is set by the
      tagline, which is white-space:nowrap. That floor was 11px wider than the
@@ -9812,7 +9823,7 @@ section.card.sgate{border-left:3px solid #C98B4B;}
 @media (max-height:720px){
   /* Height comes out of PADDING, never out of the tap target - 38px is the one
      rule that holds at every size. */
-  .planner .sitenav{padding:4px 18px 5px;}
+  .planner .sitenav{padding:4px max(18px, calc(50vw - 590px)) 5px;}
   .planner .sitenav-in{padding:4px 6px 4px 12px; gap:11px; border-radius:18px;}
   .planner .sitenav-top{min-height:38px; padding:5px 6px;}
   .planner .sitenav-cta{min-height:38px; padding:7px 14px;}
@@ -10748,7 +10759,7 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
    240px there against 193px on an iPhone 12 - which is exactly the gap
    keeping the button below the fold. Stop the wrap. */
 @media (max-width:390px){
-  .planner .sitenav{padding:5px 12px; flex-wrap:nowrap;}
+  .planner .sitenav{padding:5px max(12px, calc(50vw - 590px)); flex-wrap:nowrap;}
   .planner .sitenav-wordmark{font-size:11.5px; line-height:1.25; max-width:190px;}
   .planner .sitenav-mark{min-height:38px;}
   .planner .sticky-summary{padding:6px 12px;}
@@ -10818,7 +10829,7 @@ details.rlev-r[open] > summary{border-bottom:1px dashed var(--line);}
    cannot regress it.
    ================================================================== */
 @media (max-width:780px){
-  .planner .sitenav{padding:7px 14px;}
+  .planner .sitenav{padding:7px max(14px, calc(50vw - 590px));}
   .planner .sitenav-wordmark{font-size:12px;}
   .planner .sticky-summary{padding:8px 14px;}
   .planner .sticky-summary-row{padding:1px 0; font-size:11.5px;}
