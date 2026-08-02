@@ -785,6 +785,34 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  .rw{grid-template-columns:minmax(0,1fr) 96px;gap:10px}
  .bar{height:66px}
 }
+/* --- 06 working remotely. Class names checked against the lifted chrome by
+   the guard in build_tax.py; `r`-prefixed here because .row, .bar and .name
+   are all taken somewhere on this site. */
+.rrow{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(90px,1.5fr) minmax(0,120px);
+  gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.rrow:first-child{border-top:1px solid var(--line)}
+.rrow.rhome{background:#F4F1E7;border-radius:8px;padding-left:10px;padding-right:10px}
+.rname b{display:block;font-size:15px;font-weight:700;line-height:1.25}
+.rname b i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pine);
+  border:1px solid var(--pine);border-radius:999px;padding:2px 7px;margin-left:6px;
+  vertical-align:2px}
+.rname em{display:block;font-style:normal;font-size:12.3px;line-height:1.45;
+  color:var(--muted);margin-top:3px}
+.rbar{height:26px;background:#EDEAE0;border-radius:6px;overflow:hidden}
+.rbar span{display:block;height:100%;background:var(--pine);border-radius:6px}
+.rhome .rbar span{background:var(--gold)}
+.rfig{text-align:right}
+.rfig b{display:block;font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1}
+.rfig em{display:block;font-style:normal;font-size:11.6px;margin-top:4px}
+.rfig .rup{color:var(--pos);font-weight:600}
+.rfig .rdn{color:var(--neg)}
+.rfig .rz{color:var(--muted)}
+@media (max-width:700px){
+  .rrow{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .rbar{grid-column:1/-1;height:18px}
+  .rfig{text-align:right}
+}
 @media (prefers-reduced-motion:reduce){.tax *{transition:none !important}}
 
 </style>
@@ -837,7 +865,14 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div class="slider"><label for="i-salPct">Salary you would pay yourself, as a share of profit</label><input id="i-salPct" type="range" min="20" max="100" step="5" value="50"><div class="out" id="salout">&mdash;</div></div>
 <div id="corpout" style="margin-top:16px"></div>
 </section>
-<section class="slab carbon" id="reference"><div class="chh"><span class="chn">06</span><h2>The parts worth reading once</h2></div>
+<section class="slab gold" id="remote"><div class="chh"><span class="chn">06</span><h2>Curious about working remotely?</h2></div>
+<p class="dek">Everything above this line moves money between accounts. This moves <em>you</em>. Same clients, same profit, eight different places to be sitting when you see them. How many of them beat California depends on your own profit, so the count below is computed rather than quoted &mdash; and the rule that decides whether you can do it at all is <b>not</b> the one you expect.</p>
+<div id="remoteout"></div>
+<details class="txref"><summary><span><b>Your licence is not the obstacle</b><i>the Board has answered this directly &mdash; and it is a yes</i></span></summary><div class="txb"><p>The Board of Behavioral Sciences was asked whether a California licensee can provide telehealth from outside the state, and answered: <b>yes</b> &mdash; if the licence is current and active, the case is appropriate for telehealth, and the licensee follows 16 CCR &#167;1815.5. That regulation sets standards for the session, including verbally obtaining and documenting <b>the client’s</b> full name and present location at the start of every one. It sets no requirement about where the <em>licensee</em> is.<sup>[10][11]</sup></p><p>Which puts the constraint where it actually sits: your licence covers clients in California, so your clients stay in California. You are the one who moves. And the country you move to has its own view about practising a regulated profession from its soil, and about whether your visa lets you work at all &mdash; neither of which is a California question, and neither of which is priced above.</p></div></details>
+<details class="txref"><summary><span><b>The tax follows the passport, not the address</b><i>why Dubai is not the windfall the bar makes it look</i></span></summary><div class="txb"><p>The United States taxes citizens on worldwide income wherever they live. In a high-tax country the foreign tax credit absorbs most of the US bill, which is why Berlin and Bordeaux above are close to their local tax and not much more. In a low-tax one there is nothing to credit, so the US bill lands in full.</p><p>And the foreign earned income exclusion, the thing everyone reaches for first, <b>does not touch self-employment tax</b> &mdash; the IRS is explicit about it. A self-employed therapist in Dubai still owes the full 15.3% on the way through, on top of whatever the UAE charges.<sup>[12][13]</sup></p></div></details>
+<p class="pay-note">This is a comparison, not a plan. It prices tax and nothing else: not visas, not the right to work, not health cover, not what a flat costs in Lisbon versus Fresno, not currency risk, and not whether a client in Sacramento wants a therapist nine time zones away. Treat it as a reason to ask a cross-border accountant a better question.</p>
+</section>
+<section class="slab carbon" id="reference"><div class="chh"><span class="chn">07</span><h2>The parts worth reading once</h2></div>
 <p class="dek">Everything above is arithmetic on your numbers. This is the material underneath it — the mechanic the whole chapter turns on, what other California therapists actually do, what the people who do this for a living disagree about, and what actually gets challenged.</p>
 <details class="txref"><summary><span><b>How self-employment tax actually works</b><i>The mechanic the whole chapter turns on</i></span></summary><div class="txb"><p>Self-employment tax is Social Security and Medicare for people with no employer to split it with, so you pay both halves &mdash; 12.4% + 2.9%.</p><div class="tw"><table class="cmp"><thead><tr><th>Step</th><th>On your numbers</th></tr></thead><tbody><tr><th>Net profit</th><td>$158,849</td></tr><tr><th>&times; 92.35%</th><td>$153,425 &mdash; the SE base</td></tr><tr><th>Social Security, 12.4%</th><td>up to the $184,500 wage base</td></tr><tr><th>Medicare, 2.9%</th><td>no cap; +0.9% above $200,000 single / $250,000 joint</td></tr></tbody><tfoot><tr><td colspan="2">Half of what you pay is deductible against income tax, which is why no lever here is worth its headline rate.</td></tr></tfoot></table></div><p>The S-corp election works by moving part of your profit out of that base and into a distribution. That is the entire mechanism &mdash; and the reason a salary that is too low is the thing that gets challenged.</p></div></details>
 <details class="txref"><summary><span><b>What California therapists actually do</b><i>Census data, not a survey</i></span></summary><div class="txb"><p>Nobody surveys this. The Census does publish it, derived from tax filings rather than a questionnaire.</p><div class="tw"><table class="cmp"><thead><tr><th>Universe</th><th>Sole prop</th><th>S corp</th><th>Other</th><th>n</th></tr></thead><tbody><tr><th>All CA mental-health practices</th><td><b>78%</b></td><td>18%</td><td>4%</td><td>33,660</td></tr><tr><th>Practices large enough to run payroll</th><td>11%</td><td><b>72%</b></td><td>17%</td><td>6,953</td></tr></tbody><tfoot><tr><td colspan="5">The inversion is the point: a sole proprietor has no payroll and lands in the nonemployer file; a corporation paying its owner a W-2 has payroll by definition. The two universes are near mutually exclusive on exactly the axis being measured.</td></tr></tfoot></table></div><p class="flag"><b>1,049</b> California S corporations in this category run <b>zero payroll</b> &mdash; shareholders taking distributions and paying themselves no salary at all. That is the reasonable-compensation exposure this chapter warns about, as a counted number rather than a hypothetical. Average receipts $89,112, against $60,563 for sole proprietors.</p><p>NAICS 621330 covers all non-physician mental-health practitioners with no licence-level cut, and counts establishments rather than therapists.</p></div></details>
@@ -848,7 +883,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <details class="txref"><summary><span><b>LLC</b><i>Not a choice for a California-licensed therapist</i></span></summary><div class="txb"><p>A California-licensed MFT, LCSW, LPCC or psychologist <b>cannot</b> form an LLC to provide licensed services &mdash; Cal. Corp. Code &sect;17701.04(e). The real choice is sole proprietorship or a California professional corporation (for MFTs, a Marriage and Family Therapy Corporation, 51%+ MFT-owned per &sect;13401.5) which can then elect S-corp treatment federally.</p></div></details>
 <details class="txref"><summary><span><b>Hiring associates changes which account you can use</b><i>It does NOT force you to incorporate — but it does close the Solo 401(k)</i></span></summary><div class="txb"><p><b>You do not need a corporation to employ an associate in California.</b> The BBS requires a private practice to be &ldquo;owned by a licensed health professional either independently or jointly with one or more other licensed health professionals&rdquo; &mdash; <i>independently</i> means a sole owner, and no corporation is named anywhere in the requirement.</p><p>What the law <i>does</i> require is the employment relationship. Under <b>BPC &sect;4980.43.3</b> an associate &ldquo;shall only perform mental health and related services as an employee or volunteer, and not as an independent contractor.&rdquo; A sole proprietor can be that W-2 employer: EIN, payroll, EDD registration, workers&rsquo; compensation. Associates may only gain hours in private practice for the <b>first six years</b> after registration.</p><div class="tw"><table class="cmp"><thead><tr><th>What hiring changes</th><th>Effect</th></tr></thead><tbody><tr class="band"><td colspan="2"><i>What it does not change</i></td></tr><tr><th>Your entity</th><td>A sole proprietor can employ staff. No corporation required.</td></tr><tr class="band"><td colspan="2"><i>What it does change, and this is the expensive part</i></td></tr><tr><th>Solo 401(k)</th><td><b>Closes.</b> One non-excludable common-law employee and it stops being a one-participant plan.</td></tr><tr><th>Who is excludable</th><td>Under 21 &middot; under 1,000 hours in a year &middot; under 500 hours in each of two consecutive years &middot; non-resident aliens. A part-time associate may well be excludable; a full-time one is not.</td></tr><tr><th>SEP IRA</th><td>Generally requires the <b>same percentage</b> for eligible employees. Cheap alone, expensive with staff.</td></tr><tr><th>SIMPLE IRA</th><td>Built for exactly this: deferral plus a mandatory 3% match.</td></tr><tr><th>The corporation question</th><td>Gets <i>cheaper</i>, not more necessary &mdash; you are running payroll either way, so the payroll-service cost stops being an argument against incorporating.</td></tr></tbody><tfoot><tr><td colspan="2">This is the one place where the two decisions on this page genuinely interact.</td></tr></tfoot></table></div><p><b>So the honest answer:</b> hiring associates does not make you incorporate. It closes your best deferral account and quietly removes one of the reasons not to incorporate. Those are different things, and most write-ups conflate them.</p></div></details>
 </section>
-<section class="slab pine" id="next"><div class="chh"><span class="chn">07</span><h2>Back to the practice</h2></div>
+<section class="slab pine" id="next"><div class="chh"><span class="chn">08</span><h2>Back to the practice</h2></div>
 <p class="dek">Everything here is downstream of one number: the profit at the top. If that is a guess, this whole page is a guess about a guess — the simulator builds it properly, category by category.</p>
 <a class="tcta" href="index.html"><strong>Model the whole practice &rarr;</strong><span>rate, caseload, twelve expense categories, residency and growth &middot; free &middot; nothing is saved</span></a>
 </section>
@@ -863,6 +898,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div class="cite"><span class="n">[7]</span><span><a href="https://www.ftb.ca.gov/file/business/types/corporations/s-corporations.html" target="_blank" rel="noopener noreferrer">California Franchise Tax Board, S corporation tax</a> &mdash; California taxes an S corporation at 1.5% of net income, subject to the $800 minimum franchise tax.</span></div>
 <div class="cite"><span class="n">[8]</span><span><a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener noreferrer">Social Security Administration, contribution and benefit base</a> &mdash; The 2026 Social Security wage base of $184,500, which is where the payroll-tax saving stops growing. Medicare has no cap.</span></div>
 <div class="cite"><span class="n">[9]</span><span><a href="https://www.ssa.gov/oact/cola/piaformula.html" target="_blank" rel="noopener noreferrer">Social Security Administration, primary insurance amount</a> &mdash; The bend points used to price what a below-profit salary costs your benefit.</span></div>
+<div class="cite"><span class="n">[10]</span><span><a href="https://www.bbs.ca.gov/pdf/publications/telehealth_faq.pdf" target="_blank" rel="noopener noreferrer">California Board of Behavioral Sciences, telehealth FAQ</a> &mdash; &#8220;Can a California licensee while out-of-state provide telehealth services to a client located in California?&#8221; &#8212; the Board&#8217;s answer is yes, subject to a current and active licence and 16 CCR &#167;1815.5.</span></div>
+<div class="cite"><span class="n">[11]</span><span><a href="https://www.law.cornell.edu/regulations/california/16-CCR-1815.5" target="_blank" rel="noopener noreferrer">California Code of Regulations, title 16, section 1815.5</a> &mdash; Standards of practice for telehealth. Requires the client&#8217;s full name and present location to be obtained verbally and documented at the start of each session; imposes no requirement about the licensee&#8217;s own location.</span></div>
+<div class="cite"><span class="n">[12]</span><span><a href="https://www.irs.gov/individuals/international-taxpayers/self-employment-tax-for-businesses-abroad" target="_blank" rel="noopener noreferrer">IRS, self-employment tax for businesses abroad</a> &mdash; &#8220;You must take all your self-employment income into account in figuring your net earnings from self-employment, even if all, or a portion of, gross income was excluded because of the foreign earned income exclusion.&#8221;</span></div>
+<div class="cite"><span class="n">[13]</span><span><a href="https://www.irs.gov/individuals/international-taxpayers/foreign-tax-credit" target="_blank" rel="noopener noreferrer">IRS, foreign tax credit</a> &mdash; The mechanism that absorbs most of the US bill in a high-tax country, and has nothing to absorb in a low-tax one.</span></div>
 </div>
 <p class="disc"><b>Estimates, not advice.</b> This models a California resident whose practice income is self-employment income, with no other household income and no itemised deductions. Federal figures are the final 2026 amounts; California has not published 2026 rate schedules, and the FTB&rsquo;s own 2026 Form 540-ES instructs filers to use the 2025 tables, so that is what this uses. The professional-corporation comparison prices payroll, the 1120-S and the Statement of Information at typical figures, not quotes you have been given. The salary convention is a practitioner rule of thumb and carries real audit risk; the Social Security comparison answers &ldquo;what if this year were typical of a 35-year record&rdquo;, which is not the same question as &ldquo;what will I get&rdquo;. Talk to a CPA before acting on any of it.</p>
 </div>
@@ -959,8 +998,8 @@ function blank(){
 var S = blank();
 
 var EXAMPLE = {rate:200, sessions:25, weeksOff:2, billingPct:2.5,
-  assocOn:true, assocCount:2, assocRate:125, assocSessions:18, assocVac:2, assocSplit:52,
-  assocSup:25, assocLiab:40, assocOffice:500, assocEhr:40, assocWc:3, assocPayroll:50,
+  assocOn:false, assocCount:"", assocRate:"", assocSessions:"", assocVac:"", assocSplit:"",
+  assocSup:"", assocLiab:"", assocOffice:"", assocEhr:"", assocWc:"", assocPayroll:"",
   retreatOn:false, retPeople:"", retRate:"", retPerYear:"",
   secondOn:false, secRate:"", secSessions:"",
   filing:"single", age:40, entity:"sole", contrib:"",
@@ -1049,6 +1088,530 @@ function compute(st, contribOverride){
     room:room, contrib:contrib, net:net};
 }
 
+/* ==========================================================================
+   RESIDENCY ENGINE.  Lifted out of app.js by lift_residency.py - every block
+   below is a byte-for-byte substring of that file, comments included. Do not
+   edit it here; edit app.js (or, once app.js is gone, promote this file to the
+   source of truth and say so at the top).
+
+   It lives inside an IIFE because app.js and _engine_core.js use DIFFERENT
+   NAMES for the same quantities, and in two places slightly different bracket
+   tables. Sharing a scope would be a redeclaration error at best and a silent
+   disagreement about which table applied at worst. In here, the residency
+   functions see exactly the constants app.js gives them and nothing else.
+   ========================================================================== */
+var RESID = (function(){
+"use strict";
+const FED_STD = 16100,
+  CA_STD = 5540;
+
+const FED_BRACKETS = [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [640600, 0.37]];
+
+const CA_BRACKETS = [[0, 0.01], [11079, 0.02], [26264, 0.04], [41452, 0.06], [57542, 0.08], [72724, 0.093], [371479, 0.103], [445771, 0.113], [742953, 0.123]];
+
+const FED_STD_BY_STATUS = {
+  single: 16100,
+  mfj: 32200,
+  mfj_dependents: 32200,
+  hoh: 24150
+};
+
+const CA_STD_BY_STATUS = {
+  single: 5706,
+  mfj: 11412,
+  mfj_dependents: 11412,
+  hoh: 11412
+};
+
+const FED_BRACKETS_BY_STATUS = {
+  single: [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [640600, 0.37]],
+  mfj: [[0, 0.10], [24800, 0.12], [100800, 0.22], [211400, 0.24], [403550, 0.32], [512450, 0.35], [768700, 0.37]],
+  mfj_dependents: [[0, 0.10], [24800, 0.12], [100800, 0.22], [211400, 0.24], [403550, 0.32], [512450, 0.35], [768700, 0.37]],
+  hoh: [[0, 0.10], [17700, 0.12], [67450, 0.22], [105700, 0.24], [201750, 0.32], [256200, 0.35], [640600, 0.37]]
+};
+
+const CA_BRACKETS_BY_STATUS = {
+  single: [[0, 0.01], [11079, 0.02], [26264, 0.04], [41452, 0.06], [57542, 0.08], [72724, 0.093], [371479, 0.103], [445771, 0.113], [742953, 0.123]],
+  mfj: [[0, 0.01], [22158, 0.02], [52528, 0.04], [82904, 0.06], [115084, 0.08], [145448, 0.093], [742958, 0.103], [891542, 0.113], [1485906, 0.123]],
+  mfj_dependents: [[0, 0.01], [22158, 0.02], [52528, 0.04], [82904, 0.06], [115084, 0.08], [145448, 0.093], [742958, 0.103], [891542, 0.113], [1485906, 0.123]],
+  hoh: [[0, 0.01], [22173, 0.02], [52530, 0.04], [67716, 0.06], [83805, 0.08], [98990, 0.093], [505208, 0.103], [606251, 0.113], [1010417, 0.123]]
+};
+
+const QBI_PHASE_BY_STATUS = {
+  single: [201750, 276750],
+  hoh: [201750, 276750],
+  mfj: [403500, 553500],
+  mfj_dependents: [403500, 553500]
+};
+
+// IRC s.1401(b)(2): $200k single/HOH, $250k joint, $125k MFS. Not indexed.
+const ADDL_MED_THRESH_BY_STATUS = {
+  single: 200000,
+  hoh: 200000,
+  mfj: 250000,
+  mfj_dependents: 250000
+};
+
+const QBI_RATE = 0.20,
+  QBI_PHASE_START = 201750,
+  QBI_PHASE_END = 276750;
+
+const ADDL_MED_THRESH = 200000,
+  ADDL_MED_RATE = 0.009;
+
+// CA Prop 63 mental health services tax: 1% on taxable income over $1,000,000.
+// RTC s.17043 - the threshold is NOT indexed and is $1m for joint filers too.
+const CA_MHS_THRESH = 1000000, CA_MHS_RATE = 0.01;
+
+const OASDI_RATE = 0.124;
+
+const MEDICARE_RATE = 0.029;
+
+const SE_FACTOR = 0.9235;
+
+const SS_WAGE_BASE = 184500;
+
+const NY_STD = 8000;
+
+const NY_BRACKETS = [[0, 0.039], [8500, 0.044], [11700, 0.0515], [13900, 0.054], [80650, 0.059], [215400, 0.0685], [1077550, 0.0965], [5000000, 0.103], [25000000, 0.109]];
+
+const NYC_BRACKETS = [[0, 0.03078], [12000, 0.03762], [25000, 0.03819], [50000, 0.03876]];
+
+// ----------------------------------------------------------------------------
+// RESIDENCY COMPARISON — simplified 2026 estimates for a self-employed therapist
+// comparing California vs. Berlin, Germany vs. Portugal on the same practice
+// revenue. Currency: 1 EUR ≈ 1.14 USD (July 2026 reference rate); real running
+// costs (rent, insurance, EHR, etc.) are assumed portable and unchanged.
+// Germany: assumes "Freiberufler" (liberal-profession) status — no trade tax —
+// with statutory health + long-term-care insurance (~19.6%, capped at the 2026
+// contribution ceiling), income tax per the official §32a EStG 2026 formula,
+// and the solidarity surcharge above its exemption threshold. Excludes church
+// tax (assumes opted out) and any mandatory professional pension fund
+// (Versorgungswerk) that some healthcare professions are required to join.
+// Portugal: Categoria B, simplified regime — IRS is charged on 75% of gross
+// revenue (the standard services coefficient; actual expenses aren't
+// separately deducted under this regime), using the 2026 nine-bracket IRS
+// table plus the solidarity surcharge, and an independent-worker social
+// security contribution (~15% effective on gross revenue). Excludes the
+// municipal surcharge (0-1.5%, varies by city) and NHR/IFICI special regimes
+// (mostly closed to new applicants since 2024).
+// ----------------------------------------------------------------------------
+const EUR_TO_USD = 1.14;
+
+const USD_TO_EUR = 1 / EUR_TO_USD;
+
+// Metropolitan Commuter Transportation Mobility Tax, self-employed, Zone 1
+// (Bronx, Kings, New York, Queens, Richmond - so Brooklyn is Zone 1). Rate and
+// threshold both changed for tax years beginning on or after 1 Jan 2026: the
+// old 0.34% above $50,000 was Zone-2-era and is wrong for a Brooklyn practice
+// in both directions - it charged someone at $100k who owes nothing, and
+// undercharged everyone above $150k by nearly half.
+// tax.ny.gov/legal/2025/pit-corp-changes.htm
+const MCTMT_THRESHOLD = 150000,
+  MCTMT_RATE = 0.0060;
+
+// NYC Unincorporated Business Tax. The tax a self-employed New Yorker is most
+// likely never to have heard of until they owe it: 4% on business income, and
+// a sole proprietorship practising a profession is squarely inside it. Figures
+// from the 2025 Form NYC-202S:
+//   allowance for the taxpayer's own services  lesser of 20% of income or $10,000
+//   specific exemption                         $5,000
+//   rate                                       4%
+//   business tax credit  full at or below $3,400 of tax, none at or above
+//                        $5,400, and tax x (5,400 - tax) / 2,000 in between
+// nyc.gov/site/finance/business/business-unincorporated-business-tax-ubt.page
+const UBT_RATE = 0.04,
+  UBT_SERVICES_PCT = 0.20,
+  UBT_SERVICES_CAP = 10000,
+  UBT_EXEMPTION = 5000,
+  UBT_CREDIT_FULL = 3400,
+  UBT_CREDIT_NONE = 5400;
+
+// A NYC resident can then credit part of the UBT against their city income tax
+// (Form IT-219): 100% at or below $42,000 of city taxable income, sliding to
+// 23% at $142,000 and flat 23% above. Capped at the city tax itself.
+const UBT_PIT_LOW = 42000, UBT_PIT_HIGH = 142000, UBT_PIT_FLOOR = 0.23;
+
+const PA_FLAT_RATE = 0.0307;
+
+const PITTSBURGH_EIT_RATE = 0.03;
+
+const PITTSBURGH_LST = 52;
+
+const FR_BRACKETS = [[0, 0], [11600, 0.11], [29579, 0.30], [84577, 0.41], [181917, 0.45]];
+
+const FR_COTISATION_RATE = 0.40;
+
+// CSG (9.2%) + CRDS (0.5%) on 98.25% of activity income. Carved out of the
+// blended rate above only so the foreign-tax-credit maths below can name it.
+const FR_CSG_RATE = 0.097;
+
+const USD_TO_AED = 3.6725;
+
+// 2026 foreign earned income exclusion, Rev. Proc. 2025-32 (up from $130,000).
+// irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026
+const FEIE_2026 = 132900;
+
+const AU_BRACKETS = [[0, 0], [18200, 0.16], [45000, 0.30], [135000, 0.37], [190000, 0.45]];
+
+const USD_TO_AUD = 1.43;
+
+const PT_BRACKETS = [[0, 0.1325], [7703, 0.165], [11623, 0.22], [16472, 0.25], [21321, 0.32], [27146, 0.355], [39791, 0.435], [51997, 0.45], [81199, 0.48]];
+
+function bracketTax(income, brackets) {
+  if (income <= 0) return 0;
+  let t = 0;
+  for (let i = 0; i < brackets.length; i++) {
+    const lo = brackets[i][0],
+      rate = brackets[i][1];
+    const hi = i + 1 < brackets.length ? brackets[i + 1][0] : Infinity;
+    if (income > lo) t += (Math.min(income, hi) - lo) * rate;else break;
+  }
+  return t;
+}
+
+// Every US residency card sits on an identical federal layer: same deductible
+// half of SE tax, same standard deduction, same QBI rules. That block used to
+// be copy-pasted into each location function and every copy was hardcoded to
+// the single-filer constants - so a married user compared a status-aware
+// California against a single-filer New York and a single-filer Pittsburgh,
+// and the gap between the cards was partly just the filing status changing
+// underneath them. One helper now, status-aware, shared by all of them.
+//
+// personalRetirement carries the same meaning as in computeYear: the slice of
+// retireDed that is a personal IRA rather than a business plan, and so reduces
+// AGI without reducing QBI. No US card passes a non-zero value today; the
+// parameter is here so a future one cannot silently get it wrong.
+function fedLayer(schedC, w2Wages, halfSE, retireDed, filingStatus, personalRetirement) {
+  filingStatus = filingStatus || "single";
+  retireDed = retireDed || 0;
+  w2Wages = w2Wages || 0;
+  const fedStd = FED_STD_BY_STATUS[filingStatus] || FED_STD;
+  const fedBrackets = FED_BRACKETS_BY_STATUS[filingStatus] || FED_BRACKETS;
+  const qbiWindow = QBI_PHASE_BY_STATUS[filingStatus] || [QBI_PHASE_START, QBI_PHASE_END];
+  const qbiStart = qbiWindow[0], qbiEnd = qbiWindow[1];
+  const agi = Math.max(0, schedC + w2Wages - halfSE - retireDed);
+  const taxableBeforeQBI = Math.max(0, agi - fedStd);
+  // Treas. Reg. s.1.199A-3(b)(1)(vi) - see the longer note in computeYear.
+  const bizRetireDed = Math.max(0, retireDed - (personalRetirement || 0));
+  const qbiIncome = Math.max(0, schedC - halfSE - bizRetireDed);
+  let pct;
+  if (taxableBeforeQBI <= qbiStart) pct = 1;else if (taxableBeforeQBI >= qbiEnd) pct = 0;else pct = 1 - (taxableBeforeQBI - qbiStart) / (qbiEnd - qbiStart);
+  const qbiDed = Math.min(QBI_RATE * qbiIncome, QBI_RATE * taxableBeforeQBI) * pct;
+  return {
+    agi,
+    taxableBeforeQBI,
+    qbiDed,
+    fedTax: bracketTax(Math.max(0, taxableBeforeQBI - qbiDed), fedBrackets)
+  };
+}
+
+// IRC s.1401(b)(2). California's own path has always charged this; the NYC and
+// Pittsburgh cards never did, which quietly favoured them at high income by up
+// to 0.9% of everything over the threshold.
+function addlMedFor(seBase, w2Wages, filingStatus) {
+  const thresh = ADDL_MED_THRESH_BY_STATUS[filingStatus || "single"] || ADDL_MED_THRESH;
+  return Math.max(0, seBase + (w2Wages || 0) - thresh) * ADDL_MED_RATE;
+}
+
+function computeUBT(businessIncome, nycTaxableIncome, nycTax) {
+  if (!(businessIncome > 0)) return {gross: 0, credit: 0, net: 0, pitCredit: 0, afterPit: 0};
+  const allowance = Math.min(UBT_SERVICES_PCT * businessIncome, UBT_SERVICES_CAP);
+  const taxable = Math.max(0, businessIncome - allowance - UBT_EXEMPTION);
+  const gross = taxable * UBT_RATE;
+  const credit = gross <= UBT_CREDIT_FULL ? gross
+    : gross >= UBT_CREDIT_NONE ? 0
+    : gross * (UBT_CREDIT_NONE - gross) / (UBT_CREDIT_NONE - UBT_CREDIT_FULL);
+  const net = Math.max(0, gross - credit);
+  const pct = nycTaxableIncome <= UBT_PIT_LOW ? 1
+    : nycTaxableIncome >= UBT_PIT_HIGH ? UBT_PIT_FLOOR
+    : 1 - (nycTaxableIncome - UBT_PIT_LOW) / (UBT_PIT_HIGH - UBT_PIT_LOW) * (1 - UBT_PIT_FLOOR);
+  const pitCredit = Math.min(net * pct, Math.max(0, nycTax));
+  return {gross, credit, net, pitCredit, afterPit: net - pitCredit};
+}
+
+// What a US citizen abroad would owe Washington on this profit if no foreign
+// tax credit applied. No self-employment tax - the US has totalization
+// agreements with Germany, Portugal, France and Australia - and no QBI, since
+// 199A needs a US trade or business. This exists so the section can *show*
+// that the credit covers the US bill rather than asserting it.
+function usFedAbroad(profitUSD, filingStatus) {
+  const std = FED_STD_BY_STATUS[filingStatus] || FED_STD_BY_STATUS.single;
+  const br = FED_BRACKETS_BY_STATUS[filingStatus] || FED_BRACKETS_BY_STATUS.single;
+  return bracketTax(Math.max(0, profitUSD - std), br);
+}
+
+function germanIncomeTax(zve) {
+  if (zve <= 12348) return 0;
+  if (zve <= 17799) {
+    const y = (zve - 12348) / 10000;
+    return (914.51 * y + 1400) * y;
+  }
+  if (zve <= 69878) {
+    const z = (zve - 17799) / 10000;
+    return (173.10 * z + 2397) * z + 1034.87;
+  }
+  if (zve <= 277825) return 0.42 * zve - 11135.63;
+  return 0.45 * zve - 19470.38;
+}
+
+function portugalSolidarity(taxable) {
+  let s = 0;
+  if (taxable > 250000) s += (taxable - 250000) * 0.05;
+  if (taxable > 80000) s += (Math.min(taxable, 250000) - 80000) * 0.025;
+  return s;
+}
+
+// retireDed is a maxed Solo 401(k)/IRA deduction. It is an above-the-line
+// federal adjustment (Schedule 1), NOT a Schedule C expense, which decides
+// exactly which of New York's five taxes it touches:
+//   NY State PIT   yes - NY starts from federal AGI and has no addback for it
+//   NYC resident   yes - same base, per NYC Admin Code s.11-1712(a)
+//   NYC UBT        NO  - s.11-507 allows only deductions allowable federally
+//                        and "directly connected with the business", and
+//                        s.11-507(3) bars amounts paid to a proprietor. The
+//                        deduction is simply never in the UBT base.
+//   MCTMT          NO  - base is net earnings from self-employment (s.1402),
+//                        a Schedule SE figure the adjustment never reaches
+//   SE tax         NO  - same reason
+function computeNYC(revenueUSD, expensesUSD, retireDed, filingStatus, sehi) {
+  retireDed = retireDed || 0;
+  const sehiPremium = Math.max(0, sehi || 0);
+  // IRC s.162(l) again - the premium is inside expensesUSD but belongs on
+  // Schedule 1, so add it back before Schedule C and take it above the line.
+  // cashProfit is what actually reaches the bank and keeps the premium
+  // subtracted; schedC is the tax figure and does not.
+  const cashProfit = Math.max(0, revenueUSD - expensesUSD);
+  const schedC = Math.max(0, revenueUSD - expensesUSD + sehiPremium);
+  const seBase = schedC * 0.9235;
+  const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
+  const halfSE = seTax / 2;
+  // sehiDed rides in alongside retireDed: both cut AGI without touching
+  // Schedule C and both come out of the QBI base, so fedLayer treats them
+  // identically. New York starts from federal AGI, so the deduction reaches
+  // the NY and NYC income taxes automatically - and reaches neither the UBT
+  // (s.11-507(3) bars amounts paid to a proprietor) nor the MCTMT nor SE tax,
+  // all three of which run off the business figure below.
+  const sehiDed = Math.min(sehiPremium, Math.max(0, schedC - halfSE));
+  const fed = fedLayer(schedC, 0, halfSE, retireDed + sehiDed, filingStatus);
+  const agi = fed.agi;
+  const fedTax = fed.fedTax;
+  const addlMed = addlMedFor(seBase, 0, filingStatus);
+  const nyTaxable = Math.max(0, agi - NY_STD);
+  const nyTax = bracketTax(nyTaxable, NY_BRACKETS);
+  const nycTax = bracketTax(nyTaxable, NYC_BRACKETS);
+  const mctmt = schedC > MCTMT_THRESHOLD ? schedC * MCTMT_RATE : 0;
+  const ubt = computeUBT(schedC, nyTaxable, nycTax);
+  const totalTax = fedTax + seTax + addlMed + nyTax + nycTax + mctmt + ubt.afterPit;
+  return {
+    netUSD: cashProfit - totalTax,
+    taxUSD: totalTax,
+    fedTaxUSD: fedTax,
+    seTaxUSD: seTax,
+    addlMedUSD: addlMed,
+    nyTaxUSD: nyTax,
+    nycTaxUSD: nycTax,
+    mctmtUSD: mctmt,
+    ubtGrossUSD: ubt.gross,
+    ubtCreditUSD: ubt.credit,
+    ubtNetUSD: ubt.net,
+    ubtPitCreditUSD: ubt.pitCredit,
+    ubtUSD: ubt.afterPit
+  };
+}
+
+// retireDed here buys far less than it does in California or New York, and
+// that is the point of showing it. Pennsylvania does not start from federal
+// AGI: it computes net profits under its own rules, and 61 Pa. Code s.101.6(c)(8)
+// says contributions "by, on behalf of or attributable to a self-employed
+// person are not excludable from either compensation or net profits". Both
+// halves of a Solo 401(k) - the deferral and the employer profit share - are
+// therefore fully taxable by PA in the year contributed. The Local Tax
+// Enabling Act defines the local EIT base by reference to that same PA
+// figure, so Pittsburgh's 3% follows it. Only the federal tax moves.
+function computePittsburgh(revenueUSD, expensesUSD, retireDed, filingStatus, sehi) {
+  retireDed = retireDed || 0;
+  const sehiPremium = Math.max(0, sehi || 0);
+  const cashProfit = Math.max(0, revenueUSD - expensesUSD);
+  const schedC = Math.max(0, revenueUSD - expensesUSD + sehiPremium);
+  const seBase = schedC * 0.9235;
+  const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
+  const halfSE = seTax / 2;
+  const sehiDed = Math.min(sehiPremium, Math.max(0, schedC - halfSE));
+  const fedTax = fedLayer(schedC, 0, halfSE, retireDed + sehiDed, filingStatus).fedTax;
+  const addlMed = addlMedFor(seBase, 0, filingStatus);
+  // PA deliberately keeps the premium deducted (cashProfit, not schedC).
+  // Pennsylvania computes net profits under its own rules and there is no
+  // citable PA source either way on a proprietor's OWN health premium. Two PA
+  // Department of Revenue PIT Guide chapters were read in full and both are
+  // silent on it:
+  //   "Net Income (Loss) from the Operation of a Business, Profession or Farm"
+  //     - covers retirement contributions explicitly, health insurance not at all
+  //   "Gross Compensation"
+  //     - says PA allows no deduction for "personal expenses, federal itemized
+  //       deductions, or federal standard deductions", which implies PA would
+  //       not honour the federal s.162(l) ADJUSTMENT - but that chapter is about
+  //       employee compensation, and it does not answer whether the premium is
+  //       an allowable business expense on PA Schedule C, which is the actual
+  //       question here and the mechanism this code uses.
+  // So: genuinely unresolved, not merely unchecked. Leaving PA's treatment
+  // exactly as it was is the honest default. Do not "fix" this to match the
+  // federal add-back without a citation, and do not re-run the same search -
+  // it needs a PA-40 Schedule C instruction or a Department ruling, not a
+  // general PIT Guide chapter.
+  const paTax = cashProfit * PA_FLAT_RATE;
+  const eitTax = cashProfit * PITTSBURGH_EIT_RATE;
+  const lst = PITTSBURGH_LST;
+  const totalTax = fedTax + seTax + addlMed + paTax + eitTax + lst;
+  return {
+    netUSD: cashProfit - totalTax,
+    taxUSD: totalTax,
+    fedTaxUSD: fedTax,
+    seTaxUSD: seTax,
+    addlMedUSD: addlMed,
+    paTaxUSD: paTax,
+    eitTaxUSD: eitTax,
+    lstUSD: lst
+  };
+}
+
+function computeFrance(revenueUSD, expensesUSD) {
+  const revenueEUR = revenueUSD * USD_TO_EUR;
+  const expensesEUR = expensesUSD * USD_TO_EUR;
+  const profitEUR = Math.max(0, revenueEUR - expensesEUR);
+  const cotisationsEUR = profitEUR * FR_COTISATION_RATE;
+  const taxableEUR = Math.max(0, profitEUR - cotisationsEUR);
+  const incomeTaxEUR = bracketTax(taxableEUR, FR_BRACKETS);
+  const netEUR = profitEUR - cotisationsEUR - incomeTaxEUR;
+  // CSG + CRDS sit inside the blended cotisation rate above, but they are the
+  // one part of it a US citizen can claim as a foreign tax credit: the US and
+  // France memorialised in 2019 that CSG/CRDS are NOT social taxes covered by
+  // the totalization agreement, and the IRS no longer challenges the credit.
+  // France is the only card where the no-residual-US-tax conclusion depends on
+  // this - without it, roughly $8,500 a year would still be owed at $253,500
+  // of profit. rsmus.com/insights/tax-alerts/2019/irs-allows-credit-for-certain-french-social-taxes.html
+  const csgEUR = profitEUR * FR_CSG_RATE;
+  return {
+    netUSD: netEUR * EUR_TO_USD,
+    netEUR,
+    taxUSD: (cotisationsEUR + incomeTaxEUR) * EUR_TO_USD,
+    cotisationsUSD: cotisationsEUR * EUR_TO_USD,
+    incomeTaxUSD: incomeTaxEUR * EUR_TO_USD,
+    csgUSD: csgEUR * EUR_TO_USD
+  };
+}
+
+// The UAE is the only card here where "local tax" is not a fair proxy for what
+// a US citizen actually pays, and it was wrong for two compounding reasons:
+//
+//   1. The FEIE does not touch self-employment tax. The IRS is explicit: "You
+//      must take all your self-employment income into account in figuring your
+//      net earnings from self-employment, even if all, or a portion of, gross
+//      income was excluded." Only a totalization agreement removes it - and
+//      the UAE has none, a fact this app already states two paragraphs above
+//      the card while the arithmetic ignored it.
+//   2. Everywhere else on this list, the foreign tax credit roughly cancels
+//      the US income tax, because Germany, France, Portugal and Australia all
+//      tax more heavily than the US does. The UAE taxes almost nothing, so
+//      there is no credit to claim and the US bill lands in full above the
+//      exclusion.
+//
+// Net effect: this card used to show pre-tax profit as though it were
+// take-home, which made the single most eye-catching option on the page also
+// the least true. Stacking follows IRC 911(f): the non-excluded income is
+// taxed at the rate it would have faced had the excluded income been counted,
+// so tax the whole amount and subtract the tax on the exclusion. No QBI -
+// 199A needs a US trade or business.
+function computeUAE(revenueUSD, expensesUSD, filingStatus) {
+  const revenueAED = revenueUSD * USD_TO_AED;
+  const expensesAED = expensesUSD * USD_TO_AED;
+  const profitAED = Math.max(0, revenueAED - expensesAED);
+  const corpTax = revenueAED > 1000000 ? Math.max(0, profitAED - 375000) * 0.09 : 0;
+  const profitUSD = profitAED / USD_TO_AED;
+  const uaeTax = corpTax / USD_TO_AED;
+
+  const seBase = profitUSD * 0.9235;
+  const seTax = Math.min(seBase, SS_WAGE_BASE) * 0.124 + seBase * 0.029;
+  // Additional Medicare tax rides along with SE tax and, like it, is untouched
+  // by the exclusion. Included so this card models US federal tax the same way
+  // every other US location on this page does.
+  const addlMedThresh = ADDL_MED_THRESH_BY_STATUS[filingStatus] || ADDL_MED_THRESH_BY_STATUS.single;
+  const addlMed = Math.max(0, seBase - addlMedThresh) * ADDL_MED_RATE;
+
+  const fedStd = FED_STD_BY_STATUS[filingStatus] || FED_STD_BY_STATUS.single;
+  const brackets = FED_BRACKETS_BY_STATUS[filingStatus] || FED_BRACKETS_BY_STATUS.single;
+  const taxableAll = Math.max(0, profitUSD - seTax / 2 - fedStd);
+  const excluded = Math.min(profitUSD, FEIE_2026);
+  const fedTax = Math.max(0, bracketTax(taxableAll, brackets)
+    - bracketTax(Math.min(excluded, taxableAll), brackets));
+
+  const usTax = seTax + addlMed + fedTax;
+  const netUSD = profitUSD - uaeTax - usTax;
+  return {
+    netUSD,
+    netAED: netUSD * USD_TO_AED,
+    taxUSD: uaeTax + usTax,
+    uaeTax, usTax, seTax, addlMed, fedTax, excluded
+  };
+}
+
+function computeBrisbane(revenueUSD, expensesUSD) {
+  const revenueAUD = revenueUSD * USD_TO_AUD;
+  const expensesAUD = expensesUSD * USD_TO_AUD;
+  const profitAUD = Math.max(0, revenueAUD - expensesAUD);
+  const incomeTax = bracketTax(profitAUD, AU_BRACKETS);
+  const medicare = profitAUD * 0.02;
+  const sbOffset = Math.min(incomeTax * 0.08, 1000);
+  const totalTax = Math.max(0, incomeTax - sbOffset) + medicare;
+  const netAUD = profitAUD - totalTax;
+  return {
+    netUSD: netAUD / USD_TO_AUD,
+    netAUD,
+    taxUSD: totalTax / USD_TO_AUD
+  };
+}
+
+function computeResidency(revenueUSD, realExpensesUSD, homeJurisdiction) {
+  const revenueEUR = revenueUSD * USD_TO_EUR;
+  const realExpensesEUR = realExpensesUSD * USD_TO_EUR;
+  const deProfit = Math.max(0, revenueEUR - realExpensesEUR);
+  const deHealthCare = Math.min(deProfit, 69750) * 0.196;
+  const deZve = Math.max(0, deProfit - deHealthCare);
+  const deIncomeTax = germanIncomeTax(deZve);
+  const deSoli = deIncomeTax > 20350 ? deIncomeTax * 0.055 : 0;
+  const deNetEUR = deProfit - deHealthCare - deIncomeTax - deSoli;
+  const ptTaxable = revenueEUR * 0.75;
+  const ptIrs = bracketTax(ptTaxable, PT_BRACKETS);
+  const ptSolidarity = portugalSolidarity(ptTaxable);
+  const ptSocialSecurity = revenueEUR * 0.15;
+  const ptNetEUR = revenueEUR - realExpensesEUR - ptIrs - ptSolidarity - ptSocialSecurity;
+  // No `nyc` key here. It used to be computed by a generic computeYearState()
+  // that knew nothing about the UBT, the MCTMT or the filing status - and the
+  // caller overwrote it one line later with computeNYC(), so the figure was
+  // never once rendered. The function and its call are gone rather than fixed;
+  // a dead second opinion on New York is worse than none.
+  return {
+    berlin: {
+      netUSD: deNetEUR * EUR_TO_USD,
+      netEUR: deNetEUR,
+      taxUSD: (deHealthCare + deIncomeTax + deSoli) * EUR_TO_USD,
+      healthCareUSD: deHealthCare * EUR_TO_USD,
+      incomeTaxUSD: deIncomeTax * EUR_TO_USD,
+      soliUSD: deSoli * EUR_TO_USD
+    },
+    portugal: {
+      netUSD: ptNetEUR * EUR_TO_USD,
+      netEUR: ptNetEUR,
+      taxUSD: (ptIrs + ptSolidarity + ptSocialSecurity) * EUR_TO_USD,
+      irsUSD: ptIrs * EUR_TO_USD,
+      solidarityUSD: ptSolidarity * EUR_TO_USD,
+      ssUSD: ptSocialSecurity * EUR_TO_USD
+    }
+  };
+}
+
+return {computeNYC: computeNYC, computePittsburgh: computePittsburgh, computeFrance: computeFrance, computeUAE: computeUAE, computeBrisbane: computeBrisbane, computeResidency: computeResidency};
+})();
 
 /* ---------------------------------------------------------------- strategy
    Limits are the 2026 published figures. Anything here that is a convention
@@ -1523,6 +2086,78 @@ function drawSorting(strat){
   }).join("");
 }
 
+/* ------------------------------------------------- 06 working remotely -----
+   Eight places, the reader's own profit, one bar each. The engine is app.js's,
+   lifted whole (see _residency_core.js) and asserted equal to the cent, so this
+   block and the simulator cannot quietly disagree about Berlin.
+
+   Ranked by what is left, and California is marked rather than pinned to the
+   top: the point of the section is that most of the list is WORSE, which only
+   lands if the reader sees where their own line falls. */
+var REMOTE = [
+  {k:"uae",        name:"Dubai, UAE",         note:"9% corporate tax above AED 375,000; no personal income tax — and the US bill it does not shelter"},
+  {k:"pittsburgh", name:"Pittsburgh, PA",     note:"PA flat 3.07%, city and school EIT 3%, $52 local services tax"},
+  {k:"california", name:"California",         note:"where you are now"},
+  {k:"brisbane",   name:"Brisbane, Australia",note:"resident rates plus the 2% Medicare levy"},
+  {k:"nyc",        name:"New York City",      note:"state and city income tax, the unincorporated business tax, and the MCTMT"},
+  {k:"berlin",     name:"Berlin, Germany",    note:"§32a EStG income tax, statutory health cover, solidarity surcharge"},
+  {k:"portugal",   name:"Lisbon, Portugal",   note:"Categoria B simplified regime — taxed on 75% of GROSS, expenses not separately deducted"},
+  {k:"france",     name:"Bordeaux, France",   note:"cotisations sociales plus the income tax scale"}
+];
+
+function drawRemote(c0){
+  var el = $("remoteout"); if (!el) return;
+  if (!c0 || !(c0.profit > 0)){
+    el.innerHTML = '<p class="dek">Put a rate and a caseload in at the top and the '
+      + 'eight places price themselves against your own practice.</p>';
+    return;
+  }
+  /* Schedule C expenses, health cover excluded - it is a Schedule 1 adjustment,
+     and every one of these functions expects the same base compute() uses. */
+  var expC = Math.max(0, c0.expenses - c0.sehi);
+  var gross = c0.gross;
+  var r = RESID.computeResidency(gross, expC);
+  var net = {
+    california: c0.net,
+    nyc:        RESID.computeNYC(gross, expC, 0, S.filing, c0.sehi).netUSD,
+    pittsburgh: RESID.computePittsburgh(gross, expC, 0, S.filing, c0.sehi).netUSD,
+    france:     RESID.computeFrance(gross, expC).netUSD,
+    uae:        RESID.computeUAE(gross, expC, S.filing).netUSD,
+    brisbane:   RESID.computeBrisbane(gross, expC).netUSD,
+    berlin:     r.berlin.netUSD,
+    portugal:   r.portugal.netUSD
+  };
+  var rows = REMOTE.map(function(p){
+    return {k:p.k, name:p.name, note:p.note, net:net[p.k],
+            delta:net[p.k] - net.california};
+  }).sort(function(a, b){ return b.net - a.net; });
+  var top = Math.max.apply(null, rows.map(function(x){ return x.net; }));
+  var better = rows.filter(function(x){ return x.delta > 0; }).length;
+
+  el.innerHTML = rows.map(function(x){
+    var home = x.k === "california";
+    var w = top > 0 ? Math.max(4, x.net / top * 100) : 4;
+    return '<div class="rrow' + (home ? " rhome" : "") + '">'
+      + '<div class="rname"><b>' + esc(x.name) + (home ? ' <i>you are here</i>' : '')
+      + '</b><em>' + esc(x.note) + '</em></div>'
+      + '<div class="rbar"><span style="width:' + w.toFixed(1) + '%"></span></div>'
+      + '<div class="rfig"><b>' + money(x.net) + '</b><em class="'
+      + (home ? "rz" : x.delta > 0 ? "rup" : "rdn") + '">'
+      + (home ? "your baseline"
+             : (x.delta > 0 ? "+" : "−") + money(Math.abs(x.delta)) + " a year")
+      + '</em></div></div>';
+  }).join("")
+  + '<p class="barn">Same practice, same clients, same ' + money(c0.profit)
+  + ' of profit before tax. <b>' + (better === 0
+      ? "Not one of the seven leaves you better off."
+      : better === 1
+        ? "One of the seven leaves you better off."
+        : better + " of the seven leave you better off.")
+  + '</b> Every figure is this year’s rates on your own numbers, converted at '
+  + 'today’s rough exchange rates, and none of them price the cost of living '
+  + 'once you get there.</p>';
+}
+
 /* --------------------------------------------------- 05 the structure block
    Last, on purpose. It is the smaller lever, it depends on the retirement
    decision above it, and it is the one that costs something other than money. */
@@ -1621,6 +2256,7 @@ function render(){
   drawPlan(c0, cNow, strat);
   drawSorting(strat);
   drawCorp(c0, corp, ss, strat);
+  drawRemote(c0);
 
   var sl = $("salout");
   if (sl && corp) sl.textContent = money(corp.salary) + "  ·  "
