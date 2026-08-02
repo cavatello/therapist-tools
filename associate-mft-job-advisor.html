@@ -772,6 +772,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   padding:9px 12px}
 .waitnote:empty{display:none;padding:0;border:0}
 
+/* biweekly / semi-monthly / monthly, on each offer */
+.biwk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 0;
+  padding-top:14px;border-top:1px solid var(--line)}
+@media (max-width:520px){.biwk{grid-template-columns:minmax(0,1fr)}}
+.bw{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.bw em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.bw b{display:block;font-family:Fraunces,Georgia,serif;font-size:20px;line-height:1;
+  margin:4px 0 3px}
+.bw i{display:block;font-style:normal;font-size:11px;color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -1312,6 +1323,21 @@ function drawTake(a, b){
              "−" + fmt(c.supPaid), "neg");
     s += rec("What the job is actually worth", "take-home plus benefits, less what you pay out",
              fmt(c.value), "tot");
+    /* The number people actually plan around. An associate job pays on a real
+       payroll cycle, so "what does this look like on a cheque" is a more useful
+       question here than it is for a practice, where income arrives whenever
+       clients pay. Both cadences are shown because employers use both. */
+    if (c.net > 0){
+      s += '<div class="biwk"><div class="bw"><em>Every two weeks</em><b>'
+        + fmt(Math.round(c.net / 26)) + '</b><i>26 cheques</i></div>'
+        + '<div class="bw"><em>Twice a month</em><b>' + fmt(Math.round(c.net / 24))
+        + '</b><i>24 cheques</i></div>'
+        + '<div class="bw"><em>A month</em><b>' + fmt(Math.round(c.net / 12))
+        + '</b><i>if you smooth it yourself</i></div></div>'
+        + '<p class="jobfoot">Take-home only &mdash; before supervision you pay for, and '
+        + 'before anything you put away. Fortnightly and semi-monthly are not the same '
+        + 'thing: 26 cheques against 24 means two months a year carry a third payday.</p>';
+    }
     s += '</div>';
     return s;
   }
