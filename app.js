@@ -2660,6 +2660,7 @@ function PracticeIncomePlanner() {
      the point of collapsing five links to three was never to hide the tools. */
   const NAV_PANEL = [
     ["Tools", [["piggy", "All free tools", "every calculator and widget, in one place", "tools.html"],
+               ["calc", "Associate Job Advisor", "compare AMFT jobs, pay and your 3,000 hours", "associate-mft-job-advisor.html"],
                ["dollar", "Practice Simulator", "what a California practice actually pays", "#sim"],
                ["calc", "Tax & Retirement", "sole prop vs professional corp, priced", "#tax"],
                ["chart_up", "Grow Your Practice", "funnels, associates, lead targets", "#grow"]]],
@@ -4622,7 +4623,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-room", src: FOOTER_ROOM, alt: "", "aria-hidden": "true"
   }), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-cols"
-  }, [["Tools", [["tools.html", "All free tools"], ["#sim", "Practice Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"]]],
+  }, [["Tools", [["tools.html", "All free tools"], ["associate-mft-job-advisor.html", "Associate Job Advisor"], ["#sim", "Practice Simulator"], ["#tax", "Tax & Retirement"], ["#grow", "Grow Your Practice"]]],
       ["Learn", [["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]]],
       ["About", [["about.html", "What this is"], ["newsletter.html", "Newsletter"], ["contact.html", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
     key: h,
@@ -4636,7 +4637,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-col"
   }, /*#__PURE__*/React.createElement("h4", null, "The small print"), /*#__PURE__*/React.createElement("p", null, "2026 federal and California rates. Estimates only \u2014 not tax advice."), /*#__PURE__*/React.createElement("p", null, "Nothing is saved and nothing is sent. Your setup lives in the URL."))), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-meta"
-  }, "Last updated: August 1, 2026"), /*#__PURE__*/React.createElement("div", {
+  }, "Last updated: August 2, 2026"), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-by"
   }, /*#__PURE__*/React.createElement("b", null, "Built by Cavatello."), " This does not constitute legal or tax advice, just a fun simulator built with Claude.")));
 }
