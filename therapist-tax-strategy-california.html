@@ -869,6 +869,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <section class="slab gold" id="remote"><div class="chh"><span class="chn">06</span><h2>Curious about working remotely?</h2></div>
 <p class="dek">Everything above this line moves money between accounts. This moves <em>you</em>. Same clients, same profit, eight different places to be sitting when you see them. How many of them beat California depends on your own profit, so the count below is computed rather than quoted &mdash; and the rule that decides whether you can do it at all is <b>not</b> the one you expect.</p>
 <div id="remoteout"></div>
+<a class="tcta" href="therapist-working-remotely-california.html" style="margin-top:16px"><strong>Can a California therapist work remotely? &rarr;</strong><span>the Board&rsquo;s own answer, all eight places, and the US tax that follows your passport</span></a>
 <details class="txref"><summary><span><b>Your licence is not the obstacle</b><i>the Board has answered this directly &mdash; and it is a yes</i></span></summary><div class="txb"><p>The Board of Behavioral Sciences was asked whether a California licensee can provide telehealth from outside the state, and answered: <b>yes</b> &mdash; if the licence is current and active, the case is appropriate for telehealth, and the licensee follows 16 CCR &#167;1815.5. That regulation sets standards for the session, including verbally obtaining and documenting <b>the client’s</b> full name and present location at the start of every one. It sets no requirement about where the <em>licensee</em> is.<sup>[10][11]</sup></p><p>Which puts the constraint where it actually sits: your licence covers clients in California, so your clients stay in California. You are the one who moves. And the country you move to has its own view about practising a regulated profession from its soil, and about whether your visa lets you work at all &mdash; neither of which is a California question, and neither of which is priced above.</p></div></details>
 <details class="txref"><summary><span><b>The tax follows the passport, not the address</b><i>why Dubai is not the windfall the bar makes it look</i></span></summary><div class="txb"><p>The United States taxes citizens on worldwide income wherever they live. In a high-tax country the foreign tax credit absorbs most of the US bill, which is why Berlin and Bordeaux above are close to their local tax and not much more. In a low-tax one there is nothing to credit, so the US bill lands in full.</p><p>And the foreign earned income exclusion, the thing everyone reaches for first, <b>does not touch self-employment tax</b> &mdash; the IRS is explicit about it. A self-employed therapist in Dubai still owes the full 15.3% on the way through, on top of whatever the UAE charges.<sup>[12][13]</sup></p></div></details>
 <p class="pay-note">This is a comparison, not a plan. It prices tax and nothing else: not visas, not the right to work, not health cover, not what a flat costs in Lisbon versus Fresno, not currency risk, and not whether a client in Sacramento wants a therapist nine time zones away. Treat it as a reason to ask a cross-border accountant a better question.</p>
@@ -2200,6 +2201,7 @@ function drawSorting(strat){
    Ranked by what is left, and California is marked rather than pinned to the
    top: the point of the section is that most of the list is WORSE, which only
    lands if the reader sees where their own line falls. */
+var REMOTE_PAGE = "therapist-working-remotely-california.html";
 var REMOTE = [
   {k:"uae",        name:"Dubai, UAE",         note:"9% corporate tax above AED 375,000; no personal income tax — and the US bill it does not shelter"},
   {k:"pittsburgh", name:"Pittsburgh, PA",     note:"PA flat 3.07%, city and school EIT 3%, $52 local services tax"},
@@ -2233,12 +2235,24 @@ function drawRemote(c0){
     berlin:     r.berlin.netUSD,
     portugal:   r.portugal.netUSD
   };
-  var rows = REMOTE.map(function(p){
+  var all = REMOTE.map(function(p){
     return {k:p.k, name:p.name, note:p.note, net:net[p.k],
             delta:net[p.k] - net.california};
   }).sort(function(a, b){ return b.net - a.net; });
-  var top = Math.max.apply(null, rows.map(function(x){ return x.net; }));
-  var better = rows.filter(function(x){ return x.delta > 0; }).length;
+  var top = Math.max.apply(null, all.map(function(x){ return x.net; }));
+  var better = all.filter(function(x){ return x.delta > 0; }).length;
+  /* A TEASER, not the table. The full eight live on
+     therapist-working-remotely-california.html; running the same eight rows on
+     two pages is near-duplicate content and splits whatever ranking either
+     earns. Three rows plus California is enough to make the point and create
+     the reason to click. */
+  var idx = all.findIndex(function(x){ return x.k === "california"; });
+  var keep = {};
+  all.slice(0, 3).forEach(function(x){ keep[x.k] = 1; });
+  keep.california = 1;
+  if (all[all.length - 1]) keep[all[all.length - 1].k] = 1;   /* and the worst */
+  var rows = all.filter(function(x){ return keep[x.k]; });
+  var hidden = all.length - rows.length;
 
   el.innerHTML = rows.map(function(x){
     var home = x.k === "california";
@@ -2259,9 +2273,13 @@ function drawRemote(c0){
       : better === 1
         ? "One of the seven leaves you better off."
         : better + " of the seven leave you better off.")
-  + '</b> Every figure is this year’s rates on your own numbers, converted at '
-  + 'today’s rough exchange rates, and none of them price the cost of living '
-  + 'once you get there.</p>';
+  + '</b> ' + (hidden > 0
+      ? hidden + ' more places, the licensing answer in full and the reason Dubai is '
+        + 'a smaller win than it looks are on the <a href="'
+        + REMOTE_PAGE + '">working-remotely page</a>.'
+      : 'The full comparison is on the <a href="' + REMOTE_PAGE
+        + '">working-remotely page</a>.')
+  + '</p>';
 }
 
 /* --------------------------------------------------- 05 the structure block
@@ -2460,6 +2478,6 @@ if (document.readyState === "loading") document.addEventListener("DOMContentLoad
 else boot();
 
 </script>
-<footer class="sitefoot"><div class="ftin"><div class="ftcols"><div><h5>Tools</h5><a href="index.html">Practice Simulator</a><a href="therapist-tax-strategy-california.html">Tax &amp; Retirement</a><a href="grow-your-therapy-practice.html">Grow Your Practice</a><a href="associate-mft-job-advisor.html">Associate Job Advisor</a><a href="practice-simulator.html">Full simulator</a><a href="tools.html">All free tools</a></div><div><h5>Learn</h5><a href="rates.html">Field Notes</a><a href="https://cavatello.github.io/therapist-tycoon/tycoon.html" target="_blank" rel="noopener noreferrer">Tycoon</a></div><div><h5>About</h5><a href="about.html">What this is</a><a href="newsletter.html">Stay updated</a><a href="contact.html">Contact</a></div><div><h5>The small print</h5><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy</a><a href="contact.html">Report a wrong figure</a><p>2026 federal and California rates. Estimates only &mdash; not tax, legal or financial advice.</p></div></div><p class="ftby"><b>Built by Cavatello.</b> Free, and not selling anything. Nothing here is legal, tax, financial or clinical advice, and using this site does not create a professional relationship &mdash; see the <a href="terms.html">Terms of Use</a>.</p></div></footer>
+<footer class="sitefoot"><div class="ftin"><div class="ftcols"><div><h5>Tools</h5><a href="index.html">Practice Simulator</a><a href="therapist-tax-strategy-california.html">Tax &amp; Retirement</a><a href="grow-your-therapy-practice.html">Grow Your Practice</a><a href="associate-mft-job-advisor.html">Associate Job Advisor</a><a href="practice-simulator.html">Full simulator</a><a href="tools.html">All free tools</a></div><div><h5>Learn</h5><a href="rates.html">Field Notes</a><a href="therapist-working-remotely-california.html">Working Remotely</a><a href="https://cavatello.github.io/therapist-tycoon/tycoon.html" target="_blank" rel="noopener noreferrer">Tycoon</a></div><div><h5>About</h5><a href="about.html">What this is</a><a href="newsletter.html">Stay updated</a><a href="contact.html">Contact</a></div><div><h5>The small print</h5><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy</a><a href="contact.html">Report a wrong figure</a><p>2026 federal and California rates. Estimates only &mdash; not tax, legal or financial advice.</p></div></div><p class="ftby"><b>Built by Cavatello.</b> Free, and not selling anything. Nothing here is legal, tax, financial or clinical advice, and using this site does not create a professional relationship &mdash; see the <a href="terms.html">Terms of Use</a>.</p></div></footer>
 </body>
 </html>
