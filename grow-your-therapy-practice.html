@@ -815,6 +815,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 @media (prefers-reduced-motion:reduce){.gro *{transition:none !important}}
 
+/* the old h1, demoted to a deck: the subject moved up into the h1 so the
+   page is findable, and this line kept because it is the better sentence. */
+.ttag{font-family:Fraunces,Georgia,serif;font-size:clamp(17px,1.7vw,22px);
+  font-weight:400;font-style:italic;line-height:1.3;margin:0 0 .7em;opacity:.86}
+
 /* ---------- hero: LIGHT. The tax page keeps a black hero because it opens on a
    number you are about to lose. This page opens on an idea, and a dark band
    would make the two pages look like the same argument. ---------- */
@@ -894,6 +899,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  .stg{width:100% !important;min-width:0}
 }
 
+/* the old h1, demoted to a deck: the subject moved up into the h1 so the
+   page is findable, and this line kept because it is the better sentence. */
+.gtag{font-family:Fraunces,Georgia,serif;font-size:clamp(17px,1.7vw,22px);
+  font-weight:400;font-style:italic;line-height:1.3;margin:0 0 .7em;opacity:.86}
+
 </style>
 </head>
 <body>
@@ -902,7 +912,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div class="gro">
 <section class="ghero"><div class="in"><div>
 <p class="gkick">Growing the practice &middot; California private practice</p>
-<h1>A practice is a <em>funnel</em>, not a mystery.</h1>
+<h1>Grow your therapy practice in <em>California</em>.</h1>
+<p class="gtag">A practice is a funnel, not a mystery.</p>
 <p class="glede">How many people see you, how many ask, how many book — and what one of them is worth over the whole time they stay. Change any one of those and a whole year moves. <b>This page needs about six numbers</b>, most of which you can estimate from memory, and it will tell you which of your channels is quietly losing you the most clients.</p>
 <div class="gherocta"><a href="#worth">What a client is worth</a><a class="ghost" href="#channels">Where they come from</a><a class="ghost" href="#need">How many you need</a></div>
 </div><div class="gpanel"><div class="pr"><em>What one client is worth</em><b class="gold" id="heroworth">&mdash;</b></div><div class="pr"><em>One more a month, over a year</em><b id="heroyear">&mdash;</b></div><p class="pn">A projection, not a forecast. Nothing is saved and there is no account — your setup lives in the address bar, so bookmarking this page keeps it.</p></div></div></section>
@@ -980,6 +991,12 @@ var FED = {
   mfj:[[0,.10],[24800,.12],[100800,.22],[211400,.24],[403550,.32],[512450,.35],[768700,.37]],
   hoh:[[0,.10],[17700,.12],[67450,.22],[105700,.24],[201750,.32],[256200,.35],[640600,.37]]
 };
+/* Head of household corrected 2 Aug 2026 to FTB Schedule Z. Seven of the
+   nine thresholds here were wrong - 52528/67699/83790/98974/505219/606329/
+   1010718 against the published 52530/67716/83805/98990/505208/606251/
+   1010417. It produced a wrong-but-plausible California tax for every
+   head-of-household filer and nothing else, which is why it survived.
+   ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf */
 var CA = {
   single:[[0,.01],[11079,.02],[26264,.04],[41452,.06],[57542,.08],[72724,.093],[371479,.103],[445771,.113],[742953,.123]],
   mfj:[[0,.01],[22158,.02],[52528,.04],[82904,.06],[115084,.08],[145448,.093],[742958,.103],[891542,.113],[1485906,.123]],
