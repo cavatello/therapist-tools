@@ -2660,6 +2660,7 @@ function PracticeIncomePlanner() {
      the point of collapsing five links to three was never to hide the tools. */
   const NAV_PANEL = [
     ["Tools", [["piggy", "All free tools", "every calculator and widget, in one place", "tools.html"],
+               ["dollar", "Full simulator", "residency, Social Security, associates in detail", "practice-simulator.html"],
                ["calc", "Associate Job Advisor", "compare AMFT jobs, pay and your 3,000 hours", "associate-mft-job-advisor.html"],
                ["dollar", "Practice Simulator", "what a California practice actually pays", "#sim"],
                ["calc", "Tax & Retirement", "how much of your tax bill is optional", "therapist-tax-strategy-california.html"],
