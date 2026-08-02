@@ -2663,7 +2663,7 @@ function PracticeIncomePlanner() {
                ["calc", "Associate Job Advisor", "compare AMFT jobs, pay and your 3,000 hours", "associate-mft-job-advisor.html"],
                ["dollar", "Practice Simulator", "what a California practice actually pays", "#sim"],
                ["calc", "Tax & Retirement", "how much of your tax bill is optional", "therapist-tax-strategy-california.html"],
-               ["chart_up", "Grow Your Practice", "funnels, associates, lead targets", "#grow"]]],
+               ["chart_up", "Grow Your Practice", "what a client is worth, and where they come from", "grow-your-therapy-practice.html"]]],
     ["Learn", [["notepad", "Field Notes", "what CA therapy actually pays", "rates.html"],
                ["bubbles", "Tycoon", "the practice, as a game",
                 "https://cavatello.github.io/therapist-tycoon/tycoon.html"]]],
@@ -4623,7 +4623,7 @@ function PracticeIncomePlanner() {
     className: "sitefoot-room", src: FOOTER_ROOM, alt: "", "aria-hidden": "true"
   }), /*#__PURE__*/React.createElement("div", {
     className: "sitefoot-cols"
-  }, [["Tools", [["tools.html", "All free tools"], ["associate-mft-job-advisor.html", "Associate Job Advisor"], ["#sim", "Practice Simulator"], ["therapist-tax-strategy-california.html", "Tax & Retirement"], ["#grow", "Grow Your Practice"]]],
+  }, [["Tools", [["tools.html", "All free tools"], ["associate-mft-job-advisor.html", "Associate Job Advisor"], ["#sim", "Practice Simulator"], ["therapist-tax-strategy-california.html", "Tax & Retirement"], ["grow-your-therapy-practice.html", "Grow Your Practice"]]],
       ["Learn", [["rates.html", "Field Notes"], ["https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon"]]],
       ["About", [["about.html", "What this is"], ["newsletter.html", "Newsletter"], ["contact.html", "Contact"]]]].map(([h, items]) => /*#__PURE__*/React.createElement("div", {
     key: h,
