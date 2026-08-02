@@ -857,6 +857,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <section class="slab brick" id="which"><div class="chh"><span class="chn">04</span><h2>Which account, and what each is worth to you</h2></div>
 <p class="dek">No wizard and no pages. Four answers at the top, and everything below re-orders around them. <b>Nothing is ever removed</b> — an account that does not apply drops to a dashed line that says which answer ruled it out, because the reason is the useful part.</p>
 <div class="sbar" id="sbar"></div>
+<div class="slider" style="margin-top:14px"><label for="i-pretaxIra">Money already sitting in Traditional, SEP or SIMPLE IRAs &mdash; needed only for the backdoor Roth below. A Solo 401(k) balance does not count.</label><div class="fgrid" style="max-width:280px;margin-top:8px"><label class="f"><em>Pre-tax IRA balance</em><span class="fv"><span class="unit">$</span><input id="i-pretaxIra" type="number" min="0" max="5000000" step="1000" placeholder="0"></span></label></div></div>
 <div id="blocks"></div>
 <p class="fine">The headline figure is the <b>best single route</b>, not a total. These are alternatives drawing on the same profit — a SIMPLE and a Solo 401(k) cannot share a year at all, and adding two of these together would overstate what is available by thousands.</p>
 </section>
@@ -941,6 +942,12 @@ var FED = {
   mfj:[[0,.10],[24800,.12],[100800,.22],[211400,.24],[403550,.32],[512450,.35],[768700,.37]],
   hoh:[[0,.10],[17700,.12],[67450,.22],[105700,.24],[201750,.32],[256200,.35],[640600,.37]]
 };
+/* Head of household corrected 2 Aug 2026 to FTB Schedule Z. Seven of the
+   nine thresholds here were wrong - 52528/67699/83790/98974/505219/606329/
+   1010718 against the published 52530/67716/83805/98990/505208/606251/
+   1010417. It produced a wrong-but-plausible California tax for every
+   head-of-household filer and nothing else, which is why it survived.
+   ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf */
 var CA = {
   single:[[0,.01],[11079,.02],[26264,.04],[41452,.06],[57542,.08],[72724,.093],[371479,.103],[445771,.113],[742953,.123]],
   mfj:[[0,.01],[22158,.02],[52528,.04],[82904,.06],[115084,.08],[145448,.093],[742958,.103],[891542,.113],[1485906,.123]],
@@ -1089,10 +1096,12 @@ function compute(st, contribOverride){
 }
 
 /* ==========================================================================
-   RESIDENCY ENGINE.  Lifted out of app.js by lift_residency.py - every block
-   below is a byte-for-byte substring of that file, comments included. Do not
-   edit it here; edit app.js (or, once app.js is gone, promote this file to the
-   source of truth and say so at the top).
+   RESIDENCY ENGINE.  THIS FILE IS NOW THE SOURCE OF TRUTH.
+
+   It was lifted out of app.js by lift_residency.py - every block below is a
+   byte-for-byte substring of that file, comments included - and app.js has
+   since been deleted. Edit here. lift_residency.py is kept for the record of
+   how the lift was done, but it can no longer be run.
 
    It lives inside an IIFE because app.js and _engine_core.js use DIFFERENT
    NAMES for the same quantities, and in two places slightly different bracket
@@ -1623,6 +1632,11 @@ var IRA_LIMIT  = 7500,  IRA_CATCHUP = 1100;
    A sole proprietor with no plan at all is not covered and the deduction is
    unlimited - which is why the IRA block has to ask before it answers. */
 var IRA_PHASE  = {single:[81000,91000], hoh:[81000,91000], mfj:[129000,149000]};
+/* Roth IRA income phase-out - a DIFFERENT test from the Traditional deduction
+   phase-out above. Traditional asks "are you covered by a plan at work"; Roth
+   asks only "what is your income". Conflating the two is the commonest error
+   in this area, so they are named separately and never share a constant. */
+var ROTH_PHASE = {single:[153000,168000], hoh:[153000,168000], mfj:[242000,252000]};
 var RET_AGE    = 67;
 
 /* Every account, priced the same way: room, then the tax that room removes,
@@ -1659,6 +1673,10 @@ function strategies(st, base){
      than compute: are you covered by a plan at work. Both answers are given. */
   var ph = IRA_PHASE[st.filing] || IRA_PHASE.single;
   var agiish = Math.max(0, profit - halfSE);
+  var rp = ROTH_PHASE[st.filing] || ROTH_PHASE.single;
+  var rothFrac = agiish <= rp[0] ? 1 : agiish >= rp[1] ? 0
+               : 1 - (agiish - rp[0]) / (rp[1] - rp[0]);
+  var pretax = num(st.pretaxIra);
   var iraFrac = agiish <= ph[0] ? 1 : agiish >= ph[1] ? 0
               : 1 - (agiish - ph[0]) / (ph[1] - ph[0]);
   var iraDeductibleIfCovered = ira * iraFrac;
@@ -1670,13 +1688,40 @@ function strategies(st, base){
     {id:"simple", room:simple, deferral:simpleDef, match:netSE * SIMPLE_MATCH,
      saved:savedBy(simple)},
     {id:"ira", room:ira, saved:savedBy(ira),
-     deductibleIfCovered:iraDeductibleIfCovered, coveredFrac:iraFrac}
+     deductibleIfCovered:iraDeductibleIfCovered, coveredFrac:iraFrac},
+    /* Roth. No deduction now, so saved is zero BY DEFINITION - the whole point
+       is that the tax is paid today and the growth comes out untaxed. Showing a
+       $0 saving next to the others is honest and is exactly the comparison the
+       reader needs; quietly omitting it would imply it is worse than it is. */
+    {id:"roth", room:ira * rothFrac, saved:0, eligibleFrac:rothFrac,
+     phasedOut: Math.max(0, ira - ira * rothFrac)},
+    /* Backdoor. A non-deductible Traditional contribution converted straight to
+       Roth. The pro-rata rule (IRC 408(d)(2)) makes the conversion tax-free ONLY
+       if there is no other pre-tax IRA, SEP or SIMPLE money - otherwise the
+       taxable share is prorated across every IRA dollar you own, which is why
+       the page has to ask for that balance rather than assume zero. */
+    {id:"backdoor", room:ira, saved:0,
+     pretax:pretax,
+     taxableFrac: (pretax + ira) > 0 ? pretax / (pretax + ira) : 0,
+     taxableOnConversion: ira * ((pretax + ira) > 0 ? pretax / (pretax + ira) : 0)}
   ];
   out.forEach(function(o){
     o.cash = Math.max(0, o.room - o.saved);            /* what it costs you */
     o.fundedPct = o.room > 0 ? o.saved / o.room : 0;   /* share paid by tax */
   });
   out.netSE = netSE; out.halfSE = halfSE; out.employerRoom = employer;
+
+  /* What the conversion actually costs: run the engine with that much extra
+     income rather than multiplying by a bracket the reader may not be in. */
+  var bd = out.filter(function(o){ return o.id === "backdoor"; })[0];
+  if (bd && bd.taxableOnConversion > 0){
+    /* Federal only. The conversion is ordinary income on top of the profit, so
+       the cost is the difference between the bracket table run at each level -
+       not the profit times a headline rate. */
+    var st0 = Math.max(0, base.profit - out.halfSE - base.sehi - FED_STD[st.filing]);
+    var st1 = st0 + bd.taxableOnConversion;
+    bd.conversionTax = bracketTax(st1, FED[st.filing]) - bracketTax(st0, FED[st.filing]);
+  } else if (bd) { bd.conversionTax = 0; }
   return out;
 }
 
@@ -1794,9 +1839,15 @@ S.retRet = 7; S.retYrs = "";        /* assumed return, and years to invest */
 S.expMonth = "";                    /* one bucket, mapped into exp.misc */
 S.salPct = 50;                      /* S-corp salary, as a share of profit */
 S.a_spare = "most"; S.a_staff = "none"; S.a_admin = "low"; S.a_age = "far";
+/* Pre-tax IRA, SEP and SIMPLE balances. The backdoor Roth card cannot answer
+   honestly without it: with a balance the conversion is partly taxable, and
+   assuming zero would tell most readers it is free when it is not. Blank is a
+   real answer here and is treated as zero. */
+S.pretaxIra = "";
 
 var HASH_KEYS = ["rate","sessions","weeksOff","billingPct","expMonth","filing","age",
-                 "contrib","retRet","retYrs","salPct","a_spare","a_staff","a_admin","a_age"];
+                 "contrib","retRet","retYrs","salPct","a_spare","a_staff","a_admin","a_age",
+                 "pretaxIra"];
 
 function $(id){ return document.getElementById(id); }
 function money(v){
@@ -2025,6 +2076,61 @@ function accountCards(strat){
          + '</li>'
          + '<li>A non-deductible contribution is not worthless — it is the first step of '
          + 'a backdoor Roth — but it is not a deduction this year.</li></ul>';
+     }},
+    /* Roth and the backdoor arrive last because they are the two the reader is
+       most likely to have heard of and least likely to have priced. Neither
+       saves tax this year, which is the point, and the card says so first so
+       nobody reads a $0 saving as a broken calculation. */
+    {id:"roth", title:"Roth IRA",
+     sub:"No deduction now — the trade is tax-free growth instead",
+     o:by.roth, share:share,
+     inPlay: spare !== "none" && by.roth.room > 0,
+     out: by.roth && by.roth.room <= 0
+       ? "At this profit you are over the income limit for a direct Roth contribution. The backdoor below is the route that stays open."
+       : "No spare profit to shelter.",
+     detail: function(o){
+       return '<p><b>This saves you nothing this April, and that is the whole idea.</b> '
+         + 'You pay the tax now so the growth and the withdrawals come out untaxed later. '
+         + 'Every other account on this page does the opposite.</p>'
+         + '<p>Room of <b>' + money(o.room) + '</b>'
+         + (o.eligibleFrac >= 1
+            ? ', the full limit — your income is under the phase-out.'
+            : o.eligibleFrac <= 0
+              ? '. Your income is above the phase-out, so a direct contribution is closed.'
+              : ' — the limit phased down, because your income sits inside the range where '
+                + 'eligibility tapers. ' + money(o.phasedOut) + ' of the limit is unavailable '
+                + 'directly.')
+         + '</p><ul>'
+         + '<li>The Roth income test is <b>not</b> the Traditional deduction test. That one '
+         + 'asks whether you have a plan at work; this one asks only what you earn.</li>'
+         + '<li>Whether it beats a deduction is a bet on your tax rate in retirement '
+         + 'against your rate today. Nobody on this page can settle that for you.</li></ul>';
+     }},
+    {id:"backdoor", title:"Backdoor Roth",
+     sub:"The route that stays open when the front door closes",
+     o:by.backdoor, share:share,
+     inPlay: spare !== "none",
+     out:"No spare profit to shelter.",
+     detail: function(o){
+       var clean = o.taxableOnConversion <= 0.5;
+       return '<p>A non-deductible contribution to a Traditional IRA, converted to a Roth '
+         + 'straight afterwards. There is no income limit on the conversion, which is why '
+         + 'it works when a direct Roth does not.</p>'
+         + '<p><b>The catch is the pro-rata rule</b>, and it is the reason this goes wrong '
+         + 'for people. The IRS does not let you convert only the after-tax dollars. It '
+         + 'looks at <em>every</em> Traditional, SEP and SIMPLE IRA you own and taxes the '
+         + 'same proportion of your conversion.</p>'
+         + (clean
+            ? '<p class="pay-note"><b>On the balance you entered, the conversion is tax-free.</b> '
+              + 'With no other pre-tax IRA money there is nothing to prorate against.</p>'
+            : '<p class="pay-note"><b>' + Math.round(o.taxableFrac * 100) + '% of your '
+              + 'conversion would be taxable</b> — ' + money(o.taxableOnConversion)
+              + ' of income, costing roughly ' + money(o.conversionTax) + ' in federal tax — '
+              + 'because you hold ' + money(o.pretax) + ' of pre-tax IRA money.</p>')
+         + '<ul><li>A SEP or SIMPLE balance counts. A Solo 401(k) balance does '
+         + '<b>not</b> — which is one practical reason to prefer the 401(k) here.</li>'
+         + '<li>The balance that matters is measured on 31 December, not on the day you '
+         + 'convert.</li></ul>';
      }}
   ];
 }
@@ -2312,7 +2418,7 @@ function bind(id, key){
 
 function boot(){
   readHash();
-  ["rate","sessions","weeksOff","expMonth","filing","age","contrib","retRet","retYrs"]
+  ["rate","sessions","weeksOff","expMonth","filing","age","contrib","retRet","retYrs","pretaxIra"]
     .forEach(function(k){ bind("i-" + k, k); });
   /* Typing in the monthly total is the reader choosing the simple model over
      the twelve categories they arrived with. */
