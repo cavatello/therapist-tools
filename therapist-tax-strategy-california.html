@@ -832,7 +832,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <p class="ttag">Some of your tax bill is optional. Here is how much.</p>
 <p class="tlede">Not a loophole and not aggressive — ordinary accounts the tax code created on purpose. The only real question is whether that money goes to the IRS this April or into an account with your name on it. <b>Everything below is worked out from your own profit</b>, and the saving from each account is measured by running the whole tax engine twice rather than estimated from a bracket table.</p>
 <div class="therocta"><a href="#plan">Make the plan</a><a class="ghost" href="#which">Which account</a><a class="ghost" href="#structure">Sole prop or corporation</a></div>
-</div><div class="tpanel"><div class="pr"><em>Your practice profit</em><b id="heroprofit">&mdash;</b></div><div class="pr"><em>Of the tax on it, optional</em><b class="gold" id="herooptional">&mdash;</b></div><p class="pn">Arrived from the simulator? Your rate, caseload and costs came with you. Nothing is saved and there is no account — your setup lives in the address bar.</p></div></div></section>
+</div><div class="tpanel"><div class="pr"><em>Your practice profit</em><b id="heroprofit">$217,350</b></div><div class="pr"><em>Of the tax on it, optional</em><b class="gold" id="herooptional">$18,244</b></div><p class="pn" id="heroeg" style="margin-top:2px"><b>Worked example</b> &mdash; a $250,000 practice with $41,650 of running costs. Put your own numbers in below, or arrive from the simulator and they come with you.</p><p class="pn">Arrived from the simulator? Your rate, caseload and costs came with you. Nothing is saved and there is no account — your setup lives in the address bar.</p></div></div></section>
 <section class="slab pine" id="profit"><div class="chh"><span class="chn">01</span><h2>Start from the profit</h2></div>
 <p class="dek">Planning does not stop at profit — it starts there. This is what the practice actually cleared before a dollar of tax, and every figure on this page is built from it. Change anything here and the whole page moves.</p>
 <div class="fgrid">
@@ -2391,10 +2391,18 @@ function render(){
   var sl = $("salout");
   if (sl && corp) sl.textContent = money(corp.salary) + "  ·  "
     + Math.round(corp.salaryPct * 100) + "% of profit";
+  /* NOT em-dashes. Two 38px figures above the fold with captions and nothing
+     under them is the worst thing this page can show a cold landing. The zero
+     state carries the site's own worked example - a $250,000 practice with
+     $41,650 of running costs, which the simulator computes as $217,350 of
+     profit with $18,244 of the tax on it still optional - and the tag below
+     says so. Both become the reader's the moment anything is typed. */
+  var haveProfit = !!(c0 && c0.profit > 0);
   var hp = $("heroprofit");
-  if (hp) hp.textContent = c0 && c0.profit > 0 ? money(c0.profit) : "—";
+  if (hp) hp.textContent = haveProfit ? money(c0.profit) : "$217,350";
   var ho = $("herooptional");
-  if (ho) ho.textContent = best ? money(best.saved) : "—";
+  if (ho) ho.textContent = best ? money(best.saved) : "$18,244";
+  var teg = $("heroeg"); if (teg) teg.hidden = haveProfit;
   writeHash();
 }
 
@@ -2486,12 +2494,15 @@ else boot();
 </script>
 <footer class="sitefoot"><div class="ftin"><div class="ftcols"><div><h5>Tools</h5><a href="practice-simulator.html">Practice Simulator</a><a href="therapist-tax-strategy-california.html">Tax &amp; Retirement</a><a href="grow-your-therapy-practice.html">Grow Your Practice</a><a href="associate-mft-job-advisor.html">Associate Job Advisor</a><a href="amft-3000-hours-california.html">3,000 Hours</a><a href="tools.html">All free tools</a></div><div><h5>Learn</h5><a href="rates.html">Field Notes</a><a href="therapist-working-remotely-california.html">Working Remotely</a><a href="therapist-cost-of-living-california.html">Cost of Living</a><a href="https://cavatello.github.io/therapist-tycoon/tycoon.html" target="_blank" rel="noopener noreferrer">Tycoon</a></div><div><h5>About</h5><a href="about.html">What this is</a><a href="newsletter.html">Stay updated</a><a href="contact.html">Contact</a></div><div><h5>The small print</h5><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy</a><a href="contact.html">Report a wrong figure</a><p>2026 federal and California rates. Estimates only &mdash; not tax, legal or financial advice.</p></div></div><p class="ftby"><b>Built by Cavatello.</b> Free, and not selling anything. Nothing here is legal, tax, financial or clinical advice, and using this site does not create a professional relationship &mdash; see the <a href="terms.html">Terms of Use</a>.</p></div></footer>
 
-
-
-
 <style>/* _dev/widen.py */
 @media (min-width:1500px){.cites,.disc,.ftin,.pw,.sitenav-in,.tax .in,.tax .slab{max-width:1320px}}
 @media (min-width:1900px){.cites,.disc,.ftin,.pw,.sitenav-in,.tax .in,.tax .slab{max-width:1560px}}
 /* end widen */</style>
+
+<style>/* _dev/cta_scale.py */
+.tcta{width:auto;max-width:min(100%,640px);align-items:flex-start;text-align:left;gap:4px;padding:15px 26px;min-height:64px}
+.tcta strong{font-size:clamp(17px,1.5vw,21px);max-width:none;line-height:1.2}
+.tcta span{font-size:13px;font-weight:600;opacity:.72}
+/* end cta_scale */</style>
 </body>
 </html>
