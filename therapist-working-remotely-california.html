@@ -547,7 +547,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <p class="rwdeck">So the interesting question is not whether you may. It is what it costs. Below is the same practice &mdash; same clients, same profit &mdash; priced against eight places, on your own numbers.</p>
 <a class="rwcta" href="#compare">See what each place leaves you &darr;</a>
 </div></section>
-<section class="rwsec"><div class="rwwrap rwnarrow">
+<section class="rwsec" id="your-licence-is-not-the-obstacle"><div class="rwwrap rwnarrow">
 <h2>Your licence is not the obstacle</h2>
 <div class="rwcard"><h3>What the Board actually says</h3>
 <p>The Board of Behavioral Sciences was asked this directly, and answered: <b>yes</b> &mdash; if the licence is current and active, the case is appropriate for telehealth, and the licensee follows 16 CCR &#167;1815.5.<sup>[1]</sup></p>
@@ -569,7 +569,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div id="rows"></div>
 <p class="rwsum" id="sum"></p>
 </div></section>
-<section class="rwsec"><div class="rwwrap rwnarrow">
+<section class="rwsec" id="the-tax-follows-the-passport-not-the-add"><div class="rwwrap rwnarrow">
 <h2>The tax follows the passport, not the address</h2>
 <div class="rwcard" data-a="brick">
 <p>The United States taxes citizens on worldwide income wherever they live. In a high-tax country the foreign tax credit absorbs most of the US bill, which is why Berlin and Bordeaux above land close to their local tax and not much above it. In a low-tax country there is nothing to credit, so the US bill arrives in full.<sup>[4]</sup></p>
@@ -578,7 +578,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 </div>
 <p class="rwfine"><b>This is a comparison, not a plan.</b> It prices tax and nothing else: not visas, not the right to work, not health cover, not what a flat costs in Lisbon against Fresno, not currency risk, not the time-zone question, and not whether a treaty changes your position. Treat it as a reason to ask a cross-border accountant a better question.</p>
 </div></section>
-<section class="rwsec rwpaper"><div class="rwwrap rwnarrow">
+<section class="rwsec rwpaper" id="before-any-of-this-matters"><div class="rwwrap rwnarrow">
 <h2>Before any of this matters</h2>
 <p class="rwlede">Every figure here is downstream of one number: what the practice clears before tax. If that is a guess, this page is a guess about a guess.</p>
 <a class="rwcta" href="practice-simulator.html" style="background:#2C6350;color:#fff">Build the profit properly &rarr;</a>
@@ -1463,6 +1463,51 @@ draw();
 .bcr [aria-current]{opacity:.95;font-weight:600}
 @media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
 /* end bcr */</style>
+<!-- side-nav --><nav class="sdnav" aria-label="Sections"><p class="t">On this page</p><a href="#your-licence-is-not-the-obstacle">Your licence is not the obstacle</a><a href="#compare">What eight places would leave you</a><a href="#the-tax-follows-the-passport-not-the-add">The tax follows the passport, not the address</a><a href="#before-any-of-this-matters">Before any of this matters</a></nav><!-- /side-nav -->
+<style>/* _dev/side_nav.py */
+/* A section nav in the gutter. No layout change anywhere: it is fixed, and it
+   exists only inside the width bands where the gutter can actually hold it.
+   THREE bands, not one: the wrap itself steps at 1500 and 1900 (widen.py), so a
+   single reveal breakpoint computed from the base wrap showed the nav at 2000px
+   where the wrap had already grown to 1560 and the gutter was 220 - the nav ran
+   off the left edge of the window. Each band carries its own wrap width and its
+   own minimum. */
+.sdnav{display:none;position:fixed;top:50%;transform:translateY(-50%);
+  width:190px;z-index:20;max-height:76vh;overflow:auto}
+@media (min-width:1484px) and (max-width:1499px){
+  .sdnav{display:block;left:calc((100vw - 1020px)/2 - 220px)}}
+@media (min-width:1784px) and (max-width:1899px){
+  .sdnav{display:block;left:calc((100vw - 1320px)/2 - 220px)}}
+@media (min-width:2024px){
+  .sdnav{display:block;left:calc((100vw - 1560px)/2 - 220px)}}
+.sdnav p.t{font-family:'IBM Plex Mono',monospace;font-size:9.4px;letter-spacing:.13em;
+  text-transform:uppercase;opacity:.5;margin:0 0 8px}
+.sdnav a{display:block;font-size:12.2px;line-height:1.3;padding:7px 0 7px 12px;
+  min-height:32px;text-decoration:none;color:inherit;opacity:.55;
+  border-left:2px solid rgba(128,128,128,.28);transition:opacity .12s}
+.sdnav a:hover{opacity:.9}
+.sdnav a.on{opacity:1;font-weight:600;border-left-color:currentColor}
+.sdnav a:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+@media print{.sdnav{display:none}}
+/* end sd */</style>
+<script>/* _dev/side_nav.py */
+(function(){
+  var nav=document.querySelector('.sdnav'); if(!nav) return;
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var secs=links.map(function(a){
+    return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+  if(!secs.length) return;
+  function mark(id){ links.forEach(function(a){
+    a.classList.toggle('on', a.getAttribute('href')==='#'+id); }); }
+  /* The trigger line sits near the top of the viewport, so the marked entry is
+     the section being read - not whichever one is sliding in at the bottom. */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) mark(e.target.id); });
+  }, {rootMargin:'-10% 0px -78% 0px', threshold:0});
+  secs.forEach(function(x){ io.observe(x); });
+  mark(secs[0].id);
+})();
+/* end sd */</script>
 
 <style>/* _dev/widen.py */
 @media (min-width:1500px){.ftin,.pw,.rwwrap,.sitenav-in{max-width:1320px}}
