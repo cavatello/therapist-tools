@@ -490,12 +490,36 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .lhead{max-width:70ch;margin:0 0 34px}
 .lhead .llede{margin-top:.2em}
 
-/* the "why this exists" prose. Wider measure than a card, narrower than the
-   page - this is the only part of the site anyone reads as prose. */
-.lwhy p{font-size:clamp(16.5px,1.35vw,19px);line-height:1.68;max-width:66ch;
-  color:#3A362E}
-.lwhy p:last-child{color:var(--ink);font-weight:500}
-.lwhy p:last-child b{background:linear-gradient(transparent 62%,#F6C56066 62%)}
+/* THE ANSWER GRID - what replaced the "why this exists" prose.
+   That block was three paragraphs about the author's motive, set in a narrow
+   column with the whole right half of the page empty, and it promoted nothing.
+   Same slot, spent on the reader's four questions, each one a route to the tool
+   that answers it. One line of the old prose survives as the lede, because the
+   "scattered, and never California-specific" point was the only part of it the
+   reader had any use for. */
+.lwhy .llede{font-size:clamp(15px,1.2vw,17px);line-height:1.66;max-width:64ch;
+  color:var(--muted);margin:10px 0 30px}
+.lans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.lans{grid-template-columns:minmax(0,1fr)}}
+.lansc{display:block;background:var(--white);border:1px solid var(--line);
+  border-radius:18px;padding:24px 26px 21px;text-decoration:none;color:inherit;
+  border-left:3px solid var(--pine);
+  transition:transform .12s,box-shadow .12s,border-color .12s}
+.lansc:nth-child(2){border-left-color:var(--gold)}
+.lansc:nth-child(3){border-left-color:var(--indigo)}
+.lansc:nth-child(4){border-left-color:var(--brick)}
+.lansc:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(38,36,30,.09)}
+.lansc:focus-visible{outline:3px solid var(--pine);outline-offset:3px}
+/* a <q> so the question is marked up as the reader's words, not ours. The UA
+   quote marks are suppressed - the typography already reads as a question. */
+.lansq{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(18px,1.55vw,21px);
+  font-weight:600;letter-spacing:-.016em;line-height:1.25;quotes:none;margin:0 0 8px}
+.lansb{display:block;font-size:13.6px;line-height:1.6;color:var(--muted);margin:0 0 14px}
+.lansg{display:block;font-size:13.4px;font-weight:700;color:var(--pine)}
+.lansc:nth-child(2) .lansg{color:#8A6318}
+.lansc:nth-child(3) .lansg{color:var(--indigo)}
+.lansc:nth-child(4) .lansg{color:var(--brick)}
+.lansc:hover .lansg{text-decoration:underline}
 
 .lgrid{display:grid;gap:20px}
 .lg3{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -741,12 +765,15 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   <p class='lwho'><b>LMFTs</b> &middot; <b>LCSWs</b> &middot; <b>LPCCs</b> &middot; <b>psychologists</b> &middot; <b>registered associates</b> &middot; California only</p>
   <div class="lproof"><div><b>$138,365</b><em>what a $250,000 practice actually pays you, after every running cost and every tax</em></div><div><b>8</b><em>places priced against California, on your own profit</em></div><div><b>3,000</b><em>associate hours, projected week by week</em></div></div>
 </div></section>
-<section class="lsec"><div class="lwrap lnarrow lwhy">
-<p class="leyebrow">Why this exists</p><h2>Nobody teaches this part.</h2>
-<p>You trained to do clinical work. Then you opened a practice, and suddenly the questions are about self-employment tax, whether to incorporate, what a client is actually worth over their whole time with you, and whether the associate job you were offered pays what it looks like it pays.</p>
-<p>The answers exist. They are just scattered across accountants who charge by the hour, forum threads written by people guessing, and blog posts that stop exactly where the arithmetic starts. Almost none of it is specific to California, and California is where most of the difference is.</p>
-<p><b>This site does the arithmetic. On your own numbers, in the open, with the rule or statute each figure came from linked underneath it.</b></p>
-</div></section>
+<section class="lsec"><div class="lwrap lwhy">
+<p class="leyebrow">Why this exists</p><h2>Four questions nobody covered in grad school.</h2>
+<p class="llede">The answers exist. They are scattered across accountants who charge by the hour, forum threads written by people guessing, and blog posts that stop exactly where the arithmetic starts &mdash; and almost none of it is specific to California, which is where most of the difference is.</p>
+<div class="lans">
+<a class="lansc" href="therapist-tax-strategy-california.html"><q class="lansq">Should I incorporate, or stay a sole proprietor?</q><span class="lansb">A California therapist may not form an LLC. The real choice is sole proprietor or a professional corporation with an S-corp election, and it is worth a five-figure swing either way.</span><span class="lansg">Tax &amp; retirement strategy &rarr;</span></a>
+<a class="lansc" href="associate-mft-job-advisor.html"><q class="lansq">What is this associate job actually paying me?</q><span class="lansb">Flat rate, share of the fee, or salary &mdash; priced against the unpaid admin and the supervision you have to sit in either way.</span><span class="lansg">AMFT job advisor &rarr;</span></a>
+<a class="lansc" href="amft-3000-hours-california.html"><q class="lansq">How long until I am licensed?</q><span class="lansb">Four requirements close at different speeds, and the 3,000 hours is almost never the one that decides your date.</span><span class="lansg">3,000 hours calculator &rarr;</span></a>
+<a class="lansc" href="therapist-cost-of-living-california.html"><q class="lansq">Can I afford to live here on this?</q><span class="lansb">Housing, transport and food by area, your student loan on RAP or the standard plan, and what is left over for savings.</span><span class="lansg">Cost of living &rarr;</span></a>
+</div></div></section>
 <section class="lsec lpaper"><div class="lwrap"><div class="lgrid lg3">
 <div class="lpromise"><h3>It computes, it doesn't opine</h3><p>Every dollar on this site is the output of a calculation you can follow, run on numbers you typed in. There are no illustrative figures and no worked examples standing in for your practice.</p></div>
 <div class="lpromise"><h3>California specifically</h3><p>Not a national calculator with a state dropdown. California has its own income tax schedule, its own franchise tax, and its own rule that a licensed therapist may not form an LLC — all of which change the answer.</p></div>
