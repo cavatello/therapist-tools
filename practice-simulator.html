@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://cavatello.github.io/therapist-tools/" />
 <meta property="og:image" content="https://cavatello.github.io/therapist-tools/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"California Therapy Practice Simulator","url":"https://cavatello.github.io/therapist-tools/","applicationCategory":"FinanceApplication","operatingSystem":"Any web browser","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free simulator for California-licensed therapists. Session rate, caseload, twelve expense categories, self-employment tax and what you actually keep, on 2026 federal and California rates. No account, nothing saved.","audience":{"@type":"Audience","audienceType":"California-licensed marriage and family therapists, clinical social workers, professional clinical counselors and psychologists"},"featureList":["Session rate and caseload to annual billings","Twelve expense categories plus card processing as a live percentage","Self-employment tax, federal and California, on 2026 rates","What you keep, per year, per month and per session","Employing associates, priced with employer payroll tax"]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://cavatello.github.io/therapist-tools/"}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"California Therapy Practice Simulator","url":"https://cavatello.github.io/therapist-tools/","applicationCategory":"FinanceApplication","operatingSystem":"Any web browser","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free simulator for California-licensed therapists. Session rate, caseload, twelve expense categories, self-employment tax and what you actually keep, on 2026 federal and California rates. No account, nothing saved.","audience":{"@type":"Audience","audienceType":"California-licensed marriage and family therapists, clinical social workers, professional clinical counselors and psychologists"},"featureList":["Session rate and caseload to annual billings","Twelve expense categories plus card processing as a live percentage","Self-employment tax, federal and California, on 2026 rates","What you keep, per year, per month and per session","Employing associates, priced with employer payroll tax"]}]</script>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1063,6 +1063,7 @@ button{font:inherit}
 .paycell b{display:block;font-family:Fraunces,Georgia,serif;font-size:17px;margin-top:3px}
 .paycell i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px}
 </style>
+<script type="application/ld+json" data-bcr>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://cavatello.github.io/therapist-tools/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://cavatello.github.io/therapist-tools/tools.html"},{"@type":"ListItem","position":3,"name":"Practice simulator","item":"https://cavatello.github.io/therapist-tools/practice-simulator.html"}]}</script>
 </head>
 <body>
 
@@ -1073,7 +1074,7 @@ button{font:inherit}
 <!-- ===================== LANDING HERO ===================== -->
 <section class="hero"><div class="in">
   <div>
-    <p class="kick">Free &middot; No account &middot; 2026 rates</p>
+    <!-- breadcrumb --><ol class="bcr" aria-label="Breadcrumb"><li><a href="index.html">Therapist Support</a><span class="sep">&rsaquo;</span></li><li><a href="tools.html">Tools</a><span class="sep">&rsaquo;</span></li><li><span aria-current="page">Practice simulator</span></li></ol><p class="kick">Free &middot; No account &middot; 2026 rates</p>
     <h1>California Therapy <em>Practice Simulator</em></h1>
     <p class="tagline">Build your practice. See what it pays.</p>
     <p class="lede">Put in your rate and caseload. This works out what a California practice
@@ -2358,6 +2359,25 @@ function drawPay(c){
 </script>
 
 
+
+<style>/* _dev/breadcrumbs.py */
+/* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
+   to a reader who could see the other chapters. Deliberately the same weight
+   and tracking as the kicker it sits above, so it reads as chrome rather than
+   as content. Colour is inherited so it works on paper and on a dark slab
+   without a second rule. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 12px;
+ padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
+.bcr li{display:flex;align-items:center;gap:8px}
+.bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
+ display:inline-flex;align-items:center;border-bottom:1px solid transparent}
+.bcr a:hover{opacity:1;border-bottom-color:currentColor}
+.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.bcr .sep{opacity:.36}
+.bcr [aria-current]{opacity:.95;font-weight:600}
+@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
+/* end bcr */</style>
 
 <style>/* _dev/widen.py */
 @media (min-width:1500px){.ftin,.in,.nx,.pw,.sitenav-in,.slab{max-width:1320px}}
