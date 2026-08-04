@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Direction B — The Deli Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF1DC; --paper2:#FDF8ED; --tile:#F4EADA;
+  --ink:#26190E; --muted:#7E6A52; --line:#DCCBAA;
+  --mustard:#E0A526; --mustard2:#C98A12;
+  --pastrami:#B33A2B; --pickle:#4F6B2E; --sky:#2E6E8E;
+  --board:#22301F; --chalk:#F3EEE0;
+}
+*{box-sizing:border-box;}
+body{margin:0;color:var(--ink);font-family:'Karla',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  background:
+    linear-gradient(var(--tile) 0 0) padding-box,
+    repeating-linear-gradient(0deg,transparent 0 43px,rgba(0,0,0,.045) 43px 45px),
+    repeating-linear-gradient(90deg,transparent 0 89px,rgba(0,0,0,.045) 89px 91px),
+    var(--tile);
+  background-attachment:fixed;}
+.slab{font-family:'Alfa Slab One',Georgia,serif;font-weight:400;letter-spacing:.005em;}
+.mono{font-family:'Courier Prime',monospace;}
+
+/* ---------- awning ---------- */
+.awning{height:16px;background:repeating-linear-gradient(90deg,var(--pastrami) 0 28px,#F6EEDC 28px 56px);
+  border-bottom:3px solid #7E2519;}
+
+/* ---------- direction switcher ---------- */
+.switch{position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  background:var(--ink);border-bottom:3px solid var(--mustard);padding:9px 16px;}
+.switch .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#B9A88E;font-weight:800;margin-right:4px;}
+.switch a{font-size:12px;font-weight:700;text-decoration:none;color:#D6C6AC;padding:6px 12px;
+  border-radius:5px;border:1px solid #4A3927;}
+.switch a.on{background:var(--mustard);color:#3A2705;border-color:var(--mustard);}
+.switch a:hover:not(.on){color:#fff;border-color:var(--mustard);}
+
+.wrap{max-width:1120px;margin:0 auto;padding:24px 16px 90px;}
+
+/* ---------- shopfront hero ---------- */
+.shop{background:var(--paper);border:3px solid var(--ink);border-radius:4px;
+  box-shadow:8px 8px 0 rgba(38,25,14,.13);padding:0;overflow:hidden;margin-bottom:22px;}
+.shopTop{display:grid;grid-template-columns:1.2fr .8fr;gap:0;}
+.shopL{padding:26px 26px 22px;border-right:3px solid var(--ink);}
+.eyebrow{display:inline-block;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;
+  background:var(--pickle);color:#F2F7E9;padding:5px 11px;border-radius:3px;margin-bottom:15px;}
+h1.title{font-size:clamp(30px,4.6vw,50px);line-height:.98;margin:0 0 6px;color:var(--pastrami);
+  text-shadow:2px 2px 0 var(--mustard);}
+.sub1{font-family:'Alfa Slab One',serif;font-size:14px;color:var(--ink);letter-spacing:.02em;margin-bottom:14px;}
+.dek{font-size:15px;line-height:1.65;color:var(--muted);margin:0;max-width:48ch;}
+.dek b{color:var(--ink);}
+
+.shopR{padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:repeating-linear-gradient(45deg,#F7EDD8 0 10px,#F2E6CD 10px 20px);}
+.speech{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:11px 14px;font-size:13px;
+  font-weight:700;text-align:center;max-width:255px;position:relative;box-shadow:3px 3px 0 rgba(38,25,14,.18);}
+.speech:after{content:"";position:absolute;bottom:-13px;left:42px;border:11px solid transparent;
+  border-top-color:var(--ink);border-bottom:0;}
+.speech:before{content:"";position:absolute;bottom:-9px;left:44px;border:9px solid transparent;
+  border-top-color:#fff;border-bottom:0;z-index:1;}
+.charTag{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:800;text-align:center;}
+
+/* ---------- now serving ---------- */
+.serving{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid var(--ink);}
+.sv{padding:16px 18px;border-right:2px solid var(--line);background:var(--paper2);}
+.sv:last-child{border-right:0;}
+.sv .k{font-size:9.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:800;margin-bottom:8px;}
+.sv .v{font-family:'Alfa Slab One',serif;font-size:22px;line-height:1;}
+.sv .s{font-size:11.5px;color:var(--muted);margin-top:7px;}
+.sv.g .v{color:var(--pickle);} .sv.r .v{color:var(--pastrami);} .sv.m .v{color:var(--mustard2);} .sv.b .v{color:var(--sky);}
+
+/* ---------- chalkboard ---------- */
+.board{background:var(--board);border:9px solid #6B4A22;border-radius:5px;padding:24px 26px;margin-bottom:22px;
+  box-shadow:inset 0 0 60px rgba(0,0,0,.5), 6px 6px 0 rgba(38,25,14,.13);color:var(--chalk);}
+.board h2{font-family:'Alfa Slab One',serif;font-size:24px;margin:0 0 4px;color:#F7E9B8;
+  text-shadow:0 0 12px rgba(247,233,184,.25);}
+.board .bh{font-size:13px;color:#A7B49C;margin:0 0 20px;font-style:italic;}
+.boardRows{display:flex;flex-direction:column;gap:11px;}
+.bRow{display:flex;align-items:baseline;gap:10px;font-size:15px;}
+.bRow .bn{font-weight:700;white-space:nowrap;}
+.bRow .bd{flex:1;border-bottom:2px dotted rgba(243,238,224,.32);transform:translateY(-4px);}
+.bRow .bv{font-family:'Alfa Slab One',serif;font-size:18px;color:#F7E9B8;white-space:nowrap;}
+.bRow.big .bv{font-size:26px;color:#B8E08A;}
+.bRow.neg .bv{color:#F0A093;}
+.bnote{font-size:12px;color:#93A188;margin-top:8px;font-style:italic;}
+
+/* ---------- ticket / panels ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:4px;padding:22px;margin-bottom:20px;
+  box-shadow:5px 5px 0 rgba(38,25,14,.12);}
+.card h3{font-family:'Alfa Slab One',serif;font-size:19px;margin:0 0 4px;}
+.card .ch{font-size:13px;color:var(--muted);margin:0 0 18px;line-height:1.6;}
+.stamp{float:right;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+  border:2px solid var(--pastrami);color:var(--pastrami);padding:3px 8px;border-radius:3px;transform:rotate(-4deg);}
+
+.field{margin-bottom:17px;}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-size:13px;font-weight:700;margin-bottom:7px;}
+.field .val{font-family:'Courier Prime',monospace;font-weight:700;font-size:14px;color:var(--pastrami);
+  background:#fff;border:1.5px solid var(--line);padding:1px 8px;border-radius:3px;}
+.field .hint{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.55;}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:7px;border-radius:0;
+  background:#E8DAC0;border:1.5px solid var(--ink);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:26px;border-radius:2px;
+  background:var(--mustard);border:2px solid var(--ink);cursor:pointer;}
+input[type=range]::-moz-range-thumb{width:13px;height:24px;border-radius:2px;background:var(--mustard);
+  border:2px solid var(--ink);cursor:pointer;}
+input[type=number]{width:100%;background:#fff;border:2px solid var(--ink);color:var(--ink);border-radius:3px;
+  padding:9px 11px;font-family:'Courier Prime',monospace;font-size:15px;font-weight:700;}
+input[type=number]:focus{outline:none;border-color:var(--pastrami);}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:13px;}
+.check{display:flex;align-items:flex-start;gap:11px;background:#FFFDF6;border:2px dashed var(--ink);
+  border-radius:4px;padding:13px 14px;cursor:pointer;}
+.check input{margin-top:2px;width:17px;height:17px;accent-color:var(--pickle);flex:none;}
+.check .ct{font-size:13.5px;font-weight:800;}
+.check .cd{font-size:12px;color:var(--muted);margin-top:5px;line-height:1.55;}
+
+/* ---------- receipt ---------- */
+.receipt{background:#FFFDF6;border:2px solid var(--line);padding:18px 18px 22px;font-family:'Courier Prime',monospace;
+  position:relative;box-shadow:0 2px 0 rgba(0,0,0,.06);}
+.receipt:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:11px;
+  background:radial-gradient(circle at 6px -1px,transparent 6px,#FFFDF6 6px);background-size:12px 12px;}
+.rHead{text-align:center;font-weight:700;font-size:13px;letter-spacing:.1em;border-bottom:2px dashed var(--line);
+  padding-bottom:11px;margin-bottom:13px;}
+.rRow{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;}
+.rRow.neg span:last-child{color:var(--pastrami);}
+.rRow.tot{border-top:2px dashed var(--line);margin-top:11px;padding-top:12px;font-weight:700;font-size:16px;}
+.rRow.tot span:last-child{color:var(--pickle);}
+
+/* ---------- notices ---------- */
+.notice{border:2px solid var(--mustard2);background:#FDF3DC;border-radius:4px;padding:14px 16px;
+  font-size:13px;line-height:1.65;margin-top:15px;}
+.notice.red{border-color:var(--pastrami);background:#FBEAE6;}
+.notice b{color:var(--ink);}
+
+.foot{font-size:12px;color:var(--muted);line-height:1.7;margin-top:26px;padding-top:18px;border-top:2px solid var(--line);}
+.foot a{color:var(--sky);}
+@media(max-width:560px){
+  .bRow{flex-wrap:wrap;}
+  .bRow .bn{white-space:normal;}
+  .bRow .bd{min-width:16px;}
+  .board{padding:18px 15px;border-width:6px;}
+  .card,.shopL,.shopR{padding:17px;}
+  .receipt{padding:14px 12px 18px;}
+  .rRow{font-size:12px;}
+  .pair{grid-template-columns:1fr;}
+}
+@media(max-width:880px){.shopTop{grid-template-columns:1fr;}.shopL{border-right:0;border-bottom:3px solid var(--ink);}
+  .cols{grid-template-columns:1fr;}.serving{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<div class="awning"></div>
+<nav class="switch">
+  <span class="lbl">Visual direction</span>
+  <a href="dir-a-arcade.html">A · Bris Tycoon</a>
+  <a class="on" href="dir-b-deli.html">B · The Deli Board</a>
+  <a href="dir-c-daf.html">C · The Daf</a>
+  <a href="index.html" style="margin-left:auto;border-color:transparent;">← all directions</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="shop">
+    <div class="shopTop">
+      <div class="shopL">
+        <span class="eyebrow">Direction B · deli &amp; appetizing</span>
+        <h1 class="title slab">MOHEL &amp; SONS</h1>
+        <div class="sub1">EST. 5786 · NO APPOINTMENT, THE DATE PICKS YOU</div>
+        <p class="dek">Warm instead of loud. The game layer is still there — a ticket counter, a chalkboard, a level on the wall — but it's dressed as a neighborhood appetizing store: hand-painted signage, mustard and pastrami, a receipt for the take-home. <b>Reads as affection, not arcade.</b></p>
+      </div>
+      <div class="shopR">
+        <div class="speech">"You want it Sunday? Talk to the calendar. I just work here."</div>
+        <!-- CHARACTER TREATMENT 2: bold flat vector, deli-mural style -->
+        <svg width="170" height="185" viewBox="0 0 170 185">
+          <g stroke="#26190E" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+            <!-- shoulders / jacket -->
+            <path d="M22 185 C24 146 44 132 62 126 L108 126 C126 132 146 146 148 185 Z" fill="#3E5A72"/>
+            <!-- shirt -->
+            <path d="M62 126 L85 152 L108 126 L98 122 L72 122 Z" fill="#FBF6E8"/>
+            <!-- neck -->
+            <path d="M72 104 L98 104 L98 124 C98 130 72 130 72 124 Z" fill="#E0AE85"/>
+            <!-- head -->
+            <ellipse cx="85" cy="66" rx="42" ry="46" fill="#EFC49B"/>
+            <!-- ears -->
+            <path d="M43 62 C34 60 33 76 43 78" fill="#EFC49B"/>
+            <path d="M127 62 C136 60 137 76 127 78" fill="#EFC49B"/>
+            <!-- side hair, gray, wild -->
+            <path d="M44 48 C36 58 36 78 44 90 C40 76 42 60 48 52 Z" fill="#C9C2BA"/>
+            <path d="M126 48 C134 58 134 78 126 90 C130 76 128 60 122 52 Z" fill="#C9C2BA"/>
+            <!-- kippah -->
+            <path d="M50 36 C58 18 112 18 120 36 C104 28 66 28 50 36 Z" fill="#4A3A8C"/>
+            <!-- eyebrows: one flat, one raised -->
+            <path d="M56 56 L76 54" fill="none" stroke-width="5"/>
+            <path d="M94 50 L116 55" fill="none" stroke-width="5"/>
+            <!-- glasses -->
+            <circle cx="66" cy="69" r="15" fill="#FFFDF6"/>
+            <circle cx="105" cy="69" r="15" fill="#FFFDF6"/>
+            <path d="M81 68 L90 68" fill="none"/>
+            <path d="M51 66 L43 64" fill="none"/><path d="M120 66 L128 64" fill="none"/>
+            <!-- eyes: side-eye -->
+            <circle cx="71" cy="70" r="4.5" fill="#26190E" stroke="none"/>
+            <circle cx="110" cy="70" r="4.5" fill="#26190E" stroke="none"/>
+            <!-- nose -->
+            <path d="M85 74 C82 84 80 88 86 89" fill="none"/>
+            <!-- mouth: flat, unconvinced -->
+            <path d="M70 99 C78 96 92 96 100 99" fill="none"/>
+            <!-- the bag -->
+            <path d="M112 148 L160 148 L165 185 L107 185 Z" fill="#8A5A2B"/>
+            <path d="M124 148 C124 138 148 138 148 148" fill="none"/>
+            <path d="M124 164 L148 164 M136 156 L136 172" fill="none" stroke="#E0A526" stroke-width="5"/>
+          </g>
+        </svg>
+        <div class="charTag">Character treatment 2 · flat vector caricature</div>
+      </div>
+    </div>
+
+    <div class="serving">
+      <div class="sv m"><div class="k">Now serving</div><div class="v" data-out="servedJobs"></div><div class="s">mornings booked / mo</div></div>
+      <div class="sv g"><div class="k">Rung up</div><div class="v" data-out="grossYear"></div><div class="s">gross / year</div></div>
+      <div class="sv r"><div class="k">Out the back door</div><div class="v" data-out="expYear"></div><div class="s">costs / year</div></div>
+      <div class="sv b"><div class="k">Yours</div><div class="v" data-out="netYear"></div><div class="s">after costs &amp; SE tax</div></div>
+    </div>
+  </div>
+
+  <div class="board">
+    <h2>TODAY'S BOARD</h2>
+    <p class="bh">Written in chalk because it changes. Move anything below and this rewrites itself.</p>
+    <div class="boardRows">
+      <div class="bRow"><span class="bn">Standing in the neighborhood</span><span class="bd"></span><span class="bv" data-out="levelName"></span></div>
+      <div class="bRow"><span class="bn">Brises a year</span><span class="bd"></span><span class="bv" data-out="jobsYear"></span></div>
+      <div class="bRow"><span class="bn">Average ticket</span><span class="bd"></span><span class="bv" data-out="avgFee"></span></div>
+      <div class="bRow"><span class="bn">Break-even, per month</span><span class="bd"></span><span class="bv" data-out="breakEvenJobs"></span></div>
+      <div class="bRow neg"><span class="bn">Sent away — Shabbat, too far</span><span class="bd"></span><span class="bv" data-out="shabbatLost"></span></div>
+      <div class="bRow big"><span class="bn">TAKE-HOME, PER MONTH</span><span class="bd"></span><span class="bv" data-out="netMonth"></span></div>
+    </div>
+    <p class="bnote" data-out="levelBlurb"></p>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="card">
+        <span class="stamp">the route</span>
+        <h3>What comes in the door</h3>
+        <p class="ch">Volume and price. Everything else follows from these two.</p>
+
+        <div class="field">
+          <label>Brises per month <span class="val"><span data-echo="brisesPerMonth"></span></span></label>
+          <input type="range" data-in="brisesPerMonth" min="0" max="30" step="1" />
+          <div class="hint">A working community mohel does a handful a month. One profiled in the LA Jewish Journal passed 1,000 over a whole career.</div>
+        </div>
+        <div class="pair">
+          <div class="field"><label>Newborn fee</label><input type="number" data-in="baseFee" step="25" />
+            <div class="hint">Researched: $500–$1,500.</div></div>
+          <div class="field"><label>Adult / convert</label><input type="number" data-in="adultFee" step="100" />
+            <div class="hint">Researched: $3,000–$5,000.</div></div>
+        </div>
+        <div class="field">
+          <label>Share that's older kids or adults <span class="val"><span data-echo="pctOlder"></span>%</span></label>
+          <input type="range" data-in="pctOlder" min="0" max="40" step="1" />
+        </div>
+        <div class="pair">
+          <div class="field"><label>Long-drive jobs <span class="val"><span data-echo="travelPct"></span>%</span></label>
+            <input type="range" data-in="travelPct" min="0" max="100" step="5" /></div>
+          <div class="field"><label>Travel surcharge</label><input type="number" data-in="travelFee" step="25" /></div>
+        </div>
+        <div class="field"><label>Jewish baby boys born in your metro / yr</label>
+          <input type="number" data-in="metroBirths" step="50" />
+          <div class="hint">Your territory. No published metro-level figure exists — enter your own estimate.</div></div>
+      </div>
+
+      <div class="card">
+        <span class="stamp">the calendar</span>
+        <h3>The eighth day doesn't negotiate</h3>
+        <p class="ch">The one constraint no other practice has.</p>
+        <label class="check">
+          <input type="checkbox" data-in="observant" />
+          <span><span class="ct">Shomer Shabbat — I don't drive on Shabbat</span>
+          <span class="cd">Roughly one bris in seven falls on Shabbat, and the date can't move. On those you serve only the families you can walk to.</span></span>
+        </label>
+        <div class="field" style="margin-top:16px;">
+          <label>Families within walking distance <span class="val"><span data-echo="walkingPct"></span>%</span></label>
+          <input type="range" data-in="walkingPct" min="0" max="100" step="5" />
+          <div class="hint">The single biggest difference between an urban mohel and a suburban one.</div>
+        </div>
+        <div class="notice red">
+          <b><span data-out="shabbatLost"></span> a month</b> go to another mohel because they land on Shabbat and you can't get there —
+          <b><span data-out="shabbatLostRevenue"></span>/mo</b>.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <span class="stamp">the bag</span>
+        <h3>What it costs to show up</h3>
+        <p class="ch">Editable estimates — argue with them.</p>
+        <div class="pair">
+          <div class="field"><label>Supplies / bris</label><input type="number" data-in="suppliesPerBris" step="5" />
+            <div class="hint">Kit, shield, anesthetic, gauze, wine, certificate.</div></div>
+          <div class="field"><label>Vehicle / bris</label><input type="number" data-in="mileagePerBris" step="1" /></div>
+        </div>
+        <div class="pair">
+          <div class="field"><label>Malpractice / mo</label><input type="number" data-in="malpracticeMonthly" step="10" /></div>
+          <div class="field"><label>Phone, web, dues / mo</label><input type="number" data-in="overheadMonthly" step="5" /></div>
+        </div>
+        <div class="field"><label>Continuing ed &amp; conferences / yr</label><input type="number" data-in="ceAnnual" step="50" /></div>
+      </div>
+
+      <div class="card">
+        <span class="stamp">on the house</span>
+        <h3>Nobody gets turned away</h3>
+        <p class="ch">Mohelim routinely work at minimal or no charge when a family can't pay. That deserves a line, not a footnote.</p>
+        <div class="field">
+          <label>Done free or reduced <span class="val"><span data-echo="pctFree"></span>%</span></label>
+          <input type="range" data-in="pctFree" min="0" max="60" step="5" />
+        </div>
+        <div class="notice">
+          <b><span data-out="freeJobs"></span> brises a month</b> on the house — <b><span data-out="tzedakahValue"></span>/mo</b> at your own rate.
+          Not a leak in the model. The point of it.
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="stamp">the till</span>
+        <h3>Monthly receipt</h3>
+        <p class="ch">Everything, in order, one month.</p>
+        <div class="receipt">
+          <div class="rHead">MOHEL &amp; SONS — MONTH TO DATE</div>
+          <div class="rRow"><span>Fees collected</span><span data-out="feeRevenue"></span></div>
+          <div class="rRow"><span>Travel surcharges</span><span data-out="travelRevenue"></span></div>
+          <div class="rRow neg"><span>Per-job costs</span><span data-out="variableExp"></span></div>
+          <div class="rRow neg"><span>Fixed costs</span><span data-out="fixedExp"></span></div>
+          <div class="rRow neg"><span>Self-employment tax</span><span data-out="seTax"></span></div>
+          <div class="rRow tot"><span>TAKE-HOME</span><span data-out="netMonth"></span></div>
+        </div>
+        <div class="notice">
+          Net per bris after everything: <b><span data-out="perBris"></span></b>.
+          You serve <b><span data-out="marketShare"></span></b> of the Jewish baby boys born in your metro.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    <b style="color:var(--ink)">Sources for the fee ranges.</b> Newborn $500–$1,500 and adult $3,000–$5,000 per
+    <a href="https://www.usamohel.com/how-much-does-a-mohel-cost">USA Mohel</a>; $400–$800 Boston per
+    <a href="https://www.jewishboston.com/read/how-much-does-a-bris-typically-cost/">JewishBoston</a>; $650–$850 NYC per
+    <a href="https://brisceremony.com/how-much-does-a-mohel-charge/">Bris Ceremony</a>. Certification $2,000 / ten sessions via
+    <a href="https://www.brisprogram.org/train">Brit Kodesh</a>. Career-volume anecdote from the
+    <a href="https://jewishjournal.com/culture/223944/behind-the-bris-interview-with-mohel/">Jewish Journal</a>.
+    Self-employment tax is the real 15.3% on 92.35% of net earnings. Supply, vehicle, insurance and overhead defaults are
+    editable estimates rather than sourced figures. Income tax is excluded from take-home.
+  </p>
+</div>
+
+<script>
+/* ============================================================
+   MOHEL PRACTICE SIMULATOR — shared calculation engine
+   Auto-binds to [data-in="key"] inputs and [data-out="key"] outputs.
+   Identical math across all three visual directions.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var DEFAULTS = {
+    brisesPerMonth: 6,
+    baseFee: 800,        // newborn 0-28 days, mid of $500-$1,500 researched range
+    adultFee: 3000,      // adult brit milah, low end of $3,000-$5,000
+    pctOlder: 8,         // % of jobs that are older children / adults / converts
+    pctFree: 15,         // % done free or heavily reduced (tzedakah)
+    travelPct: 30,       // % of jobs beyond ~45 min
+    travelFee: 150,      // travel surcharge on those
+    suppliesPerBris: 55, // sterile kit, shield/clamp, anesthetic, gauze, wine, certificate
+    mileagePerBris: 22,  // IRS-style vehicle cost, round trip
+    malpracticeMonthly: 240,
+    overheadMonthly: 95, // phone, website, directory listings, cleaning, bag
+    ceAnnual: 900,       // continuing ed, conferences, dues
+    observant: true,     // shomer Shabbat: will not drive on Shabbat
+    walkingPct: 35,      // % of your families within walking distance
+    metroBirths: 900     // Jewish baby boys born per year in your metro
+  };
+
+  var LEVELS = [
+    { min: 0,   name: "Apprentice",            blurb: "Still training. Your bag is newer than your reputation." },
+    { min: 12,  name: "Certified Mohel",       blurb: "Certified and listed. The calls have started." },
+    { min: 36,  name: "Neighborhood Mohel",    blurb: "Two shuls send you everyone. You know the parking." },
+    { min: 76,  name: "The One Everyone Calls",blurb: "Booked out. Grandmothers name-drop you." },
+    { min: 150, name: "Legendary",             blurb: "Three generations of the same family. You have a nickname." }
+  ];
+
+  var state = {};
+
+  function n(v, fb) { v = parseFloat(v); return isFinite(v) ? v : fb; }
+
+  function compute(s) {
+    var jobs = Math.max(0, n(s.brisesPerMonth, 0));
+
+    // ---- job mix -------------------------------------------------
+    var olderJobs   = jobs * (n(s.pctOlder, 0) / 100);
+    var newbornJobs = jobs - olderJobs;
+
+    // ---- Shabbat constraint --------------------------------------
+    // A bris falls on the 8th day, which cannot be moved. Roughly 1 in 7
+    // land on Shabbat. A shomer-Shabbat mohel cannot drive, so only families
+    // within walking distance can be served on those dates.
+    var shabbatJobs = jobs / 7;
+    var shabbatLost = s.observant
+      ? shabbatJobs * (1 - n(s.walkingPct, 0) / 100)
+      : 0;
+    var servedJobs = jobs - shabbatLost;
+
+    var servedOlder   = servedJobs * (n(s.pctOlder, 0) / 100);
+    var servedNewborn = servedJobs - servedOlder;
+
+    // ---- tzedakah (free / reduced) -------------------------------
+    var paidRatio = 1 - n(s.pctFree, 0) / 100;
+    var freeJobs  = servedJobs * (n(s.pctFree, 0) / 100);
+
+    // ---- revenue -------------------------------------------------
+    var feeRevenue = (servedNewborn * n(s.baseFee, 0) + servedOlder * n(s.adultFee, 0)) * paidRatio;
+    var travelRevenue = servedJobs * (n(s.travelPct, 0) / 100) * n(s.travelFee, 0) * paidRatio;
+    var grossMonth = feeRevenue + travelRevenue;
+
+    // value of the work given away
+    var avgFee = servedJobs > 0 ? (servedNewborn * n(s.baseFee, 0) + servedOlder * n(s.adultFee, 0)) / servedJobs : 0;
+    var tzedakahValue = freeJobs * avgFee;
+
+    // revenue lost to the Shabbat constraint
+    var shabbatLostRevenue = shabbatLost * avgFee * paidRatio;
+
+    // ---- expenses ------------------------------------------------
+    // Supplies and mileage are consumed on every job you actually do.
+    var variableExp = servedJobs * (n(s.suppliesPerBris, 0) + n(s.mileagePerBris, 0));
+    var fixedExp    = n(s.malpracticeMonthly, 0) + n(s.overheadMonthly, 0) + n(s.ceAnnual, 0) / 12;
+    var expMonth    = variableExp + fixedExp;
+
+    // ---- profit and self-employment tax --------------------------
+    var profitMonth = grossMonth - expMonth;
+    // SE tax: 15.3% on 92.35% of net earnings (Social Security + Medicare)
+    var seTaxMonth = profitMonth > 0 ? profitMonth * 0.9235 * 0.153 : 0;
+    var netMonth   = profitMonth - seTaxMonth;
+
+    // ---- scheduling reality --------------------------------------
+    // Brises happen in the morning. Two on the same morning in different
+    // places is a decline, not a double-booking.
+    var morningsBooked = servedJobs; // one morning each
+    var collisionRisk  = servedJobs > 22 ? "high" : servedJobs > 14 ? "medium" : "low";
+
+    // ---- break-even ----------------------------------------------
+    var contributionPerJob = (avgFee * paidRatio)
+      + (n(s.travelPct, 0) / 100) * n(s.travelFee, 0) * paidRatio
+      - (n(s.suppliesPerBris, 0) + n(s.mileagePerBris, 0));
+    var breakEvenJobs = contributionPerJob > 0 ? fixedExp / contributionPerJob : Infinity;
+
+    // ---- market --------------------------------------------------
+    var jobsYear = servedJobs * 12;
+    var marketShare = n(s.metroBirths, 0) > 0 ? (jobsYear / n(s.metroBirths, 0)) * 100 : 0;
+
+    // ---- level ---------------------------------------------------
+    var li = 0;
+    for (var i = 0; i < LEVELS.length; i++) if (jobsYear >= LEVELS[i].min) li = i;
+    var nextMin = li < LEVELS.length - 1 ? LEVELS[li + 1].min : LEVELS[li].min;
+    var curMin  = LEVELS[li].min;
+    var xpPct = li >= LEVELS.length - 1
+      ? 100
+      : Math.max(0, Math.min(100, ((jobsYear - curMin) / (nextMin - curMin)) * 100));
+
+    return {
+      jobs: jobs, servedJobs: servedJobs, jobsYear: jobsYear,
+      newbornJobs: servedNewborn, olderJobs: servedOlder,
+      shabbatJobs: shabbatJobs, shabbatLost: shabbatLost, shabbatLostRevenue: shabbatLostRevenue,
+      freeJobs: freeJobs, tzedakahValue: tzedakahValue,
+      avgFee: avgFee,
+      feeRevenue: feeRevenue, travelRevenue: travelRevenue,
+      grossMonth: grossMonth, grossYear: grossMonth * 12,
+      variableExp: variableExp, fixedExp: fixedExp,
+      expMonth: expMonth, expYear: expMonth * 12,
+      profitMonth: profitMonth, profitYear: profitMonth * 12,
+      seTax: seTaxMonth, seTaxYear: seTaxMonth * 12,
+      netMonth: netMonth, netYear: netMonth * 12,
+      perBris: servedJobs > 0 ? netMonth / servedJobs : 0,
+      morningsBooked: morningsBooked, collisionRisk: collisionRisk,
+      breakEvenJobs: breakEvenJobs,
+      marketShare: marketShare,
+      level: li + 1, levelName: LEVELS[li].name, levelBlurb: LEVELS[li].blurb,
+      levelNextAt: nextMin, xpPct: xpPct
+    };
+  }
+
+  // ---- formatting ------------------------------------------------
+  function money(v) {
+    if (!isFinite(v)) return "—";
+    var neg = v < 0;
+    var s = "$" + Math.round(Math.abs(v)).toLocaleString("en-US");
+    return neg ? "−" + s : s;
+  }
+  function money2(v) { return isFinite(v) ? "$" + (Math.round(v * 100) / 100).toLocaleString("en-US") : "—"; }
+  function num1(v) { return isFinite(v) ? (Math.round(v * 10) / 10).toLocaleString("en-US") : "—"; }
+  function int(v) { return isFinite(v) ? Math.round(v).toLocaleString("en-US") : "—"; }
+  function pct(v) { return isFinite(v) ? (Math.round(v * 10) / 10) + "%" : "—"; }
+
+  var FMT = {
+    grossMonth: money, grossYear: money, expMonth: money, expYear: money,
+    variableExp: money, fixedExp: money,
+    profitMonth: money, profitYear: money, seTax: money, seTaxYear: money,
+    netMonth: money, netYear: money, perBris: money, avgFee: money,
+    feeRevenue: money, travelRevenue: money,
+    tzedakahValue: money, shabbatLostRevenue: money,
+    jobs: num1, servedJobs: num1, jobsYear: int, newbornJobs: num1, olderJobs: num1,
+    shabbatJobs: num1, shabbatLost: num1, freeJobs: num1,
+    morningsBooked: num1, breakEvenJobs: num1,
+    marketShare: pct, xpPct: pct,
+    level: int, levelName: String, levelBlurb: String, levelNextAt: int,
+    collisionRisk: String
+  };
+
+  // ---- binding ---------------------------------------------------
+  function readInputs() {
+    var els = document.querySelectorAll("[data-in]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], k = el.getAttribute("data-in");
+      state[k] = el.type === "checkbox" ? el.checked : n(el.value, DEFAULTS[k]);
+    }
+  }
+
+  function render() {
+    var r = compute(state);
+    window.__mohel = r;
+
+    var outs = document.querySelectorAll("[data-out]");
+    for (var i = 0; i < outs.length; i++) {
+      var el = outs[i], k = el.getAttribute("data-out");
+      if (!(k in r)) continue;
+      var f = FMT[k] || String;
+      el.textContent = f(r[k]);
+    }
+    // width-driven elements: <div data-bar="xpPct">
+    var bars = document.querySelectorAll("[data-bar]");
+    for (var j = 0; j < bars.length; j++) {
+      var b = bars[j], bk = b.getAttribute("data-bar");
+      var v = r[bk];
+      if (isFinite(v)) b.style.width = Math.max(0, Math.min(100, v)) + "%";
+    }
+    // echo raw slider values: <span data-echo="pctFree">
+    var echoes = document.querySelectorAll("[data-echo]");
+    for (var e = 0; e < echoes.length; e++) {
+      var ec = echoes[e], ek = ec.getAttribute("data-echo");
+      var src = document.querySelector('[data-in="' + ek + '"]');
+      if (src) ec.textContent = src.value;
+    }
+    // conditional classes: <div data-when="collisionRisk" data-eq="high">
+    var whens = document.querySelectorAll("[data-when]");
+    for (var w = 0; w < whens.length; w++) {
+      var wl = whens[w];
+      var key = wl.getAttribute("data-when"), eq = wl.getAttribute("data-eq");
+      wl.style.display = String(r[key]) === eq ? "" : "none";
+    }
+    if (typeof window.onMohelRender === "function") window.onMohelRender(r);
+  }
+
+  function init() {
+    for (var d in DEFAULTS) state[d] = DEFAULTS[d];
+    var els = document.querySelectorAll("[data-in]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], k = el.getAttribute("data-in");
+      if (el.type === "checkbox") {
+        if (!el.hasAttribute("data-noseed")) el.checked = !!DEFAULTS[k];
+      } else if (!el.hasAttribute("value") && DEFAULTS[k] !== undefined) {
+        el.value = DEFAULTS[k];
+      }
+      el.addEventListener("input", function () { readInputs(); render(); });
+      el.addEventListener("change", function () { readInputs(); render(); });
+    }
+    readInputs();
+    render();
+  }
+
+  window.MohelEngine = { compute: compute, money: money, DEFAULTS: DEFAULTS, LEVELS: LEVELS, render: render };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+
+</script>
+</body>
+</html>

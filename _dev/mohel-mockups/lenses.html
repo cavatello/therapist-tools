@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Three approaches — through Schell's lenses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF9F3;--ink:#26241E;--muted:#7C766A;--line:#E7E2D6;--card:#fff;
+  --pos:#3F9577;--neg:#B5483F;--amber:#C98B4B;--cream:#F6F2E8;--plum:#7A4A6B;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.mast{display:flex;align-items:center;gap:22px;background:var(--cream);border-bottom:1px solid var(--line);padding:9px 24px;flex-wrap:wrap;}
+.mono{width:22px;height:22px;border-radius:6px;background:var(--ink);color:#fff;font-family:'Fraunces',serif;
+  font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;}
+.mark{display:flex;align-items:center;gap:9px;}
+.wordm{font-family:'Fraunces',serif;font-weight:700;font-size:13.5px;}
+.wrap{max-width:940px;margin:0 auto;padding:38px 24px 90px;}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.07;letter-spacing:-.02em;margin:0 0 12px;}
+h1 .accent{color:var(--neg);}
+.dek{font-size:15.5px;line-height:1.68;color:var(--muted);max-width:680px;margin:0;}
+h2{font-family:'Fraunces',serif;font-weight:700;font-size:24px;margin:54px 0 8px;letter-spacing:-.01em;}
+h3{font-family:'Fraunces',serif;font-weight:700;font-size:19px;margin:30px 0 6px;}
+p.b{font-size:14.5px;line-height:1.75;color:#3E3A32;max-width:74ch;margin:0 0 14px;}
+p.b b{color:var(--ink);}
+.sub{font-size:14px;color:var(--muted);margin:0 0 8px;line-height:1.7;max-width:74ch;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:16px;}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  font-weight:700;padding:0 12px 9px 0;border-bottom:1px solid var(--line);}
+td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6;}
+td:first-child{font-weight:600;white-space:nowrap;}
+.lens{font-family:'Fraunces',serif;font-weight:700;color:var(--plum);}
+.diag{border-left:3px solid var(--neg);background:#FCF0EE;padding:15px 18px;border-radius:0 9px 9px 0;margin:20px 0;max-width:74ch;}
+.diag b{color:var(--neg);}
+.good{border-left-color:var(--pos);background:#EDF6F1;}
+.good b{color:var(--pos);}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:26px;}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+.sw{height:8px;}
+.ccb{padding:19px 20px;display:flex;flex-direction:column;flex:1;}
+.cc-n{font-family:'Fraunces',serif;font-weight:700;font-size:11.5px;color:var(--muted);margin-bottom:5px;letter-spacing:.06em;}
+.cc-t{font-family:'Fraunces',serif;font-weight:700;font-size:20px;margin:0 0 4px;}
+.cc-q{font-size:12.5px;font-style:italic;color:var(--plum);margin:0 0 10px;line-height:1.5;}
+.cc-d{font-size:13.5px;line-height:1.62;color:var(--muted);margin:0 0 14px;flex:1;}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:15px;}
+.tag{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 8px;border-radius:20px;background:#F2EDE2;color:var(--muted);}
+.btn{font-size:13px;font-weight:600;text-decoration:none;padding:10px 15px;border-radius:9px;background:var(--ink);color:#fff;text-align:center;}
+.btn:hover{background:#3A372F;}
+ul{font-size:14.5px;line-height:1.8;color:#3E3A32;padding-left:20px;max-width:74ch;}
+ul b{color:var(--ink);}
+.rec{border:2px solid var(--ink);border-radius:14px;padding:22px 24px;margin-top:26px;background:#fff;}
+.rec h3{margin-top:0;}
+@media(max-width:820px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="mast">
+  <span class="mark"><span class="mono">MO</span><span class="wordm">Mohel Simulator</span></span>
+  <span style="font-size:12px;color:#7C766A;">gameplay pass · through <i>The Art of Game Design</i></span>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">Design notes · July 2026</div>
+  <h1>What's wrong with the current game, and <span class="accent">three ways out</span></h1>
+  <p class="dek">Schell's lenses are diagnostic questions, not a style guide. Pointed at the bris simulator they identify the same fault from five directions: <b>the game shows you the answer before it asks the question.</b> Below is the diagnosis, then three prototypes that each fix it differently — and are each a different genre as a result.</p>
+
+  <h2>The diagnosis</h2>
+  <p class="sub">Six lenses, six problems. These aren't polish notes; the first one is close to fatal.</p>
+  <table>
+    <tr><th>Lens</th><th>The question it asks</th><th>What the current build answers</th></tr>
+    <tr><td class="lens">#33 Meaningful Choices</td><td>Are the choices meaningful, or is there a dominant strategy?</td>
+      <td><b>Fatal.</b> Every option shows its exact numbers before you pick. That isn't a choice, it's arithmetic. And there <i>is</i> a dominant strategy — "sly" is usually net-positive, so the optimal player never engages with the theme at all.</td></tr>
+    <tr><td class="lens">#3 Surprise</td><td>What will surprise the player?</td>
+      <td>Nothing. Outcomes are printed on the button. The one genuine surprise in the game — the outburst — is the best moment in it, which is telling.</td></tr>
+    <tr><td class="lens">#12 The Toy</td><td>Is it fun to play with even before there's a goal?</td>
+      <td>No. Remove the goal and you have a menu. The room is a backdrop, not a toy.</td></tr>
+    <tr><td class="lens">#34 Triangularity</td><td>Is there a low-risk/low-reward option next to a high-risk/high-reward one?</td>
+      <td>Barely. All three tones cost roughly the same and pay off immediately. No gambling, so no tension.</td></tr>
+    <tr><td class="lens">Emergence</td><td>Do simple rules produce stories the designer didn't write?</td>
+      <td>No. Every problem is independent and self-contained. Nothing interacts with anything. All the comedy is pre-written, so it's funny exactly once.</td></tr>
+    <tr><td class="lens">#54 The Interest Curve</td><td>Does interest rise, with peaks, toward a climax?</td>
+      <td>Flat. Beat three is identical in shape to beat nine. The ceremony isn't a climax, it's a stop.</td></tr>
+  </table>
+
+  <div class="diag">
+    <b>The single deepest problem:</b> the humour is <i>content</i>, not <i>system</i>. Fifteen written jokes are fifteen jokes. A player sees them all in two sittings and there is no twelfth playthrough. In all three prototypes below, the funny thing is generated by the rules — so it stays funny after you know how it works.
+  </div>
+  <div class="diag good">
+    <b>The one thing worth keeping:</b> the patience economy. Blunt restores you and costs the room; polite keeps the room and empties you. Schell #43 (Punishment) says a good punishment should be feared but not resented — and the outburst is <i>the funniest thing in the game</i>, which means it's mis-signed. All three prototypes keep the tension and make losing entertaining on purpose.
+  </div>
+
+  <h2>Three approaches</h2>
+  <p class="sub">Each is a genuinely different game, because each starts from a different lens.</p>
+
+  <div class="grid">
+    <div class="cc"><div class="sw" style="background:#C4633F"></div><div class="ccb">
+      <div class="cc-n">APPROACH 1</div>
+      <h3 class="cc-t">Working the Room</h3>
+      <p class="cc-q">"Who is standing next to whom?"</p>
+      <p class="cc-d">Delete the menu entirely. Guests are agents that drift around the room on their own, and certain pairs wind each other up on contact. You have exactly one verb: <b>where you stand</b>. Your body is the fire blanket. Standing between two people cools them both and drains you double.</p>
+      <div class="tags"><span class="tag">#12 Toy</span><span class="tag">Emergence</span><span class="tag">#88 Indirect Control</span><span class="tag">#45 Elegance</span></div>
+      <a class="btn" href="proto-1-room.html">Play 1</a>
+    </div></div>
+
+    <div class="cc"><div class="sw" style="background:#7A4A6B"></div><div class="ccb">
+      <div class="cc-n">APPROACH 2</div>
+      <h3 class="cc-t">The Lie</h3>
+      <p class="cc-q">"When does this come back?"</p>
+      <p class="cc-d">A three-act farce. Every small social convenience in act one becomes a loose end, and in act three every loose end is in the same room — <b>and they combine with each other</b>. Telling the truth costs you visibly now and buys you nothing you can see. That's the bet.</p>
+      <div class="tags"><span class="tag">#5 Curiosity</span><span class="tag">#34 Triangularity</span><span class="tag">#54 Interest Curve</span><span class="tag">#3 Surprise</span></div>
+      <a class="btn" href="proto-2-farce.html">Play 2</a>
+    </div></div>
+
+    <div class="cc"><div class="sw" style="background:#2E6E8E"></div><div class="ccb">
+      <div class="cc-n">APPROACH 3</div>
+      <h3 class="cc-t">Things You Can Say</h3>
+      <p class="cc-q">"I need that card and I don't have it."</p>
+      <p class="cc-d">Hand management. Your deck <i>is</i> your personality — you can only say what you drew. Three people want three different kinds of thing, and there are two copies of "Tell them the truth" in eighteen cards. Scarcity manufactures the choice that the current build only pretends to offer.</p>
+      <div class="tags"><span class="tag">#33 Meaningful Choices</span><span class="tag">#35 Expected Value</span><span class="tag">#36 Skill vs Chance</span></div>
+      <a class="btn" href="proto-3-cards.html">Play 3</a>
+    </div></div>
+  </div>
+
+  <h2>How each one makes the comedy systemic</h2>
+  <p class="sub">This is the part that matters. A joke you wrote is funny once; a joke the rules built is funny every time it happens to you.</p>
+  <table>
+    <tr><th></th><th>Where the laugh comes from</th><th>Why it survives repetition</th></tr>
+    <tr><td>1 · Room</td><td>Juxtaposition you didn't plan. You look up and the Bubbe has found the caterer. You <i>know</i> what that means and you are across the room.</td>
+      <td>The pairings are combinatorial and the timing is emergent. The dread of watching two people drift together is a mechanic, not a script.</td></tr>
+    <tr><td>2 · Lie</td><td>Structure. Farce is funny because of <i>architecture</i> — setup, forgetting, collision. The act-three combos are written for pairs, so twelve threads give you dozens of distinct disasters.</td>
+      <td>You built the catastrophe yourself, one reasonable decision at a time. That's the same reason the format works on television.</td></tr>
+    <tr><td>3 · Cards</td><td>Objects. "Feign a phone call" is funny sitting in your hand before you play it, and funnier when it's the only card left and it doesn't fit.</td>
+      <td>The comedy is in the <i>fit</i> between card and situation, which the shuffle regenerates every game. Being forced to say the wrong thing is the joke.</td></tr>
+  </table>
+
+  <h2>What I'd actually do</h2>
+  <div class="rec">
+    <h3>Ship 2, steal from 1, keep 3 in the drawer</h3>
+    <p class="b"><b>The Lie is the strongest single answer</b> and it isn't close. It fixes the worst problem (no meaningful choice) with the smallest new machinery, it produces a different episode every run from a small amount of written material, and its structure <i>is</i> the structure of the show it's imitating. It also has the best question in the player's head — "which one comes back?" — running the entire time, which is Lens #5 doing real work.</p>
+    <p class="b"><b>Working the Room should be its second layer, not a rival.</b> Act two of the farce is currently a dialogue box; it should be the room sim. You're trying to keep two people apart <i>while</i> a loose end walks toward you. That's the combination: physical, real-time pressure underneath a narrative structure that pays off.</p>
+    <p class="b"><b>Things You Can Say is the most replayable and the least on-theme.</b> It's a good game — arguably the best <i>game</i> of the three — but it abstracts a bris into resource management and you stop feeling like you're in a room. Worth keeping as a mini-game, or as a different product entirely.</p>
+    <ul>
+      <li><b>Hide the numbers.</b> Whichever direction wins, stop printing "+9 patience · −7 simcha" on the buttons. Show tone and let the player learn the system. This alone recovers Lens #33 and #3.</li>
+      <li><b>Let guests remember.</b> If Marv got the blunt treatment last bris, he opens hostile at the next one. Cheap to build, and it makes a campaign out of a level.</li>
+      <li><b>Make the failure the content.</b> The end card should read like a story, not a scoresheet — the farce prototype already does this and it's the most reread-able thing in any of the three.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

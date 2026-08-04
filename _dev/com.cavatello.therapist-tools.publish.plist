@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Keeps the auto-publish watcher running without a Terminal window.
+
+  Installed by _dev/install-autopublish.command, which rewrites __REPO__ to the
+  real folder path before copying this into ~/Library/LaunchAgents.
+
+  RunAtLoad + KeepAlive means: start at login, and if the watcher ever exits —
+  crash, kill, whatever — launchd starts it again. ThrottleInterval stops that
+  becoming a spin loop if it fails instantly every time.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.cavatello.therapist-tools.publish</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>__REPO__/_dev/publish.sh</string>
+    <string>watch</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>__REPO__</string>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>ThrottleInterval</key>
+  <integer>30</integer>
+
+  <!-- launchd hands processes a minimal PATH. git lives in /usr/bin via the
+       command line tools; gh (which supplies the push token) is usually in
+       Homebrew, which differs between Apple silicon and Intel — both listed. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>__REPO__/_dev/autopublish.log</string>
+  <key>StandardErrorPath</key>
+  <string>__REPO__/_dev/autopublish.log</string>
+</dict>
+</plist>

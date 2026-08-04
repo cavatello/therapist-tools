@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Business structure — direction mock-ups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF9F3; --ink:#26241E; --muted:#7C766A; --line:#E7E2D6; --card:#FFF;
+  --pos:#3F9577; --neg:#B5483F; --amber:#C98B4B; --band:#F6F2E8;
+  --cream:#FBF6E9; --tan:#E4D9BE;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.55;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 80px;}
+.masthead{background:var(--band);border-bottom:1px solid var(--line);}
+.masthead-in{max-width:1128px;margin:0 auto;padding:18px 24px;}
+.masthead h1{font-family:Fraunces,Georgia,serif;font-size:22px;margin:0 0 4px;}
+.masthead p{margin:0;color:var(--muted);font-size:13px;}
+h2.dir{font-family:Fraunces,Georgia,serif;font-size:30px;margin:0 0 6px;}
+.eyebrow{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.rule{border:0;border-top:2px solid var(--ink);margin:64px 0 26px;}
+.rule-sub{border:0;border-top:1px solid var(--line);margin:44px 0 26px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;margin:18px 0;}
+.tier{border-left:4px solid var(--amber);background:linear-gradient(90deg,#FDF8EE,#fff 60%);}
+.note{background:#F3EFE4;border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:13.5px;color:#4A463D;margin:14px 0;}
+.note b{color:var(--ink);}
+.verdictbox{border-radius:12px;padding:20px 22px;margin:16px 0;}
+.v-good{background:#EAF5F0;border:1px solid #BFE0D2;}
+.v-warn{background:#FBF1E2;border:1px solid #EBD5B4;}
+.num{font-family:Fraunces,Georgia,serif;font-weight:600;font-variant-numeric:tabular-nums;}
+.big{font-size:38px;line-height:1.05;}
+.mid{font-size:26px;}
+.pos{color:var(--pos);} .neg{color:var(--neg);} .mut{color:var(--muted);}
+table.cmp{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;}
+table.cmp th,table.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;}
+table.cmp th:first-child,table.cmp td:first-child{text-align:left;}
+table.cmp thead th{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);}
+table.cmp tr.band td{background:var(--band);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+td.col-sel{background:#F7FBF9;}
+.rowsub{display:block;color:var(--muted);font-size:12.5px;font-weight:400;}
+.btn{font-family:Inter,sans-serif;font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;}
+.btn:hover{border-color:#CFC7B4;}
+.btn.pri{background:var(--pos);border-color:var(--pos);color:#fff;}
+.btn.amber{background:var(--amber);border-color:var(--amber);color:#fff;}
+.seg{display:inline-flex;gap:8px;flex-wrap:wrap;}
+.seg button{font-size:14px;font-weight:600;padding:10px 18px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer;font-family:Inter,sans-serif;color:var(--ink);}
+.seg button.on{background:var(--pos);border-color:var(--pos);color:#fff;}
+.colhead{display:flex;gap:12px;justify-content:flex-end;margin-bottom:-1px;}
+.colcard{border:1px solid var(--line);border-radius:10px 10px 0 0;padding:10px 14px;background:#fff;min-width:190px;cursor:pointer;}
+.colcard.on{border:2px solid var(--pos);background:#F7FBF9;}
+.colcard b{font-family:Fraunces,Georgia,serif;font-size:15px;display:block;}
+.colcard span{font-size:12px;color:var(--muted);}
+.colcard .pick{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted);}
+.colcard.on .pick{color:var(--pos);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr;}}
+@media(max-width:760px){
+  .wrap{padding:0 16px 60px;}
+  h2.dir{font-size:24px;}
+  .big{font-size:30px;} .mid{font-size:22px;}
+  .card{padding:16px;}
+  .tablescroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  table.cmp{min-width:520px;}
+  .colhead{justify-content:flex-start;flex-wrap:wrap;}
+  .colcard{min-width:0;flex:1 1 46%;}
+  input[type=number],input[type=text]{width:100%;max-width:100%;}
+  .seg button{padding:9px 12px;font-size:13px;}
+}
+.statcard{border:1px solid var(--line);border-radius:10px;padding:16px;background:#fff;}
+.statcard.locked{background:repeating-linear-gradient(45deg,#FCFAF4,#FCFAF4 10px,#F7F3EA 10px,#F7F3EA 20px);border-style:dashed;}
+.statcard h4{margin:0 0 8px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);}
+.badge{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;padding:4px 9px;border-radius:20px;}
+.badge.good{background:#E4F1EA;color:#2C6B53;}
+.badge.warn{background:#FBEEDA;color:#8A5A1E;}
+.badge.quiet{background:#F0ECE1;color:var(--muted);}
+input[type=number],input[type=text]{font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;padding:10px 12px;border-radius:8px;border:1px solid var(--tan);background:var(--cream);width:200px;color:var(--ink);}
+input[type=range]{width:100%;accent-color:var(--pos);}
+.blur{filter:blur(6px);user-select:none;opacity:.65;}
+.pill{display:inline-block;background:var(--band);border:1px solid var(--line);border-radius:20px;padding:3px 10px;font-size:12px;color:var(--muted);}
+.commentary{border-left:3px solid var(--line);padding:2px 0 2px 16px;margin:14px 0 0;font-size:13.5px;color:#4A463D;}
+.commentary b{color:var(--ink);}
+.commentary .yes{color:var(--pos);font-weight:600;}
+.commentary .no{color:var(--neg);font-weight:600;}
+.zone{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:14px 0 6px;}
+.zone i{display:block;height:100%;}
+.zonelab{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted);}
+.step{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);}
+.step:last-child{border-bottom:0;}
+.stepn{flex:0 0 30px;height:30px;border-radius:50%;background:var(--band);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:Fraunces,serif;font-weight:600;font-size:14px;}
+.step.done .stepn{background:var(--pos);border-color:var(--pos);color:#fff;}
+.step.blocked{opacity:.5;}
+.step h5{margin:0 0 3px;font-size:15px;font-family:Fraunces,serif;}
+.step p{margin:0;font-size:13.5px;color:var(--muted);}
+details.work{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff;margin-top:14px;}
+details.work summary{cursor:pointer;font-weight:600;font-size:14px;}
+.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin:22px 0 0;}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+.toc a:hover{border-color:var(--ink);}
+.toc li{margin:5px 0;}
+</style>
+</head>
+<body>
+<div class="masthead"><div class="masthead-in">
+  <h1>Business structure — four directions</h1>
+  <p>Mock-up only. Not wired to the simulator. Figures are the ones your own engine produced at $200/hr × 20 sessions.</p>
+</div></div>
+
+<div class="wrap">
+
+<div class="toc">
+  <div class="eyebrow" style="margin-bottom:8px;">On this page</div>
+  <ol style="margin:0;padding-left:20px;">
+    <li><a href="#a">Direction A — one comparison, cards deleted</a></li>
+    <li><a href="#b">Direction B — verdict first, working hidden</a></li>
+    <li><a href="#c">Direction C — the salary slider is the whole answer</a></li>
+    <li><a href="#d">Direction D — decision ladder, analysis gated</a></li>
+    <li><a href="#zero">Then: four ways to handle a $0 salary</a></li>
+  </ol>
+</div>
+
+<div class="note" style="margin-top:22px;">
+  <b>The number that matters here.</b> At a $0 salary the S-corp looks
+  <span class="num pos">+$21,233</span> better. At the $101,000 benchmark it is
+  <span class="num">+$4,309</span> better. At the aggressive $71,000 it is
+  <span class="num">+$9,561</span>. The current design shows the first of those three
+  with a green "higher take-home" badge — the one figure that is not a real option.
+  Every direction below is really a different answer to <i>how do we stop doing that</i>.
+</div>
+
+<!-- ============ A ============ -->
+<hr class="rule" id="a">
+<div class="eyebrow">Direction A</div>
+<h2 class="dir">One comparison, cards deleted</h2>
+<p style="color:var(--muted);max-width:660px;">The toggle stops being an idea of its own and becomes the column
+selector for the table you already liked. The duplicate two-card comparison is removed entirely.</p>
+
+<div class="card tier">
+  <span class="badge quiet">Affects every tab</span>
+  <h3 style="font-family:Fraunces,serif;font-size:22px;margin:12px 0 6px;">Business structure</h3>
+  <p style="color:var(--muted);margin:0 0 16px;max-width:640px;">Sole Proprietorship or a Professional Corp with an
+  S-corp election. Pick a column below to plan as that structure — the other stays visible so you can see what the choice costs.</p>
+
+  <label class="eyebrow">S-corp salary (W-2 wages)</label><br>
+  <input type="number" value="101000" style="margin-top:6px;"><br>
+  <span class="pill" style="margin-top:8px;">50% of net profit — the usual benchmark</span>
+
+  <div class="colhead" style="margin-top:24px;">
+    <div class="colcard"><b>Sole Proprietorship</b><span>no payroll, no entity fee</span><div class="pick">Plan as this</div></div>
+    <div class="colcard on"><b>Professional Corp</b><span>S-corp election</span><div class="pick">✓ Planning as this</div></div>
+    <div style="min-width:110px;"></div>
+  </div>
+  <div class="tablescroll"><table class="cmp">
+    <thead><tr><th></th><th></th><th></th><th>Difference</th></tr></thead>
+    <tbody>
+      <tr class="band"><td colspan="4">The tax side — this year</td></tr>
+      <tr><td>Net take-home<span class="rowsub">After every tax and the CA entity fee</span></td>
+          <td class="num mid">$135,230</td><td class="col-sel num mid">$139,539</td><td class="num pos">+$4,309</td></tr>
+      <tr><td>Total tax<span class="rowsub">Federal + CA + payroll, all in</span></td>
+          <td class="num">$67,570</td><td class="col-sel num">$63,261</td><td class="num pos">−$4,309</td></tr>
+      <tr><td>Self-employment + payroll tax</td>
+          <td class="num">$28,309</td><td class="col-sel num">$15,453</td><td class="num pos">−$12,856</td></tr>
+      <tr><td>CA entity fee<span class="rowsub">$800 minimum franchise tax, corporations only</span></td>
+          <td class="num">$0</td><td class="col-sel num">$3,042</td><td class="num neg">+$3,042</td></tr>
+      <tr><td>Payroll admin<span class="rowsub">Filing a W-2 and quarterly returns, typical cost</span></td>
+          <td class="num">$0</td><td class="col-sel num">~$1,200</td><td class="num neg">+$1,200</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:13px;color:var(--muted);margin-top:14px;">Green where the corp is ahead, red where it costs more.</p>
+</div>
+<div class="commentary">
+  <b>Solves:</b> <span class="yes">the two-separate-ideas problem, at the root</span> — there is now one comparison on the page,
+  not two that disagree. The toggle's job becomes obvious.<br>
+  <b>Costs:</b> you lose the at-a-glance pair of big numbers. Someone skimming has to read a table.<br>
+  <b>Also worth noting:</b> I added a <i>payroll admin</i> row. The current comparison omits it, which
+  flatters the S-corp — at a $4,309 gap, a $1,200 bookkeeping bill is a quarter of the entire advantage.
+</div>
+
+<!-- ============ B ============ -->
+<hr class="rule" id="b">
+<div class="eyebrow">Direction B</div>
+<h2 class="dir">Verdict first, working hidden</h2>
+<p style="color:var(--muted);max-width:660px;">Most people want one sentence: is this worth doing or not. Lead with the
+answer in plain language, put every number behind a disclosure.</p>
+
+<div class="card tier">
+  <span class="badge quiet">Affects every tab</span>
+  <h3 style="font-family:Fraunces,serif;font-size:22px;margin:12px 0 14px;">Should you incorporate?</h3>
+
+  <div class="verdictbox v-warn">
+    <div style="font-family:Fraunces,serif;font-size:21px;line-height:1.35;margin-bottom:10px;">
+      Probably not yet — the gain is real but thin.
+    </div>
+    <p style="margin:0 0 6px;">At your profit of <span class="num">$202,800</span>, a Professional Corp paying the
+    benchmark <span class="num">$101,000</span> salary would leave you about
+    <span class="num pos">$4,309</span> a year better off.</p>
+    <p style="margin:0;color:#4A463D;">Against that: roughly <span class="num">$1,200</span> a year in payroll
+    administration, a separate corporate return, annual filings, and the $800 CA minimum franchise tax you owe
+    whether or not you profit. The margin is thin enough that it turns on how much your accountant charges.</p>
+  </div>
+
+  <details class="work">
+    <summary>Show me the maths</summary>
+    <div class="tablescroll"><table class="cmp">
+      <tbody>
+        <tr><td>Net take-home — sole proprietor</td><td class="num">$135,230</td></tr>
+        <tr><td>Net take-home — Professional Corp @ $101,000</td><td class="num">$139,539</td></tr>
+        <tr><td>Difference before admin costs</td><td class="num pos">+$4,309</td></tr>
+        <tr><td>Typical payroll administration</td><td class="num neg">−$1,200</td></tr>
+        <tr><td><b>Realistic annual gain</b></td><td class="num" style="font-size:18px;">+$3,109</td></tr>
+      </tbody>
+    </table></div>
+  </details>
+  <details class="work"><summary>What would change this answer</summary>
+    <p style="margin:8px 0 0;font-size:14px;color:#4A463D;">The gap widens as profit rises, because more of it can move
+    from salary to distribution. At roughly <span class="num">$260,000</span> of profit the same benchmark salary
+    produces about double this gain. It narrows if you take a defensibly higher salary.</p>
+  </details>
+</div>
+<div class="commentary">
+  <b>Solves:</b> <span class="yes">the reader never has to assemble the answer themselves</span>, and there is only one
+  claim on screen. Also the only direction here that names the admin cost as part of the verdict.<br>
+  <b>Costs:</b> <span class="no">it takes a position.</span> The tool becomes advisory rather than a calculator,
+  which is a different liability posture — worth a "not personalised advice" line right in the box.
+</div>
+
+<!-- ============ C ============ -->
+<hr class="rule" id="c">
+<div class="eyebrow">Direction C</div>
+<h2 class="dir">The salary slider is the whole answer</h2>
+<p style="color:var(--muted);max-width:660px;">The honest insight is that there is no single S-corp number — the answer
+is a function of the salary you can defend. So make the salary the interaction, and let the comparison be a readout of it.</p>
+
+<div class="card tier">
+  <span class="badge quiet">Affects every tab</span>
+  <h3 style="font-family:Fraunces,serif;font-size:22px;margin:12px 0 6px;">What salary would you pay yourself?</h3>
+  <p style="color:var(--muted);margin:0 0 18px;max-width:640px;">Everything about the S-corp decision moves with this one
+  number. Drag it and watch both the saving and the audit exposure change.</p>
+
+  <input type="range" id="sal" min="0" max="202800" step="1000" value="101000">
+  <div class="zone">
+    <i style="width:35%;background:#E8C9C5;"></i><i style="width:15%;background:#F2DFC2;"></i><i style="width:50%;background:#CFE6DA;"></i>
+  </div>
+  <div class="zonelab"><span>$0 — not a real option</span><span>audit-risk zone</span><span>defensible →</span></div>
+
+  <div class="grid3" style="margin-top:22px;">
+    <div class="statcard"><h4>Salary</h4><div class="num mid" id="o-sal">$101,000</div>
+      <div class="mut" style="font-size:12.5px;" id="o-pct">50% of net profit</div></div>
+    <div class="statcard"><h4>Net take-home</h4><div class="num mid" id="o-net">$139,539</div>
+      <div style="font-size:12.5px;" id="o-delta">+$4,309 vs. sole proprietor</div></div>
+    <div class="statcard"><h4>Standing</h4><div id="o-verdict" style="margin-top:4px;"><span class="badge good">Defensible</span></div>
+      <div class="mut" style="font-size:12.5px;margin-top:6px;" id="o-note">At or above the 50% benchmark.</div></div>
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:16px;">Mock-up note: this slider interpolates between three
+  figures your real engine produced ($0, $71,000 and $101,000 salaries). Shipped, it would call the real calculation at every step.</p>
+</div>
+<div class="commentary">
+  <b>Solves:</b> <span class="yes">makes the $0 problem self-evident rather than a warning to be ignored</span> — you can
+  see the saving shrink as the salary becomes defensible. Teaches the actual mechanism in one gesture.<br>
+  <b>Costs:</b> invites fiddling toward the number someone likes. The red zone has to be unmissable, and the
+  headline saving should probably grey out inside it.
+</div>
+
+<!-- ============ D ============ -->
+<hr class="rule" id="d">
+<div class="eyebrow">Direction D</div>
+<h2 class="dir">Decision ladder, analysis gated</h2>
+<p style="color:var(--muted);max-width:660px;">Closest to what you suggested — nothing S-corp appears until you have
+cleared the questions that make it a real option. The gate is qualification, not a button for its own sake.</p>
+
+<div class="card tier">
+  <span class="badge quiet">Affects every tab</span>
+  <h3 style="font-family:Fraunces,serif;font-size:22px;margin:12px 0 4px;">Is a Professional Corp worth looking at?</h3>
+  <p style="color:var(--muted);margin:0 0 8px;max-width:640px;">Three things have to be true before the comparison means anything.</p>
+
+  <div class="step done"><div class="stepn">✓</div><div>
+    <h5>Your profit clears the threshold</h5>
+    <p>$202,800 — comfortably above the ~$80,000 where the split starts to pay for its own admin.</p></div></div>
+  <div class="step done"><div class="stepn">✓</div><div>
+    <h5>You are eligible in California</h5>
+    <p>As an LMFT you can form a Marriage and Family Therapy Corporation. An LLC is not available to you.</p></div></div>
+  <div class="step"><div class="stepn">3</div><div>
+    <h5>You have set a salary you could defend</h5>
+    <p>Needed before any figure below is real. The benchmark is $101,000 — 50% of your net profit.</p>
+    <div style="margin-top:10px;"><button class="btn pri">Use $101,000 and compare →</button>
+      <button class="btn" style="margin-left:6px;">Enter my own</button></div></div></div>
+  <div class="step blocked"><div class="stepn">4</div><div>
+    <h5>The comparison</h5>
+    <p>Unlocks once step 3 is done.</p></div></div>
+</div>
+<div class="commentary">
+  <b>Solves:</b> <span class="yes">a $0 salary can never produce a number at all</span>, and the CA eligibility point gets
+  told at the moment it is relevant rather than buried further down.<br>
+  <b>Costs:</b> <span class="no">friction on every visit</span> unless the cleared steps collapse once satisfied.
+  Also the most work to build of the four.
+</div>
+
+<!-- ============ ZERO ============ -->
+<hr class="rule" id="zero">
+<div class="eyebrow">The $0 salary state</div>
+<h2 class="dir">Four ways to refuse the fake number</h2>
+<p style="color:var(--muted);max-width:660px;">Independent of the direction above. Today the app shows $156,463 with a
+green badge, then argues against itself underneath.</p>
+
+<div class="card" style="border-color:#E3C9C4;background:#FDF6F5;">
+  <span class="badge warn">Today</span>
+  <div class="grid2" style="margin-top:14px;">
+    <div class="statcard"><h4>Sole Proprietorship</h4><div class="num mid">$135,230</div><div class="mut" style="font-size:12.5px;">$67,570 total tax</div></div>
+    <div class="statcard" style="border:2px solid var(--pos);background:#F7FBF9;">
+      <span class="badge good">Higher take-home</span>
+      <h4 style="margin-top:10px;">S-corp (salary $0)</h4><div class="num mid pos">$156,463</div><div class="mut" style="font-size:12.5px;">$46,337 total tax</div></div>
+  </div>
+  <div class="note" style="border-color:#EBD5B4;background:#FBF1E2;"><b>Set a salary before comparing.</b>
+  An S-corp paying a $0 salary isn't a real option — the IRS requires reasonable compensation before any distribution…</div>
+  <div class="commentary" style="border-color:#E3C9C4;">The badge and the warning are making opposite claims, and the
+  badge is winning — it is bigger, greener and higher on the page.</div>
+</div>
+
+<div class="grid2">
+  <div>
+    <div class="eyebrow">Option 1</div>
+    <h3 style="font-family:Fraunces,serif;font-size:19px;margin:4px 0 10px;">Locked, with the benchmark one click away</h3>
+    <div class="grid2">
+      <div class="statcard"><h4>Sole Proprietorship</h4><div class="num mid">$135,230</div><div class="mut" style="font-size:12.5px;">$67,570 total tax</div></div>
+      <div class="statcard locked"><h4>Professional Corp</h4>
+        <p style="font-size:13.5px;margin:6px 0 12px;color:#4A463D;">Needs a salary before this means anything.</p>
+        <button class="btn amber">Use $101,000</button>
+        <div class="mut" style="font-size:12px;margin-top:8px;">50% of net profit</div></div>
+    </div>
+    <div class="commentary">No figure, no verdict, one obvious way forward. Matches how the Grow cards prompt instead of showing $0.</div>
+  </div>
+  <div>
+    <div class="eyebrow">Option 2</div>
+    <h3 style="font-family:Fraunces,serif;font-size:19px;margin:4px 0 10px;">The input lives inside the column</h3>
+    <div class="grid2">
+      <div class="statcard"><h4>Sole Proprietorship</h4><div class="num mid">$135,230</div><div class="mut" style="font-size:12.5px;">$67,570 total tax</div></div>
+      <div class="statcard" style="border-color:var(--tan);background:var(--cream);"><h4>Professional Corp</h4>
+        <input type="number" placeholder="salary" style="width:100%;font-size:17px;margin:4px 0 8px;">
+        <div class="mut" style="font-size:12px;">Try $101,000 — 50% of profit</div></div>
+    </div>
+    <div class="commentary">The comparison structurally cannot render without the salary. Fewest moving parts; no separate empty state to design.</div>
+  </div>
+</div>
+
+<div class="grid2" style="margin-top:26px;">
+  <div>
+    <div class="eyebrow">Option 3</div>
+    <h3 style="font-family:Fraunces,serif;font-size:19px;margin:4px 0 10px;">Shape visible, values withheld</h3>
+    <div class="grid2">
+      <div class="statcard"><h4>Sole Proprietorship</h4><div class="num mid">$135,230</div><div class="mut" style="font-size:12.5px;">$67,570 total tax</div></div>
+      <div class="statcard"><h4>Professional Corp</h4><div class="num mid blur">$139,539</div><div class="mut blur" style="font-size:12.5px;">$63,261 total tax</div>
+        <button class="btn" style="margin-top:10px;">Enter a salary to reveal</button></div>
+    </div>
+    <div class="commentary">Signals there <i>is</i> an answer without asserting it. <span class="no">Risk:</span> reads as a paywall, and a blurred number still gets guessed at.</div>
+  </div>
+  <div>
+    <div class="eyebrow">Option 4</div>
+    <h3 style="font-family:Fraunces,serif;font-size:19px;margin:4px 0 10px;">Pre-filled at the benchmark</h3>
+    <div class="grid2">
+      <div class="statcard"><h4>Sole Proprietorship</h4><div class="num mid">$135,230</div><div class="mut" style="font-size:12.5px;">$67,570 total tax</div></div>
+      <div class="statcard"><h4>Professional Corp</h4><div class="num mid">$139,539</div><div class="mut" style="font-size:12.5px;">at $101,000 salary · edit</div></div>
+    </div>
+    <div class="commentary">Lawful from the first glance, no empty state at all. <span class="no">But</span> it breaks your
+    global "every input starts at zero" rule — the one deliberate exception would need to be worth it.</div>
+  </div>
+</div>
+
+<hr class="rule-sub">
+<p style="color:var(--muted);font-size:13.5px;">Directions and options combine freely — A + option 2 is probably the
+smallest change that fixes both problems; C + option 2 is the most opinionated.</p>
+
+</div>
+
+<script>
+(function(){
+  var anchors=[[0,156463],[71000,144791],[101000,139539]];
+  var SOLE=135230, PROFIT=202800;
+  function netAt(s){
+    if(s<=anchors[0][0]) return anchors[0][1];
+    for(var i=1;i<anchors.length;i++){
+      if(s<=anchors[i][0]){
+        var a=anchors[i-1],b=anchors[i],t=(s-a[0])/(b[0]-a[0]);
+        return a[1]+t*(b[1]-a[1]);
+      }
+    }
+    var a=anchors[1],b=anchors[2],slope=(b[1]-a[1])/(b[0]-a[0]);
+    return b[1]+(s-b[0])*slope;
+  }
+  var f=function(n){return '$'+Math.round(n).toLocaleString();};
+  var el=document.getElementById('sal');
+  if(!el) return;
+  function upd(){
+    var s=+el.value, net=netAt(s), d=net-SOLE, pct=Math.round(s/PROFIT*100);
+    document.getElementById('o-sal').textContent=f(s);
+    document.getElementById('o-pct').textContent=pct+'% of net profit';
+    document.getElementById('o-net').textContent=f(net);
+    var dd=document.getElementById('o-delta');
+    dd.textContent=(d>=0?'+':'−')+f(Math.abs(d))+' vs. sole proprietor';
+    dd.className=d>=0?'pos':'neg';
+    var v=document.getElementById('o-verdict'), n=document.getElementById('o-note');
+    if(s<=0){v.innerHTML='<span class="badge warn" style="background:#F6DAD6;color:#8C3A31;">Not a real option</span>';
+      n.textContent='The IRS requires reasonable compensation before any distribution.';}
+    else if(pct<35){v.innerHTML='<span class="badge warn" style="background:#F6DAD6;color:#8C3A31;">Hard to defend</span>';
+      n.textContent='Below 35% of profit — this is where audit risk concentrates.';}
+    else if(pct<50){v.innerHTML='<span class="badge warn">Aggressive</span>';
+      n.textContent='Between 35% and 50% — defensible for some practices, not all.';}
+    else{v.innerHTML='<span class="badge good">Defensible</span>';
+      n.textContent='At or above the 50% benchmark.';}
+  }
+  el.addEventListener('input',upd); upd();
+})();
+</script>
+</body>
+</html>

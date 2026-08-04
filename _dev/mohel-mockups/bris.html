@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>THE MOHEL — a bris simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --wall:#F0E0C4; --wall2:#E4D2B2; --floor:#B98A57; --floor2:#A5764A;
+  --ink:#2A2018; --muted:#7C6B57; --paper:#FDF7EA; --line:#DAC7A4;
+  --terra:#C4633F; --olive:#6E7F42; --sky:#7FB3C8; --gold:#E0A526; --plum:#7A4A6B;
+  --good:#4E8C5B; --bad:#B5483F; --warn:#D08A2C;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:#241A12;color:var(--ink);font-family:'Karla',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+.baloo{font-family:'Baloo 2',system-ui,cursive;}
+button{font-family:'Karla',sans-serif;cursor:pointer;}
+.app{max-width:1120px;margin:0 auto;padding:0 0 40px;}
+
+/* ---------- top bar ---------- */
+.bar{display:flex;align-items:center;gap:14px;padding:11px 16px;background:#1A120C;
+  border-bottom:2px solid #3B2A1C;flex-wrap:wrap;position:sticky;top:0;z-index:40;}
+.logo{font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;color:var(--gold);letter-spacing:.02em;}
+.logo small{display:block;font-family:'Karla';font-size:9.5px;font-weight:700;color:#8A7359;
+  letter-spacing:.18em;text-transform:uppercase;margin-top:-3px;}
+.runs{display:flex;gap:8px;margin-left:auto;flex-wrap:wrap;}
+.run{background:#2A1D13;border:1px solid #45321F;border-radius:9px;padding:6px 12px;min-width:78px;}
+.run .k{font-size:8.5px;text-transform:uppercase;letter-spacing:.13em;color:#8A7359;font-weight:800;}
+.run .v{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;color:#F3E4C8;line-height:1.2;}
+.run.money .v{color:var(--gold);}
+
+/* ---------- meters ---------- */
+.meters{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:12px 16px;background:#1F160E;}
+.meter{background:#2A1D13;border:1px solid #45321F;border-radius:11px;padding:9px 12px;}
+.meter .mh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
+.meter .mn{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#C4AE8C;}
+.meter .mv{font-family:'Baloo 2',cursive;font-weight:700;font-size:13px;color:#F3E4C8;}
+.mtrack{height:9px;background:#150E08;border-radius:5px;overflow:hidden;}
+.mfill{height:100%;border-radius:5px;transition:width .45s cubic-bezier(.3,1.4,.5,1);}
+.m-simcha .mfill{background:linear-gradient(90deg,#3F7F4C,#7ECB6C);}
+.m-kvetch .mfill{background:linear-gradient(90deg,#8C3730,#D9645A);}
+.m-patience .mfill{background:linear-gradient(90deg,#9B6B12,#F0C048);}
+.m-fee .mfill{background:linear-gradient(90deg,#2E6E8E,#7FC4DE);}
+.meter .sub{font-size:9.5px;color:#8A7359;margin-top:5px;line-height:1.3;}
+.meter.danger{animation:shake .5s;}
+@keyframes shake{25%{transform:translateX(-3px);}75%{transform:translateX(3px);}}
+
+/* ---------- the room ---------- */
+.stage{position:relative;width:100%;aspect-ratio:1000/460;background:#E8D6B6;overflow:hidden;
+  border-top:2px solid #3B2A1C;border-bottom:2px solid #3B2A1C;}
+.stage svg.room{position:absolute;inset:0;width:100%;height:100%;}
+.person svg.plumb{width:15px!important;height:21px;position:absolute;}
+.person{position:absolute;bottom:8%;width:7.2%;cursor:default;transition:left 1.6s ease-in-out,opacity .5s;
+  transform-origin:bottom center;}
+.person svg{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 5px rgba(60,35,15,.28));}
+.person.clickable{cursor:pointer;}
+.person.clickable:hover{transform:translateY(-4px);}
+.person .nameplate{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-size:8.5px;font-weight:800;color:#4A3722;background:rgba(255,248,232,.94);padding:1.5px 6px;
+  border-radius:9px;letter-spacing:.01em;border:1px solid rgba(120,95,60,.25);}
+.person.lowplate .nameplate{bottom:-29px;}
+.person.lowplate .nameplate:before{content:'';position:absolute;left:50%;bottom:100%;width:1px;height:11px;background:rgba(120,95,60,.4);}
+.person.idle svg{animation:bob 3.4s ease-in-out infinite;}
+@keyframes bob{50%{transform:translateY(-3px);}}
+.person.is-mohel .nameplate{background:var(--gold);color:#3A2705;}
+
+/* plumbob */
+.plumb{position:absolute;top:-26px;left:50%;transform:translateX(-50%);animation:spinb 2.6s linear infinite;}
+@keyframes spinb{50%{transform:translateX(-50%) scaleX(.3);}}
+
+/* problem marker */
+.bang{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:26px;height:26px;
+  background:var(--terra);color:#fff;border:2.5px solid #fff;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;font-size:15px;
+  box-shadow:0 3px 8px rgba(0,0,0,.3);animation:pop .55s ease-out, bounce 1.1s ease-in-out .55s infinite;}
+@keyframes pop{from{transform:translateX(-50%) scale(0);}}
+@keyframes bounce{50%{transform:translateX(-50%) translateY(-5px);}}
+
+/* speech */
+.bubble{position:absolute;bottom:112%;left:50%;transform:translateX(-50%);background:#fff;
+  border:2.5px solid var(--ink);border-radius:13px;padding:8px 11px;font-size:12px;font-weight:600;
+  line-height:1.4;width:190px;text-align:center;box-shadow:3px 3px 0 rgba(42,32,24,.22);z-index:20;
+  animation:pop2 .3s ease-out;}
+.bubble:after{content:"";position:absolute;bottom:-11px;left:50%;transform:translateX(-50%);
+  border:10px solid transparent;border-top-color:var(--ink);border-bottom:0;}
+.bubble:before{content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);
+  border:8px solid transparent;border-top-color:#fff;border-bottom:0;z-index:1;}
+@keyframes pop2{from{opacity:0;transform:translateX(-50%) translateY(6px);}}
+.bubble.think{border-radius:20px;font-style:italic;}
+
+/* ---------- action panel ---------- */
+.panel{background:var(--paper);border-top:3px solid var(--ink);padding:16px 18px 18px;}
+.pTop{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
+.pWho{font-family:'Baloo 2',cursive;font-weight:700;font-size:19px;}
+.pWho span{font-family:'Karla';font-size:12px;font-weight:700;color:var(--muted);
+  background:#EFE3CB;padding:2px 9px;border-radius:20px;margin-left:8px;vertical-align:middle;}
+.pLine{font-size:16.5px;line-height:1.6;margin:0 0 16px;max-width:70ch;}
+.pLine em{font-style:italic;color:var(--muted);}
+.opts{display:grid;gap:9px;}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;background:#fff;border:2px solid var(--line);
+  border-radius:12px;padding:12px 14px;font-size:14.5px;font-weight:600;color:var(--ink);
+  transition:transform .12s,border-color .12s,background .12s;}
+.opt:hover{border-color:var(--ink);transform:translateX(3px);background:#FFFBF0;}
+.opt .tone{flex:none;font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+  padding:3px 8px;border-radius:6px;}
+.tone-blunt{background:#F6DFDA;color:#9B3A2E;}
+.tone-polite{background:#DDEAF2;color:#2E6E8E;}
+.tone-sly{background:#EFE6D0;color:#8A6516;}
+.opt .fx{margin-left:auto;font-size:10.5px;font-weight:800;color:var(--muted);white-space:nowrap;flex:none;}
+.hint{font-size:12.5px;color:var(--muted);margin:12px 0 0;line-height:1.6;}
+.idlePanel{display:flex;gap:12px;align-items:center;flex-wrap:wrap;}
+.idlePanel .msg{font-size:15px;line-height:1.6;flex:1;min-width:240px;}
+.bigbtn{font-family:'Baloo 2',cursive;font-weight:700;font-size:17px;padding:13px 24px;border-radius:13px;
+  border:2.5px solid var(--ink);background:var(--gold);color:#3A2705;box-shadow:0 4px 0 var(--ink);}
+.bigbtn:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--ink);}
+.bigbtn.go{background:var(--good);color:#fff;}
+.bigbtn.ghost{background:#EFE3CB;}
+.bigbtn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;}
+
+/* ---------- ticker ---------- */
+.ticker{background:#1F160E;padding:10px 16px;max-height:104px;overflow-y:auto;}
+.tl{font-size:12px;color:#C4AE8C;line-height:1.55;padding:3px 0;display:flex;gap:8px;}
+.tl b{color:#F3E4C8;}
+.tl.good b,.tl.good{color:#96D48A;}
+.tl.bad b,.tl.bad{color:#E89A92;}
+.tl.gold b,.tl.gold{color:#F0C048;}
+
+/* ---------- modal ---------- */
+.modal{position:fixed;inset:0;background:rgba(26,18,12,.86);z-index:90;display:none;
+  align-items:center;justify-content:center;padding:20px;}
+.modal.open{display:flex;}
+.mbox{background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:26px 28px;
+  max-width:520px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.5);max-height:90vh;overflow-y:auto;}
+.mbox h2{font-family:'Baloo 2',cursive;font-weight:800;font-size:27px;margin:0 0 4px;}
+.mbox .msub{font-size:13.5px;color:var(--muted);margin:0 0 18px;line-height:1.6;}
+.rows{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:16px;}
+.rows td{padding:9px 0;border-bottom:1px dotted var(--line);}
+.rows td:last-child{text-align:right;font-weight:700;}
+.rows tr.tot td{border-bottom:0;border-top:2px solid var(--ink);padding-top:13px;
+  font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;}
+.rows tr.tot td:last-child{color:var(--good);}
+.verdict{background:#fff;border:2px solid var(--line);border-left:5px solid var(--terra);border-radius:0 11px 11px 0;
+  padding:13px 15px;font-size:14.5px;line-height:1.65;margin-bottom:18px;font-style:italic;}
+.mbox .bigbtn{width:100%;}
+@media(max-width:760px){
+  .meters{grid-template-columns:1fr 1fr;}
+  .person{width:10%;}
+  .pLine{font-size:15px;}
+  .opt{font-size:13.5px;flex-wrap:wrap;}
+  .opt .fx{margin-left:0;width:100%;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="bar">
+    <div class="logo">THE MOHEL<small>a bris simulator</small></div>
+    <div class="runs">
+      <div class="run"><div class="k">Bris</div><div class="v" id="r-job">1</div></div>
+      <div class="run money"><div class="k">Earned</div><div class="v" id="r-cash">$0</div></div>
+      <div class="run"><div class="k">Standing</div><div class="v" id="r-rep">50</div></div>
+      <div class="run"><div class="k">Title</div><div class="v" id="r-rank" style="font-size:12px;">Certified</div></div>
+    </div>
+  </div>
+
+  <div class="meters">
+    <div class="meter m-simcha" id="mt-simcha">
+      <div class="mh"><span class="mn">Simcha</span><span class="mv" id="v-simcha">55</span></div>
+      <div class="mtrack"><div class="mfill" id="f-simcha" style="width:55%"></div></div>
+      <div class="sub">The room's joy. Low, and nobody wants to start.</div>
+    </div>
+    <div class="meter m-kvetch" id="mt-kvetch">
+      <div class="mh"><span class="mn">Kvetching</span><span class="mv" id="v-kvetch">8</span></div>
+      <div class="mtrack"><div class="mfill" id="f-kvetch" style="width:8%"></div></div>
+      <div class="sub">Grievance in the air. It never goes down on its own.</div>
+    </div>
+    <div class="meter m-patience" id="mt-patience">
+      <div class="mh"><span class="mn">Your patience</span><span class="mv" id="v-patience">70</span></div>
+      <div class="mtrack"><div class="mfill" id="f-patience" style="width:70%"></div></div>
+      <div class="sub">Swallowing it costs you. Saying it gives it back.</div>
+    </div>
+    <div class="meter m-fee" id="mt-fee">
+      <div class="mh"><span class="mn">The envelope</span><span class="mv" id="v-fee">$0</span></div>
+      <div class="mtrack"><div class="mfill" id="f-fee" style="width:100%"></div></div>
+      <div class="sub">What's actually in it by the time you leave.</div>
+    </div>
+  </div>
+
+  <div class="stage" id="stage">
+    <svg class="room" viewBox="0 0 1000 460" preserveAspectRatio="none">
+      <!-- wall -->
+      <rect width="1000" height="360" fill="#F0E0C4"/>
+      <rect width="1000" height="360" fill="url(#wallpaper)" opacity=".5"/>
+      <defs>
+        <pattern id="wallpaper" width="46" height="60" patternUnits="userSpaceOnUse">
+          <path d="M23 12 l7 12 -7 12 -7 -12 Z" fill="#E3D0AE"/>
+        </pattern>
+        <linearGradient id="floorg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#C69463"/><stop offset="1" stop-color="#A5764A"/>
+        </linearGradient>
+      </defs>
+      <!-- floor -->
+      <rect y="352" width="1000" height="108" fill="url(#floorg)"/>
+      <g stroke="#8F6339" stroke-width="1.5" opacity=".45">
+        <path d="M0 372 H1000"/><path d="M0 396 H1000"/><path d="M0 424 H1000"/>
+        <path d="M120 352 V460"/><path d="M340 352 V460"/><path d="M600 352 V460"/><path d="M840 352 V460"/>
+      </g>
+      <!-- baseboard -->
+      <rect y="340" width="1000" height="14" fill="#E8D3AE"/><rect y="340" width="1000" height="4" fill="#CBB187"/>
+      <!-- rug -->
+      <ellipse cx="520" cy="410" rx="330" ry="46" fill="#B4553E" opacity=".55"/>
+      <ellipse cx="520" cy="410" rx="290" ry="37" fill="none" stroke="#E9C88E" stroke-width="4" opacity=".6"/>
+
+      <!-- door (left) -->
+      <rect x="24" y="140" width="104" height="200" rx="4" fill="#9E7448" stroke="#6E4E2C" stroke-width="4"/>
+      <rect x="38" y="156" width="34" height="76" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>
+      <rect x="80" y="156" width="34" height="76" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>
+      <rect x="38" y="244" width="34" height="80" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>
+      <rect x="80" y="244" width="34" height="80" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>
+      <circle cx="116" cy="244" r="6" fill="#E0A526" stroke="#8A6100" stroke-width="2"/>
+      <!-- mezuzah -->
+      <rect x="132" y="196" width="9" height="30" rx="4" fill="#8A6100" transform="rotate(14 136 211)"/>
+
+      <!-- window (right) -->
+      <rect x="742" y="86" width="196" height="150" rx="5" fill="#BFE0EE" stroke="#F6EEDC" stroke-width="9"/>
+      <rect x="742" y="86" width="196" height="150" rx="5" fill="none" stroke="#C8B18B" stroke-width="3"/>
+      <path d="M840 86 V236 M742 161 H938" stroke="#F6EEDC" stroke-width="7"/>
+      <circle cx="790" cy="124" r="17" fill="#FFE9A8" opacity=".85"/>
+      <g fill="#5E8A4E"><path d="M880 236 v-42 q-26 -10 -30 -34 q22 8 30 22 q2 -26 18 -40 q6 26 -4 42 q18 -12 34 -8 q-16 18 -34 22 v38 Z"/></g>
+
+      <!-- framed mizrach -->
+      <rect x="300" y="104" width="118" height="86" rx="3" fill="#FBF3E0" stroke="#8A6100" stroke-width="6"/>
+      <text x="359" y="156" text-anchor="middle" font-family="serif" font-size="38" fill="#25406E">מזרח</text>
+      <!-- small photo -->
+      <rect x="448" y="120" width="72" height="58" rx="3" fill="#EFE3CB" stroke="#6E4E2C" stroke-width="4"/>
+      <circle cx="484" cy="142" r="11" fill="#C89E76"/><path d="M462 178 q22 -22 44 0 Z" fill="#7A8FA8"/>
+      <!-- clock -->
+      <circle cx="596" cy="140" r="30" fill="#FBF3E0" stroke="#6E4E2C" stroke-width="5"/>
+      <g stroke="#2A2018" stroke-width="3.5" stroke-linecap="round"><path d="M596 140 V122"/><path id="clockhand" d="M596 140 L612 148"/></g>
+      <circle cx="596" cy="140" r="3.5" fill="#2A2018"/>
+
+      <!-- sofa -->
+      <g>
+        <rect x="152" y="264" width="200" height="66" rx="12" fill="#6E7F42" stroke="#4E5C2C" stroke-width="4"/>
+        <rect x="142" y="286" width="26" height="52" rx="10" fill="#7C8F4C" stroke="#4E5C2C" stroke-width="4"/>
+        <rect x="336" y="286" width="26" height="52" rx="10" fill="#7C8F4C" stroke="#4E5C2C" stroke-width="4"/>
+        <rect x="168" y="292" width="80" height="30" rx="7" fill="#849A52" stroke="#4E5C2C" stroke-width="3"/>
+        <rect x="256" y="292" width="80" height="30" rx="7" fill="#849A52" stroke="#4E5C2C" stroke-width="3"/>
+      </g>
+
+      <!-- ELIJAH'S CHAIR — the sandek's seat -->
+      <g id="chair">
+        <rect x="576" y="228" width="86" height="106" rx="9" fill="#8E4A63" stroke="#5E2C40" stroke-width="4"/>
+        <rect x="588" y="242" width="62" height="70" rx="6" fill="#A55C77" stroke="#5E2C40" stroke-width="3"/>
+        <rect x="568" y="298" width="102" height="24" rx="7" fill="#9B5169" stroke="#5E2C40" stroke-width="4"/>
+        <rect x="572" y="320" width="12" height="30" fill="#5E2C40"/><rect x="654" y="320" width="12" height="30" fill="#5E2C40"/>
+        <circle cx="619" cy="238" r="8" fill="#E0A526" stroke="#8A6100" stroke-width="2.5"/>
+      </g>
+
+      <!-- table with the spread -->
+      <g>
+        <rect x="800" y="286" width="176" height="12" rx="4" fill="#C8A06E" stroke="#7E5A33" stroke-width="3"/>
+        <rect x="814" y="298" width="10" height="52" fill="#9E7448"/><rect x="952" y="298" width="10" height="52" fill="#9E7448"/>
+        <!-- platter -->
+        <ellipse cx="856" cy="284" rx="42" ry="11" fill="#E9E2D2" stroke="#B9AC93" stroke-width="2.5"/>
+        <ellipse cx="843" cy="280" rx="12" ry="6" fill="#E8926F"/><ellipse cx="866" cy="279" rx="13" ry="6" fill="#E8926F"/>
+        <ellipse cx="855" cy="274" rx="11" ry="5" fill="#F2AE8B"/>
+        <!-- bagels -->
+        <g fill="#D9A45E" stroke="#A9762F" stroke-width="2"><circle cx="900" cy="278" r="11"/><circle cx="918" cy="281" r="10"/></g>
+        <circle cx="900" cy="278" r="3.5" fill="#C8A06E"/><circle cx="918" cy="281" r="3" fill="#C8A06E"/>
+        <!-- wine -->
+        <rect x="944" y="248" width="16" height="38" rx="4" fill="#6E2233"/><rect x="948" y="238" width="8" height="14" fill="#6E2233"/>
+        <rect x="944" y="262" width="16" height="14" fill="#D9C08A"/>
+        <!-- kiddush cup -->
+        <path d="M922 262 h18 l-3 14 h-12 Z" fill="#E0A526" stroke="#8A6100" stroke-width="2"/>
+        <rect x="928" y="276" width="6" height="8" fill="#E0A526"/><rect x="922" y="284" width="18" height="4" rx="2" fill="#E0A526"/>
+      </g>
+
+      <!-- coat rack -->
+      <g stroke="#6E4E2C" stroke-width="5" fill="none"><path d="M700 350 V206"/><path d="M684 214 L700 206 L716 214"/><path d="M690 350 h20"/></g>
+      <g opacity=".95"><path d="M700 216 q22 4 22 30 q0 28 -22 28 q-22 0 -22 -28 q0 -26 22 -30 Z" fill="#3E5A72"/><path d="M700 216 v58" stroke="#2C4152" stroke-width="2.5"/><path d="M686 222 q-8 10 -6 26" stroke="#2C4152" stroke-width="2" fill="none"/><path d="M714 222 q8 10 6 26" stroke="#2C4152" stroke-width="2" fill="none"/><circle cx="700" cy="232" r="2.5" fill="#C8B18B"/><circle cx="700" cy="248" r="2.5" fill="#C8B18B"/></g>
+    </svg>
+    <!-- characters injected here -->
+  </div>
+
+  <div class="ticker" id="ticker"></div>
+
+  <div class="panel" id="panel"></div>
+</div>
+
+<div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
+
+<script>
+/* ==========================================================
+   THE MOHEL — a bris simulator
+   You are the mohel. The baby is fine. Everyone else is the problem.
+   ========================================================== */
+(function(){
+"use strict";
+
+/* ---------- deterministic-ish rng ---------- */
+var seed=20260729;
+function rnd(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
+function ri(a,b){return a+Math.floor(rnd()*(b-a+1));}
+function pick(a){return a[Math.floor(rnd()*a.length)];}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+/* ---------- character art ---------- */
+var SKINS=["#EFC49B","#E3B189","#D9A279","#C89165","#F2D0AC"];
+function personSVG(c){
+  var s=c.skin||"#EFC49B", coat=c.coat||"#3E5A72", pants=c.pants||"#33404E", shirt=c.shirt||"#FBF6E8";
+  var g='<svg viewBox="0 0 64 130">';
+  // shoes + legs
+  g+='<rect x="22" y="86" width="8" height="34" fill="'+pants+'"/><rect x="34" y="86" width="8" height="34" fill="'+pants+'"/>';
+  g+='<rect x="18" y="118" width="14" height="8" rx="4" fill="#3A2A1C"/><rect x="32" y="118" width="14" height="8" rx="4" fill="#3A2A1C"/>';
+  // torso
+  g+='<path d="M20 56 Q32 49 44 56 L47 92 L17 92 Z" fill="'+coat+'"/>';
+  g+='<path d="M28 52 L32 74 L36 52 Z" fill="'+shirt+'"/>';
+  // arms
+  if(c.tray){ g+='<path d="M20 58 L10 74 L14 78 L24 64 Z" fill="'+coat+'"/><path d="M44 58 L54 70 L50 75 L40 64 Z" fill="'+coat+'"/>';
+              g+='<ellipse cx="53" cy="70" rx="15" ry="4" fill="#D8D0BF" stroke="#A99E88" stroke-width="1.5"/>';}
+  else if(c.holding){ g+='<path d="M20 58 L18 76 L30 80 L32 66 Z" fill="'+coat+'"/><path d="M44 58 L46 76 L34 80 L32 66 Z" fill="'+coat+'"/>'; }
+  else if(c.phone){ g+='<path d="M20 58 L14 82 L20 84 L26 62 Z" fill="'+coat+'"/><path d="M44 58 L48 68 L40 40 L34 44 Z" fill="'+coat+'"/>';
+                    g+='<rect x="34" y="34" width="8" height="13" rx="2" fill="#22303A"/>';}
+  else { g+='<path d="M20 58 L14 88 L20 90 L26 62 Z" fill="'+coat+'"/><path d="M44 58 L50 88 L44 90 L38 62 Z" fill="'+coat+'"/>'; }
+  // hands
+  g+='<circle cx="17" cy="89" r="4.5" fill="'+s+'"/><circle cx="47" cy="89" r="4.5" fill="'+s+'"/>';
+  if(c.bag){ g+='<path d="M46 90 h16 v14 h-16 Z" fill="#7A4A6B" stroke="#4E2C44" stroke-width="2"/><path d="M49 90 a5 5 0 0 1 10 0" fill="none" stroke="#4E2C44" stroke-width="2"/>'; }
+  if(c.doctorbag){ g+='<path d="M46 92 h18 v16 h-18 Z" fill="#7A4A24" stroke="#4E2E14" stroke-width="2"/><path d="M52 92 a4 4 0 0 1 8 0" fill="none" stroke="#4E2E14" stroke-width="2"/><path d="M51 100 h8 M55 96 v8" stroke="#E0A526" stroke-width="2.5"/>'; }
+  // neck + head
+  g+='<rect x="28" y="44" width="8" height="10" fill="'+s+'"/>';
+  g+='<ellipse cx="32" cy="30" rx="14" ry="16" fill="'+s+'"/>';
+  g+='<path d="M18 30 a4 4.5 0 0 0 0 9" fill="'+s+'"/><path d="M46 30 a4 4.5 0 0 1 0 9" fill="'+s+'"/>';
+  // hair
+  var hc=c.hairCol||"#B9B2AA";
+  if(c.hair==="bald"){ g+='<path d="M19 26 q3 -14 13 -14 q10 0 13 14 q-4 -8 -13 -8 q-9 0 -13 8 Z" fill="'+s+'" opacity="0"/>'
+      +'<path d="M18.4 30 q-1 -8 1 -12 q1 8 0 12 Z" fill="'+hc+'"/><path d="M45.6 30 q1 -8 -1 -12 q-1 8 0 12 Z" fill="'+hc+'"/>'
+      +'<path d="M18 32 q0 8 3 12 q-4 -3 -4 -12 Z" fill="'+hc+'"/><path d="M46 32 q0 8 -3 12 q4 -3 4 -12 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="gray"){ g+='<path d="M17 28 q1 -18 15 -18 q14 0 15 18 q-3 -9 -15 -9 q-12 0 -15 9 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="bun"){ g+='<path d="M17 28 q1 -18 15 -18 q14 0 15 18 q-3 -10 -15 -10 q-12 0 -15 10 Z" fill="'+hc+'"/><circle cx="32" cy="7" r="7" fill="'+hc+'"/>'; }
+  else if(c.hair==="wig"){ g+='<path d="M16 30 q0 -20 16 -20 q16 0 16 20 q0 12 -4 16 q2 -18 -12 -18 q-14 0 -12 18 q-4 -4 -4 -16 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="dark"){ g+='<path d="M17 27 q2 -17 15 -17 q13 0 15 17 q-4 -8 -15 -8 q-11 0 -15 8 Z" fill="'+hc+'"/>'; }
+  if(c.kippah){ g+='<path d="M21 15 q11 -9 22 0 q-11 -4 -22 0 Z" fill="'+c.kippah+'"/>'; }
+  if(c.hat){ g+='<rect x="14" y="10" width="36" height="5" rx="2.5" fill="#22201C"/><path d="M20 10 q0 -10 12 -10 q12 0 12 10 Z" fill="#22201C"/>'; }
+  if(c.beard){ g+='<path d="M20 32 q0 20 12 20 q12 0 12 -20 q-3 12 -12 12 q-9 0 -12 -12 Z" fill="'+(c.beardCol||hc)+'"/>'; }
+  // face
+  var m=c.mood||"neutral";
+  var brow = m==="annoyed" ? '<path d="M23 23 L31 25" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 23 L33 25" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+           : m==="worried" ? '<path d="M23 25 L31 22" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 25 L33 22" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+           : m==="smug" ? '<path d="M23 24 L31 24" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 21 L33 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+           : '<path d="M23 23 L31 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 23 L33 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>';
+  g+=brow;
+  g+='<circle cx="27" cy="30" r="2.4" fill="#2A2018"/><circle cx="37" cy="30" r="2.4" fill="#2A2018"/>';
+  if(c.glasses){ g+='<g fill="none" stroke="#2A2018" stroke-width="1.8"><circle cx="27" cy="30" r="6"/><circle cx="37" cy="30" r="6"/><path d="M33 30 h-2"/><path d="M21 29 l-3 -1"/><path d="M43 29 l3 -1"/></g>'; }
+  var mouth = m==="happy" ? '<path d="M27 38 q5 5 10 0" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+            : m==="annoyed" ? '<path d="M27 39 h10" stroke="#8A5A48" stroke-width="2" stroke-linecap="round"/>'
+            : m==="worried" ? '<path d="M27 40 q5 -4 10 0" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+            : m==="smug" ? '<path d="M27 39 q5 3 10 -1" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+            : '<path d="M28 39 h8" stroke="#8A5A48" stroke-width="2" stroke-linecap="round"/>';
+  if(!c.beard) g+=mouth;
+  if(c.apron){ g+='<path d="M24 58 h16 v34 h-16 Z" fill="#F2ECDD" opacity=".95"/>'; }
+  g+='</svg>';
+  return g;
+}
+function babySVG(){
+  return '<svg viewBox="0 0 40 30"><path d="M4 18 q0 -12 16 -12 q16 0 16 12 q0 8 -16 8 q-16 0 -16 -8 Z" fill="#F6F1E4" stroke="#C8BCA4" stroke-width="2"/>'
+   +'<path d="M8 16 q0 -9 12 -9 q12 0 12 9" fill="#BFD8E8" stroke="#8FB4CC" stroke-width="2"/>'
+   +'<circle cx="20" cy="17" r="6.5" fill="#F7D3B0"/>'
+   +'<path d="M17 16 h2 M21 16 h2" stroke="#3A2E22" stroke-width="1.4" stroke-linecap="round"/>'
+   +'<path d="M18.5 20 q1.5 1.5 3 0" stroke="#C08A72" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>';
+}
+
+/* ---------- the cast ---------- */
+var CAST_POOL=[
+ {id:"marv",  name:"Uncle Marv",   w:8.6, art:{skin:SKINS[1],coat:"#5A4636",pants:"#3A3128",hair:"bald",hairCol:"#8A8078",mood:"smug",kippah:"#3A3A6E"}},
+ {id:"bubbe", name:"The Bubbe",    w:6.3, art:{skin:SKINS[4],coat:"#7A4A6B",pants:"#5E3A52",hair:"wig",hairCol:"#C9C2BA",mood:"annoyed",bag:true}},
+ {id:"rav",   name:"Rabbi Feld",   w:7.6, art:{skin:SKINS[2],coat:"#2C2C38",pants:"#22222C",hair:"dark",hairCol:"#4A4038",beard:true,beardCol:"#6E6258",hat:true,mood:"neutral"}},
+ {id:"cater", name:"The caterer",  w:7.4, art:{skin:SKINS[3],coat:"#4E6E62",pants:"#33413B",hair:"dark",hairCol:"#2E2620",apron:true,tray:true,mood:"annoyed"}},
+ {id:"cousin",name:"Cousin Sheldon",w:7.9,art:{skin:SKINS[0],coat:"#6E7F42",pants:"#414C28",hair:"dark",hairCol:"#5A4636",glasses:true,mood:"smug",kippah:"#7A2A2A"}},
+ {id:"neigh", name:"A neighbour",  w:7.2, art:{skin:SKINS[1],coat:"#8A5A2B",pants:"#4E3A24",hair:"gray",hairCol:"#9A9088",phone:true,mood:"neutral"}},
+ {id:"aunt",  name:"Aunt Roz",     w:6.7, art:{skin:SKINS[4],coat:"#C4633F",pants:"#8A4028",hair:"bun",hairCol:"#8A6A4A",mood:"happy",bag:true}}
+];
+var FAMILIES=["Reznick","Abramowitz","Sharfstein","Glick","Mandelbaum","Perlmutter","Ostrofsky","Berkowitz","Zilberman","Nussbaum"];
+
+/* ---------- the material ---------- */
+/* tone: blunt restores patience but costs the room. polite keeps peace and drains you. */
+var BITS=[
+{who:"marv",icon:"!",title:"the driveway",
+ line:"“I’m in the driveway. I’m not blocking anybody. There’s a whole spot behind me, nobody’s using it.”",
+ opts:[
+  {t:"blunt", text:"“You’re blocking four cars and a hydrant.”", p:9, s:-7, k:12, reply:"“Four? Name them.”"},
+  {t:"polite",text:"“I’m sure it’s fine.”", p:-11, s:3, k:0, reply:"“It is fine. That’s what I said.”"},
+  {t:"sly",   text:"“Are the keys in it?”", p:2, s:5, k:3, reply:"“Why. Why would you ask me that.”"}]},
+
+{who:"bubbe",icon:"!",title:"the chair",
+ line:"“The chair is turned the wrong way. Elijah faces the door. That is facing the television.”",
+ opts:[
+  {t:"blunt", text:"“The television isn’t on.”", p:8, s:-6, k:11, reply:"“And if it were?”"},
+  {t:"polite",text:"“Let’s turn it around.”", p:-9, s:8, k:-4, reply:"“Now it’s facing the hallway. Is that a door?”"},
+  {t:"sly",   text:"“Which door?”", p:5, s:2, k:5, reply:"“…The main door.” — there are three."}]},
+
+{who:"cater",icon:"!",title:"the platter",
+ line:"“This is the deluxe. You’re looking at the deluxe. That’s what deluxe looks like.”",
+ opts:[
+  {t:"blunt", text:"“There’s no lox on it.”", p:10, s:-8, k:13, reply:"“The deluxe is a whitefish-forward platter.”"},
+  {t:"polite",text:"“Put it out, it’s fine.”", p:-12, s:4, k:2, reply:"He puts it down like he won something."},
+  {t:"sly",   text:"“Can I see the order?”", p:4, s:1, k:7, reply:"“The order is in the van. The van is at the shop.”"}]},
+
+{who:"cousin",icon:"!",title:"the cousin who is a doctor",
+ line:"“So — my brother’s a physician. He said he could’ve done this at the hospital. Basically for free.”",
+ opts:[
+  {t:"blunt", text:"“Then he should have.”", p:12, s:-9, k:14, reply:"“Whoa. Okay. Wow.”"},
+  {t:"polite",text:"“A lot of families go that route.”", p:-10, s:5, k:-2, reply:"“Right? That’s what I said.”"},
+  {t:"sly",   text:"“Is he here?”", p:6, s:6, k:4, reply:"“He’s… he had a thing.”"}]},
+
+{who:"neigh",icon:"?",title:"ballpark",
+ line:"“How many of these do you do in a week? Ballpark. I’m just curious what the volume is.”",
+ opts:[
+  {t:"blunt", text:"“That’s not a ballpark kind of thing.”", p:9, s:-5, k:9, reply:"“Everything’s a ballpark thing.”"},
+  {t:"polite",text:"“A few.”", p:-7, s:2, k:0, reply:"“A few. So like nine? Ten?”"},
+  {t:"sly",   text:"“How many closings do you do in a week?”", p:8, s:7, k:6, reply:"He laughs. He does not answer. He respects you now."}]},
+
+{who:"rav",icon:"!",title:"the time",
+ line:"“We’re eleven minutes past. I have a levayah at one and people have things.”",
+ opts:[
+  {t:"blunt", text:"“Then tell them to sit down.”", p:9, s:-4, k:8, reply:"“I’m not the one who tells them.”"},
+  {t:"polite",text:"“Two minutes. I promise.”", p:-8, s:4, k:-3, reply:"He looks at the watch again immediately."},
+  {t:"sly",   text:"“Who’s the levayah?”", p:3, s:0, k:6, reply:"“That’s— you don’t know him.”"}]},
+
+{who:"marv",icon:"!",title:"the last piece",
+ line:"He takes the last piece off the platter, sees you see him, and holds it up. “What. It was sitting there.”",
+ opts:[
+  {t:"blunt", text:"“That was for after.”", p:11, s:-7, k:12, reply:"“There’s no sign. Put a sign.”"},
+  {t:"polite",text:"“Enjoy it.”", p:-9, s:3, k:1, reply:"He enjoys it. Loudly. Near you."},
+  {t:"sly",   text:"“Half?”", p:5, s:6, k:5, reply:"He considers it for a long time, then tears it unevenly."}]},
+
+{who:"aunt",icon:"?",title:"we’ve met",
+ line:"“You did my nephew. Two thousand nineteen. Sherman Oaks. You wore the grey.”",
+ opts:[
+  {t:"blunt", text:"“That wasn’t me.”", p:10, s:-6, k:10, reply:"“It was absolutely you.”"},
+  {t:"polite",text:"“Of course, how is he?”", p:-9, s:7, k:-3, reply:"“Who?”"},
+  {t:"sly",   text:"“I don’t own anything grey.”", p:7, s:4, k:6, reply:"She looks at your jacket. Your jacket is grey."}]},
+
+{who:"neigh",icon:"!",title:"the call",
+ line:"His phone rings. He answers it. In the room. “YEAH — no, I’m at a thing. A baby thing.”",
+ opts:[
+  {t:"blunt", text:"“Take it outside.”", p:12, s:-5, k:11, reply:"He takes it outside. Everyone watches him go. He is a hero now, somehow."},
+  {t:"polite",text:"Wait for him to finish.", p:-13, s:-4, k:8, reply:"It is a long call. It is about a countertop."},
+  {t:"sly",   text:"Start talking louder than him.", p:6, s:8, k:4, reply:"He hangs up. He does not look at you again."}]},
+
+{who:"bubbe",icon:"?",title:"you look tired",
+ line:"“You look tired. Are you eating? You have a tired face today.”",
+ opts:[
+  {t:"blunt", text:"“This is my face.”", p:9, s:-4, k:8, reply:"“I know. That’s what I’m saying.”"},
+  {t:"polite",text:"“I’m eating, thank you.”", p:-6, s:5, k:-2, reply:"“What did you have.”"},
+  {t:"sly",   text:"“So do you.”", p:8, s:-2, k:9, reply:"A silence with real weight to it."}]},
+
+{who:"cousin",icon:"!",title:"the filming",
+ line:"He crouches directly in front of you with a phone. “I’m going to get right in there. For the grandparents.”",
+ opts:[
+  {t:"blunt", text:"“No. Back.”", p:11, s:-3, k:9, reply:"“I’m not IN it, I’m NEAR it.”"},
+  {t:"polite",text:"“Just give me some room.”", p:-8, s:3, k:2, reply:"He gives you four inches of room."},
+  {t:"sly",   text:"“The grandparents are here.”", p:7, s:6, k:3, reply:"He turns. They are. He keeps filming."}]},
+
+{who:"cater",icon:"?",title:"validation",
+ line:"“Is there validation? For the parking. Somebody said you’d know about the parking.”",
+ opts:[
+  {t:"blunt", text:"“Why would I know about the parking?”", p:9, s:-4, k:8, reply:"“You’re the one who does the whole thing.”"},
+  {t:"polite",text:"“I’ll find out for you.”", p:-11, s:4, k:0, reply:"You will never find out. He will ask again."},
+  {t:"sly",   text:"“Ask the man in the driveway.”", p:6, s:9, k:5, reply:"Across the room, Marv straightens up."}]},
+
+{who:"rav",icon:"?",title:"the name",
+ line:"“The father is saying it Yisro’el. The grandmother is saying Yisroel. Someone has to pick.”",
+ opts:[
+  {t:"blunt", text:"“It’s his son.”", p:8, s:-2, k:7, reply:"“It’s her father.”"},
+  {t:"polite",text:"“Whichever the mother says.”", p:-5, s:9, k:-6, reply:"Nobody had asked her. The room turns. She says it a third way."},
+  {t:"sly",   text:"“Say it fast and nobody knows.”", p:6, s:5, k:4, reply:"The rabbi writes this down like it is a ruling."}]},
+
+{who:"aunt",icon:"!",title:"the stop and chat",
+ line:"You are moving toward the sink. She steps into your path with the full body. “So. Tell me everything.”",
+ opts:[
+  {t:"blunt", text:"“I’m going to the sink.”", p:11, s:-6, k:10, reply:"“Go, go. Go.” She does not move."},
+  {t:"polite",text:"Stop. Chat.", p:-14, s:6, k:-4, reply:"Eleven minutes. About a cruise."},
+  {t:"sly",   text:"“Walk with me.”", p:4, s:7, k:2, reply:"She walks with you. She is faster than you."}]},
+
+{who:"marv",icon:"?",title:"the fee, out loud",
+ line:"Across the room, at volume: “WHAT DO THESE RUN, ROUGHLY? THE WHOLE— THE SERVICE?”",
+ opts:[
+  {t:"blunt", text:"“We can discuss it after.”", p:7, s:-3, k:9, reply:"“I’M ASKING BALLPARK.”"},
+  {t:"polite",text:"Say the number.", p:-6, s:-8, k:14, reply:"The room hears the number. The room reacts to the number."},
+  {t:"sly",   text:"“Ask the father, he negotiated me down.”", p:9, s:8, k:6, reply:"The father goes the colour of the platter."}]}
+];
+
+/* the one sincere beat — being funny here costs you */
+var SINCERE={who:"mother",icon:"♥",title:"the mother",
+ line:"She has the baby against her shoulder and she is not really looking at you. “Is it — will he feel it? Be honest with me.”",
+ opts:[
+  {t:"polite",text:"“He’ll cry for a minute and then he’ll sleep. I’ll be here after.”", p:-4, s:16, k:-10, reply:"She nods four or five times more than she needs to."},
+  {t:"sly",   text:"“Less than you will.”", p:3, s:9, k:-4, reply:"She laughs once, badly, and it helps."},
+  {t:"blunt", text:"“It’s eight days. He won’t remember a thing.”", p:6, s:-14, k:16, reply:"That was not what she asked and everyone heard it."}]};
+
+var OUTBURSTS=[
+ "You hear yourself say, at volume: “WHOSE DRIVEWAY DO YOU THINK THIS IS.” The room stops.",
+ "“IT’S A PLATTER. IT’S NOT A DELUXE ANYTHING.” You are pointing. You did not plan to point.",
+ "“I HAVE BEEN STANDING HERE FOR TWENTY MINUTES HOLDING A BAG.” Somebody’s child starts crying. Not the one you came for."
+];
+
+/* ---------- state ---------- */
+var G={job:1,cash:0,rep:50,fam:"",baseFee:900,fee:900,simcha:55,kvetch:8,patience:70,
+       cast:[],active:[],used:[],phase:"arrive",beats:0,sincereDone:false,log:[]};
+
+var stage=document.getElementById("stage"),panel=document.getElementById("panel"),
+    ticker=document.getElementById("ticker"),modal=document.getElementById("modal"),mbox=document.getElementById("mbox");
+
+function say(cls,txt){G.log.unshift({c:cls,t:txt});if(G.log.length>25)G.log.pop();drawTicker();}
+function drawTicker(){ticker.innerHTML=G.log.map(function(l){return '<div class="tl '+l.c+'"><span>›</span><span>'+l.t+'</span></div>';}).join("");}
+function money(v){return "$"+Math.round(v).toLocaleString("en-US");}
+function clamp(v){return Math.max(0,Math.min(100,v));}
+
+function rankName(){var r=G.rep;return r>=85?"Legendary":r>=70?"The one everyone calls":r>=50?"Neighbourhood mohel":r>=30?"Certified":"On thin ice";}
+
+function drawMeters(){
+  var set=function(id,val,txt){document.getElementById("v-"+id).textContent=txt;document.getElementById("f-"+id).style.width=val+"%";};
+  set("simcha",clamp(G.simcha),Math.round(G.simcha));
+  set("kvetch",clamp(G.kvetch),Math.round(G.kvetch));
+  set("patience",clamp(G.patience),Math.round(G.patience));
+  set("fee",Math.round(G.fee/G.baseFee*100),money(G.fee));
+  document.getElementById("r-job").textContent=G.job;
+  document.getElementById("r-cash").textContent=money(G.cash);
+  document.getElementById("r-rep").textContent=Math.round(G.rep);
+  document.getElementById("r-rank").textContent=rankName();
+  if(G.patience<=22){document.getElementById("mt-patience").classList.add("danger");
+    setTimeout(function(){document.getElementById("mt-patience").classList.remove("danger");},520);}
+}
+
+/* ---------- scene ---------- */
+function el(html){var d=document.createElement("div");d.innerHTML=html;return d.firstElementChild;}
+
+function drawScene(){
+  Array.prototype.slice.call(stage.querySelectorAll(".person")).forEach(function(n){n.remove();});
+  var sb=document.getElementById("stage-baby"); if(sb) sb.remove();
+  // the mohel
+  var mo=el('<div class="person is-mohel idle" id="p-mohel" style="left:9%;width:8.2%;bottom:9%;z-index:15;">'
+    +'<svg class="plumb" width="16" height="22" viewBox="0 0 16 22"><path d="M8 0 L16 8 L8 22 L0 8 Z" fill="#8BE04D" stroke="#4E8C2C" stroke-width="1.5"/></svg>'
+    +personSVG({skin:"#EFC49B",coat:"#4A4A56",pants:"#33333E",hair:"bald",hairCol:"#B9B2AA",glasses:true,kippah:"#4A2F86",mood:"annoyed",doctorbag:true})
+    +'<div class="nameplate">You</div></div>');
+  stage.appendChild(mo);
+  // guests
+  var n=G.cast.length, span=(88-38), step=n>1?span/(n-1):0;
+  G.cast.forEach(function(c,i){
+    c.x = 38 + step*i + (i%2?1.6:-1.6);
+    c.depth = i%2 ? 1 : 0;
+    var p=el('<div class="person idle'+(i%2?" lowplate":"")+'" id="p-'+c.id+'" style="left:'+c.x+'%;width:'+c.w+'%;'
+      +'bottom:'+(c.depth?6:10)+'%;z-index:'+(c.depth?11:9)+';">'
+      +personSVG(c.art)+'<div class="nameplate">'+c.name+'</div></div>');
+    p.addEventListener("click",function(){onGuestClick(c.id);});
+    stage.appendChild(p);
+  });
+  // mother + baby start off-screen at the door
+  var mum=el('<div class="person idle" id="p-mother" style="left:-9%;width:7.4%;bottom:10%;z-index:14;">'
+    +personSVG({skin:SKINS[0],coat:"#B0526E",pants:"#7E3A50",hair:"bun",hairCol:"#6E5442",mood:"worried",holding:true})
+    +'<div class="baby" style="position:absolute;left:31%;top:47%;width:62%;">'+babySVG()+'</div>'
+    +'<div class="nameplate">The mother</div></div>');
+  mum.addEventListener("click",function(){onGuestClick("mother");});
+  stage.appendChild(mum);
+  var dad=el('<div class="person idle lowplate" id="p-father" style="left:-16%;width:7.8%;bottom:6%;z-index:13;">'
+    +personSVG({skin:SKINS[2],coat:"#3E5A72",pants:"#2C4152",hair:"dark",hairCol:"#4A3A2C",mood:"worried",kippah:"#2A2A5E"})
+    +'<div class="nameplate">The father</div></div>');
+  dad.addEventListener("click",function(){onGuestClick("father");});
+  stage.appendChild(dad);
+}
+
+function clearBubbles(){ Array.prototype.slice.call(stage.querySelectorAll(".bubble")).forEach(function(b){b.remove();}); }
+function bubble(who,text,ms){
+  var host=document.getElementById("p-"+who); if(!host) return;
+  clearBubbles();
+  var b=el('<div class="bubble">'+text+'</div>'); host.appendChild(b);
+  setTimeout(function(){ if(b.parentNode) b.remove(); }, ms||3400);
+}
+function markBang(who,icon){
+  var host=document.getElementById("p-"+who); if(!host) return;
+  if(host.querySelector(".bang")) return;
+  host.classList.add("clickable");
+  host.appendChild(el('<div class="bang">'+(icon||"!")+'</div>'));
+}
+function clearBang(who){
+  var host=document.getElementById("p-"+who); if(!host) return;
+  var b=host.querySelector(".bang"); if(b) b.remove();
+  host.classList.remove("clickable");
+}
+
+/* ---------- the round ---------- */
+function newBris(){
+  G.fam=pick(FAMILIES);
+  G.baseFee=ri(750,1150); G.fee=G.baseFee;
+  G.simcha=55; G.kvetch=8; G.patience=Math.min(100,55+G.rep*0.2);
+  G.cast=shuffle(CAST_POOL).slice(0,ri(5,6));
+  G.active=[]; G.used=[]; G.beats=0; G.sincereDone=false; G.phase="arrive";
+  G.log=[];
+  drawScene(); drawMeters();
+  say("gold","<b>Bris #"+G.job+" — the "+G.fam+" family.</b> You are standing in a living room in the Valley at 9:40 in the morning.");
+  panel.innerHTML='<div class="idlePanel"><div class="msg">The door is open. They’re coming up the path.</div></div>';
+  setTimeout(function(){
+    document.getElementById("p-father").style.left="17%";
+    document.getElementById("p-mother").style.left="29%";
+    say("","The mother comes in first, with the baby. The father is carrying a folding chair for some reason.");
+  },420);
+  setTimeout(function(){ bubble("mother","This is him. This is the whole reason.",3800); },2100);
+  setTimeout(function(){ G.phase="room"; spawn(); spawn(); idlePanel(); },3600);
+}
+
+function spawn(){
+  if(G.active.length>=3) return;
+  // the sincere beat lands once, mid-round
+  if(!G.sincereDone && G.beats>=3 && rnd()<0.6){
+    G.sincereDone=true; G.active.push(SINCERE); markBang("mother",SINCERE.icon);
+    say("","The mother wants a word."); return;
+  }
+  var here={}; G.cast.forEach(function(c){here[c.id]=1;});
+  var avail=BITS.filter(function(b){
+    return here[b.who] && G.used.indexOf(b.title)<0 && !G.active.some(function(a){return a.who===b.who;});
+  });
+  if(!avail.length) return;
+  var b=pick(avail); G.active.push(b); G.used.push(b.title);
+  markBang(b.who,b.icon);
+  var c=G.cast.filter(function(x){return x.id===b.who;})[0];
+  say("", (c?c.name:"Someone")+" wants you — <b>"+b.title+"</b>.");
+}
+
+function onGuestClick(id){
+  if(G.phase!=="room") return;
+  var b=G.active.filter(function(a){return a.who===id;})[0];
+  if(!b){ smallTalk(id); return; }
+  showBit(b);
+}
+var SMALL={
+ marv:"“Good spread. Not great. Good.”", bubbe:"“Sit down. You’re making everyone nervous.”",
+ rav:"“Whenever you’re ready. Whenever.”", cater:"“I’m not staying for it.”",
+ cousin:"“I’ve seen a few of these.”", neigh:"“I don’t actually know these people.”",
+ aunt:"“You’re a very calm person, has anyone said that?”",
+ mother:"“He slept the whole night. Of course he did. Today he sleeps.”",
+ father:"“Should I be holding something? I feel like I should be holding something.”"};
+function smallTalk(id){ bubble(id, SMALL[id]||"“Mm.”", 3000); }
+
+function showBit(b){
+  var c=G.cast.filter(function(x){return x.id===b.who;})[0];
+  var nm=c?c.name:(b.who==="mother"?"The mother":"The father");
+  var h='<div class="pTop"><div class="pWho">'+nm+'<span>'+b.title+'</span></div></div>';
+  h+='<p class="pLine">'+b.line+'</p><div class="opts">';
+  b.opts.forEach(function(o,i){
+    var fx=[]; if(o.p>0)fx.push("+"+o.p+" patience"); if(o.p<0)fx.push(o.p+" patience");
+    if(o.s>0)fx.push("+"+o.s+" simcha"); if(o.s<0)fx.push(o.s+" simcha");
+    if(o.k>0)fx.push("+"+o.k+" kvetch"); if(o.k<0)fx.push(o.k+" kvetch");
+    h+='<button class="opt" data-bit="'+b.title+'" data-opt="'+i+'">'
+      +'<span class="tone tone-'+o.t+'">'+o.t+'</span><span>'+o.text+'</span>'
+      +'<span class="fx">'+fx.join(" · ")+'</span></button>';
+  });
+  h+='</div><p class="hint">Blunt gives you your patience back and costs you the room. Polite keeps the peace and quietly drains you. At zero patience you don’t get to choose.</p>';
+  panel.innerHTML=h;
+  Array.prototype.slice.call(panel.querySelectorAll(".opt")).forEach(function(btn){
+    btn.addEventListener("click",function(){ choose(b, b.opts[parseInt(btn.getAttribute("data-opt"),10)]); });
+  });
+}
+
+function choose(b,o){
+  G.patience=clamp(G.patience+o.p); G.simcha=clamp(G.simcha+o.s); G.kvetch=clamp(G.kvetch+o.k);
+  if(o.k>8) G.fee=Math.max(0,G.fee-ri(40,110));
+  G.active=G.active.filter(function(a){return a!==b;});
+  clearBang(b.who);
+  bubble(b.who,o.reply,4200);
+  say(o.t==="blunt"?"bad":o.t==="sly"?"gold":"", "<b>"+(b.who==="mother"?"The mother":(G.cast.filter(function(x){return x.id===b.who;})[0]||{name:"They"}).name)+":</b> "+o.reply);
+  G.beats++;
+  drawMeters();
+  if(G.patience<=0){ outburst(); return; }
+  if(rnd()<0.62) spawn();
+  idlePanel();
+}
+
+function outburst(){
+  var line=pick(OUTBURSTS);
+  G.simcha=clamp(G.simcha-18); G.kvetch=clamp(G.kvetch+22); G.patience=38;
+  G.fee=Math.max(0,G.fee-ri(120,240));
+  say("bad","<b>You lose it.</b> "+line);
+  bubble("mohel","—",1200);
+  drawMeters();
+  panel.innerHTML='<div class="pTop"><div class="pWho">You lost it<span>this happens</span></div></div>'
+   +'<p class="pLine">'+line+'</p>'
+   +'<div class="idlePanel"><div class="msg">Everyone is being very normal now, which is worse.</div>'
+   +'<button class="bigbtn ghost" id="b-resume">Compose yourself</button></div>';
+  document.getElementById("b-resume").addEventListener("click",function(){ spawn(); idlePanel(); });
+}
+
+function idlePanel(){
+  var open=G.active.length;
+  var msg = open
+    ? "<b>"+open+"</b> "+(open===1?"person wants":"people want")+" a word. They’re the ones with the mark over their head — click them."
+    : "Nobody needs you this second. You could start.";
+  var warn = G.simcha<40 ? "<br><span style=\"color:var(--bad);font-weight:700\">The room is not ready. Starting now will go badly.</span>"
+           : G.kvetch>65 ? "<br><span style=\"color:var(--bad);font-weight:700\">There is too much grievance in here. It will come out during.</span>" : "";
+  panel.innerHTML='<div class="idlePanel"><div class="msg">'+msg+warn+'</div>'
+    +'<button class="bigbtn ghost" id="b-wait">Wait it out</button>'
+    +'<button class="bigbtn go" id="b-start">Begin the ceremony</button></div>';
+  document.getElementById("b-start").addEventListener("click",ceremony);
+  document.getElementById("b-wait").addEventListener("click",function(){
+    G.beats++; G.patience=clamp(G.patience-4); G.kvetch=clamp(G.kvetch+4);
+    say("","You wait. Waiting is not free.");
+    spawn(); drawMeters(); idlePanel();
+  });
+}
+
+/* ---------- ceremony ---------- */
+function ceremony(){
+  G.phase="cer";
+  // unresolved grievances follow you in
+  G.active.forEach(function(a){ G.simcha=clamp(G.simcha-9); G.kvetch=clamp(G.kvetch+11); clearBang(a.who); });
+  var left=G.active.length; G.active=[];
+  drawMeters();
+  panel.innerHTML='<div class="pTop"><div class="pWho">The ceremony<span>everyone in</span></div></div>'
+    +'<p class="pLine">Everyone comes in from the kitchen. The father finally puts the chair down and then immediately picks it up again. '
+    +'Somebody\u2019s phone is face-down on the arm of the sofa, buzzing.</p>';
+  if(left) say("bad",left+" thing"+(left>1?"s":"")+" nobody sorted out. "+(left>1?"They come":"It comes")+" into the room with everyone else.");
+  // gather the room around the chair — wide enough that nameplates don't collide
+  clearBubbles();
+  var slots=[43,49,55,75,81,87];
+  G.cast.forEach(function(c,i){ var n=document.getElementById("p-"+c.id); if(n) n.style.left=(slots[i%slots.length])+"%"; });
+  document.getElementById("p-mother").style.left="35%";
+  document.getElementById("p-father").style.left="28%";
+  document.getElementById("p-mohel").style.left="68%";
+  setTimeout(function(){
+    // the baby is handed over: lift it out of the mother and fly it to Elijah's chair
+    var inArms=document.querySelector("#p-mother .baby");
+    if(inArms) inArms.remove();
+    var fly=el('<div id="stage-baby" style="position:absolute;left:36%;bottom:20%;width:5.6%;z-index:16;'
+      +'transition:left 1.3s ease-in-out,bottom 1.3s ease-in-out;">'+babySVG()+'</div>');
+    stage.appendChild(fly);
+    requestAnimationFrame(function(){ fly.style.left="59.6%"; fly.style.bottom="30.5%"; });
+    say("gold","The baby goes to the sandek. The room does the thing rooms do — it goes quiet all at once.");
+    bubble("rav","“Baruch haba.”",3000);
+  },1200);
+  setTimeout(function(){ say("good","It takes about eleven seconds. He cries. He stops. Somebody’s already pouring."); },2900);
+  setTimeout(result,4200);
+}
+
+function result(){
+  var score=G.simcha-G.kvetch;
+  var repD, verdict, cls;
+  if(score>=45){ repD=8; cls="good"; verdict="You were, all things considered, pretty good in there. Two people asked for your card and one of them meant it."; }
+  else if(score>=20){ repD=4; cls="good"; verdict="Fine. A normal bris. Nobody will tell a story about it, which is the highest praise available."; }
+  else if(score>=0){ repD=0; cls=""; verdict="It got done. There was a moment near the end that people will remember slightly wrong, and not in your favour."; }
+  else if(score>=-25){ repD=-6; cls="bad"; verdict="A tense room. The rabbi left without saying goodbye, which he would tell you is not a thing he does."; }
+  else { repD=-12; cls="bad"; verdict="That was bad. The Bubbe has already described it to someone on the phone, twice, with an impression of you."; }
+
+  // the envelope
+  var paid=Math.round(G.fee*(G.kvetch>70?0.72:G.kvetch>45?0.9:1));
+  var stiffed = paid<G.baseFee*0.6;
+  G.cash+=paid; G.rep=clamp(G.rep+repD);
+  say(cls||"gold","<b>The "+G.fam+" bris is done.</b> Envelope: "+money(paid)+". Standing "+(repD>=0?"+":"")+repD+".");
+  drawMeters();
+
+  mbox.innerHTML='<h2>The '+G.fam+' bris</h2>'
+   +'<p class="msub">You are in the doorway with your coat half on. This is the part where the father produces an envelope and neither of you looks at it.</p>'
+   +'<div class="verdict">'+verdict+'</div>'
+   +'<table class="rows">'
+   +'<tr><td>Room at the end</td><td>'+Math.round(G.simcha)+' simcha · '+Math.round(G.kvetch)+' kvetch</td></tr>'
+   +'<tr><td>Agreed fee</td><td>'+money(G.baseFee)+'</td></tr>'
+   +(paid<G.fee?'<tr><td>What actually got said out loud</td><td>−'+money(G.fee-paid)+'</td></tr>':'')
+   +(G.fee<G.baseFee?'<tr><td>Offence taken along the way</td><td>−'+money(G.baseFee-G.fee)+'</td></tr>':'')
+   +'<tr><td>Standing</td><td>'+(repD>=0?'+':'')+repD+' → '+Math.round(G.rep)+'</td></tr>'
+   +'<tr class="tot"><td>In the envelope</td><td>'+money(paid)+'</td></tr></table>'
+   +(stiffed?'<div class="verdict" style="border-left-color:var(--bad)">You will count it in the car. You already know.</div>':'')
+   +'<button class="bigbtn go" id="b-next">Next call →</button>';
+  modal.classList.add("open");
+  document.getElementById("b-next").addEventListener("click",function(){
+    modal.classList.remove("open"); G.job++; newBris();
+  });
+}
+
+/* ---------- go ---------- */
+newBris();
+window.__bris=G;
+window.__api={choose:choose,ceremony:ceremony,state:function(){return G;},click:onGuestClick};
+})();
+</script>
+</body>
+</html>

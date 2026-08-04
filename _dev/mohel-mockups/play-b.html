@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gameplay B — The Deli Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;500;600;700;800&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBF1DC;--paper2:#FDF8ED;--tile:#F4EADA;--ink:#26190E;--muted:#7E6A52;--line:#DCCBAA;
+  --mustard:#E0A526;--mustard2:#C98A12;--pastrami:#B33A2B;--pickle:#4F6B2E;--sky:#2E6E8E;
+  --board:#22301F;--chalk:#F3EEE0;}
+*{box-sizing:border-box;}
+body{margin:0;color:var(--ink);font-family:'Karla',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  background:repeating-linear-gradient(0deg,transparent 0 43px,rgba(0,0,0,.045) 43px 45px),
+    repeating-linear-gradient(90deg,transparent 0 89px,rgba(0,0,0,.045) 89px 91px),var(--tile);
+  background-attachment:fixed;}
+.slab{font-family:'Alfa Slab One',Georgia,serif;}
+button{font-family:'Karla',sans-serif;}
+.awning{height:16px;background:repeating-linear-gradient(90deg,var(--pastrami) 0 28px,#F6EEDC 28px 56px);
+  border-bottom:3px solid #7E2519;}
+.switch{position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  background:var(--ink);border-bottom:3px solid var(--mustard);padding:9px 16px;}
+.switch .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#B9A88E;font-weight:800;}
+.switch a{font-size:12px;font-weight:700;text-decoration:none;color:#D6C6AC;padding:6px 12px;
+  border-radius:5px;border:1px solid #4A3927;}
+.switch a.on{background:var(--mustard);color:#3A2705;border-color:var(--mustard);}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 80px;}
+
+/* counter / HUD */
+.top{display:flex;gap:18px;align-items:center;background:var(--paper);border:3px solid var(--ink);
+  border-radius:4px;box-shadow:6px 6px 0 rgba(38,25,14,.13);padding:15px 20px;margin-bottom:18px;flex-wrap:wrap;}
+.who{flex:1;min-width:200px;}
+.who .rank{font-family:'Alfa Slab One',serif;font-size:17px;color:var(--pastrami);}
+.repTrack{height:13px;background:#EFE3CB;border:2px solid var(--ink);margin-top:8px;overflow:hidden;}
+.repFill{height:100%;background:repeating-linear-gradient(90deg,var(--pickle) 0 7px,#5F7F38 7px 14px);transition:width .3s;}
+.repMeta{font-size:11px;color:var(--muted);margin-top:6px;font-weight:700;}
+.hudStats{display:flex;gap:0;border:2px solid var(--ink);}
+.hs{padding:10px 16px;border-right:2px solid var(--line);background:var(--paper2);min-width:90px;}
+.hs:last-child{border-right:0;}
+.hs .k{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:800;margin-bottom:6px;}
+.hs .v{font-family:'Alfa Slab One',serif;font-size:19px;line-height:1;}
+.hs.gold .v{color:var(--mustard2);}.hs.green .v{color:var(--pickle);}.hs.blue .v{color:var(--sky);}
+
+.cols{display:grid;grid-template-columns:1.35fr .95fr;gap:20px;align-items:start;}
+.card{background:var(--paper);border:3px solid var(--ink);border-radius:4px;padding:20px;margin-bottom:20px;
+  box-shadow:5px 5px 0 rgba(38,25,14,.12);}
+.card h2{font-family:'Alfa Slab One',serif;font-size:19px;margin:0 0 4px;}
+.card .ph{font-size:12.5px;color:var(--muted);margin:0 0 16px;line-height:1.6;}
+
+/* CALENDAR — a week-board of order slips */
+.calHead{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-bottom:5px;}
+.calHead span{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800;text-align:center;}
+#g-calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
+.g-day{background:#FFFDF6;border:2px solid var(--line);min-height:62px;padding:6px;
+  display:flex;flex-direction:column;gap:2px;}
+.g-day-n{font-family:'Courier Prime',monospace;font-size:11px;font-weight:700;color:var(--muted);}
+.g-day{min-width:0;}
+.g-day-tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;font-weight:800;line-height:1.25;}
+.g-day-sub{font-size:9.5px;color:var(--muted);margin-top:auto;font-family:'Courier Prime',monospace;}
+.g-day.is-shabbat{background:#EDE7D6;border-color:#B9A57F;}
+.g-day.is-shabbat .g-day-tag{color:#7A6538;font-size:9.5px;font-weight:700;}
+.g-day.is-past{opacity:.42;}
+.g-day.is-done{opacity:.85;}
+.g-day.is-done .g-day-n:after{content:' \2713';color:var(--pickle);}
+.g-day.is-today{outline:3px solid var(--pastrami);outline-offset:-3px;}
+.g-day.is-booked{background:#EEF4E4;border-color:var(--pickle);}
+.g-day.is-booked .g-day-tag{color:var(--pickle);}
+.g-day.is-booked.dist-far{background:#FDF1DC;border-color:var(--mustard2);}
+.g-day.is-booked.dist-far .g-day-tag{color:#8A5A0E;}
+.g-day.is-booked.dist-walk{background:#E4EFF4;border-color:var(--sky);}
+.g-day.is-booked.dist-walk .g-day-tag{color:var(--sky);}
+
+/* INBOX — order tickets */
+#g-inbox{display:flex;flex-direction:column;gap:12px;}
+.g-empty{font-size:13px;color:var(--muted);text-align:center;padding:26px 10px;
+  border:2px dashed var(--ink);background:#FFFDF6;font-style:italic;}
+.g-call{background:#FFFDF6;border:2px solid var(--ink);padding:13px 14px;position:relative;
+  box-shadow:3px 3px 0 rgba(38,25,14,.10);}
+.g-call:before{content:"";position:absolute;top:-2px;left:22px;width:12px;height:5px;
+  background:var(--pastrami);border:2px solid var(--ink);border-top:0;}
+.g-call.is-urgent{border-color:var(--pastrami);}
+.g-call.is-blocked{opacity:.6;}
+.g-call-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:9px;}
+.g-call-fam{font-family:'Alfa Slab One',serif;font-size:16px;}
+.g-adult{font-style:normal;font-size:9px;background:var(--pastrami);color:#fff;padding:2px 6px;
+  font-weight:800;text-transform:uppercase;letter-spacing:.06em;vertical-align:middle;font-family:'Karla',sans-serif;}
+.g-call-fee{font-family:'Courier Prime',monospace;font-size:16px;font-weight:700;color:var(--pickle);}
+.g-call-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px;}
+.g-chip{font-size:10.5px;font-weight:700;padding:3px 8px;background:#F1E7D2;color:var(--muted);border:1px solid var(--line);}
+.g-chip-day{background:var(--ink);color:#F6EEDC;border-color:var(--ink);}
+.dist-walk .g-chip-dist{background:#E4EFF4;color:var(--sky);border-color:var(--sky);}
+.dist-far .g-chip-dist{background:#FDF1DC;color:#8A5A0E;border-color:var(--mustard2);}
+.g-call-block{font-size:11.5px;color:#7E2519;background:#FBEAE6;border-left:3px solid var(--pastrami);
+  padding:8px 10px;margin-bottom:11px;}
+.g-call-acts{display:flex;gap:8px;}
+.g-btn{flex:1;border:2px solid var(--ink);background:#F1E7D2;color:var(--ink);
+  padding:10px 12px;font-size:13px;font-weight:800;cursor:pointer;box-shadow:2px 2px 0 var(--ink);}
+.g-btn:hover:not(:disabled){transform:translate(1px,1px);box-shadow:1px 1px 0 var(--ink);}
+.g-btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;}
+.g-btn-yes{background:var(--pickle);color:#F2F7E9;}
+.g-btn-no{background:#F3DFDB;color:#7E2519;}
+.g-btn small{display:block;font-size:10px;font-weight:700;opacity:.8;margin-top:3px;}
+
+#g-advance{width:100%;padding:17px;font-family:'Alfa Slab One',serif;font-size:17px;
+  background:var(--mustard);color:#3A2705;border:3px solid var(--ink);cursor:pointer;
+  box-shadow:5px 5px 0 var(--ink);letter-spacing:.02em;}
+#g-advance:hover:not(:disabled){transform:translate(2px,2px);box-shadow:3px 3px 0 var(--ink);}
+#g-advance:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;}
+
+/* LOG — receipt tape */
+#g-log{max-height:300px;overflow-y:auto;background:#FFFDF6;border:2px solid var(--line);
+  padding:12px;font-family:'Courier Prime',monospace;}
+.g-log-line{display:flex;gap:9px;font-size:12px;line-height:1.55;padding:6px 0;border-bottom:1px dashed var(--line);}
+.g-log-line:last-child{border-bottom:0;}
+.g-log-day{font-weight:700;color:var(--muted);flex:none;}
+.g-log-line.kind-good .g-log-txt{color:var(--pickle);}
+.g-log-line.kind-bad .g-log-txt{color:var(--pastrami);}
+.g-log-line.kind-book .g-log-txt{color:var(--sky);}
+.g-log-line.kind-event .g-log-txt{color:#7A5A12;}
+.g-log-line.kind-mitzvah .g-log-txt{color:#8A5A0E;font-weight:700;}
+.g-log-line.kind-shabbat .g-log-txt{color:#7A6538;}
+.g-log-line.kind-warn .g-log-txt{color:var(--pastrami);}
+
+/* OVERLAYS */
+#g-choice,#g-end{position:fixed;inset:0;background:rgba(38,25,14,.72);z-index:90;
+  display:none;align-items:center;justify-content:center;padding:20px;}
+#g-choice.is-open,#g-end.is-open{display:flex;}
+.g-choice-box,.g-end-box{background:var(--paper);border:3px solid var(--ink);padding:26px;
+  max-width:520px;width:100%;box-shadow:10px 10px 0 rgba(0,0,0,.3);}
+.g-choice-h,.g-end-h{font-family:'Alfa Slab One',serif;font-size:23px;color:var(--pastrami);margin-bottom:12px;}
+.g-choice-p{font-size:14.5px;line-height:1.7;margin:0 0 20px;}
+.g-choice-acts{display:flex;flex-direction:column;gap:9px;}
+.g-end-t{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:16px;font-family:'Courier Prime',monospace;}
+.g-end-t td{padding:9px 0;border-bottom:1px dashed var(--line);}
+.g-end-t td:last-child{text-align:right;font-weight:700;}
+.g-end-t tr.g-end-tot td{border-bottom:0;border-top:2px solid var(--ink);padding-top:13px;
+  font-family:'Alfa Slab One',serif;font-size:19px;color:var(--pickle);}
+.g-end-rank{font-family:'Alfa Slab One',serif;font-size:17px;text-align:center;margin-bottom:12px;color:var(--pastrami);}
+.g-end-note{font-size:13.5px;color:var(--muted);line-height:1.65;text-align:center;margin:0 0 18px;font-style:italic;}
+#g-restart{width:100%;}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:12px;font-weight:600;}
+.legend i{width:13px;height:13px;display:inline-block;margin-right:6px;vertical-align:-2px;border:2px solid var(--ink);}
+@media(max-width:900px){.cols{grid-template-columns:1fr;}}
+@media(max-width:560px){.hudStats{width:100%;}.hs{flex:1;min-width:0;padding:9px 8px;}}
+</style>
+</head>
+<body>
+
+<div class="awning"></div>
+<nav class="switch">
+  <span class="lbl">Gameplay</span>
+  <a href="play-a.html">A · Bris Tycoon</a>
+  <a class="on" href="play-b.html">B · The Deli Board</a>
+  <a href="play-c.html">C · The Daf</a>
+  <a href="index.html" style="margin-left:auto;border-color:transparent;">← all directions</a>
+</nav>
+
+<div class="wrap">
+  <div class="top">
+    <svg width="66" height="72" viewBox="0 0 170 185">
+      <g stroke="#26190E" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M22 185 C24 146 44 132 62 126 L108 126 C126 132 146 146 148 185 Z" fill="#3E5A72"/>
+        <path d="M62 126 L85 152 L108 126 L98 122 L72 122 Z" fill="#FBF6E8"/>
+        <path d="M72 104 L98 104 L98 124 C98 130 72 130 72 124 Z" fill="#E0AE85"/>
+        <ellipse cx="85" cy="66" rx="42" ry="46" fill="#EFC49B"/>
+        <path d="M44 48 C36 58 36 78 44 90 C40 76 42 60 48 52 Z" fill="#C9C2BA"/>
+        <path d="M126 48 C134 58 134 78 126 90 C130 76 128 60 122 52 Z" fill="#C9C2BA"/>
+        <path d="M50 36 C58 18 112 18 120 36 C104 28 66 28 50 36 Z" fill="#4A3A8C"/>
+        <path d="M56 56 L76 54" fill="none" stroke-width="6"/><path d="M94 50 L116 55" fill="none" stroke-width="6"/>
+        <circle cx="66" cy="69" r="15" fill="#FFFDF6"/><circle cx="105" cy="69" r="15" fill="#FFFDF6"/>
+        <path d="M81 68 L90 68" fill="none"/>
+        <circle cx="71" cy="70" r="4.5" fill="#26190E" stroke="none"/><circle cx="110" cy="70" r="4.5" fill="#26190E" stroke="none"/>
+        <path d="M85 74 C82 84 80 88 86 89" fill="none"/><path d="M70 99 C78 96 92 96 100 99" fill="none"/>
+      </g>
+    </svg>
+    <div class="who">
+      <div class="rank" data-g="rank"></div>
+      <div class="repTrack"><div class="repFill" data-gbar="rep" style="width:40%"></div></div>
+      <div class="repMeta">HOW THE NEIGHBORHOOD TALKS ABOUT YOU — <b data-g="rep"></b>/100</div>
+    </div>
+    <div class="hudStats">
+      <div class="hs"><div class="k">Day</div><div class="v"><span data-g="day"></span>/<span data-g="dayTotal"></span></div></div>
+      <div class="hs gold"><div class="k">In the till</div><div class="v" data-g="cash"></div></div>
+      <div class="hs green"><div class="k">Served</div><div class="v" data-g="done"></div></div>
+      <div class="hs blue"><div class="k">On order</div><div class="v" data-g="booked"></div></div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h2>This month's board</h2>
+        <p class="ph">Every bris is nailed to the eighth day. You don't schedule these — you just decide which ones you're standing in the room for.</p>
+        <div class="calHead"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Shabbos</span></div>
+        <div id="g-calendar"></div>
+        <div class="legend">
+          <span><i style="background:#EEF4E4;border-color:#4F6B2E"></i>booked, short drive</span>
+          <span><i style="background:#E4EFF4;border-color:#2E6E8E"></i>walking distance</span>
+          <span><i style="background:#FDF1DC;border-color:#C98A12"></i>over an hour</span>
+          <span><i style="background:#EDE7D6;border-color:#B9A57F"></i>Shabbos — no driving</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>The tape</h2>
+        <p class="ph">Everything that happened, in order.</p>
+        <div id="g-log"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>Orders up</h2>
+        <p class="ph">A boy was born. The date is already decided. Yes or no.</p>
+        <div id="g-inbox"></div>
+      </div>
+      <button id="g-advance">NEXT, PLEASE</button>
+    </div>
+  </div>
+</div>
+
+<div id="g-choice"></div>
+<div id="g-end"><div class="g-end-box"></div></div>
+
+<script>
+window.SKIN = {
+  advanceBtn:"NEXT, PLEASE", goBrisBtn:"HEAD OVER THERE", endedBtn:"CLOSED FOR THE MONTH",
+  acceptBtn:"Write it up", declineBtn:"Can't do it",
+  emptyInbox:"Nobody's calling. Wipe the counter, move the day along.",
+  choiceTitle:"A word in the doorway", endTitle:"Closing out the month",
+  freeBtn:"On the house", reducedBtn:"Take what he's got", walkBtn:"Hold the price",
+  restartBtn:"Open up again tomorrow", standingWord:"in the neighborhood",
+  endNet:"YOURS", endServed:"Brises served", endFree:"Of those, on the house",
+  endGross:"Rung up", endVar:"Supplies & vehicle", endFixed:"Insurance, phone, dues",
+  endTax:"Self-employment tax",
+  shabbatShort:"Shabbos", walkLong:"walking distance", farLong:"over an hour out",
+  driveLong:"short drive", viaWord:"sent by", dayWord:"Day", dayShort:"d",
+  walkTag:"walk", driveTag:"drive", farTag:"1hr+", adultTag:"adult"
+};
+</script>
+<script>
+/* ==============================================================
+   MOHEL — playable month. Shared game engine for all three skins.
+
+   THE LOOP
+     A call comes in: a boy was born on day X. The bris is on day
+     X+8 and that date cannot move. You accept or you decline.
+     One bris per morning. On Shabbat you cannot drive, so only
+     families you can walk to are reachable. Complications land on
+     the morning itself.
+
+   The engine owns all state and logic and emits semantic DOM
+   (.g-day, .g-call, .g-log-line ...). Each skin styles those
+   classes and supplies its own labels via window.SKIN.
+   ============================================================== */
+(function () {
+  "use strict";
+
+  // ---- deterministic PRNG so every load plays the same opening ----
+  var seed = 20260729;
+  function rnd() { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; }
+  function ri(a, b) { return a + Math.floor(rnd() * (b - a + 1)); }
+  function pick(a) { return a[Math.floor(rnd() * a.length)]; }
+
+  var FAMILIES = ["Reznick","Abramowitz","Sharfstein","Glick","Mandelbaum","Perlmutter",
+    "Ostrofsky","Kaminetzky","Berkowitz","Feldstein","Rosenthal","Zilberman","Hurwitz",
+    "Nussbaum","Teitelbaum","Wasserman","Lefkowitz","Shapiro"];
+  var SHULS = ["Ohav Sholom","Beth Israel","Shaare Tzedek","the Heights minyan",
+    "Young Israel","Anshei Emes","the Riverside shtiebl"];
+
+  var RANKS = [
+    { min: 0,  name: "Apprentice" },
+    { min: 3,  name: "Certified Mohel" },
+    { min: 7,  name: "Neighborhood Mohel" },
+    { min: 12, name: "The One Everyone Calls" },
+    { min: 18, name: "Legendary" }
+  ];
+
+  var DAYS = 28;                       // four weeks
+  var isShabbat = function (d) { return d % 7 === 0; };   // day 7,14,21,28
+
+  // cost model — matches the planner exactly
+  var SUPPLIES = 55, MILEAGE = 22, FIXED_MONTH = 410;
+
+  var S = null;   // game state
+
+  function newGame() {
+    seed = 20260729;
+    S = {
+      day: 1,
+      cash: 0,
+      rep: 40,
+      calls: [],        // every call ever received
+      nextId: 1,
+      log: [],
+      done: 0, freeDone: 0, declined: 0, missed: 0,
+      milesJobs: 0,
+      pendingChoice: null,
+      over: false
+    };
+    logLine("intro", "Day 1. The bag is packed. The phone is not ringing yet.");
+    generateCalls(1, 2);   // seed the inbox so there's something to do
+    render();
+  }
+
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  function logLine(kind, text) {
+    S.log.unshift({ kind: kind, text: text, day: S.day });
+    if (S.log.length > 40) S.log.pop();
+  }
+
+  // ---- call generation -------------------------------------------
+  function freshFamily() {
+    var used = {};
+    for (var i = 0; i < S.calls.length; i++)
+      if (S.calls[i].status !== "done" && S.calls[i].status !== "declined") used[S.calls[i].family] = 1;
+    var pool = FAMILIES.filter(function (f) { return !used[f]; });
+    return pool.length ? pick(pool) : pick(FAMILIES);
+  }
+
+  function generateCalls(day, force) {
+    // reputation drives how many families think of you first
+    var chance = 0.55 + (S.rep / 100) * 0.45;
+    var count = force !== undefined ? force : (rnd() < chance ? (rnd() < 0.34 ? 2 : 1) : 0);
+    for (var i = 0; i < count; i++) {
+      var brisDay = day + ri(1, 6);
+      if (brisDay > DAYS) continue;             // lands after the month
+      var dist = rnd() < 0.30 ? "walk" : (rnd() < 0.72 ? "drive" : "far");
+      var adult = rnd() < 0.07;
+      var fee = adult ? ri(2800, 3600) : ri(650, 1050);
+      if (dist === "far") fee += 150;
+      S.calls.push({
+        id: S.nextId++,
+        family: freshFamily(),
+        shul: pick(SHULS),
+        dist: dist,
+        adult: adult,
+        fee: fee,
+        brisDay: brisDay,
+        got: day,
+        status: "pending"     // pending | booked | done | declined | missed | postponed-lost
+      });
+    }
+  }
+
+  // ---- rules ------------------------------------------------------
+  function bookedOn(d) {
+    for (var i = 0; i < S.calls.length; i++)
+      if (S.calls[i].status === "booked" && S.calls[i].brisDay === d) return S.calls[i];
+    return null;
+  }
+
+  // Why can't I take this one? Returns null if you can.
+  function blockedReason(c) {
+    if (c.brisDay < S.day) return "The date has passed.";
+    if (bookedOn(c.brisDay)) return "You are already booked that morning.";
+    if (isShabbat(c.brisDay) && c.dist !== "walk")
+      return "That morning is Shabbat and you cannot drive there.";
+    return null;
+  }
+
+  function accept(id) {
+    var c = byId(id); if (!c || c.status !== "pending") return;
+    var why = blockedReason(c);
+    if (why) { logLine("warn", "Can't take the " + c.family + " bris — " + why.toLowerCase()); render(); return; }
+    c.status = "booked";
+    logLine("book", "Booked " + c.family + ", day " + c.brisDay + (isShabbat(c.brisDay) ? " (Shabbat — walking)" : "") + ".");
+    render();
+  }
+
+  function decline(id) {
+    var c = byId(id); if (!c || c.status !== "pending") return;
+    c.status = "declined";
+    S.declined++;
+    // If it was genuinely impossible, the family understands.
+    var impossible = !!blockedReason(c);
+    if (impossible) {
+      logLine("neutral", "Told the " + c.family + " family no. They understood — the date was impossible.");
+    } else {
+      S.rep -= 3;
+      logLine("bad", "Turned down " + c.family + ". " + cap(c.shul) + " will call someone else next time. −3 standing.");
+    }
+    render();
+  }
+
+  function byId(id) { for (var i = 0; i < S.calls.length; i++) if (S.calls[i].id === id) return S.calls[i]; return null; }
+
+  // ---- the morning ------------------------------------------------
+  function resolveMorning(c) {
+    var roll = rnd();
+
+    // 1. jaundice — the bris is postponed, and the new date may not be free
+    if (roll < 0.13) {
+      var delay = ri(3, 7);
+      var nd = c.brisDay + delay;
+      if (nd > DAYS) {
+        c.status = "postponed-lost";
+        logLine("event", "The " + c.family + " baby has jaundice. Postponed " + delay +
+          " days — past the end of the month. Not your call to make.");
+      } else if (bookedOn(nd)) {
+        c.status = "postponed-lost";
+        S.rep -= 2;
+        logLine("event", "Jaundice at the " + c.family + " house. Postponed to day " + nd +
+          " — you're already booked. They had to find someone else.");
+      } else {
+        c.brisDay = nd;
+        logLine("event", "Jaundice at the " + c.family + " house. Postponed to day " + nd + ". Still yours.");
+      }
+      return;
+    }
+
+    // 2. the family cannot pay — a real choice, not a dice roll
+    if (roll < 0.28) {
+      S.pendingChoice = { callId: c.id, kind: "cantpay" };
+      return;
+    }
+
+    completeBris(c, c.fee);
+  }
+
+  function completeBris(c, paid) {
+    c.status = "done";
+    c.paid = paid;
+    S.cash += paid;
+    S.done++;
+    if (c.dist === "far") S.milesJobs++;
+    var gain = 3 + (c.dist === "far" ? 2 : 0) + (isShabbat(c.brisDay) ? 1 : 0);
+    S.rep += gain;
+    var extra = c.dist === "far" ? " Drove an hour each way; they noticed." :
+                isShabbat(c.brisDay) ? " Walked there and back." : "";
+    logLine("good", "Day " + c.brisDay + " — " + c.family + " bris done. +" + money(paid) +
+      ", +" + gain + " standing." + extra);
+  }
+
+  function resolveChoice(which) {
+    var pc = S.pendingChoice; if (!pc) return;
+    var c = byId(pc.callId);
+    S.pendingChoice = null;
+    if (which === "free") {
+      completeBris(c, 0);
+      S.freeDone++;
+      S.rep += 6;
+      logLine("mitzvah", "The " + c.family + " family couldn't pay. You did it anyway. " +
+        cap(c.shul) + " heard about it by Tuesday. +6 standing.");
+    } else if (which === "reduced") {
+      var half = Math.round(c.fee * 0.4);
+      completeBris(c, half);
+      S.rep += 2;
+      logLine("mitzvah", "Took " + money(half) + " from the " + c.family + " family and called it even.");
+    } else {
+      c.status = "declined";
+      S.declined++;
+      S.rep -= 14;
+      logLine("bad", "You held the line on the fee and walked. The " + c.family +
+        " family found a mohel two towns over. Word travels. −14 standing.");
+    }
+    render();
+  }
+
+  // ---- the day tick -----------------------------------------------
+  function advance() {
+    if (S.over || S.pendingChoice) return;
+
+    // this morning's bris
+    var todays = bookedOn(S.day);
+    if (todays) resolveMorning(todays);
+    if (S.pendingChoice) { render(); return; }   // wait for the player
+
+    // calls that aged out unanswered
+    for (var i = 0; i < S.calls.length; i++) {
+      var c = S.calls[i];
+      if (c.status === "pending" && c.brisDay <= S.day) {
+        c.status = "missed"; S.missed++; S.rep -= 4;
+        logLine("bad", "Never got back to " + c.family + ". Their day came and went. −4 standing.");
+      }
+    }
+
+    S.rep = Math.max(0, Math.min(100, S.rep));
+
+    if (S.day >= DAYS) { S.over = true; logLine("intro", "End of the month."); render(); return; }
+
+    S.day++;
+    if (isShabbat(S.day)) logLine("shabbat", "Day " + S.day + " is Shabbat. Nothing drives today.");
+    generateCalls(S.day);
+    render();
+  }
+
+  // ---- derived ----------------------------------------------------
+  function summary() {
+    var served = S.done;
+    var variable = served * (SUPPLIES + MILEAGE);
+    var expenses = variable + FIXED_MONTH;
+    var profit = S.cash - expenses;
+    var seTax = profit > 0 ? profit * 0.9235 * 0.153 : 0;
+    var net = profit - seTax;
+    var ri_ = 0;
+    for (var i = 0; i < RANKS.length; i++) if (served >= RANKS[i].min) ri_ = i;
+    return {
+      served: served, gross: S.cash, variable: variable, fixed: FIXED_MONTH,
+      expenses: expenses, profit: profit, seTax: seTax, net: net,
+      rank: RANKS[ri_].name, perBris: served ? net / served : 0
+    };
+  }
+
+  function money(v) { return "$" + Math.round(v).toLocaleString("en-US"); }
+
+  // ---- rendering ---------------------------------------------------
+  var L = function (k, fb) { return (window.SKIN && window.SKIN[k]) || fb; };
+
+  function render() {
+    var sum = summary();
+
+    // --- headline stats
+    var vals = {
+      day: S.day, dayTotal: DAYS, cash: money(S.cash), rep: Math.round(S.rep),
+      done: S.done, freeDone: S.freeDone, declined: S.declined, missed: S.missed,
+      rank: sum.rank, booked: S.calls.filter(function (c) { return c.status === "booked"; }).length,
+      pending: S.calls.filter(function (c) { return c.status === "pending"; }).length,
+      net: money(sum.net), gross: money(sum.gross), expenses: money(sum.expenses),
+      seTax: money(sum.seTax), perBris: money(sum.perBris)
+    };
+    each("[data-g]", function (el) {
+      var k = el.getAttribute("data-g");
+      if (k in vals) el.textContent = vals[k];
+    });
+    each("[data-gbar]", function (el) {
+      var k = el.getAttribute("data-gbar");
+      if (k === "rep") el.style.width = Math.max(0, Math.min(100, S.rep)) + "%";
+    });
+
+    renderCalendar();
+    renderInbox();
+    renderLog();
+    renderChoice();
+    renderEnd(sum);
+
+    var adv = document.getElementById("g-advance");
+    if (adv) {
+      adv.disabled = S.over || !!S.pendingChoice;
+      var t = bookedOn(S.day);
+      adv.textContent = S.over ? L("endedBtn", "Month over")
+        : t ? L("goBrisBtn", "Go to the " + t.family + " bris")
+        : L("advanceBtn", "Next day");
+    }
+  }
+
+  function each(sel, fn) {
+    var els = document.querySelectorAll(sel);
+    for (var i = 0; i < els.length; i++) fn(els[i]);
+  }
+
+  function renderCalendar() {
+    var cal = document.getElementById("g-calendar"); if (!cal) return;
+    var h = "";
+    for (var d = 1; d <= DAYS; d++) {
+      // show completed mornings too, so the month visibly accumulates
+      var b = null, doneHere = false;
+      for (var k = 0; k < S.calls.length; k++) {
+        var cc = S.calls[k];
+        if (cc.brisDay !== d) continue;
+        if (cc.status === "booked") { b = cc; doneHere = false; break; }
+        if (cc.status === "done") { b = cc; doneHere = true; }
+      }
+      var cls = ["g-day"];
+      if (isShabbat(d)) cls.push("is-shabbat");
+      if (d < S.day) cls.push("is-past");
+      if (d === S.day) cls.push("is-today");
+      if (b) cls.push("is-booked", "dist-" + b.dist);
+      if (doneHere) cls.push("is-done");
+      var tag = b ? b.family : (isShabbat(d) ? L("shabbatShort", "Shabbat") : "");
+      var sub = b ? (b.dist === "walk" ? L("walkTag", "walk") : b.dist === "far" ? L("farTag", "1hr+") : L("driveTag", "drive")) : "";
+      h += '<div class="' + cls.join(" ") + '">' +
+             '<span class="g-day-n">' + d + '</span>' +
+             '<span class="g-day-tag"' + (b ? ' title="' + b.family + '"' : '') + '>' + tag + '</span>' +
+             (sub ? '<span class="g-day-sub">' + sub + '</span>' : '') +
+           '</div>';
+    }
+    cal.innerHTML = h;
+  }
+
+  function renderInbox() {
+    var box = document.getElementById("g-inbox"); if (!box) return;
+    var pend = S.calls.filter(function (c) { return c.status === "pending" && c.brisDay >= S.day; });
+    pend.sort(function (a, b) { return a.brisDay - b.brisDay; });
+    if (!pend.length) {
+      box.innerHTML = '<div class="g-empty">' + L("emptyInbox", "Phone's quiet. Advance the day.") + '</div>';
+      return;
+    }
+    var h = "";
+    for (var i = 0; i < pend.length; i++) {
+      var c = pend[i];
+      var why = blockedReason(c);
+      var urgent = c.brisDay - S.day <= 1;
+      h += '<div class="g-call' + (why ? " is-blocked" : "") + (urgent ? " is-urgent" : "") + ' dist-' + c.dist + '">' +
+        '<div class="g-call-head">' +
+          '<span class="g-call-fam">' + c.family + (c.adult ? ' <em class="g-adult">' + L("adultTag", "adult — conversion") + '</em>' : '') + '</span>' +
+          '<span class="g-call-fee">' + money(c.fee) + '</span>' +
+        '</div>' +
+        '<div class="g-call-meta">' +
+          '<span class="g-chip g-chip-day">' + L("dayWord", "Day") + ' ' + c.brisDay +
+            (isShabbat(c.brisDay) ? ' · ' + L("shabbatShort", "Shabbat") : '') + '</span>' +
+          '<span class="g-chip g-chip-dist">' +
+            (c.dist === "walk" ? L("walkLong", "walking distance") : c.dist === "far" ? L("farLong", "over an hour away") : L("driveLong", "short drive")) +
+          '</span>' +
+          '<span class="g-chip g-chip-shul">' + L("viaWord", "via") + ' ' + c.shul + '</span>' +
+        '</div>' +
+        (why ? '<div class="g-call-block">' + why + '</div>' : '') +
+        '<div class="g-call-acts">' +
+          '<button class="g-btn g-btn-yes" data-act="accept" data-id="' + c.id + '"' + (why ? " disabled" : "") + '>' + L("acceptBtn", "Take it") + '</button>' +
+          '<button class="g-btn g-btn-no" data-act="decline" data-id="' + c.id + '">' + L("declineBtn", "Pass") + '</button>' +
+        '</div>' +
+      '</div>';
+    }
+    box.innerHTML = h;
+  }
+
+  function renderLog() {
+    var lg = document.getElementById("g-log"); if (!lg) return;
+    var h = "";
+    for (var i = 0; i < S.log.length; i++) {
+      var e = S.log[i];
+      h += '<div class="g-log-line kind-' + e.kind + '"><span class="g-log-day">' +
+           L("dayShort", "d") + e.day + '</span><span class="g-log-txt">' + e.text + '</span></div>';
+    }
+    lg.innerHTML = h;
+  }
+
+  function renderChoice() {
+    var el = document.getElementById("g-choice"); if (!el) return;
+    if (!S.pendingChoice) { el.classList.remove("is-open"); el.innerHTML = ""; return; }
+    var c = byId(S.pendingChoice.callId);
+    el.classList.add("is-open");
+    el.innerHTML =
+      '<div class="g-choice-box">' +
+        '<div class="g-choice-h">' + L("choiceTitle", "In the doorway, quietly") + '</div>' +
+        '<p class="g-choice-p">The ' + c.family + ' father takes you aside before you start. ' +
+        'The fee is ' + money(c.fee) + '. He says he did not know it would be that much, and he ' +
+        'cannot do it. Everyone is already in the next room.</p>' +
+        '<div class="g-choice-acts">' +
+          '<button class="g-btn g-btn-yes" data-choice="free">' + L("freeBtn", "Do it for nothing") + '<small>+6 standing · $0</small></button>' +
+          '<button class="g-btn" data-choice="reduced">' + L("reducedBtn", "Take what he has") + '<small>+2 standing · ' + money(Math.round(c.fee * 0.4)) + '</small></button>' +
+          '<button class="g-btn g-btn-no" data-choice="walk">' + L("walkBtn", "Hold the fee") + '<small>−14 standing · $0</small></button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function renderEnd(sum) {
+    var el = document.getElementById("g-end"); if (!el) return;
+    if (!S.over) { el.classList.remove("is-open"); return; }
+    el.classList.add("is-open");
+    var box = el.querySelector(".g-end-box") || el;
+    box.innerHTML =
+      '<div class="g-end-h">' + L("endTitle", "The month, reckoned") + '</div>' +
+      '<table class="g-end-t">' +
+        row(L("endServed", "Brises performed"), sum.served) +
+        row(L("endFree", "Of those, for nothing"), S.freeDone) +
+        row(L("endGross", "Collected"), money(sum.gross)) +
+        row(L("endVar", "Supplies and vehicle"), "−" + money(sum.variable)) +
+        row(L("endFixed", "Insurance, phone, dues"), "−" + money(sum.fixed)) +
+        row(L("endTax", "Self-employment tax"), "−" + money(sum.seTax)) +
+        '<tr class="g-end-tot"><td>' + L("endNet", "Take-home") + '</td><td>' + money(sum.net) + '</td></tr>' +
+      '</table>' +
+      '<div class="g-end-rank">' + sum.rank + ' · ' + Math.round(S.rep) + ' ' + L("standingWord", "standing") + '</div>' +
+      '<p class="g-end-note">' + endNote(sum) + '</p>' +
+      '<button class="g-btn g-btn-yes" id="g-restart">' + L("restartBtn", "Play the month again") + '</button>';
+    function row(k, v) { return '<tr><td>' + k + '</td><td>' + v + '</td></tr>'; }
+  }
+
+  function endNote(sum) {
+    if (S.freeDone >= 2) return "You gave away " + S.freeDone + " of them. Your standing says that was not a mistake.";
+    if (S.missed > 2) return "Three families never heard back. That is how a mohel gets quietly replaced.";
+    if (S.rep >= 70) return "Two shuls now give out your number without being asked.";
+    if (sum.net < 1000) return "A thin month. The fixed costs do not care how many calls you got.";
+    return "An ordinary month, which in this line of work is the good outcome.";
+  }
+
+  // ---- events ------------------------------------------------------
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target.closest("button") : null;
+    if (!t) return;
+    if (t.id === "g-advance") return advance();
+    if (t.id === "g-restart") return newGame();
+    if (t.hasAttribute("data-act")) {
+      var id = parseInt(t.getAttribute("data-id"), 10);
+      return t.getAttribute("data-act") === "accept" ? accept(id) : decline(id);
+    }
+    if (t.hasAttribute("data-choice")) return resolveChoice(t.getAttribute("data-choice"));
+  });
+
+  window.MohelGame = { start: newGame, state: function () { return S; }, summary: summary, advance: advance, accept: accept, decline: decline, choice: resolveChoice };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", newGame);
+  else newGame();
+})();
+
+</script>
+</body>
+</html>

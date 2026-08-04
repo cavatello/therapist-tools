@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mohel Practice Simulator — three visual directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF9F3;--ink:#26241E;--muted:#7C766A;--line:#E7E2D6;--card:#FFFFFF;
+  --pos:#3F9577;--neg:#B5483F;--amber:#C98B4B;--cream:#F6F2E8;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+.mast{display:flex;align-items:center;gap:30px;background:var(--cream);border-bottom:1px solid var(--line);
+  padding:8px 24px;flex-wrap:wrap;}
+.mono{width:22px;height:22px;border-radius:6px;background:var(--ink);color:#fff;font-family:'Fraunces',serif;
+  font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;}
+.mark{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.wordm{font-family:'Fraunces',serif;font-weight:700;font-size:13.5px;letter-spacing:-.01em;}
+.wrap{max-width:1000px;margin:0 auto;padding:38px 24px 90px;}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px;}
+h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(28px,3.6vw,40px);line-height:1.06;
+  letter-spacing:-.02em;margin:0 0 12px;}
+h1 .accent{color:var(--neg);}
+.dek{font-size:15.5px;line-height:1.65;color:var(--muted);max-width:680px;margin:0;}
+.note{border-left:3px solid var(--amber);background:#FDF8EF;padding:14px 17px;border-radius:0 8px 8px 0;
+  margin:26px 0 0;font-size:14px;line-height:1.65;max-width:720px;}
+.note b{color:var(--ink);}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:34px;}
+.cc{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+.swatch{height:78px;display:flex;}
+.swatch i{flex:1;}
+.ccb{padding:19px 20px;display:flex;flex-direction:column;flex:1;}
+.cc-n{font-family:'Fraunces',serif;font-weight:700;font-size:12px;color:var(--muted);margin-bottom:5px;}
+.cc-t{font-family:'Fraunces',serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin:0 0 9px;}
+.cc-d{font-size:13.5px;line-height:1.6;color:var(--muted);margin:0 0 15px;flex:1;}
+.cc-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;
+  border-radius:20px;background:#F1EDE3;color:var(--muted);}
+.tag.g{background:#E6F1EB;color:var(--pos);}
+.btn{font-size:13px;font-weight:600;text-decoration:none;padding:9px 15px;border-radius:9px;
+  background:var(--ink);color:#fff;border:1px solid var(--ink);text-align:center;}
+.btn:hover{background:#3A372F;}
+h2{font-family:'Fraunces',serif;font-weight:700;font-size:23px;margin:52px 0 8px;letter-spacing:-.01em;}
+.sub{font-size:14px;color:var(--muted);margin:0 0 6px;line-height:1.65;max-width:720px;}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:16px;}
+th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  font-weight:700;padding:0 12px 9px 0;border-bottom:1px solid var(--line);}
+td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.55;}
+td:first-child{font-weight:600;}
+ul{font-size:14px;line-height:1.75;color:var(--muted);padding-left:20px;max-width:720px;}
+ul b{color:var(--ink);}
+@media(max-width:820px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <span class="mark"><span class="mono">MO</span><span class="wordm">Mohel Practice Simulator</span></span>
+  <span style="font-size:12px;color:#7C766A;">visual direction study · July 2026</span>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">Mock-up · not deployed</div>
+  <h1>Three ways to build a <span class="accent">Mohel Simulator</span></h1>
+  <p class="dek">Same idea as the Therapy Practice Simulator, same guided single-page shape, pointed at a very different job. All three run the <b>identical calculation engine</b> — move a slider in one and the math is the same math in the others. What differs is entirely the skin, the metaphor, and how the character is drawn.</p>
+
+  <div class="note">
+    <b>How to judge them.</b> Open each and ask two things: does the aesthetic make the numbers <i>more</i> legible or less, and does the joke hold up on the second visit? Direction A is the loudest and wears out fastest. Direction C is the slowest to read and the only one that could plausibly ship to a real audience of mohelim.
+  </div>
+
+  <div class="grid">
+
+    <div class="cc">
+      <div class="swatch"><i style="background:#1B0F33"></i><i style="background:#FFC542"></i><i style="background:#8BE04D"></i><i style="background:#B685FF"></i><i style="background:#4DD9E8"></i></div>
+      <div class="ccb">
+        <div class="cc-n">A</div>
+        <h3 class="cc-t">Bris Tycoon</h3>
+        <p class="cc-d">Straight arcade. Reuses the pixel type, coin gold and XP bar already built in <b>tycoon.html</b>. Level titles run Apprentice → Legendary. Loudest of the three, and the one that most obviously reads as a game rather than a tool.</p>
+        <div class="cc-meta"><span class="tag">Press Start 2P + Rubik</span><span class="tag">pixel-art character</span></div>
+        <a class="btn" href="dir-a-arcade.html">Open A</a>
+      </div>
+    </div>
+
+    <div class="cc">
+      <div class="swatch"><i style="background:#FBF1DC"></i><i style="background:#E0A526"></i><i style="background:#B33A2B"></i><i style="background:#4F6B2E"></i><i style="background:#22301F"></i></div>
+      <div class="ccb">
+        <div class="cc-n">B</div>
+        <h3 class="cc-t">The Deli Board</h3>
+        <p class="cc-d">A neighborhood appetizing store. Striped awning, hand-painted slab signage, a NOW SERVING counter, a chalkboard that rewrites itself, and a paper receipt for the take-home. Warm rather than loud — the humor is affection, not arcade.</p>
+        <div class="cc-meta"><span class="tag">Alfa Slab One + Karla</span><span class="tag">flat vector caricature</span><span class="tag g">most charm</span></div>
+        <a class="btn" href="dir-b-deli.html">Open B</a>
+      </div>
+    </div>
+
+    <div class="cc">
+      <div class="swatch"><i style="background:#F3E9D4"></i><i style="background:#25406E"></i><i style="background:#A67C1F"></i><i style="background:#8B2E2E"></i><i style="background:#1F1A12"></i></div>
+      <div class="ccb">
+        <div class="cc-n">C</div>
+        <h3 class="cc-t">The Daf</h3>
+        <p class="cc-d">Laid out as a page of Talmud: core text in the center, commentaries arguing from both margins. Take-home sits in the middle; what feeds it and what eats it flank it. Parchment, indigo, gold leaf, papercut border, Frank Ruhl Libre.</p>
+        <div class="cc-meta"><span class="tag">Frank Ruhl Libre</span><span class="tag">engraved line portrait</span><span class="tag g">most shippable</span></div>
+        <a class="btn" href="dir-c-daf.html">Open C</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Play the month</h2>
+  <p class="sub">The pages above are the planner. These are the <b>game</b> — a real, playable 28 days. Calls come in, each locked to its eighth day. You accept or you pass. One bris per morning, so two on the same date is a choice, not a double-booking. Shabbat mornings you can only reach families you can walk to. Jaundice postpones dates you'd already committed to. And sometimes the father takes you aside in the doorway to say he can't pay, with everyone already seated in the next room.</p>
+  <p class="sub">All three run the same engine and the same seed, so they open on an identical month — the only difference is how it looks and what it calls things.</p>
+
+  <div class="grid">
+    <div class="cc">
+      <div class="swatch"><i style="background:#1B0F33"></i><i style="background:#FFC542"></i><i style="background:#8BE04D"></i><i style="background:#B685FF"></i><i style="background:#4DD9E8"></i></div>
+      <div class="ccb">
+        <div class="cc-n">A · GAMEPLAY</div>
+        <h3 class="cc-t">Bris Tycoon</h3>
+        <p class="cc-d">XP bar, coin-gold HUD, level titles. Calls are cards you take or pass. The log is a run of arcade event lines. Reads unmistakably as a game.</p>
+        <a class="btn" href="play-a.html">Play A</a>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="swatch"><i style="background:#FBF1DC"></i><i style="background:#E0A526"></i><i style="background:#B33A2B"></i><i style="background:#4F6B2E"></i><i style="background:#22301F"></i></div>
+      <div class="ccb">
+        <div class="cc-n">B · GAMEPLAY</div>
+        <h3 class="cc-t">The Deli Board</h3>
+        <p class="cc-d">Calls arrive as order tickets on a spike. The month is a board behind the counter. The log is receipt tape. "Write it up" / "Can't do it" instead of accept and decline.</p>
+        <a class="btn" href="play-b.html">Play B</a>
+      </div>
+    </div>
+    <div class="cc">
+      <div class="swatch"><i style="background:#F3E9D4"></i><i style="background:#25406E"></i><i style="background:#A67C1F"></i><i style="background:#8B2E2E"></i><i style="background:#1F1A12"></i></div>
+      <div class="ccb">
+        <div class="cc-n">C · GAMEPLAY</div>
+        <h3 class="cc-t">The Daf</h3>
+        <p class="cc-d">Calls are questions put to you; the log is marginalia. "Undertake it" / "Decline". The one that treats the month as something being weighed rather than scored.</p>
+        <a class="btn" href="play-c.html">Play C</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>What the game actually asks of you</h2>
+  <table>
+    <tr><th>Mechanic</th><th>Why it's there</th></tr>
+    <tr><td>The eighth day is fixed</td><td>You never schedule anything. Every decision is which room you're standing in when a date you didn't pick arrives.</td></tr>
+    <tr><td>One morning, one bris</td><td>Two families whose sons were born the same day is the core conflict. Taking one means calling the other.</td></tr>
+    <tr><td>Shabbat, no driving</td><td>Roughly one date in seven. Walkable families only. Turns your address into a strategy.</td></tr>
+    <tr><td>Jaundice</td><td>Postpones a bris you'd already blocked out — onto a date that may now be taken. Punishes a tightly packed month.</td></tr>
+    <tr><td>"He can't pay"</td><td>The one real moral choice, and the one place the game stops being about money. Doing it free is the highest-standing move available.</td></tr>
+    <tr><td>Standing, not stars</td><td>Reputation drives how many families call you at all. Declining costs it. Word-of-mouth is the only marketing channel a mohel has.</td></tr>
+  </table>
+
+  <h2>The model underneath</h2>
+  <p class="sub">Researched first, then skinned. Every figure below is live and editable in all three directions.</p>
+  <table>
+    <tr><th>Lever</th><th>What it is</th><th>Source / basis</th></tr>
+    <tr><td>Newborn fee</td><td>$800 default</td><td>Researched range $500–$1,500 (USA Mohel); $400–$800 Boston, $650–$850 NYC</td></tr>
+    <tr><td>Adult / convert fee</td><td>$3,000 default</td><td>Researched range $3,000–$5,000 — rare jobs that carry a month</td></tr>
+    <tr><td>The Shabbat constraint</td><td>~1 job in 7</td><td>A bris is on the eighth day and the date cannot move. A shomer-Shabbat mohel can't drive, so only walking-distance families are servable on those dates</td></tr>
+    <tr><td>Free / reduced work</td><td>15% default</td><td>Mohelim routinely perform a bris at minimal or no charge; payment is treated as secondary</td></tr>
+    <tr><td>Self-employment tax</td><td>15.3% on 92.35%</td><td>Real IRS mechanic, same as the therapy simulator. Income tax excluded from take-home</td></tr>
+    <tr><td>Per-job and fixed costs</td><td>Editable</td><td><b>Estimates, not sourced</b> — supplies, vehicle, malpractice, phone/web/dues, continuing ed</td></tr>
+  </table>
+
+  <h2>What's deliberately not here yet</h2>
+  <ul>
+    <li><b>Real malpractice quotes.</b> The default is a placeholder. Physician malpractice varies enormously by state and specialty and I couldn't find a defensible mohel-specific figure.</li>
+    <li><b>Metro-level Jewish birth counts.</b> Market share is computed against a user-entered number rather than a lookup table, because reliable metro-level Jewish birth data isn't published.</li>
+    <li><b>Income tax.</b> Take-home stops after self-employment tax, and says so. Porting the therapy simulator's full bracket engine is a later step, not a mock-up step.</li>
+    <li><b>Commissioned character art.</b> All three portraits are hand-built SVG so they cost nothing and stay editable. If one direction wins, that's the slot where real illustration goes.</li>
+  </ul>
+</div>
+</body>
+</html>

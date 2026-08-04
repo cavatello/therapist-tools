@@ -1,5 +1,9 @@
 # Local dev server and scratch — not part of the site
-_dev/
+# _dev/ used to be ignored wholesale. That is exactly why the build tooling was
+# never in the repo and had to be force-added. Ignore only the scratch inside it.
+_dev/autopublish.log
+_dev/local.html
+_dev/*.log
 _to_delete/
 _publish/
 .DS_Store
@@ -9,3 +13,4 @@ node_modules/
 # Python bytecode from the mock/ builders
 __pycache__/
 *.pyc
+_dev/.watch-heartbeat

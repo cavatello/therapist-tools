@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Prototype 3 — Things You Can Say</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Karla:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2A2018;--muted:#7C6B57;--paper:#FDF7EA;--line:#DAC7A4;--gold:#E0A526;
+  --good:#4E8C5B;--bad:#B5483F;--terra:#C4633F;--plum:#7A4A6B;--sky:#2E6E8E;--olive:#6E7F42;}
+*{box-sizing:border-box;}
+body{margin:0;background:#241A12;color:var(--ink);font-family:'Karla',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+button{font-family:'Karla',sans-serif;cursor:pointer;}
+.app{max-width:1160px;margin:0 auto;padding-bottom:30px;}
+.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#160F09;padding:9px 16px;border-bottom:2px solid #3B2A1C;}
+.nav .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8A7359;font-weight:800;}
+.nav a{font-size:12px;font-weight:700;text-decoration:none;color:#D6C6AC;padding:5px 11px;border-radius:7px;border:1px solid #45321F;}
+.nav a.on{background:var(--gold);color:#3A2705;border-color:var(--gold);}
+.bar{display:flex;align-items:center;gap:14px;padding:11px 16px;background:#1A120C;flex-wrap:wrap;}
+.logo{font-family:'Baloo 2',cursive;font-weight:800;font-size:18px;color:var(--gold);}
+.logo small{display:block;font-family:'Karla';font-size:9px;font-weight:700;color:#8A7359;letter-spacing:.16em;text-transform:uppercase;margin-top:-2px;}
+.hud{display:flex;gap:9px;margin-left:auto;flex-wrap:wrap;}
+.h{background:#2A1D13;border:1px solid #45321F;border-radius:9px;padding:6px 12px;min-width:84px;}
+.h .k{font-size:8.5px;text-transform:uppercase;letter-spacing:.12em;color:#8A7359;font-weight:800;margin-bottom:4px;}
+.h .v{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;color:#F3E4C8;line-height:1.1;}
+.h.br .v{color:#7FC4DE;} .h.rm .v{color:#96D48A;} .h.rm.low .v{color:#E89A92;}
+
+.board{background:#2A1D13;padding:16px;}
+.bh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px;flex-wrap:wrap;gap:8px;}
+.bh h2{font-family:'Baloo 2',cursive;font-size:17px;color:#F3E4C8;margin:0;}
+.bh .n{font-size:11.5px;color:#A08A6C;}
+.sits{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px;}
+.sit{background:var(--paper);border:2.5px solid var(--ink);border-radius:14px;padding:13px 14px;position:relative;
+  transition:transform .15s,box-shadow .15s;}
+.sit.tgt{cursor:pointer;}
+.sit.tgt:hover{transform:translateY(-4px);box-shadow:0 6px 0 rgba(0,0,0,.28);}
+.sit.sel{border-color:var(--gold);box-shadow:0 0 0 4px rgba(224,165,38,.35);}
+.sit.done{opacity:.5;}
+.sit.crit{border-color:var(--bad);animation:pl 1.3s infinite;}
+@keyframes pl{50%{box-shadow:0 0 0 5px rgba(181,72,63,.2);}}
+.sitTop{display:flex;gap:9px;align-items:flex-start;margin-bottom:8px;}
+.face{width:38px;flex:none;}
+.face svg{width:100%;height:auto;display:block;}
+.sitN{font-family:'Baloo 2',cursive;font-weight:700;font-size:15.5px;line-height:1.15;}
+.sitW{font-size:10.5px;font-weight:700;color:var(--muted);}
+.sitL{font-size:12.5px;line-height:1.5;color:#4A3E30;margin:0 0 10px;font-style:italic;}
+.need{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:8px;}
+.chip{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;border-radius:6px;}
+.c-deflect{background:#DDEAF2;color:var(--sky);} .c-charm{background:#E7F0DC;color:#4A6B22;}
+.c-truth{background:#F6DFDA;color:#9B3A2E;} .c-stall{background:#EFE6D0;color:#8A6516;}
+.prog{height:9px;background:#E5D8BC;border-radius:5px;overflow:hidden;border:1px solid var(--line);}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,#4E8C5B,#7ECB6C);transition:width .3s;}
+.sitF{display:flex;justify-content:space-between;font-size:10.5px;font-weight:700;color:var(--muted);margin-top:6px;}
+.sitF .esc{color:var(--bad);}
+
+.handzone{background:#1F160E;padding:14px 16px 18px;}
+.hh{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:9px;}
+.hh .t{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#C4AE8C;}
+.hand{display:flex;gap:10px;flex-wrap:wrap;}
+.card{width:150px;background:var(--paper);border:2.5px solid var(--ink);border-radius:13px;padding:11px 12px;
+  cursor:pointer;transition:transform .13s,box-shadow .13s;box-shadow:0 4px 0 rgba(0,0,0,.3);text-align:left;}
+.card:hover{transform:translateY(-6px);box-shadow:0 9px 0 rgba(0,0,0,.3);}
+.card.dead{opacity:.4;cursor:not-allowed;transform:none;box-shadow:0 4px 0 rgba(0,0,0,.3);}
+.card .ct{font-family:'Baloo 2',cursive;font-weight:700;font-size:14px;line-height:1.15;margin-bottom:7px;min-height:32px;}
+.card .cv{display:flex;align-items:center;gap:6px;margin-bottom:7px;}
+.card .cn{font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;}
+.card .cd{font-size:10.5px;line-height:1.45;color:var(--muted);}
+.card.t-deflect{border-color:var(--sky);} .card.t-charm{border-color:#4A6B22;}
+.card.t-truth{border-color:var(--bad);} .card.t-stall{border-color:#8A6516;}
+.big{font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;padding:11px 20px;border-radius:11px;
+  border:2.5px solid var(--ink);background:var(--gold);color:#3A2705;box-shadow:0 4px 0 var(--ink);}
+.big.go{background:var(--good);color:#fff;}
+.big:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--ink);}
+.log{background:#160F09;padding:9px 16px;max-height:88px;overflow-y:auto;}
+.lg{font-size:12px;color:#C4AE8C;line-height:1.55;padding:2px 0;}
+.lg b{color:#F3E4C8;} .lg.good b,.lg.good{color:#96D48A;} .lg.bad b,.lg.bad{color:#E89A92;}
+.rules{background:var(--paper);padding:14px 18px;font-size:12.5px;color:var(--muted);line-height:1.65;}
+.rules b{color:var(--ink);}
+.modal{position:fixed;inset:0;background:rgba(26,18,12,.88);z-index:90;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal.open{display:flex;}
+.mb{background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:26px 28px;max-width:520px;width:100%;}
+.mb h2{font-family:'Baloo 2',cursive;font-size:26px;margin:0 0 10px;}
+.mb p{font-size:15px;line-height:1.7;}
+.mb .v{background:#fff;border:2px solid var(--line);border-left:5px solid var(--terra);padding:13px 15px;font-style:italic;margin:14px 0;font-size:14.5px;line-height:1.6;}
+.mb .big{width:100%;}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="nav"><span class="l">Prototype</span>
+  <a href="proto-1-room.html">1 · Working the Room</a>
+  <a href="proto-2-farce.html">2 · The Lie</a>
+  <a class="on" href="proto-3-cards.html">3 · Things You Can Say</a>
+  <a href="lenses.html" style="margin-left:auto;border-color:transparent;">← the design notes</a>
+</nav>
+
+<div class="bar">
+  <div class="logo">THINGS YOU CAN SAY<small>lens of meaningful choices · expected value · skill vs chance</small></div>
+  <div class="hud">
+    <div class="h br"><div class="k">Breath</div><div class="v" id="v-br">2/2</div></div>
+    <div class="h rm" id="h-room"><div class="k">The room</div><div class="v" id="v-room">70</div></div>
+    <div class="h"><div class="k">Minute</div><div class="v" id="v-turn">1/8</div></div>
+    <div class="h"><div class="k">Deck</div><div class="v" id="v-deck">—</div></div>
+  </div>
+</div>
+
+<div class="board">
+  <div class="bh"><h2>What is currently being asked of you</h2>
+    <span class="n">Pick a card, then pick who you're saying it to.</span></div>
+  <div class="sits" id="sits"></div>
+</div>
+
+<div class="log" id="log"></div>
+
+<div class="handzone">
+  <div class="hh"><span class="t">Things you can say</span>
+    <div style="display:flex;gap:9px;"><button class="big" id="b-pass">Say nothing this minute</button>
+    <button class="big go" id="b-end">Let the morning move →</button></div></div>
+  <div class="hand" id="hand"></div>
+</div>
+
+<div class="rules">
+  <b>You can only say what's in your hand.</b> Two breaths a minute; every card costs one. Each situation wants a
+  certain kind of thing said to it, and gets worse if you leave it — a demand that grows while you deal with somebody else.
+  There are two copies of <b>“Tell them the truth”</b> in the whole deck and it is the only card that solves anything
+  outright. Everything else is management.
+</div>
+</div>
+<div class="modal" id="modal"><div class="mb" id="mb"></div></div>
+
+<script>
+/* ==========================================================
+   Shared scene + cast for the mohel prototypes.
+   personSVG / babySVG / ROOM_SVG / CAST
+   ========================================================== */
+var MO = (function(){
+"use strict";
+var seed=20260729;
+function rnd(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
+function ri(a,b){return a+Math.floor(rnd()*(b-a+1));}
+function pick(a){return a[Math.floor(rnd()*a.length)];}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function reseed(s){seed=s;}
+
+var SKINS=["#EFC49B","#E3B189","#D9A279","#C89165","#F2D0AC"];
+
+function personSVG(c){
+  var s=c.skin||"#EFC49B", coat=c.coat||"#3E5A72", pants=c.pants||"#33404E", shirt=c.shirt||"#FBF6E8";
+  var g='<svg viewBox="0 0 64 130">';
+  g+='<rect x="22" y="86" width="8" height="34" fill="'+pants+'"/><rect x="34" y="86" width="8" height="34" fill="'+pants+'"/>';
+  g+='<rect x="18" y="118" width="14" height="8" rx="4" fill="#3A2A1C"/><rect x="32" y="118" width="14" height="8" rx="4" fill="#3A2A1C"/>';
+  g+='<path d="M20 56 Q32 49 44 56 L47 92 L17 92 Z" fill="'+coat+'"/>';
+  g+='<path d="M28 52 L32 74 L36 52 Z" fill="'+shirt+'"/>';
+  if(c.tray){ g+='<path d="M20 58 L10 74 L14 78 L24 64 Z" fill="'+coat+'"/><path d="M44 58 L54 70 L50 75 L40 64 Z" fill="'+coat+'"/>'
+                +'<ellipse cx="53" cy="70" rx="15" ry="4" fill="#D8D0BF" stroke="#A99E88" stroke-width="1.5"/>'; }
+  else if(c.holding){ g+='<path d="M20 58 L18 76 L30 80 L32 66 Z" fill="'+coat+'"/><path d="M44 58 L46 76 L34 80 L32 66 Z" fill="'+coat+'"/>'; }
+  else if(c.phone){ g+='<path d="M20 58 L14 82 L20 84 L26 62 Z" fill="'+coat+'"/><path d="M44 58 L48 68 L40 40 L34 44 Z" fill="'+coat+'"/>'
+                      +'<rect x="34" y="34" width="8" height="13" rx="2" fill="#22303A"/>'; }
+  else { g+='<path d="M20 58 L14 88 L20 90 L26 62 Z" fill="'+coat+'"/><path d="M44 58 L50 88 L44 90 L38 62 Z" fill="'+coat+'"/>'; }
+  g+='<circle cx="17" cy="89" r="4.5" fill="'+s+'"/><circle cx="47" cy="89" r="4.5" fill="'+s+'"/>';
+  if(c.bag){ g+='<path d="M46 90 h16 v14 h-16 Z" fill="#7A4A6B" stroke="#4E2C44" stroke-width="2"/><path d="M49 90 a5 5 0 0 1 10 0" fill="none" stroke="#4E2C44" stroke-width="2"/>'; }
+  if(c.doctorbag){ g+='<path d="M46 92 h18 v16 h-18 Z" fill="#7A4A24" stroke="#4E2E14" stroke-width="2"/><path d="M52 92 a4 4 0 0 1 8 0" fill="none" stroke="#4E2E14" stroke-width="2"/><path d="M51 100 h8 M55 96 v8" stroke="#E0A526" stroke-width="2.5"/>'; }
+  g+='<rect x="28" y="44" width="8" height="10" fill="'+s+'"/>';
+  g+='<ellipse cx="32" cy="30" rx="14" ry="16" fill="'+s+'"/>';
+  g+='<path d="M18 30 a4 4.5 0 0 0 0 9" fill="'+s+'"/><path d="M46 30 a4 4.5 0 0 1 0 9" fill="'+s+'"/>';
+  var hc=c.hairCol||"#B9B2AA";
+  if(c.hair==="bald"){ g+='<path d="M18.4 30 q-1 -8 1 -12 q1 8 0 12 Z" fill="'+hc+'"/><path d="M45.6 30 q1 -8 -1 -12 q-1 8 0 12 Z" fill="'+hc+'"/>'
+      +'<path d="M18 32 q0 8 3 12 q-4 -3 -4 -12 Z" fill="'+hc+'"/><path d="M46 32 q0 8 -3 12 q4 -3 4 -12 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="gray"){ g+='<path d="M17 28 q1 -18 15 -18 q14 0 15 18 q-3 -9 -15 -9 q-12 0 -15 9 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="bun"){ g+='<path d="M17 28 q1 -18 15 -18 q14 0 15 18 q-3 -10 -15 -10 q-12 0 -15 10 Z" fill="'+hc+'"/><circle cx="32" cy="7" r="7" fill="'+hc+'"/>'; }
+  else if(c.hair==="wig"){ g+='<path d="M16 30 q0 -20 16 -20 q16 0 16 20 q0 12 -4 16 q2 -18 -12 -18 q-14 0 -12 18 q-4 -4 -4 -16 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="dark"){ g+='<path d="M17 27 q2 -17 15 -17 q13 0 15 17 q-4 -8 -15 -8 q-11 0 -15 8 Z" fill="'+hc+'"/>'; }
+  if(c.kippah){ g+='<path d="M21 15 q11 -9 22 0 q-11 -4 -22 0 Z" fill="'+c.kippah+'"/>'; }
+  if(c.hat){ g+='<rect x="14" y="10" width="36" height="5" rx="2.5" fill="#22201C"/><path d="M20 10 q0 -10 12 -10 q12 0 12 10 Z" fill="#22201C"/>'; }
+  if(c.beard){ g+='<path d="M20 32 q0 20 12 20 q12 0 12 -20 q-3 12 -12 12 q-9 0 -12 -12 Z" fill="'+(c.beardCol||hc)+'"/>'; }
+  var m=c.mood||"neutral";
+  g+= m==="annoyed" ? '<path d="M23 23 L31 25" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 23 L33 25" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+    : m==="worried" ? '<path d="M23 25 L31 22" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 25 L33 22" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+    : m==="smug" ? '<path d="M23 24 L31 24" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 21 L33 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+    : '<path d="M23 23 L31 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 23 L33 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>';
+  g+='<circle cx="27" cy="30" r="2.4" fill="#2A2018"/><circle cx="37" cy="30" r="2.4" fill="#2A2018"/>';
+  if(c.glasses){ g+='<g fill="none" stroke="#2A2018" stroke-width="1.8"><circle cx="27" cy="30" r="6"/><circle cx="37" cy="30" r="6"/><path d="M33 30 h-2"/><path d="M21 29 l-3 -1"/><path d="M43 29 l3 -1"/></g>'; }
+  if(!c.beard){
+    g+= m==="happy" ? '<path d="M27 38 q5 5 10 0" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      : m==="annoyed" ? '<path d="M27 39 h10" stroke="#8A5A48" stroke-width="2" stroke-linecap="round"/>'
+      : m==="worried" ? '<path d="M27 40 q5 -4 10 0" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      : m==="smug" ? '<path d="M27 39 q5 3 10 -1" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      : '<path d="M28 39 h8" stroke="#8A5A48" stroke-width="2" stroke-linecap="round"/>';
+  }
+  if(c.apron){ g+='<path d="M24 58 h16 v34 h-16 Z" fill="#F2ECDD" opacity=".95"/>'; }
+  return g+'</svg>';
+}
+
+function babySVG(){
+  return '<svg viewBox="0 0 40 30"><path d="M4 18 q0 -12 16 -12 q16 0 16 12 q0 8 -16 8 q-16 0 -16 -8 Z" fill="#F6F1E4" stroke="#C8BCA4" stroke-width="2"/>'
+   +'<path d="M8 16 q0 -9 12 -9 q12 0 12 9" fill="#BFD8E8" stroke="#8FB4CC" stroke-width="2"/>'
+   +'<circle cx="20" cy="17" r="6.5" fill="#F7D3B0"/>'
+   +'<path d="M17 16 h2 M21 16 h2" stroke="#3A2E22" stroke-width="1.4" stroke-linecap="round"/>'
+   +'<path d="M18.5 20 q1.5 1.5 3 0" stroke="#C08A72" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>';
+}
+
+var ROOM_SVG =
+'<svg class="room" viewBox="0 0 1000 460" preserveAspectRatio="none">'
++'<defs><pattern id="wp" width="46" height="60" patternUnits="userSpaceOnUse"><path d="M23 12 l7 12 -7 12 -7 -12 Z" fill="#E3D0AE"/></pattern>'
++'<linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C69463"/><stop offset="1" stop-color="#A5764A"/></linearGradient></defs>'
++'<rect width="1000" height="360" fill="#F0E0C4"/><rect width="1000" height="360" fill="url(#wp)" opacity=".5"/>'
++'<rect y="352" width="1000" height="108" fill="url(#fg)"/>'
++'<g stroke="#8F6339" stroke-width="1.5" opacity=".45"><path d="M0 372 H1000"/><path d="M0 396 H1000"/><path d="M0 424 H1000"/>'
++'<path d="M120 352 V460"/><path d="M340 352 V460"/><path d="M600 352 V460"/><path d="M840 352 V460"/></g>'
++'<rect y="340" width="1000" height="14" fill="#E8D3AE"/><rect y="340" width="1000" height="4" fill="#CBB187"/>'
++'<ellipse cx="520" cy="410" rx="330" ry="46" fill="#B4553E" opacity=".55"/>'
++'<ellipse cx="520" cy="410" rx="290" ry="37" fill="none" stroke="#E9C88E" stroke-width="4" opacity=".6"/>'
++'<rect x="24" y="140" width="104" height="200" rx="4" fill="#9E7448" stroke="#6E4E2C" stroke-width="4"/>'
++'<rect x="38" y="156" width="34" height="76" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<rect x="80" y="156" width="34" height="76" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<rect x="38" y="244" width="34" height="80" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<rect x="80" y="244" width="34" height="80" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<circle cx="116" cy="244" r="6" fill="#E0A526" stroke="#8A6100" stroke-width="2"/>'
++'<rect x="132" y="196" width="9" height="30" rx="4" fill="#8A6100" transform="rotate(14 136 211)"/>'
++'<rect x="742" y="86" width="196" height="150" rx="5" fill="#BFE0EE" stroke="#F6EEDC" stroke-width="9"/>'
++'<rect x="742" y="86" width="196" height="150" rx="5" fill="none" stroke="#C8B18B" stroke-width="3"/>'
++'<path d="M840 86 V236 M742 161 H938" stroke="#F6EEDC" stroke-width="7"/>'
++'<circle cx="790" cy="124" r="17" fill="#FFE9A8" opacity=".85"/>'
++'<path d="M880 236 v-42 q-26 -10 -30 -34 q22 8 30 22 q2 -26 18 -40 q6 26 -4 42 q18 -12 34 -8 q-16 18 -34 22 v38 Z" fill="#5E8A4E"/>'
++'<rect x="300" y="104" width="118" height="86" rx="3" fill="#FBF3E0" stroke="#8A6100" stroke-width="6"/>'
++'<text x="359" y="156" text-anchor="middle" font-family="serif" font-size="38" fill="#25406E">מזרח</text>'
++'<rect x="448" y="120" width="72" height="58" rx="3" fill="#EFE3CB" stroke="#6E4E2C" stroke-width="4"/>'
++'<circle cx="484" cy="142" r="11" fill="#C89E76"/><path d="M462 178 q22 -22 44 0 Z" fill="#7A8FA8"/>'
++'<circle cx="596" cy="140" r="30" fill="#FBF3E0" stroke="#6E4E2C" stroke-width="5"/>'
++'<g stroke="#2A2018" stroke-width="3.5" stroke-linecap="round"><path d="M596 140 V122"/><path d="M596 140 L612 148"/></g>'
++'<circle cx="596" cy="140" r="3.5" fill="#2A2018"/>'
++'<rect x="152" y="264" width="200" height="66" rx="12" fill="#6E7F42" stroke="#4E5C2C" stroke-width="4"/>'
++'<rect x="142" y="286" width="26" height="52" rx="10" fill="#7C8F4C" stroke="#4E5C2C" stroke-width="4"/>'
++'<rect x="336" y="286" width="26" height="52" rx="10" fill="#7C8F4C" stroke="#4E5C2C" stroke-width="4"/>'
++'<rect x="168" y="292" width="80" height="30" rx="7" fill="#849A52" stroke="#4E5C2C" stroke-width="3"/>'
++'<rect x="256" y="292" width="80" height="30" rx="7" fill="#849A52" stroke="#4E5C2C" stroke-width="3"/>'
++'<rect x="576" y="228" width="86" height="106" rx="9" fill="#8E4A63" stroke="#5E2C40" stroke-width="4"/>'
++'<rect x="588" y="242" width="62" height="70" rx="6" fill="#A55C77" stroke="#5E2C40" stroke-width="3"/>'
++'<rect x="568" y="298" width="102" height="24" rx="7" fill="#9B5169" stroke="#5E2C40" stroke-width="4"/>'
++'<rect x="572" y="320" width="12" height="30" fill="#5E2C40"/><rect x="654" y="320" width="12" height="30" fill="#5E2C40"/>'
++'<circle cx="619" cy="238" r="8" fill="#E0A526" stroke="#8A6100" stroke-width="2.5"/>'
++'<rect x="800" y="286" width="176" height="12" rx="4" fill="#C8A06E" stroke="#7E5A33" stroke-width="3"/>'
++'<rect x="814" y="298" width="10" height="52" fill="#9E7448"/><rect x="952" y="298" width="10" height="52" fill="#9E7448"/>'
++'<ellipse cx="856" cy="284" rx="42" ry="11" fill="#E9E2D2" stroke="#B9AC93" stroke-width="2.5"/>'
++'<ellipse cx="843" cy="280" rx="12" ry="6" fill="#E8926F"/><ellipse cx="866" cy="279" rx="13" ry="6" fill="#E8926F"/>'
++'<g fill="#D9A45E" stroke="#A9762F" stroke-width="2"><circle cx="900" cy="278" r="11"/><circle cx="918" cy="281" r="10"/></g>'
++'<rect x="944" y="248" width="16" height="38" rx="4" fill="#6E2233"/><rect x="948" y="238" width="8" height="14" fill="#6E2233"/>'
++'<rect x="944" y="262" width="16" height="14" fill="#D9C08A"/>'
++'<path d="M922 262 h18 l-3 14 h-12 Z" fill="#E0A526" stroke="#8A6100" stroke-width="2"/>'
++'<rect x="928" y="276" width="6" height="8" fill="#E0A526"/><rect x="922" y="284" width="18" height="4" rx="2" fill="#E0A526"/>'
++'<g stroke="#6E4E2C" stroke-width="5" fill="none"><path d="M700 350 V206"/><path d="M684 214 L700 206 L716 214"/><path d="M690 350 h20"/></g>'
++'<g opacity=".95"><path d="M700 216 q22 4 22 30 q0 28 -22 28 q-22 0 -22 -28 q0 -26 22 -30 Z" fill="#3E5A72"/>'
++'<path d="M700 216 v58" stroke="#2C4152" stroke-width="2.5"/><circle cx="700" cy="232" r="2.5" fill="#C8B18B"/></g>'
++'</svg>';
+
+var MOHEL_ART={skin:"#EFC49B",coat:"#4A4A56",pants:"#33333E",hair:"bald",hairCol:"#B9B2AA",
+  glasses:true,kippah:"#4A2F86",mood:"annoyed",doctorbag:true};
+
+var CAST=[
+ {id:"marv",  name:"Uncle Marv",     w:8.6, art:{skin:SKINS[1],coat:"#5A4636",pants:"#3A3128",hair:"bald",hairCol:"#8A8078",mood:"smug",kippah:"#3A3A6E"}},
+ {id:"bubbe", name:"The Bubbe",      w:6.3, art:{skin:SKINS[4],coat:"#7A4A6B",pants:"#5E3A52",hair:"wig",hairCol:"#C9C2BA",mood:"annoyed",bag:true}},
+ {id:"rav",   name:"Rabbi Feld",     w:7.6, art:{skin:SKINS[2],coat:"#2C2C38",pants:"#22222C",hair:"dark",hairCol:"#4A4038",beard:true,beardCol:"#6E6258",hat:true,mood:"neutral"}},
+ {id:"cater", name:"The caterer",    w:7.4, art:{skin:SKINS[3],coat:"#4E6E62",pants:"#33413B",hair:"dark",hairCol:"#2E2620",apron:true,tray:true,mood:"annoyed"}},
+ {id:"cousin",name:"Cousin Sheldon", w:7.9, art:{skin:SKINS[0],coat:"#6E7F42",pants:"#414C28",hair:"dark",hairCol:"#5A4636",glasses:true,mood:"smug",kippah:"#7A2A2A"}},
+ {id:"neigh", name:"Gary next door", w:7.2, art:{skin:SKINS[1],coat:"#8A5A2B",pants:"#4E3A24",hair:"gray",hairCol:"#9A9088",phone:true,mood:"neutral"}},
+ {id:"aunt",  name:"Aunt Roz",       w:6.7, art:{skin:SKINS[4],coat:"#C4633F",pants:"#8A4028",hair:"bun",hairCol:"#8A6A4A",mood:"happy",bag:true}}
+];
+var FAMILIES=["Reznick","Abramowitz","Sharfstein","Glick","Mandelbaum","Perlmutter","Ostrofsky","Berkowitz","Zilberman","Nussbaum"];
+
+function el(html){var d=document.createElement("div");d.innerHTML=html;return d.firstElementChild;}
+
+return {rnd:rnd,ri:ri,pick:pick,shuffle:shuffle,reseed:reseed,personSVG:personSVG,babySVG:babySVG,
+        ROOM_SVG:ROOM_SVG,CAST:CAST,MOHEL_ART:MOHEL_ART,FAMILIES:FAMILIES,SKINS:SKINS,el:el};
+})();
+
+</script>
+<script>
+(function(){
+"use strict";
+var el=MO.el;
+
+/* ---------- the deck: 18 cards, and the good ones are scarce ---------- */
+var LIB=[
+ {n:3,t:"deflect",v:2,name:"Change the subject",d:"The oldest one. Works on almost anybody, solves almost nothing."},
+ {n:2,t:"charm",v:2,name:"Compliment the spread",d:"Even when the spread is the problem."},
+ {n:2,t:"stall",v:2,name:"Say nothing, at length",d:"Hold the silence. They fill it."},
+ {n:2,t:"charm",v:3,name:"Ask about the grandchildren",d:"Nuclear-grade, but you can only use it on someone who has them."},
+ {n:2,t:"truth",v:5,name:"Tell them the truth",d:"Ends the situation on the spot. Costs you the room.",fx:"room-6"},
+ {n:1,t:"deflect",v:3,name:"Bring up his brother's boat",d:"Buys you four full minutes and one enemy."},
+ {n:1,t:"stall",v:3,name:"Feign a phone call",d:"Everyone knows. Nobody says.",fx:"room-2"},
+ {n:1,t:"charm",v:3,name:"Agree with the wrong person",d:"Great here. Bad somewhere else.",fx:"heat-other"},
+ {n:1,t:"deflect",v:2,name:"Point at the rabbi",d:"Moves it to a man with more standing than you.",fx:"draw"},
+ {n:2,t:"deflect",v:1,name:"Laugh at something that wasn't a joke",d:"Cheap, weak, and it keeps you moving.",fx:"draw"},
+ {n:1,t:"stall",v:4,name:"Leave the room entirely",d:"Enormous relief. Everything else gets worse while you're gone.",fx:"esc-all"}
+];
+var SITPOOL=[
+ {who:"marv",name:"The driveway",need:"deflect",amt:10,esc:2,line:"“I’m asking you a simple question about a parking spot.”"},
+ {who:"bubbe",name:"The chair",need:"charm",amt:10,esc:2,line:"“It faces the television. I’ve said it twice now.”"},
+ {who:"cater",name:"The signature",need:"truth",amt:9,esc:3,line:"“I need a name on this and then I’m gone.”"},
+ {who:"aunt",name:"Cornered by Roz",need:"stall",amt:10,esc:2,line:"“So tell me everything. Everything.”"},
+ {who:"cousin",name:"The doctor thing",need:"deflect",amt:12,esc:2,line:"“My brother could have done this. In a hospital.”"},
+ {who:"rav",name:"The watch",need:"charm",amt:8,esc:3,line:"“We are now well past what you told me.”"},
+ {who:"neigh",name:"Gary’s countertop",need:"stall",amt:8,esc:2,line:"“It’s quartz. Let me show you the quartz.”"}
+];
+
+var G;
+function reset(){
+  MO.reseed(20260729);
+  G={turn:1,maxTurn:8,breath:2,room:70,deck:[],hand:[],disc:[],sits:[],sel:null,log:[],over:false,solved:0};
+  LIB.forEach(function(c){ for(var i=0;i<c.n;i++) G.deck.push({t:c.t,v:c.v,name:c.name,d:c.d,fx:c.fx}); });
+  G.deck=MO.shuffle(G.deck);
+  var pool=MO.shuffle(SITPOOL);
+  G.sits=pool.slice(0,3).map(mkSit);
+  G.pool=pool.slice(3);
+  for(var i=0;i<5;i++) drawOne();
+  say("","The kitchen door opens and three separate people start walking toward you.");
+  paint();
+  document.getElementById("modal").classList.remove("open");
+}
+function mkSit(s){
+  var c=MO.CAST.filter(function(x){return x.id===s.who;})[0];
+  return {id:s.who,name:s.name,who:c?c.name:s.who,art:c?c.art:null,need:s.need,amt:s.amt,got:0,esc:s.esc,line:s.line,done:false};
+}
+function drawOne(){
+  if(!G.deck.length){ G.deck=MO.shuffle(G.disc); G.disc=[]; if(!G.deck.length) return; }
+  G.hand.push(G.deck.pop());
+}
+function say(c,t){ G.log.unshift({c:c,t:t}); if(G.log.length>18) G.log.pop(); }
+
+function paint(){
+  document.getElementById("v-br").textContent=G.breath+"/2";
+  document.getElementById("v-room").textContent=Math.round(G.room);
+  document.getElementById("h-room").className="h rm"+(G.room<35?" low":"");
+  document.getElementById("v-turn").textContent=G.turn+"/"+G.maxTurn;
+  document.getElementById("v-deck").textContent=G.deck.length+"+"+G.disc.length;
+
+  var sb=document.getElementById("sits"); sb.innerHTML="";
+  G.sits.forEach(function(s,i){
+    var pct=Math.min(100,Math.round(s.got/s.amt*100));
+    var crit=!s.done&&s.amt-s.got>=9;
+    var n=el('<div class="sit'+(s.done?" done":"")+(crit?" crit":"")+(G.sel!==null?" tgt":"")+'" data-i="'+i+'">'
+      +'<div class="sitTop"><div class="face">'+(s.art?MO.personSVG(s.art):"")+'</div>'
+      +'<div><div class="sitN">'+s.name+'</div><div class="sitW">'+s.who+'</div></div></div>'
+      +'<p class="sitL">'+s.line+'</p>'
+      +'<div class="need"><span class="chip c-'+s.need+'">wants '+s.need+'</span>'
+      +'<span style="font-size:11px;font-weight:800;color:var(--muted)">'+s.got+' / '+s.amt+'</span></div>'
+      +'<div class="prog"><i style="width:'+pct+'%"></i></div>'
+      +'<div class="sitF"><span>'+(s.done?"handled":"open")+'</span>'
+      +(s.done?"":'<span class="esc">+'+s.esc+' if you leave it</span>')+'</div></div>');
+    if(!s.done && G.sel!==null) n.addEventListener("click",function(){ playOn(i); });
+    sb.appendChild(n);
+  });
+
+  var hb=document.getElementById("hand"); hb.innerHTML="";
+  G.hand.forEach(function(c,i){
+    var dead=G.breath<1;
+    var n=el('<button class="card t-'+c.t+(dead?" dead":"")+(G.sel===i?" sel":"")+'" data-i="'+i+'"'+(dead?" disabled":"")+'>'
+      +'<div class="ct">'+c.name+'</div>'
+      +'<div class="cv"><span class="cn" style="color:var(--'+(c.t==="deflect"?"sky":c.t==="charm"?"olive":c.t==="truth"?"bad":"gold")+')">'+c.v+'</span>'
+      +'<span class="chip c-'+c.t+'">'+c.t+'</span></div>'
+      +'<div class="cd">'+c.d+'</div></button>');
+    n.style.outline = G.sel===i ? "3px solid #E0A526" : "";
+    if(!dead) n.addEventListener("click",function(){ G.sel=(G.sel===i?null:i); paint(); });
+    hb.appendChild(n);
+  });
+
+  document.getElementById("log").innerHTML=G.log.map(function(l){return '<div class="lg '+l.c+'">'+l.t+'</div>';}).join("");
+}
+
+function playOn(si){
+  if(G.sel===null||G.breath<1) return;
+  var c=G.hand[G.sel], s=G.sits[si];
+  var match = c.t===s.need;
+  var gain = match ? c.v*2 : Math.max(1,c.v-1);
+  s.got+=gain;
+  G.breath--;
+  G.hand.splice(G.sel,1); G.disc.push(c); G.sel=null;
+
+  say(match?"good":"", "<b>"+c.name+"</b> → "+s.who+(match?" — the right kind of thing. +"+gain:" — not really what he wanted. +"+gain));
+  if(c.fx==="room-6"){ G.room-=6; say("bad","You told the truth in a room that did not ask for it. −6."); }
+  if(c.fx==="room-2"){ G.room-=2; }
+  if(c.fx==="draw"){ drawOne(); }
+  if(c.fx==="heat-other"){ var o=G.sits.filter(function(x){return x!==s&&!x.done;}); if(o.length){ var t=MO.pick(o); t.amt+=3; say("bad","Agreeing with him made it worse for "+t.who+". +3 to that one."); } }
+  if(c.fx==="esc-all"){ G.sits.forEach(function(x){ if(x!==s&&!x.done) x.amt+=x.esc; }); say("bad","You left. Everything you left got bigger."); }
+
+  if(s.got>=s.amt && !s.done){
+    s.done=true; G.solved++; G.room=Math.min(100,G.room+7);
+    say("good","<b>"+s.name+" — handled.</b> He is talking to somebody else now. +7 room.");
+  }
+  if(G.hand.length<2) drawOne();
+  paint();
+  checkEnd();
+}
+
+function endTurn(){
+  if(G.over) return;
+  var open=G.sits.filter(function(s){return !s.done;});
+  open.forEach(function(s){ s.amt+=s.esc; });
+  if(open.length) { G.room-=open.length*2;
+    say(open.length>2?"bad":"", "The minute passes. "+open.length+" thing"+(open.length>1?"s":"")+" nobody dealt with, and "+(open.length>1?"they get":"it gets")+" bigger. −"+(open.length*2)+" room."); }
+  // a new one wanders over
+  if(G.pool.length && open.length<4 && MO.rnd()<0.62){
+    var ns=mkSit(G.pool.pop()); G.sits.push(ns);
+    say("","<b>"+ns.who+"</b> has come over. "+ns.line);
+  }
+  G.turn++; G.breath=2;
+  while(G.hand.length<5) drawOne();
+  paint(); checkEnd();
+}
+
+function checkEnd(){
+  if(G.over) return;
+  if(G.room<=0) return finish("outburst");
+  if(G.turn>G.maxTurn) return finish("time");
+  if(G.sits.every(function(s){return s.done;}) && !G.pool.length) return finish("clear");
+}
+function finish(how){
+  G.over=true;
+  var open=G.sits.filter(function(s){return !s.done;}).length;
+  var h,p,v;
+  if(how==="outburst"){ h="You ran out of things to say";
+    p="Somewhere around the fourth person you stopped having anything left in the hand and just stood there with your mouth doing something.";
+    v="The room hit zero. You didn't lose because you chose badly — you lost because you spent the good cards early and drew three copies of laughing at something that wasn't a joke."; }
+  else if(how==="clear"){ h="You handled all of it";
+    p="Every single person who came over left satisfied, and not one of them knows how much work that was.";
+    v="Cleared with "+Math.round(G.room)+" room left. This is a skill outcome — the deck gave you the same cards it gives everybody."; }
+  else { h="The morning ran out"; p="You begin anyway, with "+open+" "+(open===1?"thing":"things")+" still standing there wanting something from you.";
+    v=open===0?"Technically clear at the buzzer.":"Every unhandled thing follows you into the ceremony. That's the part that shows on the tape."; }
+  document.getElementById("mb").innerHTML='<h2>'+h+'</h2><p>'+p+'</p><div class="v">'+v+'</div>'
+   +'<p style="font-size:13px;color:var(--muted)">Handled: <b>'+G.solved+'</b> · room left: <b>'+Math.round(Math.max(0,G.room))+'</b> · minutes used: <b>'+Math.min(G.turn,G.maxTurn)+'</b></p>'
+   +'<button class="big go" id="b-again">Deal again</button>';
+  document.getElementById("modal").classList.add("open");
+  document.getElementById("b-again").addEventListener("click",reset);
+}
+
+document.getElementById("b-end").addEventListener("click",endTurn);
+document.getElementById("b-pass").addEventListener("click",function(){
+  if(G.over) return; G.breath=0; say("","You decide, deliberately, to say nothing."); paint();
+});
+reset();
+window.__p3={state:function(){return G;},endTurn:endTurn,playOn:playOn};
+})();
+</script>
+</body>
+</html>

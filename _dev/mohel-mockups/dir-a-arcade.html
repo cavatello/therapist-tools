@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Direction A — Bris Tycoon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#160B2E; --bg2:#1B0F33; --panel:#241640; --panel2:#2C1B4E;
+  --gold:#FFC542; --gold2:#F0B429; --lime:#8BE04D; --lime2:#5AA82F;
+  --violet:#B685FF; --cyan:#4DD9E8; --pink:#FF5C93; --red:#FF6B6B;
+  --ink:#FBF7FF; --muted:#B3A3D9; --line:#3B2A63;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:
+   radial-gradient(1100px 600px at 15% -5%, #34195E 0%, transparent 60%),
+   radial-gradient(900px 500px at 90% 10%, #1D2A66 0%, transparent 55%),
+   var(--bg);
+  color:var(--ink);font-family:'Rubik',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  background-attachment:fixed;}
+.px{font-family:'Press Start 2P',monospace;letter-spacing:.02em;line-height:1.55;}
+
+/* ---------- direction switcher ---------- */
+.switch{position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  background:#0E0620;border-bottom:2px solid var(--line);padding:9px 16px;}
+.switch .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:700;margin-right:4px;}
+.switch a{font-size:12px;font-weight:700;text-decoration:none;color:var(--muted);
+  padding:6px 12px;border-radius:8px;border:1px solid var(--line);}
+.switch a.on{background:var(--gold);color:#2B1A00;border-color:var(--gold);}
+.switch a:hover:not(.on){color:var(--ink);border-color:var(--violet);}
+
+.wrap{max-width:1120px;margin:0 auto;padding:26px 16px 90px;}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch;margin-bottom:22px;}
+.heroL{background:linear-gradient(160deg,#2E1A57,#1B0F33);border:2px solid var(--line);
+  border-radius:20px;padding:26px 26px 22px;position:relative;overflow:hidden;}
+.heroL:after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);}
+.badge{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.16em;
+  background:var(--lime);color:#0C2205;padding:5px 10px;border-radius:6px;margin-bottom:14px;}
+h1.title{font-size:clamp(15px,2.3vw,23px);margin:0 0 14px;color:var(--gold);
+  text-shadow:0 3px 0 #7A4E00, 0 6px 14px rgba(0,0,0,.5);}
+.dek{font-size:14.5px;line-height:1.65;color:var(--muted);margin:0;max-width:46ch;}
+
+/* ---------- character ---------- */
+.charBox{background:linear-gradient(180deg,#2A1750,#190E31);border:2px solid var(--line);
+  border-radius:20px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  position:relative;overflow:hidden;}
+.charBox:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,197,66,.20),transparent 68%);top:6px;}
+.speech{position:relative;background:var(--gold);color:#2B1A00;border-radius:12px;padding:11px 13px;
+  font-size:11.5px;font-weight:600;line-height:1.5;text-align:center;max-width:250px;box-shadow:0 4px 0 #A97400;}
+.speech:after{content:"";position:absolute;bottom:-9px;left:50%;transform:translateX(-50%);
+  border:9px solid transparent;border-top-color:var(--gold);border-bottom:0;}
+.charTag{font-size:8.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.13em;font-weight:700;text-align:center;}
+
+/* ---------- HUD ---------- */
+.hud{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px;}
+.stat{background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:15px 16px;position:relative;}
+.stat .k{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);font-weight:700;margin-bottom:9px;}
+.stat .v{font-size:15px;}
+.stat.gold{border-color:#6B4E12;background:linear-gradient(180deg,#3A2A0C,#241A08);} .stat.gold .v{color:var(--gold);}
+.stat.lime{border-color:#2F5A16;background:linear-gradient(180deg,#1D3A10,#12250A);} .stat.lime .v{color:var(--lime);}
+.stat.red{border-color:#6B2323;background:linear-gradient(180deg,#3A1414,#240C0C);} .stat.red .v{color:var(--red);}
+.stat.cyan{border-color:#1B5560;background:linear-gradient(180deg,#0F3540,#0A2028);} .stat.cyan .v{color:var(--cyan);}
+.stat .sub{font-size:11px;color:var(--muted);margin-top:7px;font-weight:500;}
+
+/* ---------- level bar ---------- */
+.levelCard{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:22px;}
+.levelTop{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:13px;}
+.levelName{font-size:13px;color:var(--violet);}
+.levelBlurb{font-size:13px;color:var(--muted);margin-top:8px;}
+.xpTrack{height:20px;background:#150C2B;border:2px solid var(--line);border-radius:11px;overflow:hidden;position:relative;}
+.xpFill{height:100%;background:linear-gradient(90deg,var(--lime2),var(--lime));
+  box-shadow:inset 0 -4px 0 rgba(0,0,0,.22);transition:width .28s ease;}
+.xpMeta{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:8px;font-weight:600;}
+
+/* ---------- panels ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.panel{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:20px;margin-bottom:18px;}
+.panel h2{font-size:11px;color:var(--gold);margin:0 0 4px;font-family:'Press Start 2P',monospace;line-height:1.6;}
+.panel .ph{font-size:12.5px;color:var(--muted);margin:0 0 16px;}
+
+.field{margin-bottom:16px;}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-size:12.5px;font-weight:600;margin-bottom:7px;color:var(--ink);}
+.field .val{font-family:'Press Start 2P',monospace;font-size:10px;color:var(--gold);}
+.field .hint{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.5;}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:5px;
+  background:#150C2B;border:1px solid var(--line);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:6px;
+  background:var(--gold);border:2px solid #8A6100;cursor:pointer;box-shadow:0 2px 0 #6E4D00;}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:6px;background:var(--gold);
+  border:2px solid #8A6100;cursor:pointer;}
+input[type=number]{width:100%;background:#150C2B;border:2px solid var(--line);color:var(--ink);
+  border-radius:9px;padding:10px 12px;font-family:'Rubik',sans-serif;font-size:14px;font-weight:600;}
+input[type=number]:focus{outline:none;border-color:var(--gold);}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.check{display:flex;align-items:flex-start;gap:11px;background:#150C2B;border:2px solid var(--line);
+  border-radius:12px;padding:13px 14px;cursor:pointer;}
+.check input{margin-top:2px;width:17px;height:17px;accent-color:var(--lime);flex:none;}
+.check .ct{font-size:12.5px;font-weight:600;}
+.check .cd{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.5;}
+
+/* ---------- waterfall ---------- */
+.wf{display:flex;flex-direction:column;gap:2px;}
+.wfRow{display:flex;justify-content:space-between;align-items:center;padding:11px 13px;
+  border-radius:9px;font-size:13px;font-weight:600;}
+.wfRow.plus{background:rgba(139,224,77,.10);color:var(--lime);}
+.wfRow.minus{background:rgba(255,107,107,.10);color:var(--red);}
+.wfRow.total{background:linear-gradient(90deg,#3A2A0C,#241A08);border:2px solid #6B4E12;margin-top:8px;padding:15px 13px;}
+.wfRow.total .wl{color:var(--ink);font-size:13px;}
+.wfRow.total .wv{font-family:'Press Start 2P',monospace;font-size:13px;color:var(--gold);}
+.wfRow .wv{font-variant-numeric:tabular-nums;}
+
+/* ---------- alerts ---------- */
+.alert{border-radius:12px;padding:14px 16px;font-size:12.5px;line-height:1.6;margin-top:14px;
+  border-left:4px solid var(--gold);background:rgba(255,197,66,.09);color:#FFE9A8;}
+.alert.bad{border-left-color:var(--red);background:rgba(255,107,107,.09);color:#FFC9C9;}
+.alert b{color:#fff;}
+
+/* ---------- ticker ---------- */
+.ticker{background:#0E0620;border:2px solid var(--line);border-radius:14px;padding:13px 16px;
+  font-size:12px;color:var(--muted);display:flex;gap:10px;align-items:center;margin-bottom:22px;}
+.ticker .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);flex:none;
+  box-shadow:0 0 10px var(--lime);animation:pulse 1.8s infinite;}
+@keyframes pulse{50%{opacity:.35;}}
+
+.note{font-size:11.5px;color:var(--muted);line-height:1.65;margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);}
+.note a{color:var(--cyan);}
+@media(max-width:880px){.hero{grid-template-columns:1fr;}.cols{grid-template-columns:1fr;}.hud{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<nav class="switch">
+  <span class="lbl">Visual direction</span>
+  <a class="on" href="dir-a-arcade.html">A · Bris Tycoon</a>
+  <a href="dir-b-deli.html">B · The Deli Board</a>
+  <a href="dir-c-daf.html">C · The Daf</a>
+  <a href="index.html" style="margin-left:auto;border-color:transparent;">← all directions</a>
+</nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="heroL">
+      <span class="badge">Direction A · arcade / tycoon</span>
+      <h1 class="title px">BRIS TYCOON</h1>
+      <p class="dek">The loudest of the three. Borrows the arcade language already built for <b style="color:var(--ink)">tycoon.html</b> — pixel type, coin gold, XP bar, level titles — and points it at a mohel's actual economics. Every number below is live: move a slider and the whole board recalculates.</p>
+    </div>
+
+    <div class="charBox">
+      <div class="speech">"Eight days. Not nine. Not <i>ish</i>. Eight."</div>
+      <!-- CHARACTER TREATMENT 1: pixel-art SVG -->
+      <svg width="150" height="160" viewBox="0 0 30 32" shape-rendering="crispEdges" style="position:relative;image-rendering:pixelated;">
+        <g fill="#E8B98F">
+          <rect x="9" y="4" width="12" height="11"/><rect x="8" y="6" width="1" height="7"/><rect x="21" y="6" width="1" height="7"/>
+          <rect x="11" y="15" width="8" height="3"/>
+        </g>
+        <!-- bald dome shine -->
+        <rect x="11" y="5" width="4" height="1" fill="#F7D3B0"/>
+        <!-- side fringe -->
+        <g fill="#C9C4CC"><rect x="8" y="7" width="1" height="5"/><rect x="9" y="8" width="1" height="4"/>
+          <rect x="21" y="7" width="1" height="5"/><rect x="20" y="8" width="1" height="4"/></g>
+        <!-- eyebrows (skeptical, one raised) -->
+        <rect x="10" y="8" width="4" height="1" fill="#8A8590"/>
+        <rect x="16" y="7" width="4" height="1" fill="#8A8590"/>
+        <!-- glasses -->
+        <g fill="none" stroke="#2B2233" stroke-width="1">
+          <rect x="10" y="9" width="4" height="3"/><rect x="16" y="9" width="4" height="3"/>
+        </g>
+        <rect x="14" y="10" width="2" height="1" fill="#2B2233"/>
+        <rect x="11" y="10" width="1" height="1" fill="#2B2233"/><rect x="18" y="10" width="1" height="1" fill="#2B2233"/>
+        <!-- unimpressed mouth -->
+        <rect x="12" y="13" width="6" height="1" fill="#9A6A55"/>
+        <!-- kippah -->
+        <g fill="#4A2F86"><rect x="10" y="2" width="10" height="1"/><rect x="11" y="1" width="8" height="1"/><rect x="9" y="3" width="12" height="1"/></g>
+        <rect x="12" y="2" width="2" height="1" fill="#6B4BB0"/>
+        <!-- shirt + jacket -->
+        <rect x="6" y="18" width="18" height="12" fill="#FBFBFD"/>
+        <g fill="#2A2140"><rect x="4" y="18" width="6" height="12"/><rect x="20" y="18" width="6" height="12"/>
+          <rect x="3" y="20" width="2" height="10"/><rect x="25" y="20" width="2" height="10"/></g>
+        <!-- collar -->
+        <g fill="#2A2140"><rect x="11" y="18" width="2" height="3"/><rect x="17" y="18" width="2" height="3"/></g>
+        <!-- the bag -->
+        <rect x="21" y="24" width="7" height="6" fill="#7A4A24"/><rect x="21" y="24" width="7" height="1" fill="#A8672F"/>
+        <rect x="24" y="23" width="1" height="2" fill="#A8672F"/>
+        <rect x="23" y="26" width="3" height="1" fill="#FFC542"/><rect x="24" y="25" width="1" height="3" fill="#FFC542"/>
+      </svg>
+      <div class="charTag">Character treatment 1 · pixel SVG</div>
+    </div>
+  </div>
+
+  <div class="ticker"><span class="dot"></span>
+    <span>Booked this month: <b style="color:var(--gold)" data-out="servedJobs"></b> mornings ·
+    Turned away to Shabbat: <b style="color:var(--red)" data-out="shabbatLost"></b> ·
+    Done for free: <b style="color:var(--lime)" data-out="freeJobs"></b></span>
+  </div>
+
+  <div class="hud">
+    <div class="stat gold"><div class="k">Gross / yr</div><div class="v px" data-out="grossYear"></div><div class="sub">fees + travel</div></div>
+    <div class="stat red"><div class="k">Costs / yr</div><div class="v px" data-out="expYear"></div><div class="sub">kit, car, insurance</div></div>
+    <div class="stat cyan"><div class="k">SE tax / yr</div><div class="v px" data-out="seTaxYear"></div><div class="sub">15.3% on 92.35%</div></div>
+    <div class="stat lime"><div class="k">Take-home / yr</div><div class="v px" data-out="netYear"></div><div class="sub">before income tax</div></div>
+  </div>
+
+  <div class="levelCard">
+    <div class="levelTop">
+      <div>
+        <div class="levelName px">LV.<span data-out="level"></span> — <span data-out="levelName"></span></div>
+        <div class="levelBlurb" data-out="levelBlurb"></div>
+      </div>
+      <div style="text-align:right;">
+        <div class="px" style="font-size:16px;color:var(--gold);"><span data-out="jobsYear"></span></div>
+        <div style="font-size:11px;color:var(--muted);font-weight:600;margin-top:5px;">brises / year</div>
+      </div>
+    </div>
+    <div class="xpTrack"><div class="xpFill" data-bar="xpPct" style="width:0%"></div></div>
+    <div class="xpMeta"><span>current level</span><span>next title at <b style="color:var(--lime)" data-out="levelNextAt"></b> / yr</span></div>
+  </div>
+
+  <div class="cols">
+
+    <div>
+      <div class="panel">
+        <h2>THE ROUTE</h2>
+        <p class="ph">How much work comes in, and what you charge for it.</p>
+
+        <div class="field">
+          <label>Brises per month <span class="val"><span data-echo="brisesPerMonth"></span></span></label>
+          <input type="range" data-in="brisesPerMonth" min="0" max="30" step="1" />
+          <div class="hint">A working community mohel is a handful a month. 1,000+ is a whole career, not a year.</div>
+        </div>
+
+        <div class="pair">
+          <div class="field">
+            <label>Newborn fee</label>
+            <input type="number" data-in="baseFee" step="25" />
+            <div class="hint">Researched range $500–$1,500.</div>
+          </div>
+          <div class="field">
+            <label>Adult / convert fee</label>
+            <input type="number" data-in="adultFee" step="100" />
+            <div class="hint">Researched range $3,000–$5,000.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Older kids &amp; adults <span class="val"><span data-echo="pctOlder"></span>%</span></label>
+          <input type="range" data-in="pctOlder" min="0" max="40" step="1" />
+          <div class="hint">Conversions and older children. Rare, but they carry the month.</div>
+        </div>
+
+        <div class="pair">
+          <div class="field">
+            <label>Long-drive jobs <span class="val"><span data-echo="travelPct"></span>%</span></label>
+            <input type="range" data-in="travelPct" min="0" max="100" step="5" />
+          </div>
+          <div class="field">
+            <label>Travel surcharge</label>
+            <input type="number" data-in="travelFee" step="25" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Jewish baby boys born in your metro / yr</label>
+          <input type="number" data-in="metroBirths" step="50" />
+          <div class="hint">Your territory. There is no published metro-level figure — enter your own estimate.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>THE CONSTRAINT</h2>
+        <p class="ph">The one rule that makes this different from every other practice.</p>
+        <label class="check">
+          <input type="checkbox" data-in="observant" />
+          <span><span class="ct">Shomer Shabbat — I don't drive on Shabbat</span>
+          <span class="cd">The bris is on the eighth day. The eighth day cannot move. Roughly one in seven lands on Shabbat — and on those you can only serve families you can walk to.</span></span>
+        </label>
+        <div class="field" style="margin-top:16px;">
+          <label>Families within walking distance <span class="val"><span data-echo="walkingPct"></span>%</span></label>
+          <input type="range" data-in="walkingPct" min="0" max="100" step="5" />
+          <div class="hint">Your eruv, effectively. This single number is the difference between an urban mohel and a suburban one.</div>
+        </div>
+        <div class="alert bad">
+          <b><span data-out="shabbatLost"></span> brises a month</b> land on Shabbat outside walking distance and go to someone else —
+          <b><span data-out="shabbatLostRevenue"></span>/mo</b> in work you cannot take.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="panel">
+        <h2>THE BAG</h2>
+        <p class="ph">What it costs to show up.</p>
+        <div class="pair">
+          <div class="field"><label>Supplies / bris</label><input type="number" data-in="suppliesPerBris" step="5" />
+            <div class="hint">Sterile kit, shield, anesthetic, gauze, wine, certificate.</div></div>
+          <div class="field"><label>Vehicle / bris</label><input type="number" data-in="mileagePerBris" step="1" /></div>
+        </div>
+        <div class="pair">
+          <div class="field"><label>Malpractice / mo</label><input type="number" data-in="malpracticeMonthly" step="10" /></div>
+          <div class="field"><label>Phone, web, dues / mo</label><input type="number" data-in="overheadMonthly" step="5" /></div>
+        </div>
+        <div class="field"><label>Continuing ed &amp; conferences / yr</label><input type="number" data-in="ceAnnual" step="50" /></div>
+      </div>
+
+      <div class="panel">
+        <h2>THE MITZVAH TAX</h2>
+        <p class="ph">Nobody is turned away. That has a price, and it belongs on the board.</p>
+        <div class="field">
+          <label>Done free or reduced <span class="val"><span data-echo="pctFree"></span>%</span></label>
+          <input type="range" data-in="pctFree" min="0" max="60" step="5" />
+          <div class="hint">Mohelim routinely perform a bris at minimal or no charge when a family can't pay.</div>
+        </div>
+        <div class="alert">
+          You give away <b><span data-out="freeJobs"></span> brises a month</b> — <b><span data-out="tzedakahValue"></span>/mo</b> at your own rate.
+          That is the number, and it is not a leak. It is the job.
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>THE TILL</h2>
+        <p class="ph">Monthly, all in.</p>
+        <div class="wf">
+          <div class="wfRow plus"><span class="wl">Fees collected</span><span class="wv" data-out="feeRevenue"></span></div>
+          <div class="wfRow plus"><span class="wl">Travel surcharges</span><span class="wv" data-out="travelRevenue"></span></div>
+          <div class="wfRow minus"><span class="wl">Per-job costs</span><span class="wv" data-out="variableExp"></span></div>
+          <div class="wfRow minus"><span class="wl">Fixed monthly costs</span><span class="wv" data-out="fixedExp"></span></div>
+          <div class="wfRow minus"><span class="wl">Self-employment tax</span><span class="wv" data-out="seTax"></span></div>
+          <div class="wfRow total"><span class="wl px">TAKE-HOME</span><span class="wv" data-out="netMonth"></span></div>
+        </div>
+        <div class="alert">
+          Break-even is <b><span data-out="breakEvenJobs"></span> brises a month</b>. Net per bris after everything:
+          <b><span data-out="perBris"></span></b>. You're serving <b><span data-out="marketShare"></span></b> of your metro's Jewish baby boys.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">
+    <b style="color:var(--ink)">Where the numbers come from.</b> Newborn fee range $500–$1,500 and adult range $3,000–$5,000 per
+    <a href="https://www.usamohel.com/how-much-does-a-mohel-cost">USA Mohel</a>; regional figures of $400–$800 (Boston) and $650–$850 (NYC) per
+    <a href="https://www.jewishboston.com/read/how-much-does-a-bris-typically-cost/">JewishBoston</a> and
+    <a href="https://brisceremony.com/how-much-does-a-mohel-charge/">Bris Ceremony</a>.
+    Certification via the Conservative movement's Brit Kodesh program runs $2,000 for ten sessions
+    (<a href="https://www.brisprogram.org/train">brisprogram.org</a>). Self-employment tax is the real 15.3% on 92.35% of net earnings.
+    Supply, vehicle, insurance and overhead defaults are editable estimates, not sourced figures — they are starting points to argue with.
+    Income tax is deliberately excluded from take-home here.
+  </p>
+</div>
+
+<script>
+/* ============================================================
+   MOHEL PRACTICE SIMULATOR — shared calculation engine
+   Auto-binds to [data-in="key"] inputs and [data-out="key"] outputs.
+   Identical math across all three visual directions.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var DEFAULTS = {
+    brisesPerMonth: 6,
+    baseFee: 800,        // newborn 0-28 days, mid of $500-$1,500 researched range
+    adultFee: 3000,      // adult brit milah, low end of $3,000-$5,000
+    pctOlder: 8,         // % of jobs that are older children / adults / converts
+    pctFree: 15,         // % done free or heavily reduced (tzedakah)
+    travelPct: 30,       // % of jobs beyond ~45 min
+    travelFee: 150,      // travel surcharge on those
+    suppliesPerBris: 55, // sterile kit, shield/clamp, anesthetic, gauze, wine, certificate
+    mileagePerBris: 22,  // IRS-style vehicle cost, round trip
+    malpracticeMonthly: 240,
+    overheadMonthly: 95, // phone, website, directory listings, cleaning, bag
+    ceAnnual: 900,       // continuing ed, conferences, dues
+    observant: true,     // shomer Shabbat: will not drive on Shabbat
+    walkingPct: 35,      // % of your families within walking distance
+    metroBirths: 900     // Jewish baby boys born per year in your metro
+  };
+
+  var LEVELS = [
+    { min: 0,   name: "Apprentice",            blurb: "Still training. Your bag is newer than your reputation." },
+    { min: 12,  name: "Certified Mohel",       blurb: "Certified and listed. The calls have started." },
+    { min: 36,  name: "Neighborhood Mohel",    blurb: "Two shuls send you everyone. You know the parking." },
+    { min: 76,  name: "The One Everyone Calls",blurb: "Booked out. Grandmothers name-drop you." },
+    { min: 150, name: "Legendary",             blurb: "Three generations of the same family. You have a nickname." }
+  ];
+
+  var state = {};
+
+  function n(v, fb) { v = parseFloat(v); return isFinite(v) ? v : fb; }
+
+  function compute(s) {
+    var jobs = Math.max(0, n(s.brisesPerMonth, 0));
+
+    // ---- job mix -------------------------------------------------
+    var olderJobs   = jobs * (n(s.pctOlder, 0) / 100);
+    var newbornJobs = jobs - olderJobs;
+
+    // ---- Shabbat constraint --------------------------------------
+    // A bris falls on the 8th day, which cannot be moved. Roughly 1 in 7
+    // land on Shabbat. A shomer-Shabbat mohel cannot drive, so only families
+    // within walking distance can be served on those dates.
+    var shabbatJobs = jobs / 7;
+    var shabbatLost = s.observant
+      ? shabbatJobs * (1 - n(s.walkingPct, 0) / 100)
+      : 0;
+    var servedJobs = jobs - shabbatLost;
+
+    var servedOlder   = servedJobs * (n(s.pctOlder, 0) / 100);
+    var servedNewborn = servedJobs - servedOlder;
+
+    // ---- tzedakah (free / reduced) -------------------------------
+    var paidRatio = 1 - n(s.pctFree, 0) / 100;
+    var freeJobs  = servedJobs * (n(s.pctFree, 0) / 100);
+
+    // ---- revenue -------------------------------------------------
+    var feeRevenue = (servedNewborn * n(s.baseFee, 0) + servedOlder * n(s.adultFee, 0)) * paidRatio;
+    var travelRevenue = servedJobs * (n(s.travelPct, 0) / 100) * n(s.travelFee, 0) * paidRatio;
+    var grossMonth = feeRevenue + travelRevenue;
+
+    // value of the work given away
+    var avgFee = servedJobs > 0 ? (servedNewborn * n(s.baseFee, 0) + servedOlder * n(s.adultFee, 0)) / servedJobs : 0;
+    var tzedakahValue = freeJobs * avgFee;
+
+    // revenue lost to the Shabbat constraint
+    var shabbatLostRevenue = shabbatLost * avgFee * paidRatio;
+
+    // ---- expenses ------------------------------------------------
+    // Supplies and mileage are consumed on every job you actually do.
+    var variableExp = servedJobs * (n(s.suppliesPerBris, 0) + n(s.mileagePerBris, 0));
+    var fixedExp    = n(s.malpracticeMonthly, 0) + n(s.overheadMonthly, 0) + n(s.ceAnnual, 0) / 12;
+    var expMonth    = variableExp + fixedExp;
+
+    // ---- profit and self-employment tax --------------------------
+    var profitMonth = grossMonth - expMonth;
+    // SE tax: 15.3% on 92.35% of net earnings (Social Security + Medicare)
+    var seTaxMonth = profitMonth > 0 ? profitMonth * 0.9235 * 0.153 : 0;
+    var netMonth   = profitMonth - seTaxMonth;
+
+    // ---- scheduling reality --------------------------------------
+    // Brises happen in the morning. Two on the same morning in different
+    // places is a decline, not a double-booking.
+    var morningsBooked = servedJobs; // one morning each
+    var collisionRisk  = servedJobs > 22 ? "high" : servedJobs > 14 ? "medium" : "low";
+
+    // ---- break-even ----------------------------------------------
+    var contributionPerJob = (avgFee * paidRatio)
+      + (n(s.travelPct, 0) / 100) * n(s.travelFee, 0) * paidRatio
+      - (n(s.suppliesPerBris, 0) + n(s.mileagePerBris, 0));
+    var breakEvenJobs = contributionPerJob > 0 ? fixedExp / contributionPerJob : Infinity;
+
+    // ---- market --------------------------------------------------
+    var jobsYear = servedJobs * 12;
+    var marketShare = n(s.metroBirths, 0) > 0 ? (jobsYear / n(s.metroBirths, 0)) * 100 : 0;
+
+    // ---- level ---------------------------------------------------
+    var li = 0;
+    for (var i = 0; i < LEVELS.length; i++) if (jobsYear >= LEVELS[i].min) li = i;
+    var nextMin = li < LEVELS.length - 1 ? LEVELS[li + 1].min : LEVELS[li].min;
+    var curMin  = LEVELS[li].min;
+    var xpPct = li >= LEVELS.length - 1
+      ? 100
+      : Math.max(0, Math.min(100, ((jobsYear - curMin) / (nextMin - curMin)) * 100));
+
+    return {
+      jobs: jobs, servedJobs: servedJobs, jobsYear: jobsYear,
+      newbornJobs: servedNewborn, olderJobs: servedOlder,
+      shabbatJobs: shabbatJobs, shabbatLost: shabbatLost, shabbatLostRevenue: shabbatLostRevenue,
+      freeJobs: freeJobs, tzedakahValue: tzedakahValue,
+      avgFee: avgFee,
+      feeRevenue: feeRevenue, travelRevenue: travelRevenue,
+      grossMonth: grossMonth, grossYear: grossMonth * 12,
+      variableExp: variableExp, fixedExp: fixedExp,
+      expMonth: expMonth, expYear: expMonth * 12,
+      profitMonth: profitMonth, profitYear: profitMonth * 12,
+      seTax: seTaxMonth, seTaxYear: seTaxMonth * 12,
+      netMonth: netMonth, netYear: netMonth * 12,
+      perBris: servedJobs > 0 ? netMonth / servedJobs : 0,
+      morningsBooked: morningsBooked, collisionRisk: collisionRisk,
+      breakEvenJobs: breakEvenJobs,
+      marketShare: marketShare,
+      level: li + 1, levelName: LEVELS[li].name, levelBlurb: LEVELS[li].blurb,
+      levelNextAt: nextMin, xpPct: xpPct
+    };
+  }
+
+  // ---- formatting ------------------------------------------------
+  function money(v) {
+    if (!isFinite(v)) return "—";
+    var neg = v < 0;
+    var s = "$" + Math.round(Math.abs(v)).toLocaleString("en-US");
+    return neg ? "−" + s : s;
+  }
+  function money2(v) { return isFinite(v) ? "$" + (Math.round(v * 100) / 100).toLocaleString("en-US") : "—"; }
+  function num1(v) { return isFinite(v) ? (Math.round(v * 10) / 10).toLocaleString("en-US") : "—"; }
+  function int(v) { return isFinite(v) ? Math.round(v).toLocaleString("en-US") : "—"; }
+  function pct(v) { return isFinite(v) ? (Math.round(v * 10) / 10) + "%" : "—"; }
+
+  var FMT = {
+    grossMonth: money, grossYear: money, expMonth: money, expYear: money,
+    variableExp: money, fixedExp: money,
+    profitMonth: money, profitYear: money, seTax: money, seTaxYear: money,
+    netMonth: money, netYear: money, perBris: money, avgFee: money,
+    feeRevenue: money, travelRevenue: money,
+    tzedakahValue: money, shabbatLostRevenue: money,
+    jobs: num1, servedJobs: num1, jobsYear: int, newbornJobs: num1, olderJobs: num1,
+    shabbatJobs: num1, shabbatLost: num1, freeJobs: num1,
+    morningsBooked: num1, breakEvenJobs: num1,
+    marketShare: pct, xpPct: pct,
+    level: int, levelName: String, levelBlurb: String, levelNextAt: int,
+    collisionRisk: String
+  };
+
+  // ---- binding ---------------------------------------------------
+  function readInputs() {
+    var els = document.querySelectorAll("[data-in]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], k = el.getAttribute("data-in");
+      state[k] = el.type === "checkbox" ? el.checked : n(el.value, DEFAULTS[k]);
+    }
+  }
+
+  function render() {
+    var r = compute(state);
+    window.__mohel = r;
+
+    var outs = document.querySelectorAll("[data-out]");
+    for (var i = 0; i < outs.length; i++) {
+      var el = outs[i], k = el.getAttribute("data-out");
+      if (!(k in r)) continue;
+      var f = FMT[k] || String;
+      el.textContent = f(r[k]);
+    }
+    // width-driven elements: <div data-bar="xpPct">
+    var bars = document.querySelectorAll("[data-bar]");
+    for (var j = 0; j < bars.length; j++) {
+      var b = bars[j], bk = b.getAttribute("data-bar");
+      var v = r[bk];
+      if (isFinite(v)) b.style.width = Math.max(0, Math.min(100, v)) + "%";
+    }
+    // echo raw slider values: <span data-echo="pctFree">
+    var echoes = document.querySelectorAll("[data-echo]");
+    for (var e = 0; e < echoes.length; e++) {
+      var ec = echoes[e], ek = ec.getAttribute("data-echo");
+      var src = document.querySelector('[data-in="' + ek + '"]');
+      if (src) ec.textContent = src.value;
+    }
+    // conditional classes: <div data-when="collisionRisk" data-eq="high">
+    var whens = document.querySelectorAll("[data-when]");
+    for (var w = 0; w < whens.length; w++) {
+      var wl = whens[w];
+      var key = wl.getAttribute("data-when"), eq = wl.getAttribute("data-eq");
+      wl.style.display = String(r[key]) === eq ? "" : "none";
+    }
+    if (typeof window.onMohelRender === "function") window.onMohelRender(r);
+  }
+
+  function init() {
+    for (var d in DEFAULTS) state[d] = DEFAULTS[d];
+    var els = document.querySelectorAll("[data-in]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], k = el.getAttribute("data-in");
+      if (el.type === "checkbox") {
+        if (!el.hasAttribute("data-noseed")) el.checked = !!DEFAULTS[k];
+      } else if (!el.hasAttribute("value") && DEFAULTS[k] !== undefined) {
+        el.value = DEFAULTS[k];
+      }
+      el.addEventListener("input", function () { readInputs(); render(); });
+      el.addEventListener("change", function () { readInputs(); render(); });
+    }
+    readInputs();
+    render();
+  }
+
+  window.MohelEngine = { compute: compute, money: money, DEFAULTS: DEFAULTS, LEVELS: LEVELS, render: render };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+
+</script>
+</body>
+</html>

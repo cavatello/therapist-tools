@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Direction C — The Daf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --parch:#F3E9D4; --parch2:#FAF3E3; --card:#FDF9EF;
+  --ink:#1F1A12; --muted:#736855; --line:#DCCCA8;
+  --indigo:#25406E; --indigo2:#3C5C90;
+  --gold:#A67C1F; --gold2:#D4A73C;
+  --wine:#8B2E2E; --olive:#4E6034;
+}
+*{box-sizing:border-box;}
+body{margin:0;color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(900px 500px at 20% 0%, rgba(166,124,31,.10), transparent 60%),
+    radial-gradient(700px 500px at 85% 30%, rgba(37,64,110,.09), transparent 60%),
+    var(--parch);
+  background-attachment:fixed;}
+.serif{font-family:'Frank Ruhl Libre',Georgia,serif;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+
+/* ---------- switcher ---------- */
+.switch{position:sticky;top:0;z-index:60;display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  background:var(--indigo);border-bottom:2px solid var(--gold);padding:9px 16px;}
+.switch .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#A8BBD8;font-weight:700;margin-right:4px;}
+.switch a{font-size:12px;font-weight:600;text-decoration:none;color:#C9D7EA;padding:6px 12px;
+  border-radius:6px;border:1px solid #3E5C8E;}
+.switch a.on{background:var(--gold2);color:#3A2A05;border-color:var(--gold2);font-weight:700;}
+.switch a:hover:not(.on){color:#fff;border-color:var(--gold2);}
+
+.wrap{max-width:1140px;margin:0 auto;padding:26px 16px 90px;}
+
+/* ---------- papercut band ---------- */
+.papercut{height:22px;margin-bottom:18px;
+  background:
+    radial-gradient(circle at 11px 11px, var(--gold) 0 3.5px, transparent 4px),
+    radial-gradient(circle at 0px 11px, transparent 7px, var(--indigo) 7.5px 9px, transparent 9.5px),
+    radial-gradient(circle at 22px 11px, transparent 7px, var(--indigo) 7.5px 9px, transparent 9.5px);
+  background-size:22px 22px;opacity:.5;}
+
+/* ---------- title plate ---------- */
+.plate{border:2px solid var(--ink);background:var(--card);padding:0;margin-bottom:24px;position:relative;
+  box-shadow:0 2px 0 rgba(31,26,18,.10);}
+.plate:before{content:"";position:absolute;inset:6px;border:1px solid var(--gold);pointer-events:none;}
+.plateIn{display:grid;grid-template-columns:1.25fr .75fr;}
+.plateL{padding:32px 34px 28px;}
+.eyebrow{font-size:10.5px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:16px;}
+h1.title{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(34px,5vw,54px);line-height:1;
+  margin:0 0 10px;letter-spacing:-.015em;}
+h1.title em{font-style:normal;color:var(--wine);}
+.hebrew{font-family:'Frank Ruhl Libre',serif;font-size:26px;color:var(--indigo);direction:rtl;margin-bottom:14px;font-weight:500;}
+.dek{font-size:15px;line-height:1.7;color:var(--muted);margin:0;max-width:48ch;}
+.dek b{color:var(--ink);}
+.plateR{padding:22px;border-left:1px solid var(--line);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:12px;background:linear-gradient(180deg,#FBF5E7,#F3E9D4);}
+.speech{font-family:'Frank Ruhl Libre',serif;font-size:15px;font-style:italic;text-align:center;color:var(--ink);
+  border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:10px 4px;max-width:250px;line-height:1.5;}
+.charTag{font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-weight:700;text-align:center;}
+
+/* ---------- THE DAF ---------- */
+.daf{border:2px solid var(--ink);background:var(--card);padding:16px;margin-bottom:24px;position:relative;}
+.daf:before{content:"";position:absolute;inset:7px;border:1px solid var(--gold);pointer-events:none;}
+.dafGrid{display:grid;grid-template-columns:1fr 1.5fr 1fr;gap:0;position:relative;z-index:1;}
+.gloss{padding:22px 20px;font-size:13px;line-height:1.75;color:var(--muted);}
+.gloss.left{border-right:1px solid var(--line);text-align:right;}
+.gloss.right{border-left:1px solid var(--line);}
+.glossH{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:13px;color:var(--wine);
+  text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
+.gline{margin-bottom:13px;padding-bottom:13px;border-bottom:1px dotted var(--line);}
+.gline:last-child{border-bottom:0;}
+.gline .gv{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:20px;color:var(--ink);display:block;margin-bottom:2px;}
+.gline .gk{font-size:11.5px;color:var(--muted);}
+.gline.neg .gv{color:var(--wine);}
+.gline.pos .gv{color:var(--olive);}
+
+.core{padding:28px 26px;text-align:center;display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(ellipse at 50% 40%, rgba(212,167,60,.14), transparent 70%);}
+.coreLbl{font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:12px;}
+.coreNum{font-family:'Frank Ruhl Libre',serif;font-weight:900;font-size:clamp(40px,6.5vw,66px);line-height:1;
+  color:var(--indigo);letter-spacing:-.02em;}
+.coreSub{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.6;}
+.coreRank{font-family:'Frank Ruhl Libre',serif;font-size:19px;font-weight:700;margin-top:20px;
+  padding-top:18px;border-top:1px solid var(--line);}
+.coreBlurb{font-size:12.5px;color:var(--muted);font-style:italic;margin-top:7px;line-height:1.6;}
+.rankTrack{height:7px;background:#E8DBBF;border:1px solid var(--line);margin-top:16px;overflow:hidden;}
+.rankFill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .3s ease;}
+.rankMeta{font-size:11px;color:var(--muted);margin-top:8px;}
+
+/* ---------- panels ---------- */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--indigo);
+  padding:24px 26px;margin-bottom:22px;}
+.card.gold{border-left-color:var(--gold);}
+.card.wine{border-left-color:var(--wine);}
+.card h3{font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:22px;margin:0 0 5px;letter-spacing:-.01em;}
+.card .ch{font-size:13.5px;color:var(--muted);margin:0 0 20px;line-height:1.65;}
+.chapter{font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:700;margin-bottom:9px;}
+
+.field{margin-bottom:18px;}
+.field label{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-size:13px;font-weight:600;margin-bottom:8px;}
+.field .val{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;color:var(--wine);}
+.field .hint{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.6;}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:3px;border-radius:0;
+  background:var(--line);outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;
+  background:var(--indigo);border:2px solid var(--card);cursor:pointer;box-shadow:0 0 0 1px var(--indigo);}
+input[type=range]::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:var(--indigo);
+  border:2px solid var(--card);cursor:pointer;box-shadow:0 0 0 1px var(--indigo);}
+input[type=number]{width:100%;background:#FBF6E9;border:1px solid var(--line);color:var(--ink);border-radius:3px;
+  padding:9px 11px;font-family:'IBM Plex Mono',monospace;font-size:14px;}
+input[type=number]:focus{outline:none;border-color:var(--indigo);box-shadow:0 0 0 2px rgba(37,64,110,.13);}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.check{display:flex;align-items:flex-start;gap:12px;background:#FBF6E9;border:1px solid var(--line);
+  border-left:3px solid var(--gold);padding:14px 15px;cursor:pointer;}
+.check input{margin-top:2px;width:16px;height:16px;accent-color:var(--indigo);flex:none;}
+.check .ct{font-size:13.5px;font-weight:600;}
+.check .cd{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.6;}
+
+/* ---------- ledger ---------- */
+table.ledger{width:100%;border-collapse:collapse;font-size:13.5px;}
+table.ledger td{padding:11px 0;border-bottom:1px dotted var(--line);}
+table.ledger td:last-child{text-align:right;font-family:'IBM Plex Mono',monospace;font-weight:500;}
+table.ledger tr.neg td:last-child{color:var(--wine);}
+table.ledger tr.tot td{border-bottom:0;border-top:2px solid var(--ink);padding-top:15px;
+  font-family:'Frank Ruhl Libre',serif;font-weight:700;font-size:19px;}
+table.ledger tr.tot td:last-child{color:var(--olive);font-family:'Frank Ruhl Libre',serif;}
+
+/* ---------- pull quote / notices ---------- */
+.pull{border-left:3px solid var(--gold);padding:4px 0 4px 17px;margin-top:18px;
+  font-family:'Frank Ruhl Libre',serif;font-size:15.5px;line-height:1.65;color:var(--ink);}
+.pull b{color:var(--wine);}
+.pull.wine{border-left-color:var(--wine);}
+
+.foot{font-size:12px;color:var(--muted);line-height:1.75;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);}
+.foot a{color:var(--indigo);}
+@media(max-width:900px){.plateIn{grid-template-columns:1fr;}.plateR{border-left:0;border-top:1px solid var(--line);}
+  .dafGrid{grid-template-columns:1fr;}
+  .gloss.left{border-right:0;border-bottom:1px solid var(--line);text-align:left;}
+  .gloss.right{border-left:0;border-top:1px solid var(--line);}
+  .cols{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav class="switch">
+  <span class="lbl">Visual direction</span>
+  <a href="dir-a-arcade.html">A · Bris Tycoon</a>
+  <a href="dir-b-deli.html">B · The Deli Board</a>
+  <a class="on" href="dir-c-daf.html">C · The Daf</a>
+  <a href="index.html" style="margin-left:auto;border-color:transparent;">← all directions</a>
+</nav>
+
+<div class="wrap">
+  <div class="papercut"></div>
+
+  <div class="plate">
+    <div class="plateIn">
+      <div class="plateL">
+        <div class="eyebrow">Direction C · the page of Talmud</div>
+        <div class="hebrew">מַסֶּכֶת פַּרְנָסָה</div>
+        <h1 class="title serif">Tractate <em>Parnassah</em></h1>
+        <p class="dek">The quiet one, and the most specific. A page of Talmud puts the core text in the middle and the commentaries in the margins — so the take-home number sits in the center and every force acting on it argues from the sides. <b>The game layer is rank and progression, not coins.</b> Parchment, indigo, gold leaf, and a papercut border.</p>
+      </div>
+      <div class="plateR">
+        <div class="speech">"They ask if I do Tuesdays. The baby does Tuesdays. I just follow."</div>
+        <!-- CHARACTER TREATMENT 3: engraving / woodcut line portrait -->
+        <svg width="160" height="180" viewBox="0 0 160 180">
+          <g fill="none" stroke="#1F1A12" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <!-- shoulders -->
+            <path d="M14 180 C17 143 40 128 60 122 L100 122 C120 128 143 143 146 180"/>
+            <!-- hatching on coat -->
+            <g stroke-width="1" opacity=".55">
+              <path d="M22 180 L36 140"/><path d="M31 180 L45 137"/><path d="M40 180 L53 134"/>
+              <path d="M138 180 L124 140"/><path d="M129 180 L115 137"/><path d="M120 180 L107 134"/>
+            </g>
+            <!-- lapels -->
+            <path d="M60 122 L80 150 L100 122"/><path d="M70 126 L80 141 L90 126"/>
+            <!-- neck -->
+            <path d="M68 100 L68 122 M92 100 L92 122"/>
+            <!-- head -->
+            <path d="M40 62 C40 30 120 30 120 62 C120 96 104 110 80 110 C56 110 40 96 40 62 Z"/>
+            <!-- hatching on cheek/jaw -->
+            <g stroke-width=".9" opacity=".45">
+              <path d="M48 78 C52 86 56 92 62 96"/><path d="M53 80 C57 88 61 94 67 98"/>
+              <path d="M112 78 C108 86 104 92 98 96"/><path d="M107 80 C103 88 99 94 93 98"/>
+            </g>
+            <!-- dome shine -->
+            <g stroke-width=".9" opacity=".4"><path d="M58 44 C64 39 74 37 82 38"/><path d="M60 50 C66 45 76 43 84 44"/></g>
+            <!-- ears -->
+            <path d="M40 66 C31 64 30 80 40 82"/><path d="M120 66 C129 64 130 80 120 82"/>
+            <!-- side hair -->
+            <path d="M41 52 C36 62 36 80 41 90"/><path d="M46 50 C41 62 41 78 45 88"/>
+            <path d="M119 52 C124 62 124 80 119 90"/><path d="M114 50 C119 62 119 78 115 88"/>
+            <!-- kippah -->
+            <path d="M47 40 C56 22 104 22 113 40" stroke-width="2"/>
+            <g stroke-width=".9" opacity=".5"><path d="M60 26 L58 39"/><path d="M72 23 L71 37"/><path d="M84 23 L85 37"/><path d="M96 26 L98 39"/></g>
+            <!-- eyebrows: one arched -->
+            <path d="M52 58 C58 55 66 55 71 57" stroke-width="2.4"/>
+            <path d="M89 53 C95 50 103 51 108 55" stroke-width="2.4"/>
+            <!-- glasses -->
+            <circle cx="62" cy="70" r="14"/><circle cx="99" cy="70" r="14"/>
+            <path d="M76 69 L85 69"/><path d="M48 67 L40 65"/><path d="M113 67 L121 65"/>
+            <!-- eyes, looking off to the side -->
+            <circle cx="67" cy="71" r="3.4" fill="#1F1A12"/><circle cx="104" cy="71" r="3.4" fill="#1F1A12"/>
+            <!-- bags under eyes -->
+            <path d="M56 79 C60 82 66 82 70 80" stroke-width=".9" opacity=".6"/>
+            <path d="M93 79 C97 82 103 82 107 80" stroke-width=".9" opacity=".6"/>
+            <!-- nose -->
+            <path d="M80 72 C76 84 74 90 81 91"/>
+            <!-- mouth: flat line, faint downturn -->
+            <path d="M67 100 C74 97 88 97 94 100" stroke-width="2"/>
+            <!-- laugh lines -->
+            <path d="M64 92 C62 96 62 99 64 102" stroke-width=".9" opacity=".55"/>
+            <path d="M97 92 C99 96 99 99 97 102" stroke-width=".9" opacity=".55"/>
+            <!-- bag -->
+            <path d="M104 146 L152 146 L156 180 L100 180 Z"/>
+            <path d="M116 146 C116 136 140 136 140 146"/>
+            <path d="M116 162 L140 162 M128 154 L128 170" stroke="#A67C1F" stroke-width="2.4"/>
+            <g stroke-width=".9" opacity=".4"><path d="M106 176 L110 152"/><path d="M114 178 L118 154"/><path d="M146 178 L143 154"/></g>
+          </g>
+        </svg>
+        <div class="charTag">Character treatment 3 · engraved line portrait</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== THE DAF ===================== -->
+  <div class="daf">
+    <div class="dafGrid">
+
+      <div class="gloss left">
+        <div class="glossH">What brings it in</div>
+        <div class="gline pos"><span class="gv" data-out="feeRevenue"></span><span class="gk">fees collected, per month</span></div>
+        <div class="gline pos"><span class="gv" data-out="travelRevenue"></span><span class="gk">travel surcharges</span></div>
+        <div class="gline"><span class="gv" data-out="servedJobs"></span><span class="gk">mornings actually worked</span></div>
+        <div class="gline"><span class="gv" data-out="avgFee"></span><span class="gk">average fee across the mix</span></div>
+      </div>
+
+      <div class="core">
+        <div class="coreLbl">Take-home, per month</div>
+        <div class="coreNum serif" data-out="netMonth"></div>
+        <div class="coreSub">After supplies, vehicle, insurance and self-employment tax.<br/>Before federal and state income tax.</div>
+        <div class="coreRank serif" data-out="levelName"></div>
+        <div class="coreBlurb" data-out="levelBlurb"></div>
+        <div class="rankTrack"><div class="rankFill" data-bar="xpPct" style="width:0%"></div></div>
+        <div class="rankMeta"><span data-out="jobsYear"></span> brises a year · next standing at <b data-out="levelNextAt"></b></div>
+      </div>
+
+      <div class="gloss right">
+        <div class="glossH">What takes it away</div>
+        <div class="gline neg"><span class="gv" data-out="variableExp"></span><span class="gk">per-job costs</span></div>
+        <div class="gline neg"><span class="gv" data-out="fixedExp"></span><span class="gk">fixed monthly costs</span></div>
+        <div class="gline neg"><span class="gv" data-out="seTax"></span><span class="gk">self-employment tax</span></div>
+        <div class="gline neg"><span class="gv" data-out="shabbatLostRevenue"></span><span class="gk">work refused — Shabbat, out of range</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="card">
+        <div class="chapter">Chapter one</div>
+        <h3>Volume and fee</h3>
+        <p class="ch">The two numbers everything else hangs from.</p>
+        <div class="field">
+          <label>Brises per month <span class="val"><span data-echo="brisesPerMonth"></span></span></label>
+          <input type="range" data-in="brisesPerMonth" min="0" max="30" step="1" />
+          <div class="hint">A working community mohel does a handful a month. A mohel profiled by the Jewish Journal reached 1,000 across an entire career.</div>
+        </div>
+        <div class="pair">
+          <div class="field"><label>Newborn fee</label><input type="number" data-in="baseFee" step="25" />
+            <div class="hint">Researched range $500–$1,500.</div></div>
+          <div class="field"><label>Adult / convert fee</label><input type="number" data-in="adultFee" step="100" />
+            <div class="hint">Researched range $3,000–$5,000.</div></div>
+        </div>
+        <div class="field">
+          <label>Older children &amp; adults <span class="val"><span data-echo="pctOlder"></span>%</span></label>
+          <input type="range" data-in="pctOlder" min="0" max="40" step="1" />
+          <div class="hint">Uncommon, and priced several times higher. A single conversion can outweigh a slow month.</div>
+        </div>
+        <div class="pair">
+          <div class="field"><label>Long-drive jobs <span class="val"><span data-echo="travelPct"></span>%</span></label>
+            <input type="range" data-in="travelPct" min="0" max="100" step="5" /></div>
+          <div class="field"><label>Travel surcharge</label><input type="number" data-in="travelFee" step="25" /></div>
+        </div>
+        <div class="field"><label>Jewish baby boys born in your metro, yearly</label>
+          <input type="number" data-in="metroBirths" step="50" />
+          <div class="hint">Your territory. No reliable metro-level figure is published, so this is yours to estimate.</div></div>
+      </div>
+
+      <div class="card wine">
+        <div class="chapter">Chapter two</div>
+        <h3>The eighth day</h3>
+        <p class="ch">Every other practice schedules its own calendar. This one is scheduled for it.</p>
+        <label class="check">
+          <input type="checkbox" data-in="observant" />
+          <span><span class="ct">Shomer Shabbat — I do not drive on Shabbat</span>
+          <span class="cd">A bris is on the eighth day and the eighth day does not move — it overrides Shabbat itself. But the mohel still cannot drive. Roughly one job in seven falls this way, and only families within walking distance can be served.</span></span>
+        </label>
+        <div class="field" style="margin-top:18px;">
+          <label>Families within walking distance <span class="val"><span data-echo="walkingPct"></span>%</span></label>
+          <input type="range" data-in="walkingPct" min="0" max="100" step="5" />
+        </div>
+        <div class="pull wine">
+          <b><span data-out="shabbatLost"></span></b> brises a month are handed to another mohel because the date landed on Shabbat and the family lives too far to walk — <b><span data-out="shabbatLostRevenue"></span></b> a month of work that is simply not available to you.
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <div class="chapter">Chapter three</div>
+        <h3>What it costs to arrive</h3>
+        <p class="ch">Defaults below are editable estimates, not sourced figures.</p>
+        <div class="pair">
+          <div class="field"><label>Supplies per bris</label><input type="number" data-in="suppliesPerBris" step="5" />
+            <div class="hint">Sterile kit, shield, anesthetic, gauze, wine, certificate.</div></div>
+          <div class="field"><label>Vehicle per bris</label><input type="number" data-in="mileagePerBris" step="1" /></div>
+        </div>
+        <div class="pair">
+          <div class="field"><label>Malpractice, monthly</label><input type="number" data-in="malpracticeMonthly" step="10" /></div>
+          <div class="field"><label>Phone, web, dues</label><input type="number" data-in="overheadMonthly" step="5" /></div>
+        </div>
+        <div class="field"><label>Continuing education, yearly</label><input type="number" data-in="ceAnnual" step="50" /></div>
+        <div class="pull">Break-even sits at <b><span data-out="breakEvenJobs"></span></b> brises a month. Below that the fixed costs are winning.</div>
+      </div>
+
+      <div class="card gold">
+        <div class="chapter">Chapter four</div>
+        <h3>Nobody is turned away for money</h3>
+        <p class="ch">Mohelim routinely perform a bris at minimal or no charge, and treat the payment as secondary. The model should say so out loud rather than hide it in an average.</p>
+        <div class="field">
+          <label>Performed free or reduced <span class="val"><span data-echo="pctFree"></span>%</span></label>
+          <input type="range" data-in="pctFree" min="0" max="60" step="5" />
+        </div>
+        <div class="pull">
+          <b><span data-out="freeJobs"></span></b> brises a month at no charge — <b><span data-out="tzedakahValue"></span></b> of your own work, monthly. It is not a leak in the model. It is the reason the model exists.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="chapter">Chapter five</div>
+        <h3>The month, in order</h3>
+        <table class="ledger">
+          <tr><td>Fees collected</td><td data-out="feeRevenue"></td></tr>
+          <tr><td>Travel surcharges</td><td data-out="travelRevenue"></td></tr>
+          <tr class="neg"><td>Per-job costs</td><td data-out="variableExp"></td></tr>
+          <tr class="neg"><td>Fixed monthly costs</td><td data-out="fixedExp"></td></tr>
+          <tr class="neg"><td>Self-employment tax</td><td data-out="seTax"></td></tr>
+          <tr class="tot"><td>Take-home</td><td data-out="netMonth"></td></tr>
+        </table>
+        <div class="pull">
+          <b><span data-out="perBris"></span></b> net per bris, all in. You are serving <b><span data-out="marketShare"></span></b> of the Jewish baby boys born in your metro each year.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    <b style="color:var(--ink)">Sources.</b> Newborn fee range $500–$1,500 and adult range $3,000–$5,000 per
+    <a href="https://www.usamohel.com/how-much-does-a-mohel-cost">USA Mohel</a>; $400–$800 in the Boston area per
+    <a href="https://www.jewishboston.com/read/how-much-does-a-bris-typically-cost/">JewishBoston</a>; $500–$700 Boston and $650–$850 New York per
+    <a href="https://brisceremony.com/how-much-does-a-mohel-charge/">Bris Ceremony</a>. Certification through the Conservative movement's Brit Kodesh program is $2,000 across ten sessions
+    (<a href="https://www.brisprogram.org/train">brisprogram.org</a>); the religious-plus-surgical route runs roughly 24–32 hours
+    (<a href="https://britmilahtraining.com/mohel-training-religious-surgical-course/">britmilahtraining.com</a>).
+    The no-charge norm is stated directly by practising mohelim (<a href="https://www.usamohel.com/how-much-does-a-mohel-cost">USA Mohel</a>).
+    Self-employment tax is the real 15.3% on 92.35% of net earnings. Supply, vehicle, insurance and overhead defaults are editable estimates.
+    Income tax is excluded from take-home throughout.
+  </p>
+</div>
+
+<script>
+/* ============================================================
+   MOHEL PRACTICE SIMULATOR — shared calculation engine
+   Auto-binds to [data-in="key"] inputs and [data-out="key"] outputs.
+   Identical math across all three visual directions.
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var DEFAULTS = {
+    brisesPerMonth: 6,
+    baseFee: 800,        // newborn 0-28 days, mid of $500-$1,500 researched range
+    adultFee: 3000,      // adult brit milah, low end of $3,000-$5,000
+    pctOlder: 8,         // % of jobs that are older children / adults / converts
+    pctFree: 15,         // % done free or heavily reduced (tzedakah)
+    travelPct: 30,       // % of jobs beyond ~45 min
+    travelFee: 150,      // travel surcharge on those
+    suppliesPerBris: 55, // sterile kit, shield/clamp, anesthetic, gauze, wine, certificate
+    mileagePerBris: 22,  // IRS-style vehicle cost, round trip
+    malpracticeMonthly: 240,
+    overheadMonthly: 95, // phone, website, directory listings, cleaning, bag
+    ceAnnual: 900,       // continuing ed, conferences, dues
+    observant: true,     // shomer Shabbat: will not drive on Shabbat
+    walkingPct: 35,      // % of your families within walking distance
+    metroBirths: 900     // Jewish baby boys born per year in your metro
+  };
+
+  var LEVELS = [
+    { min: 0,   name: "Apprentice",            blurb: "Still training. Your bag is newer than your reputation." },
+    { min: 12,  name: "Certified Mohel",       blurb: "Certified and listed. The calls have started." },
+    { min: 36,  name: "Neighborhood Mohel",    blurb: "Two shuls send you everyone. You know the parking." },
+    { min: 76,  name: "The One Everyone Calls",blurb: "Booked out. Grandmothers name-drop you." },
+    { min: 150, name: "Legendary",             blurb: "Three generations of the same family. You have a nickname." }
+  ];
+
+  var state = {};
+
+  function n(v, fb) { v = parseFloat(v); return isFinite(v) ? v : fb; }
+
+  function compute(s) {
+    var jobs = Math.max(0, n(s.brisesPerMonth, 0));
+
+    // ---- job mix -------------------------------------------------
+    var olderJobs   = jobs * (n(s.pctOlder, 0) / 100);
+    var newbornJobs = jobs - olderJobs;
+
+    // ---- Shabbat constraint --------------------------------------
+    // A bris falls on the 8th day, which cannot be moved. Roughly 1 in 7
+    // land on Shabbat. A shomer-Shabbat mohel cannot drive, so only families
+    // within walking distance can be served on those dates.
+    var shabbatJobs = jobs / 7;
+    var shabbatLost = s.observant
+      ? shabbatJobs * (1 - n(s.walkingPct, 0) / 100)
+      : 0;
+    var servedJobs = jobs - shabbatLost;
+
+    var servedOlder   = servedJobs * (n(s.pctOlder, 0) / 100);
+    var servedNewborn = servedJobs - servedOlder;
+
+    // ---- tzedakah (free / reduced) -------------------------------
+    var paidRatio = 1 - n(s.pctFree, 0) / 100;
+    var freeJobs  = servedJobs * (n(s.pctFree, 0) / 100);
+
+    // ---- revenue -------------------------------------------------
+    var feeRevenue = (servedNewborn * n(s.baseFee, 0) + servedOlder * n(s.adultFee, 0)) * paidRatio;
+    var travelRevenue = servedJobs * (n(s.travelPct, 0) / 100) * n(s.travelFee, 0) * paidRatio;
+    var grossMonth = feeRevenue + travelRevenue;
+
+    // value of the work given away
+    var avgFee = servedJobs > 0 ? (servedNewborn * n(s.baseFee, 0) + servedOlder * n(s.adultFee, 0)) / servedJobs : 0;
+    var tzedakahValue = freeJobs * avgFee;
+
+    // revenue lost to the Shabbat constraint
+    var shabbatLostRevenue = shabbatLost * avgFee * paidRatio;
+
+    // ---- expenses ------------------------------------------------
+    // Supplies and mileage are consumed on every job you actually do.
+    var variableExp = servedJobs * (n(s.suppliesPerBris, 0) + n(s.mileagePerBris, 0));
+    var fixedExp    = n(s.malpracticeMonthly, 0) + n(s.overheadMonthly, 0) + n(s.ceAnnual, 0) / 12;
+    var expMonth    = variableExp + fixedExp;
+
+    // ---- profit and self-employment tax --------------------------
+    var profitMonth = grossMonth - expMonth;
+    // SE tax: 15.3% on 92.35% of net earnings (Social Security + Medicare)
+    var seTaxMonth = profitMonth > 0 ? profitMonth * 0.9235 * 0.153 : 0;
+    var netMonth   = profitMonth - seTaxMonth;
+
+    // ---- scheduling reality --------------------------------------
+    // Brises happen in the morning. Two on the same morning in different
+    // places is a decline, not a double-booking.
+    var morningsBooked = servedJobs; // one morning each
+    var collisionRisk  = servedJobs > 22 ? "high" : servedJobs > 14 ? "medium" : "low";
+
+    // ---- break-even ----------------------------------------------
+    var contributionPerJob = (avgFee * paidRatio)
+      + (n(s.travelPct, 0) / 100) * n(s.travelFee, 0) * paidRatio
+      - (n(s.suppliesPerBris, 0) + n(s.mileagePerBris, 0));
+    var breakEvenJobs = contributionPerJob > 0 ? fixedExp / contributionPerJob : Infinity;
+
+    // ---- market --------------------------------------------------
+    var jobsYear = servedJobs * 12;
+    var marketShare = n(s.metroBirths, 0) > 0 ? (jobsYear / n(s.metroBirths, 0)) * 100 : 0;
+
+    // ---- level ---------------------------------------------------
+    var li = 0;
+    for (var i = 0; i < LEVELS.length; i++) if (jobsYear >= LEVELS[i].min) li = i;
+    var nextMin = li < LEVELS.length - 1 ? LEVELS[li + 1].min : LEVELS[li].min;
+    var curMin  = LEVELS[li].min;
+    var xpPct = li >= LEVELS.length - 1
+      ? 100
+      : Math.max(0, Math.min(100, ((jobsYear - curMin) / (nextMin - curMin)) * 100));
+
+    return {
+      jobs: jobs, servedJobs: servedJobs, jobsYear: jobsYear,
+      newbornJobs: servedNewborn, olderJobs: servedOlder,
+      shabbatJobs: shabbatJobs, shabbatLost: shabbatLost, shabbatLostRevenue: shabbatLostRevenue,
+      freeJobs: freeJobs, tzedakahValue: tzedakahValue,
+      avgFee: avgFee,
+      feeRevenue: feeRevenue, travelRevenue: travelRevenue,
+      grossMonth: grossMonth, grossYear: grossMonth * 12,
+      variableExp: variableExp, fixedExp: fixedExp,
+      expMonth: expMonth, expYear: expMonth * 12,
+      profitMonth: profitMonth, profitYear: profitMonth * 12,
+      seTax: seTaxMonth, seTaxYear: seTaxMonth * 12,
+      netMonth: netMonth, netYear: netMonth * 12,
+      perBris: servedJobs > 0 ? netMonth / servedJobs : 0,
+      morningsBooked: morningsBooked, collisionRisk: collisionRisk,
+      breakEvenJobs: breakEvenJobs,
+      marketShare: marketShare,
+      level: li + 1, levelName: LEVELS[li].name, levelBlurb: LEVELS[li].blurb,
+      levelNextAt: nextMin, xpPct: xpPct
+    };
+  }
+
+  // ---- formatting ------------------------------------------------
+  function money(v) {
+    if (!isFinite(v)) return "—";
+    var neg = v < 0;
+    var s = "$" + Math.round(Math.abs(v)).toLocaleString("en-US");
+    return neg ? "−" + s : s;
+  }
+  function money2(v) { return isFinite(v) ? "$" + (Math.round(v * 100) / 100).toLocaleString("en-US") : "—"; }
+  function num1(v) { return isFinite(v) ? (Math.round(v * 10) / 10).toLocaleString("en-US") : "—"; }
+  function int(v) { return isFinite(v) ? Math.round(v).toLocaleString("en-US") : "—"; }
+  function pct(v) { return isFinite(v) ? (Math.round(v * 10) / 10) + "%" : "—"; }
+
+  var FMT = {
+    grossMonth: money, grossYear: money, expMonth: money, expYear: money,
+    variableExp: money, fixedExp: money,
+    profitMonth: money, profitYear: money, seTax: money, seTaxYear: money,
+    netMonth: money, netYear: money, perBris: money, avgFee: money,
+    feeRevenue: money, travelRevenue: money,
+    tzedakahValue: money, shabbatLostRevenue: money,
+    jobs: num1, servedJobs: num1, jobsYear: int, newbornJobs: num1, olderJobs: num1,
+    shabbatJobs: num1, shabbatLost: num1, freeJobs: num1,
+    morningsBooked: num1, breakEvenJobs: num1,
+    marketShare: pct, xpPct: pct,
+    level: int, levelName: String, levelBlurb: String, levelNextAt: int,
+    collisionRisk: String
+  };
+
+  // ---- binding ---------------------------------------------------
+  function readInputs() {
+    var els = document.querySelectorAll("[data-in]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], k = el.getAttribute("data-in");
+      state[k] = el.type === "checkbox" ? el.checked : n(el.value, DEFAULTS[k]);
+    }
+  }
+
+  function render() {
+    var r = compute(state);
+    window.__mohel = r;
+
+    var outs = document.querySelectorAll("[data-out]");
+    for (var i = 0; i < outs.length; i++) {
+      var el = outs[i], k = el.getAttribute("data-out");
+      if (!(k in r)) continue;
+      var f = FMT[k] || String;
+      el.textContent = f(r[k]);
+    }
+    // width-driven elements: <div data-bar="xpPct">
+    var bars = document.querySelectorAll("[data-bar]");
+    for (var j = 0; j < bars.length; j++) {
+      var b = bars[j], bk = b.getAttribute("data-bar");
+      var v = r[bk];
+      if (isFinite(v)) b.style.width = Math.max(0, Math.min(100, v)) + "%";
+    }
+    // echo raw slider values: <span data-echo="pctFree">
+    var echoes = document.querySelectorAll("[data-echo]");
+    for (var e = 0; e < echoes.length; e++) {
+      var ec = echoes[e], ek = ec.getAttribute("data-echo");
+      var src = document.querySelector('[data-in="' + ek + '"]');
+      if (src) ec.textContent = src.value;
+    }
+    // conditional classes: <div data-when="collisionRisk" data-eq="high">
+    var whens = document.querySelectorAll("[data-when]");
+    for (var w = 0; w < whens.length; w++) {
+      var wl = whens[w];
+      var key = wl.getAttribute("data-when"), eq = wl.getAttribute("data-eq");
+      wl.style.display = String(r[key]) === eq ? "" : "none";
+    }
+    if (typeof window.onMohelRender === "function") window.onMohelRender(r);
+  }
+
+  function init() {
+    for (var d in DEFAULTS) state[d] = DEFAULTS[d];
+    var els = document.querySelectorAll("[data-in]");
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i], k = el.getAttribute("data-in");
+      if (el.type === "checkbox") {
+        if (!el.hasAttribute("data-noseed")) el.checked = !!DEFAULTS[k];
+      } else if (!el.hasAttribute("value") && DEFAULTS[k] !== undefined) {
+        el.value = DEFAULTS[k];
+      }
+      el.addEventListener("input", function () { readInputs(); render(); });
+      el.addEventListener("change", function () { readInputs(); render(); });
+    }
+    readInputs();
+    render();
+  }
+
+  window.MohelEngine = { compute: compute, money: money, DEFAULTS: DEFAULTS, LEVELS: LEVELS, render: render };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+
+</script>
+</body>
+</html>

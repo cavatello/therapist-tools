@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Prototype 1 — Working the Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Karla:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2A2018;--muted:#7C6B57;--paper:#FDF7EA;--line:#DAC7A4;--gold:#E0A526;
+  --good:#4E8C5B;--bad:#B5483F;--terra:#C4633F;}
+*{box-sizing:border-box;}
+body{margin:0;background:#241A12;color:var(--ink);font-family:'Karla',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+.baloo{font-family:'Baloo 2',cursive;}
+button{font-family:'Karla',sans-serif;cursor:pointer;}
+.app{max-width:1120px;margin:0 auto;}
+.nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#160F09;padding:9px 16px;border-bottom:2px solid #3B2A1C;}
+.nav .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8A7359;font-weight:800;}
+.nav a{font-size:12px;font-weight:700;text-decoration:none;color:#D6C6AC;padding:5px 11px;border-radius:7px;border:1px solid #45321F;}
+.nav a.on{background:var(--gold);color:#3A2705;border-color:var(--gold);}
+.bar{display:flex;align-items:center;gap:14px;padding:11px 16px;background:#1A120C;flex-wrap:wrap;}
+.logo{font-family:'Baloo 2',cursive;font-weight:800;font-size:18px;color:var(--gold);}
+.logo small{display:block;font-family:'Karla';font-size:9px;font-weight:700;color:#8A7359;letter-spacing:.16em;text-transform:uppercase;margin-top:-2px;}
+.hud{display:flex;gap:9px;margin-left:auto;flex-wrap:wrap;}
+.h{background:#2A1D13;border:1px solid #45321F;border-radius:9px;padding:6px 12px;min-width:120px;}
+.h .k{font-size:8.5px;text-transform:uppercase;letter-spacing:.12em;color:#8A7359;font-weight:800;margin-bottom:5px;}
+.h .v{font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;color:#F3E4C8;line-height:1.1;}
+.trk{height:7px;background:#150E08;border-radius:4px;overflow:hidden;margin-top:5px;}
+.fil{height:100%;transition:width .3s;}
+.h.heat .fil{background:linear-gradient(90deg,#4E8C5B,#D9A63A 55%,#C4633F);}
+.h.pat .fil{background:linear-gradient(90deg,#9B6B12,#F0C048);}
+.h.clock .v{color:#EFD9A8;}
+
+.stage{position:relative;width:100%;aspect-ratio:1000/460;overflow:hidden;cursor:crosshair;
+  border-top:2px solid #3B2A1C;border-bottom:2px solid #3B2A1C;background:#E8D6B6;}
+.stage svg.room{position:absolute;inset:0;width:100%;height:100%;}
+.person{position:absolute;bottom:9%;transition:left .28s linear;transform-origin:bottom center;pointer-events:none;}
+.person svg{width:100%;height:auto;display:block;filter:drop-shadow(0 4px 5px rgba(60,35,15,.28));}
+.person .np{position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:8.5px;
+  font-weight:800;color:#4A3722;background:rgba(255,248,232,.94);padding:1px 6px;border-radius:9px;border:1px solid rgba(120,95,60,.25);}
+.person.low .np{bottom:-27px;}
+.person.low .np:before{content:'';position:absolute;left:50%;bottom:100%;width:1px;height:11px;background:rgba(120,95,60,.4);}
+/* heat ring under feet */
+.ring{position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:130%;height:14px;border-radius:50%;
+  opacity:.9;transition:background .4s;}
+.tmp{position:absolute;top:-16px;left:50%;transform:translateX(-50%);width:30px;height:7px;background:#F6EEDC;
+  border:1.5px solid #6E5A44;border-radius:4px;overflow:hidden;}
+.tmp i{display:block;height:100%;background:#7ECB6C;transition:width .35s,background .35s;}
+.person svg.you{width:15px!important;height:21px;position:absolute;top:-26px;left:50%;transform:translateX(-50%);}
+.spark{position:absolute;top:-34px;left:50%;transform:translateX(-50%);font-family:'Baloo 2',cursive;font-weight:800;
+  font-size:19px;color:var(--terra);text-shadow:0 0 5px #fff,0 0 5px #fff;animation:bz .7s infinite;}
+@keyframes bz{50%{transform:translateX(-50%) translateY(-4px) rotate(-6deg);}}
+.clashline{position:absolute;bottom:31%;height:5px;border-radius:3px;z-index:8;
+  background:repeating-linear-gradient(90deg,var(--terra) 0 8px,transparent 8px 15px);
+  opacity:.95;animation:fl .55s infinite;}
+@keyframes fl{50%{opacity:.35;}}
+.pop{position:absolute;bottom:108%;left:50%;transform:translateX(-50%);background:#fff;border:2.5px solid var(--ink);
+  border-radius:12px;padding:7px 10px;font-size:11.5px;font-weight:700;line-height:1.35;width:180px;text-align:center;
+  box-shadow:3px 3px 0 rgba(42,32,24,.22);z-index:30;pointer-events:none;}
+.pop:after{content:"";position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);border:9px solid transparent;border-top-color:var(--ink);border-bottom:0;}
+.pop:before{content:"";position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#fff;border-bottom:0;z-index:1;}
+.marker{position:absolute;bottom:7%;width:22px;height:8px;border-radius:50%;border:2px dashed var(--gold);transform:translateX(-50%);opacity:.8;}
+
+.panel{background:var(--paper);padding:14px 18px 18px;}
+.live{font-size:15.5px;line-height:1.6;min-height:46px;margin:0 0 12px;}
+.live b{color:var(--terra);}
+.ctrls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.big{font-family:'Baloo 2',cursive;font-weight:700;font-size:16px;padding:12px 22px;border-radius:12px;
+  border:2.5px solid var(--ink);background:var(--gold);color:#3A2705;box-shadow:0 4px 0 var(--ink);}
+.big.go{background:var(--good);color:#fff;}
+.big.ghost{background:#EFE3CB;}
+.big:hover{transform:translateY(2px);box-shadow:0 2px 0 var(--ink);}
+.big:disabled{opacity:.45;cursor:not-allowed;box-shadow:none;}
+.rules{font-size:12.5px;color:var(--muted);line-height:1.65;margin:12px 0 0;max-width:80ch;}
+.rules b{color:var(--ink);}
+.modal{position:fixed;inset:0;background:rgba(26,18,12,.87);z-index:90;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal.open{display:flex;}
+.mb{background:var(--paper);border:3px solid var(--ink);border-radius:18px;padding:26px 28px;max-width:520px;width:100%;}
+.mb h2{font-family:'Baloo 2',cursive;font-size:26px;margin:0 0 10px;}
+.mb p{font-size:15px;line-height:1.7;}
+.mb .v{background:#fff;border:2px solid var(--line);border-left:5px solid var(--terra);padding:13px 15px;font-style:italic;margin:14px 0;font-size:14.5px;line-height:1.6;}
+.mb .big{width:100%;margin-top:6px;}
+@media(max-width:760px){.h{min-width:96px;}}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="nav"><span class="l">Prototype</span>
+  <a class="on" href="proto-1-room.html">1 · Working the Room</a>
+  <a href="proto-2-farce.html">2 · The Lie</a>
+  <a href="proto-3-cards.html">3 · Things You Can Say</a>
+  <a href="lenses.html" style="margin-left:auto;border-color:transparent;">← the design notes</a>
+</nav>
+
+<div class="bar">
+  <div class="logo">WORKING THE ROOM<small>lens of emergence · toy · indirect control</small></div>
+  <div class="hud">
+    <div class="h heat"><div class="k">Room temperature</div><div class="v" id="v-heat">—</div><div class="trk"><div class="fil" id="f-heat"></div></div></div>
+    <div class="h pat"><div class="k">Your patience</div><div class="v" id="v-pat">—</div><div class="trk"><div class="fil" id="f-pat"></div></div></div>
+    <div class="h clock"><div class="k">The morning</div><div class="v" id="v-clock">9:40</div></div>
+  </div>
+</div>
+
+<div class="stage" id="stage"></div>
+
+<div class="panel">
+  <p class="live" id="live">Everyone's here. Nobody's started anything yet.</p>
+  <div class="ctrls">
+    <button class="big go" id="b-start">Begin the ceremony</button>
+    <button class="big ghost" id="b-reset">Start the morning over</button>
+  </div>
+  <p class="rules">
+    <b>You cannot tell anybody to do anything.</b> Click the floor to walk. Standing beside someone cools them down and
+    costs you patience — standing between two people who are arguing cools both, and costs double.
+    People drift on their own. Certain pairs should not be left alone together, and you already know which ones.
+    Get the room cool enough to start before the morning gets away from you.
+  </p>
+</div>
+</div>
+<div class="modal" id="modal"><div class="mb" id="mb"></div></div>
+
+<script>
+/* ==========================================================
+   Shared scene + cast for the mohel prototypes.
+   personSVG / babySVG / ROOM_SVG / CAST
+   ========================================================== */
+var MO = (function(){
+"use strict";
+var seed=20260729;
+function rnd(){seed=(seed*1664525+1013904223)%4294967296;return seed/4294967296;}
+function ri(a,b){return a+Math.floor(rnd()*(b-a+1));}
+function pick(a){return a[Math.floor(rnd()*a.length)];}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function reseed(s){seed=s;}
+
+var SKINS=["#EFC49B","#E3B189","#D9A279","#C89165","#F2D0AC"];
+
+function personSVG(c){
+  var s=c.skin||"#EFC49B", coat=c.coat||"#3E5A72", pants=c.pants||"#33404E", shirt=c.shirt||"#FBF6E8";
+  var g='<svg viewBox="0 0 64 130">';
+  g+='<rect x="22" y="86" width="8" height="34" fill="'+pants+'"/><rect x="34" y="86" width="8" height="34" fill="'+pants+'"/>';
+  g+='<rect x="18" y="118" width="14" height="8" rx="4" fill="#3A2A1C"/><rect x="32" y="118" width="14" height="8" rx="4" fill="#3A2A1C"/>';
+  g+='<path d="M20 56 Q32 49 44 56 L47 92 L17 92 Z" fill="'+coat+'"/>';
+  g+='<path d="M28 52 L32 74 L36 52 Z" fill="'+shirt+'"/>';
+  if(c.tray){ g+='<path d="M20 58 L10 74 L14 78 L24 64 Z" fill="'+coat+'"/><path d="M44 58 L54 70 L50 75 L40 64 Z" fill="'+coat+'"/>'
+                +'<ellipse cx="53" cy="70" rx="15" ry="4" fill="#D8D0BF" stroke="#A99E88" stroke-width="1.5"/>'; }
+  else if(c.holding){ g+='<path d="M20 58 L18 76 L30 80 L32 66 Z" fill="'+coat+'"/><path d="M44 58 L46 76 L34 80 L32 66 Z" fill="'+coat+'"/>'; }
+  else if(c.phone){ g+='<path d="M20 58 L14 82 L20 84 L26 62 Z" fill="'+coat+'"/><path d="M44 58 L48 68 L40 40 L34 44 Z" fill="'+coat+'"/>'
+                      +'<rect x="34" y="34" width="8" height="13" rx="2" fill="#22303A"/>'; }
+  else { g+='<path d="M20 58 L14 88 L20 90 L26 62 Z" fill="'+coat+'"/><path d="M44 58 L50 88 L44 90 L38 62 Z" fill="'+coat+'"/>'; }
+  g+='<circle cx="17" cy="89" r="4.5" fill="'+s+'"/><circle cx="47" cy="89" r="4.5" fill="'+s+'"/>';
+  if(c.bag){ g+='<path d="M46 90 h16 v14 h-16 Z" fill="#7A4A6B" stroke="#4E2C44" stroke-width="2"/><path d="M49 90 a5 5 0 0 1 10 0" fill="none" stroke="#4E2C44" stroke-width="2"/>'; }
+  if(c.doctorbag){ g+='<path d="M46 92 h18 v16 h-18 Z" fill="#7A4A24" stroke="#4E2E14" stroke-width="2"/><path d="M52 92 a4 4 0 0 1 8 0" fill="none" stroke="#4E2E14" stroke-width="2"/><path d="M51 100 h8 M55 96 v8" stroke="#E0A526" stroke-width="2.5"/>'; }
+  g+='<rect x="28" y="44" width="8" height="10" fill="'+s+'"/>';
+  g+='<ellipse cx="32" cy="30" rx="14" ry="16" fill="'+s+'"/>';
+  g+='<path d="M18 30 a4 4.5 0 0 0 0 9" fill="'+s+'"/><path d="M46 30 a4 4.5 0 0 1 0 9" fill="'+s+'"/>';
+  var hc=c.hairCol||"#B9B2AA";
+  if(c.hair==="bald"){ g+='<path d="M18.4 30 q-1 -8 1 -12 q1 8 0 12 Z" fill="'+hc+'"/><path d="M45.6 30 q1 -8 -1 -12 q-1 8 0 12 Z" fill="'+hc+'"/>'
+      +'<path d="M18 32 q0 8 3 12 q-4 -3 -4 -12 Z" fill="'+hc+'"/><path d="M46 32 q0 8 -3 12 q4 -3 4 -12 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="gray"){ g+='<path d="M17 28 q1 -18 15 -18 q14 0 15 18 q-3 -9 -15 -9 q-12 0 -15 9 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="bun"){ g+='<path d="M17 28 q1 -18 15 -18 q14 0 15 18 q-3 -10 -15 -10 q-12 0 -15 10 Z" fill="'+hc+'"/><circle cx="32" cy="7" r="7" fill="'+hc+'"/>'; }
+  else if(c.hair==="wig"){ g+='<path d="M16 30 q0 -20 16 -20 q16 0 16 20 q0 12 -4 16 q2 -18 -12 -18 q-14 0 -12 18 q-4 -4 -4 -16 Z" fill="'+hc+'"/>'; }
+  else if(c.hair==="dark"){ g+='<path d="M17 27 q2 -17 15 -17 q13 0 15 17 q-4 -8 -15 -8 q-11 0 -15 8 Z" fill="'+hc+'"/>'; }
+  if(c.kippah){ g+='<path d="M21 15 q11 -9 22 0 q-11 -4 -22 0 Z" fill="'+c.kippah+'"/>'; }
+  if(c.hat){ g+='<rect x="14" y="10" width="36" height="5" rx="2.5" fill="#22201C"/><path d="M20 10 q0 -10 12 -10 q12 0 12 10 Z" fill="#22201C"/>'; }
+  if(c.beard){ g+='<path d="M20 32 q0 20 12 20 q12 0 12 -20 q-3 12 -12 12 q-9 0 -12 -12 Z" fill="'+(c.beardCol||hc)+'"/>'; }
+  var m=c.mood||"neutral";
+  g+= m==="annoyed" ? '<path d="M23 23 L31 25" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 23 L33 25" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+    : m==="worried" ? '<path d="M23 25 L31 22" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 25 L33 22" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+    : m==="smug" ? '<path d="M23 24 L31 24" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 21 L33 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>'
+    : '<path d="M23 23 L31 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/><path d="M41 23 L33 23" stroke="#3A2E22" stroke-width="2" stroke-linecap="round"/>';
+  g+='<circle cx="27" cy="30" r="2.4" fill="#2A2018"/><circle cx="37" cy="30" r="2.4" fill="#2A2018"/>';
+  if(c.glasses){ g+='<g fill="none" stroke="#2A2018" stroke-width="1.8"><circle cx="27" cy="30" r="6"/><circle cx="37" cy="30" r="6"/><path d="M33 30 h-2"/><path d="M21 29 l-3 -1"/><path d="M43 29 l3 -1"/></g>'; }
+  if(!c.beard){
+    g+= m==="happy" ? '<path d="M27 38 q5 5 10 0" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      : m==="annoyed" ? '<path d="M27 39 h10" stroke="#8A5A48" stroke-width="2" stroke-linecap="round"/>'
+      : m==="worried" ? '<path d="M27 40 q5 -4 10 0" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      : m==="smug" ? '<path d="M27 39 q5 3 10 -1" stroke="#8A5A48" stroke-width="2" fill="none" stroke-linecap="round"/>'
+      : '<path d="M28 39 h8" stroke="#8A5A48" stroke-width="2" stroke-linecap="round"/>';
+  }
+  if(c.apron){ g+='<path d="M24 58 h16 v34 h-16 Z" fill="#F2ECDD" opacity=".95"/>'; }
+  return g+'</svg>';
+}
+
+function babySVG(){
+  return '<svg viewBox="0 0 40 30"><path d="M4 18 q0 -12 16 -12 q16 0 16 12 q0 8 -16 8 q-16 0 -16 -8 Z" fill="#F6F1E4" stroke="#C8BCA4" stroke-width="2"/>'
+   +'<path d="M8 16 q0 -9 12 -9 q12 0 12 9" fill="#BFD8E8" stroke="#8FB4CC" stroke-width="2"/>'
+   +'<circle cx="20" cy="17" r="6.5" fill="#F7D3B0"/>'
+   +'<path d="M17 16 h2 M21 16 h2" stroke="#3A2E22" stroke-width="1.4" stroke-linecap="round"/>'
+   +'<path d="M18.5 20 q1.5 1.5 3 0" stroke="#C08A72" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>';
+}
+
+var ROOM_SVG =
+'<svg class="room" viewBox="0 0 1000 460" preserveAspectRatio="none">'
++'<defs><pattern id="wp" width="46" height="60" patternUnits="userSpaceOnUse"><path d="M23 12 l7 12 -7 12 -7 -12 Z" fill="#E3D0AE"/></pattern>'
++'<linearGradient id="fg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C69463"/><stop offset="1" stop-color="#A5764A"/></linearGradient></defs>'
++'<rect width="1000" height="360" fill="#F0E0C4"/><rect width="1000" height="360" fill="url(#wp)" opacity=".5"/>'
++'<rect y="352" width="1000" height="108" fill="url(#fg)"/>'
++'<g stroke="#8F6339" stroke-width="1.5" opacity=".45"><path d="M0 372 H1000"/><path d="M0 396 H1000"/><path d="M0 424 H1000"/>'
++'<path d="M120 352 V460"/><path d="M340 352 V460"/><path d="M600 352 V460"/><path d="M840 352 V460"/></g>'
++'<rect y="340" width="1000" height="14" fill="#E8D3AE"/><rect y="340" width="1000" height="4" fill="#CBB187"/>'
++'<ellipse cx="520" cy="410" rx="330" ry="46" fill="#B4553E" opacity=".55"/>'
++'<ellipse cx="520" cy="410" rx="290" ry="37" fill="none" stroke="#E9C88E" stroke-width="4" opacity=".6"/>'
++'<rect x="24" y="140" width="104" height="200" rx="4" fill="#9E7448" stroke="#6E4E2C" stroke-width="4"/>'
++'<rect x="38" y="156" width="34" height="76" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<rect x="80" y="156" width="34" height="76" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<rect x="38" y="244" width="34" height="80" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<rect x="80" y="244" width="34" height="80" fill="#B28656" stroke="#6E4E2C" stroke-width="3"/>'
++'<circle cx="116" cy="244" r="6" fill="#E0A526" stroke="#8A6100" stroke-width="2"/>'
++'<rect x="132" y="196" width="9" height="30" rx="4" fill="#8A6100" transform="rotate(14 136 211)"/>'
++'<rect x="742" y="86" width="196" height="150" rx="5" fill="#BFE0EE" stroke="#F6EEDC" stroke-width="9"/>'
++'<rect x="742" y="86" width="196" height="150" rx="5" fill="none" stroke="#C8B18B" stroke-width="3"/>'
++'<path d="M840 86 V236 M742 161 H938" stroke="#F6EEDC" stroke-width="7"/>'
++'<circle cx="790" cy="124" r="17" fill="#FFE9A8" opacity=".85"/>'
++'<path d="M880 236 v-42 q-26 -10 -30 -34 q22 8 30 22 q2 -26 18 -40 q6 26 -4 42 q18 -12 34 -8 q-16 18 -34 22 v38 Z" fill="#5E8A4E"/>'
++'<rect x="300" y="104" width="118" height="86" rx="3" fill="#FBF3E0" stroke="#8A6100" stroke-width="6"/>'
++'<text x="359" y="156" text-anchor="middle" font-family="serif" font-size="38" fill="#25406E">מזרח</text>'
++'<rect x="448" y="120" width="72" height="58" rx="3" fill="#EFE3CB" stroke="#6E4E2C" stroke-width="4"/>'
++'<circle cx="484" cy="142" r="11" fill="#C89E76"/><path d="M462 178 q22 -22 44 0 Z" fill="#7A8FA8"/>'
++'<circle cx="596" cy="140" r="30" fill="#FBF3E0" stroke="#6E4E2C" stroke-width="5"/>'
++'<g stroke="#2A2018" stroke-width="3.5" stroke-linecap="round"><path d="M596 140 V122"/><path d="M596 140 L612 148"/></g>'
++'<circle cx="596" cy="140" r="3.5" fill="#2A2018"/>'
++'<rect x="152" y="264" width="200" height="66" rx="12" fill="#6E7F42" stroke="#4E5C2C" stroke-width="4"/>'
++'<rect x="142" y="286" width="26" height="52" rx="10" fill="#7C8F4C" stroke="#4E5C2C" stroke-width="4"/>'
++'<rect x="336" y="286" width="26" height="52" rx="10" fill="#7C8F4C" stroke="#4E5C2C" stroke-width="4"/>'
++'<rect x="168" y="292" width="80" height="30" rx="7" fill="#849A52" stroke="#4E5C2C" stroke-width="3"/>'
++'<rect x="256" y="292" width="80" height="30" rx="7" fill="#849A52" stroke="#4E5C2C" stroke-width="3"/>'
++'<rect x="576" y="228" width="86" height="106" rx="9" fill="#8E4A63" stroke="#5E2C40" stroke-width="4"/>'
++'<rect x="588" y="242" width="62" height="70" rx="6" fill="#A55C77" stroke="#5E2C40" stroke-width="3"/>'
++'<rect x="568" y="298" width="102" height="24" rx="7" fill="#9B5169" stroke="#5E2C40" stroke-width="4"/>'
++'<rect x="572" y="320" width="12" height="30" fill="#5E2C40"/><rect x="654" y="320" width="12" height="30" fill="#5E2C40"/>'
++'<circle cx="619" cy="238" r="8" fill="#E0A526" stroke="#8A6100" stroke-width="2.5"/>'
++'<rect x="800" y="286" width="176" height="12" rx="4" fill="#C8A06E" stroke="#7E5A33" stroke-width="3"/>'
++'<rect x="814" y="298" width="10" height="52" fill="#9E7448"/><rect x="952" y="298" width="10" height="52" fill="#9E7448"/>'
++'<ellipse cx="856" cy="284" rx="42" ry="11" fill="#E9E2D2" stroke="#B9AC93" stroke-width="2.5"/>'
++'<ellipse cx="843" cy="280" rx="12" ry="6" fill="#E8926F"/><ellipse cx="866" cy="279" rx="13" ry="6" fill="#E8926F"/>'
++'<g fill="#D9A45E" stroke="#A9762F" stroke-width="2"><circle cx="900" cy="278" r="11"/><circle cx="918" cy="281" r="10"/></g>'
++'<rect x="944" y="248" width="16" height="38" rx="4" fill="#6E2233"/><rect x="948" y="238" width="8" height="14" fill="#6E2233"/>'
++'<rect x="944" y="262" width="16" height="14" fill="#D9C08A"/>'
++'<path d="M922 262 h18 l-3 14 h-12 Z" fill="#E0A526" stroke="#8A6100" stroke-width="2"/>'
++'<rect x="928" y="276" width="6" height="8" fill="#E0A526"/><rect x="922" y="284" width="18" height="4" rx="2" fill="#E0A526"/>'
++'<g stroke="#6E4E2C" stroke-width="5" fill="none"><path d="M700 350 V206"/><path d="M684 214 L700 206 L716 214"/><path d="M690 350 h20"/></g>'
++'<g opacity=".95"><path d="M700 216 q22 4 22 30 q0 28 -22 28 q-22 0 -22 -28 q0 -26 22 -30 Z" fill="#3E5A72"/>'
++'<path d="M700 216 v58" stroke="#2C4152" stroke-width="2.5"/><circle cx="700" cy="232" r="2.5" fill="#C8B18B"/></g>'
++'</svg>';
+
+var MOHEL_ART={skin:"#EFC49B",coat:"#4A4A56",pants:"#33333E",hair:"bald",hairCol:"#B9B2AA",
+  glasses:true,kippah:"#4A2F86",mood:"annoyed",doctorbag:true};
+
+var CAST=[
+ {id:"marv",  name:"Uncle Marv",     w:8.6, art:{skin:SKINS[1],coat:"#5A4636",pants:"#3A3128",hair:"bald",hairCol:"#8A8078",mood:"smug",kippah:"#3A3A6E"}},
+ {id:"bubbe", name:"The Bubbe",      w:6.3, art:{skin:SKINS[4],coat:"#7A4A6B",pants:"#5E3A52",hair:"wig",hairCol:"#C9C2BA",mood:"annoyed",bag:true}},
+ {id:"rav",   name:"Rabbi Feld",     w:7.6, art:{skin:SKINS[2],coat:"#2C2C38",pants:"#22222C",hair:"dark",hairCol:"#4A4038",beard:true,beardCol:"#6E6258",hat:true,mood:"neutral"}},
+ {id:"cater", name:"The caterer",    w:7.4, art:{skin:SKINS[3],coat:"#4E6E62",pants:"#33413B",hair:"dark",hairCol:"#2E2620",apron:true,tray:true,mood:"annoyed"}},
+ {id:"cousin",name:"Cousin Sheldon", w:7.9, art:{skin:SKINS[0],coat:"#6E7F42",pants:"#414C28",hair:"dark",hairCol:"#5A4636",glasses:true,mood:"smug",kippah:"#7A2A2A"}},
+ {id:"neigh", name:"Gary next door", w:7.2, art:{skin:SKINS[1],coat:"#8A5A2B",pants:"#4E3A24",hair:"gray",hairCol:"#9A9088",phone:true,mood:"neutral"}},
+ {id:"aunt",  name:"Aunt Roz",       w:6.7, art:{skin:SKINS[4],coat:"#C4633F",pants:"#8A4028",hair:"bun",hairCol:"#8A6A4A",mood:"happy",bag:true}}
+];
+var FAMILIES=["Reznick","Abramowitz","Sharfstein","Glick","Mandelbaum","Perlmutter","Ostrofsky","Berkowitz","Zilberman","Nussbaum"];
+
+function el(html){var d=document.createElement("div");d.innerHTML=html;return d.firstElementChild;}
+
+return {rnd:rnd,ri:ri,pick:pick,shuffle:shuffle,reseed:reseed,personSVG:personSVG,babySVG:babySVG,
+        ROOM_SVG:ROOM_SVG,CAST:CAST,MOHEL_ART:MOHEL_ART,FAMILIES:FAMILIES,SKINS:SKINS,el:el};
+})();
+
+</script>
+<script>
+(function(){
+"use strict";
+var stage=document.getElementById("stage"), live=document.getElementById("live");
+var el=MO.el;
+
+/* ---- who cannot be left alone with whom ----------------------------
+   -1 = they wind each other up. +1 = they settle each other. */
+var AFF={
+  "marv|cater": -1, "bubbe|cousin": -1, "rav|neigh": -1, "marv|rav": -1,
+  "aunt|bubbe": -1, "cousin|cater": -1, "marv|cousin": -1, "bubbe|cater": -1,
+  "aunt|neigh": -1, "rav|cater": -1, "aunt|marv": -1, "cousin|neigh": -1,
+  "rav|bubbe": 1, "aunt|cousin": 1, "marv|neigh": 1, "aunt|rav": 1, "bubbe|neigh": 1
+};
+var FLAV={
+  "marv|cater":"Marv is explaining the driveway to the man with the van.",
+  "bubbe|cousin":"Sheldon is telling the Bubbe his brother could have done it at the hospital.",
+  "rav|neigh":"Gary is telling the rabbi about a countertop.",
+  "marv|rav":"Marv wants the rabbi to rule on the parking.",
+  "aunt|bubbe":"Roz and the Bubbe are establishing which of them looks worse.",
+  "cousin|cater":"Sheldon is defining the word deluxe.",
+  "marv|cousin":"Two men agreeing very loudly about something neither has done.",
+  "bubbe|cater":"The Bubbe has found the platter.",
+  "aunt|neigh":"Roz has Gary. Gary cannot leave.",
+  "rav|cater":"The rabbi is asking, pleasantly, who supervised the fish.",
+  "aunt|marv":"She's telling him about a cruise. He's telling her about the driveway.",
+  "cousin|neigh":"They have discovered they use the same accountant.",
+  "rav|bubbe":"The rabbi and the Bubbe are having a nice time.",
+  "aunt|cousin":"Roz thinks Sheldon is wonderful. Sheldon agrees.",
+  "marv|neigh":"Cars. Just cars. It's fine.",
+  "aunt|rav":"Roz is being lovely to the rabbi.",
+  "bubbe|neigh":"She's asking about his mother. He's answering."
+};
+function key(a,b){return [a,b].sort().join("|");}
+function aff(a,b){return AFF[key(a,b)]||0;}
+
+var G,timer=null;
+function reset(){
+  MO.reseed(20260729);
+  var cast=MO.shuffle(MO.CAST).slice(0,6);
+  G={t:0, mohel:12, target:12, patience:78, over:false,
+     guests:cast.map(function(c,i){
+       return {id:c.id,name:c.name,w:c.w,art:c.art,x:26+i*11.5,vx:(i%2?1:-1)*0.22,heat:8,low:i%2===1};
+     }),
+     said:{}, active:[]};
+  draw(); paint();
+  if(timer) clearInterval(timer);
+  timer=setInterval(tick,240);
+  live.textContent="Everyone's here. Nobody's started anything yet.";
+  document.getElementById("modal").classList.remove("open");
+  document.getElementById("b-start").disabled=false;
+}
+
+function draw(){
+  stage.innerHTML=MO.ROOM_SVG;
+  stage.appendChild(el('<div class="marker" id="mk" style="left:12%;display:none;"></div>'));
+  G.guests.forEach(function(g){
+    var n=el('<div class="person'+(g.low?" low":"")+'" id="g-'+g.id+'" style="left:'+g.x+'%;width:'+g.w+'%;'
+      +'bottom:'+(g.low?7:11)+'%;z-index:'+(g.low?11:9)+';">'
+      +'<div class="ring"></div><div class="tmp"><i></i></div>'
+      +MO.personSVG(g.art)+'<div class="np">'+g.name+'</div></div>');
+    stage.appendChild(n);
+  });
+  stage.appendChild(el('<div class="person" id="g-mohel" style="left:'+G.mohel+'%;width:8.2%;bottom:10%;z-index:16;">'
+    +'<svg class="you" width="15" height="21" viewBox="0 0 16 22"><path d="M8 0 L16 8 L8 22 L0 8 Z" fill="#8BE04D" stroke="#4E8C2C" stroke-width="1.5"/></svg>'
+    +MO.personSVG(MO.MOHEL_ART)+'<div class="np">You</div></div>'));
+}
+
+stage.addEventListener("click",function(e){
+  if(!G||G.over) return;
+  var r=stage.getBoundingClientRect();
+  G.target=Math.max(4,Math.min(92,((e.clientX-r.left)/r.width)*100));
+  var mk=document.getElementById("mk"); mk.style.left=G.target+"%"; mk.style.display="block";
+});
+
+function tick(){
+  if(G.over) return;
+  G.t++;
+  // --- the mohel walks toward where you clicked
+  var d=G.target-G.mohel;
+  if(Math.abs(d)>0.6) G.mohel+=Math.sign(d)*Math.min(1.5,Math.abs(d));
+  else document.getElementById("mk").style.display="none";
+
+  // --- guests drift, and bounce off the walls and each other
+  G.guests.forEach(function(g){
+    if(MO.rnd()<0.06) g.vx=(MO.rnd()-0.5)*0.9;
+    g.x+=g.vx;
+    if(g.x<22){g.x=22;g.vx=Math.abs(g.vx);} if(g.x>92){g.x=92;g.vx=-Math.abs(g.vx);}
+  });
+
+  // --- SOCIAL PHYSICS: near pairs exchange heat according to affinity
+  G.active=[];
+  for(var i=0;i<G.guests.length;i++)for(var j=i+1;j<G.guests.length;j++){
+    var a=G.guests[i],b=G.guests[j],dist=Math.abs(a.x-b.x);
+    if(dist>10) continue;
+    var f=aff(a.id,b.id); if(!f) continue;
+    var buffered = Math.abs(G.mohel-a.x)<9 && Math.abs(G.mohel-b.x)<9;
+    if(f<0){
+      var rate = buffered?0.25:1.55;
+      a.heat=Math.min(100,a.heat+rate); b.heat=Math.min(100,b.heat+rate);
+      G.active.push({a:a,b:b,buffered:buffered});
+      if(!buffered && !G.said[key(a.id,b.id)] && (a.heat>26||b.heat>26)){
+        G.said[key(a.id,b.id)]=1;
+        note(FLAV[key(a.id,b.id)]||"Something is happening over there.");
+        popOver(a.id,FLAV[key(a.id,b.id)]||"…");
+      }
+      if(buffered) G.patience-=0.55;   // being the human shield is expensive
+    } else {
+      a.heat=Math.max(0,a.heat-0.35); b.heat=Math.max(0,b.heat-0.35);
+    }
+  }
+
+  // --- your attention cools whoever you're beside
+  G.guests.forEach(function(g){
+    var near=Math.abs(G.mohel-g.x)<9;
+    if(near){ g.heat=Math.max(0,g.heat-1.15); G.patience-=0.16; }
+    else if(MO.rnd()<0.5) g.heat=Math.max(0,g.heat-0.08);   // grievance barely cools on its own
+  });
+
+  G.patience=Math.max(0,Math.min(100,G.patience));
+  if(G.patience<=0) return outburst();
+  if(G.t>=380) return finish(true);
+  paint();
+}
+
+function note(txt){ live.innerHTML="<b>"+txt+"</b>"; }
+function popOver(id,txt){
+  var host=document.getElementById("g-"+id); if(!host) return;
+  Array.prototype.slice.call(stage.querySelectorAll(".pop")).forEach(function(p){p.remove();});
+  var p=el('<div class="pop">'+txt+'</div>'); host.appendChild(p);
+  setTimeout(function(){ if(p.parentNode) p.remove(); },3400);
+}
+
+function avgHeat(){ var s=0; G.guests.forEach(function(g){s+=g.heat;}); return s/G.guests.length; }
+
+function paint(){
+  G.guests.forEach(function(g){
+    var n=document.getElementById("g-"+g.id); if(!n) return;
+    n.style.left=g.x+"%";
+    var h=g.heat/100;
+    n.querySelector(".ring").style.background="radial-gradient(ellipse,rgba("+Math.round(80+175*h)+","+Math.round(150-110*h)+",70,"+(0.14+0.5*h)+"),transparent 70%)";
+    var t=n.querySelector(".tmp i"); t.style.width=Math.round(g.heat)+"%";
+    t.style.background=h>0.66?"#D9645A":h>0.33?"#E0A526":"#7ECB6C";
+    var sp=n.querySelector(".spark");
+    var hot=G.active.some(function(p){return (p.a===g||p.b===g)&&!p.buffered;});
+    if(hot&&!sp) n.appendChild(el('<div class="spark">!</div>'));
+    if(!hot&&sp) sp.remove();
+  });
+  document.getElementById("g-mohel").style.left=G.mohel+"%";
+  Array.prototype.slice.call(stage.querySelectorAll(".clashline")).forEach(function(c){c.remove();});
+  G.active.forEach(function(p){
+    var lo=Math.min(p.a.x,p.b.x), hi=Math.max(p.a.x,p.b.x);
+    var c=el('<div class="clashline" style="left:'+(lo+3)+'%;width:'+Math.max(2,(hi-lo))+'%;'
+      +(p.buffered?'background:repeating-linear-gradient(90deg,#4E8C5B 0 7px,transparent 7px 13px);':'')+'"></div>');
+    stage.appendChild(c);
+  });
+  var ah=avgHeat();
+  document.getElementById("v-heat").textContent=Math.round(ah)+(ah<30?" · calm":ah<55?" · warm":ah<75?" · bad":" · disaster");
+  document.getElementById("f-heat").style.width=Math.round(ah)+"%";
+  document.getElementById("v-pat").textContent=Math.round(G.patience);
+  document.getElementById("f-pat").style.width=Math.round(G.patience)+"%";
+  var mins=40+Math.floor(G.t/380*52);
+  document.getElementById("v-clock").textContent="9:"+(mins<10?"0":"")+mins;
+  if(!G.active.length && G.t%20===0 && ah<25) note("Nothing is happening. Enjoy it.");
+}
+
+function outburst(){
+  G.over=true; clearInterval(timer);
+  show("You said it out loud","Twenty-five minutes of standing between people, and it comes out of you sideways at the one person who hadn’t done anything. The room turns. Somewhere behind you a child starts crying, and it isn’t the one you came for.","You ran out of patience before the room ran out of grievance. That is the actual failure state of this job.");
+}
+function finish(late){
+  G.over=true; clearInterval(timer);
+  var ah=avgHeat();
+  var v = ah<25 ? "You got them quiet. Nobody could tell you how you did it, including you — you just kept ending up in the right doorway."
+        : ah<50 ? "A normal room. Two small fires, both handled, one of them twice."
+        : ah<72 ? "You started anyway. It was audible during. Somebody will bring it up at the kiddush."
+        : "It went ahead in a room that was, frankly, at war. The Bubbe is describing it on the phone already.";
+  show(late?"The morning got away from you":"You started",
+       late?"Half past ten. The rabbi has stopped asking. You begin because there is nothing else left to do."
+           :"You put your hand up and the room, eventually, notices.", v);
+}
+function show(h,p,v){
+  document.getElementById("mb").innerHTML='<h2>'+h+'</h2><p>'+p+'</p><div class="v">'+v+'</div>'
+   +'<p style="font-size:13px;color:var(--muted)">Room temperature at the end: <b>'+Math.round(avgHeat())+'</b> · patience left: <b>'+Math.round(G.patience)+'</b></p>'
+   +'<button class="big go" id="b-again">Again</button>';
+  document.getElementById("modal").classList.add("open");
+  document.getElementById("b-again").addEventListener("click",reset);
+}
+
+document.getElementById("b-start").addEventListener("click",function(){ if(!G.over) finish(false); });
+document.getElementById("b-reset").addEventListener("click",reset);
+reset();
+window.__p1={state:function(){return G;},avg:avgHeat,finish:finish};
+})();
+</script>
+</body>
+</html>
