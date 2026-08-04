@@ -1441,10 +1441,6 @@ KEYS.forEach(function(k){ bind("i-" + k, k); });
 draw();
 
 </script>
-
-
-
-
 <style>/* _dev/breadcrumbs.py */
 /* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
    to a reader who could see the other chapters. Deliberately the same weight
@@ -1474,17 +1470,26 @@ draw();
    own minimum. */
 .sdnav{display:none;position:fixed;top:50%;transform:translateY(-50%);
   width:190px;z-index:20;max-height:76vh;overflow:auto}
-@media (min-width:1484px) and (max-width:1499px){
-  .sdnav{display:block;left:calc((100vw - 1020px)/2 - 220px)}}
-@media (min-width:1784px) and (max-width:1899px){
-  .sdnav{display:block;left:calc((100vw - 1320px)/2 - 220px)}}
-@media (min-width:2024px){
-  .sdnav{display:block;left:calc((100vw - 1560px)/2 - 220px)}}
+@media (min-width:1492px) and (max-width:1499px){
+  .sdnav{display:block;left:calc((100vw - 1020px)/2 - 224px)}}
+@media (min-width:1792px) and (max-width:1899px){
+  .sdnav{display:block;left:calc((100vw - 1320px)/2 - 224px)}}
+@media (min-width:2032px){
+  .sdnav{display:block;left:calc((100vw - 1560px)/2 - 224px)}}
+/* The nav is FIXED, so it floats over whatever the page happens to be showing:
+   a near-black hero band at the top of this page, paper below it. `color:inherit`
+   therefore resolved to the body ink and the nav was unreadable against the dark
+   half - the text was there, it just could not be seen.
+   It gets its own surface instead: a paper panel with a soft edge, so it is
+   legible over any background the page scrolls past. */
+.sdnav{background:rgba(251,249,243,.92);-webkit-backdrop-filter:blur(9px);
+  backdrop-filter:blur(9px);border:1px solid rgba(38,36,30,.1);border-radius:14px;
+  padding:13px 14px;box-shadow:0 6px 24px rgba(38,36,30,.1);color:#26241E}
 .sdnav p.t{font-family:'IBM Plex Mono',monospace;font-size:9.4px;letter-spacing:.13em;
-  text-transform:uppercase;opacity:.5;margin:0 0 8px}
+  text-transform:uppercase;opacity:.55;margin:0 0 8px;color:#26241E}
 .sdnav a{display:block;font-size:12.2px;line-height:1.3;padding:7px 0 7px 12px;
-  min-height:32px;text-decoration:none;color:inherit;opacity:.55;
-  border-left:2px solid rgba(128,128,128,.28);transition:opacity .12s}
+  min-height:32px;text-decoration:none;color:#26241E;opacity:.62;
+  border-left:2px solid rgba(38,36,30,.16);transition:opacity .12s}
 .sdnav a:hover{opacity:.9}
 .sdnav a.on{opacity:1;font-weight:600;border-left-color:currentColor}
 .sdnav a:focus-visible{outline:2px solid currentColor;outline-offset:2px}

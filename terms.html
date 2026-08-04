@@ -521,25 +521,6 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 
 
-<style>/* _dev/breadcrumbs.py */
-/* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
-   to a reader who could see the other chapters. Deliberately the same weight
-   and tracking as the kicker it sits above, so it reads as chrome rather than
-   as content. Colour is inherited so it works on paper and on a dark slab
-   without a second rule. */
-.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 12px;
- padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
- letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
-.bcr li{display:flex;align-items:center;gap:8px}
-.bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
- display:inline-flex;align-items:center;border-bottom:1px solid transparent}
-.bcr a:hover{opacity:1;border-bottom-color:currentColor}
-.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
-.bcr .sep{opacity:.36}
-.bcr [aria-current]{opacity:.95;font-weight:600}
-@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
-/* end bcr */</style>
-
 <style>/* _dev/legal_rails.py */
 /* THREE RAILS, from 1100px up. The reading measure does not change - it is
    correct at 66ch and always was. What changes is that the width either side of
@@ -601,6 +582,25 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .lgrail a:first-of-type{border-top:0}
 .lgrail a:hover{text-decoration:underline}
 /* end rails */</style>
+
+<style>/* _dev/breadcrumbs.py */
+/* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
+   to a reader who could see the other chapters. Deliberately the same weight
+   and tracking as the kicker it sits above, so it reads as chrome rather than
+   as content. Colour is inherited so it works on paper and on a dark slab
+   without a second rule. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 12px;
+ padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
+.bcr li{display:flex;align-items:center;gap:8px}
+.bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
+ display:inline-flex;align-items:center;border-bottom:1px solid transparent}
+.bcr a:hover{opacity:1;border-bottom-color:currentColor}
+.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.bcr .sep{opacity:.36}
+.bcr [aria-current]{opacity:.95;font-weight:600}
+@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
+/* end bcr */</style>
 
 <style>/* _dev/widen.py */
 @media (min-width:1500px){.ftin,.pw,.sitenav-in{max-width:1320px}}
