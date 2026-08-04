@@ -843,18 +843,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .gpanel .pr b.gold{color:var(--gold)}
 .gpanel .pn{color:#8A8477}
 
-/* ---------- the funnel stages ---------- */
-.stages{display:grid;gap:9px;margin-top:4px}
-.stg{--w:100%;position:relative;background:var(--white);border:1px solid var(--line);
- border-radius:12px;padding:14px 17px;width:var(--w);min-width:190px;
- transition:width .35s ease}
-.stg em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.11em;
- text-transform:uppercase;color:#7C766A;margin-bottom:4px}
-.stg b{font-family:Fraunces,Georgia,serif;font-size:26px;line-height:1;color:var(--ink);
- display:inline-block}
-.stg i{font-style:normal;font-size:11.2px;color:#8A8477;margin-left:9px}
-.stg:last-child{background:#EFF7F3;border-color:#BEDFD1}
-.stg:last-child b{color:var(--pos)}
+/* The old .stages/.stg stacked bars were removed when the funnel became a real
+   silhouette (see claude/grow-funnel-ui.md). Their CSS went with them rather
+   than being left to rot - nothing emits either class any more, checked first. */
 
 /* ---------- per-channel cards ---------- */
 .chans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
@@ -892,6 +883,145 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  color:var(--ink)}
 .cbox > i{display:block;font-style:normal;font-size:11.2px;color:#8A8477;margin-bottom:11px;
  line-height:1.5}
+
+/* ---------- seasonality: the shape editor ----------
+   Class names are deliberately NOT .sb/.sbt - the lifted tax stylesheet already
+   owns .sb and .sb.on (a dark toggle button), and ".on" is exactly the modifier
+   this block needs. That collision would have styled every month bar as a
+   button and shipped looking broken. */
+.sh3{font-family:Fraunces,Georgia,serif;font-size:16.5px;font-weight:600;color:var(--ink);
+ margin:22px 0 5px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.shhint{font-family:Inter,system-ui,sans-serif;font-size:10.5px;font-weight:600;
+ letter-spacing:.05em;text-transform:uppercase;color:#9A9384}
+.shn{font-size:12.4px;line-height:1.62;color:var(--muted);margin:0 0 11px}
+.shn b{color:var(--ink);font-weight:600}
+.shrst{font:inherit;font-size:12.4px;background:none;border:0;padding:0;cursor:pointer;
+ color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+.shrst:hover{color:var(--gold)}
+
+.shp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:6px}
+.shc{text-align:left;background:var(--white);border:1.5px solid var(--line);border-radius:11px;
+ padding:11px 13px;cursor:pointer;font:inherit;min-width:0;transition:border-color .15s,
+ background .15s}
+.shc:hover{background:var(--field);border-color:var(--fieldline)}
+.shc.on{border-color:var(--pine);background:#EFF7F3}
+.shc b{display:block;font-family:Fraunces,Georgia,serif;font-size:14px;color:var(--ink);
+ line-height:1.25;margin-bottom:3px}
+.shc i{display:block;font-style:normal;font-size:11px;line-height:1.45;color:#8A8477}
+.shc.on i{color:#4A7A66}
+
+.seas{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-bottom:10px}
+.smo{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:ns-resize;
+ touch-action:none;border-radius:7px;padding:3px 1px}
+.smo:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.smo u{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;text-decoration:none;
+ color:#9A9384;letter-spacing:-.02em}
+.smo.on u{color:var(--gold);font-weight:700}
+.smot{position:relative;width:100%;height:104px;background:var(--paper);
+ border:1px solid var(--line);border-radius:6px;display:flex;align-items:flex-end;
+ overflow:hidden}
+/* the 100% line, drawn once per track so it reads as one rule across the year */
+.smot::before{content:"";position:absolute;left:0;right:0;bottom:50%;
+ border-top:1px dashed #C9C2B0;z-index:1}
+.smot i{display:block;width:100%;background:var(--pine);border-radius:0 0 5px 5px;
+ transition:height .12s ease;position:relative;z-index:2;opacity:.82}
+.smo.on .smot i{background:var(--gold);opacity:1}
+.smo em{font-style:normal;font-size:10px;font-weight:600;color:#8A8477;letter-spacing:.02em}
+
+/* ---------- seasonality: the caseload consequence ---------- */
+.ldwrap{position:relative;margin-top:4px}
+.ldg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px}
+.ld{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ldt{width:100%;height:118px;background:var(--paper);border:1px solid var(--line);
+ border-radius:6px;display:flex;align-items:flex-end;overflow:hidden}
+.ldt i{display:block;width:100%;background:#9DBDAF;border-radius:0 0 5px 5px;
+ transition:height .18s ease}
+.ld.hi .ldt i{background:var(--pos)}
+.ld.lo .ldt i{background:var(--neg)}
+.ld em{font-style:normal;font-size:10px;font-weight:600;color:#8A8477}
+.ld.hi em{color:var(--pos)}
+.ld.lo em{color:var(--neg)}
+/* the ceiling, positioned inside a box the exact height of the tracks so the
+   month labels underneath cannot push it off register */
+.ldcap{position:absolute;left:0;right:0;top:0;height:118px;pointer-events:none;z-index:3}
+.ldcap b{position:absolute;left:0;right:0;border-top:2px dashed var(--gold)}
+.ldcap span{position:absolute;right:0;top:-15px;font-size:9.5px;font-weight:700;
+ letter-spacing:.05em;text-transform:uppercase;color:var(--gold);background:var(--white);
+ padding:0 4px;border-radius:3px;white-space:nowrap}
+
+/* Twelve columns are kept at every width. Wrapping the year onto two rows of
+   six saves horizontal space and destroys the only thing the block is for -
+   you cannot read a shape that has been cut in half. The bars narrow instead. */
+@media (max-width:760px){
+ .shp{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .seas,.ldg{gap:3px}
+ .smot{height:88px}
+ .ldt{height:96px}
+ .ldcap{height:96px}
+ .smo em,.ld em{font-size:9px}
+}
+@media (max-width:520px){
+ .seas,.ldg{gap:2px}
+ .smo{padding:3px 0}
+ .smo u{display:none}          /* 26px of column will not hold "145%" honestly */
+ .smo em,.ld em{font-size:8.5px;letter-spacing:-.02em}
+ .ldcap span{font-size:9px}
+}
+
+
+/* ---------- the funnel ---------- */
+.funwrap{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:18px;
+ align-items:stretch;margin-top:6px}
+.fungut{display:grid;grid-template-rows:repeat(3,1fr);gap:0}
+.fung{display:flex;flex-direction:column;justify-content:center;padding:2px 0;
+ border-left:3px solid var(--pine);padding-left:11px}
+.fung:nth-child(2){border-left-color:#7FA694}
+.fung:nth-child(3){border-left-color:var(--pos)}
+.fung em{font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
+ text-transform:uppercase;color:#7C766A}
+.fung b{font-family:Fraunces,Georgia,serif;font-size:25px;line-height:1.05;color:var(--ink)}
+.fung u{text-decoration:none;font-size:11px;color:#8A8477}
+.fung s{text-decoration:none;font-size:11px;color:var(--neg);font-weight:600;margin-top:3px}
+.fun{position:relative;min-height:210px}
+.fun svg{display:block;width:100%;height:210px}
+.fun-env{fill:var(--paper);stroke:var(--line);stroke-width:.4}
+.fun-real{fill:var(--pine);opacity:.88}
+.fun-sim{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-dasharray:3 2.2;
+ vector-effect:non-scaling-stroke}
+.fun-grip{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;
+ gap:5px;cursor:ew-resize;touch-action:none;padding:4px 8px 4px 5px;border-radius:20px;
+ background:var(--white);border:1.5px solid var(--gold);box-shadow:0 1px 3px rgba(38,36,30,.2)}
+.fun-grip:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.fun-grip.g1{top:31%}
+.fun-grip.g2{top:65%}
+.fun-grip i{width:8px;height:14px;border-left:2px solid var(--gold);
+ border-right:2px solid var(--gold);border-radius:1px;flex:none}
+.fun-grip span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+ font-weight:700;color:var(--ink)}
+.fun-hint{font-size:11.5px;line-height:1.55;color:#8A8477;margin:10px 0 0}
+.fun-hint i{font-style:italic;color:#9A9384}
+.fun-sim-out{margin-top:12px;background:#FDF4DF;border:1px solid #E8D3A0;border-radius:12px;
+ padding:12px 15px}
+.fun-sim-out.neg{background:#FBEAE8;border-color:#E7C3BE}
+.fso-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fso-h b{font-family:Fraunces,Georgia,serif;font-size:21px;color:#8A6620}
+.fun-sim-out.neg .fso-h b{color:var(--neg)}
+.fso-p{font-size:12.4px;line-height:1.6;color:var(--muted);margin:5px 0 0}
+.fso-p b{color:var(--ink)}
+/* Twelve columns and a two-column funnel are kept as long as they fit; below
+   that the gutter goes on top rather than the shape getting squeezed. */
+@media (max-width:720px){
+ .funwrap{grid-template-columns:1fr;gap:12px}
+ .fungut{grid-template-rows:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ .fung{border-left-width:0;border-top:3px solid var(--pine);padding-left:0;padding-top:7px}
+ .fung:nth-child(2){border-left-color:transparent;border-top-color:#7FA694}
+ .fung:nth-child(3){border-left-color:transparent;border-top-color:var(--pos)}
+ .fung b{font-size:20px}
+ .fung s,.fung u{font-size:10px}
+ .fun svg{height:170px}
+ .fun{min-height:170px}
+ .fun-grip span{font-size:10px}
+}
 
 @media (max-width:900px){.ghero .in{grid-template-columns:1fr;gap:24px}}
 @media (max-width:820px){
@@ -948,7 +1078,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <p class="dek">There is a point where more marketing stops making you money and starts making you a waiting list. Worth knowing where it is before you spend anything.</p>
 <div id="capout"></div>
 </section>
-<section class="slab carbon" id="next"><div class="chh"><span class="chn">05</span><h2>What this is worth in actual money</h2></div>
+<section class="slab brick" id="season"><div class="chh"><span class="chn">05</span><h2>When they actually arrive</h2></div>
+<p class="dek">Everything above is a yearly average, and an average is what makes a caseload plan fall over in July. Enquiries collapse over the holidays and again in high summer; January is the biggest intake month most private practices see. People finish therapy at a flat rate regardless — and that mismatch, not a marketing failure, is what produces the trough.</p>
+<div id="seasout"></div>
+</section>
+<section class="slab carbon" id="next"><div class="chh"><span class="chn">06</span><h2>What this is worth in actual money</h2></div>
 <p class="dek">Everything above is clients. Turning clients into what lands in your bank account takes the rest of the picture — expenses, self-employment tax, the retirement accounts that decide how much of the tax is optional. That is the simulator, and your numbers travel with you.</p>
 <a class="gcta" href="index.html"><strong>Model the whole practice &rarr;</strong><span>rate, caseload, expenses and tax &middot; free &middot; nothing is saved</span></a>
 <div class="alist" style="border-top:0;padding-top:14px;margin-top:14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 22px"><div style="display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.72"><i style="font-style:normal;color:#F6C560;flex:none">&rarr;</i><span><b style="color:#fff">What the caseload above actually pays</b> &mdash; after twelve expense categories and tax</span></div><div style="display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.72"><i style="font-style:normal;color:#F6C560;flex:none">&rarr;</i><span><b style="color:#fff">How much of your tax bill is optional</b> &mdash; the retirement accounts, priced</span></div><div style="display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.72"><i style="font-style:normal;color:#F6C560;flex:none">&rarr;</i><span><b style="color:#fff">Sole proprietor or professional corporation</b> &mdash; including what it costs your Social Security</span></div><div style="display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.72"><i style="font-style:normal;color:#F6C560;flex:none">&rarr;</i><span><b style="color:#fff">What employing associates changes</b> &mdash; revenue, payroll tax and supervision hours</span></div><div style="display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.72"><i style="font-style:normal;color:#F6C560;flex:none">&rarr;</i><span><b style="color:#fff">What CA therapy actually charges</b> &mdash; insurance panels against private pay</span></div><div style="display:flex;gap:9px;font-size:12.5px;line-height:1.55;opacity:.72"><i style="font-style:normal;color:#F6C560;flex:none">&rarr;</i><span><b style="color:#fff">Where you could live on the same practice</b> &mdash; seven places, priced</span></div></div>
@@ -1157,6 +1291,12 @@ S.tenure = ""; S.clients = ""; S.churn = "";
 S.chan = {pt:{views:"",enq:"",got:""}, web:{views:"",enq:"",got:""},
           ref:{views:"",enq:"",got:""}};
 
+/* Scenario overrides for the funnel. Blank means "use what they entered".
+   These deliberately do NOT write back into S.chan: the counts a reader typed
+   are their data and a dragged what-if must never quietly overwrite them. */
+var SIM_MAX = 100;
+S.simEnq = ""; S.simGot = "";
+
 var HASH_KEYS = ["rate","sessions","weeksOff","tenure","clients","churn"];
 var CHAN = [["pt","Psychology Today", "or any paid directory"],
             ["web","Your own website", "search, your blog, word of mouth that lands there"],
@@ -1175,6 +1315,8 @@ function plural(n, one, many){
 function esc(s){ return String(s == null ? "" : s)
   .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
+function signed(n){ return (n > 0 ? "+" : n < 0 ? "\u2212" : "") + n0(Math.abs(n))
+  + " client" + (Math.abs(Math.round(n)) === 1 ? "" : "s"); }
 function tile(lab, val, sub, cls){
   return '<div class="tl ' + (cls || "") + '"><em>' + lab + '</em><b>' + val + '</b>'
        + (sub ? '<u>' + sub + '</u>' : '') + '</div>';
@@ -1213,13 +1355,21 @@ var SHAPES = {
             v:[1.15,1.05,1.05,1.00,1.00,0.95,0.90,0.90,1.05,1.05,1.00,0.80]}
 };
 
-function shapeOf(){
+/* The shape BEFORE normalisation - i.e. exactly what the reader set, preset
+   value or dragged override. The bars in the editor render from this, so a
+   dragged bar follows the finger instead of springing back when the other
+   eleven rescale around it. Everything that computes anything uses shapeOf(). */
+function rawShape(){
   var k = S.shape || "typical";
   var base = (SHAPES[k] || SHAPES.typical).v.slice();
   /* a reader-edited month overrides the preset for that month only */
   if (S.months) for (var i = 0; i < 12; i++)
     if (S.months[i] !== "" && S.months[i] != null && isFinite(+S.months[i]))
       base[i] = Math.max(0, +S.months[i] / 100);
+  return base;
+}
+function shapeOf(){
+  var base = rawShape();
   /* NORMALISE. Without this the annual total moves when the shape changes, and
      every other figure on the page shifts for a reason nobody can see. */
   var sum = base.reduce(function(a, b){ return a + b; }, 0);
@@ -1233,23 +1383,66 @@ function shapeOf(){
    produces the summer trough this chart exists to show. */
 function monthly(g){
   var shape = shapeOf();
-  var perMonthIn = g.got / 12;          /* annual new clients, averaged */
-  var perMonthOut = g.churn / 12;
-  var load = g.clients, out = [], lo = Infinity, hi = -Infinity, loM = 0, hiM = 0;
+  /* UNITS. Both of these are ALREADY monthly and must not be divided again.
+     The channel block asks for "last month" (views / enquired / became
+     clients), and the churn field asks for "clients who finish in a typical
+     month" - which is also how drawNeed reads it, as `needEnq = churn / conv`
+     enquiries a month. An earlier version divided both by 12 as though they
+     were annual. Because it divided BOTH, every ratio on the chart stayed
+     right and the curve kept its shape, so nothing looked obviously broken -
+     the caseload just crept instead of moving, and a practice losing four
+     clients a month appeared to lose one every three months. The shape tests
+     could never catch it: they only ever compared one shape against another,
+     and the error was common to all of them. */
+  var perMonthIn = g.got;
+  var perMonthOut = g.churn;
+  /* DETREND. Walking twelve months forward from today means that in any
+     growing practice month 1 is the minimum and month 12 the maximum - so a
+     raw max-minus-min "swing" silently reports the GROWTH RATE and labels it
+     seasonality, and the trough lands on January for no better reason than
+     that January is first. Measured against the flat-shape counterfactual
+     instead, the figure becomes the one the reader actually wants: what the
+     shape itself costs them, whether they are growing, shrinking or level.
+     A flat shape therefore has a swing of exactly zero, which is the assertion
+     that keeps this honest. */
+  var net = perMonthIn - perMonthOut;
+  var load = g.clients, out = [], devSum = 0;
   for (var i = 0; i < 12; i++){
     var arrive = perMonthIn * shape[i];
     load = Math.max(0, load + arrive - perMonthOut);
+    /* how far the shape has put you from where a flat year would have */
+    var dev = load - (g.clients + net * (i + 1));
+    devSum += dev;
     out.push({m: MONTHS[i], mult: shape[i], arrive: arrive,
-              leave: perMonthOut, load: load,
+              leave: perMonthOut, load: load, dev: dev,
               /* the number the reader can act on: leads needed THIS month to
                  stand still, given this month's conversion reality */
               need: g.conv > 0 ? perMonthOut / g.conv : NaN});
-    if (load < lo){ lo = load; loM = i; }
-    if (load > hi){ hi = load; hiM = i; }
   }
-  return {rows: out, low: lo, lowMonth: MONTHS[loM],
-          high: hi, highMonth: MONTHS[hiM],
-          swing: hi - lo,
+  /* CENTRE the deviations on their own mean. Uncentred, the cumulative
+     deviation is zero every December BY CONSTRUCTION - the twelve multipliers
+     average 1, so by the twelfth month the shape has exactly caught up with
+     the flat year it was measured against. That made December read
+     "thinnest: 0 clients against a flat year", which is both structurally
+     inevitable and meaningless to a reader. Against the reader's OWN average
+     month the labels say what they appear to say: above the line is a fuller
+     month than usual, below it a thinner one, and December on the "typical"
+     shape lands where the copy has always claimed it does. The swing is
+     max-minus-min either way, so centring does not move it. */
+  var devMean = devSum / 12;
+  var lo = Infinity, hi = -Infinity, loM = 0, hiM = 0;
+  for (var k = 0; k < 12; k++){
+    out[k].dev -= devMean;
+    if (out[k].dev < lo){ lo = out[k].dev; loM = k; }
+    if (out[k].dev > hi){ hi = out[k].dev; hiM = k; }
+  }
+  return {rows: out,
+          /* the months seasonality helps and hurts most, and the caseload you
+             actually hold in each - the label is a deviation, the figure
+             beside it is the real number */
+          low: out[loM].load, lowMonth: MONTHS[loM],
+          high: out[hiM].load, highMonth: MONTHS[hiM],
+          swing: hi - lo, devHigh: hi, devLow: lo, trend: net,
           /* capacity is a weekly session count, so a month at capacity is the
              same ceiling every month - the trough and the peak are both
              measured against it */
@@ -1348,6 +1541,43 @@ function drawWorth(g){
     + 'certainly does better than that.</p>';
 }
 
+/* ---- the funnel, as an actual funnel -------------------------------------
+   The old version was three stacked bars of decreasing width: a bar chart
+   wearing a hat, restating three numbers the reader had just typed. What a
+   funnel is FOR is the taper, so the loss is now the drawn thing and the two
+   necks are draggable. */
+function funnelStages(g){
+  var simE = S.simEnq !== "" && isFinite(+S.simEnq);
+  var simG = S.simGot !== "" && isFinite(+S.simGot);
+  var enq = simE ? g.views * (+S.simEnq / 100) : g.enq;
+  var got = simG ? enq * (+S.simGot / 100) : (simE && g.enq > 0 ? enq * (g.got / g.enq) : g.got);
+  return {on: simE || simG, enq: enq, got: got,
+          eRate: g.views > 0 ? enq / g.views : NaN,
+          gRate: enq > 0 ? got / enq : NaN};
+}
+
+/* SQRT width scale, and said out loud in the caption. A therapy funnel runs
+   1000 -> 40 -> 5; drawn linearly the last band is 0.5% of the width, which is
+   four pixels. A truthful four pixels, and also unreadable, unlabellable and
+   impossible to drag. Square root keeps the ORDER and the sense of collapse
+   (100% -> 20% -> 7%) while leaving a shape you can use, and every band prints
+   its exact percentage in the gutter so the real proportion is never in doubt.
+   Stage text lives OUTSIDE the shape, so nothing legible depends on a band
+   being wide enough to hold words - the first build put white labels inside a
+   4%-wide spike and they spilled onto the background, illegible. */
+function funW(v, top){
+  if (!(top > 0) || !(v > 0)) return 3;
+  return Math.max(3, Math.sqrt(v / top) * 100);
+}
+function funnelPath(views, enq, got){
+  var a = funW(views, views), b = funW(enq, views), c = funW(got, views);
+  var xa = (100 - a) / 2, xb = (100 - b) / 2, xc = (100 - c) / 2;
+  return "M" + xa + ",0 L" + xa + ",16 L" + xb + ",27 L" + xb + ",43 L"
+       + xc + ",54 L" + xc + ",70 L" + (100 - xc) + ",70 L" + (100 - xc) + ",54 L"
+       + (100 - xb) + ",43 L" + (100 - xb) + ",27 L" + (100 - xa) + ",16 L"
+       + (100 - xa) + ",0 Z";
+}
+
 function drawFunnel(g){
   var el = $("funnel"); if (!el) return;
   if (!g.ready){
@@ -1364,18 +1594,57 @@ function drawFunnel(g){
     if (c.enq > 0 && (!worst || c.missed > worst.missed)) worst = c;
   });
 
-  var s = '<div class="stages">';
-  [["Saw you", g.views], ["Enquired", g.enq], ["Became clients", g.got]].forEach(
-    function(st, i){
-      var pct = g.views > 0 ? Math.max(6, st[1] / g.views * 100) : 100;
-      s += '<div class="stg" style="--w:' + pct.toFixed(1) + '%"><em>' + st[0] + '</em>'
-         + '<b>' + n0(st[1]) + '</b>'
-         + (i > 0 && g.views > 0
-            ? '<i>' + Math.round(st[1] / g.views * 100) + '% of the top</i>' : '')
-         + '</div>';
-    });
-  s += '</div>';
-  if (g.worth > 0){
+  var f = funnelStages(g);
+  var lostE = Math.max(0, g.views - g.enq), lostG = Math.max(0, g.enq - g.got);
+
+  var s = '<div class="funwrap"><div class="fungut">'
+    + [["Saw you", g.views, lostE, "saw you and never asked"],
+       ["Enquired", g.enq, lostG, "asked and did not book"],
+       ["Became clients", g.got, 0, ""]].map(function(r, i){
+        return '<div class="fung"><em>' + r[0] + '</em><b>' + n0(r[1]) + '</b>'
+          + (i > 0 && g.views > 0
+             ? '<u>' + (r[1] / g.views * 100).toFixed(1) + '% of the top</u>' : '')
+          + (r[2] > 0 ? '<s>&minus; ' + n0(r[2]) + ' ' + r[3] + '</s>' : '')
+          + '</div>';
+       }).join('')
+    + '</div><div class="fun" id="funsvg">'
+    + '<svg viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true">'
+    + '<rect x="0" y="0" width="100" height="70" class="fun-env"></rect>'
+    + '<path d="' + funnelPath(g.views, g.enq, g.got) + '" class="fun-real"></path>'
+    + (f.on ? '<path d="' + funnelPath(g.views, f.enq, f.got) + '" class="fun-sim"></path>' : '')
+    + '</svg>'
+    + '<div class="fun-grip g1" data-neck="e" tabindex="0" role="slider"'
+      + ' aria-label="Share of people who enquire" aria-valuemin="0" aria-valuemax="' + SIM_MAX + '"'
+      + ' aria-valuenow="' + (isFinite(f.eRate) ? (f.eRate * 100).toFixed(1) : 0) + '"'
+      + ' style="left:' + (50 + funW(f.enq, g.views) / 2) + '%"><i></i><span>'
+      + (isFinite(f.eRate) ? (f.eRate * 100).toFixed(1) : "—") + '%</span></div>'
+    + '<div class="fun-grip g2" data-neck="g" tabindex="0" role="slider"'
+      + ' aria-label="Share of enquiries that become clients" aria-valuemin="0" aria-valuemax="' + SIM_MAX + '"'
+      + ' aria-valuenow="' + (isFinite(f.gRate) ? (f.gRate * 100).toFixed(1) : 0) + '"'
+      + ' style="left:' + (50 + funW(f.got, g.views) / 2) + '%"><i></i><span>'
+      + (isFinite(f.gRate) ? (f.gRate * 100).toFixed(1) : "—") + '%</span></div>'
+    + '</div></div>'
+    + '<p class="fun-hint">Drag either handle — or use the arrow keys — to ask what a better '
+      + 'month would be worth. Your own figures stay put; the dashed outline is the what-if. '
+      + '<i>Widths use a square-root scale so the bottom of a real funnel is still big enough '
+      + 'to see and to drag; the exact percentages sit beside it.</i></p>';
+
+  if (f.on){
+    var gain = f.got - g.got;
+    s += '<div class="fun-sim-out' + (gain >= 0 ? '' : ' neg') + '">'
+      + '<div class="fso-h"><b>' + (gain >= 0 ? '+' : '−') + n0(Math.abs(gain))
+      + ' client' + (Math.abs(Math.round(gain)) === 1 ? '' : 's') + ' a month</b>'
+      + '<button type="button" class="shrst" id="funreset">back to my numbers</button></div>'
+      + '<p class="fso-p">'
+      + (g.worth > 0
+         ? 'At ' + money(g.worth) + ' a client that is <b>' + money(Math.abs(gain) * 12 * g.worth)
+           + '</b> a year' + (gain >= 0 ? '' : ' lost') + ', from the same traffic you already have. '
+         : 'Put your rate and tenure in above and this becomes a money figure. ')
+      + 'Getting enquiries from ' + (g.views > 0 ? (g.enq / g.views * 100).toFixed(1) : '0')
+      + '% to ' + (isFinite(f.eRate) ? (f.eRate * 100).toFixed(1) : '0')
+      + '% is a listing problem; the second number is a first-contact problem, and it is '
+      + 'usually the cheaper of the two to fix.</p></div>';
+  } else if (g.worth > 0){
     s += '<p class="barn">Those ' + n0(g.got) + ' clients are worth <b>'
        + money(g.got * g.worth) + '</b> over their time with you — from one month of a '
        + 'funnel you can change.</p>';
@@ -1503,9 +1772,241 @@ function drawCapacity(g){
     + '</p>';
 }
 
+/* ------------------------------------------------------------ seasonality
+   The lever and its consequence, stacked: pick a shape, drag any month, and the
+   caseload chart directly underneath moves in the same frame. Everything else
+   on this page is an annual average, which is exactly the assumption that makes
+   a caseload plan fail in July. This is the only block that admits the year has
+   a shape. */
+var SEAS_MAX = 200;   /* tallest a month can be dragged, in % of the average */
+
+/* Bars render from rawShape(), not shapeOf(): a dragged bar must follow the
+   finger. The normalised version is what the chart below is computed from, and
+   the note under the editor says so rather than leaving the reader to notice
+   that twelve bars reading 100% and one reading 145% do not average 100%. */
+function seasBars(){
+  var raw = rawShape(), s = "";
+  for (var i = 0; i < 12; i++){
+    var pct = Math.round(raw[i] * 100);
+    var edited = S.months[i] !== "" && S.months[i] != null;
+    s += '<div class="smo' + (edited ? " on" : "") + '" data-i="' + i + '"'
+      + ' tabindex="0" role="slider" aria-label="' + MONTHS[i] + ' share of the year"'
+      + ' aria-valuemin="0" aria-valuemax="' + SEAS_MAX + '" aria-valuenow="' + pct + '">'
+      + '<u>' + pct + '%</u>'
+      + '<div class="smot"><i style="height:' + Math.min(100, pct / SEAS_MAX * 100) + '%"></i></div>'
+      + '<em>' + MONTHS[i] + '</em></div>';
+  }
+  return '<div class="seas" id="seasbars">' + s + '</div>';
+}
+
+function seasChart(g){
+  var m = g.monthly, rows = m.rows;
+  var top = Math.max(m.high, g.capacity || 0) * 1.08;
+  if (!(top > 0)) return "";
+  var s = "";
+  for (var i = 0; i < 12; i++){
+    var r = rows[i];
+    var cls = r.m === m.lowMonth ? " lo" : (r.m === m.highMonth ? " hi" : "");
+    var t = r.m + " — " + n0(r.load) + " clients · " + r.arrive.toFixed(1)
+          + " arrive · " + r.leave.toFixed(1) + " finish";
+    s += '<div class="ld' + cls + '" title="' + esc(t) + '">'
+       + '<div class="ldt"><i style="height:' + Math.max(2, r.load / top * 100) + '%"></i></div>'
+       + '<em>' + r.m + '</em></div>';
+  }
+  var cap = g.capacity > 0
+    ? '<div class="ldcap"><b style="bottom:' + (g.capacity / top * 100) + '%">'
+      + '<span>your ceiling · ' + n0(g.capacity) + '</span></b></div>'
+    : "";
+  return '<div class="ldwrap">' + cap + '<div class="ldg">' + s + '</div></div>';
+}
+
+function drawSeason(g){
+  var el = $("seasout"); if (!el) return;
+  var m = g.monthly;
+  var live = g.clients > 0 && g.got > 0;
+  /* Round the two deviations at source and derive the swing FROM the rounded
+     pair, so the three tiles reconcile as printed. Rounding each independently
+     is how this project has three times shipped a column of figures that were
+     each correct and visibly failed to add up. Raw load is deliberately NOT
+     shown beside "fullest" and "thinnest": under any trend the thinnest month
+     can hold more clients than the fullest one, which reads as a contradiction
+     even though both numbers are right. The deviation is the honest label. */
+  var dHi = Math.round(m.devHigh), dLo = Math.round(m.devLow);
+
+  var head = live
+    ? '<div class="tiles">'
+      + tile("Seasonal swing", plural(dHi - dLo, "client"),
+             m.swing < 0.5 ? "this shape barely moves you"
+                           : "peak to trough, trend removed")
+      + tile("Fullest", m.highMonth, signed(dHi) + " against your average month", "hi")
+      + tile("Thinnest", m.lowMonth, signed(dLo) + " against your average month", "warn")
+      + (g.capacity > 0
+         ? tile("Months over capacity", n0(m.overMonths),
+                m.overMonths > 0 ? "you would be turning people away" : "the year fits",
+                m.overMonths > 0 ? "warn" : "")
+         : tile("Months over capacity", "—", "set your sessions a week"))
+      + '</div>'
+    : '<p class="empty">Fill in the caseload you hold and at least one channel above, and '
+      + 'this works out where your year actually dips — which month your caseload bottoms '
+      + 'out, how far it swings, and whether any month runs past your ceiling. The shape '
+      + 'below is editable either way, so it is worth a look now.</p>';
+
+  var pick = '<div class="shp">';
+  ["typical","school","steady","flat"].forEach(function(k){
+    var sh = SHAPES[k];
+    pick += '<button type="button" class="shc' + (S.shape === k ? " on" : "")
+         + '" data-shape="' + k + '" aria-pressed="' + (S.shape === k) + '">'
+         + '<b>' + esc(sh.name) + '</b><i>' + esc(sh.note) + '</i></button>';
+  });
+  pick += '</div>';
+
+  var edited = S.months.some(function(v){ return v !== "" && v != null; });
+
+  return void (el.innerHTML = head
+    + '<h3 class="sh3">Start from a shape</h3>'
+    + '<p class="shn">These are <b>shapes, not data</b> — starting points with the reasoning '
+      + 'stated, not a survey. Pick the one that sounds like your practice, then drag any '
+      + 'month that does not.</p>'
+    + pick
+    + '<h3 class="sh3">Then drag the months<span class="shhint">drag across the bars to '
+      + 'paint · arrow keys work too</span></h3>'
+    + seasBars()
+    + '<p class="shn">Each bar is that month against your own annual average, so 100% is an '
+      + 'ordinary month. The twelve are rescaled to average 100% before anything is computed, '
+      + 'which is why <b>changing the shape never changes your annual total</b> — it only '
+      + 'changes when in the year the clients arrive.'
+      + (edited ? ' <button type="button" class="shrst" id="seasreset">Reset to the '
+                  + 'preset</button>' : '')
+    + '</p>'
+    + (live
+       ? '<h3 class="sh3">What that does to your caseload</h3>' + seasChart(g)
+         + '<p class="note">Clients arrive on the shape above; people finish at a flat rate, '
+           + 'because nobody stops therapy on a schedule. That mismatch is the whole point — '
+           + 'it is what puts your thinnest month in <b>' + m.lowMonth + '</b>, well after the '
+           + 'quiet stretch of enquiries that caused it and far too late to market your way '
+           + 'out of it. '
+           + (Math.abs(m.trend) >= 0.05
+              ? 'The bars also carry your underlying ' + (m.trend > 0 ? 'growth' : 'decline')
+                + ' of about ' + plural(Math.abs(m.trend), "client") + ' a month; the swing '
+                + 'figure above has that trend removed, so it is seasonality alone. '
+              : '')
+           + (g.capacity > 0 && m.overMonths > 0
+              ? 'Note the ' + plural(m.overMonths, "month") + ' above your ceiling: that is a '
+                + 'waiting list, not income.'
+              : 'The month to act on is the one before the trough, not the trough itself.')
+         + '</p>'
+       : ""));
+}
+
+/* ---- dragging the funnel necks ------------------------------------------
+   Same architecture as the month bars, and for the same reason: drawFunnel()
+   replaces everything inside #funnel, so listeners live on #funnel itself. */
+var funDrag = null;
+function funSet(neck, clientX){
+  var box = document.getElementById("funsvg"); if (!box) return;
+  var r = box.getBoundingClientRect(); if (!(r.width > 0)) return;
+  /* the grip rides the RIGHT edge, so its offset from the centre line is half
+     the DRAWN width - and the drawn width is sqrt-scaled, so square to undo */
+  var half = Math.max(0, Math.min(50, (clientX - r.left) / r.width * 100 - 50));
+  var frac = Math.pow(half * 2 / 100, 2);
+  var pct = Math.max(0, Math.min(SIM_MAX, Math.round(frac * 100 * 10) / 10));
+  var g = grow(), next;
+  if (neck === "e"){
+    next = String(pct);
+    if (S.simEnq === next) return;
+    S.simEnq = next;
+  } else {
+    /* the second neck is a share of ENQUIRIES, not of views, so convert */
+    var f = funnelStages(g);
+    var share = f.enq > 0 && g.views > 0 ? pct * g.views / f.enq : 0;
+    next = String(Math.max(0, Math.min(SIM_MAX, Math.round(share * 10) / 10)));
+    if (S.simGot === next) return;
+    S.simGot = next;
+  }
+  render();
+}
+function funMove(e){ if (funDrag) funSet(funDrag, e.clientX); }
+function funStop(){
+  funDrag = null;
+  document.removeEventListener("pointermove", funMove);
+  document.removeEventListener("pointerup", funStop);
+  document.removeEventListener("pointercancel", funStop);
+}
+
+/* ---- dragging the months ------------------------------------------------
+   Values snap to 5%, which is both legible and the reason this is not a
+   repaint storm: a pointermove that lands on the same 5% step returns without
+   touching the DOM at all. */
+var seasDrag = false;
+
+/* In-place repaint, used ONLY while a drag is in flight. drawSeason() rewrites
+   the innerHTML of #seasout, which destroys and recreates every bar - including
+   the one currently under the finger. Doing that on each pointermove replaces
+   the DOM mid-gesture: it flickers, it defeats any transition, and it makes the
+   elements permanently "unstable" to anything measuring them (the first
+   Playwright run against it hung forever waiting for a bar to settle).
+   So: cheap attribute updates during the gesture, one authoritative render()
+   on release, which is also what refreshes the tiles, the prose and the hash. */
+function seasPaint(){
+  var raw = rawShape();
+  var bars = document.querySelectorAll("#seasbars .smo");
+  for (var i = 0; i < bars.length; i++){
+    var pct = Math.round(raw[i] * 100);
+    var fill = bars[i].querySelector(".smot > i");
+    if (fill) fill.style.height = Math.min(100, pct / SEAS_MAX * 100) + "%";
+    var lab = bars[i].querySelector("u");
+    if (lab) lab.textContent = pct + "%";
+    bars[i].classList.toggle("on", S.months[i] !== "" && S.months[i] != null);
+    bars[i].setAttribute("aria-valuenow", pct);
+  }
+  var g = grow(), m = g.monthly;
+  var cols = document.querySelectorAll(".ldg .ld");
+  if (cols.length !== 12) return;
+  var top = Math.max(m.high, g.capacity || 0) * 1.08;
+  if (!(top > 0)) return;
+  for (var j = 0; j < 12; j++){
+    var r = m.rows[j];
+    var b = cols[j].querySelector(".ldt > i");
+    if (b) b.style.height = Math.max(2, r.load / top * 100) + "%";
+    cols[j].classList.toggle("hi", r.m === m.highMonth);
+    cols[j].classList.toggle("lo", r.m === m.lowMonth);
+  }
+  var cap = document.querySelector(".ldcap b");
+  if (cap && g.capacity > 0) cap.style.bottom = (g.capacity / top * 100) + "%";
+}
+
+function seasSet(bar, clientY, live){
+  var track = bar.querySelector(".smot"); if (!track) return;
+  var r = track.getBoundingClientRect(); if (!(r.height > 0)) return;
+  var pct = (1 - (clientY - r.top) / r.height) * SEAS_MAX;
+  pct = Math.max(0, Math.min(SEAS_MAX, Math.round(pct / 5) * 5));
+  var i = +bar.getAttribute("data-i"), next = String(pct);
+  if (S.months[i] === next) return;
+  S.months[i] = next;
+  if (live) seasPaint(); else render();
+}
+function seasMove(e){
+  if (!seasDrag) return;
+  /* elementFromPoint rather than the bar captured at pointerdown, so dragging
+     sideways paints across months - the gesture people reach for the moment
+     they realise the bars move at all. Also survives the fact that render()
+     has just replaced the element under the pointer. */
+  var el = document.elementFromPoint(e.clientX, e.clientY);
+  var bar = el && el.closest ? el.closest(".smo") : null;
+  if (bar) seasSet(bar, e.clientY, true);
+}
+function seasStop(){
+  if (!seasDrag) return;
+  seasDrag = false;
+  render();                 /* tiles, prose and the hash catch up here */
+  document.removeEventListener("pointermove", seasMove);
+  document.removeEventListener("pointerup", seasStop);
+  document.removeEventListener("pointercancel", seasStop);
+}
+
 function render(){
   var g = grow();
-  drawWorth(g); drawFunnel(g); drawNeed(g); drawCapacity(g);
+  drawWorth(g); drawFunnel(g); drawNeed(g); drawCapacity(g); drawSeason(g);
   /* NOT em-dashes. Two 38px figures above the fold rendering as dashes is a
      caption for a number that is not there, at the exact moment a cold reader
      is deciding whether to stay. The zero state shows the page's own worked
@@ -1536,6 +2037,12 @@ function writeHash(){
       if (v !== "" && v != null) q.push(c[0] + "_" + f + "=" + encodeURIComponent(v));
     });
   });
+  /* Seasonality travels in the link too, or a shared setup silently reverts to
+     "typical" and the recipient sees a different year to the sender. Only
+     written when it differs from the default, to keep ordinary links short. */
+  if (S.shape && S.shape !== "typical") q.push("shape=" + encodeURIComponent(S.shape));
+  var mo = S.months.map(function(v){ return (v === "" || v == null) ? "" : v; });
+  if (mo.some(function(v){ return v !== ""; })) q.push("mo=" + encodeURIComponent(mo.join(",")));
   try { history.replaceState(null, "", "#" + q.join("&")); } catch (e) {}
 }
 function readHash(){
@@ -1546,6 +2053,13 @@ function readHash(){
     var i = p.indexOf("="); if (i < 0) return;
     var k = p.slice(0, i), v = decodeURIComponent(p.slice(i + 1));
     if (HASH_KEYS.indexOf(k) >= 0){ S[k] = v; return; }
+    if (k === "shape"){ if (SHAPES[v]) S.shape = v; return; }
+    if (k === "mo"){
+      var a = v.split(",");
+      for (var j = 0; j < 12; j++)
+        S.months[j] = (a[j] != null && a[j] !== "" && isFinite(+a[j])) ? a[j] : "";
+      return;
+    }
     var m = k.match(/^(pt|web|ref)_(views|enq|got)$/);
     if (m) S.chan[m[1]][m[2]] = v;
   });
@@ -1567,6 +2081,85 @@ function boot(){
       bind("i-" + c[0] + "_" + f, chanGet(c[0], f), chanSet(c[0], f));
     });
   });
+  /* Delegated onto #seasout, because drawSeason() replaces everything inside it
+     on every render - including mid-drag. Listeners bound to the bars would be
+     destroyed by the first repaint the drag itself caused. #seasout is emitted
+     by the builder and never replaced, so it is the one stable anchor. */
+  var so = $("seasout");
+  if (so){
+    so.addEventListener("click", function(e){
+      if (!e.target.closest) return;
+      var b = e.target.closest(".shc");
+      if (b){ S.shape = b.getAttribute("data-shape"); render(); return; }
+      if (e.target.closest("#seasreset")){
+        S.months = ["","","","","","","","","","","",""];
+        render();
+      }
+    });
+    so.addEventListener("pointerdown", function(e){
+      if (!e.target.closest) return;
+      var bar = e.target.closest(".smo"); if (!bar) return;
+      e.preventDefault();
+      seasDrag = true;
+      seasSet(bar, e.clientY, true);
+      document.addEventListener("pointermove", seasMove);
+      document.addEventListener("pointerup", seasStop);
+      document.addEventListener("pointercancel", seasStop);
+    });
+    so.addEventListener("keydown", function(e){
+      if (!e.target.closest) return;
+      var bar = e.target.closest(".smo"); if (!bar) return;
+      var d = (e.key === "ArrowUp" || e.key === "ArrowRight") ? 5
+            : (e.key === "ArrowDown" || e.key === "ArrowLeft") ? -5 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var i = +bar.getAttribute("data-i");
+      var cur = Math.round(rawShape()[i] * 100);
+      S.months[i] = String(Math.max(0, Math.min(SEAS_MAX, cur + d)));
+      render();
+      /* the bar was just replaced by the repaint - refocus its successor, or
+         a second arrow press goes nowhere */
+      var again = document.querySelector('.smo[data-i="' + i + '"]');
+      if (again) again.focus();
+    });
+  }
+
+  var fo = $("funnel");
+  if (fo){
+    fo.addEventListener("pointerdown", function(e){
+      if (!e.target.closest) return;
+      var grip = e.target.closest(".fun-grip"); if (!grip) return;
+      e.preventDefault();
+      funDrag = grip.getAttribute("data-neck");
+      funSet(funDrag, e.clientX);
+      document.addEventListener("pointermove", funMove);
+      document.addEventListener("pointerup", funStop);
+      document.addEventListener("pointercancel", funStop);
+    });
+    fo.addEventListener("click", function(e){
+      if (e.target.closest && e.target.closest("#funreset")){
+        S.simEnq = ""; S.simGot = ""; render();
+      }
+    });
+    fo.addEventListener("keydown", function(e){
+      if (!e.target.closest) return;
+      var grip = e.target.closest(".fun-grip"); if (!grip) return;
+      var d = (e.key === "ArrowUp" || e.key === "ArrowRight") ? 0.5
+            : (e.key === "ArrowDown" || e.key === "ArrowLeft") ? -0.5 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var neck = grip.getAttribute("data-neck");
+      var f = funnelStages(grow());
+      var cur = neck === "e" ? (isFinite(f.eRate) ? f.eRate * 100 : 0)
+                             : (isFinite(f.gRate) ? f.gRate * 100 : 0);
+      var v = String(Math.max(0, Math.min(SIM_MAX, Math.round((cur + d) * 10) / 10)));
+      if (neck === "e") S.simEnq = v; else S.simGot = v;
+      render();
+      var again = document.querySelector('.fun-grip[data-neck="' + neck + '"]');
+      if (again) again.focus();
+    });
+  }
+
   window.addEventListener("hashchange", function(){
     if (location.hash.indexOf("=") < 0) return;
     readHash();

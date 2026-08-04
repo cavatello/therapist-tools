@@ -15,6 +15,12 @@ S.tenure = ""; S.clients = ""; S.churn = "";
 S.chan = {pt:{views:"",enq:"",got:""}, web:{views:"",enq:"",got:""},
           ref:{views:"",enq:"",got:""}};
 
+/* Scenario overrides for the funnel. Blank means "use what they entered".
+   These deliberately do NOT write back into S.chan: the counts a reader typed
+   are their data and a dragged what-if must never quietly overwrite them. */
+var SIM_MAX = 100;
+S.simEnq = ""; S.simGot = "";
+
 var HASH_KEYS = ["rate","sessions","weeksOff","tenure","clients","churn"];
 var CHAN = [["pt","Psychology Today", "or any paid directory"],
             ["web","Your own website", "search, your blog, word of mouth that lands there"],
@@ -259,6 +265,43 @@ function drawWorth(g){
     + 'certainly does better than that.</p>';
 }
 
+/* ---- the funnel, as an actual funnel -------------------------------------
+   The old version was three stacked bars of decreasing width: a bar chart
+   wearing a hat, restating three numbers the reader had just typed. What a
+   funnel is FOR is the taper, so the loss is now the drawn thing and the two
+   necks are draggable. */
+function funnelStages(g){
+  var simE = S.simEnq !== "" && isFinite(+S.simEnq);
+  var simG = S.simGot !== "" && isFinite(+S.simGot);
+  var enq = simE ? g.views * (+S.simEnq / 100) : g.enq;
+  var got = simG ? enq * (+S.simGot / 100) : (simE && g.enq > 0 ? enq * (g.got / g.enq) : g.got);
+  return {on: simE || simG, enq: enq, got: got,
+          eRate: g.views > 0 ? enq / g.views : NaN,
+          gRate: enq > 0 ? got / enq : NaN};
+}
+
+/* SQRT width scale, and said out loud in the caption. A therapy funnel runs
+   1000 -> 40 -> 5; drawn linearly the last band is 0.5% of the width, which is
+   four pixels. A truthful four pixels, and also unreadable, unlabellable and
+   impossible to drag. Square root keeps the ORDER and the sense of collapse
+   (100% -> 20% -> 7%) while leaving a shape you can use, and every band prints
+   its exact percentage in the gutter so the real proportion is never in doubt.
+   Stage text lives OUTSIDE the shape, so nothing legible depends on a band
+   being wide enough to hold words - the first build put white labels inside a
+   4%-wide spike and they spilled onto the background, illegible. */
+function funW(v, top){
+  if (!(top > 0) || !(v > 0)) return 3;
+  return Math.max(3, Math.sqrt(v / top) * 100);
+}
+function funnelPath(views, enq, got){
+  var a = funW(views, views), b = funW(enq, views), c = funW(got, views);
+  var xa = (100 - a) / 2, xb = (100 - b) / 2, xc = (100 - c) / 2;
+  return "M" + xa + ",0 L" + xa + ",16 L" + xb + ",27 L" + xb + ",43 L"
+       + xc + ",54 L" + xc + ",70 L" + (100 - xc) + ",70 L" + (100 - xc) + ",54 L"
+       + (100 - xb) + ",43 L" + (100 - xb) + ",27 L" + (100 - xa) + ",16 L"
+       + (100 - xa) + ",0 Z";
+}
+
 function drawFunnel(g){
   var el = $("funnel"); if (!el) return;
   if (!g.ready){
@@ -275,18 +318,57 @@ function drawFunnel(g){
     if (c.enq > 0 && (!worst || c.missed > worst.missed)) worst = c;
   });
 
-  var s = '<div class="stages">';
-  [["Saw you", g.views], ["Enquired", g.enq], ["Became clients", g.got]].forEach(
-    function(st, i){
-      var pct = g.views > 0 ? Math.max(6, st[1] / g.views * 100) : 100;
-      s += '<div class="stg" style="--w:' + pct.toFixed(1) + '%"><em>' + st[0] + '</em>'
-         + '<b>' + n0(st[1]) + '</b>'
-         + (i > 0 && g.views > 0
-            ? '<i>' + Math.round(st[1] / g.views * 100) + '% of the top</i>' : '')
-         + '</div>';
-    });
-  s += '</div>';
-  if (g.worth > 0){
+  var f = funnelStages(g);
+  var lostE = Math.max(0, g.views - g.enq), lostG = Math.max(0, g.enq - g.got);
+
+  var s = '<div class="funwrap"><div class="fungut">'
+    + [["Saw you", g.views, lostE, "saw you and never asked"],
+       ["Enquired", g.enq, lostG, "asked and did not book"],
+       ["Became clients", g.got, 0, ""]].map(function(r, i){
+        return '<div class="fung"><em>' + r[0] + '</em><b>' + n0(r[1]) + '</b>'
+          + (i > 0 && g.views > 0
+             ? '<u>' + (r[1] / g.views * 100).toFixed(1) + '% of the top</u>' : '')
+          + (r[2] > 0 ? '<s>&minus; ' + n0(r[2]) + ' ' + r[3] + '</s>' : '')
+          + '</div>';
+       }).join('')
+    + '</div><div class="fun" id="funsvg">'
+    + '<svg viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true">'
+    + '<rect x="0" y="0" width="100" height="70" class="fun-env"></rect>'
+    + '<path d="' + funnelPath(g.views, g.enq, g.got) + '" class="fun-real"></path>'
+    + (f.on ? '<path d="' + funnelPath(g.views, f.enq, f.got) + '" class="fun-sim"></path>' : '')
+    + '</svg>'
+    + '<div class="fun-grip g1" data-neck="e" tabindex="0" role="slider"'
+      + ' aria-label="Share of people who enquire" aria-valuemin="0" aria-valuemax="' + SIM_MAX + '"'
+      + ' aria-valuenow="' + (isFinite(f.eRate) ? (f.eRate * 100).toFixed(1) : 0) + '"'
+      + ' style="left:' + (50 + funW(f.enq, g.views) / 2) + '%"><i></i><span>'
+      + (isFinite(f.eRate) ? (f.eRate * 100).toFixed(1) : "—") + '%</span></div>'
+    + '<div class="fun-grip g2" data-neck="g" tabindex="0" role="slider"'
+      + ' aria-label="Share of enquiries that become clients" aria-valuemin="0" aria-valuemax="' + SIM_MAX + '"'
+      + ' aria-valuenow="' + (isFinite(f.gRate) ? (f.gRate * 100).toFixed(1) : 0) + '"'
+      + ' style="left:' + (50 + funW(f.got, g.views) / 2) + '%"><i></i><span>'
+      + (isFinite(f.gRate) ? (f.gRate * 100).toFixed(1) : "—") + '%</span></div>'
+    + '</div></div>'
+    + '<p class="fun-hint">Drag either handle — or use the arrow keys — to ask what a better '
+      + 'month would be worth. Your own figures stay put; the dashed outline is the what-if. '
+      + '<i>Widths use a square-root scale so the bottom of a real funnel is still big enough '
+      + 'to see and to drag; the exact percentages sit beside it.</i></p>';
+
+  if (f.on){
+    var gain = f.got - g.got;
+    s += '<div class="fun-sim-out' + (gain >= 0 ? '' : ' neg') + '">'
+      + '<div class="fso-h"><b>' + (gain >= 0 ? '+' : '−') + n0(Math.abs(gain))
+      + ' client' + (Math.abs(Math.round(gain)) === 1 ? '' : 's') + ' a month</b>'
+      + '<button type="button" class="shrst" id="funreset">back to my numbers</button></div>'
+      + '<p class="fso-p">'
+      + (g.worth > 0
+         ? 'At ' + money(g.worth) + ' a client that is <b>' + money(Math.abs(gain) * 12 * g.worth)
+           + '</b> a year' + (gain >= 0 ? '' : ' lost') + ', from the same traffic you already have. '
+         : 'Put your rate and tenure in above and this becomes a money figure. ')
+      + 'Getting enquiries from ' + (g.views > 0 ? (g.enq / g.views * 100).toFixed(1) : '0')
+      + '% to ' + (isFinite(f.eRate) ? (f.eRate * 100).toFixed(1) : '0')
+      + '% is a listing problem; the second number is a first-contact problem, and it is '
+      + 'usually the cheaper of the two to fix.</p></div>';
+  } else if (g.worth > 0){
     s += '<p class="barn">Those ' + n0(g.got) + ' clients are worth <b>'
        + money(g.got * g.worth) + '</b> over their time with you — from one month of a '
        + 'funnel you can change.</p>';
@@ -540,6 +622,41 @@ function drawSeason(g){
        : ""));
 }
 
+/* ---- dragging the funnel necks ------------------------------------------
+   Same architecture as the month bars, and for the same reason: drawFunnel()
+   replaces everything inside #funnel, so listeners live on #funnel itself. */
+var funDrag = null;
+function funSet(neck, clientX){
+  var box = document.getElementById("funsvg"); if (!box) return;
+  var r = box.getBoundingClientRect(); if (!(r.width > 0)) return;
+  /* the grip rides the RIGHT edge, so its offset from the centre line is half
+     the DRAWN width - and the drawn width is sqrt-scaled, so square to undo */
+  var half = Math.max(0, Math.min(50, (clientX - r.left) / r.width * 100 - 50));
+  var frac = Math.pow(half * 2 / 100, 2);
+  var pct = Math.max(0, Math.min(SIM_MAX, Math.round(frac * 100 * 10) / 10));
+  var g = grow(), next;
+  if (neck === "e"){
+    next = String(pct);
+    if (S.simEnq === next) return;
+    S.simEnq = next;
+  } else {
+    /* the second neck is a share of ENQUIRIES, not of views, so convert */
+    var f = funnelStages(g);
+    var share = f.enq > 0 && g.views > 0 ? pct * g.views / f.enq : 0;
+    next = String(Math.max(0, Math.min(SIM_MAX, Math.round(share * 10) / 10)));
+    if (S.simGot === next) return;
+    S.simGot = next;
+  }
+  render();
+}
+function funMove(e){ if (funDrag) funSet(funDrag, e.clientX); }
+function funStop(){
+  funDrag = null;
+  document.removeEventListener("pointermove", funMove);
+  document.removeEventListener("pointerup", funStop);
+  document.removeEventListener("pointercancel", funStop);
+}
+
 /* ---- dragging the months ------------------------------------------------
    Values snap to 5%, which is both legible and the reason this is not a
    repaint storm: a pointermove that lands on the same 5% step returns without
@@ -727,6 +844,42 @@ function boot(){
       /* the bar was just replaced by the repaint - refocus its successor, or
          a second arrow press goes nowhere */
       var again = document.querySelector('.smo[data-i="' + i + '"]');
+      if (again) again.focus();
+    });
+  }
+
+  var fo = $("funnel");
+  if (fo){
+    fo.addEventListener("pointerdown", function(e){
+      if (!e.target.closest) return;
+      var grip = e.target.closest(".fun-grip"); if (!grip) return;
+      e.preventDefault();
+      funDrag = grip.getAttribute("data-neck");
+      funSet(funDrag, e.clientX);
+      document.addEventListener("pointermove", funMove);
+      document.addEventListener("pointerup", funStop);
+      document.addEventListener("pointercancel", funStop);
+    });
+    fo.addEventListener("click", function(e){
+      if (e.target.closest && e.target.closest("#funreset")){
+        S.simEnq = ""; S.simGot = ""; render();
+      }
+    });
+    fo.addEventListener("keydown", function(e){
+      if (!e.target.closest) return;
+      var grip = e.target.closest(".fun-grip"); if (!grip) return;
+      var d = (e.key === "ArrowUp" || e.key === "ArrowRight") ? 0.5
+            : (e.key === "ArrowDown" || e.key === "ArrowLeft") ? -0.5 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var neck = grip.getAttribute("data-neck");
+      var f = funnelStages(grow());
+      var cur = neck === "e" ? (isFinite(f.eRate) ? f.eRate * 100 : 0)
+                             : (isFinite(f.gRate) ? f.gRate * 100 : 0);
+      var v = String(Math.max(0, Math.min(SIM_MAX, Math.round((cur + d) * 10) / 10)));
+      if (neck === "e") S.simEnq = v; else S.simGot = v;
+      render();
+      var again = document.querySelector('.fun-grip[data-neck="' + neck + '"]');
       if (again) again.focus();
     });
   }

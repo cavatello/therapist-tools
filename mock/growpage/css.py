@@ -44,18 +44,9 @@ CSS += r"""
 .gpanel .pr b.gold{color:var(--gold)}
 .gpanel .pn{color:#8A8477}
 
-/* ---------- the funnel stages ---------- */
-.stages{display:grid;gap:9px;margin-top:4px}
-.stg{--w:100%;position:relative;background:var(--white);border:1px solid var(--line);
- border-radius:12px;padding:14px 17px;width:var(--w);min-width:190px;
- transition:width .35s ease}
-.stg em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.11em;
- text-transform:uppercase;color:#7C766A;margin-bottom:4px}
-.stg b{font-family:Fraunces,Georgia,serif;font-size:26px;line-height:1;color:var(--ink);
- display:inline-block}
-.stg i{font-style:normal;font-size:11.2px;color:#8A8477;margin-left:9px}
-.stg:last-child{background:#EFF7F3;border-color:#BEDFD1}
-.stg:last-child b{color:var(--pos)}
+/* The old .stages/.stg stacked bars were removed when the funnel became a real
+   silhouette (see claude/grow-funnel-ui.md). Their CSS went with them rather
+   than being left to rot - nothing emits either class any more, checked first. */
 
 /* ---------- per-channel cards ---------- */
 .chans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
@@ -176,6 +167,61 @@ CSS += r"""
  .smo u{display:none}          /* 26px of column will not hold "145%" honestly */
  .smo em,.ld em{font-size:8.5px;letter-spacing:-.02em}
  .ldcap span{font-size:9px}
+}
+
+
+/* ---------- the funnel ---------- */
+.funwrap{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:18px;
+ align-items:stretch;margin-top:6px}
+.fungut{display:grid;grid-template-rows:repeat(3,1fr);gap:0}
+.fung{display:flex;flex-direction:column;justify-content:center;padding:2px 0;
+ border-left:3px solid var(--pine);padding-left:11px}
+.fung:nth-child(2){border-left-color:#7FA694}
+.fung:nth-child(3){border-left-color:var(--pos)}
+.fung em{font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
+ text-transform:uppercase;color:#7C766A}
+.fung b{font-family:Fraunces,Georgia,serif;font-size:25px;line-height:1.05;color:var(--ink)}
+.fung u{text-decoration:none;font-size:11px;color:#8A8477}
+.fung s{text-decoration:none;font-size:11px;color:var(--neg);font-weight:600;margin-top:3px}
+.fun{position:relative;min-height:210px}
+.fun svg{display:block;width:100%;height:210px}
+.fun-env{fill:var(--paper);stroke:var(--line);stroke-width:.4}
+.fun-real{fill:var(--pine);opacity:.88}
+.fun-sim{fill:none;stroke:var(--gold);stroke-width:1.4;stroke-dasharray:3 2.2;
+ vector-effect:non-scaling-stroke}
+.fun-grip{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;
+ gap:5px;cursor:ew-resize;touch-action:none;padding:4px 8px 4px 5px;border-radius:20px;
+ background:var(--white);border:1.5px solid var(--gold);box-shadow:0 1px 3px rgba(38,36,30,.2)}
+.fun-grip:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.fun-grip.g1{top:31%}
+.fun-grip.g2{top:65%}
+.fun-grip i{width:8px;height:14px;border-left:2px solid var(--gold);
+ border-right:2px solid var(--gold);border-radius:1px;flex:none}
+.fun-grip span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+ font-weight:700;color:var(--ink)}
+.fun-hint{font-size:11.5px;line-height:1.55;color:#8A8477;margin:10px 0 0}
+.fun-hint i{font-style:italic;color:#9A9384}
+.fun-sim-out{margin-top:12px;background:#FDF4DF;border:1px solid #E8D3A0;border-radius:12px;
+ padding:12px 15px}
+.fun-sim-out.neg{background:#FBEAE8;border-color:#E7C3BE}
+.fso-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.fso-h b{font-family:Fraunces,Georgia,serif;font-size:21px;color:#8A6620}
+.fun-sim-out.neg .fso-h b{color:var(--neg)}
+.fso-p{font-size:12.4px;line-height:1.6;color:var(--muted);margin:5px 0 0}
+.fso-p b{color:var(--ink)}
+/* Twelve columns and a two-column funnel are kept as long as they fit; below
+   that the gutter goes on top rather than the shape getting squeezed. */
+@media (max-width:720px){
+ .funwrap{grid-template-columns:1fr;gap:12px}
+ .fungut{grid-template-rows:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ .fung{border-left-width:0;border-top:3px solid var(--pine);padding-left:0;padding-top:7px}
+ .fung:nth-child(2){border-left-color:transparent;border-top-color:#7FA694}
+ .fung:nth-child(3){border-left-color:transparent;border-top-color:var(--pos)}
+ .fung b{font-size:20px}
+ .fung s,.fung u{font-size:10px}
+ .fun svg{height:170px}
+ .fun{min-height:170px}
+ .fun-grip span{font-size:10px}
 }
 
 @media (max-width:900px){.ghero .in{grid-template-columns:1fr;gap:24px}}

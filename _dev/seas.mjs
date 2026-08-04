@@ -304,6 +304,89 @@ for (const [w, h] of [[390, 844], [768, 1024]]) {
   await ctx.close();
 }
 
+
+console.log('>> section 8 (funnel)');
+{
+  const { ctx, page, errs } = await fresh();
+  await FILL(page);
+  ok(await page.locator('.fung').count() === 3, 'three gutter rows');
+  ok(await page.locator('.fun-real').count() === 1, 'the real funnel is drawn');
+  ok(await page.locator('.fun-sim').count() === 0, 'no what-if outline before anything is dragged');
+  ok(await page.locator('.fun-grip').count() === 2, 'two draggable necks');
+  ok(await page.locator('#funreset').count() === 0, 'no reset until a lever moves');
+  ok(await page.locator('.stg').count() === 0, 'the old stacked bars are gone');
+
+  const gut = await page.locator('.fung b').allTextContents();
+  ok(gut[0] === '1,000' && gut[1] === '40' && gut[2] === '12',
+     'gutter prints the entered counts, got ' + JSON.stringify(gut));
+
+  await page.locator('.fun-grip.g1').hover();
+  await page.mouse.down();
+  const box = await page.locator('#funsvg').boundingBox();
+  await page.mouse.move(box.x + box.width * 0.80, box.y + box.height * 0.31);
+  await page.mouse.up();
+  await page.waitForTimeout(60);
+
+  const sim = await page.evaluate(() => S.simEnq);
+  ok(sim !== '' && +sim > 4, 'dragging the first neck outward raises the rate, got ' + sim);
+  ok(await page.locator('.fun-sim').count() === 1, 'the what-if outline appears');
+  ok(await page.locator('.fun-sim-out').count() === 1, 'the outcome card appears');
+
+  /* the entered data must NOT be touched — this is the whole design */
+  const raw = await page.evaluate(() => JSON.stringify(S.chan));
+  ok(/"views":"1000"/.test(raw) && /"enq":"40"/.test(raw) && /"got":"12"/.test(raw),
+     'a what-if never overwrites the numbers the reader typed');
+
+  /* the card's own printed figures must be re-derivable from the engine */
+  const card = await page.evaluate(() => {
+    const el = document.querySelector('.fun-sim-out');
+    return { head: el.querySelector('.fso-h b').textContent,
+             /* the ANNUAL figure is the bolded one; the first $ in the sentence
+                is the per-client worth, a different number entirely */
+             body: el.querySelector('.fso-p b').textContent,
+             worth: grow().worth, got: grow().got,
+             simGot: funnelStages(grow()).got };
+  });
+  const clients = +card.head.match(/[\d,]+/)[0].replace(/,/g, '');
+  const dollars = +card.body.match(/\$([\d,]+)/)[1].replace(/,/g, '');
+  const exactGain = Math.abs(card.simGot - card.got);
+  ok(clients === Math.round(exactGain),
+     `card prints ${clients} clients, engine says ${exactGain.toFixed(2)}`);
+  ok(Math.abs(dollars - Math.round(exactGain * 12 * card.worth)) <= 1,
+     `card prints $${dollars}, clients x 12 x worth = ${Math.round(exactGain * 12 * card.worth)}`);
+
+  await page.locator('.fun-grip.g2').focus();
+  const before = await page.evaluate(() => S.simGot);
+  await page.keyboard.press('ArrowUp');
+  await page.waitForTimeout(50);
+  ok(await page.evaluate(() => S.simGot) !== before, 'arrow keys move the second neck');
+
+  await page.click('#funreset');
+  await page.waitForTimeout(50);
+  ok(await page.evaluate(() => S.simEnq === '' && S.simGot === ''), 'reset clears both levers');
+  ok(await page.locator('.fun-sim').count() === 0, 'and the outline goes away');
+  ok(errs.length === 0, 'no console errors through the funnel: ' + errs.join(' | '));
+  await ctx.close();
+}
+
+console.log('>> section 9 (funnel on a phone)');
+{
+  const { ctx, page, errs } = await fresh(390, 844);
+  await FILL(page);
+  ok(await page.locator('.fung').count() === 3, 'three gutter rows at 390px');
+  const over = await page.evaluate(() => {
+    const bad = [];
+    document.querySelectorAll('#channels *').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.width > 0 && r.right > 390.5) bad.push(el.className + ' right=' + Math.round(r.right));
+    });
+    return bad.slice(0, 6);
+  });
+  ok(over.length === 0, 'funnel section does not overflow 390px: ' + over.join(' | '));
+  ok(errs.length === 0, 'no console errors at 390px: ' + errs.join(' | '));
+  await ctx.close();
+}
+
 await browser.close();
 console.log(`\n${pass}/${pass + fail} passed` + (fail ? `  — ${fail} FAILED` : ''));
 process.exit(fail ? 1 : 0);
