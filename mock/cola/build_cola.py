@@ -55,20 +55,7 @@ CSS = """
    second column could not shrink below 300 and the page scrolled sideways by
    55-70px. Stacked, it has the full width and needs no floor at all. */
 @media (max-width:900px){.clband{grid-template-columns:minmax(0,1fr);gap:18px}}
-@media (max-width:560px){
-  .clhero h1{font-size:23px;line-height:1.12}
-  .cldeck{font-size:14.4px;margin-bottom:12px}
-  /* the rows are flex with a `white-space:nowrap` figure and a 22ch caption, so
-     their intrinsic minimum exceeded a 390px screen and the page scrolled
-     sideways. Stacked, nothing has a floor. */
-  .clbig{padding:12px 14px;min-width:0}
-  .clbig > div{display:block;min-width:0}
-  .clbig b{white-space:normal;display:block;margin-bottom:2px}
-  .clbig em{max-width:none;display:block}
-  /* one figure above the fold on a short phone; the other two are a scroll away */
-  .clbig > div:nth-of-type(n+3){display:none}
-  .clwho{display:none}
-}
+
 .clhero .cleyebrow{color:#F6C560;margin-bottom:8px}
 .clhero h1{font-size:clamp(24px,2.6vw,34px);color:#FFFDF6;max-width:22ch;
   margin-bottom:.28em}
@@ -91,10 +78,28 @@ CSS = """
 .clbig > div{display:flex;align-items:baseline;justify-content:space-between;gap:14px;min-width:0;
   padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12)}
 .clbig > div:last-of-type{border-bottom:0}
-.clbig b{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,2.1vw,28px);
+.clbig > div > b{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,2.1vw,28px);
   line-height:1;color:var(--pop);white-space:nowrap;order:2}
-.clbig em{font-style:normal;font-size:12.6px;color:#C4BBE4;line-height:1.4;
+.clbig > div > em{font-style:normal;font-size:12.6px;color:#C4BBE4;line-height:1.4;
   max-width:22ch;order:1}
+
+/* MOVED: this block used to sit ABOVE the base .clbig rules, so at equal
+   specificity the base rules won on source order and the whole mobile
+   treatment was dead code. Nothing inside it changed. */
+@media (max-width:560px){
+  .clhero h1{font-size:23px;line-height:1.12}
+  .cldeck{font-size:14.4px;margin-bottom:12px}
+  /* the rows are flex with a `white-space:nowrap` figure and a 22ch caption, so
+     their intrinsic minimum exceeded a 390px screen and the page scrolled
+     sideways. Stacked, nothing has a floor. */
+  .clbig{padding:12px 14px;min-width:0}
+  .clbig > div{display:block;min-width:0}
+  .clbig > div > b{white-space:normal;display:block;margin-bottom:2px}
+  .clbig > div > em{max-width:none;display:block}
+  /* one figure above the fold on a short phone; the other two are a scroll away */
+  .clbig > div:nth-of-type(n+3){display:none}
+  .clwho{display:none}
+}
 
 .clsec{padding:clamp(34px,4.5vw,62px) 0}
 .clsec.clpaper{background:var(--paper);border-top:1px solid var(--line);
