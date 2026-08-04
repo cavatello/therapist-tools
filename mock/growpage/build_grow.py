@@ -194,8 +194,22 @@ A('<p class="dek">There is a point where more marketing stops making you money a
 A('<div id="capout"></div>')
 A('</section>')
 
+# ---- 05 seasonality
+# Everything above this section is an annual average. This is the only block on
+# the page that admits the year has a shape, which is why it sits after capacity
+# (you need a ceiling before "over capacity" means anything) and before the CTA.
+A('<section class="slab brick" id="season"><div class="chh"><span class="chn">05</span>'
+  '<h2>When they actually arrive</h2></div>')
+A('<p class="dek">Everything above is a yearly average, and an average is what makes a '
+  'caseload plan fall over in July. Enquiries collapse over the holidays and again in high '
+  'summer; January is the biggest intake month most private practices see. People finish '
+  'therapy at a flat rate regardless — and that mismatch, not a marketing failure, is what '
+  'produces the trough.</p>')
+A('<div id="seasout"></div>')
+A('</section>')
+
 # ---- CTA
-A('<section class="slab carbon" id="next"><div class="chh"><span class="chn">05</span>'
+A('<section class="slab carbon" id="next"><div class="chh"><span class="chn">06</span>'
   '<h2>What this is worth in actual money</h2></div>')
 A('<p class="dek">Everything above is clients. Turning clients into what lands in your bank '
   'account takes the rest of the picture — expenses, self-employment tax, the retirement '
@@ -305,7 +319,7 @@ _clash = sorted(_classes(CSS, True) & _classes(chrome_css))
 assert not _clash, "page classes clash with the site chrome: " + ", ".join(_clash)
 
 for need in ['id="worthout"', 'id="funnel"', 'id="needout"', 'id="capout"',
-             'id="heroworth"', 'id="heroyear"']:
+             'id="seasout"', 'id="heroworth"', 'id="heroyear"']:
     assert html.count(need) == 1, "expected exactly one " + need
 # every channel input exists
 for key, _, _ in CHANNELS:

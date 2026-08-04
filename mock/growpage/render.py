@@ -33,6 +33,8 @@ function plural(n, one, many){
 function esc(s){ return String(s == null ? "" : s)
   .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
+function signed(n){ return (n > 0 ? "+" : n < 0 ? "\u2212" : "") + n0(Math.abs(n))
+  + " client" + (Math.abs(Math.round(n)) === 1 ? "" : "s"); }
 function tile(lab, val, sub, cls){
   return '<div class="tl ' + (cls || "") + '"><em>' + lab + '</em><b>' + val + '</b>'
        + (sub ? '<u>' + sub + '</u>' : '') + '</div>';
@@ -71,13 +73,21 @@ var SHAPES = {
             v:[1.15,1.05,1.05,1.00,1.00,0.95,0.90,0.90,1.05,1.05,1.00,0.80]}
 };
 
-function shapeOf(){
+/* The shape BEFORE normalisation - i.e. exactly what the reader set, preset
+   value or dragged override. The bars in the editor render from this, so a
+   dragged bar follows the finger instead of springing back when the other
+   eleven rescale around it. Everything that computes anything uses shapeOf(). */
+function rawShape(){
   var k = S.shape || "typical";
   var base = (SHAPES[k] || SHAPES.typical).v.slice();
   /* a reader-edited month overrides the preset for that month only */
   if (S.months) for (var i = 0; i < 12; i++)
     if (S.months[i] !== "" && S.months[i] != null && isFinite(+S.months[i]))
       base[i] = Math.max(0, +S.months[i] / 100);
+  return base;
+}
+function shapeOf(){
+  var base = rawShape();
   /* NORMALISE. Without this the annual total moves when the shape changes, and
      every other figure on the page shifts for a reason nobody can see. */
   var sum = base.reduce(function(a, b){ return a + b; }, 0);
@@ -91,23 +101,66 @@ function shapeOf(){
    produces the summer trough this chart exists to show. */
 function monthly(g){
   var shape = shapeOf();
-  var perMonthIn = g.got / 12;          /* annual new clients, averaged */
-  var perMonthOut = g.churn / 12;
-  var load = g.clients, out = [], lo = Infinity, hi = -Infinity, loM = 0, hiM = 0;
+  /* UNITS. Both of these are ALREADY monthly and must not be divided again.
+     The channel block asks for "last month" (views / enquired / became
+     clients), and the churn field asks for "clients who finish in a typical
+     month" - which is also how drawNeed reads it, as `needEnq = churn / conv`
+     enquiries a month. An earlier version divided both by 12 as though they
+     were annual. Because it divided BOTH, every ratio on the chart stayed
+     right and the curve kept its shape, so nothing looked obviously broken -
+     the caseload just crept instead of moving, and a practice losing four
+     clients a month appeared to lose one every three months. The shape tests
+     could never catch it: they only ever compared one shape against another,
+     and the error was common to all of them. */
+  var perMonthIn = g.got;
+  var perMonthOut = g.churn;
+  /* DETREND. Walking twelve months forward from today means that in any
+     growing practice month 1 is the minimum and month 12 the maximum - so a
+     raw max-minus-min "swing" silently reports the GROWTH RATE and labels it
+     seasonality, and the trough lands on January for no better reason than
+     that January is first. Measured against the flat-shape counterfactual
+     instead, the figure becomes the one the reader actually wants: what the
+     shape itself costs them, whether they are growing, shrinking or level.
+     A flat shape therefore has a swing of exactly zero, which is the assertion
+     that keeps this honest. */
+  var net = perMonthIn - perMonthOut;
+  var load = g.clients, out = [], devSum = 0;
   for (var i = 0; i < 12; i++){
     var arrive = perMonthIn * shape[i];
     load = Math.max(0, load + arrive - perMonthOut);
+    /* how far the shape has put you from where a flat year would have */
+    var dev = load - (g.clients + net * (i + 1));
+    devSum += dev;
     out.push({m: MONTHS[i], mult: shape[i], arrive: arrive,
-              leave: perMonthOut, load: load,
+              leave: perMonthOut, load: load, dev: dev,
               /* the number the reader can act on: leads needed THIS month to
                  stand still, given this month's conversion reality */
               need: g.conv > 0 ? perMonthOut / g.conv : NaN});
-    if (load < lo){ lo = load; loM = i; }
-    if (load > hi){ hi = load; hiM = i; }
   }
-  return {rows: out, low: lo, lowMonth: MONTHS[loM],
-          high: hi, highMonth: MONTHS[hiM],
-          swing: hi - lo,
+  /* CENTRE the deviations on their own mean. Uncentred, the cumulative
+     deviation is zero every December BY CONSTRUCTION - the twelve multipliers
+     average 1, so by the twelfth month the shape has exactly caught up with
+     the flat year it was measured against. That made December read
+     "thinnest: 0 clients against a flat year", which is both structurally
+     inevitable and meaningless to a reader. Against the reader's OWN average
+     month the labels say what they appear to say: above the line is a fuller
+     month than usual, below it a thinner one, and December on the "typical"
+     shape lands where the copy has always claimed it does. The swing is
+     max-minus-min either way, so centring does not move it. */
+  var devMean = devSum / 12;
+  var lo = Infinity, hi = -Infinity, loM = 0, hiM = 0;
+  for (var k = 0; k < 12; k++){
+    out[k].dev -= devMean;
+    if (out[k].dev < lo){ lo = out[k].dev; loM = k; }
+    if (out[k].dev > hi){ hi = out[k].dev; hiM = k; }
+  }
+  return {rows: out,
+          /* the months seasonality helps and hurts most, and the caseload you
+             actually hold in each - the label is a deviation, the figure
+             beside it is the real number */
+          low: out[loM].load, lowMonth: MONTHS[loM],
+          high: out[hiM].load, highMonth: MONTHS[hiM],
+          swing: hi - lo, devHigh: hi, devLow: lo, trend: net,
           /* capacity is a weekly session count, so a month at capacity is the
              same ceiling every month - the trough and the peak are both
              measured against it */
@@ -361,9 +414,206 @@ function drawCapacity(g){
     + '</p>';
 }
 
+/* ------------------------------------------------------------ seasonality
+   The lever and its consequence, stacked: pick a shape, drag any month, and the
+   caseload chart directly underneath moves in the same frame. Everything else
+   on this page is an annual average, which is exactly the assumption that makes
+   a caseload plan fail in July. This is the only block that admits the year has
+   a shape. */
+var SEAS_MAX = 200;   /* tallest a month can be dragged, in % of the average */
+
+/* Bars render from rawShape(), not shapeOf(): a dragged bar must follow the
+   finger. The normalised version is what the chart below is computed from, and
+   the note under the editor says so rather than leaving the reader to notice
+   that twelve bars reading 100% and one reading 145% do not average 100%. */
+function seasBars(){
+  var raw = rawShape(), s = "";
+  for (var i = 0; i < 12; i++){
+    var pct = Math.round(raw[i] * 100);
+    var edited = S.months[i] !== "" && S.months[i] != null;
+    s += '<div class="smo' + (edited ? " on" : "") + '" data-i="' + i + '"'
+      + ' tabindex="0" role="slider" aria-label="' + MONTHS[i] + ' share of the year"'
+      + ' aria-valuemin="0" aria-valuemax="' + SEAS_MAX + '" aria-valuenow="' + pct + '">'
+      + '<u>' + pct + '%</u>'
+      + '<div class="smot"><i style="height:' + Math.min(100, pct / SEAS_MAX * 100) + '%"></i></div>'
+      + '<em>' + MONTHS[i] + '</em></div>';
+  }
+  return '<div class="seas" id="seasbars">' + s + '</div>';
+}
+
+function seasChart(g){
+  var m = g.monthly, rows = m.rows;
+  var top = Math.max(m.high, g.capacity || 0) * 1.08;
+  if (!(top > 0)) return "";
+  var s = "";
+  for (var i = 0; i < 12; i++){
+    var r = rows[i];
+    var cls = r.m === m.lowMonth ? " lo" : (r.m === m.highMonth ? " hi" : "");
+    var t = r.m + " — " + n0(r.load) + " clients · " + r.arrive.toFixed(1)
+          + " arrive · " + r.leave.toFixed(1) + " finish";
+    s += '<div class="ld' + cls + '" title="' + esc(t) + '">'
+       + '<div class="ldt"><i style="height:' + Math.max(2, r.load / top * 100) + '%"></i></div>'
+       + '<em>' + r.m + '</em></div>';
+  }
+  var cap = g.capacity > 0
+    ? '<div class="ldcap"><b style="bottom:' + (g.capacity / top * 100) + '%">'
+      + '<span>your ceiling · ' + n0(g.capacity) + '</span></b></div>'
+    : "";
+  return '<div class="ldwrap">' + cap + '<div class="ldg">' + s + '</div></div>';
+}
+
+function drawSeason(g){
+  var el = $("seasout"); if (!el) return;
+  var m = g.monthly;
+  var live = g.clients > 0 && g.got > 0;
+  /* Round the two deviations at source and derive the swing FROM the rounded
+     pair, so the three tiles reconcile as printed. Rounding each independently
+     is how this project has three times shipped a column of figures that were
+     each correct and visibly failed to add up. Raw load is deliberately NOT
+     shown beside "fullest" and "thinnest": under any trend the thinnest month
+     can hold more clients than the fullest one, which reads as a contradiction
+     even though both numbers are right. The deviation is the honest label. */
+  var dHi = Math.round(m.devHigh), dLo = Math.round(m.devLow);
+
+  var head = live
+    ? '<div class="tiles">'
+      + tile("Seasonal swing", plural(dHi - dLo, "client"),
+             m.swing < 0.5 ? "this shape barely moves you"
+                           : "peak to trough, trend removed")
+      + tile("Fullest", m.highMonth, signed(dHi) + " against your average month", "hi")
+      + tile("Thinnest", m.lowMonth, signed(dLo) + " against your average month", "warn")
+      + (g.capacity > 0
+         ? tile("Months over capacity", n0(m.overMonths),
+                m.overMonths > 0 ? "you would be turning people away" : "the year fits",
+                m.overMonths > 0 ? "warn" : "")
+         : tile("Months over capacity", "—", "set your sessions a week"))
+      + '</div>'
+    : '<p class="empty">Fill in the caseload you hold and at least one channel above, and '
+      + 'this works out where your year actually dips — which month your caseload bottoms '
+      + 'out, how far it swings, and whether any month runs past your ceiling. The shape '
+      + 'below is editable either way, so it is worth a look now.</p>';
+
+  var pick = '<div class="shp">';
+  ["typical","school","steady","flat"].forEach(function(k){
+    var sh = SHAPES[k];
+    pick += '<button type="button" class="shc' + (S.shape === k ? " on" : "")
+         + '" data-shape="' + k + '" aria-pressed="' + (S.shape === k) + '">'
+         + '<b>' + esc(sh.name) + '</b><i>' + esc(sh.note) + '</i></button>';
+  });
+  pick += '</div>';
+
+  var edited = S.months.some(function(v){ return v !== "" && v != null; });
+
+  return void (el.innerHTML = head
+    + '<h3 class="sh3">Start from a shape</h3>'
+    + '<p class="shn">These are <b>shapes, not data</b> — starting points with the reasoning '
+      + 'stated, not a survey. Pick the one that sounds like your practice, then drag any '
+      + 'month that does not.</p>'
+    + pick
+    + '<h3 class="sh3">Then drag the months<span class="shhint">drag across the bars to '
+      + 'paint · arrow keys work too</span></h3>'
+    + seasBars()
+    + '<p class="shn">Each bar is that month against your own annual average, so 100% is an '
+      + 'ordinary month. The twelve are rescaled to average 100% before anything is computed, '
+      + 'which is why <b>changing the shape never changes your annual total</b> — it only '
+      + 'changes when in the year the clients arrive.'
+      + (edited ? ' <button type="button" class="shrst" id="seasreset">Reset to the '
+                  + 'preset</button>' : '')
+    + '</p>'
+    + (live
+       ? '<h3 class="sh3">What that does to your caseload</h3>' + seasChart(g)
+         + '<p class="note">Clients arrive on the shape above; people finish at a flat rate, '
+           + 'because nobody stops therapy on a schedule. That mismatch is the whole point — '
+           + 'it is what puts your thinnest month in <b>' + m.lowMonth + '</b>, well after the '
+           + 'quiet stretch of enquiries that caused it and far too late to market your way '
+           + 'out of it. '
+           + (Math.abs(m.trend) >= 0.05
+              ? 'The bars also carry your underlying ' + (m.trend > 0 ? 'growth' : 'decline')
+                + ' of about ' + plural(Math.abs(m.trend), "client") + ' a month; the swing '
+                + 'figure above has that trend removed, so it is seasonality alone. '
+              : '')
+           + (g.capacity > 0 && m.overMonths > 0
+              ? 'Note the ' + plural(m.overMonths, "month") + ' above your ceiling: that is a '
+                + 'waiting list, not income.'
+              : 'The month to act on is the one before the trough, not the trough itself.')
+         + '</p>'
+       : ""));
+}
+
+/* ---- dragging the months ------------------------------------------------
+   Values snap to 5%, which is both legible and the reason this is not a
+   repaint storm: a pointermove that lands on the same 5% step returns without
+   touching the DOM at all. */
+var seasDrag = false;
+
+/* In-place repaint, used ONLY while a drag is in flight. drawSeason() rewrites
+   the innerHTML of #seasout, which destroys and recreates every bar - including
+   the one currently under the finger. Doing that on each pointermove replaces
+   the DOM mid-gesture: it flickers, it defeats any transition, and it makes the
+   elements permanently "unstable" to anything measuring them (the first
+   Playwright run against it hung forever waiting for a bar to settle).
+   So: cheap attribute updates during the gesture, one authoritative render()
+   on release, which is also what refreshes the tiles, the prose and the hash. */
+function seasPaint(){
+  var raw = rawShape();
+  var bars = document.querySelectorAll("#seasbars .smo");
+  for (var i = 0; i < bars.length; i++){
+    var pct = Math.round(raw[i] * 100);
+    var fill = bars[i].querySelector(".smot > i");
+    if (fill) fill.style.height = Math.min(100, pct / SEAS_MAX * 100) + "%";
+    var lab = bars[i].querySelector("u");
+    if (lab) lab.textContent = pct + "%";
+    bars[i].classList.toggle("on", S.months[i] !== "" && S.months[i] != null);
+    bars[i].setAttribute("aria-valuenow", pct);
+  }
+  var g = grow(), m = g.monthly;
+  var cols = document.querySelectorAll(".ldg .ld");
+  if (cols.length !== 12) return;
+  var top = Math.max(m.high, g.capacity || 0) * 1.08;
+  if (!(top > 0)) return;
+  for (var j = 0; j < 12; j++){
+    var r = m.rows[j];
+    var b = cols[j].querySelector(".ldt > i");
+    if (b) b.style.height = Math.max(2, r.load / top * 100) + "%";
+    cols[j].classList.toggle("hi", r.m === m.highMonth);
+    cols[j].classList.toggle("lo", r.m === m.lowMonth);
+  }
+  var cap = document.querySelector(".ldcap b");
+  if (cap && g.capacity > 0) cap.style.bottom = (g.capacity / top * 100) + "%";
+}
+
+function seasSet(bar, clientY, live){
+  var track = bar.querySelector(".smot"); if (!track) return;
+  var r = track.getBoundingClientRect(); if (!(r.height > 0)) return;
+  var pct = (1 - (clientY - r.top) / r.height) * SEAS_MAX;
+  pct = Math.max(0, Math.min(SEAS_MAX, Math.round(pct / 5) * 5));
+  var i = +bar.getAttribute("data-i"), next = String(pct);
+  if (S.months[i] === next) return;
+  S.months[i] = next;
+  if (live) seasPaint(); else render();
+}
+function seasMove(e){
+  if (!seasDrag) return;
+  /* elementFromPoint rather than the bar captured at pointerdown, so dragging
+     sideways paints across months - the gesture people reach for the moment
+     they realise the bars move at all. Also survives the fact that render()
+     has just replaced the element under the pointer. */
+  var el = document.elementFromPoint(e.clientX, e.clientY);
+  var bar = el && el.closest ? el.closest(".smo") : null;
+  if (bar) seasSet(bar, e.clientY, true);
+}
+function seasStop(){
+  if (!seasDrag) return;
+  seasDrag = false;
+  render();                 /* tiles, prose and the hash catch up here */
+  document.removeEventListener("pointermove", seasMove);
+  document.removeEventListener("pointerup", seasStop);
+  document.removeEventListener("pointercancel", seasStop);
+}
+
 function render(){
   var g = grow();
-  drawWorth(g); drawFunnel(g); drawNeed(g); drawCapacity(g);
+  drawWorth(g); drawFunnel(g); drawNeed(g); drawCapacity(g); drawSeason(g);
   /* NOT em-dashes. Two 38px figures above the fold rendering as dashes is a
      caption for a number that is not there, at the exact moment a cold reader
      is deciding whether to stay. The zero state shows the page's own worked
@@ -394,6 +644,12 @@ function writeHash(){
       if (v !== "" && v != null) q.push(c[0] + "_" + f + "=" + encodeURIComponent(v));
     });
   });
+  /* Seasonality travels in the link too, or a shared setup silently reverts to
+     "typical" and the recipient sees a different year to the sender. Only
+     written when it differs from the default, to keep ordinary links short. */
+  if (S.shape && S.shape !== "typical") q.push("shape=" + encodeURIComponent(S.shape));
+  var mo = S.months.map(function(v){ return (v === "" || v == null) ? "" : v; });
+  if (mo.some(function(v){ return v !== ""; })) q.push("mo=" + encodeURIComponent(mo.join(",")));
   try { history.replaceState(null, "", "#" + q.join("&")); } catch (e) {}
 }
 function readHash(){
@@ -404,6 +660,13 @@ function readHash(){
     var i = p.indexOf("="); if (i < 0) return;
     var k = p.slice(0, i), v = decodeURIComponent(p.slice(i + 1));
     if (HASH_KEYS.indexOf(k) >= 0){ S[k] = v; return; }
+    if (k === "shape"){ if (SHAPES[v]) S.shape = v; return; }
+    if (k === "mo"){
+      var a = v.split(",");
+      for (var j = 0; j < 12; j++)
+        S.months[j] = (a[j] != null && a[j] !== "" && isFinite(+a[j])) ? a[j] : "";
+      return;
+    }
     var m = k.match(/^(pt|web|ref)_(views|enq|got)$/);
     if (m) S.chan[m[1]][m[2]] = v;
   });
@@ -425,6 +688,49 @@ function boot(){
       bind("i-" + c[0] + "_" + f, chanGet(c[0], f), chanSet(c[0], f));
     });
   });
+  /* Delegated onto #seasout, because drawSeason() replaces everything inside it
+     on every render - including mid-drag. Listeners bound to the bars would be
+     destroyed by the first repaint the drag itself caused. #seasout is emitted
+     by the builder and never replaced, so it is the one stable anchor. */
+  var so = $("seasout");
+  if (so){
+    so.addEventListener("click", function(e){
+      if (!e.target.closest) return;
+      var b = e.target.closest(".shc");
+      if (b){ S.shape = b.getAttribute("data-shape"); render(); return; }
+      if (e.target.closest("#seasreset")){
+        S.months = ["","","","","","","","","","","",""];
+        render();
+      }
+    });
+    so.addEventListener("pointerdown", function(e){
+      if (!e.target.closest) return;
+      var bar = e.target.closest(".smo"); if (!bar) return;
+      e.preventDefault();
+      seasDrag = true;
+      seasSet(bar, e.clientY, true);
+      document.addEventListener("pointermove", seasMove);
+      document.addEventListener("pointerup", seasStop);
+      document.addEventListener("pointercancel", seasStop);
+    });
+    so.addEventListener("keydown", function(e){
+      if (!e.target.closest) return;
+      var bar = e.target.closest(".smo"); if (!bar) return;
+      var d = (e.key === "ArrowUp" || e.key === "ArrowRight") ? 5
+            : (e.key === "ArrowDown" || e.key === "ArrowLeft") ? -5 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var i = +bar.getAttribute("data-i");
+      var cur = Math.round(rawShape()[i] * 100);
+      S.months[i] = String(Math.max(0, Math.min(SEAS_MAX, cur + d)));
+      render();
+      /* the bar was just replaced by the repaint - refocus its successor, or
+         a second arrow press goes nowhere */
+      var again = document.querySelector('.smo[data-i="' + i + '"]');
+      if (again) again.focus();
+    });
+  }
+
   window.addEventListener("hashchange", function(){
     if (location.hash.indexOf("=") < 0) return;
     readHash();

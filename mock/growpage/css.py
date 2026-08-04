@@ -94,6 +94,90 @@ CSS += r"""
 .cbox > i{display:block;font-style:normal;font-size:11.2px;color:#8A8477;margin-bottom:11px;
  line-height:1.5}
 
+/* ---------- seasonality: the shape editor ----------
+   Class names are deliberately NOT .sb/.sbt - the lifted tax stylesheet already
+   owns .sb and .sb.on (a dark toggle button), and ".on" is exactly the modifier
+   this block needs. That collision would have styled every month bar as a
+   button and shipped looking broken. */
+.sh3{font-family:Fraunces,Georgia,serif;font-size:16.5px;font-weight:600;color:var(--ink);
+ margin:22px 0 5px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.shhint{font-family:Inter,system-ui,sans-serif;font-size:10.5px;font-weight:600;
+ letter-spacing:.05em;text-transform:uppercase;color:#9A9384}
+.shn{font-size:12.4px;line-height:1.62;color:var(--muted);margin:0 0 11px}
+.shn b{color:var(--ink);font-weight:600}
+.shrst{font:inherit;font-size:12.4px;background:none;border:0;padding:0;cursor:pointer;
+ color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+.shrst:hover{color:var(--gold)}
+
+.shp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-bottom:6px}
+.shc{text-align:left;background:var(--white);border:1.5px solid var(--line);border-radius:11px;
+ padding:11px 13px;cursor:pointer;font:inherit;min-width:0;transition:border-color .15s,
+ background .15s}
+.shc:hover{background:var(--field);border-color:var(--fieldline)}
+.shc.on{border-color:var(--pine);background:#EFF7F3}
+.shc b{display:block;font-family:Fraunces,Georgia,serif;font-size:14px;color:var(--ink);
+ line-height:1.25;margin-bottom:3px}
+.shc i{display:block;font-style:normal;font-size:11px;line-height:1.45;color:#8A8477}
+.shc.on i{color:#4A7A66}
+
+.seas{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-bottom:10px}
+.smo{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:ns-resize;
+ touch-action:none;border-radius:7px;padding:3px 1px}
+.smo:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.smo u{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;text-decoration:none;
+ color:#9A9384;letter-spacing:-.02em}
+.smo.on u{color:var(--gold);font-weight:700}
+.smot{position:relative;width:100%;height:104px;background:var(--paper);
+ border:1px solid var(--line);border-radius:6px;display:flex;align-items:flex-end;
+ overflow:hidden}
+/* the 100% line, drawn once per track so it reads as one rule across the year */
+.smot::before{content:"";position:absolute;left:0;right:0;bottom:50%;
+ border-top:1px dashed #C9C2B0;z-index:1}
+.smot i{display:block;width:100%;background:var(--pine);border-radius:0 0 5px 5px;
+ transition:height .12s ease;position:relative;z-index:2;opacity:.82}
+.smo.on .smot i{background:var(--gold);opacity:1}
+.smo em{font-style:normal;font-size:10px;font-weight:600;color:#8A8477;letter-spacing:.02em}
+
+/* ---------- seasonality: the caseload consequence ---------- */
+.ldwrap{position:relative;margin-top:4px}
+.ldg{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px}
+.ld{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ldt{width:100%;height:118px;background:var(--paper);border:1px solid var(--line);
+ border-radius:6px;display:flex;align-items:flex-end;overflow:hidden}
+.ldt i{display:block;width:100%;background:#9DBDAF;border-radius:0 0 5px 5px;
+ transition:height .18s ease}
+.ld.hi .ldt i{background:var(--pos)}
+.ld.lo .ldt i{background:var(--neg)}
+.ld em{font-style:normal;font-size:10px;font-weight:600;color:#8A8477}
+.ld.hi em{color:var(--pos)}
+.ld.lo em{color:var(--neg)}
+/* the ceiling, positioned inside a box the exact height of the tracks so the
+   month labels underneath cannot push it off register */
+.ldcap{position:absolute;left:0;right:0;top:0;height:118px;pointer-events:none;z-index:3}
+.ldcap b{position:absolute;left:0;right:0;border-top:2px dashed var(--gold)}
+.ldcap span{position:absolute;right:0;top:-15px;font-size:9.5px;font-weight:700;
+ letter-spacing:.05em;text-transform:uppercase;color:var(--gold);background:var(--white);
+ padding:0 4px;border-radius:3px;white-space:nowrap}
+
+/* Twelve columns are kept at every width. Wrapping the year onto two rows of
+   six saves horizontal space and destroys the only thing the block is for -
+   you cannot read a shape that has been cut in half. The bars narrow instead. */
+@media (max-width:760px){
+ .shp{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .seas,.ldg{gap:3px}
+ .smot{height:88px}
+ .ldt{height:96px}
+ .ldcap{height:96px}
+ .smo em,.ld em{font-size:9px}
+}
+@media (max-width:520px){
+ .seas,.ldg{gap:2px}
+ .smo{padding:3px 0}
+ .smo u{display:none}          /* 26px of column will not hold "145%" honestly */
+ .smo em,.ld em{font-size:8.5px;letter-spacing:-.02em}
+ .ldcap span{font-size:9px}
+}
+
 @media (max-width:900px){.ghero .in{grid-template-columns:1fr;gap:24px}}
 @media (max-width:820px){
  .chans,.cinputs{grid-template-columns:1fr}
