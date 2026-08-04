@@ -8,8 +8,11 @@
 #
 # Pages usually rebuilds within a minute of a push - though it has taken eight.
 #
-# The watcher writes two files while it runs. Both live in _dev/, which is
-# gitignored, so they never reach the site and never trigger a publish loop:
+# The watcher writes two files while it runs. _dev/ as a whole is NO LONGER
+# gitignored (the build tooling lives there and must be tracked), so these two
+# are named individually in .gitignore. They must stay there: .watch-heartbeat
+# is touched every 5 seconds, so tracking it would make the watcher commit and
+# push in an endless loop.
 #
 #   _dev/.watch-heartbeat   touched every few seconds while watching
 #   _dev/.publish-error     written when a push fails, deleted when one works

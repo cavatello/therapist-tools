@@ -1,16 +1,24 @@
-# Local dev server and scratch — not part of the site
-# _dev/ used to be ignored wholesale. That is exactly why the build tooling was
-# never in the repo and had to be force-added. Ignore only the scratch inside it.
-_dev/autopublish.log
-_dev/local.html
+# What is deliberately NOT in this repo.
+#
+# `_dev/` used to be ignored wholesale. That single line is why the build
+# tooling was never tracked and had to be force-added in August 2026. Ignore
+# only the scratch inside it, never the directory.
+
+# Watcher runtime state. publish.sh writes these while it runs and relies on
+# them being ignored -- .watch-heartbeat is touched every 5 seconds, so if it
+# were tracked the watcher would commit and push in a loop forever.
+_dev/.watch-heartbeat
+_dev/.publish-error
 _dev/*.log
+
+# Local-only scratch
+_dev/local.html
 _to_delete/
 _publish/
+
+# Machine noise
 .DS_Store
 *.fuse_hidden*
 node_modules/
-
-# Python bytecode from the mock/ builders
 __pycache__/
 *.pyc
-_dev/.watch-heartbeat
