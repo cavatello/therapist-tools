@@ -538,22 +538,18 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 
 
-<style>/* _dev/link_cards.py */
-/* the cards were already styled as if they were links; they just were not */
-a.card{display:block;text-decoration:none;color:inherit;
-  transition:transform .12s,box-shadow .12s,border-color .12s}
-a.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(38,36,30,.09)}
-a.card:focus-visible{outline:3px solid #2C6350;outline-offset:3px}
-a.card h3{text-decoration:none}
-/* end cards */</style>
-
 <style>/* _dev/breadcrumbs.py */
 /* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
    to a reader who could see the other chapters. Deliberately the same weight
    and tracking as the kicker it sits above, so it reads as chrome rather than
    as content. Colour is inherited so it works on paper and on a dark slab
    without a second rule. */
-.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 12px;
+/* Measured 44-86px of dead air between the masthead and the crumb, because the
+   hero's own padding-top was set before the crumb existed and the crumb then
+   added to it. Pulled up rather than reaching into each page's hero padding,
+   which differs per template. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;
+  margin:clamp(-30px,-2.2vw,-14px) 0 10px;
  padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
  letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
 .bcr li{display:flex;align-items:center;gap:8px}
@@ -570,5 +566,14 @@ a.card h3{text-decoration:none}
 @media (min-width:1500px){.ftin,.pw,.sitenav-in{max-width:1320px}}
 @media (min-width:1900px){.ftin,.pw,.sitenav-in{max-width:1560px}}
 /* end widen */</style>
+
+<style>/* _dev/link_cards.py */
+/* the cards were already styled as if they were links; they just were not */
+a.card{display:block;text-decoration:none;color:inherit;
+  transition:transform .12s,box-shadow .12s,border-color .12s}
+a.card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(38,36,30,.09)}
+a.card:focus-visible{outline:3px solid #2C6350;outline-offset:3px}
+a.card h3{text-decoration:none}
+/* end cards */</style>
 </body>
 </html>

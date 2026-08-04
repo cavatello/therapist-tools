@@ -1781,7 +1781,12 @@ else boot();
    and tracking as the kicker it sits above, so it reads as chrome rather than
    as content. Colour is inherited so it works on paper and on a dark slab
    without a second rule. */
-.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 12px;
+/* Measured 44-86px of dead air between the masthead and the crumb, because the
+   hero's own padding-top was set before the crumb existed and the crumb then
+   added to it. Pulled up rather than reaching into each page's hero padding,
+   which differs per template. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;
+  margin:clamp(-30px,-2.2vw,-14px) 0 10px;
  padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
  letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
 .bcr li{display:flex;align-items:center;gap:8px}
