@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 import content as C
 
 CH = os.path.join(HERE, "..", "amft")
-SITE_DIR = os.path.join(HERE, "..", "..", "site")
+SITE_DIR = os.path.join(HERE, "..", "..")
 chrome_css = open(os.path.join(CH, "_chrome_css.txt")).read()
 chrome_hdr = open(os.path.join(CH, "_chrome_hdr.txt")).read()
 chrome_head = open(os.path.join(CH, "_chrome_head.txt")).read()

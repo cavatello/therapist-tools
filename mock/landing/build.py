@@ -396,7 +396,7 @@ def main():
         for href in re.findall(r'href="([^"#?]+)', hero + body):
             if href.startswith(("http", "mailto", "#")):
                 continue
-            assert os.path.exists(os.path.join(HERE, "..", "..", "site", href)), \
+            assert os.path.exists(os.path.join(HERE, "..", "..", href)), \
                 "concept %s links to a missing file: %s" % (k, href)
         p = os.path.join(HERE, "home-%s.html" % k)
         open(p, "w", encoding="utf-8").write(html)
@@ -478,7 +478,7 @@ def ship():
     for href in re.findall(r'href="([^"#?]+)', html):
         if href.startswith(("http", "mailto", "#", "data:")):
             continue
-        assert os.path.exists(os.path.join(HERE, "..", "..", "site", href)), \
+        assert os.path.exists(os.path.join(HERE, "..", "..", href)), \
             "home links to a missing file: " + href
     open(os.path.join(HERE, "index.html"), "w", encoding="utf-8").write(html)
     print("wrote index.html  %d kB  (concept B2, shipped)" % (len(html) // 1024))
