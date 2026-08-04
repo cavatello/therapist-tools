@@ -54,6 +54,22 @@ chrome_hdr = (chrome_hdr[:_self.end() - 1] + '" class="on"'
               + chrome_hdr[_self.end():])
 assert chrome_hdr.count('class="on"') == 1
 
+# The lifted chrome is a CACHED copy of a published page's nav, and it drifts.
+# On 4 Aug it still carried a "Full simulator" entry the live site had dropped,
+# pointing at practice-simulator.html — the same destination as "Practice
+# Simulator" — so every rebuild silently reintroduced a duplicate nav item with
+# a different label. Nothing errored; it just shipped. Two destinations that are
+# the same page under two names is mechanically detectable, so detect it.
+_navlinks = re.findall(r'<a href="([^"#][^"]*)"[^>]*>(?:(?!</a>).)*?<b>([^<]*)</b>',
+                       chrome_hdr, re.S)
+_byhref = {}
+for _h, _label in _navlinks:
+    _byhref.setdefault(_h, []).append(_label)
+_dupes = {h: ls for h, ls in _byhref.items() if len(ls) > 1}
+assert not _dupes, (
+    "the lifted nav points at the same page more than once — the chrome cache "
+    "in ../amft/ has drifted from the live site: %r" % _dupes)
+
 # ------------------------------------------------------------ structured ---
 LD = [
  {"@context":"https://schema.org","@type":"WebApplication",
