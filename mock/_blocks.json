@@ -1,0 +1,162 @@
+{
+ "solo": {
+  "title": "Solo 401(k)",
+  "sub": "Deferral plus an employer contribution, from the same profit",
+  "cat": "money",
+  "rank": 1,
+  "body": "<p>Room of <b>$55,185</b> on your profit. Two halves, both funded by you; the plan just counts them separately.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>Line</th><th>Amount</th><th>Where it comes from</th></tr></thead><tbody><tr><th>Your deferral, as the employee</th><td>$24,500</td><td>Capped at $24,500 at your age</td></tr><tr><th>Your contribution, as the employer</th><td>$30,685</td><td>20% of $153,425 of net self-employment earnings</td></tr><tr><th>Total into the account</th><td><b>$55,185</b></td><td>Both halves are you</td></tr><tr><th>Tax it removes</th><td><b>$14,845</b></td><td>Federal + California + self-employment, measured by running the engine twice</td></tr><tr><th>Your own spendable cash</th><td>$40,340</td><td>The real cost. Locked until 59&frac12; without a penalty</td></tr></tbody><tfoot><tr><td colspan=\"3\">Never computed as contribution &times; marginal rate &mdash; the rate falls as the deduction lowers income, and doing it the lazy way overstated this figure by $12,200 once.</td></tr></tfoot></table></div><p><b>Who it suits.</b> Self-employed with no employees other than a spouse. That is the whole eligibility test.</p><p><b>The deadline that bites.</b> The plan has to <i>exist</i> before you can fund it, and the employee and employer halves have different cut-offs.</p>",
+  "when": "a.spare!=='none' && a.staff==='none'",
+  "why": "a.staff!=='none' ? 'You have staff \\u2014 a Solo 401(k) is only for a practice with no employees other than a spouse.' : 'You said there is no spare profit \\u2014 nothing to shelter.'",
+  "note": ""
+ },
+ "sep": {
+  "title": "SEP IRA",
+  "sub": "Employer-funded only, and openable after the year has ended",
+  "cat": "money",
+  "rank": 2,
+  "body": "<p>20% of $153,425 = <b>$30,685</b>. Less room than the Solo 401(k) because there is no employee half.</p><p>Its advantage is timing: it can be opened <i>and</i> funded right up to your filing deadline, extensions included &mdash; which makes it the usual choice once a year is already over.</p><p><b>Worth knowing.</b> Hire anyone later and a SEP generally requires the same percentage for them as for you.</p>",
+  "when": "a.spare!=='none'",
+  "why": "'You said there is no spare profit \\u2014 nothing to shelter.'",
+  "note": ""
+ },
+ "assoc": {
+  "title": "Hiring associates changes which account you can use",
+  "sub": "It does NOT force you to incorporate \u2014 but it does close the Solo 401(k)",
+  "cat": "money",
+  "rank": 0,
+  "body": "<p><b>You do not need a corporation to employ an associate in California.</b> The BBS requires a private practice to be &ldquo;owned by a licensed health professional either independently or jointly with one or more other licensed health professionals&rdquo; &mdash; <i>independently</i> means a sole owner, and no corporation is named anywhere in the requirement.</p><p>What the law <i>does</i> require is the employment relationship. Under <b>BPC &sect;4980.43.3</b> an associate &ldquo;shall only perform mental health and related services as an employee or volunteer, and not as an independent contractor.&rdquo; A sole proprietor can be that W-2 employer: EIN, payroll, EDD registration, workers&rsquo; compensation. Associates may only gain hours in private practice for the <b>first six years</b> after registration.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>What hiring changes</th><th>Effect</th></tr></thead><tbody><tr class=\"band\"><td colspan=\"2\"><i>What it does not change</i></td></tr><tr><th>Your entity</th><td>A sole proprietor can employ staff. No corporation required.</td></tr><tr class=\"band\"><td colspan=\"2\"><i>What it does change, and this is the expensive part</i></td></tr><tr><th>Solo 401(k)</th><td><b>Closes.</b> One non-excludable common-law employee and it stops being a one-participant plan.</td></tr><tr><th>Who is excludable</th><td>Under 21 &middot; under 1,000 hours in a year &middot; under 500 hours in each of two consecutive years &middot; non-resident aliens. A part-time associate may well be excludable; a full-time one is not.</td></tr><tr><th>SEP IRA</th><td>Generally requires the <b>same percentage</b> for eligible employees. Cheap alone, expensive with staff.</td></tr><tr><th>SIMPLE IRA</th><td>Built for exactly this: deferral plus a mandatory 3% match.</td></tr><tr><th>The corporation question</th><td>Gets <i>cheaper</i>, not more necessary &mdash; you are running payroll either way, so the payroll-service cost stops being an argument against incorporating.</td></tr></tbody><tfoot><tr><td colspan=\"2\">This is the one place where the two decisions on this page genuinely interact.</td></tr></tfoot></table></div><p><b>So the honest answer:</b> hiring associates does not make you incorporate. It closes your best deferral account and quietly removes one of the reasons not to incorporate. Those are different things, and most write-ups conflate them.</p>",
+  "when": "a.staff!=='none'",
+  "why": "'Only bites once someone else is on your payroll.'",
+  "note": ""
+ },
+ "simple": {
+  "title": "SIMPLE IRA",
+  "sub": "Deferral plus a mandatory 3% match, built for small teams",
+  "cat": "money",
+  "rank": 3,
+  "body": "<p><b>$22,703</b> of room: $18,100 deferral plus a mandatory 3% of $153,425. A solo practice always qualifies for the higher small-employer limit.</p><p><b>Cannot be run in the same year as a Solo 401(k).</b> That is a rule, not a preference &mdash; picking one closes the other.</p><p>Must be set up earlier in the year than the others, and money out within the first two years carries a steeper penalty than a normal early withdrawal.</p>",
+  "when": "a.staff!=='none' && a.spare!=='none'",
+  "why": "a.spare==='none' ? 'No spare profit to shelter.' : 'With no employees, the Solo 401(k) gives more room at the same effort, and nothing forces you into a SIMPLE.'",
+  "note": ""
+ },
+ "ira": {
+  "title": "Traditional IRA",
+  "sub": "Allowed, but not deductible at your income",
+  "cat": "money",
+  "rank": 4,
+  "body": "<p>Annual limit $7,500 at your age. Deductible share: <b>$0</b>. A non-deductible contribution is still permitted, and it is the one account here not tied to self-employment, so it works alongside any of the others.</p>",
+  "when": "false",
+  "why": "'Fully phased out at ' + m(N.profit) + ' of profit once you have a plan of your own \\u2014 the contribution is allowed, the deduction is not.'",
+  "note": ""
+ },
+ "corp": {
+  "title": "Professional corporation",
+  "sub": "S-corp election, a defensible salary, payroll every fortnight",
+  "cat": "structure",
+  "rank": 5,
+  "body": "<p>Priced at a <b>$80,000</b> salary &mdash; one you could defend if asked. Five lines, and they very nearly cancel.</p><div class=\"brs\"><div class=\"br\"><span>Payroll tax you would avoid</span><div class=\"track\"><div class=\"pos\" style=\"width:100%\"></div></div><b class=\"pos\">+$11,086</b><i>SE tax on all profit vs payroll tax on the salary only</i></div><div class=\"br\"><span>California franchise tax</span><div class=\"track\"><div class=\"neg\" style=\"width:10%\"></div></div><b class=\"neg\">&minus;$1,091</b><i>Greater of $800 or 1.5% of net income. A sole proprietor pays neither</i></div><div class=\"br\"><span>Smaller QBI deduction</span><div class=\"track\"><div class=\"neg\" style=\"width:51%\"></div></div><b class=\"neg\">&minus;$5,688</b><i>A wage shrinks the 20% deduction on what is left. The line most write-ups omit</i></div><div class=\"br\"><span>Payroll service and filings</span><div class=\"track\"><div class=\"neg\" style=\"width:40%\"></div></div><b class=\"neg\">&minus;$4,400</b><i>Heard's published average \\u2014 replace it with your own quote</i></div><div class=\"br\"><span>Everything else</span><div class=\"track\"><div class=\"neg\" style=\"width:7%\"></div></div><b class=\"neg\">&minus;$826</b><i>Bracket effects and the half-SE-tax deduction, moving both ways</i></div></div><p class=\"netline\">Net <b>&minus;$75</b> a year, plus a payroll run every fortnight and a second tax return every March.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th></th><th>Sole proprietor</th><th>Professional corp</th></tr></thead><tbody><tr class=\"band\"><td colspan=\"3\"><i>This year</i></td></tr><tr><th>Total tax</th><td>$50,706</td><td>$50,781</td></tr><tr><th>Take-home</th><td>$108,143</td><td>$108,068</td></tr><tr><th>Salary / distribution</th><td>&mdash;</td><td>$80,000 + $78,849</td></tr><tr class=\"band\"><td colspan=\"3\"><i>Every year, forever</i></td></tr><tr><th>Payroll runs</th><td>none</td><td>26</td></tr><tr><th>Tax returns</th><td>1</td><td>2 (1120-S + Form 100S)</td></tr><tr><th>CA franchise tax</th><td>$0</td><td>greater of $800 or 1.5% of net income</td></tr><tr class=\"band\"><td colspan=\"3\"><i>Much later</i></td></tr><tr><th>Credited earnings</th><td>$153,425</td><td>$80,000</td></tr><tr><th>Social Security at 67</th><td>$3,981/mo</td><td>$3,199/mo</td></tr></tbody><tfoot><tr><td colspan=\"3\">The shipped version carries all 28 rows across 6 bands. These are the ones whose figures come straight from the engine at this setup.</td></tr></tfoot></table></div>",
+  "when": "a.admin==='ok'",
+  "why": "'You would rather keep it simple \\u2014 and on your numbers it is worth ' + m(N.scorpNet) + ' a year, so simple is also the cheaper answer.'",
+  "note": ""
+ },
+ "llc": {
+  "title": "LLC",
+  "sub": "Not a choice for a California-licensed therapist",
+  "cat": "structure",
+  "rank": 9,
+  "body": "<p>A California-licensed MFT, LCSW, LPCC or psychologist <b>cannot</b> form an LLC to provide licensed services &mdash; Cal. Corp. Code &sect;17701.04(e). The real choice is sole proprietorship or a California professional corporation (for MFTs, a Marriage and Family Therapy Corporation, 51%+ MFT-owned per &sect;13401.5) which can then elect S-corp treatment federally.</p>",
+  "when": "false",
+  "why": "'Blocked by statute for anyone on this page, whatever the answers.'",
+  "note": ""
+ },
+ "salary": {
+  "title": "The salary split",
+  "sub": "How much of the profit is wage, and how much is distribution",
+  "cat": "structure",
+  "rank": 6,
+  "body": "<p>The whole election turns on this number. Too high and there is nothing left to distribute; too low and it is the arrangement the IRS actually challenges.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>Salary</th><th>Share of profit</th><th>Payroll tax</th><th>Risk</th></tr></thead><tbody><tr><th>$50,000</th><td>31%</td><td>lower</td><td>Aggressive &mdash; hard to defend</td></tr><tr><th>$80,000</th><td>50%</td><td>moderate</td><td>The usual starting benchmark</td></tr><tr><th>$100,000</th><td>63%</td><td>higher</td><td>Comfortable, and cheaper to justify</td></tr></tbody><tfoot><tr><td colspan=\"4\">The 50%-of-profit convention is a private-practice folk rule, not an IRS threshold. See the reasonable-compensation block.</td></tr></tfoot></table></div>",
+  "when": "a.admin==='ok'",
+  "why": "'Only a question once you have a corporation to pay a salary out of.'",
+  "note": ""
+ },
+ "wage": {
+  "title": "What a defensible salary looks like",
+  "sub": "BLS metro wages and what California therapy S-corps actually run through payroll",
+  "cat": "structure",
+  "rank": 7,
+  "body": "<p>Two independent anchors, neither of which is a rule.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>Source</th><th>Figure</th><th>What it is</th></tr></thead><tbody><tr><th>BLS OEWS, CA MFTs</th><td>$61,450&ndash;$98,400</td><td>Metro mean wages, May 2023, SOC 21-1013</td></tr><tr><th>Census CBP, CA NAICS 621330</th><td>$59,243</td><td>Payroll per employee at S-corp establishments with 1&ndash;4 employees</td></tr><tr><th>Your salary</th><td>$80,000</td><td>135% of the peer figure</td></tr></tbody><tfoot><tr><td colspan=\"3\">Employment is a 12 March point-in-time count while payroll is full-year, so part-year staff drag the per-employee figure down. Evidence of what peers do, not a target and not a safe harbour.</td></tr></tfoot></table></div>",
+  "when": "a.admin==='ok'",
+  "why": "'Only matters once you are setting a salary.'",
+  "note": ""
+ },
+ "setup": {
+  "title": "What incorporating actually involves",
+  "sub": "Five filings to start, then two returns and 26 payroll runs a year",
+  "cat": "structure",
+  "rank": 8,
+  "body": "<ol class='tl'><li><b>Articles of Incorporation</b> &mdash; filed with the CA Secretary of State, as a professional corporation.</li><li><b>Bylaws and share issuance</b> &mdash; 51%+ MFT-owned per &sect;13401.5.</li><li><b>EIN</b> &mdash; from the IRS, before payroll can exist.</li><li><b>Form 2553</b> &mdash; the S-corp election itself. Deadline-sensitive.</li><li><b>EDD registration</b> &mdash; California payroll tax account.</li></ol><p><b>Then, every year:</b> Form 1120-S and CA Form 100S by 15 March, W-2s by 31 January, a Statement of Information, and the franchise tax.</p><p>Naming is governed by B&amp;P Code &sect;4987.7. BBS registration of the corporation is <i>not</i> required, per Corp Code &sect;13401(b).</p>",
+  "when": "a.admin==='ok'",
+  "why": "'Nothing to file if you stay a sole proprietor.'",
+  "note": ""
+ },
+ "ss": {
+  "title": "Social Security",
+  "sub": "What a salary below your profit costs, decades out",
+  "cat": "later",
+  "rank": 10,
+  "body": "<p>On the sole-proprietor path every dollar of profit is credited earnings. A salary below your profit credits less, for every year you do it.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>Claim at</th><th>Sole proprietor</th><th>Professional corp</th><th>Why</th></tr></thead><tbody><tr><th>62</th><td>$2,787/mo</td><td>$2,239/mo</td><td>&times;0.70 of PIA</td></tr><tr><th>67</th><td><b>$3,981/mo</b></td><td><b>$3,199/mo</b></td><td>full retirement age</td></tr><tr><th>70</th><td>$4,936/mo</td><td>$3,967/mo</td><td>&times;1.24 of PIA</td></tr></tbody><tfoot><tr><td colspan=\"4\">The 62 and 70 rows are the 67 figure scaled by the published factors. Bend points lock at 62, so any projection made now is an approximation and is labelled as one.</td></tr></tfoot></table></div><p><b>Abroad:</b> Germany, Portugal, France and Australia have totalization agreements. <b>The UAE does not.</b> Cuba and North Korea are blocked. Medicare does not travel.</p>",
+  "when": "a.age==='near' || a.admin==='ok'",
+  "why": "'Decades away, and you are not taking a salary below your profit \\u2014 nothing here changes for you yet.'",
+  "note": ""
+ },
+ "compound": {
+  "title": "What one year becomes",
+  "sub": "This year's contribution, left alone until 67",
+  "cat": "later",
+  "rank": 11,
+  "body": "<p>One year of $55,185, at 11% for the 27 years to 67. Nothing else in this chapter compounds &mdash; the structure decision is worth its face value every year and no more.</p>",
+  "when": "a.spare!=='none'",
+  "why": "'Nothing contributed, nothing to compound.'",
+  "note": ""
+ },
+ "prevalence": {
+  "title": "What California therapists actually do",
+  "sub": "Census data, not a survey",
+  "cat": "reference",
+  "rank": 12,
+  "body": "<p>Nobody surveys this. The Census does publish it, derived from tax filings rather than a questionnaire.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>Universe</th><th>Sole prop</th><th>S corp</th><th>Other</th><th>n</th></tr></thead><tbody><tr><th>All CA mental-health practices</th><td><b>78%</b></td><td>18%</td><td>4%</td><td>33,660</td></tr><tr><th>Practices large enough to run payroll</th><td>11%</td><td><b>72%</b></td><td>17%</td><td>6,953</td></tr></tbody><tfoot><tr><td colspan=\"5\">The inversion is the point: a sole proprietor has no payroll and lands in the nonemployer file; a corporation paying its owner a W-2 has payroll by definition. The two universes are near mutually exclusive on exactly the axis being measured.</td></tr></tfoot></table></div><p class=\"flag\"><b>1,049</b> California S corporations in this category run <b>zero payroll</b> &mdash; shareholders taking distributions and paying themselves no salary at all. That is the reasonable-compensation exposure this chapter warns about, as a counted number rather than a hypothetical. Average receipts $89,112, against $60,563 for sole proprietors.</p><p>NAICS 621330 covers all non-physician mental-health practitioners with no licence-level cut, and counts establishments rather than therapists.</p>",
+  "when": "true",
+  "why": "''",
+  "note": ""
+ },
+ "experts": {
+  "title": "What the lawyers and accountants say",
+  "sub": "Three named sources who disagree about the threshold",
+  "cat": "reference",
+  "rank": 13,
+  "body": "<p><b>Michael J. Leonard, Esq.</b> (San Diego Corporate Law) comes down firmly on the corporation, calling it &ldquo;the California business entity of choice for marriage and family therapists&rdquo;.</p><p><b>Heard</b>, an accounting firm working only with therapists, sets a floor rather than a rule: <b>$100,000</b> of annual net income before the election is worth making, and puts the running cost at roughly <b>$4,400</b> a year.</p><p><b>The IRS</b> publishes no percentage and never has. The requirement is that an officer performing more than minor services be paid reasonable compensation for work actually done, before any distribution. The &ldquo;50% of profit&rdquo; figure repeated across every private-practice blog is convention, not law.</p>",
+  "when": "true",
+  "why": "''",
+  "note": ""
+ },
+ "setax": {
+  "title": "How self-employment tax actually works",
+  "sub": "The mechanic the whole chapter turns on",
+  "cat": "reference",
+  "rank": 14,
+  "body": "<p>Self-employment tax is Social Security and Medicare for people with no employer to split it with, so you pay both halves &mdash; 12.4% + 2.9%.</p><div class=\"tw\"><table class=\"cmp\"><thead><tr><th>Step</th><th>On your numbers</th></tr></thead><tbody><tr><th>Net profit</th><td>$158,849</td></tr><tr><th>&times; 92.35%</th><td>$153,425 &mdash; the SE base</td></tr><tr><th>Social Security, 12.4%</th><td>up to the $184,500 wage base</td></tr><tr><th>Medicare, 2.9%</th><td>no cap; +0.9% above $200,000 single / $250,000 joint</td></tr></tbody><tfoot><tr><td colspan=\"2\">Half of what you pay is deductible against income tax, which is why no lever here is worth its headline rate.</td></tr></tfoot></table></div><p>The S-corp election works by moving part of your profit out of that base and into a distribution. That is the entire mechanism &mdash; and the reason a salary that is too low is the thing that gets challenged.</p>",
+  "when": "true",
+  "why": "''",
+  "note": ""
+ },
+ "audit": {
+  "title": "Audit risk, honestly",
+  "sub": "What actually gets challenged, and what does not",
+  "cat": "reference",
+  "rank": 15,
+  "body": "<p>The challenged arrangement is almost never &ldquo;you incorporated&rdquo;. It is &ldquo;you took $150,000 of distributions and paid yourself $20,000&rdquo;.</p><p>The defence is a file, made before anyone asks: what you do, what comparable clinicians earn, how many hours are clinical versus management, and why the number you picked follows from that. <i>Nu-Look Design v. Commissioner</i>, 356 F.3d 290 (3d Cir. 2004) is the usual citation for recharacterisation.</p><p>Keep the payroll discipline: run it on a schedule, file the W-2, and never take a distribution in a year with no salary in it.</p>",
+  "when": "a.admin==='ok'",
+  "why": "'A sole proprietor has no reasonable-compensation exposure to manage.'",
+  "note": ""
+ }
+}
