@@ -37,8 +37,15 @@ NEW_SMALL = ("<div><h5>The small print</h5>"
              '<a href="contact.html">Report a wrong figure</a>'
              "<p>2026 federal and California rates. Estimates only &mdash; not tax, "
              "legal or financial advice.</p></div>")
-assert OLD_SMALL in footer, "the small-print column is not where it was"
-footer = footer.replace(OLD_SMALL, NEW_SMALL, 1)
+# Idempotency. The published tools.html this lifts from was itself generated
+# AFTER an earlier run of this script, so it already carries NEW_SMALL. A bare
+# `assert OLD_SMALL in footer` therefore fails on a clean checkout of a
+# perfectly healthy repo. Accept either state; fail only if NEITHER is present,
+# which is the case that really means "the footer moved".
+if OLD_SMALL in footer:
+    footer = footer.replace(OLD_SMALL, NEW_SMALL, 1)
+else:
+    assert NEW_SMALL in footer, "the small-print column is not where it was"
 
 OLD_BY = ("<p class=\"ftby\"><b>Built by Cavatello.</b> This does not constitute "
           "legal, tax or clinical advice.</p>")
@@ -46,8 +53,10 @@ NEW_BY = ('<p class="ftby"><b>Built by Cavatello.</b> Free, and not selling anyt
           'Nothing here is legal, tax, financial or clinical advice, and using this site '
           'does not create a professional relationship &mdash; see the '
           '<a href="terms.html">Terms of Use</a>.</p>')
-assert OLD_BY in footer
-footer = footer.replace(OLD_BY, NEW_BY, 1)
+if OLD_BY in footer:
+    footer = footer.replace(OLD_BY, NEW_BY, 1)
+else:
+    assert NEW_BY in footer, "the built-by line is not where it was"
 
 open(os.path.join(CH, "_chrome_ftr.txt"), "w").write(footer)
 
