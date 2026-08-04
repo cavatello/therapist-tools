@@ -895,6 +895,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  letter-spacing:.05em;text-transform:uppercase;color:#9A9384}
 .shn{font-size:12.4px;line-height:1.62;color:var(--muted);margin:0 0 11px}
 .shn b{color:var(--ink);font-weight:600}
+.shn em{font-style:italic}
+.shn a{color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+.shn a:hover{color:var(--gold)}
 .shrst{font:inherit;font-size:12.4px;background:none;border:0;padding:0;cursor:pointer;
  color:var(--pine);text-decoration:underline;text-underline-offset:2px}
 .shrst:hover{color:var(--gold)}
@@ -1080,7 +1083,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <div id="capout"></div>
 </section>
 <section class="slab brick" id="season"><div class="chh"><span class="chn">05</span><h2>When they actually arrive</h2></div>
-<p class="dek">Everything above is a yearly average, and an average is what makes a caseload plan fall over in July. Enquiries collapse over the holidays and again in high summer; January is the biggest intake month most private practices see. People finish therapy at a flat rate regardless — and that mismatch, not a marketing failure, is what produces the trough.</p>
+<p class="dek">Everything above is a yearly average, and an average is a poor guide to a year that is not flat. Most practitioners describe a January rush and a summer lull — but <b>nobody has published data on it</b>, so this section treats that as a hypothesis you test against your own calendar rather than a fact it asserts at you. What is not in doubt is the mechanism: people finish therapy at a steady rate whatever the month, so any dip in enquiries shows up as a caseload trough later, and by then it is too late to market your way out of it.</p>
 <div id="seasout"></div>
 </section>
 <section class="slab carbon" id="next"><div class="chh"><span class="chn">06</span><h2>What this is worth in actual money</h2></div>
@@ -1297,6 +1300,11 @@ S.chan = {pt:{views:"",enq:"",got:""}, web:{views:"",enq:"",got:""},
    are their data and a dragged what-if must never quietly overwrite them. */
 var SIM_MAX = 100;
 S.simEnq = ""; S.simGot = "";
+/* DEFAULT IS FLAT, deliberately. The other three shapes are hypotheses nobody
+   has published data for (see the note the section prints), and defaulting to
+   one of them would put an unsourced empirical claim underneath every figure
+   downstream of it. Flat asserts nothing. */
+S.shape = "flat";
 
 var HASH_KEYS = ["rate","sessions","weeksOff","tenure","clients","churn"];
 var CHAN = [["pt","Psychology Today", "or any paid directory"],
@@ -1343,16 +1351,16 @@ function tile(lab, val, sub, cls){
    stated, and the reader can drag any month. */
 var MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 var SHAPES = {
-  flat:    {name:"Flat", note:"no seasonality - the annual average, every month",
+  flat:    {name:"Flat", note:"assume nothing - every month the same. The honest default.",
             v:[1,1,1,1,1,1,1,1,1,1,1,1]},
-  typical: {name:"Typical private practice",
-            note:"January surge, a summer dip, and December off a cliff",
+  typical: {name:"January surge",
+            note:"the pattern most practitioners describe: a New Year rush, a summer dip, December off a cliff",
             v:[1.45,1.20,1.10,1.05,1.00,0.85,0.70,0.80,1.15,1.10,0.95,0.55]},
   school:  {name:"Children and families",
-            note:"follows the school year - dead in summer, heavy in September",
+            note:"tracks the school year - quiet in July, heavy in September",
             v:[1.35,1.15,1.10,1.05,0.95,0.60,0.45,0.75,1.50,1.25,1.05,0.60]},
   steady:  {name:"Mostly steady",
-            note:"a mild shape - some holiday softness, nothing dramatic",
+            note:"a mild version - some holiday softness, nothing dramatic",
             v:[1.15,1.05,1.05,1.00,1.00,0.95,0.90,0.90,1.05,1.05,1.00,0.80]}
 };
 
@@ -1834,23 +1842,40 @@ function drawSeason(g){
      even though both numbers are right. The deviation is the honest label. */
   var dHi = Math.round(m.devHigh), dLo = Math.round(m.devLow);
 
-  var head = live
-    ? '<div class="tiles">'
-      + tile("Seasonal swing", plural(dHi - dLo, "client"),
-             m.swing < 0.5 ? "this shape barely moves you"
-                           : "peak to trough, trend removed")
-      + tile("Fullest", m.highMonth, signed(dHi) + " against your average month", "hi")
-      + tile("Thinnest", m.lowMonth, signed(dLo) + " against your average month", "warn")
-      + (g.capacity > 0
-         ? tile("Months over capacity", n0(m.overMonths),
-                m.overMonths > 0 ? "you would be turning people away" : "the year fits",
-                m.overMonths > 0 ? "warn" : "")
-         : tile("Months over capacity", "—", "set your sessions a week"))
-      + '</div>'
-    : '<p class="empty">Fill in the caseload you hold and at least one channel above, and '
+  /* FLAT IS THE DEFAULT, so the no-seasonality state is the one most readers see
+     first and it has to read correctly. With every month equal there is no peak
+     and no trough: naming one would print "Fullest Jan, 0 clients against your
+     average month" beside "Thinnest Jan, 0 clients", which is degenerate and
+     looks like a bug. Say there is no shape set, and say what to do about it. */
+  var flatYear = m.swing < 0.5;
+
+  var head = !live
+    ? '<p class="empty">Fill in the caseload you hold and at least one channel above, and '
       + 'this works out where your year actually dips — which month your caseload bottoms '
       + 'out, how far it swings, and whether any month runs past your ceiling. The shape '
-      + 'below is editable either way, so it is worth a look now.</p>';
+      + 'below is editable either way, so it is worth a look now.</p>'
+    : flatYear
+      ? '<div class="tiles">'
+        + tile("Seasonal swing", "None set", "every month treated the same")
+        + tile("Your year, so far", "Flat",
+               "pick a shape below, or drag your own months in")
+        + (g.capacity > 0
+           ? tile("Months over capacity", n0(m.overMonths),
+                  m.overMonths > 0 ? "on a flat year — seasonality would only sharpen this"
+                                   : "the year fits",
+                  m.overMonths > 0 ? "warn" : "")
+           : tile("Months over capacity", "—", "set your sessions a week"))
+        + '</div>'
+      : '<div class="tiles">'
+        + tile("Seasonal swing", plural(dHi - dLo, "client"), "peak to trough, trend removed")
+        + tile("Fullest", m.highMonth, signed(dHi) + " against your average month", "hi")
+        + tile("Thinnest", m.lowMonth, signed(dLo) + " against your average month", "warn")
+        + (g.capacity > 0
+           ? tile("Months over capacity", n0(m.overMonths),
+                  m.overMonths > 0 ? "you would be turning people away" : "the year fits",
+                  m.overMonths > 0 ? "warn" : "")
+           : tile("Months over capacity", "—", "set your sessions a week"))
+        + '</div>';
 
   var pick = '<div class="shp">';
   ["typical","school","steady","flat"].forEach(function(k){
@@ -1865,9 +1890,19 @@ function drawSeason(g){
 
   return void (el.innerHTML = head
     + '<h3 class="sh3">Start from a shape</h3>'
-    + '<p class="shn">These are <b>shapes, not data</b> — starting points with the reasoning '
-      + 'stated, not a survey. Pick the one that sounds like your practice, then drag any '
-      + 'month that does not.</p>'
+    + '<p class="shn"><b>None of these is measured data, and we could not find any that is.</b> '
+      + 'There is no public dataset of enquiry seasonality in private practice. The peer-reviewed '
+      + 'work on mental-health seasonality covers hospital admissions, emergency presentations and '
+      + 'suicidality — not people emailing a therapist about a first appointment — and what it does '
+      + 'find is a <em>summer peak</em> in acute service use, which is the opposite of the summer '
+      + 'dip practitioners describe. The two are not measuring the same thing, but it does mean the '
+      + 'shapes below are <b>hypotheses, not findings</b>. '
+      + '<a href="https://www.psychiatrist.com/pcc/an-umbrella-systematic-review-of-seasonality-in-'
+      + 'mood-disorders-and-suicide-risk-impact-on-demand-for-primary-behavioral-health-care-acute-'
+      + 'psychiatric-services/" target="_blank" rel="noopener">The umbrella review is here</a>.</p>'
+    + '<p class="shn"><b>Your own records are the real source.</b> Count first appointments by '
+      + 'month for the last year or two — your calendar or your EHR already has it — and drag the '
+      + 'bars to match. Until you do, Flat is the setting that assumes nothing.</p>'
     + pick
     + '<h3 class="sh3">Then drag the months<span class="shhint">drag across the bars to '
       + 'paint · arrow keys work too</span></h3>'
@@ -1881,20 +1916,28 @@ function drawSeason(g){
     + '</p>'
     + (live
        ? '<h3 class="sh3">What that does to your caseload</h3>' + seasChart(g)
-         + '<p class="note">Clients arrive on the shape above; people finish at a flat rate, '
-           + 'because nobody stops therapy on a schedule. That mismatch is the whole point — '
-           + 'it is what puts your thinnest month in <b>' + m.lowMonth + '</b>, well after the '
-           + 'quiet stretch of enquiries that caused it and far too late to market your way '
-           + 'out of it. '
-           + (Math.abs(m.trend) >= 0.05
-              ? 'The bars also carry your underlying ' + (m.trend > 0 ? 'growth' : 'decline')
-                + ' of about ' + plural(Math.abs(m.trend), "client") + ' a month; the swing '
-                + 'figure above has that trend removed, so it is seasonality alone. '
-              : '')
+         + '<p class="note">'
+           + (flatYear
+              ? 'This is the flat year — a straight line, because nothing has been set. Clients '
+                + 'arrive at a steady rate and people finish at a steady rate, so the only thing '
+                + 'moving the caseload is the gap between the two. Give the year a shape above '
+                + 'and the same total arrivals get redistributed across it, which is where the '
+                + 'troughs come from.'
+              : 'Clients arrive on the shape above; people finish at a flat rate, because nobody '
+                + 'stops therapy on a schedule. That mismatch is the whole point — it is what '
+                + 'puts your thinnest month in <b>' + m.lowMonth + '</b>, well after the quiet '
+                + 'stretch of enquiries that caused it and far too late to market your way out '
+                + 'of it. '
+                + (Math.abs(m.trend) >= 0.05
+                   ? 'The bars also carry your underlying '
+                     + (m.trend > 0 ? 'growth' : 'decline') + ' of about '
+                     + plural(Math.abs(m.trend), "client") + ' a month; the swing figure above '
+                     + 'has that trend removed, so it is seasonality alone. '
+                   : ''))
            + (g.capacity > 0 && m.overMonths > 0
-              ? 'Note the ' + plural(m.overMonths, "month") + ' above your ceiling: that is a '
+              ? ' Note the ' + plural(m.overMonths, "month") + ' above your ceiling: that is a '
                 + 'waiting list, not income.'
-              : 'The month to act on is the one before the trough, not the trough itself.')
+              : '')
          + '</p>'
        : ""));
 }
@@ -2041,7 +2084,7 @@ function writeHash(){
   /* Seasonality travels in the link too, or a shared setup silently reverts to
      "typical" and the recipient sees a different year to the sender. Only
      written when it differs from the default, to keep ordinary links short. */
-  if (S.shape && S.shape !== "typical") q.push("shape=" + encodeURIComponent(S.shape));
+  if (S.shape && S.shape !== "flat") q.push("shape=" + encodeURIComponent(S.shape));
   var mo = S.months.map(function(v){ return (v === "" || v == null) ? "" : v; });
   if (mo.some(function(v){ return v !== ""; })) q.push("mo=" + encodeURIComponent(mo.join(",")));
   try { history.replaceState(null, "", "#" + q.join("&")); } catch (e) {}
@@ -2139,7 +2182,12 @@ function boot(){
     });
     fo.addEventListener("click", function(e){
       if (e.target.closest && e.target.closest("#funreset")){
-        S.simEnq = ""; S.simGot = ""; render();
+        S.simEnq = ""; S.simGot = "";
+/* DEFAULT IS FLAT, deliberately. The other three shapes are hypotheses nobody
+   has published data for (see the note the section prints), and defaulting to
+   one of them would put an unsourced empirical claim underneath every figure
+   downstream of it. Flat asserts nothing. */
+S.shape = "flat"; render();
       }
     });
     fo.addEventListener("keydown", function(e){

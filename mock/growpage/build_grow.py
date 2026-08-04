@@ -200,11 +200,13 @@ A('</section>')
 # (you need a ceiling before "over capacity" means anything) and before the CTA.
 A('<section class="slab brick" id="season"><div class="chh"><span class="chn">05</span>'
   '<h2>When they actually arrive</h2></div>')
-A('<p class="dek">Everything above is a yearly average, and an average is what makes a '
-  'caseload plan fall over in July. Enquiries collapse over the holidays and again in high '
-  'summer; January is the biggest intake month most private practices see. People finish '
-  'therapy at a flat rate regardless — and that mismatch, not a marketing failure, is what '
-  'produces the trough.</p>')
+A('<p class="dek">Everything above is a yearly average, and an average is a poor guide to a '
+  'year that is not flat. Most practitioners describe a January rush and a summer lull — but '
+  '<b>nobody has published data on it</b>, so this section treats that as a hypothesis you test '
+  'against your own calendar rather than a fact it asserts at you. What is not in doubt is the '
+  'mechanism: people finish therapy at a steady rate whatever the month, so any dip in enquiries '
+  'shows up as a caseload trough later, and by then it is too late to market your way out of '
+  'it.</p>')
 A('<div id="seasout"></div>')
 A('</section>')
 

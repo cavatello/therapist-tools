@@ -96,6 +96,9 @@ CSS += r"""
  letter-spacing:.05em;text-transform:uppercase;color:#9A9384}
 .shn{font-size:12.4px;line-height:1.62;color:var(--muted);margin:0 0 11px}
 .shn b{color:var(--ink);font-weight:600}
+.shn em{font-style:italic}
+.shn a{color:var(--pine);text-decoration:underline;text-underline-offset:2px}
+.shn a:hover{color:var(--gold)}
 .shrst{font:inherit;font-size:12.4px;background:none;border:0;padding:0;cursor:pointer;
  color:var(--pine);text-decoration:underline;text-underline-offset:2px}
 .shrst:hover{color:var(--gold)}

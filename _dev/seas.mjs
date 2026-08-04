@@ -52,6 +52,11 @@ console.log('>> section 1');
   const { ctx, page, errs } = await fresh();
   ok(await page.locator('#seasout').count() === 1, 'seasout present');
   ok(await page.locator('.shc').count() === 4, 'four shape cards');
+  ok(await page.evaluate(() => S.shape) === 'flat',
+     'ships defaulting to Flat — the shape that asserts nothing');
+  ok(await page.locator('.shc.on b').textContent() === 'Flat', 'and Flat is the selected card');
+  ok((await page.locator('#seasout').innerText()).includes('could not find any that is'),
+     'the section states plainly that the shapes are not measured data');
   ok(await page.locator('.smo').count() === 12, 'twelve month bars in zero state');
   ok(await page.locator('#seasout .empty').count() === 1, 'zero state shows the empty note');
   ok(await page.locator('.ld').count() === 0, 'no caseload chart before there is data');
@@ -65,7 +70,15 @@ console.log('>> section 2');
   const { ctx, page, errs } = await fresh();
   await FILL(page);
   ok(await page.locator('.ld').count() === 12, 'twelve caseload columns');
-  ok(await page.locator('#seasout .tiles .tl').count() === 4, 'four headline tiles');
+  ok(await page.locator('#seasout .tiles .tl').count() === 3,
+     'the flat default shows three tiles, not a degenerate Fullest/Thinnest pair');
+  const flatTxt = await page.locator('#seasout .tiles').innerText();
+  ok(/None set/.test(flatTxt) && !/Fullest/.test(flatTxt),
+     'and says no seasonality is set rather than naming a peak: ' + flatTxt.replace(/\n/g, ' | '));
+  await page.click('.shc[data-shape="typical"]');
+  await page.waitForTimeout(40);
+  ok(await page.locator('#seasout .tiles .tl').count() === 4,
+     'four tiles once a real shape is chosen');
   ok(await page.locator('.ldcap').count() === 1, 'ceiling line drawn when capacity is set');
   ok(await page.locator('#seasout .empty').count() === 0, 'empty note gone');
   ok(errs.length === 0, 'no console errors when live: ' + errs.join(' | '));
@@ -83,9 +96,9 @@ console.log('>> section 3');
              mult:   r.reduce((a, x) => a + x.mult, 0) };
   });
   const a0 = await annual();
-  ok(Math.abs(a0.mult - 12) < 1e-9, 'multipliers sum to 12.000 (typical), got ' + a0.mult);
+  ok(Math.abs(a0.mult - 12) < 1e-9, 'multipliers sum to 12.000 (default), got ' + a0.mult);
 
-  for (const k of ['flat', 'school', 'steady']) {
+  for (const k of ['typical', 'school', 'steady']) {
     await page.click(`.shc[data-shape="${k}"]`);
     await page.waitForTimeout(40);
     const a = await annual();
@@ -208,7 +221,7 @@ console.log('>> section 4c (tiles reconcile)');
 {
   const { ctx, page } = await fresh();
   await FILL(page);
-  for (const shape of ['typical', 'school', 'steady']) {
+  for (const shape of ['typical', 'school', 'steady']) {   /* never 'flat' — no peak/trough by design */
     for (const got of ['3', '5', '9']) {
       await page.fill('#i-pt_got', got);
       await page.evaluate(s => { S.shape = s; render(); }, shape);
@@ -240,10 +253,10 @@ console.log('>> section 5');
   await page.keyboard.press('ArrowDown');
   await page.waitForTimeout(40);
   const after = await page.evaluate(() => S.months[0]);
-  ok(after === '140', 'ArrowDown moves Jan 145 -> 140, got ' + after);
+  ok(after === '95', 'ArrowDown moves Jan 100 -> 95 on the Flat default, got ' + after);
   await page.keyboard.press('ArrowUp');
   await page.waitForTimeout(40);
-  ok(await page.evaluate(() => S.months[0]) === '145', 'ArrowUp returns it');
+  ok(await page.evaluate(() => S.months[0]) === '100', 'ArrowUp returns it');
   ok(await page.evaluate(() => document.activeElement.getAttribute('data-i')) === '0',
      'focus survives the repaint');
   await ctx.close();
@@ -262,7 +275,7 @@ console.log('>> section 6');
   ok(/mo=/.test(hash), 'month overrides written to the hash');
 
   /* default shape must NOT bloat an ordinary link */
-  await page.evaluate(() => { S.shape = 'typical'; S.months = ['','','','','','','','','','','','']; render(); });
+  await page.evaluate(() => { S.shape = 'flat'; S.months = ['','','','','','','','','','','','']; render(); });
   ok(!/shape=|mo=/.test(await page.evaluate(() => location.hash)),
      'a default setup writes neither key');
 
