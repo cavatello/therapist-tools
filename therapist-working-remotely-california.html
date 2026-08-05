@@ -1557,4 +1557,26 @@ td p, th p, .fig p, .stat p, .kpi p{max-width:none}
 /* Phones are already far below the cap, so the rule is inert there. Stated so
    nobody adds a redundant media query later. */
 /* end measure */</style>
+
+<style>/* _dev/fill.py */
+/* Reading cards. Width chosen so the capped prose inside fills ~90% of the
+   card's inner box rather than ~30% of it.
+   NOT centred. Centring was tried first and looked worse: the section <h2> above
+   these cards is left-aligned in the same wrapper, so a centred card sat 400px to
+   the right of its own heading. Left-aligned, the heading and the column share an
+   edge, which is what makes it read as a document rather than as a mistake. */
+.txb, .clnote{max-width:592px}
+.rwcard{max-width:680px}
+
+/* .clbig is a flex row: three small figures then a legend. Letting the legend
+   absorb the slack does NOT work here and it is worth saying why — the legend is
+   a <p>, so measure.py caps it at 62ch, and no amount of `flex-grow` makes a box
+   exceed its own max-width. Correct behaviour: a legend should not run 1,000px.
+   So cap the row instead, same as the reading cards above. */
+.clbig{max-width:1040px;align-items:baseline}
+
+/* Below the widen.py breakpoint these caps are wider than the container, so the
+   rule is inert on laptops and phones. Stated so nobody adds a media query that
+   duplicates it. */
+/* end fill */</style>
 </body></html>
