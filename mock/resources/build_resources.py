@@ -31,6 +31,7 @@ import os, re, json, sys, urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from content import GROUPS
+from questions import QUESTIONS, STAGES
 
 SITE = "https://cavatello.github.io/therapist-tools"
 SLUG = "resources.html"
@@ -110,6 +111,54 @@ footer = footer.replace(_learn.group(1),
 # specificity - the convention the rest of this codebase already documents.
 PAGE_CSS = """
 <style>/* resources.html */
+/* ---- the question index (direction C), the first section on the page.
+   Nobody arrives at this site browsing; they arrive with a question. So the
+   index is what a therapist types, and a calculator is a legitimate answer to
+   one - which is why a tool row is washed gold and says so. */
+.qx{border-top:1px solid var(--line)}
+.qx a{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
+ padding:15px 2px;text-decoration:none;border-bottom:1px solid var(--line)}
+.qx a:hover h3{color:var(--pine)}
+.qx h3{font-size:16.6px;line-height:1.32;font-weight:600;margin:0;letter-spacing:0}
+.qx .tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.2px;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
+.qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
+.qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
+ text-transform:uppercase;color:#8A8477}
+.qx .ar{font-size:18px;color:var(--pine)}
+.qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
+ margin:0 -11px;padding-left:13px;padding-right:13px}
+.qxnote{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--pine);
+ border-radius:0 12px 12px 0;padding:15px 17px;margin:22px 0 0;font-size:13px;
+ line-height:1.65;color:var(--muted)}
+/* ---- career-stage rails (direction A). Three per rail, never more: the cap is
+   the point, not a limitation. */
+.rail{margin-top:34px}
+.railh{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+ flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:15px}
+.railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
+ font-weight:600;letter-spacing:-.018em}
+.railh span{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.1em;
+ text-transform:uppercase;color:#8A8477}
+.railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.rc{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:16px 17px;
+ text-decoration:none;display:flex;flex-direction:column;gap:7px}
+.rc:hover{border-color:var(--pine)}
+.rc b{font-family:Fraunces,Georgia,serif;font-size:16px;line-height:1.26;font-weight:600}
+.rc i{font-style:normal;font-size:12.9px;line-height:1.6;color:var(--muted)}
+.rc .k{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.1em;
+ text-transform:uppercase;color:var(--pine);font-weight:600;margin-top:auto;padding-top:5px}
+.rc.tool{background:linear-gradient(160deg,rgba(246,197,96,.15),var(--white) 62%)}
+/* ---- newsletter */
+.hubnl{background:linear-gradient(135deg,#1E4436,#2C6350);color:#EFF5F2;border-radius:16px;
+ padding:26px 28px;margin:34px 0 6px;display:grid;grid-template-columns:1.25fr .75fr;
+ gap:22px;align-items:center}
+.hubnl h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.2vw,23px);margin:0;color:#fff}
+.hubnl p{margin:8px 0 0;font-size:13.4px;line-height:1.62;color:rgba(255,255,255,.84)}
+.hubnl a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;
+ border-radius:10px;background:var(--pop);color:#2A2010;font-weight:800;font-size:14px;
+ text-decoration:none}
+@media(max-width:760px){.railg{grid-template-columns:1fr}.hubnl{grid-template-columns:1fr}}
 .ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#2A2620}
 .band .ref{background:#fff;color:#2A2620}
 .band .ref b{color:#17271F}
@@ -132,13 +181,12 @@ B = []
 A = B.append
 
 A('<section class="band"><div class="pw"><div>')
-A('<p class="kick">California &middot; every link checked 5 August 2026</p>')
-A('<h1>The things you actually need, <em>and nothing else</em>.</h1>')
-A('<p class="lede">Seventy-two links a California therapist in private practice genuinely '
-  'uses &mdash; the Board, CE and supervision rules, insurance panels, telehealth law, '
-  'malpractice and HIPAA, entity and tax, and the client directories with what they '
-  '<b>actually cost</b>. Each one was opened and read, and no price or deadline appears '
-  'here unless it was on the page it describes.</p>')
+A('<p class="kick">Therapist Support &middot; the practice desk</p>')
+A('<h1>The business side of a practice, <em>worked out</em>.</h1>')
+A('<p class="lede">Everything here is for California therapists in private practice, and '
+  'every figure in it is either <b>computed from your own numbers</b> or cited to the page '
+  'it came from. Start with a question, or go straight to the reference list &mdash; '
+  'seventy-two links, each one opened and read.</p>')
 A('</div><div>')
 A('<div class="ref"><span><b>Why the dates matter</b><i>Two things on this page moved '
   'recently and are still moving. BBS fees <b>halved on 1 July 2026</b> and revert in 2030. '
@@ -147,8 +195,57 @@ A('<div class="ref"><span><b>Why the dates matter</b><i>Two things on this page 
   'week.</i></span></div>')
 A("</div></div></section>")
 
+# ---- the question index (direction C), first because nobody arrives browsing
+A('<section class="sec"><div class="pw">')
+A('<div class="grouplab"><h2>Start with the question you came with</h2>'
+  '<span>14 of them</span></div>')
+A('<p class="sub">Indexed by what therapists actually type. A shaded row hands you a '
+  'calculator that runs on your own numbers; a plain row is something to read or a '
+  'section of the reference list below.</p>')
+A('<div class="qx">' + "".join(
+    '<a class="q' + kind + '" href="' + dest + '"><div><h3>' + q + '</h3>'
+    '<div class="m"><span class="tag">' + cat + '</span>'
+    '<span class="g">' + ("Tool &middot; " if kind == "tool"
+                          else "Reference &middot; " if kind == "ref" else "Read &middot; ")
+    + lab + '</span></div></div><span class="ar">&rarr;</span></a>'
+    for q, cat, dest, lab, kind in QUESTIONS) + '</div>')
+A('<div class="qxnote"><b>Why some rows are gold.</b> A shaded row does the arithmetic '
+  'for you from numbers you type in. You should never have to guess whether a link is '
+  'going to answer the question or just discuss it.</div>')
+A("</div></section>")
+
+# ---- career-stage rails (direction A), capped at three each
+A('<section class="sec alt"><div class="pw">')
+A('<div class="grouplab"><h2>Where you are right now</h2><span>Three each, on purpose</span></div>')
+A('<p class="sub">An associate and someone eight years into a practice need different '
+  'pages, and the commonest way to lose a reader is to hand them the right answer to '
+  'somebody else&rsquo;s question.</p>')
+for stage, sub, items in STAGES:
+    A('<div class="rail"><div class="railh"><h3>' + stage + '</h3><span>' + sub + '</span></div>')
+    A('<div class="railg">' + "".join(
+        '<a class="rc' + (" tool" if k == "tool" else "") + '" href="' + href + '">'
+        '<b>' + title + '</b><i>' + blurb + '</i><span class="k">'
+        + ("Calculator" if k == "tool" else "Reference" if k == "ref" else "Read")
+        + '</span></a>' for href, title, blurb, k in items) + '</div></div>')
+A('<div class="hubnl"><div><h3>One email a month. What changed in the numbers.</h3>'
+  '<p>When the Board moves a fee, when the IRS publishes next year&rsquo;s limits, when a '
+  'panel closes to new applicants. Nothing else, and one click to leave.</p></div>'
+  '<div><a href="newsletter.html">Stay updated &rarr;</a></div></div>')
+A("</div></section>")
+
+# ---- the reference index
+A('<section class="sec"><div class="pw">')
+A('<div class="grouplab"><h2>The reference list</h2><span>72 links, all checked</span></div>')
+A('<p class="sub">Everything a California therapist in private practice actually needs to '
+  'reach: the Board, CE and supervision, insurance panels, telehealth law, malpractice and '
+  'HIPAA, entity and tax, and the client directories with what they cost. No price or '
+  'deadline appears unless it was on the page it describes.</p>')
+A("</div></section>")
+
 for i, (name, tag, sub, items) in enumerate(GROUPS):
-    A('<section class="sec%s"><div class="pw">' % ("" if i % 2 == 0 else " alt"))
+    gid = "g-" + re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    A('<section class="sec%s" id="%s"><div class="pw">'
+      % (" alt" if i % 2 == 0 else "", gid))
     A('<div class="grouplab"><h2>' + name + "</h2><span>" + tag + "</span></div>")
     A('<p class="sub">' + sub + "</p>")
     A('<div class="reflist">' + "".join(card(*it) for it in items) + "</div>")
