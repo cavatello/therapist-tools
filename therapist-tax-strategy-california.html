@@ -833,10 +833,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <p class="ttag">Some of your tax bill is optional. Here is how much.</p>
 <p class="tlede">Not a loophole and not aggressive — ordinary accounts the tax code created on purpose. The only real question is whether that money goes to the IRS this April or into an account with your name on it. <b>Everything below is worked out from your own profit</b>, and the saving from each account is measured by running the whole tax engine twice rather than estimated from a bracket table.</p>
 <div class="therocta"><a href="#plan">Make the plan</a><a class="ghost" href="#which">Which account</a><a class="ghost" href="#structure">Sole prop or corporation</a></div>
-</div><div class="tpanel"><div class="pr"><em>Your practice profit</em><b id="heroprofit">$217,350</b></div><div class="pr"><em>Of the tax on it, optional</em><b class="gold" id="herooptional">$18,244</b></div><p class="pn" id="heroeg" style="margin-top:2px"><b>Worked example</b> &mdash; a $250,000 practice with $41,650 of running costs. Put your own numbers in below, or arrive from the simulator and they come with you.</p><p class="pn">Arrived from the simulator? Your rate, caseload and costs came with you. Nothing is saved and there is no account — your setup lives in the address bar.</p></div></div></section>
+</div><div class="tpanel"><div class="pr"><em>Your practice profit</em><b id="heroprofit">$217,350</b></div><div class="pr"><em>Of the tax on it, optional</em><b class="gold" id="herooptional">$18,244</b></div><p class="pn" id="heroeg" style="margin-top:2px"><b>Worked example</b> &mdash; a $250,000 practice with $41,650 of running costs. Put your own numbers in below, or arrive from the simulator and they come with you.</p></div></div></section>
 <section class="slab pine" id="profit"><div class="chh"><span class="chn">01</span><h2>Start from the profit</h2></div>
 <p class="dek">Planning does not stop at profit — it starts there. This is what the practice actually cleared before a dollar of tax, and every figure on this page is built from it. Change anything here and the whole page moves.</p>
-<div class="fgrid">
+<!-- hero-note moved --><p class="hkn">Arrived from the simulator? Your rate, caseload and costs came with you. Nothing is saved and there is no account — your setup lives in the address bar.</p><div class="fgrid">
 <label class="f"><em>Your session rate</em><span class="fv"><span class="unit">$</span><input id="i-rate" type="number" min="0" max="1000" step="5" placeholder="150"></span></label>
 <label class="f"><em>Sessions a week</em><span class="fv"><input id="i-sessions" type="number" min="0" max="60" step="1" placeholder="25"></span></label>
 <label class="f"><em>Weeks off a year</em><span class="fv"><input id="i-weeksOff" type="number" min="0" max="26" step="1" placeholder="2"><span class="unit">wks</span></span></label>
@@ -2582,5 +2582,13 @@ else boot();
 .tcta strong{font-size:clamp(17px,1.5vw,21px);max-width:none;line-height:1.2}
 .tcta span{font-size:13px;font-weight:600;opacity:.72}
 /* end cta_scale */</style>
+
+<style>/* _dev/hero_notes.py */
+/* The relocated housekeeping note. Small print by weight, but sitting where it
+   is actually read - directly above the first field - so it reads as an aside
+   to the person about to type, not as another paragraph of preamble. */
+.hkn{margin:0 0 14px;font-size:12.6px;line-height:1.55;opacity:.72;max-width:62ch}
+.hkn b{font-weight:600}
+/* end hkn */</style>
 </body>
 </html>

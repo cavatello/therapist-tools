@@ -917,10 +917,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <p class="gtag">A practice is a funnel, not a mystery.</p>
 <p class="glede">How many people see you, how many ask, how many book — and what one of them is worth over the whole time they stay. Change any one of those and a whole year moves. <b>This page needs about six numbers</b>, most of which you can estimate from memory, and it will tell you which of your channels is quietly losing you the most clients.</p>
 <div class="gherocta"><a href="#worth">What a client is worth</a><a class="ghost" href="#channels">Where they come from</a><a class="ghost" href="#need">How many you need</a></div>
-</div><div class="gpanel"><div class="pr"><em>What one client is worth</em><b class="gold" id="heroworth">$4,800</b></div><div class="pr"><em>One more a month, over a year</em><b id="heroyear">$57,600</b></div><p class="pn" id="heroeg" style="margin-top:2px"><b>Worked example</b> &mdash; a $200 hour over 24 sessions. Put your own rate and tenure in below and both figures become yours.</p><p class="pn">A projection, not a forecast. Nothing is saved and there is no account — your setup lives in the address bar, so bookmarking this page keeps it.</p></div></div></section>
+</div><div class="gpanel"><div class="pr"><em>What one client is worth</em><b class="gold" id="heroworth">$4,800</b></div><div class="pr"><em>One more a month, over a year</em><b id="heroyear">$57,600</b></div><p class="pn" id="heroeg" style="margin-top:2px"><b>Worked example</b> &mdash; a $200 hour over 24 sessions. Put your own rate and tenure in below and both figures become yours.</p></div></div></section>
 <section class="slab pine" id="worth"><div class="chh"><span class="chn">01</span><h2>What a client is worth</h2></div>
 <p class="dek">Two numbers, multiplied. Almost nobody in private practice knows the answer, and it is the number that makes every other decision on this page arithmetic instead of anxiety.</p>
-<div class="fgrid">
+<!-- hero-note moved --><p class="hkn">A projection, not a forecast. Nothing is saved and there is no account — your setup lives in the address bar, so bookmarking this page keeps it.</p><div class="fgrid">
 <label class="f"><em>Your session rate</em><span class="fv"><span class="unit">$</span><input id="i-rate" type="number" min="0" max="1000" step="5" placeholder="150"></span></label>
 <label class="f"><em>Sessions a client typically stays</em><span class="fv"><input id="i-tenure" type="number" min="0" max="200" step="1" placeholder="16"></span></label>
 <label class="f"><em>Clients you hold right now</em><span class="fv"><input id="i-clients" type="number" min="0" max="300" step="1" placeholder="24"></span></label>
@@ -1538,5 +1538,13 @@ else boot();
 .gcta strong{font-size:clamp(17px,1.5vw,21px);max-width:none;line-height:1.2}
 .gcta span{font-size:13px;font-weight:600;opacity:.72}
 /* end cta_scale */</style>
+
+<style>/* _dev/hero_notes.py */
+/* The relocated housekeeping note. Small print by weight, but sitting where it
+   is actually read - directly above the first field - so it reads as an aside
+   to the person about to type, not as another paragraph of preamble. */
+.hkn{margin:0 0 14px;font-size:12.6px;line-height:1.55;opacity:.72;max-width:62ch}
+.hkn b{font-weight:600}
+/* end hkn */</style>
 </body>
 </html>
