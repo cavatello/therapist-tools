@@ -181,12 +181,12 @@ B = []
 A = B.append
 
 A('<section class="band"><div class="pw"><div>')
-A('<p class="kick">Therapist Support &middot; the practice desk</p>')
-A('<h1>The business side of a practice, <em>worked out</em>.</h1>')
-A('<p class="lede">Everything here is for California therapists in private practice, and '
-  'every figure in it is either <b>computed from your own numbers</b> or cited to the page '
-  'it came from. Start with a question, or go straight to the reference list &mdash; '
-  'seventy-two links, each one opened and read.</p>')
+A('<p class="kick">California &middot; free, no account, nothing saved</p>')
+A('<h1>Free tools for California therapists, <em>and the rules behind them</em>.</h1>')
+A('<p class="lede">Five calculators that run on <b>your own numbers</b> &mdash; take-home, '
+  'tax, caseload, a job offer, the cost of living &mdash; plus the Board rules, panel '
+  'requirements and reference links behind them. Every figure is computed or cited, and '
+  'nothing here is saved or sent anywhere.</p>')
 A('</div><div>')
 A('<div class="ref"><span><b>Why the dates matter</b><i>Two things on this page moved '
   'recently and are still moving. BBS fees <b>halved on 1 July 2026</b> and revert in 2030. '
@@ -212,6 +212,27 @@ A('<div class="qx">' + "".join(
 A('<div class="qxnote"><b>Why some rows are gold.</b> A shaded row does the arithmetic '
   'for you from numbers you type in. You should never have to guess whether a link is '
   'going to answer the question or just discuss it.</div>')
+A("</div></section>")
+
+# ---- Field Notes. It came OUT of the top nav on purpose - a nav is a set of
+# choices and Hick's law bites on those, whereas a long-form document is
+# something you arrive at, not something you navigate to. Removing it without
+# giving it a home would have buried the best writing on the site, so it gets
+# a section of its own here, with the figure that makes someone open it.
+A('<section class="sec"><div class="pw">')
+A('<div class="grouplab"><h2>Field Notes</h2><span>The long reads</span></div>')
+A('<p class="sub">Two research documents rather than blog posts: each names its sources, '
+  'admits its sample size, and shows the arithmetic behind the headline number.</p>')
+A('<div class="reflist">'
+  '<div class="ref"><span><b>The California therapy rate gap</b><i>What therapists are '
+  'actually paid &mdash; insurance reimbursement against private pay, by metro, with the '
+  'sample sizes admitted rather than hidden. The gap is widest exactly where the rent is '
+  'highest. <a href="rates.html">Read Field Notes &rarr;</a></i></span></div>'
+  '<div class="ref"><span><b>Working remotely as a California therapist</b><i>What the '
+  'Board actually allows, what it costs you in tax, and what changes if you leave the '
+  'state. Licensure follows your client&rsquo;s location, not yours. '
+  '<a href="therapist-working-remotely-california.html">Read the document &rarr;</a>'
+  '</i></span></div></div>')
 A("</div></section>")
 
 # ---- career-stage rails (direction A), capped at three each
@@ -240,6 +261,11 @@ A('<p class="sub">Everything a California therapist in private practice actually
   'reach: the Board, CE and supervision, insurance panels, telehealth law, malpractice and '
   'HIPAA, entity and tax, and the client directories with what they cost. No price or '
   'deadline appears unless it was on the page it describes.</p>')
+A('<p class="sub" style="margin-top:-8px"><b>Not here yet, and worth saying so:</b> '
+  'Medi-Cal and Medicare fee schedules by billing code, and a calendar of the dates that '
+  'actually bite &mdash; quarterly estimated tax, renewal months, and when California '
+  'publishes next year&rsquo;s figures. Both were promised on the old tools page as '
+  '&ldquo;coming soon&rdquo;; neither is written, so neither is linked.</p>')
 A("</div></section>")
 
 for i, (name, tag, sub, items) in enumerate(GROUPS):
@@ -291,8 +317,14 @@ out = ("<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n"
 
 # ------------------------------------------------------------------ guards ---
 n_items = sum(len(g[3]) for g in GROUPS)
-assert out.count('class="ref"') == n_items + 1, (
-    "card count %d does not match content %d" % (out.count('class="ref"'), n_items + 1))
+# The .ref component is used three places: once per reference link, once for the
+# hero's "why the dates matter" note, and twice for the Field Notes documents.
+# Keep this arithmetic explicit - it has already caught two mistakes, a class
+# name collision and this one.
+HERO_NOTES, FIELD_NOTES = 1, 2
+expect = n_items + HERO_NOTES + FIELD_NOTES
+assert out.count('class="ref"') == expect, (
+    "card count %d does not match content %d" % (out.count('class="ref"'), expect))
 assert out.count("<h1") == 1, "expected exactly one h1"
 assert 'class="on"' not in out, "a lifted nav marker survived"
 assert out.count('href="%s"' % SLUG) >= 1, "the footer link to self is missing"
