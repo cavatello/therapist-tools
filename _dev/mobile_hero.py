@@ -37,6 +37,18 @@ it in less vertical space.
 Idempotent. Run last, after breadcrumbs.py and hero_notes.py, so this stylesheet
 sits after every other rule in the document - at equal specificity the last rule
 wins, and this codebase has shipped that bug three times.
+newsletter.html was the worst on the site at 159% of a phone screen - 1346px
+of hero, in this order: headline, a 240px deck, a 323px list of what you get,
+THEN the form, then a 354px illustration. The reader had to scroll past
+everything the page was arguing for before reaching the box it wanted them to
+type in, and the email field sat at y=872, just below the fold. Same treatment:
+the illustration goes, the form comes up under the deck, and the list of what
+you get sits underneath it - where it reads as reassurance after the decision
+rather than a sales pitch before it.
+
+Note that these stylesheets are written PER PAGE, so a rule here only ever
+applies to the page it is attached to. That is why the newsletter block can use
+selectors as plain as `.lede` without scoping them.
 """
 import os, re, sys
 
@@ -49,6 +61,7 @@ PAGES = [
     "therapist-tax-strategy-california.html",
     "associate-mft-job-advisor.html",
     "amft-3000-hours-california.html",
+    "newsletter.html",
 ]
 
 CSS = """
@@ -108,6 +121,23 @@ CSS = """
 """
 
 
+# Per-page additions, appended after the shared block on that page only.
+EXTRA = {
+    "newsletter.html": """
+@media (max-width:560px){
+  .band .bandart{display:none}
+  .band .pw > div:first-child{display:flex;flex-direction:column}
+  .band .bcr    {order:1}
+  .band h1      {order:2}
+  .band .lede   {order:3}
+  .band .nlform {order:4;margin-bottom:18px}
+  .band .getlist{order:5;margin-top:0}
+  .band{padding:28px 0 24px}
+}
+""",
+}
+
+
 def main():
     n = 0
     for slug in PAGES:
@@ -121,7 +151,8 @@ def main():
         if "</body>" not in s:
             print("%-44s no </body>" % slug)
             continue
-        s = s.replace("</body>", "\n<style>" + MARK + CSS + "/* end mh */</style>\n</body>", 1)
+        block = CSS + EXTRA.get(slug, "")
+        s = s.replace("</body>", "\n<style>" + MARK + block + "/* end mh */</style>\n</body>", 1)
         open(path, "w", encoding="utf-8").write(s)
         n += 1
 
