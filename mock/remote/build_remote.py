@@ -180,6 +180,10 @@ CSS = """
 .rwhome .rwbar span{background:var(--gold)}
 .rwfig{text-align:right}
 .rwfig b{display:block;font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1}
+/* NOT .rwtaxline or anything already used — checked against the stylesheet
+   first, after .rwcite taught me that lesson the hard way. */
+.rwfig .rwtax{display:block;font-family:'IBM Plex Mono',monospace;font-size:11.2px;
+  color:var(--muted);margin-top:3px;white-space:nowrap}
 .rwfig em{display:block;font-style:normal;font-size:11.6px;margin-top:4px}
 .rwfig .rwup{color:var(--pos);font-weight:600}
 .rwfig .rwdn{color:var(--neg)}
@@ -279,19 +283,29 @@ function draw(){
   var c = compute(S, 0);
   var expC = Math.max(0, c.expenses - c.sehi);
   var r = RESID.computeResidency(c.gross, expC);
-  var net = {
-    california: c.net,
-    nyc:        RESID.computeNYC(c.gross, expC, 0, S.filing, c.sehi).netUSD,
-    pittsburgh: RESID.computePittsburgh(c.gross, expC, 0, S.filing, c.sehi).netUSD,
-    france:     RESID.computeFrance(c.gross, expC).netUSD,
-    uae:        RESID.computeUAE(c.gross, expC, S.filing).netUSD,
-    brisbane:   RESID.computeBrisbane(c.gross, expC).netUSD,
-    berlin:     r.berlin.netUSD,
-    portugal:   r.portugal.netUSD
+  /* Keep the whole result, not just netUSD. Every place already returns taxUSD
+     and it was being thrown away — so the table showed what each place LEAVES
+     you without showing what it TAKES, which is the only thing that differs.
+     Profit is identical everywhere by the page's own premise: same practice,
+     same clients, same profit. Tax is the entire story. */
+  var res = {
+    california: {netUSD: c.net, taxUSD: c.totalTax},
+    nyc:        RESID.computeNYC(c.gross, expC, 0, S.filing, c.sehi),
+    pittsburgh: RESID.computePittsburgh(c.gross, expC, 0, S.filing, c.sehi),
+    france:     RESID.computeFrance(c.gross, expC),
+    uae:        RESID.computeUAE(c.gross, expC, S.filing),
+    brisbane:   RESID.computeBrisbane(c.gross, expC),
+    berlin:     r.berlin,
+    portugal:   r.portugal
   };
+  var net = {};
+  PLACES.forEach(function(p){ net[p.k] = res[p.k].netUSD; });
+  var profit = c.profit;
   var rows = PLACES.map(function(p){
-    return {k:p.k, name:p.name, note:p.note, net:net[p.k],
-            delta:net[p.k] - net.california};
+    return {k:p.k, name:p.name, note:p.note, net:res[p.k].netUSD,
+            tax:res[p.k].taxUSD,
+            rate:profit > 0 ? res[p.k].taxUSD / profit : NaN,
+            delta:res[p.k].netUSD - res.california.netUSD};
   }).sort(function(a,b){ return b.net - a.net; });
   var top = Math.max.apply(null, rows.map(function(x){ return x.net; }));
   var better = rows.filter(function(x){ return x.delta > 0; }).length;
@@ -314,13 +328,23 @@ function draw(){
 
   out.innerHTML = rows.map(function(x){
     var home = x.k === "california";
-    var w = top > 0 ? Math.max(4, x.net / top * 100) : 4;
+    /* The bar is the SPLIT, not a ranking. Every place starts from the same
+       profit — that is the page's premise — so a bar scaled to the biggest net
+       only re-stated the number printed beside it. Scaled to profit instead,
+       the filled part is what you keep and the empty part is what that place
+       takes, and the eight become directly comparable at a glance. */
+    var w = profit > 0 ? Math.max(2, x.net / profit * 100) : 2;
     return '<div class="rwrow' + (home ? " rwhome" : "") + '">'
       + '<div class="rwname"><b>' + esc(x.name) + (home ? ' <i>you are here</i>' : "")
       + '</b><em>' + esc(x.note) + '</em></div>'
-      + '<div class="rwbar"><span style="width:' + w.toFixed(1) + '%"></span></div>'
-      + '<div class="rwfig"><b>' + money(x.net) + '</b><em class="'
-      + (home ? "rwz" : x.delta > 0 ? "rwup" : "rwdn") + '">'
+      + '<div class="rwbar" title="' + esc(money(x.net) + " kept, " + money(x.tax)
+          + " taken, from " + money(profit) + " of profit")
+      + '"><span style="width:' + w.toFixed(1) + '%"></span></div>'
+      + '<div class="rwfig"><b>' + money(x.net) + '</b>'
+      + '<em class="rwtax">&minus;' + money(x.tax)
+      + (isFinite(x.rate) ? " tax &middot; " + Math.round(x.rate * 100) + "%" : " tax")
+      + '</em>'
+      + '<em class="' + (home ? "rwz" : x.delta > 0 ? "rwup" : "rwdn") + '">'
       + (home ? "your baseline"
              : (x.delta > 0 ? "+" : "−") + money(Math.abs(x.delta)) + " a year")
       + "</em></div></div>";

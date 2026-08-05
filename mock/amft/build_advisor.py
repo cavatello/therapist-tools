@@ -232,13 +232,9 @@ A('<p class="atag">Put one job in. Add a second only if you are choosing between
   'them.</p>')
 A('<p class="alede">A placement is two decisions wearing one coat: <b>what it pays you '
   'now</b>, and <b>how fast it closes your 3,000 hours</b>. The offer letter only tells you '
-  'about the first, and it rounds that up. Enter one job and this works out the take-home '
-  'after California tax, what an hour of your life is really worth once the unpaid notes '
-  'are counted, and the date all four BBS gates close. <b>Comparing a second is optional.'
-  '</b></p>')
+  'about the first, and it rounds that up.</p>')
 A('<div class="aherocta"><a href="#offers">Start with one job</a>'
-  '<a class="ghost" href="#hours">Just the hours plan</a>'
-  '<a class="ghost" href="#rules">What the BBS requires</a></div>')
+  '<a class="ghost" href="#hours">Just the hours plan</a></div>')
 A('</div><div class="apanel">' + HERO_ART + '<div id="apanel"></div></div>')
 A('</div></section>')
 
