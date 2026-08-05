@@ -562,8 +562,8 @@ a.clcta:hover{background:#1F4C3C;color:#fff}
 <!-- breadcrumb --><ol class="bcr" aria-label="Breadcrumb"><li><a href="index.html">Therapist Support</a><span class="sep">&rsaquo;</span></li><li><a href="tools.html">Tools</a><span class="sep">&rsaquo;</span></li><li><span aria-current="page">Cost of living</span></li></ol><h1>What a month actually costs you &mdash; and <em>what is left</em>.</h1>
 <p class="cldeck">Every other tool here prices the practice. This one prices the person running it: what it costs to live where you live, what the student loan takes, and what remains.</p>
 <div class="clbig"><div><b id="bigcost">$4,285</b><em>to live, a month</em></div><div><b id="bigbe">$4,851</b><em>break-even, with the loan</em></div><div><b id="bigleft">$1,149</b><em>left over</em></div><p class="cleg" id="bigeg">Worked example: California statewide, one adult, an $85,000 AGI on RAP and a $6,000 monthly take-home. <b>Change anything below and all three move.</b></p></div>
-</div></section>
-<section class="clsec"><div class="clwrap">
+<!-- hero action --><a class="clgo" href="#where">Start with where I live &darr;</a></div></section>
+<section class="clsec" id="where"><div class="clwrap">
 <div class="clh"><span>01</span><h2>Where you live</h2></div>
 <p class="cllede">Pick an area and the seven categories fill in from the MIT Living Wage Calculator.<sup>[1][2]</sup> <b>Then change them.</b> These are county averages for one adult; your rent is your rent, and a typed figure always beats an average.</p>
 <div class="clgrid">
@@ -929,4 +929,18 @@ render();
 @media (min-width:1500px){.clwrap,.ftin,.pw,.sitenav-in{max-width:1320px}}
 @media (min-width:1900px){.clwrap,.ftin,.pw,.sitenav-in{max-width:1560px}}
 /* end widen */</style>
+
+<style>/* _dev/hero_action.py */
+/* Matches the Option 3 build's .clgo so the two cannot disagree. Gold on the
+   deep indigo band - the site's pine green would be a low-contrast button on
+   that background, and this is the one thing in the hero meant to be pressed. */
+.clgo{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;
+  margin:18px 0 0;border-radius:999px;background:var(--pop);color:#2A2010;
+  font-weight:700;font-size:15px;text-decoration:none}
+.clgo:hover{background:#FFD57A}
+.clgo:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* measured: masthead bottom edge is 133px at 1440 and 171px at 390 */
+#where{scroll-margin-top:146px}
+@media (max-width:640px){#where{scroll-margin-top:186px}}
+/* end ha */</style>
 </body></html>

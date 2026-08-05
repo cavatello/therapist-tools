@@ -85,14 +85,29 @@ for (const f of files) {
          any page that passed — and its fifth "block" was the note sitting
          directly above those inputs, where it belongs. Measuring to the CTA
          alone punishes the best pattern on the site. */
-      /* The action. NOT `a[class*=cta]` - that was the original selector and it
-         never matched anything on this site, because the class lives on the
-         ROW (.gherocta, .therocta, .aherocta) and the links inside it are bare
-         or .ghost. Every page silently reported "no CTA", which is why the
-         block count was measuring to Infinity and passing pages it should not
-         have. Match the row, then take its first link. */
-      const cta = hero.querySelector('[class*=erocta] a, [class*=erocta] button, '
-        + 'a[class*=cta],a[class*=btn],a[class*=Go],button[class*=cta]');
+      /* The action - detected by how it RENDERS, not by what it is called.
+         Two name-based attempts failed here. `a[class*=cta]` matched nothing,
+         because the class lives on the row (.gherocta, .therocta, .aherocta)
+         and the links inside are bare or .ghost. Matching the row instead then
+         missed `.clgo` on cost-of-living, a perfectly good gold button that
+         simply is not spelled "cta". A third guess would miss the fourth name.
+
+         So: a link or button inside the hero, not part of the breadcrumb or the
+         site chrome, that is at least 32px tall and has been given a background
+         or a border - i.e. something a reader would recognise as pressable.
+         Names change; that does not. */
+      const cta = [...hero.querySelectorAll('a,button')].find(e => {
+        if (e.closest('.bcr,header,nav,.sitenav,footer')) return false;
+        const q = e.getBoundingClientRect();
+        if (q.height < 32 || q.width < 40) return false;
+        const c = getComputedStyle(e);
+        const bg = c.backgroundColor;
+        const painted = bg && bg !== 'transparent'
+          && !/rgba\(\s*0,\s*0,\s*0,\s*0\s*\)/.test(bg);
+        const bordered = parseFloat(c.borderTopWidth) > 0
+          || parseFloat(c.borderLeftWidth) > 0;
+        return painted || bordered;
+      }) || null;
       const lever = [...hero.querySelectorAll('input,select,textarea,[role=slider]')]
         .filter(e => !e.closest('header,nav,.sitenav,footer'))
         .map(e => e.getBoundingClientRect().top).sort((a, c) => a - c)[0];
@@ -107,7 +122,7 @@ for (const f of files) {
         .filter(e => {
           const t = (e.textContent || '').trim();
           if (!t) return false;
-          if (e.closest('[class*=erocta],a[class*=cta],a[class*=btn]')) return false;
+          if (e.closest('a,button')) return false;
           return e.getBoundingClientRect().top <= cy;
         }).length;
       /* Where the reader first sees something to press or type. Document
