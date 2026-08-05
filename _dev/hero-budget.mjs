@@ -43,7 +43,15 @@ const BUDGET = {
 };
 const MAX_BLOCKS = 4;   // kicker, h1, one deck sentence, one action (crumb excluded)
 
-const files = readdirSync(DIR).filter(f => f.endsWith('.html') && !SKIP.has(f));
+/* Redirect stubs are not pages. tools.html became a zero-delay meta-refresh
+   to resources.html, and measured as a "hero" at 106% of the viewport - true
+   of the box, meaningless about the design, and exactly the kind of permanent
+   false positive that gets an audit muted. Detected by the refresh tag rather
+   than by filename, so the next stub is handled without an edit. */
+const isRedirect = f => /<meta[^>]+http-equiv=["']?refresh/i
+  .test(readFileSync(`${DIR}/${f}`, 'utf8').slice(0, 4000));
+const files = readdirSync(DIR)
+  .filter(f => f.endsWith('.html') && !SKIP.has(f) && !isRedirect(f));
 const browser = await chromium.launch({
   executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 

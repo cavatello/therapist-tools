@@ -22,7 +22,15 @@ const DIR = process.argv[3] || '/mnt/user-data/uploads/therapy-practice-site';
 const W = +(process.argv[2] || 390);
 const SKIP = new Set(['tycoon.html', 'concepts.html']);   // not ours / not published nav
 
-const files = readdirSync(DIR).filter(f => f.endsWith('.html') && !SKIP.has(f));
+/* Redirect stubs are not pages. tools.html became a zero-delay meta-refresh
+   to resources.html, and measured as a "hero" at 106% of the viewport - true
+   of the box, meaningless about the design, and exactly the kind of permanent
+   false positive that gets an audit muted. Detected by the refresh tag rather
+   than by filename, so the next stub is handled without an edit. */
+const isRedirect = f => /<meta[^>]+http-equiv=["']?refresh/i
+  .test(readFileSync(`${DIR}/${f}`, 'utf8').slice(0, 4000));
+const files = readdirSync(DIR)
+  .filter(f => f.endsWith('.html') && !SKIP.has(f) && !isRedirect(f));
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 
 let totalFind = 0, totalOver = 0, totalProse = 0;
