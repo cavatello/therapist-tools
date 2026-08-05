@@ -64,13 +64,35 @@ CSS = """
   letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
 
 /* hero. Dark, because the answer in it is the reason to be here. */
+/* BAND, not slab. Measured before this change: the hero was 716px — 80% of a
+   900px viewport — and the first input a reader could touch sat at y=1748, more
+   than twice as far down as any other page on the site. Seven stacked text
+   blocks, nothing operable, and the right half of the band empty. This is the
+   same treatment mock/cola already carries as "Option 3", for the same reason:
+   orientation still does its whole job, in about a third of the height, with
+   the proof figures beside the copy instead of below it. */
+.rwband{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);
+  gap:clamp(22px,3.4vw,52px);align-items:center}
 .rwhero{background:linear-gradient(160deg,#2C6350 0%,#1F4C3C 70%,#1A4234 100%);
-  color:#F4F1E8;padding:clamp(44px,6vw,88px) 0 clamp(38px,5vw,68px)}
+  color:#F4F1E8;padding:clamp(20px,2.4vw,30px) 0 clamp(20px,2.4vw,30px)}
 .rwhero .rweyebrow{color:#9FC4B4}
-.rwhero h1{font-size:clamp(30px,4.2vw,52px);color:#FFFDF6;max-width:19ch}
+.rwhero h1{font-size:clamp(24px,2.6vw,34px);color:#FFFDF6;max-width:22ch;
+  margin-bottom:.28em}
 .rwhero h1 em{font-style:normal;color:var(--pop)}
-.rwdeck{font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:#C9DED5;max-width:58ch;
-  margin:0 0 26px}
+.rwdeck{font-size:clamp(14.6px,1.05vw,16px);line-height:1.55;color:#C9DED5;
+  max-width:56ch;margin:0 0 14px}
+/* NOT .rwcite — that name is already used further down this same stylesheet by
+   the footnote rows, which are `display:grid;grid-template-columns:34px
+   minmax(0,1fr)`. Reusing it dropped the quote into a 34px footnote-number
+   column and wrapped it one character per line, 285px tall. Declared later, it
+   won. The chrome-collision check below did not catch it because the clash was
+   with this page's OWN css, not the chrome.
+   Demoted. It was a 21px italic pull-quote occupying the middle of the hero,
+   and it RESTATED the headline — "The Board says yes", then a quote whose whole
+   point is that the Board says yes. It is a citation, so it now looks like one. */
+.rwsrc{border-left:3px solid var(--pop);padding:2px 0 2px 12px;margin:12px 0 0;
+  max-width:60ch;font-size:12.4px;line-height:1.55;color:#9FC4B4}
+.rwsrc b{font-weight:400;font-style:italic;color:#C9DED5}
 .rwquote{border-left:4px solid var(--pop);padding:4px 0 4px 18px;margin:0 0 26px;
   max-width:56ch}
 .rwquote b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(17px,1.6vw,21px);
@@ -80,6 +102,41 @@ CSS = """
   border-radius:999px;background:var(--pop);color:#1B4536;font-weight:700;font-size:16px;
   text-decoration:none}
 .rwcta:hover{background:#FFD37A}
+
+/* Figure styles are scoped to the ROWS (.rwbig > div > b), never a bare
+   `.rwbig b`. A bare descendant selector is exactly what broke the
+   cost-of-living hero: it also matched the <b> inside the worked-example
+   paragraph, which then inherited white-space:nowrap at 22px and rendered
+   406px wide in a 390px viewport. See claude/cola-hero-overflow.md. */
+.rwbig{display:grid;gap:2px 0;margin:0;padding:16px 20px;min-width:0;
+  background:rgba(0,0,0,.20);border:1px solid rgba(255,255,255,.14);border-radius:14px}
+.rwbig > div{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  min-width:0;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.rwbig > div:last-of-type{border-bottom:0}
+.rwbig > div > b{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2vw,27px);
+  line-height:1;color:var(--pop);white-space:nowrap;order:2}
+.rwbig > div > em{font-style:normal;font-size:12.4px;color:#C9DED5;line-height:1.4;
+  max-width:24ch;order:1}
+.rweg{grid-column:1/-1;margin:11px 0 0;font-size:12px;line-height:1.5;color:#9FC4B4}
+.rweg b{color:#DCEAE3;font-weight:600}
+
+@media (max-width:900px){
+  .rwband{grid-template-columns:minmax(0,1fr);gap:18px}
+}
+@media (max-width:560px){
+  .rwhero h1{font-size:23px;line-height:1.14}
+  .rwdeck{font-size:14.4px;margin-bottom:12px}
+  .rwbig{padding:12px 14px}
+  .rwbig > div{display:block}
+  .rwbig > div > b{white-space:normal;display:block;margin-bottom:2px}
+  .rwbig > div > em{max-width:none;display:block}
+  /* One figure above the fold on a short phone; the other two are a scroll
+     away. Same call cola's Option 3 makes, for the same reason — the band only
+     helps if it is actually shorter than what it replaced. */
+  .rwbig > div:nth-of-type(n+2){display:none}
+  .rweg{display:none}
+  .rwsrc{font-size:11.8px;margin-top:10px}
+}
 
 .rwsec{padding:clamp(38px,5vw,68px) 0}
 .rwsec.rwpaper{background:var(--paper);border-top:1px solid var(--line);
@@ -157,6 +214,22 @@ _bare = set(re.findall(r"^\.([A-Za-z][\w-]*)\s*\{", CSS, re.M))
 _chrome = set(re.findall(r"\.([A-Za-z][\w-]*)", chrome_css))
 assert not (_bare & _chrome), "collides with the chrome: %s" % sorted(_bare & _chrome)
 
+# The check above only looks OUTWARD, at the chrome. `.rwcite` was invented for
+# the hero while this same stylesheet already used it for footnote rows — no
+# error, no warning, just a quote rendered one character per line in a 34px
+# column. Ordinary re-declaration is fine and common (overrides), so flag only
+# the case that actually hurts: the same bare class declared twice with
+# DIFFERENT `display` values, which means two incompatible layouts share a name.
+_disp = {}
+for _sel, _body in re.findall(r"^\.([A-Za-z][\w-]*)\s*\{([^}]*)\}", CSS, re.M):
+    _d = re.search(r"(?:^|;)\s*display\s*:\s*([\w-]+)", _body)
+    if _d:
+        _disp.setdefault(_sel, set()).add(_d.group(1))
+_twoways = sorted(k for k, v in _disp.items() if len(v) > 1)
+assert not _twoways, (
+    "these classes are declared with conflicting display values, so two "
+    "different layouts are sharing one name: %s" % _twoways)
+
 # ------------------------------------------------------------------- JS ----
 JS = r"""
 var S = blank();
@@ -226,6 +299,15 @@ function draw(){
 
   head.textContent = best.k === "california" ? money(net.california)
     : "+" + money(best.delta);
+
+  /* Mirror the verdict into the hero from the SAME computation, so the two can
+     never disagree. The worked example hides the moment the figures are real. */
+  var hb = $("hbest"), hc = $("hcount"), hn = $("hname"), he = $("hbeg");
+  if (hb) hb.textContent = best.k === "california" ? money(net.california)
+                                                   : "+" + money(best.delta);
+  if (hc) hc.textContent = better + " of " + rows.length;
+  if (hn) hn.textContent = best.name;
+  if (he) he.hidden = true;
   $("headsub").textContent = best.k === "california"
     ? "California already keeps you the most of the eight"
     : "the most any of the eight beats California by, before anything but tax";
@@ -360,18 +442,27 @@ def build():
     B = []
     A = B.append
 
-    A('<section class="rwhero"><div class="rwwrap">')
+    A('<section class="rwhero"><div class="rwwrap"><div class="rwband">')
+    A('<div>')
     A('<p class="rweyebrow">California &middot; telehealth &middot; 2026 rates</p>')
     A('<h1>Can a California therapist work remotely? <em>The Board says yes.</em></h1>')
-    A('<div class="rwquote"><b>&ldquo;Can a California licensee while out-of-state '
-      'provide telehealth services to a client located in California?&rdquo;</b>'
-      '<span>Board of Behavioral Sciences, telehealth FAQ &mdash; and the answer it '
-      'gives is yes.<sup>[1]</sup></span></div>')
-    A('<p class="rwdeck">So the interesting question is not whether you may. It is what it '
-      'costs. Below is the same practice &mdash; same clients, same profit &mdash; priced '
-      'against eight places, on your own numbers.</p>')
+    A('<p class="rwdeck">The interesting question is not whether you may &mdash; it is what '
+      'it costs. The same practice, same clients, same profit, priced against eight places '
+      'on your own numbers.</p>')
     A('<a class="rwcta" href="#compare">See what each place leaves you &darr;</a>')
-    A('</div></section>')
+    A('<p class="rwsrc"><b>&ldquo;Can a California licensee while out-of-state provide '
+      'telehealth services to a client located in California?&rdquo;</b> Board of '
+      'Behavioral Sciences telehealth FAQ &mdash; and the answer it gives is '
+      'yes.<sup>[1]</sup></p>')
+    A('</div>')
+    A('<div class="rwbig">'
+      '<div><b id="hbest">+$18,700</b><em>the most any of the eight beats California by</em></div>'
+      '<div><b id="hcount">5 of 8</b><em>places that leave you more than California</em></div>'
+      '<div><b id="hname">Dubai</b><em>the best of them, on your numbers</em></div>'
+      '<p class="rweg" id="hbeg"><b>Worked example</b> &mdash; a $200 hour, 25 sessions a '
+      'week, filing single. Put your own numbers in below and all three become yours.</p>'
+      '</div>')
+    A('</div></div></section>')
 
     # --- the licensure answer, in full
     A('<section class="rwsec"><div class="rwwrap rwnarrow">')
