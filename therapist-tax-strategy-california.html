@@ -967,6 +967,10 @@ var QBI_PHASE = {single:[201750,276750], hoh:[201750,276750], mfj:[403500,553500
 var ADDL_MED = {single:200000, hoh:200000, mfj:250000};
 var SS_BASE = 184500, OASDI = .124, MEDI = .029, SE_FACTOR = .9235;
 var UI_BASE = 7000, CA_UI = .034, CA_ETT = .001, FUTA = .006, FICA_EMP = .0765;
+/* California State Disability Insurance, 2026: 1.3% and NO WAGE CAP - the cap
+   was removed on 1 January 2024, so any model that caps this is wrong.
+   edd.ca.gov/en/payroll_taxes/rates_and_withholding/ */
+var CA_SDI = .013;
 var K401_DEFERRAL = 24500, K401_CATCHUP = 8000, LIMIT_415 = 72000, COMP_CAP = 360000;
 var WEEKS_FULL = 52;
 
@@ -1767,6 +1771,30 @@ function corpLines(st, base, salaryPct){
   var corpPay = OASDI * Math.min(salary, SS_BASE) + MEDI * salary;
   var saved = soleSE - corpPay;
 
+  /* California payroll taxes on your OWN wage.
+     The corporation becomes an employer the moment it pays you, and this engine
+     already charges UI, ETT and FUTA on ASSOCIATE wages a few functions away -
+     it simply never charged them on the owner's salary, nor SDI at all. That
+     understated the cost of incorporating on every run.
+       - UI, ETT and FUTA are capped at the $7,000 wage base, so they are small
+         and flat: about $287 a year at any salary above that.
+       - SDI is 1.3% of the WHOLE salary with no cap, so it scales, and it is
+         the larger number: $1,248 on a $96,000 salary.
+     A sole proprietor pays none of these, so leaving them out flattered the
+     corporation by roughly $1,500 a year at a typical salary - enough to flip
+     the verdict near the break-even point.
+
+     SDI can be escaped, but only by an ELECTION the owner has to make: form
+     DE 459, available to a sole shareholder who is also a corporate officer
+     (CUIC section 637.1). It is opt-in and it gives up State Disability and
+     Paid Family Leave cover, so the engine models the DEFAULT - no election
+     filed - and the copy names the form. UI and ETT are NOT escapable; the
+     form says so explicitly. */
+  var caWageBase = Math.min(salary, UI_BASE);
+  var caEmployer = caWageBase * (CA_UI + CA_ETT + FUTA);
+  var caSdi = salary * CA_SDI;
+  var caPayroll = caEmployer + caSdi;
+
   /* California charges a professional corporation the greater of the $800
      minimum franchise tax and 1.5% of net income. */
   var franchise = Math.max(800, profit * .015);
@@ -1787,7 +1815,8 @@ function corpLines(st, base, salaryPct){
     salary: salary, salaryPct: profit > 0 ? salary / profit : 0,
     distribution: Math.max(0, profit - salary),
     saved: saved, franchise: -franchise, filings: -filings, qbi: -qbiCost,
-    net: saved - franchise - filings - qbiCost,
+    caPayroll: -caPayroll, caEmployer: caEmployer, caSdi: caSdi,
+    net: saved - franchise - filings - qbiCost - caPayroll,
     lostQbi: lostQbi, marginal: marginal,
     payroll: payroll, corpReturn: corpReturn, statement: statement,
     creditedSole: Math.min(seBase, SS_BASE), creditedCorp: Math.min(salary, SS_BASE),
@@ -2335,6 +2364,13 @@ function drawCorp(c0, corp, ss, strat){
           + " of deduction goes, at your measured marginal rate of "
           + Math.round(corp.marginal * 100) + "%",
           money(corp.qbi), "neg")
+    + row("California payroll tax on your own wage",
+          "SDI at 1.3% of the whole salary (" + money(corp.caSdi)
+          + ", no cap since 2024) plus UI, ETT and FUTA on the first $7,000 ("
+          + money(corp.caEmployer) + "). A sole proprietor pays none of it. SDI "
+          + "alone can be waived with form DE 459 if you are the sole shareholder, "
+          + "which also gives up your State Disability and Paid Family Leave cover",
+          money(corp.caPayroll), "neg")
     + row("Net", "what the structure is actually worth this year", money(corp.net), "tot")
     + '</div>'
 
