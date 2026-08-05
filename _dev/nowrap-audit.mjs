@@ -25,7 +25,7 @@ const SKIP = new Set(['tycoon.html', 'concepts.html']);   // not ours / not publ
 const files = readdirSync(DIR).filter(f => f.endsWith('.html') && !SKIP.has(f));
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 
-let totalFind = 0, totalOver = 0;
+let totalFind = 0, totalOver = 0, totalProse = 0;
 for (const f of files) {
   const ctx = await b.newContext({ viewport: { width: W, height: 900 } });
   const p = await ctx.newPage();
@@ -37,7 +37,7 @@ for (const f of files) {
   await p.waitForTimeout(120);
 
   const r = await p.evaluate(vw => {
-    const out = { nowrap: [], over: [] };
+    const out = { nowrap: [], over: [], figprose: [] };
     document.querySelectorAll('*').forEach(el => {
       const cs = getComputedStyle(el);
       if (cs.display === 'none' || cs.visibility === 'hidden') return;
@@ -62,6 +62,36 @@ for (const f of files) {
                               words, chars: t.length, w: Math.round(q.width),
                               avail: Math.round(avail), text: t.slice(0, 58) });
         }
+      }
+      /* SECOND SHAPE OF THE SAME BUG, and the one that got past this file.
+         The live cost-of-living hero styled its figures `.clbig b` and the same
+         block held a worked-example caption ending in
+         `<b>Change anything below and all three move.</b>`. No nowrap on that
+         variant, so the sentence wrapped, nothing overflowed, and this audit
+         passed the page while a 41-character sentence rendered in Fraunces at
+         36px - bigger than the labels next to the actual figures.
+
+         Overflow was never the defect. The defect is a FIGURE SELECTOR THAT
+         ALSO MATCHES PROSE, so detect that directly: an inline emphasis
+         element carrying a sentence, set at display size. Real figures are one
+         or two words ("$4,285"), so the word count separates them cleanly. */
+      /* NOT inside a heading. Colouring half an h2 with a <b> is a normal
+         thing to do - practice-simulator writes
+         `<h2 class="pr-h mid">Everything above is the practice you have.
+         <b>This is the one you could have.</b></h2>` and `.pr-h b` sets only a
+         colour. That <b> is display-sized because the HEADING is, which is
+         correct. The bug is prose in a PARAGRAPH inheriting figure styling. */
+      if (/^(B|EM|I|STRONG)$/.test(el.tagName) && el.children.length === 0
+          && !el.closest('h1,h2,h3,h4,h5,h6,blockquote')) {
+        const t = (el.textContent || '').trim();
+        const words = t.split(/\s+/).filter(Boolean).length;
+        const px = parseFloat(cs.fontSize);
+        if (words >= 5 && px >= 22)
+          out.figprose.push({ tag: el.tagName, cls: el.className || '',
+            parent: (el.parentElement && (el.parentElement.className
+              || el.parentElement.tagName)) || '', words, px: Math.round(px),
+            font: cs.fontFamily.split(',')[0].replace(/['"]/g, ''),
+            text: t.slice(0, 58) });
       }
       /* and anything actually past the viewport — EXCEPT where an ancestor is
          a real horizontal scroll container. A wide table inside overflow-x:auto
@@ -89,12 +119,14 @@ for (const f of files) {
     return out;
   }, W);
 
-  const nf = r.nowrap.length, no = r.over.length;
-  totalFind += nf; totalOver += no;
-  if (nf || no) {
+  const nf = r.nowrap.length, no = r.over.length, np = r.figprose.length;
+  totalFind += nf; totalOver += no; totalProse += np;
+  if (nf || no || np) {
     console.log(`\n${f}`);
     r.nowrap.slice(0, 5).forEach(x => console.log(
       `  NOWRAP SENTENCE  <${x.tag.toLowerCase()} class="${x.cls}">  ${x.words} words, ${x.w}px vs ${x.avail}px viewport  “${x.text}…”`));
+    r.figprose.slice(0, 5).forEach(x => console.log(
+      `  PROSE AS FIGURE   <${x.tag.toLowerCase()}> in .${x.parent}  ${x.words} words at ${x.px}px ${x.font}  “${x.text}…”`));
     r.over.slice(0, 5).forEach(x => console.log(
       `  OVERFLOWS ${W}px   <${x.tag.toLowerCase()} class="${x.cls}">  x=${x.x} w=${x.w} right=${x.right}`));
   }
@@ -105,4 +137,5 @@ console.log(`\n================================================`);
 console.log(`${files.length} pages at ${W}px`);
 console.log(`  nowrap sentences (the cola bug shape): ${totalFind}`);
 console.log(`  elements past the viewport:            ${totalOver}`);
-process.exit(totalFind || totalOver ? 1 : 0);
+console.log(`  prose set as a figure:                 ${totalProse}`);
+process.exit(totalFind || totalOver || totalProse ? 1 : 0);
