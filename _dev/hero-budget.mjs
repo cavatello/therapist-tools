@@ -23,7 +23,8 @@ const SKIP = new Set(['tycoon.html', 'concepts.html']);
    They are still held to the block count — two stacked orientation strips is a
    mess whether or not there is a form underneath. */
 const NO_TOOL = new Set(['about.html', 'contact.html', 'newsletter.html',
-                         'privacy.html', 'terms.html', 'tools.html', 'rates.html']);
+                         'privacy.html', 'terms.html', 'tools.html', 'rates.html',
+                         'resources.html']);
 
 /* heroPct at 390 is a BACKSTOP, not the rule. The rule on a phone is
    `actionY` below: the reader must be able to SEE something to press without
