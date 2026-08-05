@@ -30,6 +30,7 @@ import os, re, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 BASE = "https://cavatello.github.io/therapist-tools"
+BCRQ_CSS = (".bcrq{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin:10px 0 0}")
 MARK = "/* _dev/breadcrumbs.py */"
 TAG = "<!-- breadcrumb -->"
 
@@ -131,6 +132,7 @@ def insert_point(s):
 
 def main():
     changed = 0
+    kicked = {}
     for slug, (section, href, page) in sorted(TRAILS.items()):
         path = os.path.join(SITE, slug)
         if not os.path.exists(path):
@@ -169,6 +171,58 @@ def main():
 
         # the chapter kicker this replaces
         s = re.sub(r"Chapter\s+0?\d+\s*&middot;\s*", "", s)
+
+        # ---- and the REST of the kicker, which it never removed -------------
+        # This script was written to REPLACE the chapter kicker. It inserted a
+        # crumb above it and stripped the "Chapter 04 &middot;" prefix — but
+        # left the element. Result: 14 of 15 pages opened with two uppercase
+        # orientation strips stacked, both answering "where am I", and on the
+        # simulator the last crumb restated the h1 verbatim.
+        # The kicker's qualifiers ("Free · No account · 2026 rates") are real
+        # information, so they are not deleted — they move below the hero's
+        # action, as small print, where they read as terms rather than as a
+        # second masthead. See claude/hero-design-rules.md.
+        _h1 = s.find("<h1")
+        if _h1 > 0:
+            _win = s[max(0, _h1 - 400):_h1]
+            _k = None
+            for _m in re.finditer(r'<p class="[^"]*(?:kick|eyebrow)[^"]*"[^>]*>(.*?)</p>',
+                                  _win, re.S):
+                _k = _m
+            if _k:
+                _text = re.sub(r"<[^>]+>", "", _k.group(1)).strip()
+                _start = max(0, _h1 - 400) + _k.start()
+                _end = max(0, _h1 - 400) + _k.end()
+                s = s[:_start] + s[_end:]
+                # re-home it after the hero's first action, if there is one
+                # Does it say anything the crumb does not? Normalise both and
+                # compare. `privacy.html` carried <p class="lgeyebrow">Therapist
+                # Support</p> — the site name, i.e. crumb #1 — and `about`,
+                # `contact` and `tools` carried nothing but their own page name.
+                # Re-homing those as small print under the CTA would just move
+                # the redundancy, so they are dropped outright. Only a kicker
+                # with genuine qualifiers ("Free · No account · 2026 rates")
+                # survives, and only then does it earn a line.
+                _norm = lambda t: re.sub(r"[^a-z0-9]+", " ",
+                                         re.sub(r"&[a-z]+;", " ", t.lower())).strip()
+                _trail = {_norm(x) for x in
+                          ("Therapist Support", section or "", page or "")}
+                _nt = _norm(_text)
+                # substring either way: tools.html's kicker read "Tools" while
+                # its crumb entry is "All free tools", so equality let it pass.
+                _redundant = (not _nt) or any(
+                    _nt == t or (t and (_nt in t or t in _nt)) for t in _trail if t)
+                _cta = re.search(r'<a class="[^"]*(?:cta|go)[^"]*"[^>]*>.*?</a>',
+                                 s[:_h1 + 4000], re.S)
+                if _redundant:
+                    kicked[slug] = "dropped (says only what the crumb says)"
+                elif _cta:
+                    s = (s[:_cta.end()]
+                         + '<p class="bcrq">' + _text + '</p>'
+                         + s[_cta.end():])
+                    kicked[slug] = "-> under the action: " + _text[:40]
+                else:
+                    kicked[slug] = "dropped (no action to sit under): " + _text[:34]
         s = re.sub(r"Chapter\s+0?\d+\s*·\s*", "", s)
 
         i = insert_point(s)
@@ -181,7 +235,7 @@ def main():
               + json.dumps(trail_ld(slug, section, href, page), separators=(",", ":"))
               + "</script>\n")
         s = s.replace("</head>", ld + "</head>", 1)
-        s = s.replace("</body>", "\n<style>" + MARK + CSS + "/* end bcr */</style>\n</body>", 1)
+        s = s.replace("</body>", "\n<style>" + MARK + CSS + BCRQ_CSS + "/* end bcr */</style>\n</body>", 1)
 
         open(path, "w", encoding="utf-8").write(s)
         changed += 1
@@ -198,6 +252,12 @@ def main():
         assert not re.search(r"Chapter\s+0?\d+\s*(&middot;|·)", s), "chapter kicker left in " + slug
         assert s.count("<h1") == 1, slug
     print("%d page(s) crumbed" % changed)
+
+
+    if kicked:
+        print("  kicker consumed and re-homed under the action:")
+        for _s, _t in sorted(kicked.items()):
+            print("    %-44s %s" % (_s, _t))
 
 
 if __name__ == "__main__":
