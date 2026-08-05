@@ -27,7 +27,13 @@ EXTRA = r"""
    Limits are the 2026 published figures. Anything here that is a convention
    rather than a rule says so in the copy that renders it. */
 var SEP_RATE   = .20;          /* of net self-employment earnings */
-var SIMPLE_DEF = 16500, SIMPLE_CATCHUP = 3500, SIMPLE_MATCH = .03;
+var SIMPLE_DEF = 17000, SIMPLE_CATCHUP = 4000, SIMPLE_MATCH = .03;
+/* 2026: deferral $17,000 (up from $16,500) and catch-up $4,000 (up from
+   $3,500), per IRS IR-2025 "401(k) limit increases to $24,500 for 2026".
+   These two were the only constants in this block left at their 2025
+   values while the comment above claimed the whole block was 2026 - the
+   401(k), IRA and phase-out figures had all been updated. Checked against
+   the IRS page on 5 August 2026; every other constant here matched. */
 var IRA_LIMIT  = 7500,  IRA_CATCHUP = 1100;
 /* Traditional IRA deduction phase-out for someone COVERED by a workplace plan.
    A sole proprietor with no plan at all is not covered and the deduction is
