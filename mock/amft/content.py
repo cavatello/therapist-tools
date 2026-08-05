@@ -35,9 +35,17 @@ WEEKS_INDIV_SUP = 52    # of the 104 weeks, this many must include individual/tr
 LOOKBACK_YEARS = 6
 
 # --- fees, effective 1 January 2021 --------------------------------------
-FEES = [("Associate registration", 150), ("Associate renewal, each year", 150),
-        ("California Law and Ethics exam", 150), ("Application for licensure", 250),
-        ("Clinical exam", 250), ("Licence renewal, every two years", 200)]
+# BBS temporary fee reduction, effective 1 July 2026 through 30 June 2030.
+# Verified line by line against bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf
+# on 5 August 2026. Every one of these halved. A separate $20 Mental Health
+# Practitioner Education Fund fee is NOT reduced and is stated in the note
+# rather than folded into the total, because the FAQ does not enumerate which
+# renewal-related applications it attaches to.
+# NOTE: bbs.ca.gov/licensees/manage.html still shows the pre-reduction table.
+# The FAQ is the more specific and more recent document; cite the FAQ.
+FEES = [("Associate registration", 75), ("Associate renewal, each year", 75),
+        ("California Law and Ethics exam", 75), ("Application for licensure", 125),
+        ("Clinical exam", 125), ("Licence renewal, every two years", 100)]
 
 # --- what associates are actually paid, by setting (2025) ----------------
 PAY = [("Community mental health", 58000, 62000, "supervision and benefits usually included"),
@@ -123,10 +131,12 @@ CITES = [
      "?sectionNum=4980.43.3.&amp;lawCode=BPC",
      "Associates and trainees work as W-2 employees or volunteers; narrow exceptions for "
      "expense reimbursement and recruitment stipends."),
-    (4, "BBS fee schedule, effective 1 January 2021",
-     "https://www.bbs.ca.gov/pdf/bbs_fee_increase_2021.pdf",
-     "Registration $150, annual renewal $150, law and ethics exam $150, application for "
-     "licensure $250, clinical exam $250, licence renewal $200."),
+    (4, "BBS temporary fee reduction, effective 1 July 2026",
+     "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf",
+     "Registration $75, annual renewal $75, law and ethics exam $75, application for "
+     "licensure $125, clinical exam $125, licence renewal $100. Halved from 1 July 2026 "
+     "until 30 June 2030; a separate $20 Mental Health Practitioner Education Fund fee "
+     "is not reduced."),
     (5, "IRS Revenue Procedure 2025-32",
      "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
      "2026 federal rate schedules and the $16,100 single standard deduction used here."),

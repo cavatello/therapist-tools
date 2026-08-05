@@ -384,10 +384,13 @@ A('<details class="how"><summary><b>What the whole thing costs in fees</b>'
   + "".join('<tr><td>%s</td><td>$%s</td></tr>' % (n, v) for n, v in C.FEES)
   + '<tr><td><b>Registration, five renewals, both exams and licensure</b></td>'
     '<td><b>$'
-  + str(150 + 150 * 5 + 150 + 250 + 250 + 200) + '</b></td></tr>'
-  '</tbody></table><p style="margin-top:12px">Fees effective 1 January 2021. The law and '
-  'ethics exam has to be taken during each renewal cycle until you pass it, so the $150 can '
-  'recur. Not included: your own supervision if you pay for it, professional liability '
+  + str(75 + 75 * 5 + 75 + 125 + 125 + 100) + '</b></td></tr>'
+  '</tbody></table><p style="margin-top:12px">Fees are the BBS temporary reduction in '
+  'force from 1 July 2026 to 30 June 2030; they revert after that. The law and '
+  'ethics exam has to be taken during each renewal cycle until you pass it, so the $75 can '
+  'recur. A separate $20 Mental Health Practitioner Education Fund fee applies to licence '
+  'renewal-related applications and is not reduced, so it is not in the total above. '
+  'Not included: your own supervision if you pay for it, professional liability '
   'insurance, and continuing education.</p></div></details>')
 
 A('<details class="how"><summary><b>What associates are paid, by setting</b>'
