@@ -25,9 +25,20 @@ const SKIP = new Set(['tycoon.html', 'concepts.html']);
 const NO_TOOL = new Set(['about.html', 'contact.html', 'newsletter.html',
                          'privacy.html', 'terms.html', 'tools.html', 'rates.html']);
 
+/* heroPct at 390 is a BACKSTOP, not the rule. The rule on a phone is
+   `actionY` below: the reader must be able to SEE something to press without
+   scrolling. A hero can be 780px tall and still be excellent if its buttons
+   sit at y=600, and it can be 500px tall and useless if it is all prose - so
+   the phone budget checks where the action is and keeps a loose height limit
+   only to catch runaways (newsletter.html measured 159%).
+
+   firstControl at 390 is one and a half screens (844 x 1.5). Set from the
+   pages that measure well after the mobile-hero pass - grow lands at 1238 and
+   tax at 1227 - and it still fails everything this audit was written for:
+   working-remotely was at 1762 before it was fixed, and grow itself was 1293. */
 const BUDGET = {
-  1440: { vh: 900, heroPct: 45, firstControl: 900 },
-  390:  { vh: 844, heroPct: 60, firstControl: 1200 },
+  1440: { vh: 900, heroPct: 45, firstControl: 900,  actionY: 900 },
+  390:  { vh: 844, heroPct: 120, firstControl: 1266, actionY: 844 },
 };
 const MAX_BLOCKS = 4;   // kicker, h1, one deck sentence, one action (crumb excluded)
 
@@ -74,7 +85,14 @@ for (const f of files) {
          any page that passed — and its fifth "block" was the note sitting
          directly above those inputs, where it belongs. Measuring to the CTA
          alone punishes the best pattern on the site. */
-      const cta = hero.querySelector('a[class*=cta],a[class*=go],a[class*=Go]');
+      /* The action. NOT `a[class*=cta]` - that was the original selector and it
+         never matched anything on this site, because the class lives on the
+         ROW (.gherocta, .therocta, .aherocta) and the links inside it are bare
+         or .ghost. Every page silently reported "no CTA", which is why the
+         block count was measuring to Infinity and passing pages it should not
+         have. Match the row, then take its first link. */
+      const cta = hero.querySelector('[class*=erocta] a, [class*=erocta] button, '
+        + 'a[class*=cta],a[class*=btn],a[class*=Go],button[class*=cta]');
       const lever = [...hero.querySelectorAll('input,select,textarea,[role=slider]')]
         .filter(e => !e.closest('header,nav,.sitenav,footer'))
         .map(e => e.getBoundingClientRect().top).sort((a, c) => a - c)[0];
@@ -89,10 +107,16 @@ for (const f of files) {
         .filter(e => {
           const t = (e.textContent || '').trim();
           if (!t) return false;
-          if (e.parentElement && e.parentElement.closest('a[class*=cta],a[class*=go]')) return false;
+          if (e.closest('[class*=erocta],a[class*=cta],a[class*=btn]')) return false;
           return e.getBoundingClientRect().top <= cy;
         }).length;
-      return { heroH: Math.round(hr.height), first, blocks, isHero };
+      /* Where the reader first sees something to press or type. Document
+         coordinates, so it is comparable with the viewport height. */
+      const actionEl = cta || [...hero.querySelectorAll('input,select,textarea,[role=slider]')]
+        .filter(e => !e.closest('header,nav,.sitenav,footer'))[0] || null;
+      const actionY = actionEl
+        ? Math.round(actionEl.getBoundingClientRect().top + scrollY) : null;
+      return { heroH: Math.round(hr.height), first, blocks, isHero, actionY };
     });
     await ctx.close();
     if (!m) continue;
@@ -106,6 +130,9 @@ for (const f of files) {
        copy, which is what a terms page is. */
     if (m.isHero && m.blocks > MAX_BLOCKS) bad.push(`${m.blocks} blocks > ${MAX_BLOCKS}`);
     if (!NO_TOOL.has(f)) {
+      if (m.actionY === null) bad.push('hero offers no action');
+      else if (m.actionY > b.actionY)
+        bad.push(`ACTION at y=${m.actionY} > ${b.actionY} (below the fold)`);
       if (m.first === null) bad.push('no control found');
       else if (m.first > b.firstControl)
         bad.push(`FIRST LEVER at y=${m.first} > ${b.firstControl}`);

@@ -2590,5 +2590,61 @@ else boot();
 .hkn{margin:0 0 14px;font-size:12.6px;line-height:1.55;opacity:.72;max-width:62ch}
 .hkn b{font-weight:600}
 /* end hkn */</style>
+
+<style>/* _dev/mobile_hero.py */
+@media (max-width:560px){
+  /* 0. the hero's own padding was drawn for a desktop band: 44px top and 40px
+     bottom on a 844px screen is 10% of everything the reader gets. */
+  .ghero,.thero,.ahero{padding:28px 0 24px}
+
+  /* 1. decorative hero art */
+  .ahero .aart,
+  .ahero .apanel > svg,
+  .ghero .gpanel > svg{display:none}
+
+  /* 2. secondary jump links: kept, shrunk. The primary is untouched. */
+  .gherocta,.aherocta,.therocta{gap:7px}
+  .gherocta .ghost,.aherocta .ghost,.therocta .ghost{
+    padding:8px 12px;font-size:12.4px;min-height:38px}
+
+  /* 3. ORDER. On grow and tax the deck is four sentences - 195px and 220px of
+     type on a phone - and it sat between the headline and everything the page
+     can actually do. Nothing is cut: the deck moves below the figures and the
+     buttons, so the first screen reads headline, hook, live numbers, action,
+     and the explanation is there for the reader who wants it.
+
+     display:contents lifts the text column's children into the hero grid so
+     the deck and the panel can be ordered against each other; they are in
+     different containers otherwise. The plain <div> it dissolves carries no
+     box of its own - no background, border or padding - so there is nothing
+     to lose. Desktop is untouched. */
+  /* the hero grid's row gap was drawn for TWO rows; dissolving the text
+     column turns it into six, so 24px of gap became 120px and the hero got
+     taller than it was before the reorder. Measured, not guessed. */
+  .ghero .in,.thero .in{gap:11px}
+  .ghero .in > div:first-child,
+  .thero .in > div:first-child{display:contents}
+  /* Every one of these carries the SAME specificity (0,3,0 - two classes and
+     one more class/element) on purpose. The first draft wrote the default as
+     `.ghero .in > div:first-child > *` (0,3,1) and the exceptions as bare
+     `.glede` (0,1,0); the default outranked all of them and the order never
+     changed. That is the third time this codebase has been bitten by a rule
+     losing to a more specific neighbour - see claude/design-audit-and-global-fixes.md.
+     Keep these level with each other. */
+  .ghero .in .bcr,   .thero .in .bcr     {order:1}
+  .ghero .in h1,     .thero .in h1       {order:2}
+  .ghero .in .gtag,  .thero .in .ttag    {order:3}
+  .ghero .in .gpanel,.thero .in .tpanel  {order:4}
+  .ghero .in .gherocta,.thero .in .therocta{order:5}
+  .ghero .in .glede, .thero .in .tlede   {order:6;margin-bottom:0}
+
+  /* 3b. the proof panel: same figures, less air */
+  .gpanel,.apanel,.tpanel{padding:13px 15px}
+  .gpanel .pr,.tpanel .pr{padding:7px 0}
+  .apanel .arow{padding:6px 0}
+  .gpanel .pr b,.tpanel .pr b{font-size:26px}
+  .gpanel .pn,.tpanel .pn,.apanel .anote{margin-top:8px}
+}
+/* end mh */</style>
 </body>
 </html>
