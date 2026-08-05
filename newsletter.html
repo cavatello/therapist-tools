@@ -566,5 +566,39 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 @media (min-width:1500px){.ftin,.pw,.sitenav-in{max-width:1320px}}
 @media (min-width:1900px){.ftin,.pw,.sitenav-in{max-width:1560px}}
 /* end widen */</style>
+
+<style>/* _dev/measure.py */
+/* Reading measure. See the module docstring: `ch` is the width of "0", NOT the
+   average character, so these numbers are ~0.78 of the character count wanted.
+   58ch renders ~75 characters; 62ch renders ~80. */
+.pw p, .pw li, section p, section li, main p, main li,
+article p, article li, .slab p, .slab li, .card p, .card li{
+  max-width:58ch}
+
+/* Small print and captions: set smaller, read in short bursts, so a slightly
+   longer line is fine and a very short one looks broken. */
+.pw p.fine, .pw p.disc, .pw p.pay-note, .pw p.clfine, .pw p.rwfine,
+.pw p.jobfoot, .pw p.waitnote, .pw p.cf-fine, .pw p.lnote, .pw p.cleg,
+p.fine, p.disc, p.pay-note, p.clfine, p.rwfine, p.jobfoot, p.waitnote,
+p.cf-fine, p.lnote, p.cleg, p.sub, p.pn{
+  max-width:62ch}
+
+/* Layout rows that happen to be <p>. These are not prose and must keep their
+   full width or the button inside them jumps left. */
+.pw p.ctarow, p.ctarow, p.btnrow, p.actions, p[class*="cta"]{
+  max-width:none}
+
+/* A centred block that gets a max-width would otherwise pin to the left edge of
+   its container, which reads as a mistake. Re-centre it. */
+.pw p[align="center"], .tac p, .center p, .hero p.deck, .band p.deck{
+  margin-left:auto;margin-right:auto}
+
+/* Table cells and stat labels are sized by their own grid; a measure cap on
+   them fights the column. */
+td p, th p, .fig p, .stat p, .kpi p{max-width:none}
+
+/* Phones are already far below the cap, so the rule is inert there. Stated so
+   nobody adds a redundant media query later. */
+/* end measure */</style>
 </body>
 </html>
