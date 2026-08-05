@@ -506,6 +506,13 @@ function drawCorp(c0, corp, ss, strat){
           + " of deduction goes, at your measured marginal rate of "
           + Math.round(corp.marginal * 100) + "%",
           money(corp.qbi), "neg")
+    + row("California payroll tax on your own wage",
+          "SDI at 1.3% of the whole salary (" + money(corp.caSdi)
+          + ", no cap since 2024) plus UI, ETT and FUTA on the first $7,000 ("
+          + money(corp.caEmployer) + "). A sole proprietor pays none of it. SDI "
+          + "alone can be waived with form DE 459 if you are the sole shareholder, "
+          + "which also gives up your State Disability and Paid Family Leave cover",
+          money(corp.caPayroll), "neg")
     + row("Net", "what the structure is actually worth this year", money(corp.net), "tot")
     + '</div>'
 

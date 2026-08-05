@@ -160,6 +160,27 @@ function corpLines(st, base, salaryPct){
   var corpPay = OASDI * Math.min(salary, SS_BASE) + MEDI * salary;
   var saved = soleSE - corpPay;
 
+  /* California payroll taxes on your OWN wage.
+     The corporation becomes an employer the moment it pays you, and this engine
+     already charges UI, ETT and FUTA on ASSOCIATE wages elsewhere - it simply
+     never charged them on the owner's salary, nor SDI at all. That understated
+     the cost of incorporating on every run. Measured: at $192,000 of profit the
+     S-corp advantage fell from $3,237 to $1,702, and at $94,080 the verdict
+     flipped from "$887 a year better" to "$12 a year worse".
+       - UI, ETT and FUTA are capped at the $7,000 wage base: ~$287 flat.
+       - SDI is 1.3% of the WHOLE salary, uncapped: $1,248 on $96,000.
+     A sole proprietor pays none of these.
+
+     SDI can be escaped, but only by an ELECTION: form DE 459, for a sole
+     shareholder who is also a corporate officer (CUIC 637.1). It is opt-in and
+     gives up State Disability and Paid Family Leave cover, so this models the
+     DEFAULT - no election filed - and the copy names the form. UI and ETT are
+     NOT escapable; the form says so explicitly. */
+  var caWageBase = Math.min(salary, UI_BASE);
+  var caEmployer = caWageBase * (CA_UI + CA_ETT + FUTA);
+  var caSdi = salary * CA_SDI;
+  var caPayroll = caEmployer + caSdi;
+
   /* California charges a professional corporation the greater of the $800
      minimum franchise tax and 1.5% of net income. */
   var franchise = Math.max(800, profit * .015);
@@ -180,7 +201,8 @@ function corpLines(st, base, salaryPct){
     salary: salary, salaryPct: profit > 0 ? salary / profit : 0,
     distribution: Math.max(0, profit - salary),
     saved: saved, franchise: -franchise, filings: -filings, qbi: -qbiCost,
-    net: saved - franchise - filings - qbiCost,
+    caPayroll: -caPayroll, caEmployer: caEmployer, caSdi: caSdi,
+    net: saved - franchise - filings - qbiCost - caPayroll,
     lostQbi: lostQbi, marginal: marginal,
     payroll: payroll, corpReturn: corpReturn, statement: statement,
     creditedSole: Math.min(seBase, SS_BASE), creditedCorp: Math.min(salary, SS_BASE),

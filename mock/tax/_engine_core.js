@@ -25,6 +25,10 @@ var QBI_PHASE = {single:[201750,276750], hoh:[201750,276750], mfj:[403500,553500
 var ADDL_MED = {single:200000, hoh:200000, mfj:250000};
 var SS_BASE = 184500, OASDI = .124, MEDI = .029, SE_FACTOR = .9235;
 var UI_BASE = 7000, CA_UI = .034, CA_ETT = .001, FUTA = .006, FICA_EMP = .0765;
+/* California State Disability Insurance, 2026: 1.3% and NO WAGE CAP - the cap
+   was removed on 1 January 2024, so any model that caps this is wrong.
+   edd.ca.gov/en/payroll_taxes/rates_and_withholding/ */
+var CA_SDI = .013;
 var K401_DEFERRAL = 24500, K401_CATCHUP = 8000, LIMIT_415 = 72000, COMP_CAP = 360000;
 var WEEKS_FULL = 52;
 
