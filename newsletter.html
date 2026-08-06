@@ -567,6 +567,50 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 @media (min-width:1900px){.ftin,.pw,.sitenav-in{max-width:1560px}}
 /* end widen */</style>
 
+
+<style>/* _dev/touch_polish.py */
+/* ---- 2,3,5,7: legibility. Not device-specific, so not in a media query. */
+/* 7: the masthead tagline sat at 8.5px on every page and every viewport,
+   including a 27-inch 5K display, where it is the smallest type on the site.
+   10px still reads as a subtitle under the wordmark. */
+.sitenav-sub{font-size:10px}
+/* 8: three more found only after the first pass cleared the noise - the
+   "What it costs / stores / is not" card labels on about.html at 9px, and the
+   "In progress" badge at 9.5px. Both are labels, not footnotes. */
+.fact em{font-size:10.5px}
+/* 9: the sub-9px tail, found only once the 10-11px noise was gone. A form
+   label at 7.5px and a field hint at 8px are the two that matter - both sit
+   next to an input the reader is about to type a real number into. Selectors
+   are compounded because a narrower existing rule was winning at equal
+   specificity; the computed size is asserted below rather than assumed. */
+.f em,.fgrid .f em,label.f em,.f.sm em{font-size:10.5px}
+.f .hint,.f span.hint{font-size:10.2px}
+.tile em,.tile > em{font-size:10.2px}
+.soon{font-size:10px}
+@media (max-width:520px){.bcr{font-size:10.2px}}
+.f em,.fsub{font-size:10.5px}
+.fsub{font-size:11px;letter-spacing:.1em}
+.ftcols h5{font-size:10.5px}
+
+/* ---- 4: footer tap targets. The vertical gap was margin, which cannot be
+   tapped. Move it into padding: same rhythm on screen, twice the hit area. */
+.ftcols a{padding:8px 0;margin-bottom:1px}
+
+/* ---- 6: the consent control itself */
+.consent input{width:20px;height:20px}
+
+/* ---- 1: touch only. `pointer: coarse` is the honest test - it catches
+   phones and tablets including ones nobody has shipped yet, and never a
+   trackpad. Desktop keeps its dense forms untouched. */
+@media (pointer: coarse){
+  input[type=number],input[type=text],input[type=email],input[type=tel],
+  input[type=search],select,textarea{min-height:42px;padding:6px 10px}
+  .ftcols a{padding:10px 0}
+  /* the breadcrumb is 26px tall with 5px padding; on a finger that is thin */
+  .bcr a{min-height:32px}
+  .consent input{width:22px;height:22px}
+}
+/* end tp */</style>
 <style>/* _dev/mobile_hero.py */
 @media (max-width:560px){
   /* 0. the hero's own padding was drawn for a desktop band: 44px top and 40px

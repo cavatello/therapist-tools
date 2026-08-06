@@ -166,6 +166,17 @@ PAGE_CSS = """
 .band .ref i b{color:#17271F}
 .ref i a{white-space:nowrap}
 @media (max-width:700px){.reflist{grid-template-columns:1fr}}
+/* ---- very large displays. On a 27" 5K the hub used 46% of the window: a
+   1120px container in a 2560px viewport, which is a lot of empty cream. The
+   prose measure still has to be protected, so the CONTAINER grows and the
+   reference grid gains a third column rather than the text lines getting
+   longer. Below 1800px nothing changes. */
+@media (min-width:1800px){
+  .pw{max-width:1460px}
+  .reflist{grid-template-columns:repeat(3,1fr)}
+  .qx h3{max-width:78ch}
+  .sub{max-width:88ch}
+}
 </style>"""
 def esc_attr(u):
     return u.replace("&", "&amp;")
