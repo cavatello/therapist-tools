@@ -1646,5 +1646,16 @@ else boot();
   .gpanel .pn,.tpanel .pn,.apanel .anote{margin-top:8px}
 }
 /* end mh */</style>
+
+<style>/* _dev/layout_fixes.py */
+/* The context strip in the header. Was opacity:.62 bare text; now a chip, so
+   it reads as a label rather than as something left behind. Opacity is back to
+   1 and the recession is done with colour, which keeps the text legible on the
+   green band at small sizes. */
+.bcrq{display:inline-block;opacity:1;color:rgba(255,255,255,.74);
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:4px 11px;margin:9px 0 0;font-size:10px}
+@media (max-width:560px){.bcrq{font-size:9.5px;padding:3px 9px;letter-spacing:.07em}}
+/* end kick */</style>
 </body>
 </html>

@@ -1944,5 +1944,35 @@ else boot();
   .gpanel .pn,.tpanel .pn,.apanel .anote{margin-top:8px}
 }
 /* end mh */</style>
+
+<style>/* _dev/layout_fixes.py */
+/* Left-aligned and a little wider, NOT centred and NOT stretched.
+
+   Centring was the first attempt and it traded one misalignment for another:
+   the card sat in the middle of the panel while the section heading, its
+   paragraph and the filing-status select above it all began at the panel's
+   left edge, so the one element that mattered was the one out of line.
+
+   Stretching to the full 998px would be worse than the original bug - a
+   single-line input a thousand pixels wide puts its label and its value a
+   hand's width apart.
+
+   So: same left edge as everything above it, 720px instead of 620px to use
+   more of the room, and the remaining space reads as a margin rather than as
+   a hole, because now there is a straight edge running down the left of the
+   whole section. */
+.jobs.solo{grid-template-columns:minmax(0,720px);justify-content:start}
+/* end solo */</style>
+
+<style>/* _dev/layout_fixes.py */
+/* The context strip in the header. Was opacity:.62 bare text; now a chip, so
+   it reads as a label rather than as something left behind. Opacity is back to
+   1 and the recession is done with colour, which keeps the text legible on the
+   green band at small sizes. */
+.bcrq{display:inline-block;opacity:1;color:rgba(255,255,255,.74);
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:4px 11px;margin:9px 0 0;font-size:10px}
+@media (max-width:560px){.bcrq{font-size:9.5px;padding:3px 9px;letter-spacing:.07em}}
+/* end kick */</style>
 </body>
 </html>

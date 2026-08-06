@@ -434,7 +434,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <style>
 .cl{--paper:#FBF9F3;--white:#fff;--ink:#26241E;--muted:#6E695E;--line:#E7E2D6;
   --field:#FBF6E9;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#B08430;--pop:#F6C560;
-  --pos:#3F9577;--neg:#B5483F;--indigo:#4B3B93;
+  --pos:#3F9577;--neg:#B5483F;--indigo:#3b8d93;
   background:var(--white);color:var(--ink);font-family:Inter,system-ui,sans-serif;
   -webkit-font-smoothing:antialiased}
 .cl *,.cl *::before,.cl *::after{box-sizing:border-box}
@@ -448,18 +448,18 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cleyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;margin:0 0 13px;color:var(--muted)}
 
-.clhero{background:linear-gradient(160deg,#4B3B93 0%,#3A2D74 68%,#2E2460 100%);
-  color:#EFEAFA;padding:clamp(42px,5.5vw,84px) 0 clamp(34px,4.5vw,62px)}
+.clhero{background:linear-gradient(160deg,#3b8d93 0%,#2d6f74 68%,#245c60 100%);
+  color:#eaf9fa;padding:clamp(42px,5.5vw,84px) 0 clamp(34px,4.5vw,62px)}
 .clhero .cleyebrow{color:#F6C560}
 .clhero h1{font-size:clamp(29px,4vw,50px);color:#FFFDF6;max-width:20ch}
 .clhero h1 em{font-style:normal;color:var(--pop)}
-.cldeck{font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:#C4BBE4;max-width:56ch}
+.cldeck{font-size:clamp(16.5px,1.4vw,19.5px);line-height:1.6;color:#bbe1e4;max-width:56ch}
 .clbig{display:flex;gap:clamp(18px,3vw,44px);flex-wrap:wrap;margin:28px 0 0;
   padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
 .clbig div{min-width:0}
 .clbig > div > b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(26px,2.8vw,36px);
   line-height:1;color:var(--pop)}
-.clbig > div > em{display:block;font-style:normal;font-size:12.5px;margin-top:6px;color:#A79ACB;
+.clbig > div > em{display:block;font-style:normal;font-size:12.5px;margin-top:6px;color:#9ac8cb;
   max-width:24ch;line-height:1.45}
 
 .clsec{padding:clamp(34px,4.5vw,62px) 0}
@@ -987,4 +987,15 @@ render();
   .consent input{width:22px;height:22px}
 }
 /* end tp */</style>
+
+<style>/* _dev/layout_fixes.py */
+/* The context strip in the header. Was opacity:.62 bare text; now a chip, so
+   it reads as a label rather than as something left behind. Opacity is back to
+   1 and the recession is done with colour, which keeps the text legible on the
+   green band at small sizes. */
+.bcrq{display:inline-block;opacity:1;color:rgba(255,255,255,.74);
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:4px 11px;margin:9px 0 0;font-size:10px}
+@media (max-width:560px){.bcrq{font-size:9.5px;padding:3px 9px;letter-spacing:.07em}}
+/* end kick */</style>
 </body></html>
