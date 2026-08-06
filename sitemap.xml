@@ -106,7 +106,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/calculators.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/changes.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/getting-paid/index.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/headway-for-california-therapists.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/licensure/index.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -118,7 +142,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/money/index.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/newsletter.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/practice/index.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -226,6 +262,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/questions.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/rates.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -238,7 +280,19 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/training/index.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/alliant-international-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/antioch-university-los-angeles-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -256,6 +310,30 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/biola-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/cal-poly-humboldt-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/cal-poly-pomona-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/cal-poly-san-luis-obispo-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/california-baptist-university-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
@@ -268,7 +346,37 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-lutheran-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-bakersfield-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-chico-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-dominguez-hills-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/california-state-university-east-bay-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-fresno-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -286,7 +394,37 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-los-angeles-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/california-state-university-northridge-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-sacramento-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-san-bernardino-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/california-state-university-stanislaus-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/campbellsville-university-los-angeles-education-center-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -328,6 +466,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/fuller-theological-seminary-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/golden-gate-university-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
@@ -340,7 +484,25 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/la-sierra-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/loma-linda-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/loyola-marymount-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/meridian-university-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -353,6 +515,18 @@
   </url>
   <url>
     <loc>https://cavatello.github.io/therapist-tools/national-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/northwestern-university-the-family-institute-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/notre-dame-de-namur-university-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -400,6 +574,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/san-francisco-state-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/san-jose-state-university-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
@@ -412,7 +592,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://cavatello.github.io/therapist-tools/sentio-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://cavatello.github.io/therapist-tools/sofia-university-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/sonoma-state-university-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -425,6 +617,18 @@
   </url>
   <url>
     <loc>https://cavatello.github.io/therapist-tools/university-of-la-verne-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/university-of-massachusetts-global-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/university-of-redlands-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
@@ -443,6 +647,18 @@
   </url>
   <url>
     <loc>https://cavatello.github.io/therapist-tools/university-of-southern-california-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/university-of-the-pacific-mft.html</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cavatello.github.io/therapist-tools/university-of-the-west-mft.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

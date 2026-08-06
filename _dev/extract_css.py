@@ -37,12 +37,26 @@ CSSDIR = os.path.join(SITE, "css")
 MIN_PAGES = 4
 
 STYLE = re.compile(r"[ \t]*<style>([\s\S]*?)</style>\n?")
-LINKED = re.compile(r'<link rel="stylesheet" href="css/([0-9a-f]{12})\.css">')
+LINKED = re.compile(r'<link rel="stylesheet" href="(?:\.\./)*css/([0-9a-f]{12})\.css">')
+
+
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+
+
+def html_files():
+    """Every page, root and one level down, as paths relative to SITE."""
+    out = [f for f in sorted(os.listdir(SITE))
+           if f.endswith(".html") and not f.startswith(".")]
+    for d in SUBDIRS:
+        p = os.path.join(SITE, d)
+        if os.path.isdir(p):
+            out += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
+                    if f.endswith(".html")]
+    return out
 
 
 def pages():
-    return sorted(f for f in os.listdir(SITE)
-                  if f.endswith(".html") and not f.startswith("."))
+    return html_files()
 
 
 def main():
@@ -66,16 +80,20 @@ def main():
     for h, body in shared.items():
         open(os.path.join(CSSDIR, "%s.css" % h), "w", encoding="utf-8").write(body)
 
-    def sub(m):
-        h = hashlib.sha1(m.group(1).encode("utf-8")).hexdigest()[:12]
-        if h in shared:
-            return '<link rel="stylesheet" href="css/%s.css">\n' % h
-        return m.group(0)
+    def sub_for(depth):
+        up = "../" * depth
+
+        def sub(m):
+            h = hashlib.sha1(m.group(1).encode("utf-8")).hexdigest()[:12]
+            if h in shared:
+                return '<link rel="stylesheet" href="%scss/%s.css">\n' % (up, h)
+            return m.group(0)
+        return sub
 
     saved = 0
     changed = 0
     for f, s in docs.items():
-        out = STYLE.sub(sub, s)
+        out = STYLE.sub(sub_for(f.count("/")), s)
         if out == s:
             continue
         # ---- the only guard that matters: same CSS, same order
@@ -90,8 +108,12 @@ def main():
             return parts
         if expand(s) != expand(out):
             sys.exit("extract_css: %s would change its CSS or its order" % f)
-        if out.count("<style") + out.count('href="css/') \
-           != s.count("<style") + s.count('href="css/'):
+        # Count links via LINKED, not a literal `href="css/` - a page one level
+        # down writes `href="../css/…"` and a literal count silently reads it
+        # as a lost stylesheet.
+        def sheets(doc):
+            return doc.count("<style") + len(LINKED.findall(doc))
+        if sheets(out) != sheets(s):
             sys.exit("extract_css: %s lost or gained a stylesheet" % f)
         saved += len(s) - len(out)
         changed += 1

@@ -32,6 +32,15 @@ const schools = all.filter(f => f.endsWith('-mft.html'));
 // A sample, not the whole site: enough to cover every template, plus every
 // page whose template changed in this pass.
 const PAGES = [
+  ['resources.html', {
+    calcs: '.lc', topics: '.tcard', changes: '.chg li', stage: '.rc',
+    reflist: '.reffold', questions: '.lr',
+  }],
+  ['questions.html', { rows: '.lr', groups: 'section.sec' }],
+  ['calculators.html', { cards: '.lc' }],
+  ['changes.html', { log: '.chglog li' }],
+  ['money/index.html', { cards: '.lc', intro: '.intro p', others: '.xt' }],
+  ['licensure/index.html', { cards: '.lc', others: '.xt' }],
   ['mft-programs-california.html', {
     charts: '.ig', dots: '.ig-d', bars: '.ig-b',
     internal: 'a.go.mine', cards: 'article.pg',
@@ -49,7 +58,6 @@ const PAGES = [
     ledger: '.ledg', can: '.lcol.can li', cannot: '.lcol.cant li', mods: '.mods li',
   }],
   ['psychedelic-training-innertrek.html', { ledger: '.ledg', badge: '.sb.ok' }],
-  ['resources.html', { rows: 'a.qread' }],
 ];
 
 const fails = [];
@@ -124,7 +132,9 @@ for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
       await page.waitForTimeout(160);
       if (!(await page.locator('#navpanel').isVisible()))
         note(`${file} [${view.name}]`, 'nav panel did not open');
-      else if (!(await page.locator('#navpanel a[href="psychedelic-therapy-training-california.html"]').count()))
+      // Match on the tail of the href: a page one level down links to
+      // ../psychedelic-… and an exact-match selector reads that as missing.
+      else if (!(await page.locator('#navpanel a[href$="psychedelic-therapy-training-california.html"]').count()))
         note(`${file} [${view.name}]`, 'psychedelic training missing from the panel');
       await page.keyboard.press('Escape');
     } else {

@@ -1,0 +1,1600 @@
+{
+ "pages": [
+  {
+   "file": "index.html",
+   "title": "Free money tools for California therapists — Therapist Support",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Where do I start?",
+   "outcome": "The four questions the site answers, and the tool for each",
+   "number": null,
+   "stale": true,
+   "weight": 3,
+   "skip": true,
+   "leaf": false
+  },
+  {
+   "file": "tools.html",
+   "title": "Free tools for California therapists — moved to Resources",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Where did the tools page go?",
+   "outcome": "A redirect to Resources, which now holds every calculator",
+   "number": null,
+   "stale": false,
+   "weight": 1,
+   "skip": true,
+   "leaf": false
+  },
+  {
+   "file": "practice-simulator.html",
+   "title": "California Therapy Practice Simulator — what your practice actually pays you",
+   "topic": "money",
+   "format": "calculator",
+   "question": "What does my practice actually pay me?",
+   "outcome": "Rate and caseload in, a real net figure out, tax and costs deducted",
+   "number": "12 expense categories",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "therapist-tax-strategy-california.html",
+   "title": "Therapist Tax Strategy California — what a therapist can legally defer in 2026",
+   "topic": "money",
+   "format": "calculator",
+   "question": "How much of my tax bill is optional?",
+   "outcome": "Your own profit priced against every deferral account, and the entity choice",
+   "number": "$18,244 optional on a $217,350 profit",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "therapist-cost-of-living-california.html",
+   "title": "Cost of Living for California Therapists — what you need to earn, and what is left",
+   "topic": "money",
+   "format": "calculator",
+   "question": "How much do I need to earn to live here?",
+   "outcome": "Seven cost categories and the loan payment, ending in one break-even figure",
+   "number": "$4,851 break-even a month, with the loan",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "therapist-llc-california.html",
+   "title": "Can a California therapist form an LLC? No — and here is what to do instead",
+   "topic": "money",
+   "format": "answer",
+   "question": "Can I put my practice in an LLC?",
+   "outcome": "The one subsection that forbids it, and the two structures left to you",
+   "number": "Cal. Corp. Code §17701.04(e)",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "cost-of-incorporating-california-therapist.html",
+   "title": "What incorporating actually costs a California therapist, before you earn a dollar",
+   "topic": "money",
+   "format": "answer",
+   "question": "What does a professional corporation cost to run?",
+   "outcome": "The annual floor, the first-year rule, and the profit where it starts paying",
+   "number": "$800 minimum franchise tax",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "s-corp-sdi-california-therapist.html",
+   "title": "California SDI and the S-corp: the $1,248 the pitch forgets",
+   "topic": "money",
+   "format": "answer",
+   "question": "Does the S-corp saving survive California payroll?",
+   "outcome": "The employer costs the S-corp pitch omits, priced against the saving",
+   "number": "1.3% SDI, no wage cap",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "backdoor-roth-pro-rata-therapist.html",
+   "title": "The backdoor Roth, and the one account balance that ruins it",
+   "topic": "money",
+   "format": "answer",
+   "question": "Why was my backdoor Roth mostly taxable?",
+   "outcome": "The pro-rata rule, the balance that triggers it, and the December deadline",
+   "number": "$7,500 IRA limit, $8,600 from 50",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "quarterly-estimated-taxes-california-therapist.html",
+   "title": "Quarterly estimated taxes for a California therapist: four dates, and one of them is zero",
+   "topic": "money",
+   "format": "answer",
+   "question": "How much do I send each quarter?",
+   "outcome": "Two schedules, the front-loaded California shape, and the safe harbour",
+   "number": "30/40/0/30 California instalments",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "rates.html",
+   "title": "The California Therapy Rate Gap — Insurance Reimbursement vs. Private Pay, 2026",
+   "topic": "getting-paid",
+   "format": "guide",
+   "question": "What should I be charging?",
+   "outcome": "Panel rates and private-pay ranges by region, and what moves yours",
+   "number": "$106–132 insurance against $180–350 Bay Area private pay",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "headway-for-california-therapists.html",
+   "title": "Headway for California therapists: what it pays, what it keeps, and who it will not take",
+   "topic": "getting-paid",
+   "format": "guide",
+   "question": "Is Headway worth joining?",
+   "outcome": "What Headway keeps, what it will not publish, and who it refuses",
+   "number": "$0 a month, share kept not published",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "become-an-mft-california.html",
+   "title": "Becoming an LMFT in California: every requirement, with the section it comes from",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "What does it take to become an LMFT here?",
+   "outcome": "Five gates, each tied to its code section, with every fee priced",
+   "number": "3,000 hours over at least 104 weeks",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "amft-3000-hours-california.html",
+   "title": "How long to 3,000 hours? An AMFT hours calculator for California",
+   "topic": "licensure",
+   "format": "calculator",
+   "question": "When will I actually be licensed?",
+   "outcome": "Your working week projected against all four gates, naming the slowest",
+   "number": "500 relational hours inside the 1,750 direct",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "associate-mft-job-advisor.html",
+   "title": "Associate MFT Job Advisor — compare California AMFT jobs, pay and 3,000 hours",
+   "topic": "licensure",
+   "format": "calculator",
+   "question": "Is this associate job offer any good?",
+   "outcome": "Two offers compared on take-home, real hourly worth and licensure date",
+   "number": "1,750 direct hours minimum",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "bbs-fees-california-2026.html",
+   "title": "BBS fees halved in July 2026: what the route to licensure costs now",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What do the Board fees cost now?",
+   "outcome": "The reduced schedule line by line, and what the headline total omits",
+   "number": "$875 in Board fees, down from $1,750",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "mft-programs-california.html",
+   "title": "California MFT graduate programmes: 65 schools, what each publishes, and what people say",
+   "topic": "licensure",
+   "format": "directory",
+   "question": "Which California MFT programme should I apply to?",
+   "outcome": "Sixty-five programmes on published facts only, with real forum discussion",
+   "number": "65 schools, 12 COAMFTE accredited",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "grow-your-therapy-practice.html",
+   "title": "Grow Your Therapy Practice — what a client is worth, and how many you need",
+   "topic": "practice",
+   "format": "calculator",
+   "question": "How do I fill my caseload?",
+   "outcome": "Client lifetime value, the leakiest channel, and a monthly enquiry target",
+   "number": "$4,800 per client over 24 sessions",
+   "stale": false,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "therapist-working-remotely-california.html",
+   "title": "Can a California Therapist Work Remotely? The Board says yes — the tax is the catch",
+   "topic": "practice",
+   "format": "calculator",
+   "question": "Can I see California clients from abroad?",
+   "outcome": "The Board's own answer, then the same practice priced in eight places",
+   "number": "+$18,700 at the best of the eight",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "resources.html",
+   "title": "Resources for California Therapists — the Board, panels, insurance and tax, with every link checked",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Where is the official page for this?",
+   "outcome": "Fourteen starting questions and a checked link for each rule behind them",
+   "number": "14 indexed questions",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "about.html",
+   "title": "About Therapist Support — tools, reference and support for California MFTs",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Who made this, and can I trust it?",
+   "outcome": "Who built the tools, how they are checked, and what is not sold here",
+   "number": null,
+   "stale": false,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "newsletter.html",
+   "title": "Stay updated — new tools and rate changes for California therapists",
+   "topic": "practice",
+   "format": "reference",
+   "question": "How do I hear when a number changes?",
+   "outcome": "One email a month when a fee, rate or limit on the site moves",
+   "number": "one email a month",
+   "stale": false,
+   "weight": 2,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "contact.html",
+   "title": "Contact — Therapist Support",
+   "topic": "practice",
+   "format": "reference",
+   "question": "How do I report a figure that is wrong?",
+   "outcome": "A form that reaches a person, for corrections and missing tools",
+   "number": null,
+   "stale": false,
+   "weight": 2,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "privacy.html",
+   "title": "Privacy Policy — Therapist Support",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Does this site keep what I type in?",
+   "outcome": "What the calculators store, which is nothing, and what analytics sees",
+   "number": null,
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "terms.html",
+   "title": "Terms of Use — Therapist Support",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Is any of this actual advice?",
+   "outcome": "The limits of the calculations, stated plainly, before you rely on one",
+   "number": null,
+   "stale": false,
+   "weight": 1,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "psychedelic-therapy-training-california.html",
+   "title": "Psychedelic-assisted therapy training for California therapists: 16 programmes, what each costs, and what the certificate lets you do",
+   "topic": "training",
+   "format": "directory",
+   "question": "Which psychedelic training is worth paying for?",
+   "outcome": "Sixteen trainings priced, and exactly what each lets you do in California",
+   "number": "16 programmes, $1,047 to €15,000",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "alliant-international-university-mft.html",
+   "title": "Alliant International University (CSPP) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Alliant's MFT worth $1,463 a unit?",
+   "outcome": "Per-unit cost, COAMFTE accreditation and four forum threads, in one place",
+   "number": "$1,463 a unit",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "antioch-university-santa-barbara-mft.html",
+   "title": "Antioch University Santa Barbara — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "How long does Antioch Santa Barbara's MFT take?",
+   "outcome": "Ninety quarter units on a weekend-friendly calendar, and no COAMFTE",
+   "number": "90 quarter units minimum",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "azusa-pacific-university-mft.html",
+   "title": "Azusa Pacific University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Which Azusa Pacific campus runs the evening cohort?",
+   "outcome": "Four campuses, evening and daytime cohorts, and a per-unit price to multiply",
+   "number": "$865 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-baptist-university-mft.html",
+   "title": "California Baptist University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Can I start CBU's counselling master's mid-year?",
+   "outcome": "Three entry points a year, a per-unit price, and no public discussion found",
+   "number": "$864 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-institute-of-integral-studies-mft.html",
+   "title": "California Institute of Integral Studies — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "LMFT track or LPCC track at CIIS?",
+   "outcome": "The ten extra units the LPCC track costs, and who actually needs them",
+   "number": "60 units LMFT, 70 units LPCC",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-east-bay-mft.html",
+   "title": "California State University, East Bay — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Cal State East Bay's MFT full-time only?",
+   "outcome": "One Hayward cohort, full-time, with no tuition published to plan against",
+   "number": null,
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-fullerton-mft.html",
+   "title": "California State University, Fullerton (University Extension) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Why is Fullerton's MFT run through Extension?",
+   "outcome": "Self-support pricing, part-time evenings, and what that changes for you",
+   "number": "$675 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-long-beach-mft.html",
+   "title": "California State University, Long Beach — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Did Long Beach rename its MFT programme?",
+   "outcome": "The rename to Counseling Psychology, the unit count, and hybrid delivery",
+   "number": "65 units minimum",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-northridge-mft.html",
+   "title": "California State University, Northridge — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is CSUN's MFT COAMFTE accredited?",
+   "outcome": "One of the twelve accredited programmes, largely taught in person",
+   "number": "64–67 semester units",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "chapman-university-mft.html",
+   "title": "Chapman University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What does Chapman's accreditation buy me?",
+   "outcome": "COAMFTE accreditation, on-campus only, and no tuition figure published",
+   "number": null,
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "chicago-school-mft.html",
+   "title": "The Chicago School — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Can I do The Chicago School's MFT online?",
+   "outcome": "Online delivery with two mandatory residencies, accreditation intact",
+   "number": null,
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "concordia-university-irvine-mft.html",
+   "title": "Concordia University Irvine (Townsend Institute) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Concordia Irvine's counselling degree fully online?",
+   "outcome": "Online coursework, one required four-day residency, priced per unit",
+   "number": "$695 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "daybreak-university-mft.html",
+   "title": "Daybreak University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Daybreak's Zoom-based MFT actually accredited?",
+   "outcome": "COAMFTE accreditation on a ninety-unit degree taught mostly over Zoom",
+   "number": "90 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "dominican-university-of-california-mft.html",
+   "title": "Dominican University of California — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What does Dominican's MFT cost start to finish?",
+   "outcome": "A published all-in total, plus part-time and evening routes through it",
+   "number": "$83,882 total",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "fresno-pacific-university-mft.html",
+   "title": "Fresno Pacific University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the cheapest MFT in the Central Valley?",
+   "outcome": "The lowest per-unit price in the directory, on a Fresno campus",
+   "number": "$610 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "golden-gate-university-mft.html",
+   "title": "Golden Gate University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Golden Gate's online counselling degree worth it?",
+   "outcome": "Online or hybrid delivery, priced near the top of the per-unit range",
+   "number": "$1,090 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "hope-international-university-mft.html",
+   "title": "Hope International University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Does Hope International offer a doctorate after the MFT?",
+   "outcome": "A sixty-unit accredited master's, and the DMFT that sits above it",
+   "number": "MA: 60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "loma-linda-university-mft.html",
+   "title": "Loma Linda University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Which Loma Linda MFT degree do I actually need?",
+   "outcome": "Four accredited degrees on one quarter calendar, and which one licences you",
+   "number": null,
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "mount-saint-mary-s-university-mft.html",
+   "title": "Mount Saint Mary's University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Mount Saint Mary's Enlaces! certificate?",
+   "outcome": "A bilingual community track attached to a hybrid degree priced per unit",
+   "number": "$1,210 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "national-university-mft.html",
+   "title": "National University (absorbed Northcentral University and John F. Kennedy University) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What happened to JFK University's MFT programme?",
+   "outcome": "Where the absorbed programmes went, and what National now teaches online",
+   "number": "45 credit hours minimum",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "pacific-oaks-college-mft.html",
+   "title": "Pacific Oaks College — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Can I study at Pacific Oaks online?",
+   "outcome": "A sixty-credit Pasadena degree that is not offered online at all",
+   "number": "60 credits",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "pacifica-graduate-institute-mft.html",
+   "title": "Pacifica Graduate Institute — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Pacifica's depth-psychology MFT a clinical degree?",
+   "outcome": "Ninety-three quarter units of depth training, on monthly residencies",
+   "number": "93 quarter units",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "palo-alto-university-mft.html",
+   "title": "Palo Alto University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Does Palo Alto's CMHC lead to an MFT licence?",
+   "outcome": "The MFCC emphasis that makes a counselling degree count, and its schedule",
+   "number": null,
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "pepperdine-university-mft.html",
+   "title": "Pepperdine University (GSEP) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Which Pepperdine MFT format should I apply to?",
+   "outcome": "Three programmes under one name, priced and scheduled quite differently",
+   "number": "$140,080 total",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "point-loma-nazarene-university-mft.html",
+   "title": "Point Loma Nazarene University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Can I keep working through Point Loma's MFT?",
+   "outcome": "Two evenings a week in Mission Valley, at a published per-unit rate",
+   "number": "$848 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "saint-mary-s-college-of-california-mft.html",
+   "title": "Saint Mary's College of California — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Saint Mary's weekly time commitment?",
+   "outcome": "Classroom, weekly seminar and fieldwork stacked, priced per unit",
+   "number": "$1,180 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "san-diego-state-university-mft.html",
+   "title": "San Diego State University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "How hard is it to get into SDSU's MFT?",
+   "outcome": "An accredited sixty-unit cohort capped near thirty, and what applicants report",
+   "number": "60 semester units",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "san-jose-state-university-mft.html",
+   "title": "San Jose State University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Does San Jose State's clinical psych MS lead to LMFT?",
+   "outcome": "A sixty-unit degree on the Board's list, with its format unpublished",
+   "number": "60 semester units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "santa-clara-university-mft.html",
+   "title": "Santa Clara University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Should I take Santa Clara's joint MFT and LPCC track?",
+   "outcome": "Three track choices at one per-unit price, and what the joint one adds",
+   "number": "$726 a unit",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "sofia-university-mft.html",
+   "title": "Sofia University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "How much residency does Sofia's online MACP need?",
+   "outcome": "Two ten-day residencies around an otherwise online degree",
+   "number": "$663 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "touro-university-worldwide-mft.html",
+   "title": "Touro University Worldwide — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Touro's cheap online MFT accredited?",
+   "outcome": "The lowest published total here, fully online, and COAMFTE accredited",
+   "number": "$37,800 total",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-la-verne-mft.html",
+   "title": "University of La Verne — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "When does La Verne's MFT actually meet?",
+   "outcome": "Monday and Wednesday afternoons, in person, at a published per-unit rate",
+   "number": "$990 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-san-diego-mft.html",
+   "title": "University of San Diego (SOLES) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is USD's MFT worth $105,060?",
+   "outcome": "An accredited degree with a published total and almost no public discussion",
+   "number": "$105,060 total",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-san-francisco-mft.html",
+   "title": "University of San Francisco — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Can I do USF's MFT from Sacramento?",
+   "outcome": "Two campuses, a published total, and no COAMFTE accreditation behind it",
+   "number": "$81,000 total",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-southern-california-mft.html",
+   "title": "University of Southern California (Rossier) — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is USC's online MFT the same degree as on campus?",
+   "outcome": "The priciest degree in the directory, offered two ways, without COAMFTE",
+   "number": "$152,340 total",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "vanguard-university-mft.html",
+   "title": "Vanguard University — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Does Vanguard's clinical psych MS qualify for LMFT?",
+   "outcome": "A Costa Mesa degree on sixteen-week terms, priced per unit, Board-listed",
+   "number": "$855 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "wright-institute-mft.html",
+   "title": "The Wright Institute — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the Wright Institute cohort like?",
+   "outcome": "A Berkeley counselling cohort, daytime or weekend, at a published total",
+   "number": "$78,600 total",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-ciis-psychedelic-assisted-therapies.html",
+   "title": "Certificate in Psychedelic-Assisted Therapies and Research — California Institute of Integral Studies — Center for Psychedelic Therapies and Research (CPTR): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "What does the CIIS psychedelic certificate let me do?",
+   "outcome": "A year and $9,000 that still leaves you legally limited to ketamine",
+   "number": "$8,900–$9,400 over 12 months",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-ciis-psychedelic-studies-bs.html",
+   "title": "Bachelor of Science in Psychedelic Studies — California Institute of Integral Studies — School of Undergraduate Studies: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Is the CIIS psychedelics BS any use once licensed?",
+   "outcome": "An undergraduate degree, not a facilitator training — the wrong purchase",
+   "number": "$1,028 a unit, three semesters",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-embody-lab-somatic-psychedelic.html",
+   "title": "Somatic Psychedelic Facilitator Certificate — The Embody Lab: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "What does a $1,047 psychedelic certificate get me?",
+   "outcome": "Somatic preparation and integration skills, and no change to your scope",
+   "number": "$1,047, self-paced",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-fluence-training.html",
+   "title": "Fluence Professional Certificates (Psychedelic Harm Reduction and Integration Therapy; Ketamine-Assisted Psychotherapy; Psilocybin Facilitation) — Fluence (Fluence International, Inc.) — founded by Dr. Ingmar Gorman and Dr. Elizabeth Nielson: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Which Fluence track suits a licensed therapist?",
+   "outcome": "Three certificates, APA CE on all of them, state standing on only one",
+   "number": "$5,500–$7,000, three tracks",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-innertrek.html",
+   "title": "Introduction to Psychedelic Facilitation (Level 1) — and the Level 2 Oregon/Colorado licensure track — InnerTrek: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Can a Californian get an Oregon psilocybin licence?",
+   "outcome": "The one certificate a regulator recognises, and the state line it stops at",
+   "number": "1 of 3 Oregon-approved programmes here",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-integrative-psychiatry-institute.html",
+   "title": "IPI Psychedelic Therapy Level I Certification (Psychedelic-Assisted Therapy Training) — Integrative Psychiatry Institute (IPI): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Does IPI's certificate count for Oregon licensure?",
+   "outcome": "140 online hours that only reach Oregon with a separate Eugene practicum",
+   "number": "140 hours over four months",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-mind-foundation-apt.html",
+   "title": "Augmented Psychotherapy Training (APT) — MIND Foundation gGmbH (partner of OVID Clinic Berlin): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Is the Berlin MIND training worth it from California?",
+   "outcome": "Fifteen months and three Berlin residencies that confer nothing in the US",
+   "number": "€15,000 over 15 months",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-naropa-psilocybin-facilitator.html",
+   "title": "Psilocybin Facilitator Training (PFT) Certificate Program — now run by the Memoru Center for Visionary Healing Arts, not Naropa University — Formerly the Naropa Center for Psychedelic Studies, Naropa University; separated from the university in December 2024 and now operating independently as the Memoru Center for Visionary Healing Arts, Boulder, CO: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Is Naropa still running the facilitator training?",
+   "outcome": "Not Naropa any more: who runs it, which state takes it, no price",
+   "number": "Colorado-approved only",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-pacifica-psychedelic.html",
+   "title": "Psychedelics and Depth Psychology certificate series (Level 1 introductory; Advanced Level 2) — Pacifica Graduate Institute — Pacifica Extension: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Does Pacifica's psychedelics course include practicum?",
+   "outcome": "Two CE lecture series, no practicum, and no state approval anywhere",
+   "number": "$1,095 per level",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-polaris-insight-kap.html",
+   "title": "Polaris/Rainfall Certificate of Training in Ketamine-Assisted Psychotherapy — Polaris Insight Center (with Rainfall Medicine): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "What is the cheapest way into ketamine work?",
+   "outcome": "A $375 entry module, a working foundation, and the certificate only if wanted",
+   "number": "$375 entry, $1,950 foundation",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-prati.html",
+   "title": "Foundations in Psychedelic Medicine Training — Psychedelic Research and Training Institute (PRATI): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Should I take ketamine myself as part of training?",
+   "outcome": "Four residential days, two supervised personal sessions, and no CE credit",
+   "number": "$3,000 for non-physicians",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-psychedelic-coalition-for-health.html",
+   "title": "Psychedelic-Assisted Therapy &amp; Integration Training — Psychedelic Coalition for Health (PCH): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Is the Topanga Canyon ketamine training still running?",
+   "outcome": "APA CE that counts in California, from a programme no longer taking applications",
+   "number": "$5,000 for mental health professionals",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-soundmind-institute.html",
+   "title": "SoundMind Psychedelic Facilitator Training Program — SoundMind Institute (training arm of SoundMind; affiliated with SoundMind Center, Philadelphia): cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Is SoundMind still on Oregon's approved list?",
+   "outcome": "Twelve months online, Colorado standing intact, Oregon standing gone",
+   "number": "$5,800–$10,300, 12 months",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-spiral-process-training.html",
+   "title": "Psychedelic Process Training for Therapists — Spiral Process Therapy: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "What does a six-day ketamine intensive cover?",
+   "outcome": "Six days in Santa Cruz with two ketamine sessions included in the fee",
+   "number": "$1,950 over six days",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-uc-berkeley-bcsp.html",
+   "title": "Berkeley Psychedelic Facilitation Certificate Program — UC Berkeley Center for the Science of Psychedelics (BCSP), in partnership with the UC Berkeley School of Education: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Can I still enrol in Berkeley's psychedelic certificate?",
+   "outcome": "Nine months and $14,000, from a programme not currently admitting anyone",
+   "number": "$14,000, enrolment paused",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "psychedelic-training-vital-psychedelics-today.html",
+   "title": "Vital — Certificate in Integrative Psychedelic Studies — Psychedelics Today: cost, curriculum, and what the certificate actually lets you do",
+   "topic": "training",
+   "format": "answer",
+   "question": "Is Vital worth $10,500 to a licensed therapist?",
+   "outcome": "A year of remote education, a certificate with no legal force, and a network",
+   "number": "$10,500 over 12 months",
+   "stale": true,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "antioch-university-los-angeles-mft.html",
+   "title": "Antioch University Los Angeles — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Antioch University Los Angeles worth it?",
+   "outcome": "Courses, curriculum, practicum and cost — Culver City",
+   "number": "$956 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "biola-university-mft.html",
+   "title": "Biola University (Talbot School of Theology) — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Biola University's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — La Mirada",
+   "number": "67 credits",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "cal-poly-humboldt-mft.html",
+   "title": "Cal Poly Humboldt — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Cal Poly Humboldt's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Arcata",
+   "number": "60 units (16 of them field",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "cal-poly-pomona-mft.html",
+   "title": "Cal Poly Pomona — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Cal Poly Pomona's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Pomona",
+   "number": "60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "cal-poly-san-luis-obispo-mft.html",
+   "title": "Cal Poly San Luis Obispo — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the MFT programme at Cal Poly San Luis Obispo like?",
+   "outcome": "Courses, curriculum, practicum and cost — San Luis Obispo",
+   "number": "69 semester units (73 with",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-lutheran-university-mft.html",
+   "title": "California Lutheran University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is California Lutheran University worth it?",
+   "outcome": "Courses, curriculum, practicum and cost — Thousand Oaks",
+   "number": "$940 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-bakersfield-mft.html",
+   "title": "California State University, Bakersfield — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Bakersfield's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Bakersfield",
+   "number": "66 semester units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-chico-mft.html",
+   "title": "California State University, Chico — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Chico's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Chico",
+   "number": "60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-dominguez-hills-mft.html",
+   "title": "California State University, Dominguez Hills — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Dominguez Hills's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Carson",
+   "number": "64 credits",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-fresno-mft.html",
+   "title": "California State University, Fresno (Fresno State) — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Fresno's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Fresno",
+   "number": "60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-los-angeles-mft.html",
+   "title": "California State University, Los Angeles — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Los Angeles's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Los Angeles",
+   "number": "73–77 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-sacramento-mft.html",
+   "title": "California State University, Sacramento — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Sacramento's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Sacramento",
+   "number": "60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-san-bernardino-mft.html",
+   "title": "California State University, San Bernardino — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU San Bernardino's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — San Bernardino",
+   "number": "60–68 semester units (vari",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "california-state-university-stanislaus-mft.html",
+   "title": "California State University, Stanislaus — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is CSU Stanislaus's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Turlock",
+   "number": "60 units min (36 core + 24",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "campbellsville-university-los-angeles-education-center-mft.html",
+   "title": "Campbellsville University — Los Angeles Education Center (formerly Phillips Graduate University/Institute) — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the MFT programme at Campbellsville University like?",
+   "outcome": "Courses, curriculum, practicum and cost — Los Angeles",
+   "number": "$66,495 total",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "fuller-theological-seminary-mft.html",
+   "title": "Fuller Theological Seminary — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the MFT programme at Fuller Theological Seminary like?",
+   "outcome": "Courses, curriculum, practicum and cost — Pasadena",
+   "number": "$540 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "la-sierra-university-mft.html",
+   "title": "La Sierra University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is La Sierra University's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Riverside",
+   "number": "$730 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "loyola-marymount-university-mft.html",
+   "title": "Loyola Marymount University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the MFT programme at Loyola Marymount University like?",
+   "outcome": "Courses, curriculum, practicum and cost — Los Angeles",
+   "number": "$1,814 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "meridian-university-mft.html",
+   "title": "Meridian University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Meridian University's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Petaluma",
+   "number": "$676 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "northwestern-university-the-family-institute-mft.html",
+   "title": "Northwestern University, The Family Institute — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Northwestern University, The Family Institute worth it?",
+   "outcome": "Courses, curriculum, practicum and cost — Evanston, IL",
+   "number": "25 Northwestern quarter un",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "notre-dame-de-namur-university-mft.html",
+   "title": "Notre Dame de Namur University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is Notre Dame de Namur University worth it?",
+   "outcome": "Courses, curriculum, practicum and cost — Belmont",
+   "number": "60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "san-francisco-state-university-mft.html",
+   "title": "San Francisco State University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is San Francisco State University worth it?",
+   "outcome": "Courses, curriculum, practicum and cost — San Francisco",
+   "number": "60 units min",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "sentio-university-mft.html",
+   "title": "Sentio University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Sentio University's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Los Angeles",
+   "number": "$67,200 total",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "sonoma-state-university-mft.html",
+   "title": "Sonoma State University — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Sonoma State University's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Rohnert Park",
+   "number": "60 units",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-massachusetts-global-mft.html",
+   "title": "University of Massachusetts Global (formerly Brandman) — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Is University of Massachusetts Global worth it?",
+   "outcome": "Courses, curriculum, practicum and cost — Online — BBS lists 'California campus only'",
+   "number": "69 credits",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-redlands-mft.html",
+   "title": "University of Redlands — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is University of Redlands's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Redlands",
+   "number": "$932 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-the-pacific-mft.html",
+   "title": "University of the Pacific (Benerd College) — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is the MFT programme at University of the Pacific like?",
+   "outcome": "Courses, curriculum, practicum and cost — Stockton",
+   "number": "$1,244 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "university-of-the-west-mft.html",
+   "title": "University of the West — MFT programme in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is University of the West's MFT programme actually like?",
+   "outcome": "Courses, curriculum, practicum and cost — Rosemead",
+   "number": "$765 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  }
+ ],
+ "topics": {
+  "money": {
+   "name": "Money",
+   "tagline": "What the practice pays you, and what you can keep.",
+   "intro": [
+    "Four decisions sit under everything here. What to charge and how full a week to run. Whether to stay a sole proprietor or put the practice inside a California professional corporation. How much of the profit to defer into a retirement account instead of sending it to the IRS. And how to get the quarterly instalments right so June does not arrive short. The tools on this page take your own rate, caseload and running costs and carry them all the way to a net figure, on 2026 federal and California rates, with every step traceable to the rule it came from.",
+    "What the site can settle: the arithmetic. A $217,350 profit carries about $18,244 of tax that is optional rather than owed. A corporation costs $800 a year before you see a client, and California's 1.3% SDI has no wage cap, so the S-corp saving is smaller than the usual pitch. California's estimated instalments run 30, 40, 0 and 30, not four equal quarters. What it cannot settle: whether your specific salary figure is reasonable compensation, whether your old SEP balance should be rolled before a Roth conversion, or anything that depends on facts only your accountant has."
+   ],
+   "clusters": [
+    {
+     "name": "What the practice pays you",
+     "files": [
+      "practice-simulator.html",
+      "therapist-cost-of-living-california.html"
+     ]
+    },
+    {
+     "name": "Sole proprietor, or a corporation",
+     "files": [
+      "therapist-llc-california.html",
+      "cost-of-incorporating-california-therapist.html",
+      "s-corp-sdi-california-therapist.html"
+     ]
+    },
+    {
+     "name": "Tax you can defer, and tax you must send",
+     "files": [
+      "therapist-tax-strategy-california.html",
+      "backdoor-roth-pro-rata-therapist.html",
+      "quarterly-estimated-taxes-california-therapist.html"
+     ]
+    }
+   ]
+  },
+  "licensure": {
+   "name": "Licensure",
+   "tagline": "The route to LMFT, and how long it really takes.",
+   "intro": [
+    "Becoming an LMFT in California is five gates with no discretion in any of them: a qualifying degree, practicum before you graduate, 3,000 supervised hours over at least 104 weeks, supervision that meets the Board's form, and two exams. The 3,000 is rarely the gate that decides your date. A caseload of adult individuals will close it and still leave you ineligible, because 500 of your 1,750 direct hours have to be couples, families or children. The calculators here project all four gates from the week you actually work and name the one you are waiting on.",
+    "Money runs alongside all of it. Board fees for the whole route fell from $1,750 to $875 on 1 July 2026 and revert in 2030. An associate job offer is really two questions wearing one coat — what it pays now, and how fast it closes your hours — and offer letters only answer the first. What the site cannot settle: whether the Board will accept a particular supervisor's paperwork, or whether a specific degree qualifies. It gives you the code section to check, not the ruling."
+   ],
+   "clusters": [
+    {
+     "name": "The route, and what it costs",
+     "files": [
+      "become-an-mft-california.html",
+      "bbs-fees-california-2026.html"
+     ]
+    },
+    {
+     "name": "Counting the hours, and the job that banks them",
+     "files": [
+      "amft-3000-hours-california.html",
+      "associate-mft-job-advisor.html"
+     ]
+    },
+    {
+     "name": "Where the degree comes from",
+     "directory": true,
+     "files": [
+      "mft-programs-california.html"
+     ]
+    }
+   ]
+  },
+  "getting-paid": {
+   "name": "Getting paid",
+   "tagline": "What panels pay, and what the middlemen keep.",
+   "intro": [
+    "There are two prices for the same 53 minutes. Billed to insurance in California, CPT 90837 collects roughly $106 to $132, with Kaiser near $150 at the top and Cigna near $80 at the bottom. Billed privately in the Bay Area, the same hour runs $180 to $350, and most licensed LMFTs land between $200 and $275. That is a gap of about two to one, which is why roughly half of California therapists take no insurance at all — the reimbursement does not clear the cost of living, and every clinical hour drags about thirty minutes of unpaid paperwork behind it.",
+    "The platforms sit between the two. Headway charges no subscription and instead keeps an undisclosed share of your reimbursement, and will not show you your California rate until you are already credentialed. It accepts independently licensed clinicians only, so no AMFT, ASW or APCC can join. What this section can settle: what is actually documented about panel rates, market ranges and platform terms. What it cannot: your own contracted rate, which is negotiated, confidential, and specific to you."
+   ],
+   "clusters": [
+    {
+     "name": "What the two markets pay",
+     "files": [
+      "rates.html"
+     ]
+    },
+    {
+     "name": "Panels, and the platforms in front of them",
+     "files": [
+      "headway-for-california-therapists.html"
+     ]
+    }
+   ]
+  },
+  "practice": {
+   "name": "Practice",
+   "tagline": "Filling the week, and running the admin behind it.",
+   "intro": [
+    "A practice is a funnel, not a mystery. Six numbers you can mostly estimate from memory — your rate, how long a client typically stays, how many people find you, how many enquire, how many book — will tell you what one client is worth and which referral channel is quietly losing the most of them. At a $200 hour over 24 sessions, one client is $4,800, and one extra client a month compounds to $57,600 across a year. That is the arithmetic that turns growth decisions into sums instead of anxiety.",
+    "The rest of this section is the administrative floor. The Board of Behavioral Sciences has answered the telehealth question directly: a California licensee may treat California clients from outside the state, so the constraint is tax and the destination country's own rules, not your licence. And the reference shelf keeps the links you need when something is in flux — one large panel closed to new applicants until September, Board fees mid-reduction. What the site cannot settle: clinical risk, malpractice cover, or anything a lawyer should sign off."
+   ],
+   "clusters": [
+    {
+     "name": "Filling the week",
+     "files": [
+      "grow-your-therapy-practice.html"
+     ]
+    },
+    {
+     "name": "Practising from somewhere else",
+     "files": [
+      "therapist-working-remotely-california.html"
+     ]
+    },
+    {
+     "name": "The reference shelf",
+     "files": [
+      "resources.html"
+     ]
+    },
+    {
+     "name": "About this site",
+     "files": [
+      "about.html",
+      "newsletter.html",
+      "contact.html",
+      "privacy.html",
+      "terms.html"
+     ]
+    }
+   ]
+  },
+  "training": {
+   "name": "Training",
+   "tagline": "Certificates, and what each one actually permits.",
+   "intro": [
+    "Sixteen psychedelic-assisted therapy trainings a California therapist can buy, from a $1,047 self-paced certificate to a €15,000 fifteen-month programme in Berlin. Before cost or curriculum, one fact governs all of them: none changes your licence or your scope of practice. They are credentials issued by schools and institutes, not regulators, and the Board of Behavioral Sciences neither recognises nor requires any of them. In California the only psychedelic work you may lawfully do remains ketamine-assisted psychotherapy, plus preparation and integration around substances someone took elsewhere.",
+    "Three of the sixteen are attached to a real regulator, through Oregon's or Colorado's facilitator licences — and those licences only work inside those states, in a licensed service centre. That is the whole of what a certificate can buy you legally. Everything else it buys is competence, supervision, a network and CE hours, which are real things worth paying for as long as you know that is what you are buying. What this section cannot settle: whether a given programme is any good clinically. It can tell you what it costs, what it teaches, and exactly where it stops."
+   ],
+   "clusters": [
+    {
+     "name": "Psychedelic-assisted therapy training",
+     "directory": true,
+     "files": [
+      "psychedelic-therapy-training-california.html"
+     ]
+    }
+   ]
+  }
+ },
+ "changes": [
+  {
+   "date": "2026-07-01",
+   "what": "BBS fees halved: registration through licence fell from $1,750 to $875, reverting on 30 June 2030.",
+   "where": "bbs-fees-california-2026.html",
+   "src": "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"
+  },
+  {
+   "date": "2026-06-01",
+   "what": "Evernorth (Cigna) behavioral health closed to new individual applicants, pointing providers back after 1 September 2026.",
+   "where": "resources.html",
+   "src": "https://static.evernorth.com/assets/evernorth/provider/resourceLibrary/behavioralResources/doingBusinessWithUs/cbhCredentialing.html"
+  },
+  {
+   "date": "2026-01-01",
+   "what": "California SDI withholding set at 1.3% for 2026, on the whole salary with no ceiling — $1,248 on a $96,000 S-corp wage.",
+   "where": "s-corp-sdi-california-therapist.html",
+   "src": "https://edd.ca.gov/en/payroll_taxes/rates_and_withholding/"
+  },
+  {
+   "date": "2026-01-01",
+   "what": "The 401(k) employee deferral rose to $24,500 and the IRA limit to $7,500, $8,600 from age 50.",
+   "where": "backdoor-roth-pro-rata-therapist.html",
+   "src": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"
+  },
+  {
+   "date": "2026-01-01",
+   "what": "The SIMPLE IRA deferral rose from $16,500 to $17,000, with the catch-up at $4,000.",
+   "where": "therapist-tax-strategy-california.html",
+   "src": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"
+  },
+  {
+   "date": "2026-01-01",
+   "what": "Direct Roth contributions phase out between $153,000 and $168,000 of modified AGI filing single, and $242,000 to $252,000 jointly.",
+   "where": "backdoor-roth-pro-rata-therapist.html",
+   "src": "https://www.irs.gov/instructions/i8606"
+  },
+  {
+   "date": "2025-07-01",
+   "what": "UC Berkeley's psychedelic facilitation certificate paused enrolment for 2025-26; its pages have not been updated since, and no restart or tuition has been announced.",
+   "where": "psychedelic-training-uc-berkeley-bcsp.html",
+   "src": "https://psychedelics.berkeley.edu/facilitation-certificate-program/future-programming/"
+  },
+  {
+   "date": "2025-01-01",
+   "what": "Oregon's residency requirement for psilocybin facilitator licensure expired, so a Californian may now hold one — while still facilitating only inside an Oregon service centre.",
+   "where": "psychedelic-training-uc-berkeley-bcsp.html",
+   "src": "https://www.oregon.gov/oha/PH/PREVENTIONWELLNESS/Documents/Facilitator-License-Fact-Sheet.pdf"
+  },
+  {
+   "date": "2024-12-01",
+   "what": "The psilocybin facilitator training left Naropa University for the independent Memoru Center, which is Colorado-approved only and has dropped Oregon.",
+   "where": "psychedelic-training-naropa-psilocybin-facilitator.html",
+   "src": "https://psilocybin.oregon.gov/training-approved"
+  },
+  {
+   "date": "2024-01-01",
+   "what": "California removed the SDI wage cap, making all wages subject to contributions — which is what turns an S-corp salary into an uncapped 1.3% charge.",
+   "where": "s-corp-sdi-california-therapist.html",
+   "src": "https://edd.ca.gov/siteassets/files/pdf_pub_ctr/de459.pdf"
+  }
+ ]
+}
