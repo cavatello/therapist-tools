@@ -1,0 +1,169 @@
+{
+ "slug": "kaiser-permanente-school-of-allied-health-sciences-mft",
+ "institution": "Kaiser Permanente School of Allied Health Sciences",
+ "city": "Richmond, San Mateo and Lathrop",
+ "degree": "M.S. in Counseling, Marriage and Family Therapy",
+ "url": "https://kpsahs.edu/programs/master-science-counseling",
+ "orientation": "Integrated-health-system training, inside Kaiser Permanente's own mental health clinics",
+ "character": [
+  "One cohort a year, starting each July, of about twenty to twenty-five students, on a fixed 24-month full-time schedule of eight quarters. There is no part-time or extended track published anywhere in the catalog, which makes this one of the least flexible programmes on the Board&rsquo;s list and one of the most predictable.",
+  "Teaching is hybrid and built around people who work: two afternoons or evenings a week, one in person and one online, with the in-person day at Richmond, San Mateo or Lathrop. Clinical hours are the exception and run in normal business hours, which is the scheduling conflict to think through before applying rather than after.",
+  "The Lathrop site is inside a working clinic &mdash; the Board&rsquo;s own paperwork names it the Kaiser Permanente Lathrop Mental Health and Wellness Center &mdash; and opened to students in July 2026."
+ ],
+ "practicum": {
+  "model": "placed",
+  "model_evidence": "Clinical assignments for all programs are made by the clinical coordinator in collaboration with the program director. Students may be required to travel long distances to receive full clinical education.",
+  "model_url": "https://kpsahs.edu/student-resources/academic-catalog",
+  "own_clinic": true,
+  "clinic_names": [
+   "Kaiser Permanente Northern California Mental Health Training Program clinics"
+  ],
+  "hours": "600 supervised hours minimum, of which 225 must be direct patient care. Eight hours a week of observation in quarters three and four — which the school states do not count towards licensure — then 16 to 24 hours a week of direct practice from quarter five.",
+  "starts": "Observation in quarter three; direct practice from quarter five.",
+  "detail": "Clinical training is hybrid, with at least half the time in person at one of the Kaiser training clinics across Northern California."
+ },
+ "admissions": {
+  "gre": "not required",
+  "gre_evidence": "No admission test of any kind is required for the counseling programme; the Wonderlic applies only to Medical Assisting and Phlebotomy.",
+  "gre_url": "https://kpsahs.edu/programs/master-science-counseling",
+  "min_gpa": "3.0 over the last 60 semester or 90 quarter units; a lower GPA can be addressed in the essay",
+  "cohort_size": "About 20–25, one cohort a year starting in July",
+  "prereqs": "Any undergraduate discipline, with no recency requirement. Essay, résumé and two references, applied through PsychologyCAS.",
+  "src": "https://kpsahs.edu/programs/master-science-counseling"
+ },
+ "cost": {
+  "total": 38970,
+  "note": "Tuition for the July 2026 cohort is $38,970, plus $1,265 in fees, and the school publishes an estimated grand total of $43,779 once books, screenings and licensure fees are included. The figure compared on the directory is tuition, so that it sits beside other schools' tuition rather than against their unstated extras.",
+  "src": "https://kpsahs.edu/tuition-and-financial-aid/tuition-and-fees"
+ },
+ "gaps": [
+  "The catalog cites Business and Professions Code &ldquo;section 498.36&rdquo; where the programme page correctly says 4980.36. A typo in the catalog, not a different rule.",
+  "The BPPE fact sheet reports a 0% job-placement rate for 2023 and 2024. That is BPPE&rsquo;s employment definition applied to graduates who are still accruing associate hours, not a finding about whether they found work, and it is not reproduced as an outcome here. On-time completion &mdash; 85% and 79% &mdash; is the figure that means something."
+ ],
+ "sources": [
+  {
+   "label": "Master science counseling",
+   "url": "https://kpsahs.edu/master-science-counseling/"
+  },
+  {
+   "label": "Counseling ms",
+   "url": "https://kpsahs.edu/academics/all-programs/counseling-ms"
+  },
+  {
+   "label": "Counseling faqs",
+   "url": "https://kpsahs.edu/academics/all-programs/counseling-ms/counseling-faqs"
+  },
+  {
+   "label": "Tuition and fees",
+   "url": "https://kpsahs.edu/tuition-and-financial-aid/tuition-and-fees"
+  },
+  {
+   "label": "Academic catalog",
+   "url": "https://kpsahs.edu/academics/academic-catalog"
+  },
+  {
+   "label": "Admissions requirements",
+   "url": "https://kpsahs.edu/admissions/admissions-requirements"
+  },
+  {
+   "label": "Faqs",
+   "url": "https://kpsahs.edu/admissions/faqs"
+  },
+  {
+   "label": "Apply now",
+   "url": "https://kpsahs.edu/apply-now"
+  },
+  {
+   "label": "Clinical partnerships",
+   "url": "https://kpsahs.edu/academics/all-programs/clinical-partnerships"
+  },
+  {
+   "label": "Student handbook",
+   "url": "https://kpsahs.edu/student-resources/student-handbook"
+  },
+  {
+   "label": "Accreditation and approvals",
+   "url": "https://kpsahs.edu/about-us/accreditation-and-approvals"
+  },
+  {
+   "label": "Master science counseling",
+   "url": "https://drupal.kpsahs.edu/master-science-counseling/"
+  },
+  {
+   "label": "03a8049e 143a 45bb 9073 ba6268ceb8e0",
+   "url": "https://content.kpsahs.edu/assets/03a8049e-143a-45bb-9073-ba6268ceb8e0.pdf"
+  },
+  {
+   "label": "A496f804 5dd6 4f2b b328 dec2d2111550",
+   "url": "https://content.kpsahs.edu/assets/a496f804-5dd6-4f2b-b328-dec2d2111550.pdf"
+  },
+  {
+   "label": "9e9f2d73 f60f 4613 84d8 345a668bd4b1",
+   "url": "https://content.kpsahs.edu/assets/9e9f2d73-f60f-4613-84d8-345a668bd4b1.pdf"
+  },
+  {
+   "label": "Dfc12935 0726 4cf5 949a 3ee543ad5ed8",
+   "url": "https://content.kpsahs.edu/assets/dfc12935-0726-4cf5-949a-3ee543ad5ed8.pdf"
+  },
+  {
+   "label": "919e13db cdf2 4325 9036 cf851e79fe94",
+   "url": "https://content.kpsahs.edu/assets/919e13db-cdf2-4325-9036-cf851e79fe94"
+  },
+  {
+   "label": "C2e33952 4b5a 4912 bed7 b74c03eaff60",
+   "url": "https://content.kpsahs.edu/assets/c2e33952-4b5a-4912-bed7-b74c03eaff60"
+  },
+  {
+   "label": "34419c37 4b37 4d11 9013 c5f92a99bb83",
+   "url": "https://content.kpsahs.edu/assets/34419c37-4b37-4d11-9013-c5f92a99bb83.pdf"
+  },
+  {
+   "label": "Ba55d1ca dd68 460c 9a53 728f52797931",
+   "url": "https://content.kpsahs.edu/assets/ba55d1ca-dd68-460c-9a53-728f52797931.pdf"
+  },
+  {
+   "label": "4ce1ec47 e038 46af bed8 e41bd17d5316",
+   "url": "https://content.kpsahs.edu/assets/4ce1ec47-e038-46af-bed8-e41bd17d5316.pdf"
+  },
+  {
+   "label": "0970f057 9c8c 4f95 8313 d38cbfda920c",
+   "url": "https://content.kpsahs.edu/assets/0970f057-9c8c-4f95-8313-d38cbfda920c.pdf"
+  },
+  {
+   "label": "8",
+   "url": "https://content.kpsahs.edu/items/programs/8"
+  },
+  {
+   "label": "113",
+   "url": "https://content.kpsahs.edu/items/pages/113"
+  },
+  {
+   "label": "37",
+   "url": "https://content.kpsahs.edu/items/pages/37"
+  },
+  {
+   "label": "16",
+   "url": "https://content.kpsahs.edu/items/pages/16"
+  },
+  {
+   "label": "20",
+   "url": "https://content.kpsahs.edu/items/pages/20"
+  },
+  {
+   "label": "63",
+   "url": "https://content.kpsahs.edu/items/pages/63"
+  },
+  {
+   "label": "2025 Academic Catalog",
+   "url": "https://drupal.kpsahs.edu/sites/default/files/managed_media/catalog/2025_Academic_Catalog.pdf"
+  },
+  {
+   "label": "2022 2023 SPFSs v08252025",
+   "url": "https://drupal.kpsahs.edu/sites/default/files/managed_media/Documents/2022-2023_SPFSs_v08252025.pdf"
+  },
+  {
+   "label": "2026 Counseling Program Flyer 0825",
+   "url": "https://drupal.kpsahs.edu/sites/default/files/managed_media/Flyers/2026_Counseling_Program_Flyer_0825.pdf"
+  }
+ ]
+}

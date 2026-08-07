@@ -195,6 +195,106 @@ def anchor(name):
     return "s-" + re.sub(r"-+", "-", x)[:64].strip("-")
 
 
+def edges(progs):
+    """One line per card saying what makes this school different, DERIVED.
+
+    THE PROBLEM. Seventy-eight cards with the same six rows are, to a reader
+    scanning them, the same card seventy-eight times. Every directory this was
+    studied against solves it with a hand-written differentiator sentence, and
+    every one of them ends up writing marketing: "a supportive, cohort-based
+    community with a strong clinical focus" says nothing and cannot be checked.
+
+    THE RULE THAT MAKES IT SAFE. Nothing here is written per school. Each line
+    is COMPUTED from a fact already displayed on that same card, and most of
+    them are comparative facts that only exist because the whole set is in
+    memory - cheapest, largest, only one in its region. So a line cannot be
+    flattering, cannot be unsourced, and cannot go stale: change the data and
+    the sentence changes or disappears with it.
+
+    THE OTHER RULE. A school with no computable distinction gets NO line. About
+    half do. A differentiator that fires for everyone is a slogan, and the
+    silence is honest - most of these programmes really are similar, and the
+    page should not pretend otherwise to fill a slot.
+
+    Rules are tried in order and the first that fires wins, so the ordering is
+    the editorial judgement about which fact matters most. Cost first, because
+    it is the one difference a reader can act on immediately.
+    """
+    out = {}
+    costs = sorted(((charts.cost_of(p)[0], p["institution"]) for p in progs
+                    if charts.cost_of(p)[0]), key=lambda x: x[0])
+    cheapest = costs[0][1] if costs else None
+    dearest = costs[-1][1] if costs else None
+    n_coam = sum(1 for p in progs if p.get("coamfte"))
+
+    # Region counts, so "the only one in X" is a fact rather than an impression.
+    byreg = {}
+    for p in progs:
+        byreg.setdefault(region(p.get("city")), []).append(p["institution"])
+    # The far north is not a region() bucket - it is the thing readers outside
+    # the two metros actually ask about, so it is computed from cities.
+    FARNORTH = ("arcata", "redding", "chico", "weimar")
+    north = [p["institution"] for p in progs
+             if any(c in (p.get("city") or "").lower() for c in FARNORTH)]
+
+    units = []
+    for p in progs:
+        n, sysm = charts.units_of(p)
+        if n and sysm:
+            units.append((n * (charts.QUARTER_TO_SEM if sysm == "quarter" else 1),
+                          p["institution"]))
+    units.sort()
+    fewest = units[0][1] if units else None
+    most = units[-1][1] if units else None
+
+    for p in progs:
+        nm = p["institution"]
+        line = None
+        c, kind = charts.cost_of(p)
+
+        if nm == cheapest:
+            line = ("The cheapest published cost on the Board&rsquo;s list "
+                    "&mdash; $%s, against $%s at the other end."
+                    % ("{:,}".format(costs[0][0]), "{:,}".format(costs[-1][0])))
+        elif nm == dearest:
+            line = ("The most expensive published cost here &mdash; $%s, "
+                    "about %.1f times the cheapest."
+                    % ("{:,}".format(costs[-1][0]),
+                       costs[-1][0] / float(costs[0][0])))
+        elif p.get("placement") == "guaranteed":
+            line = ("One of only %d schools that state every student in good "
+                    "standing gets a clinical placement."
+                    % sum(1 for x in progs if x.get("placement") == "guaranteed"))
+        elif nm in north and len(north) <= 4:
+            line = ("One of only %d options on the Board&rsquo;s list sited in "
+                    "far northern California." % len(north))
+        elif p.get("coamfte"):
+            line = ("One of the %d COAMFTE-accredited programmes here &mdash; "
+                    "the accreditation that decides whether the degree travels "
+                    "out of California." % n_coam)
+        elif p.get("placement") == "placed":
+            line = ("The programme finds your clinical site rather than leaving "
+                    "it to you &mdash; %d of the %d do."
+                    % (sum(1 for x in progs
+                           if x.get("placement") in ("guaranteed", "placed")),
+                       len(progs)))
+        elif nm == most:
+            line = "The largest unit requirement on the list, at %s." % p["units"]
+        elif nm == fewest:
+            line = "The smallest unit requirement on the list, at %s." % p["units"]
+        elif region(p.get("city")) == "Online or out of state":
+            line = ("An out-of-state institution running a California-specific "
+                    "degree &mdash; %d of the %d are."
+                    % (len(byreg.get("Online or out of state", [])), len(progs)))
+        elif p.get("gre") == "required":
+            line = ("One of only %d schools here that still requires an "
+                    "admissions test."
+                    % sum(1 for x in progs if x.get("gre") == "required"))
+        if line:
+            out[nm] = line
+    return out
+
+
 def gapline(p):
     """Name what this school does not publish, on its own card.
 
@@ -219,7 +319,7 @@ def gapline(p):
             "Worth asking admissions directly.</p>" % miss)
 
 
-def card(p):
+def card(p, edge=None):
     name = p["institution"]
     coam = ('<span class="badge acc">COAMFTE accredited</span>'
             if p.get("coamfte") else "")
@@ -276,6 +376,8 @@ def card(p):
         note = '<p class="nt">%s</p>' % esc(p["notable"])
     elif p.get("note"):
         note = '<p class="nt">%s</p>' % esc(p["note"])
+    if edge:
+        note = ('<p class="edge">%s</p>' % edge) + note
     if p.get("lpcc_note"):
         note = ('<p class="nt"><b>LPCC:</b> %s</p>' % esc(p["lpcc_note"])) + note
     # A Board notice outranks everything else on the card, including the
@@ -627,6 +729,12 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
   background:#FAF7EF;border:1px dashed #E4D9BE;border-radius:8px;padding:8px 11px}
 .gapl b{color:#5B5344;font-weight:600}
 
+/* The computed differentiator. Set apart from the school's own description
+   below it, because it is the one line on the card this site wrote - and it
+   only ever states a comparison drawn from the same data the card shows. */
+.edge{font-size:13.4px;line-height:1.55;color:#27500A;margin:10px 0 0;
+  background:#F3F8EC;border:1px solid #DCE9CB;border-radius:8px;padding:8px 11px}
+
 /* "no page here yet" had a class and no rule, so it ran straight on from the
    link text: "Programme page -> no page here yet" as one line. It is a caveat
    about the destination, not part of the label. */
@@ -931,7 +1039,8 @@ def build():
                    if p.get("placement") in ("guaranteed", "placed"))
     n_nogre = sum(1 for p in progs if p.get("gre") == "not required")
 
-    cards = "".join(card(p) for p in progs)
+    ed = edges(progs)
+    cards = "".join(card(p, ed.get(p["institution"])) for p in progs)
     rows = "".join(trow(p) for p in progs)
 
     # Threads keyed to an institution that is not in the BBS list - Saybrook is
@@ -1199,6 +1308,19 @@ def main():
         if doc.count(tok) != n * 2:
             bad.append("%s appears %dx, expected %d (cards + rows)"
                        % (tok, doc.count(tok), n * 2))
+    # The derived differentiator. Two things can go wrong with it and both are
+    # silent: it can fire for everybody, at which point it is a slogan rather
+    # than a distinction, and it can interpolate a prose field that is not the
+    # number it thinks it is - which is how "the smallest unit requirement on
+    # the list, at Quarter system; 4.5 quarter units per course" reached a card.
+    ed = re.findall(r'<p class="edge">(.*?)</p>', doc)
+    if not 0.10 <= len(ed) / float(len(PROGRAMS)) <= 0.70:
+        bad.append("%d of %d cards carry a differentiator - it is either a "
+                   "slogan or broken" % (len(ed), len(PROGRAMS)))
+    for e in ed:
+        if re.search(r"\bNone\b|not stated|per course|\$0\b", e):
+            bad.append("a differentiator interpolated prose: %s" % e[:70])
+            break
     if "navpanel" in doc and not re.search(r"<script>[\s\S]*?navpanel[\s\S]*?</script>", doc):
         bad.append("header would be dead - nav script missing")
     # Look for ranking MARKUP, not for the word. The first version matched

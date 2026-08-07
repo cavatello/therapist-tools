@@ -127,6 +127,48 @@ def esc(x):
     return html.escape(x) if x else None
 
 
+def library_meta(p):
+    """The ts:* block, emitted by the builder rather than backfilled.
+
+    THIS CLOSES A LOOP THAT WAS STILL OPEN. registry_meta.py writes each page's
+    library metadata into the page and registry_sync.py reads it back, so the
+    page is the source of truth and nobody has to edit a central file. But
+    school pages never emitted their own meta - the existing sixty-five got
+    theirs from a registry that had been seeded by hand long before. So the
+    first genuinely new school page, Kaiser Permanente, built fine, deployed
+    fine, and was invisible to the library: no question index entry, no
+    up-link, nothing. Exactly the orphan the handover was built to prevent.
+
+    It was caught only because registry_meta.py NAMES the pages it cannot place
+    instead of skipping them quietly. That backstop is the reason this was a
+    five-minute fix rather than a page nobody found for a year.
+
+    Everything below is derived from the record, so a school added next year
+    joins the library on the next build with no central edit and no hand-written
+    metadata.
+    """
+    q = "What is %s's MFT programme like?" % p["institution"].split(" (")[0]
+    bits = []
+    if p.get("units"):
+        bits.append(esc(p["units"]))
+    if p.get("coamfte"):
+        bits.append("COAMFTE accredited")
+    out = ("What it costs, how practicum works, and what people say"
+           if not bits else
+           "%s — what it costs, how practicum works, and what people say"
+           % ", ".join(bits))
+    n = esc(p.get("units")) or (esc(p.get("degree")) or "")[:40] or None
+    rows = [("topic", "licensure"), ("format", "answer"),
+            ("question", esc(q)), ("outcome", out)]
+    if n:
+        rows.append(("number", n))
+    rows += [("weight", "2"), ("leaf", "true")]
+    return ("<!-- ts:meta -->\n"
+            + "\n".join('<meta name="ts:%s" content="%s">' % (k, v)
+                         for k, v in rows)
+            + "\n<!-- /ts:meta -->\n")
+
+
 def slug(name):
     """<full institution name>-mft.html
 
@@ -613,6 +655,7 @@ def page(p):
 %s
 %s
 %s
+%s
 </head><body class="sc">
 %s
 <main>
@@ -632,6 +675,10 @@ def page(p):
 %s
 %s
 </body></html>""" % (esc(name), esc(name), SLUGS[name],
+                     # The ts:meta block, immediately after the canonical link -
+                     # the same anchor registry_meta.py uses, so the two cannot
+                     # end up writing to different places in the head.
+                     library_meta(p),
                      "\n".join(links), "\n".join(styles), CSS + DEPTH_CSS, header,
                      esc(name), esc(p.get("city")) or "California", esc(name), dek,
                      UPDATED, "COAMFTE accredited" if coam else "BBS-listed",
@@ -689,6 +736,14 @@ def main():
         # A Board notice in the data that is not on the page is the worst
         # single failure this builder can have: the page looks complete and
         # omits the one thing that decides whether the degree leads anywhere.
+        # Every page must carry its own library metadata. Without it the page
+        # is built, deployed, indexed by nobody and reachable from no list on
+        # the site - which is precisely what happened to the first new school
+        # page after the ts:meta handover, because this builder never emitted a
+        # block and the existing pages had theirs backfilled from a registry
+        # seeded by hand.
+        if "<!-- ts:meta -->" not in doc or 'name="ts:topic"' not in doc:
+            bad.append("%s: no library metadata - it would be an orphan" % sl)
         if p.get("notice") and p["notice"]["url"] not in doc:
             bad.append("%s: the Board notice did not render" % sl)
         if tuition(p) and tuition(p) not in doc:

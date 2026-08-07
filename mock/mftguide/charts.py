@@ -32,25 +32,48 @@ def esc(x):
 
 # ---------------------------------------------------------------- derivation
 
-def units_of(p):
-    """(count, system) from the free-text units field, or (None, None).
+# The smallest credible qualifying total, in semester-equivalent units. The
+# Board requires 60 semester units for an MFT degree, so anything reading below
+# 40 is not a degree total - it is a per-course figure, a non-standard unit, or
+# a base degree that is not the qualifying one. Rejecting those is better than
+# carrying them: a wrong unit count multiplies into a wrong computed tuition.
+MIN_UNITS = 40.0
 
-    The field is prose - "64-67 semester units", "90 quarter units",
-    "60 credits (LPCC specialization adds 5)". Take the FIRST number, which is
-    the base requirement in every phrasing present in the data; a range means
-    the low end, which keeps a computed cost from overstating.
+
+def units_of(p):
+    """(count, system) from the units field, or (None, None).
+
+    PREFERS `units_n` WHERE IT EXISTS. The `units` field is prose written for a
+    reader - "43 units base MS; 60 units with MFT and/or PCC concentration",
+    "Quarter system; 4.5 quarter units per course; total not stated" - and
+    parsing prose for arithmetic is how a chart quietly acquires a wrong number.
+    Where the first number in the sentence is not the qualifying total,
+    `units_n` carries the machine-readable one and the prose is left alone.
+
+    Three real failures this now catches, all found by a derived line on a card
+    reading "the smallest unit requirement on the list, at Quarter system":
+
+      Palo Alto  4.5  - units PER COURSE, and the string says "total not stated"
+      Northwestern 25 - a non-standard Northwestern quarter unit, not comparable
+      Dominican  43   - the base MS, where the MFT-qualifying degree is 60
+
+    None of the three drove a computed cost, because none publishes a per-unit
+    rate. That was luck, not design, and it is what MIN_UNITS is for.
     """
-    u = p.get("units") or ""
-    m = re.search(r"\d+(?:\.\d+)?", u)
+    lo = (p.get("units") or "").lower()
+    sysm = ("quarter" if "quarter" in lo else
+            "semester" if ("semester" in lo or "unit" in lo or "credit" in lo)
+            else None)
+    if p.get("units_n"):
+        return float(p["units_n"]), (p.get("units_sys") or sysm or "semester")
+    m = re.search(r"\d+(?:\.\d+)?", lo)
     if not m:
         return None, None
     n = float(m.group(0))
-    lo = u.lower()
-    if "quarter" in lo:
-        return n, "quarter"
-    if "semester" in lo or "unit" in lo or "credit" in lo:
-        return n, "semester"
-    return n, None
+    equiv = n * (QUARTER_TO_SEM if sysm == "quarter" else 1)
+    if equiv < MIN_UNITS:
+        return None, None
+    return n, sysm
 
 
 def cost_of(p):

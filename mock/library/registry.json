@@ -690,6 +690,19 @@
    "leaf": false
   },
   {
+   "file": "kaiser-permanente-school-of-allied-health-sciences-mft.html",
+   "title": "Kaiser Permanente School of Allied Health Sciences — MFT programme in California: accreditation, cost and what people say",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "What is Kaiser Permanente School of Allied Health Sciences's MFT programme like?",
+   "outcome": "90 quarter credits — what it costs, how practicum works, and what people say",
+   "number": "90 quarter credits",
+   "stale": false,
+   "weight": 2,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "la-sierra-university-mft.html",
    "title": "La Sierra University — MFT programme in California: accreditation, cost and what people say",
    "topic": "licensure",
