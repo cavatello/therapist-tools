@@ -2,16 +2,24 @@
 # -*- coding: utf-8 -*-
 """Build mft-programs-california.html — the directory.
 
-Sixty-five institutions whose graduate degrees are listed by the Board of
-Behavioral Sciences as qualifying towards California LMFT licensure, with what
-could be verified about each: the exact degree name, COAMFTE accreditation,
-units, length, format, whether it also opens the LPCC route, and published
-tuition with the year the figure is from.
+Every institution whose graduate degrees the Board of Behavioral Sciences lists
+as qualifying towards California LMFT licensure - seventy-seven of them, plus
+one that qualifies through the out-of-state certification route instead - with
+what could be verified about each: the exact degree name, COAMFTE accreditation,
+units, length, format, whether the Board's row also opens the LPCC route, and
+published tuition with the year the figure is from.
+
+Counts in the RENDERED page are computed from the data, never typed. That rule
+exists because this docstring said "sixty-five" and the methodology paragraph
+said "twenty-one publish tuition" for months after both had stopped being true;
+the difference is that a stale comment misleads a maintainer and a stale number
+in the copy misleads a reader of a page whose whole claim is that its figures
+are real.
 
 THREE THINGS THIS PAGE REFUSES TO DO.
 
-It will not estimate tuition. Twenty-one institutions publish a per-unit or
-total figure; forty-four do not. The forty-four say "not published" rather than
+It will not estimate tuition. About two in five institutions publish a per-unit
+or total figure; the rest do not, and the rest say "not published" rather than
 carrying a plausible number, because a prospective student comparing a
 $42,000 programme against a $152,000 one deserves to know which of those two
 figures came from the institution and which came from me. None came from me.
@@ -44,7 +52,7 @@ UPDATED = "6 August 2026"
 
 PROGRAMS = json.load(open(DATA, encoding="utf-8"))
 
-# Slugs for the thirty-seven institutions that earned a page of their own.
+# Slugs for the institutions that earned a page of their own.
 # Written by build_schools.py, read here, so the two can never disagree about
 # which schools have pages - a card linking to a page that was not built is a
 # 404 the directory would happily ship.
@@ -91,17 +99,39 @@ def esc(x):
 
 
 def region(city):
+    """Which of the three region filters a card answers to.
+
+    Online first, and deliberately. Four of the institutions the Board lists
+    are not in California at all - Phoenix, CalSouthern, Western Seminary's
+    parent in Oregon, UMass Global - and they run California-restricted degrees
+    from elsewhere. Filing those under a California region because the city
+    string happens to contain a California place name would put an out-of-state
+    online programme in a reader's "near me" results, which is precisely the
+    thing a region filter exists to prevent.
+
+    The guard below asserts every record lands in a bucket some button can
+    reach. It exists because four California cities were missing from these
+    tuples for months - Pomona, San Luis Obispo, La Mirada, Rosemead - and
+    their cards silently vanished the moment anyone pressed a region filter.
+    A fall-through here is invisible: the card is on the page until you filter,
+    and then it is not.
+    """
     c = (city or "").lower()
+    if "online" in c or c.startswith("evanston"):
+        return "Online or out of state"
     south = ("los angeles", "san diego", "irvine", "orange", "alhambra", "azusa",
              "fullerton", "anaheim", "northridge", "long beach", "carson", "pasadena",
              "malibu", "santa barbara", "san bernardino", "redlands", "riverside",
              "loma linda", "culver city", "bakersfield", "la verne", "westwood",
              "los alamitos", "san marcos", "point loma", "calabasas", "claremont",
-             "thousand oaks", "costa mesa")
+             "thousand oaks", "costa mesa", "pomona", "san luis obispo",
+             "la mirada", "rosemead", "tustin", "brea", "san dimas", "la mesa",
+             "el cajon")
     north = ("san francisco", "berkeley", "oakland", "san jose", "palo alto",
              "santa clara", "hayward", "sacramento", "rohnert park", "arcata",
              "stockton", "turlock", "chico", "belmont", "moraga", "san rafael",
-             "fresno", "petaluma", "menlo park", "sunnyvale", "campbell")
+             "fresno", "petaluma", "menlo park", "sunnyvale", "campbell",
+             "rocklin", "richmond", "redding", "weimar")
     for s in south:
         if s in c:
             return "Southern California"
@@ -134,12 +164,19 @@ def card(p):
     name = p["institution"]
     coam = ('<span class="badge acc">COAMFTE accredited</span>'
             if p.get("coamfte") else "")
+    # Three states, three badges, and the middle one is the whole reason this
+    # was rewritten. `false` means the Board's row carries LMFT and not LPCC -
+    # a real restriction on what the degree opens - and it used to render
+    # identically to `unknown`, which is to say as nothing at all. Seven
+    # institutions were in that position, including Cal Poly Humboldt and USC.
     lpcc = p.get("lpcc")
     lp = ""
     if lpcc is True:
-        lp = '<span class="badge lp">LPCC route too</span>'
-    elif isinstance(lpcc, str):
-        lp = '<span class="badge lpc">LPCC: conditional</span>'
+        lp = ('<span class="badge lp">LPCC route too</span>'
+              if not p.get("lpcc_note")
+              else '<span class="badge lpc">LPCC, with a condition</span>')
+    elif lpcc is False:
+        lp = '<span class="badge lpn">LMFT only, not LPCC</span>'
     tu = NP
     if p.get("total"):
         tu = "$%s total" % "{:,}".format(int(p["total"]))
@@ -161,8 +198,21 @@ def card(p):
         note = '<p class="nt">%s</p>' % esc(p["notable"])
     elif p.get("note"):
         note = '<p class="nt">%s</p>' % esc(p["note"])
+    if p.get("lpcc_note"):
+        note = ('<p class="nt"><b>LPCC:</b> %s</p>' % esc(p["lpcc_note"])) + note
+    # A Board notice outranks everything else on the card, including the
+    # school's own description of itself, so it goes first.
+    if p.get("notice"):
+        n = p["notice"]
+        note = ('<div class="warn"><b>%s</b><p>%s '
+                '<a href="%s" target="_blank" rel="noopener noreferrer">'
+                "Read the Board&rsquo;s notice (PDF, %s) &rarr;</a></p></div>"
+                % (esc(n["title"]), esc(n["body"]), n["url"],
+                   esc(n.get("as_of") or ""))) + note
+    if p.get("bbs_listed") is False and p.get("bbs_note"):
+        note += '<p class="offl">%s</p>' % esc(p["bbs_note"])
     return ('<article class="pg" data-name="%s" data-coamfte="%s" data-region="%s" '
-            'data-tuition="%s">'
+            'data-tuition="%s" data-lpcc="%s">'
             '<div class="ph"><h3>%s</h3><span class="city">%s</span></div>'
             "%s%s"
             '<div class="bd">%s</div>%s%s'
@@ -170,6 +220,7 @@ def card(p):
             "%s</article>"
             % (esc(name).lower(), "yes" if p.get("coamfte") else "no",
                region(p.get("city")), "yes" if tu != NP else "no",
+               {True: "yes", False: "no"}.get(p.get("lpcc"), "unknown"),
                esc(name), esc(p.get("city")) or "California",
                coam, lp, body, note, threads_for(name),
                "", cta(p)))
@@ -269,6 +320,16 @@ CSS = """<style>/* programmes */
 .badge.acc{background:#E0F0EA;color:#20614B;border:1px solid #BFE0D3}
 .badge.lp{background:#EAF3DE;color:#27500A;border:1px solid #CFE2B8}
 .badge.lpc{background:#FBF0E2;color:#8A5B22;border:1px solid #EBD9BC}
+.badge.lpn{background:#F4F2EC;color:#6E6656;border:1px solid #DFD9C9}
+/* A Board-issued Notice to Students. Red, because it is the only thing on a
+   card that can mean the degree does not lead to a licence at all. */
+.warn{margin:11px 0 0;border:1px solid #E4B7B2;background:#FBF0EF;border-radius:9px;
+  padding:11px 13px}
+.warn b{display:block;font-size:12.6px;color:#8E3A32;margin-bottom:5px}
+.warn p{font-size:12.5px;line-height:1.58;color:#5A423F;margin:0}
+.warn a{color:#8E3A32}
+.offl{margin:11px 0 0;font-size:12.4px;line-height:1.56;color:#5B5344;
+  border-left:2px solid #E4D9BE;padding-left:11px}
 .bd{margin-top:12px;border-top:1px solid #F0EBDE;padding-top:10px}
 .bd .r{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;padding:5px 0;font-size:13px}
 .bd .r span{color:var(--mut);font-family:'IBM Plex Mono',monospace;font-size:10.2px;
@@ -368,6 +429,11 @@ def build():
     n_coam = sum(1 for p in progs if p.get("coamfte"))
     n_tui = sum(1 for p in progs if p.get("per_unit") or p.get("total"))
     n_forum = len(F.THREADS)
+    # The spread quoted in the methodology note is the real spread in the data,
+    # not two round numbers chosen to sound like one. It moves when a school
+    # publishes a figure, and it should.
+    _costs = sorted(c for c, _k in (charts.cost_of(p) for p in progs) if c)
+    cost_lo, cost_hi = (_costs[0], _costs[-1]) if _costs else (0, 0)
 
     cards = "".join(card(p) for p in progs)
 
@@ -437,6 +503,8 @@ remedial coursework or no licence at all. <b>%d of the %d</b> hold it.</p>
 <button class="fb" data-k="coamfte" data-v="yes" aria-pressed="false">COAMFTE only</button>
 <button class="fb" data-k="region" data-v="Southern California" aria-pressed="false">Southern CA</button>
 <button class="fb" data-k="region" data-v="Northern California" aria-pressed="false">Northern CA</button>
+<button class="fb" data-k="region" data-v="Online or out of state" aria-pressed="false">Online / out of state</button>
+<button class="fb" data-k="lpcc" data-v="yes" aria-pressed="false">Also opens LPCC</button>
 <button class="fb" data-k="tuition" data-v="yes" aria-pressed="false">Publishes tuition</button>
 <span class="cnt" id="cnt"></span>
 </div></div>
@@ -458,11 +526,20 @@ but a missing link should not read as an endorsement, so they are named.</p>
 <p style="margin-top:12px">%s</p></div>
 
 <h2 class="sec">How this was built</h2>
-<p class="meth"><b>Tuition is never estimated.</b> Twenty-one institutions publish a
+<p class="meth"><b>Tuition is never estimated.</b> %d institutions publish a
 per-unit or total figure and it is shown with the year and a link to the page it came
-from. The other forty-four say <i>not published</i>. A prospective student comparing a
-$42,000 programme against a $152,000 one deserves to know which figure came from the
+from. The other %d say <i>not published</i>. A prospective student comparing a
+$%s programme against a $%s one deserves to know which figure came from the
 institution and which came from me. None came from me.</p>
+<p class="meth"><b>The LPCC column is the Board&rsquo;s answer, not the school&rsquo;s.</b>
+Its table names the licences each institution is listed for, so a card says
+<i>LPCC route too</i> only where the Board&rsquo;s row carries LPCC, and
+<i>LMFT only</i> where it does not. Where a school adds a condition of its own
+&mdash; a campus, a format, an extra emphasis &mdash; the condition is printed
+under the card in the school&rsquo;s own terms. The Board lists institutions
+rather than programmes, so a school listed for both may open the LPCC route
+through a different degree than the one shown here; that is the question to
+ask admissions.</p>
 <p class="meth"><b>Nothing is ranked.</b> There is no score, no stars and no best-of. The
 one comparative fact that is objective is COAMFTE accreditation, and it is a filter
 rather than a verdict.</p>
@@ -485,7 +562,9 @@ else is from each institution's own site. If something here is wrong,
 </body></html>""" % (len(progs), "\n".join(links), "\n".join(styles), CSS + charts.CSS, header,
                      UPDATED, len(progs), fig, n_coam, len(progs), charts.render(progs),
                      cards, gen,
-                     none_found, F.DEAD_SUBS, UPDATED, footer, navscript, JS)
+                     none_found, F.DEAD_SUBS, n_tui, len(progs) - n_tui,
+                     "{:,}".format(cost_lo), "{:,}".format(cost_hi),
+                     UPDATED, footer, navscript, JS)
 
 
 def main():
@@ -530,6 +609,19 @@ def main():
     have = sum(1 for p in PROGRAMS if p.get("per_unit") or p.get("total"))
     if doc.count("not published") < (len(PROGRAMS) - have):
         bad.append("fewer 'not published' cells than programmes without tuition")
+    # Every card must be reachable by some region button. A card whose city is
+    # in none of region()'s tuples falls through to the bare "California"
+    # bucket, which no button selects - so the card is on the page until the
+    # reader filters, and then it silently is not. Four schools sat in that
+    # hole for months.
+    stray = re.findall(r'data-region="California"', doc)
+    if stray:
+        bad.append("%d card(s) in no region bucket - see region()" % len(stray))
+    # The LPCC filter is only honest if the attribute distinguishes "no" from
+    # "not checked". If every card said "unknown" the button would still work
+    # and would still be wrong.
+    if doc.count('data-lpcc="yes"') < 2 or doc.count('data-lpcc="no"') < 1:
+        bad.append("the LPCC filter has nothing to filter on")
     if "navpanel" in doc and not re.search(r"<script>[\s\S]*?navpanel[\s\S]*?</script>", doc):
         bad.append("header would be dead - nav script missing")
     # Look for ranking MARKUP, not for the word. The first version matched

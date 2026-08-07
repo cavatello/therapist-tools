@@ -53,7 +53,14 @@ BASE = "https://cavatello.github.io/therapist-tools/"
 UPDATED = "6 August 2026"
 CHECKED = "Aug 2026"
 
-REG = json.load(open(os.path.join(WORK, "registry.json"), encoding="utf-8"))
+# The SITE's copy, not a second one under work/. There were two identical
+# registry.json files for a while - one here, one in the site - kept in step by
+# remembering to copy. That is the same hand-maintained duplication the whole
+# registry_meta/registry_sync handover exists to remove, and it would have gone
+# wrong the first time a pass wrote to one of them and not the other.
+# registry_sync.py writes the site's copy; this reads it.
+REG = json.load(open(os.path.join(SITE, "mock", "library", "registry.json"),
+                     encoding="utf-8"))
 PAGES = {p["file"]: p for p in REG["pages"]}
 TOPICS = REG["topics"]
 CHANGES = REG["changes"]

@@ -743,13 +743,13 @@
   },
   {
    "file": "mft-programs-california.html",
-   "title": "California MFT graduate programmes: 65 schools, what each publishes, and what people say",
+   "title": "California MFT graduate programmes: 78 schools, what each publishes, and what people say",
    "topic": "licensure",
    "format": "directory",
    "question": "Which California MFT programme should I apply to?",
-   "outcome": "Sixty-five programmes on published facts only, with real forum discussion",
-   "number": "65 schools, 12 COAMFTE accredited",
-   "stale": true,
+   "outcome": "Every programme the Board lists, on published facts only, with real forum discussion",
+   "number": "78 institutions, 12 COAMFTE accredited",
+   "stale": false,
    "weight": 5,
    "skip": false,
    "leaf": false
@@ -1761,6 +1761,18 @@
   }
  },
  "changes": [
+  {
+   "date": "2026-08-07",
+   "what": "Reconciled the programme directory against the Board's own list: 13 institutions added (65 to 78), and the LPCC column corrected for 33 of them — 7 that showed no answer are listed for LMFT and not LPCC, including Cal Poly Humboldt, Cal Poly San Luis Obispo and USC.",
+   "where": "mft-programs-california.html",
+   "src": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  },
+  {
+   "date": "2026-08-07",
+   "what": "Added the Board's Notice to Students about Sentio University: its graduates may register as Associates but cannot sit the Clinical Exam or be licensed until Sentio is fully accredited, and if that does not happen by July 2028 existing Associates are disqualified and their hours void.",
+   "where": "sentio-university-mft.html",
+   "src": "https://www.bbs.ca.gov/pdf/publications/sentio_uni_nts_status.pdf"
+  },
   {
    "date": "2026-07-01",
    "what": "BBS fees halved: registration through licence fell from $1,750 to $875, reverting on 30 June 2030.",

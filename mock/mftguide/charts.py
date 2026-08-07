@@ -6,13 +6,15 @@ derived from the same records the cards below it are built from, so a chart
 cannot drift out of step with the table it sits above - which is the usual way
 an infographic on a data page becomes a lie.
 
-TWO KINDS OF COST FIGURE, MARKED DIFFERENTLY. Seven institutions publish a
-total. Nineteen publish a per-unit rate and a unit count, from which a total
+TWO KINDS OF COST FIGURE, MARKED DIFFERENTLY. Some institutions publish a
+total. Others publish a per-unit rate and a unit count, from which a total
 follows by multiplication - that is arithmetic on their own published numbers,
 not an estimate, but it is still a different kind of claim and it is hatched
-differently in the bar and labelled in the legend. The remaining thirty-nine
-publish nothing at all, and the chart says so in words rather than leaving a
-gap the eye reads as zero.
+differently in the bar and labelled in the legend. The rest publish nothing at
+all, and the chart says so in words rather than leaving a gap the eye reads as
+zero. No count is written here in words: this file has already outlived one
+set of them, and a comment that says "seven" beside code that says len() is a
+comment that will be wrong before it is read.
 
 NO RANKING. The bars sort by value because an unsorted bar chart is unreadable,
 not to award positions. Nothing here is scored, starred or ordered by quality,
@@ -131,7 +133,7 @@ def _bars(items, total_label, fmt=str, kinds=None):
 
 
 def dots(progs):
-    """Sixty-five dots, twelve of them filled.
+    """One dot per institution, filled where COAMFTE accredits it.
 
     A percentage would round the point away. The reader's actual question is
     "how likely is it that the school I am looking at has this", and a grid of
@@ -242,12 +244,12 @@ def render(progs):
                    "<h3>%s</h3>%s</section>" % (i, esc(kicker), esc(title), body))
     if not out:
         return ""
-    return ('<div class="igwrap"><h2 id="at-a-glance">The sixty-five, at a '
-            "glance</h2><p class=\"ig-i\">Every figure below is computed from "
-            "the same records as the cards further down this page, so the two "
-            "cannot disagree. Nothing here is a ranking and nothing is scored "
-            "&mdash; bars are sorted by size only because an unsorted bar chart "
-            'cannot be read.</p>%s</div>' % "".join(out))
+    return ('<div class="igwrap"><h2 id="at-a-glance">All %d, at a glance</h2>'
+            '<p class="ig-i">Every figure below is computed from the same '
+            "records as the cards further down this page, so the two cannot "
+            "disagree. Nothing here is a ranking and nothing is scored &mdash; "
+            "bars are sorted by size only because an unsorted bar chart cannot "
+            "be read.</p>%s</div>" % (len(progs), "".join(out)))
 
 
 CSS = """<style>/* infographics */

@@ -2,19 +2,22 @@
 # -*- coding: utf-8 -*-
 """Build one page per California MFT programme worth a page of its own.
 
-WHY NOT ALL SIXTY-FIVE. Thirty-seven institutions have enough verified
-substance to fill a page: a named degree, units, length, format, an
-accreditation status that means something, a published cost, or real discussion
-about them. The other twenty-eight have a name, a city and a URL. A page for
-those would be a doorway page - built to rank rather than to inform - and it
-would dilute the twenty-eight it sits beside. They stay in the directory, where
-a row is exactly the right amount of space for what is known.
+WHY NOT ALL OF THEM. A school gets a page when there is enough verified
+substance to fill one: a named degree, units, length, format, an accreditation
+status that means something, a published cost, or real discussion about it. The
+rest have a name, a city and a URL, and a page built from that is a doorway page
+- built to rank rather than to inform - which would dilute every page it sits
+beside. They stay in the directory, where a row is exactly the right amount of
+space for what is known.
 
 The threshold is scored rather than hand-picked, so it stays honest as the data
 improves: three points for real forum discussion, two for COAMFTE, two for
 published tuition, one each for degree, units, length, format and a distinctive
 feature. Six qualifies. A school that publishes more next year earns a page
-without anyone deciding it deserves one.
+without anyone deciding it deserves one. The thirteen institutions the Board
+lists that were added in the BBS reconciliation are all below it today, which is
+the rule working rather than the rule failing: the Board corroborates that they
+are listed and nothing else, and a page cannot be built out of that alone.
 
 WHAT EACH PAGE ANSWERS, in this order:
 
@@ -237,6 +240,12 @@ CSS = """<style>/* school */
 .verd{border-radius:12px;padding:19px 21px;margin:6px 0 16px;border:1px solid}
 .verd.ok{background:#F2F8F1;border-color:#CFE3CB;border-left:4px solid var(--green)}
 .verd.warn{background:#FBF0E2;border-color:#EBD9BC;border-left:4px solid #C98B4B}
+/* A Board-issued Notice to Students, which is a different kind of thing from
+   every other block on the page: not something found out about the school, but
+   the regulator speaking about it. Red, and above the fold. */
+.verd.board{background:#FBF0EF;border-color:#E4B7B2;border-left:4px solid #B5483F}
+.verd.board h3{color:#8E3A32}
+.verd.board a{color:#8E3A32}
 .verd h3{font-family:Fraunces,Georgia,serif;font-size:18.5px;margin:0 0 8px;color:var(--ink)}
 .verd p{margin:0 0 10px;font-size:14.5px;max-width:none;color:#3B4A38}
 .verd p:last-child{margin-bottom:0}
@@ -410,9 +419,15 @@ def page(p):
             ("Units", esc(p.get("units")) or NP),
             ("Length", esc(p.get("length")) or NP),
             ("Format", esc(p.get("format")) or NP),
+            # Three answers, not two-and-a-blank. "No" is the Board's row
+            # saying this school is listed for LMFT and not for LPCC, which is
+            # a fact about what the degree opens; NP means nobody checked. They
+            # used to render identically.
             ("Also LPCC",
-             "Yes" if p.get("lpcc") is True else
-             (esc(p["lpcc"]) if isinstance(p.get("lpcc"), str) else NP)),
+             ("Yes" + (" &mdash; " + esc(p["lpcc_note"]) if p.get("lpcc_note") else "")
+              if p.get("lpcc") is True else
+              "No &mdash; the Board lists this school for LMFT, not LPCC"
+              if p.get("lpcc") is False else NP)),
             ("Published tuition",
              ('<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>%s'
               % (turl, tu, tyear)) if tu else NP)]
@@ -458,20 +473,24 @@ def page(p):
 
     secs = []
 
+    # A Notice to Students goes above everything, including what the programme
+    # is. Nothing else on the page can mean "this degree may not lead to a
+    # licence at all", and a reader who stops after the first section must not
+    # be one of the readers who misses it.
+    if p.get("notice"):
+        n = p["notice"]
+        secs.append(("board-notice", "Read this first",
+                     '<div class="verd board"><h3>%s</h3><p>%s</p>'
+                     '<p><a href="%s" target="_blank" rel="noopener noreferrer">'
+                     "The Board&rsquo;s notice, in full (PDF, %s) &rarr;</a></p>"
+                     "</div>" % (esc(n["title"]), esc(n["body"]), n["url"],
+                                 esc(n.get("as_of") or ""))))
+
     char = D.character(dep.get("character"), dep.get("orientation"))
     if char:
         secs.append(("overview", "What this programme actually is", char +
                      '<p><a href="%s" target="_blank" rel="noopener noreferrer">'
                      "The programme&rsquo;s own page &rarr;</a></p>" % p["url"]))
-
-    trk = D.tracks(dep.get("tracks"))
-    if trk:
-        secs.append(("tracks", "The tracks inside this degree",
-                     "<p>This is one degree with several concentrations under "
-                     "it, so choosing the school is only half the decision. The "
-                     "units, the length and the delivery format differ by track "
-                     "&mdash; and where a track does not reach the LMFT, that is "
-                     "said in the row rather than in a footnote.</p>" + trk))
 
     med = D.media(vid, pho, name)
     if med:
@@ -542,7 +561,7 @@ def page(p):
                  "<p>None of these are answered on a programme page, and all five "
                  "change what the degree is actually worth to you.</p>" + ask +
                  '<div class="nxt">'
-                 '<a class="nx" href="mft-programs-california.html"><b>All 65 programmes'
+                 '<a class="nx" href="mft-programs-california.html"><b>All {{NALL}} programmes'
                  "</b><span>Filter by accreditation, region and whether tuition is "
                  "published</span></a>"
                  '<a class="nx" href="become-an-mft-california.html"><b>The licensure route'
@@ -576,7 +595,7 @@ def page(p):
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%s — MFT programme in California: accreditation, cost and what people say</title>
-<meta name="description" content="%s — degree, units, length, format, COAMFTE status and published tuition, plus real discussion from students and graduates. Part of a directory of 65 California MFT programmes.">
+<meta name="description" content="%s — degree, units, length, format, COAMFTE status and published tuition, plus real discussion from students and graduates. Part of a directory of {{NALL}} California MFT programmes.">
 <link rel="canonical" href="https://cavatello.github.io/therapist-tools/%s">
 %s
 %s
@@ -610,10 +629,33 @@ def main():
     os.makedirs(OUTDIR, exist_ok=True)
     written = []
     for p in sorted(SELECTED, key=lambda x: x["institution"]):
-        doc = page(p)
+        # {{NALL}} rather than a %d in the template: the template is one
+        # `%`-formatted string with nineteen positional arguments, and adding a
+        # twentieth in the right slot to print a number that never varies
+        # within a run is exactly the off-by-one edit that has broken this
+        # project's pages before. A token and a replace cannot miscount.
+        doc = page(p).replace("{{NALL}}", str(N_ALL))
         path = os.path.join(OUTDIR, SLUGS[p["institution"]])
         open(path, "w", encoding="utf-8").write(doc)
         written.append((SLUGS[p["institution"]], p["institution"], len(doc)))
+
+    # ---- sweep the output directory
+    # A builder that only ever writes leaves its own mistakes lying around. The
+    # slug rule was corrected once - it had been stripping "the" everywhere, so
+    # the University of the Pacific came out as `university-of-pacific` - and
+    # the three files from before the fix sat in this directory for days,
+    # invisible because nothing linked to them and every guard here iterates
+    # over what was WRITTEN rather than over what is PRESENT. They were one
+    # `cp schools/*.html` from being published as duplicates of three real
+    # pages. Sweep what this run did not write.
+    keep = set(SLUGS.values())
+    swept = []
+    for f in sorted(os.listdir(OUTDIR)):
+        if f.endswith(".html") and f not in keep:
+            os.remove(os.path.join(OUTDIR, f))
+            swept.append(f)
+    if swept:
+        print("   swept %d stale page(s): %s" % (len(swept), ", ".join(swept)))
 
     # ---- guards
     bad = []
@@ -631,6 +673,11 @@ def main():
         p = next(x for x in PROGRAMS if x["institution"] == name)
         if not tuition(p) and "does not publish a tuition figure" not in doc:
             bad.append("%s: no tuition and no statement saying so" % sl)
+        # A Board notice in the data that is not on the page is the worst
+        # single failure this builder can have: the page looks complete and
+        # omits the one thing that decides whether the degree leads anywhere.
+        if p.get("notice") and p["notice"]["url"] not in doc:
+            bad.append("%s: the Board notice did not render" % sl)
         if tuition(p) and tuition(p) not in doc:
             bad.append("%s: published tuition missing from the page" % sl)
         # every forum link must open safely
@@ -674,7 +721,6 @@ def main():
         # research that came back but did not reach the page is a wiring bug,
         # and it is silent - the page still looks finished
         for key, marker in (("character", 'id="overview"'),
-                            ("tracks", 'id="tracks"'),
                             ("signature", 'id="courses"'),
                             ("voices", 'id="what-people-say"'),
                             ("gaps", 'id="what-i-could-not-find"')):

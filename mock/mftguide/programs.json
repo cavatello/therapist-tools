@@ -15,7 +15,11 @@
   "per_unit": null,
   "total": null,
   "tyear": "2025-26 / 2026-27",
-  "turl": "https://www.csun.edu/academics/majors-and-programs/marriage-and-family-therapy-ms"
+  "turl": "https://www.csun.edu/academics/majors-and-programs/marriage-and-family-therapy-ms",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "San Diego State University",
@@ -29,11 +33,16 @@
   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms"
+  "turl": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Dominguez Hills",
@@ -47,11 +56,16 @@
   "url": "https://www.csudh.edu/mft/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Chico",
@@ -65,11 +79,16 @@
   "url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Stanislaus",
@@ -83,11 +102,16 @@
   "url": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Fresno (Fresno State)",
@@ -105,7 +129,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_alias": "California State University, Fresno",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Sacramento",
@@ -123,7 +151,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Los Angeles",
@@ -141,7 +173,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "San Francisco State University",
@@ -155,11 +191,16 @@
   "url": "https://bulletin.sfsu.edu/colleges/health-social-sciences/counseling/ms-counseling-concentration-marriage-famiyl-child-counseling/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "Conditional — requires additionally completing the Clinical Mental Health Counseling emphasis to be endorsed for LPCC",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_note": "Conditional — requires additionally completing the Clinical Mental Health Counseling emphasis to be endorsed for LPCC",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "notice": null
  },
  {
   "institution": "California State University, East Bay",
@@ -177,7 +218,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "San Jose State University",
@@ -191,11 +236,16 @@
   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/program-overview.php",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Long Beach",
@@ -209,11 +259,16 @@
   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/program-description",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, San Bernardino",
@@ -227,11 +282,16 @@
   "url": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Bakersfield",
@@ -249,7 +309,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California State University, Fullerton (University Extension)",
@@ -267,7 +331,11 @@
   "per_unit": 675.0,
   "total": null,
   "tyear": "Spring 2025 cohort rate",
-  "turl": "https://extension.fullerton.edu/masters/counseling/"
+  "turl": "https://extension.fullerton.edu/masters/counseling/",
+  "bbs_alias": "California State University, Fullerton",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Sonoma State University",
@@ -285,7 +353,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Cal Poly Humboldt",
@@ -299,11 +371,16 @@
   "url": "https://www.humboldt.edu/academics/programs/psychology-counseling",
   "note": "BBS-listed for LCSW, LMFT, LEP (not LPCC)",
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "California State Polytechnic University, Humboldt",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Cal Poly Pomona",
@@ -321,7 +398,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_alias": "California State Polytechnic University, Pomona",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Cal Poly San Luis Obispo",
@@ -335,11 +416,16 @@
   "url": "https://psycd.calpoly.edu/graduate",
   "note": "BBS-listed for LMFT; program page not verified in this pass",
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "California State Polytechnic University, San Luis Obispo",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of Southern California (Rossier)",
@@ -353,11 +439,16 @@
   "url": "https://rossier.usc.edu/programs/masters/mft/mft-program-costs/",
   "note": "Mandatory fees $977 on-campus / $31 online; school projects 3–5% annual increases",
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": 2539.0,
   "total": 152340.0,
   "tyear": "2026-27",
-  "turl": "https://rossier.usc.edu/programs/masters/mft/mft-program-costs/"
+  "turl": "https://rossier.usc.edu/programs/masters/mft/mft-program-costs/",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "University of Southern California",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Pepperdine University (GSEP)",
@@ -375,7 +466,11 @@
   "per_unit": 1225.0,
   "total": 140080.0,
   "tyear": "2026-27",
-  "turl": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/cost/"
+  "turl": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/cost/",
+  "bbs_alias": "Pepperdine University",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Santa Clara University",
@@ -393,7 +488,11 @@
   "per_unit": 726.0,
   "total": null,
   "tyear": null,
-  "turl": "https://www.scu.edu/ecp/programs/counseling-psychology/"
+  "turl": "https://www.scu.edu/ecp/programs/counseling-psychology/",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of San Francisco",
@@ -407,11 +506,16 @@
   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/tuition-aid",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": 1350.0,
   "total": 81000.0,
   "tyear": "2026-27",
-  "turl": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/tuition-aid"
+  "turl": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/tuition-aid",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Loyola Marymount University",
@@ -425,11 +529,16 @@
   "url": "https://cfa.lmu.edu/programs/mft/",
   "note": null,
   "other_accreditation": "AATA-approved (art therapy)",
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": 1814,
   "total": null,
   "tyear": "2026-27",
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Alliant International University (CSPP)",
@@ -447,7 +556,11 @@
   "per_unit": 1463.0,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.alliant.edu/admissions/tuition-and-fees"
+  "turl": "https://www.alliant.edu/admissions/tuition-and-fees",
+  "bbs_alias": "Alliant University",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California Institute of Integral Studies",
@@ -457,15 +570,20 @@
   "units": "60 units (LMFT track); 70 units (LPCC track)",
   "length": "3 years (7 semesters)",
   "format": "On-campus weekday; on-campus weekend (5 weekends/semester); hybrid online",
-  "notable": "Integral/holistic, spiritual and multicultural orientation. One department, five BBS-approved concentrations that all reach the LMFT at 60 units - Integral Counseling Psychology (weekday or weekend), Somatic Psychology, Community Mental Health, Drama Therapy and Expressive Arts Therapy. The sixth option, ICP Hybrid at 66 units, is the LPCC pathway only and does not qualify for the LMFT.",
+  "notable": "Integral/holistic, spiritual and multicultural orientation. CIIS also runs other counseling MAs (e.g. Somatic, Expressive Arts, Community Mental Health) not individually verified here.",
   "url": "https://www.ciis.edu/admissions-and-financial-aid/costs-and-aid/tuition-and-fees",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "Yes, but format-dependent — weekday and weekend on-campus formats qualify for both LMFT and LPCC; the hybrid format qualifies for LPCC only",
-  "per_unit": 1449.0,
-  "total": 86940.0,
-  "tyear": "2026-27",
-  "turl": "https://www.ciis.edu/admissions-and-financial-aid/costs-and-aid/tuition-and-fees"
+  "lpcc": true,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://www.ciis.edu/admissions-and-financial-aid/costs-and-aid/tuition-and-fees",
+  "lpcc_note": "Yes, but format-dependent — weekday and weekend on-campus formats qualify for both LMFT and LPCC; the hybrid format qualifies for LPCC only",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "notice": null
  },
  {
   "institution": "Antioch University Santa Barbara",
@@ -483,7 +601,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/"
+  "turl": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+  "bbs_alias": "Antioch University, Santa Barbara",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Antioch University Los Angeles",
@@ -497,11 +619,16 @@
   "url": "https://www.antioch.edu/los-angeles/",
   "note": "BBS-listed separately for LMFT/LPCC; program specifics not verified in this pass",
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": 956,
   "total": null,
   "tyear": "2025-26",
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "Antioch University, Los Angeles",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Azusa Pacific University",
@@ -519,7 +646,11 @@
   "per_unit": 865.0,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.apu.edu/programs/mft/"
+  "turl": "https://www.apu.edu/programs/mft/",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Point Loma Nazarene University",
@@ -537,7 +668,11 @@
   "per_unit": 848.0,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma"
+  "turl": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Fresno Pacific University",
@@ -551,11 +686,16 @@
   "url": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma",
   "note": "MFT/Counseling course rate; $210 student services fee",
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": 610.0,
   "total": null,
   "tyear": null,
-  "turl": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma"
+  "turl": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Hope International University",
@@ -573,7 +713,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of La Verne",
@@ -587,11 +731,16 @@
   "url": "https://health.laverne.edu/marriage-family-therapy/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": 990.0,
   "total": null,
   "tyear": null,
-  "turl": "https://health.laverne.edu/marriage-family-therapy/"
+  "turl": "https://health.laverne.edu/marriage-family-therapy/",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Chapman University",
@@ -609,7 +758,11 @@
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Campbellsville University — Los Angeles Education Center (formerly Phillips Graduate University/Institute)",
@@ -623,11 +776,16 @@
   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": false,
   "per_unit": 997,
   "total": 66495,
   "tyear": "2026-27",
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "Campbellsville University – Los Angeles Education Center",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "The Wright Institute",
@@ -641,11 +799,16 @@
   "url": "https://www.wi.edu/ma-tuition",
   "note": null,
   "other_accreditation": null,
-  "lpcc": null,
+  "lpcc": true,
   "per_unit": 1310.0,
   "total": 78600.0,
   "tyear": "2026-27",
-  "turl": "https://www.wi.edu/ma-tuition"
+  "turl": "https://www.wi.edu/ma-tuition",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "Wright Institute, The",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Notre Dame de Namur University",
@@ -659,11 +822,16 @@
   "url": "https://ms.cp.mft.ndnu.edu/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists NDNU for LMFT and LPCC; a separate MS CP/MFT/LPCC track URL exists but was not verified",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Palo Alto University",
@@ -677,11 +845,16 @@
   "url": "https://www.paloaltou.edu/academic-programs/ma-counseling/program-details",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "Yes — LPCC is the primary track; the MFCC emphasis satisfies CA MFT educational requirements",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_note": "Yes — LPCC is the primary track; the MFCC emphasis satisfies CA MFT educational requirements",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "notice": null
  },
  {
   "institution": "National University (absorbed Northcentral University and John F. Kennedy University)",
@@ -695,11 +868,16 @@
   "url": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-of-arts-degree-in-marriage-and-family-therapy/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists National University for LCSW, LMFT, LPCC, LEP; not stated on the MAMFT page",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "National University",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of Massachusetts Global (formerly Brandman)",
@@ -711,13 +889,18 @@
   "format": "Online coursework + 400 supervised in-person practicum hours; 8-week sessions, six start dates/year",
   "notable": null,
   "url": "https://www.umassglobal.edu/academic-programs/marriage-family-therapy-and-professional-clinical-counseling",
-  "note": null,
+  "note": "The Board’s listing is qualified: it reads “University of Massachusetts Global – California campus only”. UMass Global is a national institution and the Board’s approval does not extend past the California campus, so confirm which campus a given cohort is enrolled through before assuming the degree qualifies.",
   "other_accreditation": null,
-  "lpcc": "Three additional courses may make graduates eligible to register as an APCC in some states",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": "https://www.umassglobal.edu/academic-programs/marriage-family-therapy-and-professional-clinical-counseling"
+  "turl": "https://www.umassglobal.edu/academic-programs/marriage-family-therapy-and-professional-clinical-counseling",
+  "lpcc_note": "Three additional courses may make graduates eligible to register as an APCC in some states",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "University of Massachusetts Global – California campus only",
+  "bbs_listed": true,
+  "notice": null
  },
  {
   "institution": "Pacific Oaks College",
@@ -731,11 +914,16 @@
   "url": "https://www.pacificoaks.edu/academic-programs/ma-marriage-family-therapy/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "Yes — LPCC specialization requires 280 in-person clinical hours + 5 additional credits",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": null
+  "turl": null,
+  "lpcc_note": "Yes — LPCC specialization requires 280 in-person clinical hours + 5 additional credits",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "notice": null
  },
  {
   "institution": "Mount Saint Mary's University",
@@ -753,7 +941,11 @@
   "per_unit": 1210.0,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.msmu.edu/departments/psychology/graduate-programs/counseling-psychology/tuition-financial-aid/"
+  "turl": "https://www.msmu.edu/departments/psychology/graduate-programs/counseling-psychology/tuition-financial-aid/",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Sofia University",
@@ -767,11 +959,16 @@
   "url": "https://catalog.sofia.edu/tuition-and-fees",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "Yes — students elect LMFT track, LPCC track, or both, starting in year 2",
+  "lpcc": true,
   "per_unit": 663.0,
   "total": null,
   "tyear": "2025-26",
-  "turl": "https://catalog.sofia.edu/tuition-and-fees"
+  "turl": "https://catalog.sofia.edu/tuition-and-fees",
+  "lpcc_note": "Yes — students elect LMFT track, LPCC track, or both, starting in year 2",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "notice": null
  },
  {
   "institution": "The Chicago School",
@@ -785,11 +982,16 @@
   "url": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists The Chicago School for LMFT and LPCC",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": "2024-25",
-  "turl": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/"
+  "turl": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "Chicago School, The",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Touro University Worldwide",
@@ -803,11 +1005,16 @@
   "url": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/",
   "note": "Locked-in tuition for actively enrolled students; $25 application fee, $116 capstone materials fee",
   "other_accreditation": null,
-  "lpcc": "BBS lists TUW for LMFT and LPCC",
+  "lpcc": true,
   "per_unit": null,
   "total": 37800.0,
   "tyear": null,
-  "turl": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  "turl": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Loma Linda University",
@@ -821,11 +1028,16 @@
   "url": "https://llu.edu/academics/programs/school-behavioral-health/marital-family-therapy-ms",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists LLU for LCSW, LMFT, LPCC",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://llu.edu/academics/programs/school-behavioral-health/marital-family-therapy-ms"
+  "turl": "https://llu.edu/academics/programs/school-behavioral-health/marital-family-therapy-ms",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of San Diego (SOLES)",
@@ -839,11 +1051,16 @@
   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/tuition-and-financial-aid.php",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists USD for LMFT and LPCC",
+  "lpcc": true,
   "per_unit": 1751.0,
   "total": 105060.0,
   "tyear": "2026-27",
-  "turl": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/tuition-and-financial-aid.php"
+  "turl": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/tuition-and-financial-aid.php",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "University of San Diego",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Daybreak University",
@@ -857,11 +1074,16 @@
   "url": "https://www.daybreak.edu/academic/master_program.html",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists Daybreak for LMFT and LPCC",
+  "lpcc": true,
   "per_unit": null,
   "total": null,
   "tyear": null,
-  "turl": "https://www.daybreak.edu/academic/master_program.html"
+  "turl": "https://www.daybreak.edu/academic/master_program.html",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Pacifica Graduate Institute",
@@ -879,7 +1101,11 @@
   "per_unit": null,
   "total": null,
   "tyear": "2025-26",
-  "turl": "https://www.pacifica.edu/financial-aid/cost-of-attendance/2025-2026-cost-of-attendance-m-a-counseling-psychology/"
+  "turl": "https://www.pacifica.edu/financial-aid/cost-of-attendance/2025-2026-cost-of-attendance-m-a-counseling-psychology/",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Meridian University",
@@ -897,7 +1123,11 @@
   "per_unit": 676,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://meridianuniversity.edu/academics/psychology/ma-in-counseling-psychology"
+  "turl": "https://meridianuniversity.edu/academics/psychology/ma-in-counseling-psychology",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Sentio University",
@@ -915,7 +1145,17 @@
   "per_unit": 1120,
   "total": 67200,
   "tyear": "2026-27",
-  "turl": "https://sentio.org/mft-program-overview"
+  "turl": "https://sentio.org/mft-program-overview",
+  "notice": {
+   "kind": "warning",
+   "title": "The Board has issued a Notice to Students about this school",
+   "body": "Sentio holds provisional approval from the Bureau for Private Postsecondary Education, and that approval expires in July 2028. Per the Board’s notice, a Sentio graduate may register as an Associate and may sit the California Law and Ethics exam — but may not sit the Clinical Exam, and therefore cannot be licensed, until Sentio is fully accredited. If accreditation is not achieved by July 2028, Associates registered on this degree are disqualified and their supervised hours will not be accepted. That is the whole pathway, so read the notice itself before applying — and note that the school appears on the Board’s qualifying-degree list at the same time.",
+   "url": "https://www.bbs.ca.gov/pdf/publications/sentio_uni_nts_status.pdf",
+   "as_of": "27 May 2026"
+  },
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null
  },
  {
   "institution": "Biola University (Talbot School of Theology)",
@@ -933,7 +1173,11 @@
   "per_unit": null,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma"
+  "turl": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma",
+  "bbs_alias": "Biola University, Talbot School of Theology",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California Baptist University",
@@ -951,7 +1195,11 @@
   "per_unit": 864.0,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/"
+  "turl": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Dominican University of California",
@@ -969,7 +1217,11 @@
   "per_unit": null,
   "total": 83882.0,
   "tyear": "2026-27",
-  "turl": "https://www.dominican.edu/admissions/tuition-and-financial-aid/total-cost-attendance/graduate-tuition-and-aid/counseling-psychology-ms-mft-pcc-tuition-and-aid"
+  "turl": "https://www.dominican.edu/admissions/tuition-and-financial-aid/total-cost-attendance/graduate-tuition-and-aid/counseling-psychology-ms-mft-pcc-tuition-and-aid",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Saint Mary's College of California",
@@ -987,7 +1239,11 @@
   "per_unit": 1180.0,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.stmarys-ca.edu/academics/schools/kalmanovitz-school-of-education/admissions-aid/tuition-fees"
+  "turl": "https://www.stmarys-ca.edu/academics/schools/kalmanovitz-school-of-education/admissions-aid/tuition-fees",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Vanguard University",
@@ -1005,7 +1261,11 @@
   "per_unit": 855.0,
   "total": null,
   "tyear": "current AY, unspecified",
-  "turl": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms"
+  "turl": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "California Lutheran University",
@@ -1023,7 +1283,11 @@
   "per_unit": 940,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/tuition-fees.html"
+  "turl": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/tuition-fees.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Fuller Theological Seminary",
@@ -1037,11 +1301,16 @@
   "url": "https://fuller.edu/academics/school-of-psychology/marriage-and-family/master-of-science-in-marriage-and-family-therapy-outline/",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "Yes, Pasadena campus only",
+  "lpcc": true,
   "per_unit": 540,
   "total": null,
   "tyear": "2026-27",
-  "turl": null
+  "turl": null,
+  "lpcc_note": "Yes, Pasadena campus only",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "notice": null
  },
  {
   "institution": "Golden Gate University",
@@ -1059,7 +1328,11 @@
   "per_unit": 1090.0,
   "total": null,
   "tyear": null,
-  "turl": "https://ggu.edu/programs/ma-counseling-psychology/"
+  "turl": "https://ggu.edu/programs/ma-counseling-psychology/",
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of the West",
@@ -1077,7 +1350,11 @@
   "per_unit": 765,
   "total": null,
   "tyear": "2025-26",
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of the Pacific (Benerd College)",
@@ -1091,11 +1368,16 @@
   "url": "https://www.pacific.edu/education/graduate-programs/ma-in-counseling-psychology-MFT",
   "note": "Relatively new program. Cannot support an I-20 for international students.",
   "other_accreditation": null,
-  "lpcc": "BBS lists UOP for LCSW, LMFT, LPCC, LEP",
+  "lpcc": true,
   "per_unit": 1244,
   "total": null,
   "tyear": "2026-27",
-  "turl": null
+  "turl": null,
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "University of the Pacific",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "University of Redlands",
@@ -1113,7 +1395,11 @@
   "per_unit": 932,
   "total": null,
   "tyear": "2026-27",
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Concordia University Irvine (Townsend Institute)",
@@ -1127,11 +1413,16 @@
   "url": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling",
   "note": null,
   "other_accreditation": null,
-  "lpcc": "BBS lists Concordia/Townsend for LMFT and LPCC",
+  "lpcc": true,
   "per_unit": 695.0,
   "total": null,
   "tyear": null,
-  "turl": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling"
+  "turl": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling",
+  "lpcc_src": "https://www.bbs.ca.gov/applicants/education_resources.html",
+  "bbs_alias": "Concordia University, Townsend Institute",
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "La Sierra University",
@@ -1149,7 +1440,11 @@
   "per_unit": 730,
   "total": null,
   "tyear": "2026-27",
-  "turl": null
+  "turl": null,
+  "bbs_listed": true,
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
  },
  {
   "institution": "Northwestern University, The Family Institute",
@@ -1167,6 +1462,297 @@
   "per_unit": null,
   "total": null,
   "tyear": "2026-27",
-  "turl": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html"
+  "turl": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html",
+  "bbs_listed": false,
+  "bbs_note": "This is the only school here that does not appear on the Board’s list, under any spelling — it is an Illinois institution and the list is overwhelmingly California-sited. That is not a finding of ineligibility. Its MSMFT is COAMFTE-accredited, and a COAMFTE-accredited out-of-state degree can qualify in California through Bus. & Prof. Code §§4980.36/4980.37 and the Board’s Out-of-State Degree Program Certification — but through that route, on application, rather than automatically.",
+  "bbs_alias": null,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "The Board lists this under a double-barrelled name, “America Evangelical University, Kairos Pacific University” — AEU runs the Kairos Pacific campus on Walnut Avenue in Tustin. It is not the same institution as Kairos University in Sioux Falls, which is separately COAMFTE-accredited. The school’s own page says the programme meets the educational standards set by the Board.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://kairos.aeu.edu/master-marriage-and-family-therapy",
+  "units": "66 units",
+  "length": "About 2.5 years",
+  "format": "In person, with evening and part-time options",
+  "lpcc": true,
+  "institution": "America Evangelical University / Kairos Pacific University",
+  "city": "Tustin",
+  "degree": "M.A. in Counseling Psychology, emphasis in Marriage and Family Therapy",
+  "url": "https://kairos.aeu.edu/master-marriage-and-family-therapy",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "One thing to settle before applying: CalSouthern’s own catalog says the Board considers it an out-of-state institution, and the Board’s table lists it for both LMFT and LPCC anyway. Those two statements are hard to reconcile from outside, and this is a question for the Board rather than for either page.",
+  "other_accreditation": "Higher Learning Commission",
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://calsouthern.smartcatalogiq.com/en/2025-2026/general-catalog/school-of-behavioral-sciences/master-of-arts-in-psychology-with-an-emphasis-in-marriage-and-family-therapy",
+  "units": "60 credits",
+  "length": null,
+  "format": "Fully online",
+  "lpcc": true,
+  "institution": "California Southern University",
+  "city": "Online (Chandler, AZ; incorporated in California in 1978)",
+  "degree": "M.A. in Psychology, emphasis in Marriage and Family Therapy",
+  "url": "https://calsouthern.smartcatalogiq.com/en/2025-2026/general-catalog/school-of-behavioral-sciences/master-of-arts-in-psychology-with-an-emphasis-in-marriage-and-family-therapy",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "A small Korean-American Christian institution on East Lambert Road in Brea. There is no page for the programme on its own — the link goes to the whole programme list. Its page states the 67-unit degree qualifies graduates for California LMFT licensure. Accreditation is not stated on the site, which is the first thing to ask.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://hisuniversity.edu/eng/academics_01",
+  "units": "67 units",
+  "length": null,
+  "format": null,
+  "lpcc": false,
+  "institution": "HIS University",
+  "city": "Brea",
+  "degree": "M.A. in Marriage and Family Therapy",
+  "url": "https://hisuniversity.edu/eng/academics_01",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "Formerly William Jessup University. The programme requires 280 direct client-contact hours and 20 hours of personal psychotherapy, and its page states it is designed to meet the Board’s qualifying-degree requirements for both LMFT and LPCC.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://jessup.edu/academics/majors-programs/graduate/master-of-arts-counseling-psychology/",
+  "units": "63 units",
+  "length": "26 months",
+  "format": "In person at Rocklin and San Jose, with a fully remote option for California residents",
+  "lpcc": true,
+  "institution": "Jessup University",
+  "city": "Rocklin",
+  "degree": "M.A. in Counseling Psychology (MACP)",
+  "url": "https://jessup.edu/academics/majors-programs/graduate/master-of-arts-counseling-psychology/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "An MFT programme run by an integrated health system — campuses in Richmond and San Mateo, and a third opening in Lathrop in July 2026 with applications from September. Units, length, format and tuition are not published on the programme page, so this row is thinner than the rest until someone reads the academic catalog or asks admissions.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://kpsahs.edu/master-science-counseling/",
+  "units": null,
+  "length": null,
+  "format": null,
+  "lpcc": false,
+  "institution": "Kaiser Permanente School of Allied Health Sciences",
+  "city": "Richmond",
+  "degree": "M.S. in Counseling, Marriage and Family Therapy",
+  "url": "https://kpsahs.edu/master-science-counseling/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "Life Pacific announced Board approval for both LMFT and LPCC on 26 September 2025, and the Board’s table lists both. The programme page itself still mentions only LPCC — the announcement and the table are the newer sources.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://lifepacific.edu/academics/online/master-of-arts-in-counseling/",
+  "units": "63 units",
+  "length": "21 courses plus a 12-month practicum",
+  "format": "Online, synchronous and asynchronous, in 8-week terms",
+  "lpcc": true,
+  "institution": "Life Pacific University",
+  "city": "San Dimas",
+  "degree": "M.A. in Counseling (MAC)",
+  "url": "https://lifepacific.edu/academics/online/master-of-arts-in-counseling/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "The Board lists Rhombus for LMFT and LPCC. Its own programme page states neither licensure eligibility nor accreditation, and markets “professional Christian counselors” — confirm its accreditation with the school before treating this row as equivalent to the rest of the list.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://rhombusuniversity.edu/degree/",
+  "units": "60 units",
+  "length": "2–3 years",
+  "format": "Online and self-paced",
+  "lpcc": true,
+  "institution": "Rhombus University",
+  "city": "La Mesa",
+  "degree": "M.A. in Counseling Psychology",
+  "url": "https://rhombusuniversity.edu/degree/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "The programme page states it meets Board requirements for both LMFT and LPCC. With Cal Poly Humboldt it is one of only two options on the Board’s list sited in far northern California, which is most of the reason to know about it.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://simpsonu.edu/academics/graduate-studies/m-a-in-counseling-psychology/",
+  "units": "67.5 units",
+  "length": "2 years",
+  "format": "In class two nights a week, in 7-week terms",
+  "lpcc": true,
+  "institution": "Simpson University",
+  "city": "Redding",
+  "degree": "M.A. in Counseling Psychology (MACP)",
+  "url": "https://simpsonu.edu/academics/graduate-studies/m-a-in-counseling-psychology/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "The Board lists it for LMFT and LPCC. The programme page describes the Board-required training components but does not itself name the LPCC pathway.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://www.socalsem.edu/master-of-arts-marriage-family-therapy/",
+  "units": "72 units",
+  "length": null,
+  "format": "On campus, with online options",
+  "lpcc": true,
+  "institution": "Southern California Seminary",
+  "city": "El Cajon",
+  "degree": "M.A. in Marriage and Family Therapy (MAMFT)",
+  "url": "https://www.socalsem.edu/master-of-arts-marriage-family-therapy/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "California residents only, by design — the programme exists to satisfy the California Board. Read it as an out-of-state institution delivering a California-specific degree, not as a California campus.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://www.phoenix.edu/online-behavioral-sciences-degrees/marriage-family-child-counseling-masters-degree.html",
+  "units": "60 credits",
+  "length": null,
+  "format": "Fully online and asynchronous, in 5–6 week courses",
+  "lpcc": true,
+  "institution": "University of Phoenix",
+  "city": "Online (Phoenix, AZ; enrolment restricted to California residents)",
+  "degree": "M.S. in Counseling, Marriage, Family and Child Therapy",
+  "url": "https://www.phoenix.edu/online-behavioral-sciences-degrees/marriage-family-child-counseling-masters-degree.html",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "One of the few schools on the Board’s list that says it in its own words: the programme page states it is “approved by the state of California’s Board of Behavioral Sciences (BBS) for both LPCC and LMFT licensure requirements.”",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://weimar.edu/academics/graduate-departments/ma-counseling-psychology-and-wellness/",
+  "units": "60 units",
+  "length": "2 years full time",
+  "format": "Online only",
+  "lpcc": true,
+  "institution": "Weimar University",
+  "city": "Weimar",
+  "degree": "M.A. in Counseling Psychology and Wellness",
+  "url": "https://weimar.edu/academics/graduate-departments/ma-counseling-psychology-and-wellness/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "Tuition is $9,600 a year, charged as an annual subscription rather than per unit — on any ordinary completion timeline that makes it by a wide margin the cheapest LMFT-qualifying degree on the Board’s list. Two things to weigh against that. It is accredited by DEAC, a national rather than a regional accreditor, which is the distinction that decides whether a degree travels. And the unit count is not on the website; it is in the June 2026 catalog PDF. Non-profit, founded 1975.",
+  "other_accreditation": "DEAC",
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://wisr.edu/home/degree-programs/mft-program/",
+  "units": null,
+  "length": "2–6 years",
+  "format": "Online",
+  "lpcc": true,
+  "institution": "Western Institute for Social Research",
+  "city": "Berkeley",
+  "degree": "M.S. in Psychology, Marriage and Family Therapy",
+  "url": "https://wisr.edu/home/degree-programs/mft-program/",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
+ },
+ {
+  "coamfte": false,
+  "notable": null,
+  "note": "Board-approved since 1992, and the page states it satisfies both the AMFT/LMFT and APCC/LPCC registration paths. The seminary is Oregon-based; the California counseling degree is delivered from the San Jose campus, which is what the Board lists.",
+  "other_accreditation": null,
+  "per_unit": null,
+  "total": null,
+  "tyear": null,
+  "turl": "https://www.westernseminary.edu/academics/masters-degrees/ma-in-counseling-california",
+  "units": "71 credits",
+  "length": "About 3 years (minimum 2 years 8 months)",
+  "format": "Primarily in person, with 10 credits available online",
+  "lpcc": true,
+  "institution": "Western Seminary",
+  "city": "San Jose",
+  "degree": "M.A. in Counseling, Marriage, Couple and Family Counseling specialization",
+  "url": "https://www.westernseminary.edu/academics/masters-degrees/ma-in-counseling-california",
+  "bbs_alias": null,
+  "bbs_listed": true,
+  "lpcc_note": null,
+  "notice": null
  }
 ]

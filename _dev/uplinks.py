@@ -37,12 +37,6 @@ SITE = os.path.dirname(HERE)
 REGISTRY = os.path.join(SITE, "mock", "library", "registry.json")
 MARK = "<!-- _dev/uplinks.py -->"
 END = "<!-- /uplinks -->"
-# A CSS file may not contain an HTML comment. "<!--" opens a CDO token and the
-# text after it is parsed as a selector, which swallows the rule that follows -
-# .uplink{max-width:1120px...} was silently dropped on every page for exactly
-# this reason, leaving the block full-bleed. The sentinel inside <style> must
-# therefore be a CSS comment; MARK stays for the HTML block only.
-CSSMARK = "/* _dev/uplinks.py */"
 CHECKED = "Aug 2026"
 
 
@@ -76,7 +70,7 @@ CSS = """<style>%s
 .uplink a.uc span{display:block;font-size:12.6px;line-height:1.5;color:#5A6A56}
 .uplink .uall{display:inline-block;margin-top:14px;font-size:13.6px;color:#2C6350}
 @media (max-width:560px){.uplink{padding:0 18px}.uplink>div{padding:18px 17px}}
-</style>""" % CSSMARK
+</style>""" % MARK
 
 
 def siblings(p, n=3):
@@ -132,8 +126,7 @@ def main():
         before = s
         # remove any previous block first, so the pass is a rewrite not an append
         s = re.sub(re.escape(MARK) + r"[\s\S]*?" + re.escape(END) + r"\n?", "", s)
-        s = re.sub(r"\n?<style>(?:" + re.escape(MARK) + r"|" + re.escape(CSSMARK)
-                   + r")[\s\S]*?</style>\n?", "", s)
+        s = re.sub(r"\n?<style>" + re.escape(MARK) + r"[\s\S]*?</style>\n?", "", s)
 
         # A page with no registry record gets nothing. That is not a failure -
         # the topic hubs, the question index and the changelog are the library

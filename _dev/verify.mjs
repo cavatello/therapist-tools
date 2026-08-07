@@ -66,7 +66,18 @@ const PAGES = [
   ['mft-programs-california.html', {
     charts: '.ig', dots: '.ig-d', bars: '.ig-b',
     internal: 'a.go.mine', cards: 'article.pg',
+    // The BBS reconciliation. Each of these is a claim the page makes only
+    // because the Board's own table says so, and each rendered as nothing at
+    // all before this pass: "LMFT only" was indistinguishable from "not
+    // checked", and a Board warning was not on the page in any form.
+    lpccNo: '.badge.lpn', boardNotice: '.warn', offList: '.offl',
+    onlineFilter: '.fb[data-v="Online or out of state"]',
+    lpccFilter: '.fb[data-k="lpcc"]',
   }],
+  ['sentio-university-mft.html', {
+    notice: '.verd.board', noticeLink: '.verd.board a[href*="sentio_uni_nts"]',
+  }],
+  ['cal-poly-humboldt-mft.html', { table: '.tbl' }],
   ['california-institute-of-integral-studies-mft.html', {
     video: '.vplay', courses: '.crs', terms: '.trm', practicum: '#practicum',
     voices: '.vox', gaps: '#what-i-could-not-find',
@@ -165,6 +176,33 @@ for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
       note(`${file} [${view.name}]`, 'no nav trigger in the header');
     }
 
+    // The region filter has to partition the cards, not sample them. Static
+    // markup cannot show this: every card carries SOME data-region, so a
+    // card in a bucket no button selects looks identical in the HTML to one
+    // in a bucket that is selectable. Press each region button in turn and
+    // check the three counts add up to the whole grid. Four schools were
+    // unreachable this way for months.
+    if (file === 'mft-programs-california.html' && view.name === 'desktop') {
+      const total = await page.locator('article.pg').count();
+      let sum = 0;
+      for (const btn of await page.locator('.fb[data-k="region"]').all()) {
+        await btn.click();
+        await page.waitForTimeout(90);
+        sum += await page.locator('article.pg:not(.hide)').count();
+        await btn.click();
+        await page.waitForTimeout(60);
+      }
+      if (sum !== total)
+        note(file, `region filters reach ${sum} of ${total} cards`);
+      const lp = page.locator('.fb[data-k="lpcc"]');
+      await lp.click();
+      await page.waitForTimeout(90);
+      const yes = await page.locator('article.pg:not(.hide)').count();
+      if (!yes || yes >= total)
+        note(file, `the LPCC filter shows ${yes} of ${total} - it filters nothing`);
+      await lp.click();
+    }
+
     // The facade has to actually become a player.
     if (view.name === 'desktop' && await page.locator('.vplay').count()) {
       await page.locator('.vplay').first().click();
@@ -182,6 +220,13 @@ for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
 
 // Every built page must at least load without a script error and carry a title.
 const ctx = await browser.newContext({ viewport: VIEWS[0] });
+// Block off-origin here too. The template pass has always done this; this one
+// did not, and it only ever passed because the pages it loads happened to
+// resolve their webfont failures fast. The moment one did not, the whole run
+// died on a 30s navigation timeout with no findings at all - which reads as a
+// broken check rather than as a missing route, and cost an afternoon.
+await ctx.route('**/*', r =>
+  r.request().url().startsWith('file://') ? r.continue() : r.abort());
 for (const f of (PHASE === 'templates' ? [] : [...psy, ...schools])) {
   const page = await ctx.newPage();
   const errs = [];
