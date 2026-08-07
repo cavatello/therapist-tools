@@ -22,3 +22,8 @@ _publish/
 node_modules/
 __pycache__/
 *.pyc
+
+# Abandoned mockups and build output that duplicates the live site.
+# Regenerate with mock/mftguide/build_schools.py if ever needed.
+mock/landing/
+mock/mftguide/schools/
