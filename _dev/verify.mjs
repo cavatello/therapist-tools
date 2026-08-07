@@ -73,6 +73,9 @@ const PAGES = [
     lpccNo: '.badge.lpn', boardNotice: '.warn', offList: '.offl',
     onlineFilter: '.fb[data-v="Online or out of state"]',
     lpccFilter: '.fb[data-k="lpcc"]',
+    // second-generation directory UI
+    tableRows: 'tr.pgr', keepButtons: '.keep', gaps: '.gapl', az: '.az a',
+    ask: '#ask li', viewToggle: '#vtbl', keepPill: '#kpill', top: '#totop',
   }],
   ['sentio-university-mft.html', {
     notice: '.verd.board', noticeLink: '.verd.board a[href*="sentio_uni_nts"]',
@@ -201,6 +204,54 @@ for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
       if (!yes || yes >= total)
         note(file, `the LPCC filter shows ${yes} of ${total} - it filters nothing`);
       await lp.click();
+    }
+
+    // The second-generation directory controls, exercised rather than counted.
+    // Every one of these renders identically in the markup whether it works or
+    // not, which is the failure mode this whole file exists for.
+    if (file === 'mft-programs-california.html' && view.name === 'desktop') {
+      const cards = await page.locator('article.pg').count();
+      const rows = await page.locator('tr.pgr').count();
+      if (cards !== rows) note(file, `${cards} cards but ${rows} table rows`);
+
+      // table view swaps, and the same filter reaches both renderings
+      await page.locator('#vtbl').click();
+      await page.waitForTimeout(140);
+      if (!(await page.locator('#tbl').isVisible()))
+        note(file, 'table view button did not show the table');
+      if (await page.locator('.grid').isVisible())
+        note(file, 'cards still visible in table view');
+      await page.locator('.fb[data-k="coamfte"]').click();
+      await page.waitForTimeout(140);
+      const vr = await page.locator('tr.pgr:not(.hide)').count();
+      const vc = await page.locator('article.pg:not(.hide)').count();
+      if (vr !== vc) note(file, `filter left ${vc} cards and ${vr} rows visible`);
+      if (!/#.*coamfte=yes/.test(page.url())) note(file, 'filter state not written to the URL');
+      if (!(await page.locator('.chip').count())) note(file, 'no chip for the active filter');
+      await page.locator('#clr').click();
+      await page.waitForTimeout(140);
+      if (await page.locator('article.pg.hide').count())
+        note(file, 'clear all did not restore every card');
+      await page.locator('#vcard').click();
+      await page.waitForTimeout(120);
+
+      // the shortlist: keep one, and it must persist a reload
+      const first = page.locator('article.pg .keep').first();
+      const id = await page.locator('article.pg').first().getAttribute('id');
+      await first.click();
+      await page.waitForTimeout(120);
+      if (!/Kept 1/.test(await page.locator('#kpill').textContent() || ''))
+        note(file, 'keeping a school did not update the count');
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await page.waitForTimeout(220);
+      if (!/Kept 1/.test(await page.locator('#kpill').textContent() || ''))
+        note(file, 'the shortlist did not survive a reload');
+      await page.locator('#kpill').click();
+      await page.waitForTimeout(140);
+      const only = await page.locator('article.pg:not(.hide)').count();
+      if (only !== 1) note(file, `kept-only view shows ${only} cards, expected 1`);
+      await page.locator(`#${id} .keep`).click();      // leave storage clean
+      await page.waitForTimeout(100);
     }
 
     // The facade has to actually become a player.

@@ -38,7 +38,7 @@ Chrome and the nav script are lifted from the published hub, so the header
 works. That last clause is not decoration: every page previously built this way
 shipped with a dead header because the script was not lifted.
 """
-import os, re, sys, json, html
+import os, re, sys, json, html, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -48,7 +48,13 @@ import charts
 SRC = os.path.join(HERE, "_chrome.html")
 DATA = os.path.join(HERE, "programs.json")
 OUT = os.path.join(HERE, "mft-programs-california.html")
-UPDATED = "6 August 2026"
+UPDATED = "7 August 2026"
+# Two dates, because they answer different questions and one of them was
+# silently answering both. "Updated" moves when anything on the page changes,
+# including a CSS tweak. BBS_CHECKED moves only when somebody actually re-read
+# the Board's table against our records - which is a much stronger claim, and
+# the one a reader deciding whether to trust the list is really asking about.
+BBS_CHECKED = "7 August 2026"
 
 PROGRAMS = json.load(open(DATA, encoding="utf-8"))
 
@@ -160,6 +166,46 @@ def threads_for(name):
             % (len(t), rows))
 
 
+def anchor(name):
+    """A stable per-card id, so a single entry can be linked to directly.
+
+    The rule is deliberately the same one build_schools.py uses for filenames,
+    minus the suffix, so the anchor for a school and the URL of its own page
+    are recognisably the same string. A reader who is sent
+    `...california.html#s-cal-poly-humboldt` and then clicks through lands on
+    `cal-poly-humboldt-mft.html` and can see it is the same place.
+    """
+    x = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    x = re.sub(r"\(.*?\)", " ", x.lower())
+    x = re.sub(r"^the\b", " ", x)
+    x = re.sub(r"[^a-z0-9]+", "-", x).strip("-")
+    return "s-" + re.sub(r"-+", "-", x)[:64].strip("-")
+
+
+def gapline(p):
+    """Name what this school does not publish, on its own card.
+
+    A sparse card and a school that keeps its numbers to itself look identical
+    on a page like this, and the reader draws the wrong conclusion - that we
+    did not bother. Forty-six of the seventy-eight publish no tuition at all.
+    Saying which fields are missing, per card, turns the page's largest
+    weakness into its most actionable instruction: these are the questions to
+    put to admissions, and they are different for every school.
+    """
+    miss = [lab for lab, k in (("tuition", None), ("time to complete", "length"),
+                               ("units", "units"), ("format", "format"))
+            if (not (p.get("per_unit") or p.get("total")) if k is None
+                else not p.get(k))]
+    if not miss:
+        return ""
+    if len(miss) > 1:
+        miss = ", ".join(miss[:-1]) + " and " + miss[-1]
+    else:
+        miss = miss[0]
+    return ('<p class="gapl"><b>Not published by the school:</b> %s. '
+            "Worth asking admissions directly.</p>" % miss)
+
+
 def card(p):
     name = p["institution"]
     coam = ('<span class="badge acc">COAMFTE accredited</span>'
@@ -211,19 +257,85 @@ def card(p):
                    esc(n.get("as_of") or ""))) + note
     if p.get("bbs_listed") is False and p.get("bbs_note"):
         note += '<p class="offl">%s</p>' % esc(p["bbs_note"])
-    return ('<article class="pg" data-name="%s" data-coamfte="%s" data-region="%s" '
-            'data-tuition="%s" data-lpcc="%s">'
+    aid = anchor(name)
+    return ('<article class="pg" id="%s" data-name="%s" data-coamfte="%s" '
+            'data-region="%s" data-tuition="%s" data-lpcc="%s" data-az="%s">'
             '<div class="ph"><h3>%s</h3><span class="city">%s</span></div>'
+            '<div class="pgt"><button class="keep" type="button" data-id="%s" '
+            'aria-pressed="false"><span>Keep</span></button>'
+            '<a class="perma" href="#%s" title="Link to this entry">&sect;</a></div>'
             "%s%s"
-            '<div class="bd">%s</div>%s%s'
+            '<div class="bd">%s</div>%s%s%s'
             "%s"
             "%s</article>"
+            % (aid, esc(name).lower(), "yes" if p.get("coamfte") else "no",
+               region(p.get("city")), "yes" if tu != NP else "no",
+               {True: "yes", False: "no"}.get(p.get("lpcc"), "unknown"),
+               azkey(name),
+               esc(name), esc(p.get("city")) or "California",
+               aid, aid,
+               coam, lp, body, gapline(p), note, threads_for(name),
+               "", cta(p)))
+
+
+def azkey(name):
+    """The letter a reader would look under, which is not always the first one.
+
+    "The Wright Institute" files under W and "University of the Pacific" under
+    U. The rule matches the slug rule - strip a leading article, nothing else -
+    so the jump strip and the sort order cannot disagree with each other.
+    """
+    x = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
+    x = re.sub(r"^the\s+", "", x.strip(), flags=re.I)
+    c = x[:1].upper()
+    return c if c.isalpha() else "#"
+
+
+def trow(p):
+    """The same record as a table row.
+
+    WHY BOTH. A card is the right shape for reading one school and the wrong
+    shape for comparing one field across seventy-eight of them: the eye has to
+    re-find "Units" at a different vertical position on every card. A table
+    fixes that and is the pattern every directory of this size converges on.
+
+    It is rendered into the page rather than built by script on demand, so it
+    exists without JavaScript, is in the DOM for find-in-page, and cannot
+    disagree with the cards - both come from the same record in the same loop.
+    The cost is a larger page, which the CSS extraction pass has already paid
+    for several times over.
+
+    It is not sortable, and that is a decision rather than an omission. Sorting
+    by tuition would put forty-six schools that publish nothing at the bottom
+    of a column, which reads as a ranking of exactly the wrong kind.
+    """
+    name = p["institution"]
+    aid = anchor(name)
+    tu = NP
+    if p.get("total"):
+        tu = "$%s" % "{:,}".format(int(p["total"]))
+    elif p.get("per_unit"):
+        tu = "$%s/unit" % "{:,}".format(int(p["per_unit"]))
+    lpc = {True: "Yes", False: "No"}.get(p.get("lpcc"), NP)
+    where = SLUGS.get(name)
+    link = ('<a href="%s">%s</a>' % (where, esc(name)) if where
+            else '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
+                 % (p["url"], esc(name)))
+    return ('<tr class="pgr" data-name="%s" data-coamfte="%s" data-region="%s" '
+            'data-tuition="%s" data-lpcc="%s" data-az="%s" data-id="%s">'
+            '<td><button class="keep tk" type="button" data-id="%s" '
+            'aria-pressed="false" aria-label="Keep %s"></button></td>'
+            "<th scope=\"row\">%s<span class=\"tc\">%s</span></th>"
+            "<td>%s</td><td>%s</td><td>%s</td><td>%s</td>"
+            "<td>%s</td><td>%s</td></tr>"
             % (esc(name).lower(), "yes" if p.get("coamfte") else "no",
                region(p.get("city")), "yes" if tu != NP else "no",
                {True: "yes", False: "no"}.get(p.get("lpcc"), "unknown"),
-               esc(name), esc(p.get("city")) or "California",
-               coam, lp, body, note, threads_for(name),
-               "", cta(p)))
+               azkey(name), aid, aid, esc(name),
+               link, esc(p.get("city")) or "California",
+               esc(p.get("units")) or NP, esc(p.get("length")) or NP,
+               esc(p.get("format")) or NP, tu,
+               "Yes" if p.get("coamfte") else "&mdash;", lpc))
 
 
 def cta(p):
@@ -290,7 +402,14 @@ CSS = """<style>/* programmes */
 .pdlede a{color:var(--pine)}
 
 /* filters */
-.flt{position:sticky;top:0;z-index:20;background:#FBF7EE;padding:14px 0 13px;
+/* The site header is itself sticky at top:0 with a higher z-index, so a filter
+   bar at top:0 parks UNDERNEATH it and the search field is simply gone the
+   moment the page scrolls. --hh is measured from the real header on load and
+   on resize, because the header is 95px wide-screen and 138px on a phone where
+   it wraps, and a hardcoded offset is wrong on one of them by construction.
+   The fallback in var() is the desktop height, so a no-script reader gets the
+   bar slightly low rather than invisible. */
+.flt{position:sticky;top:var(--hh,95px);z-index:20;background:#FBF7EE;padding:14px 0 13px;
   border-bottom:1px solid var(--line);margin-bottom:20px}
 .fbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
 .fbar input[type=search]{flex:1;min-width:210px;font:inherit;font-size:14.4px;
@@ -383,33 +502,253 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
 .meth a{color:var(--pine)}
 .empty{display:none;padding:30px;text-align:center;color:var(--mut);font-size:14.5px}
 
+
+/* Visually hidden, but read aloud. Defined here rather than assumed from the
+   lifted chrome: the CSS-extraction pass rewrites shared <style> blocks into
+   linked files, and a class this page depends on must not be one it merely
+   inherits by luck. */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  clip-path:inset(50%);white-space:nowrap}
+
+/* ---- filter bar, second generation -------------------------------------
+   Everything here answers one complaint: after pressing two filters the page
+   gave no account of itself. It showed a count and nothing else - not what was
+   excluded, not how to undo it, and not how large an answer a button would
+   produce before you pressed it. */
+.fbar2{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:9px}
+/* display:contents on a wide screen, so the six buttons lay out exactly as
+   they did when they were direct children of .fbar. On a phone the wrapper
+   becomes a single horizontally-scrolling strip: six wrapped rows of chips is
+   a third of the viewport spent on furniture before the reader sees a school.
+   verify.mjs's overflow check ignores anything inside a scrollable ancestor,
+   which is what makes this safe rather than a permanent false positive. */
+.fbtns{display:contents}
+.fb .n{opacity:.62;margin-left:5px;font-size:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;
+  font-size:10.6px;background:#EFEADC;border:1px solid #E0D8C4;border-radius:20px;
+  padding:3px 5px 3px 10px;color:#4A5A46}
+.chip button{border:0;background:#DED5BE;color:#5B5344;border-radius:50%;width:15px;
+  height:15px;line-height:1;font-size:11px;cursor:pointer;padding:0}
+.chip button:hover{background:#C9BE9F}
+.clr{font-family:'IBM Plex Mono',monospace;font-size:10.8px;background:none;border:0;
+  color:var(--pine);text-decoration:underline;cursor:pointer;padding:2px 4px}
+.vw{display:inline-flex;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.vw button{font-family:'IBM Plex Mono',monospace;font-size:11px;border:0;background:#fff;
+  color:var(--mut);padding:6px 12px;cursor:pointer}
+.vw button[aria-pressed=true]{background:var(--pine);color:#fff}
+.kpill{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid #CFE2B8;
+  background:#EAF3DE;color:#27500A;border-radius:20px;padding:6px 12px;cursor:pointer}
+.kpill[aria-pressed=true]{background:#27500A;color:#fff;border-color:#27500A}
+.kpill[disabled]{opacity:.45;cursor:default}
+.prt{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid var(--line);
+  background:#fff;color:var(--mut);border-radius:20px;padding:6px 12px;cursor:pointer}
+
+/* ---- A-Z strip. 78 cards is fifteen screens and there was no way to reach W. */
+.az{display:flex;flex-wrap:wrap;gap:2px;margin:12px 0 2px}
+.az a,.az span{font-family:'IBM Plex Mono',monospace;font-size:10.6px;min-width:18px;
+  text-align:center;padding:3px 2px;border-radius:4px;text-decoration:none}
+.az a{color:var(--pine);background:#F2EEE2}
+.az a:hover{background:var(--pine);color:#fff}
+.az span{color:#C6BEAA}
+
+/* ---- keep / shortlist -------------------------------------------------
+   The page refuses to rank, and a reader still has to. This hands them the
+   mechanism without the page expressing a preference: what you kept is yours,
+   it lives in your browser, and nothing about it is sent anywhere. */
+.pgt{display:flex;align-items:center;gap:8px;margin-top:8px}
+.keep{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
+  text-transform:uppercase;border:1px solid var(--line);background:#fff;color:var(--mut);
+  border-radius:20px;padding:4px 11px;cursor:pointer}
+.keep[aria-pressed=true]{background:#27500A;border-color:#27500A;color:#fff}
+.keep[aria-pressed=true] span:after{content:" \2713"}
+.perma{color:#C6BEAA;text-decoration:none;font-size:13px}
+.perma:hover{color:var(--pine)}
+.pg:target{box-shadow:0 0 0 3px #EAF3DE;border-color:#CFE2B8}
+/* A #s-<school> link must not land the card behind two stacked sticky bars. */
+.pg,.pgr{scroll-margin-top:var(--stick,250px)}
+.keep.tk{width:20px;height:20px;padding:0;border-radius:5px}
+.keep.tk[aria-pressed=true]:after{content:"\2713";font-size:11px}
+
+/* ---- what the school does not publish, said per card */
+.gapl{font-size:12.2px;line-height:1.55;color:#6E6656;margin:10px 0 0;
+  background:#FAF7EF;border:1px dashed #E4D9BE;border-radius:8px;padding:8px 11px}
+.gapl b{color:#5B5344;font-weight:600}
+
+/* "no page here yet" had a class and no rule, so it ran straight on from the
+   link text: "Programme page -> no page here yet" as one line. It is a caveat
+   about the destination, not part of the label. */
+.noown{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-top:3px}
+
+/* ---- table view -------------------------------------------------------
+   Wrapped in a scroller on purpose: the overflow check in _dev/verify.mjs
+   ignores anything inside a scrollable ancestor, and a table this wide would
+   otherwise report a layout bug on every page load, forever. */
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
+  border-radius:12px;background:#fff}
+.ptbl{border-collapse:collapse;width:100%;font-size:13px;min-width:920px}
+.ptbl th,.ptbl td{text-align:left;padding:9px 11px;border-bottom:1px solid #F0EBDE;
+  vertical-align:top}
+.ptbl thead th{position:sticky;top:var(--sticktop,205px);background:#F7F3E9;font-family:'IBM Plex Mono',monospace;
+  font-size:9.8px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
+  font-weight:500;z-index:2;border-bottom:1px solid var(--line)}
+.ptbl tbody th{font-weight:500;color:var(--ink);min-width:210px}
+.ptbl tbody th a{color:var(--pine)}
+.ptbl .tc{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  color:var(--mut);margin-top:2px}
+.ptbl tr.hide{display:none}
+.ptbl tbody tr:hover{background:#FCFAF4}
+body.tablev .grid{display:none}
+body.tablev #tbl{display:block}
+#tbl{display:none;margin-top:2px}
+
+/* ---- ask admissions */
+.ask{background:#fff;border:1px solid var(--line);border-radius:12px;padding:4px 20px 18px;
+  margin:16px 0}
+.ask summary{cursor:pointer;padding:15px 0;font-family:Fraunces,Georgia,serif;
+  font-size:17.5px;color:var(--ink)}
+.ask ol{margin:0;padding-left:20px}
+.ask li{font-size:14.2px;line-height:1.62;margin:0 0 10px;color:#3B4A38}
+.ask li b{display:block;font-weight:600;color:var(--ink)}
+
+.totop{position:fixed;right:16px;bottom:16px;z-index:30;display:none;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--pine);color:#fff;
+  border:0;border-radius:20px;padding:9px 14px;cursor:pointer;opacity:.92}
+.totop.on{display:block}
+
+@media print{
+  header,footer,.flt,.az,.totop,.igwrap,.pdband,.thl,.fx,.gen,.none,.meth{display:none!important}
+  body.keeponly .pg:not(.kept),body.keeponly .pgr:not(.kept){display:none!important}
+  .pg{break-inside:avoid;border:1px solid #ccc}
+}
+
 @media (max-width:820px){
   .pdband .in{grid-template-columns:minmax(0,1fr);gap:22px}
   .grid{grid-template-columns:minmax(0,1fr)}
   .cnt{margin-left:0;width:100%}
+  /* The sticky bar grew a second row. Cap it, or on a 390px screen the filter
+     furniture eats half the viewport and the thing being filtered is off
+     screen - which is a worse page than the one with no counts on it. */
+  .flt{max-height:44vh;overflow-y:auto}
+  .fbar,.fbar2{gap:6px}
+  .fbtns{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;width:100%;
+    -webkit-overflow-scrolling:touch;padding-bottom:2px;scrollbar-width:none}
+  .fbtns::-webkit-scrollbar{display:none}
+  .fb{font-size:10.4px;padding:5px 9px;flex:0 0 auto}
+  #q{flex:1 0 100%}
+  .az a,.az span{min-width:16px;font-size:10px}
 }
 </style>"""
 
 JS = """<script>
+/* Directory behaviour. Four jobs, in one closure:
+
+   1. FILTER, over cards AND table rows at once. They are the same records
+      rendered twice, so a filter that reached only one of them would produce a
+      table that quietly disagreed with the cards.
+   2. ACCOUNT FOR ITSELF. A count, a chip per active filter, and a way out.
+      Before this the page told you how many matched and nothing about why.
+   3. REMEMBER THE STATE IN THE URL. This directory gets forwarded by
+      supervisors and careers advisers. "The COAMFTE ones" should be a link.
+   4. KEEP A SHORTLIST, in localStorage, which is the reader's ranking rather
+      than ours - the page will not rank, and somebody still has to.
+
+   Everything degrades: with no script the cards are all there in the markup,
+   the table is one CSS rule away, and every link works. */
 (function(){
-  var q=document.getElementById('q'), cards=[].slice.call(document.querySelectorAll('.pg')),
+  var q=document.getElementById('q'),
+      cards=[].slice.call(document.querySelectorAll('.pg')),
+      rows=[].slice.call(document.querySelectorAll('.pgr')),
+      items=cards.concat(rows),
       cnt=document.getElementById('cnt'), empty=document.getElementById('empty'),
-      btns=[].slice.call(document.querySelectorAll('.fb'));
-  function apply(){
-    var term=(q.value||'').trim().toLowerCase();
+      chips=document.getElementById('chips'), clr=document.getElementById('clr'),
+      kpill=document.getElementById('kpill'), prt=document.getElementById('prt'),
+      vcard=document.getElementById('vcard'), vtbl=document.getElementById('vtbl'),
+      az=document.getElementById('az'), totop=document.getElementById('totop'),
+      btns=[].slice.call(document.querySelectorAll('.fb')),
+      LABEL={coamfte:'COAMFTE accredited', region:'Region', lpcc:'Opens LPCC',
+             tuition:'Publishes tuition'},
+      KEY='ts-mft-keep', keptOnly=false, kept={};
+
+  /* localStorage can throw outright in a locked-down browser. A shortlist is a
+     convenience; the page must not die for it. */
+  function load(){ try{ (JSON.parse(localStorage.getItem(KEY))||[]).forEach(
+      function(k){ kept[k]=1; }); }catch(e){} }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(Object.keys(kept)));
+      }catch(e){} }
+
+  function active(){
     var on={};
-    btns.forEach(function(b){ if(b.getAttribute('aria-pressed')==='true') on[b.dataset.k]=b.dataset.v; });
-    var n=0;
-    cards.forEach(function(c){
-      var ok=true;
-      for(var k in on){ if(c.dataset[k]!==on[k]) ok=false; }
+    btns.forEach(function(b){
+      if(b.getAttribute('aria-pressed')==='true') on[b.dataset.k]=b.dataset.v; });
+    return on;
+  }
+
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase(), on=active(), n=0, seen={};
+    items.forEach(function(c){
+      var ok=true, k;
+      for(k in on){ if(c.dataset[k]!==on[k]) ok=false; }
       if(ok && term && c.textContent.toLowerCase().indexOf(term)<0) ok=false;
+      if(ok && keptOnly && !kept[c.dataset.id||c.id]) ok=false;
       c.classList.toggle('hide', !ok);
-      if(ok) n++;
+      /* Count cards only. Counting both would say 156 of 156. */
+      if(ok && c.classList.contains('pg')){ n++; seen[c.dataset.az]=1; }
     });
     cnt.textContent = n + ' of ' + cards.length + ' programmes';
     empty.style.display = n ? 'none' : 'block';
+    drawChips(on);
+    drawAz(seen);
+    writeHash(on, term);
   }
+
+  function drawChips(on){
+    var out=[], k;
+    for(k in on) out.push('<span class="chip">'+LABEL[k]+': '+on[k]+
+      '<button type="button" data-off="'+k+'" aria-label="Remove this filter">&times;</button></span>');
+    if(keptOnly) out.push('<span class="chip">Kept only'+
+      '<button type="button" data-off="kept" aria-label="Show all again">&times;</button></span>');
+    if((q.value||'').trim()) out.push('<span class="chip">&ldquo;'+
+      q.value.trim().replace(/[<&]/g,'')+'&rdquo;'+
+      '<button type="button" data-off="q" aria-label="Clear the search">&times;</button></span>');
+    chips.innerHTML=out.join('');
+    clr.hidden = !out.length;
+  }
+
+  chips.addEventListener('click', function(e){
+    var k=e.target.getAttribute && e.target.getAttribute('data-off');
+    if(!k) return;
+    if(k==='q'){ q.value=''; }
+    else if(k==='kept'){ keptOnly=false; kpill.setAttribute('aria-pressed','false'); }
+    else btns.forEach(function(b){ if(b.dataset.k===k) b.setAttribute('aria-pressed','false'); });
+    apply();
+  });
+
+  clr.addEventListener('click', function(){
+    q.value=''; keptOnly=false; kpill.setAttribute('aria-pressed','false');
+    btns.forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+    apply();
+  });
+
+  /* The jump strip is drawn from what is CURRENTLY visible, not from the full
+     set. A letter that leads nowhere after a filter is worse than no letter. */
+  function drawAz(seen){
+    var L='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''), out=[];
+    L.forEach(function(c){
+      out.push(seen[c] ? '<a href="#az-'+c+'">'+c+'</a>' : '<span>'+c+'</span>');
+    });
+    az.innerHTML=out.join('');
+  }
+  az.addEventListener('click', function(e){
+    if(e.target.tagName!=='A') return;
+    e.preventDefault();
+    var c=e.target.textContent, t=null;
+    (document.body.classList.contains('tablev')?rows:cards).some(function(x){
+      if(!x.classList.contains('hide') && x.dataset.az===c){ t=x; return true; }
+    });
+    if(t) t.scrollIntoView({block:'center'});
+  });
+
   btns.forEach(function(b){
     b.addEventListener('click', function(){
       var was=b.getAttribute('aria-pressed')==='true';
@@ -419,7 +758,95 @@ JS = """<script>
     });
   });
   q.addEventListener('input', apply);
-  apply();
+
+  /* ---- keep */
+  function paintKeep(){
+    var n=Object.keys(kept).length;
+    kpill.textContent='Kept '+n;
+    kpill.disabled = !n;
+    if(!n && keptOnly){ keptOnly=false; kpill.setAttribute('aria-pressed','false'); }
+    [].slice.call(document.querySelectorAll('.keep')).forEach(function(b){
+      var on=!!kept[b.dataset.id];
+      b.setAttribute('aria-pressed', on?'true':'false');
+      var host=b.closest('.pg')||b.closest('.pgr');
+      if(host) host.classList.toggle('kept', on);
+    });
+  }
+  document.addEventListener('click', function(e){
+    var b=e.target.closest && e.target.closest('.keep');
+    if(!b) return;
+    if(kept[b.dataset.id]) delete kept[b.dataset.id]; else kept[b.dataset.id]=1;
+    save(); paintKeep(); if(keptOnly) apply();
+  });
+  kpill.addEventListener('click', function(){
+    keptOnly=!keptOnly;
+    kpill.setAttribute('aria-pressed', keptOnly?'true':'false');
+    apply();
+  });
+  prt.addEventListener('click', function(){
+    var only=Object.keys(kept).length>0;
+    document.body.classList.toggle('keeponly', only);
+    window.print();
+    setTimeout(function(){ document.body.classList.remove('keeponly'); }, 400);
+  });
+
+  /* ---- view */
+  function view(t){
+    document.body.classList.toggle('tablev', t);
+    vtbl.setAttribute('aria-pressed', t?'true':'false');
+    vcard.setAttribute('aria-pressed', t?'false':'true');
+  }
+  vtbl.addEventListener('click', function(){ view(true); apply(); });
+  vcard.addEventListener('click', function(){ view(false); apply(); });
+
+  /* ---- URL state. Only ever written when something is on, so a bare link and
+     an unfiltered page stay the same URL, and #s-<school> anchors still work. */
+  var lock=false;
+  function writeHash(on, term){
+    if(lock) return;
+    var p=[], k;
+    for(k in on) p.push(k+'='+encodeURIComponent(on[k]));
+    if(term) p.push('q='+encodeURIComponent(term));
+    if(document.body.classList.contains('tablev')) p.push('view=table');
+    var h=p.join('&');
+    var cur=location.hash.replace(/^#/,'');
+    if(h===cur) return;
+    if(!h && cur.indexOf('=')<0) return;   /* leave #s-... and #at-a-glance alone */
+    history.replaceState(null,'', h ? '#'+h : location.pathname+location.search);
+  }
+  function readHash(){
+    var h=location.hash.replace(/^#/,'');
+    if(h.indexOf('=')<0) return false;
+    lock=true;
+    h.split('&').forEach(function(kv){
+      var a=kv.split('='), k=a[0], v=decodeURIComponent((a[1]||'').replace(/\+/g,' '));
+      if(k==='q'){ q.value=v; return; }
+      if(k==='view'){ view(v==='table'); return; }
+      btns.forEach(function(b){
+        if(b.dataset.k===k && b.dataset.v===v) b.setAttribute('aria-pressed','true'); });
+    });
+    lock=false;
+    return true;
+  }
+
+  /* Measure the two sticky bars rather than guessing them. */
+  function measure(){
+    var h=document.querySelector('header'), f=document.querySelector('.flt');
+    var hh=h?h.offsetHeight:95, fh=f?f.offsetHeight:0;
+    document.documentElement.style.setProperty('--hh', hh+'px');
+    document.documentElement.style.setProperty('--stick', (hh+fh+24)+'px');
+    /* The table's own sticky header sits directly under both bars. */
+    document.documentElement.style.setProperty('--sticktop', (hh+fh)+'px');
+  }
+  measure();
+  window.addEventListener('resize', measure);
+
+  window.addEventListener('scroll', function(){
+    totop.classList.toggle('on', window.scrollY>1400);
+  }, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0}); });
+
+  load(); paintKeep(); readHash(); apply();
 })();
 </script>"""
 
@@ -435,7 +862,14 @@ def build():
     _costs = sorted(c for c, _k in (charts.cost_of(p) for p in progs) if c)
     cost_lo, cost_hi = (_costs[0], _costs[-1]) if _costs else (0, 0)
 
+    n_south = sum(1 for p in progs if region(p.get("city")) == "Southern California")
+    n_north = sum(1 for p in progs if region(p.get("city")) == "Northern California")
+    n_online = sum(1 for p in progs
+                   if region(p.get("city")) == "Online or out of state")
+    n_lp = sum(1 for p in progs if p.get("lpcc") is True)
+
     cards = "".join(card(p) for p in progs)
+    rows = "".join(trow(p) for p in progs)
 
     # Threads keyed to an institution that is not in the BBS list - Saybrook is
     # one - would otherwise be silently dropped, taking verified research with
@@ -452,6 +886,8 @@ def build():
         for u, f, t, y, s, note in F.GENERAL + orphan)
 
     none_found = "".join("<span>%s</span>" % esc(x) for x in F.NONE_FOUND)
+
+    ask_block = '<details class="ask" id="ask"><summary>Five questions to put to admissions &mdash; and why each one changes the answer</summary>\n<ol>\n<li><b>Who finds my practicum placement, and what happens if I cannot find one?</b>\nThis is the single most likely reason a two-year degree takes three. Some programmes place\nyou; some hand you a list. Ask which, and ask what the last cohort&rsquo;s experience was.</li>\n<li><b>What is the total cost including campus fees, and what does a fifth term cost?</b>\nThe tuition figures on this page are the ones schools publish, and almost none of them\ninclude fees. Ask for the number a student actually paid last year.</li>\n<li><b>How many direct client hours will I finish the degree with?</b>\nThey count towards the 3,000 you need afterwards. A programme that gets you to 300 rather\nthan 150 has taken months off your licensure date.</li>\n<li><b>Is the degree COAMFTE accredited, and when does that accreditation expire?</b>\nAccreditation is granted for a term and can be renewed with stipulations or not at all.\n&ldquo;Accredited&rdquo; on a web page is not the same as accredited through your graduation.</li>\n<li><b>Does this specific degree open the LPCC route, or only another degree here?</b>\nThe Board lists institutions, not programmes. A school listed for both may open the LPCC\nroute through a different master&rsquo;s than the one you are applying to.</li>\n</ol>\n<p class="meth" style="margin-bottom:0">These are questions, not criteria. This page does\nnot tell you which programme is better, and a list of things to look for would be that\nverdict wearing a different hat.</p></details>'
 
     fig = ('<div class="pdfig"><b>%d</b><span>institutions whose degrees the Board '
            "lists as qualifying towards California LMFT licensure</span>"
@@ -481,7 +917,7 @@ def build():
 <p class="dek">What each one publishes about itself &mdash; degree, units, length, format,
 accreditation and cost &mdash; next to what students and graduates actually say about it
 in public. No rankings. No estimated tuition.</p>
-<div class="pdmeta"><span>California</span><span>Updated %s</span><span>%d institutions</span></div>
+<div class="pdmeta"><span>California</span><span>Page updated %s</span><span>Board&rsquo;s list re-checked %s</span><span>%d institutions</span></div>
 </div>%s</div></section>
 
 <div class="pdwrap">
@@ -497,20 +933,45 @@ remedial coursework or no licence at all. <b>%d of the %d</b> hold it.</p>
 
 %s
 
+%s
+
 <div class="flt"><div class="fbar">
 <input type="search" id="q" placeholder="Search school, city, degree or format&hellip;"
        aria-label="Search programmes">
-<button class="fb" data-k="coamfte" data-v="yes" aria-pressed="false">COAMFTE only</button>
-<button class="fb" data-k="region" data-v="Southern California" aria-pressed="false">Southern CA</button>
-<button class="fb" data-k="region" data-v="Northern California" aria-pressed="false">Northern CA</button>
-<button class="fb" data-k="region" data-v="Online or out of state" aria-pressed="false">Online / out of state</button>
-<button class="fb" data-k="lpcc" data-v="yes" aria-pressed="false">Also opens LPCC</button>
-<button class="fb" data-k="tuition" data-v="yes" aria-pressed="false">Publishes tuition</button>
+<span class="fbtns"><button class="fb" data-k="coamfte" data-v="yes" aria-pressed="false">COAMFTE only<span class="n">%d</span></button>
+<button class="fb" data-k="region" data-v="Southern California" aria-pressed="false">Southern CA<span class="n">%d</span></button>
+<button class="fb" data-k="region" data-v="Northern California" aria-pressed="false">Northern CA<span class="n">%d</span></button>
+<button class="fb" data-k="region" data-v="Online or out of state" aria-pressed="false">Online / out of state<span class="n">%d</span></button>
+<button class="fb" data-k="lpcc" data-v="yes" aria-pressed="false">Also opens LPCC<span class="n">%d</span></button>
+<button class="fb" data-k="tuition" data-v="yes" aria-pressed="false">Publishes tuition<span class="n">%d</span></button>
+</span>
 <span class="cnt" id="cnt"></span>
+</div>
+<div class="fbar2">
+<span class="vw" role="group" aria-label="How to show the programmes">
+<button id="vcard" aria-pressed="true">Cards</button><button id="vtbl" aria-pressed="false">Table</button>
+</span>
+<button class="kpill" id="kpill" aria-pressed="false" disabled>Kept 0</button>
+<button class="prt" id="prt" type="button">Print your shortlist</button>
+<span id="chips"></span>
+<button class="clr" id="clr" type="button" hidden>Clear all</button>
 </div></div>
 
+<nav class="az" id="az" aria-label="Jump to a letter"></nav>
+
 <div class="grid">%s</div>
+<div id="tbl"><div class="tblwrap"><table class="ptbl">
+<caption class="vh">Every institution the Board lists, with what each publishes about itself</caption>
+<thead><tr><th scope="col"><span class="vh">Keep</span></th><th scope="col">Institution</th>
+<th scope="col">Units</th><th scope="col">Length</th><th scope="col">Format</th>
+<th scope="col">Published tuition</th><th scope="col">COAMFTE</th><th scope="col">LPCC</th>
+</tr></thead><tbody>%s</tbody></table></div>
+<p class="meth" style="margin-top:10px">Same seventy-eight records as the cards, one row
+each. Deliberately not sortable: forty-six schools publish no tuition, and a column sorted
+on a figure most of them do not have would order the page by who answers a question rather
+than by anything about the degrees.</p></div>
 <div class="empty" id="empty">Nothing matches that. Clear a filter or try a shorter search.</div>
+<button class="totop" id="totop" type="button">&uarr; Top</button>
 
 <h2 class="sec">Threads about the decision itself</h2>
 <p class="pdlede">Not about one school &mdash; about accreditation, debt, practicum risk
@@ -560,8 +1021,9 @@ else is from each institution's own site. If something here is wrong,
 %s
 %s
 </body></html>""" % (len(progs), "\n".join(links), "\n".join(styles), CSS + charts.CSS, header,
-                     UPDATED, len(progs), fig, n_coam, len(progs), charts.render(progs),
-                     cards, gen,
+                     UPDATED, BBS_CHECKED, len(progs), fig, n_coam, len(progs), charts.render(progs),
+                     ask_block, n_coam, n_south, n_north, n_online, n_lp, n_tui,
+                     cards, rows, gen,
                      none_found, F.DEAD_SUBS, n_tui, len(progs) - n_tui,
                      "{:,}".format(cost_lo), "{:,}".format(cost_hi),
                      UPDATED, footer, navscript, JS)
@@ -622,6 +1084,33 @@ def main():
     # and would still be wrong.
     if doc.count('data-lpcc="yes"') < 2 or doc.count('data-lpcc="no"') < 1:
         bad.append("the LPCC filter has nothing to filter on")
+    # The table is the same records rendered a second time. If the two counts
+    # ever diverge, one of them is lying and the reader has no way to tell
+    # which - so this is a hard stop rather than a warning.
+    nr = doc.count('<tr class="pgr"')
+    if nr != len(PROGRAMS):
+        bad.append("%d table rows for %d programmes" % (nr, len(PROGRAMS)))
+    # Every card and every row must carry a keep control with a stable id, or
+    # the shortlist silently keeps nothing for that school.
+    ids = set(re.findall(r'<article class="pg" id="(s-[a-z0-9-]+)"', doc))
+    if len(ids) != len(PROGRAMS):
+        bad.append("%d unique card anchors for %d programmes" % (len(ids), len(PROGRAMS)))
+    # Three sites per school: the card's keep button, the table row itself
+    # (the filter reads data-id off the row), and the row's keep button.
+    for k in ('data-id="%s"' % i for i in sorted(ids)):
+        if doc.count(k) != 3:
+            bad.append("keep wiring is %dx, expected 3x: %s" % (doc.count(k), k))
+            break
+    # The counts on the filter buttons must be the counts the filters produce.
+    # A hardcoded number here would be the exact failure this page exists to
+    # avoid, printed on the control that promises it.
+    for lab, want in (("COAMFTE only",
+                       sum(1 for p in PROGRAMS if p.get("coamfte"))),
+                      ("Also opens LPCC",
+                       sum(1 for p in PROGRAMS if p.get("lpcc") is True)),
+                      ("Publishes tuition", have)):
+        if ('%s<span class="n">%d</span>' % (lab, want)) not in doc:
+            bad.append("the count on the '%s' button is not the data's" % lab)
     if "navpanel" in doc and not re.search(r"<script>[\s\S]*?navpanel[\s\S]*?</script>", doc):
         bad.append("header would be dead - nav script missing")
     # Look for ranking MARKUP, not for the word. The first version matched
