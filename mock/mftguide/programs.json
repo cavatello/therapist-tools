@@ -457,14 +457,14 @@
   "units": "60 units (LMFT track); 70 units (LPCC track)",
   "length": "3 years (7 semesters)",
   "format": "On-campus weekday; on-campus weekend (5 weekends/semester); hybrid online",
-  "notable": "Integral/holistic, spiritual and multicultural orientation. CIIS also runs other counseling MAs (e.g. Somatic, Expressive Arts, Community Mental Health) not individually verified here.",
+  "notable": "Integral/holistic, spiritual and multicultural orientation. One department, five BBS-approved concentrations that all reach the LMFT at 60 units - Integral Counseling Psychology (weekday or weekend), Somatic Psychology, Community Mental Health, Drama Therapy and Expressive Arts Therapy. The sixth option, ICP Hybrid at 66 units, is the LPCC pathway only and does not qualify for the LMFT.",
   "url": "https://www.ciis.edu/admissions-and-financial-aid/costs-and-aid/tuition-and-fees",
   "note": null,
   "other_accreditation": null,
   "lpcc": "Yes, but format-dependent — weekday and weekend on-campus formats qualify for both LMFT and LPCC; the hybrid format qualifies for LPCC only",
-  "per_unit": null,
-  "total": null,
-  "tyear": null,
+  "per_unit": 1449.0,
+  "total": 86940.0,
+  "tyear": "2026-27",
   "turl": "https://www.ciis.edu/admissions-and-financial-aid/costs-and-aid/tuition-and-fees"
  },
  {

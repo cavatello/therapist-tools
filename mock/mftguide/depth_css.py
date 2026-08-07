@@ -63,8 +63,11 @@ DEPTH_CSS = """<style>/* depth */
 .sc .crs p{font-size:14.5px;line-height:1.7;margin:0 0 9px;max-width:none}
 .sc .cq{margin:0 0 10px;padding:0 0 0 15px;border-left:2px solid #E4D9BE;
   font-size:14.5px;line-height:1.7;color:#3B4A38;font-style:italic}
-.sc .cq:before{content:"\\201C"}
-.sc .cq:after{content:"\\201D"}
+/* No pseudo-element quotes. 256 of the 379 catalog descriptions already
+   carry their own quotation marks, so these doubled them - and because the
+   "catalog" source link is rendered INSIDE the blockquote, :after put the
+   closing quote after the link rather than after the quoted text. The
+   quotes belong in the data, where the writer can see where they close. */
 .sc .cwhy{background:#FBF6E9;border-radius:8px;padding:11px 13px;margin:0!important;
   font-size:13.6px;line-height:1.62;color:#4A5A46}
 .sc .cwhy span{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.4px;
