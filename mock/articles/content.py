@@ -12,6 +12,7 @@ ARTICLES = [
 # ---------------------------------------------------------------- 1. entity
 dict(
  slug="therapist-llc-california",
+ library={'topic': 'money', 'format': 'answer', 'question': 'Can I put my practice in an LLC?', 'outcome': 'The one subsection that forbids it, and the two structures left to you', 'number': 'Cal. Corp. Code §17701.04(e)', 'weight': 3, 'stale': True},
  category="Money",
  stage="run",
  minutes=8,
@@ -145,6 +146,7 @@ dict(
 # ------------------------------------------------------------------- 2. SDI
 dict(
  slug="s-corp-sdi-california-therapist",
+ library={'topic': 'money', 'format': 'answer', 'question': 'Does the S-corp saving survive California payroll?', 'outcome': 'The employer costs the S-corp pitch omits, priced against the saving', 'number': '1.3% SDI, no wage cap', 'weight': 3, 'stale': True},
  category="Money",
  stage="run",
  minutes=6,
@@ -262,6 +264,7 @@ dict(
 # ------------------------------------------------------------------ 3. fees
 dict(
  slug="bbs-fees-california-2026",
+ library={'topic': 'licensure', 'format': 'answer', 'question': 'What do the Board fees cost now?', 'outcome': 'The reduced schedule line by line, and what the headline total omits', 'number': '$875 in Board fees, down from $1,750', 'weight': 3, 'stale': True},
  category="Licensure",
  stage="pre",
  minutes=5,
@@ -390,6 +393,7 @@ dict(
 # ------------------------------------------------------ 4. cost of incorporating
 dict(
  slug="cost-of-incorporating-california-therapist",
+ library={'topic': 'money', 'format': 'answer', 'question': 'What does a professional corporation cost to run?', 'outcome': 'The annual floor, the first-year rule, and the profit where it starts paying', 'number': '$800 minimum franchise tax', 'weight': 3, 'stale': True},
  category="Money",
  stage="run",
  minutes=7,
@@ -527,6 +531,7 @@ dict(
 # --------------------------------------------------------- 5. estimated taxes
 dict(
  slug="quarterly-estimated-taxes-california-therapist",
+ library={'topic': 'money', 'format': 'answer', 'question': 'How much do I send each quarter?', 'outcome': 'Two schedules, the front-loaded California shape, and the safe harbour', 'number': '30/40/0/30 California instalments', 'weight': 3, 'stale': True},
  category="Money",
  stage="run",
  minutes=6,
@@ -637,6 +642,7 @@ dict(
 # ------------------------------------------------------------ 6. backdoor Roth
 dict(
  slug="backdoor-roth-pro-rata-therapist",
+ library={'topic': 'money', 'format': 'answer', 'question': 'Why was my backdoor Roth mostly taxable?', 'outcome': 'The pro-rata rule, the balance that triggers it, and the December deadline', 'number': '$7,500 IRA limit, $8,600 from 50', 'weight': 3, 'stale': True},
  category="Money",
  stage="run",
  minutes=7,

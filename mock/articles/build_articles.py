@@ -287,6 +287,41 @@ def render_block(b):
     raise ValueError("unknown block: " + k)
 
 
+def library_meta(a):
+    """Emit the ts:* block that puts this article into the content library.
+
+    The library used to be driven by hand-added records in registry.json, which
+    meant a new article did not exist to the hub, the topic pages or the
+    question index until someone remembered to register it. Emitting the
+    metadata here closes that loop: _dev/registry_sync.py reads these tags back
+    out and rebuilds the registry from the pages, so writing the article IS
+    registering it.
+
+    An article with no `library` block still builds - it just will not appear in
+    any listing, which is the correct failure. Silently guessing a topic and a
+    question would put a page on a hub under a heading nobody wrote.
+    """
+    lib = a.get("library")
+    if not lib:
+        return ""
+    out = ["<!-- ts:meta -->"]
+    for key in ("topic", "format", "question", "outcome", "number"):
+        v = lib.get(key)
+        if v:
+            out.append('<meta name="ts:%s" content="%s">' % (key, esc_attr(str(v))))
+    out.append('<meta name="ts:weight" content="%d">' % int(lib.get("weight", 1)))
+    for key in ("leaf", "stale", "skip"):
+        if lib.get(key):
+            out.append('<meta name="ts:%s" content="true">' % key)
+    out.append("<!-- /ts:meta -->")
+    return "\n".join(out) + "\n"
+
+
+def esc_attr(x):
+    return (x.replace("&", "&amp;").replace('"', "&quot;")
+             .replace("<", "&lt;").replace(">", "&gt;"))
+
+
 def build(a, others):
     body, nav = [], []
     for heading, blocks in a["sections"]:
@@ -338,7 +373,8 @@ def build(a, others):
             "<title>" + a["title"] + "</title>\n"
             '<meta name="description" content="' + a["dek_plain"] + '">\n'
             '<link rel="canonical" href="' + SITE + "/" + a["slug"] + '.html">\n'
-            '<meta name="robots" content="index, follow, max-image-preview:large">\n'
+            + library_meta(a)
+            + '<meta name="robots" content="index, follow, max-image-preview:large">\n'
             '<meta property="og:type" content="article">\n'
             '<meta property="og:title" content="' + a["h1_plain"] + '">\n'
             '<meta property="og:description" content="' + a["dek_plain"] + '">\n'
@@ -399,7 +435,15 @@ def main():
                  len(a["sections"]), len(a["sources"])))
     if bad:
         sys.exit("build_articles: %d guard failure(s)" % bad)
-    print("%d article(s) built" % len(ARTICLES))
+    missing = [a["slug"] for a in ARTICLES
+               if a.get("library")
+               and '<meta name="ts:question"' not in
+               open(os.path.join(OUT, a["slug"] + ".html"), encoding="utf-8").read()]
+    if missing:
+        sys.exit("build_articles: library block declared but no ts:meta emitted: "
+                 + ", ".join(missing))
+    print("%d article(s) built, %d carrying library metadata"
+          % (len(ARTICLES), sum(1 for a in ARTICLES if a.get("library"))))
 
 
 if __name__ == "__main__":
