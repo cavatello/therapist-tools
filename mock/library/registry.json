@@ -1390,6 +1390,32 @@
    "weight": 1,
    "skip": false,
    "leaf": true
+  },
+  {
+   "file": "simplepractice-california-therapists.html",
+   "title": "SimplePractice for California therapists: real cost, the associate co-signature problem, and cheaper alternatives",
+   "topic": "practice",
+   "format": "guide",
+   "question": "What does SimplePractice really cost me?",
+   "outcome": "The subscription, plus the 3.15% nobody compares, plus cheaper paths",
+   "number": "$49–$99 a month",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "affiliate-disclosure.html",
+   "title": "Affiliate disclosure — every paid link on Therapist Support",
+   "topic": "practice",
+   "format": "reference",
+   "question": "Does this site make money from what it recommends?",
+   "outcome": "Every paid link, what it pays, and what it costs you: nothing",
+   "number": "2 arrangements",
+   "stale": false,
+   "weight": 2,
+   "skip": false,
+   "leaf": false
   }
  ],
  "topics": {
@@ -1494,6 +1520,12 @@
      ]
     },
     {
+     "name": "The software and the admin",
+     "files": [
+      "simplepractice-california-therapists.html"
+     ]
+    },
+    {
      "name": "Practising from somewhere else",
      "files": [
       "therapist-working-remotely-california.html"
@@ -1512,7 +1544,8 @@
       "newsletter.html",
       "contact.html",
       "privacy.html",
-      "terms.html"
+      "terms.html",
+      "affiliate-disclosure.html"
      ]
     }
    ]

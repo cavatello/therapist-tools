@@ -1,0 +1,55 @@
+{
+  "_README": [
+    "THE CANONICAL LIST OF AFFILIATE AND REFERRAL LINKS. Nothing else on the",
+    "site should carry a partner URL that is not in this file.",
+    "",
+    "WHY ONE FILE. Affiliate links go stale, get reissued, and are easy to",
+    "half-replace: one page keeps the bare URL, another keeps last year's",
+    "tracking code, and there is no way to tell without reading every page.",
+    "_dev/affiliate.py reads this file and rewrites every occurrence of `bare`",
+    "to `url` across the whole site on every build, so the link exists in",
+    "exactly one place and cannot drift.",
+    "",
+    "TO ADD A PARTNER: add a record here and run _dev/affiliate.py. To rotate a",
+    "link: change `url` and re-run. To retire one: set `active` to false and",
+    "re-run, and every page reverts to the bare URL rather than shipping a dead",
+    "tracking link.",
+    "",
+    "FIELDS",
+    "  slug      internal key, also the anchor on the disclosure page",
+    "  name      as a reader would say it",
+    "  url       THE AFFILIATE LINK - the thing that earns",
+    "  bare      the plain URL it replaces, so pages can be written naturally",
+    "  extra     other bare URLs that should also be rewritten (deep links)",
+    "  program   what the arrangement actually is, in plain words",
+    "  pays      what it pays, if known - null rather than a guess",
+    "  costs_you what it costs the reader, which for all of these is nothing",
+    "  active    false takes it out of circulation without deleting the record"
+  ],
+  "partners": [
+    {
+      "slug": "simplepractice",
+      "name": "SimplePractice",
+      "what": "Practice-management software: scheduling, notes, client portal, telehealth, billing and claims.",
+      "url": "https://partners.simplepractice.com/js765nfa830r",
+      "bare": "https://www.simplepractice.com/",
+      "extra": ["https://simplepractice.com/", "https://www.simplepractice.com"],
+      "program": "SimplePractice partner programme. If you start a subscription through this link, the site earns a referral fee.",
+      "pays": null,
+      "costs_you": "Nothing. The price is the same as going direct, and the trial is the same length.",
+      "active": true
+    },
+    {
+      "slug": "headway",
+      "name": "Headway",
+      "what": "An insurance network that credentials you, bills the payer and pays you a set rate per session.",
+      "url": "https://share.findheadway.com/shawn-924",
+      "bare": "https://headway.co/for-providers",
+      "extra": ["https://headway.co/providers", "https://www.headway.co/for-providers"],
+      "program": "Headway provider referral. If you join through this link, the site earns a referral fee.",
+      "pays": null,
+      "costs_you": "Nothing. Headway takes its cut from the session rate either way, and the rate you are offered is not affected by how you arrived.",
+      "active": true
+    }
+  ]
+}

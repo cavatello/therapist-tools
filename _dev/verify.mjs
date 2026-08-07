@@ -41,6 +41,11 @@ const PAGES = [
   ['changes.html', { log: '.chglog li' }],
   ['money/index.html', { cards: '.lc', intro: '.intro p', others: '.xt' }],
   ['licensure/index.html', { cards: '.lc', others: '.xt' }],
+  ['simplepractice-california-therapists.html', {
+    tiers: '.tier', alts: '.alt', crit: '.cr', tag: '.afl',
+    whoNot: '#who-should-not', cal: '.q',
+  }],
+  ['affiliate-disclosure.html', { partners: '.pcard', tag: '.afl', rule: '.rule' }],
   ['mft-programs-california.html', {
     charts: '.ig', dots: '.ig-d', bars: '.ig-b',
     internal: 'a.go.mine', cards: 'article.pg',
