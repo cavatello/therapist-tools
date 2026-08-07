@@ -279,6 +279,15 @@ CSS = """
 @media (max-width:1080px) and (min-width:901px){
   .sitenav-top{font-size:11.8px;padding:7px 7px}
   .sitenav-top:after{display:none}
+  /* Dropping the chevron alone bought back 1000px but not 960. The tagline is
+     white-space:nowrap, so it - not the wordmark - sets the lockup's minimum
+     width, and it is the widest thing in the left column. The shared sheet
+     already hides it below 860 for exactly this reason; a seven-item menu
+     moves that threshold up. Same for the newsletter label, which has a short
+     form already in the markup waiting to be used. */
+  .sitenav-sub{display:none}
+  .sitenav-cta .long{display:none}
+  .sitenav-cta .short{display:inline}
 }
 /* Below the point where the bar stacks, the seven become one scrolling line.
    flex-wrap:wrap would give three ragged rows and a 130px-tall header. */
