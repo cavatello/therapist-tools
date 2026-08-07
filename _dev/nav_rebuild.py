@@ -270,6 +270,16 @@ CSS = """
 @media (max-width:1180px){
   .sitenav-top{font-size:12px;padding:7px 8px}
 }
+/* 901-1080 is the band where the seven labels total ~580px against ~550px of
+   room, so the row wrapped and the masthead grew to 134px - measured at 1000,
+   which is where an iPad in landscape sits. The chevron is decorative (the
+   panel opens either way) and costs ~10px per item; dropping it is worth 70px
+   and buys the single row back. Below 900 the row scrolls and it does not
+   matter. */
+@media (max-width:1080px) and (min-width:901px){
+  .sitenav-top{font-size:11.8px;padding:7px 7px}
+  .sitenav-top:after{display:none}
+}
 /* Below the point where the bar stacks, the seven become one scrolling line.
    flex-wrap:wrap would give three ragged rows and a 130px-tall header. */
 @media (max-width:900px){
