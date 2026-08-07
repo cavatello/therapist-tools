@@ -1,0 +1,19 @@
+/* _dev/uplinks.py */
+/* The up-link. Quiet by default - it is the last thing on the page and it is
+   for the reader who finished, not a mid-article interruption. */
+.uplink{max-width:1120px;margin:34px auto 8px;padding:0 26px}
+.uplink>div{background:#FBF6E9;border:1px solid #EFE6D2;border-radius:14px;padding:22px 24px}
+.uplink .uk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
+  letter-spacing:.12em;text-transform:uppercase;color:#9A8F76;margin:0 0 6px}
+.uplink h2{font-family:Fraunces,Georgia,serif;font-size:20px;line-height:1.25;
+  font-weight:600;color:#17271F;margin:0 0 5px}
+.uplink .ud{font-size:14.2px;line-height:1.62;color:#4A5A46;margin:0 0 15px;max-width:64ch}
+.uplink .ug{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:10px}
+.uplink a.uc{display:block;background:#fff;border:1px solid #E7DFCC;border-radius:10px;
+  padding:13px 15px;text-decoration:none;min-width:0}
+.uplink a.uc:hover{border-color:#C9BFA4}
+.uplink a.uc b{display:block;font-size:14.2px;line-height:1.4;color:#17271F;
+  font-weight:500;margin-bottom:4px}
+.uplink a.uc span{display:block;font-size:12.6px;line-height:1.5;color:#5A6A56}
+.uplink .uall{display:inline-block;margin-top:14px;font-size:13.6px;color:#2C6350}
+@media (max-width:560px){.uplink{padding:0 18px}.uplink>div{padding:18px 17px}}
