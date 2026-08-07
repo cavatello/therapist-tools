@@ -326,6 +326,15 @@ CSS = """
   box-shadow:2px 2px 0 #16211B;background:#fff}
 .np-hub:hover{background:#F6C560}
 .np-promo{border:2px solid #16211B;box-shadow:4px 4px 0 #16211B}
+/* The five topic hubs carry their own stylesheet, and it styles bare `b` and
+   `p`. Inside the menu that meant entry titles turned pine and the promo
+   card's paragraph inherited the hub's 17px body size in a dark card - grey on
+   near-black, at a size that pushed the button out of the card. The menu has
+   to look identical on all 132 pages, so it restates what it needs rather than
+   trusting what it inherits. */
+.np-col b{color:#16211B}
+.np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;
+  color:rgba(255,255,255,.72);text-align:center;max-width:none}
 .navpanel .np-promo b{letter-spacing:-.02em;font-family:'Bricolage Grotesque',
   Fraunces,serif;font-weight:800;font-size:16px}
 .np-promo .np-all{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
@@ -468,13 +477,41 @@ def harvest_icons(panel):
     return out
 
 
-def entry(href, title, blurb, icons, borrow):
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+
+
+def pages():
+    """(relative path, href prefix) for every page the header appears on.
+
+    The five topic hubs live one level down and were being skipped, because
+    this pass only ever walked the root. That was invisible until the menu
+    changed shape: the hubs kept the old three-item header while the other 127
+    pages had the seven-item one, and the hubs are precisely the pages the new
+    menu links TO. A header that differs on the destination of its own links is
+    worse than no change at all.
+    """
+    out = [(f, "") for f in sorted(os.listdir(SITE))
+           if f.endswith(".html") and not f.startswith(".")]
+    for d in SUBDIRS:
+        p = os.path.join(SITE, d)
+        if os.path.isdir(p):
+            out += [("%s/%s" % (d, f), "../") for f in sorted(os.listdir(p))
+                    if f.endswith(".html")]
+    return out
+
+
+def link(href, pre):
+    """Relative hrefs need the depth prefix; absolute ones must not get it."""
+    return href if href.startswith("http") else pre + href
+
+
+def entry(href, title, blurb, icons, borrow, pre=""):
     img = icons.get(href) or (icons.get(borrow) if borrow else None)
     if img is None:
         img = next(iter(icons.values()))
     ext = ' target="_blank" rel="noopener noreferrer"' if href.startswith("http") else ""
     return ('<a href="%s"%s>%s<span><b>%s</b><i>%s</i></span></a>'
-            % (href, ext, img, title, blurb))
+            % (link(href, pre), ext, img, title, blurb))
 
 
 def build_links():
@@ -485,28 +522,30 @@ def build_links():
                       % (key, label) for key, label, _its, _hub in GROUPS))
 
 
-def build_panel(icons):
+def build_panel(icons, pre=""):
     cols = []
     for key, label, items, hub in GROUPS:
-        links = "".join(entry(h, t, b, icons, br) for h, t, b, br in items)
-        tail = ('<a class="np-hub" href="%s">All of %s &rarr;</a>' % (hub, label.lower())
-                if hub else "")
+        links = "".join(entry(h, t, b, icons, br, pre) for h, t, b, br in items)
+        tail = ('<a class="np-hub" href="%s">All of %s &rarr;</a>'
+                % (link(hub, pre), label.lower()) if hub else "")
         cols.append('<div class="np-col" data-group="%s"><h5>%s</h5>%s%s</div>'
                     % (key, label, links, tail))
     href, head, body, cta = PROMO
     img = icons.get(href) or next(iter(icons.values()))
     promo = ('<a class="np-promo" href="%s">%s<span class="np-all">The hub</span>'
-             '<b>%s</b><p>%s</p><span>%s &rarr;</span></a>' % (href, img, head, body, cta))
+             '<b>%s</b><p>%s</p><span>%s &rarr;</span></a>'
+             % (link(href, pre), img, head, body, cta))
     return ('<div class="navpanel" id="navpanel" hidden>%s%s</div>'
             % ("".join(cols), promo))
 
 
-def build_footcols(small_print):
+def build_footcols(small_print, pre=""):
     cols = []
     for name, items in FOOT:
         links = "".join(
             '<a href="%s"%s>%s</a>'
-            % (h, ' target="_blank" rel="noopener noreferrer"' if h.startswith("http") else "", t)
+            % (link(h, pre),
+               ' target="_blank" rel="noopener noreferrer"' if h.startswith("http") else "", t)
             for h, t in items)
         cols.append("<div><h5>%s</h5>%s</div>" % (name, links))
     cols.append(small_print)
@@ -527,7 +566,7 @@ def main():
         sys.exit("nav_rebuild: harvested only %d icons - the panel shape changed"
                  % len(icons))
 
-    panel = build_panel(icons)
+    panel = {p: build_panel(icons, p) for p in ("", "../")}
     links = build_links()
 
     def delta(t):
@@ -550,9 +589,7 @@ def main():
 
     pre_delta = {}
     fixed_script = fixed_panel = fixed_foot = fixed_links = 0
-    for f in sorted(os.listdir(SITE)):
-        if not f.endswith(".html"):
-            continue
+    for f, pre in pages():
         path = os.path.join(SITE, f)
         s = open(path, encoding="utf-8").read()
         before = s
@@ -560,8 +597,8 @@ def main():
 
         # ---- 1. the panel
         sp2 = panel_span(s)
-        if sp2 and s[sp2[0]:sp2[1]] != panel:
-            s = s[:sp2[0]] + panel + s[sp2[1]:]
+        if sp2 and s[sp2[0]:sp2[1]] != panel[pre]:
+            s = s[:sp2[0]] + panel[pre] + s[sp2[1]:]
             fixed_panel += 1
 
         # ---- 2. the top-level buttons. <nav> is not nestable here, so a regex
@@ -593,7 +630,7 @@ def main():
         if fm:
             spm = re.search(r"<div><h5>The small print</h5>[\s\S]*?</div>", fm.group(0))
             if spm:
-                new_foot = build_footcols(spm.group(0))
+                new_foot = build_footcols(spm.group(0), pre)
                 if fm.group(0) != new_foot:
                     s = s[:fm.start()] + new_foot + s[fm.end():]
                     fixed_foot += 1
@@ -623,11 +660,9 @@ def main():
 
     # ---- guards
     bad = 0
-    want = {h for h, _t, _b, _br in ALL_ENTRIES} | {PROMO[0]}
     keys = [k for k, _l, _i, _h in GROUPS]
-    for f in sorted(os.listdir(SITE)):
-        if not f.endswith(".html"):
-            continue
+    for f, pre in pages():
+        want = {link(h, pre) for h, _t, _b, _br in ALL_ENTRIES} | {link(PROMO[0], pre)}
         s = open(os.path.join(SITE, f), encoding="utf-8").read()
         if "navpanel" not in s:
             continue
@@ -657,7 +692,11 @@ def main():
         for h in got:
             if h.startswith("http") or "#" in h:
                 continue
-            p = os.path.join(SITE, h)
+            # resolve against the page's own directory, not the site root -
+            # "../money/" from money/index.html is the root's money/, and
+            # os.path.join would happily believe money/../money/ either way,
+            # but only normpath makes the failure case honest.
+            p = os.path.normpath(os.path.join(SITE, os.path.dirname(f), h))
             if not (os.path.exists(p) or os.path.isdir(p.rstrip("/"))):
                 print("GUARD %s: panel links to missing %s" % (f, h)); bad += 1
         if s.count('id="navpanel"') != 1:
