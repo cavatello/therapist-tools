@@ -2307,7 +2307,69 @@
     "label": "Student reviews of CIIS",
     "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
    }
-  ]
+  ],
+  "tracks": {
+   "note": "CIIS runs one M.A. in Counseling Psychology with five BBS-approved concentrations under it, each with its own department prefix in the registrar's live catalog. All five reach the LMFT at 60 units. The sixth option is the trap: the hybrid Integral Counseling Psychology track is the most flexible thing CIIS offers and it is structured for the LPCC only.",
+   "src": "https://www.ciis.edu/academics/department-counseling-psychology",
+   "rows": [
+    {
+     "name": "Integral Counseling Psychology — weekday",
+     "lmft": "60",
+     "lpcc": "70",
+     "length": "3 years",
+     "format": "On-campus, weekday",
+     "note": "The flagship and the largest. Gestalt and relational-psychodynamic clinical core."
+    },
+    {
+     "name": "Integral Counseling Psychology — weekend",
+     "lmft": "60",
+     "lpcc": "70",
+     "length": "3 years",
+     "format": "On-campus, five Fri–Sun weekends a semester",
+     "note": "Same 60 units as the weekday track, plus two named Intensives."
+    },
+    {
+     "name": "Somatic Psychology",
+     "lmft": "60",
+     "lpcc": "72",
+     "length": "3 years",
+     "format": "On-campus, fully immersive",
+     "note": "Body-oriented psychotherapy; one of very few such programmes in the country."
+    },
+    {
+     "name": "Community Mental Health",
+     "lmft": "60",
+     "lpcc": "67",
+     "length": "2.5–3 years",
+     "format": "Hybrid — five weekend immersions a semester, summer fully online",
+     "note": "Places through The Clinic Without Walls rather than the Integral Counseling Centers."
+    },
+    {
+     "name": "Drama Therapy",
+     "lmft": "60",
+     "lpcc": "69",
+     "length": "2–3 years",
+     "format": "Primarily in person",
+     "note": "NADTA-approved; graduates may also pursue Registered Drama Therapist (RDT)."
+    },
+    {
+     "name": "Expressive Arts Therapy",
+     "lmft": "60",
+     "lpcc": "69",
+     "length": "3–5 years",
+     "format": "Hybrid, low-residency, in-person intensives each fall and spring",
+     "note": "Designed to meet the requirements for Registered Expressive Arts Therapist (REAT) with IEATA."
+    },
+    {
+     "name": "Integral Counseling Psychology — hybrid",
+     "lmft_no": true,
+     "lpcc": "66",
+     "length": "3 years",
+     "format": "Hybrid / online, regional self-placement",
+     "note": "The online-friendly option, and the only one that does not qualify you for the LMFT. Read this row twice."
+    }
+   ]
+  }
  },
  "california-lutheran-university-mft": {
   "institution": "California Lutheran University",
