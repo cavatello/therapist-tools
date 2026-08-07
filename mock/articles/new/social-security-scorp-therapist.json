@@ -1,0 +1,167 @@
+{
+  "slug": "s-corp-salary-social-security-therapist",
+  "category": "Money",
+  "stage": "run",
+  "minutes": 11,
+  "updated": "2026-08-07",
+  "title": "The Social Security cost of a low S-corp salary in California",
+  "h1": "The <em>$1,041 a month</em> a low S-corp salary costs you.",
+  "h1_plain": "The $1,041 a month a low S-corp salary costs you.",
+  "kicker": "California &middot; Social Security",
+  "dek": "The S-corp pitch prices the tax you stop paying. It never prices the other side &mdash; that Social Security is worked out from your earnings record, and a small salary for twenty years buys a smaller cheque for the rest of your life. Here is that cheque, in dollars, and the return the saved tax has to earn to be worth it.",
+  "dek_plain": "The S-corp pitch prices the tax you stop paying. It never prices the other side — that Social Security is worked out from your earnings record, and a small salary for twenty years buys a smaller cheque for the rest of your life. Here is that cheque, in dollars, and the return the saved tax has to earn to be worth it.",
+  "figure": ["$1,041", "a month, for life, at a $90,000 salary"],
+  "tool": [
+    "therapist-tax-strategy-california.html",
+    "Run it on your own profit",
+    "The tax page compares sole proprietor against a California professional corporation electing S-corp treatment, on the profit you actually have, and shows what each salary level does to the payroll tax you pay. Pair the payroll saving it gives you with the benefit arithmetic on this page before you settle on a number."
+  ],
+  "sections": [
+    ["What the pitch counts, and what it never mentions", [
+      ["p", "You have been told the shape of it. Incorporate, elect S-corp treatment, pay yourself a &ldquo;reasonable&rdquo; salary, take the rest of the profit as a distribution, and the 15.3% self-employment tax stops applying to everything above the salary. That is true. On $180,000 of profit it is worth five figures a year, and this site has priced it in detail on the <a href=\"therapist-llc-california.html\">sole proprietor against professional corporation</a> page."],
+      ["p", "What the pitch almost never says is where the 12.4% of that 15.3% was going. It was buying something. Social Security is not a flat entitlement &mdash; the size of your monthly cheque is worked out from a record of what you earned, year by year, and only earnings that were subject to Social Security tax go on that record. A distribution is not on it. A $60,000 salary puts $60,000 on it. A sole proprietor with $180,000 of profit puts $166,230 on it."],
+      ["p", "So the question is not whether the S-corp saves tax. It does. The question is whether the tax you save, invested, beats the benefit you gave up to save it. That is an arithmetic question with a published answer, and this page works it out on one concrete practice."],
+      ["p", "One scoping note before we start. This page prices only the Social Security side of the trade. The corporation&rsquo;s own costs &mdash; California&rsquo;s $800 minimum franchise tax, the payroll service, the corporate return, the qualified business income deduction that shrinks, and the state disability tax you start paying the day you become your own employer &mdash; are priced separately, and the disability one on its own is larger than most people expect. See <a href=\"s-corp-sdi-california-therapist.html\">the SDI page</a> for that."]
+    ]],
+
+    ["How the cheque is actually worked out", [
+      ["p", "There are two steps, and both matter to what follows."],
+      ["p", "<b>Step one: AIME.</b> Social Security takes your highest 35 years of earnings, adjusts the older ones upward for wage growth (indexing them to the national average wage index for the year you turn 60), adds the 35 up, divides by 420 months, and rounds down. That figure is your <em>average indexed monthly earnings</em>.<sup><a href=\"#s4\">[4]</a></sup> Note the denominator. It is always 420, whether you have 35 years of earnings or nineteen."],
+      ["p", "<b>Step two: the PIA formula.</b> Your AIME goes through a three-part formula to produce your <em>primary insurance amount</em> &mdash; the monthly benefit at full retirement age. For anyone first eligible in 2026, SSA states it as: &ldquo;90 percent of the first $1,286 of his/her average indexed monthly earnings, plus 32 percent of his/her average indexed monthly earnings over $1,286 and through $7,749, plus 15 percent of his/her average indexed monthly earnings over $7,749.&rdquo;<sup><a href=\"#s3\">[3]</a></sup> Those two dollar figures &mdash; $1,286 and $7,749 &mdash; are the 2026 bend points, and they move every year with wages.<sup><a href=\"#s2\">[2]</a></sup>"],
+      ["table",
+        ["Band of AIME (2026)", "Rate", "What an extra $1 of monthly AIME buys"],
+        [
+          ["First $1,286", "90%", "90&cent; a month, for life"],
+          ["$1,286 to $7,749", "32%", "32&cent; a month"],
+          ["Above $7,749", "15%", "15&cent; a month"]
+        ]
+      ],
+      ["p", "Now the part that decides everything else on this page. That formula is steeply <b>progressive</b> &mdash; not progressive in the sense that high earners pay a higher rate, but in the sense that high earners <em>get back much less per dollar contributed</em>. The first slice of your earnings record is replaced at ninety cents on the dollar. The last slice is replaced at fifteen. A dollar of salary at the bottom of your record is six times more valuable to your future cheque than a dollar at the top."],
+      ["p", "Which means there is no single answer to &ldquo;what does a lower salary cost me in Social Security?&rdquo; It depends entirely on where you already sit on the curve. Cutting your salary from $160,000 to $110,000 costs you almost nothing, because you are shaving off the 15% band. Cutting it from $50,000 to $30,000 costs you a great deal, because you are eating into the 32% band with nothing above it to absorb the loss. Most articles on S-corp salaries give one answer. The formula says the answer changes by a factor of six depending on where you stand."]
+    ]],
+
+    ["Three versions of the same practice", [
+      ["p", "Take a California therapist clearing <b>$180,000 of practice profit</b> &mdash; that is after rent, insurance, the electronic health record, licence renewal and everything else. She is 37, and will do this for 30 years, retiring at 67. Assume her profit keeps pace with national wage growth, so her indexed earnings stay at today&rsquo;s level throughout &mdash; that is the assumption that lets us do the arithmetic in 2026 dollars, and it is stated here rather than buried."],
+      ["p", "As a sole proprietor, what goes on her earnings record is not $180,000. Self-employment tax applies to 92.35% of profit, because the code allows a deduction equal to half the tax rates before the base is worked out.<sup><a href=\"#s12\">[12]</a></sup> So $180,000 &times; 0.9235 = <b>$166,230</b>, and that is both what she pays tax on and what SSA credits her."],
+      ["p", "As an S-corporation she has a choice of salary. The site&rsquo;s tax tool models two common heuristics &mdash; 50% of profit and an aggressive 35% &mdash; which land at $90,000 and $63,000. Round the second to $60,000 and we have three scenarios."],
+      ["table",
+        ["", "Sole proprietor", "S-corp, $90,000 salary", "S-corp, $60,000 salary"],
+        [
+          ["On the earnings record", "$166,230", "$90,000", "$60,000"],
+          ["AIME (&times; 30 &divide; 420)", "$11,873", "$6,428", "$4,285"],
+          ["90% of first $1,286", "$1,157.40", "$1,157.40", "$1,157.40"],
+          ["32% of the next band", "$2,068.16", "$1,645.44", "$959.68"],
+          ["15% above $7,749", "$618.60", "&mdash;", "&mdash;"],
+          ["<b>Monthly PIA at 67</b>", "<b>$3,844.10</b>", "<b>$2,802.80</b>", "<b>$2,117.00</b>"],
+          ["Social Security tax (12.4%)", "$20,612.52", "$11,160.00", "$7,440.00"],
+          ["Medicare tax (2.9%)", "$4,820.67", "$2,610.00", "$1,740.00"],
+          ["<b>Payroll tax a year</b>", "<b>$25,433.19</b>", "<b>$13,770.00</b>", "<b>$9,180.00</b>"]
+        ]
+      ],
+      ["p", "Read the AIME line first, because it is where the 35-year rule bites. Thirty years of earnings divided by 420 months, not by 360. Five zeros are averaged in whichever way she goes, which is why $166,230 a year produces an AIME of $11,873 rather than $13,853. As a sanity check on the whole column: SSA puts the maximum possible benefit for someone retiring at full retirement age in 2026 at $4,152 a month,<sup><a href=\"#s8\">[8]</a></sup> and our sole proprietor lands at $3,844.10 &mdash; close to the ceiling, as she should be."],
+      ["p", "So the trade, stated plainly: a $90,000 salary saves her <b>$11,663.19</b> a year of payroll tax and costs her <b>$1,041.30</b> a month of Social Security for the rest of her life. A $60,000 salary saves $16,253.19 a year and costs $1,727.10 a month."],
+      ["p", "One refinement before the lifetime figures, because it changes the answer. Only the 12.4% Social Security portion buys benefits &mdash; the Medicare portion buys nothing extra, since Medicare Part A entitlement turns on having 40 credits, not on how much you earned. So the honest price of the benefit she is giving up is the Social Security part alone: <b>$9,452.52</b> a year at the $90,000 salary, $13,172.52 at $60,000. The Medicare saving of $2,210.67 is a straight win with nothing traded against it."]
+    ]],
+
+    ["From a monthly gap to a lifetime number", [
+      ["p", "A monthly figure is not a decision. To compare it against tax saved you need three things: how long the cheque runs, whether it keeps its value, and what the saved tax would have earned instead."],
+      ["p", "<b>How long.</b> SSA&rsquo;s own period life table for 2023 puts remaining life expectancy at exact age 67 at 19.08 years for a woman and 16.71 for a man.<sup><a href=\"#s6\">[6]</a></sup> The profession skews heavily female, so the figures below use 19.08; a man should shave about 12% off the benefit side."],
+      ["p", "<b>Whether it holds value.</b> It does. Benefits are adjusted for inflation every year &mdash; the 2026 adjustment was 2.8%.<sup><a href=\"#s8\">[8]</a></sup> That makes the comparison a real-terms one throughout, so the investment return below is a <em>real</em> return, after inflation, not a nominal one."],
+      ["p", "<b>What the saved tax earns.</b> This is the assumption that does the work, so it is stated openly: <b>3% a year in real terms</b>, which is a deliberately conservative figure for a diversified portfolio over thirty years and well below long-run equity history. Contributions are treated as made at the end of each year."],
+      ["table",
+        ["At a $90,000 salary", "0% real return", "3% real return"],
+        [
+          ["Social Security tax saved, invested over 30 years", "$283,576", "$449,708"],
+          ["Value at 67 of the benefit given up (19.08 years)", "$238,416", "$179,546"],
+          ["Ratio", "1.19&times;", "2.50&times;"]
+        ]
+      ],
+      ["table",
+        ["At a $60,000 salary", "0% real return", "3% real return"],
+        [
+          ["Social Security tax saved, invested over 30 years", "$395,176", "$626,688"],
+          ["Value at 67 of the benefit given up (19.08 years)", "$395,437", "$297,794"],
+          ["Ratio", "1.00&times;", "2.10&times;"]
+        ]
+      ],
+      ["p", "The bottom-left cell is worth stopping on. At the aggressive $60,000 salary, if the saved tax simply sits in cash and keeps pace with inflation and nothing more, the therapist ends up $261 behind over a lifetime on $395,000 of tax saved. That is not a rounding error in the model; it is the model telling you the entire benefit of the aggressive salary, at a zero real return, is zero."],
+      ["p", "So the real question is: what return does the saved tax have to earn for this to be worth doing? Because the answer does not depend on the size of the practice, only on which bend-point band you are cutting into, it can be worked out once. Per $1 of salary given up over a 30-year career, the Social Security tax saved is $0.124 a year; the benefit lost is the band rate &times; (30 &divide; 420) &times; 12 dollars a year for 19.08 years. Setting the two present values equal gives the break-even."],
+      ["p", "There is one adjustment to make first, and it cuts against the S-corp. Half the self-employment tax is deductible against income tax, and so is the corporation&rsquo;s half of payroll tax &mdash; so the sole proprietor&rsquo;s larger tax bill also generates a larger deduction. The difference on the Social Security portion is 6.2% &times; ($166,230 &minus; $90,000) = $4,726.26 of extra deduction. At a combined 24% federal and 9.3% California marginal rate, that is $1,573.84 of income tax back, so the true after-tax saving is $9,452.52 &minus; $1,573.84 = <b>$7,878.68</b>, not $9,452.52. A 16.6% haircut on the saving, and it pushes the break-even up."],
+      ["table",
+        ["Band you are cutting into", "Salary range that lands there (30-year career)", "Real return needed to break even, after tax"],
+        [
+          ["15%", "above $108,486", "None &mdash; favourable at any return, including zero"],
+          ["32%", "$18,004 to $108,486", "2.1% a year"],
+          ["90%", "below $18,004", "6.2% a year"]
+        ]
+      ],
+      ["pull", "2.1% a year", "the real return the saved tax must earn before a lower salary is worth it"],
+      ["p", "Those salary boundaries are just the bend points read backwards through a 30-year career: $7,749 &times; 420 &divide; 30 = $108,486, and $1,286 &times; 420 &divide; 30 = $18,004. On a full 35-year record they fall to $92,988 and $15,432. Which gives the clean answer this page exists to deliver: <b>every dollar of salary you cut above roughly $108,000 is nearly free, and every dollar you cut below it needs the saved money to earn about 2% a year after inflation to be worth cutting.</b> That is a low bar, but it is not a bar of zero, and it is only cleared if the money is actually invested rather than spent."]
+    ]],
+
+    ["Four things that make it worse than the table says", [
+      ["p", "The arithmetic above is the best case for the S-corp. Four things push against it, and none of them are speculative."],
+      ["p", "<b>1. The 35-year rule dilutes, it does not just lower.</b> The divisor is always 420 months. Years with no earnings, or with low earnings, are averaged in at what they were &mdash; the regulation is explicit that your benefit computation years &ldquo;must include years of no earnings if you do not have sufficient years with earnings&rdquo;.<sup><a href=\"#s5\">[5]</a></sup> A therapist who spent five years in a doctoral programme and three more accruing associate hours already has a record with holes in it. Adding a decade of $60,000 to that does not lower one number, it lowers the average that every later year has to pull back up."],
+      ["p", "<b>2. Disability insurance runs off the same record, over a much shorter window.</b> Retirement benefits get a five-year dropout &mdash; you discard your worst five years. Disability benefits do not. The regulation divides your elapsed years by 5, discards the fraction, and caps the result at 5.<sup><a href=\"#s5\">[5]</a></sup> A therapist who becomes disabled at 40 has roughly 18 elapsed years and therefore 3 dropout years, so her benefit is averaged over about 15 years &mdash; and if the last ten of those were at a $60,000 S-corp salary, two-thirds of her disability benefit is computed off the low number. She has not merely reduced a cheque she will collect at 67. She has reduced the cheque she would collect if she could not work next year. Her credits are safe either way &mdash; four credits requires only $7,560 of earnings in 2026, at $1,890 a credit<sup><a href=\"#s9\">[9]</a></sup> &mdash; but credits determine <em>whether</em> she is covered, not <em>how much</em> she gets."],
+      ["p", "<b>3. Survivor benefits run off the same record too.</b> A surviving spouse at full retirement age gets 100% of the worker&rsquo;s basic benefit; a spouse of any age caring for a child under 16 gets 75%; each child gets 75%; the family total is capped between 150% and 180% of the worker&rsquo;s amount.<sup><a href=\"#s7\">[7]</a></sup> Every one of those is a percentage of a number you have chosen to make smaller. For a 35-year-old with two young children, a $1,041 reduction in the base figure is not a retirement question at all &mdash; it is a reduction in the payment her family receives if she dies at 42, multiplied across three beneficiaries and running for years."],
+      ["p", "<b>4. The headline 15.3% saving is not 15.3%.</b> Only the 12.4% Social Security portion stops at the wage base. The 2.9% Medicare portion has no ceiling at all, and above $200,000 of wages for a single filer, $250,000 married filing jointly or $125,000 married filing separately, an <em>additional</em> 0.9% applies &mdash; thresholds that have not been indexed since they took effect in 2013.<sup><a href=\"#s11\">[11]</a></sup> So on the slice of profit above the wage base, converting salary to distribution saves 2.9%, or 3.8% for high earners, not 15.3%. That is still worth having. It is a quarter of what the pitch implies."]
+    ]],
+
+    ["Three things that make it better", [
+      ["p", "Argued honestly, the case for the low salary is stronger than the retirement-benefit framing alone suggests."],
+      ["ul", [
+        "<b>Above the wage base, extra salary buys nothing at all.</b> Social Security tax and Social Security credit both stop at the same line: $184,500 of earnings in 2026.<sup><a href=\"#s1\">[1]</a></sup> Above it, a dollar of salary is a dollar of pure cost with no benefit attached, so the entire trade-off on this page disappears. For a sole proprietor that line is reached at $199,783 of profit ($184,500 &divide; 0.9235). If your practice clears more than that, salary above $184,500 is being taxed at 2.9% for nothing and there is no reason to pay it.",
+        "<b>The 15% band is nearly free to give up.</b> As the table above shows, a therapist whose salary would otherwise sit above about $108,000 on a 30-year record is trading fifteen-cent dollars. Even at a zero real return the saving wins comfortably. This is the strongest version of the S-corp argument and it is rarely the version people make &mdash; they claim the saving is large, when the truth is that the saving is modest and <em>the thing given up is smaller still</em>.",
+        "<b>The benefit you keep is taxed; the benefit you gave up would have been too.</b> Up to 85% of Social Security benefits are subject to federal income tax, though California excludes them entirely from state tax &mdash; the FTB instruction is to &ldquo;make an adjustment to exclude any of this income if it was included in your federal AGI&rdquo;.<sup><a href=\"#s13\">[13]</a></sup> That trims the value of the benefit you gave up, which helps the S-corp side. It is a second-order effect and the tables above do not model it."
+      ]],
+      ["p", "Against all three, one caution that is not a number. Social Security is an inflation-indexed annuity, guaranteed for life, that pays a survivor as well. A brokerage account is none of those things. If you live to 95, the annuity keeps paying and the pot may not. The break-even above assumes you invest the saving every year for thirty years without touching it, which is an assumption about your behaviour, not about markets."],
+      ["p", "And one line this page has deliberately left off both sides of the ledger: the payroll tax the corporation starts paying on your own wage. California&rsquo;s State Disability Insurance is 1.3% of the entire salary with no cap, so $1,170 a year on a $90,000 salary, and it does not exist for a sole proprietor. That is a real deduction from the $11,663 payroll saving, and it is priced in full on <a href=\"s-corp-sdi-california-therapist.html\">the SDI page</a>."]
+    ]],
+
+    ["The salary is not yours to choose", [
+      ["p", "Everything above treats the salary as a dial. It is not. The IRS position, quoted from the instructions to Form 1120-S, is that &ldquo;distributions and other payments by an S corporation to a corporate officer must be treated as wages to the extent the amounts are reasonable compensation for services rendered to the corporation&rdquo;.<sup><a href=\"#s10\">[10]</a></sup> If your salary is not reasonable, the number is not a planning choice you made &mdash; it is an adjustment waiting to be made for you, with payroll tax, interest and penalties attached."],
+      ["p", "The factors courts weigh, as the IRS lists them, are these:"],
+      ["ul", [
+        "Training and experience",
+        "Duties and responsibilities",
+        "Time and effort devoted to the business",
+        "Dividend history",
+        "Payments to non-shareholder employees",
+        "Timing and manner of paying bonuses to key people",
+        "What comparable businesses pay for similar services",
+        "Compensation agreements, and the use of a formula to determine compensation"
+      ]],
+      ["p", "Read that list against a solo therapy practice and one thing stands out. Nearly all of the revenue is generated by the owner personally sitting in a room with clients. There is no capital, no staff, no equipment doing the earning. That is exactly the fact pattern in <em>David E. Watson, P.C. v. United States</em>, 668 F.3d 1008 (8th Cir. 2012), which the IRS cites, and where a professional&rsquo;s low salary was recharacterised upward.<sup><a href=\"#s10\">[10]</a></sup>"],
+      ["p", "Which means the 50%-of-profit and 35%-of-profit figures the site&rsquo;s <a href=\"therapist-tax-strategy-california.html\">tax strategy tool</a> models are <b>heuristics, not law</b>. No statute, regulation or ruling contains either percentage. They exist because practitioners use them, and the tool models them so you can see what each does to your numbers &mdash; not because a 35% salary is defensible. What is defensible is a salary supported by comparable pay data for a licensed therapist doing your hours in your market, documented before the fact."],
+      ["p", "One more point specific to California. If you are licensed by the BBS, this whole discussion sits inside a professional corporation, not a limited liability company &mdash; Cal. Corp. Code &sect;17701.04(e) bars an LLC from rendering professional services requiring a licence. The structure is a California professional corporation that then elects S-corp treatment federally. <a href=\"therapist-llc-california.html\">That page</a> covers the entity question; this one covers the salary inside it."]
+    ]],
+
+    ["What to do on Monday", [
+      ["p", "The honest decision rule, from the arithmetic above."],
+      ["ul", [
+        "<b>Below roughly $94,000 of profit, do not do this at all.</b> Not because of Social Security &mdash; because the corporation&rsquo;s fixed costs eat the saving before the benefit question ever arises. On the site&rsquo;s own engine the S-corp advantage flips to a small annual loss at about $94,000 of profit once California payroll tax on your own wage is charged. See <a href=\"s-corp-sdi-california-therapist.html\">the SDI page</a> and <a href=\"cost-of-incorporating-california-therapist.html\">the incorporation cost page</a>.",
+        "<b>Between roughly $94,000 and $200,000 of profit, set the salary and then check which band you are cutting into.</b> If your salary lands above about $108,000, the Social Security cost of the S-corp is close to nothing and this article should not change your mind. If it lands below, you need the saved money invested and earning about 2% a year after inflation before the cut pays for itself.",
+        "<b>Above $199,783 of profit, the question dissolves.</b> Your earnings record is already capped at $184,500, so distribution above that line costs you no Social Security whatsoever &mdash; only the 2.9% Medicare saving is in play, and it is unambiguous.",
+        "<b>The younger you are, the more carefully you should look.</b> Not because of compounding &mdash; compounding favours you. Because of coverage. Per $1,000 of Social Security tax saved, a therapist running 30 low-salary years inside a 30-year record gives up $3.67 a month of benefit; one running 10 low-salary years at the end of a 40-year record gives up $1.44, because those ten years only displace her five worst. The late-career version of this trade is roughly two and a half times more efficient. The early-career version costs more <em>and</em> is the one where disability and survivor cover matter most.",
+        "<b>If you are in your thirties with dependants and you take the low salary anyway, price the gap.</b> You have reduced your own disability and survivor cover. Private disability insurance and term life will close it. Get a quote before you set the salary, not after &mdash; the premium is a real number and it belongs on the S-corp side of the ledger. This site will not invent one for you."
+      ]],
+      ["p", "And the sentence to take to an accountant, rather than a rule of thumb: <em>show me my payroll tax saving at this salary, and show me what it does to my primary insurance amount, and tell me which of the two is bigger over 30 years.</em> Most will not have run the second half. It takes about ten minutes with the formula in section two."]
+    ]]
+  ],
+
+  "sources": [
+    {"n": 1, "cite": "SSA &mdash; Contribution and Benefit Base", "url": "https://www.ssa.gov/oact/cola/cbb.html", "note": "2026 taxable maximum $184,500; 2025 $176,100"},
+    {"n": 2, "cite": "SSA &mdash; Benefit Formula Bend Points", "url": "https://www.ssa.gov/oact/cola/bendpoints.html", "note": "2026 bend points $1,286 and $7,749"},
+    {"n": 3, "cite": "SSA &mdash; Primary Insurance Amount", "url": "https://www.ssa.gov/oact/cola/piaformula.html", "note": "&ldquo;90 percent of the first $1,286 &hellip; plus 32 percent &hellip; over $1,286 and through $7,749, plus 15 percent &hellip; over $7,749&rdquo; for those first eligible in 2026"},
+    {"n": 4, "cite": "SSA &mdash; Social Security Benefit Amounts (AIME computation)", "url": "https://www.ssa.gov/oact/cola/Benefits.html", "note": "&ldquo;Up to 35 years of earnings are needed to compute average indexed monthly earnings&rdquo;; earnings indexed to the national average wage index for the year the worker turns 60, then divided by the number of months and rounded down"},
+    {"n": 5, "cite": "20 CFR &sect;404.211 &mdash; Computing your average indexed monthly earnings", "url": "https://www.ecfr.gov/current/title-20/chapter-III/part-404/subpart-C/section-404.211", "note": "elapsed years less 5 for retirement and survivors; benefit computation years &ldquo;must include years of no earnings if you do not have sufficient years with earnings&rdquo;; for disability, elapsed years divided by 5, fraction disregarded, capped at 5"},
+    {"n": 6, "cite": "SSA &mdash; Period Life Table, 2023 (2026 Trustees Report)", "url": "https://www.ssa.gov/oact/STATS/table4c6.html", "note": "expectation of life at exact age 67: 16.71 years male, 19.08 years female"},
+    {"n": 7, "cite": "SSA Publication No. 05-10084 &mdash; Survivors Benefits", "url": "https://www.ssa.gov/pubs/EN-05-10084.pdf", "note": "surviving spouse at full retirement age 100% of the worker&rsquo;s basic benefit; spouse caring for a child under 16, 75%; child 75%; family maximum 150% to 180%"},
+    {"n": 8, "cite": "SSA &mdash; 2026 Cost-of-Living Adjustment Fact Sheet", "url": "https://www.ssa.gov/news/en/cola/factsheets/2026.html", "note": "2.8% COLA for 2026; maximum benefit for a worker retiring at full retirement age in 2026, $4,152 a month"},
+    {"n": 9, "cite": "SSA &mdash; Quarter of Coverage", "url": "https://www.ssa.gov/oact/cola/QC.html", "note": "$1,890 of earnings per credit in 2026; no more than 4 credits in a year"},
+    {"n": 10, "cite": "IRS &mdash; S Corporation Compensation and Medical Insurance Issues", "url": "https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues", "note": "quotes the Form 1120-S instruction on reasonable compensation; lists the factors courts consider; cites David E. Watson, P.C. v. United States, 668 F.3d 1008 (8th Cir. 2012)"},
+    {"n": 11, "cite": "IRS &mdash; Questions and Answers for the Additional Medicare Tax", "url": "https://www.irs.gov/businesses/small-businesses-self-employed/questions-and-answers-for-the-additional-medicare-tax", "note": "0.9%; thresholds $200,000 single and head of household, $250,000 married filing jointly, $125,000 married filing separately; effective 1 January 2013"},
+    {"n": 12, "cite": "26 U.S.C. &sect;1402(a)(12)", "url": "https://www.law.cornell.edu/uscode/text/26/1402", "note": "the deduction from net earnings from self-employment equal to one-half of the &sect;1401 rates, which produces the 92.35% base"},
+    {"n": 13, "cite": "California Franchise Tax Board &mdash; Social Security income", "url": "https://www.ftb.ca.gov/file/personal/income-types/social-security.html", "note": "&ldquo;Make an adjustment to exclude any of this income if it was included in your federal AGI&rdquo;"}
+  ]
+}

@@ -46,6 +46,14 @@ const PAGES = [
     whoNot: '#who-should-not', cal: '.q',
   }],
   ['affiliate-disclosure.html', { partners: '.pcard', tag: '.afl', rule: '.rule' }],
+  ['solo-401k-sep-simple-california-therapist.html', {
+    tables: '.arttbl, table', sources: '.artsrc li', uplink: '.uplink a.uc',
+  }],
+  ['hiring-first-associate-california-therapist.html', {
+    sources: '.artsrc li', uplink: '.uplink a.uc',
+  }],
+  ['bbs-fees-california-2026.html', { uplink: '.uplink a.uc' }],
+  ['become-an-mft-california.html', { uplink: '.uplink a.uc' }],
   ['mft-programs-california.html', {
     charts: '.ig', dots: '.ig-d', bars: '.ig-b',
     internal: 'a.go.mine', cards: 'article.pg',

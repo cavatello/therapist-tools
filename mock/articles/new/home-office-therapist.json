@@ -1,0 +1,556 @@
+{
+ "slug": "home-office-deduction-california-therapist",
+ "category": "Money",
+ "stage": "run",
+ "minutes": 13,
+ "updated": "2026-08-07",
+ "title": "The home office deduction for a California therapist on video",
+ "h1": "You see clients on video from home. <em>Here is what that room is worth.</em>",
+ "h1_plain": "You see clients on video from home. Here is what that room is worth.",
+ "kicker": "California &middot; home office",
+ "dek": "The home office deduction is larger than most therapists think and narrower than they hope. Most of the money is not even in the room &mdash; it is in what qualifying does to every mile you drive afterwards. Here is the statute, both methods run on stated numbers, and the California part.",
+ "dek_plain": "The home office deduction is larger than most therapists think and narrower than they hope. Most of the money is not even in the room - it is in what qualifying does to every mile you drive afterwards. Here is the statute, both methods run on stated numbers, and the California part.",
+ "figure": [
+  "$5,853",
+  "actual expenses vs $600 simplified"
+ ],
+ "tool": [
+  "therapist-tax-strategy-california.html",
+  "Price a dollar of deduction on your own numbers",
+  "The example below assumes a single filer in the 22% federal bracket and California&rsquo;s 9.3% bracket, where a dollar of Schedule C deduction is worth 39.1 cents. The tax page builds that stack from your actual profit and filing status, including the self-employment tax and the qualified business income clawback, so you can see what your own dollar is worth before you choose a method."
+ ],
+ "sections": [
+  [
+   "You already work from a room in your house",
+   [
+    [
+     "p",
+     "You have a room. You sit in it four or six or nine times a day with a headset on, and when the last client logs off the room is still there, still costing you rent or mortgage interest. Section 280A of the Internal Revenue Code decides whether that cost is a business expense or a personal one. It decides on facts you control, which is unusual, and worth an afternoon."
+    ],
+    [
+     "p",
+     "Two things are worth knowing before the detail. The first is that the deduction is usually bigger than therapists expect, because most people reach for the simplified method &mdash; five dollars a square foot &mdash; and never price the alternative. The second is that most of the money is not in the room at all. Once the room qualifies as your principal place of business, the drives you make out of it stop being commuting. That is the part almost nobody mentions."
+    ],
+    [
+     "p",
+     "Everything below is either a published limit with a citation beside it, or an input to a worked example that says so. Nothing here is illustrative, and where a 2026 figure has not been published the year being quoted is named."
+    ]
+   ]
+  ],
+  [
+   "The two tests, and the one people fail",
+   [
+    [
+     "p",
+     "Start with the default, because the exception only makes sense against it. Section 280A(a) says that in the case of an individual, no deduction is allowed with respect to the use of a dwelling unit used as a residence. The entire home office deduction is a carve-out from that sentence, which is why the conditions are read strictly.<sup><a href=\"#s1\">[1]</a></sup>"
+    ],
+    [
+     "p",
+     "Here is the carve-out, whole:"
+    ],
+    [
+     "quote",
+     "&ldquo;Subsection (a) shall not apply to any item to the extent such item is allocable to a portion of the dwelling unit which is exclusively used on a regular basis &mdash; (A) as the principal place of business for any trade or business of the taxpayer, (B) as a place of business which is used by patients, clients, or customers in meeting or dealing with the taxpayer in the normal course of his trade or business, or (C) in the case of a separate structure which is not attached to the dwelling unit, in connection with the taxpayer&rsquo;s trade or business.&rdquo;",
+     "26 U.S.C. &sect;280A(c)(1) &mdash; see source [1]"
+    ],
+    [
+     "p",
+     "Read it as two tests and three doors. The tests are <b>exclusive use</b> and <b>regular use</b>, and you must pass both. Then you need one of the three doors. A therapist who sees every client on video goes through door (A). A therapist who sees clients in the front room of the house can also use door (B), which brings its own complications, covered further down. Door (C) is the converted garage or the studio at the end of the garden, and it is the most generous of the three, because a separate structure does not have to be your principal place of business at all."
+    ],
+    [
+     "p",
+     "Regular use is easy and almost never the problem. Exclusive use is where the deduction dies. Exclusive means exclusive, not mostly. There are exactly two exceptions in the statute &mdash; storing inventory or product samples, and running a daycare facility &mdash; and a therapy practice is neither.<sup><a href=\"#s2\">[2]</a></sup> So:"
+    ],
+    [
+     "ul",
+     [
+      "<b>The desk in the corner of the bedroom does not qualify the bedroom.</b> It may qualify the corner. Publication 587 is explicit that the area &ldquo;can be a room or other separately identifiable space&rdquo; and that it &ldquo;does not need to be marked off by a permanent partition&rdquo;.<sup><a href=\"#s2\">[2]</a></sup> But then you are claiming the square footage of the corner, not of the room.",
+      "<b>The guest room that is still a guest room fails.</b> Two weekends a year of your sister-in-law is personal use, and personal use of any amount breaks exclusivity for the whole year.",
+      "<b>The treadmill in the corner takes the corner with it.</b> Whatever personal thing lives in the business space either comes out, or comes off the square footage you claim.",
+      "<b>A room where you also pay personal bills, take personal calls or watch television fails.</b> The test is about what the space is used for, not about who is in it.",
+      "<b>What qualifies is dull and specific.</b> A room with a door, or a clearly bounded alcove or den, containing your desk, your chair, your screen, your locked file drawer, and nothing you would not have put in a rented office."
+     ]
+    ],
+    [
+     "p",
+     "One point that helps therapists in particular. If you also rent an office and use it one day a week, that does not automatically kill the home office. Publication 587 lists, among the circumstances that will <em>not</em> disqualify a home office, that &ldquo;you have suitable space to conduct administrative or management activities outside your home, but choose to use your home office for those activities instead.&rdquo;<sup><a href=\"#s2\">[2]</a></sup>"
+    ]
+   ]
+  ],
+  [
+   "Why a video-only practice makes the hardest test easy",
+   [
+    [
+     "p",
+     "Door (A) asks whether the room is your <b>principal</b> place of business. For most of a generation that was the fight, and taxpayers lost it."
+    ],
+    [
+     "p",
+     "In 1993 the Supreme Court decided Commissioner v. Soliman. Dr Soliman was an anaesthesiologist. He spent 30 to 35 hours a week at three hospitals and 10 to 15 hours a week in a spare bedroom doing the paperwork the hospitals gave him no room for. The Court held that the hospitals were his principal place of business, weighing the relative importance of the functions performed at each location and the time spent at each.<sup><a href=\"#s3\">[3]</a></sup> Under that test, almost nobody whose actual service is delivered elsewhere could claim a home office."
+    ],
+    [
+     "p",
+     "Congress reversed it. The Taxpayer Relief Act of 1997 added a sentence to &sect;280A(c)(1), effective for tax years beginning after 31 December 1998, and it is still there:"
+    ],
+    [
+     "quote",
+     "&ldquo;For purposes of subparagraph (A), the term principal place of business includes a place of business which is used by the taxpayer for the administrative or management activities of any trade or business of the taxpayer if there is no other fixed location of such trade or business where the taxpayer conducts substantial administrative or management activities of such trade or business.&rdquo;",
+     "26 U.S.C. &sect;280A(c)(1), closing flush language &mdash; see source [1]"
+    ],
+    [
+     "p",
+     "Now apply it to a therapist who sees every client on video from a spare room. Where is the other fixed location at which you conduct substantial administrative or management activities? There is not one. Publication 587 names the activities in question: billing clients or patients, keeping books and records, ordering supplies, setting up appointments, and writing reports.<sup><a href=\"#s2\">[2]</a></sup> All of them happen in your room, because there is nowhere else."
+    ],
+    [
+     "p",
+     "So the video-only practice is the easy case, not the hard one. Soliman was hard because the service was delivered somewhere else. Yours is delivered from the same chair the billing happens in."
+    ],
+    [
+     "p",
+     "Two adjacent cases are worth naming. If you rent an office and see clients there two days a week, you now have a second fixed location, and the question is whether substantial administrative or management activities happen there. If they genuinely do not &mdash; notes and billing are done at home &mdash; the home office can still be your principal place of business, and having suitable space elsewhere that you choose not to use does not disqualify you.<sup><a href=\"#s2\">[2]</a></sup> If you see clients at the rented office and write your notes there too, door (A) probably closes, and you are left with door (C) if you have a separate structure."
+    ]
+   ]
+  ],
+  [
+   "The bigger prize: your drive stops being a commute",
+   [
+    [
+     "p",
+     "The general rule is that getting from home to work is a personal expense and not deductible, however far it is. Rev. Rul. 99-7 is the modern statement of that rule. It also contains this:"
+    ],
+    [
+     "quote",
+     "&ldquo;If a taxpayer&rsquo;s residence is the taxpayer&rsquo;s principal place of business within the meaning of &sect;280A(c)(1)(A), the taxpayer may deduct daily transportation expenses incurred in going between the residence and another work location in the same trade or business, regardless of whether the other work location is regular or temporary and regardless of the distance.&rdquo;",
+     "Rev. Rul. 99-7 &mdash; see source [4]"
+    ],
+    [
+     "p",
+     "Regardless of the distance.<sup><a href=\"#s4\">[4]</a></sup> Once the room qualifies under door (A), the drive to your consultation group, to the agency where you supervise, to a rented office you use two days a week, to a client&rsquo;s school &mdash; all of it becomes business mileage rather than commuting. The miles are identical either way. The only thing that changes is whether &sect;280A(c)(1)(A) is satisfied."
+    ],
+    [
+     "p",
+     "To price any of this you need to know what a dollar of Schedule C deduction is actually worth to you, and the honest answer is well above your tax bracket. Take a single filer with about $96,000 of practice profit. That sits inside the 22% federal bracket, which for 2026 runs from $50,401 to $105,700 of taxable income,<sup><a href=\"#s5\">[5]</a></sup> and inside California&rsquo;s 9.3% bracket, which for 2025 ran from $72,724 to $371,479 for a single filer.<sup><a href=\"#s6\">[6]</a></sup> It is below the 2026 Social Security wage base of $184,500, so self-employment tax is the full 15.3%.<sup><a href=\"#s7\">[7]</a></sup>"
+    ],
+    [
+     "table",
+     [
+      "Where a dollar of Schedule C deduction goes",
+      "Saved"
+     ],
+     [
+      [
+       "Self-employment tax &mdash; 15.3% on 92.35% of net earnings",
+       "$0.1413"
+      ],
+      [
+       "Federal income tax &mdash; 22%, after adding back half the self-employment tax deduction and losing 20% to the qualified business income clawback",
+       "$0.1636"
+      ],
+      [
+       "California income tax &mdash; 9.3%, same add-back, no qualified business income deduction in California",
+       "$0.0864"
+      ],
+      [
+       "<b>Total per dollar of deduction</b>",
+       "$0.3913"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "The arithmetic, so you can check it. A dollar off net profit takes 92.35 cents off the self-employment tax base, and 15.3% of that is 14.13 cents. Half of that saving, 7.06 cents, comes straight back, because the above-the-line deduction for one-half of self-employment tax shrinks too &mdash; so adjusted gross income falls by 92.94 cents, not by a full dollar. Twenty per cent of that is clawed back by the qualified business income deduction under &sect;199A, leaving 74.35 cents of federal taxable income; at 22% that is 16.36 cents.<sup><a href=\"#s8\">[8]</a></sup> The &sect;199A deduction is taken after adjusted gross income on the federal return, and California&rsquo;s tax starts from federal adjusted gross income, so it never touches your California figure &mdash; the full 92.94 cents comes off there, and at 9.3% that is 8.64 cents.<sup><a href=\"#s9\">[9]</a></sup> Add them and a dollar of deduction is worth <b>39.1 cents</b>."
+    ],
+    [
+     "p",
+     "One caveat in your favour. Psychotherapy is a specified service trade or business in the field of health for &sect;199A purposes, so above the 2026 threshold of $201,750 of taxable income for an unmarried filer the deduction phases out over the next $75,000.<sup><a href=\"#s8\">[8]</a></sup><sup><a href=\"#s5\">[5]</a></sup> If you are above that range, there is no clawback, and every dollar of home office deduction is worth more, not less."
+    ],
+    [
+     "p",
+     "Now the miles. The 2026 business standard mileage rate changed part-way through the year: 72.5 cents a mile from 1 January to 30 June, and 76 cents from 1 July to 31 December, the first mid-year adjustment since 2022.<sup><a href=\"#s10\">[10]</a></sup> Take a therapist who drives to a rented office two half-days a week, to a consultation group, and to a few trainings: 4,000 business miles for the year, split evenly across the two halves. That is 2,000 &times; $0.725 = $1,450, plus 2,000 &times; $0.76 = $1,520."
+    ],
+    [
+     "pull",
+     "$2,970",
+     "Four thousand miles at the 2026 rates &mdash; $1,162 of tax at 39.1 cents on the dollar, and deductible only because the room at home qualifies. Without it, every one of those miles is commuting."
+    ],
+    [
+     "p",
+     "Set that against the room itself. A 120 square foot office under the simplified method produces a $600 deduction. The miles produce $2,970. That is the case for taking door (A) seriously even if you think the room is small."
+    ],
+    [
+     "p",
+     "The price of admission is a log. You need a contemporaneous record of date, destination, business purpose and miles; Publication 463 sets out what the record has to contain, and a reconstruction assembled the following April is worth much less than one written the same week.<sup><a href=\"#s11\">[11]</a></sup>"
+    ]
+   ]
+  ],
+  [
+   "The two methods, run on stated numbers",
+   [
+    [
+     "p",
+     "There are two ways to compute the deduction, and you choose year by year."
+    ],
+    [
+     "p",
+     "<b>The simplified method</b> comes from Rev. Proc. 2013-13. Five dollars a square foot, up to 300 square feet, so a maximum deduction of $1,500. The revenue procedure fixes both &mdash; &ldquo;The prescribed rate is $5.00&rdquo; and the allowable square footage is &ldquo;not to exceed 300 square feet&rdquo;. Neither has been updated since, so the 2026 figures are the 2013 figures. There is no Form 8829, no depreciation, and no utility receipts; mortgage interest and property tax stay on Schedule A in full. The election is made year by year, and once made for a year it is irrevocable for that year.<sup><a href=\"#s12\">[12]</a></sup>"
+    ],
+    [
+     "p",
+     "<b>Actual expenses</b> go on Form 8829. Lines 1 to 3 divide the office square footage by the total area of the home to give a business percentage. You apply that percentage to the indirect costs of the whole home &mdash; rent or mortgage interest, property tax, insurance, utilities, whole-house repairs &mdash; and add any cost that belongs only to the office at 100%.<sup><a href=\"#s13\">[13]</a></sup>"
+    ],
+    [
+     "p",
+     "Here is the renter case. A therapist in Los Angeles pays $2,900 a month for a 750 square foot one-bedroom, and uses the 120 square foot dining alcove as an office and as nothing else. Renter&rsquo;s insurance is $220 a year and electricity and gas come to $130 a month. Those four figures are inputs to the example, not published numbers; substitute your own."
+    ],
+    [
+     "table",
+     [
+      "Los Angeles renter, 120 sq ft office",
+      "Actual expenses (Form 8829)",
+      "Simplified method"
+     ],
+     [
+      [
+       "Rent, $2,900 &times; 12",
+       "$34,800",
+       "not used"
+      ],
+      [
+       "Renter&rsquo;s insurance",
+       "$220",
+       "not used"
+      ],
+      [
+       "Electricity and gas, $130 &times; 12",
+       "$1,560",
+       "not used"
+      ],
+      [
+       "Indirect cost pool",
+       "$36,580",
+       "not used"
+      ],
+      [
+       "Business percentage, 120 of 750 sq ft",
+       "16.0%",
+       "not used"
+      ],
+      [
+       "<b>Deduction</b>",
+       "$5,853",
+       "$600"
+      ],
+      [
+       "Tax saved at 39.1 cents on the dollar",
+       "$2,290",
+       "$235"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "$5,853 against $600, for the same room. The renter case is lopsided for one reason: <b>rent goes into the pool at full value.</b> A homeowner&rsquo;s largest housing payment &mdash; principal repayment &mdash; is not deductible at all, and their mortgage interest is already deductible on Schedule A. A renter&rsquo;s rent is deductible nowhere else. That is why renters do better on actual expenses than they expect, and why the simplified method is usually the wrong answer for a renter with a real office, unless the office is very small or the rent is very low."
+    ],
+    [
+     "pull",
+     "$5,253",
+     "What actual expenses beat the simplified method by for this renter &mdash; $2,055 of tax, for the work of adding up twelve rent payments and two utility bills."
+    ],
+    [
+     "p",
+     "The homeowner case is where the comparison gets interesting, and where most write-ups stop too early. Inputs: a 1,600 square foot house bought for $780,000, of which $250,000 is land and therefore not depreciable; a 180 square foot office; mortgage interest of $34,200 for the year; property tax of $8,970; homeowner&rsquo;s insurance of $2,400; utilities of $3,610. The business percentage is 180 of 1,600, or 11.25%. Under actual expenses the business share of the building is depreciated straight line over 39 years as nonresidential real property.<sup><a href=\"#s2\">[2]</a></sup>"
+    ],
+    [
+     "table",
+     [
+      "Homeowner, 180 sq ft office, 11.25%",
+      "Actual expenses (Form 8829)",
+      "Simplified method"
+     ],
+     [
+      [
+       "Mortgage interest",
+       "$34,200",
+       "stays on Schedule A in full"
+      ],
+      [
+       "Property tax",
+       "$8,970",
+       "stays on Schedule A in full"
+      ],
+      [
+       "Homeowner&rsquo;s insurance",
+       "$2,400",
+       "not used"
+      ],
+      [
+       "Utilities",
+       "$3,610",
+       "not used"
+      ],
+      [
+       "Indirect cost pool",
+       "$49,180",
+       "not used"
+      ],
+      [
+       "11.25% of the pool",
+       "$5,533",
+       "not used"
+      ],
+      [
+       "Depreciation, $530,000 &times; 11.25%, over 39 years",
+       "$1,529",
+       "deemed zero"
+      ],
+      [
+       "<b>Deduction</b>",
+       "$7,062",
+       "$900"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "$7,062 against $900 looks like a rout, and it is not. Under the simplified method the whole $34,200 of mortgage interest and $8,970 of property tax stays on Schedule A.<sup><a href=\"#s12\">[12]</a></sup> Under actual expenses, 11.25% of that &mdash; $4,857 &mdash; moves off Schedule A and onto Form 8829. You are not gaining $6,162 of deduction. You are gaining $2,205 of genuinely new deduction, being the business share of insurance and utilities plus depreciation, and re-labelling $4,857 you were already deducting."
+    ],
+    [
+     "p",
+     "The re-labelling is still worth something, because a Schedule A deduction reduces income tax only, while a Form 8829 deduction reduces self-employment tax and California tax as well. Net it out: actual expenses give $6,162 more business deduction, worth $2,411 at 39.1 cents; they cost $4,857 of itemised deduction, worth $1,520 at 22% federal plus 9.3% California. <b>Actual expenses win by $891</b> &mdash; real money, and about a seventh of what the raw deduction gap implies."
+    ],
+    [
+     "p",
+     "That assumes you itemise. If you take the standard deduction &mdash; $16,100 for a single filer in 2026<sup><a href=\"#s5\">[5]</a></sup> &mdash; the Schedule A side is worth nothing to you and actual expenses win by the full $2,411. A homeowner carrying $34,200 of mortgage interest will almost always be itemising, so the $891 is the honest number for this example."
+    ]
+   ]
+  ],
+  [
+   "Three traps, each with a citation",
+   [
+    [
+     "p",
+     "<b>One. The deduction cannot create a loss.</b> Section 280A(c)(5) caps it at the gross income derived from the business use, less the deductions allocable to that use that would be allowable anyway, less the other deductions of the business.<sup><a href=\"#s1\">[1]</a></sup> On Form 8829 this is line 8, which starts from Schedule C line 29 &mdash; your tentative profit before the home office.<sup><a href=\"#s13\">[13]</a></sup>"
+    ],
+    [
+     "p",
+     "This bites associates and anyone in their first two years. If Schedule C line 29 is $3,100 and your computed home office deduction is $5,853, you deduct $3,100 this year. Under the actual expense method the other $2,753 is not lost: it carries forward on Form 8829 lines 43 and 44 to a later year in which you again use actual expenses.<sup><a href=\"#s13\">[13]</a></sup> Under the simplified method it is gone. Rev. Proc. 2013-13 is blunt about it: &ldquo;Any amount in excess of this gross income limitation is disallowed and may not be carried over and claimed as a deduction in any other taxable year.&rdquo; <sup><a href=\"#s12\">[12]</a></sup> A carryforward built up under actual expenses also cannot be used in a year you elect the simplified method.<sup><a href=\"#s2\">[2]</a></sup> If your profit is thin, that is a reason to use actual expenses even in a year when the two numbers look similar."
+    ],
+    [
+     "p",
+     "<b>Two. Depreciation comes back when you sell.</b> Homeowners only; renters can skip this. Section 121 lets you exclude up to $250,000 of gain on your home, or $500,000 filing jointly. But &sect;121(d)(6) says the exclusion &ldquo;shall not apply to so much of the gain from the sale of any property as does not exceed the portion of the depreciation adjustments&hellip; attributable to periods after May 6, 1997&rdquo;.<sup><a href=\"#s14\">[14]</a></sup> That slice is unrecaptured section 1250 gain, taxed federally at up to 25% under &sect;1(h)(1)(E) rather than at the long-term capital gains rate.<sup><a href=\"#s15\">[15]</a></sup> California has no preferential rate for capital gains, so the same slice is taxed at your ordinary California rate."
+    ],
+    [
+     "p",
+     "Run it before you panic. A dollar of depreciation saves 39.1 cents now. On sale it costs up to 25 cents federally and roughly 9.3 cents in California, so 34.3 cents. Net, about 4.8 cents on the dollar, plus the use of the money in between. On $1,529 a year that is about $74 of permanent benefit and $598 a year of deferral. Not nothing, and not much &mdash; which is exactly why some homeowners choose the simplified method deliberately. Under the simplified method the depreciation deduction &ldquo;is deemed to be zero&rdquo; for that year, so there is nothing to recapture.<sup><a href=\"#s12\">[12]</a></sup>"
+    ],
+    [
+     "p",
+     "What you cannot do is have it both ways. Publication 587 tells you to &ldquo;decrease the basis of your property by the depreciation you deducted, or could have deducted&rdquo;. <sup><a href=\"#s2\">[2]</a></sup> If you use actual expenses and simply never claim depreciation, your basis falls anyway and you pay the recapture without ever having had the deduction. That is the worst of the three outcomes, and it is a common one."
+    ],
+    [
+     "p",
+     "<b>Three. An S-corporation changes the mechanism entirely.</b> If you practise through a California professional corporation with an S election &mdash; and if you are still deciding, that is <a href=\"therapist-llc-california.html\">a separate question with a California-specific answer</a> &mdash; the home office does not go on your personal return at all. It is a professional corporation, not an LLC &mdash; a California LLC cannot lawfully render professional services."
+    ],
+    [
+     "p",
+     "You are an employee of the corporation. An employee&rsquo;s unreimbursed business expense used to be a miscellaneous itemised deduction subject to a 2% floor. It is now permanently gone. Section 67(h), as renumbered by the One Big Beautiful Bill Act in July 2025, reads: &ldquo;Notwithstanding subsection (a), no miscellaneous itemized deduction shall be allowed for any taxable year beginning after December 31, 2017&rdquo; &mdash; with no sunset date.<sup><a href=\"#s16\">[16]</a></sup> The Schedule A route is closed for good."
+    ],
+    [
+     "p",
+     "The correct mechanism is an accountable plan reimbursement from the corporation. Treasury Regulation &sect;1.62-2 sets three requirements: a business connection, substantiation to the payor, and the return of any excess within a reasonable period.<sup><a href=\"#s17\">[17]</a></sup> Meet all three and the reimbursement is deductible by the corporation and is not income to you &mdash; not on your W-2, not subject to payroll tax. Fail any of them and the whole payment is wages, reported on the W-2 and subject to withholding and employment taxes, and you get no deduction for the underlying expense.<sup><a href=\"#s17\">[17]</a></sup>"
+    ],
+    [
+     "p",
+     "Setting one up is not elaborate. Adopt a short written accountable plan by corporate resolution. Each month or quarter, produce an expense report showing the office square footage, the total square footage, the business percentage and the actual costs &mdash; in the same shape as Form 8829, because that is the computation the corporation is reimbursing. Then pay yourself the reimbursement separately, not through payroll, and keep the report. The reimbursement is only ever as good as the substantiation behind it."
+    ],
+    [
+     "p",
+     "One more thing worth saying plainly. The S election is a much bigger decision than the home office, and it carries <a href=\"s-corp-sdi-california-therapist.html\">a California payroll cost most calculators leave out</a>. Do not elect it in order to deduct a room."
+    ]
+   ]
+  ],
+  [
+   "California, your lease, and who comes to the door",
+   [
+    [
+     "p",
+     "Conformity first. FTB Publication 984 puts business use of the home in the &ldquo;same as federal&rdquo; column, and notes that the FTB generally follows federal law on common business expenses.<sup><a href=\"#s18\">[18]</a></sup> The Schedule CA (540) instructions state that references are to the Internal Revenue Code as of 1 January 2025, which is well after Rev. Proc. 2013-13.<sup><a href=\"#s9\">[9]</a></sup> So both methods are available in California, the square footage rules are the same, and there is no separate California election to make. The general divergence to watch is depreciation: California does not conform to federal bonus depreciation, though for 39-year straight-line real property that particular difference does not arise.<sup><a href=\"#s18\">[18]</a></sup>"
+    ],
+    [
+     "p",
+     "The interesting California difference runs the other way, and it matters only if you are a shareholder-employee of your own corporation. California did not follow the federal repeal of miscellaneous itemised deductions. The FTB&rsquo;s own federal-versus-California comparison lists certain miscellaneous itemised deductions as allowable in California to the extent they exceed 2% of federal adjusted gross income, against a federal allowance of &ldquo;none&rdquo;.<sup><a href=\"#s19\">[19]</a></sup> The Schedule CA instructions tell you the mechanics: if you completed federal Form 2106, &ldquo;prepare a second set of forms reflecting your employee business expense using California amounts&rdquo;.<sup><a href=\"#s9\">[9]</a></sup> So an unreimbursed home office worth exactly nothing on the federal return can still be worth 9.3 cents on the dollar in California, above the 2% floor. That is a poor substitute for an accountable plan. It is not zero."
+    ],
+    [
+     "p",
+     "There is an extra hurdle for any employee, including a shareholder-employee of your own corporation. Section 280A(c)(1) closes by saying that in the case of an employee, the exclusive use must be for the convenience of the employer.<sup><a href=\"#s1\">[1]</a></sup> Where the corporation has no other premises, that is easy to establish, but write down why, once, and keep it with the accountable plan."
+    ],
+    [
+     "p",
+     "Your lease and your HOA next. A standard California residential lease usually limits use of the premises to residential purposes. A therapist working alone on video is, on any ordinary reading, living in the flat and working in it, the same as a novelist or an accountant, and claiming a tax deduction does not change the character of the use. What changes it is clients arriving. Read the clause before you invite anyone, and read your HOA rules too if you have them, because some restrict business use in terms that are aimed at foot traffic rather than at laptops."
+    ],
+    [
+     "p",
+     "Zoning is where in-person and video-only genuinely part company, and it is local law, not state law. In the City of Los Angeles a home occupation may have client visits, but the City&rsquo;s own guidance limits you to &ldquo;one client visit per hour between the hours of 8:00 a.m. to 8:00 p.m.&rdquo;, one employee who does not live in the home, no commercial activity visible from outside, and no more than two deliveries and pick-ups a day.<sup><a href=\"#s20\">[20]</a></sup> A therapist on a 50-minute hour is, by construction, at exactly one client per hour, so the rule is workable &mdash; but it is a rule you have to know about. A video-only practice triggers none of it, because nobody arrives. If you are outside Los Angeles, look up your own city&rsquo;s home occupation ordinance; they vary, and some require a permit before you see anyone at home."
+    ],
+    [
+     "p",
+     "Finally, the door itself. The HIPAA privacy rule requires a covered entity to have &ldquo;appropriate administrative, technical, and physical safeguards to protect the privacy of protected health information&rdquo;, and to reasonably safeguard it against incidental disclosure.<sup><a href=\"#s21\">[21]</a></sup> For a home telehealth office that means a door that closes, a room nobody else walks through mid-session, headphones, and enough sound isolation that the session is not audible from the hall. There is no inspection and no scoring rubric. The useful coincidence is that the clinical requirement and the tax requirement point in exactly the same direction: a room used only for your work, with a door that shuts, is what &sect;280A wants and what your clients are entitled to."
+    ]
+   ]
+  ],
+  [
+   "What to measure and photograph this week",
+   [
+    [
+     "p",
+     "None of this takes an accountant to start. It takes a tape measure, a phone and an afternoon, and the evidence is worth far more collected now than reconstructed later."
+    ],
+    [
+     "ul",
+     [
+      "<b>Measure the office and the whole home.</b> Two numbers in square feet, written down with today&rsquo;s date. The office is Form 8829 line 1; the total area of the home is line 2.<sup><a href=\"#s13\">[13]</a></sup> If you rent, the lease or the original listing usually states the total; if it does not, measure it room by room.",
+      "<b>Photograph the room as it actually is.</b> A wide shot from the doorway, one of each wall, and one of the closed door. If there is anything personal in it, take the personal thing out first and then photograph. This is the cheapest possible evidence for the exclusive use test, and almost nobody does it.",
+      "<b>Photograph the rest of the home too.</b> Enough to show where the personal life happens: the sofa, the dining table, the television, the guest bed. The exclusive use argument is as much about what is elsewhere as about what is in the office.",
+      "<b>Pull twelve months of bills.</b> Rent ledger or mortgage interest statement, property tax bill, insurance declarations, electricity, gas, water. You need the annual totals whether or not you end up on actual expenses, because you cannot compare the two methods without them.<sup><a href=\"#s13\">[13]</a></sup>",
+      "<b>Start the mileage log today, not in December.</b> Date, destination, business purpose, miles &mdash; and note that the 2026 rate changed on 1 July, so your log needs to distinguish the two halves of the year.<sup><a href=\"#s10\">[10]</a></sup><sup><a href=\"#s11\">[11]</a></sup>",
+      "<b>Compute both methods and keep the working.</b> Square feet &times; $5, capped at 300 square feet, against business percentage &times; the annual pool, plus depreciation if you own.<sup><a href=\"#s12\">[12]</a></sup> If the gap is a couple of hundred dollars, take the simplified method and get on with your life. If it is $5,000, do not.",
+      "<b>If your profit is thin this year, use actual expenses anyway.</b> The carryforward under &sect;280A(c)(5) exists only on that side.<sup><a href=\"#s1\">[1]</a></sup>",
+      "<b>If you have an S election, write the accountable plan now</b> and reimburse yourself for the current year before 31 December. A reimbursement paid in March for last year is a much harder conversation.<sup><a href=\"#s17\">[17]</a></sup>"
+     ]
+    ],
+    [
+     "p",
+     "And one consequence to follow through. If you are about to add several thousand dollars of deduction that your instalments do not know about, those instalments are now too high. <a href=\"quarterly-estimated-taxes-california-therapist.html\">Recalculate them</a> rather than lending the money to two governments until April."
+    ]
+   ]
+  ]
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "cite": "26 U.S.C. &sect;280A &mdash; Disallowance of certain expenses in connection with business use of home",
+   "url": "https://www.law.cornell.edu/uscode/text/26/280A",
+   "note": "(a) the general disallowance; (c)(1) the exclusive and regular use tests, the three doors, the administrative-or-management flush language and the convenience-of-the-employer rule for employees; (c)(5) the gross income limitation"
+  },
+  {
+   "n": 2,
+   "cite": "IRS Publication 587 (2025), Business Use of Your Home",
+   "url": "https://www.irs.gov/publications/p587",
+   "note": "the 2026 edition is not published until early 2027; separately identifiable space and no permanent partition; the two exclusive-use exceptions; the list of administrative or management activities; 39-year straight-line depreciation; basis reduced by depreciation deducted or that could have been deducted"
+  },
+  {
+   "n": 3,
+   "cite": "Commissioner v. Soliman, 506 U.S. 168 (1993)",
+   "url": "https://supreme.justia.com/cases/federal/us/506/168/",
+   "note": "the pre-1997 principal-place-of-business test: relative importance of the functions performed at each location, and time spent at each"
+  },
+  {
+   "n": 4,
+   "cite": "Rev. Rul. 99-7, 1999-1 C.B. 361",
+   "url": "https://www.irs.gov/pub/irs-drop/rr-99-7.pdf",
+   "note": "daily transportation between a residence that is the principal place of business under &sect;280A(c)(1)(A) and another work location in the same trade or business is deductible, regardless of distance"
+  },
+  {
+   "n": 5,
+   "cite": "IRS Rev. Proc. 2025-32, inflation adjustments for tax year 2026",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+   "note": "2026 single-filer brackets ($50,401&ndash;$105,700 at 22%), the $16,100 standard deduction, and the &sect;199A threshold of $201,750 with a $75,000 phase-in range for unmarried filers"
+  },
+  {
+   "n": 6,
+   "cite": "California FTB, 2025 California Tax Rate Schedules (Form 540)",
+   "url": "https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf",
+   "note": "Schedule X, single or married/RDP filing separately: 9.30% from $72,724 to $371,479. The 2026 schedules are published in late 2026"
+  },
+  {
+   "n": 7,
+   "cite": "Social Security Administration &mdash; maximum taxable earnings",
+   "url": "https://www.ssa.gov/faqs/en/questions/KA-02387.html",
+   "note": "&ldquo;the maximum amount of earnings on which you must pay Social Security tax is $184,500&rdquo; for 2026"
+  },
+  {
+   "n": 8,
+   "cite": "26 U.S.C. &sect;199A &mdash; Qualified business income",
+   "url": "https://www.law.cornell.edu/uscode/text/26/199A",
+   "note": "the 20% deduction; (d)(2)(A) treats services in the field of health as a specified service trade or business; made permanent by Pub. L. 119-21"
+  },
+  {
+   "n": 9,
+   "cite": "California FTB, 2025 Instructions for Schedule CA (540)",
+   "url": "https://www.ftb.ca.gov/forms/2025/2025-540-ca-instructions.html",
+   "note": "&ldquo;References in these instructions are to the Internal Revenue Code (IRC) as of January 1, 2025&rdquo;; the California computation starts from federal adjusted gross income; &ldquo;prepare a second set of forms reflecting your employee business expense using California amounts&rdquo;"
+  },
+  {
+   "n": 10,
+   "cite": "IRS &mdash; Standard mileage rates",
+   "url": "https://www.irs.gov/tax-professionals/standard-mileage-rates",
+   "note": "2026 business rate: 72.5 cents per mile from 1 January (IR-2025-128, Notice 2026-10) and 76 cents from 1 July (IR-2026-29, Announcement 2026-11)"
+  },
+  {
+   "n": 11,
+   "cite": "IRS Publication 463, Travel, Gift, and Car Expenses",
+   "url": "https://www.irs.gov/publications/p463",
+   "note": "what an adequate record of business mileage must contain, and the weaker standing of records not kept at or near the time of the travel"
+  },
+  {
+   "n": 12,
+   "cite": "Rev. Proc. 2013-13, 2013-6 I.R.B. 478 (the simplified method)",
+   "url": "https://www.irs.gov/pub/irs-drop/rp-13-13.pdf",
+   "note": "&sect;4.01: 300 square foot cap and &ldquo;The prescribed rate is $5.00&rdquo;; &sect;4.03 year-by-year, irrevocable election; &sect;4.04 mortgage interest and property tax remain on Schedule A; &sect;4.06 depreciation &ldquo;deemed to be zero&rdquo;; &sect;4.08(2) no carryover of the disallowed excess"
+  },
+  {
+   "n": 13,
+   "cite": "IRS Form 8829, Expenses for Business Use of Your Home",
+   "url": "https://www.irs.gov/pub/irs-pdf/f8829.pdf",
+   "note": "lines 1&ndash;7 the business percentage; line 8 the gross income limitation, taken from Schedule C line 29; lines 43&ndash;44 the carryover of unallowed operating expenses and depreciation"
+  },
+  {
+   "n": 14,
+   "cite": "26 U.S.C. &sect;121 &mdash; Exclusion of gain from sale of principal residence",
+   "url": "https://www.law.cornell.edu/uscode/text/26/121",
+   "note": "(b) the $250,000 and $500,000 limits; (d)(6) the exclusion does not apply to gain up to the depreciation adjustments attributable to periods after 6 May 1997"
+  },
+  {
+   "n": 15,
+   "cite": "26 U.S.C. &sect;1(h) &mdash; Maximum capital gains rate",
+   "url": "https://www.law.cornell.edu/uscode/text/26/1",
+   "note": "(h)(1)(E) taxes unrecaptured section 1250 gain at up to 25 percent; (h)(6) defines it"
+  },
+  {
+   "n": 16,
+   "cite": "26 U.S.C. &sect;67(h) &mdash; Suspension for taxable years beginning after 2017",
+   "url": "https://www.law.cornell.edu/uscode/text/26/67",
+   "note": "renumbered from (g) and made permanent by Pub. L. 119-21, &sect;70110 (4 July 2025); no miscellaneous itemized deduction is allowed for any taxable year beginning after 31 December 2017"
+  },
+  {
+   "n": 17,
+   "cite": "26 C.F.R. &sect;1.62-2 &mdash; Reimbursements and other expense allowance arrangements",
+   "url": "https://www.law.cornell.edu/cfr/text/26/1.62-2",
+   "note": "(d) business connection, (e) substantiation, (f) return of excess; (c)(5) a non-accountable arrangement is wages, reported on Form W-2 and subject to withholding and employment taxes"
+  },
+  {
+   "n": 18,
+   "cite": "California FTB Publication 984, Business Expenses",
+   "url": "https://www.ftb.ca.gov/forms/misc/984.html",
+   "note": "business use of the home is &ldquo;same as federal&rdquo;; the FTB &ldquo;generally follows federal law on many common business expenses&rdquo;; California does not conform to federal bonus depreciation"
+  },
+  {
+   "n": 19,
+   "cite": "California FTB &mdash; Deductions",
+   "url": "https://www.ftb.ca.gov/file/personal/deductions/index.html",
+   "note": "certain miscellaneous itemized deductions are allowed in California for expenses that exceed 2% of federal AGI, against a federal allowance of &ldquo;None&rdquo;"
+  },
+  {
+   "n": 20,
+   "cite": "City of Los Angeles &mdash; Home-Based Business, LA Business Navigator",
+   "url": "https://business.lacity.gov/plan/home-based-business",
+   "note": "&ldquo;You may only have one client visit per hour between the hours of 8:00 a.m. to 8:00 p.m.&rdquo;; one non-resident employee; no visible commercial activity or signage; two deliveries and pick-ups a day"
+  },
+  {
+   "n": 21,
+   "cite": "45 C.F.R. &sect;164.530(c) &mdash; HIPAA privacy rule, safeguards standard",
+   "url": "https://www.law.cornell.edu/cfr/text/45/164.530",
+   "note": "appropriate administrative, technical and physical safeguards, and the duty to reasonably safeguard protected health information from incidental use or disclosure"
+  }
+ ]
+}

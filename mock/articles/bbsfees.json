@@ -1,0 +1,216 @@
+{
+  "verified_on": "2026-08-07",
+  "effective": {
+    "from": "2026-07-01",
+    "reverts": "2030-07-01 (reduced rates run 1 July 2026 through 30 June 2030 inclusive; the full schedule returns 1 July 2030)",
+    "authority": "Rulemaking amending 16 CCR §§1816, 1816.1, 1816.2, 1816.4. Approved by the Office of Administrative Law 4 February 2026, OAL Matter No. 2025-1222-02, filed with the Secretary of State 4 Feb 2026, 'This regulatory action becomes effective on 7/1/2026.' Underlying statutory driver: Business and Professions Code §128.5(b) (agency must reduce fees when its reserve exceeds 24 months of operating expenses); fee-cap authority BPC §§4980.60, 4990.20(a); reference BPC §§128.5, 4984.7, 4989.68, 4996.3, 4999.120. Each reduced rate is written into the regulation as a discrete subsection reading 'For the period of July 1, 2026, through June 30, 2030, ...' rather than as a sunset clause, so the pre-existing subsections revert automatically on 1 July 2030.",
+    "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_noa.pdf and https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf and https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"
+  },
+  "rates": [
+    {
+      "fee": "Registration application — AMFT (also ASW, APCC)",
+      "was": 150,
+      "now": 75,
+      "cite": "16 CCR §1816.1(f) [full rate] / §1816.1(m) [reduced rate, 7/1/2026–6/30/2030]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf ; corroborated on the Board's own AMFT application form (DCA BBS 37A-539) at https://www.bbs.ca.gov/pdf/forms/mft/imfapp.pdf which carries a 'FEE REDUCTION NOTICE' reading 'The application fee is $150' before 1 Jul 2026 and 'The application fee is $75' on or after",
+      "our_value_correct": true
+    },
+    {
+      "fee": "Annual renewal — AMFT (also ASW, APCC)",
+      "was": 150,
+      "now": 75,
+      "cite": "16 CCR §1816(a) [full rate] / §1816(h) [reduced rate]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf",
+      "our_value_correct": true
+    },
+    {
+      "fee": "California Law & Ethics examination — LMFT (also LCSW, LPCC)",
+      "was": 150,
+      "now": 75,
+      "cite": "16 CCR §1816.2(b) [full rate] / §1816.2(g) [reduced rate]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf ; corroborated on Application for Re-Examination DCA BBS 37A-298 (Rev. 06/2026) at https://www.bbs.ca.gov/pdf/forms/re-exam_app_37a-298.pdf",
+      "our_value_correct": true
+    },
+    {
+      "fee": "Application for licensure — LMFT",
+      "was": 250,
+      "now": 125,
+      "cite": "16 CCR §1816.4(a) [full rate] / §1816.4(e) [reduced rate]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf ; corroborated on Application for LMFT Licensure at https://www.bbs.ca.gov/pdf/forms/mft/mftapp.pdf",
+      "our_value_correct": true
+    },
+    {
+      "fee": "LMFT clinical examination (Board-administered)",
+      "was": 250,
+      "now": 125,
+      "cite": "16 CCR §1816.2(c) [full rate] / §1816.2(h) [reduced rate]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf",
+      "our_value_correct": true,
+      "note": "Practical point the site does not currently make: this fee is NOT billed separately later. The Application for LMFT Licensure form instructs applicants postmarked on or after 1 July 2026 to 'Include a $250.00 fee (this fee consists of a $125.00 application fee for evaluating your experience and education, and a $125.00 examination fee)' — i.e. licence application + clinical exam are paid together as one $250 payment. Source: https://www.bbs.ca.gov/pdf/forms/mft/mftapp.pdf"
+    },
+    {
+      "fee": "Initial licence issuance — LMFT (also LCSW, LPCC, LEP)",
+      "was": 200,
+      "now": 100,
+      "cite": "16 CCR §1816.1(a) [full rate] / §1816.1(h) [reduced rate]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf",
+      "our_value_correct": true,
+      "note": "The $20 Mental Health Practitioner Education Fund fee does NOT attach here. Per the Board's FAQ it attaches only to 'LMFT, LCSW, and LPCC license renewal-related applications, including Biennial Active, Biennial Inactive, and Retired to Active renewals.'"
+    },
+    {
+      "fee": "Biennial renewal, active licence — LMFT",
+      "was": 200,
+      "now": 100,
+      "cite": "16 CCR §1816(d) [full rate] / §1816(k) [reduced rate]",
+      "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf",
+      "our_value_correct": true,
+      "note": "The Board fee is $100, but what an LMFT actually writes the cheque for is $120 — $100 renewal + the $20 Mental Health Practitioner Education Fund fee, which is required by statute and is expressly excluded from the reduction. Confirmed on Application for License Renewal DCA BBS 37M-406 (Rev. 06/2026): postmarked on or after 1 Jul 2026, LMFT active on-time $120, delinquent $170. https://www.bbs.ca.gov/pdf/forms/man_renewal.pdf"
+    },
+    {
+      "fee": "Biennial renewal, inactive licence — LMFT",
+      "was": 100,
+      "now": 50,
+      "cite": "Not set by any of the four regulation sections amended in this rulemaking — see gaps. Board-published in the Temporary Fee Reduction FAQ and on renewal form 37M-406.",
+      "src": "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf ; https://www.bbs.ca.gov/pdf/forms/man_renewal.pdf",
+      "our_value_correct": true,
+      "note": "Actual out-of-pocket is $70 ($50 + the $20 MHPEF fee), delinquent $95. Not on the associate-to-licence route at all."
+    }
+  ],
+  "rates_verdict": "All eight rates on the site are correct as Board fees. No rate needs changing. The only defects are in the totals and in two labels — see corrections.",
+  "other_reduced_fees_not_on_the_site": [
+    {"fee": "Retired to Active application (LMFT, LCSW, LPCC, LEP)", "was": 200, "now": 100, "src": "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"},
+    {"fee": "Inactive to Active application (LMFT, LCSW, LPCC, LEP)", "was": 100, "now": 50, "src": "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"},
+    {"fee": "LEP written examination", "was": 250, "now": 125, "cite": "16 CCR §1816.2(d)/(i)", "src": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf"}
+  ],
+  "explicitly_not_reduced": [
+    "LCSW clinical exam (administered by ASWB, not the Board)",
+    "LPCC clinical exam (administered by NBCC, not the Board)",
+    "Duplicate documents ($20 replacement licence; $25 certification of licensure)",
+    "Fingerprint fees",
+    "The $20 Mental Health Practitioner Education Fund fee on LMFT/LCSW/LPCC renewal-related applications",
+    "Source: https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf Q5–Q8 and footnote"
+  ],
+  "registration": {
+    "term": "One year. 'The associate marriage and family therapist registration shall expire one year from the last day of the month in which it was issued.' The first year is covered by the original $75 registration application fee — no renewal fee is due until the first anniversary.",
+    "expires": "The last day of the issue month, one year later — NOT the birth month, and not a fixed statewide anniversary. (Birth-month expiry is the psychologist/BOP rule, not BBS.) The expiration date is printed on the registration certificate.",
+    "max_renewals": "Five. 'The registration may be renewed a maximum of five times.'",
+    "max_years": "Six. 'No registration shall be renewed or reinstated beyond six years from the last day of the month during which it was issued, regardless of whether it has been revoked.' After six years the registration is cancelled and cannot be renewed.",
+    "after_the_cap": "'When no further renewals are possible, an applicant may apply for and obtain a subsequent associate registration number if the applicant meets the educational requirements for a subsequent associate registration number and has passed the California law and ethics examination.' A subsequent registration costs another registration application fee ($75) and restarts the annual-renewal clock. Critical practical catch: 'An applicant who is issued a subsequent associate registration number pursuant to this subdivision shall not be employed or volunteer in a private practice.'",
+    "hours_clock": "Separate six-year clock, and the one that usually bites: 'Hours of experience shall not have been gained more than six years prior to the date the application for licensure was received by the board, except that up to 500 hours of clinical experience gained in the supervised practicum ... shall be exempt from this six-year requirement.' (BPC §4980.43.) So hours can expire even while a registration is still valid.",
+    "experience_requirement": "3,000 supervised hours completed over a period of at least 104 weeks, maximum 40 hours in any seven consecutive days; a maximum of 1,300 of the 3,000 may be pre-degree (trainee) hours. BPC §4980.43.",
+    "ce_condition_on_renewal": "Three hours of California law and ethics CE in every one-year renewal period, required even after the Law & Ethics exam has been passed. Paid to a CE provider, not the Board.",
+    "law_ethics_condition_on_renewal": "An associate who has not yet passed the California Law & Ethics Exam must have TAKEN it during the renewal period in order to renew. This is why the exam fee can recur — see retakes.",
+    "src": "BPC §4984.01 via https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4984-01/ and https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-4/section-4984-01/ ; BPC §4980.43 via https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-1/section-4980-43/ ; https://www.bbs.ca.gov/pdf/publications/mft_faq.pdf ; https://www.bbs.ca.gov/pdf/registrants_ce_info_brochure.pdf ; https://bbs.ca.gov/applicants/lmft.html"
+  },
+  "retakes": {
+    "law_ethics": "Same fee, every attempt. $75 on or after 1 July 2026 ($150 before). There is no discounted or separate 're-exam rate' — the Application for Re-Examination charges the identical §1816.2 exam fee. 90-day waiting period between attempts. At least three attempts are available per renewal cycle if applications are filed promptly. A no-show does not count as an attempt for the renewal requirement and does not trigger the 90-day wait, but you must still submit a new re-exam application and fee.",
+    "clinical": "Same fee, every attempt. $125 on or after 1 July 2026 ($250 before). 120-day waiting period between attempts. Note this is the exam fee only — you do not re-pay the $125 licence application fee on a retake, but you do lose the whole application (and must pay a fresh $125 application fee) if you fail to test within one year of initial approval or within one year of a failed attempt, because the application is then deemed abandoned.",
+    "src": "Application for Re-Examination, DCA BBS 37A-298 (Rev. 06/2026): 'If your application is postmarked ON OR AFTER JULY 1, 2026: Law and Ethics Exam: $75 / LMFT Clinical Exam or LEP Exam: $125' — https://www.bbs.ca.gov/pdf/forms/re-exam_app_37a-298.pdf ; California Law and Ethics Exam FAQs Q19–Q23 and the abandonment note — https://www.bbs.ca.gov/pdf/publications/law_ethics_faq.pdf"
+  },
+  "totals": [
+    {
+      "label": "One-time fees only (theoretical floor, zero renewals)",
+      "amount": 500,
+      "assumption": "Every Board fee paid exactly once and licensure completed inside the initial 12-month registration term, so no renewal is ever due. Include this only as a floor marker — it is almost certainly unreachable, because 3,000 hours over a minimum of 104 weeks (~24 months) is a statutory requirement and post-degree hours generally require an active registration. Do not headline this number.",
+      "workings": "75 (registration application) + 75 (Law & Ethics exam) + 125 (application for licensure) + 125 (LMFT clinical exam) + 100 (initial licence issuance) = 500"
+    },
+    {
+      "label": "Statutory-minimum route — 2 years registered, 1 annual renewal",
+      "amount": 575,
+      "assumption": "The 104-week (two-year) minimum experience period, run at maximum speed, with both exams passed first time. Registration is valid for year 1 on the original application fee; one $75 renewal buys year 2. This is the honest floor and it is exactly the figure the become-an-mft fee table already sums to.",
+      "workings": "500 (one-time fees, above) + 1 x 75 (annual renewal) = 575. Longhand: 75 + 75 + 75 + 125 + 125 + 100 = 575. At pre-July-2026 rates the same route was 150 + 150 + 150 + 250 + 250 + 200 = 1,150."
+    },
+    {
+      "label": "Typical route — about 3 years registered, 2 annual renewals",
+      "amount": 650,
+      "assumption": "Registration held 24–36 months (renewals fall due at month 12 and month 24), both exams passed first time. This is the number to headline. Caveat stated in gaps: the Board publishes no official average time-to-licensure, so '3 years' is a stated assumption, not a Board statistic.",
+      "workings": "500 + 2 x 75 = 650. At pre-July-2026 rates: 1,150 + 150 = 1,300 — still exactly double."
+    },
+    {
+      "label": "Slower route — about 4 years registered, 3 annual renewals",
+      "amount": 725,
+      "assumption": "Registration held 36–48 months. Renewals fall due at months 12, 24 and 36.",
+      "workings": "500 + 3 x 75 = 725"
+    },
+    {
+      "label": "Ceiling on one registration — full 6 years, all 5 renewals",
+      "amount": 875,
+      "assumption": "The absolute statutory maximum for a single associate registration: BPC §4984.01 permits five renewals and no renewal beyond six years. This is the correct derivation of the $875 already on the fees page — but its stated composition there is wrong, see corrections.",
+      "workings": "500 + 5 x 75 = 875. Longhand: 75 (registration) + 375 (five annual renewals) + 75 (Law & Ethics) + 125 (licence application) + 125 (clinical exam) + 100 (initial licence issuance) = 875. At pre-July-2026 rates: 150 + 750 + 150 + 250 + 250 + 200 = 1,750 — exactly double, which is why the 'halved' framing survives at every point in the range."
+    },
+    {
+      "label": "Renewal-count lookup (the whole thing in one line)",
+      "amount": 0,
+      "assumption": "Reference row, not a total. How many $75 renewals you pay is purely a function of how long you hold the registration, because year 1 is covered by the application fee.",
+      "workings": "0-12 months registered = 0 renewals = $500 | 12-24 mo = 1 = $575 | 24-36 mo = 2 = $650 | 36-48 mo = 3 = $725 | 48-60 mo = 4 = $800 | 60-72 mo = 5 = $875 (statutory maximum)"
+    },
+    {
+      "label": "What pushes it above the ceiling",
+      "amount": 0,
+      "assumption": "Reference row. Each of these is additive to whichever total above applies.",
+      "workings": "Failed Law & Ethics exam: +$75 per retake (and note associates who have not yet passed must TAKE it in every renewal period, so a long run of failures can add several $75s). Failed clinical exam: +$125 per retake. Abandoned licensure application (no test within one year of approval or of a failed attempt): +$125 for a fresh application for licensure, plus possible loss of experience hours older than six years. Subsequent (second) associate registration number after the six-year cap: +$75, and it restarts the renewal clock at $75/yr — and bars private-practice employment. Out-of-state applicants submitting fingerprint hard cards: +$49 payable to the Behavioral Sciences Fund. After licensure, the first biennial renewal is a further $120 ($100 + $20 MHPEF)."
+    }
+  ],
+  "not_board_fees": [
+    {"what": "Live Scan fingerprinting — California DOJ state-level criminal record check", "amount": "$32", "who": "California Department of Justice, collected by the Live Scan operator and passed through", "src": "https://oag.ca.gov/sites/all/files/agweb/pdfs/fingerprints/forms/fees.pdf — 'Certificates/Licenses/Permits — General: State CORI Fee $32'"},
+    {"what": "Live Scan fingerprinting — FBI federal-level check", "amount": "$17", "who": "FBI, collected by the Live Scan operator and passed through via DOJ", "src": "https://oag.ca.gov/sites/all/files/agweb/pdfs/fingerprints/forms/fees.pdf — 'Certificates/Licenses/Permits — General: Federal CORI Fee $17'"},
+    {"what": "Live Scan rolling fee (the operator's own charge for taking the prints)", "amount": "Varies — no published figure", "who": "Whichever Live Scan site takes your prints (police/sheriff departments, some school districts, private sites). The Board publishes no amount and DOJ does not set it.", "src": "https://www.bbs.ca.gov/pdf/forms/mft/imfapp.pdf (Request for Live Scan Service, form 37A-648/649 — the operator completes 'Amount Collected/Billed'); https://oag.ca.gov/fingerprints/locations"},
+    {"what": "Three hours of California law and ethics CE, required in EVERY one-year registration renewal period (and still required after you have passed the Law & Ethics exam)", "amount": "Varies — no published figure", "who": "A CE provider. The Board expressly does not approve or price individual courses.", "src": "https://www.bbs.ca.gov/pdf/registrants_ce_info_brochure.pdf"},
+    {"what": "Supervision, where the associate pays for it rather than receiving it as part of employment", "amount": "Varies — no published figure", "who": "The supervisor. Not a Board fee and the Board publishes no rate.", "src": "https://bbs.ca.gov/applicants/lmft.html"},
+    {"what": "Pearson VUE seat charge for the Law & Ethics and LMFT clinical exams", "amount": "$0 additional", "who": "Pearson VUE administers both exams; the fee is paid to the Behavioral Sciences Fund with the exam application, not to the vendor at the test centre.", "src": "https://www.bbs.ca.gov/pdf/forms/re-exam_app_37a-298.pdf ('Attach a check or money order payable to \"Behavioral Sciences Fund\"' ... 'Pearson Vue administers the exams')"},
+    {"what": "IS a Board fee, currently missing from the site's 'not charged' framing — out-of-state fingerprint hard-card processing", "amount": "$49", "who": "Board of Behavioral Sciences (Behavioral Sciences Fund). Charged only to applicants fingerprinted outside California who submit hard cards instead of Live Scan. Not part of the 50% reduction.", "src": "https://www.bbs.ca.gov/pdf/forms/mft/imfapp.pdf — 'Attach a $49 fee if ONLY you are submitting fingerprint \"hard cards\"'"}
+  ],
+  "recommendation": {
+    "headline_number": 650,
+    "range": "575-875",
+    "why": "None of the three numbers on the site is wrong in isolation, but only two of them are derivable, and the pages are answering different questions without saying so. $575 is the statutory-minimum route (every fee once plus a single $75 annual renewal — a two-year, 104-week run). $875 is the ceiling for a single registration (every fee once plus the maximum five renewals BPC §4984.01 allows, i.e. the full six years). Both are defensible with their assumption stated. $675 is not: no combination of the eight published rates produces $675, it appears exactly once in the entire codebase, in the become-an-mft hero stat block, with no workings anywhere on the page, and the fee table directly beneath it contradicts it. Because the true answer is a range whose only variable is the number of $75 annual renewals, both pages should carry the same range, and where a single figure is needed, use the three-year case: $650. The 'halved' story survives intact at every point on the range — $575/$1,150, $650/$1,300, $875/$1,750 are each exactly double — so nothing rhetorical is lost by switching from $875 to a range.",
+    "sentence_for_bbs_fees_page": "Since 1 July 2026 the Board's fees for the whole route from associate registration to an LMFT licence run $575 to $875, down from $1,150 to $1,750 — about $650 for a typical three-year run. The only thing that moves the number is how many $75 annual registration renewals you pay: your first year is covered by the registration application fee, and after that it is $75 a year until you are licensed, up to the five renewals the law allows. Everything else — registration, the law and ethics exam, the licence application, the clinical exam and the initial licence — is paid once. The old schedule returns on 1 July 2030.",
+    "sentence_for_licensure_page": "Board fees for the whole route are $575 to $875. Five of them are paid once and total $500 — $75 to register as an associate, $75 for the law and ethics exam, $125 for the licence application, $125 for the clinical exam and $100 to have the licence issued. On top of that you pay a $75 registration renewal every year after the first: two years, the legal minimum, is $575; three years is $650; the six-year maximum, with all five renewals, is $875. A failed law and ethics exam adds $75 a sitting, a failed clinical exam $125.",
+    "hero_stat_replacement": "Replace the become-an-mft hero row 'Board fees, whole route  $675' with 'Board fees, whole route  $575-$875' and, if the block supports a sub-label, '$500 once + $75/yr after year one'.",
+    "table_label_fix": "On become-an-mft, rename the table's total row from 'Every Board fee once, at each rate' to 'Registration through licence, one renewal (the 2-year minimum)' — the row already includes one annual renewal, so the current label is not true of it. Values $1,150 / $575 are both correct and stay."
+  },
+  "corrections": [
+    "become-an-mft-california.html — the hero stat 'Board fees, whole route $675' is unsourced and unreproducible. No combination of the eight published Board rates sums to $675; the nearest derivable figures either side are $650 (two renewals) and $725 (three renewals). It appears exactly once in the file, with no workings on the page, and is contradicted 12 paragraphs later by the page's own $575 table total. Replace with '$575-$875'.",
+    "bbs-fees-california-2026.html — the $875 arithmetic is right but its stated composition is wrong. The page says the total is 'registration, five annual renewals, the law and ethics exam, the licence application, the clinical exam and a first biennial renewal'. That list omits the $100 initial licence issuance fee and substitutes a $100 post-licensure biennial renewal. It only lands on $875 because both items happen to be $100. For a 'registration through licence' total the sixth item must be initial licence issuance (16 CCR §1816.1(h)), not a biennial renewal — the biennial renewal falls after licensure and is outside the route. If you genuinely want to include the first biennial renewal too, the correct figure is $995 ($875 + $100 renewal + $20 MHPEF), not $875.",
+    "bbs-fees-california-2026.html — the headline 'The whole route now costs $875' presents the six-year ceiling as though it were the ordinary case. $875 requires holding an associate registration for the full six years and paying all five renewals the statute permits. Reframe as a range, or state the assumption in the headline.",
+    "Both pages — 'It reverts in 2030' is imprecise. The regulation sets each reduced rate 'for the period of July 1, 2026, through June 30, 2030'. The last day at reduced rates is 30 June 2030; the full schedule is back on 1 July 2030. Worth being exact because the Board goes by application postmark date, not by when you started the process.",
+    "bbs-fees-california-2026.html — the claim that 'the Board's own renewal page is still showing the old table' is CONFIRMED TRUE as of 7 August 2026: https://www.bbs.ca.gov/licensees/manage.html still publishes LMFT/LCSW/LPCC active renewal $220 timely / $320 delinquent, inactive $120 / $170, and AMFT $150. But sharpen the claim — it is that one web page that is stale. The Board's actual forms are current: renewal form 37M-406 (Rev. 06/2026), the re-examination form 37A-298 (Rev. 06/2026) and the AMFT and LMFT application packets all carry correct pre- and post-1-July tables. Saying 'the Board contradicts itself' is fair; saying the Board is charging the old fees is not — the FAQ states the reduced fees are reflected in BreEZe from 1 July 2026.",
+    "Both pages — the $20 Mental Health Practitioner Education Fund fee is described as something you have 'kept out rather than guessing which applications it lands on'. No guessing is needed: the FAQ footnote enumerates them exactly — 'LMFT, LCSW, and LPCC license renewal-related applications, including Biennial Active, Biennial Inactive, and Retired to Active renewals'. It therefore does NOT touch any fee on the associate-to-licence route, and it DOES make an LMFT's real biennial renewal $120, not $100. Say that instead of hedging.",
+    "become-an-mft-california.html — the 'What the Board does not charge you' table should not imply the Board charges nothing fingerprint-related. Out-of-state applicants who submit fingerprint hard cards pay a $49 processing fee directly to the Behavioral Sciences Fund, and it is not reduced.",
+    "become-an-mft-california.html — the 'What the Board does not charge you' table is missing the recurring 3 hours of California law and ethics CE that every associate must complete in every one-year renewal period (even after passing the Law & Ethics exam). It is a real annual out-of-pocket cost paid to a CE provider, and the Board publishes no price for it.",
+    "Both pages — neither says that the LMFT clinical exam fee is paid up front with the licence application as a single $250 payment, not billed separately when you become exam-eligible. That is on the Board's own licensure application form and materially changes when the money is due.",
+    "bbs-fees-california-2026.html — the note that 'the law and ethics exam fee can recur' is correct and should be made concrete: an associate who has not passed must have TAKEN the exam during each renewal period in order to renew, each sitting requires a re-exam application and another $75, and there is a 90-day wait between attempts (120 days for the clinical exam)."
+  ],
+  "gaps": [
+    "The Board publishes no average or typical time-to-licensure for AMFTs. Nothing on bbs.ca.gov, in the Spring 2026 newsletter or in the MFT FAQ gives a mean or median. Any '2.5 to 4 years' or 'about 3 years' framing is the site's assumption and must be labelled as such — the defensible sourced statement is the arithmetic one: year 1 is covered by the application fee, then $75 per year, capped at five renewals.",
+    "The inactive biennial renewal reduction ($100 to $50) is NOT in the rulemaking. OAL matter 2025-1222-02 amended only 16 CCR §§1816, 1816.1, 1816.2 and 1816.4, and none of the amended subsections sets an inactive renewal fee — §1816 as amended addresses only ANNUAL (associate) and BIENNIAL ACTIVE renewals. The $50 figure is published by the Board in the Temporary Fee Reduction FAQ and on renewal form 37M-406, so it is Board-published and safe to state, but I could not locate the regulation or statute that sets it. Cite the FAQ and the form, not a CCR section. (This row is off the associate-to-licence route anyway.)",
+    "No published delinquency amount for a late AMFT registration renewal. BBS's fee table at /licensees/manage.html shows 'N/A' in the delinquent column for AMFT, ASW and APCC, and no AMFT renewal form PDF exists on the site (registration renewal appears to be BreEZe-only). BPC §4984.7 says 'The renewal delinquency fee shall be one-half of the fee for license renewal', which would imply $37.50 on a $75 renewal, but the Board publishes no such figure and I would not print it. Say the Board does not publish it.",
+    "No published Live Scan rolling fee. Neither the Board nor DOJ sets or publishes it; it is whatever the individual operator charges. The site is already right to say 'varies'.",
+    "The DOJ applicant fingerprint fee schedule PDF is headed 'As of August 17, 2012 - Subject to Change' and DOJ has not republished a dated 2026 version. The $32 + $17 = $49 figures are corroborated indirectly by the Board's own $49 hard-card processing fee, but if you want a belt-and-braces citation there is no fresher DOJ document.",
+    "Whether pre-degree trainee weeks count toward the 104-week minimum is not resolved by the statutory text I retrieved. BPC §4980.43 caps trainee hours at 1,300 of the 3,000 and requires 3,000 hours 'completed during a period of at least 104 weeks', but does not state plainly whether practicum weeks count toward the 104. This is exactly what determines whether the $500 zero-renewal floor is even theoretically reachable, which is why I have labelled $500 a floor marker and recommended $575 as the honest minimum.",
+    "I could not retrieve leginfo.legislature.ca.gov directly (robots.txt blocks the fetcher). BPC §§4984.01, 4984.7 and 4980.43 were verified through Justia and FindLaw reproductions of the 2025 code rather than the official leginfo page. The regulation text, the OAL notice of approval, the FAQ and every fee figure came from bbs.ca.gov itself, so no dollar amount depends on a secondary source."
+  ],
+  "sources": [
+    {"label": "OAL Notice of Approval of Regulatory Action — Board of Behavioral Sciences, OAL Matter 2025-1222-02, approved 4 Feb 2026, effective 7/1/2026", "url": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_noa.pdf"},
+    {"label": "Proposed/adopted regulatory language, 16 CCR §§1816, 1816.1, 1816.2, 1816.4 — every reduced rate with its subsection", "url": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_prop_text.pdf"},
+    {"label": "BBS Temporary Fee Reduction FAQ — Effective July 1, 2026 (full fee table, 4-year term, MHPEF footnote, exclusions, postmark rule, no refunds)", "url": "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"},
+    {"label": "BBS Initial Statement of Reasons — BPC §128.5(b) reserve-cap driver, 48-month period", "url": "https://www.bbs.ca.gov/pdf/regulation/pending/fee_reduc_isor.pdf"},
+    {"label": "BBS Updates page (links the Fee Reduction FAQ)", "url": "https://www.bbs.ca.gov/updates_faqs/updates.html"},
+    {"label": "BBS Manage License/Registration — the STALE fee table still showing $220/$320/$120/$170 and AMFT $150 as of 7 Aug 2026", "url": "https://www.bbs.ca.gov/licensees/manage.html"},
+    {"label": "Application for Re-Examination, DCA BBS 37A-298 (Rev. 06/2026) — retake fees $75 / $125 and the 90-day and 120-day waiting periods", "url": "https://www.bbs.ca.gov/pdf/forms/re-exam_app_37a-298.pdf"},
+    {"label": "California Law and Ethics Exam FAQs — annual requirement, three attempts per cycle, no-show rule, one-year abandonment rule", "url": "https://www.bbs.ca.gov/pdf/publications/law_ethics_faq.pdf"},
+    {"label": "BBS California Law and Ethics Examination page", "url": "https://www.bbs.ca.gov/exams/calaw_ethics.html"},
+    {"label": "Application for Associate MFT Registration (imfapp) — 'FEE REDUCTION NOTICE': $150 before, $75 on or after 1 Jul 2026; $49 hard-card fee; Live Scan packet", "url": "https://www.bbs.ca.gov/pdf/forms/mft/imfapp.pdf"},
+    {"label": "Application for LMFT Licensure (mftapp) — $250 on or after 1 Jul 2026 = $125 application + $125 clinical exam, paid together; abandonment and hour-loss warnings", "url": "https://www.bbs.ca.gov/pdf/forms/mft/mftapp.pdf"},
+    {"label": "Application for License Renewal, DCA BBS 37M-406 (Rev. 06/2026) — post-1-Jul LMFT active $120 / delinquent $170, inactive $70 / $95", "url": "https://www.bbs.ca.gov/pdf/forms/man_renewal.pdf"},
+    {"label": "BBS MFT FAQ — registration expiry, five renewals, six-year cancellation, subsequent registration numbers, re-exam fee", "url": "https://www.bbs.ca.gov/pdf/publications/mft_faq.pdf"},
+    {"label": "BBS Registrant Continuing Education Requirements — 3 hours CA law and ethics per one-year renewal period, required even after passing the exam", "url": "https://www.bbs.ca.gov/pdf/registrants_ce_info_brochure.pdf"},
+    {"label": "BBS Licensed Marriage and Family Therapist applicant page — 3,000 hours over 104 weeks minimum, L&E annually until passed, initial licence fee within one year of passing the clinical exam", "url": "https://bbs.ca.gov/applicants/lmft.html"},
+    {"label": "BPC §4984.01 — one-year term from last day of issue month, maximum five renewals, six-year cap, subsequent registration number and its private-practice bar", "url": "https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-4/section-4984-01/"},
+    {"label": "BPC §4984.7 — statutory fee caps and 'The renewal delinquency fee shall be one-half of the fee for license renewal'", "url": "https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4984-7/"},
+    {"label": "BPC §4980.43 — 3,000 hours over at least 104 weeks, 40-hour weekly cap, 1,300 pre-degree maximum, six-year lookback on hours", "url": "https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-1/section-4980-43/"},
+    {"label": "16 CCR §1816.2 as it read before the amendment (confirms the pre-reduction $150/$250 baseline and that it contains no separate re-examination fee)", "url": "https://regulations.justia.com/states/california/title-16/division-18/article-2/section-1816-2/"},
+    {"label": "California DOJ Applicant Fingerprint Processing Fees — Certificates/Licenses/Permits General: $32 state + $17 federal", "url": "https://oag.ca.gov/sites/all/files/agweb/pdfs/fingerprints/forms/fees.pdf"},
+    {"label": "California DOJ Live Scan locations (rolling fee set by each site)", "url": "https://oag.ca.gov/fingerprints/locations"}
+  ]
+}

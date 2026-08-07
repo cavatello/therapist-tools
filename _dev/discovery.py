@@ -58,10 +58,19 @@ EXCLUDE = {
 SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
 
 
+ARTEFACTS = ("_chrome.html",)
+
+
 def html_files():
-    """Every page, root and one level down, as paths relative to SITE."""
+    """Every page, root and one level down, as paths relative to SITE.
+
+    Build artefacts are excluded by name: a builder that lifts chrome writes it
+    beside its output, and a blanket *.html copy has swept it into the site
+    once already. It has no canonical and no title, so it would be indexed as a
+    duplicate of the page it was lifted from."""
     out = [f for f in sorted(os.listdir(SITE))
-           if f.endswith(".html") and not f.startswith(".")]
+           if f.endswith(".html") and not f.startswith(".")
+           and f not in ARTEFACTS]
     for d in SUBDIRS:
         p = os.path.join(SITE, d)
         if os.path.isdir(p):

@@ -1,0 +1,505 @@
+{
+ "slug": "solo-401k-sep-simple-california-therapist",
+ "category": "Money",
+ "stage": "run",
+ "minutes": 12,
+ "updated": "2026-08-07",
+ "title": "Solo 401(k), SEP or SIMPLE: what a California therapist should open",
+ "h1": "Solo 401(k), SEP or SIMPLE? <em>The solo 401(k), by $24,500 a year.</em>",
+ "h1_plain": "Solo 401(k), SEP or SIMPLE? The solo 401(k), by $24,500 a year.",
+ "kicker": "California &middot; retirement plans",
+ "dek": "Three plans, one decision, and it turns on two facts &mdash; how much profit the practice makes and whether you employ anyone. Here is the 2026 arithmetic at $80,000, $150,000 and $250,000 of profit, including the derivation of the 20% rule nobody explains.",
+ "dek_plain": "Three plans, one decision, and it turns on two facts - how much profit the practice makes and whether you employ anyone. Here is the 2026 arithmetic at $80,000, $150,000 and $250,000 of profit, including the derivation of the 20% rule nobody explains.",
+ "figure": [
+  "$24,500",
+  "the solo 401(k)&rsquo;s lead over a SEP"
+ ],
+ "tool": [
+  "therapist-tax-strategy-california.html",
+  "Run it against your own profit",
+  "The tax strategy tool takes your actual practice profit and filing status and computes the contribution room for each plan side by side. It also shows what the deduction is worth against your real marginal rate, federal and California."
+ ],
+ "sections": [
+  [
+   "Two facts decide this, not seven",
+   [
+    [
+     "p",
+     "You had a good year. There is money sitting in the business account that you would rather not hand to the Franchise Tax Board, and three different people have told you three different things. Your bookkeeper mentioned a SEP because it is easy. Someone in your consultation group swears by a solo 401(k). A custodian&rsquo;s website is pushing a SIMPLE because the name sounds reassuring."
+    ],
+    [
+     "p",
+     "Almost every article you will find on this ends in &ldquo;it depends.&rdquo; It does not depend on much. It depends on two things: how much profit the practice makes, and whether anyone other than you draws a wage from it. Everything else &mdash; Roth, loans, filing forms, deadlines &mdash; breaks ties. It does not decide the question."
+    ],
+    [
+     "p",
+     "If you are the only person in the practice and you want the largest deduction available, the answer is the solo 401(k), at every level of profit. Not because it is fashionable, but for one structural reason: it is the only one of the three that lets you contribute as both the employee and the employer. The employee half is a flat dollar amount that does not care what your profit was. The other two plans have no employee half at all, or a much smaller one."
+    ],
+    [
+     "ul",
+     [
+      "<b>Solo practice, any profit, want the biggest deduction</b> &mdash; solo 401(k), also called a one-participant 401(k).",
+      "<b>Solo practice, profit under about $114,000, and you want zero paperwork</b> &mdash; a SIMPLE IRA beats a SEP, which surprises people. The arithmetic is below.",
+      "<b>You employ a receptionist or an associate</b> &mdash; the calculation changes completely, because a SEP forces you to fund the same percentage for them, and a SIMPLE forces a match. That is the fact that flips the answer.",
+      "<b>You already have a SEP or SIMPLE balance and you do backdoor Roth conversions</b> &mdash; you have a problem the brochures do not mention. See below."
+     ]
+    ]
+   ]
+  ],
+  [
+   "The 2026 numbers, and where they come from",
+   [
+    [
+     "p",
+     "These are the figures the Internal Revenue Service published in Notice 2025-67 on 13 November 2025 for the 2026 tax year.<sup><a href=\"#s1\">[1]</a></sup> Do not carry a 2025 figure forward; six of these moved."
+    ],
+    [
+     "table",
+     [
+      "What it limits",
+      "2026",
+      "Where"
+     ],
+     [
+      [
+       "Employee deferral into a 401(k), &sect;402(g)",
+       "$24,500",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "Catch-up at 50 and over",
+       "$8,000",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "Catch-up at ages 60&ndash;63, instead of the $8,000",
+       "$11,250",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "Everything into one account in one year, &sect;415(c)",
+       "$72,000",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "Compensation that can be counted, &sect;401(a)(17)",
+       "$360,000",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "SEP employer contribution",
+       "25% of pay",
+       "IRC &sect;404(h)(1)(C)<sup><a href=\"#s5\">[5]</a></sup>"
+      ],
+      [
+       "SIMPLE deferral, employer with 25 or fewer staff",
+       "$18,100",
+       "IRS SIMPLE IRA plan<sup><a href=\"#s8\">[8]</a></sup>"
+      ],
+      [
+       "SIMPLE deferral, standard",
+       "$17,000",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "SIMPLE catch-up at 50 and over",
+       "$4,000",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "SIMPLE catch-up at ages 60&ndash;63",
+       "$5,250",
+       "Notice 2025-67<sup><a href=\"#s1\">[1]</a></sup>"
+      ],
+      [
+       "Social Security wage base",
+       "$184,500",
+       "SSA<sup><a href=\"#s16\">[16]</a></sup>"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "Two of those need a translation. The <b>ages 60 to 63 catch-up</b> replaces the ordinary $8,000 rather than stacking on top of it, so a 61-year-old&rsquo;s ceiling is $24,500 plus $11,250, not plus $19,250.<sup><a href=\"#s2\">[2]</a></sup> And the <b>$18,100 SIMPLE limit</b> is the one that applies to you: an employer with 25 or fewer employees gets the higher figure automatically, with nothing to elect, which a solo practice qualifies for by default.<sup><a href=\"#s8\">[8]</a></sup>"
+    ],
+    [
+     "p",
+     "One gap worth naming rather than guessing at. Notice 2025-67 publishes a single SIMPLE catch-up figure of $4,000 for 2026 and does not publish a separately increased small-employer catch-up.<sup><a href=\"#s1\">[1]</a></sup> If you are 50 or over and running a SIMPLE, ask your custodian which number their system will accept before you fund it."
+    ]
+   ]
+  ],
+  [
+   "Why your 25% is really 20%",
+   [
+    [
+     "p",
+     "A SEP lets an employer contribute up to 25% of pay.<sup><a href=\"#s5\">[5]</a></sup> Every article repeats that. Then every article quietly notes that a self-employed person uses 20% instead, and none of them says why. It is worth two minutes, because once you see it the whole comparison becomes checkable."
+    ],
+    [
+     "p",
+     "For someone on a payroll, &ldquo;pay&rdquo; is a settled number on a W-2 before the contribution is made. For a sole proprietor there is no such number. Publication 560 defines your compensation as <b>earned income</b> &mdash; net earnings from self-employment after deducting both one-half of your self-employment tax <em>and the contribution itself</em>.<sup><a href=\"#s4\">[4]</a></sup> The contribution is subtracted from the very figure it is a percentage of. That is circular, and the circle has an exact solution."
+    ],
+    [
+     "p",
+     "Call the profit base <em>B</em> &mdash; net profit less the deduction for half your self-employment tax &mdash; and the contribution <em>C</em>. The rule is that C is 25% of what is left after C comes out: C = 0.25 &times; (B &minus; C). Multiply out and you get 1.25C = 0.25B, so C = 0.2B. Twenty per cent of the base, exactly. It is not an approximation and it is not a special rule for small businesses; it is 0.25 &divide; 1.25. The IRS prints the same answer as <b>.200000</b> in the Rate Table for Self-Employed in Publication 560.<sup><a href=\"#s3\">[3]</a></sup>"
+    ],
+    [
+     "p",
+     "Here is the whole walk, on $150,000 of Schedule C profit, in 2026 figures."
+    ],
+    [
+     "table",
+     [
+      "Step",
+      "Amount"
+     ],
+     [
+      [
+       "Net profit from the practice",
+       "$150,000"
+      ],
+      [
+       "&times; 0.9235 = net earnings from self-employment",
+       "$138,525"
+      ],
+      [
+       "Self-employment tax: 12.4% + 2.9% of that",
+       "$21,194"
+      ],
+      [
+       "Deduction for one-half of it",
+       "$10,597"
+      ],
+      [
+       "Contribution base: $150,000 &minus; $10,597",
+       "$139,403"
+      ],
+      [
+       "&times; 20% = the SEP, or the employer half of a solo 401(k)",
+       "$27,881"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "The 0.9235 in line two is not arbitrary either. It is 1 &minus; 0.0765, the statutory adjustment that puts a self-employed person on the same footing as an employee whose employer pays half the payroll tax out of untaxed money. The Social Security half stops at $184,500 of net earnings; the Medicare half never stops.<sup><a href=\"#s16\">[16]</a></sup>"
+    ]
+   ]
+  ],
+  [
+   "What each plan allows at $80,000, $150,000 and $250,000",
+   [
+    [
+     "p",
+     "Same practice, same profit, three plans, 2026 limits. Sole proprietor, no employees, under 50, so no catch-up. Every figure below comes out of the arithmetic in the previous section."
+    ],
+    [
+     "table",
+     [
+      "Practice profit",
+      "SEP-IRA",
+      "Solo 401(k)",
+      "SIMPLE IRA",
+      "401(k) lead over SEP"
+     ],
+     [
+      [
+       "$80,000",
+       "$14,870",
+       "$39,370",
+       "$20,316",
+       "$24,500"
+      ],
+      [
+       "$150,000",
+       "$27,881",
+       "$52,381",
+       "$22,256",
+       "$24,500"
+      ],
+      [
+       "$250,000",
+       "$47,043",
+       "$71,543",
+       "$25,026",
+       "$24,500"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "The solo 401(k) column is the SEP column plus $24,500, every time. That is the whole finding. The employer half of a solo 401(k) is computed identically to a SEP &mdash; same 20%, same base &mdash; and then you add the employee deferral on top. You are allowed to add it because &sect;404(n) says elective deferrals &ldquo;shall not be taken into account in applying any such limitation to any other contributions.&rdquo;<sup><a href=\"#s5\">[5]</a></sup> The deferral does not eat into the employer room."
+    ],
+    [
+     "pull",
+     "$24,500",
+     "The solo 401(k)&rsquo;s lead over a SEP is a flat $24,500 at every profit level up to about $252,000."
+    ],
+    [
+     "p",
+     "Because the lead is a flat dollar amount, it matters most when profit is smallest. At $80,000 the solo 401(k) allows <b>2.6 times</b> what a SEP allows. At $150,000, 1.9 times. At $250,000, 1.5 times. The therapist with a modest practice is the one the SEP costs the most, which is the opposite of how these plans are usually pitched."
+    ],
+    [
+     "p",
+     "Where does the gap finally close? At two points, both computable. The solo 401(k) hits the $72,000 &sect;415(c) ceiling when the employer half reaches $47,500, which needs a contribution base of $237,500 and therefore about <b>$252,300</b> of net profit. Above that the 401(k) stops growing and the SEP keeps climbing, so the gap narrows. The SEP itself reaches $72,000 at a base of $360,000, or about <b>$376,500</b> of net profit. Only there do the two plans finally give the same answer."
+    ],
+    [
+     "p",
+     "So the honest version of the folk wisdom is not &ldquo;below $200,000 the 401(k) wins.&rdquo; It is: <b>the 401(k) wins by the full $24,500 up to roughly $252,000 of profit, and by something up to $376,500.</b> Almost no therapist in solo practice is above either line."
+    ],
+    [
+     "p",
+     "Note also that at $250,000 of profit the solo 401(k) comes to $71,543 &mdash; $457 short of the ceiling. If you are near that number and 50 or over, the $8,000 catch-up sits outside the &sect;415(c) limit and rides on top, so the real ceiling for you is $80,000."
+    ]
+   ]
+  ],
+  [
+   "If you elected S-corp treatment, the arithmetic inverts",
+   [
+    [
+     "p",
+     "A California-licensed therapist cannot form an LLC to practise &mdash; Cal. Corp. Code &sect;17701.04(e) forbids it. The real choice is sole proprietorship or a California professional corporation that elects S-corporation tax treatment, which <a href=\"therapist-llc-california.html\">is a separate decision with its own arithmetic</a>. If you have made that election, everything above changes, and not in your favour."
+    ],
+    [
+     "p",
+     "The corporation is now your employer. The employer contribution is 25% of your <b>W-2 wages</b> &mdash; a real, settled number, so no 20% adjustment applies &mdash; and the deferral comes out of those wages too. Your salary is the ceiling on the whole plan. And the point of the S-corp election was to keep that salary low, so that the rest comes out as a distribution free of payroll tax."
+    ],
+    [
+     "table",
+     [
+      "Your W-2 salary",
+      "Employer 25%",
+      "Deferral",
+      "Total into the plan",
+      "FICA + CA SDI on the salary"
+     ],
+     [
+      [
+       "$60,000",
+       "$15,000",
+       "$24,500",
+       "$39,500",
+       "$9,960"
+      ],
+      [
+       "$75,000",
+       "$18,750",
+       "$24,500",
+       "$43,250",
+       "$12,450"
+      ],
+      [
+       "$100,000",
+       "$25,000",
+       "$24,500",
+       "$49,500",
+       "$16,600"
+      ],
+      [
+       "$190,000",
+       "$47,500",
+       "$24,500",
+       "$72,000",
+       "$30,858"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "Payroll tax there is 15.3% of salary counting both halves, capped at $184,500 for the Social Security portion,<sup><a href=\"#s16\">[16]</a></sup> plus California State Disability Insurance at 1.3% for 2026 on every dollar with no cap.<sup><a href=\"#s18\">[18]</a></sup> The SDI line is the one people forget; <a href=\"s-corp-sdi-california-therapist.html\">it costs more than the pitch admits</a>."
+    ],
+    [
+     "p",
+     "Now the trade-off. Suppose you are tempted to raise your salary from $60,000 to $100,000 to get more into the plan. It buys $10,000 of extra employer contribution and costs $6,640 in extra payroll tax &mdash; $6,120 of FICA and $520 of SDI. But the $10,000 is your own money either way. It goes into the plan rather than into your bank account, so what you actually gained is deferral of income tax on $10,000: about $3,130 at a 22% federal and 9.3% California marginal rate. <b>You paid $6,640 of permanent tax to defer $3,130.</b> Do not raise your salary to fund the plan."
+    ],
+    [
+     "p",
+     "Run it the other way and you see the real cost of the election. A sole proprietor with $150,000 of profit can put $52,381 into a solo 401(k). The same therapist inside a professional corporation, paying herself $75,000 &mdash; a defensible salary at half of profit &mdash; can put in $43,250. The S-corp election cost her <b>$9,131 of contribution room</b>. At a $60,000 salary it costs $12,881."
+    ],
+    [
+     "p",
+     "To get the room back she would have to pay herself $111,524 out of that $150,000, and there is not enough left to make the election worth anything. Fund the plan first, then set the salary; not the other way round. And if you use a SEP inside an S-corp, the picture is worse still &mdash; a SEP is employer-only, with no employee deferral at all,<sup><a href=\"#s7\">[7]</a></sup> so a $60,000 salary buys a $15,000 SEP against a $39,500 solo 401(k)."
+    ]
+   ]
+  ],
+  [
+   "The differences that decide it after the limits",
+   [
+    [
+     "p",
+     "Assume for a moment the contribution room were identical. Five things would still separate these plans, and the last one is the one that quietly costs people money."
+    ],
+    [
+     "ul",
+     [
+      "<b>Deadline to open, versus deadline to fund.</b> A SEP can be opened as late as the due date of your return including extensions &mdash; 15 October 2027 for the 2026 tax year if you extend.<sup><a href=\"#s7\">[7]</a></sup> A SIMPLE must be established between 1 January and 1 October of the year it covers,<sup><a href=\"#s3\">[3]</a></sup> so for 2026 that door closes on <b>1 October 2026</b>. A solo 401(k) sits in between, and SECURE 2.0 changed it.",
+      "<b>The solo 401(k) rule specifically.</b> &sect;401(b)(2) now says that where an individual owns the entire interest in an unincorporated business and is its only employee, deferrals made &ldquo;before the time for filing the return of such individual for the taxable year (determined without regard to any extensions)&rdquo; count as made in the plan&rsquo;s first plan year.<sup><a href=\"#s6\">[6]</a></sup> Read that carefully: <em>without</em> extensions, so 15 April 2027 for 2026, and only for the <em>first</em> plan year. In year two you must have a deferral election in place before 31 December. The employer half can still wait for the extended deadline.",
+      "<b>Form 5500-EZ.</b> A one-participant 401(k) must file once plan assets reach $250,000 at year-end.<sup><a href=\"#s11\">[11]</a></sup> It is due the last day of the seventh month after the plan year ends &mdash; 31 July for a calendar-year plan.<sup><a href=\"#s11\">[11]</a></sup> SEPs and SIMPLEs never file it. This is the one genuine ongoing cost of the 401(k), and it is a short form, not an audit.",
+      "<b>Roth.</b> All three can take Roth money now. SECURE 2.0 &sect;601 permits Roth SEP and Roth SIMPLE contributions and the IRS has set out how they are reported.<sup><a href=\"#s13\">[13]</a></sup> In practice the 401(k) providers built the plumbing years ago and many IRA custodians still have not, so ask before you assume.",
+      "<b>Loans.</b> &ldquo;Loans are not permitted from IRAs or from IRA-based plans such as SEPs, SARSEPs and SIMPLE IRA plans.&rdquo;<sup><a href=\"#s10\">[10]</a></sup> A 401(k) may permit them if the plan document says so. Borrowing from your retirement is usually a poor idea, but the option existing is not nothing when your income is seasonal."
+     ]
+    ],
+    [
+     "p",
+     "Then the one that matters most, and appears in none of the brochures. If you make <a href=\"backdoor-roth-pro-rata-therapist.html\">backdoor Roth contributions</a> &mdash; a non-deductible contribution to a traditional IRA followed by a conversion &mdash; the tax on the conversion is worked out across <em>all</em> your traditional IRA balances, not just the one you converted. The Form 8606 instructions are explicit: &ldquo;The term &lsquo;traditional IRA&rsquo; includes traditional SEP IRAs and traditional SIMPLE IRAs.&rdquo;<sup><a href=\"#s12\">[12]</a></sup>"
+    ],
+    [
+     "p",
+     "So a SEP or SIMPLE balance sits in the denominator and makes most of every future backdoor conversion taxable. A solo 401(k) is not an IRA and does not appear in that calculation at all. If the backdoor Roth is part of your plan, this alone settles the question &mdash; and it is the reason people who opened a SEP years ago end up rolling it into a solo 401(k) to clear the decks."
+    ]
+   ]
+  ],
+  [
+   "California, and the one place a SIMPLE is genuinely right",
+   [
+    [
+     "p",
+     "California conforms on the part that matters. The deduction for contributions to a self-employed SEP, SIMPLE or qualified plan flows through to the state return with no adjustment &mdash; Schedule CA (540) carries no modification line for it.<sup><a href=\"#s15\">[15]</a></sup> A $52,381 solo 401(k) contribution reduces your California taxable income by $52,381, which at a 9.3% marginal rate is $4,871 of state tax on its own, on top of the federal saving."
+    ],
+    [
+     "p",
+     "Where California diverges is on the way out. The federal early-distribution penalty is 10%; California adds its own <b>2&frac12;%</b> on top. And for a SIMPLE, if you take money out inside the first two years, California charges <b>6%</b> rather than 2&frac12;%.<sup><a href=\"#s14\">[14]</a></sup> The Franchise Tax Board also warns that it &ldquo;does not conform to all of the federal exceptions to the additional tax on early distributions,&rdquo;<sup><a href=\"#s14\">[14]</a></sup> so an exception that works federally may not work here."
+    ],
+    [
+     "p",
+     "That 6% is the California half of the SIMPLE&rsquo;s real constraint. The federal half is worse: a withdrawal in the first two years of participation carries a <b>25%</b> additional tax rather than the usual 10%, and the two-year clock &ldquo;begins on the first day on which your employer deposits contributions in your SIMPLE IRA.&rdquo;<sup><a href=\"#s9\">[9]</a></sup> During that window you cannot even roll the money anywhere except another SIMPLE.<sup><a href=\"#s9\">[9]</a></sup> Combined, an early withdrawal in year one costs you 31% in penalties before ordinary income tax."
+    ],
+    [
+     "p",
+     "The second constraint is the employer contribution, which is <em>mandatory</em>, not optional. You must either match dollar-for-dollar up to 3% of compensation or make a 2% nonelective contribution for everyone eligible, every year, and having promised it in the employee notice you must fund it.<sup><a href=\"#s9\">[9]</a></sup> With no staff that is harmless &mdash; you are matching yourself. With one part-time administrator earning $30,000 it is a $900 bill you cannot skip in a bad year, whereas a SEP or a solo 401(k) profit-share can be set to zero."
+    ],
+    [
+     "p",
+     "And yet a SIMPLE is genuinely right in one case, which the arithmetic shows plainly. <b>Below about $114,400 of practice profit, a SIMPLE lets a sole proprietor contribute more than a SEP does.</b> At $80,000 of profit a SIMPLE allows $20,316 against the SEP&rsquo;s $14,870. The reason is the same reason the 401(k) wins: the $18,100 deferral is a flat amount that does not shrink with your profit, while the SEP&rsquo;s 20% does. The crossover is where 20% of your base equals $18,100 plus the 3% match, which lands at $114,438 of profit."
+    ],
+    [
+     "p",
+     "So if you want a flat-fee, no-Form-5500, opened-in-an-afternoon plan and your profit is under roughly $114,000, a SIMPLE beats a SEP outright. It still loses to a solo 401(k), and it still poisons a backdoor Roth. One more restriction to know: an employer maintaining a SIMPLE <b>cannot maintain any other retirement plan</b> in the same year.<sup><a href=\"#s8\">[8]</a></sup> It is an exclusive commitment for the calendar year."
+    ],
+    [
+     "p",
+     "Finally, a California obligation unrelated to your own saving. If you employ even one person besides yourself and you do not sponsor a qualified plan, you must register for CalSavers; the deadline for employers with one to four employees was 31 December 2025. Businesses &ldquo;that do not employ any individuals other than the owners are exempt.&rdquo;<sup><a href=\"#s17\">[17]</a></sup> Sponsoring a 401(k), SEP or SIMPLE exempts you, and you tell the state so through the employer portal."
+    ]
+   ]
+  ],
+  [
+   "What to do on Monday",
+   [
+    [
+     "p",
+     "Take the two facts first. Pull your year-to-date profit and loss and look at the projected net profit line. Then answer: does anyone other than me draw a wage from this practice?"
+    ],
+    [
+     "ul",
+     [
+      "<b>No employees, and you want the largest deduction.</b> Open a solo 401(k). Vanguard, Fidelity, Schwab and E*TRADE all offer one with no setup fee and no annual fee; if you want Roth deferrals or the loan feature, confirm the plan document supports them before you sign, because the cheapest plans are the most stripped-down. You have until <b>15 April 2027</b> to establish it and make 2026 deferrals, because this is your first plan year.<sup><a href=\"#s6\">[6]</a></sup> Do not use that as an excuse to wait &mdash; the retroactive rule applies once.",
+      "<b>You already have a SEP.</b> Open the solo 401(k) anyway and roll the SEP into it. That recovers the $24,500 and clears the pro-rata problem in the same move.<sup><a href=\"#s12\">[12]</a></sup>",
+      "<b>You want the simplest possible thing and profit is under about $114,000.</b> A SIMPLE, opened before <b>1 October 2026</b> &mdash; that is the hard deadline for the 2026 year and it is eight weeks away.<sup><a href=\"#s3\">[3]</a></sup> Understand the two-year lock first.",
+      "<b>You employ someone.</b> Stop and talk to a CPA before you open anything. A SEP obliges you to contribute the same percentage of pay for every eligible employee that you take for yourself, and a SIMPLE obliges you to match.<sup><a href=\"#s9\">[9]</a></sup> A 401(k) with staff is a real plan with real testing, not a solo 401(k). This is the one branch where the cheap answer is wrong.",
+      "<b>You have an S-corp election.</b> Decide the contribution first and the salary second, and do not raise the salary to chase the contribution."
+     ]
+    ],
+    [
+     "p",
+     "Two things to get right in the calendar year regardless of which plan you pick. Fund from the business account, not personal, and keep the confirmation. And if the deduction is large enough to change what you owe, revise the remaining quarterly estimates rather than waiting for the refund &mdash; a $52,381 contribution moves the number materially."
+    ],
+    [
+     "p",
+     "One last honest note. Everything above is contribution <em>room</em>, not advice on how much to save. A $72,000 ceiling is not a target, and a plan you fund at $8,000 a year in a low year is still the right plan. The point of choosing the solo 401(k) is that it never limits you before your income does."
+    ]
+   ]
+  ]
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "cite": "IRS Notice 2025-67, 2026 Amounts Relating to Retirement Plans and IRAs, as Adjusted for Changes in Cost-of-Living",
+   "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf"
+  },
+  {
+   "n": 2,
+   "cite": "IRS, 401(k) limit increases to $24,500 for 2026, IRA limit increases to $7,500 (13 November 2025)",
+   "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500"
+  },
+  {
+   "n": 3,
+   "cite": "IRS Publication 560 (2025), Retirement Plans for Small Business &mdash; Rate Table for Self-Employed and SIMPLE plan rules",
+   "url": "https://www.irs.gov/publications/p560"
+  },
+  {
+   "n": 4,
+   "cite": "IRS, One-participant 401(k) plans &mdash; earned income definition and Form 5500-EZ threshold",
+   "url": "https://www.irs.gov/retirement-plans/one-participant-401k-plans"
+  },
+  {
+   "n": 5,
+   "cite": "26 U.S. Code &sect;404 &mdash; (h)(1)(C) SEP 25% deduction limit and (n) elective deferrals not taken into account",
+   "url": "https://www.law.cornell.edu/uscode/text/26/404"
+  },
+  {
+   "n": 6,
+   "cite": "26 U.S. Code &sect;401(b)(2) &mdash; adoption of plan after close of taxable year, as amended by SECURE 2.0 Act &sect;317",
+   "url": "https://www.law.cornell.edu/uscode/text/26/401"
+  },
+  {
+   "n": 7,
+   "cite": "IRS, Simplified Employee Pension plan (SEP) &mdash; employer-only contributions, no loans, establishment deadline",
+   "url": "https://www.irs.gov/retirement-plans/plan-sponsor/simplified-employee-pension-plan-sep"
+  },
+  {
+   "n": 8,
+   "cite": "IRS, SIMPLE IRA plan &mdash; 2026 limits, the higher limit for employers with 25 or fewer employees, and the exclusive plan rule",
+   "url": "https://www.irs.gov/retirement-plans/plan-sponsor/simple-ira-plan"
+  },
+  {
+   "n": 9,
+   "cite": "IRS, Retirement plans FAQs regarding SIMPLE IRA plans &mdash; the 2-year rule and mandatory employer contributions",
+   "url": "https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-simple-ira-plans"
+  },
+  {
+   "n": 10,
+   "cite": "IRS, Retirement plans FAQs regarding loans",
+   "url": "https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans"
+  },
+  {
+   "n": 11,
+   "cite": "IRS, Instructions for Form 5500-EZ (2025) &mdash; the $250,000 threshold and filing deadline",
+   "url": "https://www.irs.gov/pub/irs-pdf/i5500ez.pdf"
+  },
+  {
+   "n": 12,
+   "cite": "IRS, Instructions for Form 8606 (2025) &mdash; &ldquo;traditional IRA&rdquo; includes SEP and SIMPLE IRAs",
+   "url": "https://www.irs.gov/instructions/i8606"
+  },
+  {
+   "n": 13,
+   "cite": "IRS, SECURE 2.0 Act impacts how businesses complete Forms W-2 &mdash; Roth SEP and Roth SIMPLE contributions",
+   "url": "https://www.irs.gov/newsroom/secure-2-point-0-act-impacts-how-businesses-complete-forms-w-2"
+  },
+  {
+   "n": 14,
+   "cite": "California FTB, Instructions for Form FTB 3805P &mdash; 2&frac12;% additional tax, 6% for SIMPLE within two years",
+   "url": "https://www.ftb.ca.gov/forms/2024/2024-3805p-instructions.html"
+  },
+  {
+   "n": 15,
+   "cite": "California FTB, Instructions for Schedule CA (540), California Adjustments &mdash; Residents",
+   "url": "https://www.ftb.ca.gov/forms/2025/2025-540-ca-instructions.html"
+  },
+  {
+   "n": 16,
+   "cite": "Social Security Administration, Contribution and Benefit Base &mdash; $184,500 for 2026",
+   "url": "https://www.ssa.gov/oact/cola/cbb.html"
+  },
+  {
+   "n": 17,
+   "cite": "CalSavers, Frequently Asked Questions &mdash; registration mandate and owner-only exemption",
+   "url": "https://www.calsavers.com/home/frequently-asked-questions.html"
+  },
+  {
+   "n": 18,
+   "cite": "California EDD, Payroll tax rates and withholding &mdash; SDI withholding rate 1.3% for 2026, no wage cap",
+   "url": "https://edd.ca.gov/en/payroll_taxes/rates_and_withholding/"
+  }
+ ]
+}

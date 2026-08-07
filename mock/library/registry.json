@@ -1416,6 +1416,71 @@
    "weight": 2,
    "skip": false,
    "leaf": false
+  },
+  {
+   "file": "solo-401k-sep-simple-california-therapist.html",
+   "title": "solo-401k-sep-simple-california-therapist.html",
+   "topic": "money",
+   "format": "guide",
+   "question": "Which retirement plan should I actually open?",
+   "outcome": "Solo 401(k), SEP or SIMPLE, worked at three real profit levels",
+   "number": "$24,500 more, deferred",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "therapist-tax-deductions-california.html",
+   "title": "therapist-tax-deductions-california.html",
+   "topic": "money",
+   "format": "guide",
+   "question": "What can I actually deduct?",
+   "outcome": "What qualifies, what doesn't, and what a deduction is really worth",
+   "number": "39 cents on the dollar",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "home-office-deduction-california-therapist.html",
+   "title": "home-office-deduction-california-therapist.html",
+   "topic": "money",
+   "format": "answer",
+   "question": "Can I deduct the room I do telehealth from?",
+   "outcome": "Both methods worked, plus the commuting rule it unlocks",
+   "number": "$5 a square foot, or more",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "s-corp-salary-social-security-therapist.html",
+   "title": "s-corp-salary-social-security-therapist.html",
+   "topic": "money",
+   "format": "answer",
+   "question": "What does a low S-corp salary cost me later?",
+   "outcome": "The Social Security you give up, priced against the tax you save",
+   "number": "$1,041 a month",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "hiring-first-associate-california-therapist.html",
+   "title": "hiring-first-associate-california-therapist.html",
+   "topic": "practice",
+   "format": "guide",
+   "question": "Should I hire an associate?",
+   "outcome": "The loaded cost, the break-even caseload, and the classification rule",
+   "number": "14 sessions a week",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
   }
  ],
  "topics": {
@@ -1439,7 +1504,8 @@
      "files": [
       "therapist-llc-california.html",
       "cost-of-incorporating-california-therapist.html",
-      "s-corp-sdi-california-therapist.html"
+      "s-corp-sdi-california-therapist.html",
+      "s-corp-salary-social-security-therapist.html"
      ]
     },
     {
@@ -1447,7 +1513,10 @@
      "files": [
       "therapist-tax-strategy-california.html",
       "backdoor-roth-pro-rata-therapist.html",
-      "quarterly-estimated-taxes-california-therapist.html"
+      "quarterly-estimated-taxes-california-therapist.html",
+      "solo-401k-sep-simple-california-therapist.html",
+      "therapist-tax-deductions-california.html",
+      "home-office-deduction-california-therapist.html"
      ]
     }
    ]
@@ -1516,7 +1585,8 @@
     {
      "name": "Filling the week",
      "files": [
-      "grow-your-therapy-practice.html"
+      "grow-your-therapy-practice.html",
+      "hiring-first-associate-california-therapist.html"
      ]
     },
     {
