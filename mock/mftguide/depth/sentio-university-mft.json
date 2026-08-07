@@ -1,0 +1,318 @@
+{
+ "institution": "Sentio University",
+ "slug": "sentio-university-mft",
+ "city": "Los Angeles residencies / hybrid",
+ "degree": "M.A. in Marriage and Family Therapy",
+ "url": "https://sentio.org/sentio-mft-program-overview",
+ "character": [
+  "Sentio is the only California MFT programme built entirely around Deliberate Practice, and the pedagogy is real, specific and unusual. Founded in 2020 by Tony Rousmaniere and Alexandre Vaz — the authors of the American Psychological Association's \"Essentials of Deliberate Practice\" book series — it took three years of development before admitting its first cohort in Fall 2024. Every course incorporates videotaped skill rehearsal; every client session at the training clinic is recorded; every supervision session is recorded; outcome data is collected on every client and then brought back into academic classes. The transparency runs both ways in a way no other California programme claims: every faculty member receives weekly feedback on video of their own teaching, and every clinical supervisor receives weekly feedback on video of their own supervision. Prospective students are invited to sit in on a live class and to attend a residency where they can meet the entire student body, and the admissions application includes an optional exercise in which you record three one-minute videos of yourself doing Deliberate Practice. If you want a programme where you will be watched constantly and coached on micro-skills, this is the one that actually does it.",
+  "The business and regulatory picture has to be read separately from the pedagogy, and it is the single most consequential thing about this school. Sentio is a non-profit approved to operate by California's Bureau for Private Postsecondary Education, but it is NOT accredited by any agency recognised by the US Department of Education — not WSCUC, not DEAC, not COAMFTE. It is an APPLICANT to DEAC, the national distance-education accreditor: Sentio links to DEAC's own public notice page, where it appears under \"Applicants for Initial Accreditation.\" In August 2025 the California Board of Behavioral Sciences published a formal Notice to Students on Sentio's status. The Board's determination: graduates may register as Associates and earn supervised hours, and may sit for the Law and Ethics Exam, but \"they will not be eligible to sit for the California LMFT Clinical Exam—and therefore will not be eligible for licensure—until Sentio University becomes fully accredited.\" BPPE provisional approval expires in July 2028; if full accreditation is not obtained by then, Associates registered on a Sentio degree \"will be disqualified from licensure based on that degree, and any supervised experience hours earned under those registrations will not be accepted.\" Sentio's own 2026–27 catalog does not mention this exam restriction; it says graduates \"are eligible for licensure ... upon successful completion of the requirements put forth by the California Board of Behavioral Sciences.\" Sentio does disclose, prominently and repeatedly, that it takes no federal student loans, that graduates may not qualify for licensure outside California, and that it only admits California residents.",
+  "On price: there is a published sticker price, and it is easy to find. Tuition is $1,120 per semester credit × 60 credits = $67,200, with a total cost of attendance of $68,400 including a $200 registration fee and $1,000 estimated textbooks, plus unbudgeted travel and lodging for five in-person residencies. The scholarship structure is straightforward once you do the arithmetic: both the merit-based K. Anders Ericsson Memorial Scholarship and the need-based Jeremy Safran Scholarship are awarded in three tiers of $16,800 / $33,600 / $50,400 — exactly 25%, 50% and 75% of tuition — so the real range a student pays is roughly $16,800 to $67,200, with \"a handful of scholarships available per tier, per cohort.\" Two caveats. First, Sentio's own pages disagree with each other about the ceiling: the programme overview advertises the Ericsson award as \"$1,000 to $67,200\" while the scholarships page says \"$1,000 to $50,400,\" and the tier table on both pages tops out at $50,400. Second, the price has moved: Sentio's 2024 BPPE filing reported total programme charges of $48,440 for the inaugural cohort, against $67,200 today. Because there are no federal loans, the money is out of pocket or private, and the catalog states students \"should not be employed full-time while attending.\"",
+  "Two more things a prospective student should weigh honestly. Cohorts are genuinely tiny — capped at 16, with the inaugural cohort at 7 students per Sentio's 2024 regulator filing and a graduate's own account (\"the cohorts are so small (7 in my class)\") — which means the 4:1 faculty ratio is real but also that the alumni network, and any independent review base, is close to nonexistent. And separately: Sentio publishes dozens of \"MFT Program Review\" pages about its California competitors (Pepperdine, CSUN, Alliant, CIIS, Chapman, USD, National, Biola and more). These carry a one-line footer disclosure — \"Sentio University is an MFT program in California and a peer institution to the program profiled above\" — and end with a link to Sentio's own programme, and they interleave factual competitor data with claims like \"2 in 3 students at COAMFTE-accredited MFT programs do not feel prepared to see clients.\" They are marketing, and should be read and cited as marketing, not as neutral reviews of other schools."
+ ],
+ "orientation": "Deliberate Practice / evidence-based integrative, taught as a fixed sequence of named models (CBT/TEAM-CBT, EFT, IFS, EFCT, Schema, psychodynamic, MI, systemic, multicultural)",
+ "signature": [
+  {
+   "code": "MFT551–556",
+   "title": "Theories and Models of Therapy Course Series",
+   "units": "3 semester credits each (18 total)",
+   "desc": "\"This series of courses teaches major theories and models of therapy, including Common Factors, Emotion Focused Therapy, Cognitive-Behavioral Therapy, Internal Family Systems, Motivational Interviewing, Systemic Therapies, Schema Therapy, Multicultural Therapy, and Emotion Focused Therapy for Couples... In every course, students will practice exercises from the 'Essentials of Deliberate Practice' series of Deliberate Practice training books, authored by Sentio University staff and published by the American Psychological Association.\"",
+   "verbatim": true,
+   "why": "Six required courses — nearly a third of the degree — devoted to rehearsing named models one at a time, using the faculty's own APA-published exercise books. Most California programmes teach one or two survey theories courses; this is the structural bet that makes Sentio different, and it is also why there are no electives.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "code": "MFT591–594",
+   "title": "Practicum I – Practicum IV",
+   "units": "3 semester credits each (12 total)",
+   "desc": "\"California law requires students to attend a practicum class while they are seeing clients. Thus, Practicum classes are 17-20 weeks long, so students will not have an interruption in their work with clients throughout semesters two to five.\" Practicum classes feature \"guest visits and presentations from various consumers and family members of consumers of mental health services.\"",
+   "verbatim": true,
+   "why": "The practicum course is stretched to 17–20 weeks while every other course runs 12, purely so the clinical caseload never pauses between terms. That is a scheduling detail, but it is the mechanism behind the 400+ hour claim — most programmes' students lose their caseload over breaks.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "code": "MFT561",
+   "title": "Person of the Therapist",
+   "units": "3",
+   "desc": "\"This course guides students through their personal development as a therapist. Topics include the rationale for developing the person of the therapist; the inner skills of psychotherapy; methods for psychological/emotional self-awareness, self-assessment, and growth; and common challenges in this area. An emphasis is placed on student self-agency and protecting students boundaries.\"",
+   "verbatim": true,
+   "why": "The explicit note about \"protecting students boundaries\" is unusual and is a direct answer to the obvious risk of a curriculum where you show video of your worst moments to peers every week. Worth asking in an interview how that protection actually operates.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "code": "MFT563",
+   "title": "Supervision and Consultation",
+   "units": "3",
+   "desc": "\"This course focuses on the practice of supervision and consultation in marriage and family therapy... Students will learn the major models of supervision and consultation; common challenges in the practice of supervision and consultation; and methods to enhance learner motivation and prevent burnout.\"",
+   "verbatim": true,
+   "why": "A full required course on how to supervise, in a master's degree, is rare in California — supervision training is usually a post-licensure CE requirement. It reflects the founders' own field (Rousmaniere's research is on supervision and outcome data) more than a typical MFT curriculum.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "code": "MFT564",
+   "title": "Therapist Career Development",
+   "units": "3",
+   "desc": "\"This course prepares students to start their careers in the field of marriage and family therapy, gain employment, and pursue career-long professional development, including preparation for the California Law and Ethics Exam and LMFT Clinical Exam. Topics include practice management, networking, guidance for starting a private practice, and applying for employment at agencies...\"",
+   "verbatim": true,
+   "why": "A required, credit-bearing course on getting paid — private practice mechanics, agency applications, exam prep. Most programmes leave this to a lunchtime panel. Note the irony that it prepares students for a Clinical Exam they are currently barred from sitting until the school is accredited.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "code": "Clinical Research Project",
+   "title": "Clinical Research Project (final semester)",
+   "units": "embedded",
+   "desc": "\"Students complete an empirical research project in their final semester using their own clinical outcome data from their work with clients at the Sentio Counseling Center,\" with an assigned Faculty Research Advisor; the project \"tightly focuses on personally relevant clinical challenges and opportunities from students' therapy cases.\"",
+   "verbatim": false,
+   "why": "Instead of a thesis on someone else's literature, the capstone is an n-of-your-own-caseload study of your own measured outcomes. That is only possible because outcome data is collected on every client from day one — it is the pedagogy and the capstone being the same thing.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  }
+ ],
+ "curriculum": {
+  "note": "Fixed lockstep cohort sequence, five semesters over 20 months, one cohort per year starting in Fall, capped at 16 students. No electives, no transfer credits in, and all courses must be taken in the designated order. All classes run 12 weeks except practicum classes, which run 17–20 weeks so the caseload is never interrupted. Weekly Zoom classes plus five 3-to-4-day in-person residencies (one at the start of each semester, held within two hours of Los Angeles). 60 semester credits total.",
+  "total_units": "60 semester credits",
+  "terms": [
+   {
+    "label": "Semester 1 — Fall (12 credits)",
+    "courses": [
+     "MFT541 Assessment and Diagnosis in Marriage and Family Therapy (3)",
+     "MFT542 Ethical and Legal Issues in Marriage and Family Therapy (3)",
+     "MFT543 Substance Use and Addiction (3)",
+     "MFT551 Theories & Models I (3)"
+    ]
+   },
+   {
+    "label": "Semester 2 — Spring (12 credits) — clients begin",
+    "courses": [
+     "MFT544 Case Conceptualization & Treatment Planning (3)",
+     "MFT545 Trauma & Crisis Intervention (3)",
+     "MFT552 Theories & Models II (3)",
+     "MFT591 Practicum I (3)"
+    ]
+   },
+   {
+    "label": "Semester 3 — Summer (12 credits)",
+    "courses": [
+     "MFT553 Theories & Models III (3)",
+     "MFT554 Theories & Models IV (3)",
+     "MFT546 Human & Family Development Across the Lifespan (3)",
+     "MFT592 Practicum II (3)"
+    ]
+   },
+   {
+    "label": "Semester 4 — Fall (12 credits)",
+    "courses": [
+     "MFT555 Theories & Models V (3)",
+     "MFT556 Theories & Models VI (3)",
+     "MFT561 Person of the Therapist (3)",
+     "MFT593 Practicum III (3)"
+    ]
+   },
+   {
+    "label": "Semester 5 — Spring (12 credits)",
+    "courses": [
+     "MFT652 Psychopharmacology (3) — listed as MFT562 in the catalog's course descriptions",
+     "MFT563 Supervision & Consultation (3)",
+     "MFT564 Therapist Career Development (3)",
+     "MFT594 Practicum IV (3)"
+    ]
+   }
+  ],
+  "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+ },
+ "practicum": {
+  "starts": "Second semester (Spring of year 1) — roughly five months in, earlier than almost any other California MFT programme",
+  "hours": "At least 400 hours of direct clinical contact, of which at least 100 must involve working with couples",
+  "who_places": "program-placed",
+  "clinic": "Sentio Counseling Center (SCC) — a 100% online non-profit training clinic serving low-income Californians, founded by Rousmaniere and Vaz specifically to be Sentio's practicum site",
+  "detail": "Placement is guaranteed, not searched for: every student in good standing is placed at the Sentio Counseling Center, so there is no scramble for a traineeship site and no risk of a placement falling through — the single largest practical advantage this programme has. Clinical work begins in semester two and runs continuously to graduation, with practicum courses stretched to 17–20 weeks precisely so the caseload never breaks between terms; the school starts students on a few clients and ramps up to a full caseload. The stated minimum is at least 400 direct client contact hours with a 100-hour couples sub-minimum, and all of it counts toward the 3,000 BBS hours; the SCC is telehealth-only across California, with sliding-scale fees starting at $15 a session and a client population weighted toward trauma, low income and marginalised communities. Supervision is unusually heavy and unusually visible: weekly supervision in individual, triadic and small-group formats — a published example week shows one hour of individual supervision, a one-hour couples-therapy triadic supervision, and two hours of group supervision alongside roughly nine to ten client sessions — with every client session AND every supervision session videotaped, so supervisors give feedback on specific recorded moments and students can rewatch their own supervision. Every supervisor has completed advanced Deliberate Practice supervision training and themselves receives weekly video-based feedback on their supervision. Routine outcome measurement runs throughout treatment and is fed back into both supervision and academic classes. The trade-offs are equally concrete: all your clinical experience is telehealth and all of it is at one agency, so you graduate without in-person, school-based, hospital or community-agency exposure, and without having built the site-hunting muscle you will need for your post-degree associate years.",
+  "src": "https://sentio.org/guaranteed-practicum-at-sentio-counseling-center",
+  "model": "guaranteed",
+  "model_evidence": "Yes. Students in good standing receive guaranteed clinical training placement at the Sentio Counseling Center, our telehealth training clinic. This is different from programs that offer \"practicum support\" but leave students to find their own field placements.",
+  "model_url": "https://sentio.org/faq",
+  "model_why": "The only school on the list that states the guarantee explicitly and draws the contrast itself: students in good standing “receive guaranteed clinical training placement”, unlike “programs that offer 'practicum support' but leave students to find their own field placements”.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Sentio Counseling Center (SCC)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Capped at 16 per cohort, one cohort per year starting in Fall; 4:1 student-to-faculty ratio. Sentio's 2024 BPPE filing reports 7 students began the programme, and a 2026 graduate states \"the cohorts are so small (7 in my class)\"",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from a US Department of Education-recognised accredited institution (any major, no prerequisite courses); CV/resume; two letters of recommendation (a third optional); two 300–500 word essays, one a personal statement and one a reaction essay to an article about psychotherapy; government ID; an OPTIONAL Deliberate Practice assignment consisting of three one-minute videos of the applicant doing a DP exercise. Selected applicants get a videotaped admissions interview. Applicants must be California residents (or relocating) and intend to license in California. No transfer credits accepted.",
+  "deadline": "Rolling — applications accepted continuously and reviewed four times a year until the cohort fills. As of this research the Fall 2026 cohort is at capacity with a waitlist; the Fall 2027 cycle opens October 1, 2026",
+  "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view",
+  "gre_evidence": "Do I need to take the GRE? The GRE is not required for admission to Sentio University.",
+  "gre_url": "https://sentio.org/faq",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "BBS Notice to Students: graduates \"will not be eligible to sit for the California LMFT Clinical Exam—and therefore will not be eligible for licensure—until Sentio University becomes fully accredited.\"",
+   "who": "California Board of Behavioral Sciences, official notice",
+   "sentiment": "negative",
+   "url": "https://www.bbs.ca.gov/pdf/publications/sentio_uni_nts_status.pdf"
+  },
+  {
+   "text": "BBS: if full accreditation is not achieved by July 2028, Associates registered on a Sentio degree \"will be disqualified from licensure based on that degree, and any supervised experience hours earned under those registrations will not be accepted.\"",
+   "who": "California Board of Behavioral Sciences, official notice",
+   "sentiment": "negative",
+   "url": "https://www.bbs.ca.gov/pdf/publications/sentio_uni_nts_status.pdf"
+  },
+  {
+   "text": "Sentio's required BPPE disclosure: \"This institution is provisionally approved... To continue to offer this degree program, this institution must... Achieve accreditation candidacy or pre-accreditation... by 7/25/2025, and full accreditation by 7/25/2028... An institution that fails to comply... shall have its approval to offer degree programs automatically suspended.\"",
+   "who": "Statutory BPPE notice published on Sentio's own programme page",
+   "sentiment": "info",
+   "url": "https://sentio.org/sentio-mft-program-overview"
+  },
+  {
+   "text": "\"I actually turned down a spot at CSUN to go to Sentio and I have zero regrets... the cohorts are so small (7 in my class) that Zoom learning feels personal. I graduated with over 600 hours of direct clinical experience, including 100+ with couples.\"",
+   "who": "Michele Carroll, Class of 2026 — Google review, republished by Sentio",
+   "sentiment": "positive",
+   "url": "https://sentio.org/student-reviews"
+  },
+  {
+   "text": "\"Deliberate Practice is hard and painful, but it makes us better, so it is worth it!\"",
+   "who": "SCC student quote, published in Sentio's 2026–27 academic catalog",
+   "sentiment": "mixed",
+   "url": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "text": "Rousmaniere at the first commencement, May 2026: students did \"hundreds of hours of deliberate practice, videotaping of every session, showing those videos not just in supervision but in every class in front of their peers\" and \"approximately three times the clinical hours required by most other programs in California.\"",
+   "who": "Tony Rousmaniere, Sentio President, 2026 commencement address",
+   "sentiment": "info",
+   "url": "https://sentio.org/graduation-of-the-1st-cohort"
+  },
+  {
+   "text": "Sentio's own 2024 regulator filing: 7 students enrolled, 0 graduates, 0 taking the licensing exam, total programme charges $48,440, 0% receiving federal loans, and \"Is your institution accredited by an accrediting agency recognized by the United States Department of Education? No.\"",
+   "who": "BPPE 2024 Annual Report, Sentio University",
+   "sentiment": "info",
+   "url": "https://bppe.ca.gov/webapplications/annualReports/2024/details/43740586"
+  },
+  {
+   "text": "\"The Sentio MFT program has a guaranteed practicum and I was able to visit a class which was really interesting, but it is a new program that only accepts students who live in California, and I don't think I will after graduation.\"",
+   "who": "Student Doctor Network forums, prospective California MFT applicant ('psychstudentgrad2024') who sat in on a Sentio class, 17 Apr 2024",
+   "sentiment": "mixed",
+   "url": "https://forums.studentdoctor.net/threads/questions-about-mft-programs-and-practicums-in-california.1493104/"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No independent student discussion found anywhere — no Reddit, Student Doctor Network, GradCafe or Niche presence. Every student voice available is published by Sentio itself (its Student Reviews page republishes 40 Google reviews). With one graduating cohort of about 7, this is unsurprising but it means there is no adversarial account of the programme in existence.",
+  "No licensure or exam outcome data exists yet and cannot exist: the first cohort graduated in May 2026 and, per the BBS notice, is currently barred from sitting the LMFT Clinical Exam.",
+  "No public accreditation timeline beyond the statutory minimum. The BPPE notice Sentio is required to publish states it must \"achieve accreditation candidacy or pre-accreditation ... by 7/25/2025, and full accreditation by 7/25/2028,\" and that failure means automatic suspension of its authority to offer degrees plus a teach-out or refund. Sentio links to DEAC's public notice page as evidence of progress, where it is listed under \"Applicants for Initial Accreditation\" (Torrance, CA) — i.e. an applicant, with no candidacy or pre-accreditation status shown, and DEAC's commission meets only in January and June. Sentio's FAQ separately says it is \"pursuing regional accreditation\" (DEAC is a national, not regional, accreditor). Whether the 7/25/2025 candidacy milestone was met is not stated anywhere Sentio publishes.",
+  "Sentio's own pages contradict each other on the top scholarship award — $67,200 on the programme overview vs $50,400 on the scholarships page, with tier tables on both topping out at $50,400. No stated criteria distinguish Tier 1 from Tier 3, and no data on what fraction of students receive any award.",
+  "No published attrition or completion data (0 graduates in the only filed BPPE report), and no employment or salary data.",
+  "The catalog's course table lists 'MFT652: Psychopharmacology' in semester 5 while its course descriptions section lists 'MFT562: Psychopharmacology' — an unresolved numbering inconsistency in the same document.",
+  "No freely-licensed photograph of Sentio (Torrance office) or the residency venue on Wikimedia Commons; the clinic is entirely virtual."
+ ],
+ "sources": [
+  {
+   "label": "Sentio University 2026–27 Academic Catalog (PDF, published April 2026)",
+   "url": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "label": "Academic Catalog index page",
+   "url": "https://sentio.org/academic-catalog-1"
+  },
+  {
+   "label": "MFT Program Overview",
+   "url": "https://sentio.org/sentio-mft-program-overview"
+  },
+  {
+   "label": "Tuition and Fees",
+   "url": "https://sentio.org/tuition-and-fees"
+  },
+  {
+   "label": "Scholarships",
+   "url": "https://sentio.org/scholarships"
+  },
+  {
+   "label": "FAQ",
+   "url": "https://sentio.org/faq"
+  },
+  {
+   "label": "Guaranteed Practicum at the Sentio Counseling Center",
+   "url": "https://sentio.org/guaranteed-practicum-at-sentio-counseling-center"
+  },
+  {
+   "label": "Week in the Life (example student schedule)",
+   "url": "https://sentio.org/week-in-the-life"
+  },
+  {
+   "label": "The Sentio Culture of Radical Transparency",
+   "url": "https://sentio.org/transparency"
+  },
+  {
+   "label": "Graduation of the 1st Cohort — 2026 commencement address",
+   "url": "https://sentio.org/graduation-of-the-1st-cohort"
+  },
+  {
+   "label": "BBS Notice to Students — Sentio University Accreditation Status (PDF)",
+   "url": "https://www.bbs.ca.gov/pdf/publications/sentio_uni_nts_status.pdf"
+  },
+  {
+   "label": "DEAC public notice — institutions to be considered (Sentio listed as applicant for initial accreditation)",
+   "url": "https://www.deac.org/public-notices/institutions-to-be-considered-at-the-accrediting-commission-meeting/"
+  },
+  {
+   "label": "BPPE 2024 Annual Report — Sentio University",
+   "url": "https://bppe.ca.gov/webapplications/annualReports/2024/details/43740586"
+  },
+  {
+   "label": "Student Reviews (school-published Google reviews)",
+   "url": "https://sentio.org/student-reviews"
+  },
+  {
+   "label": "Sentio Counseling Center — Professional Training",
+   "url": "https://www.sentiocc.org/professional-training"
+  },
+  {
+   "label": "Example of Sentio's competitor marketing pages — 'Pepperdine University MFT Program Review'",
+   "url": "https://sentio.org/pepperdine-university-mft-program-review"
+  },
+  {
+   "label": "MFT California (independent, operated by Caroline Wiita) — accreditation explainer",
+   "url": "https://www.mftcalifornia.com/accreditation"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "tuition",
+   "current": "tuition not published",
+   "correct": "Tuition IS published: $1,120 per semester credit × 60 credits = $67,200; total cost of attendance $68,400 including a $200 registration fee and $1,000 estimated textbooks, excluding travel/lodging for five residencies. Sentio's 2024 BPPE filing reported total programme charges of $48,440 for the first cohort, so the price has risen sharply.",
+   "src": "https://sentio.org/tuition-and-fees"
+  },
+  {
+   "field": "scholarships",
+   "current": "(not recorded)",
+   "correct": "Two named scholarships (merit: K. Anders Ericsson Memorial; need: Jeremy Safran) awarded in three tiers of $16,800 / $33,600 / $50,400 — exactly 25% / 50% / 75% of the $67,200 tuition. Net price therefore ranges from about $16,800 to $67,200. Sentio's programme overview page advertises a $67,200 ceiling while its scholarships page says $50,400; the tier tables on both max at $50,400.",
+   "src": "https://sentio.org/scholarships"
+  },
+  {
+   "field": "accreditation / licensure eligibility",
+   "current": "(not recorded)",
+   "correct": "Sentio is NOT accredited by any US Dept. of Education-recognised agency (no WSCUC, no DEAC, no COAMFTE). It is listed on DEAC's public notice page as an APPLICANT for initial accreditation. It holds BPPE provisional approval granted in 2023; the BPPE notice Sentio must publish requires accreditation candidacy or pre-accreditation by 7/25/2025 and full accreditation by 7/25/2028, on pain of automatic suspension of its degree-granting authority plus teach-out or refund. Per the BBS's published Notice to Students, graduates may register as Associates and sit the Law and Ethics Exam, but cannot sit the California LMFT Clinical Exam — and so cannot be licensed — until Sentio is fully accredited. If accreditation is not obtained by July 2028, those degrees and the associate hours earned under them are disqualified.",
+   "src": "https://www.bbs.ca.gov/pdf/publications/sentio_uni_nts_status.pdf"
+  },
+  {
+   "field": "federal financial aid",
+   "current": "(not recorded)",
+   "correct": "No Title IV federal student loans or grants; no Cal Grant; no veterans' aid. 0% of institutional income from public funding per the 2024 BPPE filing. Payment is per-semester in full, or an approved monthly plan with no interest.",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "field": "format — residencies",
+   "current": "hybrid with LA residencies",
+   "correct": "Five 3-to-4-day in-person residencies, one at the start of each of the five semesters (three per academic year), held \"within two hours of Los Angeles\" — not necessarily in Los Angeles. All coursework is weekly Zoom; all clinical work is 100% telehealth through the Sentio Counseling Center. Students pay their own travel, housing and meals (lunch provided).",
+   "src": "https://drive.google.com/file/d/13ziAwiNqEZwhPalQH-iI-K20mShCErTg/view"
+  },
+  {
+   "field": "practicum",
+   "current": "(not recorded)",
+   "correct": "Guaranteed placement at the school's own online clinic starting in semester 2; minimum 400 direct client contact hours with a 100-hour couples sub-minimum.",
+   "src": "https://sentio.org/guaranteed-practicum-at-sentio-counseling-center"
+  }
+ ]
+}

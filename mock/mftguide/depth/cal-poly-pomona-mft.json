@@ -1,0 +1,210 @@
+{
+ "institution": "Cal Poly Pomona",
+ "character": [
+  "To answer the question directly, because our records left it open: an LMFT-qualifying option at Cal Poly Pomona does exist, and it is not a subplan, concentration or option hidden inside a larger degree — it is the entire degree. The M.S. in Psychology is the MFT program. The department states the program is \"designed to prepare you for the Marriage and Family Therapy (MFT) license in the State of California\" and \"meets all the requirements set forth by the BBS.\" The current catalog entry is titled, literally, \"Psychology, M.S.: 60 units,\" and every one of its 60 units is clinical MFT preparation; there is no research track, no I/O option, no non-clinical exit. The BBS education-resources table lists California State Polytechnic University, Pomona for LMFT and nothing else — no LCSW, no LPCC, no LEP. That single-licence listing is not a gap in the program's record; it is an accurate description of a program that does one thing. If you want LPCC eligibility, this is not the place to get it, and there is no published bridge.",
+  "The thing that most distinguishes it is scale, or the lack of it. The program admits \"a maximum of 16 students each year\" — against roughly 200 applicants by the program's own FAQ, roughly 300 by the department's — which makes it one of the smallest and most selective MFT-qualifying cohorts at any California public university, at a resident price of about $10,300 a year. It is full-time only and non-negotiable about it: \"Our program is designed to be full-time for 2 years and classes are only offered once a year.\" There is no part-time route, no evening cohort, no online option. Miss a course and you wait a year.",
+  "The clinical spine has an unusual and quite deliberate design: four separate \"Diagnosis and Treatment of…\" courses, each pairing a population with its associated abuse or violence mandate — PSY 6605 Diagnosis and Treatment of the Family/Family Violence, PSY 6606 Diagnosis and Treatment of Couples and Spousal Abuse, PSY 6607 Diagnosis and Treatment of Children and Child Abuse, plus PSY 6610 Substance Use Problems. Most California programs teach a family-therapy survey and then bolt on standalone partner-abuse and child-abuse-reporting modules to satisfy BBS. Pomona instead teaches the mandated content inside the clinical course for the population it concerns. Add PSY 5565 Advanced Testing and Professional Issues with a separate one-unit laboratory (PSY 5565L) — assessment taught with a hands-on lab component is rare in an MFT curriculum — and the shape of the program is clear: diagnosis-forward, assessment-literate, population-by-population. The culminating experience is a comprehensive exam, and preparing for it is itself coursework: PSY 6870 is a one-unit prep course taken twice, then PSY 6970 is the exam."
+ ],
+ "orientation": null,
+ "signature": [
+  {
+   "code": "PSY 6606",
+   "title": "Diagnosis and Treatment of Couples and Spousal Abuse",
+   "units": "3",
+   "desc": null,
+   "verbatim": false,
+   "why": "The course title is the argument. Pomona does not teach couples therapy in one course and intimate-partner-violence assessment in another; it fuses them, so the BBS-mandated spousal-abuse content arrives inside the clinical course on couples rather than as a compliance add-on. Alongside PSY 6605 (family/family violence) and PSY 6607 (children/child abuse), it is the most identifiable design decision in this curriculum. No catalog description text could be retrieved — see gaps.",
+   "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  },
+  {
+   "code": "PSY 6607",
+   "title": "Diagnosis and Treatment of Children and Child Abuse",
+   "units": "3",
+   "desc": null,
+   "verbatim": false,
+   "why": "Same pattern applied to child work: child therapy and the child-abuse assessment and reporting requirement are one three-unit course. Practically, that means a full term on children rather than the handful of weeks many 60-unit programs allocate. No catalog description text could be retrieved.",
+   "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  },
+  {
+   "code": "PSY 5565 / 5565L",
+   "title": "Advanced Testing and Professional Issues, with Laboratory",
+   "units": "3 + 1",
+   "desc": null,
+   "verbatim": false,
+   "why": "A required assessment course with its own separate one-unit laboratory. Formal psychological testing is usually thin in MFT-track curricula — often a single survey course, sometimes none — so a lecture-plus-lab structure is a genuine differentiator and reflects the program's home in a psychology department rather than a counselor-education one. No catalog description text could be retrieved.",
+   "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  },
+  {
+   "code": "PSY 5575",
+   "title": "Multicultural and Gender Issues in Therapy",
+   "units": "3",
+   "desc": "The department describes multicultural competency as integrated throughout the coursework, \"including dedicated course PSY 5575 (Cross-Cultural & Gender Issues in Therapy & Recovery Model),\" and cites a \"strong commitment to diversity, equity, and inclusion with diverse faculty representation.\" Note the department page and the catalog use slightly different titles for the same course.",
+   "verbatim": true,
+   "why": "The department's own phrasing attaches the Recovery Model to this course, which is a specific commitment — recovery-model practice is the framing used across California's public behavioral health system, and Pomona's practicum sites sit in exactly that system across the Pomona Valley and Inland Empire.",
+   "src": "https://www.cpp.edu/class/psychology/graduate-program/index.shtml"
+  },
+  {
+   "code": "PSY 6620 / 6621",
+   "title": "Supervised Practice and Advanced Supervised Practice",
+   "units": "4 + 4",
+   "desc": null,
+   "verbatim": false,
+   "why": "The eight units that carry the second year, when students are at their sites 20 hours a week. Together with PSY 5581/5583/5584 (Practicum I, III, IV, 2 units each), 14 of the 60 units are supervised practice — a bit under a quarter of the degree. No catalog description text could be retrieved.",
+   "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based, in person, full-time, two years, fall entry only — \"classes are only offered once a year,\" so the sequence is effectively fixed. The catalog publishes the requirement set rather than a term-by-term grid; the list below is the full required set from the current catalog (59 units of major requirements plus a 1-unit culminating experience). The listed courses sum to exactly 60.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Major required courses — coursework (no published term grid)",
+    "courses": [
+     "PSY 5510 Research Methods and Statistics (3)",
+     "PSY 5515 Advanced Topics in Human Development (3)",
+     "PSY 5530 Psychobiology of Mental Disorders (3)",
+     "PSY 5545 Introduction to Family and Marital Therapy (3)",
+     "PSY 5555 Psychopathology (3)",
+     "PSY 5565 Advanced Testing and Professional Issues (3)",
+     "PSY 5565L Advanced Testing and Professional Issues Laboratory (1)",
+     "PSY 5570 Ethical Issues in Counseling and Family Therapy (3)",
+     "PSY 5575 Multicultural and Gender Issues in Therapy (3)",
+     "PSY 5580 Introduction to Evidence-Based Practice (3)",
+     "PSY 5598 Human Sexuality (3)",
+     "PSY 6605 Diagnosis and Treatment of the Family/Family Violence (3)",
+     "PSY 6606 Diagnosis and Treatment of Couples and Spousal Abuse (3)",
+     "PSY 6607 Diagnosis and Treatment of Children and Child Abuse (3)",
+     "PSY 6610 Substance Use Problems (3)"
+    ]
+   },
+   {
+    "label": "Major required courses — supervised practice (14 units)",
+    "courses": [
+     "PSY 5581 Practicum I (2)",
+     "PSY 5583 Practicum III (2)",
+     "PSY 5584 Practicum IV (2)",
+     "PSY 6620 Supervised Practice (4)",
+     "PSY 6621 Advanced Supervised Practice (4)"
+    ]
+   },
+   {
+    "label": "Comprehensive exam preparation and culminating experience (3 units)",
+    "courses": [
+     "PSY 6870 Comprehensive Exam Preparation (1) — taken twice, 2 units total",
+     "PSY 6970 Comprehensive Exam (1)"
+    ]
+   }
+  ],
+  "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+ },
+ "practicum": {
+  "starts": "An introductory practicum in the spring semester of year one; the substantive placement runs through all of year two",
+  "hours": "Year two is a half-time placement — \"students are at their practicum sites half-time (or 20 hours per week)\". No total client-contact hour requirement is published.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "Placement is student-driven from a vetted list, and the department is explicit about the division of labour: \"Our program provides a list of approved practicum sites. Students are then responsible for contacting these sites and going through their application process.\" That means the search and the interviews are yours, in the spring of year one, while you are carrying a full course load and an introductory practicum. The department notes that \"most practicum sites on our approved list afford students the opportunity to gain clinical experience working with diverse and underserved communities,\" which in this catchment means the Pomona Valley and Inland Empire county and community-agency system. In year two the commitment is 20 hours a week for two semesters, carried in PSY 6620 Supervised Practice and PSY 6621 Advanced Supervised Practice (4 units each) on top of PSY 5581/5583/5584. We found no evidence of an in-house training clinic — no clinic is named on the department's program pages, and a third-party program profile likewise reports that whether one exists is not publicly specified — so plan on the assumption that all client contact happens at outside agencies. The program also does not publish a minimum number of direct client hours, a relational (couple/family) sub-minimum, or supervision ratios; those are set by the site and by BBS trainee rules rather than by a published program standard.",
+  "src": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml",
+  "model": "assisted",
+  "model_evidence": "Our program provides a list of approved practicum sites. Students are then responsible for contacting these sites and going through their application process.",
+  "model_url": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "\"We admit a maximum of 16 students each year.\" The applicant pool is given as \"approximately 200 applicants\" on the program FAQ and \"approximately 300 applicants\" on the department's graduate FAQ — the two pages disagree; either way this is roughly a 5-8% admit rate.",
+  "gre": "not required",
+  "prereqs": "Minimum 3.2 GPA. Applicants from related fields (sociology, social work, education) need \"at least 24 semester or 36 quarter units of psychology courses.\" Full-time attendance is mandatory: \"Our program is designed to be full-time for 2 years and classes are only offered once a year.\"",
+  "deadline": "Fall entry only. The department's graduate FAQ gives February 1 with rolling review until the cohort is full; the program's own FAQ says \"Our application deadline is typically February 15, but this may vary slightly from year to year.\" Confirm with the department before relying on either date.",
+  "src": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml",
+  "gre_evidence": "No, our program does not require the GRE for admission.",
+  "gre_url": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "cost": {
+  "resident_tuition_fees": "Fall 2026 / Spring 2027, California resident, full-time (7+ units): $5,137.97 per semester — $4,274.00 tuition plus $863.97 campus fees — or $10,275.94 for the academic year. Non-resident students add a per-unit tuition surcharge. Excludes books and living costs.",
+  "src": "https://www.cpp.edu/student-accounting/tuition/graduate-tuition-and-fees.shtml"
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Cal_Poly_Main_Quad_%28Pomona%2C_CA%29.PNG",
+  "page": "https://commons.wikimedia.org/wiki/File:Cal_Poly_Main_Quad_(Pomona,_CA).PNG",
+  "license": "CC0",
+  "credit": "Photo by Marco Guzman, Jr, via Wikimedia Commons, CC0",
+  "caption": "The main quad at Cal Poly Pomona, with lawn, mature trees and low campus buildings along the walkway."
+ },
+ "gaps": [
+  "No catalog course descriptions could be retrieved. Cal Poly Pomona's Acalog catalog serves program pages inconsistently from this environment and blocks its course-list and course-detail pages entirely, so the signature courses above carry verified codes, titles and unit values from the current catalog program page but no description text. Titles are accurate; do not infer content beyond them.",
+  "The catalog's required list runs PSY 5581 Practicum I, PSY 5583 Practicum III and PSY 5584 Practicum IV, with no Practicum II. The listed courses sum to exactly 60 units, which suggests the list is complete rather than truncated, but we could not confirm whether a PSY 5582 exists as an unrequired or renumbered course.",
+  "No in-house training clinic could be identified, and no page states that one does not exist either. Worth asking directly, since it determines whether your first client contact is program-supervised or agency-supervised.",
+  "No published direct-client-hour minimum, relational/couple/family hour sub-minimum, or supervision ratio. The program publishes only the 20-hours-per-week year-two commitment.",
+  "The program does not publish graduation rates, licensure exam pass rates or employment outcomes — a real contrast with Sonoma State, which publishes all three.",
+  "The two Cal Poly Pomona FAQ pages disagree on both the applicant pool (200 vs 300) and the application deadline (February 15 vs February 1). Both are official university pages.",
+  "No credible first-person student discussion was found; Reddit search was unavailable from this environment.",
+  "No freely-licensed campus photograph could be verified — Wikimedia Commons was unreachable from this environment."
+ ],
+ "corrections": [
+  {
+   "field": "LMFT-qualifying option exists?",
+   "current": "unresolved — catalog page did not render; unclear whether an LMFT route exists",
+   "correct": "Resolved: yes. There is no MFT subplan or option — the whole M.S. in Psychology is the MFT program. The department states it is \"designed to prepare you for the Marriage and Family Therapy (MFT) license in the State of California\" and \"meets all the requirements set forth by the BBS.\" There is no non-clinical or research track within this degree.",
+   "src": "https://www.cpp.edu/class/psychology/ms-psy-program/index.shtml"
+  },
+  {
+   "field": "subplan name",
+   "current": "assumed to exist; name unknown",
+   "correct": "There is no subplan. The catalog entry is titled \"Psychology, M.S.: 60 units\" with a single undifferentiated requirement set: 59 units of major requirements plus a 1-unit culminating experience.",
+   "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  },
+  {
+   "field": "catalog URL",
+   "current": "https://catalog.cpp.edu/preview_program.php?catoid=51&poid=13390",
+   "correct": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895 — catoid=51 is a superseded catalog edition. The unit total is unchanged at 60.",
+   "src": "https://www.cpp.edu/class/psychology/graduate-program/index.shtml"
+  },
+  {
+   "field": "units",
+   "current": "60 units",
+   "correct": "Confirmed correct — the current catalog literally titles the program \"Psychology, M.S.: 60 units,\" and the listed course requirements sum to exactly 60.",
+   "src": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  },
+  {
+   "field": "LPCC",
+   "current": "LPCC explicitly no",
+   "correct": "Confirmed correct. The BBS education-resources table row reads \"California State Polytechnic University, Pomona | LMFT\" — LMFT only, with no LCSW, LPCC or LEP listing, and no published LPCC bridge coursework.",
+   "src": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  }
+ ],
+ "sources": [
+  {
+   "label": "Program: Psychology, M.S.: 60 units — current CPP catalog",
+   "url": "https://catalog.cpp.edu/preview_program.php?catoid=69&poid=19706&returnto=5895"
+  },
+  {
+   "label": "M.S. Psychology Program Description, Department of Psychology",
+   "url": "https://www.cpp.edu/class/psychology/ms-psy-program/index.shtml"
+  },
+  {
+   "label": "M.S. Psychology Program FAQ",
+   "url": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml"
+  },
+  {
+   "label": "Psychology Master's — department graduate program page and FAQ",
+   "url": "https://www.cpp.edu/class/psychology/graduate-program/index.shtml"
+  },
+  {
+   "label": "Graduate program FAQ (department)",
+   "url": "https://www.cpp.edu/class/psychology/graduate-program/graduate-faq.shtml"
+  },
+  {
+   "label": "Graduate Tuition & Fees, Student Accounting (Fall 2026 / Spring 2027)",
+   "url": "https://www.cpp.edu/student-accounting/tuition/graduate-tuition-and-fees.shtml"
+  },
+  {
+   "label": "BBS Education Resources — school/licence table",
+   "url": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  }
+ ]
+}

@@ -1,0 +1,203 @@
+{
+ "institution": "Dominican University of California",
+ "character": [
+  "The confusing part of this program is the 43-unit number, so start there. Dominican's MS in Counseling Psychology has three named tracks and the 43-unit one — the General Master's Concentration — is deliberately not a licensure degree. The university describes it as a \"43-unit program designed to prepare students to provide consultation, case management, education and training in a wide variety of settings or for further doctoral work.\" It replaces the licensure track's supervised practicum with 280 hours of supervised volunteer fieldwork, drops the personal-psychotherapy requirement entirely, and ends with two semesters of CP 5995, the General Master's Proficiency Project seminar — a seminar capped at six students in which each person carries a research, design or service-learning project to a final presentation before an academic or community group. If you want an LMFT, this is not the track; if you want a counseling-psychology master's as a doctoral springboard or for a non-clinical role, it is a cheaper, shorter version of the same core.",
+  "The licensure track is 60 units and it is a single program that satisfies both licenses. The MFT concentration is written to Bus. & Prof. Code §4980.37 and SB 33; the PCC concentration to §§4999.10–4999.122 and SB 788; and students can carry both concentrations inside the same 60 units rather than paying for an add-on. The 17 units the licensure track adds to the shared 43-unit core are exactly the BBS-mandated pieces the general track omits: Family Therapy (3), Couple Therapy (3), Career Counseling (3), Psychopharmacology (3), Clinical Aspects of Human Sexuality (1), Geriatrics and Long-Term Care (1), and three Practicum Seminars (9) — which, with the seminars, is how the arithmetic reaches 60.",
+  "Two things make the clinical training heavier than the California floor. The practicum requirement is \"a minimum of 500 hours of practicum... of which 280 must be direct counseling\" — 280 direct hours is the LPCC number, not the 225-hour MFT minimum, so MFT-only students are held to the higher bar. And personal psychotherapy is 45 hours, of which only 15 may have been done in the two years before entering. Beyond that the program is small and conventional in shape: maximum 20 students per class, faculty who are all practicing clinicians, over 50 partner agencies, in-person late-afternoon/evening/weekend classes over 30–36 months, and no in-house training clinic. The structural signature of the curriculum is modality-by-modality — separate Advanced Counseling Techniques courses for psychodynamic work, brief/CBT work, children, and case management — rather than a single theoretical allegiance."
+ ],
+ "orientation": "Integrative and modality-by-modality — a separate advanced-techniques course for psychodynamic, brief/CBT, child, and advocacy/case-management practice, with no single declared school",
+ "signature": [
+  {
+   "code": "CP 5209",
+   "title": "Advanced Counseling Techniques: Client Advocacy and Collaborative Care",
+   "units": "3",
+   "desc": "Teaches \"the basic techniques of brokerage and clinical case management\" and their application with diverse populations, focusing on clients with severe mental illness, trauma and concurrent substance abuse, and on collaborating across behavioral health, criminal justice, primary care and vocational service systems.",
+   "verbatim": true,
+   "why": "Case management taught as a graded 3-unit clinical technique course is genuinely uncommon in California MFT curricula, where it is usually absorbed into practicum supervision. It is a strong signal that the program expects graduates to work in county and non-profit systems where brokerage across agencies is most of the job.",
+   "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/courses/cp-counseling-psychology/5000/cp-5209"
+  },
+  {
+   "code": "CP 5207",
+   "title": "Advanced Counseling Techniques: Psychodynamic",
+   "units": "2",
+   "desc": "Covers \"traditional and recent developments in psychodynamic theory and technique\" across Ego Psychology, Object Relations, Self-Psychology, Control Mastery, Intersubjective and Relational approaches, developing competency with transference and countertransference and applying \"relevant, supportive and long-term techniques with adolescents, adults and seniors.\"",
+   "verbatim": true,
+   "why": "A required, standalone psychodynamic techniques course — naming Control Mastery and intersubjective theory specifically — sitting beside an equally required brief/CBT course. Programs that are quietly CBT-forward do not staff a course like this; it tells you psychodynamic supervision is available and expected.",
+   "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/courses/cp-counseling-psychology/5000/cp-5207"
+  },
+  {
+   "code": "CP 5210",
+   "title": "Fundamentals of Clinical Practice: Group Psychotherapy",
+   "units": "3",
+   "desc": "\"Theoretical and practical approaches to working with groups are discussed and practiced. Topics include: setting goals and objectives, group observation and assessment skills, leadership styles, process techniques, developmental stages, cultural and socio-economic diversity, social stress, and termination,\" extended to inpatient, school, managed care and community mental health settings.",
+   "verbatim": true,
+   "why": "Note the framing: group work is one of two courses labeled 'Fundamentals of Clinical Practice' alongside individual psychotherapy, rather than a late elective. A full 3 units on group practice, including self-help and task groups, is more than the BBS requires.",
+   "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/courses/cp-counseling-psychology/5000/cp-5210"
+  },
+  {
+   "code": "CP 5294",
+   "title": "Practicum Seminar",
+   "units": "3 (taken three times, 9 units total)",
+   "desc": "Three seminars taken alongside placement, applying and refining counseling competencies at approved sites including assessment, case management and advocacy with diverse populations. Students write comprehensive case studies covering diagnosis, treatment planning, documentation and ethics; the stated aim is to cultivate \"integrity, sensitivity, flexibility, insight, compassion, and professional presence.\"",
+   "verbatim": true,
+   "why": "Nine units of seminar attached to fieldwork is substantial, and the gate to enter it is specific: 24 completed units including ethics, individual psychotherapy, brief/CBT, psychopathology and assessment. That means no student reaches a client without diagnosis and law/ethics already behind them.",
+   "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/courses/cp-counseling-psychology/5000/cp-5294"
+  },
+  {
+   "code": "CP 5995",
+   "title": "GMPP Seminar",
+   "units": "3 (taken twice, 6 units total)",
+   "desc": "The capstone of the non-licensure General Master's track: \"an opportunity for those students who wish to obtain a General Master's in Counseling Psychology to integrate, apply and demonstrate their knowledge through the development of a Master's Project\" — research, design, service learning or another documented contribution — presented as work-in-progress across two semesters and publicly at graduation.",
+   "verbatim": true,
+   "why": "This is the course that explains what the 43-unit degree actually is. It is a supervised project seminar capped at six students ending in a public presentation — a doctoral-preparation or applied-research exit, not a clinical one. If a prospective student is confused by the 43-unit figure, this is the answer.",
+   "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/courses/cp-counseling-psychology/5000/cp-5995"
+  }
+ ],
+ "curriculum": {
+  "note": "No term-by-term sequence is published, so the blocks below are structural rather than temporal — a shared 43-unit core, then a 17-unit licensure add-on. Students enter in Fall or Spring and take 30–36 months in person, with late-afternoon, evening and weekend classes available for part-time and working students; classes are capped at 20. Applicants who have not taken a Theories of Personality course must complete one by the end of the first year. Order is enforced by the practicum gate: 24 units including CP 5217, CP 5201, CP 5208, CP 5237 and CP 5221 must be done before either the Practicum Seminar or the GMPP Seminar begins.",
+  "total_units": "43 units (General Master's Concentration, non-licensure) or 60 units (MFT and/or PCC Concentration)",
+  "terms": [
+   {
+    "label": "Required coursework — shared core (43 units, both concentrations)",
+    "courses": [
+     "CP 5201 Fundamentals of Clinical Practice: Individual Psychotherapy (3)",
+     "CP 5205 Advanced Counseling Techniques: Assessment and Treatment of Children (2)",
+     "CP 5206 Crisis Intervention and Trauma (1)",
+     "CP 5207 Advanced Counseling Techniques: Psychodynamic (2)",
+     "CP 5208 Advanced Counseling Techniques: Brief and CBT Therapies (3)",
+     "CP 5209 Advanced Counseling Techniques: Client Advocacy and Collaborative Care (3)",
+     "CP 5210 Fundamentals of Clinical Practice: Group Psychotherapy (3)",
+     "CP 5214 Domestic Violence: Assessment, Reporting and Treatment (1)",
+     "CP 5215 Child Abuse: Assessment, Reporting and Treatment (1)",
+     "CP 5216 Alcohol and Substance Abuse (2)",
+     "CP 5217 Professional Ethics and Law (2)",
+     "CP 5219 Human Diversity (2)",
+     "CP 5221 Psychological Assessment (3)",
+     "CP 5222 Research in Human Systems and Treatment Outcomes (3)",
+     "CP 5231 Phases of Human Development (3)",
+     "CP 5237 Psychopathology and Treatment Planning (3)"
+    ]
+   },
+   {
+    "label": "General Master's Concentration capstone (completes the 43 units) — non-licensure",
+    "courses": [
+     "CP 5995 GMPP Seminar (3)",
+     "CP 5995 GMPP Seminar, second semester (3)"
+    ]
+   },
+   {
+    "label": "MFT / PCC Concentration adds (17 units, for 60 total)",
+    "courses": [
+     "CP 5218 Geriatrics and Long-Term Care (1)",
+     "CP 5220 Career Counseling (3)",
+     "CP 5224 Psychopharmacology (3)",
+     "CP 5245 Clinical Aspects of Human Sexuality (1)",
+     "CP 5246 Advanced Counseling Techniques: Family Therapy (3)",
+     "CP 5247 Advanced Counseling Techniques: Couple Therapy (3)",
+     "CP 5294 Practicum Seminar (3)",
+     "CP 5294 Practicum Seminar, second (3)",
+     "CP 5294 Practicum Seminar, third (3)"
+    ]
+   }
+  ],
+  "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/graduate-degree-programs/counseling-psychology-ms-mft-pcc/"
+ },
+ "practicum": {
+  "starts": "After 24 units, including CP 5217, CP 5201, CP 5208, CP 5237 and CP 5221; it then runs across three semesters of Practicum Seminar",
+  "hours": "\"A minimum of 500 hours of practicum is required of which 280 must be direct counseling for the MFT Concentration and PCC Concentration.\" General Master's students instead complete a minimum of 280 supervised volunteer fieldwork hours.",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "There is no in-house clinic. Placements are in \"governmental agencies, schools or colleges, nonprofit and charitable corporations, or licensed health facilities,\" with on-site licensed professionals supervising; the program states it partners with over 50 community agencies and places 100 percent of its trainees, and that roughly 90 percent of graduates go on to MFT licensure or MFT associate registration. Note the 500-hour total against 280 direct hours — the non-direct 220 hours are the paperwork, supervision and case-management side, and 280 direct is above California's 225-hour MFT graduation minimum. MFT/PCC students also complete a minimum of 45 hours of their own psychotherapy, of which no more than 15 may have been completed in the two years before entering. General Master's students may count any personal therapy they choose to do toward their 280 volunteer hours instead.",
+  "src": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/graduate-degree-programs/counseling-psychology-ms-mft-pcc/",
+  "model": "placed",
+  "model_evidence": "Dominican's well-established practicum works with over 50 community agencies to place 100 percent of our trainees in the field.",
+  "model_url": "https://www.dominican.edu/academics/graduate-programs/master-science-counseling-psychology-ms-mftpcc",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Classes capped at 20 students; Niche reports 21 students enrolled in the Counseling Psychology master's",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from a regionally accredited institution, 3.0 GPA over the last 60 units, transcripts, résumé, 500-word statement of purpose, a 4–5 page autobiography, a written response to a crisis scenario, and an interview if required. A Theories of Personality course is prerequisite and may be completed by the end of the first year.",
+  "deadline": "June 1 for Fall entry; December 1 for Spring entry",
+  "src": "https://www.dominican.edu/ms-counseling-psychology",
+  "gre_evidence": "A GPA of 3.0 is required for the last 60 units of graded undergraduate or graduate coursework.",
+  "gre_url": "https://www.dominican.edu/academics/graduate-programs/master-science-counseling-psychology-ms-mftpcc",
+  "min_gpa": "3.0 for the last 60 units",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "A psychology graduate said the \"curriculum is completely aligned with the BBS standards\" and reported feeling better prepared than peers from other programs.",
+   "who": "GradReports, Dominican psychology alum, 2012 — institution-level review, not specific to the MS in Counseling Psychology",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/dominican-university-of-california"
+  },
+  {
+   "text": "\"The best part of the university was not only the small class sizes, but the people... were all pleasant to be around and actually cared about you.\"",
+   "who": "GradReports, psychology alum, 2009 — institution-level review",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/dominican-university-of-california"
+  },
+  {
+   "text": "Across 52 GradReports reviews, 92 percent of students said they would recommend the school; a 2023 chemistry graduate raised campus safety and cost concerns, and another student cited limited career support outside their focus area.",
+   "who": "GradReports, aggregate, 2026",
+   "sentiment": "mixed",
+   "url": "https://www.gradreports.com/colleges/dominican-university-of-california"
+  },
+  {
+   "text": "A current graduate student rated the school 5/5 for academics — \"a small college that has a diverse group of students. Each student has access to tutoring, support services, and the faculty!\" — but rated return on investment poorly, noting they had only just started.",
+   "who": "Niche, graduate student review, ~2026 — institution-level review",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/dominican-university-of-california/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Dominican_University_of_California_sign.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dominican_University_of_California_sign.jpg",
+  "license": "CC0 1.0 (Creative Commons Zero, Public Domain Dedication)",
+  "credit": "Photo by Mx. Granger, via Wikimedia Commons (CC0, no attribution required)",
+  "caption": "The Dominican University of California entrance sign on Grand Avenue in San Rafael, photographed in July 2016"
+ },
+ "gaps": [
+  "No term-by-term course sequence is published; the catalog gives credit blocks and a practicum prerequisite gate only.",
+  "The materials reviewed never state whether the GRE is required, waived or not considered.",
+  "No licensure exam pass rate is published. The program's own '90 percent of graduates obtain MFT licensure or associate registration' and '100 percent of trainees placed' are self-reported claims with no cited methodology or year.",
+  "No student reviews specific to the MS in Counseling Psychology were found on Niche, GradReports, Reddit, Student Doctor Network or GradCafe — the voices recorded here are institution-level and should be read as such.",
+  "It is not stated whether students apply directly into the 43-unit General Master's Concentration or whether it also functions as an exit route for students who leave the licensure track, which would materially change how a prospective student should read it.",
+  "No in-house training clinic exists and the catalog does not name any of the 50-plus partner agencies.",
+  "Faculty are described as all practicing clinicians but no theoretical-orientation breakdown or named core faculty list was found in the catalog."
+ ],
+ "sources": [
+  {
+   "label": "Academic catalog 2025-26 — Counseling Psychology (MS, MFT, PCC)",
+   "url": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/graduate-degree-programs/counseling-psychology-ms-mft-pcc/"
+  },
+  {
+   "label": "Academic catalog 2025-26 — CP course descriptions",
+   "url": "https://dominican.smartcatalogiq.com/en/2025-2026/academic-catalog/courses/cp-counseling-psychology"
+  },
+  {
+   "label": "MS in Counseling Psychology program page (format, class size, placement, admissions, tuition)",
+   "url": "https://www.dominican.edu/ms-counseling-psychology"
+  },
+  {
+   "label": "Master of Science in Counseling Psychology (MS, MFT/PCC) — concentration definitions and statutory citations",
+   "url": "https://www.dominican.edu/academics/graduate-programs/master-science-counseling-psychology-ms-mftpcc"
+  },
+  {
+   "label": "GradReports student reviews",
+   "url": "https://www.gradreports.com/colleges/dominican-university-of-california"
+  },
+  {
+   "label": "Niche graduate school profile and reviews",
+   "url": "https://www.niche.com/graduate-schools/dominican-university-of-california/"
+  },
+  {
+   "label": "Wikimedia Commons — campus sign photograph (CC0)",
+   "url": "https://commons.wikimedia.org/wiki/File:Dominican_University_of_California_sign.jpg"
+  }
+ ]
+}

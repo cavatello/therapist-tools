@@ -1,0 +1,240 @@
+{
+ "institution": "California State University, Dominguez Hills",
+ "character": [
+  "CSUDH is one of the very few California MFT programs that is its own academic department rather than an option bolted onto a psychology or counseling department — there is a Department of Marital and Family Therapy, it admits only MFT students, and it \"permits enrollment in courses solely to students admitted to the M.S. in Marital and Family Therapy program.\" The consequence shows up in the course list: every one of the 64 units carries an MFT prefix, and there is no shared psychopathology or statistics seminar with another cohort. The stated centre of gravity is systemic theory plus social justice plus \"self-of-the-therapist work,\" and the mission statement is unusually blunt about the second of those: the program prepares students \"to critically and ethically engage concerns of intersectionality, equity, and social justice to improve systems of oppression.\" Courses run primarily in the evening for students who work days, though the handbook warns that \"students must expand their availability in year two to accommodate traineeship.\" The program has grown fast: entering cohorts were 15 (2022), 25 (2023), 35 (2024) and 37 (2025).",
+  "The COAMFTE claim on the program page — \"The MFT curriculum aligns with the educational and clinical COAMFTE Standards\" — is worth reading precisely, because it is not an accreditation claim and CSUDH does not present it as one. The program does not appear anywhere in COAMFTE's own directory of accredited programs, which lists 127 programs worldwide and 25 in California; CSU Northridge is the only CSU on that list. What CSUDH actually holds is WSCUC accreditation (institutional, campus-wide, not MFT-specific) and Board of Behavioral Sciences approval under B&P §4980.36. So \"alignment\" is self-declared and has never been audited by COAMFTE, and it does not buy you the portability or AAMFT-track advantages that accreditation does.",
+  "That said, the claim is not empty, and the evidence for it is public. CSUDH has voluntarily adopted the artefacts that COAMFTE Standards Version 12.5 requires accredited programs to disclose: its five program goals are written to \"reflect the COAMFTE's five Developmental Competency Components outlined in Standards Version 12.5\"; it publishes a Graduate Achievement Data table in COAMFTE's own GAD I/II/III format (advertised program length 3 years, maximum 5; the 2022 cohort of 15 graduated 93% on time, reported 85.71% job placement and 100% licensure at any level); and it publishes separate annual demographic reports for students, faculty and clinical supervisors. Its handbook says clinical-training policy is \"derived from the Board of Behavioral Science (BBS) regulations, aligned with the Commission on Accreditation for Family Therapy Education (COAMFTE) standards.\" The practical upside for an applicant is that you can see this program's graduation, employment and licensure numbers at all — most BBS-only California programs publish none of that."
+ ],
+ "orientation": "Systemic/relational, with an explicit social-justice frame and sustained self-of-the-therapist work",
+ "signature": [
+  {
+   "code": "MFT 515",
+   "title": "Pre-Practicum I: Therapy Skills",
+   "units": "2",
+   "desc": "Seminar and demonstration of supervised basic clinical skills — clinical interviewing, assessment and intervention — with emphasis on the therapeutic alliance and self-of-the-therapist.",
+   "verbatim": false,
+   "why": "CSUDH gates entry to fieldwork behind two full semesters of skills lab (515 then 525) before you meet a client, which is a semester longer than most California programs run. The pairing is the program's real signature.",
+   "src": "https://catalog.csudh.edu/courses/mft/"
+  },
+  {
+   "code": "MFT 525",
+   "title": "Pre-Practicum II Advanced Therapy Skills",
+   "units": "2",
+   "desc": "Instructional seminar demonstrating supervised advanced therapy skills covering assessment, diagnosis, treatment planning, case management and safety planning.",
+   "verbatim": false,
+   "why": "This is the gate, not just a course: the handbook says the program evaluates skills here to \"determine Practicum and clinical training readiness in the field,\" and you must score 4 or better on a Clinical Readiness Assessment to be allowed into fieldwork at all. A named, scored competency threshold before client contact is rare in CA programs.",
+   "src": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf"
+  },
+  {
+   "code": "MFT 576",
+   "title": "Human Communication, Theory, and Skill",
+   "units": "2",
+   "desc": "\"Instruction in the purposes, theory, and skills of communication applied to intrapersonal and interpersonal experience.\"",
+   "verbatim": true,
+   "why": "A free-standing course on communication theory as such — not couples communication, not a technique module inside a theories course — is close to unique among California MFT curricula. It is on the books at CSUDH but does not appear in the handbook's published three-year roadmap, so confirm with the department whether it is currently offered.",
+   "src": "https://catalog.csudh.edu/courses/mft/"
+  },
+  {
+   "code": "MFT 588",
+   "title": "Treatment of Trauma with Individuals, Couples, and Families",
+   "units": "3",
+   "desc": "\"Beginning and advanced techniques in assessment, diagnosis, treatment, and crisis intervention of child and elder abuse, domestic violence, rape, disaster, crime, and other trauma.\"",
+   "verbatim": true,
+   "why": "Most CA programs satisfy the BBS trauma and abuse-reporting content inside a law-and-ethics or crisis unit. CSUDH gives it a full 3-unit third-year course and frames it relationally — trauma treated in couples and families, not only in the individual.",
+   "src": "https://catalog.csudh.edu/courses/mft/"
+  },
+  {
+   "code": "MFT 596",
+   "title": "Practicum: Marital Family Therapy Traineeship",
+   "units": "3",
+   "desc": "\"A multi-semester course that encompasses fieldwork training, on-site supervision, and classroom participation\" spanning a minimum of 12 months.",
+   "verbatim": true,
+   "why": "The 12-month floor matters: you cannot compress CSUDH's fieldwork into two heavy semesters, and the roadmap runs the course across semesters 3 through 6 plus an optional summer. Plan on your second and third years being structurally busier than your first.",
+   "src": "https://catalog.csudh.edu/courses/mft/"
+  },
+  {
+   "code": "MFT 589",
+   "title": "Advanced Therapeutic Approaches and Application",
+   "units": "2",
+   "desc": "\"An inclusive survey of major theoretical approaches, integrative psychotherapies, evidenced-based practice\" with demonstrated case conceptualization.",
+   "verbatim": true,
+   "why": "This is half of the culminating experience: the handbook names \"the final signature assignment in the Advanced Therapeutic Approaches and Applications course\" alongside the comprehensive exam as the two things you must pass to graduate. It runs in the final semester next to MFT 599.",
+   "src": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Strict lockstep cohort on a full-time three-year plan; the handbook states that \"failure to take classes in sequence may delay admission into Practica and or graduation,\" and part-time study is permitted only with the program director's and chair's approval. Every student signs a Plan of Study. Note that the roadmap lists MFT 596 in four semesters plus an optional summer, but the degree requires only three semesters of practica — nine of those units, not twelve, count toward the 64. MFT 400 and MFT 590 appear on the roadmap as electives that explicitly \"do not count as part of the required 64 units.\" Sequence below is the 3-Year Course Sequence in the 2024–25 program handbook.",
+  "total_units": "64",
+  "terms": [
+   {
+    "label": "Year 1 — Semester 1",
+    "courses": [
+     "MFT 515 Pre-practicum I: Introduction to Therapy Skills (2)",
+     "MFT 560 Life Span, Family Development and Aging (3)",
+     "MFT 570 Theories and Techniques of Marital and Family Therapy I (3)",
+     "MFT 584 Law, Ethics & Professional Practices (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Semester 2",
+    "courses": [
+     "MFT 525 Pre-practicum II: Advanced Therapy Skills (2)",
+     "MFT 572 Theories and Techniques of Marital Family Therapy II (3)",
+     "MFT 583 Research Methods in Marital & Family Therapy (3)",
+     "MFT 565 Assessment in Mental Health Treatment (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Semester 3 (fieldwork begins)",
+    "courses": [
+     "MFT 575 Relational Therapy & Human Sexuality (3)",
+     "MFT 578 Treatment Approaches with Children and Adolescents (3)",
+     "MFT 580 Sociocultural Diversity and Marginalized Communities (3)",
+     "MFT 596 Practicum: MFT Traineeship (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Semester 4",
+    "courses": [
+     "MFT 530 Community Mental Health (3)",
+     "MFT 566 Mental Health, Diagnosis and Systemic Treatment (3)",
+     "MFT 582 Psychopharmacology and Mental Health Treatment (3)",
+     "MFT 596 Practicum: MFT Traineeship (3)"
+    ]
+   },
+   {
+    "label": "Summer after Year 2 (optional)",
+    "courses": [
+     "MFT 596 Practicum: MFT Traineeship (3) — not required, but enrollment is mandatory if you are active in a summer traineeship, and summer traineeship is permitted only after a full year in the program"
+    ]
+   },
+   {
+    "label": "Year 3 — Semester 5",
+    "courses": [
+     "MFT 520 Group Therapy (3)",
+     "MFT 585 Treatment of Substance Use, Addiction, and Dependence (3)",
+     "MFT 588 Treatment of Trauma with Individuals, Couples, and Families (3)",
+     "MFT 596 Practicum: MFT Traineeship (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Semester 6",
+    "courses": [
+     "MFT 586 Current Issues in Marital & Family Therapy (3)",
+     "MFT 589 Advanced Therapeutic Approaches and Application (2)",
+     "MFT 599 Comprehensive Exam (1)",
+     "MFT 596 Practicum: MFT Traineeship (3)"
+    ]
+   },
+   {
+    "label": "Electives (do not count toward the 64 units)",
+    "courses": [
+     "MFT 400 Foundations in MFT (3)",
+     "MFT 590 Career Counseling (3)"
+    ]
+   }
+  ],
+  "src": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf"
+ },
+ "practicum": {
+  "starts": "Semester 3 — the fall of year two. Entry requires all 21 units of first-year coursework passed at B or better, attendance at a Fieldwork Orientation at least one term earlier, an application filed through Tevera, written authorization from the Director of Clinical Training, and a score of 4 or better on the Clinical Readiness Assessment scored out of MFT 525.",
+  "hours": "300 face-to-face client contact hours to graduate, of which at least 100 must be relational — client contact with couples or families. Minimum 10–15 hours per week at the site, more if the agency demands it, across a minimum of three semesters of practica (12 months minimum). The program says students can bank 300 to 1,300 of the 3,000 hours the BBS requires for licensure.",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "There is no in-house training clinic — CSUDH does not run one, and all client contact happens at community agencies across greater Los Angeles and parts of Orange County. Placement is a supervised search rather than an assignment: the program maintains a directory of contracted and previously-contracted agencies inside Tevera, you must shortlist at least three, interview at them, and choose one, with the Director of Clinical Training approving the match; you may also petition to add a new site, which takes roughly 6–8 weeks to approve and about two months more to contract. You may not do your traineeship at your own employer, and you must be actively seeing clients by week three or you lose your practicum enrollment. Supervision is doubled up: your off-site agency supervisor is your primary supervisor and must provide one hour of face-to-face individual or two hours of face-to-face group supervision for every five hours of direct client contact, using audio, video, case notes or live observation. Separately, the MFT 596 course instructor — an AAMFT Approved Supervisor or Candidate — runs classroom case discussion with a systemic and relational emphasis and consults with your site supervisor at least twice a semester, but explicitly \"does not serve as the student's supervisor for the agency's clinical cases.\" The department does not require background checks or Live Scan, but many agencies do.",
+  "src": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf",
+  "model": "assisted",
+  "model_evidence": "The MFT program provides its students with a directory of sites with approved sites accessible in Tevera to eligible students after completing the Fieldwork Orientation(s) ... Students are free to select sites from this repository and contact the designated person listed to determine if the site is currently accepting students and the procedures to apply for the internship. ... Students should select three (3) agencies of interest at a minimum and engage in the interview process before choosing one agency.",
+  "model_url": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Published by starting cohort: 15 (2022), 25 (2023), 35 (2024), 37 (2025) — the entering class has more than doubled in four years.",
+  "gre": "waivable",
+  "prereqs": "Bachelor's degree from an accredited institution; minimum 3.0 GPA in the last 60 upper-division units; three prerequisite courses completed before admission — Introduction to Research Methods, Theories of Personality, and Abnormal Psychology, or approved equivalents. Application via Cal State Apply with a written statement sample, three letters of recommendation, and an interview with the admission committee. All applicants must sign an acknowledgement of the limits of licensure portability across states before enrolling in any first-semester course.",
+  "deadline": null,
+  "cost": "California-resident cost from the university's own 2026–27 cost-of-attendance sheet: graduate tuition $8,548 per nine-month year plus $1,863 in campus fees, i.e. $10,411 a year full-time, or roughly $31,200 in tuition and fees over the three-year plan. CSUs charge a flat per-semester rate by unit band, not per unit — the 2025–26 fee schedule shows $4,738.07 per semester at 6.1+ units versus $3,046.07 at 0–6.0 units, so dropping below the full-time band saves far less than half.",
+  "src": "https://catalog.csudh.edu/academics/marital-family-therapy/marital-family-therapy.pdf",
+  "gre_evidence": "Completion of the Graduate Record Examination General Aptitude (GRE) Test. An average GPA of 3.5 OR attainment of a previous master's degree waives this requirement",
+  "gre_url": "https://catalog.csudh.edu/academics/marital-family-therapy/marital-family-therapy.pdf",
+  "min_gpa": "3.0 in the most recent 60 semester units of upper division course work",
+  "conflict": null
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/8/86/Leo_F._Cain_Library_%28cropped%29.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Leo_F._Cain_Library_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by CSU Dominguez Hills, via Wikimedia Commons",
+  "caption": "The Leo F. Cain Library on the CSU Dominguez Hills campus in Carson."
+ },
+ "gaps": [
+  "No application deadline is published on the program site, the Program Details page or the catalog — only \"apply via Cal State Apply.\"",
+  "Cohort sizes are published but acceptance rate and applicant volume are not.",
+  "The handbook says entry to fieldwork requires \"all first-year courses totaling 21 units,\" but the published Year 1 roadmap sums to 22 units (11 per semester). One of the two figures is off by a unit; the department has not reconciled them in print.",
+  "MFT 576 Human Communication, Theory, and Skill is an active catalog course but appears nowhere in the handbook's three-year roadmap; whether it is currently offered is unclear.",
+  "GAD II and GAD III (job placement and licensure) exist only for the 2022 cohort; 2023, 2024 and 2025 are all marked \"In Progress.\"",
+  "No named list of partner traineeship agencies is public — the site directory lives behind Tevera and is visible only to enrolled students who have completed Fieldwork Orientation.",
+  "No credible student commentary found. Reddit and GradCafe returned nothing about this program through available search, and the program publishes no student testimonials.",
+  "The GRE requirement in the catalog conflicts with the general CSU trend and could not be cross-checked against a separate admissions page."
+ ],
+ "sources": [
+  {
+   "label": "MFT program home page (program description, features, COAMFTE alignment statement, Graduate Achievement Data)",
+   "url": "https://www.csudh.edu/mft/"
+  },
+  {
+   "label": "MFT Program Details page",
+   "url": "https://www.csudh.edu/mft/program-details/"
+  },
+  {
+   "label": "MFT Program Handbook 2024–25 (PDF) — roadmap, practicum requirements, supervision ratios, placement procedures",
+   "url": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf"
+  },
+  {
+   "label": "University catalog — MFT course descriptions",
+   "url": "https://catalog.csudh.edu/courses/mft/"
+  },
+  {
+   "label": "University catalog — Marital and Family Therapy degree requirements (PDF)",
+   "url": "https://catalog.csudh.edu/academics/marital-family-therapy/marital-family-therapy.pdf"
+  },
+  {
+   "label": "University catalog 2025–26 — Fees (base graduate tuition by unit band)",
+   "url": "https://catalog.csudh.edu/general-information/fees/"
+  },
+  {
+   "label": "CSUDH 2025–26 student fees schedule (PDF) — tuition plus mandatory campus fees per semester",
+   "url": "https://www.csudh.edu/Assets/csudh-sites/student-financial-services/docs/2025-2026/fy2025-2026-student-fees.pdf"
+  },
+  {
+   "label": "CSUDH 2026–27 Cost of Attendance (PDF) — graduate tuition and campus fees",
+   "url": "https://www.csudh.edu/Assets/csudh-sites/financial-aid/docs/2026-27%20COA%20CSUDH.pdf"
+  },
+  {
+   "label": "COAMFTE Directory of Accredited Programs — full list of 127 accredited programs; CSUDH does not appear",
+   "url": "https://coamfte.edvera.com/directory/institutions"
+  },
+  {
+   "label": "COAMFTE Accreditation Standards Version 12.5 (PDF) — the standard CSUDH cites",
+   "url": "https://coamfte.org/Common/Uploaded%20files/COAMFTE/Accreditation%20Resources/COAMFTE%20Standards%20Version%2012.5%20-%20Published%20August%202021%20-%208.26.21%20(with%20links).pdf"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "practicum.hours",
+   "current": "300 client-contact-hour practicum",
+   "correct": "300 face-to-face client contact hours, of which at least 100 must be relational — contact with couples or families. The bare 300 figure understates the requirement: the relational sub-minimum is the harder half to fill at a community agency, and it is a stated graduation requirement, not a recommendation.",
+   "src": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf"
+  },
+  {
+   "field": "accreditation",
+   "current": "(implied by the program's own wording) curriculum \"aligned with COAMFTE standards\"",
+   "correct": "Not COAMFTE-accredited, and absent from COAMFTE's directory of 127 accredited programs (25 in California; CSU Northridge is the only CSU). The alignment claim is self-declared and unaudited. Actual accreditation is WSCUC (institutional) plus BBS approval under B&P §4980.36. The claim does have observable substance — the program maps its goals to COAMFTE Standards v12.5 Developmental Competency Components and publishes COAMFTE-format Graduate Achievement Data and diversity reports — but it confers none of accreditation's portability benefits.",
+   "src": "https://coamfte.edvera.com/directory/institutions"
+  }
+ ]
+}

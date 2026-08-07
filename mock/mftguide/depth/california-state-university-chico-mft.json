@@ -1,0 +1,214 @@
+{
+ "institution": "California State University, Chico",
+ "character": [
+  "The thing that actually distinguishes Chico is that it owns a clinic and puts you in it early. The Counseling Training Clinic (CTC) occupies rooms 111 and 116 of Aymer J. Hamilton Hall, immediately behind the Bidwell Mansion next to Modoc Hall, and it is where new MFT students \"see individuals, families, couples, and groups under the supervision of program faculty.\" Services are free — \"you will NEVER be asked to pay or provide insurance information\" — and clients come from both the campus and the wider Chico community, which means your caseload is not only students. Every session is video and audio recorded, reviewed in supervision, and deleted at the end of the semester. The program describes a deliberate three-stage escalation of stakes: year one, high supervision, low stakes, peers as clients, in the PSYC 573 and 670 labs; year two, high supervision, medium stakes, mostly student clients, in practicum 673A/B/C; year three, varied supervision, high stakes, a professional environment and varied client types, at a community traineeship. You are practising clinical skills in week one — \"we believe the most important learning happens through doing.\"",
+  "The access story is real and the program states it as an objective rather than leaving it implied: the first Program Learning Objective is \"preparing students to provide mental health services to the population of Northern California by meeting the specific needs of predominantly rural and multi-ethnic communities.\" For a large stretch of the north state this is the public option. The third-year traineeship market reflects that scarcity from the student's side rather than the school's: \"Typically, we have more organizations interested in hosting our MFT trainees than we have students available,\" students choose their own site rather than being matched to one, and \"for many of our students, their traineeship site becomes their place of employment after graduation.\"",
+  "Two things to go in with your eyes open about. First, the theoretical commitment is deliberately non-denominational — training is \"provided in a variety of theoretical approaches, with emphasis on core 'common-factors' that span all therapy practice.\" If you are shopping for a program built on one named model (Bowen, EFT, narrative, structural), this is not it. Second, the degree you receive is an M.S. in Psychology; \"MS in Marriage and Family Therapy\" is how the program markets the MFT pattern within it, and the catalog requirement is written as \"6 units of 687 are required for the MS in Psychology degree.\" You also owe a culminating piece — comprehensive exam (PSYC 696M), professional paper (697P) or thesis (699T) — in the final semester. The program is run by three core faculty."
+ ],
+ "orientation": "Systemic framework taught through a common-factors lens — explicitly not built on a single named model",
+ "signature": [
+  {
+   "code": "PSYC 678",
+   "title": "Mental Health Recovery and Wellness",
+   "units": "3",
+   "desc": "\"Seminar studying recovery and wellness in the field of mental health with an emphasis on the philosophy and service delivery approaches adopted by California and codified in the Mental Health Services Act.\"",
+   "verbatim": true,
+   "why": "A full graduate seminar built around California's Mental Health Services Act and public-system service delivery is rare — most programs touch MHSA in a paragraph of a community-mental-health survey. It sits in semester five alongside the traineeship, i.e. exactly when you are working inside a county-funded agency, and it is the clearest sign that Chico trains for public behavioral health rather than for cash-pay private practice.",
+   "src": "https://catalog.csuchico.edu/courses/psyc/"
+  },
+  {
+   "code": "PSYC 696M",
+   "title": "Marriage and Family Therapy Comprehensive Exam",
+   "units": "3",
+   "desc": "\"Designed to mirror the two required examinations for licensure as a Marriage and Family Therapist in the state of California.\" Includes study of key theories and practice-exam preparation.",
+   "verbatim": true,
+   "why": "This is a graded three-unit course whose stated purpose is preparing you for the BBS Law & Ethics and Clinical exams. Very few California programs put licensure-exam preparation on the transcript as coursework rather than leaving it to a paid third-party prep company after graduation.",
+   "src": "https://catalog.csuchico.edu/courses/psyc/"
+  },
+  {
+   "code": "PSYC 573",
+   "title": "Introduction to Counseling Psychology",
+   "units": "3",
+   "desc": "\"Theory of individual and family counseling and laboratory practice in individual counseling.\" Fall only.",
+   "verbatim": true,
+   "why": "The word doing the work is \"laboratory.\" This is a first-semester course with a separate three-hour weekly lab (a published sample schedule shows lecture Tuesday 12–2 and lab Wednesday 8–11) in which you counsel your peers. It is the front end of the clinical training sequence, and 673A cannot be entered without a B or better in it.",
+   "src": "https://catalog.csuchico.edu/courses/psyc/"
+  },
+  {
+   "code": "PSYC 670",
+   "title": "Introduction to Group Counseling",
+   "units": "3",
+   "desc": "\"The theory, research, and laboratory practice of group counseling techniques with small groups and families.\" Spring only; requires PSYC 573 with a B or higher.",
+   "verbatim": true,
+   "why": "The second half of the first-year lab pair, and the reason the CTC can offer real group therapy: the clinic runs groups of 4–8 members meeting weekly for a full semester, led by graduate students. Group work as laboratory practice in the first year, rather than as a third-year elective, is unusual.",
+   "src": "https://catalog.csuchico.edu/courses/psyc/"
+  },
+  {
+   "code": "PSYC 673A / 673B / 673C",
+   "title": "Marriage and Family Therapy Practicum I, II and III",
+   "units": "3 each",
+   "desc": "673A and 673B \"stress introductory and advanced skill development in marriage and family therapy through a supervised practicum setting\"; 673C \"stresses advanced clinical skill development and professional identity development in marriage and family therapy through a supervised practicum setting.\"",
+   "verbatim": true,
+   "why": "Three consecutive semesters of in-house clinic practicum (semesters 2, 3 and 4) before you ever leave campus. Chained prerequisites mean the sequence cannot be rearranged or compressed — 673B needs 670 and 673A at B or better, 673C needs both plus PSYC 675 concurrently.",
+   "src": "https://catalog.csuchico.edu/courses/psyc/"
+  },
+  {
+   "code": "PSYC 687",
+   "title": "Traineeship in Marital and Family Therapy",
+   "units": "1–9 (minimum 6 required)",
+   "desc": "\"Supervised MFT traineeship in a campus or community setting for those pursuing MFT licensure. A minimum of 6 units is required for MS in Psychology.\" Requires PSYC 673A and 673B at B or higher.",
+   "verbatim": true,
+   "why": "The whole third year is this course, split across two semesters at about 20 hours a week on site. Note the phrase \"campus or community setting\" — the catalog permits the traineeship to be served in the CTC, though the program describes year three as a community placement.",
+   "src": "https://catalog.csuchico.edu/courses/psyc/"
+  }
+ ],
+ "curriculum": {
+  "note": "Strict cohort, lockstep, full-time, six semesters over three years, with \"subsequent coursework dependent on the prerequisite semester's experience.\" A clinical training course (573 → 673A → 673B → 673C → 687 → 687) runs in every one of the six semesters. The sequence below is the program's own published sample course schedule; course titles are from the university catalog. All courses are 3 units except PSYC 687, which is variable with a 6-unit minimum.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Semester 1 — Fall",
+    "courses": [
+     "PSYC 573 Introduction to Counseling Psychology (3) — clinical training sequence",
+     "PSYC 600 Research and Evaluation Methods (3)",
+     "PSYC 672 Multicultural Issues in Therapy (3)",
+     "PSYC 679 Professional, Ethical, and Legal Issues in Marriage and Family Therapy (3)"
+    ]
+   },
+   {
+    "label": "Semester 2 — Spring",
+    "courses": [
+     "PSYC 670 Introduction to Group Counseling (3) — clinical training sequence",
+     "PSYC 673A Marriage and Family Therapy Practicum I (3) — clinical training sequence",
+     "PSYC 643 Psychopathology (3)",
+     "PSYC 675 Theories of Family Therapy: Marital, Familial, and Child Issues (3)"
+    ]
+   },
+   {
+    "label": "Semester 3 — Fall",
+    "courses": [
+     "PSYC 673B Marriage and Family Therapy Practicum II (3) — clinical training sequence",
+     "PSYC 641 Applied Psychopharmacology (3)",
+     "PSYC 674 Substance Abuse and Addictions Counseling (3)",
+     "PSYC 677 Couples Therapy and Sexuality (3)"
+    ]
+   },
+   {
+    "label": "Semester 4 — Spring",
+    "courses": [
+     "PSYC 673C Marriage and Family Therapy Practicum III (3) — clinical training sequence",
+     "PSYC 665 Psychological Assessment for Marriage and Family Therapists (3)",
+     "PSYC 671 Child/Adolescent Therapy (3)",
+     "PSYC 603 Advanced Developmental Psychology (3)"
+    ]
+   },
+   {
+    "label": "Semester 5 — Fall",
+    "courses": [
+     "PSYC 687 Traineeship in Marital and Family Therapy — community placement, about 20 hrs/week",
+     "PSYC 678 Mental Health Recovery and Wellness (3)"
+    ]
+   },
+   {
+    "label": "Semester 6 — Spring",
+    "courses": [
+     "PSYC 687 Traineeship in Marital and Family Therapy — 6 units of 687 required in total",
+     "One of: PSYC 696M MFT Comprehensive Exam (3), PSYC 697P Professional Paper: Empirical Research Manuscript (1–6), or PSYC 699T Master's Thesis (1–6)"
+    ]
+   }
+  ],
+  "src": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml"
+ },
+ "practicum": {
+  "starts": "Immediately — laboratory practice with peers as clients in PSYC 573 in semester one. Real clients in the on-campus clinic begin in semester two with PSYC 673A, and run for three consecutive semesters. The off-campus community traineeship is the whole of year three.",
+  "hours": "Minimum 225 face-to-face clinical hours to graduate. The program says \"almost all of our students finish the program with much more than that\" and that \"on average, our students obtain 400–500 hours of clinical experience upon graduation.\" Almost all hours — including everything earned in the campus clinic — count toward the BBS 3,000 required for licensure. Year three runs about 20 hours a week on site.",
+  "who_places": "mixed",
+  "clinic": "Counseling Training Clinic (CTC), Aymer J. Hamilton Hall rooms 111 and 116, behind the Bidwell Mansion on Arcadian Avenue",
+  "detail": "Chico is one of the few California MFT programs where the first two years of client contact happen in a clinic the department runs itself, which removes the single biggest variable in most programs — whether you can find a site. Students are automatically placed in the CTC; the department schedules the clients. In the CTC you carry individual clients, co-lead couples and families with a second student, and lead semester-long groups of 4–8, all supervised by BBS-licensed department faculty, with mandatory weekly group supervision plus individual supervision, and every session recorded for review. The clinic screens new clients for appropriateness and refers out anyone needing a higher level of care, and it offers no crisis or emergency services, so your caseload skews toward moderate-acuity outpatient work. The third-year community traineeship works the opposite way: \"MFT students are not placed or 'matched' with a site, but instead are able to choose the site that best fits their interests,\" meeting partner agencies at a Traineeship Forum the department hosts every spring, and supervision there comes from site staff rather than faculty. The program reports more host organizations than students most years, so the third-year search is unusually low-stress by California standards.",
+  "src": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+  "model": "assisted",
+  "model_evidence": "During the third year of the program, MFT program students complete a clinical traineeship at one of our partner sites in the community. Students work on-site under the supervision of site staff with that organization's clientele. MFT students are not placed or “matched” with a site, but instead are able to choose the site that best fits their interests. Every Spring semester we host a “Traineeship Forum” where students can meet with our community partners.",
+  "model_url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Counseling Training Clinic (CTC)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not required",
+  "prereqs": "Four prerequisite courses, completed before starting in the fall, at any level and in any discipline but equivalent to a 3-unit semester course, and taken within the last 10 years: Research Methods; Developmental Psychology / Child Psychology / Child and Adolescent Psychology; Statistics; Abnormal Psychology. The department publishes a list of pre-approved courses. Application requires written responses to three named interview questions (roughly half a page to a page each, on your route to MFT work, why Chico specifically, and your commitment to the personal-growth demands of the program), a resume, unofficial transcripts, an Application for Advancement to Classified Status, and three letters — at least one from a professor, ideally one from a clinical/research/work supervisor.",
+  "deadline": "Fall entry only. The application window for the most recent cycle ran October 3, 2025 to January 16, 2026, via Cal State Apply.",
+  "cost": "California-resident postbaccalaureate rate from the university's own fee schedule for Fall 2026 / Spring 2027: $5,529 per semester at 6.1+ units and $3,735 per semester at 0–6 units, tuition and mandatory campus fees together. Six full-time semesters is roughly $33,200. Note the flat-rate structure — the part-time band is 68% of the full-time band, not proportional to units — so the light third-year semesters only save money if you drop to 6 units or fewer, which the lockstep sequence does not really permit.",
+  "src": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+  "gre_evidence": "Standardized test scores (i.e. GRE, MAT, etc.) are NOT required for admission to the MFT program.",
+  "gre_url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/2/20/California_State_University%2C_Chico_-_DSC03157.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:California_State_University,_Chico_-_DSC03157.JPG",
+  "license": "CC0 1.0 (public domain dedication)",
+  "credit": "Photo by Daderot, via Wikimedia Commons",
+  "caption": "The CSU Chico campus in Chico, California."
+ },
+ "gaps": [
+  "Cohort size is not published anywhere — not on the program page, the FAQ, the catalog or the department site. Neither is the number of applicants or an acceptance rate.",
+  "The clinic's name is genuinely inconsistent across the university's own pages: the MFT program page, the department navigation and the clinic page title all say \"Counseling Training Clinic,\" the body of the clinic page says \"Counselor Training Clinic,\" and the catalog's Psychology MS entry says \"Counselor Training Center.\" All abbreviate to CTC. The dedicated clinic page (csuchico.edu/psy/counseling-training-clinic.shtml) now returns 404 on the live site; the detail here is from the archived copy.",
+  "No breakdown of the 225-hour minimum into relational versus individual hours is published, and no supervision ratio is given for the third-year community traineeship (the CTC's arrangement — weekly group plus individual supervision by faculty — is described, but not as an hours ratio).",
+  "The list of community traineeship partner agencies is not public; students meet them at the spring Traineeship Forum.",
+  "No credible student commentary found. Reddit, GradCafe and Student Doctor Network returned nothing specific to this program through available search, and the program publishes no testimonials.",
+  "PSYC 674 appears in the program's sample schedule for semester 3 but not in the catalog's list of MFT-specific requirements; its catalog title is \"Substance Abuse and Addictions Counseling.\"",
+  "Licensure exam pass rates and graduation rates are not published — Chico is not COAMFTE-accredited and so is not subject to COAMFTE's outcome-disclosure requirements."
+ ],
+ "sources": [
+  {
+   "label": "MS in Marriage and Family Therapy: Info and Application — program page, FAQ, clinical training, sample sequence, weekly schedule",
+   "url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml"
+  },
+  {
+   "label": "University catalog — Psychology (PSYC) course descriptions",
+   "url": "https://catalog.csuchico.edu/courses/psyc/"
+  },
+  {
+   "label": "University catalog — Psychology MS degree requirements",
+   "url": "https://catalog.csuchico.edu/colleges-departments/college-behavioral-social-sciences/psychology/psychology-ms/"
+  },
+  {
+   "label": "Counseling Training Clinic page (archived; live URL now 404s) — location, services, supervision, recording policy, fees",
+   "url": "https://web.archive.org/web/2025/https://www.csuchico.edu/psy/counseling-training-clinic.shtml"
+  },
+  {
+   "label": "Student Financial Services — Tuition & Campus Fees, Fall 2026 / Spring 2027 postbaccalaureate rates",
+   "url": "https://www.csuchico.edu/sfin/student-accounts/registration-fees.shtml"
+  },
+  {
+   "label": "COAMFTE Directory of Accredited Programs — CSU Chico does not appear",
+   "url": "https://coamfte.edvera.com/directory/institutions"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "format",
+   "current": "blended",
+   "correct": "Not blended. The program is fully on-campus and in-person: \"Most MFT program courses are offered during the week, Monday–Friday, between 8AM – 6PM. Students can expect to be on campus three to four days a week for the first two years of the program.\" Year three replaces classes with about 20 hours a week at a community agency. There is no online or hybrid delivery, and daytime-only scheduling makes this hard to combine with full-time work.",
+   "src": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml"
+  },
+  {
+   "field": "clinical hours",
+   "current": "graduates typically accrue 400-500 clinical hours",
+   "correct": "Correct as far as it goes — the program states \"on average, our students obtain 400-500 hours of clinical experience upon graduation\" — but the binding number is missing: the graduation minimum is 225 face-to-face clinical hours. The 400–500 is a reported average, not a requirement.",
+   "src": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml"
+  },
+  {
+   "field": "degree",
+   "current": "M.S. in Marriage and Family Therapy",
+   "correct": "That is the program's marketing name and is fine to use, but the degree conferred is the M.S. in Psychology; the MFT pattern is an option within it. The catalog files the program under \"Psychology MS\" and writes requirements as \"6 units of 687 are required for the MS in Psychology degree.\" This matters for anyone whose out-of-state licensure board reads the diploma rather than the transcript.",
+   "src": "https://catalog.csuchico.edu/colleges-departments/college-behavioral-social-sciences/psychology/psychology-ms/"
+  }
+ ]
+}

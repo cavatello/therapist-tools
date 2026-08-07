@@ -1,0 +1,264 @@
+{
+ "institution": "Alliant International University (CSPP)",
+ "character": [
+  "Alliant's Couple and Family Therapy program is one program run in five places — San Diego, Irvine, Los Angeles, Sacramento and Online — and the 2025–26 program manual states flatly that all five \"share the same curriculum, degree requirements, policies, and procedures.\" What the manual does not say, and what the COAMFTE-required disclosure data does, is how lopsided the five are. Entering MA cohorts on the ground run 13 to 43 students per campus per year; the online branch enrolled 111 to 190 per year over the same period. So the modal Alliant MFT student is an online student in a cohort roughly ten times the size of the Sacramento or Irvine class. The same disclosures show the tradeoff honestly: on-ground graduation-in-advertised-time rates run 55–95% depending on campus and year, the online rate runs 48–69%, while licensure rates sit at 87–100% across all of them.",
+  "The thing that most concretely distinguishes an Alliant trainee from a graduate of a BBS-only California program is COAMFTE accreditation, which the MA and PsyD hold and the PhD is still seeking. Because of it, the practicum requires 300 direct client contact hours of which at least 150 must be relational — couples or families, not individuals — plus 100 hours of supervision, at least 50 of it based on direct observation or audio/video recording. California's BBS imposes no relational-hours floor, so this shapes the caseload you have to negotiate for and the sites that will work. Alliant tells students to watch the ratio and keep relational-to-individual hours near 1:1. The systemic identity is not just accreditation paperwork, either: past CFT faculty included Jay Haley, James Framo, Virginia Satir, Carl Whitaker and Ivan Boszormenyi-Nagy, and Susan Johnson, who developed Emotionally Focused Therapy, is currently affiliated with the program. The curriculum reflects it — two semesters of systemic theory, each paired with a separate one-unit skills lab as a co-requisite (63120 with 63130, then 63220 with 63230), with the second semester moving into postmodernism and social constructionism plus \"several empirically based models that private and public agencies are using across the state of California.\"",
+  "The criticism is real and worth stating with numbers rather than adjectives. Alliant converted from nonprofit to a for-profit benefit corporation in February 2015 under Arist Education System, a Bertelsmann subsidiary, and rebranded as \"Alliant University\" in January 2026. On-ground MA tuition is $1,463 per unit for 2026–27 and online is $1,135 — 60 units works out to roughly $87,800 on campus and $68,100 online, which is the reverse of USC, where both modalities cost the same. Federal College Scorecard data for Alliant–San Diego master's completers in the mental-health-services field show median federal graduate loan debt of $107,070 against median earnings of $53,383 one year after graduating. Student reviews are genuinely split, and the split is informative: the MFT-specific reviews on GradReports are positive (\"the professors seem to care a lot... extremely culturally diverse and social justice oriented\"), while the most damning reviews on that same page come from other Alliant programs — Clinical Counseling, School Psychology, Education — calling the school a \"degree mill\" with \"minimal to nonexistent\" instruction. If you are evaluating this program, do not average those together; they are describing different departments."
+ ],
+ "orientation": "Systemic / relational couple and family therapy — explicitly model-based, taught as an integration of the major schools of family therapy",
+ "signature": [
+  {
+   "code": "PSY63130 / PSY63230",
+   "title": "MFT Techniques Lab I and II",
+   "units": "1 + 1",
+   "desc": "Lab I: \"An introduction to communication processes which are fundamental to interviewing and psychotherapy of couples and families. Includes skills such as empathy, listening, question-asking, probes, enactments, assessment of clients from an individual and systemic perspective and treatment planning...\" Lab II: \"An intensive lab focused on fundamental and advanced family therapy skills.\"",
+   "verbatim": true,
+   "why": "These are co-requisites, not electives: you cannot take the theory course without simultaneously taking the lab that drills the corresponding skills. Splitting technique out into its own graded 1-unit lab twice in the first year is unusual — most California programs fold role-play into the theory course and hope it happens.",
+   "src": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93606"
+  },
+  {
+   "code": "PSY63600",
+   "title": "Preparing for Community Practice",
+   "units": "3",
+   "desc": "\"A preparation and screening for community-based field training designed to facilitate integration of foundational conceptual, perceptual, executive, evaluative, and professional skills... This course utilizes clinical role-plays to assist in preparing for field training including systemic clinical assessment and collaborative, systemic treatment planning. Topics include public service delivery and support systems, case management, wraparound services, and interdisciplinary relations.\"",
+   "verbatim": true,
+   "why": "Note the word \"screening.\" This is an explicit gate — you must pass it before you may start practicum — and its content (wraparound services, case management, interdisciplinary relations) tells you the program expects most graduates to land in public and community mental health, not private practice.",
+   "src": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93613"
+  },
+  {
+   "code": "PSY73600",
+   "title": "MFT Practicum",
+   "units": "3, 3, 3",
+   "desc": "\"The practicum program requires 300 hours of direct client contact, 150 of which must be with couples or families; students receive 100 hours of individual and group supervision, at least 50 hours of which are based on direct observation, videotape or audiotape. Students must be enrolled in a practicum course until all hour requirements are complete.\"",
+   "verbatim": true,
+   "why": "The 150 relational hours and 50 hours of raw-data (recorded or live-observed) supervision are COAMFTE requirements that California's BBS does not impose. They make the degree portable to other states and they make your training more observable — but they also constrain which sites can host you, because the site has to be able to feed you couples and families and permit recording.",
+   "src": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93755"
+  },
+  {
+   "code": "PSY63220",
+   "title": "MFT Theories and Techniques II",
+   "units": "3",
+   "desc": "\"This course covers philosophical concepts of postmodernism and social constructionism, examines the role of theory in philosophy, politics, epistemology, empirical investigation, and conceptual frameworks. In addition, the student will become very familiar with several empirically based models that private and public agencies are using across the state of California.\"",
+   "verbatim": true,
+   "why": "The second half of that description is the practical one: this is where you learn the specific evidence-based models California county agencies actually contract for, which is the difference between being hireable at a community mental health agency and having to be trained from scratch.",
+   "src": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93608"
+  },
+  {
+   "code": "PSY63260",
+   "title": "Diversity and the Family",
+   "units": "3",
+   "desc": "\"Examines diversity in the family including issues of ethnicity, race, religion, gender, gender-roles, sexual orientation, and social class. Blends systemic theory, research and practice, as students learn to work with diversity issues in families and with families having differing cultures, values, and needs.\"",
+   "verbatim": true,
+   "why": "This is a practicum prerequisite, not a later elective — you cannot see clients until you have passed it, along with law and ethics, psychopathology, both theory courses and both labs. That sequencing is a deliberate statement about what the program considers foundational.",
+   "src": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93611"
+  },
+  {
+   "code": "PSY73300",
+   "title": "Chemical Dependency and the Family",
+   "units": "3",
+   "desc": "\"Examines definitions of chemical dependency relative to the family. Discussion of etiology, medical aspects, evaluation of the family and treatment approaches, legal aspects, special populations, community resources and referral processes.\"",
+   "verbatim": true,
+   "why": "This is the anchor of an embedded Chemical Dependency concentration that carries CAADE accreditation and adds no extra coursework or hours — you satisfy it by choosing a practicum site (residential or intensive outpatient) where at least 250 of your 300 required client hours involve addiction. A specialization paid for with placement choice rather than tuition is rare.",
+   "src": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93754"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort model, six semesters over two full years (part-time plans run 3–4 years; the maximum time limit is 5 years). All campuses and the online branch follow the same Master Plan of Study. Fall and spring semesters are 15 weeks, summers 10 weeks. 57 core units plus one 3-unit elective; graduation also requires passing a comprehensive exam in May of the second year and logging 50 professional development hours, up to 25 of which may be personal therapy.",
+  "total_units": "60 (57 core + 3 elective)",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (13 units)",
+    "courses": [
+     "PSY63100 MFT Law & Ethics (3)",
+     "PSY63120 MFT Theories & Techniques I (3)",
+     "PSY63130 MFT Techniques Lab I (1)",
+     "PSY63173 Parent-Child Therapy (3)",
+     "PSY63260 Diversity & the Family (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (13 units)",
+    "courses": [
+     "PSY63110 Introduction to Psychopathology (3)",
+     "PSY63220 MFT Theories & Techniques II (3)",
+     "PSY63230 MFT Techniques Lab II (1)",
+     "PSY63600 Preparing for Community Practice (3)",
+     "PSY73110 Couples Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (9 units)",
+    "courses": [
+     "PSY63030 Group Therapy (3)",
+     "PSY63280 Individual & Family Life Cycle (3)",
+     "PSY73600 MFT Practicum (3) OR elective (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (9 units)",
+    "courses": [
+     "PSY63250 Trauma & Crisis Intervention (3)",
+     "PSY73300 Chemical Dependency and the Family (3)",
+     "PSY73600 MFT Practicum (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (9 units)",
+    "courses": [
+     "PSY73020 MFT Research Methods (3)",
+     "PSY73140 MFT Assessment (3)",
+     "PSY73600 MFT Practicum (3)",
+     "Comprehensive exam (May)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (7 units)",
+    "courses": [
+     "PSY67562 Psychopharmacology (2)",
+     "PSY73120 Sex Therapy (2)",
+     "PSY73600 MFT Practicum (3) OR elective (3)"
+    ]
+   }
+  ],
+  "src": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-program-manual.pdf"
+ },
+ "practicum": {
+  "starts": "Three consecutive semesters, beginning either the first summer or the second fall depending on when you secure a site. You must pass PSY63100, 63110, 63120, 63130, 63220, 63230, 63260 and 63600 first — the program tells you to start the site search at least three months out and no later than the spring of your first year.",
+  "hours": "300 direct client contact hours, of which at least 150 must be relational (couples or families); 100 hours of supervision, at least 50 based on direct observation or recording. Benchmarks are 50 clinical hours in semester one, 125 in semester two, 125 in semester three. Separately, 50 professional development hours are required, up to 25 of which may be your own therapy with a fully licensed clinician who is not Alliant core faculty. Alliant estimates about 20 hours a week at the site, and says the practicum year can yield 600 to 1,300 hours toward the BBS 3,000.",
+  "who_places": "student-finds",
+  "clinic": "None named in current materials. The 2025–26 program manual describes students \"working in one of several community-based clinics with client families,\" but the clinical training manual is unambiguous that securing the site is the student's job; certain agencies near each campus have standing agreements with the university.",
+  "detail": "The Clinical Training Manual states it plainly: \"As a student of the CFT program, you are fully responsible in securing your practicum site.\" Each campus has a Clinical Training Coordinator who approves sites and hours, and there is an approved-site list plus a Practicum Site Qualification Checklist, but you interview and get hired. Final approval requires malpractice insurance, current AAMFT membership, a signed agency agreement from all parties, and a signed acknowledgement of the manual — missing any one gets you dropped from PSY73600. Supervision is doubled up: weekly face-to-face (Zoom for online students) with an Alliant faculty member in the practicum class, plus weekly supervision from your on-site supervisor. A critical constraint for online students: \"You must obtain a site in the State in which you reside, even if that site is telehealth. Your site and your clients must be located in your State of current residence.\"",
+  "src": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-ma-level-practicum-clinical-training-manual.pdf",
+  "model": "assisted",
+  "model_evidence": "As a student of the CFT program, you are fully responsible in securing your practicum site.",
+  "model_url": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-ma-level-practicum-clinical-training-manual.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "From COAMFTE-required disclosures, entering MA cohorts: San Diego 29–43, Irvine 14–19, Los Angeles 11–20, Sacramento 13–21, Online 111–190 per year (2020–21 through 2025–26).",
+  "gre": "not published",
+  "prereqs": "General graduate admission: bachelor's from a regionally accredited institution, minimum 3.0 cumulative GPA unless the program states otherwise, two letters of recommendation, a 2–4 page essay, a CV, and an admissions interview where the program requires one. Alliant does not publish MFT-specific prerequisite coursework.",
+  "deadline": "Rolling — the MA runs on both a semester calendar (fall/spring/summer starts) and an eight-week term calendar, and is \"open for enrollment during each of those respective enrollment periods.\" No fixed application deadline is published.",
+  "src": "https://www.alliant.edu/admissions/graduate-application-requirements/",
+  "gre_evidence": "minimum cumulative GPA of 3.0 on a 4.0 scale unless otherwise stated",
+  "gre_url": "https://www.alliant.edu/admissions/graduate-application-requirements/",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I am currently enrolled in the online MFT/CFT MA program and I love it... All of the professors seem to care a lot. Most professors teach on campus as well. They have an approved practicum site list that you need to apply and interview for... It is extremely culturally diverse and social justice oriented.\"",
+   "who": "GradReports, Alliant — Marriage & Family Therapy (online MA), February 2025",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/alliant-international-university"
+  },
+  {
+   "text": "\"I'm in the doctoral MFT PsyD program at the Irvine campus and I love it. The instructors are warm and caring as are my classmates... For reference, I've attended 2 UC's for my BA and Masters.\"",
+   "who": "GradReports, Alliant — MFT PsyD, Irvine, January 2024",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/alliant-international-university"
+  },
+  {
+   "text": "\"There were serious issues with financial transparency during enrollment that left me misinformed about the true cost of the program... Instruction is minimal to nonexistent... The program feels like a degree mill, disorganized, impersonal, and poorly managed.\" (This reviewer was in Alliant's MA in Clinical Counseling, not the MFT program.)",
+   "who": "GradReports, Alliant — MA in Clinical Counseling, August 2025",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/alliant-international-university"
+  },
+  {
+   "text": "\"They offer little support, professors don't understand the curriculum (They don't design it), and they are constantly on the verge of losing accreditation. Also, look at their graduation and job prospect rating.\" (Clinical Psychology program, not MFT.)",
+   "who": "GradReports, Alliant — Clinical Psychology, August 2025",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/alliant-international-university"
+  },
+  {
+   "text": "Discussing Alliant's MFT doctorate, a poster argued the master's is the right stopping point: \"If you are interested in doing marriage and family therapy, then you don't need a doctoral degree. I would highly recommend getting a Masters instead and saving on the extra years of tuition.\"",
+   "who": "Student Doctor Network, user KillerDiller, 2009",
+   "sentiment": "mixed",
+   "url": "https://forums.studentdoctor.net/threads/anyone-had-experience-or-know-anything-about-the-mft-psyd-prgram-alliant.631064/"
+  },
+  {
+   "text": "\"I chose Alliant because they are COAMFTE-accredited, and degree portability was really important to me. My experience through the masters and doctoral MFT programs has not only prepared me to be a therapist, but also to be an advocate for my clients.\"",
+   "who": "Nicole Sabatini Gutierrez, MFT MA and PsyD alumna — testimonial published by Alliant itself",
+   "sentiment": "positive",
+   "url": "https://www.alliant.edu/psychology/marital-and-family-therapy/ma/curriculum"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/8/80/Alliant_SD_entrance.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alliant_SD_entrance.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Ryan Casey Aguinaldo, via Wikimedia Commons",
+  "caption": "The front entrance of Alliant's San Diego campus, with the library facade behind — the largest of the four on-ground CFT sites, though the online branch enrolls several times as many MA students."
+ },
+ "gaps": [
+  "The URL given in the assignment (alliant.edu/california-school-professional-psychology/marital-family-therapy-ma) returns 404. The live program pages are at alliant.edu/psychology/marital-and-family-therapy/ma and .../ma/curriculum.",
+  "Alliant's current 2025–26 catalog is behind an AWS bot challenge — preview_program.php and content.php both return an empty challenge page. Course descriptions quoted here come from Alliant's own archived 2022–23 catalog entries, which are still served. Two courses in the current plan of study have changed since then: PSY63173 Parent-Child Therapy is now 3 units (was PSY63170, 2 units) and PSY67562 Psychopharmacology is now 2 units (was PSY67560, 3 units). No current description could be retrieved for either.",
+  "Irvine is listed on the COAMFTE disclosure pages and in the program manual, but the MA program page's 'Program Offered In' box lists only Los Angeles, Sacramento, San Diego and Online. Could not resolve whether Irvine is still taking new MA students; the Irvine cohort data shows 15 entering in 2024–25 and 19 in 2025–26.",
+  "The PhD in MFT is described in the 2025–26 manual as \"currently in the process of seeking COAMFTE accreditation.\" The MA and PsyD are accredited.",
+  "No in-house training clinic could be confirmed. The program manual and an older catalog both reference community-based clinics, but no named Alliant-operated MFT clinic exists in current materials.",
+  "No MFT-specific GRE policy, GPA cutoff, admit rate or prerequisite coursework list is published; only Alliant's general graduate requirements.",
+  "College Scorecard reports at the 4-digit CIP level (51.15) and by campus, so the $107,070 median debt figure covers Alliant–San Diego master's completers across mental-health-services programs, not the MFT MA alone.",
+  "Reddit could not be searched from this environment (blocked), so the discussion sources here are GradReports, Student Doctor Network and Alliant's own disclosures."
+ ],
+ "sources": [
+  {
+   "label": "2025–26 On-ground CFT Program Manual (MA and PhD) — mission, faculty lineage, Master Plan of Study, practicum overview",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-program-manual.pdf"
+  },
+  {
+   "label": "2025–26 Online CFT Program Manual (MA and PhD)",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/mft/online-mft-program-manual.pdf"
+  },
+  {
+   "label": "CFT Master's-Level Practicum Clinical Training Manual 2025–26",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-ma-level-practicum-clinical-training-manual.pdf"
+  },
+  {
+   "label": "MA in Marital and Family Therapy — program and curriculum page",
+   "url": "https://www.alliant.edu/psychology/marital-and-family-therapy/ma/curriculum"
+  },
+  {
+   "label": "Alliant tuition and fees, 2026–27 academic year (MFT MA: $1,463/unit on campus, $1,135/unit online)",
+   "url": "https://www.alliant.edu/admissions/tuition/"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data — Alliant MA, Los Angeles (cohort sizes, graduation, job placement, licensure rates)",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/clinical-psychology/coamfte-student-achievement-data-ma-los-angeles.pdf"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data — Alliant MA, Online",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/clinical-psychology/coamfte-student-achievement-data-ma-online.pdf"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data — Alliant MA, San Diego",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/clinical-psychology/coamfte-student-achievement-data-ma-san-diego.pdf"
+  },
+  {
+   "label": "Alliant catalog (archived 2022–23) — MA in Marital and Family Therapy program entry, via Wayback",
+   "url": "https://web.archive.org/web/2026/https://catalog.alliant.edu/preview_program.php?catoid=40&poid=5434"
+  },
+  {
+   "label": "Alliant catalog course descriptions (2022–23 catalog, still live) — e.g. PSY63600 Preparing for Community Practice",
+   "url": "https://catalog.alliant.edu/preview_course_nopop.php?catoid=40&coid=93613"
+  },
+  {
+   "label": "Alliant graduate application requirements",
+   "url": "https://www.alliant.edu/admissions/graduate-application-requirements/"
+  },
+  {
+   "label": "Wikipedia — Alliant International University (2015 conversion to a for-profit benefit corporation under Arist Education System / Bertelsmann; January 2026 rebrand to Alliant University; CSPP founded 1969)",
+   "url": "https://en.wikipedia.org/wiki/Alliant_International_University"
+  },
+  {
+   "label": "GradReports — Alliant University student reviews (161 reviews)",
+   "url": "https://www.gradreports.com/colleges/alliant-international-university"
+  },
+  {
+   "label": "U.S. Dept. of Education College Scorecard — Alliant–San Diego, master's in CIP 51.15: median federal graduate loan debt $107,070 (n=105), median earnings one year out $53,383",
+   "url": "https://collegescorecard.ed.gov/school/?110468-Alliant-International-University-San-Diego"
+  }
+ ]
+}

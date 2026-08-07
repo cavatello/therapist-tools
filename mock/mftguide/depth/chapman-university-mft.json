@@ -1,0 +1,235 @@
+{
+ "institution": "Chapman University",
+ "character": [
+  "Chapman's is the smallest and most tightly controlled clinical training model of the three big Orange County MFT options, and the thing that actually distinguishes it is where the hours come from. Almost every California program sends you out to a community agency to find your 300 practicum hours. Chapman does not: all 300 required direct-client hours are earned inside the program's own clinic, the Frances Smith Center for Individual & Family Therapy at 501 W. Palm Avenue in Orange, which the program has run since 1968. The handbook is blunt that outside work does not substitute — you may take an off-site traineeship (MFT 689 Practicum II, an elective) but \"[c]linical hours completed at external traineeship sites do not count toward the 300 hours (including the 100 relational hours) required in the in-house practicum training.\" The one bridge outward is MFT 696 Practicum Collaborations, a set of program-arranged placements at partner community sites whose hours do count. The practical trade: consistent, faculty-supervised training and a guaranteed caseload, versus less exposure to the messy agency world you will actually be an Associate in.",
+  "It is also genuinely small and genuinely selective by CA MFT standards. The program's own 2025–26 numbers: 195 applicants, 73 admitted (about 37%), 20 students enrolled in Fall 2025 and 7 in Spring 2026, average incoming GPA 3.74, and 74% of entrants holding a psychology bachelor's. Sixty credits over 2.5 or 3 years, fall and spring entry, COAMFTE-accredited and BBS-approved for both LMFT and LPCC. The intellectual center is explicitly relational and systemic — the handbook states a mission to train \"multiculturally competent, ethical, and systems-oriented marriage and family therapists who are critical consumers of research\" — and the two-course theory spine bears that out: MFT 541 covers psychodynamic, humanistic/experiential, cognitive-behavioral and mindfulness models, then MFT 556 moves to Bowen, structural, strategic, Milan, solution-focused, narrative and collaborative language systems. What you will not find here is a signature depth, somatic or contemplative commitment; the flavor is mainstream systemic family therapy delivered by a four-person core faculty in a clinic-first structure."
+ ],
+ "orientation": "Relational/systemic family therapy, clinic-based",
+ "signature": [
+  {
+   "code": "MFT 573",
+   "title": "Crisis Management and Clinical Process",
+   "units": "3",
+   "desc": "\"A professionally supervised experience designed to introduce students to the practice of marriage and family therapy in an on-site training clinic... Emphasis is on crisis management, including harm to self and others, trauma and issues of grief and loss. Materials will include actual paperwork from the Frances Smith Center for Individual and Family Therapy. Supervised role plays and video-taped practice sessions are used to help students learn sound therapy skills.\"",
+   "verbatim": true,
+   "why": "This is the course that makes the clinic-first design visible in year one: you rehearse on the actual intake and documentation forms you will use at the Frances Smith Center, on video, before you ever see a client. Very few programs pre-load their own clinic's paperwork into a first-year skills course.",
+   "src": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105978"
+  },
+  {
+   "code": "MFT 696",
+   "title": "Practicum Collaborations",
+   "units": "1–2",
+   "desc": "\"Provides supervised clinical experience individually for MFT candidates at locations outside the Frances Smith Center. The Marriage and Family Therapy program has established collaborations with other sites in the community... There will be more than one type of clinical placement offered each semester... Direct client contact hours accrued will be included in the 300 hours required for clinical practicum.\"",
+   "verbatim": true,
+   "why": "Read this against MFT 689: hours earned in a placement the program arranges count toward the 300; hours earned in a traineeship you find yourself do not. That single distinction is the most consequential structural fact about training at Chapman and it is easy to miss on the marketing pages.",
+   "src": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105993"
+  },
+  {
+   "code": "MFT 620",
+   "title": "Public Mental Health",
+   "units": "3",
+   "desc": "\"An overview of the recovery model and recovery oriented mental health care practices in California public mental health... Course content includes systems of care, public/private support and advocacy for working with the severely mentally ill, case management skills and community resources, written case documentation, disaster and trauma response counseling, and Motivational Interview techniques.\" Includes a site visit.",
+   "verbatim": true,
+   "why": "A required, California-specific public-sector course taken in the first summer — not an elective. If you intend to accrue your 3,000 associate hours in county or nonprofit community mental health rather than cash-pay private practice, this is the course that speaks your language, down to the documentation.",
+   "src": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105987"
+  },
+  {
+   "code": "MFT 610",
+   "title": "Family Life Cycle and Aging",
+   "units": "3",
+   "desc": "Human development across the life span from a family systems perspective, \"with an emphasis on the impact of poverty, social class, and social insecurity on development\" and on normative and non-normative transitions in family context. \"In-depth interviewing of one developmental stage is required. Perspectives on aging and end of life issues are discussed.\"",
+   "verbatim": true,
+   "why": "Most CA programs satisfy the human-development requirement with a lecture course and an exam. Requiring an in-depth interview of a person in a chosen developmental stage, and pushing the frame all the way to aging and end-of-life, is a more demanding version of the same requirement.",
+   "src": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105985"
+  },
+  {
+   "code": "MFT 618",
+   "title": "Diversity Issues in Therapy",
+   "units": "3",
+   "desc": "\"Utilization of mental-health services by California specific ethnic/culture-specific groups are addressed. Critical analysis is given to ethnocentrism, racism, sexism, ableism and heterosexism in society and traditional culture-bound assessment and treatment approaches.\" The stated objective is therapists \"aware of their own social location and how that impacts their work with clients.\"",
+   "verbatim": true,
+   "why": "The California-specific service-utilization content is the tell: this is written for people who will work in this state's public systems, not a generic multicultural survey. It is also a prerequisite for practicum, so it lands before you carry a caseload.",
+   "src": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105986"
+  },
+  {
+   "code": "MFT 532",
+   "title": "Research and Bibliographic Methods",
+   "units": "3",
+   "desc": "Bibliographic search, research design and methodology, quantitative and qualitative approaches, the steps of Evidence Based Practice applied to treatment planning and program evaluation. \"Students are also expected to develop a research proposal... Students will be given the opportunity to participate in a graduate research poster session.\"",
+   "verbatim": true,
+   "why": "The proposal-plus-poster requirement is the concrete expression of the program's \"critical consumers of research\" mission statement. There is no thesis at Chapman — this course and the practicum capstone carry the scholarly weight instead.",
+   "src": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105971"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based, 60 credits, fall and spring entry, taught across fall/spring/summer terms plus a January interterm. The sequence below is the program handbook's sample three-year plan for a fall admit; an accelerated 2.5-year plan also exists for fall admits. Practicum runs through the final year.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (9 cr)",
+    "courses": [
+     "MFT 541 MFT Theories I (3)",
+     "MFT 570 Advanced Psychopathology and Diagnosis (3)",
+     "MFT 578 Ethical and Professional Issues for MFTs (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (9 cr)",
+    "courses": [
+     "MFT 556 MFT Theories II (3)",
+     "MFT 561 Couple Therapy (3)",
+     "MFT 573 Crisis Management and Clinical Process (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (6 cr)",
+    "courses": [
+     "MFT 565 Diagnosis and Treatment of Children and Adolescents (3)",
+     "MFT 620 Public Mental Health (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (9 cr)",
+    "courses": [
+     "MFT 584 Trauma-Informed Treatment (3)",
+     "MFT 605 Group Therapy (3)",
+     "MFT 618 Diversity Issues in Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (7 cr)",
+    "courses": [
+     "MFT 516 Assessment of Individuals and Families (2)",
+     "MFT 532 Research and Bibliographic Methods (3)",
+     "MFT 582 Assessment and Treatment of Sexual Dysfunctions (2)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (6 cr)",
+    "courses": [
+     "MFT 533 Psychopharmacology for MFTs (3)",
+     "MFT 694 Practicum I (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall (6 cr)",
+    "courses": [
+     "MFT 588 Assessment and Treatment of Substance Use Disorders (2)",
+     "MFT 694 Practicum I",
+     "MFT 696 Practicum Collaborations"
+    ]
+   },
+   {
+    "label": "Year 3 — Interterm (1 cr)",
+    "courses": [
+     "MFT 694 Practicum I (1)"
+    ]
+   },
+   {
+    "label": "Year 3 — Spring (7 cr)",
+    "courses": [
+     "MFT 610 Family Life Cycle and Aging (3)",
+     "MFT 694 Practicum I",
+     "MFT 696 Practicum Collaborations",
+     "Capstone project and oral case presentation"
+    ]
+   }
+  ],
+  "src": "https://www.chapman.edu/crean/_files/marriage-family/marriage-and-family-therapy-program-handbook.pdf"
+ },
+ "practicum": {
+  "starts": "Final year of the program — MFT 694 Practicum I opens in the Year 2 summer term of the three-year plan and runs a minimum of four consecutive terms including interterm; entry is gated by the Clinical Advancement Exam plus 40 completed credits",
+  "hours": "300 direct client contact hours, of which 100 must be relational (two or more people conjointly) and 50 must be live observation hours; plus at least 100 hours of supervision over the 12 months",
+  "who_places": "program-placed",
+  "clinic": "Frances Smith Center for Individual & Family Therapy (established 1968), 501 W. Palm Avenue, Orange",
+  "detail": "Practicum is a final-year, twelve-month block, not a slow drip across the degree: you finish nearly all didactic coursework, pass a Clinical Advancement Exam after 40 credits, and only then enroll in MFT 694 for at least four consecutive terms including the January interterm. Every one of the 300 required direct hours — including the 100 relational hours and 50 live-observation hours — is earned through the program's own Frances Smith Center or through MFT 696 Practicum Collaborations, a slate of partner community placements the program itself arranges and rotates each semester; you are not sent out to cold-call agencies for your core hours. Supervision is heavy and doubled up: weekly group supervision in pods of three to five students plus weekly individual supervision, \"[a]t least 100 hours of supervision over the course of the 12-months at the Frances Smith Center,\" held to a ratio of one unit of supervision (one individual hour or two group hours) per five direct client hours, with individual supervision \"predominantly... in a 1:1 format and on rare occasions, 1:2 (triadic).\" The clinic itself is a real sliding-scale community service — $15 to $60 a session, open weekdays 9 a.m. to 9 p.m. and Saturdays, insurance not accepted because the clinicians are students — and its therapy rooms are equipped for direct observation and recording; face-to-face hours and supervision may be accrued in person or by telehealth. The catch to understand before you enroll: you may add a self-found off-site traineeship (MFT 689 Practicum II, an elective requiring a one-year commitment and your own malpractice insurance), but its hours are explicitly excluded from the 300, so an outside traineeship is additive work, not a shortcut. Practicum ends with a capstone — a Theory of Change paper, a comprehensive written case report, and an oral case presentation — and the handbook says nothing about a formal handoff into an Associate MFT position after graduation.",
+  "src": "https://www.chapman.edu/crean/_files/marriage-family/marriage-and-family-therapy-program-handbook.pdf",
+  "model": "guaranteed",
+  "model_evidence": "All students in our program have the unique experience of completing a one-year clinical practicum in our on-site community clinic, the Frances Smith Center for Individual and Family Therapy.",
+  "model_url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/index.aspx",
+  "model_why": "“All students in our program” complete the practicum year in the on-site Frances Smith Center. “All” is the load-bearing word.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Frances Smith Center for Individual and Family Therapy"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Small. Program-published 2025–26 figures: 195 applicants, 73 admitted (about 37%), 20 students enrolled Fall 2025 and 7 enrolled Spring 2026; average incoming GPA 3.74–3.75, 74% psychology majors",
+  "gre": "waivable",
+  "prereqs": "Bachelor's in psychology or an approved mental health field; other majors must complete three of four courses before starting — introduction to psychology, abnormal psychology, developmental psychology or human development, and research methods or statistics — with a minimum grade of C+",
+  "deadline": "January 15 for fall admission; September 15 for spring admission; later applications reviewed on a space-available basis. $60 application fee, two letters (at least one academic or clinical), personal statement of no more than three double-spaced pages, resume, and an interview",
+  "src": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/admissions.aspx",
+  "gre_evidence": "Graduate Record Exam (GRE) scores: have a cumulative undergraduate grade point average of 3.3 or higher. If your bachelor's degree cumulative GPA is below a 3.3, you may be considered for admission by submitting satisfactory Graduate Record Examination (GRE) scores as listed below.",
+  "gre_url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/admissions.aspx",
+  "min_gpa": "3.3",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"easy to find a job, the field is hiring. finding a good job that pays well and doesn't burnout? meh. associates are historically underpaid and taken advantage of. chapman can help for sure in networking and whatnot but i do not live in OC, im out in riverside so the help was slim ... Biggest pro is the clinic and supervisors. biggest con was cost. it is a rigorous program that honestly prepares you well for the job. been in my position for over 6 months now and myself and a colleague that came to this same group are eons ahead of the game all due to chapman.\"",
+   "who": "u/lavendarsmiles, Chapman MFT graduate (class of May 2025), answering questions in their own AMA, r/chapmanuniversity, Mar 2026",
+   "sentiment": "mixed",
+   "url": "https://www.reddit.com/r/chapmanuniversity/comments/1il4zuh/i_am_a_graduating_mft_student_at_chapmans_program/"
+  },
+  {
+   "text": "\"If it won’t financially destroy you, absolutely. It is pricey, and you do ultimately get the same degree and credentials out of the program compared to any other accredited program. However, you pay for the high quality in-house supervision. You do not have to stress about getting hours by yourself like most other programs do. Every other trainee I’ve interacted with all envy the clinic set up we have, but you certainly pay for it\"",
+   "who": "u/lavendarsmiles, graduating Chapman MFT student, asked whether the price is worth it, r/chapmanuniversity, Mar 2025",
+   "sentiment": "mixed",
+   "url": "https://www.reddit.com/r/chapmanuniversity/comments/1il4zuh/i_am_a_graduating_mft_student_at_chapmans_program/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/3/3a/2008-0614-LA-OC-005-Chapman.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:2008-0614-LA-OC-005-Chapman.jpg",
+  "license": "CC BY 3.0",
+  "credit": "Photo by Bobak Ha'Eri, via Wikimedia Commons",
+  "caption": "Chapman University's Orange campus: Williams Mall, with Memorial Hall at left and Smith Hall at right"
+ },
+ "gaps": [
+  "No credible student reviews specific to Chapman's MFT program were found. Niche and GradReports carry Chapman reviews for School Psychology, School Counseling and undergraduate psychology, but nothing identifiable as an MFT student, and Reddit search was unavailable during this research. Rather than quote a different program's students as if they were MFT voices, this field is left empty.",
+  "The catalog description for MFT 584 Trauma-Informed Treatment could not be located. The course appears with its title and 3 credits in both the program handbook's three-year plan and the published 2.5-year plan of study, but it is absent from the 2024–25 acalog MFT course list, which suggests it is newer than the catalog edition that could be retrieved.",
+  "MFT 583 Advanced Theoretical Applications is listed in the catalog as a prerequisite for MFT 694 Practicum I, but does not appear in the handbook's published three-year plan of study. The relationship between MFT 583 and MFT 584 in the current sequence is unclear from published sources.",
+  "The handbook does not state an expected weekly caseload at the Frances Smith Center, nor does it describe one-way-mirror or live team supervision explicitly — only that the clinic's rooms are equipped for direct observation and recording and that 50 live observation hours are required. What counts toward those 50 hours is not defined in the handbook.",
+  "COAMFTE student achievement data (graduation rate, licensure exam pass rate, job placement) was not located; the published PDFs cover admissions and enrollment statistics only.",
+  "Tuition per credit for the MFT program was not published on the pages retrieved."
+ ],
+ "sources": [
+  {
+   "label": "MA Marriage & Family Therapy — program home",
+   "url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/index.aspx"
+  },
+  {
+   "label": "MA Marriage & Family Therapy — Our Program",
+   "url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/our-program.aspx"
+  },
+  {
+   "label": "Marriage and Family Therapy Program Handbook 2025–2026 (PDF)",
+   "url": "https://www.chapman.edu/crean/_files/marriage-family/marriage-and-family-therapy-program-handbook.pdf"
+  },
+  {
+   "label": "Frances Smith Center for Individual & Family Therapy",
+   "url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/frances-smith-center.aspx"
+  },
+  {
+   "label": "MFT admissions requirements and deadlines",
+   "url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/admissions.aspx"
+  },
+  {
+   "label": "MFT admissions averages 2025–26 (PDF)",
+   "url": "https://www.chapman.edu/crean/_files/marriage-family/mft-admissions-averages.pdf"
+  },
+  {
+   "label": "MFT enrollment statistics 2025–26 (PDF)",
+   "url": "https://www.chapman.edu/crean/_files/marriage-family/enrollment-statistics.pdf"
+  },
+  {
+   "label": "Advanced (2.5-year) plan of study (PDF)",
+   "url": "https://www.chapman.edu/crean/_files/marriage-family/advanced-plan-of-study.pdf"
+  },
+  {
+   "label": "Chapman University academic catalog — MFT course descriptions (2024–25 edition, catoid 34)",
+   "url": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105973"
+  }
+ ]
+}

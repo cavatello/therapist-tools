@@ -1,0 +1,291 @@
+{
+ "institution": "California State University, Fresno (Fresno State)",
+ "character": [
+  "The first thing a prospective student notices is the name: Fresno State still awards an \"M.S. in Marriage, Family and Child Counseling.\" MFCC was California's licence title until Business and Professions Code § 4980.08 renamed \"licensed marriage, family and child counselor\" to \"licensed marriage and family therapist,\" operative 1 July 1999. The degree title is legacy, not a defect, and it is not a licensure problem: § 4980.36(b) still lists \"marriage, family, and child counseling\" first among the qualifying degree titles the BBS accepts, ahead of \"marriage and family therapy.\" When you fill out BBS paperwork the degree name on the transcript will match a title written into the statute. The one practical consequence is search: a program with a 1990s name is easy to miss, and out-of-state boards that pattern-match on \"marriage and family therapy\" may require the extra sentence of explanation.",
+  "The clinic is the reason to look at this program, and it is not on campus. The Fresno Family Counseling Center has operated since 1985 and sits at 5151 N. Palm Ave, Suite 200 — across from Fig Garden Village in northwest Fresno, roughly seven miles from the main campus at 5005 N. Maple. Fresno State News reported it as 4,400 square feet with 14 meeting rooms delivering close to 10,000 therapy sessions a year, in English and Spanish, on a sliding scale ($40–$60 for a first counselling session, $30–$50 after, cash or check only, no insurance and no Medi-Cal), with roughly two-thirds of clients described as economically disadvantaged and unable to be served by the county system. The department's own phrase for how supervision works there is \"Dual Channel Feedback\": sessions are videotaped and a licensed supervisor watches from a monitoring room and feeds comments in during the session, not afterward. Very few California MFT programs run a clinic at that volume, and fewer still put supervisors on a live channel into the room.",
+  "Structurally it is a CACREP counselor-education programme wearing an MFCC label, and it runs on a cohort model that admits twice a year: \"Each semester, 18 students will be admitted into a cohort,\" full-time, taking a designated sequence. Classes are scheduled 1:00–3:50, 4:00–6:50 and 7:00–9:50 — daytime and evening both, so this is not an after-work programme. The degree is 60 units, but nine further units of prerequisites (ERE 153 Educational Statistics, COUN 174, COUN 176 or PSYCH 166) sit outside it and must be no older than ten years with a C or better, and LPCC eligibility costs another 12 units (COUN 270, 271, 272, 273) on top of the 60. California-resident tuition is among the lowest in the state: $5,172.50 per semester full-time (6.1+ units) for Fall 2026, $3,378.50 part-time. One oddity worth knowing before you rely on published outcomes — the MFCC programme's own \"Outcomes and Assessment\" page reports completion, comps and employment figures for the CRMHC (rehabilitation counselling) programme, not for MFCC."
+ ],
+ "orientation": "Systemic family therapy inside a CACREP counselor-education frame — no single named model is claimed; faculty listed in the handbook include an AAMFT Approved Supervisor, a Theraplay Trainer/Supervisor, and a supervisor who has run Spanish-language supervision for therapists-in-training.",
+ "signature": [
+  {
+   "code": "COUN 238",
+   "title": "Advanced Practicum in Counseling",
+   "units": "4",
+   "desc": "\"In addition to completing COUN 208, students are required to complete an advanced practicum course held at the Fresno Family Counseling Center. Students who enroll in the COUN 238 practicum receive close supervision as they work directly with individuals, couples, families and children.\"",
+   "verbatim": true,
+   "why": "This is the course the programme is built around, and it is rationed: you apply a full year before you intend to take it, name the semester you want, and if you cannot enrol in the semester you are offered you \"forfeit\" your priority and go to the back of the waiting list. Admittance depends on the date of your application and a recommendation from your COUN 208 instructor, and everyone admitted attends a three-day mandatory orientation the week before the semester starts. Almost no other California MFT programme makes its in-house clinic a competitive, application-gated course.",
+   "src": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf"
+  },
+  {
+   "code": "COUN 208",
+   "title": "Practicum in Counseling",
+   "units": "4",
+   "desc": "\"This course offers supervised, on-campus counseling experiences with selected clients. Students gain experience in individual counseling, critiquing of recorded sessions and typescripts, observations, case consultation and case report writing... This course consists of two hours of seminar and four hours of lab experience.\"",
+   "verbatim": true,
+   "why": "The typescript requirement is the tell — not just watching your recordings but transcribing sessions and being critiqued on the transcript, plus reflection journals and peer critique of classmates' sessions. It is a six-contact-hour course carrying four units, taken in the second semester, and a B or better is required to move on. It also functions as the audition for COUN 238: your 208 instructor's recommendation is part of the advanced-practicum application.",
+   "src": "https://kremen.fresnostate.edu/about/cctc/documents/coun/Coun208.pdf"
+  },
+  {
+   "code": "COUN 234a–e",
+   "title": "Sexuality in Human Relationships (1); Violence in Intimate Relationships (1); Substance Abuse Treatment (1); Psychopharmacology (2); Consultation and Recovery (1)",
+   "units": "6 total",
+   "desc": "Five separate 1- and 2-unit modules inside the 31-unit MFCC block, listed individually in the degree requirements rather than folded into full semester courses. COUN 271 (Addictions Counseling, 3) substitutes for 234c and COUN 272 (Psychopharmacology, 3) substitutes for 234d.",
+   "verbatim": false,
+   "why": "Most California programmes teach the BBS content areas as full three-unit courses; Fresno State breaks five of them into micro-modules, which is why the MFCC block reaches 31 units without feeling like eleven courses. The substitution rule matters if you want the LPCC: taking the three-unit LPCC versions of addictions and psychopharmacology displaces the one- and two-unit modules, so the real marginal cost of LPCC eligibility is smaller than the headline 12 units — and the published cohort roadmap already schedules COUN 272 rather than COUN 234d.",
+   "src": "https://kremen.fresnostate.edu/masters-mfcc/curriculum.html"
+  },
+  {
+   "code": "COUN 239",
+   "title": "Field Placement in Counseling",
+   "units": "6",
+   "desc": "\"Students in COUN 239 are expected to make a two-semester commitment to a selected field site. The student must complete 300 hours of approved fieldwork hours per semester for a total of 600 hours... 300 of the 600 hours must include providing direct face-to-face counseling services and is required to complete a minimum of 10 hours of experience leading groups.\"",
+   "verbatim": true,
+   "why": "This is the half of the training the school does not run for you: \"The student is responsible for selecting a site that will provide the type of counseling experience that is of interest to his/her individual preferences,\" subject to faculty approval. You need 40 units completed before you can enrol, a signed field placement contract, professional liability insurance, and a permission number. The 10-hour group-leadership floor is a CACREP artifact and is the only sub-minimum the programme publishes — there is no stated relational (couple/family) hour minimum at this stage.",
+   "src": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf"
+  },
+  {
+   "code": "COUN 220",
+   "title": "Career Development Theory",
+   "units": "3",
+   "desc": "Required core course that also carries the university's graduate writing requirement: \"Students must pass the graduate writing requirement, which is part of COUN 220, prior to applying for Advancement to Candidacy.\"",
+   "verbatim": true,
+   "why": "Worth flagging because it is a hidden gate rather than a distinctive course: fail the writing requirement embedded in the career course and you cannot advance to candidacy, which in turn blocks the culminating experience and graduation. Note that the published cohort roadmap marks COUN 206 (Counseling through the Lifespan) as the GWR course instead — the two documents disagree, so confirm with an adviser which one currently carries it.",
+   "src": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Lockstep cohort, full-time, five semesters over roughly two and a half years, plus nine units of prerequisites beforehand. The sequence below is the programme's own Student Roadmap for fall admits (a near-identical spring roadmap exists, since a cohort of 18 starts every semester); it is dated 10/10/2020 and names instructors and class hours, so treat the personnel as indicative. Per-semester unit loads on the roadmap are 9 (prerequisites), 12, 13, 16, 12–15 and 3–10. Courses marked * on the roadmap are \"Key Clinical Course — Must be taken in this sequence\"; COUN 230, 231 and 232 are marked as key prerequisites that must precede COUN 238.",
+  "total_units": "60 (plus 9 units of prerequisites)",
+  "terms": [
+   {
+    "label": "Prerequisites (9 units)",
+    "courses": [
+     "ERE 153 Educational Statistics (3)",
+     "COUN 174 or PSYCH 174 Introduction to Counseling (3)",
+     "COUN 176 Counseling and Mental Health, or PSYCH 166 Abnormal Psychology (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Semester 1 (12 units)",
+    "courses": [
+     "COUN 200 Counseling Techniques (3)",
+     "COUN 230 Family Therapy Theories (3)",
+     "COUN 232 Psychopathology and the DSM (3)",
+     "COUN 220 Career Development Theory (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Semester 2 (13 units)",
+    "courses": [
+     "COUN 208 Practicum in Counseling (4)",
+     "COUN 231 Ethics and Professional Practices in Counseling (3)",
+     "COUN 235 Couples Therapy (3)",
+     "COUN 206 Counseling through the Lifespan (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Semester 3 (16 units)",
+    "courses": [
+     "COUN 238 Advanced Practicum in Counseling, at the Fresno Family Counseling Center (4)",
+     "COUN 201 Multicultural Counseling (3)",
+     "COUN 203 Assessment in Counseling (3)",
+     "COUN 233 Therapeutic Methods with Children (3)",
+     "COUN 234a, b & c Sexuality in Human Relationships / Violence in Intimate Relationships / Substance Abuse Treatment (3 combined)"
+    ]
+   },
+   {
+    "label": "Year 2 — Semester 4 (12–15 units)",
+    "courses": [
+     "COUN 239 Field Placement in Counseling, first of two semesters (3)",
+     "ERA 220 Research in Education (3)",
+     "COUN 202 Group Counseling (3)",
+     "COUN 272 Psychopharmacology (3) — the LPCC course, scheduled in place of the 2-unit COUN 234d module",
+     "Approved electives as needed"
+    ]
+   },
+   {
+    "label": "Year 3 — Semester 5 (3–10 units)",
+    "courses": [
+     "COUN 239 Field Placement in Counseling, second semester (3)",
+     "COUN 234e Consultation and Recovery (1) — roadmap notes \"Likely Not Needed (Awaiting Grad. Cmte. Approval to Remove)\"",
+     "Culminating experience: COUN 298 Project + 1 unit of electives, or COUN 299 Thesis + 1 unit of electives, or Comprehensive Examination + 4 units of electives",
+     "Roadmap note: \"Electives units can include PPS, Intersession Elective Courses, or LPCC coursework.\""
+    ]
+   },
+   {
+    "label": "Optional LPCC add-on (12 units, outside the 60)",
+    "courses": [
+     "COUN 270 Advanced Counseling Theories (3)",
+     "COUN 271 Addictions Counseling (3) — substitutes for COUN 234c",
+     "COUN 272 Psychopharmacology (3) — substitutes for COUN 234d",
+     "COUN 273 Crisis and Trauma Counseling (3)"
+    ]
+   }
+  ],
+  "src": "https://kremen.fresnostate.edu/masters-mfcc/documents/Student%20Roadmap%20Fall%20Admissions.doc"
+ },
+ "practicum": {
+  "starts": "Second semester of the programme (COUN 208, on campus); the clinic-based advanced practicum (COUN 238) begins in semester 3; community fieldwork (COUN 239) runs across semesters 4 and 5",
+  "hours": "COUN 208: two hours of seminar plus four hours of lab per week on campus. COUN 239: 600 clock hours over two semesters (300 per semester), of which 300 must be direct face-to-face counselling and at least 10 hours must be leading groups. No total client-hour figure is published for COUN 238.",
+  "who_places": "mixed",
+  "clinic": "Fresno Family Counseling Center (FFCC), 5151 N. Palm Ave, Suite 200, Fresno — off campus, in operation since 1985",
+  "detail": "Training runs in three stages and the middle one is the distinctive part. COUN 208 is an on-campus practicum with selected clients: two hours of seminar plus four hours of lab, individual sessions, recorded-session and typescript critique, peer observation and case reports, with a B or better required to continue. COUN 238 then moves you to the Fresno Family Counseling Center, the department's own clinic, where you carry individuals, couples, families and children under what the handbook calls \"highly structured, intensely supervised\" conditions — sessions are videotaped and a licensed supervisor observes from a monitoring room and feeds comments in live (\"Dual Channel Feedback\"). Access to COUN 238 is application-gated: you apply a year ahead by emailing a form to the clinic, you must already have COUN 208, 230 and 232 (with 231 concurrent), admittance turns on application date, instructor recommendation and availability, and everyone admitted attends a three-day mandatory orientation the week before the term. COUN 239 is the opposite arrangement: the student picks the community site, the supervising faculty member must approve it, you need 40 units completed and professional liability insurance, and you sign a field placement contract with the site, the university and the off-campus supervisor. You commit to one site for two semesters, log 300 hours a semester, and the off-campus supervisor writes the evaluation while a university supervisor clears the file. Beyond the 10-hour group-leadership floor there is no published relational sub-minimum; the BBS's own relational-hour rules apply to hours you want to count toward licensure.",
+  "src": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf",
+  "model": "student-sourced",
+  "model_evidence": "The student is responsible for selecting a site that will provide the type of counseling experience that is of interest to his/her individual preferences. The university faculty member who supervises this course must approve the fieldwork site.",
+  "model_url": "https://kremen.fresnostate.edu/documents/counseling/CERHandbook.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Fresno Family Counseling Center (FFCC)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "\"Each semester, 18 students will be admitted into a cohort\" — two cohorts a year, fall and spring, full-time",
+  "gre": "not published",
+  "prereqs": "Nine units of prerequisite coursework, completed or in progress: COUN 174 (or PSYCH 174) Introduction to Counseling; COUN 176 Counseling and Mental Health (or an Abnormal Psychology equivalent); ERE 153 Educational Statistics or an equivalent quantitative course. Courses may not be older than ten years and require a C or better. Minimum 3.0 GPA in the last 60 semester units; two-page statement of purpose; three letters of recommendation; TOEFL 80 iBT for international applicants.",
+  "deadline": "Spring 2027: 1 July – 1 October 2026. Fall 2027: 1 August 2026 – 1 March 2027. Applications go through Cal State Apply; unofficial transcripts are uploaded in the Program Materials section. No interview requirement is stated.",
+  "src": "https://kremen.fresnostate.edu/masters-mfcc/apply.html",
+  "gre_evidence": "Graduate program applicants must have a minimum GPA of 3.0 in the last 60 semester (90 quarter) units attempted and a minimum of 3.0 on any post baccalaureate work at Fresno State.",
+  "gre_url": "https://kremen.fresnostate.edu/masters-mfcc/apply.html",
+  "min_gpa": "3.0 in the last 60 semester units",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "The department's own cohort statement on what the week looks like: 18 admitted per semester, full-time status expected, and \"Scheduling of the courses will take place during both day and evening times. Most courses are held from 1:00-3:50pm, 4:00-6:50 pm, 7:00-9:50 pm.\"",
+   "who": "Counselor Education and Rehabilitation Student Handbook, MFCC Cohort Statement",
+   "sentiment": "info",
+   "url": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf"
+  },
+  {
+   "text": "On how supervision works at the clinic: \"Sessions are videotaped and monitored by licensed supervisors, enhancing the quality of counseling for patients and providing immediate and intensive training.\" The centre delivers close to 10,000 sessions a year, about two-thirds to clients the county system cannot serve.",
+   "who": "Fresno State News, February 2016",
+   "sentiment": "positive",
+   "url": "https://www.fresnostatenews.com/2016/02/19/fresno-family-counseling-center-expands-to-meet-community-needs/"
+  },
+  {
+   "text": "The clinic's published sliding scale, which is also what you will be asking clients to pay: $40–$60 for a first counselling session and $30–$50 thereafter, based on household income; classes $20–$40. \"Cash or check only\" and \"We do not accept insurances or Medi-Cal.\"",
+   "who": "Fresno Family Counseling Center, services page",
+   "sentiment": "info",
+   "url": "https://kremen.fresnostate.edu/centers-projects/ffcc/services/index.html"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/4/45/CSUF_campus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:CSUF_campus.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Samboy, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "The Fresno State campus. Coursework happens here, in the Kremen School at 5005 N. Maple; the Fresno Family Counseling Center where the advanced practicum runs is about seven miles away on N. Palm Ave."
+ },
+ "gaps": [
+  "The Fresno State academic catalog (catalog.fresnostate.edu) sits behind an AWS WAF bot challenge and could not be fetched, so official catalog course descriptions for the COUN courses are missing. The course titles, codes and unit values here come from the department's advising sheet, student handbook and curriculum page; the only full course description obtained is the COUN 208 syllabus.",
+  "No total client-contact-hour figure is published for COUN 238, the clinic practicum — only that supervision is close and sessions are videotaped.",
+  "No relational (couple/family) hour sub-minimum is published for any stage of training.",
+  "The programme's \"Outcomes and Assessment\" page carries a CACREP statement for MFCC but then reports student outcomes for the CRMHC (Clinical Rehabilitation and Mental Health Counseling) programme — enrolment, completion, comps pass rate and employment figures are all labelled CRMHC. No MFCC-specific outcome data was found.",
+  "The student handbook says the graduate writing requirement sits inside COUN 220; the cohort roadmap marks COUN 206 as the GWR course. The documents disagree.",
+  "The cohort roadmaps are dated 10/10/2020 and the advising sheet 11/1/2019; no newer sequence document is published.",
+  "Nothing credible was found in student discussion forums about this programme. Reddit's search endpoints were unreachable during this pass, and an earlier survey of r/therapists, r/askatherapist, r/psychologystudents, The GradCafe and Student Doctor Network found no Fresno State MFCC thread worth citing."
+ ],
+ "sources": [
+  {
+   "label": "M.S. in Marriage, Family and Child Counseling — programme homepage",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/index.html"
+  },
+  {
+   "label": "Curriculum (course list, LPCC add-on, substitution rules)",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/curriculum.html"
+  },
+  {
+   "label": "Apply (deadlines, prerequisites, cohort size)",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/apply.html"
+  },
+  {
+   "label": "Outcomes & Assessment (CACREP statement)",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/accreditation.html"
+  },
+  {
+   "label": "Current Students (handbook, forms, Dual Channel Feedback)",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/students.html"
+  },
+  {
+   "label": "Counselor Education and Rehabilitation Student Handbook (PDF) — degree requirements, cohort statement, COUN 238/239 mechanics",
+   "url": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf"
+  },
+  {
+   "label": "MFCC advising sheet (PDF)",
+   "url": "https://kremen.fresnostate.edu/documents/counseling/AdvisingForm-MFCC2019-2.pdf"
+  },
+  {
+   "label": "Student Roadmap — Fall Admissions (.doc, term-by-term sequence)",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/documents/Student%20Roadmap%20Fall%20Admissions.doc"
+  },
+  {
+   "label": "Student Roadmap — Spring Admissions (.doc)",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/documents/Student%20Roadmap%20Spring%20Admissions.doc"
+  },
+  {
+   "label": "COUN 238 Advanced Practicum application form (PDF)",
+   "url": "https://kremen.fresnostate.edu/documents/counseling/C238-PracticumApplication2019-2023.pdf"
+  },
+  {
+   "label": "COUN 208 Practicum in Counseling syllabus (PDF)",
+   "url": "https://kremen.fresnostate.edu/about/cctc/documents/coun/Coun208.pdf"
+  },
+  {
+   "label": "Fresno Family Counseling Center — about",
+   "url": "https://kremen.fresnostate.edu/centers-projects/ffcc/index.html"
+  },
+  {
+   "label": "Fresno Family Counseling Center — services and fees",
+   "url": "https://kremen.fresnostate.edu/centers-projects/ffcc/services/index.html"
+  },
+  {
+   "label": "Fresno Family Counseling Center — contact and address",
+   "url": "https://kremen.fresnostate.edu/centers-projects/ffcc/contact.html"
+  },
+  {
+   "label": "Fresno State News, “Fresno Family Counseling Center expands to meet community needs” (2016)",
+   "url": "https://www.fresnostatenews.com/2016/02/19/fresno-family-counseling-center-expands-to-meet-community-needs/"
+  },
+  {
+   "label": "Tuition & Fees, Fall 2026 (Student Accounts)",
+   "url": "https://adminfinance.fresnostate.edu/accountingservices/students/tuitionfees.html"
+  },
+  {
+   "label": "Cal. Bus. & Prof. Code § 4980.08 — MFCC renamed LMFT, operative 1 July 1999",
+   "url": "https://california.public.law/codes/business_and_professions_code_section_4980.08"
+  },
+  {
+   "label": "Cal. Bus. & Prof. Code § 4980.36 — qualifying degree titles include “marriage, family, and child counseling”",
+   "url": "https://codes.findlaw.com/ca/business-and-professions-code/bpc-sect-4980-36/"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "format / \"on-campus + clinic\"",
+   "current": "on-campus + clinic",
+   "correct": "Coursework is on campus (Kremen School, 5005 N. Maple Ave), but the training clinic is not: the Fresno Family Counseling Center is at 5151 N. Palm Ave, Suite 200, across from Fig Garden Village in northwest Fresno, roughly seven miles from the main campus. Students commute to it for COUN 238, and at least one COUN 208 section is also scheduled \"@FFCC\".",
+   "src": "https://kremen.fresnostate.edu/centers-projects/ffcc/contact.html"
+  },
+  {
+   "field": "lpcc",
+   "current": "LPCC yes",
+   "correct": "Yes, but not inside the 60-unit degree. LPCC eligibility requires four additional courses totalling 12 units — COUN 270 Advanced Counseling Theories, COUN 271 Addictions Counseling, COUN 272 Psychopharmacology, COUN 273 Crisis and Trauma Counseling — of which COUN 271 substitutes for the 1-unit COUN 234c and COUN 272 substitutes for the 2-unit COUN 234d, so the net addition is smaller than 12 units. The published cohort roadmap already schedules COUN 272 in semester 4.",
+   "src": "https://kremen.fresnostate.edu/masters-mfcc/curriculum.html"
+  },
+  {
+   "field": "units",
+   "current": "60 units",
+   "correct": "60 units in the degree, plus 9 units of prerequisites (ERE 153 Educational Statistics, COUN 174 Introduction to Counseling, COUN 176 Counseling and Mental Health or PSYCH 166 Abnormal Psychology) that sit outside the 60 and must be completed with a C or better and be less than ten years old. A student without them is looking at 69 units of coursework, not 60.",
+   "src": "https://kremen.fresnostate.edu/documents/cerhandbook.pdf"
+  },
+  {
+   "field": "length / \"5 semesters\"",
+   "current": "5 semesters",
+   "correct": "Accurate as stated by the programme, but the official roadmap lays those five semesters across three academic years (Year 1 fall and spring, Year 2 fall and spring, Year 3 fall) — about two and a half years full-time — with semester loads of 12, 13, 16, 12–15 and 3–10 units, and that is before any prerequisite or LPCC coursework.",
+   "src": "https://kremen.fresnostate.edu/masters-mfcc/documents/Student%20Roadmap%20Fall%20Admissions.doc"
+  }
+ ]
+}

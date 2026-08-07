@@ -1,0 +1,277 @@
+{
+ "institution": "University of Massachusetts Global (formerly Brandman)",
+ "character": [
+  "The name has changed three times and the entity has changed hands twice, so it is worth getting the lineage straight. It began in 1958 as Chapman College teaching on-base classes at MCAS El Toro; became Chapman University College in 2001; was separately incorporated in 2008; and was renamed Brandman University in 2009 after a gift from the Joyce and Saul Brandman Foundation. In September 2021 Brandman was transferred to the University of Massachusetts under a change-of-control agreement and became UMass Global. The financial terms are public: UMass committed roughly $130 million, Chapman receives $96 million over ten years with payments beginning in fiscal 2028, and UMass Global bought the Irvine campus for $37 million. What did not change is where it actually is or who accredits it. UMass Global is headquartered in Aliso Viejo, California, and it is \"institutionally accredited by the WASC Senior College and University Commission (WSCUC)\" — the same California regional accreditor Brandman held. It is a Massachusetts-branded, California-accredited, entirely online institution.",
+  "That history is not incidental to the decision. Enrolment fell from about 22,000 at acquisition to roughly 19,000; Chancellor David Andrews told the Boston Globe \"we took a big hit\" and that \"the fall-off in enrolment was a lot sharper... than we thought. I mean, it was over 20 percent that we lost within the first 18 months.\" By June 2024 UMass Global carried over $81 million in debt for which the UMass system bears ultimate liability, and the system has extended $8.6 million of credit on its behalf to guarantee student financial aid. None of that means the school is closing. It does mean that if you are choosing this program partly because \"UMass\" sounds like a state flagship, you should know the relationship is an affiliation with overlapping boards, not membership in the UMass campus system, and that the affiliation is currently a cost centre rather than a windfall.",
+  "On the geography question: this is not a California-only program, whatever a directory listing may say. UMass Global's own state-authorisation table lists the MA in Marriage and Family Therapy as offered in 42 states, including California, and \"Program not offered\" in seven — Florida, Mississippi, Missouri, New Hampshire, New York, North Carolina and Wisconsin. The combined MFT/PCC emphasis is much narrower, offered in about 29 states (California among them) and not offered in Connecticut, Georgia, Illinois, Indiana, Kentucky, Maryland, New Jersey, New York, North Carolina, Ohio, Pennsylvania, Rhode Island, South Carolina, South Dakota or Wisconsin. The catalog is blunt about the consequence: \"If the student relocates to a state in which the program is not authorized, the student will be unable to complete the program.\" The three courses that turn the 60-credit MFT degree into the 69-credit dual degree — the ones that give California graduates APCC eligibility alongside AMFT — are named in the catalog and carry a different prefix: PSYU 521 Advanced Individual Therapy II, PSYU 539 Crisis and Trauma Counseling, and PSYU 545 Transition to Work and Career, three credits each.",
+  "The program is explicitly not COAMFTE-accredited — its own Graduate Achievement Data page says so — but unlike most non-accredited programs it publishes the data anyway, and the data is mixed in an informative way. Full-time cohorts have run 81, 77, 78 and 86 students (2021–22 through 2024–25). Job placement was reported at 100% for both completed cohorts (n=53 and n=36), and licensure at any MFT level at 95% and 85.71%. But graduation within the advertised 2.5 years was 65.00% for 2021–22 and 56.76% for 2022–23 — that is, more than four in ten recent full-time students did not finish on time, and the likeliest reason is in the practicum section below. At $770 a credit the degree costs about $46,200 for the 60-credit MFT emphasis or $53,130 for the 69-credit dual, which is materially cheaper than either California brick-and-mortar option in this comparison set."
+ ],
+ "orientation": "Systemic/relational, taught as an explicit arc from cybernetic to postmodern — Structural, Strategic and Experiential in one required course; Narrative, Solution-Focused, Collaborative Language Systems and Emotionally Focused Family Therapy in its sequel",
+ "signature": [
+  {
+   "code": "MFT 512 / MFT 526",
+   "title": "Family Therapy Theories and Techniques: A Modern Emphasis / A Postmodern Emphasis",
+   "units": "3 + 3",
+   "desc": "MFT 512: \"Cybernetics family systems theory and therapy is emphasized. In addition, students will study several clinical models including Structural, Strategic, and Experiential Family Therapy.\" MFT 526 (prerequisite MFT 512): \"in-depth study of major postmodern models such as Collaborative Language System, Narrative Therapy, and Solution-Focused Therapy, as well as the contemporary model Emotionally Focused Family Therapy.\"",
+   "verbatim": true,
+   "why": "Six required credits split deliberately across the modern/postmodern break in family therapy, with the second gated on the first. Most programs compress this into a single survey. If you want to come out able to say which side of that break you work from and why, this pairing is the reason to look here.",
+   "src": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 524",
+   "title": "Clinical Issues in Human Diversity",
+   "units": "3",
+   "desc": "\"It seeks to deconstruct the sociohistorical implications of power, privilege, and oppression. Students will be challenged to consider their unique social location identity with the deliberate exploration of intersectionality aimed at increasing student competence in anti-racist practices.\"",
+   "verbatim": true,
+   "why": "The phrase \"anti-racist practices\" as a stated competency outcome is unusually explicit for a required multicultural course; most catalogs stop at \"cultural competence.\" Worth knowing in both directions — it tells you what the classroom conversation will be like.",
+   "src": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 660",
+   "title": "MFT Practicum I: A Systemic Lens of the Developing Therapist",
+   "units": "1.5",
+   "desc": "\"Students will provide recordings (audio or video) of their live clinical cases in order to demonstrate the application of clinical skills in the beginning stages of therapy. In addition, students will engage in the exploration of self-of-the-therapist.\"",
+   "verbatim": true,
+   "why": "Every one of the six practicum courses requires a minimum of two recorded therapy sessions per term presented to the group, and at least 50 of the 100 programme supervision hours must be observational supervision from those recordings. For a fully online program that is a real accountability mechanism — your supervisors watch you work, not just hear you describe it.",
+   "src": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 664",
+   "title": "MFT Practicum V: Social Context and Capstone 2",
+   "units": "1.5",
+   "desc": "\"As a final project, students will collaborate with classmates to create a community resource manual to provide referrals to diverse and vulnerable populations.\"",
+   "verbatim": true,
+   "why": "A concrete, portable deliverable rather than a paper — and a smart answer to the structural weakness of an online program, which is that students are scattered and know nothing about each other's local referral ecologies. It is the one assignment in the sequence that turns geographic dispersion into an asset.",
+   "src": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 506",
+   "title": "Ethical & Professional Issues",
+   "units": "3",
+   "desc": "\"Depending upon the student's state of residence, ethical and legal responsibilities and liabilities will vary. Students will learn to apply ethical decision-making skills to resolving conflicts, practicing appropriate boundaries, and assuring that confidentiality is maintained. Students will learn how to apply the AAMFT Code of Ethics.\"",
+   "verbatim": true,
+   "why": "Read that first sentence carefully if you intend to be licensed in California. This is a single national law-and-ethics course taught to students in 42 jurisdictions; it is built around the AAMFT Code, not around California Business & Professions Code §4980 and the Tarasoff/mandated-reporting specifics a California-only program would drill. The BBS accepts the degree, but you should expect to do more of your California-specific law and ethics preparation on your own before the exam.",
+   "src": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 542",
+   "title": "Community and Environmental Mental Health",
+   "units": "3",
+   "desc": "\"The primary focus of this course is on the accessibility of mental health services by underserved populations and disenfranchised communities... In addition, environmental stressors and their negative impacts on mental health will be reviewed. Students will be introduced to interventions that model best practices, such as the recovery paradigm of treatment.\"",
+   "verbatim": true,
+   "why": "A required course naming environmental stressors as a clinical subject is still uncommon, and pairing community access with the recovery paradigm signals the program expects graduates to work in agencies rather than cash-pay private practice — which is also where the practicum placements are.",
+   "src": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  }
+ ],
+ "curriculum": {
+  "note": "Fully online, instructor-led, in eight-week sessions with six start points a year. No cohort in the ordinary sense — the program is 23 courses split into a 17-course didactic phase (51 credits) and a 6-course practicum phase (9 credits). Full-time is two courses per session, giving an advertised 2.5 years; the maximum is seven years. Eight named courses plus a passed oral \"advancement\" examination gate entry to practicum. Total is 60 credits for the MFT emphasis; the combined MFT/PCC emphasis adds three PSYU courses for 69.",
+  "total_units": "69",
+  "terms": [
+   {
+    "label": "Advancement gate — the eight courses required before applying for practicum (24 credits)",
+    "courses": [
+     "MFT 502 History and Foundations of Therapeutic Practices (3)",
+     "MFT 506 Ethical & Professional Issues (3)",
+     "MFT 510 Psychopathology & Diagnosis (3)",
+     "MFT 512 Family Therapy Theories and Techniques: A Modern Emphasis (3)",
+     "MFT 514 Couples Therapy (3)",
+     "MFT 516 Assessment and Treatment of Substance Abuse (3)",
+     "MFT 518 Child/Adolescent Psychopathology and Child Abuse Reporting (3)",
+     "MFT 520 Advanced Individual Therapy I (3)"
+    ]
+   },
+   {
+    "label": "Remaining didactic coursework — MFT emphasis (27 credits)",
+    "courses": [
+     "MFT 522 Individual and Family Development (3)",
+     "MFT 524 Clinical Issues in Human Diversity (3)",
+     "MFT 526 Family Therapy Theories and Techniques: A Postmodern Emphasis (3)",
+     "MFT 528 Research and Bibliographic Methods (3)",
+     "MFT 530 Theory and Practice of Group Therapy (3)",
+     "MFT 534 Clinical Assessment (3)",
+     "MFT 536 Psychopharmacology (3)",
+     "MFT 538 Gender, Intimacy, and Sexuality (3)",
+     "MFT 542 Community and Environmental Mental Health (3)"
+    ]
+   },
+   {
+    "label": "Practicum phase — six consecutive courses over 12 months (9 credits)",
+    "courses": [
+     "MFT 660 MFT Practicum I: A Systemic Lens of the Developing Therapist (1.5)",
+     "MFT 661 MFT Practicum II: Contextualizing the Content of Therapy (1.5)",
+     "MFT 662 MFT Practicum III: Exploring the Therapeutic Process (1.5)",
+     "MFT 663 MFT Practicum IV: Theoretical Application and Capstone 1 (1.5)",
+     "MFT 664 MFT Practicum V: Social Context and Capstone 2 (1.5)",
+     "MFT 665 MFT Practicum VI: Beyond the Classroom and Capstone 3 (1.5)",
+     "MFT 696 MFT Practicum Continuation (0 credits, plus a Graduate Practicum Continuation Fee, if hours are not finished)"
+    ]
+   },
+   {
+    "label": "The three additional courses for the 69-credit MFT/PCC dual emphasis — these are what produce APCC eligibility (9 credits)",
+    "courses": [
+     "PSYU 521 Advanced Individual Therapy II (3)",
+     "PSYU 539 Crisis and Trauma Counseling (3)",
+     "PSYU 545 Transition to Work and Career (3)"
+    ]
+   }
+  ],
+  "src": "https://catalog.umassglobal.edu/arts-sciences/marriage-and-family-therapy-ma/marriage-and-family-therapy-ma.pdf"
+ },
+ "practicum": {
+  "starts": "After passing the oral \"advancement\" examination — a vignette-based clinical exam — which requires the eight named didactic courses first, plus an application filed at least two sessions ahead, an approved Practicum Site Agreement, liability insurance, and the lifting of a standing Dean's Hold on registration. Then six consecutive 1.5-credit practicum courses over twelve months.",
+  "hours": "400 hours over a 12-month period: 300 direct client contact hours of which at least 100 must be relational (two or more people in an ongoing relationship), plus 100 supervision hours of which at least 50 must be observational supervision from your own audio or video recordings. Budget 8–10 hours a week, more if the site demands it.",
+  "who_places": "student-finds",
+  "detail": "Say this bluntly, because for an online program it is the whole decision: UMass Global does not place you. The Clinical Handbook's sentence is \"Students are responsible for securing a practicum site while actively collaborating with their CFR\" — the Clinical Faculty Representative reviews an approved-site list, discusses process, and vets agencies you bring, but you do the searching, the applying and the interviewing. The marketing line \"our dedicated field support team helps you identify potential clinical sites in your community\" describes that vetting function, not a placement service. Two details tell you how hard this actually is in practice. First, approval of a site that is not already on the list \"may take 1–2 months or longer,\" and hours accrued at an unapproved site \"may be considered unethical\" and will not count toward graduation. Second — and this is the sentence to read twice — the professional conduct policy lists \"Failure of the student to secure a practicum placement after interviewing at 7 sites\" as a condition that automatically triggers a formal Step One professional conduct meeting, the same procedure used for a placement termination. A program that has written a disciplinary trigger for failing to get placed after seven interviews is a program that has seen students fail to get placed after seven interviews. That is very likely what is behind on-time graduation of 65.00% and then 56.76%: if you cannot find a site you cannot enrol in MFT 660, and if you run out of hours you are moved into the zero-credit MFT 696 continuation course and charged a fee until you finish or your seven-year clock expires. Two further constraints bind where you can look: \"Students are mandated to provide clinical services within their state of residency and cannot provide clinical service across state lines or internationally,\" and if you move to a state where the program is not authorised you cannot finish at all. One clarification on the advertised \"in-person\" hours: the handbook defines direct client contact as occurring \"in-person synchronously, either physically in the same location or mediated by technology,\" so supervised telehealth counts.",
+  "src": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf",
+  "model": "assisted",
+  "model_evidence": "Students are responsible for securing a practicum site while actively collaborating with their CFR and are encouraged to seek guidance and support from their CFR as needed throughout the process.",
+  "model_url": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "No cohorts — rolling admission with six eight-week start points a year. The program's own Graduate Achievement Data reports full-time enrolment of 81 (2021–22), 77 (2022–23), 78 (2023–24) and 86 (2024–25) students per cohort year.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree with a 2.75 GPA (or a prior graduate degree, or a portfolio route requiring two recommendation forms), plus a required autobiography of three to four typed pages covering, with a stated minimum number of examples each: childhood and family-of-origin experiences, adult relationships, cultural experiences, academic experiences and vocational experiences that led you toward MFT, and \"why they have selected this very moment to move towards becoming a therapist.\" Applicants must also acknowledge receipt of the Program Handbook, the Clinical Handbook and the Licensure Limitation Policy. Up to 12 semester credits may transfer; practicum courses and hours may not.",
+  "deadline": "Rolling. Published starts: Fall I 31 Aug 2026, Fall II 26 Oct 2026, Spring I 11 Jan 2027, Spring II 8 Mar 2027, Summer I 3 May 2027, Summer II 28 Jun 2027.",
+  "src": "https://catalog.umassglobal.edu/arts-sciences/marriage-and-family-therapy-ma/marriage-and-family-therapy-ma.pdf",
+  "gre_evidence": "No Grad Level Exams Required This Master's degree program does not require applicants to take costly exams like the GRE.",
+  "gre_url": "https://www.umassglobal.edu/academic-programs/marriage-family-therapy-and-professional-clinical-counseling",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"we took a big hit\" — \"the fall-off in enrollment was a lot sharper... than we thought. I mean, it was over 20 percent that we lost within the first 18 months.\" UMass Global carried over $81 million in debt by June 2024, for which the UMass system bears ultimate liability.",
+   "who": "Chancellor David Andrews, quoted in the Boston Globe, 24 June 2025",
+   "sentiment": "negative",
+   "url": "https://www.bostonglobe.com/2025/06/24/business/umass-global-online-education-state-liability/"
+  },
+  {
+   "text": "\"Our flagship public university is on the hook for things... in a way that could cost taxpayers.\"",
+   "who": "Eileen Connor, Project on Predatory Student Lending, Boston Globe, 24 June 2025",
+   "sentiment": "negative",
+   "url": "https://www.bostonglobe.com/2025/06/24/business/umass-global-online-education-state-liability/"
+  },
+  {
+   "text": "Graduation within the advertised 2.5 years: 65.00% for the 2021–22 full-time cohort and 56.76% for 2022–23. Job placement 100% for both (n=53, n=36); licensure at any MFT level 95% and 85.71%. The programme states it is \"not COAMFTE Accredited.\"",
+   "who": "UMass Global MFT Graduate Achievement Data, self-published, 2026",
+   "sentiment": "mixed",
+   "url": "https://www.umassglobal.edu/academic-programs/ma-in-marriage-and-family-therapy/mft-graduate-achievement-data"
+  },
+  {
+   "text": "\"The instructors here are phenomenal! They make the course information easy to understand.\"",
+   "who": "Graduate student review, Niche, September 2024 (institution-wide; 4.04/5 across 573 reviews)",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/colleges/university-of-massachusetts-global/reviews/"
+  },
+  {
+   "text": "\"The school will essentially accept anyone... You will not be prepared for any career.\" — review titled \"Just a notch above a diploma mill.\"",
+   "who": "Liberal Arts student review, OnlineU, 20 October 2022 — not an MFT student; included because it is an institution-level criticism",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/umass-global"
+  },
+  {
+   "text": "\"If you are looking for masters in social work look somewhere else... Very unorganized and unprofessional.\"",
+   "who": "Social Work student review, OnlineU, 4 October 2022 — a different programme at the same institution",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/umass-global"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph exists. Wikimedia Commons holds only the UMass Global wordmark (public domain) and no image of the Aliso Viejo headquarters or the former Irvine campus; the institution is fully online, so there is no campus to photograph in any case.",
+  "The program is not COAMFTE-accredited, so the achievement data it publishes is self-reported and not externally audited.",
+  "College Scorecard publishes no program-level debt or earnings figures for the CIP that contains marriage and family therapy at UMass Global. CIP 51.15 (Mental and Social Health Services and Allied Professions), master's level, shows 181 and 210 awards in the two most recent years but all earnings and all debt values are suppressed; the only field-of-study earnings figures at the institution are for CIP 13.11 Student Counseling and Personnel Services master's ($68,207 at one year, $81,233 at four), which is school counselling, not MFT.",
+  "No Reddit, Student Doctor Network or GradCafe thread specific to the UMass Global or Brandman MFT program could be found; the student reviews that exist are from other programs at the same institution.",
+  "The 2023–24 and 2024–25 cohorts' graduation, placement and licensure figures are all still marked \"in progress.\"",
+  "How many of the roughly 80 annual full-time students are California residents is not published, so the California cohort size is unknown.",
+  "The Kansas row does not appear in either column of the state-authorisation table, so its status is unclear."
+ ],
+ "corrections": [
+  {
+   "field": "city / availability",
+   "current": "Online — California campus only",
+   "correct": "Wrong. The MA in Marriage and Family Therapy is authorised in 42 states, and \"Program not offered\" in seven: Florida, Mississippi, Missouri, New Hampshire, New York, North Carolina and Wisconsin. The combined MFT/PCC emphasis is narrower — roughly 29 states including California, and not offered in Connecticut, Georgia, Illinois, Indiana, Kentucky, Maryland, New Jersey, New York, North Carolina, Ohio, Pennsylvania, Rhode Island, South Carolina, South Dakota or Wisconsin. What is California-specific is the institution itself: UMass Global is headquartered in Aliso Viejo, California and is accredited by WSCUC, California's regional accreditor.",
+   "src": "https://www.umassglobal.edu/about/consumer-information/mft-state-licensure"
+  },
+  {
+   "field": "credits",
+   "current": "69 credits",
+   "correct": "69 credits is the combined MFT/PCC dual emphasis. The MFT-only emphasis is 60 credits (23 courses: 17 didactic totalling 51 credits, plus six 1.5-credit practicum courses totalling 9). The nine extra credits are exactly three courses — PSYU 521 Advanced Individual Therapy II, PSYU 539 Crisis and Trauma Counseling, PSYU 545 Transition to Work and Career — and they are what produce APCC/LPCC eligibility.",
+   "src": "https://catalog.umassglobal.edu/arts-sciences/marriage-and-family-therapy-ma/marriage-and-family-therapy-ma.pdf"
+  },
+  {
+   "field": "practicum hours",
+   "current": "400 supervised in-person practicum hours",
+   "correct": "400 total, but the composition matters: 300 direct client contact hours (at least 100 of them relational) plus 100 supervision hours (at least 50 observational, from your own recordings), all within a 12-month window. And \"in-person\" is the program's own term of art — the Clinical Handbook defines direct client contact as occurring \"in-person synchronously, either physically in the same location or mediated by technology,\" so supervised telehealth counts.",
+   "src": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf"
+  },
+  {
+   "field": "practicum placement",
+   "current": "(implied program support)",
+   "correct": "The student secures the site. \"Students are responsible for securing a practicum site while actively collaborating with their CFR.\" Failing to secure one after interviewing at seven sites automatically triggers a formal professional conduct meeting.",
+   "src": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf"
+  }
+ ],
+ "sources": [
+  {
+   "label": "MA in Therapy & Counseling (MFT & PCC) program page",
+   "url": "https://www.umassglobal.edu/academic-programs/marriage-family-therapy-and-professional-clinical-counseling"
+  },
+  {
+   "label": "MA in Marriage and Family Therapy, 2026–2027 Academic Catalog (program requirements, admissions, practicum, professional conduct policy)",
+   "url": "https://catalog.umassglobal.edu/arts-sciences/marriage-and-family-therapy-ma/marriage-and-family-therapy-ma.pdf"
+  },
+  {
+   "label": "MFT course descriptions, 2026–2027 Academic Catalog",
+   "url": "https://catalog.umassglobal.edu/course-descriptions/mft/"
+  },
+  {
+   "label": "MA MFT Clinical Handbook 2025/2026 (hours, site securing, supervision, telehealth)",
+   "url": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf"
+  },
+  {
+   "label": "MA MFT Program Handbook 2025–2026",
+   "url": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-handbook.pdf"
+  },
+  {
+   "label": "MFT/PCC state-specific academic requirements table (state authorisation)",
+   "url": "https://www.umassglobal.edu/about/consumer-information/mft-state-licensure"
+  },
+  {
+   "label": "MFT Graduate Achievement Data (cohort sizes, graduation, placement, licensure; \"not COAMFTE Accredited\")",
+   "url": "https://www.umassglobal.edu/academic-programs/ma-in-marriage-and-family-therapy/mft-graduate-achievement-data"
+  },
+  {
+   "label": "MFT program detail page (23 courses, phases, 2.5-year average, 400 hours)",
+   "url": "https://www.umassglobal.edu/academic-programs/ma-in-marriage-and-family-therapy/program-details"
+  },
+  {
+   "label": "University of Massachusetts Global — Wikipedia (Chapman/Brandman lineage, 2021 transfer terms, enrolment)",
+   "url": "https://en.wikipedia.org/wiki/University_of_Massachusetts_Global"
+  },
+  {
+   "label": "UMass system announcement of the Brandman transfer",
+   "url": "https://www.massachusetts.edu/news/university-massachusetts-chapman-university-announce-transfer-brandman-university-establish"
+  },
+  {
+   "label": "Boston Globe, \"Online platform UMass Global could be financial liability for state,\" 24 June 2025",
+   "url": "https://www.bostonglobe.com/2025/06/24/business/umass-global-online-education-state-liability/"
+  },
+  {
+   "label": "College Scorecard field-of-study data, UMass Global (unit ID 262086)",
+   "url": "https://api.data.gov/ed/collegescorecard/v1/schools?id=262086&fields=id,school.name,latest.programs.cip_4_digit"
+  },
+  {
+   "label": "Niche institution reviews",
+   "url": "https://www.niche.com/colleges/university-of-massachusetts-global/reviews/"
+  },
+  {
+   "label": "OnlineU / GradReports student reviews",
+   "url": "https://www.onlineu.com/online-reviews/umass-global"
+  }
+ ]
+}

@@ -1,0 +1,252 @@
+{
+ "institution": "Santa Clara University",
+ "character": [
+  "Santa Clara's Department of Counseling Psychology has been running since 1964 and its own handbook does not undersell it: the department describes itself as holding \"a prominent place in Northern California as the pre-eminent master's level institution for the formation of licensed psychotherapists.\" Structurally it is the most flexible large MFT program in the Bay Area. One 90-quarter-unit M.A. in Counseling Psychology carries four tracks — MFT, LPCC, Combined MFT/LPCC, and a non-licensure Self-Designed track — layered with five optional emphases that the handbook describes as functioning \"like minors.\" Only six courses (18 units) are core for everyone. The MFT track then adds sixteen named courses and leaves 19.5 units of electives, which is a genuinely large amount of choice by California standards, and which is exactly how the emphases are paid for.",
+  "That last point is the one prospective students most often get wrong, so be precise about it. The emphases are usually 9 units, and for a single-track MFT student those 9 units are absorbed into the 19.5 elective units — an emphasis costs you no extra units and no extra time. Extra units only appear on the Combined MFT/LPCC track, where the department's public page says an emphasis pushes the degree to 91.5 units (93 for Latino Counseling) while the 2025–26 student handbook says 93–96 depending on emphasis. The five emphases as currently listed are Latino Counseling, Health Psychology, LGBTQ+ Counseling, Community Mental Health, and Child and Adolescent Mental Health. Community Mental Health is new: through the 2025–26 handbook it was called Alternative and Correctional Psychology, and its old third course (CPSY 245 Transitional Treatment and Vocational Planning) has been rewritten as CPSY 245 Community Mental Health, a systems-level foundation course, with CPSY 320 Substance Use and Addictions added as a requirement for students starting Fall 2026. The correctional content survives inside it — CPSY 244 Correctional Psychology is still required and students \"must be able to pass a law enforcement background check\" because of field visits to secure facilities. The Latino Counseling emphasis, which the handbook claims is \"one of only three programs in the United States,\" runs four courses including CPSY 366, \"conducted completely in Spanish.\"",
+  "Two things in the required curriculum are rare and worth weighing. First, every single student — 90-unit and 45-unit alike — must take CPSY 221, a 1.5-unit experiential Lab Group taken concurrently with the group counseling course, in which the group itself is the material. Very few California programs require an experiential group of every student. Second, the degree ends in a take-home comprehensive essay exam rather than a thesis, and the handbook is unusually candid about it: \"The Comprehensive Exam is not something you should 'study for'\" and \"the exam questions from the previous quarter are posted online and available for review. The questions change little if at all from quarter to quarter.\" On the Jesuit question: the 90 required units contain no theology, spirituality or religion course. Santa Clara's Catholic identity surfaces in the department's stated values (\"We Value the Whole Person\") and in the admissions requirement that your statement of purpose \"must include evidence of your commitment to Social Justice, Multiculturalism and Diversity\" — not in required coursework."
+ ],
+ "orientation": "Deliberately eclectic and says so — the department describes itself as \"dedicated to interpersonal, intrapsychic, and systemic methods\" with faculty representing \"a breadth of theoretical orientations,\" and points students toward electives in \"psychodynamic, cognitive-behavioral, emotion-focused, person-centered, family systems, existential, mindfulness, hypnotherapy\"",
+ "signature": [
+  {
+   "code": "CPSY 221",
+   "title": "Lab Group",
+   "units": "1.5",
+   "desc": "\"This lab is an experiential application of the theories and principles learned in 219. This lab is taken concurrently with CPSY 219. Note: All 90-unit students and all 45 unit students are required to take this lab.\" CPSY 219 itself focuses on \"process-oriented, especially close-ended, groups.\"",
+   "verbatim": true,
+   "why": "This is the single most distinctive requirement in the program. A mandatory experiential process group, for every student in every degree track, is something almost no other California MFT program requires — most treat group work as a lecture course. If sitting in a group where your own behaviour is the curriculum sounds intolerable, this program is not optional about it.",
+   "src": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  },
+  {
+   "code": "CPSY 389",
+   "title": "Advanced Group Counseling",
+   "units": "3",
+   "desc": "\"This course focuses on practices of group therapy, and on the complexities of parallel process and the transference/counter transference issues in groups... There is extensive use of videotape, role-playing, and hands on practice. This class includes a required one-day 'marathon' group session.\"",
+   "verbatim": true,
+   "why": "The elective follow-on to the required lab, and it keeps the experiential commitment: a full-day marathon group. Programs that offer advanced group work at all usually do it as a seminar. This is a department that thinks group process has to be lived through rather than read about.",
+   "src": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  },
+  {
+   "code": "CPSY 366",
+   "title": "Spanish Based Interviewing and Assessment",
+   "units": "3",
+   "desc": "\"Course conducted completely in Spanish. Emphasis will be placed on conducting client interviews, assessments, making recommendations, and providing instructions in Spanish. Other topics include use of advanced level Spanish in job/field-related language contexts.\" Prerequisites: CPSY 200 and fluency in Spanish.",
+   "verbatim": true,
+   "why": "Not a course about Latino clients taught in English — a graduate clinical course delivered entirely in Spanish, requiring fluency to enter. It is the capstone of a Latino Counseling emphasis the department claims is one of only three in the country, and it is the reason bilingual SCU graduates are sought after by Bay Area agencies.",
+   "src": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  },
+  {
+   "code": "CPSY 245",
+   "title": "Community Mental Health",
+   "units": "3",
+   "desc": "\"This course introduces a systems-level framework for understanding and working with individuals, families, and communities affected by structural inequities and institutional barriers.\" It covers \"criminal justice, child welfare, foster care, educational systems, immigration, and healthcare,\" drawing on \"social work frameworks and community-based practice\" for systems navigation, case management, placements and cross-system coordination.",
+   "verbatim": true,
+   "why": "This course is the visible edge of a live rebuild: the old Alternative and Correctional Psychology emphasis has been reframed as Community Mental Health, and this is its new conceptual foundation. It teaches case management and systems navigation from a social-work frame, which is unusual content for a counseling-psychology master's and directly useful for anyone heading into county or nonprofit work.",
+   "src": "https://www.scu.edu/ecp/programs/counseling-emphasis/"
+  },
+  {
+   "code": "CPSY 264",
+   "title": "Object Relations Therapy",
+   "units": "3",
+   "desc": "\"An introduction to the central ideas and processes involved in the object-relations approach to psychotherapy. Critical concepts such as projective identification, transference/countertransference, the holding environment, internal objects, transitional phenomena, the therapeutic matrix, etc. are explored and practiced. Readings from the British school (Klein, Winnicott) and American (Ogden).\"",
+   "verbatim": true,
+   "why": "Concrete evidence that SCU's 'eclectic' claim has teeth. A named-theorist object-relations elective sitting alongside existential therapy (CPSY 288), CBT, emotion-focused work and hypnotherapy is a much deeper psychodynamic bench than a typical CA MFT program carries — and it is reachable inside the MFT track's 19.5 elective units.",
+   "src": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  },
+  {
+   "code": "CPSY 326",
+   "title": "Early Childhood / Infant Mental Health",
+   "units": "3",
+   "desc": "\"Students will learn about the diagnostic system and cultural formulation for young children, the DC:0-5,\" along with attachment theory, affect regulation theory and parent-child relationship competencies, plus \"conceptual and experiential components of reflective practice, a core tool for working with this population\" and screening tools for children birth to age five.",
+   "verbatim": true,
+   "why": "Teaching the DC:0-5 by name — the infant and early childhood diagnostic classification, not the DSM — is a marker of a serious 0-to-5 program. It anchors the Child and Adolescent Mental Health emphasis, the newest and most in-demand of the five.",
+   "src": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  },
+  {
+   "code": "CPSY 333",
+   "title": "Counseling Practicum",
+   "units": "3 per quarter × 3 quarters = 9",
+   "desc": "\"Supervised counseling experience designed specifically to meet California MFT and LPCC licensing requirements. Weekly seminars for consultation and discussion with a licensed supervisor... Must complete three consecutive quarters of this course beginning in fall quarter and you must remain in the same section all year.\"",
+   "verbatim": true,
+   "why": "The 'same section all year' rule is not administrative fussiness — it means your practicum consultation group is a fixed cohort with one supervisor for nine months, which is closer to how a real consultation group works than the rotating-section model many programs use.",
+   "src": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  }
+ ],
+ "curriculum": {
+  "note": "Quarter system (Fall/Winter/Spring plus an optional but typical Summer), so a full-time load is three 3-unit courses = 9 units per quarter. The handbook publishes both 3-year and 4-year sample plans for each track; the 3-year plan below assumes a Fall start and requires summer terms or overloads. Course numbering is explicitly not sequential — the handbook warns \"Course sequencing is NOT numerical.\" Part-time students take longer and have more freedom. Emphasis courses substitute for electives.",
+  "total_units": "90 quarter units (91.5–93 for the Combined MFT/LPCC track with an emphasis, per the program page; the 2025–26 handbook says 93–96)",
+  "terms": [
+   {
+    "label": "Core — required of every CPSY degree and track (18 units)",
+    "courses": [
+     "CPSY 200 Psychology of Interpersonal Communications (3)",
+     "CPSY 216 Psychology of Human Development (3)",
+     "CPSY 218 Foundations of Psychotherapy and Personality (3)",
+     "CPSY 220 Research Methods (3)",
+     "CPSY 231 Multicultural Counseling (3)",
+     "CPSY 275 Ethical and Legal Issues in Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — 31.5 units (2 quarters at 9, 1 at 10.5, plus summer or an overload)",
+    "courses": [
+     "CPSY 200 Psychology of Interpersonal Communications (3)",
+     "CPSY 218 Foundations of Psychotherapy and Personality (3)",
+     "CPSY 216 Psychology of Human Development (3)",
+     "CPSY 220 Research Methods (3)",
+     "CPSY 231 Multicultural Counseling (3)",
+     "CPSY 275 Ethical and Legal Issues (3)",
+     "CPSY 212 Psychology of Relationships (3)",
+     "CPSY 219 Psychology of Group Counseling (3) + CPSY 221 Lab Group (1.5), taken concurrently",
+     "CPSY 227 Counseling Process and Skills (3)",
+     "CPSY 214 Evidence-Based Approaches to Psychotherapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — 30 units (3 quarters at 9, plus summer or an overload); practicum applications go in during Winter",
+    "courses": [
+     "CPSY 211 Human Sexuality (3)",
+     "CPSY 291 Counseling for Grief, Loss, and Trauma (3)",
+     "CPSY 318 Clinical Assessment I: Diagnosis (3)",
+     "CPSY 328 Clinical Assessment II: Issues in Child Diagnosis (3)",
+     "CPSY 311 Psychology of Marriage and Couples Counseling (3)",
+     "CPSY 315 Family Therapy (3)",
+     "CPSY 317 Therapeutic Interventions with Children (3)",
+     "Electives / emphasis courses (3 courses)"
+    ]
+   },
+   {
+    "label": "Year 3 — 28.5 units (9 units of practicum plus coursework); comprehensive exam in Winter or Spring",
+    "courses": [
+     "CPSY 333.1 / 333.2 / 333.3 Counseling Practicum: MFT, three consecutive quarters (9)",
+     "CPSY 320 Substance Use and Addictions: Assessment & Treatment (3)",
+     "CPSY 323 Psychopharmacology (3)",
+     "CPSY 319 Clinical Assessment: Testing (3)",
+     "Electives / emphasis courses (4 courses, one of which may be 1.5 units)"
+    ]
+   }
+  ],
+  "src": "https://www.scu.edu/media/ecp-media/CPSY-Student-Hanbdook-25-26-1.pdf"
+ },
+ "practicum": {
+  "starts": "Fall of the final year — for a full-time Fall-start student, fall of year three. You declare intent during Winter of the preceding year and must attend a Fall Practicum Prep workshop in year two.",
+  "hours": "MFT track: minimum 225 hours of face-to-face counselling of individuals, families or groups, of which up to 75 may be client-centred advocacy. LPCC track: minimum 280 face-to-face clinical hours. In both cases SCU requires at least 550 total hours on site across the academic year, at 18–24 hours per week.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "Practicum is nine units across three consecutive quarters (CPSY 333.1, .2, .3) beginning in fall, and you must stay in the same section with the same group instructor for all three. To be eligible you need 63 completed units and fifteen named prerequisite courses done. The department maintains a Practicum Binder and spreadsheet of approved sites and runs an annual Practicum Fair in January, but the handbook is explicit that \"Students are responsible for securing a practicum site\" — the department approves sites, it does not assign them. All sites must be pre-approved as meeting BBS requirements, and you must submit proof of malpractice insurance before your first class. Students who want experience earlier can take CPSY 330, a 1-unit pre-practicum, up to three times after completing 18 units; those hours don't count toward practicum but do count toward MFT licensure hours (LPCC students may not accrue pre-practicum hours). Note the department's warning that practicum is intensive enough that most students should not attempt it alongside full-time work.",
+  "src": "https://www.scu.edu/media/ecp-media/ecp-media/pdfs/counseling-psychology-handbooks-forms-plans/Practicum-90-Unit-PDF-2025-2026.pdf",
+  "model": "assisted",
+  "model_evidence": "The Practicum Spreadsheet is a collection of clinical sites that contain descriptions of clinical sites throughout the Bay Area. This information should describe how each site would like to be contacted (i.e. send a resume, call to make an appointment etc.) [...] Interviewing for a practicum site is like looking for a job. You will interview with various sites and eventually choose one that presents itself as the best match.",
+  "model_url": "https://www.scu.edu/media/ecp-media/ecp-media/pdfs/counseling-psychology-handbooks-forms-plans/Practicum-90-Unit-PDF-2025-2026.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "Bachelor's degree with a minimum 3.0 undergraduate GPA. Three references (submitted as an online form, not a letter) from supervisory or evaluative contacts — not friends, family or your own therapist. Current résumé. A two-page double-spaced statement of purpose that \"must include evidence of your commitment to Social Justice, Multiculturalism and Diversity\" and, for CPSY specifically, must \"explain your reasons for entering the mental health profession... and any unique reasons for selecting Santa Clara University.\" $50 application fee. The statement \"must not receive any assistance writing or editing\" — it must be your own work.",
+  "deadline": "February 1 for Fall entry. Fall 2026 is closed; applications for Fall 2027 open September 1, 2026.",
+  "src": "https://www.scu.edu/ecp/admissions/application-process/",
+  "gre_evidence": "Provide one copy of official transcripts from all post-secondary institutions attended, showing a minimum 3.0 undergraduate GPA and any conferred degrees.",
+  "gre_url": "https://www.scu.edu/ecp/admissions/application-process/",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I have been thoroughly impressed and grateful for the breath and depth of the SCU ECP Clinical Counseling Psychology Master's program.\" — 5 stars, roughly late 2025.",
+   "who": "Niche, SCU School of Education and Counseling Psychology reviews",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/school-of-education-and-counseling-psychology---santa-clara-university/reviews/"
+  },
+  {
+   "text": "\"There are some very passionate professors that truly care... However, that also means there are several others who aren't as invested.\" — 4 stars, roughly mid-2026.",
+   "who": "Niche, SCU School of Education and Counseling Psychology reviews",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/school-of-education-and-counseling-psychology---santa-clara-university/reviews/"
+  },
+  {
+   "text": "\"Enrollment is a headache. It is never guaranteed you will be enrolled in the classes you need or want.\" — 3 stars, April 2023. This lines up with the handbook's own warnings that emphasis courses run once a year or every other year and that classes with fewer than ten students are usually cancelled.",
+   "who": "Niche, SCU School of Education and Counseling Psychology reviews, Apr 2023",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/school-of-education-and-counseling-psychology---santa-clara-university/reviews/"
+  },
+  {
+   "text": "\"Not screening students before enrollment becomes evident in these role-plays... shocking these people were allowed into a program.\" — 3 stars, April 2023, from a student describing skills-course role-plays.",
+   "who": "Niche, SCU School of Education and Counseling Psychology reviews, Apr 2023",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/school-of-education-and-counseling-psychology---santa-clara-university/reviews/"
+  },
+  {
+   "text": "\"The management at this school is a mess, (such as FAFSA, counselors, trying to register for classes)\" — a Counseling Psychology student, December 2020.",
+   "who": "GradReports, Santa Clara University, Dec 2020",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/santa-clara-university"
+  },
+  {
+   "text": "A 2026 r/psychologystudents thread, \"UCLA MSW vs SCU Counseling Psychology, if I want to be a therapist,\" weighs the two routes across about twenty comments. (Thread indexed and verified previously; Reddit blocked direct retrieval on this pass.)",
+   "who": "Reddit, r/psychologystudents, 2026",
+   "sentiment": "mixed",
+   "url": "https://www.reddit.com/r/psychologystudents/comments/1rntbex/ucla_msw_vs_scu_counseling_psychology_if_i_want/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Santa_Clara_University_at_Night.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Santa_Clara_University_at_Night.jpg",
+  "license": "CC BY 2.0",
+  "credit": "Photo by Travis Wise, via Wikimedia Commons (CC BY 2.0)",
+  "caption": "A building on the Santa Clara University campus at night. The School of Education and Counseling Psychology is housed in Guadalupe Hall at 455 El Camino Real."
+ },
+ "gaps": [
+  "Cohort size is not published. The handbook says classes under ten students are normally cancelled and that core courses run in multiple sections each quarter, which implies a sizeable intake, but SCU gives no number.",
+  "The department's own course-description web page is out of date — it still lists retired numbering (e.g. CPSY 220 as a 0-unit lab, CPSY 245 as object-relations therapy, CPSY 302 marked discontinued after 2014). Course titles, units and descriptions here were taken from SCU's live course-catalog API instead, cross-checked against the 2025–26 handbook.",
+  "The unit count for the Combined MFT/LPCC track with an emphasis is inconsistent between SCU's own sources: the program page says 91.5 units (93 with Latino Counseling) while the 2025–26 handbook says 93–96 depending on emphasis. Confirm with an advisor before relying on either.",
+  "The emphasis names and course lists are mid-transition. The public page shows Community Mental Health with CPSY 243/244/245/320; the 2025–26 handbook still shows Alternative and Correctional Psychology with CPSY 243/244/245 and different course titles. Likewise the LGBTQ+ and Latino course numbers differ slightly between the two.",
+  "The MFT-only and combined MFT/LPCC tracksheet PDFs linked from the program page return 404; only the LPCC tracksheet resolves. Track requirements here come from the handbook instead.",
+  "No in-house training clinic — SCU places students at external sites only.",
+  "Licensure exam pass rates and completion rates are not published."
+ ],
+ "sources": [
+  {
+   "label": "CPSY Student Handbook, Academic Year 2025–2026 (degree requirements, emphases, practicum, comprehensive exam, sample course plans)",
+   "url": "https://www.scu.edu/media/ecp-media/CPSY-Student-Hanbdook-25-26-1.pdf"
+  },
+  {
+   "label": "Counseling Psychology program page — tracks, emphases, 90 units",
+   "url": "https://www.scu.edu/ecp/programs/counseling-psychology/"
+  },
+  {
+   "label": "Counseling Emphasis page — current emphasis names, coordinators and course lists",
+   "url": "https://www.scu.edu/ecp/programs/counseling-emphasis/"
+  },
+  {
+   "label": "Counseling Psychology 2025–2026: What is Practicum? (hours, prerequisites, site search)",
+   "url": "https://www.scu.edu/media/ecp-media/ecp-media/pdfs/counseling-psychology-handbooks-forms-plans/Practicum-90-Unit-PDF-2025-2026.pdf"
+  },
+  {
+   "label": "CPSY course descriptions (SCU course catalog)",
+   "url": "https://www.scu.edu/ecp/programs/courseschedules/cpsy-description/"
+  },
+  {
+   "label": "ECP admissions — application process, statement of purpose, references",
+   "url": "https://www.scu.edu/ecp/admissions/application-process/"
+  },
+  {
+   "label": "ECP tuition and deadlines — $816/unit for 2026–27, Feb 1 deadline",
+   "url": "https://www.scu.edu/ecp/admissions/tuition-and-deadlines/"
+  },
+  {
+   "label": "Counseling Psychology schedules, forms and policies (handbooks, practicum forms, quarterly schedules)",
+   "url": "https://www.scu.edu/ecp/current-students/counseling-psychology---schedules-forms--policies/"
+  },
+  {
+   "label": "Niche — SCU School of Education and Counseling Psychology graduate reviews",
+   "url": "https://www.niche.com/graduate-schools/school-of-education-and-counseling-psychology---santa-clara-university/reviews/"
+  },
+  {
+   "label": "GradReports — Santa Clara University reviews",
+   "url": "https://www.gradreports.com/colleges/santa-clara-university"
+  }
+ ]
+}

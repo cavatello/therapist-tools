@@ -1,0 +1,319 @@
+{
+ "institution": "California Lutheran University",
+ "character": [
+  "The single fact that should decide whether Cal Lutheran is on your list is that you do not go find a practicum here. Every student does a twelve-month placement inside the university's own Community Counseling Center on the Thousand Oaks campus — a low-cost community clinic with 17 furnished therapy rooms, 21 licensed supervisors (psychologists, LMFTs and LCSWs working from \"family systems, cognitive behavioral, and psychodynamic approaches\"), digital audiovisual recording of every session, observation rooms, Titanium electronic records, and services in English and Spanish. The clinic runs roughly 10,000 sessions a year and sees an average of about 450 individuals and families a week, at fees as low as $25 and free for some grant-funded clients. About 60 graduate students staff it at a time, shared with the university's PsyD program. The program says students earn \"up to 750 hours applicable to the California licensing requirement\" there.",
+  "The coursework itself is deliberately conventional — 21 required courses that map almost one-to-one onto the BBS content areas, with no thesis and no LPCC track. What is not generic is the shape of the electives. Cal Lutheran builds its specializations as theory-course-plus-techniques-course pairs and makes you elect exactly one pair (6 credits): Psychological Trauma (PSYC 546/547), Attachment Theory (574/575), DBT, and a Private Practice specialization that \"covers the important information needed to open and operate a private practice successfully.\" The catalog also carries pairs that the program says are no longer regularly offered — Latino/a Counseling (570/571) and the Recovery Model (544/545) — and a Family Mediation pair (577/578) that includes \"observation of and in vivo practice in family mediation of child custody and related issues,\" which is rare in a California MFT curriculum. There is also a Counseling and Spirituality pair (580/581) at what is, after all, a Lutheran university, though nothing in the required curriculum is religious.",
+  "It is a lockstep, in-person, campus-bound degree with a fixed daily rhythm: classes meet Monday through Thursday in two three-hour blocks, either 9:15 a.m.–12:05 p.m. and 1:00–3:50 p.m. (daytime cohort) or 4:00–6:50 p.m. and 7:00–9:50 p.m. (evening cohort), and once practicum starts you are \"expected to be present and available when the University is open.\" That is not compatible with a full-time job. Cost is the other constraint: $940 per credit for 2026–27 across 60 credits is $56,400 in tuition before a $540-per-credit Counseling Psychology Practicum Fee on the practicum credits, $100 per term technology fee, wellness fees, and $135 each for the two comprehensive exams. Federal data for the field at Cal Lutheran (CIP 51.15 master's) shows 41 completions in the most recent year and median earnings of $50,691 one year out and $68,901 four years out, against a national field median of $59,571 at four years."
+ ],
+ "orientation": "Relational and systemic, clinic-first — the program page describes \"a relational and systemic model for providing counseling services\"",
+ "signature": [
+  {
+   "code": "PSYC 591 / 592 / 593",
+   "title": "Counseling Practicum I, II and III",
+   "units": "2 each (6 total)",
+   "desc": "\"Placement in the University's Marriage, Family and Child Counseling Center or external practicum site.\" Hours are applicable to licensing. Prerequisites for PSYC 591 are PSYC 530 and consent of the center director; 592 requires 591, and 593 requires 592.",
+   "verbatim": true,
+   "why": "This is the course that carries the whole program's distinctiveness. Most California MFT programs make you cold-call agencies; here the default placement is the school's own clinic, and the three-course chain is strictly sequential, so a failed or delayed term pushes graduation by a year.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  },
+  {
+   "code": "PSYC 578",
+   "title": "Family Mediation Application and Practice",
+   "units": "3",
+   "desc": "Provides \"observation of and in vivo practice in family mediation of child custody and related issues,\" with a practicum in mediation techniques. Prerequisite: PSYC 577 Family Mediation Theory and Research, which \"examines theories of conflict, family dynamics of divorce, child development implications, and mental health issues in divorce.\"",
+   "verbatim": false,
+   "why": "Live custody-mediation practice inside a master's MFT curriculum is genuinely uncommon in California — most programs cover divorce only inside a couples-therapy survey. If you are aiming at family-law-adjacent work, this pair is a real reason to look here.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  },
+  {
+   "code": "PSYC 574 / 575",
+   "title": "Attachment Theory / Attachment Techniques",
+   "units": "3 each",
+   "desc": "PSYC 574: \"Attachment theory deals with the central human question of the formation of lasting connections,\" taught from a developmental perspective and in interaction with caregiving systems. PSYC 575: \"Reviewing a number of attachment-based clinical applications in the work with couples, families, children and individuals.\"",
+   "verbatim": true,
+   "why": "A full six credits — a tenth of the degree — on attachment, split cleanly into a theory semester and an applications semester, is more than most programs give the topic. It is one of four currently-offered specialization pairs.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  },
+  {
+   "code": "PSYC 546 / 547",
+   "title": "Psychological Trauma Concepts & Theories / Psychological Trauma: Assessment & Intervention",
+   "units": "3 each",
+   "desc": "PSYC 546 covers the definition and history of trauma, DSM-5 diagnostic criteria for PTSD, dissociation, co-occurring disorders, theoretical models and self-regulation. PSYC 547 explores \"trauma assessment and treatment exploring topics such as risk assessment, resourcing, trauma processing, transference and countertransference issues.\"",
+   "verbatim": false,
+   "why": "The trauma specialization is the one the program leads with in its own materials, and the sequencing — a whole semester of theory before any intervention content — signals a slower, more academic approach than a single \"trauma-informed practice\" elective.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  },
+  {
+   "code": "PSYC 530",
+   "title": "Diagnostic and Therapeutic Interviewing",
+   "units": "3",
+   "desc": "Develops \"knowledge and skills necessary for evaluations, diagnosis, preliminary case formulation, recommendations, and appropriate referrals.\" It is the gatekeeping prerequisite for all three practicum courses.",
+   "verbatim": false,
+   "why": "Cal Lutheran splits interviewing off from its 2-unit Counseling Skills course and makes the 3-unit diagnostic course the gate to the clinic. That tells you the clinic expects you to be able to run an intake, not just reflect feelings, on day one.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  },
+  {
+   "code": "PSYC 580 / 581",
+   "title": "Theories of Counseling and Spirituality / Techniques of Counseling and Spirituality",
+   "units": "3 each",
+   "desc": "PSYC 580 examines spirituality from theological and transpersonal perspectives and draws comparisons between psychotherapy and spirituality in personal growth. PSYC 581 applies spirituality to psychotherapeutic interventions using psychoanalysis, Jungian, existential/humanistic and neuroscience models. Prerequisite for 581: PSYC 580.",
+   "verbatim": false,
+   "why": "Worth knowing precisely because of what it is not: at a Lutheran university, religion appears only in an optional two-course elective pair taught through Jungian and existential rather than confessional frames. Nothing in the 54 required credits is faith-based.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based and lockstep — students \"start and complete the program together\" in one of two Thousand Oaks cohorts (one daytime, one evening), on 15-week Fall and Spring semesters plus a 6-week Summer Session, completing in either two or three years depending on full-time or part-time load. Cal Lutheran publishes the full required course list but does not publish a term-by-term grid for either track, so the buckets below are the published requirement structure, not a sequence. There is no thesis; a comprehensive exam is required instead.",
+  "total_units": "60 credits",
+  "terms": [
+   {
+    "label": "Required coursework (54 credits, no published term sequence)",
+    "courses": [
+     "PSYC 510 Psychopathology (3)",
+     "PSYC 512 Systems of Counseling and Psychotherapy (3)",
+     "PSYC 515 Survey of Psychopharmacology (2)",
+     "PSYC 516 Counseling Skills (2)",
+     "PSYC 517 Lifespan Human Development (3)",
+     "PSYC 518 Gender and Sexuality (3)",
+     "PSYC 520 Law and Ethics (2)",
+     "PSYC 522 Cultural Diversity (2)",
+     "PSYC 524 Substance Abuse and Dependency (3)",
+     "PSYC 526 Domestic Violence and Abuse (2)",
+     "PSYC 530 Diagnostic and Therapeutic Interviewing (3)",
+     "PSYC 534 Group Therapy (2)",
+     "PSYC 540 Principles and Techniques in Child Therapy (3)",
+     "PSYC 541 Principles and Techniques in Adolescent Therapy (3)",
+     "PSYC 542 Principles and Techniques in Couples Therapy (3)",
+     "PSYC 543 Principles and Techniques in Family Therapy (3)",
+     "PSYC 550 Survey of Psychological Testing (3)",
+     "PSYC 561 Research Synthesis and Evaluation (3)",
+     "PSYC 591 Counseling Practicum I (2)",
+     "PSYC 592 Counseling Practicum II (2)",
+     "PSYC 593 Counseling Practicum III (2)"
+    ]
+   },
+   {
+    "label": "Specialization — elect one two-course pair (6 credits)",
+    "courses": [
+     "Psychological Trauma: PSYC 546 Psychological Trauma Concepts & Theories (3) + PSYC 547 Psychological Trauma: Assessment & Intervention (3)",
+     "Attachment: PSYC 574 Attachment Theory (3) + PSYC 575 Attachment Techniques (3)",
+     "Dialectical Behavior Therapy (currently offered per Program Highlights page)",
+     "Private Practice (currently offered per Program Highlights page)",
+     "In the catalog but described by the program as no longer regularly offered: Recovery Model (PSYC 544/545), Latino/a Counseling (PSYC 570/571)",
+     "Also in the catalog: Family Mediation (PSYC 577/578), Counseling and Spirituality (PSYC 580/581), Intimate Partner Violence (PSYC 583/584)"
+    ]
+   },
+   {
+    "label": "Also required, 0 credits",
+    "courses": [
+     "Comprehensive exam — mock versions of California's licensing exams: MFT Law and Ethics ($135) and MFT Clinical Competence ($135)",
+     "Live Scan background check, at the student's own expense, in the Spring semester before practicum begins"
+    ]
+   }
+  ],
+  "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
+ },
+ "practicum": {
+  "starts": "Late July, after the first year of classroom coursework — practicum runs a minimum of twelve continuous months and does not follow the 15-week semester calendar",
+  "hours": "\"Up to 750 hours applicable to the California licensing requirement\" over the twelve months. The program does not publish a minimum direct-client-hour floor or a relational-hour sub-minimum.",
+  "who_places": "program-placed",
+  "clinic": "Community Counseling Center / Community Counseling Services (CLUcounseling.org), on the Thousand Oaks campus; an Oxnard site was folded into the same Thousand Oaks location as of July 27, 2026",
+  "detail": "Cal Lutheran calls it \"a special feature of the program\": a 12-month practicum placement in the university's own on-site Community Counseling Center, so the school owns the placement rather than sending you out to find one — though the course descriptions for PSYC 591–593 do allow \"the University's Marriage, Family and Child Counseling Center or external practicum site.\" Clinical work begins in the second year after a full first year of classroom theory, and the clinical calendar starts in late July, out of step with the 15-week semesters. Supervision is dense and recorded: the clinic employs 21 licensed supervisors — psychologists, LMFTs and LCSWs representing family systems, cognitive behavioral and psychodynamic approaches — all student sessions are digitally recorded, and recordings are reviewed by licensed clinicians in both individual and group supervision. Roughly 60 graduate students staff the centers at a time alongside PsyD trainees, working with children, adolescents, adults, couples, families and groups across Ventura and western Los Angeles counties, in English and Spanish, in person and by telehealth. Two hard gates sit in front of it: PSYC 530 Diagnostic and Therapeutic Interviewing plus consent of the center director, and a Live Scan background check completed at the student's own expense in the preceding Spring — miss the deadline and \"the inability to begin the practicum\" follows, with the program warning that prior convictions \"may encounter substantial challenges in securing clinical placements, employment, and professional licensure\" and may lead to withdrawal. Once practicum starts, students \"are expected to be present and available when the University is open,\" absences require approval, and \"time missed could delay on-time graduation.\"",
+  "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/program-highlights.html",
+  "model": "guaranteed",
+  "model_evidence": "A special feature of the program is a 12-month practicum placement in our on-site Community Counseling Center program.",
+  "model_url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/program-highlights.html",
+  "model_why": "Its own words: a 12-month placement in the on-site Community Counseling Center, described as providing the clinical training itself. There is no external site search in the published model at all.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Community Counseling Center"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "\"Very small entering class sizes of 30 students per cohort,\" with two cohorts created each year in Thousand Oaks — one daytime, one evening. Federal data reports 41 master's completions in the field (CIP 51.15) in the most recent reporting year.",
+  "gre": "not published",
+  "prereqs": "At least 3 credit hours of statistics and an additional 9 credit hours of undergraduate or graduate psychology coursework, all completed within the last 7 years. Individual courses add their own: PSYC 510 Psychopathology requires an undergraduate abnormal psychology course, and PSYC 517 Lifespan Human Development requires an undergraduate child or lifespan development course.",
+  "deadline": "Fall entry only — \"All Psychology programs begin in the fall semester only.\" Priority deadline January 15; later applications considered \"if there is still space available in the cohort.\" Application fee $32 online / $65 paper; $300 enrollment deposit.",
+  "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/admission-process.html",
+  "gre_evidence": "The priority deadline for the following fall semester is January 15.",
+  "gre_url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/admission-process.html",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Federal field-of-study data, not opinion: 41 master's completions in Mental and Social Health Services (CIP 51.15) in the most recent year; median earnings $50,691 one year after graduating and $68,901 four years after, against a national median of $59,571 for the same field at four years.",
+   "who": "U.S. Dept. of Education College Scorecard, field-of-study data, retrieved August 2026",
+   "sentiment": "info",
+   "url": "https://collegescorecard.ed.gov/school/?110413-California-Lutheran-University"
+  },
+  {
+   "text": "Graduate School of Psychology dean Rick Holigrocki on the counseling centers: \"We're unique in that we're equally client-centered and student-centered.\" The same article reports about 60 graduate students staffing roughly 10,000 sessions a year at fees as low as $25.",
+   "who": "Cal Lutheran News, April 2025",
+   "sentiment": "positive",
+   "url": "https://news.callutheran.edu/2025/04/where-training-meets-helping/"
+  },
+  {
+   "text": "The program's own claim, worth verifying with the school directly: during 2022–2023 its \"M.S. Counseling (MFT) graduates had higher pass rates than California state averages on the LMFT Law and Ethics Examination and the LMFT Clinical Exam.\" No underlying numbers are published.",
+   "who": "Cal Lutheran — \"Why Cal Lutheran?\" program page",
+   "sentiment": "info",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/why-cal-lutheran.html"
+  },
+  {
+   "text": "\"I am currently pursuing my M.S. in Counseling as well as my PPS Credential. I have loved my experience at California Lutheran University.\" This reviewer is in the school-counseling/PPS track, not the MFT track — the only public reviews found are for adjacent Cal Lutheran counseling programs, and they are a decade old.",
+   "who": "Kristin Daniels, GradReports, 6 May 2015",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/california-lutheran-university"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Cal_Lutheran_campus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Cal_Lutheran_campus.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Holly Cheng, via Wikimedia Commons",
+  "caption": "The California Lutheran University campus in Thousand Oaks, where the MFT program's coursework and its Community Counseling Center are both located"
+ },
+ "gaps": [
+  "No minimum direct-client-hour or relational-hour figure is published for practicum. The program advertises \"up to 750 hours applicable to the California licensing requirement\" but never states a floor, so a prospective student cannot tell what the worst case looks like.",
+  "No term-by-term course sequence is published for either the two-year or three-year track. The Course Terms & Calendar page gives class times and the practicum calendar but no grid, and the Curriculum page gives an unordered list.",
+  "Cal Lutheran's live academic catalog (catalog.callutheran.edu) returns 404 for the Graduate School of Psychology and Psychology Masters Programs paths, so the program-page course list was the best available source rather than a dated catalog edition. The catalog root loads but does not expose per-program URLs.",
+  "The specialization menu appears to rotate — the Program Highlights page says specializations \"vary by year\" and that Recovery Model and Latino/a Counseling are no longer regularly offered — but no forward schedule is published, so you cannot know which pair will be available in your cohort year.",
+  "It is unclear whether the $540-per-credit Counseling Psychology Practicum Fee is charged in addition to the $940-per-credit tuition on the six practicum credits or in place of it. The Tuition & Fees page lists it under fees, which implies additive, but does not say.",
+  "Total cost of attendance for the program is not published as a single figure; only the per-credit rate and itemized fees.",
+  "Reddit was unreachable from this environment (HTTP 403), so no student comment text from r/therapists or r/MFT could be quoted. No Cal Lutheran MFT-specific reviews were found on GradReports or Niche.",
+  "Cal Lutheran's MS in Counseling Psychology is not COAMFTE-accredited and does not claim to be; only regional WASC/WSCUC institutional accreditation is cited."
+ ],
+ "sources": [
+  {
+   "label": "MS in Counseling Psychology (MFT) — program overview",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/"
+  },
+  {
+   "label": "MS in Counseling Psychology (MFT) — Curriculum (60-credit required course list)",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
+  },
+  {
+   "label": "MS in Counseling Psychology (MFT) — Courses (full PSYC course descriptions)",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/courses.html"
+  },
+  {
+   "label": "MS in Counseling Psychology (MFT) — Program Highlights (specializations, clinic, cohorts)",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/program-highlights.html"
+  },
+  {
+   "label": "MS in Counseling Psychology (MFT) — Course Terms & Calendar (class times, practicum calendar)",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/course-terms.html"
+  },
+  {
+   "label": "MS in Counseling Psychology (MFT) — Tuition & Fees, Fall 2026–Summer 2027",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/tuition-fees.html"
+  },
+  {
+   "label": "MS in Counseling Psychology (MFT) — How to Apply",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/admission-process.html"
+  },
+  {
+   "label": "Why Cal Lutheran? (cohort size, licensing exam pass-rate claim, 21 supervisors)",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/why-cal-lutheran.html"
+  },
+  {
+   "label": "Graduate School of Psychology — Clinical Training Center",
+   "url": "https://www.callutheran.edu/graduate-psychology/centers.html"
+  },
+  {
+   "label": "Graduate School of Psychology — About",
+   "url": "https://www.callutheran.edu/graduate-psychology/about.html"
+  },
+  {
+   "label": "Community Counseling Services (the training clinic)",
+   "url": "https://www.clucounseling.org/"
+  },
+  {
+   "label": "Cal Lutheran News, “Where Training Meets Helping” (April 2025) — clinic volume, fees, supervision",
+   "url": "https://news.callutheran.edu/2025/04/where-training-meets-helping/"
+  },
+  {
+   "label": "U.S. Dept. of Education College Scorecard — field-of-study earnings and completions",
+   "url": "https://collegescorecard.ed.gov/school/?110413-California-Lutheran-University"
+  },
+  {
+   "label": "GradReports — California Lutheran University reviews",
+   "url": "https://www.gradreports.com/colleges/california-lutheran-university"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "total_units",
+   "current": null,
+   "correct": "60 credits",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
+  },
+  {
+   "field": "length",
+   "current": null,
+   "correct": "3 years standard, with a 2-year accelerated option — \"Students have the option of completing the program in two or three years based on a full-time or part-time course schedule\"",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/"
+  },
+  {
+   "field": "format",
+   "current": null,
+   "correct": "Fully on-campus in Thousand Oaks; cohort-based; classes Monday–Thursday, daytime cohort 9:15 a.m.–12:05 p.m. and 1:00–3:50 p.m., evening cohort 4:00–6:50 p.m. and 7:00–9:50 p.m.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/course-terms.html"
+  },
+  {
+   "field": "calendar",
+   "current": null,
+   "correct": "15-week Fall and Spring semesters plus a 6-week Summer Session; fall-only entry",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/course-terms.html"
+  },
+  {
+   "field": "cohort_size",
+   "current": null,
+   "correct": "About 30 per cohort, two cohorts per year (one daytime, one evening)",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/why-cal-lutheran.html"
+  },
+  {
+   "field": "tuition",
+   "current": null,
+   "correct": "$940 per credit for 2026–27 (60 credits = $56,400 tuition), plus a Counseling Psychology Practicum Fee of $540 per credit, $100/term technology fee, $80 wellness fee Fall/Spring and $40 Summer, and $135 for each of the two comprehensive exams",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/tuition-fees.html"
+  },
+  {
+   "field": "in_house_clinic",
+   "current": null,
+   "correct": "Yes — the university's own Community Counseling Center on the Thousand Oaks campus, with 21 licensed supervisors, ~10,000 sessions a year, and a required 12-month placement",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/program-highlights.html"
+  },
+  {
+   "field": "capstone",
+   "current": null,
+   "correct": "Comprehensive exam required; no thesis. The exams are mock versions of the California LMFT Law and Ethics and Clinical Competence exams.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
+  },
+  {
+   "field": "specializations",
+   "current": null,
+   "correct": "One two-course, 6-credit specialization pair is required. Currently offered: Psychological Trauma, Attachment Theory, Dialectical Behavior Therapy, Private Practice. Recovery Model and Latino/a Counseling remain in the catalog but are no longer regularly offered.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/program-highlights.html"
+  },
+  {
+   "field": "deadline",
+   "current": null,
+   "correct": "Priority deadline January 15 for the following fall; fall entry only",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/admission-process.html"
+  },
+  {
+   "field": "prereqs",
+   "current": null,
+   "correct": "3 credit hours of statistics plus 9 additional credit hours of undergraduate or graduate psychology, all within the last 7 years",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
+  },
+  {
+   "field": "LPCC",
+   "current": "no",
+   "correct": "Confirmed — no LPCC track. The 60-credit curriculum contains no career/life-development counseling course and the program materials never mention LPCC.",
+   "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
+  }
+ ]
+}

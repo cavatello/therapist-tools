@@ -1,0 +1,218 @@
+{
+ "institution": "University of Southern California (Rossier)",
+ "character": [
+  "The single most useful fact for anyone choosing between USC's two MFT options: they are the same degree, the same 60 units, the same twenty courses in the same order, and the same tuition rate. USC Rossier publishes one course schedule covering both, and the only published differences are meeting times (on campus, Mondays–Wednesdays 4:00–6:45pm or 7:00–9:45pm; online, the same days at 1:00–3:30pm or 4:00–6:30pm), mandatory fees ($977 on campus versus $31 online, because online students do not pay the health-center and transportation fees), one extra application component for online applicants (a recorded video response), and application deadlines four days apart. Tuition is $2,539 per unit for both in 2026–27 — 60 units is $152,340 before fees or living costs. Both tracks also require that you already live in California or plan to move there before you start; there is no out-of-state online option.",
+  "The online program is also newer, and more USC-run, than its size suggests. USC and 2U announced in November 2023 that they were winding down a partnership that covered Rossier's online programs, and Rossier announced its own online MFT in July 2024, with a part-time master lecturer, Linda Hoffman, leading a team whose stated job was \"faithfully translating our comprehensive on-ground curriculum to an accessible and engaging online format.\" So this is not a legacy OPM-branded program; it is Rossier's in-house translation of the campus degree, marketed hard but built after the 2U era. Enrollment is also cyclical rather than continuous: as of August 2026 the program page states that applications \"will reopen August 1 2026 for a July 2027 start.\" I found no teach-out, closure or suspension announcement of any kind.",
+  "What you actually study is an MFT degree taught inside a school of education, and it reads that way. Every course carries an EDUC prefix; there is no in-house family-therapy clinic; and the program's distinctive commitment is a critical, power-and-privilege frame stated up front rather than tucked into a diversity elective. The very first summer includes EDUC 508 Interrogating Systems of Inequity in Professional Practice, and the final term ends with a capstone leadership project framed explicitly around \"approaches that are socially just and attuned to power and privilege.\" Against that, be clear-eyed about price: College Scorecard reports median federal graduate loan debt of $130,999 for USC master's completers in the mental-health-services field of study, against median earnings of $61,960 one year out. And in December 2022 three former students sued USC and 2U in a class action alleging Rossier submitted \"cherry-picked\" data that lifted its U.S. News rank from No. 38 to No. 10; Rossier withdrew from the rankings. Neither fact is about the MFT curriculum, but both are about the institution you would be borrowing against."
+ ],
+ "orientation": "Systemic family therapy taught in a school of education, with an explicit critical / social-justice frame",
+ "signature": [
+  {
+   "code": "EDUC 508",
+   "title": "Interrogating Systems of Inequity in Professional Practice",
+   "units": "2",
+   "desc": "\"Establish a conceptual framework for a critical social justice perspective within the mental health field. Grapple with how to be an agent of social change as a clinician and global citizen.\"",
+   "verbatim": true,
+   "why": "This runs in the very first summer term, alongside the introductory counseling and ethics courses and before any family-systems theory. Most California programs put their equity content in a single mid-program multicultural course; USC front-loads it as a framing course and then also requires EDUC 638 Multicultural Counseling later. If a critical-theory lens is not how you want to be taught, you should know that before you apply, not after.",
+   "src": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+  },
+  {
+   "code": "EDUC 646",
+   "title": "Marriage and Family Therapy Capstone: Leadership Project",
+   "units": "2",
+   "desc": "\"As the culminating academic, professional and reflective experience in the final year, engage in a research project to identify a gap in clinical practice and ascertain your role as change agent in addressing clinical problems with approaches that are socially just and attuned to power and privilege in the field of Marriage and Family Therapy and the global community.\"",
+   "verbatim": true,
+   "why": "There is no thesis and no comprehensive exam here — the degree ends with a leadership/change project instead. That is a meaningful difference from programs like Alliant, which gate graduation on a comprehensive exam.",
+   "src": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+  },
+  {
+   "code": "EDUC 515",
+   "title": "Theories of Marriage and Family Therapy",
+   "units": "3",
+   "desc": "\"Gain an introduction to major family systems theories and their unique assumptions, goals and techniques. Learn how to assess relationship dynamics and conceptualize cases with sociocultural attunement.\"",
+   "verbatim": true,
+   "why": "Worth noticing where this sits: the actual family-systems theory course arrives in the second semester, after a full fall of generic counseling theory, psychopathology, research methods and lifespan development. This is a counseling-shaped curriculum with a systemic core inside it, not a systemic curriculum from day one.",
+   "src": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+  },
+  {
+   "code": "EDUC 636",
+   "title": "Perspectives on Human Sexuality",
+   "units": "3",
+   "desc": "\"Learn about the physiological-psychological and socio-cultural variables associated with sexual identity and sexual behavior with an emphasis on increasing mastery in addressing sexual topics within a brief therapy context.\"",
+   "verbatim": true,
+   "why": "A full 3-unit sexuality course, where several California programs meet the same requirement in one or two units (Pepperdine's PSY 628 is a single unit; Alliant's sex therapy course is two). The 'brief therapy context' phrasing signals it is trained as a clinical skill rather than surveyed as content.",
+   "src": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+  },
+  {
+   "code": "EDUC 645A / 645B",
+   "title": "Practicum II",
+   "units": "3 + 3",
+   "desc": "645A: \"Conduct supervised field experience in a clinical setting that focuses on the development of novice therapists in a small group setting.\" 645B: \"...includes case presentations and development of critical thinking and holistic conceptualizations.\"",
+   "verbatim": true,
+   "why": "Practicum is only 8 of the 60 units and does not start until the Year 2 summer term — you complete 32 units of coursework before you see a client. That is later than many California programs and it compresses your trainee hours into the last twelve months of the degree.",
+   "src": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort model, lockstep, six terms across 24 months, starting in a summer session. The published schedule is identical for on-campus and online students; only the class meeting times differ. USC labels it \"an example\" schedule, but the prerequisite chain and practicum sequence make it effectively fixed.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Summer (8 units)",
+    "courses": [
+     "EDUC 500 The Counseling Process (3)",
+     "EDUC 507 Professional Identity, Law and Ethics for Counselors (3)",
+     "EDUC 508 Interrogating Systems of Inequity in Professional Practice (2)"
+    ]
+   },
+   {
+    "label": "Year 1 — Fall (12 units)",
+    "courses": [
+     "EDUC 541 Theories in Counseling (3)",
+     "EDUC 546 Psychopathology for Marriage and Family Therapists (3)",
+     "EDUC 570 Research Methods and Data Analysis for Counselors (3)",
+     "EDUC 583 Counseling through the Lifespan (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (12 units)",
+    "courses": [
+     "EDUC 515 Theories of Marriage and Family Therapy (3)",
+     "EDUC 544 Psychological Assessment (3)",
+     "EDUC 553 Psychopharmacology and the Effects of Substance Abuse (3)",
+     "EDUC 635 Psychotherapy with Children and Adolescents (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (8 units)",
+    "courses": [
+     "EDUC 633 Child and Elder Abuse and Domestic Violence (3)",
+     "EDUC 637 Group Counseling: Theory and Process (3) — includes laboratory experience",
+     "EDUC 644 Practicum in Counseling (2) — first client contact"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (9 units)",
+    "courses": [
+     "EDUC 636 Perspectives on Human Sexuality (3)",
+     "EDUC 638 Multicultural Counseling: Research and Practice (3)",
+     "EDUC 645A Practicum II (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (11 units)",
+    "courses": [
+     "EDUC 547 Career Development: Theory and Process (3)",
+     "EDUC 634 Counseling Couples in Relationships (3)",
+     "EDUC 646 Marriage and Family Therapy Capstone: Leadership Project (2)",
+     "EDUC 645B Practicum II (3)"
+    ]
+   }
+  ],
+  "src": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+ },
+ "practicum": {
+  "starts": "Year 2, summer term (EDUC 644), then fall and spring (EDUC 645A, 645B) — three terms, 8 units total, after 32 units of coursework",
+  "hours": "USC's four-way practicum agreement specifies 17–20 hours per week at the site, of which 7–10 are direct client contact, plus supervision at set ratios. The 3,000 supervised hours USC's program page cites is the California BBS licensure total, most of which is accrued after graduation as an AMFT, not during the degree.",
+  "who_places": "mixed",
+  "clinic": "None in-house. USC's own Kortschak Center for Learning and Creativity runs a fieldwork placement reserved for Rossier MFT students — academic-coaching and psychoeducational counseling with 8–10 undergraduates per semester, 20 hours a week across summer/fall/spring, with 3 hours of weekly supervision and a $3,000 annual stipend.",
+  "detail": "Placement runs on a four-way agreement between the program, the site, the clinical supervisor and the trainee. Under that agreement the university \"shall approve the placement of each trainee,\" ensures the placement fits the scope of MFT practice, and assigns a Clinical Coordinator as liaison to each site; the site must supply office space, an adequate client census, orientation and an emergency response plan; the supervisor must have held a California LMFT, LCSW, psychologist or psychiatrist license for at least two years. The trainee is responsible for liability insurance, weekly signed hour logs, and completing prerequisite courses. I could not find a current public practicum handbook stating whether students must source their own sites from an approved list or are assigned.",
+  "src": "https://customsitesmedia.usc.edu/wp-content/uploads/sites/187/2013/07/17080237/MFT_4_way_Agreement_2015.pdf",
+  "model": "not published",
+  "model_evidence": "Conduct supervised field experience in a clinical setting that focuses on the development of novice therapists in a small group setting.",
+  "model_url": "https://admissions.rossier.usc.edu/how-to-apply/ms-in-marriage-and-family-therapy-mft-courses/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Not published. USC describes a cohort model with \"small class sizes.\" Federal data show 39–58 master's degrees awarded per year at USC in the mental-health-services field of study, which is the closest public proxy.",
+  "gre": "not required",
+  "prereqs": "Bachelor's from a regionally accredited institution; no minimum GPA, though USC says competitive applicants are typically at or above 3.0. Two letters of recommendation — specifically one from a supervisor and one from a former professor. A personal statement of roughly 2,000 words across four prompts, an optional 250-word explanatory essay, a CV, and a 30-minute timed writing assessment. Online applicants additionally record a video response. Competitive applicants are invited to a full-day interview, on campus or virtual. You must already live in California or plan to move there before the program starts.",
+  "deadline": "For the cycle documented: online priority Dec 1, regular Feb 23, final Apr 13; on-campus priority Dec 5, regular Feb 27, final Apr 17. The program page as of August 2026 states applications \"will reopen August 1 2026 for a July 2027 start,\" with a summer term priority deadline of November 1, 2026.",
+  "src": "https://admissions.rossier.usc.edu/how-to-apply/ms-in-marriage-and-family-therapy-application-instructions/",
+  "gre_evidence": "GRE scores are neither required nor accepted for admission at USC Rossier.",
+  "gre_url": "https://rossier.usc.edu/programs/masters/mft/mft-application-instructions",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Plaintiff Iola Favell said she \"regrets her decision to attend USC Rossier because of the false rankings information\" and would not have enrolled had the school been ranked lower. The December 2022 class action alleged Rossier and 2U submitted \"cherry-picked\" data that lifted its U.S. News rank from No. 38 to No. 10.",
+   "who": "The Hill, reporting on a class action by three former USC Rossier online students, December 2022",
+   "sentiment": "negative",
+   "url": "https://thehill.com/blogs/blog-briefing-room/3785198-usc-graduates-sue-over-flawed-us-news-rankings-data/"
+  },
+  {
+   "text": "An applicant waiting on an MFT decision two weeks before the fall term wrote that the office kept telling her \"my file is still under review and all I need to do is just wait,\" adding \"I'd rather want them to give me a rejection letter so I can just get over it.\"",
+   "who": "The GradCafe forums, user sophiej, August 2020",
+   "sentiment": "mixed",
+   "url": "https://forum.thegradcafe.com/topic/125307-usc-rossier-school-of-education-fall-2020-mft-marriage-and-family-therapyp/"
+  },
+  {
+   "text": "\"After graduating from the MFT program I was able to quickly find a job, and after 4.5 years have been able to work my way up to a management position.\" USC also reports that 84% of MFT alumni found work in under six months and that 92% of its students pass the BBS clinical exam.",
+   "who": "Micki Smith, MFT '17, quoted on USC Rossier's own program page — program-reported figures, not independently verified",
+   "sentiment": "positive",
+   "url": "https://rossier.usc.edu/programs/masters/mft/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Waite_Phillips_Hall%2C_University_of_Southern_California.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Waite_Phillips_Hall,_University_of_Southern_California.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by EEJCC, via Wikimedia Commons",
+  "caption": "Waite Phillips Hall on USC's University Park campus — the home of the Rossier School of Education, where the MFT program is housed."
+ },
+ "gaps": [
+  "No published cohort size, admit rate, or entering class profile for either the on-campus or online track.",
+  "Could not confirm that online sections are taught by the same instructors as on-campus sections. USC confirms the same degree, same 60-unit curriculum and same tuition rate, and says the online build was led by Rossier's own faculty, but no public document states that the two modalities share a faculty roster.",
+  "No current practicum or field-placement handbook is public. The only detailed document I could find is a 2015 four-way trainee agreement, which is likely out of date on specifics; it does not state who is responsible for sourcing the site.",
+  "The USC Catalogue (catalogue.usc.edu) is behind a bot challenge and could not be fetched, so the official catalogue course descriptions and degree requirements could not be cross-checked against the program's own course-schedule page.",
+  "No COAMFTE accreditation. USC does not claim it in any program material, and mftcalifornia.com's accreditation roundup lists USC under WSCUC regional accreditation only. If you may want to license outside California, that matters.",
+  "Searched specifically for teach-out, closure, suspension or pause announcements and found none. The 'reopen August 1 2026 for a July 2027 start' notice appears to be an ordinary admissions cycle, not a wind-down — but note that it means an applicant reading in mid-2026 is applying for a start more than a year away.",
+  "College Scorecard reports at the 4-digit CIP level (51.15, Mental and Social Health Services), so the $130,999 median debt figure covers USC master's completers in that field, not the MFT program in isolation."
+ ],
+ "sources": [
+  {
+   "label": "USC Rossier — MS in Marriage and Family Therapy program page",
+   "url": "https://rossier.usc.edu/programs/masters/mft/"
+  },
+  {
+   "label": "USC Rossier — MFT course schedule (full six-term grid with course descriptions)",
+   "url": "https://rossier.usc.edu/programs/masters/mft/mft-course-schedule/"
+  },
+  {
+   "label": "USC Rossier — MFT program costs, 2026–27 ($2,539/unit; fees $977 on campus vs $31 online)",
+   "url": "https://rossier.usc.edu/programs/masters/mft/mft-program-costs/"
+  },
+  {
+   "label": "USC Rossier — MFT application instructions and deadlines",
+   "url": "https://admissions.rossier.usc.edu/how-to-apply/ms-in-marriage-and-family-therapy-application-instructions/"
+  },
+  {
+   "label": "USC Rossier news — \"USC launches Master of Science in Marriage and Family Therapy online program,\" July 2024",
+   "url": "https://rossier.usc.edu/news-insights/news/2024/july/usc-launches-master-science-marriage-and-family-therapy-online-program"
+  },
+  {
+   "label": "2U — \"2U & USC Wind Down Their Collaboration in Online Education,\" November 2023",
+   "url": "https://2u.com/newsroom/2u-usc-wind-down-online-education-collaboration/"
+  },
+  {
+   "label": "USC MFT practicum four-way agreement (2015)",
+   "url": "https://customsitesmedia.usc.edu/wp-content/uploads/sites/187/2013/07/17080237/MFT_4_way_Agreement_2015.pdf"
+  },
+  {
+   "label": "USC Kortschak Center — MFT psychoeducational counseling practicum/fieldwork (stipended placement reserved for Rossier MFT students)",
+   "url": "https://kortschakcenter.usc.edu/mftfieldwork/"
+  },
+  {
+   "label": "The Hill — \"USC graduates sue over flawed US News rankings data,\" December 2022",
+   "url": "https://thehill.com/blogs/blog-briefing-room/3785198-usc-graduates-sue-over-flawed-us-news-rankings-data/"
+  },
+  {
+   "label": "U.S. Dept. of Education College Scorecard — USC, master's in CIP 51.15: median federal graduate loan debt $130,999 (n=62), median earnings one year out $61,960",
+   "url": "https://collegescorecard.ed.gov/school/?123961-University-of-Southern-California"
+  }
+ ]
+}

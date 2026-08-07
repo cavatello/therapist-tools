@@ -1,0 +1,263 @@
+{
+ "institution": "Palo Alto University",
+ "character": [
+  "The single most important thing an MFT-bound applicant should understand about Palo Alto University is that this is not an MFT degree with a counseling flavour — it is a CACREP-accredited Clinical Mental Health Counseling degree, i.e. an LPCC degree, onto which California MFT eligibility is bolted as an emphasis. PAU says so itself: \"As part of that program students may complete an emphasis in Marriages, Family, and Child Counseling. Content in the emphasis area does not fall under the scope of CACREP-accreditation and is not reviewed by CACREP.\" Mechanically, choosing the MFCC emphasis means taking CLIN618 Family Systems Theory and CLIN619 Couples Counseling instead of two advanced electives — that is the difference. The upside is real and is the reason people pick PAU: CACREP portability across state lines, plus the option of dual LMFT/LPCC licensure in California from one 94.5-quarter-unit degree. The downside is that your systemic training is nine quarter units inside a 94.5-unit generalist counseling curriculum, and everything else — theories, skills, diagnosis, career development, appraisal — is CACREP core.",
+  "About Stanford: PAU's relationship with Stanford is real but has nothing to do with this degree. The PAU–Stanford Consortium was formed in 2002 with the Stanford University School of Medicine and is a PsyD program; consortium students are full-time PAU students who \"attend a 50% Stanford affiliated PsyD program,\" with roughly half the PsyD courses taught in Stanford's Department of Psychiatry and Behavioral Sciences. The M.A. in Clinical Mental Health Counseling has no Stanford component. The same pattern holds for the university's clinics: The Clinics @ PAU (the Gronowski Community Clinic, founded 1988 and moved to the Mountain View campus in 2022, plus the Sexual and Gender Identities Clinic, Clínica Latina and the online eClinic@PAU) describe the Community Clinic and Clínica Latina as staffed \"by doctoral-level students\" and \"supervised doctoral students,\" while the master's program's own fieldwork page directs students to \"an on-site practicum in a community organization.\" PAU was Pacific Graduate School of Psychology, founded 1975 and re-incorporated as Palo Alto University in 2009; the MA Counseling program began that same year, and CACREP granted it the maximum eight years of accreditation in January 2017.",
+  "Format is where the two tracks genuinely diverge, and it is worth being precise. Both are nine quarters and both are cohort-based. Hybrid (fall start only) meets Monday–Thursday evenings, either 6:00–8:00pm online or 6:00–8:50pm in person on the Mountain View campus. Online (fall or spring start) is all live Zoom — not asynchronous — plus two week-long in-person residencies in the Bay Area at the student's own expense for travel and lodging: RESD600 taken alongside Counseling Skills, and RESD601 alongside Crisis & Trauma, with RESD601 a hard prerequisite for enrolling in practicum. This is a large operation: the program reported 269 graduates in 2024–25, a 93.2% degree completion rate, an 86% LMFT licensure exam pass rate and 77% on the LMFT law and ethics exam. Recent public reviews are more mixed than those numbers suggest, clustering on advising, practicum support and cost."
+ ],
+ "orientation": "CACREP generalist clinical mental health counseling with a strong multicultural / social-justice frame; systemic family work and attachment-based couples work exist only inside the MFCC emphasis",
+ "signature": [
+  {
+   "code": "RESD600",
+   "title": "Residency I",
+   "units": "1.5",
+   "desc": "\"Residency I is an in-person clinical intensive taken in the same quarter as CLIN 615-Counseling Skills. This 1.5-credit course includes face to face opportunities for students, working in small cohort groups, to practice basic counseling skills and techniques. Residency I is a required experience and must be successfully completed before students can take Residency II.\"",
+   "verbatim": true,
+   "why": "This is the mechanism that makes PAU's online track structurally different from an asynchronous online MFT degree: skills are gated behind a physically co-present week, and you cannot progress without it. Budget for airfare and a week off work — PAU states students bear all residency costs.",
+   "src": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/resd-residency/600/resd600"
+  },
+  {
+   "code": "RESD601",
+   "title": "Residency II",
+   "units": "1.5",
+   "desc": "\"Residency II is taken in the same quarter as COUN 630-Crisis and Trauma… includes face to face opportunities for students, working in small cohort groups, to practice Group Counseling Skills, Crisis Intervention Skills, and more Advanced Counseling Skills and theory integration. Students will have the opportunity to participate in a group; both as a group member and co-leader.\" Prerequisite to PRAC 615.",
+   "verbatim": true,
+   "why": "Being a member of a real group before co-leading one is experiential training most distance programs cannot offer at all, and it is the checkpoint the program uses to decide you are safe to see clients. Note that RESD600 and RESD601 appear on the hybrid degree plan as well as the online one.",
+   "src": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/resd-residency/600/resd601"
+  },
+  {
+   "code": "CLIN618",
+   "title": "Family Systems Theory",
+   "units": "4.5",
+   "desc": "\"This course explores the field of family counseling and general systems theory, providing students with a holistic perspective on the interconnected nature of individuals, families, and larger societal systems. Students will explore a historical overview of the evolution of therapeutic models while completing the practical application of the theories through skills practice and case conceptualizations from a family systems perspective.\"",
+   "verbatim": true,
+   "why": "This is one of the two courses that constitute the MFCC emphasis — the reason this degree qualifies you for California LMFT licensure at all. If you take the advanced-elective route instead, you do not take it. That makes this the highest-stakes course choice in the whole program for an MFT-bound student.",
+   "src": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/clin-clinical/600/clin618"
+  },
+  {
+   "code": "CLIN619",
+   "title": "Couples Counseling",
+   "units": "4.5",
+   "desc": "\"This course focuses on systemic attachment-based approaches to counseling couples. The course reviews theories, assessment methods, treatment interventions, and counseling skills used in couple therapy. Knowledge and skill will be developed through a combination of lectures, reading, videos, podcasts, and experiential exercises including roleplay.\"",
+   "verbatim": true,
+   "why": "The second MFCC emphasis course, and the catalog commits to a lane — systemic attachment-based, which in practice means EFT-shaped work rather than a survey of Gottman, Imago and behavioural approaches. Ask what percentage of the quarter is spent on non-attachment models if that matters to you.",
+   "src": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/clin-clinical/600/clin619"
+  },
+  {
+   "code": "COUN630",
+   "title": "Crisis & Trauma Counseling",
+   "units": "4.5",
+   "desc": "\"Students will learn about models that clarify the process of assessing and assisting people in crisis (with a focus on Psychological First Aid) and those who have experienced trauma (with a focus on Herman's Triphasic Model of Trauma Resolution)… This course provides a minimum of 6 hours of training on assessment and intervention for suicide, and 12 hours on assessment and referral for intervention on domestic violence.\"",
+   "verbatim": true,
+   "why": "Catalogs rarely name the specific frameworks a course teaches. Naming Psychological First Aid and Herman's triphasic model tells you exactly what your trauma vocabulary will be on day one of practicum, and the 12 hours on domestic violence is double the statutory California minimum in most comparable courses.",
+   "src": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/coun-counseling/600/coun630"
+  },
+  {
+   "code": "COUN661",
+   "title": "Career Development Theories and Techniques",
+   "units": "4.5",
+   "desc": "\"This course provides an overview of the theories and techniques in helping individuals on the journey of exploration in finding and developing careers that are congruent with their personality, interests, abilities and skills. It explores models of career exploration, decision-making, mentorship and coaching.\"",
+   "verbatim": true,
+   "why": "A full 4.5-unit required career-counseling course is a CACREP fingerprint and is largely absent from California MFT-first programs. It is also a straightforward tell about what this degree is: a counseling degree that also qualifies you as an MFT, not the reverse.",
+   "src": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/coun-counseling/600/coun661"
+  }
+ ],
+ "curriculum": {
+  "note": "Nine quarters (fall start shown), cohort-based and lockstep — \"You will be assigned to a group of students who will have the same schedule and sequence of courses for their entire program.\" The sequence below is the MFCC-emphasis degree plan; the hybrid and online fall-start plans are identical in content and order except that the summer of year one swaps two courses, and the hybrid plan marks certain classes as on-campus. Students who take advanced electives instead of the MFCC emphasis do not qualify for California MFT licensure.",
+  "total_units": "94.5 quarter units",
+  "terms": [
+   {
+    "label": "Year 1 — Fall",
+    "courses": [
+     "COUN601 Professional Orientation (3)",
+     "COUN600 Counseling Theory (4.5)",
+     "CLIN615 Counseling Skills (3)",
+     "RESD600 Residency I (1.5)"
+    ]
+   },
+   {
+    "label": "Year 1 — Winter",
+    "courses": [
+     "CLIN610 Legal and Ethical Foundations (4.5)",
+     "CLIN601 Multicultural Counseling Theories and Techniques (4.5)",
+     "CLIN621 Group Counseling (4.5)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring",
+    "courses": [
+     "COUN634 Diagnosis (4.5)",
+     "COUN630 Crisis & Trauma Counseling (4.5)",
+     "RESD601 Residency II (1.5)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer",
+    "courses": [
+     "COUN612 Life Span Development (4.5)",
+     "CLIN605 Child and Adolescent Counseling (4.5)",
+     "CLIN618 Family Systems Theory (4.5) — MFCC emphasis"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (fieldwork begins)",
+    "courses": [
+     "CLIN651 Community Mental Health (4.5)",
+     "CLIN604 Addiction Counseling (4.5)",
+     "PRAC615N Practicum (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Winter",
+    "courses": [
+     "CLIN619 Couples Counseling (4.5) — MFCC emphasis",
+     "INTR600N Internship I (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring",
+    "courses": [
+     "CLIN634 Sexual Issues in Counseling (4.5)",
+     "INTR602N Internship II (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer",
+    "courses": [
+     "COUN641 Research and Program Evaluation (4.5)",
+     "COUN603 Appraisal & Assessment in Counseling (4.5)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall",
+    "courses": [
+     "CLIN680 Psychopharmacology (4.5)",
+     "COUN661 Career Development Theories and Techniques (4.5)"
+    ]
+   }
+  ],
+  "src": "https://paloaltou.edu/hubfs/PDFs/HybridResidentialDegreePlan9Quarters-FallStartMAinCMHCwMFCCEmphasis.pdf"
+ },
+ "practicum": {
+  "starts": "Quarter five (fall of year two), gated behind successful completion of Residency II",
+  "hours": "700 total hours including a minimum of 280 face-to-face client hours, over at least three academic quarters (typically 9–12 months). The catalog splits this as \"at least a 100-hour practicum and 600-hours of internship\": PRAC615N requires 100 hours of which 40 are direct client hours, and Internship I and II together require 600 hours of which 240 are direct.",
+  "who_places": "mixed",
+  "clinic": "The Clinics @ PAU (Gronowski Community Clinic, Sexual and Gender Identities Clinic, Clínica Latina, eClinic@PAU) — but see detail; the master's program's own fieldwork is described as taking place off-campus",
+  "detail": "PAU's Clinical Training Team \"will help you as you secure an ideal practicum or field placement in your community that matches your specific interests,\" working with agencies across the Bay Area, and will work with students who live elsewhere to find sites near home — but the student is the one securing it. Site supervision happens at the agency; PAU faculty supervision happens online, and the program states that \"All students will meet online on Tuesday evenings.\" Published placement types include school districts, teen counseling centers, adult psychological service agencies, senior counseling centers, community mental health agencies, hospitals, and non-profit and faith-based organisations such as the Salvation Army and YMCA. The university runs four of its own training clinics, but the Community Clinic and Clínica Latina are described as delivering services through doctoral-level students, so master's students should not assume in-house placement is available to them. Timing warning from PAU itself: \"During the second year students should be aware that evening and weekend practicum placements are extremely hard to find. Most students will need to adjust their schedules in order to spend two days during the normal workweek to complete their practicum experience.\"",
+  "src": "https://paloaltou.edu/academic-programs/ma-counseling",
+  "model": "assisted",
+  "model_evidence": "Finding Your Fieldwork Site. PAU's Clinical Training Team will help you as you secure an ideal practicum or field placement in your community that matches your specific interests – and support you throughout your field experience. We work closely with mental health agencies throughout the San Francisco Bay area and beyond.",
+  "model_url": "https://www.paloaltou.edu/academic-programs/ma-counseling/program-details",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Community Clinic",
+   "Sexual & Gender Identities Clinic",
+   "Clínica Latina",
+   "eClinic"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published as a per-cohort number. For scale, the program's CACREP outcomes page reports 269 graduates in the past year, a 93.2% degree completion rate, 86% LMFT licensure exam pass rate, 77% LMFT law and ethics pass rate, 81% LPCC law and ethics pass rate, 78% NCMHCE pass rate, and 75.22% combined employment and doctoral-admission rate. PAU's own recruiting quotes students describing \"a small cohort where you have a great student to faculty ratio.\"",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from a regionally accredited institution or international equivalent; no prerequisite courses, though \"we strongly recommend applicants to have related volunteer or work experience in the mental health field.\" Applications go through the psychologyCAS centralized service and require official transcripts, a resume or CV, three letters of recommendation and a statement of purpose. Successful applicants are invited to \"a group interview that lasts approximately two hours\" evaluated by both current students and counseling faculty. Online applicants must live in a state where PAU is authorised to deliver online education.",
+  "deadline": "Spring 2026: November 1, 2025. Fall 2026: May 1, 2026. Rolling within terms. Spring starts in April and is online only; fall starts in September and offers both online and hybrid formats.",
+  "src": "https://paloaltou.edu/academic-programs/ma-counseling",
+  "gre_evidence": "GRE scores are not required for admissions to PAU master's degree programs. GRE scores will not be considered in the review of applications, even if students provide them.",
+  "gre_url": "https://www.paloaltou.edu/academic-programs/ma-counseling/program-details",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I regret choosing PAU. I enrolled because it was CACREP-accredited, offered a hybrid cohort model…\" The reviewer goes on to criticise advising, disorganisation, practicum support and the absence of career help after graduation, and says student concerns were dismissed rather than addressed.",
+   "who": "Niche, master's student review, 2026",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/palo-alto-university/reviews/"
+  },
+  {
+   "text": "\"Their classes are much more expensive than other psych programs.\" The reviewer alleges a pattern of students being failed late in a quarter and having to pay to retake.",
+   "who": "Niche, master's student review, July 2025",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/palo-alto-university/reviews/"
+  },
+  {
+   "text": "\"I was able to get connected with jobs, and the connection to PAU has opened doors,\" crediting faculty support during internship and the alumni network.",
+   "who": "Niche, alum review, June 2025",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/palo-alto-university/reviews/"
+  },
+  {
+   "text": "\"I have a small cohort and all of the classes are live so I really feel like I know my classmates.\"",
+   "who": "GradReports, Counseling student 'Katie Smith', 2023",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/palo-alto-university"
+  },
+  {
+   "text": "One anonymous 2024 reviewer alleges disability discrimination — \"This place discriminated against me for having autism despite constant promises of inclusion\" — describing being failed for autistic traits. Unverified single account, but worth asking the program directly about accommodations if that applies to you.",
+   "who": "Niche, anonymous review, October 2024",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/palo-alto-university/reviews/"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph of the Allen Calvin Campus (1791 Arastradero Road) or the Mountain View campus exists on Wikimedia Commons — only logo files, which are not campus photographs and are not verifiably free-licensed. No image included.",
+  "No per-cohort enrolment or admit rate is published; 269 graduates a year is the only scale figure available, and PAU's marketing language about 'small cohorts' is not backed by a published number.",
+  "The hybrid degree plan lists RESD600 and RESD601 alongside the online plan, even though the website presents the two residencies as an online-student requirement. It is unclear from published material whether hybrid students attend the same week-long residencies or a shorter on-campus equivalent. Worth asking admissions directly.",
+  "Cost is not covered here — PAU publishes tuition on a separate page and the residency travel/lodging costs are borne by the student and unquantified.",
+  "Reddit could not be searched or fetched from this environment (403). One relevant 2023 r/therapists thread on PAU for MFT licensure is known to exist but its contents could not be retrieved; the voices above come from Niche and GradReports instead.",
+  "PAU does not publish which specific agencies its MA counseling students are currently placed at, only categories of setting."
+ ],
+ "sources": [
+  {
+   "label": "MA in Clinical Mental Health Counseling program page (format, fieldwork, admissions, deadlines)",
+   "url": "https://paloaltou.edu/academic-programs/ma-counseling"
+  },
+  {
+   "label": "2025–2026 PAU University Catalog — MA in Clinical Mental Health Counseling",
+   "url": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/curriculum-and-academic-departments/counseling-department/master-of-arts-in-clinical-mental-health-counseling/"
+  },
+  {
+   "label": "2025–2026 Catalog — course descriptions (RESD, CLIN, COUN, PRAC, INTR)",
+   "url": "https://paloaltou.smartcatalogiq.com/en/2025-2026/2025-2026-pau-university-catalog/courses/"
+  },
+  {
+   "label": "Hybrid Residential Degree Plan, 9 Quarters, Fall Start, MA in CMHC with MFCC Emphasis (PDF)",
+   "url": "https://paloaltou.edu/hubfs/PDFs/HybridResidentialDegreePlan9Quarters-FallStartMAinCMHCwMFCCEmphasis.pdf"
+  },
+  {
+   "label": "Online Degree Plan, 9 Quarters, Fall Start, MA in CMHC with MFCC Emphasis (PDF)",
+   "url": "https://paloaltou.edu/hubfs/PDFs/OnlineDegreePlan9Quarters-FallStartMAinCMHCwMFCCEmphasis.pdf"
+  },
+  {
+   "label": "CACREP Accreditation and 2024–25 outcomes data",
+   "url": "https://paloaltou.edu/academic-programs/ma-counseling/cacrep"
+  },
+  {
+   "label": "2024–25 CMHC Outcomes Report (PDF)",
+   "url": "https://paloaltou.edu/hubfs/PDFs/2024-25%20Outcomes%20Report%20CMHC.docx.pdf"
+  },
+  {
+   "label": "Consortium with Stanford University (PsyD only)",
+   "url": "https://paloaltou.edu/about/partnership-stanford-university"
+  },
+  {
+   "label": "The Clinics @ PAU",
+   "url": "https://paloaltou.edu/the-clinics"
+  },
+  {
+   "label": "History of PAU (PGSP 1975, renamed 2009, MA Counseling begins 2009)",
+   "url": "https://paloaltou.edu/about/history"
+  },
+  {
+   "label": "Niche — Palo Alto University graduate student reviews",
+   "url": "https://www.niche.com/graduate-schools/palo-alto-university/reviews/"
+  },
+  {
+   "label": "GradReports — Palo Alto University reviews",
+   "url": "https://www.gradreports.com/colleges/palo-alto-university"
+  }
+ ]
+}

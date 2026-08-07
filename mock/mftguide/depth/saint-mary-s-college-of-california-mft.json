@@ -1,0 +1,243 @@
+{
+ "institution": "Saint Mary's College of California",
+ "character": [
+  "Of the three Catholic-affiliated Bay Area MFT programs, Saint Mary's is the one where the religious heritage actually shows up in the required course descriptions rather than only in mission statements. The required theories course, COUN 604, promises \"an overview of the historical development of psychotherapy and counseling theories including both traditional and more recent theories, as well as transpersonal and Eastern approaches.\" The MFT/PCC capstone theory course, COUN 741, lists \"mindfulness practices, and the inclusion of spiritual and religious issues in counseling\" among its central topics and describes the instructor's job as guiding \"the integration of spiritual concerns as a multicultural skill set.\" And the second skills course, COUN 602, states outright that the counseling immersion is \"grounded in humanistic psychology.\" Read together, that is a coherent orientation — humanistic, integrative, explicitly hospitable to the transpersonal — and it is the clearest theoretical identity of the three programs.",
+  "The other structurally distinctive thing is the training-group model in the skills sequence. COUN 601 and COUN 602 each run as six all-day Saturdays (10 to 5) alternating with six two-hour small-group sessions in which \"students work with a counseling skills trainer to practice and develop their emerging skills in effective listening, counseling, and communication.\" That is a dedicated skills trainer supervising a small group over a full academic year, not a professor watching role-plays in a lecture hall. Alongside it sits COUN 603, a required three-unit course on the counselor's own wellbeing — \"designed to... inspire students to understand, respect, and care for themselves personally and professionally, now and throughout their lives\" and to introduce \"integral and holistic health as it pertains to counseling.\" A whole required course on your own health, before you have a client, is uncommon in California.",
+  "Third: the department is built around one shared 40-unit core taken by everyone, whatever their specialization. An MFT/PCC student sits with future school counselors, school psychologists and forensic-psychology students for those 40 units, then adds 28 units of MFT/PCC coursework for a 68-unit minimum, or 81 units if they add the School Counseling / PPS credential as a dual specialization. That makes the dual an unusually clean add-on: 13 extra units buys a K-12 credential on top of licensure eligibility. It also means the program is generalist by construction — the departmental learning outcomes are shared across all specializations, and there are no MFT-specific emphasis tracks in the Santa Clara sense. Everything happens on the Moraga campus, in the afternoon and evening, 4:15–7:00 p.m. and 7:15–10:00 p.m. Monday to Thursday plus some Saturdays. There are no online courses and no satellite locations. One more oddity worth knowing: SMC prepares students for the CPCE, the national Counselor Preparation Comprehensive Examination, via a dedicated three-unit course (COUN 797) — a counselor-education convention that most California MFT programs do not follow."
+ ],
+ "orientation": "Humanistic and integrative, with an explicit place for transpersonal, Eastern and spiritual material and a strong self-of-the-therapist emphasis",
+ "signature": [
+  {
+   "code": "COUN 601",
+   "title": "Counseling Skills I",
+   "units": "3",
+   "desc": "\"The course involves a lecture and discussion/activity component, as well as coordination and supervision of small training groups in which students work with a counseling skills trainer to practice and develop their emerging skills in effective listening, counseling, and communication.\" Delivered as six Saturdays, 10 to 5, alternating with six 2-hour training group sessions.",
+   "verbatim": true,
+   "why": "The delivery model is the point. A year-long pairing of all-day Saturday intensives with small training groups run by a dedicated skills trainer is a much heavier investment in supervised skill practice than the standard weekly role-play class, and it is the thing SMC graduates most often cite. It also means Saturdays are not optional here.",
+   "src": "https://catalog.stmarys-ca.edu/courses/COUN601"
+  },
+  {
+   "code": "COUN 603",
+   "title": "Personal and Professional Development of Counselors",
+   "units": "3",
+   "desc": "\"Self-awareness and compassionate self-understanding, personal growth, and on-going professional development are essential to the well-being and effectiveness of counselors.\" The course introduces \"integral and holistic health as it pertains to counseling\" and aims to \"inspire students to understand, respect, and care for themselves personally and professionally, now and throughout their lives.\"",
+   "verbatim": true,
+   "why": "A required three-unit course whose subject is the student's own health and self-understanding — not ethics, not self-care as a footnote in a practicum seminar. Very few California MFT programs spend three units on this. It is the clearest signal of the program's humanistic centre of gravity.",
+   "src": "https://catalog.stmarys-ca.edu/courses/COUN603"
+  },
+  {
+   "code": "COUN 604",
+   "title": "Theories of Counseling",
+   "units": "3",
+   "desc": "\"This foundational course provides students with an overview of the historical development of psychotherapy and counseling theories including both traditional and more recent theories, as well as transpersonal and Eastern approaches.\" It also includes \"an introduction to the findings of research evaluating the efficacy and efficaciousness of a wide variety of counseling theories.\"",
+   "verbatim": true,
+   "why": "The phrase 'transpersonal and Eastern approaches' inside a required survey course is the honest answer to whether the Lasallian Catholic identity shapes the curriculum: it does, but as an openness to spiritual and contemplative traditions generally rather than as Catholic doctrine. If you want depth or transpersonal work without going to a specialist school like CIIS, this is where it lives.",
+   "src": "https://catalog.stmarys-ca.edu/courses/COUN604"
+  },
+  {
+   "code": "COUN 741",
+   "title": "Advanced Clinical Practice",
+   "units": "3",
+   "desc": "\"Central topics include the therapeutic relationship, evidence-based practice, integrative approaches to psychotherapy, mindfulness practices, and the inclusion of spiritual and religious issues in counseling.\" Taught as a seminar in which \"the instructor's role is to act as facilitator\" and to guide \"the integration of spiritual concerns as a multicultural skill set.\"",
+   "verbatim": true,
+   "why": "The clinical capstone, and it treats spirituality as a competency rather than a topic to be avoided. Framing religious material as part of multicultural skill is a defensible, specific stance — and one you should want to agree with before enrolling.",
+   "src": "https://catalog.stmarys-ca.edu/courses/COUN741"
+  },
+  {
+   "code": "COUN 731",
+   "title": "Treatment of Children",
+   "units": "3",
+   "desc": "\"Some of the modalities which will be introduced and practiced are play, art, and sand tray therapy.\" The course covers assessment, complex trauma, \"historical and intergenerational trauma,\" infant/child and parent psychotherapy, divorce, \"peace corners,\" domestic and community violence, and bullying, from \"social justice, multicultural and trauma-informed frames.\"",
+   "verbatim": true,
+   "why": "Sand tray and expressive-arts modalities actually practised, not just surveyed, plus intergenerational trauma named explicitly. For anyone planning to work with children in schools or community agencies this is a more hands-on child course than most single-course child requirements deliver.",
+   "src": "https://catalog.stmarys-ca.edu/courses/COUN731"
+  },
+  {
+   "code": "COUN 791",
+   "title": "Counseling Field Experience (MFT/PCC)",
+   "units": "1–3 per term, 6 units total; repeatable",
+   "desc": "\"The primary purpose of the course is to develop a learning network and consultation skills with other colleagues in the class... MFT/LPCC licensing requirements will be revisited as will strategies for working with particular client situations and specialized clinical areas. Time will be devoted to case discussions by seminar attendees... Up to three one-hour consultations are available with the professor upon request.\"",
+   "verbatim": true,
+   "why": "Note the framing: the stated primary purpose is building a peer consultation network, not supervision per se — supervision itself comes from SMC campus supervisors and department-approved field supervisors. The offer of up to three individual hours with the professor is a concrete, small-program detail worth knowing.",
+   "src": "https://catalog.stmarys-ca.edu/preview_course_nopop.php?catoid=22&coid=33500"
+  },
+  {
+   "code": "COUN 797",
+   "title": "Counseling Exam Preparation",
+   "units": "3",
+   "desc": "\"This course is designed to prepare students to take the Counselor Preparation Comprehensive Exam (CPCE) and includes an overview of knowledge and skills in the field of counseling. The course covers eight common core areas of study to prepare students to sit for the CPCE as part of the completion of their master's program.\"",
+   "verbatim": true,
+   "why": "The CPCE is a national counselor-education instrument, and building a three-unit course around it is a counselor-education convention rather than an MFT one. It tells you SMC's counseling department thinks of itself as a counseling department first and an MFT program second — which is consistent with the shared 40-unit core across every specialization.",
+   "src": "https://catalog.stmarys-ca.edu/courses/COUN797"
+  }
+ ],
+ "curriculum": {
+  "note": "Saint Mary's publishes the MFT/PCC requirement as a course list (40 core units shared with every other counseling specialization, plus 28 units of MFT/PCC coursework, for a 68-unit minimum) but does not publish a term-by-term sequence for the MFT/PCC-only pathway — it says full course plans are shared once you are admitted, and offers 3-, 4- and 5-year plans of study. The two lists below are therefore the requirement blocks, not a sequence. The one published term-by-term plan is for the 81-unit dual School Counseling + MFT/PCC specialization, summarised in the third block; it gives an accurate picture of pacing (roughly 4 courses in Fall, 2 in January Term, 4 in Spring, 2 in Summer).",
+  "total_units": "68 units minimum for MFT/PCC; 81 units with the dual School Counseling (PPS) specialization",
+  "terms": [
+   {
+    "label": "Required core — all counseling specializations (40 units)",
+    "courses": [
+     "COUN 600 Introduction to Counseling Research (1)",
+     "COUN 601 Counseling Skills I (3)",
+     "COUN 602 Counseling Skills II (3)",
+     "COUN 603 Personal and Professional Development of Counselors (3)",
+     "COUN 604 Theories of Counseling (3)",
+     "COUN 605 Issues in Intercultural Counseling and Social Justice (3)",
+     "COUN 610 Career Counseling (3)",
+     "COUN 611 Law, Ethics, and Values (3)",
+     "COUN 612 Human Sexuality (1)",
+     "COUN 613 Alcohol & Substance Abuse (2)",
+     "COUN 620 Psychological Testing and Assessment (3)",
+     "COUN 621 Human Development and Family Relationships (3)",
+     "COUN 622 Group Theory and Practice (3)",
+     "EDUC 772 Research Seminar I (3)",
+     "COUN 799 Counseling Master's Project, Thesis, or Exam (3)"
+    ]
+   },
+   {
+    "label": "MFT/PCC specialization (28 units)",
+    "courses": [
+     "COUN 701 Psychopathology (3)",
+     "COUN 711 Theory and Practice of Counseling Couples (2)",
+     "COUN 721 Family Systems, Theories and Applications (3)",
+     "COUN 731 Treatment of Children (3)",
+     "COUN 741 Advanced Clinical Practice (3)",
+     "COUN 751 Community Mental Health and Trauma Interventions (3)",
+     "COUN 761 Addictions, Co-Occurring Disorders, and Recovery-Oriented Treatment (1)",
+     "COUN 771 Psychopharmacology for MFT/PCC (3)",
+     "COUN 781 Counseling Older Adults and Their Families (1)",
+     "COUN 791 Counseling Field Experience, 1–3 units each term, 6 units total"
+    ]
+   },
+   {
+    "label": "Published 3-year sequence — dual School Counseling + MFT/PCC only (81 units)",
+    "courses": [
+     "Y1 Fall: COUN 600, 604, 601, 621, 603",
+     "Y1 Jan Term: COUN 612, 613",
+     "Y1 Spring: COUN 602, 611, 605, 701",
+     "Y1 Summer: COUN 761, 771",
+     "Y2 Fall: COUN 723, 721, 731, 620",
+     "Y2 Spring: COUN 751, EDUC 772, COUN 703, 622",
+     "Y2 Summer: COUN 797, 610",
+     "Y3 Fall: COUN 793, 791, 733, 741"
+    ]
+   }
+  ],
+  "src": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/specializations/mft-pcc"
+ },
+ "practicum": {
+  "starts": "Final year. In the published dual-specialization plan of study, COUN 791 begins in the fall of year three.",
+  "hours": null,
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "Fieldwork is COUN 791 Counseling Field Experience (MFT/PCC), taken 1–3 units per term across multiple terms to a total of 6 units. Per the program's own description, \"Students are engaged in fieldwork in clinical, school or college settings appropriate to department specialization(s) and career objectives. Weekly seminars held for specific specializations. Supervision provided by Counseling Department campus supervisors and department-approved field supervisors\" — so there are two supervision layers, one inside SMC and one at the site. The seminar itself is framed around peer consultation and case discussion rather than direct supervision, with up to three one-hour individual consultations with the professor available on request. On placement, the department says it \"connects you with schools, clinics, and community organizations across the wider Bay Area, helping you secure field placements that match your goals\" and refers to \"thoughtfully selected field placements,\" which reads as an assisted search rather than an assignment. Students adding the School Counseling credential take a separate COUN 793 field experience and a COUN 703 school practicum, which includes 50 hours shadowing school counsellors at one or two sites.",
+  "src": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/specializations/mft-pcc",
+  "model": "assisted",
+  "model_evidence": "Our program connects you with schools, clinics, and community organizations across the wider Bay Area, helping you secure field placements that match your goals and prepare you for professional success.",
+  "model_url": "https://www.stmarys-ca.edu/kalmanovitz-school-of-education/counseling/masters-counseling-program",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not required",
+  "prereqs": "No prerequisite coursework. A bachelor's degree from an accredited college with a minimum 2.8 GPA — applicants below 2.8 may still apply but must address the circumstances in a required 2–3 page personal statement and may be asked to a second individual interview. All applicants are scheduled for a group admissions interview after their application is received. No CBEST needed; the counseling curriculum itself satisfies the Basic Skills Requirement for the PPS credential. Applicants to the School Counseling or School Psychology tracks must obtain a CCTC Certificate of Clearance before practicum.",
+  "deadline": "Rolling with fall and spring entry; the department advises starting the application about two months before the term you want to begin.",
+  "src": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/frequently-asked-questions",
+  "gre_evidence": "No, the GRE is not required. We do require a Bachelor's degree from an accredited college.",
+  "gre_url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/frequently-asked-questions",
+  "min_gpa": "2.8",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I can't say enough terrible things about this program. For an apparent 'counseling' program most of the professors and advisors don't try to even listen...\" — a Counseling student, November 2017.",
+   "who": "GradReports, Saint Mary's College of California, Nov 2017",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/saint-mary-s-college-of-california"
+  },
+  {
+   "text": "\"If you want a graduate program that has small class sizes, a personal experience, accessible and experienced professors that practice in the field...\" — Leanna Jack, Counseling, October 2014.",
+   "who": "GradReports, Saint Mary's College of California, Oct 2014",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/saint-mary-s-college-of-california"
+  },
+  {
+   "text": "\"The Counseling Graduate program at St. Mary's College is excellent, and it's graduates a wonderful reputation for professionalism and preparedness...\" — Tasneem Mohamed, Counseling, February 2015.",
+   "who": "GradReports, Saint Mary's College of California, Feb 2015",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/saint-mary-s-college-of-california"
+  },
+  {
+   "text": "\"This program changed my life. I met amazing people who held each other up and professors who really pulled me through. It was the best decision I could have made.\" — Nicole Burns, MA in Counseling '24, MFT/PCC and School Counseling. (Testimonial published by the program itself, so read it as marketing.)",
+   "who": "Saint Mary's MFT/PCC program page, class of 2024",
+   "sentiment": "positive",
+   "url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/specializations/mft-pcc"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Campus_of_Saint_Mary%27s_College_of_California_4671.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Campus_of_Saint_Mary%27s_College_of_California_4671.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Cristiano Tomás, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "The campus of Saint Mary's College of California in Moraga, photographed November 2021. All counseling classes are held here — the department has no online courses and no satellite sites."
+ },
+ "gaps": [
+  "Required fieldwork hours are not published. COUN 791 is described in units (6 total) rather than in face-to-face client hours, and no fieldwork handbook for the counseling department is publicly posted.",
+  "No term-by-term plan of study is published for the MFT/PCC-only 68-unit pathway. SMC says full course plans are shared with admitted students. Only the 81-unit dual School Counseling + MFT/PCC plan is public.",
+  "Cohort size is not published, though multiple reviewers describe small classes.",
+  "There is no in-house training clinic that I could find; placements appear to be entirely external.",
+  "Some SMC pages are internally inconsistent about course numbering: the learning-outcomes page still refers to the skills sequence as \"COUN 520 and 521\" and the FAQ calls it \"COUN 520 and COUN 521,\" while the current catalog and the MFT/PCC course list use COUN 601 and 602. The FAQ also refers to practicum courses \"COUN 235\" and \"COUN 527.\" Treat old course numbers on SMC pages with suspicion.",
+  "The legacy Acalog catalog (catalog.stmarys-ca.edu/*.php) returns 403 to automated requests, so most course descriptions here were read from Saint Mary's newer Coursedog catalog at /courses/COUN###. COUN 605's and COUN 711's descriptions came from that source too; COUN 791's came from the 2025–26 Acalog entry.",
+  "No Reddit discussion of the Saint Mary's counseling program was found, and Reddit blocked retrieval on this pass in any case. The only first-hand reviews located are three GradReports entries from 2014–2017, which is thin and old."
+ ],
+ "sources": [
+  {
+   "label": "MFT/PCC specialization page — 68 units, course list, program duration",
+   "url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/specializations/mft-pcc"
+  },
+  {
+   "label": "Counseling core curriculum — the shared 40-unit core",
+   "url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/program-details"
+  },
+  {
+   "label": "MA in Counseling FAQs — GRE, GPA, class times, campus, admissions interview",
+   "url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/frequently-asked-questions"
+  },
+  {
+   "label": "MFT/PCC Program Courses PDF (course list with the Saturday / training-group format note)",
+   "url": "https://www.stmarys-ca.edu/sites/default/files/2023-11/MFTPCC%20Courses.pdf"
+  },
+  {
+   "label": "Dual Specialization School Counseling + MFT/PCC, 81-unit 3-year plan of study",
+   "url": "https://www.stmarys-ca.edu/sites/default/files/2024-06/Dual%20SCMFT%203.pdf"
+  },
+  {
+   "label": "Saint Mary's course catalog — COUN course descriptions",
+   "url": "https://catalog.stmarys-ca.edu/courses/COUN601"
+  },
+  {
+   "label": "Saint Mary's Acalog catalog 2025–2026 — COUN 791 Counseling Field Experience (MFT/PCC)",
+   "url": "https://catalog.stmarys-ca.edu/preview_course_nopop.php?catoid=22&coid=33500"
+  },
+  {
+   "label": "Acalog catalog 2025–2026 — Master of Arts in Counseling program page (Lasallian ethics statement, fieldwork requirement)",
+   "url": "https://catalog.stmarys-ca.edu/preview_program.php?catoid=22&poid=4340&returnto=1663"
+  },
+  {
+   "label": "MA in Counseling learning outcomes",
+   "url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/learning-outcomes"
+  },
+  {
+   "label": "KSOE tuition rates 2026–27 — $1,180 per unit for all counseling pathways",
+   "url": "https://www.stmarys-ca.edu/academics/schools/kalmanovitz-school-of-education/admissions-aid/tuition-fees"
+  },
+  {
+   "label": "GradReports — Saint Mary's College of California reviews",
+   "url": "https://www.gradreports.com/colleges/saint-mary-s-college-of-california"
+  }
+ ]
+}

@@ -1,0 +1,276 @@
+{
+ "institution": "Meridian University",
+ "slug": "meridian-university-mft",
+ "city": "Petaluma / Los Angeles + online",
+ "degree": "M.A. in Counseling Psychology",
+ "url": "https://meridianuniversity.edu/academics/psychology/ma-in-counseling-psychology",
+ "character": [
+  "Meridian is a small, mostly-doctoral, WSCUC-accredited graduate school whose entire curriculum is built on a house pedagogy it calls Transformative Learning and, inside that, a method it calls the Imaginal Process. This is not branding laid over a conventional syllabus: the first required course, ANC 101, introduces the Imaginal Process directly, in which \"human capacities are cultivated through diversifying, deepening, embodying, and personalizing experience,\" and the same sensibility runs through the licensure courses. The BBS substance-abuse requirement is met by PSY 530 Ecstatic States of Culture, which frames addiction through \"myth, current psychological models, and our own experience\" and \"the human need for ecstatic experience.\" The law-and-ethics content area is met partly by PSY 525 Career Development, which opens on Joseph Campbell's \"Follow your bliss\" and doubles as the course where students design their fieldwork plan. Psychopathology is taught to cover the DSM-5 \"without succumbing to the diagnostic illusions of the medical model.\" If that language reads as intellectually serious to you, this is a distinctive place; if it reads as a stretch, that is the thing to resolve before enrolling.",
+  "The headline size is misleading and worth doing the arithmetic on. The 103 credits are QUARTER credits, and the catalog is explicit about the split: 92 credits (920 hours) of coursework plus 11 credits of supervised fieldwork. At the standard two-thirds conversion that is roughly 61 semester units of coursework and about 69 semester units all-in — an ordinary-sized California MFT degree, not an outsized one. Courses are 4 quarter credits each and run seven weeks; four quarters a year adds up to about 28 weeks of active instruction, \"just about half the year that courses are actively running.\" The 23 courses the catalog names as covering the BBS MFT and LPCC content areas multiply out to exactly the 92 stated coursework credits. Coursework is primarily asynchronous online, with synchronous meetings encouraged but not required; students outside California but inside the US must come to a residential Transformative Learning Lab in California each academic year.",
+  "The consumer numbers deserve equal weight. Meridian's own 2024 filing with the California Bureau for Private Postsecondary Education reports 21 students beginning the M.A. in Counseling Psychology, 8 degrees awarded, 6 on-time graduates and an on-time completion rate of 28.57 percent; all 6 graduates available for employment were placed, but reported salaries clustered low (two under $30,000). Total charges for the program were reported as $62,192; the 2026–27 catalog rate is $676 per quarter credit, which puts 103 credits at about $69,600. Institution-wide, 365 students were enrolled, 279 of them doctoral — the master's programme is a minority of a school whose centre of gravity is its PsyD/PhD. Also note that a heavily promotional third-party site, meridianuniversityreviews.org, aggregates 75+ overwhelmingly positive testimonials and links out to Meridian's own website while disclosing no operator; treat it as marketing, not as independent review."
+ ],
+ "orientation": "Depth/imaginal and transformative-learning, with somatic and expressive-arts elective tracks",
+ "signature": [
+  {
+   "code": "ANC 101",
+   "title": "Introduction to Transformative Learning",
+   "units": "4 (quarter)",
+   "desc": "\"This course introduces students to Imaginal Process, a distinct approach to transformative learning practiced at Meridian. In this approach, human capacities are cultivated through diversifying, deepening, embodying, and personalizing experience... Listening deeply to each other's stories is at the heart of this process.\"",
+   "verbatim": true,
+   "why": "This is the school's own method, taught as a required first course rather than described in a brochure. Nowhere else in California is 'Imaginal Process' a named pedagogy you enrol in; if you do not want it, essentially every later course is shaped by it too.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "code": "PSY 530",
+   "title": "Ecstatic States of Culture",
+   "units": "4 (quarter)",
+   "desc": "\"This course utilizes myth, current psychological models, and our own experience to develop an integrated view of addiction that considers biology, psychology, cultural considerations, and human yearning. Issues regarding the use and abuse of drugs and alcohol will be explored within the contexts of culture and the human need for ecstatic experience.\"",
+   "verbatim": true,
+   "why": "Every California MFT programme has to teach substance use and co-occurring disorders. Almost none teaches it as a course about ecstasy and human yearning. This single course tells you more about Meridian's temperament than any mission statement — it is the clearest test of whether the depth frame reads to you as illuminating or as evasive of a very concrete clinical competency.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "code": "PSY 501",
+   "title": "Psychopathology",
+   "units": "4 (quarter)",
+   "desc": "\"Each of us suffers in a unique way. Yet it is interesting and useful to recognize distinct varieties of human suffering without succumbing to the diagnostic illusions of the medical model... A genuinely psychological approach draws our attention to culture, myth, story, and metaphor in the meaning we make about the symptoms we observe. The limits, ambiguities, and cruelties of professionalized responses to human suffering will be among our considerations.\"",
+   "verbatim": true,
+   "why": "The DSM course at most programmes is pure compliance. Here it is explicitly framed as a critique of the medical model, which matters practically: you will still need fluency in DSM-5 diagnosis for insurance panels and agency work, and you should ask how much drilling of that fluency this course actually contains.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "code": "PSY 525",
+   "title": "Career Development",
+   "units": "4 (quarter)",
+   "desc": "\"Joseph Campbell's famous phrase, 'Follow your bliss,' is a directive that for most people is easier said than done.\" The course covers vocation, calling and \"the potential relationship between forms of psychopathology and Western culture's lack of support for the notion of personal destiny,\" and is also where students \"become thoroughly familiar with Meridian's fieldwork process\" and formulate a fieldwork plan.",
+   "verbatim": true,
+   "why": "This is the course where the mythopoetic register and the practical machinery collide — it is both the Campbell course and the course where you plan the traineeship that will determine whether you finish on time. The catalog also lists it under the BBS 'California Laws and Professional Ethics' content area, which is worth asking about directly.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "code": "PSY 515",
+   "title": "Healing and Transforming Trauma",
+   "units": "4 (quarter)",
+   "desc": "\"This course explores current issues in the field of psychological trauma through personal, historical, cultural, and archetypal perspectives. Its intent is threefold: To develop the student's ability to engage their own personal traumatic material (generally experienced through fragmented images that are the common aftermath of overwhelming experience); to integrate imaginal approaches to trauma with principles inherent in the recovery model; and to identify key somatic, cognitive, affective, behavioral, and neurological effects associated with trauma.\"",
+   "verbatim": true,
+   "why": "Note the first of the three stated aims: the required trauma course asks you to work your own traumatic material, not only to learn protocols. Combined with the 40 required hours of personal psychotherapy, this is a programme that treats the student's own psyche as coursework.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "code": "PSY 518",
+   "title": "Psychology of Power, Privilege, and Culture",
+   "units": "4 (quarter)",
+   "desc": "\"In this course, we will explore the internalization of cultural oppression as well as oppressive voices towards 'the other' that live in our own hearts. The course will review forms of systematic oppression such as racism, sexism, classism, able-bodyism, adultism, ageism, and homophobia...\"",
+   "verbatim": true,
+   "why": "This is the single course that carries the entire BBS cultural-competency requirement, and it is framed inwardly — internalised oppression and one's own oppressive voices — rather than as a survey of working with diverse populations. Useful to know if you want the latter.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Meridian does not publish a term-by-term plan of study for the M.A. in Counseling Psychology. The 2026–27 catalog instead names the specific courses that satisfy each California BBS content area for the MFT and the LPCC; those 23 named courses at 4 quarter credits each come to exactly the 92 coursework credits the catalog states, with PSY 597 Supervised Fieldwork carrying the remaining 11 credits. The list below is that catalog mapping, not an official sequence. Courses run seven weeks; four quarters a year, about 28 weeks of active instruction; primarily asynchronous online with an optional hybrid track at the Los Angeles (Santa Monica) campus.",
+  "total_units": "103 quarter credits (92 coursework = 920 hours, + 11 fieldwork). Roughly 69 semester-unit equivalent.",
+  "terms": [
+   {
+    "label": "Required coursework — anchor curriculum (no published sequence)",
+    "courses": [
+     "ANC 101 Introduction to Transformative Learning (4)",
+     "ANC 105 Emotional Development (4)",
+     "ANC 110 Relational Development (4)",
+     "ANC 130 Transformative Learning Praxis (4)",
+     "MER 590 Research Methods (4)"
+    ]
+   },
+   {
+    "label": "Required coursework — clinical/BBS content areas (no published sequence)",
+    "courses": [
+     "PSY 501 Psychopathology (4)",
+     "PSY 505 Human Development (4) — also carries Aging and Long-Term Care",
+     "PSY 510 Group Process (4) — also carries Human Communication",
+     "PSY 515 Healing and Transforming Trauma (4)",
+     "PSY 518 Psychology of Power, Privilege, and Culture (4) — cultural competency",
+     "PSY 520 Culture and the Law (4) — law/ethics and child abuse reporting",
+     "PSY 525 Career Development (4)",
+     "PSY 530 Ecstatic States of Culture (4) — substance use and co-occurring disorders",
+     "PSY 555 Psychotherapy Integration: Individual and Relational (4)",
+     "PSY 556 Psychotherapy Integration with Couples (4) — carries spousal/partner abuse",
+     "PSY 757 Psychotherapy Integration with Families (4)",
+     "PSY 770 Principles of Psychopharmacology (4)",
+     "PSY 771 Resilience, Recovery, & Systems of Care (4) — case management/systems of care",
+     "PSY 772 Human Sexuality in Relational and Cultural Contexts (4)",
+     "PSY 776 Psychological Assessment: Principles and Practices (4) — psychological testing"
+    ]
+   },
+   {
+    "label": "Practicum and fieldwork",
+    "courses": [
+     "PSY 751 Clinical Practicum: Therapeutic Contexts (4)",
+     "PSY 752 Clinical Practicum: Therapy and Culture (4)",
+     "PSY 753 Clinical Practicum: Classical Approaches (4)",
+     "PSY 597 Supervised Fieldwork (11 credits)",
+     "PSY 754 Clinical Practicum Extension (4) — required of MFT-bound students to overlap coursework with fieldwork hours per BBS"
+    ]
+   },
+   {
+    "label": "Elective concentration families (catalog course blocks, PSY 701–783)",
+    "courses": [
+     "Somatic Psychology (PSY 713–729): Foundations of Somatic Psychotherapy, Somatic Approaches to Trauma, The Knowing Body (Gendlin's Focusing), Psychology of Touch, Somatic Assessment",
+     "Depth/Archetypal (PSY 733–742): Myth, Ritual, and Story; Psychology of Metaphor; Psychology of Evil; The Transformative Power of Ritual; Archetypal Psychology; PSY 712 Psychology of Dreams",
+     "Expressive and Movement Arts (PSY 705–711): Expressive Arts in Therapy, Art Psychotherapy, Cultivating the Senses, Experiential Anatomy",
+     "Integral / Transpersonal (PSY 780–783): Foundations of Integral Psychology (AQAL), Meta-Theory in Psychological Praxis; PSY 736 Psychology of Mystical Experience; PSY 701 Introduction to Yoga and Psychology"
+    ]
+   }
+  ],
+  "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+ },
+ "practicum": {
+  "starts": "Students become eligible to begin fieldwork after completing their first year of coursework; MFT/LPCC-bound students must have started by the beginning of the third year",
+  "hours": "A 340-hour traineeship including a minimum of 280 direct service hours, done in full accordance with the BBS practicum requirement; carried as 11 credits of PSY 597 Supervised Fieldwork",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "There is no in-house training clinic. Meridian is an online school with two small centres (Petaluma and Santa Monica), and students arrange their own traineeship sites in their own region — the independent comparison site MFT California summarises it as students who \"conduct their fieldwork requirement in their local region and set up their own fieldwork, with support from Meridian,\" and the catalog's own language is the softer \"Every effort is made to support students in selecting and completing required fieldwork\" via ongoing contact with fieldwork staff and clinical faculty plus a Fieldwork Handbook discussed in the first year. Planning your own placement is treated as coursework: PSY 525 Career Development is where you build the fieldwork plan and weigh \"the pros and cons of having fieldwork fulfill California licensing board hours, time frames and procedures for applying to and completing internships, the use of one's job as an internship site, and options for arranging alternative field placements.\" The academic side of practicum is a three-course sequence, PSY 751–753, covering intake assessment, case formulation, treatment planning, note-taking and crisis management, with PSY 752 focused on multicultural themes and PSY 753 introducing the scope of practice for LMFT and LPCC; MFT-bound students additionally take PSY 754 Clinical Practicum Extension so that coursework overlaps fieldwork as the BBS requires. The catalog does not publish a relational/couples sub-minimum, a supervision-hours formula, or a list of affiliated sites, and it states the fieldwork must be \"clinical in nature\" — a real constraint, since Meridian's fieldwork credits at the doctoral level can otherwise be earned through non-clinical work. Forty hours of personal psychotherapy are separately required and may in some cases be completed before enrolment.",
+  "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf",
+  "model": "student-sourced",
+  "model_evidence": "Students in degree programs that require field placement (internship) are responsible for utilizing the University's Fieldwork Handbook and support services to find their own employment/internship site. The University does not provide students with internal field placement/internship.",
+  "model_url": "https://meridianuniversity.edu/academics/academic-structure",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Not published as a cohort. Meridian admits four times a year on a rolling basis and states that \"class size is different each quarter\"; its 2024 BPPE filing reports 21 students beginning the M.A. in Counseling Psychology and 86 master's students across all four master's programmes, out of 365 students institution-wide (279 of them doctoral)",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree; no prerequisite courses; 3.0 minimum GPA per the independent MFT California listing; personal statement, letters of recommendation, transcripts, and an interview for selected applicants",
+  "deadline": "Rolling — quarterly starts (Fall, Winter, Spring, Summer)",
+  "src": "https://meridianuniversity.edu/academics/psychology/ma-in-counseling-psychology",
+  "gre_evidence": "A Bachelor's degree is required for admission to Meridian's Graduate Programs. The GPA requirement for admittance: Minimum GPA for admission to all degree programs at Meridian is a 3.0.",
+  "gre_url": "https://meridianuniversity.edu/admissions/graduate-admissions/application-process",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I love the transformative learning platform compared to regular informative education.\"",
+   "who": "Niche, doctoral student, Jan 2024",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  },
+  {
+   "text": "\"There is a lot of writing at Meridian. Each week you'll read and write substantially.\"",
+   "who": "Niche, master's student, July 2022",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  },
+  {
+   "text": "\"The biggest downside of Meridian would be the online platform.\"",
+   "who": "Niche, master's student, Sept 2021",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  },
+  {
+   "text": "\"Meridian is not APA accredited but they are WASC accredited\" — an accurate distinction a prospective student flagged unprompted.",
+   "who": "Niche, master's student, Oct 2021",
+   "sentiment": "info",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  },
+  {
+   "text": "Meridian's own 2024 regulator filing: 21 students began the M.A. in Counseling Psychology, 6 graduated on time — an on-time completion rate of 28.57%. All 6 graduates available for employment were placed; two reported salaries under $30,000.",
+   "who": "BPPE 2024 Annual Report, Meridian University",
+   "sentiment": "info",
+   "url": "https://bppe.ca.gov/webapplications/annualReports/2024/details/4901131"
+  },
+  {
+   "text": "\"I was not expecting my masters to be this challenging and Meridian is not for everyone. If you just want to get the degree as easily as possible, this is for sure not for you!... The biggest downside of Meridian would be the online platform, but they are apparently replacing that? Faculty are great. Staff are.. fine, but you have to email with them mostly. I guess my key point is that you learn everything you need for counseling licensing, but also get a lot of support with growing as a person along the way... (I'm doing the Accelerated format by the way -- it is fast, but it is a lot of work)\"",
+   "who": "Niche graduate review, Meridian master's student, 6 Sept 2021",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  },
+  {
+   "text": "\"There is a lot of writing at Meridian. Each week you'll read and write substantially, both regarding your personal experience. There are live classes and what they call 'labs' which are great, but they are not too frequent and you have to make your schedule around when they take place. If you are okay doing a lot of writing and working individually, then you may succeed at Meridian. The academic advisors are GREAT.\"",
+   "who": "Niche graduate review, Meridian master's student, 3 July 2022",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  },
+  {
+   "text": "\"If you only want mainstream approaches to Psychology, then this is not the place for you. But if you are open to alternative ideas, then Meridian can be an inspired experience. I personally wanted to focus on depth and transpersonal psychology and also wanted an online program. There are very few options and I was pleasantly surprised by the quality of the online coursework at Meridian. It is not inexpensive, but the faculty have been great almost across the board and the program is quite flexible.\"",
+   "who": "Niche graduate review, Meridian master's student, 3 July 2022",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No published term-by-term plan of study for the M.A. in Counseling Psychology — the curriculum above is reconstructed from the catalog's BBS content-area mapping, which happens to total exactly the stated 92 coursework credits.",
+  "No published cohort size, acceptance rate or application deadline; Meridian states class size varies by quarter.",
+  "No list of affiliated traineeship sites, no relational/couples hour sub-minimum, and no supervision-hours formula published for the 340-hour traineeship.",
+  "No BBS/LMFT clinical exam pass rate published; Meridian's own 2024 BPPE filing answers 'No' to whether the M.A. leads to a state-licensed occupation, so no exam data is reported there either.",
+  "No credible independent student discussion found on Reddit or Student Doctor Network. Niche (19 reviews) and a heavily promotional, undisclosed-operator site (meridianuniversityreviews.org) are essentially the only review sources; Yelp blocks automated access.",
+  "No freely-licensed photograph of either Meridian location found on Wikimedia Commons."
+ ],
+ "sources": [
+  {
+   "label": "Meridian University 2026–27 Academic Catalog (PDF)",
+   "url": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "label": "MA in Counseling Psychology programme page",
+   "url": "https://meridianuniversity.edu/academics/psychology/ma-in-counseling-psychology"
+  },
+  {
+   "label": "Psychology Course Descriptions",
+   "url": "https://meridianuniversity.edu/academics/psychology/psychology-course-descriptions"
+  },
+  {
+   "label": "Accreditation page",
+   "url": "https://meridianuniversity.edu/about/about-meridian/accreditation"
+  },
+  {
+   "label": "BPPE 2024 Annual Report — Meridian University",
+   "url": "https://bppe.ca.gov/webapplications/annualReports/2024/details/4901131"
+  },
+  {
+   "label": "WSCUC institution record — Meridian University",
+   "url": "https://www.wscuc.org/institutions/meridian-university/"
+  },
+  {
+   "label": "MFT California (independent comparison site) — Meridian University",
+   "url": "https://www.mftcalifornia.com/meridian-university"
+  },
+  {
+   "label": "Niche graduate student reviews",
+   "url": "https://www.niche.com/graduate-schools/meridian-university/reviews/"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "credits",
+   "current": "103 credits (920 hours) incl. 11 credits fieldwork (340 hours)",
+   "correct": "103 QUARTER credits. The catalog splits it as \"92 credits (920 hours) plus 11 credits of fieldwork\" — the 920-hour figure attaches to the 92 coursework credits, not to all 103. The 340-hour traineeship (minimum 280 direct service hours) is listed as a separate graduation requirement alongside the 11 fieldwork credits.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "field": "credits — comparison",
+   "current": "103 credits (implied comparable to a 60-unit semester degree)",
+   "correct": "These are quarter credits at 10 classroom hours each, with 4-credit, seven-week courses. At the standard 2/3 conversion, 92 coursework credits ≈ 61 semester units and 103 total ≈ 69 semester units — i.e. an ordinary-sized California MFT degree, not a 40%-larger one.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "field": "city",
+   "current": "Petaluma / Los Angeles + online",
+   "correct": "The San Francisco Bay Area Center is at 47 Sixth Street, Petaluma. The \"Los Angeles Campus\" is physically at 2450 Colorado Ave, Suite 100E, Santa Monica — which is also the university's administrative mailing address.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "field": "tuition",
+   "current": "(not recorded)",
+   "correct": "$676 per quarter credit for 2026–27 (≈$69,600 for 103 credits); Meridian's own 2024 BPPE filing reports total charges of $62,192 for the M.A. in Counseling Psychology.",
+   "src": "https://web-cdn.meridianuniversity.edu/academic-catalog/meridian_university_2026_27_academic_catalog_rev05142026.pdf"
+  },
+  {
+   "field": "outcomes",
+   "current": "(not recorded)",
+   "correct": "2024 BPPE filing: 21 students began, 8 degrees awarded, 6 on-time graduates, 28.57% on-time completion rate, 100% placement of the 6 available for employment, 50% of enrolled students took federal loans.",
+   "src": "https://bppe.ca.gov/webapplications/annualReports/2024/details/4901131"
+  }
+ ]
+}

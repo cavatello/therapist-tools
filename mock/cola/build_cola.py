@@ -510,7 +510,12 @@ def build_body():
     # call to action anywhere in this hero at all.
     A('<a class="clgo" href="#where">Start with my county &darr;</a>')
     A('<p class="clwho">Housing, transport, food and medical <b>by county</b>; '
-      '<b>RAP, IBR and PSLF</b> for the loan. Nothing is saved.</p>')
+      # "Nothing is saved" was retired site-wide in the claims pass on 6 August:
+      # it was a promise about how the site is operated rather than a statement
+      # about how the tool works, and it is the third such promise this site has
+      # had to narrow. The replacement describes what the reader can verify from
+      # the page in front of them.
+      '<b>RAP, IBR and PSLF</b> for the loan. Your figures travel in the link.</p>')
     A('</div>')          # end the copy column; the figures are the second one
     # NOT three em-dashes. A cold reader landing from search saw three captions
     # for numbers that were not there, which is the worst thing this page can do

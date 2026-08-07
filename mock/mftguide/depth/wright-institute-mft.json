@@ -1,0 +1,254 @@
+{
+ "institution": "The Wright Institute",
+ "character": [
+  "The Wright Institute is a free-standing graduate school of psychology founded in Berkeley in 1968 by Nevitt Sanford, and its doctoral side is the psychodynamic one — the Institute runs a \"Psychodynamic Clinic\" and a suite of training clinics staffed by PsyD students. The master's Counseling Psychology program is a different animal, and prospective students who arrive expecting depth training should know that. The MA program's own philosophy page frames the degree around California's Proposition 63, the Mental Health Services Act: \"The implementation of the MHSA is transforming public mental health care services in California and creating both a workforce shortage and a demand for a new kind of mental health provider.\" The program says it exists to produce that provider. That commitment is visible in the course list — a full 3-unit Community Mental Health course built around the Recovery Model, consumer and family voice, case management, client advocacy and community resourcing; a Clinical Assessment course that frames testing \"within the context of the Recovery Model and community mental health\"; and the phrase \"recovery-oriented community mental health settings\" repeated verbatim in the Counseling Theories, Family Therapy I and Family Therapy II descriptions. Theoretically the program is a deliberate survey — psychodynamic, existential-humanistic, cognitive-behavioral and post-modern are taught side by side — rather than a school with a house model.",
+  "The structural fact that distinguishes it from most two-year California programs is that year one contains no clinical work at all. All 30 units of year one are classroom; all fieldwork lands in year two, when students carry 20–24 hours a week of practicum concurrently with a second 30 units of coursework and a year-long Professional Development Seminar taught in groups of 8–12 by the instructor who is also their Faculty Advisor for the year. The program's own FAQ is candid about the cost of this design: \"Most students quit their job or significantly scale back at work during their second year,\" and students who cannot do that defer practicum into a third year. Cohorts are small (15–21) and lockstep; the school typically runs two daytime and two weekend cohorts a year, with weekend cohorts meeting roughly one weekend a month (Friday 6–10pm, Saturday 9am–6:45pm, Sunday 9am–5:45pm) plus one Wednesday evening in year one.",
+  "One thing the Wright Institute does not offer master's students is an in-house clinic. The Wright Institute Clinical Services — the Psychodynamic Clinic, the Berkeley CBT Clinic, the Recovery Clinic, Assessment Services, Older Adult Psychological Services and Child, Adolescent & Family Services — states that \"All of our services are provided by Wright Institute doctoral students in training.\" MA students go out into Bay Area agencies instead, through a Field Placement Office that maintains a site database, helps build the CV and supports the application process, but does not assign anyone a placement. The published associateship list is unusually East Bay-and-schools-heavy: Berkeley, Albany, Piedmont, Santa Clara and San Francisco Unified school districts, Instituto Familiar de La Raza, East Bay Agency for Children, Fred Finch, Lincoln Families, Asian Health Services, Queer LifeSpan, Crisis Support Services of Alameda County."
+ ],
+ "orientation": "Community/public mental health and the Recovery Model, taught through a deliberate multi-theory survey (psychodynamic, existential-humanistic, CBT, post-modern) — not the psychodynamic depth training the Institute's doctoral program is known for",
+ "signature": [
+  {
+   "code": null,
+   "title": "Community Mental Health",
+   "units": "3",
+   "desc": "\"This class provides an overview of the public mental health system, and gives students the opportunity to understand severe and persistent mental health illnesses and mental health services from the perspective of the consumer and the family.\" Covers the Recovery Model, collaborative assessment and treatment planning, case management, client advocacy and community resourcing.",
+   "verbatim": true,
+   "why": "A full three-unit required course on the public mental health system — not a week inside an ethics class. This is the course that makes the Wright MA a county-agency training program rather than a private-practice one, and it is the direct curricular expression of the program's Mental Health Services Act framing.",
+   "src": "https://www.wi.edu/ma-course-descriptions"
+  },
+  {
+   "code": null,
+   "title": "Common Therapeutic Factors",
+   "units": "1.5",
+   "desc": "\"There are common ingredients that underlie all counseling theories that predict positive outcomes for therapy. This course reviews the research on common therapeutic factors, including the clinical relationship and client expectations.\" Students \"participate in a variety of class roleplays to practice building trusting, collaborative, hope-inspiring relationships with clients.\"",
+   "verbatim": true,
+   "why": "Very few California MFT programs devote a standalone course to the common-factors literature; most bury it in a theories survey. Placing it in the first year, before any client contact, tells you the program's answer to 'what actually makes therapy work' is empirical and relationship-first rather than model-first.",
+   "src": "https://www.wi.edu/ma-course-descriptions"
+  },
+  {
+   "code": null,
+   "title": "Family Therapy II: Postmodern Models",
+   "units": "3",
+   "desc": "\"This course provides advanced training in the family therapy models and techniques of Cognitive Behavioral, Behavioral, Solution-Focused, and Narrative Therapy.\" It also addresses \"transitioning to parenthood, parenting young and school-age children, household division of labor, and blended families.\"",
+   "verbatim": true,
+   "why": "The Wright MA splits family therapy into two full 3-unit courses — Traditional (cybernetics, Bowen, structural, strategic, experiential) in spring, Postmodern in summer. Six units of family therapy is at the high end for a program that is not a dedicated COAMFTE systemic program, and the traditional/postmodern split means you get the historical models rather than only the currently fashionable ones.",
+   "src": "https://www.wi.edu/ma-course-descriptions"
+  },
+  {
+   "code": null,
+   "title": "MFT Professional Development Seminar",
+   "units": "3 (1 unit per term across three terms of year two)",
+   "desc": "\"This year-long group seminar supports students during their supervised clinical training… offers students a place to reflect on both their academic and concurrent practicum experience, and to consolidate their professional identities.\" Covers documentation of services, making use of supervision, preparing for associateship and career planning.",
+   "verbatim": true,
+   "why": "The seminar runs in groups of 8–12 — smaller than the 15–21 cohort — and the instructor doubles as the student's Faculty Advisor for the whole year. In a program with no in-house clinic, this seminar is the only place the school directly observes and shapes your clinical work, so it carries more weight here than the same-named course would elsewhere.",
+   "src": "https://www.wi.edu/ma-clinical-experience"
+  },
+  {
+   "code": null,
+   "title": "Sexual and Gender Health and Development",
+   "units": "1.5",
+   "desc": "Covers \"physiology and anatomy; reproductive rights and health; social and cultural sexual scripts and consent; gender identity; sexual orientation; arousal and desire; pleasure and healing.\" Explicitly includes \"LGBTQIA+ populations, the perinatal time period, polyamory, and kink,\" and asks students to \"explore their own positionality and somatic experiences in an effort to clarify transference and countertransference issues.\"",
+   "verbatim": true,
+   "why": "Most California programs satisfy the BBS ten-hour human-sexuality requirement with the statutory minimum and generic content. Naming polyamory and kink in the catalog, and requiring students to examine their own somatic responses as countertransference data, is a specific stance rather than compliance.",
+   "src": "https://www.wi.edu/ma-course-descriptions"
+  }
+ ],
+ "curriculum": {
+  "note": "Lockstep two-year cohort on a three-term year (fall, spring, summer). Year one is 30 units of coursework with no clinical placement; year two is 30 units plus 20–24 hours a week of practicum carried concurrently. Students who cannot cut back on work take practicum as a separate third year. Cohorts are daytime (two days a week, 9am–4pm) or weekend (about one weekend a month plus one Wednesday evening in year one). The Institute publishes course titles and units but no course codes.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (9.0 units)",
+    "courses": [
+     "Counseling Theories & Techniques (3.0)",
+     "Individual & Family Development (3.0)",
+     "Diagnosis & Empirically Supported Treatments (3.0)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (10.5 units)",
+    "courses": [
+     "Research Based Practice (3.0)",
+     "Family Therapy I: Traditional (3.0)",
+     "Multicultural Awareness & Sensitivity (3.0)",
+     "Common Therapeutic Factors (1.5)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (10.5 units)",
+    "courses": [
+     "Family Therapy II: Postmodern (3.0)",
+     "Clinical Assessment & Measures (3.0)",
+     "Community Mental Health (3.0)",
+     "Child & Adolescent Counseling (1.5)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (10.5 units)",
+    "courses": [
+     "Group Counseling (3.0)",
+     "Family Violence & Protection (1.5)",
+     "Law & Professional Ethics (3.0)",
+     "MFT Professional Development Seminar (1.0)",
+     "Practicum (2.0) — 20–24 hours per week, typically weekdays"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (10.5 units)",
+    "courses": [
+     "Addiction and Substance Use Disorders Counseling (3.0)",
+     "Aging & Long-Term Care (1.5)",
+     "Crisis, Disaster, & Trauma Counseling (3.0)",
+     "MFT Professional Development Seminar (1.0)",
+     "Practicum (2.0)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (9.0 units)",
+    "courses": [
+     "Couples and Intimate Partners Counseling (1.5)",
+     "Sexual and Gender Health and Development (1.5)",
+     "Psychopharmacology & the Biological Bases of Behavior (3.0)",
+     "MFT Professional Development Seminar (1.0)",
+     "Practicum (2.0)"
+    ]
+   }
+  ],
+  "src": "https://www.wi.edu/ma-coursework"
+ },
+ "practicum": {
+  "starts": "Second year, fall term — no clinical placement at all in year one",
+  "hours": "Minimum 500 hours of supervised clinical experience including 280 direct client hours, at 20–24 hours per week across the three terms of year two",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "Students get access to the Field Placement Office's site database in their first year; the office contacts students throughout year one about eligibility, helps them build a CV and complete applications to multiple sites, and faculty and student mentors are available for guidance — but the student applies and \"will ultimately sign a contract with one agency.\" The Institute approves each site and holds a written agreement with it. Sites include county and community mental health agencies, outpatient clinics, psychiatric hospitals, schools, residential and day treatment, chemical dependency and forensic programs, mostly across the Bay Area. Notably, the Wright Institute's own clinics (the Psychodynamic Clinic, Berkeley CBT Clinic, Recovery Clinic, Assessment Services, Older Adult and Child/Adolescent services) are staffed by doctoral students, so master's students do not train in-house. Trainees may not accrue hours in private practice, and may not use their existing job as a placement unless the Institute approves the site and there is a demonstrated need.",
+  "src": "https://www.wi.edu/ma-clinical-experience",
+  "model": "assisted",
+  "model_evidence": "In their first year of the program, students gain access to our database of practicum sites. The Field Placement Office will be in contact with students throughout the first year of the program to keep students apprised of the requirements for eligibility to attend practicum. The Field Placement Office assists students in preparing a curriculum vitae (CV) and completing practicum applications to multiple sites. [...] Students will ultimately sign a contract with one agency to complete their practicum, usually during the second year of the Counseling program.",
+  "model_url": "https://www.wi.edu/ma-clinical-experience",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "\"Cohorts range in size from 15-21 students. We typically admit 2 cohorts to the daytime format and 2 cohorts to the weekend format each year.\" All classes are taken with the cohort except the Professional Development Seminar (8–12) and a handful of courses taken with the combined 30–40 students in the same schedule format.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree in any field from a CHEA-recognised regionally accredited U.S. school; no prerequisite courses; minimum 3.0 undergraduate or graduate GPA (waiver by appeal under exceptional circumstances). Application requires a CV/resume, a 4–6 page double-spaced self-reflective statement of purpose, two letters of recommendation (neither needs to be academic), unofficial transcripts from every school where credit was earned, and a $50 fee (waivers available). Interviews are held by Zoom. Maximum transfer credit is 6 semester hours / 2 courses. No distance-learning option — \"all classes are held at the Institute.\"",
+  "deadline": "Fall entry only. Priority deadline February 1, 2026 (interviews February, decisions March); standard deadline May 1, 2026 (interviews May, decisions June); rolling afterwards if space allows. The program has recently been running waitlists for both the daytime and weekend formats.",
+  "src": "https://www.wi.edu/admission-ma-faq",
+  "gre_evidence": "Do I have to take the GRE general test? The GRE is not required.",
+  "gre_url": "https://www.wi.edu/admission-ma-faq",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I was a sahm for 6 years when I enrolled in the Wright Institute's counseling psychology program. Loved it. I realized I was far better trained for 'being in the room with clients' when I started my practicum in 2nd year and worked with others from Alliant… and JFK.\"",
+   "who": "Berkeley Parents Network, December 8, 2021",
+   "sentiment": "positive",
+   "url": "https://www.berkeleyparentsnetwork.org/advice/working/therapist"
+  },
+  {
+   "text": "\"Weekend program makes it possible to work during the first year, daytime program means more access to faculty.\"",
+   "who": "Niche, master's student review, March 2024",
+   "sentiment": "info",
+   "url": "https://www.niche.com/graduate-schools/the-wright-institute/reviews/"
+  },
+  {
+   "text": "\"Lots of great teachers and some more mediocre / problematic experiences as well.\"",
+   "who": "Niche, master's student review, 2026",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/the-wright-institute/reviews/"
+  },
+  {
+   "text": "A 2020 thread about the Institute's doctoral program — not the MA — is heavily negative on cost: \"You should absolutely be very very worried about the tuition,\" alongside complaints about a roughly 60-student incoming class and APA match statistics. Worth reading only as background on the institution's reputation, since the MA is a different program with different economics.",
+   "who": "Student Doctor Network, November 2020 — about the PsyD, not the MA",
+   "sentiment": "negative",
+   "url": "https://forums.studentdoctor.net/threads/wright-institute.1428911/"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph of the Wright Institute exists on Wikimedia Commons — searches for the Berkeley campus and its Durant Avenue and Dwight Way buildings returned nothing relevant, so no image is included rather than hotlinking a copyrighted university photo.",
+  "The Wright Institute publishes course titles, units and full descriptions but no course codes, so the signature-course entries have no code field.",
+  "No MA-specific licensure exam pass rate, graduation rate or job-placement rate is published; the school lists employer names but no outcome percentages.",
+  "Reddit could not be searched or fetched from this environment (403), and the two known Reddit/SDN threads about the Wright Institute are both about the PsyD program rather than the MA. Substantive first-person accounts of the master's program are scarce.",
+  "The program publishes 2024–25 student body demographics but not enrollment counts, attrition, or tuition-per-unit alongside them.",
+  "No published statement of how many practicum sites are actually available per applicant, or what proportion of students place at their first-choice site."
+ ],
+ "sources": [
+  {
+   "label": "M.A. Program Course Descriptions",
+   "url": "https://www.wi.edu/ma-course-descriptions"
+  },
+  {
+   "label": "M.A. Required Coursework by year",
+   "url": "https://www.wi.edu/ma-coursework"
+  },
+  {
+   "label": "M.A. Counseling Psychology Curriculum overview",
+   "url": "https://www.wi.edu/ma-curriculum"
+  },
+  {
+   "label": "Clinical Experience / field placement",
+   "url": "https://www.wi.edu/ma-clinical-experience"
+  },
+  {
+   "label": "M.A. Program Admission FAQ (cohort size, hours, GRE, schedule)",
+   "url": "https://www.wi.edu/admission-ma-faq"
+  },
+  {
+   "label": "M.A. Program Admission Application Requirements (deadlines)",
+   "url": "https://www.wi.edu/admission-ma-info"
+  },
+  {
+   "label": "Counseling Program Philosophy (Mental Health Services Act framing)",
+   "url": "https://www.wi.edu/ma-philosophy"
+  },
+  {
+   "label": "M.A. Program overview and cohort model",
+   "url": "https://www.wi.edu/ma-program"
+  },
+  {
+   "label": "Class Schedule (daytime vs weekend formats)",
+   "url": "https://www.wi.edu/ma-class-schedule"
+  },
+  {
+   "label": "Daytime Format Academic Calendar 2026–2028 (PDF)",
+   "url": "https://www.widocs.org/docs/F26_Daytime_Curriculum.pdf"
+  },
+  {
+   "label": "Wright Institute Clinical Services (doctoral-staffed clinics)",
+   "url": "https://www.wi.edu/wi-clinical-services"
+  },
+  {
+   "label": "Alumni post-graduate associateships and early employment",
+   "url": "https://www.wi.edu/ma-program-alumni-employment"
+  },
+  {
+   "label": "Student Body demographics 2024–25",
+   "url": "https://www.wi.edu/ma-student-body"
+  },
+  {
+   "label": "Social Justice Fellowship",
+   "url": "https://www.wi.edu/ma-social-justice-fellowship"
+  },
+  {
+   "label": "Wikipedia — Wright Institute (founding, Nevitt Sanford, 1968)",
+   "url": "https://en.wikipedia.org/wiki/Wright_Institute"
+  },
+  {
+   "label": "Berkeley Parents Network — Career as a Therapist/Psychologist",
+   "url": "https://www.berkeleyparentsnetwork.org/advice/working/therapist"
+  },
+  {
+   "label": "Niche — The Wright Institute graduate student reviews",
+   "url": "https://www.niche.com/graduate-schools/the-wright-institute/reviews/"
+  },
+  {
+   "label": "Student Doctor Network — Wright Institute thread (PsyD)",
+   "url": "https://forums.studentdoctor.net/threads/wright-institute.1428911/"
+  }
+ ]
+}

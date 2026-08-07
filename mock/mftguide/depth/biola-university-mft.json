@@ -1,0 +1,270 @@
+{
+ "institution": "Biola University (Talbot School of Theology)",
+ "slug": "biola-university-mft",
+ "city": "La Mirada",
+ "degree": "M.A. in Marriage and Family Therapy",
+ "url": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma",
+ "character": [
+  "This is a Christian MFT programme housed inside a seminary, and the theology is load-bearing rather than decorative — but it is also countable. Of 67 semester credits, about 10 are explicitly theological or spiritual-formation credit: TTFT 667/668/670 Professional and Personal Formation of the Therapist I–III (3+3+1) and TTFT 681 Biblical Interpretation and New Testament Psychology (3). TTFT 682 MFT Seminar (4 credits, required) covers \"Selected topics in the fields of Marriage and Family Therapy and Spiritual Formation.\" Beyond credits, there is a non-negotiable formation apparatus: a zero-credit required course, TTFT 669 Talbot MFT Spiritual Direction, at the Center for Spiritual Renewal; a minimum of four spiritual-direction sessions attached to EACH of TTFT 667, 668, 670 and 681 (so at least sixteen sessions); two required 48-hour retreats and one one-day retreat; and 35 hours of personal psychotherapy with a program-approved licensed clinician, which must begin before Practicum I. The remaining ~57 credits are a conventional, competent, BBS-shaped MFT curriculum — theories, family systems, lifespan, child/adolescent, couples and sex therapy, group, diversity, community mental health, psychopathology, assessment, law and ethics, crisis and trauma, psychopharmacology, addictions — but with the Christian frame written into the course descriptions themselves: TTFT 611 critiques counselling theories \"from theological, socio-cultural, and evidence-based perspectives,\" TTFT 633 attends to \"theological dimensions of gender,\" and TTFT 643 promises \"a Christian response to mental health issues.\" There is no non-religious path through this degree.",
+  "Faith is also a gate at the door, and prospective students should read the admissions requirements literally. Three references are required and one must be pastoral. Applicants must write a 500–700 word Christian testimony answering: \"What are the circumstances surrounding your decision to become a follower of Christ? What is the scriptural basis for your salvation? What is your contribution to a local church community? Describe how you display attributes of a mature Christian.\" That is not a signed doctrinal statement in the way faculty at Biola affirm the university's Articles of Faith, but functionally it requires an applicant to be a professing, church-attending Christian able to articulate a personal conversion narrative. The second required essay, a 1,000-word autobiographical statement, asks how your family of origin shaped you including \"strengths and challenges in your family of origin\" and \"growth areas in your current significant relationships.\" Between the testimony, the retreats, the spiritual direction and the personal therapy, this programme asks for an unusual amount of personal and spiritual disclosure.",
+  "Two structural facts worth checking against your own plan. First, this is an LMFT-only degree: the catalog states it \"was designed to meet the requirements of BPC section 4980.36\" — the MFT statute — with no mention of §4999.33, and the independent comparison site MFT California lists Biola as LMFT track only with no dual LPCC option. If you want the LPCC as well, this programme does not provide it. Second, the published length has moved: the 2026–27 catalog says the programme \"is designed to be completed in 4 years when attending full-time,\" while Biola's own marketing page and third-party listings still say three years. Add a hard gate in the middle — the Practicum Qualifying Exam, three parts (live skills evaluation, law and ethics exam, faculty interview), offered only each Fall, where failure can delay practicum by a full year and a second failure means dismissal — and the four-year figure looks like the honest one. There is also a real fee layer on top of tuition: individual courses carry fees from $120 to $450, and TTFT 664 carries a one-time $1,200 charge. Accreditation is WSCUC plus ATS (the theological accreditor); it is not COAMFTE-accredited."
+ ],
+ "orientation": "Christian integration — systemic family therapy taught inside an evangelical spiritual-formation frame",
+ "signature": [
+  {
+   "code": "TTFT 667",
+   "title": "Professional and Personal Formation of the Therapist I",
+   "units": "3",
+   "desc": "\"An introductory study of the nature of spiritual theology and formation which attempts to understand the nature of new life in Christ, the process of formation in the Spirit... Particular focus is given to understanding the implications of life in Christ regarding guilt, shame, and legalism, as well as the New Covenant ministry of the Spirit in transforming the heart in light of the dynamics of original sin, early relational development, and the habits of sin developed over time. A 48-hour retreat will be introduced and required.\"",
+   "verbatim": true,
+   "why": "This is the clearest single measure of how much theology is load-bearing: a 3-credit required course in spiritual theology, with a 48-hour retreat and a minimum of four spiritual-direction sessions, taken by every MFT student. Read the phrase \"the habits of sin developed over time\" — this is the language your own formation will be discussed in.",
+   "src": "https://catalog.biola.edu/courses/ttft/"
+  },
+  {
+   "code": "TTFT 669",
+   "title": "Talbot MFT Spiritual Direction",
+   "units": "0",
+   "desc": "\"A personal experience is required in Spiritual Direction at the Center for Spiritual Renewal at ISF. This course provides students the opportunity to explore their life of prayer and growth with a trained spiritual director from the Institute for Spiritual Formation.\" Course Fee: $120.",
+   "verbatim": true,
+   "why": "A zero-credit, fee-bearing required course whose entire content is meeting a spiritual director about your prayer life. Nothing about it appears in a unit count, which is exactly why it is worth flagging — the theological commitment here exceeds what the credit arithmetic shows.",
+   "src": "https://catalog.biola.edu/courses/ttft/"
+  },
+  {
+   "code": "TTFT 681",
+   "title": "Biblical Interpretation and New Testament Psychology",
+   "units": "3",
+   "desc": "\"This course investigates what Scripture has to offer for the development of psychological theory and practice. The course covers the nature and authority of Scripture, the illumination of the Spirit, and biblical hermeneutics... as well as a hermeneutical project that requires each student to interpret, contextualize, and apply a biblical passage relevant to psychological theory and/or practice.\"",
+   "verbatim": true,
+   "why": "A required seminary hermeneutics course, complete with an exegesis project, sitting inside a licensure degree. This is the course that makes 'Talbot School of Theology' more than an address on the diploma — and it takes up a slot that at a state programme would be an elective or a second practicum.",
+   "src": "https://catalog.biola.edu/courses/ttft/"
+  },
+  {
+   "code": "TTFT 664",
+   "title": "Professional Development Seminar II",
+   "units": "1",
+   "desc": "\"This professional development seminar assists students in the practice of basic family therapy skills with individuals, couples and families. This learning experience spans two semesters of studies and includes role-playing, audio-video taped feedback, and participation in triads... A one-time fee of $1200 is charged to the student's account.\"",
+   "verbatim": true,
+   "why": "The pre-practicum skills lab — videotaped role-play in triads across TTFT 663 and 664 — is genuinely useful preparation, and it is a prerequisite for Practicum I. It also carries a one-time $1,200 charge stated in the catalog, which is not in any published tuition total; the fee layer at Biola is real and worth budgeting.",
+   "src": "https://catalog.biola.edu/courses/ttft/"
+  },
+  {
+   "code": "TTFT 637",
+   "title": "Theory and Process of Group Counseling",
+   "units": "3",
+   "desc": "\"Highlighted within this course are historical developments... Students will not only learn how to lead a group in mental health settings, but will also participate in a group counseling experience themselves. This is a valuable emotional growth experience toward a more comprehensive knowledge of the 'self of the therapist.'\" Course Fee: $450.",
+   "verbatim": true,
+   "why": "Required experiential participation in a therapy group, not just instruction about groups — a real experiential component, and the highest course fee in the programme at $450.",
+   "src": "https://catalog.biola.edu/courses/ttft/"
+  },
+  {
+   "code": "TTFT 765",
+   "title": "Professional Development Seminar III – Capstone",
+   "units": "1",
+   "desc": "\"Students' clinical theory with clinical practice (professional formation), theology (biblical and theological formation), and spirituality (personal and spiritual formation) as a marriage and family therapist are expressed in a culminating master's level clinical project that comprises a written clinical portfolio and a final case presentation.\"",
+   "verbatim": true,
+   "why": "The capstone is a portfolio and case presentation, not a thesis — and the integration it explicitly demands is three-way: clinical, biblical/theological and spiritual. Taken concurrently with Practicum III, it is the moment the programme's whole premise is assessed.",
+   "src": "https://catalog.biola.edu/courses/ttft/"
+  }
+ ],
+ "curriculum": {
+  "note": "Biola does not publish a term-by-term plan of study. The catalog publishes a single required course list totalling 67 semester credits plus non-credit co-curricular requirements; the grouping below is by function, not by term. The programme runs on a semester calendar requiring Fall and Spring enrolment, is Fall-entry only, and the 2026–27 catalog states it is designed to be completed in four years full-time (six-year maximum). MFT California reports on-campus classes typically two days a week, roughly 1:30–7:30pm.",
+  "total_units": "67 semester credits",
+  "terms": [
+   {
+    "label": "Clinical core",
+    "courses": [
+     "TTFT 500 Principles of Counseling (2)",
+     "TTFT 611 Marriage and Family Therapy Theories I (3)",
+     "TTFT 612 Marriage and Family Therapy Theories II (3)",
+     "TTFT 621 Family Life Cycle and Aging (3)",
+     "TTFT 631 Child and Adolescent Therapy in Family Contexts (3)",
+     "TTFT 633 Couples and Sex Therapy (3)",
+     "TTFT 637 Theory and Process of Group Counseling (3)",
+     "TTFT 641 Clinical Issues in Human Diversity (3)",
+     "TTFT 643 Community Mental Health (3)",
+     "TTFT 653 Individual and Family Psychopathology (3)",
+     "TTFT 655 Assessment of Individuals and Families (2)",
+     "TTFT 661 Law, Ethics, and Professional Issues (3)",
+     "TTFT 671 Crisis and Trauma Counseling (2)",
+     "TTFT 673 Psychopharmacology and Psychobiology (2)",
+     "TTFT 675 Chemical Dependence, Addictions, and Co-Occurring Disorders (2)",
+     "TTFT 651 Research Methods and Design in Marriage and Family Therapy (1)"
+    ]
+   },
+   {
+    "label": "Theology and spiritual formation (~10 credits + 0-credit requirement)",
+    "courses": [
+     "TTFT 667 Professional and Personal Formation of the Therapist I (3) — 48-hour retreat, 4+ spiritual direction sessions",
+     "TTFT 668 Professional and Personal Formation of the Therapist II (3) — one-day retreat, 4+ spiritual direction sessions",
+     "TTFT 670 Professional and Personal Formation of the Therapist III (1) — 48-hour retreat, 4+ spiritual direction sessions",
+     "TTFT 681 Biblical Interpretation and New Testament Psychology (3) — 4+ spiritual direction sessions",
+     "TTFT 669 Talbot MFT Spiritual Direction (0, required, $120 fee)",
+     "TTFT 682 Marriage and Family Therapy Seminar (4) — MFT and Spiritual Formation topics"
+    ]
+   },
+   {
+    "label": "Skills labs and capstone",
+    "courses": [
+     "TTFT 663 Professional Development Seminar I (1)",
+     "TTFT 664 Professional Development Seminar II (1) — one-time $1,200 fee",
+     "TTFT 765 Professional Development Seminar III – Capstone (1) — taken with TTFT 793"
+    ]
+   },
+   {
+    "label": "Practicum (12 months)",
+    "courses": [
+     "TTFT 791 Practicum in Marriage and Family Therapy I (3)",
+     "TTFT 792 Practicum in Marriage and Family Therapy II (3)",
+     "TTFT 793 Practicum in Marriage and Family Therapy III (3)",
+     "TTFT 794 Practicum Continuation (1–3) — required if 300 hours not met by end of Practicum III"
+    ]
+   },
+   {
+    "label": "Non-credit co-curricular requirements",
+    "courses": [
+     "Graduate Research and Writing module (online, by end of second semester)",
+     "35 hours of personal psychotherapy with a program-approved licensed clinician, begun before Practicum I",
+     "Practicum Qualifying Exam (PQE) — live skills evaluation, law and ethics exam, faculty interview"
+    ]
+   }
+  ],
+  "src": "https://catalog.biola.edu/tst/TAFT-ma/"
+ },
+ "practicum": {
+  "starts": "Year 3 in a four-year plan — gated behind the Practicum Qualifying Exam, which is offered only once a year each Fall, and behind eight prerequisite courses (TTFT 500, 612, 633, 641, 653, 655, 661, 664)",
+  "hours": "Minimum 300 clinical training hours across the 12-month sequence, of which 225 must be direct client contact; plus a minimum 60 hours of supervision by a BBS state-approved and/or AAMFT-approved LMFT supervisor, 30 of those using observable data",
+  "who_places": "student-finds",
+  "clinic": "Biola Counseling Center (La Mirada) — an existing Biola outpatient clinic that takes a small number of Talbot MFT trainees, but is not a guaranteed or primary placement",
+  "detail": "Practicum is a single continuous 12-month block, TTFT 791–793, taken in the programme's later years and requiring a minimum of 300 clinical training hours of which 225 must be direct client contact with \"individuals, couples, families, and other systems.\" Students find and interview for their own sites: the catalog is explicit that \"students may not interview for practicum sites until they have successfully passed the PQE,\" and Biola's own programme page describes accruing hours \"with clients\" at \"your internship\" in community settings, with supervision by licensed clinicians at the site plus additional faculty oversight. The gate is the harder part of the story. The Practicum Qualifying Exam has three components — a live skills evaluation, a law and ethics exam, and a faculty interview — is given only in the Fall, and failing any section triggers a mandatory remediation meeting with the Director of Clinical Training that \"may delay practicum by an entire year\"; failing a second attempt \"will result in dismissal from the program.\" That single policy is the main reason the catalog's four-year figure is realistic. Students who do not reach 300 hours by the end of Practicum III must enrol in TTFT 794, a continuation course that can extend up to three further semesters. The Biola Counseling Center does host Talbot MFT trainees, but only three are currently listed on its staff page against about thirty-two clinical-psychology practicum trainees (mostly Rosemead PsyD/PhD students) — so it functions as one small option, not as an in-house clinic that absorbs the cohort. On supervision mechanics, Biola's programme course page is more specific than the catalog: the 12-month sequence requires \"a minimum of 60 hours of supervision by a qualified California Licensed Marriage and Family Therapist who is a State approved supervisor and or an AAMFT approved supervisor, and a minimum of 30 hours of supervision utilizing observable data\" — i.e. live observation, video or audio, not just case report. Neither Biola source publishes a relational/couples hour sub-minimum; the independent MFT California listing claims 100 relational hours with couples or families and 100 total supervision hours (50 of them MFT relational/systemic), which does not match Biola's own 60/30 figures, so verify directly with the programme. Note also that 35 hours of personal psychotherapy must be underway before Practicum I begins, at the student's own expense — \"the fee structure between therapist and client is to be arranged between the parties and is not the responsibility of the program or university.\"",
+  "src": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma/courses",
+  "model": "not published",
+  "model_evidence": "Students may not interview for practicum sites until they have successfully passed the PQE",
+  "model_url": "https://catalog.biola.edu/tst/TAFT-ma/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Biola Counseling Center"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published by Biola. The programme's own course page describes \"a cohort group of approximately 20 students\" in the Formation sequence; the independent MFT California listing says \"between 25-32 students\" per cohort. Fall entry only",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree, 3.0 minimum GPA (letter of explanation and probationary admission possible below that); three references including one academic, one PASTORAL and one character; CV; a 500–700 word Christian testimony essay covering the scriptural basis of your salvation and your contribution to a local church; a 1,000-word autobiographical statement covering family of origin; TOEFL/IELTS if applicable",
+  "deadline": "May 1 per the independent MFT California listing; Biola does not publish an MFT-specific deadline on its programme page",
+  "src": "https://catalog.biola.edu/tst/TAFT-ma/",
+  "gre_evidence": "A GRE score is not required for admission.",
+  "gre_url": "https://catalog.biola.edu/tst/TAFT-ma/",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Biola Counseling Center staff listing: \"MFT Trainees — Alissa Hrebien, Joshua Barber, Jenae Cipolla, M.A. in Marriage and Family Therapy program, Talbot School of Theology\" — three MFT trainees against roughly 32 Rosemead doctoral practicum trainees at the same clinic.",
+   "who": "Biola Counseling Center staff page",
+   "sentiment": "info",
+   "url": "https://www.biolacounselingcenter.org/about/staff"
+  },
+  {
+   "text": "Dean Clint Arnold at launch: graduates will have \"a heart that has been shaped by Christ and an approach that is well-integrated with a biblical worldview.\"",
+   "who": "Biola News, 2020 programme launch announcement",
+   "sentiment": "info",
+   "url": "https://www.biola.edu/blogs/biola-news/2020/new-masters-program-marriage-and-family-therapy-ac"
+  },
+  {
+   "text": "\"Professors all exhibited strong faith in Christ and incorporated their faith into their subjects.\"",
+   "who": "Niche, Biola graduate student review, 2026",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/colleges/biola-university/reviews/"
+  },
+  {
+   "text": "Catalog policy: after failing the Practicum Qualifying Exam, remediation \"may delay practicum by an entire year... failure of the second attempt will result in dismissal from the program.\"",
+   "who": "Biola 2026–27 Academic Catalog",
+   "sentiment": "negative",
+   "url": "https://catalog.biola.edu/tst/TAFT-ma/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Bell_Tower_Biola_University.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Bell_Tower_Biola_University.JPG",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Stacy Eltiti, via Wikimedia Commons",
+  "caption": "The original Biola bell tower, now on the La Mirada campus"
+ },
+ "gaps": [
+  "No term-by-term plan of study published — the catalog gives only a flat 67-credit course list, so the four-year pacing and when in that sequence practicum falls cannot be verified from a published grid.",
+  "Published programme length conflicts with itself: the 2026–27 catalog says four years full-time, Biola's own marketing page and the 2020 launch announcement say three, and the launch announcement also said 64 credits against the catalog's 67.",
+  "No cohort size published by Biola; the two available figures (~20 from the programme's course page, 25–32 from MFT California) disagree.",
+  "No relational/couples hour sub-minimum published by Biola, and no list of affiliated practicum sites. The independent MFT California listing's supervision figures (100 hours, 50 relational) conflict with Biola's own published 60 hours plus 30 observable-data hours.",
+  "No outcome data of any kind — no completion rate, no LMFT exam pass rate, no employment or salary data. Biola is not required to file a BPPE School Performance Fact Sheet because it is regionally accredited.",
+  "No MFT-specific application deadline on Biola's own pages.",
+  "Almost no independent student voice: nothing on Reddit, Student Doctor Network or GradCafe about the Talbot MFT programme specifically, and Niche's Biola reviews are university-wide. The programme only launched in Fall 2020 and is small.",
+  "Total tuition figures conflict — Biola's programme page gives $884/credit for 2026–27 (≈$59,228 for 67 credits) while MFT California lists $50,250; neither includes the course fees ($120–$450 each) or the one-time $1,200 charge in TTFT 664."
+ ],
+ "sources": [
+  {
+   "label": "Biola Academic Catalog 2026–27 — Marriage and Family Therapy, M.A.",
+   "url": "https://catalog.biola.edu/tst/TAFT-ma/"
+  },
+  {
+   "label": "Biola Academic Catalog 2026–27 — TTFT course descriptions",
+   "url": "https://catalog.biola.edu/courses/ttft/"
+  },
+  {
+   "label": "Biola programme page — M.A. in Marriage and Family Therapy",
+   "url": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma"
+  },
+  {
+   "label": "Biola programme page — Courses",
+   "url": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma/courses"
+  },
+  {
+   "label": "Biola Counseling Center — staff",
+   "url": "https://www.biolacounselingcenter.org/about/staff"
+  },
+  {
+   "label": "Biola News — new MFT programme announcement (2020)",
+   "url": "https://www.biola.edu/blogs/biola-news/2020/new-masters-program-marriage-and-family-therapy-ac"
+  },
+  {
+   "label": "Biola Academic Catalog — Theological Positions",
+   "url": "https://catalog.biola.edu/general-information/theological-positions/"
+  },
+  {
+   "label": "MFT California (independent, operated by Caroline Wiita) — Biola University",
+   "url": "https://www.mftcalifornia.com/biola-university"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "length",
+   "current": "3 years",
+   "correct": "The 2026–27 catalog states the programme \"is designed to be completed in 4 years when attending full-time,\" with a six-year maximum. Biola's own marketing page and third-party listings still say three years; the catalog is the authoritative and more recent figure, and the once-a-year Practicum Qualifying Exam gate supports it.",
+   "src": "https://catalog.biola.edu/tst/TAFT-ma/"
+  },
+  {
+   "field": "credits",
+   "current": "67 credits",
+   "correct": "Correct — 67 semester credits, plus three non-credit co-curricular requirements (Graduate Research and Writing module, 35 hours of personal psychotherapy, and the Practicum Qualifying Exam). Note the 2020 launch announcement said 64 credits; the current catalog says 67.",
+   "src": "https://catalog.biola.edu/tst/TAFT-ma/"
+  },
+  {
+   "field": "accreditation",
+   "current": "(not recorded)",
+   "correct": "WSCUC plus ATS (Association of Theological Schools). Not COAMFTE-accredited. The catalog states the degree \"was designed to meet the requirements of BPC section 4980.36\" — the MFT statute only.",
+   "src": "https://catalog.biola.edu/tst/TAFT-ma/"
+  },
+  {
+   "field": "tuition",
+   "current": "(not recorded)",
+   "correct": "$884 per credit for 2026–27 per Biola's programme page, i.e. about $59,228 for 67 credits — before course fees, which run $120–$450 per course plus a one-time $1,200 charge attached to TTFT 664. The independent MFT California listing gives an older total of $50,250.",
+   "src": "https://www.biola.edu/degrees/g/marriage-and-family-therapy-ma"
+  },
+  {
+   "field": "practicum hours",
+   "current": "(not recorded)",
+   "correct": "Minimum 300 clinical training hours over a 12-month sequence, of which 225 must be direct client contact — not 300 direct-contact hours as Biola's marketing copy (\"300+ practicum hours with clients\") implies.",
+   "src": "https://catalog.biola.edu/tst/TAFT-ma/"
+  }
+ ]
+}

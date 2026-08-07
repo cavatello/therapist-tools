@@ -1,0 +1,211 @@
+{
+ "institution": "Azusa Pacific University",
+ "character": [
+  "APU runs the same 63-unit MFT degree at four Southern California sites — the Azusa main campus plus regional campuses in Orange (1915 Orangewood Ave.), San Diego (5353 Mission Center Rd.) and San Bernardino/Inland Empire (375 W. Hospitality Lane) — and the answer to the obvious question is yes, they share one curriculum. The catalog publishes a single course-requirements table, one set of admission and clinical-placement rules, and one comprehensive exam for all four; what differs per site is the on-the-ground program director (Sandi Duffield in Azusa, Meghan Williams in Orange County, Aimée Vadnais in San Diego, Hilary Catling in the Inland Empire) and, in practice, the cohort you sit with. The traditional format is evening cohorts built for working students — the catalog recommends a three-year pace and allows two to six years — with a newer daytime cohort at the Orange County campus. Note also what APU does not claim: neither the program page nor the catalog asserts COAMFTE accreditation, unlike Chapman and Loma Linda; the program describes itself as meeting California BBS education requirements for LMFT, with an LPCC dual-licensure option that costs one additional course.",
+  "On faith, APU is more prescriptive than Loma Linda in the curriculum and less prescriptive at the door. Christian integration is a required course, not an elective: PPSY 533 Christian Spiritual Formation and Psychotherapy (3 units) sits in the core Program Requirements table. It does not stand alone — faith-integration language is written into five other required courses, including PPSY 580 (\"the integration of spirituality and the interpersonal process\"), PPSY 581 (students \"are also encouraged to address issues regarding the integration of their faith with the practice of psychotherapy\") and both clinical placement courses, PPSY 597 and 598, which list \"integration of faith\" among their topics. One of the four published program goals, Identity Formation, states that \"[s]tudents will articulate their personal narrative inclusive of values, beliefs, behaviors, and traditions of faith that inform their worldview.\" But the published application requirements are a transcript, a 3.0 GPA, an Abnormal Psychology prerequisite with a B or better, a professional-interest essay, two letters and an in-person interview — no statement of faith, no pastoral reference. Enrolled students are bound by APU's Graduate and Professional Student Community Expectations, which the catalog references but does not reproduce on the program page.",
+  "Two requirements here are unusual enough to plan your money and calendar around. First, the catalog requires 40 hours of your own individual psychotherapy during the program, with the option to substitute 20 group sessions (40 hours) for half of it — a real out-of-pocket cost most California MFT programs do not impose. Second, the Couples Therapy course carries the Gottman Level 1 certificate inside the tuition, which is a genuine, portable credential rather than a curricular claim. Beyond those, the program's texture is mainstream integrative-systemic: a required 40-hour-plus assessment course, the standard California law-and-ethics and crisis coursework, optional stacked certificates in Play Therapy (9 units), Substance Use Disorders (11 units, taken after the degree) and Human Services Management, and one genuinely odd elective — a three-week clinical practicum in Kenya attached to PPSY 786 Global Psychology."
+ ],
+ "orientation": "Christian integration layered on integrative/systemic family psychology",
+ "signature": [
+  {
+   "code": "PPSY 533",
+   "title": "Christian Spiritual Formation and Psychotherapy",
+   "units": "3",
+   "desc": "\"This course will provide an historical overview of Christian Spirituality, which is understood as ways of expressing devotion to God. As background for discussion of Christian Spiritual Formation, a holistic philosophical/theological model of persons will be presented along with an overview of spiritual disciplines as methods utilized to actively engage the Christian formation process.\" Examples of psychotherapy models integrating Christian theology with existing clinical models are presented.",
+   "verbatim": true,
+   "why": "This is the definitive answer to whether APU's faith integration is a required course or a marketing phrase: it is a required 3-unit course in the core table, taught as spiritual formation and spiritual disciplines rather than as pastoral counseling. If that framing is a problem for you, this is the course to read closely before applying.",
+   "src": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/"
+  },
+  {
+   "code": "PPSY 786",
+   "title": "Global Psychology",
+   "units": "2",
+   "desc": "\"This course provides a systematic overview of existing approaches to working globally... Students are encouraged to develop their clinical skills in applying psychology to significant global concerns in diverse countries and cultures and practically apply their knowledge during an intensive, three-week practicum in Kenya, East Africa.\"",
+   "verbatim": true,
+   "why": "An optional elective, but almost nothing like it exists in California MFT programs — a short-course international clinical practicum attached for two units. Worth asking about cost and frequency, because a two-unit elective with a three-week overseas component is not a small ask of a working evening student.",
+   "src": "https://catalog.apu.edu/ribbit/index.cgi?page=getcourse.rjs&code=PPSY+786"
+  },
+  {
+   "code": "PPSY 557",
+   "title": "Couples Therapy",
+   "units": "3",
+   "desc": "\"This course provides instruction on current theories and methods of couples/marriage therapy. Students gain basic knowledge in the application, assessment, and interventions of several theoretical models and are introduced to psychological instruments used in couples therapy. Emphasis is placed on how couples therapy attends to diversity issues such as domestic violence, ethnicity, spirituality, and cultural considerations.\"",
+   "verbatim": true,
+   "why": "The catalog states this required course \"includes the completion of Gottman Level 1 training\" and that students \"receive a certificate of completion and are then eligible to take the Level 2 training.\" Gottman Level 1 normally costs a therapist several hundred dollars post-licensure; getting it inside required tuition is a concrete, checkable advantage.",
+   "src": "https://catalog.apu.edu/ribbit/index.cgi?page=getcourse.rjs&code=PPSY+557"
+  },
+  {
+   "code": "PPSY 581",
+   "title": "Introduction to Clinical Practice: Advanced Skills",
+   "units": "3",
+   "desc": "\"[D]esigned to further develop the psychotherapeutic skills of students prior to their entry into a clinical placement. Students focus on developing proficiency in the core interviewing qualities, deriving goals for a clinical session, and in making contracts with clients for change... Students are also encouraged to address issues regarding the integration of their faith with the practice of psychotherapy.\"",
+   "verbatim": true,
+   "why": "The 580–581 pair is the gate: PPSY 580 requires a grade of B or better to advance to 581, and 580 plus 581 are prerequisites for PPSY 592, the course that lets you begin clinical placement. It is also where the program's faith-integration expectation moves from a standalone course into your clinical self.",
+   "src": "https://catalog.apu.edu/ribbit/index.cgi?page=getcourse.rjs&code=PPSY+581"
+  },
+  {
+   "code": "PPSY 593",
+   "title": "Clinical Consultation",
+   "units": "1",
+   "desc": "\"This course is an adjunct to students' clinical placement and supervision experiences when not otherwise enrolled in another clinical placement course. The primary purpose of this course is to provide an opportunity for students to discuss their clinical caseload, and to provide program oversight of clinical placement experience.\" Prerequisite: completion of PPSY 592 and placement at a clinical site.",
+   "verbatim": true,
+   "why": "This is the course nobody mentions on a campus tour and everyone should ask about: if you have not finished your 300 hours after PPSY 597 and 598, you enroll in 593 — a paid 1-unit holding course — until you do, up to three times. Two NO CREDIT grades in it triggers a Clinical Training Committee review that can end in postponed placement or dismissal.",
+   "src": "https://catalog.apu.edu/ribbit/index.cgi?page=getcourse.rjs&code=PPSY+593"
+  },
+  {
+   "code": "PPSY 525",
+   "title": "Crisis and Trauma in Community Mental Health",
+   "units": "3",
+   "desc": "Detection, assessment and intervention for child abuse, domestic violence and trauma, covering survivors, perpetrators and co-morbid presentations, including \"elder abuse, same-gender abuse, and ethnic differences,\" plus the challenges of accessing community mental health resources. \"This course also includes training (6+ hours) in suicide assessment and intervention.\"",
+   "verbatim": true,
+   "why": "One course carrying the California BBS domestic violence and child abuse requirements plus six-plus hours of suicide assessment training, with guest speakers who are consumers of services. Efficient, but worth noting that APU consolidates into one course what some programs spread across two.",
+   "src": "https://catalog.apu.edu/ribbit/index.cgi?page=getcourse.rjs&code=PPSY+525"
+  }
+ ],
+ "curriculum": {
+  "note": "APU publishes a single course-requirements table rather than a term-by-term sequence, and the same table governs all four campuses, so the required coursework is listed as one block below. The degree is 63 units; the catalog's 63–99 range reflects the optional stacked certificates. Minimum two years, maximum six, with a three-year pace recommended for working students; up to 12 units may transfer in. Traditionally evening cohorts, with a daytime cohort at the Orange County campus.",
+  "total_units": "63 (63–99 including optional certificates)",
+  "terms": [
+   {
+    "label": "Required coursework (63 units)",
+    "courses": [
+     "PPSY 510 Psychotherapy and Cultural Diversity (3)",
+     "PPSY 511 Addictions, Assessment, and Interventions (3)",
+     "PPSY 512 Legal, Ethical, and Moral Issues in Therapy (3)",
+     "PPSY 525 Crisis and Trauma in Community Mental Health (3)",
+     "PPSY 533 Christian Spiritual Formation and Psychotherapy (3)",
+     "PPSY 551 Theories of Psychotherapy (3)",
+     "PPSY 552 Human Sexuality and Sex Therapy (3)",
+     "PPSY 557 Couples Therapy (3)",
+     "PPSY 558 Advanced Developmental Psychology (3)",
+     "PPSY 561 Child and Adolescent Therapy (3)",
+     "PPSY 563 Psychopathology (3)",
+     "PPSY 571 Family Therapy (3)",
+     "PPSY 572 Research Methodology (3)",
+     "PPSY 577 Psychological Assessment (3)",
+     "PPSY 580 Introduction to Clinical Practice: Basic Skills (3)",
+     "PPSY 581 Introduction to Clinical Practice: Advanced Skills (3)",
+     "PPSY 582 Group Skills (3)",
+     "PPSY 585 Psychobiology and Psychopharmacology (3)",
+     "PPSY 592 Introduction to Clinical Placement (1)",
+     "PPSY 593 Clinical Consultation (1, repeatable up to three times until hours are complete)",
+     "PPSY 595 Special Topics (1, taken twice)",
+     "PPSY 597 Clinical Placement I (3)",
+     "PPSY 598 Clinical Placement II (3)"
+    ]
+   },
+   {
+    "label": "Optional Certificate in Play Therapy (9) — choose three",
+    "courses": [
+     "CPSY 536 Play Therapy: History, Theories, and Interventions (3)",
+     "CPSY 538 Jungian Therapy and Sandplay (3)",
+     "CPSY 539 Play and Play Therapy Across the Lifespan (3)",
+     "CPSY 540 Gestalt Play Therapy and Interventions (3)",
+     "CPSY 541 Play Therapy with Special Populations (3)",
+     "CPSY 545 Play Therapy with Bereaved Children and Families (3)"
+    ]
+   },
+   {
+    "label": "Optional Certificate in Substance Use Disorders (11) — taken after the degree",
+    "courses": [
+     "PPSY 513 Substance Use Disorders II: History, Support, and Promising Practices (3)",
+     "PPSY 514 Substance Use Disorders III: Co-Occurring Disorders, Co-Morbidity, and Integrated Treatment (3)",
+     "PPSY 515 SUD IV: Families and Other Special Populations; Confidentiality and Evidence Based Practices (3)",
+     "PPSY 516 Legal and Ethical Issues in Substance Use Disorders (1)",
+     "PPSY 517 Motivational Interviewing with the SUD Population (1)"
+    ]
+   },
+   {
+    "label": "Optional Human Services Management certificate and electives",
+    "courses": [
+     "SOCW 530 Organizing for Community Change (3)",
+     "SOCW 533 Social Work Leadership and Management (3)",
+     "SOCW 543 Program and Grants Management (3)",
+     "PPSY 555 Career Development Theories and Techniques (3)",
+     "PPSY 786 Global Psychology (2, includes a three-week practicum in Kenya)"
+    ]
+   }
+  ],
+  "src": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/"
+ },
+ "practicum": {
+  "starts": "After PPSY 580 and PPSY 581, the two Introduction to Clinical Practice courses, which are prerequisites for PPSY 592 Introduction to Clinical Placement; the catalog says placements \"may range from 12-30 months depending upon course track sequences\"",
+  "hours": "300 hours of direct client experience for the MFT license (a further 300 for the LPCC option), with one hour of individual or two hours of group supervision for every five hours of direct client experience; hours count toward California's 3,000-hour licensure requirement",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "This is the most important practical difference between APU and its COAMFTE-accredited neighbors: APU does not run its own training clinic, and you find your own site. The catalog is direct about it — \"[w]hile students are responsible for securing a placement site, assistance is provided by the director of clinical training, site directors, and in the Introduction to Clinical Practice courses\" — and the oversight structure that follows is built around offsite supervisors, with the director of clinical training maintaining contact with them and evaluating your experience. Placement is gated by coursework, not by year: you must pass PPSY 580 with a B or better to reach PPSY 581, and both are prerequisites for the 1-unit PPSY 592 Introduction to Clinical Placement, after which you enroll in PPSY 597 and then PPSY 598, both of which require that you \"be serving at an APU-approved training site.\" The clinical window itself is elastic — 12 to 30 months depending on your track — and because APU cannot guarantee you a caseload, how fast you accumulate the 300 direct hours depends on the site you land, which is precisely why PPSY 593 Clinical Consultation exists: a 1-unit course you keep enrolling in (up to three times) if your hours are not finished, with two NO CREDIT grades sending you to the Clinical Training Committee for a decision that may include probation, postponed placement, a leave of absence or dismissal. The published requirement is 300 direct hours for MFT plus a separate 300 for LPCC if you take the dual track, at a supervision ratio of one individual or two group hours per five direct hours; the catalog does not break out a relational-hours minimum the way COAMFTE-accredited programs do, nor does it specify live observation or one-way-mirror supervision. There is no described traineeship-to-associate handoff — the catalog notes only that LPCC hours \"begin postgraduation\" — and separately from placement, every student must complete 40 hours of their own individual psychotherapy during the program (20 group sessions totalling 40 hours may substitute for 20 of the 40 individual hours). The degree ends in a two-part Comprehensive Examination: a law and ethics exam and a clinical exam.",
+  "src": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/",
+  "model": "assisted",
+  "model_evidence": "While students are responsible for securing a placement site, assistance is provided by the director of clinical training, site directors, and in the Introduction to Clinical Practice courses.",
+  "model_url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/marriage-family-therapy-ma.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Not published. The program advertises a 10:1 student-to-faculty ratio and cohort-based evening classes at four campuses, plus a newer daytime cohort at Orange County, but no cohort size or admit rate is given.",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from a regionally accredited institution with a minimum 3.0 cumulative GPA; applicants whose bachelor's is in a field other than psychology must complete Abnormal Psychology with a grade of B or better (the program page specifies within the past eight years) before beginning. Prerequisites may be waived case by case. International applicants need a minimum TOEFL iBT of 90 with subscores of Reading 22, Speaking 22, Listening 22, Writing 24.",
+  "deadline": "March 1 for fall entry (earlier applicants get priority consideration); October 1 for spring entry, considered on a space-available basis at Azusa and the Orange County, San Diego and Inland Empire regional campuses. $45 application fee, professional-interest essay, two letters of recommendation from professionals with current knowledge of your academic or clinical ability, and a required in-person interview. Tuition posted at $865 per unit.",
+  "src": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/",
+  "gre_evidence": "minimum 3.0 grade-point average on a 4.0 scale",
+  "gre_url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "A reviewer of the Clinical Psychology: Marriage & Family Therapy program wrote that \"[t]he enviorment is very childish. If the faculty favor you, then you pretty much can get away with anything,\" reporting favoritism, unanswered emails, and worse treatment for students who spoke up.",
+   "who": "GradReports, Mary Nabil, Clinical Psychology — Marriage & Family Therapy, July 2022",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/azusa-pacific-university"
+  },
+  {
+   "text": "\"Azusa Pacific University has one of the best psychology programs in Southern California\" — a Clinical Psychology reviewer citing job placement and faculty investment in student success.",
+   "who": "GradReports, Alynna Montanez, Clinical Psychology, December 2017",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/azusa-pacific-university"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph of an Azusa Pacific campus exists on Wikimedia Commons — the Commons category contains only logos and seals — so no image is supplied rather than hotlinking a copyrighted university photo.",
+  "Cohort size, applicant volume and admit rate are not published for any of the four campuses.",
+  "The program's accreditation status beyond California BBS approval could not be established. Neither the program page nor the catalog claims COAMFTE accreditation; that absence is reported as an absence, not as a confirmed negative.",
+  "No term-by-term plan of study is published, so it is not possible to say which semester a given required course lands in, or in which year clinical placement typically begins for the evening-cohort three-year pace.",
+  "No MFT clinical training or field placement handbook is publicly posted, so the mechanics of supervision (live observation, video review, relational-hour minimums) at approved sites could not be verified beyond the catalog's supervision ratio.",
+  "The full text of APU's Graduate and Professional Student Community Expectations — the conduct standard enrolled students agree to, and the place any lifestyle or faith commitments would appear — is referenced by the catalog but was not retrievable, so what it actually requires of MFT students is unknown.",
+  "Whether the four campuses differ in course scheduling, elective availability or placement networks is not addressed in any published source; only the shared curriculum and separate site directors are documented."
+ ],
+ "sources": [
+  {
+   "label": "APU Academic Catalog — Marriage and Family Therapy, M.A. (program requirements, clinical placement, admissions)",
+   "url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/"
+  },
+  {
+   "label": "APU Academic Catalog — Department of Marriage and Family Therapy",
+   "url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/"
+  },
+  {
+   "label": "APU program page — Master's in Marriage and Family Therapy",
+   "url": "https://www.apu.edu/programs/mft/"
+  },
+  {
+   "label": "APU Department of Marriage and Family Therapy — Message from the Chair (four campuses)",
+   "url": "https://www.apu.edu/behavioral-sciences/marriage-family-therapy/message/"
+  },
+  {
+   "label": "APU catalog course descriptions (PPSY), retrieved via the catalog's course-detail endpoint",
+   "url": "https://catalog.apu.edu/ribbit/index.cgi?page=getcourse.rjs&code=PPSY+533"
+  },
+  {
+   "label": "APU Catalog — Graduate and Professional Student Community Expectations (referenced)",
+   "url": "https://catalog.apu.edu/policies-procedures/graduate/graduate-professional-student-community-expectations/"
+  },
+  {
+   "label": "GradReports — Azusa Pacific University student reviews",
+   "url": "https://www.gradreports.com/colleges/azusa-pacific-university"
+  }
+ ]
+}

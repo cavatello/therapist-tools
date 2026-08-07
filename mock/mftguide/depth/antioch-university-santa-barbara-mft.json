@@ -1,0 +1,283 @@
+{
+ "institution": "Antioch University Santa Barbara",
+ "character": [
+  "This is a 90-quarter-credit, eight-quarter (24-month) applied program built explicitly to Cal. Bus. & Prof. Code §4980.36, and its distinguishing feature is that Antioch's social-justice identity is actually load-bearing in the required course list rather than confined to the mission statement. Every student takes two separate multicultural courses, not one: PSC-5051 Multicultural Awareness: Self, Culture & Context, a self-examination course framed around \"power, oppression and marginalization,\" and then, in the seventh quarter, PSC-5050 Clinical Skills in a Multicultural Context, which asks students to build case conceptualizations that integrate \"oppression, power, poverty, and acculturation.\" A required PSC-5510 Community Mental Health course on serious mental illness and least-restrictive-environment care sits alongside them. The catalog states the program's mission is \"consistent with Antioch University's tradition of community-based education and awareness of social issues,\" and the sequence bears that out.",
+  "The two current concentrations are Latinx Mental Health and Somatic Psychotherapy. Latinx Mental Health is not a set of electives bolted on — it swaps out the standard clinical-skills and practicum spine for parallel courses taught in the Latinx context (PSC-5121, PSC-5170, and practica PSC-6521/6522/6523), requires documented Spanish proficiency, adds a bilingual group-psychotherapy course in which students practice facilitation in Spanish, and requires that 75 of the 225 traineeship hours be face-to-face contact or client advocacy with Latinx or Hispanic clients. Somatic Psychotherapy is much smaller — a 9-credit, three-course block taken in an added ninth quarter, naming Somatic Experiencing, Hakomi, Sensorimotor Psychotherapy and expressive arts as its content. A third concentration, Healthy Aging, is listed in the 2025–26 catalog as an inactive program not admitting new students.",
+  "Two things worth correcting for anyone comparison-shopping Antioch campuses: the Depth/Spiritual Psychology and LGBT Affirmative Psychology specializations belong to Antioch University Los Angeles' MA in Clinical Psychology, not to Santa Barbara, and AULA lists that program at 48 months. Santa Barbara also runs no in-house training clinic; students find their own traineeship sites among community agencies across Santa Barbara, Ventura and San Luis Obispo counties. Reviews are polarized — several students praise small classes and practitioner faculty, while a recurring minority complaint on Niche and GradReports is that the narrative-evaluation, no-letter-grade model reads as insufficiently rigorous."
+ ],
+ "orientation": "Deliberately pluralistic — a family-systems and multicultural/community-mental-health spine rather than a single school; the catalog says students are \"assisted in selecting and developing an orientation consistent with their values and worldview\"",
+ "signature": [
+  {
+   "code": "PSC-5200",
+   "title": "The Process of Group Psychotherapy",
+   "units": "3",
+   "desc": "Introduces theories and concepts of group psychotherapy including stages of group development, membership, and systemic behavior. \"All students participate in the classroom process group under the leadership of the instructor and an opportunity is provided to practice group facilitation skills.\"",
+   "verbatim": true,
+   "why": "The class itself becomes the group being studied. Most California MFT programs satisfy the group requirement with a lecture course; requiring every student to be a member of a live, instructor-led process group for a full quarter is a materially different demand on the student — and a good predictor of how experiential the rest of the program feels.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=6&coid=23850"
+  },
+  {
+   "code": "PSC-5051",
+   "title": "Multicultural Awareness: Self, Culture & Context",
+   "units": "3",
+   "desc": "\"This course examines the experience of cultural difference, with particular emphasis on power, oppression and marginalization. The course promotes self-awareness and cross-cultural exploration of cultural heritage as well as student's attitudes and biases.\"",
+   "verbatim": true,
+   "why": "Taken in the first quarter, this is the inward-facing half of Antioch's diversity requirement — it is about the student's own biases, not about client populations. Its existence as a separate first-quarter course, paired with PSC-5050 six quarters later, is the clearest evidence that the social-justice framing is curricular rather than promotional.",
+   "src": "https://www.antioch.edu/wp-content/uploads/2025/01/AU-CATALOG-2023-24_7.26.23_FINAL.pdf"
+  },
+  {
+   "code": "PSC-5050",
+   "title": "Clinical Skills in a Multicultural Context",
+   "units": "3",
+   "desc": "\"This experiential course builds on the student's developing multicultural awareness and clinical skill repertoire... work to develop case conceptualization and treatment planning skills that integrate knowledge about cultural influences and identities as well as the concepts of oppression, power, poverty, and acculturation into their clinical practice.\"",
+   "verbatim": true,
+   "why": "This is the outward-facing counterpart to PSC-5051 and it is a skills course, not a seminar: students are graded on treatment plans that name power and acculturation as clinical variables. Very few CA programs require a second, applied multicultural clinical-skills course this late in the sequence, when students are already carrying a caseload.",
+   "src": "https://www.antioch.edu/wp-content/uploads/2025/01/AU-CATALOG-2023-24_7.26.23_FINAL.pdf"
+  },
+  {
+   "code": "PSC-5160",
+   "title": "Process of Bilingual Group Psychotherapy",
+   "units": "3",
+   "desc": "Introduces theories and concepts of bilingual group psychotherapy — group development, membership, dynamic processes, and how cultural factors affect group behavior. \"All students participate in the classroom process group under the supervision of the instructor and an opportunity is provided to practice group facilitation skills in Spanish.\"",
+   "verbatim": true,
+   "why": "Required in the Latinx Mental Health concentration. Practicing group facilitation in Spanish in front of peers is a concrete, verifiable training requirement, not a claim of cultural competence — and it explains why the concentration requires documented Spanish proficiency to enter.",
+   "src": "https://www.antioch.edu/wp-content/uploads/2025/01/AU-CATALOG-2023-24_7.26.23_FINAL.pdf"
+  },
+  {
+   "code": "PSC-5510",
+   "title": "Community Mental Health",
+   "units": "3",
+   "desc": "Examines the theories, history, research and practice of community mental health as a foundation for effective community-based treatment of people with serious mental illness, including the biopsychosocial factors that support living \"in the least restrictive environment,\" and evidence-based methods of rehabilitation and recovery.",
+   "verbatim": false,
+   "why": "A required, full-weight course on public-sector serious mental illness — not an elective and not folded into psychopathology. This is the curricular signal that the program expects graduates to work in county and non-profit agencies rather than moving straight to private practice.",
+   "src": "https://www.antioch.edu/wp-content/uploads/2025/01/AU-CATALOG-2023-24_7.26.23_FINAL.pdf"
+  },
+  {
+   "code": "PSC-5700",
+   "title": "Introduction to Theories and Techniques of Somatic Psychotherapy",
+   "units": "3",
+   "desc": "Critically examines seminal theories of body–mind interconnection with a focus on developmental trauma, including psychodynamic, attachment, affect regulation and interpersonal neurobiology. \"Techniques will include Somatic Experiencing, Hakomi, Sensorimotor Psychotherapy, Expressive Arts (movement, music, theatre, visual arts, and poetry), Mindfulness, Yoga, and Psych-K.\"",
+   "verbatim": true,
+   "why": "The gateway course of the Somatic Psychotherapy concentration, and unusual for naming specific proprietary modalities in a catalog description. Note the scale, though: the concentration is only three courses in a ninth quarter, so it is an introduction to somatic work, not a somatic degree.",
+   "src": "https://www.antioch.edu/wp-content/uploads/2025/01/AU-CATALOG-2023-24_7.26.23_FINAL.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Full-time cohort sequence of eight consecutive quarters (24 months), roughly 9–13 credits per quarter, in three-hour day and evening blocks with some weekend and online courses; part-time and cross-campus registration may be available. The quarter grid below is published on the program page as course titles only — the catalog publishes course codes and credit values but does not publish the term-by-term grid, so the two have deliberately not been merged here. Concentration students substitute parallel courses into this sequence. Adding the LPCC pathway is 9 additional credits.",
+  "total_units": "90 quarter credits (minimum 8 full-time quarters of residency)",
+  "terms": [
+   {
+    "label": "Quarter 1",
+    "courses": [
+     "Theories of Psychotherapy in Context",
+     "Human Development and Diversity",
+     "Multicultural Awareness: Self, Culture, and Context",
+     "Crisis, Disaster, and Emergency Response"
+    ]
+   },
+   {
+    "label": "Quarter 2",
+    "courses": [
+     "Research Methods",
+     "Psychopathology",
+     "Clinical Skills I: The Psychotherapeutic Relationship",
+     "Contemporary Theories of Psychotherapy"
+    ]
+   },
+   {
+    "label": "Quarter 3",
+    "courses": [
+     "Lifespan Human Development: The Older Adult",
+     "Theories of Family Systems",
+     "Clinical Skills II: The Psychotherapeutic Process",
+     "Professional Ethics and the Law"
+    ]
+   },
+   {
+    "label": "Quarter 4",
+    "courses": [
+     "Clinical Skills with Families and Couples",
+     "Psychological Assessment",
+     "Group Theories",
+     "Domestic Violence: Spousal, Elder, and Child Abuse",
+     "Practicum: Professional Orientation"
+    ]
+   },
+   {
+    "label": "Quarter 5",
+    "courses": [
+     "Practicum I: Clinical Evaluation and Crisis Intervention",
+     "The Process of Group Psychotherapy",
+     "Intimate Relationships",
+     "Psychopharmacology for Therapists"
+    ]
+   },
+   {
+    "label": "Quarter 6",
+    "courses": [
+     "Practicum II: Treatment Planning and Clinical Interventions",
+     "Psychotherapy with Children and Adolescents",
+     "Loss and Bereavement",
+     "Substance-Related Disorders and Other Addictive Behaviors"
+    ]
+   },
+   {
+    "label": "Quarter 7",
+    "courses": [
+     "Practicum III: Case Conceptualization",
+     "Clinical Skills in the Multicultural Context",
+     "Trauma Counseling",
+     "Advanced Family Therapy: Special Populations"
+    ]
+   },
+   {
+    "label": "Quarter 8",
+    "courses": [
+     "Practicum IV: Integrating Clinical Skills",
+     "Advanced Family Therapy: Evidence-Based Practice",
+     "Human Sexuality and Counseling",
+     "Community Mental Health",
+     "Dual Diagnosis: Substance-Related and Co-Occurring Disorders"
+    ]
+   },
+   {
+    "label": "Optional LPCC coursework (9 additional credits)",
+    "courses": [
+     "Evaluation Outcome and Research",
+     "Social and Cultural Factors of Assessment and Evaluation",
+     "Career Theories and Practices I",
+     "Career Theories and Practices II",
+     "Psychopharmacology for Therapists"
+    ]
+   },
+   {
+    "label": "Latinx Mental Health concentration courses (18 quarter credits)",
+    "courses": [
+     "PSC-5121 Clinical Skills I: Psychotherapeutic Relationship in the Latinx Context",
+     "PSC-5160 Process of Bilingual Group Psychotherapy",
+     "PSC-5170 Clinical Skills II: Psychotherapy Process with Latinx Clients",
+     "PSC-6521 Practicum I: Clinical Evaluation and Crisis Intervention with Latinx Clients",
+     "PSC-6522 Practicum II: Treatment Planning and Clinical Intervention with Latinx Clients",
+     "PSC-6523 Practicum III: Case Conceptualization with Latinx Clients"
+    ]
+   },
+   {
+    "label": "Somatic Psychotherapy concentration courses (9 quarter credits, taken in a 9th quarter)",
+    "courses": [
+     "PSC-5700 Introduction to Theories and Techniques of Somatic Psychotherapy",
+     "PSC-5702 Somatic Approaches to Trauma and PTSD",
+     "PSC-5703 Movement, Mindfulness, and the Expressive Arts in Somatic Psychotherapy"
+    ]
+   }
+  ],
+  "src": "https://www.antioch.edu/wp-content/uploads/2025/11/2025-26-Catalog_2025.06.30V1.pdf"
+ },
+ "practicum": {
+  "starts": "Fourth quarter — students take Practicum: Professional Orientation in Q4 and begin the graded practicum sequence in Q5, after clearing a 18-credit gate",
+  "hours": "225 face-to-face client contact hours to graduate (280 for students on the dual MFT/LPCC track). Latinx Mental Health concentration students must have 75 of the 225 be in-person contact and/or client advocacy with Latinx or Hispanic clients.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "The catalog is blunt about this: \"Students are responsible for seeking and identifying traineeship sites on their own.\" The Director of Clinical Training and the student's advisor consult, and an approved-site list with contacts is posted internally, but there is no in-house training clinic — placements are community agencies across Santa Barbara, Ventura and San Luis Obispo counties plus some in Los Angeles County. To be eligible you must first pass 18 quarter credits covering Theories of Psychotherapy in Context, Clinical Skills I and II, Clinical Skills with Families and Couples, Domestic Violence, Professional Ethics & Law, and Practicum: Professional Orientation. A signed Clinical Training Agreement (student, site administrator, clinical supervisor, Director of Clinical Training) is required before hours begin, supervisors complete an end-of-quarter evaluation each 13-week term, and the university provides liability insurance. Separately, all students must complete 20 hours of their own personal psychotherapy during the program and must document that they have begun by the end of the second quarter; hours from before enrollment do not count.",
+  "src": "https://www.antioch.edu/wp-content/uploads/2025/11/2025-26-Catalog_2025.06.30V1.pdf",
+  "model": "not published",
+  "model_evidence": "Clinical traineeships are an integral component of the MACP program. These experiences prepare students for psychotherapy and counseling work, and the training is completed under the supervision of a licensed professional.",
+  "model_url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from a regionally accredited institution; online application; one admission essay; two letters of recommendation. No stated undergraduate psychology prerequisite.",
+  "deadline": "Fall entry: February 1 priority, July 15 final. Winter entry: August 1 priority, November 1 final.",
+  "src": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+  "gre_evidence": "The program does not require that applicants submit GRE scores.",
+  "gre_url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"It's not an academic institution, but rather a diploma mill.\"",
+   "who": "Niche, master's student review, May 2024 (1 star)",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/antioch-university-santa-barbara/reviews/"
+  },
+  {
+   "text": "\"Antioch's commitment to social justice mirrors my aspiration to create an inclusive therapeutic space.\"",
+   "who": "Niche, master's student review, August 2023 (5 stars)",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/antioch-university-santa-barbara/reviews/"
+  },
+  {
+   "text": "\"The program is hands-on, and most of the professors are currently working in the field.\"",
+   "who": "Niche, master's student review, ~2025 (4 stars)",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/antioch-university-santa-barbara/reviews/"
+  },
+  {
+   "text": "An alum reports that the school \"cares little about students on the road to licensure past graduation,\" citing delays in supplying the form letters the BBS requires.",
+   "who": "GradReports, alum review, 2024",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/antioch-university-santa-barbara"
+  },
+  {
+   "text": "An alum describes faculty as \"stringent yet compassionate and accessible\"; another praises \"small class sizes, availability of teachers.\"",
+   "who": "GradReports, MA Clinical Psychology alumni, 2013–2014",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/antioch-university-santa-barbara"
+  },
+  {
+   "text": "A 2023 alum reported that \"male students were given preferential treatment over female graduate students by primarily male professors.\"",
+   "who": "Niche, alum review, March 2023 (2 stars)",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/antioch-university-santa-barbara/reviews/"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "Cohort size and annual entering-class size are not published anywhere in the program page, the catalog or the admissions materials.",
+  "No per-course credit values or term credit loads are published on the program page's quarter grid; the catalog publishes codes and credits but no term-by-term sequence, so the two could not be safely merged.",
+  "The program page describes the Somatic Psychotherapy concentration as four courses / 12 credits, while the 2025-26 university catalog lists three courses / 9 credits and a 90-credit degree total. The 2023-24 catalog listed four courses / 12 credits and a 102-credit total. The marketing page appears to be out of date.",
+  "The 2025-26 catalog PDF contains no course descriptions. The verbatim course descriptions used here are from the 2023-24 Antioch University catalog PDF, where the course codes and titles are unchanged; only PSC-5200 was re-verified against a live catalog course page.",
+  "No licensure exam pass rate, graduation rate or job placement rate is published by the program. A 2013 GradReports review claims a ~90% pass rate but this is an unverified student assertion.",
+  "No substantive Reddit, Student Doctor Network or GradCafe discussion of this specific program was found.",
+  "No freely-licensed photograph of the Antioch University Santa Barbara campus exists on Wikimedia Commons; the only AUSB file there is a logo image."
+ ],
+ "sources": [
+  {
+   "label": "MA in Clinical Psychology (MFT) program page, AUSB",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/"
+  },
+  {
+   "label": "Somatic Psychotherapy concentration page, AUSB",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/somatic-psychotherapy-ausb/"
+  },
+  {
+   "label": "Antioch University Academic Catalog 2025-2026 (PDF) — MACP general overview, concentration plans of study, clinical traineeship, admissions",
+   "url": "https://www.antioch.edu/wp-content/uploads/2025/11/2025-26-Catalog_2025.06.30V1.pdf"
+  },
+  {
+   "label": "Antioch University Academic Catalog 2023-2024 (PDF) — PSC course descriptions and credit values",
+   "url": "https://www.antioch.edu/wp-content/uploads/2025/01/AU-CATALOG-2023-24_7.26.23_FINAL.pdf"
+  },
+  {
+   "label": "Online catalog course record: PSC-5200 The Process of Group Psychotherapy",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=6&coid=23850"
+  },
+  {
+   "label": "Antioch University online catalog (current)",
+   "url": "https://catalog.antioch.edu/"
+  },
+  {
+   "label": "Niche graduate student reviews",
+   "url": "https://www.niche.com/graduate-schools/antioch-university-santa-barbara/reviews/"
+  },
+  {
+   "label": "GradReports student reviews",
+   "url": "https://www.gradreports.com/colleges/antioch-university-santa-barbara"
+  }
+ ]
+}

@@ -1,0 +1,318 @@
+{
+ "institution": "Antioch University Los Angeles",
+ "character": [
+  "Depth psychology and LGBT-affirmative psychology are Antioch Los Angeles specializations, not Santa Barbara ones. The 2025–2026 university catalog is unambiguous: both the Spiritual and Depth Psychology and the LGBT Affirmative Psychology specialization pages carry the header 'Location: AU Los Angeles', and both sit under the Los Angeles heading in the School of Counseling, Psychology & Therapy program list. The AULA degree is the M.A. in Clinical Psychology (MAP), 90 quarter credits, minimum eight full-time quarters, and it is the degree AULA points MFT candidates toward — the catalog calls it 'the degree for students seeking to be licensed in California as Marriage and Family Therapists and/or Licensed Professional Clinical Counselors (with additional coursework).' The seven Los Angeles specializations in the current catalog are Addiction and Recovery, Applied Community Psychology, Child Studies, General Practice, LGBT Affirmative Psychology, Psychological Trauma Studies, and Spiritual and Depth Psychology; a separate Psychology, Individualized Concentration M.A. is also listed at Los Angeles. Santa Barbara's list is entirely different — Latinx Mental Health and Somatic Psychotherapy. Each AULA specialization occupies exactly the same 17-credit slot in the degree: 14 credits of specialization core plus 3 credits of specialization electives, drawn from the block that non-specializing students spend on free electives. In other words the specialization costs no extra credits — it spends elective credits you were going to spend anyway.",
+  "Test the progressive identity against the required course list and it holds up, which is not a given. PSY-5450 Society and the Individual is required of every MAP student in the very first quarter, and the catalog states plainly that 'Passing this class is a prerequisite for advancing to the second quarter in the program' — a hard academic gate on a course about marginalisation, privilege, race, class, gender, sexual orientation and physical difference, in which students write a cultural autobiography and 'consider psychotherapy as a social institution.' PSY-5120A Field Study: Psychology and Society is likewise required of all MAP students and sends them out to conduct interviews and field visits in community settings. PSY-5450A Community Psychology: Theories and Methods sits in the required Professional Clinical Issues block. And the degree requires two ten-week courses of the student's own personal psychotherapy — twenty sessions, recorded on the transcript as 'Completed Transcript Requirement.' That combination — a gated first-quarter power-and-privilege course, required community fieldwork, and mandatory personal therapy — is the actual structure behind the reputation, and it is in the core, not the electives.",
+  "The trade-off is that the core is deliberately eclectic rather than deep. The catalog says the program 'Prepares eclectically trained students,' and the Advanced Clinical Skills requirement is a single 2-credit course chosen from a menu spanning brief therapy, CBT, DBT, Gestalt, interpersonal process and queer narrative practice — you pick one modality, and the rest become electives. There is no in-house teaching clinic; clinical training happens at what Antioch describes as 'over 100 affiliated mental health services agencies' across Southern California. Tuition runs $956 per credit, so 90 credits is roughly $86,000. Standard time to completion is listed as 48 months. If the depth or LGBT specialization is what you want, that 17-credit block is where the program's distinctiveness actually lives; if you strip the specialization out, what remains is a broad, humanistically-framed, community-oriented MFT curriculum without a single theoretical centre of gravity."
+ ],
+ "orientation": "Humanistic/psychodynamic and community-oriented, deliberately eclectic at the core, with a depth/Jungian or LGBT-affirmative centre of gravity depending on the specialization chosen",
+ "signature": [
+  {
+   "code": "PSY-5450",
+   "title": "Society and the Individual",
+   "units": "3",
+   "desc": "This first-quarter course provides an opportunity for students to explore the psychological effects — for self and others — of social dynamics including marginalization and privilege in relation to race, ethnicity, social class, gender, sexual orientation, and physical difference. Students complete a cultural autobiography and consider psychotherapy as a social institution as well as power and powerlessness in society.",
+   "verbatim": true,
+   "why": "This is the single best evidence that Antioch's social-justice identity is structural rather than rhetorical: it is required of every MAP student in the first quarter, and passing it is an explicit prerequisite for advancing to the second quarter. Almost no California MFT program makes a power-and-privilege course a gate on continued enrolment.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108223"
+  },
+  {
+   "code": "PSY-5310H",
+   "title": "Intercultural Transpersonal and Depth Psychology",
+   "units": "3-4",
+   "desc": "Utilizing Jungian psyche-centered theory the course explores the meaning of intercultural myths and symbols including dream work, active imagination, and rituals... with emphasis on the treatment of intergenerational trauma (e.g. legacy of slavery, racism, homophobia, religious oppression, colonization, and immigration).",
+   "verbatim": true,
+   "why": "A Spiritual and Depth Psychology core course, and the clearest statement of what AULA's depth track actually is: classical Jungian technique — dream work, active imagination — explicitly pushed past what the catalog calls 'a Eurocentric view of psyche' and aimed at intergenerational trauma. That fusion is rare; most depth-oriented programs teach one half or the other.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108181"
+  },
+  {
+   "code": "PSY-5310J",
+   "title": "Life As Practice: Inner Work, Social Responsibility, and Community Service",
+   "units": "2-3",
+   "desc": "Remembering the socially engaged, progressive roots of depth psychology... this course provides an opportunity for students to explore experientially the interconnection between inner work and both community and professional wellbeing. Students will investigate this premise through non-clinical service work in the community, exploration into developing a personal professional self, innerwork practices drawn from classical and depth psychological mindfulness...",
+   "verbatim": true,
+   "why": "A graded course whose required work is unpaid, non-clinical community service plus a personal contemplative practice. It is the seam where AULA's two identities — depth psychology and social engagement — are stitched together on purpose, and it is a graduation requirement for the SDP specialization, not an extracurricular.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108182"
+  },
+  {
+   "code": "PSY-5933",
+   "title": "Dismantling Privilege and Oppression Within LGBT Communities",
+   "units": "3",
+   "desc": "Designed to provide students with culturally competent affirmative methodology to work clinically with LGBT people of color... employing an integral approach based in psychodynamic/Jungian methodology that also utilizes strength-based methodologies such as CBT, family systems, narrative therapy and existential humanist interventions.",
+   "verbatim": true,
+   "why": "A required LGBT Specialization core course whose subject is oppression inside LGBTQ+ communities rather than from outside them — and which explicitly argues that Queer Theory should serve the study of the unconscious rather than replace it. That theoretical position is stated in the catalog, which tells you the specialization has an argument, not just a topic.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108349"
+  },
+  {
+   "code": "PSY-5120A",
+   "title": "Field Study: Psychology and Society",
+   "units": "2-3",
+   "desc": "Students select community settings of interest, carry out interviews and field visits, and share learning with classmates and faculty instructor through classroom dialogue... Required for all MAP students; best taken in the second or third quarter of study.",
+   "verbatim": true,
+   "why": "Required community fieldwork in the first year, well before clinical training begins. It is the mechanism behind the catalog's claim that the program 'Challenges the profession toward greater relevance to the needs of Southern California's diverse communities' — students are physically sent out into those communities as a course requirement.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108133"
+  },
+  {
+   "code": "PSY-5000AA",
+   "title": "Clinical Readiness",
+   "units": "0",
+   "desc": "A capstone to initial program coursework designed to assess students' readiness to begin clinical training... Students will learn about various facets of traineeship, including gathering information about training sites and the application process... Successful completion of this course will allow students to progress into the clinical training component of their program.",
+   "verbatim": true,
+   "why": "A zero-credit gatekeeping course with five prerequisites that you must pass before you are allowed to see clients — and the course that teaches you how to find and apply to your own placement. Both facts matter to a prospective student: the program screens for clinical readiness, and it does not hand you a site.",
+   "src": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108118"
+  }
+ ],
+ "curriculum": {
+  "note": "Quarter-credit program on a lockstep-ish but flexible schedule: 90 quarter credits over a minimum of 8 full-time quarters, or 16 part-time quarters, with standard time to completion listed as 48 months. Full-time is 8–12 credits per quarter, part-time 4–7. The catalog publishes the degree as functional blocks rather than a term-by-term grid, so the blocks are reproduced below. Specializations do not add credits — they consume the 17-credit elective block as 14 credits of specialization core plus 3 of specialization electives. This is the 2025–2026 University Catalog.",
+  "total_units": "90 quarter credits",
+  "terms": [
+   {
+    "label": "Core Curriculum — 19 credits",
+    "courses": [
+     "PSY-5120A Field Study: Psychology and Society",
+     "PSY-5310A Personality Theory I: Psychodynamic Theories",
+     "PSY-5320A Personality Theory II: Comparative Contemporary Theories",
+     "PSY-5350 Systems Theories and the Family",
+     "PSY-5350M Systems Theory & the Family II",
+     "PSY-5360D Research for Mental Health Professionals",
+     "PSY-5450 Society and the Individual (first quarter; must pass to advance)"
+    ]
+   },
+   {
+    "label": "Professional Clinical Issues — 26 credits",
+    "courses": [
+     "PSY-5390D Psychopharmacology",
+     "PSY-5410F Assessment of Psychopathology",
+     "PSY-5410G Psychopathology & Treatment Planning",
+     "PSY-5420 Psychological Testing",
+     "PSY-5430C Child and Adolescent Development",
+     "PSY-5440K Contemporary Issues of Aging",
+     "PSY-5450A Community Psychology: Theories and Methods",
+     "PSY-5480 Professional Ethics and the Law",
+     "PSY-5720P Domestic Violence: Child, Intimate Partner, and Elder"
+    ]
+   },
+   {
+    "label": "Clinical Skill Development — 17 credits",
+    "courses": [
+     "PSY-5010A Process of Interpersonal Psychotherapy I",
+     "PSY-5220A Perspectives: Trauma & Its Effects, Awareness & Recovery",
+     "PSY-5470 Human Sexuality",
+     "PSY-5500B Assessment & Treatment of Addictive Disorders",
+     "PSY-5510B Group Treatment Methods",
+     "PSY-5660B Couples Counseling",
+     "PSY-5670T Treatment of Children & Adolescents"
+    ]
+   },
+   {
+    "label": "Advanced Clinical Skills — 2 credits (choose one; extras count as electives)",
+    "courses": [
+     "PSY-5090 Brief Therapy",
+     "PSY-5330 Cognitive Behavioral Theory and Therapy",
+     "PSY-5330P Dialectical Behavioral Therapy",
+     "PSY-5400C Process of Interpersonal Psychotherapy II",
+     "PSY-5550 Gestalt Theory and Therapy",
+     "PSY-5640F Queer Counseling and Narrative Practice",
+     "PSY-5930SS Working with LGBTQIA Clients: Theoretic Applications"
+    ]
+   },
+   {
+    "label": "Elective / Specialization Coursework — 17 credits (14 specialization core + 3 specialization electives if specializing). Example: Spiritual and Depth Psychology",
+    "courses": [
+     "PSY-5210D Transference/Countertransference: Eros And Psyche",
+     "PSY-5310H Intercultural Transpersonal and Depth Psychology",
+     "PSY-5330K Mindfulness in Clinical Practice",
+     "PSY-5940M Frontiers in Integrative Depth Psychology",
+     "PSY-5310J Life As Practice: Inner Work, Social Responsibility, and Community Service",
+     "3 credits in SDP Electives"
+    ]
+   },
+   {
+    "label": "Alternative specialization block — LGBT Affirmative Psychology (17 credits)",
+    "courses": [
+     "PSY-5120D LGBT Community Action",
+     "PSY-5930FF LGBT Clinical and Psychological Wellness Across the Lifespan",
+     "PSY-5930Z Affirmative Psychotherapy",
+     "PSY-5933 Dismantling Privilege and Oppression Within LGBT Communities",
+     "PSY-5934 Affirmative Therapy: Exploring Sex and Gender",
+     "3 credits of LGBT Specialization electives, at least one of which must be an LGBT Identity Workshop (e.g. PSY-5930QQ Therapeutic Process With Transgender Clients, PSY-5931 Intersex Clients, PSY-5932 Lesbian Love, Identity, Sexuality, PSY-5255 Black Male Studies)"
+    ]
+   },
+   {
+    "label": "Clinical Training — 9 credits",
+    "courses": [
+     "PSY-5000 Clinical Training Orientation",
+     "PSY-5000AA Clinical Readiness (0 credits, gating)",
+     "PSY-6211 Clinical Practicum I",
+     "PSY-6212 Clinical Practicum II",
+     "PSY-6213 Clinical Practicum III",
+     "PSY-6214 Clinical Practicum Extension"
+    ]
+   },
+   {
+    "label": "Transcript requirement (non-credit)",
+    "courses": [
+     "Personal Psychotherapy — two sets of 10-week sessions, 20 sessions total, recorded on the transcript as 'Completed Transcript Requirement'"
+    ]
+   }
+  ],
+  "src": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193"
+ },
+ "practicum": {
+  "starts": "After the initial coursework block and only on passing the zero-credit PSY-5000AA Clinical Readiness gate — typically the second year, since Clinical Readiness carries five prerequisites including the first-quarter PSY-5450",
+  "hours": "MFT track: 150 hours of direct client contact plus 75 additional hours of direct client contact and/or client-centered advocacy while in clinical training. LPCC track: 280 hours of direct client contact.",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "Antioch Los Angeles has no in-house teaching clinic; all clinical training happens in the field, at what the university describes as 'over 100 affiliated mental health services agencies' across Southern California, where students practise therapy under professional supervision. Entry into training is gated rather than automatic: students take PSY-5000 Clinical Training Orientation, then must pass PSY-5000AA Clinical Readiness — a zero-credit course with five prerequisites (Clinical Training Orientation, Process of Interpersonal Psychotherapy I, Assessment of Psychopathology, Professional Ethics and the Law, and Society and the Individual) in which professionalism, receptivity to feedback, a case conceptualisation, clinical role-plays and interpersonal skills are all used to judge whether the student may proceed. Placement responsibility is shared rather than assigned: Clinical Readiness explicitly teaches students about 'gathering information about training sites and the application process,' meaning students apply themselves to sites drawn from Antioch's affiliated network, which is why 'mixed' rather than 'program-placed.' Once in the field, the three practicum courses (PSY-6211/6212/6213, plus a 6214 extension if needed) are the in-class companion to the placement and must be taken concurrently with it: the catalog describes PSY-6211 as 'the in-class component of the field-based clinical training experience,' using structured discussion with the instructor to provide academic oversight, supervision utilisation, case documentation and case presentation. The published MFT hour floor is 150 direct client contact hours plus 75 more of direct contact and/or client-centered advocacy — noticeably lower than programs that require 300+, because California's BBS allows only a limited number of pre-degree hours to count and Antioch's numbers are the graduation minimum, not the licensure total. Antioch publishes no relational (couple/family) sub-minimum for the MFT track. Specialization students do no extra clinical hours: the Spiritual and Depth Psychology page states that SDP students are expected to apply SDP coursework in their clinical training, 'however, there are no additional SDP clinical training requirements beyond those contained within the MAP degree.'",
+  "src": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193",
+  "model": "not published",
+  "model_evidence": "Beyond the classroom walls, you have the opportunity to implement your learning by practicing therapy under professional supervision at one of over 100 affiliated mental health services agencies.",
+  "model_url": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Antioch Community Therapy Services (ACTS)",
+   "Antioch University Counseling Center (AUCC) — now closed"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from a regionally accredited institution, official transcript, and an admissions essay of 800–1,500 words responding to one of two prompts about life experience or social justice. A group interview is arranged after materials are received. Tuition is $956 per credit, so the 90-credit degree is roughly $86,000 before fees.",
+  "deadline": "Multiple entry terms; priority and application deadlines run from February 1 to August 1 depending on term",
+  "src": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/",
+  "gre_evidence": "Awards are determined by prior academic performance (minimum 3.40 GPA)",
+  "gre_url": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"So many of the issues with Antioch pertain to the administrative side of things, sadly. The clinical training office is a joke, they have one guy doing it part time and he’s completely incompetent and disorganized, so you will spend literal months after ‘graduating’ trying to get him to confirm your clinical training credits ... Beyond that whole nightmare, the quality of instruction is incredibly uneven, with a lot of turnover among the adjunct professors particularly. I had a few great classes, the rest ranged from mediocre to terrible. On the plus side, I met some great people and it was less expensive than comparable programs at USC and Pepperdine ... If you can, get into CSU Northridge.\"",
+   "who": "'Maddie', GradReports review, MA Clinical Psychology (the LMFT-track degree), class of 2023, posted Oct 2023",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/antioch-university-los-angeles"
+  },
+  {
+   "text": "\"Wildly disorganized with little support when that disorganization costs you time and money. The social-justice focus is great, but the lack of consistent staff, policies, or even across-the-board understanding of those policies by staff is ridiculous. Too many of us have lost months of our lives and thousands of dollars to these issues; staff never takes responsibility, let alone offers any sort of support during these difficult times. This is not to mention their refusal to support students with disabilities. Please spend your efforts elsewhere.\"",
+   "who": "'Mor', GradReports review, MA Clinical Psychology, expected graduation 2026, posted Jul 2025",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/antioch-university-los-angeles"
+  },
+  {
+   "text": "\"I am currently attending Antioch University Los Angeles towards a path of becoming a Licensed Marriage and Family Therapist. I am so glad that I have chosen this school for my master's degree. The program is vigorous and hands-on, with a focus on applied work rather than only research. This is important to me because one needs to practice a lot and develop good skills if you want to become an effective therapist ... the faculty is extremely knowledgable and supportive, which makes all the difference.\"",
+   "who": "'BM Schreiber', GradReports review, MA Clinical Psychology / LMFT track, class of 2019, posted Mar 2017",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/antioch-university-los-angeles"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "The 2026–2027 Antioch catalog (catoid=18) exists and is live, but its program and department listing pages sit behind an AWS WAF challenge that could not be passed. All curriculum, credit and specialization detail here is from the 2025–2026 University Catalog, retrieved partly through the Internet Archive and partly directly. Specialization names, credit counts and course codes should be re-verified against the 2026–2027 edition before publication.",
+  "Antioch's marketing site lists a 'Professional Clinical Counselor (PCC)' specialization among the MA in Clinical Psychology options, but the 2025–2026 catalog does not list PCC as a named specialization at Los Angeles — it appears instead as an additional required-coursework pathway inside the MAP degree (career development, brief therapy, integrative addictions, and program evaluation or evidence-based practice research). Conversely, the catalog lists an 'Applied Community Psychology' specialization at AULA that the marketing site omits. The two sources disagree and I could not reconcile them.",
+  "No cohort size is published anywhere for the MAP program.",
+  "Antioch publishes no relational (couple/family) hours sub-minimum within its MFT clinical training hours, and no per-week hour expectation for the placement.",
+  "Whether individual and group supervision at the placement follow a fixed weekly schedule, and how many supervision hours are required, is not published — the catalog describes supervision only as a topic addressed inside the practicum seminar.",
+  "No verifiable freely-licensed photograph of the Antioch University Los Angeles campus (Culver City) exists on Wikimedia Commons; 'photo' is null rather than a hotlinked university image.",
+  "No credible student discussion (Reddit, GradCafe, Student Doctor Network) could be gathered — the research session's web-search budget was exhausted and direct Reddit API access was blocked. 'voices' is empty rather than absent-because-nothing-exists."
+ ],
+ "sources": [
+  {
+   "label": "Antioch University Catalog 2025–2026 — Clinical Psychology, MAP General Overview (AU Los Angeles)",
+   "url": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193"
+  },
+  {
+   "label": "Antioch University Catalog 2025–2026 — Clinical Psychology, Spiritual and Depth Psychology Specialization, MA",
+   "url": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7099&returnto=1062"
+  },
+  {
+   "label": "Antioch University Catalog 2025–2026 — Clinical Psychology, LGBT Affirmative Psychology Specialization, MA",
+   "url": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7098&returnto=1093"
+  },
+  {
+   "label": "Antioch University Catalog 2025–2026 — School of Counseling, Psychology & Therapy program list by location",
+   "url": "https://catalog.antioch.edu/content.php?catoid=13&navoid=1093"
+  },
+  {
+   "label": "Antioch University — MA in Clinical Psychology program page (tuition, admissions, specialization list)",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/"
+  },
+  {
+   "label": "Course description — PSY-5450 Society and the Individual",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108223"
+  },
+  {
+   "label": "Course description — PSY-5310H Intercultural Transpersonal and Depth Psychology",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108181"
+  },
+  {
+   "label": "Course description — PSY-5310J Life As Practice",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108182"
+  },
+  {
+   "label": "Course description — PSY-5933 Dismantling Privilege and Oppression Within LGBT Communities",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108349"
+  },
+  {
+   "label": "Course description — PSY-5000AA Clinical Readiness",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108118"
+  },
+  {
+   "label": "Course description — PSY-6211 Clinical Practicum I",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=109895"
+  },
+  {
+   "label": "Course description — PSY-5120A Field Study: Psychology and Society",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108133"
+  },
+  {
+   "label": "Course description — PSY-5940M Frontiers in Integrative Depth Psychology",
+   "url": "https://catalog.antioch.edu/preview_course_nopop.php?catoid=13&coid=108353"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "specialization_campus_attribution",
+   "current": "Depth Psychology and LGBT Affirmative Psychology sometimes attributed to Antioch Santa Barbara",
+   "correct": "Both are Antioch University Los Angeles specializations. The catalog stamps 'Location: AU Los Angeles' on the Spiritual and Depth Psychology and LGBT Affirmative Psychology program pages, and both appear under the Los Angeles heading in the school's program list. Santa Barbara's concentrations are Latinx Mental Health and Somatic Psychotherapy.",
+   "src": "https://catalog.antioch.edu/content.php?catoid=13&navoid=1093"
+  },
+  {
+   "field": "degree",
+   "current": null,
+   "correct": "M.A. in Clinical Psychology (the MAP program). Specialization pages render the full title as e.g. 'MA in Clinical Psychology: Marriage and Family Therapy, Spiritual and Depth Psychology'.",
+   "src": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193"
+  },
+  {
+   "field": "total_units",
+   "current": null,
+   "correct": "90 quarter credits, minimum 8 full-time quarters (or 16 part-time); standard time to completion listed as 48 months",
+   "src": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193"
+  },
+  {
+   "field": "specializations",
+   "current": null,
+   "correct": "Seven at Los Angeles in the 2025–2026 catalog: Addiction and Recovery; Applied Community Psychology; Child Studies; General Practice; LGBT Affirmative Psychology; Psychological Trauma Studies; Spiritual and Depth Psychology. Each is 17 credits (14 specialization core + 3 specialization electives) and consumes the degree's elective block rather than adding credits. A separate Psychology, Individualized Concentration, MA is also offered at Los Angeles.",
+   "src": "https://catalog.antioch.edu/content.php?catoid=13&navoid=1093"
+  },
+  {
+   "field": "tuition",
+   "current": null,
+   "correct": "$956 per credit; approximately $86,000 for the 90-credit degree before fees",
+   "src": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/"
+  },
+  {
+   "field": "clinic",
+   "current": null,
+   "correct": "None. Antioch Los Angeles has no in-house training clinic; clinical training is placed across 'over 100 affiliated mental health services agencies'.",
+   "src": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/"
+  },
+  {
+   "field": "city",
+   "current": "Culver City / Los Angeles",
+   "correct": "Correct as recorded — the campus is in Culver City and the catalog and university refer to it as AU Los Angeles / AULA. No change needed.",
+   "src": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193"
+  }
+ ]
+}

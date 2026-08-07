@@ -1,0 +1,282 @@
+{
+ "institution": "California State University, Los Angeles",
+ "character": [
+  "This is not really an MFT programme with a school-counselling flavour; it is two credentials welded together, and you cannot buy them separately. A graduate leaves with four things: the M.S. in Counseling, the Pupil Personnel Services (PPS) Credential in School Counseling, the Advanced Authorization in Child Welfare and Attendance (CWA), and eligibility for both the LMFT and the LPCC. The programme's own framing is that \"MFTs are better therapists when they understand how to assist their clients in navigating and succeeding within the school system,\" and School-Based Family Counseling as a discipline treats school and family as \"inextricably interconnected systems.\" The CWA authorisation is the least familiar piece: it qualifies you for the school jobs that deal with attendance, truancy, foster and homeless youth and welfare referrals. If that combination is what you want, there is no other California programme that packages it this way and this is a genuinely unusual, well-defined thing to be.",
+  "If you only want the LMFT, the honest answer is that you should not be here. The degree is 73–77 units against the BBS's 60-unit floor, and four courses in the required list exist because of the school credential rather than the licence: Disability in Schools and Society (3, listed as EDSP 5000 on the 2019 flyer and as COUN 5004 on the current roadmap), COUN 5257 Career Education and Guidance in Schools (3), COUN 5281 Seminar: Leadership in Pupil Personnel Services (3), and COUN 5286 Supervised Field Experience in School Counseling including the CWA requirements (6). That is fifteen units — strip them and you are left with 58, which is to say a conventional 60-unit MFT curriculum. The credential also drags in its own compliance work: a Certificate of Clearance from the Commission on Teacher Credentialing in your first semester and the CBEST basic-skills requirement, which you must pass to move from conditional to full admission. And the fieldwork doubles: COUN 5289 (MFT site practicum) and COUN 5286 (school and CWA) are listed as parallel options every semester of years two and three, so students commonly carry a clinical placement and a school placement at once, 15–20 hours a week. Sacramento State, which offers PPS as a separate post-graduate track, prices that credential at 15 units too — the number is not unreasonable, it is just fifteen units you have no use for if you never intend to work in a school. The FAQ closes the reverse door as well: \"we do not offer a PPS credential only program. We do not offer a CWA only Program.\" No MFT-only variant is described anywhere on the programme's pages.",
+  "The logistics are unusually restrictive and unusually clearly stated. Full-time and cohorted, in person, evenings: classes run 4:30–7:15pm and 7:30–10:10pm, two to four days a week, and \"Students need to be living in the Los Angeles area in order to start the program. There is NO on-line option for this program.\" Two cohorts of twelve are admitted once a year for fall, from roughly 300 applications, and clinical class sizes stay at twelve. First-year students train in the School-Based Family Clinic in King Hall C-1067, an on-campus clinic offering free counselling to the surrounding community in English and Spanish, Mondays to Thursdays; you work in co-therapy pairs under direct supervision by licensed faculty, recording and reviewing sessions, starting in the first semester with shadowing, peer counselling and role plays. On cost, treat the programme's own figure with care: the FAQ's $24,380 total is built on \"$4200 per semester\" full-time and \"$2800 per semester\" part-time, but Cal State LA's published Fall 2026 rate is $4,821.04 full-time (6.1+ units) and $3,027.04 part-time for California residents. Rerunning the programme's own formula at those rates gives roughly $27,300 rather than $24,380."
+ ],
+ "orientation": "School-Based Family Counseling — family-systems practice applied jointly to the home and the school, with an explicit social-justice and urban-Los Angeles framing (\"a specific emphasis in training our students to become culturally competent, social justice oriented counselors\").",
+ "signature": [
+  {
+   "code": "COUN 5230",
+   "title": "Family Counseling Laboratory Fieldwork",
+   "units": "6 (3 + 3)",
+   "desc": "Taken twice, in the fall and spring of the first year, meeting in the on-campus School-Based Family Clinic. The programme states: \"During the first and second semesters of your first year, you will complete the majority of your practicum hours in this clinic... you and a co-therapist will assist parents and their children with issues that range from school behavioral problems to family separation issues.\"",
+   "verbatim": true,
+   "why": "Very few California programmes put students in front of real families in the first semester of the first year, and fewer still do it as co-therapy pairs in a faculty-supervised university clinic with recording equipment. It is the strongest argument for the programme: the clinical exposure front-loads, so by the time you go out to a community site in year two you have already carried families under direct observation rather than only role-played.",
+   "src": "https://sites.google.com/view/calstatelasbfc/prospective-students/program-information"
+  },
+  {
+   "code": "COUN 5286",
+   "title": "Supervised Field Experience in School Counseling (Includes requirements for Child Welfare and Attendance Services)",
+   "units": "6 (3 + 3)",
+   "desc": "The school-side fieldwork strand, listed on the programme flyer with the parenthetical \"(Includes requirements for Child Welfare and Attendance Services)\", and scheduled on the roadmap as an option in every fieldwork semester from the fall of year two through the spring of year three.",
+   "verbatim": true,
+   "why": "This is the course that turns the degree into a credential and the six units you are paying for if you only want the licence. It is also the mechanism by which the CWA authorisation is earned rather than merely offered. Because it runs in parallel with COUN 5289, a student in year two is typically placed in a K–12 school and a clinical agency simultaneously.",
+   "src": "https://drive.google.com/file/d/1G_y4GPdVsXKMC0G8QMWOxlPCdWo5XluJ/preview"
+  },
+  {
+   "code": "COUN 5289",
+   "title": "Site Practicum in Marriage, Family, & Child Counseling",
+   "units": "6 (3 + 3)",
+   "desc": "The clinical fieldwork strand, listed on the flyer with the legacy title \"Marriage, Family, & Child Counseling\" and scheduled on the roadmap in every fieldwork semester of years two and three, with weekly supervision slots on Mondays (4:45, 6:00 or 7:15pm) or Wednesdays (3:00–4:15pm).",
+   "verbatim": true,
+   "why": "Two things a prospective student should read off this entry. First, the course title still uses California's pre-1999 MFCC language, which is a small sign of how long the curriculum documents have gone without a rewrite. Second, the supervision slots are fixed and evening — combined with 15–20 hours a week of fieldwork, this is why the programme warns that \"full-time employment is often not possible.\"",
+   "src": "https://docs.google.com/document/d/1tEPnsIqSJfju4FsUuMGskOBEO1fiyrrXIeePnAWgk5w/preview"
+  },
+  {
+   "code": "COUN 5281",
+   "title": "Seminar: Leadership in Pupil Personnel Services",
+   "units": "3",
+   "desc": "Required course in the 36-unit block, taken in the fall of the second year (Wednesdays 7:25–10:10pm on the current roadmap). It is one of the four school-credential courses that sit outside a standard MFT curriculum.",
+   "verbatim": false,
+   "why": "Included here not because it is appealing but because it is diagnostic: a leadership seminar in pupil personnel services is a school-administration course, not a clinical one. If the description of that course makes you impatient, this is the wrong programme — three more like it are required, and they are the reason for the 73–77 unit total.",
+   "src": "https://drive.google.com/file/d/1G_y4GPdVsXKMC0G8QMWOxlPCdWo5XluJ/preview"
+  },
+  {
+   "code": "COUN 4330",
+   "title": "Trauma and Crisis Counseling",
+   "units": "3",
+   "desc": "Appears only on the current course roadmap, in the fall of the third year, flagged \"(Optional for LPCC only).\" It does not appear on the programme flyer's required course list.",
+   "verbatim": true,
+   "why": "This is the hidden price of the LPCC. The programme's FAQ says plainly \"Does this program also prepare students for the LPCC... Yes, it does,\" but the roadmap shows it costs an extra three-unit course beyond the 73–77, taken in a year when most students have no other coursework. Worth raising with an adviser before assuming dual eligibility is free here.",
+   "src": "https://docs.google.com/document/d/1tEPnsIqSJfju4FsUuMGskOBEO1fiyrrXIeePnAWgk5w/preview"
+  }
+ ],
+ "curriculum": {
+  "note": "Full-time, cohorted, lockstep, 2.5–3 years, fall entry only; four to five courses a semester in the first two years plus a summer term, then fieldwork. Two documents describe the curriculum and they do not entirely agree: the programme flyer (effective Fall 2019) gives the unit blocks — core 19, required courses 36, fieldwork 18, culminating experience 0–4, total 73–77 — while a separate line on the same flyer says 76–80. The term-by-term grid below is the programme's current roadmap (last revised 21 April 2025), which uses some renumbered codes (Disability in Schools and Society is EDSP 5000 on the flyer and COUN 5004 on the roadmap; the comprehensive exam is COUN 5960 on the flyer and 5096 on the roadmap). Meeting times are the roadmap's own and are subject to change.",
+  "total_units": "73–77",
+  "terms": [
+   {
+    "label": "Prerequisite (before the programme begins)",
+    "courses": [
+     "A course in Counseling or Psychological Theories — COUN 4500 Counseling Theories is offered at Cal State LA the summer before the programme starts; waived if you hold a psychology degree"
+    ]
+   },
+   {
+    "label": "Year 1 — Fall (16 units)",
+    "courses": [
+     "COUN 5000 Lifespan Development (3) — Mon 4:30–7:15pm",
+     "COUN 5103 Multicultural Counseling (3) — Mon 7:25–10:10pm",
+     "COUN 5005 Counseling Strategies (4) — Tue or Thu 4:30–7:15pm",
+     "COUN 5230 Family Counseling Lab (3) — Tue or Thu 7:25–10:10pm",
+     "COUN 5200 Intro to Family Evaluation and Counseling (3) — Wed 4:30–7:15pm",
+     "Also this term: apply for the Certificate of Clearance with the CTC, student liability insurance, and complete the CBEST basic-skills requirement"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (15 units)",
+    "courses": [
+     "COUN 5004 Disability in Schools and Society (3) — Mon 4:30–7:15pm",
+     "COUN 5160 Group Counseling (3) — Mon 7:25–10:10pm",
+     "COUN 5210 Advanced Family and Marriage Counseling (3) — Wed 4:30–7:15pm",
+     "COUN 5220 Family Counseling with Children (3) — Tue or Thu 4:30–7:15pm",
+     "COUN 5230 Family Counseling Lab, second semester (3) — Tue or Thu 7:25–10:10pm",
+     "Also this term: apply for Advancement to Candidacy; attend the Fieldwork Placement Fair in February; interview and secure your own fieldwork site"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (6 units)",
+    "courses": [
+     "COUN 4030 Child Maltreatment and Domestic Violence (3) — Tue 5:00–9:00pm",
+     "COUN 5001 Law & Ethics in Counseling (3) — Wed 5:00–9:00pm",
+     "Note: the FAQ describes the summer term as taken through Open University at a per-class rate rather than the full-time semester rate"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (12 units of coursework plus fieldwork)",
+    "courses": [
+     "COUN 5111 Diagnosis and Treatment in Clinical Counseling (3) — Wed 4:30–7:15pm",
+     "COUN 5281 Leadership in PPS (3) — Wed 7:25–10:10pm",
+     "COUN 5002 Assessment in Counseling (3) — Tue 4:30–7:15pm",
+     "COUN 5650 Addiction Counseling (3) — Tue 7:25–10:10pm",
+     "Fieldwork options: COUN 5289 MFT Fieldwork (3) and/or COUN 5286 School Counseling PPS & CWA Fieldwork (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (12 units of coursework plus fieldwork)",
+    "courses": [
+     "COUN 5003 Principles of Research and Program Evaluation (3) — Tue 4:30–7:15pm",
+     "COUN 5257 Career Education and Guidance in Schools (3) — Tue 7:25–10:10pm",
+     "COUN 5112 Psychopharmacology (3) — Thu 4:30–7:15pm",
+     "COUN 5252 Counseling and Human Sexuality (3) — Thu 7:25–10:10pm",
+     "COUN 5096 COMPS (0, optional this term)",
+     "Fieldwork options: COUN 5289 (3) and/or COUN 5286 (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall (fieldwork, plus optional courses)",
+    "courses": [
+     "COUN 5096 COMPS (0, optional)",
+     "COUN 4330 Trauma and Crisis Counseling (3) — \"Optional for LPCC only\"",
+     "Fieldwork options: COUN 5289 (3) and/or COUN 5286 (3)",
+     "Also this term: apply for spring graduation and for the PPS Credential"
+    ]
+   },
+   {
+    "label": "Year 3 — Spring (fieldwork only)",
+    "courses": [
+     "\"No coursework, only Fieldwork Supervision\"",
+     "Fieldwork options: COUN 5289 (3) and/or COUN 5286 (3)",
+     "Then: \"Apply for AMFT and APCC with the BBS if working towards licensure hours within the next year.\""
+    ]
+   },
+   {
+    "label": "Culminating experience (0–4 units)",
+    "courses": [
+     "COUN 5960 Comprehensive Examination (0) — what most students do",
+     "or COUN 5990A Thesis Planning (2) + COUN 5990B Thesis (2)",
+     "or COUN 5995A Project Planning (2) + COUN 5995B Project (2)"
+    ]
+   }
+  ],
+  "src": "https://docs.google.com/document/d/1tEPnsIqSJfju4FsUuMGskOBEO1fiyrrXIeePnAWgk5w/preview"
+ },
+ "practicum": {
+  "starts": "First semester of the first year, in the on-campus clinic (COUN 5230). Community and school fieldwork begins in the fall of year two and runs to the end of year three.",
+  "hours": "18 fieldwork units total — COUN 5230 Family Counseling Laboratory Fieldwork (6), COUN 5286 School Counseling PPS & CWA Fieldwork (6), COUN 5289 MFT Site Practicum (6). The programme quantifies field time as \"15-20 hours per week of fieldwork in their second year and third year.\" No total client-contact-hour figure and no relational sub-minimum is published.",
+  "who_places": "student-finds",
+  "clinic": "School-Based Family Clinic, King Hall C-1067, on the Cal State LA campus",
+  "detail": "The first year is the school's to run and the last two are yours. From the first semester you are in the School-Based Family Clinic in King Hall — shadowing, peer counselling and role plays at first, using the clinic's recording equipment to review your own work, \"closely supervised by faculty members\" — and by the second semester you are carrying real cases with a co-therapist, working with parents and children on problems ranging from school behaviour to family separation. The clinic is free to the surrounding community, runs Monday to Thursday, and offers services in English and Spanish; its clinicians are described as advanced graduate students supervised directly by licensed Counseling faculty in the Charter College of Education. The handover happens in February of year one, at a fieldwork placement fair, and after that the programme is explicit that it does not place you: \"Not directly. We provide a fieldwork placement fair the year before you begin fieldwork. We also maintain a list of agencies and schools with which we have a current fieldwork contract. You are responsible for finding the school and/or agency that feels like the right fit for you.\" The stated rationale is that fieldwork is \"a bridge to employment\" and that many students are hired by their sites. From then on the structure is two parallel tracks — COUN 5289 for MFT hours and COUN 5286 for school counselling and CWA hours — each appearing as an option in every fieldwork semester, with fixed weekly supervision slots on Monday and Wednesday evenings, and a separate application for fieldwork enrolment filed the semester before. Fifteen to twenty hours a week of placement, on top of evening classes, is why the programme says outside employment is possible but \"full-time employment is often not possible.\"",
+  "src": "https://sites.google.com/view/calstatelasbfc/prospective-students/faqs",
+  "model": "not published",
+  "model_evidence": "These Clinic courses provide the opportunity for students to work in the Cal State LA's School-Based Family Counseling Clinic with families from the community who are referred for family and school-related problems. Students work in co-therapy teams under the direct supervision of licensed faculty members.",
+  "model_url": "https://www.calstatela.edu/coe/edsp/ms-school-based-family-counseling",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "School-Based Family Clinic"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "\"We typically receive about 300 applications and accept a maximum of 24 students\" — two cohorts of twelve, admitted once a year for fall. Class sizes run from 12 for clinical courses up to 24 for lectures.",
+  "gre": "not required",
+  "prereqs": "One prerequisite course, in Counseling or Psychological Theories, completed before the programme starts (COUN 4500 is offered at Cal State LA the preceding summer); waived for psychology majors. A 2.75 GPA in the last 60 semester units is the published minimum, though the programme notes that historically it interviews applicants at 3.0+ with mental-health field experience. Two letters of recommendation, a two-page resume, a personal statement of no more than three pages, unofficial transcripts, and an interview with the departmental screening committee. After admission: a Certificate of Clearance from the CTC, a negative TB test, and the CBEST basic-skills requirement to convert conditional admission to full admission.",
+  "deadline": "Applications open 1 October and close 15 January for the following fall (15 January 2026 for the Fall 2026 cohort). Interviews are held on the last two Fridays and Saturdays of February, by Zoom.",
+  "src": "https://www.calstatela.edu/coe/edsp/ms-school-based-family-counseling",
+  "gre_evidence": "No specific undergraduate major is required nor is a standardized test (e.g., GRE) required.",
+  "gre_url": "https://www.calstatela.edu/coe/edsp/ms-school-based-family-counseling",
+  "min_gpa": "A 2.75 grade point average in the last 60 semester units attempted.",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "On who actually places you: \"Not directly. We provide a fieldwork placement fair the year before you begin fieldwork... You are responsible for finding the school and/or agency that feels like the right fit for you. We consider fieldwork to be a bridge to employment, and indeed many of our students find employment at their fieldwork sites after they graduate.\"",
+   "who": "Cal State LA SBFC programme FAQ",
+   "sentiment": "mixed",
+   "url": "https://sites.google.com/view/calstatelasbfc/prospective-students/faqs"
+  },
+  {
+   "text": "On how hard it is to get in, and how small it stays: \"We typically receive about 300 applications and accept a maximum of 24 students\", with clinical classes capped at 12 and support from two tenured faculty, one tenure-track faculty, one full-time lecturer and several long-time adjuncts.",
+   "who": "Cal State LA SBFC programme FAQ",
+   "sentiment": "info",
+   "url": "https://sites.google.com/view/calstatelasbfc/prospective-students/faqs"
+  },
+  {
+   "text": "On the workload the programme sets for itself: \"This program is full-time and is cohorted... Students may have outside employment during their Master's program, however full-time employment is often not possible, especially when completing fieldwork.\"",
+   "who": "Cal State LA SBFC programme information page",
+   "sentiment": "negative",
+   "url": "https://sites.google.com/view/calstatelasbfc/prospective-students/program-information"
+  },
+  {
+   "text": "On the LPCC, which the programme treats as optional rather than automatic: \"Yes, it does. It is not necessary to pursue both the LPCC and the MFT, though some people have dual licensure. Please let your advisor know if you would like to pursue the LPCC.\" The roadmap shows the extra course this requires.",
+   "who": "Cal State LA SBFC programme FAQ",
+   "sentiment": "info",
+   "url": "https://sites.google.com/view/calstatelasbfc/prospective-students/faqs"
+  },
+  {
+   "text": "\"I’m in my 2nd year rn ... In terms of workload, I know of classmates who worked full-time during the 1st year and during the second year, many switched to part-time. There’s a lot more work in the 2nd year since you’re also starting internships too which you can get paid internships. For those, it’s important to apply early and to practice interviewing since there’s not a lot of paid internships ... during the 1st year you do clinic where have at most 2 cases of working with families and/or couples ... It’s also good to keep in mind that for this program, aside from MFT, you’re getting your credentials in PPS, CWS, and LPCC (this is if you decide to take the crisis counseling class in the 3rd year).\"",
+   "who": "u/Who_is_1928, second-year student in the School-Based Family Counseling / MFT program, r/CSULA, Aug 2025",
+   "sentiment": "mixed",
+   "url": "https://www.reddit.com/r/CSULA/comments/1n4acgq/mft_current_students/"
+  },
+  {
+   "text": "\"Hi, I attend CSULA in their MFT + PPS program. In the psych program you do not get the MFT. You apply for each program individually so you either apply for school counseling or school psychology which are very different jobs.\"",
+   "who": "u/IcyManufacturer5397, current CSULA MFT + PPS student correcting a prospective applicant, r/CSULA, Mar 2025",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/CSULA/comments/1jdo26d/ms_in_counseling/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/9/91/Aerial_view_of_Cal_State_LA%2C_April_2024.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Cal_State_LA,_April_2024.JPG",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Pi.1415926535, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "Cal State LA from the air, April 2024. The School-Based Family Clinic where first-year students see families in co-therapy pairs is in King Hall, C-1067; the programme requires students to live in the Los Angeles area and offers no online option."
+ },
+ "gaps": [
+  "The Cal State LA academic catalog (ecatalog.calstatela.edu) sits behind an AWS WAF bot challenge and could not be fetched, so no official catalog course descriptions were obtained. Every course code, title and unit value here comes from the programme's own flyer PDF and its current course roadmap; where a description is given it is drawn from those documents or the clinic page, never from the catalog.",
+  "The two curriculum documents disagree in places. The flyer says \"73-77 units\" in its total row but \"76-80 units\" in the paragraph above it; Disability in Schools and Society is EDSP 5000 on the flyer and COUN 5004 on the roadmap; the comprehensive exam is COUN 5960 on the flyer and 5096 on the roadmap. The flyer is dated \"Effective Fall 2019\" and \"Revised 01/2019\"; the roadmap was revised 21 April 2025.",
+  "No total client-contact-hour requirement is published for any fieldwork course, and no relational (couple/family) hour sub-minimum. Field time is quantified only as \"15-20 hours per week\" in years two and three.",
+  "The split between the school and MFT fieldwork strands is not fully specified: COUN 5289 and COUN 5286 are listed as \"fieldwork options\" every semester without a rule for how many of each a student must take, so the 18-unit fieldwork block cannot be allocated with certainty.",
+  "The programme does not state anywhere whether the four school-credential courses can be dropped by a student who wants only the LMFT. It says only that PPS-only and CWA-only routes do not exist; the reverse question is unanswered on its pages.",
+  "The cost figures on the SBFC FAQ are stale — they use $4,200 per full-time semester and $2,800 part-time against a published Fall 2026 rate of $4,821.04 and $3,027.04. The $990-per-class summer Open University rate could not be independently confirmed.",
+  "The SBFC site's application-process page still shows a January 2021 deadline; the deadline used here is the one on the official calstatela.edu programme page.",
+  "Nothing credible was found in student discussion forums. Reddit search endpoints were unreachable during this pass, and an earlier survey of r/therapists, r/askatherapist, r/psychologystudents, The GradCafe and Student Doctor Network found no Cal State LA SBFC thread worth citing. The voices above are all from the programme's own documents."
+ ],
+ "sources": [
+  {
+   "label": "M.S. in Counseling: Option in School-Based Family Counseling — official programme page",
+   "url": "https://www.calstatela.edu/coe/edsp/ms-school-based-family-counseling"
+  },
+  {
+   "label": "SBFC programme site — Program Information (units, clinic, schedule, employment)",
+   "url": "https://sites.google.com/view/calstatelasbfc/prospective-students/program-information"
+  },
+  {
+   "label": "SBFC programme site — FAQs (cost, cohort size, fieldwork placement, LPCC)",
+   "url": "https://sites.google.com/view/calstatelasbfc/prospective-students/faqs"
+  },
+  {
+   "label": "SBFC Program Roadmap: Course Sequence & Advisement (Google Doc, revised 21 April 2025)",
+   "url": "https://docs.google.com/document/d/1tEPnsIqSJfju4FsUuMGskOBEO1fiyrrXIeePnAWgk5w/preview"
+  },
+  {
+   "label": "MS Counseling / School-Based Family Counseling programme flyer (PDF, effective Fall 2019) — unit blocks and course list",
+   "url": "https://drive.google.com/file/d/1G_y4GPdVsXKMC0G8QMWOxlPCdWo5XluJ/preview"
+  },
+  {
+   "label": "School-Based Family Clinic — Charter College of Education",
+   "url": "https://www.calstatela.edu/coe/school-based-family-clinic"
+  },
+  {
+   "label": "Student Fees — Fall Semester 2026 tuition and fees",
+   "url": "https://www.calstatela.edu/finance-onestop/student-fees"
+  },
+  {
+   "label": "SBFC programme site — Course Sequence page",
+   "url": "https://sites.google.com/view/calstatelasbfc/current-students/course-sequence"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "lpcc",
+   "current": "LPCC yes",
+   "correct": "Yes, but it costs an extra course. The programme's current roadmap lists COUN 4330 Trauma and Crisis Counseling (3 units) in the fall of the third year, flagged \"Optional for LPCC only\" — it is not in the flyer's required course list and therefore sits on top of the 73–77 units. The FAQ also treats the LPCC as an opt-in you must raise with your adviser rather than something conferred automatically.",
+   "src": "https://docs.google.com/document/d/1tEPnsIqSJfju4FsUuMGskOBEO1fiyrrXIeePnAWgk5w/preview"
+  },
+  {
+   "field": "credentials awarded (missing from our record)",
+   "current": "not recorded",
+   "correct": "The degree also confers the Pupil Personnel Services (PPS) Credential in School Counseling and the Advanced Authorization in Child Welfare and Attendance (CWA). This is the defining feature of the programme and the reason for the 73–77 units; roughly 15 of those units (COUN 5004/EDSP 5000, COUN 5257, COUN 5281 and the 6-unit COUN 5286 fieldwork strand) exist for the credential rather than the licence, along with CBEST and a CTC Certificate of Clearance.",
+   "src": "https://drive.google.com/file/d/1G_y4GPdVsXKMC0G8QMWOxlPCdWo5XluJ/preview"
+  },
+  {
+   "field": "format / \"2-4 days a week\"",
+   "current": "in-person late-afternoon-evening 2-4 days a week, no online",
+   "correct": "Correct on substance; the two sources differ slightly on the number. The official programme page says 2–4 days per week; the programme's own SBFC site says \"Students take courses 2-3 times per week\" and adds that Saturday courses may be offered. The roadmap's first-year grid puts classes on Monday, Wednesday and two of Tuesday/Thursday, i.e. up to four days.",
+   "src": "https://sites.google.com/view/calstatelasbfc/prospective-students/program-information"
+  }
+ ]
+}

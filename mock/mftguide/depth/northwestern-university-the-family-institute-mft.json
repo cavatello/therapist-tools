@@ -1,0 +1,418 @@
+{
+ "institution": "Northwestern University, The Family Institute",
+ "character": [
+  "The Family Institute is not a university department. It is an independent Illinois non-profit — EIN 36-2682639, $40,139,910 of revenue and $38,809,572 of expenses in its FY2023 IRS filing — that has been in a formal partnership with Northwestern since 1965 and jointly houses the Center for Applied Psychological and Family Studies with The Graduate School. The Graduate School confers the M.S.; TFI supplies the faculty, the supervision, and, for on-campus students, the clinic. That arrangement is the reason the training looks the way it does: on-campus students do 100% of their clinical hours inside TFI's own Bette D. Harris Family & Child Clinic, which sees clients at no cost regardless of ability to pay and books appointments within 24–48 hours, so the caseload is handed to you rather than hunted for. The theoretical centre of gravity is Integrative Systemic Therapy, a model developed in-house over roughly 25 years; it is named explicitly in nearly every course description, and Family Therapy Treatment Models exists partly to teach you \"how to use models to navigate the matrix of IST.\" Students begin seeing cases as early as November of the first quarter.",
+  "The California question has a blunt answer, and the programme gives it itself. On its own application page Northwestern writes: \"The coursework for the Master of Science in Marriage and Family Therapy (MSMFT) program at Northwestern University was designed to meet MFT licensure requirements in the state of Illinois.\" Its federal professional-licensure disclosure is a single paragraph that names Illinois and no other state — there is no state-by-state table, and no California determination of any kind. What the school does publish about California is narrower and more practical: the online branch is authorised to operate in California (one of 45 jurisdictions listed), and full-time Californians are put on a longer clock — The Graduate School states their programme \"will be a minimum of 24 months long to account for state regulations on pre-internship curricula,\" against 21 months for everyone else, with the internship starting in quarter three rather than quarter two and the advanced internship in quarter six rather than quarter five. So this is a genuine California accommodation, but it is a scheduling one, not a curricular one. A Californian graduating from here is an out-of-state applicant under B&P Code §4980.78: the BBS will not issue the AMFT registration until a 12-hour California law-and-ethics course is done on top of MS_FT 428, and a further list of California-specific coursework — CANRA child-abuse assessment and reporting, spousal/partner abuse, aging and elder/dependent-adult abuse, California cultures and socioeconomic position, suicide risk assessment, psychopharmacology, psychological testing, recovery-oriented care — must be completed before the LMFT licence application is approved. None of that is a dealbreaker; all of it is unpaid time and money after a degree that already costs more than any California programme in this directory.",
+  "The two branches are the same degree and the same 25 units, and they are not producing the same outcomes. On campus, cohorts of 26 to 32 full-time students have graduated within the advertised two years at 92.6% to 100% in every one of the last nine reported cohorts, with licensure rates of 84.6% to 100%. The online branch, first accredited in 2022, reports 76% full-time and 36.84% part-time on-time graduation for 2022–23 entrants and 50% full-time for 2023–24 entrants — half the online full-timers are not finishing on schedule, and part-time completion at the advertised length is collapsing. Licensure rates for those who do finish are strong on both branches (85.7%–91.3% online). The online branch is also a 2U-operated programme: Northwestern controls admissions, curriculum, faculty, pricing and credentials, while 2U runs marketing, enrolment specialists, the LMS, student coaching, state-authorisation compliance and — the part that matters most here — \"student support for clinical, fieldwork, or practicum placement requirements.\" Price, at 2026–27 rates: online is $6,902 per unit, which is $172,550 for 25 units. On campus the full-time package rate is $23,662 per quarter across the seven published quarters, roughly $165,600. Both branches also carry a $195 Family Institute tech fee. Neither branch publishes a total."
+ ],
+ "orientation": "Integrative Systemic Therapy (IST) — a systemic/integrative model developed in-house at The Family Institute",
+ "signature": [
+  {
+   "code": "MS_FT 481-6",
+   "title": "Internship in Marital & Family Therapy",
+   "units": "3 (taken as 1 unit x 3 quarters)",
+   "desc": "\"This is a clinical internship at a program-approved placement site for 15-20 hours per week... The internship begins in the second quarter for full-time students or the third quarter for full-time California students and continues through the fifth term for 1 credit per quarter.\"",
+   "verbatim": true,
+   "why": "This is the only place in the entire catalog where California appears, and it is the single most decision-relevant sentence on the site: the program has written a California-specific delay into the course description itself. It is real evidence the school has thought about California students — and equally real evidence that what they thought about was the calendar, not the curriculum.",
+   "src": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  },
+  {
+   "code": "MS_FT 424-6",
+   "title": "Group Therapy",
+   "units": "1",
+   "desc": "\"Students will learn the fundamentals of group dynamics through lectures/readings, participation as a member of a group, and by co-facilitating a group. The course also addresses the business aspects of setting up and marketing a group.\"",
+   "verbatim": true,
+   "why": "Three modes in one required course — didactic, being a group member yourself, and co-leading — plus an explicit unit on how to price and market a group. Most MFT programs teach group theory; very few make you sit inside a group as a member and then hand you the business case for running one.",
+   "src": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  },
+  {
+   "code": "MS_FT 429-6",
+   "title": "Sex Therapy",
+   "units": "1",
+   "desc": "\"A multidimensional, biophysical approach to the diagnosis and treatment of sexual difficulty in individuals and couples. Sexual problems discussed include disorders of desire, aversion, arousal, orgasm, and pain.\"",
+   "verbatim": true,
+   "why": "A required, standalone sex therapy course — not a human-sexuality survey folded into an ethics or development class, and not an elective. Combined with Intimate Relations I and II, the program devotes three of its twenty academic courses to couple and sexual work.",
+   "src": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  },
+  {
+   "code": "MS_FT 413-6",
+   "title": "Intimate Relations II",
+   "units": "1",
+   "desc": "\"This advanced course will provide the techniques and skill-building derived from evidence-based models of couples therapy, and focuses on some of the more challenging problems including sexual issues, infidelity, individual problems, and cultural issues impacting therapy.\"",
+   "verbatim": true,
+   "why": "A second full course on couples, gated behind the first. Most programs get one couples course; this is the clearest curricular signal that the degree is built for relational work rather than for individual therapy with a systems veneer.",
+   "src": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  },
+  {
+   "code": "MS_FT 427-6",
+   "title": "Family of Origin: Systemic Perspectives on Risk and Resilience",
+   "units": "1",
+   "desc": "\"This course offers an in-depth understanding of transgenerational models including a systemic perspective on the development of intrapsychic structure and function. Students will learn the utilization and application of each model with cases and apply the transgenerational framework to strengthen their conceptualization of the self of the therapist.\"",
+   "verbatim": true,
+   "why": "Transgenerational Bowen-lineage work turned back on the student: the framework is taught partly so you can apply it to your own family and your own reactivity. Self-of-the-therapist appears in four separate course descriptions here, which is unusual density for a program that also sells itself as scientist-practitioner.",
+   "src": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  },
+  {
+   "code": "MS_FT 480-6",
+   "title": "Pre-Practicum in Marriage and Family Therapy",
+   "units": "1",
+   "desc": "\"The course presumes no background as a therapist and aims to provide students with the essential skills needed to conduct the first phone call and the initial sessions with individuals, couples, and families.\"",
+   "verbatim": true,
+   "why": "First-quarter course, and the reason on-campus students can be seeing real clients by November. The 'first phone call' framing is the giveaway that this is an operational course rather than a theory course — it exists to get you into a room fast, which is the program's stated 'learning by doing' bet.",
+   "src": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  }
+ ],
+ "curriculum": {
+  "note": "Both branches are cohort-based and share the same 25-unit degree (26 courses; the Professional Identity Seminar is 0 units). The terms below are the on-campus sequence, which is the only branch with a published quarter-by-quarter grid: one fall entry, lockstep, seven quarters including the summer after year one. The online branch teaches the same courses with a '-6' suffix over 21 months full-time or 36 months part-time, with four entry points a year — but does not publish a quarter-by-quarter sequence, so its ordering is not reproduced here.",
+  "total_units": "25",
+  "terms": [
+   {
+    "label": "Ongoing (both years)",
+    "courses": [
+     "MSFT 400-0 Professional Identity Seminar — Clinical (0)",
+     "MSFT 400-02 Professional Identity Seminar — Academic/Research (0, optional)"
+    ]
+   },
+   {
+    "label": "Year 1 — Fall",
+    "courses": [
+     "MSFT 401-0 Basic Concepts of Systems Therapy",
+     "MSFT 421-0 Systemic Assessment",
+     "MSFT 428-0 Legal, Ethical & Professional Issues in Marriage & Family Therapy",
+     "MSFT 480-0 Pre-Practicum in Marriage & Family Therapy"
+    ]
+   },
+   {
+    "label": "Year 1 — Winter",
+    "courses": [
+     "MSFT 402-0 Methods of Systems Therapy",
+     "MSFT 410-0 Human Development",
+     "MSFT 430-0 Power, Privilege & Difference: Practicing Cultural Curiosity & Humility in a Multicultural World",
+     "MSFT 481-0 Internship in Marriage & Family Therapy"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring",
+    "courses": [
+     "MSFT 403-0 Self & Systems: Theory & Application",
+     "MSFT 411-0 Intimate Relations 1",
+     "MSFT 436-0 Family Therapy Treatment Models",
+     "MSFT 481-0 Internship in Marriage & Family Therapy"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer",
+    "courses": [
+     "MSFT 424-0 Group Therapy",
+     "MSFT 437-0 Family Therapy with Children & Adolescents",
+     "MSFT 481-0 Internship in Marriage & Family Therapy"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall",
+    "courses": [
+     "MSFT 413-0 Intimate Relations 2",
+     "MSFT 422-0 Family Research",
+     "MSFT 482-0 Advanced Internship in Marriage & Family Therapy"
+    ]
+   },
+   {
+    "label": "Year 2 — Winter",
+    "courses": [
+     "MSFT 427-0 Family of Origin: Systemic Perspectives on Risk & Resilience",
+     "MSFT 440-0 Systemic Perspectives in the Treatment of Substance Use/Misuse & Addiction",
+     "MSFT 495-0 Capstone Project",
+     "MSFT 482-0 Advanced Internship in Marriage & Family Therapy"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring",
+    "courses": [
+     "MSFT 412-0 Special Problems & Populations",
+     "MSFT 429-0 Sex Therapy",
+     "MSFT 495-0 Capstone Project",
+     "MSFT 482-0 Advanced Internship in Marriage & Family Therapy"
+    ]
+   }
+  ],
+  "src": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/courses-curriculum"
+ },
+ "practicum": {
+  "starts": "On campus: cases begin as early as November of the first quarter, with the graded internship starting Winter of year 1. Online: internship starts in quarter two — quarter three for full-time California students — and runs six quarters.",
+  "hours": "400 hours of direct client contact, of which at least 125 must be with couples or families (Northwestern Graduate School and the 2024 MSFT Academic Program Manual). Approximately 250 hours of supervision, at least 50 of them individual. Note: the online branch's own marketing page states '100' relational hours rather than 125 — the catalog and handbook figure of 125 is the one to plan against.",
+  "who_places": "mixed",
+  "clinic": "Bette D. Harris Family & Child Clinic (on-campus branch only) — plus a Community Program doing in-home, school-based and on-site work with Evanston partner agencies. Online students have no access to either.",
+  "detail": "This is the split that matters most. On-campus students are placed by definition: 100% of clinical training happens in TFI's own free clinic, which schedules clients within 24–48 hours, and students are barred from practising anywhere else. Online students are placed at 'a program-approved placement site' 15–20 hours a week in their home state, found with the help of what the program calls 'a dedicated team of placement specialists' — a service the 2U partnership page lists as 2U's responsibility ('student support for clinical, fieldwork, or practicum placement requirements'). For a Californian this is the make-or-break, and the honest answer is that the program publishes no California placement partners, no California site list, and no California-specific placement data of any kind. The only California-specific operational fact it publishes is that you will need an extra quarter. You would be relying on a placement team, not on an existing California network, to find you a site that will supply 400 hours including 125 relational hours — in a state where trainee slots are competitive and where sites are used to hosting students from CA programs with established relationships. Everyone in the online branch also attends one three-day in-person immersion in the Chicagoland area, at their own travel cost.",
+  "src": "https://www.tgs.northwestern.edu/admission/academic-programs/explore-programs/marriage-and-family-therapy.html",
+  "model": "placed",
+  "model_evidence": "Do I secure my own placements? No. We have a dedicated clinical placement team that you will work with to secure your placement. Every site must be Northwestern-approved and meet TFI's high standards of excellence.",
+  "model_url": "https://mft.northwestern.edu/online-mft/faq/",
+  "model_why": null,
+  "branches": "Two branches, two models. The Evanston on-campus branch trains students in The Family Institute's own clinic. The online branch — the one Californians enrol in — is placed: “Do I secure my own placements? No.” Published constraints on that branch: no placement at your current employer, up to 75 miles of travel, unpaid, and no guarantee without a car.",
+  "own_clinic": true,
+  "clinic_names": [
+   "The Family Institute clinic (on-campus Evanston branch)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "On campus: 26–32 full-time students per year in the last nine reported cohorts (one fall cohort only). One GradCafe poster reported 38 admitted from 80 applicants for a recent year. Online: four cohorts a year (January, April, June, September) with about 15 students per live class section; per-cohort admit numbers are not published, though COAMFTE data show 37 FT + 31 PT entering in 2024–25.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from a regionally accredited institution; a behavioral or family sciences background is preferred, and applicants from other fields must complete Introduction to Psychology and a Human Development course (may be taken elsewhere). Two letters of recommendation, CV, personal statement, academic statement, group/peer interview by invitation, $95 application fee, and a criminal background check on conditional admission ($38 on campus / $50 quoted on the online site). Some placement sites require a second background check at the student's cost.",
+  "deadline": "On campus: applications due December 2 (fall entry only); early-decision is binding, interviews by Zoom in January–February. Online: rolling, with early-decision, priority and final deadlines per cohort — for the January 2027 cohort, August 21 / September 25 / October 26, 2026.",
+  "src": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/apply",
+  "gre_evidence": "Do you require standardized test scores? No. The GRE and GMAT are not required for admission.",
+  "gre_url": "https://mft.northwestern.edu/online-mft/faq/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"the tuition price on the website is incorrect... your first year will be an additional $12K due to a mandatory summer class\" — a warning to check the published cost against the actual quarter count.",
+   "who": "CarolinePia, The GradCafe forums, March 2018",
+   "sentiment": "negative",
+   "url": "https://forum.thegradcafe.com/topic/100437-northwestern-marriage-family-therapy-interview/"
+  },
+  {
+   "text": "\"I know last year they accepted 38 students and 80 applied.\"",
+   "who": "Megan Gaumond, The GradCafe forums, March 2020",
+   "sentiment": "info",
+   "url": "https://forum.thegradcafe.com/topic/61919-what-dose-northwesterns-msmft-groupindividual-interview-look-like/"
+  },
+  {
+   "text": "\"You do wind up with two years of clinical hours, instead of one like many programs\" — posted alongside an estimated cost of $96K at the time.",
+   "who": "Cydpsyche, Student Doctor Network, July 2013",
+   "sentiment": "positive",
+   "url": "https://forums.studentdoctor.net/threads/msmft-or-ma-counseling-psych-northwestern-or-roosevelt-university.1022317/"
+  },
+  {
+   "text": "An experienced LCPC told the poster that \"a master's from Northwestern would bring a lot of added value\" in the Chicago hiring market — a reputation claim, not a California one.",
+   "who": "Cydpsyche, Student Doctor Network, July 2013",
+   "sentiment": "positive",
+   "url": "https://forums.studentdoctor.net/threads/msmft-or-ma-counseling-psych-northwestern-or-roosevelt-university.1022317/"
+  },
+  {
+   "text": "School-published alumna testimonial: \"the most invaluable facet of the program is the breadth of clinical opportunities... In addition to gaining clinical hours at the Bette D. Harris Family & Child Clinic, I participated in the Community Program and the Parents-in-Charge Program.\" Note this describes the on-campus experience only.",
+   "who": "Ashlyn Douthitt, alumna, quoted on family-institute.org",
+   "sentiment": "positive",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/community-program"
+  },
+  {
+   "text": "\"I recently graduated from Counseling@Northwestern and I will echo the reviews that mention regret. For me, the selling point of this particular program was the 'dedicated placement team' that promised to find practicum/internship sites for students. I felt that the placement team actually made things quite difficult for me, and in many cases, prolonged the student experience indefinitely by not finding sites within a reasonable time frame (if at all)... To quote one of my peers, 'This is a grad program, yet we're treated like high-schoolers with no life experience.'... if I had to do it over again, I can easily say that I would choose a smaller school, maybe public, to save money, time and my own mental health.\"",
+   "who": "GradReports review, Counseling@Northwestern graduate, class of 2022, posted 15 Sept 2022 (Becca)",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/northwestern-university"
+  },
+  {
+   "text": "\"My experience with Northwestern has been more triggering than anything I have experienced in my academic career. Ironically, they have the best recruitment known to man. They provide a feeling of belonging and caring, and then you start to attend. My program has been chaotic and unfulfilling for myself and many others in the Counseling online program with Northwestern. They do not care about your personal concerns, life goals, changes in your experience, none of that matters as long as they can cash your check every 10 weeks... Save your money and your pride, so somewhere where you are valued beyond a check.\"",
+   "who": "GradReports review, Counseling (online) student, class of 2024, posted 26 June 2024 (John C.)",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/northwestern-university"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Northwestern_University_campus%2C_Evanston%2C_IL.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Northwestern_University_campus,_Evanston,_IL.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by ~delta, via Wikimedia Commons",
+  "caption": "Northwestern University's Evanston, Illinois campus, July 2023. The Family Institute's graduate programs and Bette D. Harris Clinic operate from 618 Library Place in Evanston, a short walk from campus."
+ },
+ "gaps": [
+  "Northwestern publishes no state-by-state professional licensure disclosure table. Its entire MFT licensure disclosure is one paragraph naming Illinois; there is no California determination — not 'meets requirements', not 'does not meet', not 'has not determined'. For a program enrolling Californians under a federal disclosure obligation, that absence is itself the finding.",
+  "No evidence of any California placement relationship. No California site list, no California partner agencies, no California-specific placement outcomes, and no California student or alumni testimony could be found. The program's California-specific statements are limited to state authorisation, an extra quarter, and a per-unit tuition rule.",
+  "How the BBS counts Northwestern 'units' is unresolved and potentially decisive. The degree is 25 Northwestern quarter units (one unit per course), and the program's own FAQ says it is 'equivalent to a 60-plus credit hour program for schools that operate on a semester-based system.' B&P §4980.78 requires an out-of-state degree to contain at least 48 semester / 72 quarter units to qualify at all, and 60 semester / 90 quarter units before licensure (max 12 semester units remediable), plus 6 semester / 9 quarter units of practicum. The school must certify a number on BBS form 37A-600; what number it certifies, and whether the BBS accepts the semester-equivalence, could not be established from any published source. Anyone considering this should get that in writing from both the program and the BBS before applying.",
+  "The specific California regulation behind the extra quarter is not cited. The Graduate School says only 'state regulations on pre-internship curricula'; it does not name a code section, and I could not identify it with confidence in B&P §4980.42 or its neighbours.",
+  "The 400-hour breakdown is inconsistent across the program's own pages: the Graduate School catalog and the 2024 program manual both say at least 125 relational hours, while the online branch's marketing page says 100.",
+  "No credible independent student review of the online branch (Reddit, SDN, GradCafe, Niche) could be found. All substantive forum discussion located is about the on-campus program and is 5–13 years old.",
+  "Online branch cohort size per start date is not published, and the program publishes no total cost for either branch — the totals in this record are my own arithmetic from the published per-unit and per-quarter rates.",
+  "COAMFTE renewed accreditation in May 2025 with three stipulations (Key Elements II-A program leadership, II-B faculty and supervisor qualifications, IV-B demonstrated achievement of program goals). The program's response was due January 31, 2026; whether the stipulations have since been cleared is not published."
+ ],
+ "corrections": [
+  {
+   "field": "units",
+   "current": null,
+   "correct": "25 Northwestern quarter units (26 courses; the Professional Identity Seminar is 0 units). Same for both branches. The program describes this as 'equivalent to a 60-plus credit hour program for schools that operate on a semester-based system' — a claim a California applicant must verify with the BBS, since B&P §4980.78 sets its thresholds in semester/quarter units.",
+   "src": "https://catalogs.northwestern.edu/tgs/marriage-family-therapy/marriage-family-therapy-ms/"
+  },
+  {
+   "field": "length",
+   "current": null,
+   "correct": "On campus: 2 years full-time, seven quarters including the summer after year one, fall entry only. Online: 21 months full-time or 36 months part-time — but a minimum of 24 months for full-time students residing in California, 'to account for state regulations on pre-internship curricula'. Maximum time to complete is 5 years on both branches.",
+   "src": "https://www.tgs.northwestern.edu/admission/academic-programs/explore-programs/marriage-and-family-therapy.html"
+  },
+  {
+   "field": "format",
+   "current": null,
+   "correct": "Two COAMFTE-accredited branches of one degree. On-campus in Evanston, IL, with all clinical training inside The Family Institute's own Bette D. Harris Family & Child Clinic. Online — operated in partnership with 2U — combining live weekly online classes with asynchronous work, one required three-day in-person immersion in the Chicagoland area, and a program-approved practicum site near the student's home. Students cannot transfer between branches once enrolled.",
+   "src": "https://mft.northwestern.edu/online-mft/admissions/"
+  },
+  {
+   "field": "per_unit",
+   "current": null,
+   "correct": "2026–27: Marriage & Family Therapy — Online $6,902/unit; On-Campus full-time $23,662/quarter (3–4 units/term); On-Campus part-time $6,902/unit. Plus a one-time $195 Family Institute tech fee. Full-time online students located in California are billed at the per-unit rate rather than the full-time package rate, to offset the extra quarter California requires.",
+   "src": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html"
+  },
+  {
+   "field": "total",
+   "current": null,
+   "correct": "Not published by the school. My arithmetic from the 2026–27 published rates: online, 25 units x $6,902 = $172,550; on campus, 7 quarters x $23,662 = about $165,634. Both exclude fees, health insurance, immersion travel and living costs.",
+   "src": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html"
+  },
+  {
+   "field": "tyear",
+   "current": null,
+   "correct": "2026-27",
+   "src": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html"
+  },
+  {
+   "field": "turl",
+   "current": null,
+   "correct": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html",
+   "src": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html"
+  },
+  {
+   "field": "coamfte",
+   "current": true,
+   "correct": "True, and worth stating precisely: on-campus branch accredited 1995, online branch accredited 2022, both reaccredited May 1, 2025 for seven years to May 1, 2032 — but with three stipulations (Key Elements II-A, II-B and IV-B) that the program had until January 31, 2026 to respond to.",
+   "src": "https://www.coamfte.org/common/Uploaded%20files/COAMFTE/Accreditation%20Decisions/The%20Family%20Institute%20at%20Northwestern%20University%20(MS)%20-%20COAMFTE%20Spring%202025%20Action%20Letter.pdf"
+  },
+  {
+   "field": "notable",
+   "current": null,
+   "correct": "The only out-of-state institution in this directory. Its online branch is authorised to operate in California and schedules Californians an extra quarter, but the program states plainly that its coursework 'was designed to meet MFT licensure requirements in the state of Illinois,' and its federal licensure disclosure makes no California determination. A California graduate enters as an out-of-state applicant under B&P §4980.78 and owes a 12-hour California law-and-ethics course before AMFT registration plus a list of California-specific coursework before licensure.",
+   "src": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/apply"
+  },
+  {
+   "field": "other_accreditation",
+   "current": null,
+   "correct": "Northwestern University is institutionally accredited by the Higher Learning Commission (the program pages still name its predecessor, the North Central Association of Colleges and Schools). That matters for California: B&P §4980.78 requires an out-of-state degree to come from a school holding USDE-recognised institutional accreditation, which Northwestern does.",
+   "src": "https://mft.northwestern.edu/legal/accreditation/"
+  }
+ ],
+ "sources": [
+  {
+   "label": "MFT@Northwestern — About (assignment URL)",
+   "url": "https://mft.northwestern.edu/about"
+  },
+  {
+   "label": "MFT@Northwestern — Online course descriptions (full catalog text)",
+   "url": "https://mft.northwestern.edu/online-mft/curriculum/course-descriptions/"
+  },
+  {
+   "label": "MFT@Northwestern — Curriculum, clinical placement, immersion",
+   "url": "https://mft.northwestern.edu/online-mft/curriculum/"
+  },
+  {
+   "label": "MFT@Northwestern — FAQ (credits, length, limited states)",
+   "url": "https://mft.northwestern.edu/online-mft/faq/"
+  },
+  {
+   "label": "MFT@Northwestern — Admissions, cohort starts and deadlines",
+   "url": "https://mft.northwestern.edu/online-mft/admissions/"
+  },
+  {
+   "label": "MFT@Northwestern — Application requirements",
+   "url": "https://mft.northwestern.edu/online-mft/admissions/requirements/"
+  },
+  {
+   "label": "MFT@Northwestern — MS in MFT Licensure disclosure (Illinois only; no California entry)",
+   "url": "https://mft.northwestern.edu/legal/licensure/mft/"
+  },
+  {
+   "label": "MFT@Northwestern — State Authorization Information (California listed)",
+   "url": "https://mft.northwestern.edu/legal/state-authorization-information/"
+  },
+  {
+   "label": "MFT@Northwestern — Accreditation statement",
+   "url": "https://mft.northwestern.edu/legal/accreditation/"
+  },
+  {
+   "label": "MFT@Northwestern — Our Partnership with 2U",
+   "url": "https://mft.northwestern.edu/2u/"
+  },
+  {
+   "label": "Northwestern Academic Catalog 2025-26 — Marriage and Family Therapy MS degree requirements",
+   "url": "https://catalogs.northwestern.edu/tgs/marriage-family-therapy/marriage-family-therapy-ms/"
+  },
+  {
+   "label": "Northwestern Graduate School — MFT program overview (California 24-month exception, 125 relational hours)",
+   "url": "https://www.tgs.northwestern.edu/admission/academic-programs/explore-programs/marriage-and-family-therapy.html"
+  },
+  {
+   "label": "Northwestern Student Finance — Graduate School tuition 2026-27 (MFT rates)",
+   "url": "https://northwestern.edu/sfs/tuition/graduate/the-graduate-school.html"
+  },
+  {
+   "label": "The Family Institute — MS in MFT, On-Campus Branch",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy"
+  },
+  {
+   "label": "The Family Institute — MS in MFT, Online Branch",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy-online"
+  },
+  {
+   "label": "The Family Institute — Courses & Curriculum (on-campus quarter-by-quarter sequence)",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/courses-curriculum"
+  },
+  {
+   "label": "The Family Institute — Graduate Achievement Data (COAMFTE disclosure table, both branches)",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/student-achievement-data"
+  },
+  {
+   "label": "The Family Institute — Apply (Applicant Acknowledgement of Regulatory Alignment: 'designed to meet MFT licensure requirements in the state of Illinois')",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/apply"
+  },
+  {
+   "label": "The Family Institute — Bette D. Harris Family & Child Clinic",
+   "url": "https://www.family-institute.org/about-us/bette-d-harris-family-child-clinic"
+  },
+  {
+   "label": "The Family Institute — Community Program",
+   "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/community-program"
+  },
+  {
+   "label": "The Family Institute — About Us / partnership with Northwestern since 1965",
+   "url": "https://www.family-institute.org/about-us"
+  },
+  {
+   "label": "MSFT Academic Program Manual 2024 (PDF) — 400 hours, 125 relational, 250 supervision, California per-unit tuition rule",
+   "url": "https://www.family-institute.org/sites/default/files/MSFT%20Academic%20Program%20Manual%202024%20-%20WEBSITE.pdf"
+  },
+  {
+   "label": "COAMFTE Spring 2025 Action Letter — renewal May 1 2025 to May 1 2032 with three stipulations (PDF)",
+   "url": "https://www.coamfte.org/common/Uploaded%20files/COAMFTE/Accreditation%20Decisions/The%20Family%20Institute%20at%20Northwestern%20University%20(MS)%20-%20COAMFTE%20Spring%202025%20Action%20Letter.pdf"
+  },
+  {
+   "label": "California BBS — Guide to Educational Requirements, AMFT out-of-state and out-of-country applicants (PDF)",
+   "url": "https://www.bbs.ca.gov/pdf/forms/mft/amft_guide_oos.pdf"
+  },
+  {
+   "label": "California BBS — MFT Out-of-State Degree Program Certification form 37A-600 (PDF)",
+   "url": "https://www.bbs.ca.gov/pdf/forms/mft/mft_degree.pdf"
+  },
+  {
+   "label": "California B&P Code §4980.78 — out-of-state degree requirements and remediation",
+   "url": "https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-1/section-4980-78/"
+  },
+  {
+   "label": "California B&P Code §4980.42 — trainee services and school/site agreements",
+   "url": "https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-1/section-4980-42/"
+  },
+  {
+   "label": "ProPublica Nonprofit Explorer — The Family Institute (EIN 36-2682639) FY2023 financials",
+   "url": "https://projects.propublica.org/nonprofits/organizations/362682639"
+  },
+  {
+   "label": "The GradCafe — Northwestern Marriage & Family Therapy interview thread",
+   "url": "https://forum.thegradcafe.com/topic/100437-northwestern-marriage-family-therapy-interview/"
+  },
+  {
+   "label": "The GradCafe — Northwestern MSMFT group/individual interview thread",
+   "url": "https://forum.thegradcafe.com/topic/61919-what-dose-northwesterns-msmft-groupindividual-interview-look-like/"
+  },
+  {
+   "label": "Student Doctor Network — MSMFT or MA Counseling Psych, Northwestern or Roosevelt",
+   "url": "https://forums.studentdoctor.net/threads/msmft-or-ma-counseling-psych-northwestern-or-roosevelt-university.1022317/"
+  }
+ ],
+ "slug": "northwestern-university-the-family-institute-mft"
+}

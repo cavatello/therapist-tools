@@ -1,0 +1,204 @@
+{
+ "institution": "California State University, Stanislaus",
+ "character": [
+  "Of the three public MFT options in the north state and Central Valley, Stanislaus is the one that kept the psychology department's research spine intact. A master's thesis is not an option here, it is core: PSYC 5990 Master's Thesis sits in the 36-unit Basic Requirements block, the 24-unit Counseling Track adds PSYC 5005 Introduction to Master's Thesis, PSYC 5010 Advanced Methods for Psychological Research and PSYC 5020 Advanced Statistical Analysis of Psychological Data, and the department's rule is that \"once students complete all other coursework, they must be continually enrolled in at least one thesis unit.\" Most California MFT programs let you exit on a comprehensive exam; this track does not offer that door. That is the single most consequential fact about the program, and it is the usual reason a nominally 2.5-year degree runs longer.",
+  "The second structural fact is that the MFT concentration is split into two tracks — Counseling and Behavior Analysis — that share the same 36-unit core. Your classmates in ethics, psychopathology and psychopharmacology include people training toward BCBA certification, and the shared history is still legible in the course descriptions: PSYC 5080 Legal and Ethical Issues \"addresses BACB academic content and ABAI accreditation content requirements,\" and so does the thesis course. The counseling-specific content is concentrated rather than pervasive, and it is worth noticing how thin the family-systems layer actually is: across all 60 units there is exactly one course on family therapy theory and technique (PSYC 5790 Family Counseling Theory and Practice) and one on couples (PSYC 5755). For a degree with \"Marriage and Family Therapy\" in its title, the systemic content is a smaller share of the whole than at Chico or Dominguez Hills. What Stanislaus gives you instead is unusual depth in assessment, diagnostics and research method.",
+  "The access story is real — Stanislaus, in Turlock with a second campus in Stockton, is the public MFT option for the northern San Joaquin Valley, a region with few alternatives that are not private and expensive — but it is also the least-documented program of the three, and a prospective student should know that before applying. The 2026–27 academic catalog publishes PSYC course titles with no descriptions and no unit values at all; the department's own program-requirements page carries \"Updated: September 13, 2023\"; and the department's list of required courses includes four courses (PSYC 5005, 5140, 5160 and 5905) that do not appear in the 2026–27 catalog's PSYC course listing. No client-contact-hour target, no relational-hour minimum, no supervision ratio, no cohort size, no in-house clinic and no named partner agencies appear in any public document. This is a solid, conventional, research-forward program with a legitimate regional mission, but it publishes materially less about how its clinical training actually works than its peers do, and the honest advice is to get those numbers from the department in writing before you commit."
+ ],
+ "orientation": "Generalist counseling with a strong empirical/thesis spine; the department names no single model, describing the track only as emphasising \"a variety of counseling theories and skills\"",
+ "signature": [
+  {
+   "code": "PSYC 5990",
+   "title": "Masters Thesis",
+   "units": "1–3",
+   "desc": "\"Preparation of a thesis in area of specialty for partial fulfillment of requirements. Addresses ABAI accreditation content requirements.\" Prerequisites: admission to classified graduate standing and consent of instructor.",
+   "verbatim": true,
+   "why": "This is in the required 36-unit core, not an alternative to a comprehensive exam — the defining structural difference between Stanislaus and almost every other California MFT program. Note too that the description is written for the behavior-analysis side of the house, a reminder that the core is shared across both tracks.",
+   "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91505"
+  },
+  {
+   "code": "PSYC 5780",
+   "title": "Advanced Counseling",
+   "units": "4",
+   "desc": "\"Counseling practices focused on a method of brief goal-oriented psychotherapy which includes: assessment, establishing mutual goals, treatment interventions, and termination issues. Practice in the techniques of counseling and client file record keeping.\" Hours: lecture 3 hours, laboratory 2 hours.",
+   "verbatim": true,
+   "why": "The only 4-unit course in the degree and the only one with a laboratory component, and it is a prerequisite for practicum. It also commits to something specific where most of the curriculum stays neutral: brief, goal-oriented therapy as the working method, with file record-keeping taught as a skill rather than assumed.",
+   "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91491"
+  },
+  {
+   "code": "PSYC 5790",
+   "title": "Family Counseling Theory and Practice",
+   "units": "3",
+   "desc": "\"Study of theory and techniques of conjoint family therapy with consideration of such topics as parent-child relationships, human sexuality, and combined families.\" Prerequisites: PSYC 3790, 4770, graduate standing or consent of instructor.",
+   "verbatim": true,
+   "why": "Worth flagging precisely because of what surrounds it: this is the single course in the entire 60 units devoted to family systems theory and technique. If conjoint family work is why you are choosing an MFT degree, this is the whole of it, and you should ask the department how the practicum supplements it.",
+   "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91492"
+  },
+  {
+   "code": "PSYC 5690",
+   "title": "Counseling Sexual Problems",
+   "units": "3",
+   "desc": "\"(Formerly Relationship and Sexuality Counseling) Introduction to assessment, formulation, and treatment of common sexual problems across the lifespan. Topics generally include sexual development across the lifespan, gender identity, sexual dysfunctions, sexual health, abortion and infertility counseling, and sexual decision-making.\"",
+   "verbatim": true,
+   "why": "Most California programs meet the BBS human-sexuality requirement with a survey course. This one names abortion counseling, infertility counseling and sexual decision-making as explicit content — reproductive-health counseling as clinical skill, which very few California MFT catalogs put in writing.",
+   "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91488"
+  },
+  {
+   "code": "PSYC 5860",
+   "title": "Trauma and Domestic Violence Interventions",
+   "units": "3",
+   "desc": "\"(Formerly Domestic Violence Interventions) Assessment, treatment, and techniques appropriate to trauma interventions (e.g., crisis, PTSD, domestic violence) will be covered in this course... Course meets the State of California's requirement of a course in domestic violence interventions.\"",
+   "verbatim": true,
+   "why": "A dedicated core course that discharges the state's spousal/partner-abuse content requirement outright rather than folding it into law and ethics. The rename from \"Domestic Violence Interventions\" to include trauma broadly tracks the field's shift over the last decade.",
+   "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91497"
+  },
+  {
+   "code": "PSYC 5910",
+   "title": "Practicum Counseling and Diagnostics",
+   "units": "3 (repeated for 6 total)",
+   "desc": "\"Supervised client contact hours in individual, couples, family, or group counseling depending on agency providing practicum experience. Emphasis on formal assessment, diagnostic testing, client charting, treatment planning, and development of student's own theoretical orientation.\" Prerequisites: PSYC 5030, 5080, 5780, second-year classified graduate standing and consent of instructor.",
+   "verbatim": true,
+   "why": "This is the entire clinical training requirement, and the description is the only public statement of what practicum involves. Two things follow from it: the modality mix is set by whichever agency takes you (\"depending on agency providing practicum experience\"), and the emphasis is diagnostic and documentary — formal assessment, testing, charting — more than systemic.",
+   "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91498"
+  }
+ ],
+ "curriculum": {
+  "note": "No term-by-term sequence is published. The department states a 60-unit minimum built from a 36-unit Basic Requirements core shared with the Behavior Analysis Track plus 24 units of Counseling Track courses, and the graduate-programs page says full-time students \"finish the MS in 5 semesters (2.5 years).\" The 2026–27 catalog lists PSYC course titles without unit values, so units are omitted below except where a prior catalog confirmed them; course titles below are the department's, which in several cases differ from the catalog's shorter forms. The list is as published on the department page, last updated September 13, 2023.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Basic Requirements (36 units) — shared with the Behavior Analysis Track",
+    "courses": [
+     "PSYC 5080 Legal and Ethical Issues in Psychology and Counseling (catalog title: Legal and Ethical Issues)",
+     "PSYC 5140 Applied Psychopharmacology",
+     "PSYC 5160 Multicultural and Developmental Perspectives in Counseling",
+     "PSYC 5360 Seminar in Clinical Psychopathology",
+     "PSYC 5650 Child Clinical Interventions",
+     "PSYC 5690 Counseling Sexual Problems",
+     "PSYC 5740 Community Counseling Interventions",
+     "PSYC 5770 Substance Abuse and Chemical Dependency Counseling (catalog title: Substance Abuse Counseling)",
+     "PSYC 5780 Advanced Counseling",
+     "PSYC 5860 Trauma and Domestic Violence Interventions",
+     "PSYC 5905 Client Advocacy Practicum",
+     "PSYC 5990 Master's Thesis (minimum 3 units; continuous enrolment required until complete)"
+    ]
+   },
+   {
+    "label": "Counseling Track (24 units)",
+    "courses": [
+     "PSYC 5005 Introduction to Master's Thesis",
+     "PSYC 5010 Advanced Methods for Psychological Research (catalog title: Advanced Research Methods)",
+     "PSYC 5020 Advanced Statistical Analysis of Psychological Data (catalog title: Advanced Statistical Analysis)",
+     "PSYC 5030 Clinical Assessment and Diagnostics",
+     "PSYC 5755 Couples Therapy",
+     "PSYC 5790 Family Counseling Theory and Practice",
+     "PSYC 5810 Seminar in Group Counseling and Psychotherapy (catalog title: Group Counseling and Psychotherapy)",
+     "PSYC 5910 Practicum in Counseling and Diagnostics — repeated for 6 units total; PSYC 5930 Practicum in Behavior Analysis may substitute for one of the two required semesters"
+    ]
+   }
+  ],
+  "src": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0"
+ },
+ "practicum": {
+  "starts": "Second year. PSYC 5910 requires second-year classified graduate standing plus PSYC 5030 Clinical Assessment and Diagnostics, PSYC 5080 Legal and Ethical Issues and PSYC 5780 Advanced Counseling, all completed first — so the whole of year one is coursework, with no client contact.",
+  "hours": "Not published. The requirement is expressed only in units: PSYC 5910 taken twice for 6 units total. No client-contact-hour target, no relational (couple or family) hour minimum and no supervision ratio appears in the catalog, on the department pages or in any public program document. There is a second, separately-named practicum in the core — PSYC 5905 Client Advocacy Practicum — but it carries no published description or hour requirement either, and it does not appear in the 2026–27 catalog's PSYC listing at all.",
+  "who_places": "unclear — not stated in any public document",
+  "clinic": null,
+  "detail": "Stanislaus names no in-house training clinic anywhere in its public materials, and PSYC 5910's catalog description points off campus: your modality mix is set \"depending on agency providing practicum experience,\" which means individual, couples, family or group work is determined by whoever takes you rather than by the curriculum. That is the practical risk here — a student placed at an agency that sees mostly individual adults could finish an MFT degree with very little relational hour accumulation, and no published relational minimum forces otherwise. How you get the placement is genuinely not stated: nothing on the department's pages says whether the program assigns sites, maintains an approved-agency list, or leaves the search to you, and no partner agencies are named. The course's stated emphasis is diagnostic and documentary — formal assessment, diagnostic testing, client charting, treatment planning — alongside developing your own theoretical orientation, with case presentations, in-service training, and written assessment and treatment reports. Supervision arrangements are not described beyond the word \"supervised.\" Prospective applicants should treat all of this as a direct question for the department: how many client hours students typically finish with, how many are relational, who finds the site, and what the supervision ratio is.",
+  "src": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91498",
+  "model": "not published",
+  "model_evidence": "Supervised client contact hours in individual, couples, family, or group counseling depending on agency providing practicum experience. Emphasis on formal assessment, diagnostic testing, client charting, treatment planning, and development of student's own theoretical orientation.",
+  "model_url": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91498",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not required",
+  "prereqs": "Either a BA/BS in Psychology plus the concentration prerequisites at a grade of B or better, or an Introductory Psychology course plus the concentration prerequisites and a minimum of 16 upper-division Psychology units at B or better with content acceptable to the Psychology Graduate Committee. Counseling Track prerequisites are four upper-division courses: Experimental Psychology (PSYC 3000 or equivalent), Abnormal Psychology (PSYC 3350), Counseling Theory (PSYC 3790) and Counseling Techniques (PSYC 4770). Minimum 3.0 overall GPA. Also required: a personal statement answering four named questions (why this field, your understanding of the professional role, why Stan State specifically, and what makes you a strong candidate), three letters of recommendation, a set of examinations administered by the Psychology Department to identify areas needing further preparation, and approval by the department. Related work or volunteer experience is strongly recommended. Admission is competitive.",
+  "deadline": "Fall entry. The most recently published deadline was January 15, 2025 for Fall 2025; the department has not posted a later cycle date at the time of writing, so confirm before relying on it.",
+  "cost": "California-resident rate from the university's own fee schedule for Fall 2026: $5,670 per semester at more than 6 units and $3,756 per semester at 0–6 units, tuition and all mandatory fees included. At the stated five-semester full-time pace that is about $28,350 — the cheapest of the three programs here, largely because it is five semesters rather than six. CSUs charge a flat rate by unit band rather than per unit, so a light thesis-only semester still costs $3,756 if you stay enrolled, and continuous thesis enrolment is required until the thesis is done.",
+  "src": "https://www.csustan.edu/tuition-fees/fee-schedules-deadlines",
+  "gre_evidence": "Note: The Graduate Record Examination is no longer required.",
+  "gre_url": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0",
+  "min_gpa": "A minimum 3.0 overall grade point average.",
+  "conflict": null
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/d/db/CSU_Stanislaus_Crowell_Rd_Water_Feature.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:CSU_Stanislaus_Crowell_Rd_Water_Feature.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Cameron11598, via Wikimedia Commons",
+  "caption": "Sequoia Lake, the water feature running along Crowell Road on the CSU Stanislaus campus in Turlock."
+ },
+ "gaps": [
+  "The 2026–27 academic catalog (catoid 37) publishes PSYC course titles with no descriptions and no unit values whatsoever. The course descriptions quoted here are from the 2022–23 catalog, which is the most recent one that carries them; they may be out of date.",
+  "Four courses the department lists as required — PSYC 5005 Introduction to Master's Thesis, PSYC 5140 Applied Psychopharmacology, PSYC 5160 Multicultural and Developmental Perspectives in Counseling, and PSYC 5905 Client Advocacy Practicum — do not appear in the 2026–27 catalog's PSYC course listing at all. PSYC 5740 Community Counseling Interventions does appear, but with no description.",
+  "No client-contact-hour requirement, relational-hour minimum, or supervision ratio is published anywhere.",
+  "Who arranges the practicum placement is not stated — not program-placed, not student-finds, simply unaddressed in every public document. No partner agencies are named.",
+  "No in-house training clinic is named in any program material; whether one exists could not be established either way.",
+  "No cohort size, applicant volume, acceptance rate, graduation rate or licensure exam pass rate is published. Stanislaus is not COAMFTE-accredited and so is not subject to COAMFTE's outcome-disclosure requirements.",
+  "No term-by-term course sequence is published; the 2.5-year / five-semester figure comes from a one-line statement on the graduate-programs index, not a plan of study.",
+  "The department's program-requirements page carries \"Updated: September 13, 2023\" and its stated application deadline is from the Fall 2025 cycle, so parts of it may be stale.",
+  "No credible student commentary found. Reddit, GradCafe and Student Doctor Network returned nothing specific to this program through available search. An AI-generated aggregator page (sentio.org) purports to review the program but miscites the practicum course as PSYC 5510 rather than PSYC 5910, so it was not used as a source."
+ ],
+ "sources": [
+  {
+   "label": "Department page — MS Psychology, MFT Concentration: Counseling Track (requirements, prerequisites, course lists; updated September 13, 2023)",
+   "url": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0"
+  },
+  {
+   "label": "Department page — Psychology Graduate Programs index (60 units, five semesters / 2.5 years, deadline)",
+   "url": "https://www.csustan.edu/psychology/graduate-programs"
+  },
+  {
+   "label": "Department page — MFT Concentration: Behavior Analysis Track (the sibling track sharing the same 36-unit core)",
+   "url": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration"
+  },
+  {
+   "label": "2026–27 Academic Catalog — PSYC course listing (titles only; no descriptions or units published)",
+   "url": "https://catalog.csustan.edu/preview_course.php?catoid=37&coid=116152&print"
+  },
+  {
+   "label": "2022–23 Academic Catalog — PSYC course descriptions (the most recent catalog carrying them)",
+   "url": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91498"
+  },
+  {
+   "label": "Fee Schedules & Deadlines — Fall 2026 California-resident graduate rates",
+   "url": "https://www.csustan.edu/tuition-fees/fee-schedules-deadlines"
+  },
+  {
+   "label": "COAMFTE Directory of Accredited Programs — CSU Stanislaus does not appear",
+   "url": "https://coamfte.edvera.com/directory/institutions"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "length",
+   "current": "no length known",
+   "correct": "Approximately 2.5 years — the department's graduate-programs page states that full-time students \"finish the MS in 5 semesters (2.5 years).\" That is the shortest of the three CSU programs covered here, but it is a coursework figure: the required master's thesis carries a continuous-enrolment rule that commonly extends the calendar beyond it.",
+   "src": "https://www.csustan.edu/psychology/graduate-programs"
+  },
+  {
+   "field": "degree",
+   "current": "M.S. in Psychology, Marriage and Family Therapy Concentration",
+   "correct": "Incomplete in a way that matters: the MFT Concentration has two distinct tracks — a Counseling Track and a Behavior Analysis Track — that share the 36-unit core but differ entirely in their 24 track units. The MFT-licensure route is the Counseling Track, and the record should say so.",
+   "src": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0"
+  },
+  {
+   "field": "culminating requirement",
+   "current": "not recorded",
+   "correct": "A master's thesis is required, in the core, with no comprehensive-exam alternative offered in this track (PSYC 5990, minimum 3 units, plus PSYC 5005 Introduction to Master's Thesis in the track units). Students must remain continuously enrolled in at least one thesis unit once all other coursework is done. This is the program's biggest practical differentiator and is worth carrying in the directory record.",
+   "src": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0"
+  },
+  {
+   "field": "units",
+   "current": "60 units minimum (36 core + 24 track)",
+   "correct": "Verified correct — the department states \"60 units minimum,\" \"Basic Requirements (36 units)\" and \"Counseling Track Courses (24 units).\" No change needed.",
+   "src": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0"
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+ "institution": "San Diego State University",
+ "character": [
+  "This is the one program of the three that is an MFT degree all the way down, and it is unusually explicit about the theory it is teaching. The program's own Essential Guide states its frame as \"relational/systemic and social constructionist,\" on the premise that \"all descriptions of human interactions are subjective, contextual, and emerging from social interaction\" (p. 4). That commitment shows up in course titles you will not find at most CA programs: CSP 618 is not \"Psychopathology and the DSM,\" it is \"Mental Health Recovery and the DSM: A Social Justice Perspective\"; the law-and-ethics course (CSP 606A) is described in the catalog as covering the \"cultural underpinnings and clinical implications of legal and ethical codes\"; the second theories course (CSP 626) is explicitly postmodern — narrative therapy, collaborative language systems, coaching and mediation. COAMFTE-accredited since 2006.",
+  "The center of gravity is a real clinic in a real neighborhood. The Center for Community Counseling & Engagement sits in the Dede Alpert Center at 4283 El Cajon Blvd, Suite 215, in City Heights — not on the campus in the College Area — and sees over 300 clients a year in ten languages. First-year students do two semesters of practicum there in weekly four-hour blocks, under live supervision behind one-way mirrors, before moving to community traineeship placements at 15–25 hours/week. The program also requires each student to complete their own personal therapy (individual, couple, family or group) before graduating, and to join AAMFT or CAMFT and carry liability insurance before practicum starts.",
+  "The trade-off for all this is that it is hard to get into and inflexible once you're in. SDSU's own FAQ says \"Approximately 6-10% of applicants are accepted\" into a cohort of about 30, there is no part-time option, and the program starts in early June and runs 2.5 years through three summers. What it does not ask for is a psychology background: \"There is no specific coursework or degree required to apply,\" no GRE (submitted scores \"will not be reviewed\"), and a 2.85 minimum GPA. At the Fall 2026 CSU rate of $5,745/semester full-time for California residents, this is among the cheapest COAMFTE-accredited routes in the state."
+ ],
+ "orientation": "Relational/systemic and social constructionist, with an explicit social-justice and multicultural frame",
+ "signature": [
+  {
+   "code": "CSP 618",
+   "title": "Mental Health Recovery and the DSM: A Social Justice Perspective",
+   "units": "3",
+   "desc": "Descriptions of mental health disorders within biological, individual, familial, and larger social contexts. Focus on Diagnosis and Statistical Manual of Mental Disorders classification system and relationship to family functioning.",
+   "verbatim": true,
+   "why": "Every California program teaches diagnosis. Very few frame the required DSM course as a recovery-model and social-justice course in the title itself, or make the relationship between a diagnostic label and family functioning the organizing question rather than a footnote.",
+   "src": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66731"
+  },
+  {
+   "code": "CSP 600L",
+   "title": "Cross-Cultural Counseling Prepracticum",
+   "units": "1",
+   "desc": "Development of self-understanding. Cross-cultural communication skills needed for becoming an effective counselor. May be repeated with new content.",
+   "verbatim": true,
+   "why": "This 1-unit lab runs concurrently with CSP 600 in the very first summer, before any theory course, and a credit grade in it is the gate to starting practicum. The program's first move is to make you look at yourself, not at a model.",
+   "src": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66720"
+  },
+  {
+   "code": "CSP 626",
+   "title": "Marriage and Family Therapy Theories and Best Practices II",
+   "units": "3",
+   "desc": "Contemporary marriage and family therapy theories including: post-modern ideas, such as narrative therapy and collaborative language systems, integrative and evidence-based approaches; alternative approaches to family therapy, such as coaching and mediation.",
+   "verbatim": true,
+   "why": "The second half of the theory sequence is entirely postmodern — narrative and collaborative-language-systems work, which most generalist CA programs cover in a single week. Paired with CSP 625 (classic structural/strategic models), it means a full year of family-systems theory rather than one survey course.",
+   "src": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66739"
+  },
+  {
+   "code": "CSP 692",
+   "title": "Seminar: Couples Therapy and Evidence-Based Relational Practices",
+   "units": "3",
+   "desc": "Explores and applies theory and practice of therapy with couples in premarital, marital, non-marital, divorce, recoupling, and remarriage situations. Intra and intercultural issues and gender factors in coupling. Discussion of specific problems such as infidelity or depression.",
+   "verbatim": true,
+   "why": "A required stand-alone semester on couples work, sequenced after both family-life-cycle and theory courses. It is the course that most directly explains why the program requires 100 of your 300 clinical hours to be relational — they intend you to leave able to hold a couple in the room.",
+   "src": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66767"
+  },
+  {
+   "code": "CSP 689",
+   "title": "Family Counseling in the Schools",
+   "units": "1",
+   "desc": "Roles and approaches of family counselor in working with schools for children's school-based problems. Family systems theory and practice applied to family-school interface, cultural interaction, specific symptomology, and professional and ethical issues.",
+   "verbatim": true,
+   "why": "A required 1-unit course on the family–school interface is a strong tell about the population the program expects you to serve: children referred through schools in a working-class urban district. It exists because the department also houses school counseling and school psychology.",
+   "src": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66765"
+  },
+  {
+   "code": "CSP 785",
+   "title": "Marriage and Family Therapy Traineeship",
+   "units": "1-10",
+   "desc": "Community-based clinical marriage and family therapy experience, with AAMFT approved supervisor or equivalent. Individual and group supervision at site and on campus. Clinical hours may be counted toward 500 clinical hours and marriage and family therapy licensure eligibility requirement.",
+   "verbatim": true,
+   "why": "The catalog specifies an AAMFT Approved Supervisor \"or equivalent\" at the community site — a COAMFTE-driven standard that most non-accredited California programs cannot enforce, and the practical reason SDSU graduates tend to arrive at their associate years already supervised in a systemic frame.",
+   "src": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66797"
+  }
+ ],
+ "curriculum": {
+  "note": "One cohort per year, lockstep, no part-time option. It starts in early June and runs 2.5 years across three summers; some students carry a final summer of traineeship. Course descriptions below are as published in the 2023/2024 SDSU catalog — the 2026-2027 catalog lists these same CSP course titles but does not display descriptions.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Summer",
+    "courses": [
+     "CSP 600 Cross-Cultural Counseling Communication Skills (2)",
+     "CSP 600L Cross-Cultural Counseling Pre-Practicum (1)",
+     "CSP 606A Professional Issues in Mental Health Practice: California Law and Ethics for Marriage and Family Therapy (3)",
+     "CSP 609 Family Life Cycle Development (3)",
+     "CSP 625 Marriage and Family Therapy Theories and Best Practices I (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Fall",
+    "courses": [
+     "CSP 615 Seminar in Multicultural Dimensions in Counseling (3)",
+     "CSP 626 Marriage and Family Therapy Theories and Best Practices II (3)",
+     "CSP 687 Family and Systemic Treatment of Substance Abuse (1-3)",
+     "CSP 662A Counseling Interventions with Children and Adolescents: Marriage and Family Therapy (3)",
+     "CSP 755 Practicum I: Marriage and Family Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring",
+    "courses": [
+     "CSP 618 Mental Health Recovery and the DSM: A Social Justice Perspective (3)",
+     "CSP 765 Practicum II: Marriage and Family Therapy (3)",
+     "CSP 650 Trauma and Crisis Counseling in Multicultural Community Context (1-3)",
+     "CSP 670 Group Process and Counseling (2-3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer",
+    "courses": [
+     "CSP 689 Family Counseling in the Schools (1)",
+     "ED 690 Methods of Inquiry (3)",
+     "CSP 785 Marriage and Family Therapy Traineeship (2)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall",
+    "courses": [
+     "CSP 710A Professional Seminar: Master's Research Project (3)",
+     "CSP 785 Marriage and Family Therapy Traineeship (3)",
+     "CSP 692 Couples Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring",
+    "courses": [
+     "CSP 635 Sexuality & Intimacy (1-3)",
+     "CSP 694 Psychopharmacology (2-3)",
+     "CSP 710B Professional Seminar: Presentation of Clinical Practice (3)",
+     "CSP 785 Marriage and Family Therapy Traineeship (3)"
+    ]
+   },
+   {
+    "label": "Final Summer (conditional)",
+    "courses": [
+     "CSP 785 Marriage and Family Therapy Traineeship (2)"
+    ]
+   }
+  ],
+  "src": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/courses"
+ },
+ "practicum": {
+  "starts": "First year, fall term (CSP 755), roughly four months after the program begins",
+  "hours": "Minimum 300 direct clinical contact hours, at least 100 of them relational (couples, families, ongoing relationship systems); minimum 100 supervision hours of which 50 must be direct live observation; at least 18 months of clinical practice in total. Minimum 13 academic units: 6 units of practicum (CSP 755, CSP 765) plus at least three CSP 785 traineeship enrollments totaling 8 units.",
+  "who_places": "mixed",
+  "clinic": "Center for Community Counseling & Engagement (CCCE), in the Dede Alpert Center, 4283 El Cajon Blvd, Suite 215, City Heights, San Diego",
+  "detail": "Practicum is in-house and program-placed: two semesters at the CCCE in weekly four-hour blocks, seeing clients behind one-way mirrors under live faculty supervision. The clinic serves over 300 clients a year and in fall 2025 was offering free telehealth group therapy in ten languages including Spanish, Arabic, Korean, Mandarin, Somali, Hindi, Marathi and Tamil. Traineeship (CSP 785) then moves you out to community placements for a minimum of three semesters at 15–25 hours per week on-site, with an AAMFT Approved Supervisor or equivalent at the site plus a weekly university supervision group. Before practicum you must earn a credit grade in CSP 600L, join AAMFT or CAMFT, and carry liability insurance.",
+  "src": "https://education2.sdsu.edu/csp/programs-of-study/mft/essential-guide-mft-2025.pdf",
+  "model": "not published",
+  "model_evidence": "The practicum is where students begin to work with clients and this is conducted at the Center for Community Counseling & Engagement during the first fall and spring semester.",
+  "model_url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/faq",
+  "model_why": "Genuinely two-stage. The first practicum is in-house at the Dede Alpert Center; the external traineeship, where SDSU says the majority of hours accrue, does not say who secures the seat. Classified on the stage that carries the risk.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Dede Alpert Center for Community Counseling and Engagement (CCCE)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Approximately 30 students per class, one cohort per year, full-time only",
+  "gre": "not required",
+  "prereqs": "None. \"There is no specific coursework or degree required to apply.\" Minimum 2.85 GPA for domestic applicants, 3.00 for international applicants. Three letters of recommendation, an Experience Profile, and two videos (a 2-minute personal story and a 3–4 minute recorded interview response). Invited candidates must attend an in-person interview.",
+  "deadline": "December 15, 2026 for the Fall 2027 cohort (which begins the following June)",
+  "src": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/faq",
+  "gre_evidence": "GRE scores are not required. Please note, submitted GRE scores will not be reviewed.",
+  "gre_url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/faq",
+  "min_gpa": "2.85 for domestic applicants or 3.00 for international applicants",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Manasvi Sridhar, an MFT trainee who left a ten-year management consulting career for the program, on the clinic's group work: \"As humans, we need to be in community, whether we like it or not — that's how we survive.\"",
+   "who": "SDSU News, October 2025 (student trainee, university-published)",
+   "sentiment": "positive",
+   "url": "https://www.sdsu.edu/news/2025/10/future-therapy-professionals-offer-wellness"
+  },
+  {
+   "text": "Professor Sesen Negash, LMFT, on the program's stance toward the clients students see: \"We want to help meet families where they are.\"",
+   "who": "SDSU News, October 2025 (faculty, Department of Counseling and School Psychology)",
+   "sentiment": "info",
+   "url": "https://www.sdsu.edu/news/2025/10/future-therapy-professionals-offer-wellness"
+  },
+  {
+   "text": "An applicant reporting the outcome of a California MFT application round: \"I got rejected from SDSU.\" Consistent with the program's stated 6–10% acceptance rate.",
+   "who": "The GradCafe forums, March 2021",
+   "sentiment": "negative",
+   "url": "https://forum.thegradcafe.com/topic/128929-california-mft-masters-programs/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Dede_Alpert_Center_for_Community_Engagement.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dede_Alpert_Center_for_Community_Engagement.jpg",
+  "license": "CC0 1.0 (public domain dedication)",
+  "credit": "Photo by Kire1975, via Wikimedia Commons (CC0)",
+  "caption": "The Dede Alpert Center for Community Engagement on El Cajon Boulevard in City Heights, San Diego — the off-campus building that houses SDSU's Center for Community Counseling & Engagement, where first-year MFT students see their first clients."
+ },
+ "gaps": [
+  "SDSU's 2026-2027 online catalog lists CSP course titles but does not display course descriptions; all descriptions quoted here come from the archived 2023/2024 catalog at the same course IDs.",
+  "No applicant-count figure is published. The 6–10% acceptance rate is the program's own FAQ language, not a reported applicants-to-seats number.",
+  "The COAMFTE achievement page reports cohort size, graduation, job-placement and licensure rates but no admissions data.",
+  "No per-unit tuition figure exists for CSU graduate programs — CSU charges a flat per-semester rate by unit band ($5,745/semester full-time, $3,951 part-time for CA residents, Fall 2026, tuition plus mandatory campus fees), so total cost depends on how many semesters you enroll.",
+  "Almost no independent first-person student commentary could be found. Reddit search was unavailable through both search and direct fetch during this research; The GradCafe yielded only a single one-line mention. The two substantive student/faculty quotes here are university-published and should be read as such.",
+  "The program page describes '60 units' but the published term-by-term grid includes several variable-unit courses (CSP 650, 670, 687, 635, 694), so the exact total for an individual student is not determinable from public pages."
+ ],
+ "sources": [
+  {
+   "label": "M.S. in Marriage and Family Therapy — program overview",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms"
+  },
+  {
+   "label": "Courses & Learning Outcomes (term-by-term sequence)",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/courses"
+  },
+  {
+   "label": "Program Details (practicum and traineeship units and hours)",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/program-details"
+  },
+  {
+   "label": "MFT Frequently Asked Questions (cohort, acceptance rate, GRE, GPA, clinic address)",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/faq"
+  },
+  {
+   "label": "MFT Essential Guide: Class of 2025 (PDF student handbook)",
+   "url": "https://education2.sdsu.edu/csp/programs-of-study/mft/essential-guide-mft-2025.pdf"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/coamfte"
+  },
+  {
+   "label": "Application requirements and deadline",
+   "url": "https://education.sdsu.edu/admissions/graduate-admissions/ms-marriage-family-therapy-application"
+  },
+  {
+   "label": "SDSU catalog, CSP course descriptions (2023/2024 archived catalog)",
+   "url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=9&coid=66738"
+  },
+  {
+   "label": "SDSU Bursar — Tuition and Fees, Fall 2026",
+   "url": "https://bursar.sdsu.edu/tuition"
+  },
+  {
+   "label": "SDSU News, Oct 2025 — 'Future therapy professionals offer wellness support'",
+   "url": "https://www.sdsu.edu/news/2025/10/future-therapy-professionals-offer-wellness"
+  }
+ ]
+}

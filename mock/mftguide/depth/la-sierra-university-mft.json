@@ -1,0 +1,283 @@
+{
+ "institution": "La Sierra University",
+ "character": [
+  "Start with the number, because getting it wrong here is expensive. La Sierra's admissions page says the M.A. in Counseling requires \"a minimum of 45 units,\" and California's Business and Professions Code §4980.36 requires a degree of at least 60 semester or 90 quarter units for LMFT eligibility. The 45 is not a problem and it is not a shortcut: **La Sierra runs entirely on quarters.** The 2026–27 Graduate Bulletin states plainly that \"All credits earned at La Sierra University are quarter units,\" defines the quarter unit as \"a minimum of 10 hours of university-level instruction during a quarter,\" and sets a second master's degree at \"a minimum of 30 quarter units.\" So the 45 is 45 quarter units — 30 semester units — and it is the floor for the *generic* M.A. in Counseling, the version you take if you want the degree and not the licence. It is nowhere near LMFT-qualifying, and the admissions page's own hedge (\"Some individuals may require more than the minimum of 45 units because of the requirements for a certification, credential, or licensure\") is doing an enormous amount of quiet work.",
+  "The licence-qualifying version is a separately named thing: the **Extended M.A. Counseling Education Program**. The bulletin: \"For the California Professional Clinical Counselors and Marriage and Family Therapy licensures, at least 90 units of postbaccalaureate study are required. The extended MA counseling program would prepare MA in Counseling students who are interested in completing the prerequisites necessary to apply for the California License of Professional Clinical Counselors or the California License of Marriage and Family Therapy.\" Ninety quarter units is exactly the §4980.36 quarter-unit floor. And the department's own published main-campus course schedule for the MFT/LPCC track goes past it: 39 units in year one, 57 in year two, \"Total Program Quarter Units 96\" — about 64 semester units, two academic years plus a summer, seven quarters of enrolment. So the honest one-line answer for a prospective student is: **45 is a quarter-unit floor for a non-licensing degree; the MFT track is 96 quarter units, and you should budget for that, not for 45.** The Board of Behavioral Sciences has, per the bulletin, \"fully approved and endorsed the La Sierra University licensure programs\" for both the LMFT and the LPCC — so the track does work, it is just roughly twice the size the front door implies.",
+  "Two things then make this program structurally unlike most California MFT degrees. The first is that the practicum is not a block — it is shredded and stapled to the lecture courses. The department's LPCC fact sheet explains the mechanism outright: \"courses normally listed as only 3.0 units will require an additional 1.5 units of practicum for a total of 4.5 units.\" That is why the schedule is full of paired codes — EDPC 631 Psychopathology and EDPC 631P Psychopathology Practicum, EDPC 610 Human Sexuality and EDPC 610P, EDPC 620 and EDPC 620P — and why the companions are often taken a full year *after* the parent course. Read the bulletin descriptions of those companions and most of them are simulation, not clients: EDPC 610-P is \"visiting relevant self-help groups (e.g., sexual addiction self-help groups), engaging in therapeutic roleplays that involve relevant counseling vignettes... and/or engaging in research in this domain.\" Real client hours live in one course, EDPC 562, taken twice. The second is the setting. This is a Seventh-day Adventist university and the MFT track is administered by a School of Education department, and both show in the required list: every MFT student takes EDFO 512 Integration of Faith and Learning and EDAD 524, which the bulletin describes as \"School Administration and Leadership... a core requirement for master's degree candidates in education.\" You will sit a course on running a school in order to become a therapist."
+ ],
+ "orientation": "Generalist systems (a required two-course Marriage & Family Systems sequence) inside a Seventh-day Adventist school of education — the curriculum is otherwise a BBS content checklist rather than a named theoretical school",
+ "signature": [
+  {
+   "code": "EDPC 620 / 620-P",
+   "title": "Marriage & Family Systems I Theory (and its Practicum)",
+   "units": "4 (bulletin) / 3 + 1.5 practicum (course schedule)",
+   "desc": "\"Focus on working with families who want to nurture personal change and development. Examines the ‘system’ of interaction between individuals that make up the couple or family. Also examines marriage and family in the context of culture and socioeconomic status.\" The 1.5-unit companion is \"relevant therapeutic role-plays involving work with couples and/or families experiencing various moderate to severe presenting problems, and/or conducting relevant research.\"",
+   "verbatim": true,
+   "why": "This is the whole systemic core of the degree — with EDPC 621 it is the only place couples-and-families theory is taught as such, in a 96-unit program. Note the split: theory in Year 1 Fall, the practicum companion in Year 2 Fall, a full year later. If you want a program saturated in family-systems thinking, this is two courses, not an orientation.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "code": "EDPC 621",
+   "title": "Marriage & Family Systems II Interventions",
+   "units": "4 (bulletin) / 3 (course schedule)",
+   "desc": "\"Building upon systems theory, an examination of interventions for couples and families. Interventions include but are not limited to psycho educational, reality, and family systems coaching.\" Prerequisite: EDPC 620.",
+   "verbatim": true,
+   "why": "The named interventions are worth reading twice. ‘Reality’ therapy and ‘family systems coaching’ are an unusual pair to headline where most CA programs would name Bowen, structural, strategic, emotionally focused or narrative. It reads as eclectic-practical rather than as allegiance to a school.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "code": "EDPC 562",
+   "title": "Counseling Practicum",
+   "units": "1–9 (bulletin); taken as 4.5 + 4.5 on the published MFT/LPCC schedule",
+   "desc": "\"Practicum in the counseling of individuals, couples, families, and groups under supervision. Serves as a laboratory experience in individual and relational assessments and treatment planning... For LPCC and MFT students only, this course must be repeated for a total of 9 units. Supervised practicum in a clinical setting required... A minimum of 30 hours of direct counseling in a practicum site is required.\"",
+   "verbatim": true,
+   "why": "This single course carries all the real client work in the degree, and the schedule places the first half in the SPRING OF YEAR ONE — unusually early for a California MFT program, where second-year starts are the norm. The 30-hour figure is a per-registration floor; the program total is 280 face-to-face hours.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "code": "EDPC 560",
+   "title": "Introduction to Practicum",
+   "units": "3",
+   "desc": "\"An opportunity for PCC and MFT trainee to prepare in counseling individuals, couples, families, and groups under supervision. Focus on legal forms, professional writing of documents, treatments plans, and progress notes. Students will be trained in providing mental health counseling via telehealth, which includes reviewing law and ethics related to telehealth. Covers requirements for associate registration and licensure.\"",
+   "verbatim": true,
+   "why": "A dedicated course on paperwork, telehealth law and BBS associate registration is genuinely rare — most programs bolt this onto law-and-ethics. The catch: EDPC 560 appears in the bulletin but is NOT on the department's published main-campus MFT/LPCC course schedule, so it is unclear whether current students actually take it.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "code": "EDAD 524",
+   "title": "School Administration and Leadership",
+   "units": "3",
+   "desc": "\"Introduces students to various leadership challenges and administrative issues in a school environment. Cross-listed as EDAD 624. This course is exclusively available to students admitted to an M.A. program. It serves as a foundational course in administration and leadership and is a core requirement for master's degree candidates in education.\"",
+   "verbatim": true,
+   "why": "Listed as ‘Organization & Leadership’ and required in Year 2 Summer of the MFT/LPCC schedule. It is a school-administration course, written for educators, that MFT students must pass. This is the clearest single artefact of the program living inside a School of Education — three of your 96 units go here.",
+   "src": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf"
+  },
+  {
+   "code": "EDFO 512",
+   "title": "Integration of Faith and Learning",
+   "units": "3",
+   "desc": "\"Examination of contemporary thinking about spirituality, worldviews, epistemology, ontology, and axiology as they relate to Christian and public education. Focuses on the development of educators who are critical thinkers and are able to examine, evaluate, and synthesize values, spirituality, and education.\"",
+   "verbatim": true,
+   "why": "Required (Year 2 Winter, listed as ‘Perspectives of Faith and Learning’). Note that it is framed for *educators*, not clinicians — the department's separate EDPC 510 Religion, Spirituality & Mental Health, which is the clinically-framed version, is the core course for other counseling specializations but does not appear on the MFT/LPCC schedule.",
+   "src": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf"
+  },
+  {
+   "code": "EDPC 694",
+   "title": "Multicultural Counseling (scheduled as ‘Individual & Cultural Differences’)",
+   "units": "3–4",
+   "desc": "\"Application of differential psychology to testing, learning, counseling, and school psychology procedures. Emphasis on cross-cultural, ethnic, and sex differences. Focus on the ‘self’ of the therapist in terms of fostering identity development, promoting cultural social justice, creating individual/community strategies for working with and advocating for diverse populations.\"",
+   "verbatim": true,
+   "why": "The ‘self of the therapist’ framing is the one place in the catalog where personal formation is named as course content — which matters here, because the program separately requires 20 hours of your own psychotherapy.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Seven quarters, lockstep, on the Riverside main campus — two academic years plus the summer between them. The design is didactic course plus a separate 1.5-unit ‘-P’ practicum companion, usually taken one to three quarters after the parent course; the bulletin describes most companions as role-play, self-help-group observation or research rather than client contact. Bulletin note: full-time master's students usually finish in four to five quarters and \"most courses are offered in late afternoons, evenings, and summers,\" so part-time employment is contemplated. Units below are quarter units, from the department's published MFT/LPCC main-campus schedule.",
+  "total_units": "96 quarter units (≈ 64 semester units). The bulletin's licensure floor is \"at least 90 units of postbaccalaureate study\" — i.e. 90 quarter units, which is the §4980.36 quarter-unit minimum.",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (12)",
+    "courses": [
+     "EDPC 561 Counseling Theory & Techniques (3)",
+     "EDPC 607 Dynamics of Personality (3)",
+     "EDPC 620 Marriage Family I Systems Intervention (3)",
+     "EDPC 694 Individual & Cultural Differences (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Winter (12)",
+    "courses": [
+     "EDPC 564 Group Theory and Procedures (3)",
+     "EDPC 573 School Psychology & Counseling Ethics and Law (3)",
+     "EDPC 621 Marriage Family II Systems Intervention (3)",
+     "EDPC 655 Advanced Counseling Theories (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (15)",
+    "courses": [
+     "EDPC 562 Counseling Practicum (4.5)",
+     "EDPC 615 Child, Partner & Elder Abuse (3)",
+     "EDPC 615P Child, Partner & Elder Abuse Practicum (1.5)",
+     "EDPC 631 Psychopathology (3)",
+     "EDPC 666 Intervention Methods & Consultation (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (13.5)",
+    "courses": [
+     "RSCH 504 Methods and Materials of Research (3)",
+     "RSCH 504P Methods and Materials of Research Practicum (1.5)",
+     "EDAD 524 Organization & Leadership (3)",
+     "EDPC 564P Group Theory and Procedures Practicum (1.5)",
+     "EDPC 607P Dynamics of Personality Practicum (1.5)",
+     "EDPC 631P Psychopathology Practicum (1.5)",
+     "EDPC 655P Advanced Counseling Theories Practicum (1.5)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (15)",
+    "courses": [
+     "EDPC 504 Standardized Testing (3)",
+     "EDPC 504P Standardized Testing Practicum (1.5)",
+     "EDPC 554 Education and Career Planning (3)",
+     "EDPC 554P Education and Career Planning Practicum (1.5)",
+     "EDPC 620P Marriage Family I Systems Intervention Practicum (1.5)",
+     "EDPC 645 Psychopharmacology (3)",
+     "EDPC 645P Psychopharmacology Practicum (1.5)"
+    ]
+   },
+   {
+    "label": "Year 2 — Winter (15)",
+    "courses": [
+     "EDFO 512 Perspectives of Faith and Learning (3)",
+     "EDPC 524 Lifespan Development (3)",
+     "EDPC 524P Lifespan Development Practicum (1.5)",
+     "EDPC 561P Counseling Theory & Technique Practicum (1.5)",
+     "EDPC 610 Human Sexuality (3)",
+     "EDPC 610P Human Sexuality Practicum (1.5)",
+     "EDPC 694P Individual & Cultural Differences Practicum (1.5)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (13.5)",
+    "courses": [
+     "EDPC 562 Counseling Practicum (4.5)",
+     "EDPC 573P School Psychology & Counseling Ethics and Law Practicum (1.5)",
+     "EDPC 621P Marriage Family II Systems Intervention Practicum (1.5)",
+     "EDPC 666P Intervention Methods & Consultation Practicum (1.5)",
+     "EDPC 715 Alcohol & Drug Addiction (3)",
+     "EDPC 715P Alcohol & Drug Addiction Practicum (1.5)"
+    ]
+   }
+  ],
+  "src": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf"
+ },
+ "practicum": {
+  "starts": "Year 1, Spring quarter — the first 4.5 units of EDPC 562 sit in the third quarter of the program, which is early by California standards. The second 4.5 units land in Year 2 Spring, the final quarter.",
+  "hours": "\"All MFT/LPCC students are required to provide a minimum of 280 hours of face-to-face counseling and receive 20 hours of personal psychotherapy\" (department course schedule); the bulletin repeats this as \"a 280-hour field practicum and 20 hour of personal psychotherapy while in the program.\" EDPC 562 itself sets a per-registration floor of \"a minimum of 30 hours of direct counseling in a practicum site.\" No separate relational (couple/family) sub-minimum is published anywhere La Sierra publishes.",
+  "who_places": "not published",
+  "clinic": "No in-house client-serving clinic. The bulletin describes a training suite only: \"Located in the upper level of the School of Education building, the Department of Behavioral Health provides facilities and services in which practical experiences may be combined with theoretical learning. Several small counseling rooms are equipped for video and audio recording, and one-way windows permit individual or group observations under controlled conditions.\"",
+  "detail": "The practicum is split in two ways and you need to hold both in your head. The first split is real clinical work versus lab work: EDPC 562 Counseling Practicum is the only course carrying client contact, taken twice for 9 quarter units total, and the bulletin says it is \"Supervised practicum in a clinical setting required for LPCC and MFT students,\" graded S/U, gated behind EDPC 561, 564, 573 or 570, and 655 plus departmental approval. Everything else labelled ‘practicum’ on the schedule — the thirteen 1.5-unit ‘-P’ companions — is described in the bulletin as role-play, self-help-group visits and research, e.g. EDPC 615-P is \"relevant therapeutic role-plays involving how to work with victims of abuse and their perpetrators, and/or conducting research in this domain.\" The second split is timing: clinical work begins unusually early, in the spring of year one, then pauses for three quarters and resumes in the final spring. The program total is 280 face-to-face hours plus a mandatory 20 hours of your own psychotherapy — paid by you, and a real cost line most programs do not carry. Separately, the bulletin notes MFT students \"may begin up to 1300-hour of the 3000-hour of internship required for licensure after completing a minimum of 18 units of core courses in the counseling field,\" so trainee hours toward licensure can start once you are about a quarter and a half in. What La Sierra does not publish anywhere is the mechanics a prospective student most needs: who finds the site, whether there is a partner-site list or a placement fair, what the weekly hour commitment looks like, and what the individual/group supervision ratio is. The department's own ‘Steps to Completion’ page walks you through field practice using CBEST, CCTC criminal clearance and PRAXIS — requirements for the school-credential programs, not for LMFT trainees — which is a fair signal of where the department's administrative centre of gravity sits.",
+  "src": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf",
+  "model": "not published",
+  "model_evidence": "An opportunity for the student to participate in the counseling of individuals and groups under supervision, as a laboratory experience, prior to being placed for school-based experience in EDPC 565.",
+  "model_url": "https://lasierra.edu/education/psychology-counseling/course-descriptions/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "not published",
+  "gre": "not published",
+  "prereqs": "Baccalaureate degree from an accredited institution; 3.0 minimum GPA; \"Documentation must be submitted confirming the absence of any conviction for a felony and of any communicable or contagious disease, either of which would prevent the student from performing mental health services\"; state criminal clearance to be applied for immediately on admission. The department's fact sheet adds a pre-admission screen: \"A preadmission interview and writing test are to be scheduled when possible with at least two faculty members in the Department of School Psychology and Counseling who will evaluate the applicant's expressiveness, commitment, values, cultural affirmation, and professional attitudes. ... Continuation in the program is contingent upon a satisfactory rating by the interviewers.\" A departmental comprehensive examination and a portfolio presentation are required to graduate.",
+  "deadline": "Not published. La Sierra runs a rolling quarter calendar; registration for Fall 2026 ran 27 April to 25 September 2026 per the bulletin's academic calendar.",
+  "src": "https://lasierra.edu/fileadmin/documents/education/files/ma-in-counseling-lpcc-track.pdf",
+  "gre_evidence": "The candidate must have a grade point average of B (3.00) or better in his/her overall program.",
+  "gre_url": "https://lasierra.edu/schools/education/psychology-counseling/admission-requirements/",
+  "min_gpa": "3.00",
+  "conflict": null
+ },
+ "cost": {
+  "per_unit": "$730 per quarter unit (graduate rate, 2026–27 Graduate Bulletin)",
+  "tuition_total": "96 quarter units × $730 = $70,080 in tuition for the MFT/LPCC track",
+  "fees": "$310 General Fee per quarter (≈ $2,170 over seven quarters); $200 Behavioral Health Professions Fee; $139 one-time School of Education fee for \"five-year access to an online platform which tracks student progress\"; plus the student-borne cost of 20 hours of personal psychotherapy.",
+  "discounts": "Seventh-day Adventist church members receive an SDA scholarship of $750 per quarter at full-time (6+ units), $563 at 4.5–5.5 units, $375 at 3–4.5 units — roughly $5,250 over seven full-time quarters. Not available for reduced-tuition programs.",
+  "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+ },
+ "voices": [
+  {
+   "text": "\"La Siera was an amazing school that offered me a multitude of opportunities. The administration within my program really helped me develop the skill I need for my future career. I was able to take these skills and apply them to my internship while also being able to streamline any consents with my classmates and professors.\"",
+   "who": "GradReports review, Counseling degree, graduated 2024, posted 15 Jan 2026 (Ryan Olivares)",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/la-sierra-university"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/3/35/La_Sierra_University_Campus_Mall_2023-1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:La_Sierra_University_Campus_Mall_2023-1.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by DEGA MD, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "The campus mall at La Sierra University, Riverside, photographed November 2023."
+ },
+ "gaps": [
+  "Cohort size for the MFT/LPCC track — not published anywhere on the university or department site.",
+  "Application deadlines for the counseling programs — not published; the admissions page carries none.",
+  "Who finds the practicum site. La Sierra publishes no practicum handbook, no partner-site list and no statement of whether placement is program-arranged or student-found. The department's Forms & Handbooks page renders with no downloadable documents.",
+  "Supervision mechanics at the practicum site — individual vs group ratio, weekly hour expectation, and whether the site supervisor or a faculty member carries the evaluation. Not published.",
+  "No relational (couple/family) hour sub-minimum is published, even though the BBS requires relational hours for LMFT registration.",
+  "EDPC 504 (Standardized Testing), EDPC 607 (Dynamics of Personality) and EDPC 666 (Intervention Methods & Consultation) appear on the department's published MFT/LPCC course schedule but have no course description in the 2026–27 Graduate Bulletin — only their ‘-P’ companions do, and EDPC 504 and 607 have no companion description either. Nine units of the required curriculum are therefore undocumented.",
+  "The MFT/LPCC schedule assigns EDPC 573 Law & Ethics in Human Services (framed for \"schools, clinical settings, sports, and other high-performance environments\") rather than EDPC 570 Law & Ethics in Mental Health Services, which is the bulletin's LPCC/LMFT-specific California law-and-ethics course. Which one a current MFT student actually takes is unclear.",
+  "The bulletin lists unit values for several EDPC courses (e.g. EDPC 620 and 621 at 4 units; the ‘-P’ companions at 1.0) that do not match the department course schedule (3 units and 1.5 respectively). The 96-unit total is taken from the schedule.",
+  "The department's LPCC-track fact sheet is visibly out of date — it uses the retired \"LPCC intern\" terminology, gives EDPC 610 as ‘Child, Partner, and Elder Abuse’ and EDPC 615 as ‘Human Sexuality’ (the bulletin has them the other way round), and totals 102 units against the schedule's 96.",
+  "No credible student discussion of this specific program was found on Reddit, Student Doctor Network, GradCafe or elsewhere. Searches surfaced only directory listings. That is itself informative: this is a small, low-visibility program.",
+  "Sabbath scheduling: the bulletin establishes that this is a Seventh-day Adventist institution where \"students are expected to respect the Sabbath,\" that university offices close Friday at noon and all day Saturday, and that Tuesdays 11 a.m.–noon are reserved for University Worship. It does not publish a class-meeting grid, so the practical Friday-evening/Saturday implications for the counseling cohort could not be confirmed from a published source — and neither could the question of whether Sabbath observance affects practicum-site scheduling."
+ ],
+ "corrections": [
+  {
+   "field": "units",
+   "current": "minimum 45 units stated on the admissions page — treat as unverified",
+   "correct": "Resolved: 45 is QUARTER units (La Sierra is entirely on quarters), and it is the floor for the generic, non-licensing M.A. in Counseling — about 30 semester units. The LMFT/LPCC route is the separately named ‘Extended M.A. Counseling Education Program’, for which the bulletin requires \"at least 90 units of postbaccalaureate study\" (90 quarter units = the §4980.36 minimum) and the department's published main-campus course schedule totals 96 quarter units (≈ 64 semester units) across seven quarters. A student who reads ‘45 units’ and assumes it qualifies for LMFT licensure would be wrong by more than half the degree.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "field": "unit_system",
+   "current": "(not recorded)",
+   "correct": "Quarter system, not semester. Bulletin: \"All credits earned at La Sierra University are quarter units\"; \"Credit is granted in terms of the quarter unit, which represents a minimum of 10 hours of university-level instruction during a quarter.\" Every unit figure for this school must be divided by 1.5 to compare with semester-unit programs.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "field": "lpcc",
+   "current": "LPCC yes",
+   "correct": "Correct, and stronger than ‘yes’: the bulletin states \"The Board of Behavioral Sciences (BBS) has fully approved and endorsed the La Sierra University licensure programs\" for both ‘Marriage and Family Therapist, MA’ and ‘Professional Clinical Counselor, MA or EdD’. The MFT and LPCC tracks share a single published course schedule.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "field": "program_length",
+   "current": "(not recorded)",
+   "correct": "Seven quarters — two academic years plus the summer between them — per the department's published main-campus MFT/LPCC course schedule (Year 1 Fall/Winter/Spring, Year 2 Summer/Fall/Winter/Spring).",
+   "src": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf"
+  },
+  {
+   "field": "cost",
+   "current": "(not recorded)",
+   "correct": "$730 per quarter unit × 96 units = $70,080 tuition, plus $310 general fee per quarter, a $200 Behavioral Health Professions Fee and a $139 one-time School of Education platform fee. SDA church members get $750/quarter at full time.",
+   "src": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  }
+ ],
+ "sources": [
+  {
+   "label": "La Sierra University Graduate Bulletin 2026–27 (PDF)",
+   "url": "https://lasierra.edu/fileadmin/documents/bulletins/graduate-bulletin.pdf"
+  },
+  {
+   "label": "Department of School Psychology & Counseling — MA Counseling with MFT/LPCC Track: Main Campus Program course schedule (PDF)",
+   "url": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf"
+  },
+  {
+   "label": "M.A. in Counseling with Marriage & Family Therapy specialization — admissions page",
+   "url": "https://admissions.lasierra.edu/programs/counseling/"
+  },
+  {
+   "label": "School of Psychology & Counseling — department home",
+   "url": "https://lasierra.edu/schools/education/psychology-counseling/"
+  },
+  {
+   "label": "School of Psychology & Counseling — course descriptions",
+   "url": "https://lasierra.edu/schools/education/psychology-counseling/course-descriptions/"
+  },
+  {
+   "label": "M.A. in Counseling (LPCC Track) departmental fact sheet (PDF, undated)",
+   "url": "https://lasierra.edu/fileadmin/documents/education/files/ma-in-counseling-lpcc-track.pdf"
+  },
+  {
+   "label": "School of Psychology & Counseling — Steps to Completion",
+   "url": "https://lasierra.edu/schools/education/psychology-counseling/steps-to-completion/"
+  },
+  {
+   "label": "Academic Bulletins index",
+   "url": "https://lasierra.edu/bulletins/"
+  }
+ ]
+}

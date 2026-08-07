@@ -1,0 +1,232 @@
+{
+ "institution": "California State University, East Bay",
+ "character": [
+  "East Bay does not run a standalone MFT degree. It runs one M.S. in Counseling Psychology with three concentrations - Marriage and Family Therapy, School Counseling, and School Psychology - that share a common 31-33 unit core. You take Law and Ethics, Counseling Theories, Multicultural Counseling, Psychopathology, Child and Youth Psychotherapy, Family Therapy, Psychopharmacology, Group Counseling and Research Methods alongside future school counselors and school psychologists, then peel off into a 17-unit MFT concentration. The department frames the whole thing in explicitly political language - the program is \"designed to promote social justice and democracy by preparing knowledgeable and competent professional Marriage and Family Therapists\" - and the clinical vocabulary throughout the course catalog is \"systemic-relational\" rather than eclectic or CBT-forward.",
+  "The concrete differentiator is the Community Counseling Clinic, an in-house training clinic in Room 260 of the Art & Education Building on the Hayward campus. It provides \"no-cost, high-quality counseling services\" to the surrounding community, staffed entirely by MFT trainees under licensed supervisors and department faculty, with play therapy rooms stocked with paints, toys, doll houses and board games for child clients, and a stated \"systems, family, and strength-based approach.\" It sees children, adolescents and adults, and couples and families when appropriately trained counselors are available. EPSY 696 Advanced Practicum is taught inside it. A free community clinic run by the department you are enrolled in is a genuinely different starting point from being handed a list of agencies and told to go interview.",
+  "The unit structure needs reading carefully, because it is where the catalog is least clear. The program description states that \"The Master of Science in Counseling Psychology degree requires 60 units.\" But the itemized requirement lists for the MFT concentration in the current 2026-27 catalog sum to 48 units - 31 units of core (nine 3-unit courses plus a 4-unit capstone) plus 17 units of concentration. The remaining 12 units are a block the catalog labels \"Licensed Professional Clinical Counselor (Optional)\": EPSY 644 Pre-Practicum Microcounseling Skills II (2), four additional units of EPSY 695 Practicum, and EPSY 696 Advanced Practicum taken twice for 6 units. Notably, the required practicum for the MFT concentration by itself is one single unit of EPSY 695; the substantial supervised clinical sequence sits in that optional block. An earlier CSUEB catalog laid this out differently, with a 38-unit core that folded in EPSY 631 Intimate Partner Violence, EPSY 632 Child Abuse Assessment and Reporting, EPSY 633 Substance Abuse, EPSY 635 Pre-Practicum Microcounseling Skills, EPSY 639 Community Mental Health Counseling and EPSY 652 Human Sexuality and Gender - all of which are California BBS content requirements and all of which still exist in the department's course inventory, but none of which appear in the current catalog's MFT requirement lists. Ask the program coordinator directly what the actual required unit total is for the class you would enter."
+ ],
+ "orientation": "Systemic-relational and strength-based, framed throughout in social-justice terms",
+ "signature": [
+  {
+   "code": "EPSY 645",
+   "title": "Introduction to Systemic-Relational Practice",
+   "units": "2",
+   "desc": "The principles and concepts of systemic-relational counseling, including communication dynamics, intervention techniques, and development of a personal theory of counseling. Introductory learning experience to prepare graduate students for professional counseling in clinical settings.",
+   "verbatim": true,
+   "why": "The phrase \"systemic-relational\" recurs across three separate course titles at East Bay (645, 635, 644). That consistency is the clearest signal of the department's theoretical center of gravity, and it is not generic language - it names relationships and systems, not symptoms, as the unit of analysis.",
+   "src": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=39&coid=168123"
+  },
+  {
+   "code": "EPSY 635",
+   "title": "Pre-Practicum Microcounseling Skills in Relational Practice",
+   "units": "2",
+   "desc": "Develop and practice the basic skills of systemic-relational counseling, especially the skills of listening. Use of brief videotaped counseling sessions (\"microcounseling\"). Students role-play to observe, analyze, and evaluate techniques of counseling.",
+   "verbatim": true,
+   "why": "Microcounseling - short videotaped sessions the student then dissects - is a specific, deliberate-practice-style pedagogy rather than a lecture course, and East Bay runs it twice (EPSY 635, then EPSY 644, which extends it to \"development of the counselor's ability to influence others\"). Being recorded and reviewed in your first year is a very different experience from reading about skills.",
+   "src": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=35&coid=144605"
+  },
+  {
+   "code": "EPSY 646",
+   "title": "Contemporary Issues: Aging & Long-Term Care",
+   "units": "2",
+   "desc": "Seminar in theoretical, research, and counseling approaches concerning special issues and populations, such as delinquents, drug users, aged, the poor. Learning outcomes include differentiating between levels of long-term care, identifying elder abuse issues, and assessing family and relational factors related to aging.",
+   "verbatim": true,
+   "why": "A required course on aging, long-term care and elder abuse inside an MFT concentration is rare in California - most programs cover elder abuse only as a mandated-reporting line item in law and ethics. If you want to work with older adults or with families managing a parent's care, this is one of very few CA MFT curricula that gives it a dedicated course.",
+   "src": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=35&coid=145122"
+  },
+  {
+   "code": "EPSY 696",
+   "title": "Advanced Practicum",
+   "units": "3 (taken twice for 6 units)",
+   "desc": "Advanced practicum is an intensive, supervised clinical experience intended to prepare students in the development of counseling interventions through recorded sessions and discussions of ongoing cases in the Community Counseling Clinic (CCC) and in school placements.",
+   "verbatim": true,
+   "why": "This is the course that puts you in the department's own free community clinic, working from recorded sessions. Read the catalog closely though: EPSY 696 sits in the optional 12-unit LPCC block, not in the required MFT concentration, which requires only one unit of EPSY 695. Whether you get this experience depends on whether you take the LPCC track.",
+   "src": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=39&coid=168633"
+  },
+  {
+   "code": "EPSY 631",
+   "title": "Intimate Partner Violence",
+   "units": "1",
+   "desc": "Detection, assessment, and diagnosis of spousal or partner abuse. Clinical issues regarding emotional abuse and violence in domestic relationships. Interventions for the treatment of couples in abusive relationships.",
+   "verbatim": true,
+   "why": "A standalone one-unit course on IPV, including treatment of couples in abusive relationships - a genuinely contested clinical area most programs handle in a lecture. Note: this course is in the department's active course inventory and appeared in the core of an earlier CSUEB catalog, but is not listed in the current catalog's MFT concentration requirements. Confirm whether your cohort takes it.",
+   "src": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=39&coid=168111"
+  },
+  {
+   "code": "EPSY 639",
+   "title": "Community Mental Health Counseling",
+   "units": "3",
+   "desc": "Community mental health theories and skills required by the BBS: Recovery orientation treatment for severe mental illness, disaster and trauma response, impoverished and homeless services, foster-care, case management, client advocacy, collaboration, community service resources, and medical family therapy.",
+   "verbatim": true,
+   "why": "\"Medical family therapy\" appearing in a required BBS content course is unusual and points toward integrated-care and hospital settings. As with EPSY 631, this course is active in the department inventory and was in an earlier catalog's core but is not in the current MFT concentration list - worth confirming.",
+   "src": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=39&coid=168118"
+  }
+ ],
+ "curriculum": {
+  "note": "CSUEB publishes requirement groups, not a term-by-term sequence, so the groups below are the catalog's own sections rather than semesters. The program is full-time, cohort-based, completed in about 2 years / 5 semesters, fall admission only, Hayward campus only, with classes \"during the day, evening, and on some weekends\" in fall and spring terms. The program description says the degree \"requires 60 units\"; the itemized MFT lists total 48 without the optional 12-unit LPCC block.",
+  "total_units": "60 units per the catalog's program description; the itemized MFT concentration requirements total 48 units (31 core + 17 concentration) plus an optional 12-unit LPCC block",
+  "terms": [
+   {
+    "label": "Prerequisites (0-11 units, not counted toward the degree, completed before graduate coursework)",
+    "courses": [
+     "PSYC 381 Psychopathology (4)",
+     "PSYC 340 Developmental Psychology (4)",
+     "STAT 100 Elements of Statistics and Probability (3)"
+    ]
+   },
+   {
+    "label": "Required core, all concentrations (31-33 units)",
+    "courses": [
+     "EPSY 630 Law, Ethics and Professional Issues (3)",
+     "EPSY 636 Counseling Theories (3)",
+     "EPSY 637 Multicultural Counseling (3)",
+     "EPSY 638 Psychopathology (3)",
+     "EPSY 641 Child and Youth Psychotherapy (3)",
+     "EPSY 643 Family Therapy (3)",
+     "EPSY 647 Psychopharmacology (3)",
+     "EPSY 650 Group Counseling Theory and Practice (3)",
+     "EPSY 651 Research Methods for Evidenced-Based Practice and Advocacy (3)",
+     "EPSY 693A Project in Marriage and Family Therapy (taken for 4 units in the MFT concentration)"
+    ]
+   },
+   {
+    "label": "Marriage and Family Therapy concentration (17 units)",
+    "courses": [
+     "EPSY 634 Family and Life Cycle Development (3)",
+     "EPSY 642 Grief, Trauma, and Crisis Counseling (2)",
+     "EPSY 646 Contemporary Issues: Aging & Long-Term Care (2)",
+     "EPSY 648 Assessment and Testing (3)",
+     "EPSY 653 Couples Therapy (3)",
+     "EPSY 654 Career Counseling (3)",
+     "EPSY 695 Practicum (only 1 unit required for the concentration)"
+    ]
+   },
+   {
+    "label": "Licensed Professional Clinical Counselor block (12 units, optional, not required for the M.S.)",
+    "courses": [
+     "EPSY 644 Pre-Practicum Microcounseling Skills in Relational Practice II (2)",
+     "EPSY 695 Practicum (4 additional units)",
+     "EPSY 696 Advanced Practicum (3, taken twice for 6 units)"
+    ]
+   }
+  ],
+  "src": "https://catalog.csueastbay.edu/preview_program.php?catoid=44&poid=20476"
+ },
+ "practicum": {
+  "starts": "Second year of the two-year program",
+  "hours": null,
+  "who_places": "mixed",
+  "clinic": "Community Counseling Clinic (CCC), Art & Education Building Room 260, 25800 Carlos Bee Blvd, Hayward",
+  "detail": "The department runs its own free clinic. The Community Counseling Clinic exists \"to perform two purposes: provide a professional clinical training laboratory for Master's level students at California State University, East Bay and to provide counseling services that contribute to the mental health and welfare of individuals in the community.\" It is open to self-referred clients and to referrals from schools, churches and social service agencies, sees children, adolescents and adults (and couples and families when trainees with appropriate training are available), operates in person and over Zoom, and is open only when trainees are in session during fall, spring and summer terms. EPSY 696 Advanced Practicum is taught in the CCC using recorded sessions. Beyond the clinic, the program states that \"Marriage and Family Therapist trainees begin working in their placement sites during their second year of training. Fieldwork Placement sites are available throughout the Bay area,\" supervised by department faculty and licensed professionals in the field. The program does not publish a required clinical-hour count, who arranges the community placements, or the split between clinic and external sites.",
+  "src": "https://www.csueastbay.edu/ccc/mission.html",
+  "model": "not published",
+  "model_evidence": "Marriage and Family Therapist trainees begin working in their placement sites during their second year of training. Fieldwork Placement sites are available throughout the Bay area.",
+  "model_url": "https://www.csueastbay.edu/epsy/graduate-programs/marriage-family-therapy.html",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Community Counseling Center (CSUEB campus)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not required",
+  "prereqs": "Three specific undergraduate courses (or equivalents) must be completed before graduate coursework begins: PSYC 381 Psychopathology (4), PSYC 340 Developmental Psychology (4), STAT 100 Elements of Statistics and Probability (3). The department maintains a published Prerequisite Equivalency Course List; equivalents need a B or better, and \"courses 10 years or older will not be considered.\" Also required: bachelor's degree, 3.0 cumulative undergraduate GPA, Cal State Apply university application plus a separate department application, a 2-4 page double-spaced personal statement answering four set questions about your understanding of the MFT role and your goals, three letters of reference on the department form, and demonstration of the Basic Skills Requirement. Work or volunteer experience with children, adolescents or adults is \"highly recommended.\"",
+  "deadline": "Fall admission only, once a year. Fall 2027 cycle: department applications open October 1, 2026 and close March 1, 2027; university transcript deadline July 1, 2027. (The Fall 2026 cycle ran October 1, 2025 - March 1, 2026 and is closed.)",
+  "src": "https://www.csueastbay.edu/epsy/graduate-programs/marriage-family-therapy.html",
+  "gre_evidence": "Graduate Record Examination (GRE) is NOT required.",
+  "gre_url": "https://www.csueastbay.edu/epsy/graduate-programs/marriage-family-therapy.html",
+  "min_gpa": "3.0 cumulative undergraduate GPA",
+  "conflict": "The programme page says the GRE is not required; the department's own FAQ PDF says it is required regardless of any prior postgraduate degree. Both are live. Worth a phone call before you rely on either."
+ },
+ "voices": [
+  {
+   "text": "\"As a graduate student in the School Counseling and MFT Dual Program at CSU East Bay, I've had a really great experience in my first year,\" praising an intentional curriculum, supportive staff and campus facilities.",
+   "who": "Master's student review, Niche, posted roughly 2025",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/california-state-university---east-bay/reviews/"
+  },
+  {
+   "text": "\"CSUEB might be a great school depending on what program you enroll in ... But the Counseling Psychology program is awful, in my opinion. In the first semester, our cohort began documenting and making complaints about disorganization, unprofessional conduct by the professors and students that went on without consequence. Then we found out that every cohort for the last 7 years has had a terrible time. The program administrator NEVER answered emails and could only be reached, unreliably, by text ... Class schedule and location changed without giving students advanced notice. One professor never had a lecture planned and would just show up and ask what we wanted to talk about ... The were 3 good professors, one of whom they sadly forced into retirement. The remaining teachers did have great lessons about play and art therapy. The cohort after us had only 8 students, and we heard the program is being absorbed into school counseling, but applications are still open...\"",
+   "who": "OnlineU review titled 'It was cheap but we still didn't get what we paid for...', counseling master's, Dec 2025",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/california-state-university-east-bay"
+  },
+  {
+   "text": "\"So I was in the school counseling with MFT concentration program and I thought it was a pretty decent program! I liked the cohort model where we all took the same classes together. The professors I had were awesome but I think there have been some personel changes since I left ... Last thing that I would say is that I'm moving to Colorado and Colorado seems to think this program doesn't count as “MFT” training since CSUEB isn't a COAMFT accredited MFT program (ie not nationally recognized, it's only state recognized). I'm practicing as an AMFT in California just fine (almost getting my LMFT next month woo!) ... Overall tho, it was worth it! Especially since it is such an affordable program\"",
+   "who": "u/fuzzinatorandkeebs, graduate of the School Counseling/MFT program, r/CSUEB, Mar 2025",
+   "sentiment": "mixed",
+   "url": "https://www.reddit.com/r/CSUEB/comments/u8d1m2/school_counselingmft_program_anyone_know_what/"
+  },
+  {
+   "text": "\"I am an incoming student into the School Counseling/MFT master's program, and I just received Dr.Pietrantoni's email discussing his decision to leave the university. Does anyone know the racist situation to which he is referring? Even though I really want to attend, I am considering pulling out of the program if it is something serious that is not being remedied ... As for me, I'm very torn on whether to attend with the intention of being a voice against this sort of thing, or pull out and try again somewhere else next year.\"",
+   "who": "u/GoodKindheartedness2, incoming School Counseling/MFT student, r/CSUEB, Apr–May 2022",
+   "sentiment": "negative",
+   "url": "https://www.reddit.com/r/CSUEB/comments/u8d1m2/school_counselingmft_program_anyone_know_what/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/c/cd/CSUEB_Art_%26_Education.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:CSUEB_Art_%26_Education.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by EB bookworm, via Wikimedia Commons",
+  "caption": "The Art & Education Building on the Hayward campus, which houses the Department of Educational Psychology and, in Room 260, the Community Counseling Clinic where MFT trainees see clients"
+ },
+ "gaps": [
+  "Unit total is genuinely ambiguous in CSUEB's own catalog. The program description says the M.S. \"requires 60 units,\" the degree page header says \"Degree Requirements (52-71 units),\" and the MFT concentration's itemized lists total 48 units before the optional 12-unit LPCC block. An earlier CSUEB catalog described a 38-unit core (which included EPSY 631, 632, 633, 635, 639 and 652) plus an 18-unit concentration plus a 4-unit capstone, summing cleanly to 60. The current 2026-27 catalog is identical to 2025-26 on this point, so it is not a one-year typo. This should be confirmed with Program Coordinator Dr. Nancy Deatrick before anyone relies on a number.",
+  "Cohort size and applicant/admit numbers are not published anywhere - not on the program page, not in the catalog, not in a public handbook. The program is not COAMFTE-accredited, so there is no required public student-achievement data table (as CSUN has).",
+  "No term-by-term course sequence is published, despite the program being an explicit lockstep cohort. The department says cohorts follow \"a defined cohort sequence\" but does not publish it.",
+  "No required clinical-hour count for fieldwork is published, and no statement of who finds the community placements (student, program, or shared). The catalog requires only one unit of EPSY 695 Practicum for the MFT concentration itself.",
+  "The student handbook is not posted publicly; the program directs prospective students to email Dr. Nancy Deatrick for it.",
+  "COAMFTE or CACREP accreditation: neither is claimed. The program states only that it is designed to meet California BBS educational requirements (B&P Code sections 4980.37, 4980.40 and 4980.41). This matters for out-of-state portability and for VA/Tricare panel eligibility.",
+  "Almost no student voices exist online. One Niche review from a student in the School Counseling/MFT dual program was the only credible first-person account found; Reddit, Student Doctor Network and GradCafe searches produced nothing specific.",
+  "Program cost: not published by the department. CSU 2025-26 systemwide graduate tuition is $2,340 per semester at 0-6.0 units and $4,032 at 6.1 or more, plus CSUEB campus fees, but no program-total figure is published."
+ ],
+ "sources": [
+  {
+   "label": "CSUEB catalog 2026-27 - Counseling Psychology, M.S.: Marriage and Family Therapy Concentration",
+   "url": "https://catalog.csueastbay.edu/preview_program.php?catoid=44&poid=20476"
+  },
+  {
+   "label": "CSUEB catalog 2025-26 - same program (identical requirements)",
+   "url": "https://catalog.csueastbay.edu/preview_program.php?catoid=39&poid=18105&returnto=36991&print="
+  },
+  {
+   "label": "CSUEB catalog (archived) - Counseling, M.S.: MFT Concentration degree planner, showing the earlier 38-unit core and 60-unit total",
+   "url": "https://catalog.csueastbay.edu/preview_degree_planner.php?catoid=19&poid=7654&print="
+  },
+  {
+   "label": "CSUEB Department of Educational Psychology - Marriage & Family Therapy program page",
+   "url": "https://www.csueastbay.edu/epsy/graduate-programs/marriage-family-therapy.html"
+  },
+  {
+   "label": "CSUEB Community Counseling Clinic - mission and services",
+   "url": "https://www.csueastbay.edu/ccc/mission.html"
+  },
+  {
+   "label": "CSUEB Community Counseling Clinic - home",
+   "url": "https://www.csueastbay.edu/ccc/"
+  },
+  {
+   "label": "EPSY 635 course description",
+   "url": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=35&coid=144605"
+  },
+  {
+   "label": "EPSY 646 course description",
+   "url": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=35&coid=145122"
+  },
+  {
+   "label": "EPSY 696 Advanced Practicum course description",
+   "url": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=39&coid=168633"
+  },
+  {
+   "label": "EPSY 693A Project in Marriage and Family Therapy course description",
+   "url": "https://catalog.csueastbay.edu/preview_course_nopop.php?catoid=44&coid=188635"
+  },
+  {
+   "label": "Niche - CSU East Bay graduate student reviews",
+   "url": "https://www.niche.com/graduate-schools/california-state-university---east-bay/reviews/"
+  }
+ ]
+}

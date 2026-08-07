@@ -1,0 +1,264 @@
+{
+ "institution": "California Institute of Integral Studies",
+ "character": [
+  "Integral Counseling Psychology is one of five separate MFT-qualifying concentrations inside CIIS's Department of Counseling Psychology — the others are Somatic Psychology, Community Mental Health, Expressive Arts Therapy and Drama Therapy — and each carries its own subject prefix in the registrar's live catalog (ICP/ICPW/ICPH for Integral, MCPS for Somatic, MCPC for Community Mental Health). Choosing CIIS is therefore a two-step decision: the school, then the concentration. ICP is the flagship and the largest, running in three formats (weekday on-campus, weekend on-campus at five Friday–Sunday weekends a semester, and a hybrid online track that qualifies for LPCC only, not LMFT).",
+  "What ICP has that essentially no other California MFT program has is a named, sourced spiritual lineage sitting inside required coursework. ICP 5619 Integral Yoga and ICP 8606 Integral Psychology teach Sri Aurobindo's integral philosophy and the contributions of CIIS founder Haridas Chaudhuri explicitly, by name, as the framework the rest of the clinical training hangs on. Alongside that runs a required 3-unit Gestalt Therapy course and a required Transpersonal Psychotherapy course — and CIIS's Church Street clinic describes itself as \"the country's only university-affiliated Gestalt/existential therapy center.\" The clinical center of gravity is Gestalt plus relational psychodynamics plus transpersonal, not CBT.",
+  "The other structural distinction is the clinics. CIIS runs three of its own low-fee community counseling centers in San Francisco — Church Street (Noe Valley, 40+ years), Pierce Street (Pacific Heights, ~50 years) and Golden Gate — and ICP students do a year-long practicum at one of them or at an outside site. That is a genuinely unusual amount of in-house placement capacity for a private master's program. Two caveats worth naming: the program is expensive and in one of the most expensive cities in the country, and the recurring complaint in public reviews is administrative and financial-aid disorganisation rather than teaching quality."
+ ],
+ "orientation": "Integral/transpersonal (Sri Aurobindo lineage) with a Gestalt and relational-psychodynamic clinical core",
+ "signature": [
+  {
+   "code": "ICP 5619",
+   "title": "Integral Yoga",
+   "units": "1",
+   "desc": "\"This course covers the history and major themes of integral philosophy, yoga, and meditation, from the South Asian lineage of Sri Aurobindo and CIIS founder Haridas Chaudhuri to its relevance to 21st century therapeutic applications... the role of Black, Indigenous, neurodivergent, disabled, feminist, queer and trans perspectives in an integral approach.\"",
+   "verbatim": true,
+   "why": "This is the course that makes 'integral' a specific claim rather than a vague adjective: it names Aurobindo and Chaudhuri as the actual intellectual lineage. The weekend track carries the same content as ICPW 5620 'Integral Philosophy, Meditation, Yoga'. No other California MFT program requires a named contemplative-philosophy course as part of the licensure sequence.",
+   "src": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  },
+  {
+   "code": "ICP 8606",
+   "title": "Integral Psychology",
+   "units": "3",
+   "desc": "\"Sri Aurobindo's Integral Yoga and integral philosophy, including Haridas Chaudhuri's contributions, form the spiritual foundation of the Institute. As an integration of the major schools of Vedanta, Yoga, and Tantra, integral philosophy provides an integrative framework for the many divergent schools of Western psychology.\"",
+   "verbatim": true,
+   "why": "The theoretical companion to 5619, and the clearest statement in the catalog of what the school thinks it is doing: using Vedanta, Yoga and Tantra as the meta-framework that organises Western psychological schools. Read this description before applying — if it does not appeal, the whole programme will grate.",
+   "src": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  },
+  {
+   "code": "ICP 5606",
+   "title": "Gestalt Therapy",
+   "units": "3",
+   "desc": "\"Gestalt therapy will be presented as an adjunct to Existential Philosophy and Therapy... Main elements of Gestalt therapy will be demonstrated-i.e., contact boundaries, awareness, figure formation, the Gestalt theory of neurosis, and disturbances at the boundaries. The primary emphasis will be on working in the here and now.\"",
+   "verbatim": true,
+   "why": "A full 3-unit required semester of Gestalt is rare; most CA programs give Gestalt a week inside a theories survey. It connects directly to placement, because CIIS's Church Street Integral Counseling Center bills itself as the only university-affiliated Gestalt/existential therapy center in the country.",
+   "src": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  },
+  {
+   "code": "MCPI 5604",
+   "title": "Group Dynamics & Facilitation",
+   "units": "3",
+   "desc": "\"Students will learn theory and application of group counseling theory, including the therapeutic factors of group work and principles of group dynamics. There will be a strong experiential group process component to the course... seeing the therapy group as social microcosm.\"",
+   "verbatim": true,
+   "why": "This is the closest thing ICP has to a semester-long interpersonal-process group: the catalog explicitly promises a strong experiential group-process component and frames the class itself as a social microcosm. Note, though, that the catalog does not use the term 'T-group' anywhere — see gaps.",
+   "src": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  },
+  {
+   "code": "ICP 6222",
+   "title": "Subversive Counseling",
+   "units": "1",
+   "desc": "Uses Ginwright's (2022) four pivots to examine how dominant mental health paradigms perpetuate systemic oppression. Students plan a \"subversion counselor practice\" within one of three systems — carceral, child protection, or disability care management — framed by Angela Davis's challenge to \"continue to be subversive until we have subverted the whole damn system of oppression.\"",
+   "verbatim": false,
+   "why": "An unusually explicit, operational liberation-psychology elective: it asks students to pick a real institution and plan how to subvert it from inside while staying within professional ethics. Most programs' social-justice content stops at awareness; this one asks for a plan.",
+   "src": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  },
+  {
+   "code": "ICP 6832",
+   "title": "Psychedelic-Assisted Psychotherapy",
+   "units": "3",
+   "desc": "\"An overview of the rapidly growing field of psychedelic assisted psychotherapy, including background information on local, state, and federal approvals and clinical research trials of MDMA, psilocybin, ketamine, and other medicines... reviews the Indigenous origins and history of psychedelic medicine.\"",
+   "verbatim": true,
+   "why": "A 3-unit master's elective in psychedelic-assisted therapy, available to LMFT students, is still uncommon. CIIS also runs a Ketamine-Assisted Psychotherapy Clinic among its counseling clinics, so the classroom content connects to a real service line.",
+   "src": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based and largely lockstep over three years. The program page describes 3 years / 7 semesters but the published weekday sample course of study lists eight numbered semesters including two summers — the discrepancy is unexplained on the page. The weekend track covers the same 60 units across five-weekend semesters plus two named Intensives. Sequence below is the weekday LMFT (60-unit) sample; the LPCC track adds 10 units.",
+  "total_units": "60 (LMFT track); 70 (LPCC track); 66 for the hybrid, which is LPCC-only",
+  "terms": [
+   {
+    "label": "Semester 1 — Fall",
+    "courses": [
+     "Multicultural Counseling (3)",
+     "Therapeutic Communication (3)",
+     "Psychodynamics (3)",
+     "Human Development and the Family (3)"
+    ]
+   },
+   {
+    "label": "Semester 2 — Spring",
+    "courses": [
+     "Family Dynamics (3)",
+     "Clinical Relationship (3)",
+     "Group Dynamics and Facilitation (3)"
+    ]
+   },
+   {
+    "label": "Semester 3 — Summer",
+    "courses": [
+     "Gestalt Therapy (3)",
+     "Professional Ethics and Family Law (2)"
+    ]
+   },
+   {
+    "label": "Semester 4 — Fall",
+    "courses": [
+     "Psychopathology and Psychological Assessment (3)",
+     "Couples Counseling (3)",
+     "Child Therapy (2)",
+     "Assessment and Treatment of Addiction Disorders (1)",
+     "General Elective (1)"
+    ]
+   },
+   {
+    "label": "Semester 5 — Spring",
+    "courses": [
+     "Transpersonal Psychology (3)",
+     "Trauma (3)",
+     "General Elective (1)"
+    ]
+   },
+   {
+    "label": "Semester 6 — Summer",
+    "courses": [
+     "Practicum (2)",
+     "Cognitive Behavioral Therapy (1)",
+     "Human Sexuality (1)"
+    ]
+   },
+   {
+    "label": "Semester 7 — Fall",
+    "courses": [
+     "Practicum (2)",
+     "Research Methods (3)",
+     "General Elective (1)"
+    ]
+   },
+   {
+    "label": "Semester 8 — Spring",
+    "courses": [
+     "Practicum (2)",
+     "Integrative Seminar (3)"
+    ]
+   }
+  ],
+  "src": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology"
+ },
+ "practicum": {
+  "starts": "Semester 6 — the summer of year two in the weekday sequence — and runs three consecutive semesters (2 units each)",
+  "hours": null,
+  "who_places": "mixed",
+  "clinic": "Three CIIS-run Integral Counseling Centers in San Francisco: Church Street (Noe Valley), Pierce Street (Pacific Heights) and Golden Gate. CIIS also operates a Center for Somatic Therapy, a Psychological Services Center, a Ketamine-Assisted Psychotherapy Clinic and The Clinic Without Walls.",
+  "detail": "Students complete a year-long practicum at one of the three Integral Counseling Clinics or at an external site of their choosing, supported by a Field Placement Office. Practicum is taken as paired courses — MCPI 7601A/B/C Practicum: Individual (individual supervision, case formulation and the therapeutic relationship) alongside MCPI 7602A/B Practicum: Group (case presentation and analysis in a group setting). A criminal background check is a prerequisite, and a signed \"Supervised Fieldwork Agreement\" must be on file with the Field Placement Office by the end of the semester or the student receives an NP grade. All three clinics run on a sliding fee scale and see individuals, couples, families, children and groups. Separately, the program requires 50 hours of personal psychotherapy with a licensed clinician.",
+  "src": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology",
+  "model": "assisted",
+  "model_evidence": "Students engage in a year-long practicum at one of our three award-winning Integral Counseling Clinics or an external site of their choosing.",
+  "model_url": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology",
+  "model_why": "Owning three clinics is not the same as holding a seat in one. CIIS's own Field Placement Office says practicums are competitive and advises applying to at least six sites. This is the reclassification that moved a featured school down, and it is the honest reading.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Church Street Integral Counseling Center",
+   "Golden Gate Integral Counseling Center",
+   "Pierce Street Integral Counseling Center",
+   "Center for Somatic Therapy",
+   "Psychological Services Center",
+   "The Clinic Without Walls",
+   "Ketamine-Assisted Psychotherapy Clinic"
+  ]
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from an accredited institution; two undergraduate psychology courses recommended but not required (human development, psychopathology, theories of personality or intro psych strongly recommended); minimum 3.0 GPA, with 2.0–3.0 considered on submission of a GPA Statement.",
+  "deadline": "Rolling; Spring or Fall entry for the weekday track, Fall only for weekend, Spring only for hybrid. $68 application fee. Required: a 1–2 page admissions essay specifically about the applicant's own experience discussing identity difference, power, privilege and social oppression; a 3–4 page goal statement; resume; two letters of recommendation; and individual plus group interviews by invitation.",
+  "src": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology",
+  "gre_evidence": "A GPA of 3.0 or higher in previous coursework is required. However, a GPA below 3.0 does not automatically disqualify an applicant.",
+  "gre_url": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"The Integral Counseling Psychology program at CIIS is a wonderful program... Classes are designed for you to experience knowledge meaningfully, exploring your own life, in a transformative education model, instead of memorizing information.\"",
+   "who": "OnlineU review, Counseling Psychology, May 2015",
+   "sentiment": "positive",
+   "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
+  },
+  {
+   "text": "\"I have had a myriad of issues receiving my financial aid... When I haven't received my financial aid on time, that has nearly caused me to be evicted from my home TWICE.\" Adds that the teaching itself was usually well done.",
+   "who": "OnlineU review, Counseling Psychology, October 2018",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
+  },
+  {
+   "text": "\"The field placement office, headed by a lovely and talented woman with extensive knowledge of the BBS, is proactive and very helpful, from offering workshops on resume refinement to sending out placement opportunities.\"",
+   "who": "OnlineU review, Clinical Psychology, September 2013",
+   "sentiment": "positive",
+   "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
+  },
+  {
+   "text": "\"The best thing about the program is the amazing supportive community of the school. The toughest thing is that it's intended to be a grad program for working adults but the workload really makes it difficult to keep working full time.\"",
+   "who": "OnlineU review, Psychology, January 2014",
+   "sentiment": "mixed",
+   "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
+  },
+  {
+   "text": "Thread titled \"Is CIIS basically a scam/waste of money?\" — the cost-versus-value argument that follows CIIS around. Comment text could not be retrieved this session; Reddit blocked automated access.",
+   "who": "Reddit, r/ClinicalPsychology, 2025 (thread title only)",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/ClinicalPsychology/comments/1j4rujy/is_ciis_basically_a_scamwaste_of_money/"
+  },
+  {
+   "text": "Thread titled \"Thoughts on CIIS\" — accreditation and institutional reputation. Comment text could not be retrieved this session; Reddit blocked automated access.",
+   "who": "Reddit, r/ClinicalPsychology, 2023 (thread title only)",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/ClinicalPsychology/comments/11b4phi/thoughts_on_ciis/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/2/25/California_Institute_of_Integral_Studies_%28main_campus%2C_SoMa%29_-1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:California_Institute_of_Integral_Studies_(main_campus,_SoMa)_-1.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by HaeB, via Wikimedia Commons, CC BY-SA 4.0",
+  "caption": "The CIIS main campus building at 1453 Mission Street, in San Francisco's South of Market district, seen across Mission Street"
+ },
+ "gaps": [
+  "No course anywhere in the CIIS catalog is called a 'T-group'. A keyword search of the full live course catalog for 'T-group' returns zero results. The closest real equivalent is the required 3-unit Group Dynamics & Facilitation (MCPI 5604 / ICPW 5604 / ICPH 5604), whose catalog description promises 'a strong experiential group process component' and treats the class as a social microcosm — but it is a group-counseling course with an experiential component, not an unstructured semester-long T-group.",
+  "There is no course titled 'Spirit, Mind and Body' or any similarly named integral-theory sequence. The integral-theory content is carried by three separate courses instead: ICP 5619 Integral Yoga (or ICPW 5620 Integral Philosophy, Meditation, Yoga), ICP 8606 Integral Psychology, and the required Transpersonal Psychotherapy course (ICP 6501 / ICPW 6501).",
+  "Cohort size is published nowhere. CIIS is WSCUC-accredited and nonprofit, so it does not file a BPPE School Performance Fact Sheet, which is where cohort and completion numbers would otherwise appear.",
+  "Required practicum client-contact hours are not stated on the program page, and the CIIS field-placement page could not be located at any guessed URL. The unit structure (three semesters of 2-unit practicum plus paired individual and group supervision) is documented; the hour count is not.",
+  "The program page states '3 years (7 semesters)' but the published weekday sample course of study lists eight numbered semesters. The page does not reconcile this.",
+  "CIIS's claim that its alums 'consistently have the highest pass rates of all graduate degree programs in California' for the LMFT exam is the school's own, on its own FAQ page, and is not sourced there to BBS data. Treat as unverified.",
+  "Reddit was unreachable from this environment (HTTP 403 on reddit.com, old.reddit.com, the .json endpoints, pullpush.io and every mirror tried), so no Reddit comment text could be quoted — only thread titles, which are recoverable from the URLs.",
+  "Tuition and total cost of attendance were not collected."
+ ],
+ "sources": [
+  {
+   "label": "M.A.-C.P. in Integral Counseling Psychology — program page (formats, weekday and weekend course of study, entry requirements, FAQ)",
+   "url": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology"
+  },
+  {
+   "label": "CIIS live course catalog (Ellucian Colleague Self-Service) — ICP, ICPW, ICPH, MCPI and MCP subject codes, full course descriptions",
+   "url": "https://ciis-ss.colleague.elluciancloud.com/Student/Courses/Search?subjects=MCPI&subjects=ICP&subjects=MCP"
+  },
+  {
+   "label": "About the Integral Counseling Psychology program",
+   "url": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology/about"
+  },
+  {
+   "label": "CIIS Counseling Clinics — index of all seven clinics",
+   "url": "https://www.ciis.edu/ciis-in-the-world/counseling-clinics"
+  },
+  {
+   "label": "Church Street Integral Counseling Center",
+   "url": "https://www.ciis.edu/ciis-in-the-world/counseling-clinics/church-street-integral-counseling-center"
+  },
+  {
+   "label": "Integral Counseling Center at Pierce Street",
+   "url": "https://www.ciis.edu/ciis-in-the-world/counseling-clinics/integral-counseling-center-pierce-street"
+  },
+  {
+   "label": "Golden Gate Integral Counseling Center",
+   "url": "https://www.ciis.edu/ciis-in-the-world/counseling-clinics/golden-gate-integral-counseling-center"
+  },
+  {
+   "label": "CIIS graduate programs index (confirms the five MA-CP counseling concentrations)",
+   "url": "https://www.ciis.edu/academics/graduate-programs"
+  },
+  {
+   "label": "Student reviews of CIIS",
+   "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
+  }
+ ]
+}

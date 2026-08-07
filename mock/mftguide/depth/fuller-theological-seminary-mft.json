@@ -1,0 +1,331 @@
+{
+ "institution": "Fuller Theological Seminary",
+ "character": [
+  "Fuller's MSMFT is the largest MFT master's degree in California by a wide margin, and the first thing to do with the number is convert it. 98 quarter units is about 65 semester units; the LPCC version, 100 quarter units, is about 67. Set against a typical California MFT degree of 60 semester units, you are buying roughly one extra semester of coursework. Where does it go? Not into more therapy classes than everyone else — into the seminary. Sixteen of the 98 units (about 11 semester units, a sixth of the degree) are Theology/Integration: ET535 The Ethics of Life and Death, plus two of OT500 Old Testament Introduction / NT500 New Testament Introduction / FI506 The Church as a Family System, plus FI500 Introduction to Integration and FI510A/B/C/D Integration Formation Group. The remaining 82 units are ordinary MFT substance: Marriage and Family Therapy 36, Clinical Training 18, Family Studies 16, Family Research 4, Electives 8. This is not a secular program with a chapel attached — the catalog says applicants are expected to possess \"a commitment to the historic Christian faith,\" and the integration requirement is a four-quarter small-group formation process, not a survey course you test out of.",
+  "The clinical machinery is unusually built out for a master's program, and it is the second real reason to consider Fuller. Before practicum, every student does three quarters of Clinical Foundations lab: two quarters of \"triad role-play, live and written feedback and videotaped projects\" in \"a specially equipped observation room with a one-way mirror,\" then a third quarter running simulated marriage and parent-child therapy sessions under a faculty clinician. Then a 9–12-month supervised practicum with faculty supervisors who \"provide weekly live supervision.\" Fuller runs its own clinic on the Pasadena campus — Fuller Psychological and Family Services, which opened in November 1964 as the Pasadena Community Counseling Center, a year before the psychology school itself, and now offers services in Spanish, Korean, Mandarin, Cantonese and English. The department sits inside the School of Psychology & Marriage and Family Therapy alongside a Department of Clinical Psychology running APA-accredited PhD and PsyD programs; Fuller was \"the first seminary-based psychology school to receive American Psychological Association accreditation,\" in 1974. That reputation belongs to the doctoral side. The MSMFT itself is not COAMFTE-accredited and does not claim to be — it is BBS-recognized under B&P Code §4980.36/§4980.37 and §4999.33.",
+  "The institution around the program is deliberately shrinking, and a prospective student should price that in. Fuller announced in 2018 that it would sell the Pasadena campus and relocate; the move was later called off, though the land had already been purchased. On 3 February 2025 the Pasadena City Council unanimously approved an Amended Master Plan that runs to 2045 and cuts the maximum on-site student population from 2,014 to 500, caps faculty at 121, drops parking from roughly 450 spaces to a minimum of 181, and designates 15 properties as \"core\" campus with 14 others \"non-core\" and available for sale or repurposing. Fuller frames it as a \"right-sizing strategy in response to changing demands in higher education\" and reports global enrollment above 2,600 across Pasadena, Phoenix, Houston, online and hybrid. The MSMFT remains a Pasadena and Phoenix in-person program, and the LPCC track and the Practicum Consultation groups are Pasadena-only. Cost, for orientation: School of Psychology & MFT 500-level courses are $540 per unit for Fall 2025–Summer 2026, so 98 units runs about $52,900 in tuition — slightly less in practice because the required Old Testament, New Testament and Ethics courses are School of Mission and Theology 500-level at $505 per unit. Federal data for the field at Fuller shows 80 master's completions in the most recent year, with median earnings of $48,129 one year out and $67,123 four years out."
+ ],
+ "orientation": "Systemic family therapy inside an explicitly evangelical Christian integration frame",
+ "signature": [
+  {
+   "code": "FI510A/B/C/D",
+   "title": "Integration Formation Group",
+   "units": "2 (across four quarters)",
+   "desc": "\"Students meet in small groups with faculty to tell their own narratives and listen to the narratives of others, as a means to begin exploring vocation, gifts, and identity. The group process spans four quarters (three quarters for students in the three-year program at the Pasadena campus).\" Pass/Fail.",
+   "verbatim": true,
+   "why": "This is the course that most distinguishes Fuller from a secular MFT program: a required, year-long, faculty-led personal-narrative group that carries only 2 units but occupies four quarters of your calendar. The department states that \"in every quarter of the program, students participate in formation and/or clinical training in small group (8-10 students) contexts.\"",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "code": "FT530A/B/C",
+   "title": "Clinical Foundations 1, 2 and Clinical Foundations 3: Advanced Skills",
+   "units": "2 each (6 total)",
+   "desc": "530A/B: \"This clinical training course assists students in the practice of basic family therapy skills with individuals, couples and families. This learning experience spans two quarters of studies and includes triad role-play, live and written feedback and videotaped projects.\" 530C: \"Students practice various assessment and family therapy techniques by participating as therapists in simulated marriage and/or parent-child therapy sessions.\"",
+   "verbatim": true,
+   "why": "Three full quarters of supervised laboratory practice, in a one-way-mirror observation room, before you touch a real client — and the sequence doubles as the formal gate to practicum, since \"during Clinical Foundations 1-3, basic family therapy skills and personal readiness for practicum are assessed.\" Very few California programs put this much structured rehearsal in front of the first client.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "code": "ET535",
+   "title": "The Ethics of Life and Death",
+   "units": "4",
+   "desc": "\"This course considers ethical concerns arising at the beginning of life (e.g. prenatal screening, abortion, infertility, reproductive technologies, embryonic stem cell research), through chronic conditions and urgent health crises, and finally considers medicalization of our dying process… This course investigates secular and religious approaches while assuming that the Scripture and the Christian tradition remain central for living faithfully as Christian professionals.\"",
+   "verbatim": true,
+   "why": "Required of every MSMFT student, and the clearest statement of what the seminary requirement actually means in practice — a bioethics course taught from a stated position that Scripture and the Christian tradition are central, not merely one perspective among several. It is also one of the three courses in the Medical Family Therapy emphasis.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "code": "FT562",
+   "title": "Medical Family Therapy: Working with Families in Systems of Illness and Health",
+   "units": "4",
+   "desc": "\"Designed to provide students with the basic conceptual models of medical family therapy (MedFT): Biopsychosocial-spiritual (BPS-S) approach, models of integrated care, illness typologies… The course culminates in a project where students research a specific disease and using the BPS-S and family systems frameworks construct a case formulation on a clinical vignette.\"",
+   "verbatim": true,
+   "why": "The anchor of Fuller's optional MedFT emphasis, which is completed by taking this plus FT549 Psychopharmacology and ET535 — so the emphasis adds only one course beyond what most students already take, and is available on both the Pasadena and Phoenix campuses. The catalog frames it around integrated behavioral health under the Mental Health Services Act and the ACA.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "code": "FT533",
+   "title": "Vulnerable Family Systems: Addressing Mental Health Disparities and Complex Trauma",
+   "units": "4 (5 for some out-of-state licensure)",
+   "desc": "\"Provides a broad overview of the mental health adjustment of ethnic minority children and families, and examines the processes that affect their adjustment. An ecological systems framework is emphasized with special attention to how mental health disparities impact children and families. The course also focuses on complex trauma and PTSD.\" Prerequisite: FS511.",
+   "verbatim": true,
+   "why": "Fuller folds its trauma requirement and its health-disparities content into one required 4-unit course gated behind the cultural-issues course rather than teaching trauma as a decontextualised technique class. If you want a standalone trauma-treatment sequence, this is not that.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "code": "FT550C",
+   "title": "Practicum Consultation",
+   "units": "12 total (0 units when practicum begins in spring or summer; 4 units for Fall, Winter and Spring of practicum)",
+   "desc": "\"Required to meet BBS regulations for students who are concurrently enrolled in practicum in the Pasadena program. Students are required to attend a weekly, one-hour practicum consultation during the Fall, Winter, and Spring quarters of their second or third year in the program… To be registered concurrently with a practicum placement.\" Pasadena students only.",
+   "verbatim": true,
+   "why": "Twelve of the 98 units — an eighth of the degree — are this single concurrent consultation requirement, which is why the unit count looks so large next to other California programs. Students in faculty-led practica register for FT550S Practicum Supervision instead, where \"supervision is provided by a licensed faculty member in the state who provides live supervision.\"",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Quarter system, not semesters. Fuller publishes the degree as a six-area completion checklist rather than a term-by-term grid, so the areas below are the published requirement structure. Pasadena students on the traditional two-year full-time track take 14–16 units per quarter; the three-year track puts most classes on Tuesday and Thursday late afternoons and evenings plus some online options in the first two years, with the third year reserved for practicum, practicum consultation and integration formation. Phoenix runs a two-year (Wednesday and Thursday afternoons/evenings) or three-year (Wednesday or Thursday) version. Total is 98 quarter units — about 65 semester-unit equivalents — or 100 for the California LPCC track (Pasadena only) and 102 for the Arizona LPC track (Phoenix only).",
+  "total_units": "98 quarter units (≈65 semester units); 100 for LPCC, Pasadena only (≈67 semester units)",
+  "terms": [
+   {
+    "label": "Theology / Integration — 16 units",
+    "courses": [
+     "FI500 Introduction to Integration (2)",
+     "FI510A/B/C/D Integration Formation Group (2)",
+     "ET535 The Ethics of Life and Death (4)",
+     "Choose two: OT500 Old Testament Introduction (4) / NT500 New Testament Introduction (4) / FI506 The Church as a Family System (4)"
+    ]
+   },
+   {
+    "label": "Marriage and Family Therapy — 36 units (38 for LPCC/LPC)",
+    "courses": [
+     "FT502 Legal and Ethical Issues in Family Practice (4) — or FT503, Fuller Arizona only",
+     "FT508 Psychopathology and Family Systems (4)",
+     "FT514 Family Therapy (4)",
+     "FT515 Marital Therapy (4)",
+     "FT520 Child and Adolescent Therapy in Family Contexts (4)",
+     "FT522 Assessment of Individuals, Couples, and Families (4)",
+     "FT526 Addiction and Family Treatment (2; 4 for LPCC)",
+     "FT533 Vulnerable Family Systems: Addressing Mental Health Disparities and Complex Trauma (4)",
+     "FT535 Group Therapy (2)",
+     "FT549 Psychopharmacology (4)"
+    ]
+   },
+   {
+    "label": "Clinical Training — 18 units",
+    "courses": [
+     "FT530A Clinical Foundations 1 (2)",
+     "FT530B Clinical Foundations 2 (2)",
+     "FT530C Clinical Foundations 3: Advanced Skills (2)",
+     "FT550C Practicum Consultation (12 total) — or FT550S Practicum Supervision (12) for Fuller Arizona and Pasadena students in faculty-led practica",
+     "FT555 Practicum Continuation (0)"
+    ]
+   },
+   {
+    "label": "Family Studies — 16 units",
+    "courses": [
+     "FS500 Family System Dynamics (4)",
+     "FS501 Gender and Sexuality (4)",
+     "FS505 Child and Family Development (4)",
+     "FS511 Cultural and Ethnic Issues in Marriage and Family Intervention (4) — or FS512, Fuller Arizona only"
+    ]
+   },
+   {
+    "label": "Family Research — 4 units",
+    "courses": [
+     "FR501 Research Methods, Statistics, and Design in MFT (4)",
+     "Optional: FR590 Directed Study in Family Research (1–4), FR591 Master's Thesis (8), FR593 Master's Research and Writing (0)"
+    ]
+   },
+   {
+    "label": "Electives — 8 units",
+    "courses": [
+     "Choose 4 units from: FI515 Forgiveness, Reconciliation and Clinical Practice (2/4) / FI531 Theological & Clinical Exploration of Shame and Guilt (2/4) / FI540 Narrative & Family Life (4) / FT562 Medical Family Therapy (4) / FL501 Family Life Education (4) / FT546 Life Development and Career Counseling (4) / FT563 Grief, Loss, Death and Dying (2, Fuller Arizona only) / FR591 Master's Thesis (4)",
+     "Plus 4 units of any elective from the School of Psychology & MFT or School of Mission and Theology"
+    ]
+   },
+   {
+    "label": "LPCC track add-ons (Pasadena only, total 100 units)",
+    "courses": [
+     "FT526 Addiction and Family Treatment taken at 4 units instead of 2",
+     "FT546 Life Development / Career Counseling (4)",
+     "FT550C or FT550S with 300 client contact hours minimum (12)"
+    ]
+   },
+   {
+    "label": "Optional emphasis: Medical Family Therapy (Pasadena or Phoenix)",
+    "courses": [
+     "FT562 Medical Family Therapy: Working with Families in Systems of Illness and Health (4)",
+     "FT549 Psychopharmacology (4)",
+     "ET535 The Ethics of Life and Death (4)"
+    ]
+   }
+  ],
+  "src": "https://fuller.edu/academics/school-of-psychology/marriage-and-family/master-of-science-in-marriage-and-family-therapy-outline/"
+ },
+ "practicum": {
+  "starts": "Second year for the two-year Pasadena and Phoenix tracks; three-year students \"are expected to commence practicum in their second year of study,\" with the third year given over to practicum, consultation and formation. Preceded by three quarters of Clinical Foundations lab, which formally assesses \"personal readiness for practicum.\"",
+  "hours": "California MFT track: minimum 225 hours of direct client contact, of which 100 must be MFT relational hours \"devoted exclusively to child, couple, group, or family work,\" plus a minimum of 45 units of supervision at a ratio of one unit per five client hours (a unit = one hour individual/triadic or two hours group). California LPCC and Arizona MFT tracks: 300 direct hours with the same 100 relational, and 60 units of supervision. Arizona LPC: 700 total hours of experience, at least 300 direct. Students may extend to 500 client contact hours for out-of-state licensure.",
+  "who_places": "mixed",
+  "clinic": "Fuller Psychological and Family Services (FPFS), 180 N. Oakland Ave., Pasadena — opened November 1964 as the Pasadena Community Counseling Center",
+  "detail": "The training program \"normally requires a 9-12-month supervised practicum,\" and Fuller describes it as a 10-month program with faculty supervisors who \"provide weekly live supervision and group training.\" Placement is mixed rather than purely program-placed: Fuller runs its own clinic, FPFS, which \"provide[s] some clinical traineeships\" and where \"most of our therapists are students from the Fuller SoPMFT Clinical Psychology Program and Marriage and Family Therapy Program,\" but the catalog also assumes off-campus sites — faculty \"give broad oversight to off-campus clinical training, and ensure that training facilities provide exposure to a diverse range of family and mental health issues,\" and the school works with agencies throughout the Los Angeles area. Two parallel supervision structures exist and which one you land in matters: students in ordinary community placements register for FT550C Practicum Consultation, a weekly one-hour faculty-led case-consultation group (Pasadena only), while students in faculty-led practica register instead for FT550S Practicum Supervision, where a licensed faculty member provides live supervision — that is the higher-intensity version, and the catalog does not say how it is allocated. The California MFT floor is 225 direct hours with a 100-hour relational sub-minimum, which is lower than the 300 required on the LPCC and Arizona tracks; if you want the higher number you have to be on the 100-unit LPCC track, which is Pasadena-only. Supervision is rationed at one unit per five client hours — 45 units minimum for the MFT track — and clinical progress is formally evaluated every quarter by the Director of Clinical Training in consultation with faculty, practicum supervisors and agency directors. Fuller warns bluntly that \"the clinical settings often have no commitment to coordinate their work opportunities with the student's clinical training,\" and that full-time students working more than 20 hours a week \"will likely compromise the quality of their educational experience.\"",
+  "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf",
+  "model": "not published",
+  "model_evidence": "All students have access to a broad range of practicum options through our dozens of site connections.",
+  "model_url": "https://fuller.edu/masters-in-marriage-and-family-therapy/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Fuller Psychological and Family Services"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published. Federal data reports 80 master's completions in the field (CIP 51.15) in the most recent reporting year across Fuller as a whole. Formation and clinical training groups are 8–10 students.",
+  "gre": "not published",
+  "prereqs": "Bachelor's from a regionally accredited institution; normally a minimum 3.0 undergraduate GPA. Applicants \"are strongly recommended\" to have completed a course in introductory social science research or statistics, plus Theories of Personality (or Counseling Theories), Abnormal Psychology, and Lifespan Development (or Developmental Psychology). Applicants must possess \"the emotional, spiritual, and intellectual maturity, and the vocational suitability\" for the field, and the department expects \"a commitment to the historic Christian faith.\" TOEFL 100 iBT or IELTS 7.0 for non-native English speakers.",
+  "deadline": "\"New students at both the Pasadena and Phoenix campuses are admitted to the MSMFT on an early admissions basis\"; specific dates are published at fuller.edu/admissions rather than in the catalog. Interviews are offered to selected applicants and \"an invitation to interview is not a guarantee of acceptance.\" Arizona applicants sign an enrollment agreement.",
+  "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf",
+  "gre_evidence": "3.0 GPA or above",
+  "gre_url": "https://fuller.edu/masters-in-marriage-and-family-therapy/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Federal field-of-study data: 80 master's completions in Mental and Social Health Services (CIP 51.15) in the most recent year; median earnings $48,129 one year after graduating (n=81) and $67,123 four years after (n=55).",
+   "who": "U.S. Dept. of Education College Scorecard, field-of-study data, retrieved August 2026",
+   "sentiment": "info",
+   "url": "https://collegescorecard.ed.gov/school/?121150-Fuller-Theological-Seminary-in-California"
+  },
+  {
+   "text": "A prospective student weighing Fuller against USC put the cost gap at roughly $60,000 versus $130,000 and noted Fuller is \"known for good psychology programs\"; the single reply was \"Fuller looks like the better program,\" with no reasoning given. Note the thread is from 2018 and the cost figures are that vintage.",
+   "who": "Student Doctor Network forums, April 2018",
+   "sentiment": "mixed",
+   "url": "https://forums.studentdoctor.net/threads/ms-marriage-and-family-therapy-usc-vs-fuller-seminary.1304563/"
+  },
+  {
+   "text": "The campus you would attend is contracting by design: the Amended Master Plan approved 3 February 2025 cuts maximum on-site students from 2,014 to 500 and marks 14 of 29 campus properties \"non-core\" for potential sale, running through 2045. The 2018 plan to sell Pasadena and relocate \"was later called off, although the land was purchased.\"",
+   "who": "Pasadena Now, February 2025",
+   "sentiment": "info",
+   "url": "https://pasadenanow.com/main/fuller-seminary-seeks-council-approval-of-major-downsizing-plans-as-online-learning-reshapes-campus-outlook"
+  },
+  {
+   "text": "Fuller's own framing of the same decision: president David Emmanuel Goatley said the plan \"gives us more flexibility to be better stewards of the resources the Lord has entrusted into our care,\" and the seminary called it \"the beginning of an exciting new chapter in Fuller's 77-year history in Pasadena.\"",
+   "who": "Fuller Seminary announcement, February 2025",
+   "sentiment": "positive",
+   "url": "https://www.fuller.edu/posts/pasadena-city-council-approves-fullers-amended-master-plan/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/0/08/2008-1226-Pasadena-005-FullerTS.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:2008-1226-Pasadena-005-FullerTS.jpg",
+  "license": "CC BY 3.0",
+  "credit": "Photo by Bobak Ha'Eri, via Wikimedia Commons",
+  "caption": "Payton Hall on the Fuller Theological Seminary campus in Pasadena, where the MSMFT and the Fuller Psychological and Family Services clinic are based"
+ },
+ "gaps": [
+  "Cohort size for the MSMFT is not published for either Pasadena or Phoenix. The only size figure in the catalog is the 8–10 students in formation and clinical training small groups.",
+  "No term-by-term or quarter-by-quarter plan of study is published. Fuller publishes the degree as a completion checklist grouped by requirement area, plus a description of which days classes meet on each track.",
+  "How practicum placements are allocated is only partly documented. The catalog confirms FPFS \"provide[s] some clinical traineeships\" and that faculty give \"broad oversight to off-campus clinical training,\" but never states whether students apply to sites themselves, and the Clinical Training web page explicitly does not say either.",
+  "It is not stated how students are assigned to faculty-led practica (FT550S, with live faculty supervision) versus ordinary community practica (FT550C, with weekly consultation only) — a meaningful difference in training intensity.",
+  "The MSMFT is not COAMFTE-accredited. This is established by absence — COAMFTE appears nowhere in the 2025–26 catalog — rather than by an affirmative statement. Fuller's APA accreditation covers only the Clinical Psychology PhD and PsyD in the sibling department.",
+  "No licensure exam pass-rate, graduation-rate or job-placement data is published for the MSMFT.",
+  "A single total program cost is not published. Tuition is charged per unit by course level and school, so the theology courses (School of Mission and Theology, $505/unit) and the MFT courses (School of Psychology & MFT, $540/unit) are billed at different rates.",
+  "Reddit was unreachable from this environment (HTTP 403), so no student comment text could be quoted; the only substantive forum discussion found was a 2018 Student Doctor Network thread with one reply.",
+  "Whether the Phoenix campus is affected by the Pasadena downsizing is not addressed in the master-plan coverage."
+ ],
+ "sources": [
+  {
+   "label": "Fuller Theological Seminary 2025–26 Academic Catalog (curriculum, practicum hours, clinical training, admissions, tuition)",
+   "url": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "label": "MS in Marriage and Family Therapy — degree outline (98/100 units, area breakdown)",
+   "url": "https://fuller.edu/academics/school-of-psychology/marriage-and-family/master-of-science-in-marriage-and-family-therapy-outline/"
+  },
+  {
+   "label": "School of Psychology — Clinical Training",
+   "url": "https://fuller.edu/academics/school-of-psychology/clinical-training/"
+  },
+  {
+   "label": "Fuller Psychological and Family Services / Fuller Clinics — About",
+   "url": "https://clinics.fuller.edu/about/"
+  },
+  {
+   "label": "Pasadena Now — Fuller Seminary downsizing plan, February 2025",
+   "url": "https://pasadenanow.com/main/fuller-seminary-seeks-council-approval-of-major-downsizing-plans-as-online-learning-reshapes-campus-outlook"
+  },
+  {
+   "label": "Fuller Seminary — Pasadena City Council Approves Fuller's Amended Master Plan",
+   "url": "https://www.fuller.edu/posts/pasadena-city-council-approves-fullers-amended-master-plan/"
+  },
+  {
+   "label": "Student Doctor Network — MS Marriage and Family Therapy USC vs Fuller Seminary (2018)",
+   "url": "https://forums.studentdoctor.net/threads/ms-marriage-and-family-therapy-usc-vs-fuller-seminary.1304563/"
+  },
+  {
+   "label": "U.S. Dept. of Education College Scorecard — field-of-study earnings and completions",
+   "url": "https://collegescorecard.ed.gov/school/?121150-Fuller-Theological-Seminary-in-California"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "total_units",
+   "current": "98 quarter units standard / 100 LPCC track Pasadena only",
+   "correct": "Confirmed for 2025–26, and add the semester equivalent: 98 quarter units ≈ 65 semester units, 100 ≈ 67. Also add the Arizona LPC track at 102 quarter units (Phoenix only).",
+   "src": "https://fuller.edu/academics/school-of-psychology/marriage-and-family/master-of-science-in-marriage-and-family-therapy-outline/"
+  },
+  {
+   "field": "unit_breakdown",
+   "current": null,
+   "correct": "Marriage and Family Therapy 36 (38 for LPCC/LPC), Clinical Training 18, Family Studies 16, Theology/Integration 16, Electives 8 (10 for LPC), Family Research 4",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "calendar",
+   "current": null,
+   "correct": "Quarter system, not semesters",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "length",
+   "current": null,
+   "correct": "Two-year full-time track (14–16 units per quarter) or three-year track; both offered at Pasadena and Phoenix",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "format",
+   "current": null,
+   "correct": "In-person. Pasadena three-year track: most classes Tuesday and Thursday late afternoons and evenings plus some online options in years one and two, with year three reserved for practicum. Phoenix: Wednesday and Thursday afternoons/evenings (two-year) or Wednesday or Thursday (three-year).",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "campuses",
+   "current": null,
+   "correct": "MSMFT is offered at Pasadena and Phoenix. LPCC track and Practicum Consultation groups are Pasadena-only.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "tuition",
+   "current": null,
+   "correct": "$540 per unit for School of Psychology & MFT 500-level courses, Fall 2025–Summer 2026; $505 per unit for the School of Mission and Theology 500-level courses (OT500/NT500/ET535). 98 units works out to roughly $52,500–$52,900 in tuition, plus a $130 per-quarter student service fee and a $140 new student fee.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "in_house_clinic",
+   "current": null,
+   "correct": "Yes — Fuller Psychological and Family Services (FPFS), 180 N. Oakland Ave., Pasadena; opened November 1964; services in Spanish, Korean, Mandarin, Cantonese and English; staffed mostly by Clinical Psychology and MFT students under licensed FPFS supervisors",
+   "src": "https://clinics.fuller.edu/about/"
+  },
+  {
+   "field": "practicum_hours",
+   "current": null,
+   "correct": "California MFT track: 225 direct client contact hours minimum, of which 100 must be relational (child, couple, group or family), plus 45 units of supervision. California LPCC track: 300 direct hours, 100 relational, 60 units of supervision.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "specialization",
+   "current": null,
+   "correct": "Optional Medical Family Therapy emphasis, available at both Pasadena and Phoenix, completed with FT562 Medical Family Therapy + FT549 Psychopharmacology + ET535 The Ethics of Life and Death",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "accreditation",
+   "current": null,
+   "correct": "The MSMFT is BBS-recognized under California B&P Code §4980.36/§4980.37 and §4999.33, but is not COAMFTE-accredited. Fuller's APA accreditation (first granted 1974) belongs to the Clinical Psychology PhD and PsyD in the sibling department of the same school.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  },
+  {
+   "field": "institution_status",
+   "current": null,
+   "correct": "Still in Pasadena. The 2018 plan to sell the campus and relocate was called off after the replacement land had already been purchased; on 3 February 2025 the Pasadena City Council unanimously approved an Amended Master Plan reducing maximum on-site students from 2,014 to 500 and designating 14 properties non-core, through 2045. Global enrollment reported above 2,600.",
+   "src": "https://pasadenanow.com/main/fuller-seminary-seeks-council-approval-of-major-downsizing-plans-as-online-learning-reshapes-campus-outlook"
+  },
+  {
+   "field": "doctoral_relationship",
+   "current": null,
+   "correct": "The School of Psychology & Marriage and Family Therapy contains two departments: Clinical Psychology (APA-accredited PhD and PsyD, Pasadena; students receive a sequential, non-admitting MA in Psychology after 88 units) and Marriage and Family Therapy (MSMFT and a hybrid DMFT). They are sibling departments, not a shared program.",
+   "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
+  }
+ ]
+}

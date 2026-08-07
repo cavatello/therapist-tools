@@ -1,0 +1,226 @@
+{
+ "institution": "Cal Poly Humboldt",
+ "character": [
+  "This one is real, and the question behind it deserves a direct answer: yes, Cal Poly Humboldt's counseling master's is genuinely LMFT-qualifying, and yes, it is still enrolling. The program handbook states it \"is accredited by the California Board of Behavioral Sciences and provides the educational requirements for the Marriage and Family Therapist (MFT) license in the state of California,\" and that graduates \"apply for Associate (AMFT) status with the Board.\" The BBS's own education-resources table lists California State Polytechnic University, Humboldt for LCSW, LMFT and LEP — and not LPCC, which is exactly what the handbook says: LPCC coursework is available but \"students must take 3 to 4 additional courses outside of the program.\" So the LPCC gap in our records is correct and is not an error; the LMFT path is the primary one. On enrolment status: the April 2025 round of cuts at Humboldt discontinued Religious Studies, Economics, the German minor and the Educational Leadership credential and suspended International Studies — the counseling program was not among them. As of August 2026 the university's graduate admissions page lists Counseling Psychology (M.A.) as open for fall with an October 1 – February 1 window; spring admission is closed, as it is for eight other Humboldt graduate programs. Fall-only, cohort entry.",
+  "What makes it distinctive is that the training clinic is the university's own student counseling centre. First-year students see clients at Counseling & Psychological Services, described on the program page as \"the program's on-campus training clinic for Psychology graduate students in the Counseling program\" — meaning your first clients are Humboldt undergraduates, and you meet them in the second semester of year one, not year two. The handbook is blunt about the ramp: \"During the first semester, the student is expected to focus on gaining skill and knowledge of counseling theory and application,\" then a small caseload, typically one to four clients, opens in spring. Fieldwork is also a bigger share of the degree than usual — PSYC 682 requires 16 units of the 60, so better than a quarter of the tuition you pay buys supervised practice rather than seat time.",
+  "The curriculum has an unusual shape worth looking at before you compare unit counts across schools. Humboldt teaches the BBS's mandated content areas as a set of very short, separately-numbered modules rather than folding them into three-unit survey courses: PSYC 636 Sexuality Counseling is 1 unit, PSYC 640 Aging and Long-Term Care is 1 unit, PSYC 644 Suicide Risk Assessment and Intervention is half a unit, PSYC 650 Assessment and Treatment of Child Abuse is half a unit, PSYC 673 Mental Health Addiction and Recovery is 1 unit. That is a licensure-compliance architecture made visible. It is also the only graduate counseling program on California's far north coast, which is the access story: for a student in Humboldt, Del Norte or Trinity county there is no local alternative, and the program's cohort model — \"all members of a cohort take the same courses together every semester\" — assumes you are physically there. The handbook says plainly: \"While we do offer some courses online, we are not an online program.\""
+ ],
+ "orientation": "Developmental and ecosystemic, with an explicit multicultural-competence, cultural-humility and social-justice frame stated in the handbook",
+ "signature": [
+  {
+   "code": "PSYC 682",
+   "title": "Fieldwork",
+   "units": "1-6 per enrolment; 16 units required in total",
+   "desc": "\"Supervised practicum experience in specific settings to meet BBS requirements. Field placements are consonant with student and community needs.\"",
+   "verbatim": true,
+   "why": "Sixteen of the degree's sixty units are this course. That ratio is high for a California MFT-qualifying master's and is the clearest signal of where Humboldt puts its weight — you are enrolled in fieldwork from the second semester of year one straight through to graduation, not for a single capstone year.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "code": "PSYC 662",
+   "title": "Practicum Preparation",
+   "units": "1",
+   "desc": "\"Seminar approach to various clinical issues regarding practicum placement. May include case study, skill enhancement exercises.\"",
+   "verbatim": true,
+   "why": "A dedicated first-semester one-unit seminar whose only job is to get you ready to sit with a client in month five. Most programs handle this inside a techniques course; Humboldt gives it its own number because the on-campus caseload starts so early.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "code": "PSYC 653",
+   "title": "Advanced Psychotherapy with Children and Families",
+   "units": "3",
+   "desc": "\"Psychotherapy models and interventions for working with children and families, presented using developmental and ecosystemic frameworks.\"",
+   "verbatim": true,
+   "why": "The phrase 'developmental and ecosystemic frameworks' is the closest thing the catalog gives to a declared theoretical centre, and it is the relational core of the MFT preparation here — paired with PSYC 656 Couples Therapy, it is where the systemic training actually lives in a program housed in a psychology department rather than a family-therapy one.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "code": "PSYC 644",
+   "title": "Suicide Risk Assessment and Intervention",
+   "units": "0.5",
+   "desc": "\"Assessment and documentation of suicide risk and interventions for working with clients with suicide ideation.\"",
+   "verbatim": true,
+   "why": "A half-unit course with its own catalog number. Worth noticing because it is emblematic: Humboldt breaks the BBS content requirements into discrete micro-courses, which makes the licensure compliance legible but also means several 'courses' on your transcript are a few weeks long.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "code": "PSYC 640",
+   "title": "Aging and Long-Term Care",
+   "units": "1",
+   "desc": "\"Biological, social, cognitive, and psychological aspects of aging including long-term care, end of life, and grief.\"",
+   "verbatim": true,
+   "why": "Required, not elective. Very few California MFT curricula require any dedicated geriatric content, and in a rural North Coast catchment where the older-adult share is high and specialist services are thin, this is training you will use.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "code": "PSYC 636",
+   "title": "Sexuality Counseling",
+   "units": "1",
+   "desc": "\"Psychological, physical, social, and clinical aspects of human sexuality designed to meet California state requirements for licensure as an MFT.\"",
+   "verbatim": true,
+   "why": "Included because the description names the reason it exists — 'designed to meet California state requirements for licensure as an MFT'. The catalog is unusually candid that parts of this curriculum are built to a regulator's checklist rather than to a pedagogical theory.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort model — \"all members of a cohort take the same courses together every semester\" — full-time, fall entry, in person. The handbook lists degree requirements but does not publish a term-by-term grid, so the list below is the full required set rather than a sequence; the handbook only specifies that the first semester is didactic skill-building and direct client contact begins in the second. Requirements total 60 units, of which 16 are PSYC 682 Fieldwork. Note the handbook's warning that \"some courses may only be taught every two years.\"",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Required coursework (no published term-by-term sequence)",
+    "courses": [
+     "PSYC 518 Advanced Developmental Psychopathology (3)",
+     "PSYC 638 Diagnosis of Mental Disorders (3)",
+     "PSYC 641 Research Methods: Philosophy and Design (3)",
+     "PSYC 653 Advanced Psychotherapy with Children and Families (3)",
+     "PSYC 654 Interviewing and Counseling Techniques (3)",
+     "PSYC 656 Couples Therapy (3)",
+     "PSYC 657 Group Counseling and Group Psychotherapy (3)",
+     "PSYC 658 Theories of Individual Counseling and Psychotherapy (3)",
+     "PSYC 660 Law and Ethics in Psychology (3)",
+     "PSYC 662 Practicum Preparation (1)",
+     "PSYC 664 Assessment and Testing for Psychotherapists (3)",
+     "PSYC 672 Psychopharmacology (3)",
+     "PSYC 676 Multicultural Counseling (3)",
+     "PSYC 636 Sexuality Counseling (1)",
+     "PSYC 640 Aging and Long-Term Care (1)",
+     "PSYC 644 Suicide Risk Assessment and Intervention (0.5)",
+     "PSYC 650 Assessment and Treatment of Child Abuse (0.5)",
+     "PSYC 673 Mental Health Addiction and Recovery (1)",
+     "PSYC 682 Fieldwork (1-6 per enrolment; 16 units required)"
+    ]
+   },
+   {
+    "label": "Culminating experience — choose one",
+    "courses": [
+     "PSYC 678 Comprehensive Exam Preparation (3) + PSYC 691 Comprehensive Exam for Counselors (0)",
+     "PSYC 690 Thesis (1-6, minimum 3)"
+    ]
+   }
+  ],
+  "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+ },
+ "practicum": {
+  "starts": "Second semester of year one, on campus at CAPS; community-agency placement in year two",
+  "hours": "\"A minimum of 150 hours of direct (face-to-face) counseling experience with clients and 75 hours of advocacy and support must be earned prior to graduation\"; \"Up to 750 hours of direct counseling may be earned prior to receiving the M.A. degree.\" Enrolment requirement is 16 units of PSYC 682.",
+  "who_places": "mixed",
+  "clinic": "Counseling & Psychological Services (CAPS), the university's own student counseling centre, described on the program page as \"the program's on-campus training clinic for Psychology graduate students in the Counseling program\"",
+  "detail": "Year one is deliberately staged: \"During the first semester, the student is expected to focus on gaining skill and knowledge of counseling theory and application,\" supported by the one-unit PSYC 662 Practicum Preparation seminar, and then in the second semester you begin \"establishing a counseling relationship with one to three clients\" at CAPS — the handbook says typically one to four. Because CAPS is the campus counseling centre, first-year clients are Cal Poly Humboldt students, which shapes what you see: developmental, academic, identity and crisis presentations rather than a full community-clinic caseload. In year two you are \"placed in CAPS or a community agency with primary counselor responsibilities\" and expected to develop individual, child, family and group counseling skills. Placement is negotiated rather than assigned or self-sourced: sites are \"arranged with the student, their faculty supervisor, the Program Coordinator, and selected agencies with approved licensed supervisors at the end of the first year or during the second year of the program.\" Supervision is pegged to caseload — \"at least one hour per week for individual or triadic supervision or two hours per week of group supervision for every five hours of direct client services\" — and a Live Scan background check (about $70) is required in the first month of the program. The graduation floor is low relative to the ceiling: 150 direct hours plus 75 advocacy hours to graduate, but up to 750 pre-degree direct hours may be banked, and BBS-sanctioned hours accrued as a trainee count toward the 3,000 needed for licensure.",
+  "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf",
+  "model": "placed",
+  "model_evidence": "Begin establishing a counseling relationship with one to three clients at Counseling & Psychological Services (CAPS), which provides Cal Poly Humboldt students support services and is the program's on-campus training clinic for Psychology graduate students in the Counseling program.",
+  "model_url": "https://www.humboldt.edu/academics/programs/psychology-counseling",
+  "model_why": "“You will be placed in CAPS or a community agency”, and the handbook has placements arranged by the student's faculty supervisor. The programme drives it, so this is placed rather than in-house even though year one is in its own clinic.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Counseling & Psychological Services (CAPS)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "3.0 GPA or higher. Three prerequisite courses required: Research Design, Statistics, and Introduction to Psychology, plus at least two additional courses from Abnormal Psychology, Developmental Psychology, Personality Theory, Neuroscience, Cognitive Psychology, or Interviewing and Counseling.",
+  "deadline": "Fall entry only: application window October 1 – February 1. Spring admission is closed (as listed on the university's graduate programs and deadlines page, checked August 2026).",
+  "src": "https://www.humboldt.edu/admission-aid/how-to-apply/graduate/programs",
+  "gre_evidence": "Please check with your program for GRE requirements; not all programs require GRE for admission.",
+  "gre_url": "https://www.humboldt.edu/admission-aid/how-to-apply/graduate",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "cost": {
+  "resident_tuition_fees": "2026-27 graduate / post-baccalaureate California resident cost of attendance lists tuition of $8,548 and campus-based fees of $2,452 — $11,000 in tuition and fees for the academic year, before living costs. The university notes figures are estimates and subject to change.",
+  "src": "https://www.humboldt.edu/financial-aid/costs/attendance-cost"
+ },
+ "status": {
+  "enrolling": true,
+  "detail": "Verified 6 August 2026. The M.A. in Counseling Psychology was not among the programs cut in Cal Poly Humboldt's April 2025 round — those were the Religious Studies department, the Economics major, the German minor and the Educational Leadership credential (all discontinued) plus the International Studies major (suspended). The university's current graduate application page lists Counseling Psychology (M.A.) with a fall window of October 1 – February 1 and spring closed.",
+  "src": "https://thelumberjack.org/2025/04/30/five-programs-cut-or-suspended-from-cal-poly-humboldt/"
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Humboldt_State_University_Founders_Hall.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Humboldt_State_University_Founders_Hall.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Jaradpetroske, via Wikimedia Commons, CC BY-SA 4.0",
+  "caption": "Founders Hall, the tile-roofed 1920s landmark building on the Cal Poly Humboldt campus in Arcata, photographed at sunset with forested hills behind it."
+ },
+ "gaps": [
+  "Cohort size is not published anywhere we could reach. The handbook commits to a cohort model and 'small' class sizes but gives no number, and unlike Sonoma or Cal Poly Pomona the department publishes no applications/admits figures. Ask the program coordinator directly.",
+  "GRE policy is not stated in the handbook or on the program page.",
+  "No relational (couple / family / child) sub-minimum is published within the 150 direct hours — a real omission for an MFT-track program, since BBS counts relational hours separately.",
+  "Cal Poly Humboldt's Acalog catalog (catalog.humboldt.edu) returned empty responses from this environment, so the official catalog course list and unit total could not be fetched directly. The 60-unit figure and the course list come from the department's 2024-25 student handbook; the listed courses do sum to exactly 60 units including the 16 fieldwork units, which is a consistency check but not an independent confirmation.",
+  "The handbook is the 2024-25 edition; no 2026-27 handbook was found. Course numbers and hour requirements should be re-verified with the department.",
+  "The handbook does not publish a term-by-term course sequence, only the requirement set plus the statement that first semester is didactic and client work begins in the second.",
+  "No credible first-person student discussion was found; Reddit search was unavailable from this environment.",
+  "No freely-licensed campus photograph could be verified — Wikimedia Commons was unreachable from this environment."
+ ],
+ "corrections": [
+  {
+   "field": "LMFT eligibility",
+   "current": "nothing recorded",
+   "correct": "The program is genuinely LMFT-qualifying. The handbook states it \"is accredited by the California Board of Behavioral Sciences and provides the educational requirements for the Marriage and Family Therapist (MFT) license in the state of California,\" and graduates register as AMFTs. It is not a research or non-clinical psychology degree.",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "field": "BBS licence listing",
+   "current": "unverified note that BBS lists Humboldt for LCSW, LMFT and LEP but not LPCC",
+   "correct": "Confirmed correct. The BBS education-resources table row reads \"California State Polytechnic University, Humboldt | LCSW, LMFT, LEP\". The program handbook corroborates the LPCC exclusion: LPCC coursework requires \"3 to 4 additional courses outside of the program.\"",
+   "src": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  },
+  {
+   "field": "degree name",
+   "current": "M.A. in Psychology: Counseling",
+   "correct": "The university's current program name is \"Counseling Psychology, M.A.\" (catalog and admissions pages). The department's own student handbook still uses the older \"Master of Arts in Psychology: Counseling Emphasis.\" Both refer to the same degree; prefer the current name.",
+   "src": "https://www.humboldt.edu/academics/programs/psychology-counseling"
+  },
+  {
+   "field": "program status",
+   "current": "unverified — possible suspension or teach-out suspected",
+   "correct": "Still enrolling as of 6 August 2026. Not among the five programs cut or suspended in April 2025. Fall-only entry, application window October 1 – February 1; spring admission closed.",
+   "src": "https://www.humboldt.edu/admission-aid/how-to-apply/graduate/programs"
+  },
+  {
+   "field": "units",
+   "current": "nothing recorded",
+   "correct": "60 units, of which 16 are PSYC 682 Fieldwork. Culminating experience is either a comprehensive exam (PSYC 678 prep, 3 units, plus PSYC 691) or a thesis (PSYC 690, minimum 3 units).",
+   "src": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "field": "in-house clinic",
+   "current": "nothing recorded",
+   "correct": "Yes — Counseling & Psychological Services (CAPS), the campus student counseling centre, doubles as the program's on-campus training clinic. First-year students carry one to four clients there beginning in the second semester.",
+   "src": "https://www.humboldt.edu/academics/programs/psychology-counseling"
+  }
+ ],
+ "sources": [
+  {
+   "label": "Counseling Psychology, M.A. — program page",
+   "url": "https://www.humboldt.edu/academics/programs/psychology-counseling"
+  },
+  {
+   "label": "Student Handbook, M.A. in Psychology: Counseling Emphasis 2024-2025 (PDF)",
+   "url": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf"
+  },
+  {
+   "label": "Graduate Programs & Deadlines to Apply (checked August 2026)",
+   "url": "https://www.humboldt.edu/admission-aid/how-to-apply/graduate/programs"
+  },
+  {
+   "label": "Cost of Attendance 2026-27, Financial Aid",
+   "url": "https://www.humboldt.edu/financial-aid/costs/attendance-cost"
+  },
+  {
+   "label": "\"Five Programs Cut or Suspended from Cal Poly Humboldt\", The Lumberjack, 30 April 2025",
+   "url": "https://thelumberjack.org/2025/04/30/five-programs-cut-or-suspended-from-cal-poly-humboldt/"
+  },
+  {
+   "label": "BBS Education Resources — school/licence table",
+   "url": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  },
+  {
+   "label": "Department of Psychology",
+   "url": "https://www.humboldt.edu/psychology"
+  }
+ ]
+}

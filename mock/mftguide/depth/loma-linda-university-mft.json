@@ -1,0 +1,274 @@
+{
+ "institution": "Loma Linda University",
+ "character": [
+  "Loma Linda is the only California MFT school that offers a complete COAMFTE-accredited ladder in one department: the 90-quarter-unit M.S. in Marital and Family Therapy, a 77-unit D.M.F.T. that the catalog describes as \"the only online D.M.F.T. program in the United States that is accredited by the Commission on Accreditation for Marriage and Family Therapy Education,\" and a 92-unit Ph.D. in Systems, Families, and Couples on a scientist-practitioner model. That matters practically: the master's faculty are also doctoral faculty, the assistantships and research work exist, and if you later want AAMFT Approved Supervisor status or a medical family therapy specialization there is an in-house path rather than a transfer. The M.S. itself is unusual in shape — the clinical spine is a six-quarter sequence of \"Case Presentation\" seminars (MFAM 535, 536, 537, 635, 636, 637) that runs in parallel with your placement, rather than a single practicum course repeated. It ends in a two-part exam: a written comprehensive before advancement to candidacy and an oral comprehensive at the end that requires four videotaped segments of one case across at least six sessions, a case write-up, an epistemology paper, and a vignette.",
+  "On the religion question, be precise, because the reality is narrower than the branding suggests. Loma Linda is owned and operated by the Seventh-day Adventist Church and its motto is \"To make man whole,\" but the required religious *coursework* in the M.S. is a single three-unit course: RELR 540 Wholeness and Health, a portfolio course on \"biblical concepts of wholeness\" that also satisfies the university's service-learning requirement. Explicitly Christian clinical content — MFAM 549 Christian Counseling and Family Therapy, two units — sits in the elective \"Contemporary issues\" menu next to Gestalt, narrative, EFT, solution-focused and play therapy, and is not required. So roughly 3 of 90 required units are religion; the therapeutic curriculum itself is conventional systemic MFT with a biopsychosocial-spiritual whole-person frame, and there is no statement of faith in the published admission requirements.",
+  "What the affiliation does shape is the calendar and the campus rhythm, and this is the part prospective students underestimate. The university observes Sabbath from sundown Friday to sundown Saturday, and the catalog states that during those hours \"University offices, laboratories, libraries, study halls, and recreation facilities are closed to give time for physical and spiritual renewal and worship.\" That is roughly 24 hours a week with no campus study space, no library and no recreation center — a real constraint if you had planned to do your reading on Saturdays or bank weekend clinic hours on campus. Loma Linda students also have \"special requirements, such as chapel attendance each Wednesday morning in the University Church,\" and all students agree to refrain from tobacco, alcohol and recreational drugs while enrolled; campus cafeterias are vegetarian. Class days are fixed and tight: first-year students most often attend Tuesday and Thursday, second-years Monday and Wednesday, with clinical training scheduled on the other days and full-time employment discouraged."
+ ],
+ "orientation": "Systemic/relational family therapy inside a Seventh-day Adventist whole-person (biopsychosocial-spiritual) health-sciences frame",
+ "signature": [
+  {
+   "code": "MFAM 637",
+   "title": "Case Presentation and Global Practices",
+   "units": "3",
+   "desc": "\"Students receive case supervision and prepare for a final oral comprehensive examination that requires four videotaped segments of the case over a minimum of six sessions or six hours, depending upon the clinic site; a write-up of the case; an epistemology paper; and a vignette.\"",
+   "verbatim": true,
+   "why": "This is the capstone of the six-quarter Case Presentation sequence and it is a genuinely demanding exit: not an exam you study for, but a videotaped longitudinal case you must be able to defend theoretically. The required \"epistemology paper\" — asking you to articulate how you believe change and knowledge work — is rare at the master's level in California.",
+   "src": "https://llucatalog.llu.edu/courses/mfam/"
+  },
+  {
+   "code": "MFAM 536",
+   "title": "Case Presentation and Documentation",
+   "units": "3",
+   "desc": "\"Through observation of live cases, trains student in applied psychotherapeutic techniques, assessment, diagnosis, prognosis, and treatment of premarital, couple, family, aging population, the severely mentally ill, and child relationships. Examines dysfunctional and functional aspects, including recovery process, health promotion, evaluation from a systems perspective, documentation, and illness prevention.\"",
+   "verbatim": true,
+   "why": "Observation of live cases as the teaching method — not case vignettes or role play — is the second quarter of six, meaning you are watching real therapy in structured seminar from early in the clinical phase. It also pairs the clinical training with documentation, which is what actually consumes an associate's week.",
+   "src": "https://llucatalog.llu.edu/courses/mfam/"
+  },
+  {
+   "code": "RELR 540",
+   "title": "Wholeness and Health",
+   "units": "3",
+   "desc": "\"Aids student in formulation of a portfolio that incorporates a variety of activities related to biblical concepts of wholeness. Addresses 1) the integration of mind/body/spirit, 2) strengthening relationships, 3) care of the environment, and 4) the healing of the nations from personal and professional perspectives.\" Also fulfills the service-learning requirement.",
+   "verbatim": true,
+   "why": "This is the entire required religion component of the 90-unit degree — one portfolio-based course, shared across LLU's health-sciences programs. If you want to know how much the Adventist affiliation will show up in your transcript, this course is the answer, and it is worth reading its four listed themes carefully rather than assuming a doctrine class.",
+   "src": "https://llucatalog.llu.edu/courses/relr/"
+  },
+  {
+   "code": "MFAM 553",
+   "title": "Family Systems Theory",
+   "units": "3",
+   "desc": "\"Reviews Bowen theory of family systems. Introduction to family psychotherapy as an outgrowth of the theory. Students examine their own families of origin.\"",
+   "verbatim": true,
+   "why": "A required three-unit course devoted to Bowen alone, with mandatory family-of-origin work on yourself, is a stronger orientation commitment than the survey-of-theories approach most programs use. It tells you where the department's center of gravity sits.",
+   "src": "https://llucatalog.llu.edu/courses/mfam/"
+  },
+  {
+   "code": "MFAM 576",
+   "title": "Mastering Each New Direction Theory and Practice",
+   "units": "2",
+   "desc": "\"Examines the Mastering Each New Direction (MEND) model, focusing on its key concepts, applications, and research. Applies the MEND model to clinical practice through discussion, role-playing, case conceptualization, psychoeducation, and small group work.\"",
+   "verbatim": true,
+   "why": "An elective built around a single named model developed and researched inside the department — the kind of course that exists only where a program has its own research line. Useful signal about what the doctoral faculty actually work on.",
+   "src": "https://llucatalog.llu.edu/courses/mfam/"
+  },
+  {
+   "code": "MFAM 604",
+   "title": "Social Context in Clinical Practice: Gender, Class, and Race",
+   "units": "3",
+   "desc": "\"Introduces social inequalities that result in unfairness, health disparities, assaults to personal dignity, and family stress. Focuses on how one's position within social hierarchies—such as gender, socioeconomic status, race, and sexual orientation—affects psychological and relational health,\" and how therapists address these as part of a recovery-based approach.",
+   "verbatim": true,
+   "why": "Worth flagging precisely because Loma Linda is a conservative religious institution: this required course names sexual orientation and structural inequality directly, in the department's own catalog language, rather than routing multicultural content through a faith frame.",
+   "src": "https://llucatalog.llu.edu/courses/mfam/"
+  }
+ ],
+ "curriculum": {
+  "note": "Loma Linda does not publish a quarter-by-quarter grid for the M.S.; the catalog organizes the 90 quarter units into COAMFTE content areas, which is how they are listed below. The program is cohort-based with fall-quarter entry only, and runs seven quarters (two years) full-time on campus or nine quarters (2.5 years) full-time online; part-time takes at least three years on campus and 3.5 online, with a five-year maximum. First-year students most often attend classes Tuesday and Thursday, second-years Monday and Wednesday, with clinical training on the other days.",
+  "total_units": "90 quarter units (plus 4 additional units for the optional on-campus LMFT + LPCC dual-licensure path)",
+  "terms": [
+   {
+    "label": "Content area — Foundations of relational/systemic practice, theories & models (9)",
+    "courses": [
+     "MFAM 551 Family Therapy: Foundational Theories and Practice (3)",
+     "MFAM 553 Family Systems Theory (3)",
+     "MFAM 564 Family Therapy: Advanced Foundational Theories and Practice (3)"
+    ]
+   },
+   {
+    "label": "Content area — Clinical treatment with individuals, couples and families (15)",
+    "courses": [
+     "MFAM 515 Crisis Intervention and Client Advocacy (3)",
+     "MFAM 552 Couples Therapy: Theory and Practice (3)",
+     "MFAM 638 Substance Use Disorders, Relationships, and Recovery (3)",
+     "MFAM 644 Child Abuse and Family Violence (3)",
+     "MFAM 674 Human Sexual Behavior (3)"
+    ]
+   },
+   {
+    "label": "Content area — Diverse, multicultural and/or underserved communities (9)",
+    "courses": [
+     "MFAM 528 Culture, Socioeconomic Status in Therapy (3)",
+     "MFAM 567 Treating the Severely and Persistently Mentally Ill and the Recovery Process (3)",
+     "MFAM 604 Social Context in Clinical Practice: Gender, Class, and Race (3)"
+    ]
+   },
+   {
+    "label": "Content area — Research and evaluation (6)",
+    "courses": [
+     "MFAM 501 Research Tools and Methodology: Quantitative (3)",
+     "MFAM 502 Research Tools and Methodology: Qualitative (3)"
+    ]
+   },
+   {
+    "label": "Content area — Professional identity, law, ethics & social responsibilities (6)",
+    "courses": [
+     "MFAM 614 Law and Ethics (3)",
+     "MFAM 635 Case Presentation and Legal Issues (3)"
+    ]
+   },
+   {
+    "label": "Content area — Biopsychosocial health and development across the life span (7)",
+    "courses": [
+     "COUN 675 Dynamics of Aging (1)",
+     "MFAM 547 Social Ecology of Individual and Family Development (3)",
+     "MFAM 584 Advanced Child and Adolescent Development (3)"
+    ]
+   },
+   {
+    "label": "Content area — Systemic/relational assessment, diagnosis and treatment (9)",
+    "courses": [
+     "MFAM 524 Psychopharmacology and Medical Issues (3)",
+     "MFAM 556 Psychopathology and Diagnostic Procedures (3)",
+     "MFAM 624 Individual and Systems Assessment (3)"
+    ]
+   },
+   {
+    "label": "Content area — Contemporary issues, choose 8 units",
+    "courses": [
+     "MFAM 516 Play Therapy",
+     "MFAM 539 Solution-Focused Family Therapy",
+     "MFAM 549 Christian Counseling and Family Therapy",
+     "MFAM 555 Narrative Family Therapy",
+     "MFAM 559 Cognitive-Behavioral Couples Therapy",
+     "MFAM 576 Mastering Each New Direction Theory and Practice",
+     "MFAM 605 Gestalt Family Therapy",
+     "MFAM 606 Emotionally Focused Couples Therapy",
+     "MFAM 645 Advanced Treatment Strategies – Substance Use Disorders",
+     "MFAM 654 Practicum in Drug and Alcohol Counseling",
+     "MFAM 665 Structural and Multidimensional Family Therapy",
+     "CFSD 540 Introduction to Medical Family Therapy",
+     "CFSD 544 Health and Illness in Families",
+     "COUN 574/575/576/577/579/678/680 (counseling options)",
+     "MFAM 694 Directed Study: Marriage and Family"
+    ]
+   },
+   {
+    "label": "Content area — Community intersections and collaboration (the clinical spine)",
+    "courses": [
+     "MFAM 535 Case Presentation and Professional Studies (3)",
+     "MFAM 536 Case Presentation and Documentation (3)",
+     "MFAM 537 Case Presentation (3)",
+     "MFAM 636 Case Presentation and Client-Centered Advocacy (3)",
+     "MFAM 637 Case Presentation and Global Practices (3)",
+     "MFAM 731 Clinical Training (1–6, does not count toward didactic units)",
+     "MFAM 735 Case Presentation Extension (0)"
+    ]
+   },
+   {
+    "label": "Content area — Religion (3) and Group (3)",
+    "courses": [
+     "RELR 540 Wholeness and Health (3)",
+     "MFAM 568 Groups: Process and Practice (3)"
+    ]
+   }
+  ],
+  "src": "http://llucatalog.llu.edu/behavioral-health/marital-family-therapy/ms/"
+ },
+ "practicum": {
+  "starts": "After 18 quarter units and a faculty evaluation that determines whether the student may \"enter the program's clinical phase\" — so roughly the end of the first two quarters, meaning most of the degree is spent carrying a caseload",
+  "hours": "300 direct face-to-face client contact hours, of which at least 100 must be relational (two or more people in an ongoing relationship, conjointly); a minimum of 100 hours of clinical supervision, at least 50 of which must use observable data (audio, video or live session); minimum twelve months of field experience",
+  "who_places": "mixed",
+  "clinic": "The Resiliency Clinic, School of Behavioral Health, 11155 Mountain View Ave., Suite 220, Loma Linda",
+  "detail": "Clinical training at Loma Linda begins early and runs long. After 18 quarter units — about two quarters — the teaching faculty formally evaluate whether you continue into what the catalog calls \"the program's clinical phase,\" so unlike Chapman's final-year block, most of a Loma Linda student's degree is spent in placement. Placement is a mixed model rather than an assignment: the catalog says \"[s]tudents have numerous choices of placement sites,\" listing community mental health centers, private and public agencies, school and hospital settings, and the School of Behavioral Health's own Resiliency Clinic, and the School describes students working \"collaboratively with their department to secure practicum placements.\" The Resiliency Clinic is the in-house option — one clinic, not a network — staffed by master's and doctoral students under licensed LLU Behavioral Health supervisors, offering individual therapy for children age five and up and adults, autism/learning-disability/neuropsychological assessment, and support groups on co-parenting, grief, anger, anxiety and parenting. The numbers are COAMFTE-standard but the supervision rules are stricter than the minimum: 300 direct hours with at least 100 relational, at least 100 supervision hours of which 50 must involve observable data, a supervision-to-treatment ratio never below 1:5, and — this is the demanding part — \"[f]or every week in which clients are seen, the student must have at least one hour of individual supervision.\" Running alongside the placement is the six-quarter Case Presentation seminar sequence (MFAM 535, 536, 537, 635, 636, 637), where MFAM 536 teaches \"[t]hrough observation of live cases\" and MFAM 637 builds toward the final oral comprehensive exam requiring four videotaped segments of one case over at least six sessions. Class days are stacked (Tuesday/Thursday in year one, Monday/Wednesday in year two) specifically so clinical work happens on the other days; the catalog discourages full-time employment, and Sabbath closes campus facilities from Friday sundown to Saturday sundown, which constrains when on-campus clinical and study work can happen. Nothing in the published materials describes a formal traineeship-to-associate handoff, though the catalog notes that \"[o]n a limited basis, students receive financial assistance during their clinical traineeships.\"",
+  "src": "http://llucatalog.llu.edu/behavioral-health/marital-family-therapy/ms/",
+  "model": "assisted",
+  "model_evidence": "Students work collaboratively with their department to secure practicum placements that align with their academic and professional goals.",
+  "model_url": "https://behavioralhealth.llu.edu/academics/practicum-sites",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "School of Behavioral Health Resiliency Clinic"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published. The program describes cohort-based progression with fall-quarter entry only, in both campus and online formats, but does not state a class size.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from an accredited institution with a cumulative GPA of 3.0 or above; applicants as low as 2.75 may be considered if the last 45 quarter units are 3.0+ or they show other evidence of readiness. Liberal arts preparation is assessed. At least three letters of recommendation from academic or employment sources. A faculty interview is required (scheduled January through May, in person or virtual, group or individual) and is scored on verbal communication, congruence with LLU's values and mission, critical thinking, comfort with diverse populations, self-awareness, understanding of the field, and commitment to it. Health clearance required before entry. No academic credit is granted for life or work experience.",
+  "deadline": "Autumn-quarter entry only; the program site listed March 1 as the application deadline for the following fall cohort. No application fee. Tuition posted for 2026–27: $46,881 for year one (9 months) and $47,858 for year two (12 months).",
+  "src": "http://llucatalog.llu.edu/behavioral-health/marital-family-therapy/ms/",
+  "gre_evidence": "GREs are not required.",
+  "gre_url": "https://llu.edu/academics/programs/school-behavioral-health/marital-family-therapy-ms",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Incoming student: \"I am excited to begin my master's journey with such a prestigious school who is very welcoming where I can deepen my religion with.\"",
+   "who": "Niche, Loma Linda University graduate review naming the MFT program, July 2025 (5 stars)",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/loma-linda-university/reviews/"
+  },
+  {
+   "text": "A graduate of the department's adjacent MS in Counseling wrote that \"[t]he professors are interpersonal and are engaged, especially when you open yourself to the opportunity,\" citing strong faculty engagement and networking within the health system.",
+   "who": "GradReports, Kiyanah Myles, MS Behavioral Health / Counseling (not MFT), August 2017",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/loma-linda-university"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/0/04/Loma_linda_university.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Loma_linda_university.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Pobonana, via Wikimedia Commons",
+  "caption": "The Loma Linda University campus, 2019"
+ },
+ "gaps": [
+  "Cohort size is not published for either the campus or online M.S. cohort.",
+  "No quarter-by-quarter plan of study is published for the M.S.; the catalog groups courses by COAMFTE content area only, so the sequence above is a content map, not a term schedule. The program's Outcome-Based Education framework PDF also contains no sequence.",
+  "The MFT Clinical Training Manual, which the catalog repeatedly points students to for the operative practicum rules, is not publicly posted; details such as how the Resiliency Clinic caseload is allocated versus outside sites, and whether live/one-way-mirror supervision is used there, could not be verified.",
+  "Whether Resiliency Clinic placement is available to online students, and how online students' placements are supervised beyond the mention of an \"Online Clinical Coordinator,\" is not described.",
+  "No formal traineeship-to-associate transition or post-graduation employment pipeline is described in any published source.",
+  "Only two student reviews touching this department could be found, one of them for the adjacent MS in Counseling rather than MFT; Reddit search was unavailable during this research."
+ ],
+ "sources": [
+  {
+   "label": "LLU Catalog 2025–26 — Marital and Family Therapy, M.S.",
+   "url": "http://llucatalog.llu.edu/behavioral-health/marital-family-therapy/ms/"
+  },
+  {
+   "label": "LLU Catalog — MFAM course descriptions",
+   "url": "https://llucatalog.llu.edu/courses/mfam/"
+  },
+  {
+   "label": "LLU Catalog — RELR course descriptions",
+   "url": "https://llucatalog.llu.edu/courses/relr/"
+  },
+  {
+   "label": "LLU Catalog — A Unique University (Sabbath, lifestyle commitments)",
+   "url": "https://llucatalog.llu.edu/about-university/unique-university/"
+  },
+  {
+   "label": "LLU Catalog — Spiritual Life (chapel, religion classes)",
+   "url": "https://llucatalog.llu.edu/about-university/spiritual-life/"
+  },
+  {
+   "label": "LLU Catalog — Doctor of Marital and Family Therapy (D.M.F.T.)",
+   "url": "https://llucatalog.llu.edu/behavioral-health/marital-family-therapy/dmft/"
+  },
+  {
+   "label": "LLU Catalog — Systems, Families, and Couples, Ph.D.",
+   "url": "https://llucatalog.llu.edu/behavioral-health/systems-families-and-couples-phd/"
+  },
+  {
+   "label": "LLU program page — Marital & Family Therapy, MS (tuition, deadlines, accreditation)",
+   "url": "https://llu.edu/academics/programs/school-behavioral-health/marital-family-therapy-ms"
+  },
+  {
+   "label": "School of Behavioral Health — MS MFT program page",
+   "url": "https://behavioralhealth.llu.edu/academics/counseling-and-family-sciences/marital-and-family-therapy-ms"
+  },
+  {
+   "label": "School of Behavioral Health — The Resiliency Clinic",
+   "url": "https://behavioralhealth.llu.edu/resiliency-clinic"
+  },
+  {
+   "label": "School of Behavioral Health — Practicum sites",
+   "url": "https://behavioralhealth.llu.edu/academics/practicum-sites"
+  },
+  {
+   "label": "MS MFT Outcome-Based Education framework (PDF)",
+   "url": "https://behavioralhealth.llu.edu/sites/behavioralhealth.llu.edu/files/2026-03/sbh-cfs-mftms-framework.pdf"
+  }
+ ]
+}

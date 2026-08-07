@@ -99,6 +99,19 @@ assert navscript, "no nav script in the chrome - the header would be dead"
 
 NP = '<span class="np">not published</span>'
 
+# Placement: who secures your clinical seat. This is the field the directory was
+# missing, and on the evidence it is the one most likely to decide whether a
+# two-year degree takes three. Short label for the card, long label for the row.
+PLACE = {
+    "guaranteed":      ("Seat guaranteed",      "pl-ok"),
+    "placed":          ("Programme places you", "pl-ok"),
+    "assisted":        ("You apply, with help", "pl-mid"),
+    "student-sourced": ("You find your own",    "pl-warn"),
+    "not published":   (None,                   None),
+}
+GRE_LABEL = {"required": "Required", "not required": "Not required",
+             "waivable": "Required, waivable", "not published": None}
+
 
 def esc(x):
     return html.escape(x) if x else None
@@ -223,6 +236,12 @@ def card(p):
               else '<span class="badge lpc">LPCC, with a condition</span>')
     elif lpcc is False:
         lp = '<span class="badge lpn">LMFT only, not LPCC</span>'
+    pl = ""
+    lab, cls = PLACE.get(p.get("placement"), (None, None))
+    if lab:
+        pl = '<span class="badge %s">%s</span>' % (cls, lab)
+    if p.get("gre") == "not required":
+        pl += '<span class="badge gren">No GRE</span>' 
     tu = NP
     if p.get("total"):
         tu = "$%s total" % "{:,}".format(int(p["total"]))
@@ -230,10 +249,23 @@ def card(p):
         tu = "$%s a unit" % "{:,}".format(int(p["per_unit"]))
     tyear = (' <span class="yr">%s</span>' % esc(str(p["tyear"]))) if p.get("tyear") else ""
     turl = p.get("turl") or p.get("url")
+    prac = NP
+    if PLACE.get(p.get("placement"), (None,))[0]:
+        prac = esc(PLACE[p["placement"]][0])
+        if p.get("practicum_hours"):
+            prac += '<span class="sub">%s</span>' % esc(p["practicum_hours"])
+    elif p.get("practicum_hours"):
+        prac = '%s<span class="sub">who secures the seat: %s</span>' % (
+            esc(p["practicum_hours"]), "not published")
+    gre = esc(GRE_LABEL.get(p.get("gre")) or "") or NP
+    if p.get("min_gpa"):
+        gre += '<span class="sub">minimum GPA %s</span>' % esc(str(p["min_gpa"]))
     rows = [("Degree", esc(p.get("degree")) or NP),
             ("Units", esc(p.get("units")) or NP),
             ("Length", esc(p.get("length")) or NP),
             ("Format", esc(p.get("format")) or NP),
+            ("Practicum", prac),
+            ("Admissions test", gre),
             ("Published tuition",
              ('<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>%s'
               % (turl, tu, tyear)) if tu != NP else NP)]
@@ -259,7 +291,8 @@ def card(p):
         note += '<p class="offl">%s</p>' % esc(p["bbs_note"])
     aid = anchor(name)
     return ('<article class="pg" id="%s" data-name="%s" data-coamfte="%s" '
-            'data-region="%s" data-tuition="%s" data-lpcc="%s" data-az="%s">'
+            'data-region="%s" data-tuition="%s" data-lpcc="%s" data-az="%s" '
+            'data-placed="%s" data-gre="%s">'
             '<div class="ph"><h3>%s</h3><span class="city">%s</span></div>'
             '<div class="pgt"><button class="keep" type="button" data-id="%s" '
             'aria-pressed="false"><span>Keep</span></button>'
@@ -272,9 +305,11 @@ def card(p):
                region(p.get("city")), "yes" if tu != NP else "no",
                {True: "yes", False: "no"}.get(p.get("lpcc"), "unknown"),
                azkey(name),
+               "yes" if p.get("placement") in ("guaranteed", "placed") else "no",
+               "no" if p.get("gre") == "not required" else "other",
                esc(name), esc(p.get("city")) or "California",
                aid, aid,
-               coam, lp, body, gapline(p), note, threads_for(name),
+               coam, lp + pl, body, gapline(p), note, threads_for(name),
                "", cta(p)))
 
 
@@ -317,22 +352,29 @@ def trow(p):
     elif p.get("per_unit"):
         tu = "$%s/unit" % "{:,}".format(int(p["per_unit"]))
     lpc = {True: "Yes", False: "No"}.get(p.get("lpcc"), NP)
+    prac = esc(PLACE.get(p.get("placement"), (None,))[0] or "") or NP
+    gre = esc(GRE_LABEL.get(p.get("gre")) or "") or NP
     where = SLUGS.get(name)
     link = ('<a href="%s">%s</a>' % (where, esc(name)) if where
             else '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
                  % (p["url"], esc(name)))
     return ('<tr class="pgr" data-name="%s" data-coamfte="%s" data-region="%s" '
-            'data-tuition="%s" data-lpcc="%s" data-az="%s" data-id="%s">'
+            'data-tuition="%s" data-lpcc="%s" data-az="%s" data-id="%s" '
+            'data-placed="%s" data-gre="%s">'
             '<td><button class="keep tk" type="button" data-id="%s" '
             'aria-pressed="false" aria-label="Keep %s"></button></td>'
             "<th scope=\"row\">%s<span class=\"tc\">%s</span></th>"
             "<td>%s</td><td>%s</td><td>%s</td><td>%s</td>"
-            "<td>%s</td><td>%s</td></tr>"
+            "<td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>"
             % (esc(name).lower(), "yes" if p.get("coamfte") else "no",
                region(p.get("city")), "yes" if tu != NP else "no",
                {True: "yes", False: "no"}.get(p.get("lpcc"), "unknown"),
-               azkey(name), aid, aid, esc(name),
+               azkey(name), aid,
+               "yes" if p.get("placement") in ("guaranteed", "placed") else "no",
+               "no" if p.get("gre") == "not required" else "other",
+               aid, esc(name),
                link, esc(p.get("city")) or "California",
+               prac, gre,
                esc(p.get("units")) or NP, esc(p.get("length")) or NP,
                esc(p.get("format")) or NP, tu,
                "Yes" if p.get("coamfte") else "&mdash;", lpc))
@@ -440,6 +482,17 @@ CSS = """<style>/* programmes */
 .badge.lp{background:#EAF3DE;color:#27500A;border:1px solid #CFE2B8}
 .badge.lpc{background:#FBF0E2;color:#8A5B22;border:1px solid #EBD9BC}
 .badge.lpn{background:#F4F2EC;color:#6E6656;border:1px solid #DFD9C9}
+/* Placement, which is the field this directory was missing. Green where the
+   school owns the problem of finding you a site, amber where it is shared,
+   red-ish where it is entirely yours. Nothing is shown for "not published" -
+   an absent badge and a badge saying "unknown" carry the same information and
+   one of them is quieter. */
+.badge.pl-ok{background:#E0F0EA;color:#20614B;border:1px solid #BFE0D3}
+.badge.pl-mid{background:#FBF0E2;color:#8A5B22;border:1px solid #EBD9BC}
+.badge.pl-warn{background:#FBF0EF;color:#8E3A32;border:1px solid #E4B7B2}
+.badge.gren{background:#F2EEE2;color:#5B5344;border:1px solid #DFD9C9}
+.bd .r b .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.2px;
+  color:var(--mut);margin-top:2px;font-weight:400}
 /* A Board-issued Notice to Students. Red, because it is the only thing on a
    card that can mean the degree does not lead to a licence at all. */
 .warn{margin:11px 0 0;border:1px solid #E4B7B2;background:#FBF0EF;border-radius:9px;
@@ -586,10 +639,18 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
    otherwise report a layout bug on every page load, forever. */
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
   border-radius:12px;background:#fff}
-.ptbl{border-collapse:collapse;width:100%;font-size:13px;min-width:920px}
+.ptbl{border-collapse:collapse;width:100%;font-size:13px;min-width:1120px}
 .ptbl th,.ptbl td{text-align:left;padding:9px 11px;border-bottom:1px solid #F0EBDE;
   vertical-align:top}
-.ptbl thead th{position:sticky;top:var(--sticktop,205px);background:#F7F3E9;font-family:'IBM Plex Mono',monospace;
+/* NOT position:sticky, and it must not be made so again. The wrapper needs
+   overflow-x for a table this wide; a box with overflow-x:auto computes
+   overflow-y to auto as well, which makes the wrapper the containing block for
+   any sticky descendant. Because the wrapper has no fixed height it never
+   scrolls vertically, so a sticky thead does not track the page - it parks at
+   its `top` offset partway down the table and sits there over the rows. That
+   is exactly what it did, and it looked like a rendering bug because it was
+   one. A header that scrolls away honestly beats a header that floats. */
+.ptbl thead th{background:#F7F3E9;font-family:'IBM Plex Mono',monospace;
   font-size:9.8px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
   font-weight:500;z-index:2;border-bottom:1px solid var(--line)}
 .ptbl tbody th{font-weight:500;color:var(--ink);min-width:210px}
@@ -667,7 +728,8 @@ JS = """<script>
       az=document.getElementById('az'), totop=document.getElementById('totop'),
       btns=[].slice.call(document.querySelectorAll('.fb')),
       LABEL={coamfte:'COAMFTE accredited', region:'Region', lpcc:'Opens LPCC',
-             tuition:'Publishes tuition'},
+             tuition:'Publishes tuition', placed:'Programme places you',
+             gre:'No admissions test'},
       KEY='ts-mft-keep', keptOnly=false, kept={};
 
   /* localStorage can throw outright in a locked-down browser. A shortlist is a
@@ -835,8 +897,6 @@ JS = """<script>
     var hh=h?h.offsetHeight:95, fh=f?f.offsetHeight:0;
     document.documentElement.style.setProperty('--hh', hh+'px');
     document.documentElement.style.setProperty('--stick', (hh+fh+24)+'px');
-    /* The table's own sticky header sits directly under both bars. */
-    document.documentElement.style.setProperty('--sticktop', (hh+fh)+'px');
   }
   measure();
   window.addEventListener('resize', measure);
@@ -867,6 +927,9 @@ def build():
     n_online = sum(1 for p in progs
                    if region(p.get("city")) == "Online or out of state")
     n_lp = sum(1 for p in progs if p.get("lpcc") is True)
+    n_placed = sum(1 for p in progs
+                   if p.get("placement") in ("guaranteed", "placed"))
+    n_nogre = sum(1 for p in progs if p.get("gre") == "not required")
 
     cards = "".join(card(p) for p in progs)
     rows = "".join(trow(p) for p in progs)
@@ -943,6 +1006,8 @@ remedial coursework or no licence at all. <b>%d of the %d</b> hold it.</p>
 <button class="fb" data-k="region" data-v="Northern California" aria-pressed="false">Northern CA<span class="n">%d</span></button>
 <button class="fb" data-k="region" data-v="Online or out of state" aria-pressed="false">Online / out of state<span class="n">%d</span></button>
 <button class="fb" data-k="lpcc" data-v="yes" aria-pressed="false">Also opens LPCC<span class="n">%d</span></button>
+<button class="fb" data-k="placed" data-v="yes" aria-pressed="false">Programme places you<span class="n">%d</span></button>
+<button class="fb" data-k="gre" data-v="no" aria-pressed="false">No GRE<span class="n">%d</span></button>
 <button class="fb" data-k="tuition" data-v="yes" aria-pressed="false">Publishes tuition<span class="n">%d</span></button>
 </span>
 <span class="cnt" id="cnt"></span>
@@ -963,6 +1028,7 @@ remedial coursework or no licence at all. <b>%d of the %d</b> hold it.</p>
 <div id="tbl"><div class="tblwrap"><table class="ptbl">
 <caption class="vh">Every institution the Board lists, with what each publishes about itself</caption>
 <thead><tr><th scope="col"><span class="vh">Keep</span></th><th scope="col">Institution</th>
+<th scope="col">Practicum &mdash; who secures it</th><th scope="col">Admissions test</th>
 <th scope="col">Units</th><th scope="col">Length</th><th scope="col">Format</th>
 <th scope="col">Published tuition</th><th scope="col">COAMFTE</th><th scope="col">LPCC</th>
 </tr></thead><tbody>%s</tbody></table></div>
@@ -1022,7 +1088,8 @@ else is from each institution's own site. If something here is wrong,
 %s
 </body></html>""" % (len(progs), "\n".join(links), "\n".join(styles), CSS + charts.CSS, header,
                      UPDATED, BBS_CHECKED, len(progs), fig, n_coam, len(progs), charts.render(progs),
-                     ask_block, n_coam, n_south, n_north, n_online, n_lp, n_tui,
+                     ask_block, n_coam, n_south, n_north, n_online, n_lp,
+                     n_placed, n_nogre, n_tui,
                      cards, rows, gen,
                      none_found, F.DEAD_SUBS, n_tui, len(progs) - n_tui,
                      "{:,}".format(cost_lo), "{:,}".format(cost_hi),
@@ -1108,9 +1175,30 @@ def main():
                        sum(1 for p in PROGRAMS if p.get("coamfte"))),
                       ("Also opens LPCC",
                        sum(1 for p in PROGRAMS if p.get("lpcc") is True)),
-                      ("Publishes tuition", have)):
+                      ("Publishes tuition", have),
+                      ("Programme places you",
+                       sum(1 for p in PROGRAMS
+                           if p.get("placement") in ("guaranteed", "placed"))),
+                      ("No GRE",
+                       sum(1 for p in PROGRAMS if p.get("gre") == "not required"))):
         if ('%s<span class="n">%d</span>' % (lab, want)) not in doc:
             bad.append("the count on the '%s' button is not the data's" % lab)
+    # A placement badge is a claim about somebody else's programme. It may only
+    # appear where the record carries the quote and the URL it was read from.
+    for p in PROGRAMS:
+        lab = PLACE.get(p.get("placement"), (None,))[0]
+        if lab and not (p.get("placement_evidence") and p.get("placement_url")):
+            bad.append("%s claims a placement model with no source"
+                       % p["institution"][:30])
+    # Table and cards must agree on the new columns too.
+    for tok, n in (('data-placed="yes"',
+                    sum(1 for p in PROGRAMS
+                        if p.get("placement") in ("guaranteed", "placed"))),
+                   ('data-gre="no"',
+                    sum(1 for p in PROGRAMS if p.get("gre") == "not required"))):
+        if doc.count(tok) != n * 2:
+            bad.append("%s appears %dx, expected %d (cards + rows)"
+                       % (tok, doc.count(tok), n * 2))
     if "navpanel" in doc and not re.search(r"<script>[\s\S]*?navpanel[\s\S]*?</script>", doc):
         bad.append("header would be dead - nav script missing")
     # Look for ranking MARKUP, not for the word. The first version matched

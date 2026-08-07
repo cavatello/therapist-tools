@@ -1,0 +1,206 @@
+{
+ "institution": "University of San Diego (SOLES)",
+ "character": [
+  "USD runs one of the small number of COAMFTE-accredited master's programs in California — its own catalog claims it is \"one of only seven master's degree-granting programs in California accredited by the COAMFTE\" — and it has held that accreditation since August 1, 1992. It is a two-year, full-time, year-round, on-campus-only program (the FAQ answers \"Can I complete this program online?\" with a flat \"No\"), taking about 30 new students a year into classes of 15–20. The most concrete thing that distinguishes the 60-unit course list is its shape: rather than twenty interchangeable 3-unit courses, USD chops clinical content into small named modules — Recovery-oriented Case Management (1), Collaborative Care (1), Family Violence (1), Aging Issues in Family Therapy (1), Psychopharmacology and Systems (2), Systemic Treatment of Substance Abuse (2), Individual, Family and Community Trauma (2) — and then spends a full quarter of the degree, 15 of 60 units, on a single 12-month practicum sequence (MFTS 595P/596P/597P, five units each). Theory is taught in two sequenced courses rather than one survey: Theories I covers structural, strategic, Bowen and behavioral models; Theories II covers experiential, narrative, solution-focused and Internal Family Systems, plus \"the process of theory integration.\"",
+  "Two commitments show up in the course list and the requirements that you will not find at most California MFT programs. The first is the SOLES international requirement: every master's student in the school must complete a program-approved international experience before graduating, and the MFT handbook is refreshingly concrete about what that can mean — a study-abroad course, \"travel to Tijuana to observe professional practice in social service agencies,\" or \"volunteer experience in San Diego with refugee communities.\" A study-abroad course auto-satisfies it; anything else is documented on a form with your advisor. The second is medical family therapy and integrated behavioral health. It is visible in the required courses (Collaborative Care, Recovery-oriented Case Management, Psychopharmacology and Systems, Treatment of Severe Mental Illness, and the elective Social Neuroscience for Family Therapists) and in the practicum roster, which includes UCSD Integrated Behavioral Health, UCSD Reproductive Medicine, UCSD Eating Disorders Clinic, Rady Children's Hospital Medical Behavioral Unit and Hospice of the North Coast alongside conventional community mental health sites.",
+  "One caution a prospective student should know before they compare hour counts across schools: USD's own published numbers currently disagree with each other. The program's website and its 2023–24 program handbook both say 500 direct client contact hours with 200 relational hours and \"over 200 hours of supervision.\" The 2026–27 graduate catalog says 400 client contact hours (minimum 200 relational) and 100 supervision hours (minimum 50 with raw data) — and the catalog record carries an internal edit note stating the entry was being updated for \"the required practicum hours voted that was decided at a program level before the 2024-2025 academic year.\" Read that as: the requirement appears to have been lowered from 500 to 400 and the marketing pages have not caught up. Ask admissions which number applies to your cohort."
+ ],
+ "orientation": "Systemic family therapy with a strong biopsychosocial / medical family therapy emphasis",
+ "signature": [
+  {
+   "code": "MFTS 563",
+   "title": "Collaborative Care",
+   "units": "1",
+   "desc": "\"This course examines various models of collaborative care and the clinical competencies and skills MFT's need to work successfully on collaborative care teams... how MFT's can assess and manage common mental health, psychosocial, and health behavior issues in primary care settings.\"",
+   "verbatim": true,
+   "why": "Very few California MFT programs require any coursework in working inside a primary-care team. Paired with Recovery-oriented Case Management and practicum slots at UCSD Internal Medicine and Rady Children's, this is the clearest signal that USD is training people for integrated behavioral health, not only for private practice.",
+   "src": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  },
+  {
+   "code": "MFTS 562",
+   "title": "Recovery-oriented Case Management",
+   "units": "1",
+   "desc": "\"This course will focus on the components and principles of Recovery Oriented Case Management... the strength based, client centered advocacy and resiliency models... how diversity, socio-economic status, and poverty may affect, and be affected by, the implementation of Recovery Oriented Case Management.\"",
+   "verbatim": true,
+   "why": "A required (not elective) unit on public-system case management. It tells you the program expects graduates to work in county-funded, recovery-model settings for serious mental illness, which pairs with the required 3-unit Treatment of Severe Mental Illness.",
+   "src": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  },
+  {
+   "code": "MFTS 575",
+   "title": "Social Neuroscience for Family Therapists",
+   "units": "1",
+   "desc": "\"How does the brain support our social relationships and how do our social experiences affect the brain, body and physical health? Family life is a primary incubator for brain development... attachment, stress and coping, empathy, emotional regulation, family emotional environment and aging.\"",
+   "verbatim": true,
+   "why": "This is the course behind the program's advertised 'interpersonal neurobiology' clinical interest. It is an elective, which is worth knowing: the neurobiology emphasis USD markets is a one-unit option, not a required strand.",
+   "src": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  },
+  {
+   "code": "MFTS 576",
+   "title": "Self of the Therapist",
+   "units": "1",
+   "desc": "\"This experiential learning course focuses on the student's own family experiences and the impact of these experiences on the student's work as a family therapist.\"",
+   "verbatim": true,
+   "why": "USD's version of person-of-the-therapist work is a one-unit elective, not a required semester-long process group — a genuine contrast with programs that build the whole degree around personal-growth work. The program's stated learning outcomes do, however, expect graduates to \"identify when self of the therapist issues arise in therapy.\"",
+   "src": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  },
+  {
+   "code": "MFTS 524",
+   "title": "Family Therapy Theories II",
+   "units": "3",
+   "desc": "\"Family Theories II covers Experiential family therapies, Narrative Therapy, Solution-focused Therapy, Internal Family Systems Therapy, and the process of theory integration.\" Theories I covers structural, strategic, Bowen and behavioral family therapy.",
+   "verbatim": true,
+   "why": "Two full 3-unit theory courses instead of one survey, with the specific models named. If you want to learn systemic models properly rather than a single chapter on 'family systems,' this is the structural difference that matters.",
+   "src": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  },
+  {
+   "code": "MFTS 544",
+   "title": "Psychopharmacology and Systems",
+   "units": "2",
+   "desc": "\"An introduction to medication and its use in treating mental disorders... A psychoeducational perspective is used to integrate the family systems perspective with biological considerations.\" Requires MFTS 528 Psychopathology in the Family as prerequisite or co-requisite.",
+   "verbatim": true,
+   "why": "The 'and Systems' is not decoration — the course is explicitly framed as integrating medication knowledge with a family-systems lens, and it is taught by a psychiatrist on the adjunct roster. It is a required course, not an elective.",
+   "src": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  }
+ ],
+ "curriculum": {
+  "note": "There is no published term-by-term grid. USD runs a fall-entry, year-round, two-year full-time cohort; the catalog lists a fixed required-course block plus two 1-unit electives, and most required courses are offered at least twice a year so students build each semester with an advisor. The handbook does fix two things: MFTS 523, 524, 528, 529 and 543 are taken in year one, and a student must have completed 27 units before starting practicum, which runs across the final three consecutive semesters. Part-time students must take at least six units per semester.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Required courses (58 units)",
+    "courses": [
+     "MFTS 500 Evidence-Based Practice in Family Therapy (3)",
+     "MFTS 523 Family Therapy Theories I (3)",
+     "MFTS 524 Family Therapy Theories II (3)",
+     "MFTS 528 Psychopathology in the Family (3)",
+     "MFTS 529 Ethical & Legal Issues in Family Therapy (3)",
+     "MFTS 532 Human Diversity in Family Therapy (3)",
+     "MFTS 533 Family Development (3)",
+     "MFTS 541 Systemic Treatment of Children (3)",
+     "MFTS 543 Developmental Psychopathology (3)",
+     "MFTS 544 Psychopharmacology and Systems (2)",
+     "MFTS 546 Couples and Sex Therapy (3)",
+     "MFTS 562 Recovery-oriented Case Management (1)",
+     "MFTS 563 Collaborative Care (1)",
+     "MFTS 567 Individual, Family, and Community Trauma (2)",
+     "MFTS 570 Systemic Treatment of Substance Abuse (2)",
+     "MFTS 571 Family Violence (1)",
+     "MFTS 574 Aging Issues in Family Therapy (1)",
+     "MFTS 577 Treatment of Severe Mental Illness (3)",
+     "MFTS 595P Practicum in MFT 1 (5)",
+     "MFTS 596P Practicum in MFT 2 (5)",
+     "MFTS 597P Practicum in MFT 3 (5)"
+    ]
+   },
+   {
+    "label": "Electives — take two (2 units)",
+    "courses": [
+     "MFTS 542 Families of Children with Special Needs (1)",
+     "MFTS 572 Gender Issues in Family Therapy (1)",
+     "MFTS 573 Group Therapy (1)",
+     "MFTS 575 Social Neuroscience for Family Therapists (1)",
+     "MFTS 576 Self of the Therapist (1)",
+     "MFTS 578 Spiritual Issues in Family Therapy (1)"
+    ]
+   },
+   {
+    "label": "Non-course degree requirements",
+    "courses": [
+     "Written comprehensive examination, taken in the second year (typically the first Friday in February), covering Theory & Application, Assessment, and Law & Ethics — two hours per section",
+     "SOLES international experience (study abroad, or an approved alternative such as observing social-service agencies in Tijuana or volunteering with San Diego refugee communities)",
+     "Three prerequisite courses — Human Development, Research Methods, and either Counseling Theories or Theories of Personality — completed before enrolling or by the start of the second semester"
+    ]
+   }
+  ],
+  "src": "https://graduate.catalog.sandiego.edu/programs/major-MALE-GR-M-LE-MA-MFT"
+ },
+ "practicum": {
+  "starts": "Final year — a 12-month, three-semester sequence (MFTS 595P/596P/597P) that begins in the summer or fall after 27 units of coursework",
+  "hours": "2026–27 catalog: 400 direct client-contact hours, minimum 200 of them relational (couples/families), plus 100 supervision hours of which at least 50 must be from raw data. The program website and the 2023–24 handbook still state 500 hours / 200 relational / 200+ supervision.",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "Practicum is the whole final year and it is worth 15 of the 60 units — five units per semester across three consecutive semesters, all of it in outside community agencies; USD does not run an in-house training clinic. Placement is a formal, competitive matching process rather than a job hunt: in early December the faculty formally reviews every student for readiness (3.0 GPA, prerequisites done, interpersonal readiness in class), students attend a practicum orientation, then interview with agencies the faculty has already approved. Students submit a ranked preference list, sites submit theirs, and on a designated 'Match Day' in February or March the faculty matches students to sites — so the school controls the pool and the algorithm, but you still have to interview and can be ranked out of your first choice. The approved-site list is broad and unusually medical for an MFT program: UCSD Integrated Behavioral Health, UCSD Reproductive Medicine, UCSD Eating Disorders Clinic, Rady Children's outpatient psychiatry and its Medical Behavioral Unit, Sharp Mesa Vista, Hospice of the North Coast, San Diego Unified School District, the Narrative Institute of San Diego and YMCA Youth & Family Services, among others; placements are typically unpaid. Supervision is doubled up — a USD faculty supervisor provides individual live and videotape supervision plus a weekly group in the practicum class (which meets Mondays 1:00–4:00 p.m.), on top of individual and group supervision at the site — at a minimum ratio of one supervision hour per five clinical hours, and every supervisor is an AAMFT Approved Supervisor or equivalent. The handoff to post-degree work is explicit: the program advertises that practicum yields \"1,000 hours toward the 3,000 hours required for MFT licensure in California,\" and students who fall short of the hour minimum by the end of MFTS 597P must enroll in MFTS 598P Practicum Extension (1 unit) and keep going.",
+  "src": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/practicum.php",
+  "model": "assisted",
+  "model_evidence": "Students choose where to complete their clinical work from a list of pre-approved agencies and practicum sites that best matches their interests and needs.",
+  "model_url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/practicum.php",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "\"The program seeks to enroll approximately 30 new students each year. Class sizes are generally kept between 15-20 students.\" COAMFTE-reported entering cohorts have actually run 31–39 full-time students a year since 2019 (36 entered in 2025–26, 32 in 2024–25).",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree with a 3.0 GPA; no psychology degree required. Three prerequisite courses — Human Development, Research Methods, and either Counseling Theories or Theories of Personality — must be complete before enrollment or by the start of the second semester (the handbook accepts study.com courses with a certificate of completion). Experience in a related field is recommended but not required.",
+  "deadline": "Fall entry only; the admissions page lists a January 15 deadline (January 15, 2026 for fall 2026 entry). $45 application fee. Requires a résumé/CV, a statement of purpose of at most 500 words, two letters of recommendation, and — for the strongest candidates after an initial review — a group interview with the MFT faculty on campus (virtual option for applicants outside CA, AZ, OR, WA, UT and NV).",
+  "src": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/admissions-requirements.php",
+  "gre_evidence": "The MA in Marital and Family Therapy program does not require the GRE.",
+  "gre_url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/admissions-requirements.php",
+  "min_gpa": "3.00",
+  "conflict": null
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/0/00/University_of_San_Diego.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:University_of_San_Diego.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Transfeo, via Wikimedia Commons",
+  "caption": "The University of San Diego campus in Alcalá Park, 2019"
+ },
+ "gaps": [
+  "USD publishes two different practicum hour requirements. The 2026–27 graduate catalog says 400 direct client hours / 100 supervision hours; the program website and the 2023–24 program handbook say 500 / 200+. The catalog's own edit note says the hours were being updated after a program-level vote before 2024–25, but no page states the change plainly.",
+  "No term-by-term plan of study is published anywhere — the university's 'Curriculum and Pathway' page simply embeds the catalog's requirement list. The handbook gives sequencing rules but not a grid.",
+  "Course descriptions had to be taken from an archived September 2023 capture of the 2023–2024 CourseLeaf catalog; USD's current Coursedog catalog publishes the required-course list but does not expose MFTS course descriptions at a public URL.",
+  "The program handbook available on the program page is the 2023–2024 edition; no newer handbook is publicly posted.",
+  "No credible student discussion could be found. Reddit, Student Doctor Network and comparable forums were not reachable during this research (Reddit blocks automated access, and site-scoped web search was unavailable); GradReports has 146 reviews of USD overall but none tagged to the MFT program.",
+  "Tuition per unit for the MFT program was not captured; the SOLES tuition page was not fetched.",
+  "USD does not appear to operate an in-house training clinic for MFT students — all listed placements are outside community agencies — but no page states that in so many words."
+ ],
+ "sources": [
+  {
+   "label": "USD Graduate Catalog 2026–27 — M.A. in Marital and Family Therapy (requirements, degree requirements, admissions)",
+   "url": "https://graduate.catalog.sandiego.edu/programs/major-MALE-GR-M-LE-MA-MFT"
+  },
+  {
+   "label": "MA in Marital and Family Therapy — program page (SOLES)",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/"
+  },
+  {
+   "label": "MFT Practicum page (hours, supervision, full site list)",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/practicum.php"
+  },
+  {
+   "label": "MFT Admissions Requirements page",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/admissions-requirements.php"
+  },
+  {
+   "label": "MFT FAQ page (cohort size, class size, schedule, on-campus only)",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/faq.php"
+  },
+  {
+   "label": "MFT Learning and Career Outcomes page",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/outcomes.php"
+  },
+  {
+   "label": "SOLES International Student Experience page",
+   "url": "https://www.sandiego.edu/soles/academics/international-experience.php"
+  },
+  {
+   "label": "USD MFT Program Handbook 2023–2024 (PDF)",
+   "url": "https://drive.google.com/file/d/1wTs7-rCW38N1go-kM5RTgxV9-ybV-1s3/view?usp=sharing"
+  },
+  {
+   "label": "USD MFT COAMFTE Graduate Achievement Data disclosure (PDF)",
+   "url": "https://drive.google.com/file/d/1YhqPaDjm5Xq7600rTXmM7B2lEZ_BbVyH/view?usp=sharing"
+  },
+  {
+   "label": "Archived USD 2023–2024 catalog — Marital & Family Therapy (MFTS) course descriptions",
+   "url": "https://web.archive.org/web/20230909090622/https://catalogs.sandiego.edu/graduate/courses/mfts/"
+  },
+  {
+   "label": "MFT Curriculum and Pathway page",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/curriculum-and-pathway.php"
+  }
+ ]
+}

@@ -1,0 +1,200 @@
+{
+ "institution": "California Baptist University",
+ "character": [
+  "The 63-87 unit range that makes this program look confusing has a simple structure behind it. The MFT degree is a fixed 63-unit core of twenty-two required courses — there is no elective choice in it at all. Everything above 63 is optional bolt-on. The PCC sequence adds exactly two courses, PSY 536 Community Mental Health Counseling and PSY 537 Career Counseling, for 6 units (69 total). The Forensic Psychology concentration adds 18 units — four required courses plus two chosen from five, drawn from CBU's criminal-justice and forensic-psychology catalogs (81 total). Take both and you land on 87. That is the whole range. Two further caveats the catalog states plainly: the forensic concentration and the dual degrees with the M.A. in Counseling Ministry and the M.S. in Sport and Performance Psychology are on-campus only, and the PCC sequence is open to online students only if they reside in California. CBU also warns that PCC students \"will also be required to complete a higher number of practicum hours to meet the BBS clinical hour requirements.\"",
+  "On the Christian question, CBU is the most institutionally committed of the three and the most honest about it — but as a required curriculum component it is still one course. PSY 590, Christian Perspective in Professional Counseling, is 3 units of 63: \"Faculty and student dialogue on issues and topics related to the integration of Christianity and psychology.\" There is no Bible or theology requirement in the MSCP. What is different from a merely nominal affiliation is that CBU makes an institution-wide claim about the other sixty-two units — \"All of our courses integrate theory and faith\" — and its own catalog record shows that claim being actively managed. The catalog's program-modification record for the MSCP states the reason PSY 590 was raised from two units to three: \"Integration is a core feature of our program, and having this course as one of the two classes with 2 units demonstrates a need to increase the level of integration in our program,\" plus a wish to \"align us with other integration programs like HIU, APU, and Liberty,\" plus the frank admission that \"Two-unit courses are notoriously difficult to fill compared to three-unit ones.\" That is a rare look at how a Christian program actually reasons about its integration requirement.",
+  "The other thing to notice is that despite the name — Counseling Psychology — the required core is heavily relational, more so than several programs with 'marriage and family therapy' in the title. Five of the twenty-two required courses are explicitly relational: PSY 505 MFT Counseling Theory, PSY 580 Family Therapy I, PSY 585 Family Therapy II, PSY 511 Couples Therapy and Intimate Partner Violence, and PSY 545 MFT Counseling: Child-Adolescent. Family Therapy II is a skills course, not a survey, using \"videotape feedback, coaching, and classroom demonstration.\" This is the oldest and largest graduate program at CBU, founded over forty years ago, and it shows in the structure: a fixed lockstep core, evening classes starting around 4:00 pm two days a week, entry points in fall, spring and summer, and a practicum system built on \"over 100 well established organizational relationships\" across the Inland Empire — community mental health, school-based and church-based settings — rather than on an in-house clinic, which CBU does not appear to run for this program."
+ ],
+ "orientation": "Systemic/family-therapy-forward within a broadly integrative counseling-psychology frame, taught from an explicitly Christian worldview",
+ "signature": [
+  {
+   "code": "PSY 501 / PSY 502",
+   "title": "Professional Practice I: Basic Skills and Professional Practice II: Advanced Skills",
+   "units": "3 + 3",
+   "desc": "PSY 502: \"...emphasis is placed on various clinical, legal, and ethical issues related to the practice of psychotherapy. This includes 6 hours of suicide risk assessment, prevention, treatment, and intervention, as well as 3 hours of training in the law, ethics, and clinical considerations related to the provision of mental health services via telehealth. As part of the course, students will participate in part two of a two-part professional development review which contributes to clearance to begin practicum training.\"",
+   "verbatim": true,
+   "why": "The two-part professional development review embedded across this pair is CBU's real gate to clinical work, and it is unusual to see it named in the course description rather than buried in a handbook. Also note the specificity — six hours of suicide-risk training and three hours of telehealth law and ethics are counted out by the hour, which is how BBS content requirements actually get satisfied.",
+   "src": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/courses"
+  },
+  {
+   "code": "PSY 585",
+   "title": "Family Therapy II",
+   "units": "3",
+   "desc": "\"Concentration on the therapeutic techniques of the various schools of family therapy discussed in Family Therapy I. Students are encouraged to develop specific family therapy skills through the use of videotape feedback, coaching, and classroom demonstration.\"",
+   "verbatim": true,
+   "why": "A full second required semester of family therapy that is explicitly a skills lab — videotape review, live coaching and demonstration — rather than another theory survey. Most California programs give family systems one course. CBU gives it two, and the second one puts you on camera.",
+   "src": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/courses"
+  },
+  {
+   "code": "PSY 590",
+   "title": "Christian Perspective in Professional Counseling",
+   "units": "3",
+   "desc": "\"Faculty and student dialogue on issues and topics related to the integration of Christianity and psychology.\" A newer catalog description on file adds: \"Marriage and Family Therapy and Counseling Theories will be critiqued using Christian worldview principles... Emphasis will be placed on the ethics of integration in therapy along with incorporating Christian spiritual interventions to address client suffering.\"",
+   "verbatim": true,
+   "why": "This is the whole of the required Christian curriculum — one course, 3 units of 63 — and it is the honest answer to whether CBU's faith commitment is coursework or identity. Worth knowing that the newer description moves it from open dialogue toward critiquing MFT theory through a Christian worldview and teaching Christian spiritual interventions, which is a more directive posture than the old one-line version implies.",
+   "src": "https://graduate.catalog.calbaptist.edu/programs/tzgt8pjnmh8f0cHg7zc3"
+  },
+  {
+   "code": "PSY 511",
+   "title": "Couples Therapy and Intimate Partner Violence",
+   "units": "3",
+   "desc": "\"This course will address the principles and techniques of effective therapy with couples. Various couples treatment models will be described with a focus on applicability to different client needs in a variety of settings. Intimate partner violence detection, prevention, and treatment will be integrated into the treatment of couples.\"",
+   "verbatim": true,
+   "why": "Most programs teach couples therapy in one course and IPV in another, or fold IPV into a trauma course. Fusing them means you are taught couples work with the screening question built in from the start — which is the clinically correct order and not the common one.",
+   "src": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/courses"
+  },
+  {
+   "code": "PSY 536",
+   "title": "Community Mental Health Counseling",
+   "units": "3",
+   "desc": "\"Course content emphasizes recovery-oriented treatment for severe mental illness, disaster and trauma response, services for victims of abuse, the homeless, foster care services, case management, client advocacy, in-home and in-school services, bilingual client services, professional collaboration and medical family therapy. This is an elective course for which students wishing to pursue licensure as a Professional Clinical Counselor in the State of California should register.\"",
+   "verbatim": true,
+   "why": "The most content-dense course in the catalog, and the one that carries CBU's public-sector training — but it is an optional PCC course, not part of the 63-unit MFT core. If you want community-mental-health preparation you have to add the PCC sequence to get it.",
+   "src": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/courses"
+  },
+  {
+   "code": "PSY 598C",
+   "title": "Aging and Mental Health",
+   "units": "2",
+   "desc": "\"This seminar addresses mental health issues in aging populations.\"",
+   "verbatim": true,
+   "why": "The only two-unit course in the core, and the reason the total is 63 rather than a round number. It is also one of very few required geriatric mental-health courses in a California MFT-track curriculum — most programs make older-adult work an elective if they offer it at all.",
+   "src": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/courses"
+  }
+ ],
+ "curriculum": {
+  "note": "CBU publishes the full required course list and the optional add-on groups but no term-by-term sequence, so the blocks below are the catalog's own requirement groups rather than a schedule. The core is fixed and lockstep — twenty-two required courses, no electives inside the 63 units. The catalog labels the whole thing \"Program Requirements (63-87 Units)\" and describes the program as six semesters, though CBU markets it as two years with 3- and 4-year options for on-campus students. Entry points are fall, spring and summer; most students attend two days a week with courses generally beginning at 4:00 pm. Beyond coursework there are three non-course requirements: a comprehensive examination taken concurrently with practicum in the final year ($125 fee, one retake allowed), a psychotherapy requirement of 24 hours of individual or 50 hours of group therapy completed off campus, and formal admission to practicum by faculty decision.",
+  "total_units": "63 core (63-87 with optional add-ons: +6 PCC, +18 Forensic Psychology concentration)",
+  "terms": [
+   {
+    "label": "Core Requirements (63 units) — required of all students",
+    "courses": [
+     "PSY 500 Diversity Issues in Counseling Psychology (3)",
+     "PSY 501 Professional Practice I: Basic Skills (3)",
+     "PSY 502 Professional Practice II: Advanced Skills (3)",
+     "PSY 505 MFT Counseling Theory (3)",
+     "PSY 510 Human Growth and Development (3)",
+     "PSY 511 Couples Therapy and Intimate Partner Violence (3)",
+     "PSY 515 Human Sexuality (3)",
+     "PSY 520 Human Communication in Group Process (3)",
+     "PSY 530 Advanced Research Methodology (3)",
+     "PSY 534 Pre- or Post-Practicum (1)",
+     "PSY 535 Advanced Psychopathology (3)",
+     "PSY 540 Psychodiagnostics (3)",
+     "PSY 545 MFT Counseling: Child-Adolescent (3)",
+     "PSY 555 Practicum I (3)",
+     "PSY 560 Professional Ethics and Law (3)",
+     "PSY 570 Practicum II (3)",
+     "PSY 580 Family Therapy I (3)",
+     "PSY 585 Family Therapy II (3)",
+     "PSY 590 Christian Perspective in Professional Counseling (3)",
+     "PSY 595 Psychopharmacology (3)",
+     "PSY 598A Addictions Counseling (3)",
+     "PSY 598C Aging and Mental Health (2)"
+    ]
+   },
+   {
+    "label": "Optional Professional Clinical Counselor Requirements (+6 units)",
+    "courses": [
+     "PSY 536 Community Mental Health Counseling (3)",
+     "PSY 537 Career Counseling (3)"
+    ]
+   },
+   {
+    "label": "Optional Forensic Psychology Concentration (+18 units, on-campus only)",
+    "courses": [
+     "Core: CJS 530 Theories and Perspectives of Criminal Behavior (3)",
+     "Core: FPY 530 Advanced Social Psychology (3)",
+     "Core: FPY 540 Forensic Psychology (3)",
+     "Core: FPY 595 Special Topics (3)",
+     "Choose two: CJS 510 Legal Research and Reasoning (3); CJS 520 Advanced Criminal Law (3); CJS 560 Criminal Investigations (3); FPY 510 Biological Bases of Behavior (3); FPY 520 Criminal Profiling (3)"
+    ]
+   }
+  ],
+  "src": "https://graduate.catalog.calbaptist.edu/programs/tzgt8pjnmh8f0cHg7zc3"
+ },
+ "practicum": {
+  "starts": "The final year. The catalog is specific: it is a \"three semester Practicum requirement course sequence occurring in the last year of the student's program.\"",
+  "hours": "Not published on CBU's public pages. The unit structure is PSY 555 Practicum I (3), PSY 570 Practicum II (3), and PSY 534 Pre- or Post-Practicum (1) either side. The third-party directory MFT California lists 400 hours accrued during the program; CBU's own minimum client-hour count and any relational sub-minimum appear only in the MSCP student handbook, which sits behind the InsideCBU login.",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "CBU gates practicum harder than most, and does it early. Clearance runs through a \"two-part professional development review\" split across PSY 501 and PSY 502, the two basic- and advanced-skills courses taken near the start of the program — so your readiness is being assessed a year or more before you see a client. Formal admission then follows: \"Admission to Practicum will be a faculty decision based on grades, evaluation of the Practicum application, and placement approval,\" an interview \"to further evaluate the applicant's readiness may be required,\" and there is a written appeal process for students judged not ready. Placement itself is not assigned but is drawn from a curated pool — CBU says it has \"over 100 well established organizational relationships\" spanning community mental health, school-based and church-based settings, and that \"each placement is pre-approved by the department to meet BBS and CBU standards,\" with experienced licensed supervisors on site. There is no in-house training clinic for this program in any public CBU source, which is the main structural difference from the other Christian-institution programs in this set: your first client will be at an outside agency. The sequence is bracketed by PSY 534, a one-unit course that exists specifically so students can start counselling before PSY 555 or keep accruing hours after PSY 570 — a useful safety valve if your site's calendar and CBU's do not line up. The comprehensive examination is taken concurrently with practicum in that final year. Handoff to associate status is standard: the MSCP is BBS-approved for both MFT and LPCC educational requirements, and PCC-bound students are warned they must complete more practicum hours than the MFT core requires.",
+  "src": "https://graduate.catalog.calbaptist.edu/programs/tzgt8pjnmh8f0cHg7zc3",
+  "model": "not published",
+  "model_evidence": "We have over 100 well established organizational relationships that provide our students with experience in a diverse range of clinical settings... Each placement is pre-approved by the department",
+  "model_url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "CBU does not publish a cohort size. It describes the MSCP as \"the oldest and largest graduate program at CBU.\" The third-party directory MFT California reports \"Classes include about 20-30 students. Some are much smaller.\"",
+  "gre": "not published",
+  "prereqs": "There is a live discrepancy on GPA worth raising with admissions: the program's FAQ says \"Minimum 2.75 GPA or 2.75 on last 60/90 units,\" while the directory listing and general graduate guidance cite 3.0 for unconditional admission. Applicants without a psychology bachelor's complete prerequisite units (reported as 3-12 units) within their first two semesters; the online version specifies General Psychology or Life Span Development in the first semester. No therapy work experience is required. Admission decisions are typically returned in 5-10 days.",
+  "deadline": "Entry in Fall, Spring and Summer. Priority deadlines reported as 15 May (Fall), 1 November (Spring) and 1 March (Summer).",
+  "src": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/faqs",
+  "gre_evidence": "Minimum 2.75 GPA cumulative or last 60/90 unit GPA",
+  "gre_url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/application-requirements.php",
+  "min_gpa": "2.75",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "CBU's own catalog record explains why the Christian integration course was expanded from 2 units to 3: to \"align us with other integration programs like HIU, APU, and Liberty,\" and because \"Two-unit courses are notoriously difficult to fill compared to three-unit ones.\"",
+   "who": "CBU graduate catalog, MSCP program-modification record",
+   "sentiment": "info",
+   "url": "https://graduate.catalog.calbaptist.edu/programs/tzgt8pjnmh8f0cHg7zc3"
+  },
+  {
+   "text": "The program describes its own reach in regional rather than national terms: \"widely recognized and highly respected by public, private and faith-based agencies throughout the Inland Empire community.\"",
+   "who": "CBU MSCP program page, 2026",
+   "sentiment": "info",
+   "url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/a/aa/CBU_Recreation_Center_%28Riverside%2C_California%29.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:CBU_Recreation_Center_(Riverside,_California).jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Spatms, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "The Recreation Center on California Baptist University's 162-acre main campus in Riverside, where MSCP classes are held (Yeager Center and Mission Hall in current schedules)."
+ },
+ "gaps": [
+  "CBU does not publish the practicum client-hour minimum for the MSCP anywhere public. The MSCP student handbook, which PSY 501 and PSY 502 both refer students to for practicum detail, is hosted on the InsideCBU portal behind a login.",
+  "No relational (couples/family) client-hour sub-minimum is published.",
+  "Supervision mechanics are not published — individual vs group supervision ratios, weekly supervision hours, and whether sessions are recorded or live-observed at placement sites. The only recording confirmed anywhere in the curriculum is the videotape feedback used inside PSY 585 Family Therapy II.",
+  "No term-by-term course sequence is published; the catalog gives requirement groups and a \"6 semesters\" program-length field only.",
+  "Cohort size is not published by CBU. The 20-30 figure is from a third-party directory, not the university.",
+  "GPA requirement is inconsistent across CBU's own pages: the MSCP FAQ says 2.75 minimum, other sources cite 3.0 for unconditional admission.",
+  "CBU does not publish BBS licensing-exam pass rates for MSCP graduates.",
+  "No independent student discussion of this program was found on Reddit, Student Doctor Network or GradCafe. A Sentio review page exists but blocks automated retrieval, so nothing from it is reproduced here.",
+  "Whether CBU operates any in-house counseling clinic used for MSCP training could not be confirmed — no public CBU page mentions one for this program, and the practicum description points entirely to outside partner agencies."
+ ],
+ "sources": [
+  {
+   "label": "CBU Graduate Academic Catalog — Counseling Psychology, MS (program requirements, PCC and forensic groups, practicum admission, psychotherapy requirement)",
+   "url": "https://graduate.catalog.calbaptist.edu/programs/tzgt8pjnmh8f0cHg7zc3"
+  },
+  {
+   "label": "CBU MSCP course list with full catalog descriptions",
+   "url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/courses"
+  },
+  {
+   "label": "CBU MSCP program page (63-87 units, $864/unit, practicum partners, faith integration)",
+   "url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/"
+  },
+  {
+   "label": "CBU MSCP FAQs (GPA, entry points, class meeting times, BBS approval)",
+   "url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/faqs"
+  },
+  {
+   "label": "CBU online MSCP course list",
+   "url": "https://calbaptist.edu/academics/programs/online-master-of-science-counseling-psychology/courses"
+  },
+  {
+   "label": "MFT California directory entry for California Baptist University (cohort size, tuition estimate, practicum hours figure)",
+   "url": "https://www.mftcalifornia.com/california-baptist-university"
+  }
+ ]
+}

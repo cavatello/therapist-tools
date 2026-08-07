@@ -1,0 +1,198 @@
+{
+ "institution": "Point Loma Nazarene University",
+ "character": [
+  "The first thing to correct is a common misreading of this program: PLNU's M.A. in Clinical Counseling does not have separate MFT and PCC emphases with different unit counts. There is one 63-unit curriculum, and the program's own page states it flatly — \"All students take the 63 program units, regardless of the license they hope to receive.\" The catalog's \"63-65\" range is not a second track; it is the optional PSY 6098 Practicum Extension (0-2 units), which exists so students who finish the three required practicum courses early can stay in trainee status and keep accruing licensure hours while they finish the degree. Every graduate leaves eligible to register with the BBS as an associate on either the LMFT or the LPCC path and picks which one to pursue afterwards. The only real fork in the program is on-ground versus online, and that fork is more consequential than the licence question.",
+  "On the Christian-institution question, PLNU answers it itself, in writing, in its own FAQ: \"PLNU is a Nazarene school and our professors are Christian, but this program is not following a Christian curriculum... There are three classes where faith integration is discussed, but it is not a core component of the curriculum. Faith is addressed as a whole and not only from the Christian traditions.\" That is a fair description of the course list. Faith appears in exactly three of twenty-one courses — PSY 6001 Spiritual Integration in Clinical Practice, and the two-semester required theory sequence PSY 6025/6026 Counseling Theories and Faith Integration I and II — nine units out of sixty-three. It is worth noticing where those nine units sit, though: most Christian programs put integration in a standalone bolt-on course. PLNU put it in the title of the required theories sequence, so the orientation you graduate with is developed alongside a faith-integration frame rather than next to it. There is no Bible, theology or ministry requirement, and no doctrinal statement in the admissions checklist.",
+  "What actually distinguishes the program is the clinical spine. PLNU runs an on-site training clinic at its Mission Valley Regional Center in partnership with the Center for Enriching Relationships, and on-ground students see a real client there — recorded — before they are cleared for an outside placement. The graduation bar is 700 total supervised hours with 300 face-to-face direct-service hours, which is roughly double what several other California master's programs require and is the single hardest number in this program to plan around. It is also, deliberately, a small operation: two cohorts of an estimated 15-20, one meeting Monday/Wednesday and one Tuesday/Thursday, at a satellite centre in Mission Valley — not on the Point Loma campus. The FA26 on-ground cohort was already closed as of this writing, with SP27 the next on-ground start."
+ ],
+ "orientation": "Generalist and eclectic — a broad theories survey aimed squarely at BBS licensure, carrying a three-course Christian faith-integration thread that the program itself says is not core",
+ "signature": [
+  {
+   "code": "PSY 6094",
+   "title": "Pre-Practicum (on-ground program)",
+   "units": "0",
+   "desc": "\"Prior to practicum assignments in various approved counseling centers, hospitals, clinics, and social service agencies, all students are required to be observed as they counsel at least one client at the onsite counseling center. Digital recordings of therapy sessions will be utilized to improve therapeutic skills, promote self-awareness, and an understanding of how people change.\"",
+   "verbatim": true,
+   "why": "This is the gate. Before you can enroll in PSY 6095 you must have counselled a real client at PLNU's own clinic, on camera, and been signed off by the Director of Clinical Training. Very few California master's programs put a live recorded client in front of a student inside the school's own clinic before the outside placement — most send you straight to an agency and let the agency be your first client contact.",
+   "src": "https://pointloma-public.courseleaf.com/grad-catalog/course-information/psy/"
+  },
+  {
+   "code": "PSY 6194",
+   "title": "Pre-Practicum (online program)",
+   "units": "0",
+   "desc": "\"Prior to practicum assignments students will learn basic skills that are required in most placements (e.g., note-taking, treatment planning). Students will have the opportunity to receive formative feedback as they counsel a client using a simulated patient... This class will prepare students for the Objective Simulated Clinical Exam.\"",
+   "verbatim": true,
+   "why": "Read this next to PSY 6094 and you have the honest difference between PLNU's two formats. On-ground students rehearse on a real client in the school's clinic; online students rehearse on a standardised simulated patient and sit an OSCE. Same degree, same 63 units, materially different first clinical experience — and this is not stated anywhere in the marketing comparison table.",
+   "src": "https://pointloma-public.courseleaf.com/grad-catalog/course-information/psy/"
+  },
+  {
+   "code": "PSY 6025 / PSY 6026",
+   "title": "Counseling Theories and Faith Integration I and II",
+   "units": "3 + 3",
+   "desc": "I: \"Major counseling theories and techniques are examined and applied in the context of the helping relationship.\" II: \"Continuing exploration of psychological therapies and techniques with emphasis on the adoption of a theoretical orientation for explaining the etiology and treatment of various mental disorders.\"",
+   "verbatim": true,
+   "why": "Two things at once. It is a full year on theory with an explicit requirement that you land on your own orientation by the end — more than most programs demand — and it is where PLNU's faith commitment actually lives, inside the required theory sequence rather than in a separate elective. If you want a wholly secular training this is the course you cannot opt out of.",
+   "src": "https://pointloma-public.courseleaf.com/grad-catalog/course-information/psy/"
+  },
+  {
+   "code": "PSY 6001",
+   "title": "Spiritual Integration in Clinical Practice",
+   "units": "3",
+   "desc": "\"This course prepares students to integrate spirituality as part of treatment with special emphasis on ethics, Christian theology, and use of self.\"",
+   "verbatim": true,
+   "why": "The one course where Christian theology is named as content rather than framing. It is three units of sixty-three, and it is the concrete answer to 'how Christian is this program' — one required course plus the faith thread in the theories sequence.",
+   "src": "https://pointloma-public.courseleaf.com/grad-catalog/course-information/psy/"
+  },
+  {
+   "code": "PSY 6093",
+   "title": "Personal Therapy Requirement",
+   "units": "0",
+   "desc": "Twenty hours of personal psychotherapy from a licensed clinician, completed before graduation. \"Two hours of group therapy or one hour of individual therapy counts as one hour of credit toward the requirement. At least ten of the twenty hours must be individual or group therapy and up to ten hours can be marital or family therapy.\"",
+   "verbatim": true,
+   "why": "A required own-therapy hour count is not universal in California, and the accounting rules here are unusually precise — group counts at half rate, and your own couples work is capped at half the requirement. Budget for it: twenty hours of therapy you pay for out of pocket on top of tuition.",
+   "src": "https://pointloma-public.courseleaf.com/grad-catalog/colleges-schools-departments/chs/kin/clinical-counseling-ma/"
+  },
+  {
+   "code": "PSY 6099",
+   "title": "Comprehensive Examination",
+   "units": "0",
+   "desc": "\"As a final assessment of competency, each student must pass the Comprehensive Examination, a computerized mock license exam that reflects program coursework and obtained clinical knowledge.\" Administered during PSY 6097 (in-person) or PSY 6197 (online).",
+   "verbatim": true,
+   "why": "The exit requirement is not a thesis or a portfolio — it is a simulated BBS licensing exam you must pass to graduate. That tells you what the program optimises for, and it matches the program page's claim that \"every course prepares you to take the licensure exam.\"",
+   "src": "https://pointloma-public.courseleaf.com/grad-catalog/colleges-schools-departments/chs/kin/clinical-counseling-ma/"
+  }
+ ],
+ "curriculum": {
+  "note": "PLNU publishes the full required course list and unit totals but not a term-by-term grid, so the two blocks below are the catalog's own headings rather than a sequence. It is a lockstep cohort: on-ground classes meet twice a week, even cohorts Monday/Wednesday and odd cohorts Tuesday/Thursday, over 24 months (32 months for spring starters, so that practicum lands correctly — spring students take only practicum units in their final two semesters, which drops them under six units and affects financial aid). Course titles below are from the 2026-2027 graduate catalog; the online program uses the same list with PSY 6029 titled \"Marriage and Family Therapy\" and practicum renumbered to the 61xx series.",
+  "total_units": "63 (catalog shows 63-65; the extra 0-2 units are the optional PSY 6098 Practicum Extension)",
+  "terms": [
+   {
+    "label": "Required courses (57 units)",
+    "courses": [
+     "PSY 6001 Spiritual Integration in Clinical Practice (3)",
+     "PSY 6008 Lifespan Development (3)",
+     "PSY 6009 Multicultural Theories and Development (3)",
+     "PSY 6011 Professional Ethics and Law (3)",
+     "PSY 6021 Psychodiagnostics and Mental Disorder Treatment (3)",
+     "PSY 6022 Clinical Skills (3)",
+     "PSY 6025 Counseling Theories and Faith Integration I (3)",
+     "PSY 6026 Counseling Theories and Faith Integration II (3)",
+     "PSY 6027 Treatment of Children and Adolescents (3)",
+     "PSY 6029 Systemic and Family Therapy (3)",
+     "PSY 6031 Couples Therapy (3)",
+     "PSY 6033 Career Development (3)",
+     "PSY 6045 Group Counseling (3)",
+     "PSY 6050 Psychological Testing and Assessment (3)",
+     "PSY 6058 Crisis and Trauma Counseling (3)",
+     "PSY 6060 Human Sexuality (3)",
+     "PSY 6065 Psychopharmacology (3)",
+     "PSY 6075 Treatment of Substance Use Disorders (3)",
+     "PSY 6090 Research Methodology (3)",
+     "PSY 6093 Personal Therapy Requirement (0)",
+     "PSY 6099 Comprehensive Examination (0)"
+    ]
+   },
+   {
+    "label": "Practicum courses — second year (6 units)",
+    "courses": [
+     "PSY 6094 Pre-Practicum (0) — prerequisite to PSY 6095, not counted in the unit table",
+     "PSY 6095 Supervised Practicum I (2)",
+     "PSY 6096 Supervised Practicum II (2)",
+     "PSY 6097 Supervised Practicum III (2)",
+     "PSY 6098 (A,B,C) Practicum Extension (0-2, as needed)"
+    ]
+   }
+  ],
+  "src": "https://pointloma-public.courseleaf.com/grad-catalog/colleges-schools-departments/chs/kin/clinical-counseling-ma/"
+ },
+ "practicum": {
+  "starts": "Clinical contact starts in year one at PLNU's own clinic (PSY 6094); the outside traineeship runs across the whole second year, in three consecutive terms (PSY 6095/6096/6097). Spring-start students run a 32-month track so practicum lands correctly, and take only practicum units in their final two semesters.",
+  "hours": "700 total hours of supervised training, of which 300 must be face-to-face direct service, accrued across the three-course practicum sequence. No separate relational (couples/family) hour minimum is published for graduation.",
+  "who_places": "mixed",
+  "clinic": "On-site training clinic at the Mission Valley Regional Center, run in partnership with the Center for Enriching Relationships",
+  "detail": "PLNU's model is clinic-first, agency-second, and the catalog is explicit about the order: \"Before placement at an external agency, students will provide psychotherapy to one or more clients at the on-site training clinic, the Center for Enriching Relationships. Upon successful completion of this initial experience and approval by the training staff, students will secure a practicum site in the community and complete a 10-12 month traineeship.\" That first clinic experience is PSY 6094, a zero-unit gate: you must be observed counselling at least one real client, sessions are digitally recorded and reviewed, and the Director of Clinical Training signs off before you may enrol in PSY 6095. Six named courses (PSY 6011, 6021, 6025, 6029, 6045 and 6094) are prerequisites to that first practicum course, so the whole first year is functionally a run-up. Placement is a shared job rather than an assignment: the program says it maintains \"established practicum sites at all the major mental health service providers throughout San Diego\" and provides \"a high level of support in helping you match to the practicum site that fits you best,\" but the catalog's own wording is that \"students will secure a practicum site in the community\" — the school approves and helps, you apply. Expect about 20 hours a week on site in year two on top of roughly 10 hours of class, which is why the program's own FAQ says many students stop working during the second year. The handoff to associate status is clean and stated: pre-degree trainee hours count toward MFT licensure (up to the BBS cap) but not toward LPCC, PSY 6098 lets you keep accruing hours if you finish the sequence early, and on graduation you apply to the BBS for associate registration and continue accruing under supervision for at least 104 weeks.",
+  "src": "https://pointloma-public.courseleaf.com/grad-catalog/colleges-schools-departments/chs/kin/clinical-counseling-ma/",
+  "model": "assisted",
+  "model_evidence": "PLNU will work with you to acquire a practicum experience and we have an on-site clinic where you will engage in hands-on therapeutic practices while being supervised by a licensed professional prior to starting a full practicum placement in the community. While PLNU helps students get matched, it is ultimately the student's responsibility to connect with, interview for, and solidify their placement.",
+  "model_url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "PLNU trainee practicum clinic (on-campus, Mission Valley)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "\"Class sizes are estimated to be 15 to 20 people\" per PLNU's FAQ; two on-ground cohorts run in parallel, one Monday/Wednesday and one Tuesday/Thursday. The third-party directory MFT California describes it as two cohorts of 15 (30 total).",
+  "gre": "not published",
+  "prereqs": "Bachelor's from a regionally accredited institution with a cumulative GPA of 3.0 (an exceptions process exists below that). Three prerequisite courses — General Psychology, Abnormal Psychology, Human Development — waived for psychology majors. Also required: resume/vita, three professional references, a 500-600 word APA-formatted statement of purpose graded on a 5-point scale with a 3.5 minimum, MMPI-2/3, departmental interview, and a LiveScan background check on admission.",
+  "deadline": "Fall 2026: priority 27 February 2026, final 14 August 2026. Spring 2027: 25 September 2026. The FA26 on-ground cohort was listed as fully enrolled, with SP27 the next on-ground start; the online program starts Fall, Spring and Summer.",
+  "src": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+  "gre_evidence": "Completion of the MMPI-2 or MMPI-3 personality assessment. Interview with the Department of Graduate Psychology.",
+  "gre_url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"This program has offered me an experience of multi-layered supervision that I don't think I would have gotten anywhere else. Without it, I don't think I would have been able to take such a critical look at myself and fix things that will make me better with my clients in the future.\"",
+   "who": "Shawn Brewer, MACC student — testimonial published by PLNU on the program page",
+   "sentiment": "positive",
+   "url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma"
+  },
+  {
+   "text": "\"The school provided me with an advisor immediately during the application process who helped me to prepare... The school also helped me to secure an internship.\"",
+   "who": "Niche.com review, republished by PLNU on its program page",
+   "sentiment": "positive",
+   "url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma"
+  },
+  {
+   "text": "PLNU answers the religion question against its own marketing interest: the program \"is not following a Christian curriculum\" and faith integration \"is not a core component of the curriculum.\"",
+   "who": "PLNU program FAQ, 2026",
+   "sentiment": "info",
+   "url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/7/74/Point_Loma_Nazarene%27s_Golden_Gym.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Point_Loma_Nazarene%27s_Golden_Gym.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Greenstrat, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "Golden Gym on Point Loma Nazarene University's main Point Loma campus. Note that the MACC program does not meet here — classes and the training clinic are at PLNU's Mission Valley Regional Center."
+ },
+ "gaps": [
+  "The premise that the MACC has MFT and PCC emphases with different unit counts is wrong: there is one 63-unit curriculum and all students graduate eligible for both licences. The only unit variation (63-65) is the optional PSY 6098 Practicum Extension.",
+  "PLNU publishes no term-by-term course sequence for the MACC — only the full required list and the two-year/32-month framing.",
+  "No minimum relational (couples/family) client-hour count is published for graduation; only the 700-total/300-face-to-face figures.",
+  "No supervision mechanics are published — individual vs group supervision ratios, whether sessions are live-observed or one-way-mirror, and how many hours of supervision per week are all absent from public pages. Digital recording is confirmed only for the pre-practicum clinic experience.",
+  "No independent student discussion of this program was found on Reddit, Student Doctor Network or GradCafe. The only student voices available are testimonials PLNU itself publishes.",
+  "PLNU does not publish BBS licensing-exam pass rates for its graduates.",
+  "Total program cost is not published as a figure; $848 per unit × 63 units is the tuition base for 2026-27, before fees, the 20 required personal-therapy hours, and the $125-style exam and background-check costs."
+ ],
+ "sources": [
+  {
+   "label": "PLNU Graduate Catalog 2026-2027 — Clinical Counseling, M.A.",
+   "url": "https://pointloma-public.courseleaf.com/grad-catalog/colleges-schools-departments/chs/kin/clinical-counseling-ma/"
+  },
+  {
+   "label": "PLNU Graduate Catalog 2026-2027 — Clinical Counseling, M.A. (Online)",
+   "url": "https://pointloma-public.courseleaf.com/grad-catalog/colleges-schools-departments/chs/grad-health-sciences/clinical-counseling-ma-online/"
+  },
+  {
+   "label": "PLNU Graduate Catalog 2026-2027 — PSY course descriptions",
+   "url": "https://pointloma-public.courseleaf.com/grad-catalog/course-information/psy/"
+  },
+  {
+   "label": "PLNU program page — Clinical Counseling, M.A. (format comparison, FAQ, tuition, testimonials)",
+   "url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma"
+  },
+  {
+   "label": "MFT California directory entry for PLNU (cohort size, secondary figures)",
+   "url": "https://www.mftcalifornia.com/point-loma-nazarene-university"
+  },
+  {
+   "label": "California MFT program profile — PLNU",
+   "url": "https://californiamft.org/mft-programs/plnu/"
+  }
+ ]
+}

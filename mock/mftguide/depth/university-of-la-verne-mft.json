@@ -1,0 +1,216 @@
+{
+ "institution": "University of La Verne",
+ "character": [
+  "The first thing to settle is the unit count, because La Verne's own website contradicts itself: the program page headline says \"62-credit program\" while its At-A-Glance box says 61. The 2026–2027 academic catalog resolves it — Degree Requirements: 62 semester hours, and the listed course table adds to exactly 62. The MFT Program Policies and Procedures Handbook explains why both numbers are floating around: \"a total of 62 semester hours for students admitted 2025 and later, and 61 semester hours for students admitted prior to 2025,\" with two live course prefixes (PSY for pre-fall-2025 matriculants, MFT for fall 2025 and after). So 62 is right for anyone applying now; 61 is a stale number from the retired curriculum. The same staleness affects the fieldwork figure — the program page still advertises \"a minimum of 225 hours of fieldwork,\" while the catalog and handbook both require 280 direct client contact hours for 2025-and-later admits.",
+  "On the substance: this is a conventional, licensure-shaped MFT curriculum with no distinctive theoretical commitment, and the program says so more or less openly. The catalog names the Recovery Model as the organizing frame — \"emphasizing the best practices of the Recovery Model. In addition to the Recovery Model, students receive exposure to a range of theoretical orientations that reflect a systems perspective\" — and MFT 500 is the only course that explicitly foregrounds it. Otherwise the 62 units read as a one-to-one map of the California BBS content checklist: the catalog descriptions literally say things like \"Course meets California BBS licensure requirement for training in child abuse assessment and reporting\" (MFT 512) and \"This course meets the California BBS licensure requirement related to suicide risk assessment and intervention\" (MFT 517). There is no COAMFTE accreditation and none is claimed; the catalog notes the program has separately submitted its curriculum to the BBS for LPCC review. There are no electives — all 23 courses are required — and one course, MFT 523 Career Development Theories (3 units), is a counseling-degree staple that most standalone MFT programs do not carry, which is consistent with that LPCC ambition.",
+  "What is genuinely unusual here is structural rather than theoretical, and it is the schedule. This is a three-year program in which years one and two are pure classroom work — two courses a night, Mondays and Wednesdays, 4:00–6:25 p.m. or 6:50–9:15 p.m. — and the entire third year is half-time practicum (five units in fall, six in spring). Two gates matter: you cannot enroll in practicum without formal \"Advanced Standing,\" which requires 43 completed-or-in-progress semester hours and a 3.0 graduate GPA, and every student must complete a minimum of 10 hours of personal psychotherapy during the practicum year — five hours in each of Practicum I and II — at their own expense, with the program stating it \"will not request any information about the content of the personal psychotherapy process.\" Requiring your own therapy is not rare in the field but it is far from universal, and it is a real cost line most programs do not have."
+ ],
+ "orientation": "Recovery Model within a generalist systems framework",
+ "signature": [
+  {
+   "code": "MFT 500",
+   "title": "Counseling Theories & Skills I",
+   "units": "3",
+   "desc": "\"Reviews theories, principles, and methods of a variety of psychotherapeutic orientations and skills associated with these theoretical orientations. Established schools of thought, the recovery model, and evidence-based practices are all reviewed. For MFT students only. Not challengeable.\"",
+   "verbatim": true,
+   "why": "This is the one place in the catalog where the Recovery Model appears as course content rather than as mission language. If you are choosing La Verne for its stated recovery orientation, this and MFT 506 Community Mental Health & Systems of Care are where it actually lives.",
+   "src": "https://catalog.laverne.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 520",
+   "title": "Practicum I",
+   "units": "3",
+   "desc": "\"First part of a year-long practicum course... A review of current ethical issues, including law and ethics related to telehealth, is included... Students must complete a minimum of 280 direct face-to-face hours by completion of the year-long practicum experience.\" Prerequisite: must receive Advanced Standing to enroll.",
+   "verbatim": true,
+   "why": "The 280-hour figure sits inside the course description itself, which is the cleanest confirmation that the website's 225 is out of date. The explicit telehealth law-and-ethics content in the practicum seminar is a small but current touch that older catalogs at other schools lack.",
+   "src": "https://catalog.laverne.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 512",
+   "title": "Violence and Abuse in Family Systems",
+   "units": "3",
+   "desc": "\"Reviews historical, psychological, and family systems' perspectives on domestic violence, physical and sexual child abuse and neglect, elder abuse, and other patterns of familial violence. Course meets California BBS licensure requirement for training in child abuse assessment and reporting... spousal/partner abuse detection, assessment, and intervention.\"",
+   "verbatim": true,
+   "why": "A full 3-unit course covering two separate BBS mandates that many programs discharge in a weekend workshop or a single unit. It is a fair example of how this curriculum is built: BBS requirement first, course second.",
+   "src": "https://catalog.laverne.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 513",
+   "title": "Group Therapy & Counseling",
+   "units": "3",
+   "desc": "\"Reviews theories and techniques of group counseling and their applications for individual, family, and couple groups. Includes in-class group experience and information about principles of group dynamics, group process, and developmental stages... Ethical, legal, and professional issues in groupwork are addressed.\"",
+   "verbatim": true,
+   "why": "\"Includes in-class group experience\" means you sit in a live group, not just read about one — the catalog separately warns that several courses \"include experiential activities including self-disclosure, group process, role plays, and exploration of personal issues.\" Worth knowing if experiential classroom work is either what you want or what you dread.",
+   "src": "https://catalog.laverne.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 522",
+   "title": "Aging & Long-Term Care",
+   "units": "1",
+   "desc": "\"Reviews normal aspects of the aging process as well as special issues, theories, and treatment with an older adult population including grief, loss, and end-of-life. Includes instruction on assessment and reporting of, as well as treatment related to, elder and dependent adult abuse and neglect.\"",
+   "verbatim": true,
+   "why": "One of only two 1-unit courses in the degree (with Human Sexuality), taken alongside Practicum I in the final year. Its existence is another BBS artifact — elder and dependent adult abuse reporting is a statutory content requirement — but it does mean older adults get named attention rather than a paragraph inside a lifespan course.",
+   "src": "https://catalog.laverne.edu/course-descriptions/mft/"
+  },
+  {
+   "code": "MFT 517",
+   "title": "Trauma Response & Counseling",
+   "units": "3",
+   "desc": "\"Reviews crisis theory, multidisciplinary responses to crises, emergencies, or disasters. Explores cognitive, affective, behavioral, and neurological effects associated with trauma... This course meets the California BBS licensure requirement related to suicide risk assessment and intervention.\"",
+   "verbatim": true,
+   "why": "A full 3-unit trauma-and-crisis course carrying the BBS suicide-risk mandate, taken in the last classroom semester immediately before practicum begins — sequencing that puts risk assessment in your hands right before you start seeing clients.",
+   "src": "https://catalog.laverne.edu/course-descriptions/mft/"
+  }
+ ],
+ "curriculum": {
+  "note": "A fixed three-year, lockstep, cohort sequence with no electives — all 23 courses are required and the order is published. Years one and two are classroom-only at 12 semester hours per fall and spring plus a single summer course; year three is half-time and is the practicum year. Classes meet Mondays and Wednesdays, late afternoon (4:00–6:25 p.m.) or evening (6:50–9:15 p.m.), on the La Verne campus. Up to 12 semester hours of prior graduate work may transfer, but practicum units are non-transferable and transfer credit does not shorten the three years. Sequence below is the published curriculum for students admitted fall 2025 or later.",
+  "total_units": "62",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (12 SH)",
+    "courses": [
+     "MFT 500 Counseling Theories & Skills I (3)",
+     "MFT 502 Professionalism, Ethics, and Law in Counseling (3)",
+     "MFT 504 Multicultural Counseling & Competency (3)",
+     "MFT 506 Community Mental Health & Systems of Care (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (12 SH)",
+    "courses": [
+     "MFT 501 Counseling Theories & Skills II (3)",
+     "MFT 503 Human Development (3)",
+     "MFT 505 Diagnosis of Mental Health Disorders (3)",
+     "MFT 507 Research and Evaluation Methods for Mental Health Professionals (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (3 SH)",
+    "courses": [
+     "MFT 509 Psychopharmacology (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (12 SH)",
+    "courses": [
+     "MFT 510 Family Therapy (3)",
+     "MFT 512 Violence and Abuse in Family Systems (3)",
+     "MFT 514 Substance Abuse Counseling (3)",
+     "MFT 516 Child and Adolescent Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (12 SH)",
+    "courses": [
+     "MFT 511 Couples Therapy (3)",
+     "MFT 513 Group Therapy & Counseling (3)",
+     "MFT 515 Psychological Assessment & Testing (3)",
+     "MFT 517 Trauma Response & Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall (5 SH)",
+    "courses": [
+     "MFT 520 Practicum I (3)",
+     "MFT 522 Aging & Long-Term Care (1)",
+     "MFT 524 Human Sexuality (1)"
+    ]
+   },
+   {
+    "label": "Year 3 — Spring (6 SH)",
+    "courses": [
+     "MFT 521 Practicum II (3)",
+     "MFT 523 Career Development Theories (3)"
+    ]
+   },
+   {
+    "label": "As needed",
+    "courses": [
+     "MFT 525 Practicum Continuation (0) — required if the 280 direct hours are not finished by the end of Practicum II"
+    ]
+   }
+  ],
+  "src": "https://health.laverne.edu/marriage-family-therapy/wp-content/uploads/sites/10/2026/05/MFT-curriculum-revision-3.26.pdf"
+ },
+ "practicum": {
+  "starts": "Year 3, fall term — for students admitted fall 2025 or later. Students admitted before 2025 did practicum in year two.",
+  "hours": "Minimum 280 direct client contact hours (up from 225 for pre-2025 admits) across the year-long Practicum I + II sequence, within a minimum of 570 total hours at the placement site, at 15–20 hours per week for no less than 38 weeks. No separate relational (couple/family) hour minimum is specified.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "Practicum is the entire third year and it is on you to find the site: the handbook states plainly that \"securing a site is the responsibility of the student,\" while \"the program advises, guides, and supports MFT students through the process.\" The search runs roughly January to May of the second year and you must have a placement locked by July 1 or your practicum start is delayed a year. You can only train at sites the program has approved, and private practices are excluded outright under BBS rules — so the realistic pool is community agencies, nonprofits, schools and clinics. You also cannot enroll at all without Advanced Standing, a formal application filed with your academic advisor once you have completed or are enrolled in 43 semester hours with a 3.0 graduate GPA. Supervision happens at the site rather than in a school-run clinic (La Verne does not operate an in-house training clinic for MFT students): you need at least one hour of individual or triadic supervision, or two hours of group supervision (group capped at eight), in any week you gain hours, plus an additional hour if you provide more than five hours of direct counseling in a single week; supervisors must be an LMFT, LCSW, LPCC, licensed psychologist or psychiatrist who has held the licence in good standing for at least two years. Two additional obligations sit on the student's own budget — professional liability insurance, which must be in force before you see any client, and the required 10 hours of personal psychotherapy, five per practicum semester. The handoff to post-degree work is spelled out: graduates apply to the BBS for Associate Marriage and Family Therapist (AMFT) registration, cannot accrue post-degree hours until the AMFT number arrives, and can back-date to the degree-conferral date only by applying within 90 days.",
+  "src": "https://health.laverne.edu/marriage-family-therapy/wp-content/uploads/sites/10/2026/07/MFT-program-handbook-2026-final.pdf",
+  "model": "not published",
+  "model_evidence": "Provides training and supervision that augments and enhances the training students receive at their approved practicum sites.",
+  "model_url": "https://catalog.laverne.edu/course-descriptions/mft/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from a regionally accredited institution with a minimum 3.0 overall undergraduate GPA. Two prerequisite courses with a minimum C-/credit grade: Introduction to Psychology and Abnormal Psychology. These must be complete before the fall start — \"Simultaneous enrollment of prerequisites and MFT courses is not permitted,\" and applicants who have not finished them cannot register. Applicants are strongly encouraged to have at least one year of paid or volunteer experience with families, children, couples or students.",
+  "deadline": "February 15 (9:00 p.m. PST) for fall admission, applications opening the previous September, through PSYCAS (the centralized PsychologyCAS service). Requires a statement of purpose (the program page specifies three pages, APA style, addressing professional goals and commitment to underserved populations), a CV or résumé, and three letters of recommendation. Selected applicants interview by Zoom in February and March; decisions go out in April and admitted students must respond by May 15. Fall entry only. Tuition is listed at $990 per unit.",
+  "src": "https://catalog.laverne.edu/college-public-health/marriage-family-therapy-ms/",
+  "gre_evidence": "A minimum overall undergraduate GPA of 3.0 is required.",
+  "gre_url": "https://catalog.laverne.edu/college-public-health/marriage-family-therapy-ms/",
+  "min_gpa": "3.0",
+  "conflict": "The programme page says 225 fieldwork hours; the catalog says 280 direct face-to-face hours."
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Founders_Hall%2C_University_of_La_Verne.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Founders_Hall,_University_of_La_Verne.jpg",
+  "license": "CC BY 2.0",
+  "credit": "Photo by Phu \"Son\" Nguyen, via Wikimedia Commons",
+  "caption": "Founders Hall on the University of La Verne's central campus"
+ },
+ "gaps": [
+  "Cohort size is not published anywhere — not on the program page, the admission page, the catalog or the 2026 program handbook. There is no COAMFTE accreditation and therefore no COAMFTE student-achievement disclosure to fall back on, so no completion, job-placement or licensure rates are available either.",
+  "No relational (couple/family) direct-hour minimum is specified. The 280-hour requirement is defined only as face-to-face contact with \"individuals, couples, families, or groups,\" which is a meaningful contrast with COAMFTE-accredited programs that require a set number of relational hours.",
+  "The program's own website is internally inconsistent and stale in at least two places: the At-A-Glance box says 61 units where the header and catalog say 62, and the page still advertises 225 fieldwork hours where the catalog and handbook require 280.",
+  "The catalog's MFT course-description page does not include a description for MFT 523 Career Development Theories, even though it appears in the required course list.",
+  "No on-campus MFT training clinic is mentioned in the program page, catalog or handbook; all clinical training appears to happen at outside approved sites, but no page states this explicitly.",
+  "No credible student discussion could be found. Reddit and comparable forums were not reachable during this research (Reddit blocks automated access and site-scoped web search was unavailable); GradReports carries 111 reviews of La Verne overall but none tagged to the MFT program.",
+  "The COAMFTE question is never addressed on the program's pages one way or the other — the program simply does not claim it. Prospective students who care about COAMFTE should treat its absence as confirmed by omission, not by statement."
+ ],
+ "sources": [
+  {
+   "label": "University of La Verne Catalog 2026–2027 — Marriage and Family Therapy (MS): degree requirements, policies, admissions",
+   "url": "https://catalog.laverne.edu/college-public-health/marriage-family-therapy-ms/"
+  },
+  {
+   "label": "University of La Verne Catalog 2026–2027 — MFT course descriptions",
+   "url": "https://catalog.laverne.edu/course-descriptions/mft/"
+  },
+  {
+   "label": "M.S. in Marriage and Family Therapy program page",
+   "url": "https://health.laverne.edu/marriage-family-therapy/"
+  },
+  {
+   "label": "MFT Curriculum and Course Schedules page",
+   "url": "https://health.laverne.edu/marriage-family-therapy/curriculum-course-schedules/"
+  },
+  {
+   "label": "MFT curriculum revision — year-by-year sequence for fall 2025+ admits (PDF)",
+   "url": "https://health.laverne.edu/marriage-family-therapy/wp-content/uploads/sites/10/2026/05/MFT-curriculum-revision-3.26.pdf"
+  },
+  {
+   "label": "MFT Program Policies and Procedures Handbook 2026 (PDF)",
+   "url": "https://health.laverne.edu/marriage-family-therapy/wp-content/uploads/sites/10/2026/07/MFT-program-handbook-2026-final.pdf"
+  },
+  {
+   "label": "MFT Admission page",
+   "url": "https://health.laverne.edu/marriage-family-therapy/admission/"
+  },
+  {
+   "label": "MFT Key Program Features page",
+   "url": "https://health.laverne.edu/marriage-family-therapy/features/"
+  },
+  {
+   "label": "MFT Program Policies and Procedures page",
+   "url": "https://health.laverne.edu/marriage-family-therapy/mft-program-policies-and-procedures/"
+  }
+ ]
+}

@@ -1,0 +1,288 @@
+{
+ "institution": "California State University, Bakersfield",
+ "character": [
+  "The number that reframes everything about this program: it is three years, not two. CSUB's M.S. in Counseling Psychology is \"the three-year, 66-semester unit Master of Science in Counseling Psychology Program,\" and the extra year is not padding — it buys a clean separation between an in-house clinic year and a community-agency year. Year one is coursework only; you cannot touch a client until you have passed all six first-year courses (CPSY 6110, 6120, 6130, 6140, 6310, 6360) and been formally advanced to Graduate Candidacy. Year two is the University Counselor Training Clinic, three afternoons a week on campus. Year three is a community traineeship at 20 hours a week, weekdays, business hours. Almost no other California MFT-track program stages it that way; most compress clinic and field placement into overlapping semesters or skip the in-house stage entirely.",
+  "The second distinctive commitment is experiential, and the catalog is unusually blunt about it: \"Enrollment in the program implies student consent to engage in individual and group experiential learning activities in various courses.\" Nine named courses are designated clinical process classes that \"are experiential in nature and require the use of live clients and video recording of sessions,\" and the catalog warns the timetable will show more contact hours than the units imply because of the time needed \"to move people from room to room and to change digital recordings.\" CPSY 6410, Theories of Family Counseling, requires that \"students will relate their own family dynamics to the literature\" — a family-of-origin assignment written into the course description. The department's own program page says faculty \"use experiential learning to teach play therapy & psychodrama.\" There is also a required 1-unit course, CPSY 5772, on compassion fatigue and vicarious trauma, and another required 1-unit orientation course that must be taken in your first semester.",
+  "It is the southern Central Valley's program, and that shapes both the clinic and the price. The University Counselor Training Clinic in Education Building Room 200 charges $25 for a first session and $15 after that, and its student managers say plainly that \"we don't turn anybody away for lack of payment\"; it has run at roughly 80 to 100 clients at a time, offering individual, couple, family and group counseling to Bakersfield residents (not CSUB students, to avoid dual relationships), with every session videotaped and supervised by an LMFT. Practicum sections are capped at six students. The trade-off is scheduling: classes meet between 1 p.m. and 10 p.m., Monday through Thursday, and the program says outright that anyone employed full-time \"will likely need to modify their work schedule, especially during years two and three.\" It is full-time, in-person, cohort-based, fall entry only, and there is no part-time or online route."
+ ],
+ "orientation": "Experiential and person-of-the-therapist centred — self-awareness, family-of-origin work, live clients and video review — over a broadly integrative theoretical base (behavioral, cognitive, humanistic/experiential, psychodynamic)",
+ "signature": [
+  {
+   "code": "CPSY 6410",
+   "title": "Theories of Family Counseling",
+   "units": "3",
+   "desc": "\"Focus on major systemic and nonsystemic orientations in relationship, couples, and family counseling. Attention to the psychodynamics of relationships and transcultural family systems, communications theory, and the role of family of origin in individual and family functioning. Students will relate their own family dynamics to the literature.\"",
+   "verbatim": true,
+   "why": "That last sentence is the program in miniature — a required family-of-origin self-application assignment written into the catalog description, not left to an instructor's discretion. It is also the gateway course: CPSY 6280 (Couple and Sexuality) and CPSY 6460 (Techniques of Group and Family) both list it as a prerequisite.",
+   "src": "https://catalog.csub.edu/course-descriptions/cpsy/"
+  },
+  {
+   "code": "CPSY 6280",
+   "title": "Couple and Sexuality Counseling",
+   "units": "3",
+   "desc": "\"Emphasis on the dynamics of couple interaction through the adult lifespan, including such issues as gender, ethnicity, health discordance, desire discrepancy, monogamy, and fantasies. Special attention given to the relationship between issues of sexuality and intimate interpersonal relationships, as well as therapist dynamics in the therapeutic triad.\"",
+   "verbatim": true,
+   "why": "Most CA programs satisfy the BBS human-sexuality requirement with a survey course. This one names desire discrepancy, monogamy and fantasies as content, and then turns the lens on the clinician — \"therapist dynamics in the therapeutic triad\" is about your own reactivity in the room with a couple. Offered spring of odd years only, so the sequence is fixed.",
+   "src": "https://catalog.csub.edu/course-descriptions/cpsy/"
+  },
+  {
+   "code": "CPSY 6430",
+   "title": "Theories and Techniques of Developmental Counseling with Children and Adolescents",
+   "units": "3",
+   "desc": "\"Focus on the major approaches to therapeutic interventions with children and adolescents... Focus on the development of clinical skills necessary for effective preventive, therapeutic and consultative interventions with and related to children and adolescents. Laboratory experiences will be provided through observation, demonstration, and/or practice.\"",
+   "verbatim": true,
+   "why": "One of the nine designated clinical process courses that use live clients and video recording. This is where the program's advertised play-therapy training lives — CSUB's own program page says faculty \"use experiential learning to teach play therapy & psychodrama,\" though the catalog description itself does not name either modality.",
+   "src": "https://catalog.csub.edu/course-descriptions/cpsy/"
+  },
+  {
+   "code": "CPSY 5772",
+   "title": "Self-Care for Mental Health Professionals",
+   "units": "1",
+   "desc": "\"Designed to prepare individuals who are entering the counseling profession with information as it pertains to compassion fatigue, vicarious trauma, burnout, and self-care... with an emphasis on trauma work... exploring the various theories and practical approaches to the treatment of compassion fatigue and vicarious trauma.\"",
+   "verbatim": true,
+   "why": "A standalone required course on therapist burnout, taken at the start of the program rather than tacked onto an ethics syllabus. Almost no California MFT curriculum gives self-care its own course number and unit. Paired with the 1-unit CPSY 5771 Orientation to Counseling, which \"must be taken the first semester following matriculation.\"",
+   "src": "https://catalog.csub.edu/course-descriptions/cpsy/"
+  },
+  {
+   "code": "CPSY 6810",
+   "title": "Practicum I",
+   "units": "2",
+   "desc": "\"A supervised clinical practicum within the scope and practice of a Marriage and Family Therapist or Professional Clinical Counselor. Application of counseling procedures, with a focus on assessment, diagnosis, prognosis, and treatment of familial and relationship dysfunctions... Limited to 6 students per section.\"",
+   "verbatim": true,
+   "why": "The six-student section cap is the concrete supervision-ratio fact prospective students almost never get. Prerequisites are equally telling: advancement to Graduate Candidacy, a background check, professional liability insurance, and successful completion of the entire first year — this is a second-year course, and there is no way to start earlier.",
+   "src": "https://catalog.csub.edu/course-descriptions/cpsy/"
+  },
+  {
+   "code": "CPSY 6460",
+   "title": "Techniques of Group and Family Counseling",
+   "units": "3",
+   "desc": "\"Focus on the development of clinical skills necessary for effective group, family, and relationship counseling. Importance is given to process dynamics, leadership responsibilities and expertise, and ethical and cultural considerations. Involvement in experiential activities designed to relate observation, demonstration and practice to theoretical explanations.\"",
+   "verbatim": true,
+   "why": "This is where the degree ends. The Master Comprehensive Examination — the program's culminating activity, which every student must pass to graduate — is \"completed at the conclusion of\" this course. Embedding the comps inside a live clinical-skills class rather than a standalone seminar is a deliberate and unusual choice.",
+   "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+  }
+ ],
+ "curriculum": {
+  "note": "Three years, full-time, in-person, cohort, fall entry only; classes meet between 1 p.m. and 10 p.m. Monday through Thursday. CSUB does not publish a term-by-term grid, so the terms below are built only from what the catalog states explicitly: the six courses required for advancement to Graduate Candidacy are named as the first-year block, and the practicum and traineeship sequences are pinned to years two and three by their prerequisites and by the catalog's scheduling statements. The remaining coursework is listed as unsequenced. Note also that the department's public required-courses page lists 21 courses which sum to 60 units, not 66; the additional 6 units appear to come from CPSY 5771 (1), CPSY 5772 (1), CPSY 6970 Master's Examination (1) and CPSY 5350 Crisis & Trauma Counseling (3), but the catalog does not print a reconciled 66-unit table. Several courses are offered only in alternate years (\"Spring Even Year,\" \"Fall Even Year,\" \"Spring Odd Year\"), which is part of why the program takes three years.",
+  "total_units": "66",
+  "terms": [
+   {
+    "label": "Year 1 — required for advancement to Graduate Candidacy (coursework only, no clients)",
+    "courses": [
+     "CPSY 5771 Orientation to Counseling (1) — must be taken in the first semester after matriculation",
+     "CPSY 6110 Counseling Skills (3)",
+     "CPSY 6120 Psychopathology and Diagnostic Interviewing (3)",
+     "CPSY 6130 Adult and Family Development (3)",
+     "CPSY 6140 Clinical Ethics and Law (3)",
+     "CPSY 6310 Theories of Individual Counseling (3)",
+     "CPSY 6360 Advanced Counseling Skills / Techniques of Individual Counseling (2)"
+    ]
+   },
+   {
+    "label": "Year 2 — University Counselor Training Clinic year (three afternoons a week on campus)",
+    "courses": [
+     "CPSY 6810 Practicum I (2) — fall, limited to 6 students per section",
+     "CPSY 6820 Practicum II (2) — spring",
+     "CPSY 6410 Theories of Family Counseling (3)",
+     "CPSY 6420 Theory and Practice of Group Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — community traineeship year (at least 20 hours a week, weekdays 8–5)",
+    "courses": [
+     "CPSY 6910 Traineeship I (3) — fall",
+     "CPSY 6920 Traineeship II (3) — spring",
+     "CPSY 6460 Techniques of Group and Family Counseling (3) — the Master Comprehensive Examination is taken at the conclusion of this course",
+     "CPSY 6970 Counseling Psychology Master's Examination (1)"
+    ]
+   },
+   {
+    "label": "Remaining required coursework (no published term assignment)",
+    "courses": [
+     "CPSY 5772 Self-Care for Mental Health Professionals (1)",
+     "CPSY 5350 Crisis & Trauma Counseling (3)",
+     "CPSY 6210 Research Methods in Counseling Psychology (3)",
+     "CPSY 6220 Psychological Testing (3)",
+     "CPSY 6240 Cultural Intersectionality in Counseling (3)",
+     "CPSY 6250 Psychopharmacology (3)",
+     "CPSY 6260 Addictions Counseling (3)",
+     "CPSY 6270 Career Development Counseling (3)",
+     "CPSY 6280 Couple and Sexuality Counseling (3)",
+     "CPSY 6430 Theories and Techniques of Developmental Counseling with Children and Adolescents (3)"
+    ]
+   }
+  ],
+  "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+ },
+ "practicum": {
+  "starts": "Second year — CPSY 6810 Practicum I, which requires advancement to Graduate Candidacy plus \"successful completion of first year coursework.\" No client contact at all in year one.",
+  "hours": "No hour totals published. CSUB states the time commitment structurally instead: three weekday afternoons a week in the training clinic across both semesters of year two (the applying page says \"three afternoons (1:00 p.m. to 9:00 p.m.) per week\"; the 2024 program description says 1:00 to 5:00 p.m.), and \"at least 20 hours per week during regular business hours (Monday through Friday 8 a.m. to 5 p.m.)\" for the community traineeship across both semesters of year three. No minimum client-contact hour figure and no relational (couple/family) sub-minimum is given for either stage. CPSY 6980 Clinical Extension (1–3 units, repeatable, does not count toward the degree) exists specifically for students \"requiring more than two semesters to complete the required hours for Practica or for Traineeships,\" which implies internal hour targets that are not published.",
+  "who_places": "mixed",
+  "clinic": "University Counselor Training Clinic (UCTC), Education Building Room 200, CSUB campus",
+  "detail": "The two clinical years are run on completely different models. Year two is entirely in-house at the University Counselor Training Clinic — nobody hunts for a placement, everyone starts in the same room, sections of CPSY 6810/6820 are capped at six students, and the entry gate is advancement to Graduate Candidacy plus a background check and personal professional liability insurance. The clinic is a real community service: $25 for the first session and $15 thereafter, sliding down or waived for anyone who cannot pay, offering individual, couple, family and group counseling to Bakersfield-area residents but explicitly not to CSUB students, who are directed to the campus counseling center to avoid dual relationships. It has run at roughly 80 to 100 active clients with each trainee carrying about two to three, open Monday through Thursday afternoons and evenings during the school year. Every session is videotaped and supervised by a licensed Marriage and Family Therapist, and recordings are used for feedback — a practice consistent with the catalog's designation of nine \"clinical process classes\" that \"require the use of live clients and video recording of sessions.\" The clinic deliberately screens out acute crisis, serious psychiatric disability, domestic violence, suicidality, substance abuse and court-mandated clients, so the year-two caseload is a supported one. Year three flips outward: CPSY 6910 and 6920 are \"field placement courses in service providing agencies\" chosen \"to facilitate the professional goals of the trainee,\" requiring liability insurance and \"placement in an approved setting,\" at a minimum of 20 hours a week during standard business hours — which is why the program warns that full-time employment is effectively incompatible with years two and three. Site supervisors rate trainee knowledge and skill, and those ratings feed the program's Good Standing determination alongside GPA.",
+  "src": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml",
+  "model": "not published",
+  "model_evidence": "students must be available at least 20 hours per week during regular business hours (Monday through Friday 8 a.m. to 5 p.m.) for their clinical field placements in supervised settings within the community",
+  "model_url": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "University Counselor Training Clinic"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published. The nearest published proxies are the six-student cap on each practicum section and a 2019 student-newspaper report of \"over a dozen student clinicians\" plus several student managers staffing the training clinic in a given year.",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from an accredited university; a 3.2 GPA over the most recent 60 semester units (applicants below 3.2 must submit a justification statement); at least six undergraduate psychology courses in total, of which three are named prerequisites — introductory statistics, abnormal psychology, and a developmental psychology course (child, human growth and development, or lifespan). Prerequisites must be passed with a grade no lower than B- and must have been completed within five calendar years of starting the program. Also required: personal statement, CV, three references who submit both ratings and letters, and transcripts from every institution attended. After an initial screening, selected applicants are interviewed, and offers go only to those who complete a successful interview. A background check is run on all admitted students, due no later than the first week of the second semester.",
+  "deadline": "February 5 for fall entry (February 5, 2027 for the fall 2027 cohort); the application opens October 1. Fall admission only. Late or prerequisite-pending applications are considered only if space remains after the standard pool has been reviewed, and \"late materials will not be considered.\"",
+  "src": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml",
+  "gre_evidence": "A grade point average of 3.2 or better in your most recent 60 semester units of academic work",
+  "gre_url": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml",
+  "min_gpa": "3.2 in the most recent 60 semester units",
+  "conflict": null
+ },
+ "cost": {
+  "per_unit": null,
+  "tuition_total": "Fall 2026 California-resident graduate rate: $4,274 tuition + $1,052 mandatory campus fees = $5,326.00 per semester at 6.1+ units, or $3,532.00 at 6.0 units or fewer. Full-time that is about $10,652 an academic year and roughly $31,956 across the three-year program — the extra year, not a higher rate, is what makes the total cost of this degree exceed SFSU's or CSUSB's two-year totals.",
+  "all_in": "Tuition and mandatory fees only. Excludes books, the required professional liability insurance and background check, transport to a year-three community placement, and living costs (Bakersfield is materially cheaper than San Francisco, which offsets a good deal of the third year). Note CSUB's posted graduate tuition of $4,274 is above the $4,032 shown on SFSU's and CSUSB's 2025–26 schedules because the CSUB page reflects fall 2026 registration.",
+  "financial_aid": "Not detailed on the program pages. A 2021 CSUB news release describing a national ranking cited the program's \"low tuition rates without sacrificing education quality\" as a factor in its placement.",
+  "src": "https://www.csub.edu/student-financial/tuition-fees/index.shtml"
+ },
+ "voices": [
+  {
+   "text": "A graduate student manager of the training clinic on its fee policy: \"We don't turn anybody away for lack of payment. So if they say they can only do five today then that's fine.\" Trainees each carried two to three clients, with the clinic serving 80 to 90 people at the time.",
+   "who": "Jacob Kountz, clinic manager, in The Runner (CSUB student newspaper)",
+   "sentiment": "positive",
+   "url": "https://therunneronline.com/20552/news/counselor-training-clinic-open-for-bakersfield-community/"
+  },
+  {
+   "text": "A graduate manager on what the clinic makes possible in Kern County: providing bilingual services is \"a way for me to serve my culture and my community.\"",
+   "who": "Vanessa Mota, graduate manager, CSUB News",
+   "sentiment": "positive",
+   "url": "https://news.csub.edu/offering-lowcost-counseling-to-the-public"
+  },
+  {
+   "text": "The clinic's director on the local market it fills: \"The clinic is a great resource for the community. It's hard to find high-quality, low-cost therapy like this.\"",
+   "who": "Dr. Richard Zamora, UCTC director (became director in 2019), CSUB News",
+   "sentiment": "info",
+   "url": "https://news.csub.edu/offering-lowcost-counseling-to-the-public"
+  },
+  {
+   "text": "The program coordinator on its role in the southern Central Valley: \"For many years this program has served Bakersfield and surrounding communities by training high quality therapists.\" Said on the program's placement at No. 8 on Psychology Degree Guide's 2021 master's ranking, which weighted student-to-faculty ratio, acceptance rates, graduation rates and tuition cost.",
+   "who": "Dr. William Kelly, associate professor and CPSY program coordinator, CSUB News",
+   "sentiment": "info",
+   "url": "https://news.csub.edu/the-ms-in-counseling-psychology-at-csub-ranked-no-8"
+  },
+  {
+   "text": "\"Hi I'm currently in the program! It's a pretty competitive program to get into. They usually take in around 15-20 students. I think the most important part is reaching the minimum GPA/reqs and writing an impactful essay. The volunteer stuff is also very helpful. For more information, I recommend going to the open house this Friday!\"",
+   "who": "u/Bubbly_Matter_3761, current student in CSUB's MS Counseling Psychology program, r/CSUB, Nov 2025",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/CSUB/comments/1o8nwgk/mft_masters_program/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/8/86/Martin_Luther_King_monument_at_California_State_University.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Martin_Luther_King_monument_at_California_State_University.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Rnda1$, via Wikimedia Commons (uploaded for Wiki Loves Monuments 2016)",
+  "caption": "The Martin Luther King Jr. monument on the CSU Bakersfield campus at 9001 Stockdale Highway. The Counseling Psychology program is based in Dorothy Donahoe Hall; its University Counselor Training Clinic is in Education Building Room 200."
+ },
+ "gaps": [
+  "No cohort size published anywhere — not on the program page, the applying page, the catalog or the program description PDF. Only the six-student practicum section cap and a 2019 newspaper reference to \"over a dozen student clinicians\" give any sense of scale.",
+  "No client-contact hour minimums for either Practicum I/II or Traineeship I/II. The existence of CPSY 6980 Clinical Extension for students who need more than two semesters \"to complete the required hours\" proves internal targets exist, but they are not published.",
+  "No relational (couple/family) hour sub-minimum published.",
+  "No published term-by-term plan of study. The year-one block is inferable from the advancement-to-candidacy rule and the practicum/traineeship years from course prerequisites, but CSUB publishes no course-sequence grid or plan-of-study PDF.",
+  "The 66-unit total does not reconcile against the department's public required-courses list, which names 21 courses summing to 60 units. The most likely balance is CPSY 5771 (1), 5772 (1), 6970 (1) and 5350 (3), but the 2024 program description states that CPSY 5350 \"does not count toward requirements for the MS in Counseling Psychology\" while the 2026–27 catalog has dropped that sentence. The composition of the final 6 units is genuinely unclear from published sources.",
+  "The department's own applying page and its 2024 program-description PDF disagree on the year-two clinic window — \"1:00 p.m. to 9:00 p.m.\" versus \"1:00 p.m. to 5:00 p.m.\" for three afternoons a week.",
+  "CPSY 6360 has two different published titles: \"Techniques of Individual Counseling\" in the 2026–27 catalog and \"Advanced Counseling Skills\" on the department's required-courses page and in its program description.",
+  "The department's clinic and program-handbook pages (university-counselor-training-clinic.shtml, program-handbook.shtml) return 404; the live clinic page is at a different URL and no student handbook PDF was locatable.",
+  "No published licensure-exam pass rate, employment outcomes, or time-to-degree data. Not CACREP- or COAMFTE-accredited, so no annual accreditation report exists.",
+  "No independent student reviews located; Reddit blocked automated retrieval, and Student Doctor Network and The GradCafe had no substantive CSUB threads.",
+  "No high-resolution, clearly-attributed freely-licensed photograph of the Dorothy Donahoe Hall or Education Building exists on Wikimedia Commons. The two Walter W. Stiern Library images there are marked public domain but carry no author or source, and the larger of them is only 1050x596; the campus photo used here is a monument shot from Wiki Loves Monuments 2016."
+ ],
+ "sources": [
+  {
+   "label": "CSUB Academic Catalog 2026–27 — Counseling Psychology, MS",
+   "url": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+  },
+  {
+   "label": "CSUB Academic Catalog 2026–27 — Counseling Psychology (CPSY) course descriptions",
+   "url": "https://catalog.csub.edu/course-descriptions/cpsy/"
+  },
+  {
+   "label": "M.S. in Counseling Psychology program page, CSUB Department of Psychology",
+   "url": "https://www.csub.edu/psychology/mscounselingpsych.shtml"
+  },
+  {
+   "label": "Applying to the M.S. in Counseling Psychology, CSUB",
+   "url": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml"
+  },
+  {
+   "label": "Required Courses, M.S. in Counseling Psychology, CSUB",
+   "url": "https://www.csub.edu/psychology/required-courses.shtml"
+  },
+  {
+   "label": "Counseling Psychology program description (rev. 01/2023), CSUB (PDF)",
+   "url": "https://www.csub.edu/psychology/_files/program-description-sp2024.pdf"
+  },
+  {
+   "label": "University Counselor Training Clinic (UCTC), CSUB",
+   "url": "https://www.csub.edu/psychology/university-counselor-training-clinic-uctc-0"
+  },
+  {
+   "label": "Offering low-cost counseling to the public, CSUB News",
+   "url": "https://news.csub.edu/offering-lowcost-counseling-to-the-public"
+  },
+  {
+   "label": "Counselor training clinic open for Bakersfield community, The Runner",
+   "url": "https://therunneronline.com/20552/news/counselor-training-clinic-open-for-bakersfield-community/"
+  },
+  {
+   "label": "The M.S. in Counseling Psychology at CSUB ranked No. 8, CSUB News",
+   "url": "https://news.csub.edu/the-ms-in-counseling-psychology-at-csub-ranked-no-8"
+  },
+  {
+   "label": "CSUB Tuition and Fees (fall 2026 registration schedule)",
+   "url": "https://www.csub.edu/student-financial/tuition-fees/index.shtml"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "units",
+   "current": null,
+   "correct": "66 semester units. \"The three-year, 66-semester unit Master of Science in Counseling Psychology Program at CSUB...\" and, under graduation requirements, \"Complete the 66-semester unit program in accordance with the approved Plan of Study\" and \"Receive an overall GPA of 3.0 or higher for the entire 66-unit program.\" Note the caveat in gaps: the department's public required-courses page lists 21 courses totalling 60 units and does not reconcile to 66.",
+   "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+  },
+  {
+   "field": "length",
+   "current": null,
+   "correct": "Three years, full-time. \"This three-year course sequence is for full-time students and requires full-time attendance for the duration of the program.\" Year 1 is coursework only; year 2 is the on-campus training clinic; year 3 is a community traineeship. There is no two-year option.",
+   "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+  },
+  {
+   "field": "format",
+   "current": null,
+   "correct": "In-person, full-time, cohort, fall entry only. \"The MS in Counseling Psychology classes meet between the hours of 1 p.m. and 10 p.m., Monday through Thursday.\" No part-time, online or hybrid option. Year two requires three weekday afternoons in the campus clinic; year three requires at least 20 hours a week, Monday–Friday 8–5, at a community placement. The program warns that students employed full-time \"will likely need to modify their work schedule, especially during years two and three.\"",
+   "src": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml"
+  },
+  {
+   "field": "lpcc",
+   "current": true,
+   "correct": "Correct, and unconditional — unlike SFSU there is no emphasis to add. The catalog states the single 66-unit program \"is designed to satisfy the academic requirements of the California Board of Behavioral Sciences (BBS) statutory requirements, Section 4980.36 of the Business and Professions Code (BPC), for the California License in Marriage and Family Therapy (LMFT) as well as 4999.33 for the Licensed Professional Clinical Counselor (LPCC).\" Individual course descriptions carry the same dual framing (e.g. CPSY 6240 \"fulfills instruction in the areas of study specified in Business and Professions Code for LMFT and LPCC, Sections 4980.36 and 4999.33,\" and the practicum and traineeship courses cite 4999.33–36 alongside 4980.43).",
+   "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+  },
+  {
+   "field": "notable",
+   "current": null,
+   "correct": "Runs the University Counselor Training Clinic (Education Building Room 200), a $25-first-session / $15-thereafter community clinic serving Bakersfield residents, where the entire second year of training takes place; every session is videotaped and supervised by an LMFT and practicum sections are capped at six students. Nine courses are designated experiential \"clinical process classes\" using live clients and video recording; the program advertises play therapy and psychodrama instruction.",
+   "src": "https://www.csub.edu/psychology/university-counselor-training-clinic-uctc-0"
+  },
+  {
+   "field": "coamfte / other_accreditation",
+   "current": false,
+   "correct": "Confirmed — no COAMFTE accreditation and no CACREP accreditation is claimed anywhere on the program, department or catalog pages. The program's compliance framing is entirely statutory (BBS / B&P Code), not accreditation-based.",
+   "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
+  }
+ ]
+}

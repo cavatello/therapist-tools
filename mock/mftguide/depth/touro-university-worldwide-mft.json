@@ -1,0 +1,248 @@
+{
+ "institution": "Touro University Worldwide",
+ "character": [
+  "Touro University Worldwide is the extreme end of the online MFT market, and it is honest about it in a way that repays close reading. It is a genuine non-profit — part of the Jewish-sponsored Touro University System, WSCUC-accredited, operating out of an office suite at 10601 Calle Lee in Los Alamitos rather than a campus. The MA in Marriage and Family Therapy is 100% online in eight-week terms with six start points a year (Fall 1, Fall 2, Spring 1, Spring 2, Summer 1, Summer 2), no residency of any kind, and it is cheap by California standards: $525 per semester credit, 72 credits, $37,800 in tuition for the clinical track. It is also enormous. The programme's own Spring 2026 student-demographics disclosure counts 675 students on the MFT track plus 198 on the Counseling Licensure track — 873 people in a single master's programme.",
+  "The thing a prospective student most needs to know is not on the marketing page in any form you would notice: the programme has been under a COAMFTE sanction since the beginning of 2024. TUW words it as a boast — \"Marriage and Family Therapy Track – The ONLY track Accredited by COAMFTE with show cause\" — but \"show cause\" is COAMFTE's most serious continuing action short of revocation. The Commission voted on 7 December 2023 and notified the university on 5 January 2024, after reviewing three student complaints, one of them filed by thirteen students together on 28 August 2023. The Commission found \"a pattern of non-compliance with COAMFTE's Standards and Key Elements,\" required a focused site visit at the programme's own expense, and cited failures against nine separate criteria, including Key Element III-C — the one that governs clinical supervision. Its central finding is worth quoting because it goes to the heart of what you would be buying: the programme designated external site supervisors as the \"primary supervisors\" providing the required MFT relational/systemic supervision, but \"did not demonstrate how 'primary supervisors' have an MFT identity and MFT supervision training information/credentials,\" and \"did not provide a process for verifying that the site supervisors meet the requirements to be a program clinical supervisor.\" As of TUW's own 2026 publications the show-cause language is still there.",
+  "Set against that, the outcome data is not uniformly bad and deserves to be read fairly. Licensure rates for graduates who finish are high — 88.55%, 98.64% and 93.22% for the three most recent completed full-time cohorts, comfortably above COAMFTE's 70% benchmark — and job placement has run 85% to 100%. Median federal graduate debt is $40,813 with a median monthly payment of $464 against median earnings one year out of $53,988: the most survivable debt-to-earnings ratio of the three heavily-online California programmes by a wide margin. What has been collapsing is completion. Full-time graduation within the advertised 2.5 years has fallen every single cohort: 75.00%, then 62.04%, then 59.54%, then 53.85%. Part-time completion runs below 58%. The likeliest single explanation is in the practicum section below."
+ ],
+ "orientation": "Systemic/relational family systems, explicitly framed by the scientist-practitioner model; broad and conventional rather than committed to any one school, with unusual required breadth into ageing, long-term care and interpersonal communication",
+ "signature": [
+  {
+   "code": "MFT 629",
+   "title": "Aging, Illness & Long-Term Care Concerns",
+   "units": "3",
+   "desc": "\"The course will primarily focus on issues that are salient to the aging population, including long-term care. Students will learn skills to help families in all stages of life deal with chronic or ongoing health concerns as well... Students will be required to conduct an in depth interview of one family situation where such issues discussed in the course material are present.\"",
+   "verbatim": true,
+   "why": "A required three-credit course on geriatrics, chronic illness and long-term care is genuinely rare in California MFT curricula — most programmes cover ageing in a single week of a lifespan-development course. Requiring an in-depth family interview as the assessment makes it more than a survey. If you want to work in medical family therapy, hospice, or with adult children of ageing parents, this is a real differentiator.",
+   "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  },
+  {
+   "code": "MFT 627",
+   "title": "Studies in Human Communication",
+   "units": "3",
+   "desc": "\"The processes of communication as these apply to both interpersonal and intrapersonal experience. Emphasis on the purposes of communication as well as the forms that are believed to enhance the conduct of counseling and psychotherapy.\"",
+   "verbatim": true,
+   "why": "A standalone required course in communication theory — not counselling micro-skills, but communication as a subject — is a direct inheritance from the Palo Alto/Bateson lineage that founded family therapy. Almost no other California programme still ring-fences three credits for it. It is also, notably, the closest thing in the curriculum to a skills course, and it is taught asynchronously online.",
+   "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  },
+  {
+   "code": "MFT 628",
+   "title": "Adolescent-Focused Family Therapy",
+   "units": "3",
+   "desc": "\"The course will discuss family-focused treatment targeting high-risk youth. Issues such as drug use, youth criminal activity and drop-out prevention will be the main topics.\"",
+   "verbatim": true,
+   "why": "Paired with the separate required MFT 613 Child-Focused Family Therapy, this gives the curriculum two full required courses on minors split by developmental stage, with the adolescent one aimed squarely at juvenile justice, substance use and dropout prevention. That is a school- and county-agency training profile, and it is a deliberate choice most programmes do not make.",
+   "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  },
+  {
+   "code": "MFT 610",
+   "title": "Contemporary Issues in Marriage & Family Therapy",
+   "units": "3",
+   "desc": "The first course in the sequence fuses a family-systems overview with a community-mental-health survey: \"recovery-oriented treatment for severe mental illness, disaster and trauma response, services for victims of abuse and the homeless, foster care, case management, client advocacy, in-home and in-school services, bilingual client services, collaborating with other professionals, medical family therapy, and local community service resources.\"",
+   "verbatim": true,
+   "why": "Cramming the entire community-mental-health system into the same three credits as the introduction to family systems tells you the curriculum is built for coverage of California BBS content areas rather than for depth. It also promises \"opportunities to meet with the severely mentally ill and their families\" in a course delivered entirely asynchronously online — a claim worth asking admissions to explain concretely.",
+   "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  },
+  {
+   "code": "MFT 640A–F",
+   "title": "Clinical Practicum I–VI",
+   "units": "3 each, 18 total",
+   "desc": "\"Students will complete the six (6) courses in a 1-year period to achieve the required 300 client contact and 100 MFT relational/systemic supervision hours to complete the program.\" Students \"gain clinical hours and receive supervision at a clinical placement site, while simultaneously obtaining MFT relational/systemic supervision hours from TUW faculty Program Clinical Supervisors in a live classroom.\"",
+   "verbatim": true,
+   "why": "Six three-credit practicum courses is a quarter of the entire degree, and the whole clinical year is compressed into six consecutive eight-week terms. That structure leaves no slack: a site that falls through mid-sequence means enrolling in $750 non-credit 'Practicum Continuation' courses to stay active. It is also the exact component COAMFTE found non-compliant.",
+   "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  },
+  {
+   "code": "MFT 690",
+   "title": "Capstone",
+   "units": "3",
+   "desc": "\"In this course, the student will participate in threaded discussions; complete a case assignment and signature assignment, while focused on MFT proficiency in licensure preparation and clinical work. Students have an opportunity to practice taking licensure exams based on their particular state of practice.\" A one-time $116 materials fee is charged during this course for an exam-prep kit covering the CA, National and LPCC exams.",
+   "verbatim": true,
+   "why": "The culminating academic experience of the degree is, substantially, licensure-exam preparation with a purchased test-prep kit attached. That is a clear statement of what the programme understands itself to be selling: the credential and the licence, efficiently.",
+   "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  }
+ ],
+ "curriculum": {
+  "note": "72 credits for the COAMFTE-accredited clinical MFT track: 18 didactic courses (54 credits) plus 6 practicum courses (18 credits). Every course is three credits and eight weeks long, delivered fully asynchronously online, with six start terms per year and no cohort. The Counseling Licensure (LPCC) track adds four courses (MFT 650, 651, 653, 698) for 82 credits; a non-clinical MFT Studies track is 54 credits and is neither COAMFTE-accredited nor CA BBS approved. There is no fixed term-by-term grid — the 2026-2028 handbook publishes two recommended 'Course Order' progressions instead, and students may enter in any of the six terms. Advertised length is 2.5 years full-time, 5 years part-time; the maximum allowed is 5 years regardless of enrolment status.",
+  "total_units": "72",
+  "terms": [
+   {
+    "label": "Didactic coursework — 18 courses, 54 credits (recommended Course Order-1 sequence, per the MFT Program Handbook 2026-2028)",
+    "courses": [
+     "MFT 610 Contemporary Issues in Marriage & Family Therapy (3)",
+     "MFT 611 Foundations of Psychopathology (3)",
+     "MFT 612 Couples Counseling (3)",
+     "MFT 613 Child-Focused Family Therapy (3)",
+     "MFT 614 Development within the Family Life Cycle (3)",
+     "MFT 615 Psychopharmacology (3)",
+     "MFT 616 Society, Culture and Gender: A Multi-cultural Perspective (3)",
+     "MFT 630 Ethics & Law for Marriage & Family Therapy (3)",
+     "MFT 617 Research Methodology (3)",
+     "MFT 618 Group Counseling (3)",
+     "MFT 619 Assessments & Testing for the Marriage & Family Therapist (3)",
+     "MFT 626 Substance Abuse & Recovery (3)",
+     "MFT 620 Human Sexuality (3)",
+     "MFT 627 Studies in Human Communication (3)",
+     "MFT 628 Adolescent-Focused Family Therapy (3)",
+     "MFT 629 Aging, Illness & Long-Term Care Concerns (3)",
+     "MFT 635 Treatment of Trauma in Families (3)",
+     "MFT 690 Capstone (3) — taken last"
+    ]
+   },
+   {
+    "label": "Clinical practicum year — 6 courses, 18 credits, completed within a 12-month period",
+    "courses": [
+     "MFT 640A Clinical Practicum I (3)",
+     "MFT 640B Clinical Practicum II (3)",
+     "MFT 640C Clinical Practicum III (3)",
+     "MFT 640D Clinical Practicum IV (3)",
+     "MFT 640E Clinical Practicum V (3)",
+     "MFT 640F Clinical Practicum VI (3)",
+     "Clinical Practicum Continuation (0 credits, $750 each) — required if the 300 hours are not complete after 640F"
+    ]
+   },
+   {
+    "label": "Counseling Licensure (LPCC) track add-on — 82 credits total, CA BBS approved but NOT COAMFTE-accredited",
+    "courses": [
+     "MFT 650 (3)",
+     "MFT 651 (3)",
+     "MFT 653 (3)",
+     "MFT 698 (3)"
+    ]
+   }
+  ],
+  "src": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf"
+ },
+ "practicum": {
+  "starts": "After a minimum of 36 credits (12 named didactic courses) plus a Practicum Readiness Survey, a practicum application in the IC Portal, and purchase of liability insurance; the handbook recommends taking practicum after 12 courses and warns that \"securing a clinical placement site is important and can take at least 6 months to a year prior to starting the practicum.\"",
+  "hours": "300 total client contact hours, at least 100 of them relational (couples and families), plus 100 hours of MFT relational/systemic supervision including a minimum of 50 hours using observable data (video, audio, or live observation), all within a 12-month period across six eight-week terms",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "State this bluntly, because it is the whole decision: Touro does not place you. The sentence \"TUW is not responsible for finding the clinical placement site and/or agency for students. The student is responsible for finding the clinical placement site and arranging a formal interview\" appears verbatim in at least three separate official documents, and the enrolment agreement every applicant must sign says \"I understand that practicum placement is not guaranteed by the MFT program because field agencies determine who will be placed at their agency.\" The programme offers help — a Practicum Coordinator, orientation meetings twice a term, a Memorandum of Agreement template — but the search, the applications and the interviews are yours, and the handbook advises starting six months to a year before you intend to enrol in MFT 640A. The consequence if you fail is spelled out and is severe: \"TUW allows three (3) attempts to start the practicum and drop an MFT 640 series course. After the third attempt, the student will have a choice to continue the program without practicum by completing the non-licensure track\" — that is, converting to the MFT Studies track, which is neither COAMFTE-accredited nor CA BBS approved and does not lead to a licence. There is no in-house training clinic anywhere in the system. Supervision runs on two levels: an external \"ancillary (site) supervisor\" at the agency who provides the COAMFTE-required relational/systemic supervision and signs your hours, plus TUW faculty \"Program Clinical Supervisors\" running live Zoom practicum classes; hours do not begin accruing until the MOA is signed, the site is approved, and you are registered in MFT 640A. That two-tier supervision arrangement is precisely what COAMFTE found non-compliant in January 2024 — the Commission held that TUW had not shown its site supervisors met the MFT-identity and relational/systemic-supervision qualifications required to count as programme clinical supervisors at all.",
+  "src": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf",
+  "model": "student-sourced",
+  "model_evidence": "TUW is not responsible for finding the clinical placement site and/or agency for students. The student is responsible for finding the clinical placement site and arranging a formal interview of the student.",
+  "model_url": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "There are no cohorts — rolling admissions with six eight-week start terms per year. Programme scale as of the Spring 2026-1 term: 675 students on the Marriage and Family Therapy track and 198 on the Counseling Licensure track (873 total). Annual cohort-year enrolments reported to COAMFTE have run 144 to 312 full-time plus 23 to 96 part-time.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from an accredited institution with a minimum 2.5 GPA (or transfer status from another accredited graduate programme with 2.75), official transcripts, an essay of no more than 500 words, and a signed MFT Student Agreement & Notice to Students before Enrollment Regarding State Requirement for Licensure. No prerequisite coursework. No interview is listed. $25 application fee. Enrolled students must earn B- or better in every required course and hold a 3.0 cumulative GPA.",
+  "deadline": "Rolling; the application deadline for each of the six annual terms is typically the Friday before the term begins",
+  "src": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/",
+  "gre_evidence": "Since Touro University Worldwide does not believe that entrance exams are accurate predictors of future student success, TUW does not require any GRE and/or GMAT for admission.",
+  "gre_url": "https://www.tuw.edu/admissions/faq/",
+  "min_gpa": "2.5 (or 2.75 for transfer students from another graduate program)",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"The Commision found that the allegations raised in the complaints, as well as information provided by the program in its responses, point to a pattern of non-compliance with COAMFTE's Standards and Key Elements\" — following one complaint from thirteen students (28 Aug 2023) and two individual complaints (1 Sept and 31 Oct 2023).",
+   "who": "COAMFTE Complaint Action Letter to Touro University Worldwide, 5 January 2024",
+   "sentiment": "negative",
+   "url": "http://aamft.informz.net/AAMFT/data/images/COAMFTE/COAMFTE%20Complaint%20Action%20Letter%202024%20-%20Touro%20University%20Worldwide.pdf"
+  },
+  {
+   "text": "COAMFTE found \"a consistent pattern in the student complaints submitted to COAMFTE and the program's responses that the program does not address student concerns/complaints in a timely manner, certainly not within the 48 hours described as part of the Student Voice System procedure.\"",
+   "who": "COAMFTE Complaint Action Letter, Key Element I-C finding, January 2024",
+   "sentiment": "negative",
+   "url": "http://aamft.informz.net/AAMFT/data/images/COAMFTE/COAMFTE%20Complaint%20Action%20Letter%202024%20-%20Touro%20University%20Worldwide.pdf"
+  },
+  {
+   "text": "COAMFTE ordered the programme to produce \"Documentation showing that the second complainant 1) has changed to the non-clinical MFT degree track that is not accredited by COAMFTE and 2) received advisement from the MFT program advisors that led to this change\" — a student who ended up in the non-licensure track after complaining.",
+   "who": "COAMFTE Complaint Action Letter, required curative actions, January 2024",
+   "sentiment": "negative",
+   "url": "http://aamft.informz.net/AAMFT/data/images/COAMFTE/COAMFTE%20Complaint%20Action%20Letter%202024%20-%20Touro%20University%20Worldwide.pdf"
+  },
+  {
+   "text": "Full-time graduation within the advertised 2.5 years has declined in every reported cohort: 75.00% (2019-20), 62.04% (2020-21), 59.54% (2021-22), 53.85% (2022-23). Licensure rates for those who did graduate ran 88.55%, 98.64% and 93.22%.",
+   "who": "TUW COAMFTE Graduate Achievement Data Disclosure, 2026",
+   "sentiment": "mixed",
+   "url": "https://www.tuw.edu/wp-content/uploads/COAMFTE_SAC_DISCLOSURE.pdf"
+  },
+  {
+   "text": "\"I understand that practicum placement is not guaranteed by the MFT program because field agencies determine who will be placed at their agency\" — clause 7 of the agreement every applicant signs before enrolling.",
+   "who": "TUW MFT Student Agreement & Notice to Students before Enrollment",
+   "sentiment": "info",
+   "url": "https://www.tuw.edu/wp-content/uploads/List_of_States_Meeting_Educational_Requirement_for_MFT_Licensure.pdf"
+  },
+  {
+   "text": "An independent California MFT directory profile of TUW, published April 2026, describes the accreditation as simply \"COAMFTE-accredited\" and does not mention the show-cause status at all — a useful reminder that third-party directories can miss the single most important fact about a programme.",
+   "who": "Sentio University CA MFT directory profile, April 2026 (Sentio runs a competing California MFT programme)",
+   "sentiment": "info",
+   "url": "https://sentio.org/touro-university-worldwide-mft-program-review"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "Does the degree satisfy California BBS requirements? Yes, unambiguously — but only on two of three tracks. TUW states that \"The COAMFTE approved Marriage and Family Therapy track... and the Counseling Licensure track at Touro University Worldwide are approved by the California Board of Behavioral Sciences (BBS).\" The third track, MFT Studies, is explicitly 'not CA BBS Approved' and does not lead to a licence — and it is the track students are pushed toward if they cannot secure a practicum site within three attempts.",
+  "Other states: TUW's signed student agreement lists 42 jurisdictions where the standard degree plan is determined to meet MFT licensure education requirements (AL, AK, AZ, AR, CA, FL, GA, HI, ID, IL, IA, KS, KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NE, NV, NH, NY, NC, ND, OH, OK, OR, PA, RI, SD, TN, UT, VT, VA, WA, WV, WI, WY); nine where one or more additional courses beyond the standard plan are needed (CO, CT, DE, IN, NJ, NM, SC, TX, Washington DC); and it lists 'N/A' — none — where the degree does not meet requirements. TUW's separate Portability of Degree notice warns more cautiously that \"Some state regulatory boards do not accept degrees earned online as meeting the educational requirements for licensure.\" These two statements sit uneasily together and a prospective out-of-state student should verify directly with their own board.",
+  "The current status of the December 2023 show-cause action could not be resolved. TUW's own 2026-dated publications still say 'accredited with show cause', and its next scheduled COAMFTE accreditation review was Spring 2026, but no Spring 2026 action letter for Touro appears in COAMFTE's published Notice of Actions. Whether the sanction has been lifted, continued, or is pending is unknown as of this research.",
+  "COAMFTE's public directory of accredited programmes could not be loaded to independently confirm the current status string.",
+  "No first-person student discussion could be retrieved. Reddit (direct and via mirrors), Niche, GradReports and Trustpilot were all unreachable from this environment, and the web-search budget was exhausted. The 'voices' above are documentary — but note that the COAMFTE letter is itself a record of thirteen-plus students formally complaining, which is stronger evidence than most forum threads.",
+  "No freely-licensed photograph exists. Wikimedia Commons has no category for Touro University Worldwide; the one file surfacing under that name (File:GTFLETCHTUW.png) is categorised under 'Logos of universities' and is a logo uploaded as 'own work', not a photograph of any building.",
+  "The exact duration of the weekly live Zoom supervision conference is stated inconsistently across sources and was not verified from a primary TUW document."
+ ],
+ "sources": [
+  {
+   "label": "TUW online M.A. in Marriage and Family Therapy programme page (with full course descriptions)",
+   "url": "https://www.tuw.edu/academics/behavioral/marriage-family-therapy/"
+  },
+  {
+   "label": "MFT Program Handbook 2026-2028",
+   "url": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data Disclosure (TUW)",
+   "url": "https://www.tuw.edu/wp-content/uploads/COAMFTE_SAC_DISCLOSURE.pdf"
+  },
+  {
+   "label": "COAMFTE Complaint Action Letter — Touro University Worldwide, 5 January 2024 (show cause)",
+   "url": "http://aamft.informz.net/AAMFT/data/images/COAMFTE/COAMFTE%20Complaint%20Action%20Letter%202024%20-%20Touro%20University%20Worldwide.pdf"
+  },
+  {
+   "label": "COAMFTE Public Notification of Recent Action — Touro University Worldwide",
+   "url": "https://aamft.informz.net/informzdataservice/onlineversion/pub/bWFpbGluZ0luc3RhbmNlSWQ9MTEzNzIzODc="
+  },
+  {
+   "label": "MFT Student Agreement & Notice Regarding State Requirement for Licensure (state-by-state list)",
+   "url": "https://www.tuw.edu/wp-content/uploads/List_of_States_Meeting_Educational_Requirement_for_MFT_Licensure.pdf"
+  },
+  {
+   "label": "MFT Program Student Demographics, Spring 2026-1 term",
+   "url": "https://www.tuw.edu/wp-content/uploads/Student_demographics.pdf"
+  },
+  {
+   "label": "Portability of Degree notice",
+   "url": "https://www.tuw.edu/wp-content/uploads/Portability_degree.pdf"
+  },
+  {
+   "label": "Degree Completion Timelines",
+   "url": "https://www.tuw.edu/wp-content/uploads/Degree_Completion_Timelines.pdf"
+  },
+  {
+   "label": "TUW tuition and fees",
+   "url": "https://www.tuw.edu/admissions/tuition/"
+  },
+  {
+   "label": "About Touro University Worldwide (non-profit status, Touro University System)",
+   "url": "https://www.tuw.edu/about/"
+  },
+  {
+   "label": "COAMFTE Notice of Actions (Spring 2020 initial accreditation with stipulations)",
+   "url": "https://www.coamfte.org/COAMFTE/Resources/Notice_of_Actions.aspx"
+  },
+  {
+   "label": "US Dept of Education College Scorecard API, field-of-study data, unitid 459727",
+   "url": "https://api.data.gov/ed/collegescorecard/v1/schools.json?id=459727&fields=latest.programs.cip_4_digit"
+  },
+  {
+   "label": "Sentio University independent CA MFT directory profile (competitor-authored)",
+   "url": "https://sentio.org/touro-university-worldwide-mft-program-review"
+  }
+ ]
+}

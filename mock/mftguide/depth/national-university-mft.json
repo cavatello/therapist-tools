@@ -1,0 +1,274 @@
+{
+ "institution": "National University (absorbed Northcentral University and John F. Kennedy University)",
+ "character": [
+  "If you searched \"JFK University MFT\" and landed here, this is what happened. John F. Kennedy University was founded in 1965 in Pleasant Hill, Contra Costa County, and became affiliated with the National University System in April 2009. In May 2020 JFKU announced its closure, ceasing operations on December 31, 2020; local coverage at the time reported that the graduate psychology programs moved to National University in San Diego and the law school moved to Northcentral. National University then merged with Northcentral University in 2022. \"JFK\" today is not a campus and not a degree — it is a school name inside National University: the JFK School of Psychology and Social Sciences. Its Associate Dean of Operations, Timothy Ford, joined JFKU in 2017 as Director of Clinical Operations for JFKU's Community Counseling Centers, \"transitioned to National University\" at the closure, and became Associate Dean \"for the expanded JFK School of Psychology and Social Sciences in 2022.\" What genuinely survived from JFKU is that East Bay clinical infrastructure: the Michael G. Harris Community Counseling Program still places trainees in Mt. Diablo Unified, Pittsburg Unified, Contra Costa Community College District, Solano Community College District and the Family Justice Center, with supervision by NU-employed licensed clinicians.",
+  "The degree that carries the JFK-adjacent California identity is the M.A. in Counseling Psychology (California) — but be careful, because there is good evidence it is National University's own long-running program rather than a transplanted JFKU one. National's current program page quotes an alumna from the Class of 2011, and Timothy Ford's own bio says he \"received both his bachelor's degree and master's degree in counseling psychology at National University\" before he ever joined JFKU. So the honest description is: NU absorbed JFKU's people, clinics and the JFK name, and folded them around a counseling psychology degree it already ran. That degree is 60 semester credit hours, delivered online, quoted at about 22 months, and explicitly California-only: \"NU's online MFT program is designed for California only.\" It runs an MFT track and a combined MFT/LPCC track (three extra courses: research, testing and assessment, career counseling), and its practicum is unusual in shape — five short courses, PSY 681A through PSY 681E, each a two-month online seminar with roughly 30 to 70 face-to-face client hours attached.",
+  "The other degree, the M.A. in Marriage and Family Therapy (MAMFT), comes from the Northcentral side and is a different product for a different buyer. It is COAMFTE-accredited — National says it is \"the first online MFT program accredited by the Commission on Accreditation for Marriage and Family Therapy Education\" — and it is nationally scoped rather than California-specific, with a 22-course California Licensure Track for people who need the state's extra content. It is asynchronous, 12-week courses, systemic to its core (AAMFT core competencies, a capstone where you must \"identify how your chosen model is systemic\"), and it has \"no residency requirement, allowing students to complete their program without having to relocate.\" It is also enormous and impersonal by design: the program's own COAMFTE demographic disclosure reports 1,275 MAMFT students, 146 faculty and 40 supervisors, with new starts every Monday and no cohorts. Student reviews are strikingly consistent about the trade: flexibility and the ability to keep working full time on one side; advising churn, \"outdated\" materials and a hard, largely self-directed practicum search on the other."
+ ],
+ "orientation": "Systemic/family-systems for the MAMFT (explicitly AAMFT-competency driven, modern and postmodern models side by side); the California M.A. Counseling Psychology is integrative and recovery-model-forward, with a distinct holistic/transpersonal strand",
+ "signature": [
+  {
+   "code": "PSY 646",
+   "title": "Holistic Treatment",
+   "units": "3",
+   "desc": "\"This course is a survey of holistic approaches to counseling psychology. Theories and practices of transpersonal, somatic, expressive arts, and holistic psychology will be examined. The course will focus on experiential examination of each theory and how it may be clinically applied with different therapeutic issues and across different client identities.\"",
+   "verbatim": true,
+   "why": "A required transpersonal/somatic/expressive-arts course in an otherwise conventional online California licensure curriculum — the one place the JFK-flavoured 'psychology and holistic studies' lineage is still visible in a required course. If somatic or expressive work is why you're looking at this school, this is the course to ask about, because it is the only one.",
+   "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-arts-counseling-psychology/"
+  },
+  {
+   "code": "PSY 637",
+   "title": "Cultural & Social Justice Iss.",
+   "units": "3",
+   "desc": "\"An exploration of the role of culture, social justice, and systemic privilege and oppression in concepts of mental health practice. Students will examine how their own cultural background frames their understanding of themselves and others. Social and economic disadvantage, structural inequality, white fragility, and the limitations of the dominant Eurocentric psychological world view to diverse populations are explored.\"",
+   "verbatim": true,
+   "why": "Most catalogs describe their multicultural requirement in neutral, complianceable language. Naming white fragility and the limits of the Eurocentric worldview in the catalog text is a stated position, and tells you what the classroom conversation will actually be about.",
+   "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-arts-counseling-psychology/"
+  },
+  {
+   "code": "PSY 679B",
+   "title": "Relational & Systemic Trauma",
+   "units": "3",
+   "desc": "\"This course will look at the traumatic impact of institutionalized racism, bias and marginalization as well as the isolative effects of acute trauma on the client… The course will also explore trauma of war including moral injury as well as an exploration of the effects on refugees and displaced individuals.\"",
+   "verbatim": true,
+   "why": "The California program requires a two-course trauma sequence (PSY 679A on nervous-system-guided stabilisation and processing, PSY 679B on structural and war trauma). Six units of required trauma content, with moral injury and refugee displacement named explicitly, is more than most California MFT curricula carry.",
+   "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-arts-counseling-psychology/"
+  },
+  {
+   "code": "MFT 5105",
+   "title": "Recovery-Oriented Care and Postmodern Family Therapy",
+   "units": "3",
+   "desc": "\"This Master's level course focuses on post-modern models and treatment trends in marriage and family therapy including the philosophy of social constructionism and the narrative, solution focused, and collaborative models, and the recovery model. Course content will enable students to conceptualize and distinguish recent epistemological issues.\"",
+   "verbatim": true,
+   "why": "The MAMFT splits family therapy into a Classic/intergenerational course (MFT 5104) and this postmodern one, in the first three courses of the program. Getting social constructionism and narrative work as foundation rather than elective is the clearest sign this is a genuinely systemic degree and not a generalist counseling degree with a family label.",
+   "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-of-arts-degree-in-marriage-and-family-therapy/"
+  },
+  {
+   "code": "MFT 6118",
+   "title": "Gerontology and Systemic Intervention Master's",
+   "units": "3",
+   "desc": "\"This course deals with the biological, social, cognitive, and psychological aspects of aging… A significant focus of the course is the application of systemic treatment/theory to the older adult population and multigenerational families. Students will explore ethical dilemmas that might arise while working in gerontological settings.\"",
+   "verbatim": true,
+   "why": "California's BBS requires only ten hours on aging and long-term care, and most programs satisfy it with a 1- or 1.5-unit module. The MAMFT's California Licensure Track carries a full three-credit gerontology course framed systemically — a genuine outlier if older adults and multigenerational family work interest you.",
+   "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-of-arts-degree-in-marriage-and-family-therapy/"
+  },
+  {
+   "code": "MFT 6930",
+   "title": "MFT Practicum I",
+   "units": "3 on the program page; 2 credits per the program handbook",
+   "desc": "\"The emphasis of this course is on building foundational clinical skills and learning the skills needed to operate effectively and ethically when providing telehealth… A majority of the work in this course will occur in the weekly 2-hour group supervision sessions with other NU students.\"",
+   "verbatim": true,
+   "why": "This is the whole shape of distance clinical training in one description: your didactic supervision is a weekly two-hour Zoom group with students scattered across the country, while your actual hours and individual supervision come from a local site you found yourself. Telehealth competence is taught as a first-order skill, not an afterthought.",
+   "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-of-arts-degree-in-marriage-and-family-therapy/"
+  }
+ ],
+ "curriculum": {
+  "note": "There is no published term-by-term grid for either degree, because neither runs cohorts — students take courses one or two at a time on rolling starts (MAMFT courses run 12 weeks; National's own courses are described as one-month courses). The lists below are the required course sequences as published, grouped the way the school groups them. Two separate degrees are shown because both lead to California MFT licensure and prospective students routinely confuse them.",
+  "total_units": "60 semester credit hours (M.A. Counseling Psychology, California). MAMFT: \"at least 45 Credit Hours\", 45–60 depending on state; the 22-course California Licensure Track works out to 60 credits (17 three-credit content courses, four 2-credit clinical courses and a 1-credit capstone).",
+  "terms": [
+   {
+    "label": "M.A. Counseling Psychology (California) — Prerequisites (waived with a psychology bachelor's)",
+    "courses": [
+     "PSY 501A Foundations in Counseling I (3)",
+     "PSY 501B Foundations in Counseling II (3)"
+    ]
+   },
+   {
+    "label": "M.A. Counseling Psychology — Core Requirements I (7 courses)",
+    "courses": [
+     "PSY 605 Lifespan & Sexual Development (3)",
+     "PSY 637 Cultural & Social Justice Iss. (3)",
+     "PSY 610 Community Mental Health (3)",
+     "PSY 644A Therapeutic Skills & Theory A (3)",
+     "PSY 644B Therapeutic Skills & Theory B (3)",
+     "PSY 612A Clinical Assessment I (3)",
+     "PSY 612B Clinical Assessment II (3)"
+    ]
+   },
+   {
+    "label": "M.A. Counseling Psychology — MFT Core Requirements II (3 courses)",
+    "courses": [
+     "PSY 636 Child and Adolescent Therapy (3)",
+     "PSY 632 Couples Therapy & Sexuality (3)",
+     "PSY 632A Family Therapy (3)"
+    ]
+   },
+   {
+    "label": "M.A. Counseling Psychology — Core Requirements III (13 courses, practicum interleaved)",
+    "courses": [
+     "PSY 627 Legal & Ethical Issues (3)",
+     "PSY 644C Therapeutic Skills & Theory C (3)",
+     "PSY 681A Practicum A (1)",
+     "PSY 628 Group Therapy (3)",
+     "PSY 681B Practicum B (1)",
+     "PSY 646 Holistic Treatment (3)",
+     "PSY 640A Treatment of Addictions (3)",
+     "PSY 681C Practicum C (1)",
+     "PSY 679A Found. & Trauma-Focused Care (3)",
+     "PSY 679B Relational & Systemic Trauma (3)",
+     "PSY 681D Practicum D (2)",
+     "PSY 678 Psychopharmacology (3)",
+     "PSY 681E Practicum E (1)"
+    ]
+   },
+   {
+    "label": "M.A. Counseling Psychology — Optional Sequence IV: Combined MFT/LPCC (3 courses, adds about 3 months)",
+    "courses": [
+     "PSY 653 Research and Evaluation (3)",
+     "PSY 624A Testing and Assessment (3)",
+     "PSY 645A Career Counseling (3)"
+    ]
+   },
+   {
+    "label": "M.A. Marriage and Family Therapy (MAMFT) — California Licensure Track, 22 courses",
+    "courses": [
+     "MFT 5101 Foundations for Graduate Study in Marriage and Family Therapy (3)",
+     "MFT 5104 Treatment Planning and Traditional Family Therapy (3)",
+     "MFT 5105 Recovery-Oriented Care and Postmodern Family Therapy (3)",
+     "MFT 6103 Cultural Diversity, Gender, and Family Development (3)",
+     "MFT 5103 Systemic Evaluation and Case Management (3)",
+     "MFT 6201 California Law and Professional Ethics (3)",
+     "MFT 6102 Psychopathology, Diagnosis, and Systemic Treatment (3)",
+     "MFT 6105 Couple and Sex Therapy (3)",
+     "MFT 6104 Family Therapy with Children (3)",
+     "MFT 6106 Families in Crisis (3)",
+     "MFT 5106 Research Methods and Evidence Based Practice (3)",
+     "MFT 6101 Human Development and Family Dynamics Across the Lifespan (3)",
+     "MFT 6203 Human Sexuality (3)",
+     "MFT 6111 Systemic Interventions in Addictions (3)",
+     "MFT 6112 Fundamentals of Psychopharmacology (3)",
+     "MFT 6113 Assessing and Treating Family Violence (3)",
+     "MFT 6118 Gerontology and Systemic Intervention Master's (3)",
+     "MFT 6930 MFT Practicum I",
+     "MFT 6931 MFT Practicum II",
+     "MFT 6932CA MFT Internship I",
+     "MFT 6933CA MFT Internship II",
+     "MFT 6934CA MFT Internship and Capstone"
+    ]
+   }
+  ],
+  "src": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-of-arts-degree-in-marriage-and-family-therapy/"
+ },
+ "practicum": {
+  "starts": "MAMFT: after the ninth course (45-credit degree) or thirteenth course (60-credit California track), following a Clinical Preparation Process and a background check; a Director of MFT Clinical Training makes a formal clinical-readiness determination and students can be dismissed at this gate. M.A. Counseling Psychology: after PSY 644C, then five practicum courses of two months each.",
+  "hours": "MAMFT: 300 direct client contact hours including 150 relational hours, plus 100 hours of supervision — \"It takes at least one year (at least 52 weeks) to complete the practicum and internship courses.\" M.A. Counseling Psychology: approximately 30 hours of face-to-face client work in the two months of PSY 681A, then a minimum of 60 hours per two-month course (70 for the MFT/PCC track) across PSY 681B–E.",
+  "who_places": "student-finds",
+  "clinic": "Michael G. Harris Community Counseling Program and the NU Community Counseling Center — real, but East Bay only (Mt. Diablo USD, Pittsburg USD, Contra Costa CCD, Solano CCD, Family Justice Center)",
+  "detail": "This is the part of the degree that reviews complain about most, and the handbook is unusually blunt about why: \"Students will have access to the database of sites that have previously been vetted, but each student is ultimately responsible for finding a local practicum/internship site and a qualified Local Clinical Supervisor.\" You must also find a local supervisor who meets your state board's requirements for supervising post-degree hours (AAMFT Approved Supervisor preferred but not required; systemic-practice, systemic-supervision and telehealth training are the minimum). Weekly structure during clinical courses is one hour of individual supervision from your local supervisor plus a two-hour online group supervision session with NU faculty; in MAMFT practicum you are doing roughly 6–8 hours of direct therapy a week. Paid or volunteer placements are both acceptable. The exception to the find-it-yourself model is the inherited JFKU infrastructure: if you are in Contra Costa or Solano county you can apply to the Michael G. Harris Community Counseling Program or the NU Community Counseling Center, which train MFT, PCC, MSW and PsyD trainees, emphasise solution-focused brief therapy, family systems and humanistic approaches, and ask for a one-year (four quarter) commitment at 20–25 hours a week including a minimum of 10 client hours.",
+  "src": "https://www.nu.edu/wp-content/uploads/2024/03/Program-Handbook-SOPSS-MAMFT-2024.pdf",
+  "model": "assisted",
+  "model_evidence": "While students are ultimately responsible for securing clinical sites and supervisors, the NU clinical faculty and staff bring to bear considerable experience, comprehensive support, and tremendous resources in facilitating the identification, vetting of, and contracting with agencies and supervisors.",
+  "model_url": "https://www.nu.edu/marriage-and-family-therapy-application-process/marriage-and-family-therapy-practicum-and-internship-placement/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "No cohorts. Rolling admission with year-round starts; the MAMFT page lists \"Next Start Date: Every Monday.\" For scale, National's own COAMFTE demographic disclosure reports MAMFT student n=1,275, faculty n=146 and supervisors n=40. The M.A. Counseling Psychology page quotes an average completion of 22 months (23 with the added PCC courses); the MAMFT quotes 33 months recommended and 2–3 years typical, with a six-year maximum.",
+  "gre": "not required",
+  "prereqs": "A conferred bachelor's degree from an accredited institution; no psychology undergraduate degree required. MAMFT additionally requires a current resume or CV, a Statement of Intent and \"a one-on-one Skype or phone interview\" with an administrative MFT faculty member; admission to the program does not guarantee admission to the clinical phase. For the M.A. Counseling Psychology, applicants without a psychology bachelor's must take PSY 501A and PSY 501B as their first two courses; 30 of the 60 credit hours must be completed at National University and up to 9 graduate credits may transfer in.",
+  "deadline": "Rolling / year-round. MAMFT starts run every Monday; the M.A. Counseling Psychology page states \"Year-round enrollment — Our admissions team reviews applications year-round.\"",
+  "src": "https://www.nu.edu/marriage-and-family-therapy-application-process/mft-faq/",
+  "gre_evidence": "We do not require you take the GRE, GMAT or other graduate school entrance examination.",
+  "gre_url": "https://www.nu.edu/marriage-and-family-therapy-application-process/mft-faq/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"Overall my experience has been positive, especially when it comes to the flexibility of the online format… I do feel like something is missing in terms of personal connection. In classes without lectures, it can be harder to feel engaged… The internship process has been challenging, as I've had to navigate finding opportunities largely on my own.\"",
+   "who": "OnlineU, MFT student 'Chanel', April 2026",
+   "sentiment": "mixed",
+   "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
+  },
+  {
+   "text": "\"They are genuinely in 'it' for the money. Think of it as a corporation and not a school.\" Pros listed: you can work while studying, COAMFTE accreditation, responsive teachers. Cons: outdated required readings, unresponsive advisors, \"professors do not create classes and are moderators more or less,\" and \"attaining a practicum is very difficult.\"",
+   "who": "OnlineU, MFT student 'MFTmaybe', November 2024",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
+  },
+  {
+   "text": "\"My experience at National University (formerly Northcentral) has been very positive… While tuition is high, this program has allowed me to study full-time and work full-time to support myself. That is very VERY rare!\" Adds that people who need hand-holding through enrolment, aid and coursework should look elsewhere.",
+   "who": "OnlineU, MFT student 'amandap4', October 2023",
+   "sentiment": "positive",
+   "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
+  },
+  {
+   "text": "\"They make you take extra classes you do not need. I was told they follow state guidelines and that is not the case… Advisors are incompetent and DO NOT help you unless you become aggressive.\"",
+   "who": "OnlineU, MFT student 'Erin Russell', August 2023",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
+  },
+  {
+   "text": "A long 2022 review of the Northcentral-era program complains of a \"revolving door\" of advisors — \"students like me get a new advisor every 6-9 weeks\" — and of schedule changes made without warning that pushed back graduation dates, ending with \"National University should have done its due diligence before merging with NCU.\"",
+   "who": "OnlineU, MFT student 'Hopeful Immigrant', October 2022",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph of a National University, Northcentral or John F. Kennedy University campus exists on Wikimedia Commons — only logo files, which are not campus photographs and are not clearly free-licensed. No image included.",
+  "The MAMFT program page lists every clinical course (MFT 6930–6934) at \"3.0 Credits,\" while the program handbook and MFT FAQ both say the clinical courses are 2 credits with a 1-credit capstone. The 22-course California Licensure Track only totals 60 credits under the handbook's figures. Verify with an advisor before budgeting.",
+  "I could not find an archived John F. Kennedy University catalog to prove or disprove a one-for-one continuity between JFKU's M.A. in Counseling Psychology and National's current M.A. in Counseling Psychology (California). The evidence available points to National having run its own counseling psychology master's before the acquisition — a Class of 2011 alumna is quoted on the current page, and the Associate Dean of Operations earned his master's in counseling psychology at National before joining JFKU in 2017 — so the page treats them as distinct rather than asserting a transplant.",
+  "No published cohort size, class size, admit rate or attrition rate for either California-relevant degree, and no state-level breakdown of how many of the 1,275 MAMFT students are in California.",
+  "No published BBS licensure exam pass rate for either program.",
+  "The M.A. Counseling Psychology (California) is not stated to be COAMFTE-accredited anywhere on its page — only the MAMFT and the PhD-MFT carry COAMFTE. That absence is meaningful if COAMFTE matters to you, but the school does not address it directly.",
+  "Reddit could not be searched or fetched from this environment (403). Forum coverage of this school is thin; the substantive first-person material found was on OnlineU, and reviews there predating 2022 describe the Northcentral-era program before the merger."
+ ],
+ "sources": [
+  {
+   "label": "M.A. in Marriage and Family Therapy (MAMFT) program page and course listings",
+   "url": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-of-arts-degree-in-marriage-and-family-therapy/"
+  },
+  {
+   "label": "M.A. in Counseling Psychology (California) program page and course listings",
+   "url": "https://www.nu.edu/degrees/jfk-social-sciences/programs/master-arts-counseling-psychology/"
+  },
+  {
+   "label": "MAMFT Program Handbook, Spring 2024 (PDF)",
+   "url": "https://www.nu.edu/wp-content/uploads/2024/03/Program-Handbook-SOPSS-MAMFT-2024.pdf"
+  },
+  {
+   "label": "Marriage and Family Therapy FAQ (credits, supervision, placement)",
+   "url": "https://www.nu.edu/marriage-and-family-therapy-application-process/mft-faq/"
+  },
+  {
+   "label": "MFT Program Approvals and Accreditations (COAMFTE, CA-BBS)",
+   "url": "https://www.nu.edu/marriage-and-family-therapy-application-process/approvals-and-accreditations/"
+  },
+  {
+   "label": "MAMFT Students & Faculty Demographics (n=1,275)",
+   "url": "https://www.nu.edu/marriage-and-family-therapy-application-process/mamft-students-faculty-demographics/"
+  },
+  {
+   "label": "JFK School of Psychology and Social Sciences",
+   "url": "https://www.nu.edu/college/jfk-school-of-psychology/"
+  },
+  {
+   "label": "Michael G. Harris Community Counseling Program (CCP)",
+   "url": "https://www.nu.edu/mhccp-program/"
+  },
+  {
+   "label": "Community Counseling Center — trainee information",
+   "url": "https://www.nu.edu/community-counseling-center-counselor/"
+  },
+  {
+   "label": "Pioneer Publishers — JFK University announces closure, most programs moving to other institutions (May 2020)",
+   "url": "https://pioneerpublishers.com/jfk-university-announces-closure-most-programs-moving-to-other-institutions/"
+  },
+  {
+   "label": "Wikipedia — John F. Kennedy University (founded 1965, closed 2020)",
+   "url": "https://en.wikipedia.org/wiki/John_F._Kennedy_University"
+  },
+  {
+   "label": "National University — National and Northcentral Have Merged (2022)",
+   "url": "https://www.nu.edu/national-and-northcentral-have-merged/"
+  },
+  {
+   "label": "OnlineU — National University Master's in Marriage & Family Therapy student reviews",
+   "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
+  }
+ ]
+}

@@ -1,0 +1,242 @@
+{
+ "institution": "California State University, Northridge",
+ "character": [
+  "CSUN runs one of the small number of COAMFTE-accredited MFT programs in California (accredited November 1, 2016, renewed May 2023), and the accreditation shapes everything about how the program behaves. It publishes real outcome numbers every year rather than marketing claims: cohorts of 51-57 students, graduation rates between 78% and 92%, and licensure rates of 96-100% for every completed cohort since 2015-16. It is tightly lockstep and full-time only - the catalog states plainly that \"in most cases, general requests for part-time enrollment cannot be accommodated\" - and runs 2.5-3 years including two required summer sessions. Roughly 56 students are admitted from 200-400 applicants each year.",
+  "The curriculum is unusually granular about family-therapy theory. Where most California programs teach one survey course in family systems, CSUN splits it into three required courses - EPC 670MFA (systemic: structural, strategic, experiential, intergenerational, psychodynamic), EPC 670MFB (postmodern and cognitive-behavioral: solution-focused, narrative, collaborative), and EPC 670MFC (psychoeducational and process groups, including multi-family and multi-couple groups for families with a member diagnosed with severe mental illness). Alongside this sits a heavy public-mental-health orientation: EPC 673MF Trauma-Informed Community Mental Health covers homeless services, foster care, in-home and in-school services and bilingual client services, and the fieldwork hour categories explicitly count rape-crisis accompaniments and suicide hotlines through Strength United, the university's own domestic-violence and sexual-assault agency.",
+  "Two practical things a prospective student should know. First, CSUN reinstated the GRE: \"The Graduate Record Examination (GRE) General Test is required for ALL applicants (updated for Fall 2025)\" - most California MFT programs have dropped it, so this is a real added cost and timeline. Second, the program requires 20 hours of personal psychotherapy (10 in the first-year EPC 659MFA/B sequence, 10 during second-year fieldwork), which is a cost and a commitment many applicants do not budget for."
+ ],
+ "orientation": "Systemic family therapy - strengths-based and social-justice framed, with a heavy public/community mental health emphasis",
+ "signature": [
+  {
+   "code": "EPC 670MFC",
+   "title": "Psychoeducational and Process Groups in Family Therapy",
+   "units": "3",
+   "desc": "Prepares students to develop and lead psychoeducational and process groups for children and adults diagnosed with a mental health issue as well as multi-family and multi-couple groups for families with members diagnosed with severe mental illness. Emphasis on evidence-based group treatments and diversity issues.",
+   "verbatim": true,
+   "why": "Multi-family and multi-couple group work for severe mental illness is a specific public-mental-health skill set that almost no other California MFT program requires as a standalone course. It signals that CSUN expects graduates to work in county and community agencies, not just private practice.",
+   "src": "https://catalog.csun.edu/academics/epc/courses/"
+  },
+  {
+   "code": "EPC 673MF",
+   "title": "Trauma-Informed Community Mental Health",
+   "units": "3",
+   "desc": "Theories and skills required in contemporary community mental health settings, including recovery-oriented treatment for severe mental illness, disaster and trauma response, services for victims of abuse and the homeless, foster care, case management, client advocacy, in-home and in-school services, bilingual client services.",
+   "verbatim": true,
+   "why": "This is the course that most clearly marks CSUN as a public-sector pipeline. Recovery-oriented treatment for severe mental illness, in-home services and bilingual service delivery are the actual job description of a Los Angeles County contracted agency, and the course names them explicitly.",
+   "src": "https://catalog.csun.edu/academics/epc/courses/"
+  },
+  {
+   "code": "EPC 672MFB",
+   "title": "Neurobiology and Treatment of Trauma",
+   "units": "1",
+   "desc": "Provides students with research on the neurobiological and psychosocial impact of complex trauma among diverse populations and the link with co-occurring disorders and high-risk behaviors. Students learn and practice trauma-informed care with an emphasis on evidence-based programs.",
+   "verbatim": true,
+   "why": "A dedicated one-unit course on trauma neurobiology, separate from the three-unit community-mental-health course and separate again from the psychopharmacology course. CSUN uses several one- and two-unit courses to force coverage of specific topics rather than folding them into a survey.",
+   "src": "https://catalog.csun.edu/academics/epc/courses/"
+  },
+  {
+   "code": "EPC 677MFB",
+   "title": "Gender and Sexuality in Marriage and Family Therapy",
+   "units": "1",
+   "desc": "Examination of gender and sexuality integrating historical and cultural contexts across the lifespan. Sexuality will be considered from a biopsychosocial developmental perspective. Students will engage in critical self-assessment of knowledge, sensitivity, and attitudes about gender and sexuality as it intersects with race, ethnicity, age.",
+   "verbatim": true,
+   "why": "Taken in the same semester as EPC 677MFA Couples and Sex Therapy, this adds a required self-assessment component on the student's own attitudes rather than treating gender and sexuality purely as client content.",
+   "src": "https://catalog.csun.edu/academics/epc/courses/"
+  },
+  {
+   "code": "EPC 603MFB",
+   "title": "Introduction to Professional Writing",
+   "units": "2",
+   "desc": "Introduces students to the basic professional writing standards required for both academic and clinical writing in the field. Students will review professional voice, writing style, organization, language bias, and grammar as well as learn APA style.",
+   "verbatim": true,
+   "why": "A required first-semester writing course that doubles as the program's Graduate Writing Requirement - a \"B\" or better is needed to pass, retakeable up to three times, and failing writing can trigger an additional required seminar (EPC 695MF). Very few MFT programs gate progression on writing this explicitly.",
+   "src": "https://catalog.csun.edu/academics/epc/programs/ms-marriage-and-family-therapy/"
+  },
+  {
+   "code": "EPC 657MF",
+   "title": "Career Interventions in Mental Health Counseling",
+   "units": "3",
+   "desc": "Prepares family therapists to assist children, teens and adults with a wide range of career issues that arise in clinical practice as well as prepare therapists for work in EAP environments. Topics covered include career counseling and development theory, diversity, harassment, and discrimination.",
+   "verbatim": true,
+   "why": "A full three-unit career-counseling course inside an MFT degree, explicitly framed toward employee assistance program work. It is a required LPCC content area, but CSUN teaches it as clinical practice rather than as a checkbox.",
+   "src": "https://catalog.csun.edu/academics/epc/courses/"
+  }
+ ],
+ "curriculum": {
+  "note": "Fully lockstep: every student moves through a fixed cohort sequence over 2.5-3 years including two required summers, full-time only, with no part-time option. The sequence below is the program's own published sample; the handbook notes each cohort receives its exact sequencing at the start of the program.",
+  "total_units": "72",
+  "terms": [
+   {
+    "label": "Prerequisites (before enrollment, no exceptions)",
+    "courses": [
+     "EPC 451 Fundamentals of Counseling and Guidance (3)",
+     "PSY 310 Abnormal Psychology (3)"
+    ]
+   },
+   {
+    "label": "Year 1 - Fall",
+    "courses": [
+     "EPC 670MFA Systemic Family Therapy Theories (3)",
+     "EPC 659MFA Introduction to Counseling Theory and Practice (3)",
+     "EPC 643MF Diversity in Family Therapy (3)",
+     "EPC 671MF Law, Ethics, and Professional Issues in Family Therapy (3)",
+     "EPC 603MFB Introduction to Professional Writing (2)"
+    ]
+   },
+   {
+    "label": "Year 1 - Spring",
+    "courses": [
+     "EPC 670MFB Postmodern and Cognitive-Behavioral Family Theories (3)",
+     "EPC 659MFB Practicum in Family Therapy (3)",
+     "EPC 603MFA Clinical Research and Program Evaluation (3)",
+     "EPC 672MFA Mental Health Assessment and Diagnosis in Family Therapy (3)",
+     "EPC 672MFB Neurobiology and Treatment of Trauma (1)"
+    ]
+   },
+   {
+    "label": "Year 1 - Summer",
+    "courses": [
+     "EPC 674MF Family Development Across the Lifespan (3)",
+     "EPC 690MF Advanced Fieldwork & Professional Development in Family Therapy (2)"
+    ]
+   },
+   {
+    "label": "Year 2 - Fall",
+    "courses": [
+     "EPC 659MFC Fieldwork in Marriage and Family Therapy (3)",
+     "EPC 673MF Trauma-Informed Community Mental Health (3)",
+     "EPC 656MF Therapy with Children, Adolescents, and Their Families (3)",
+     "EPC 677MFA Couples and Sex Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 - Spring",
+    "courses": [
+     "EPC 659MFD Fieldwork in Marriage and Family Therapy (3)",
+     "EPC 670MFC Psychoeducational and Process Groups in Family Therapy (3)",
+     "EPC 679MF Clinical and Outcome-Based Assessment (3)",
+     "EPC 677MFB Gender and Human Sexuality in Couple and Family Therapy (1)",
+     "EPC 696MF Directed Graduate Research in Family Therapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 - Summer",
+    "courses": [
+     "EPC 657MF Career Interventions in Mental Health Contexts (3)"
+    ]
+   },
+   {
+    "label": "Year 3 - Fall",
+    "courses": [
+     "EPC 678MF Psychopharmacology & Neurobiological Foundations in Family Therapy (3)",
+     "EPC 675MF Substance Abuse and Addictions Treatment in Family Therapy (3)",
+     "EPC 690MF Advanced Fieldwork & Professional Development in Family Therapy (3)",
+     "EPC 697 Directed Comprehensive Studies (3) OR EPC 698C Thesis/Graduate Project"
+    ]
+   }
+  ],
+  "src": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/mft-handbook"
+ },
+ "practicum": {
+  "starts": "Second year (students apply and interview for sites during the spring of Year 1; fieldwork begins Year 2 summer/fall)",
+  "hours": "600 hours total: minimum 500 clinical hours plus 100 supervision hours. The 500 clinical hours must include at least 100 relational hours (couple, family, or process groups with couples/families) and no more than 100 alternative hours. The 100 supervision hours must include 50 hours of live supervision (audio, video, or observation).",
+  "who_places": "student-finds",
+  "clinic": "Mitchell Family Counseling Clinic (on campus, run by the Department of Educational Psychology and Counseling); Strength United is a second university-affiliated site serving survivors of sexual assault and domestic violence",
+  "detail": "Each student must find and interview for their own placement from an approved list posted on the cohort's private Canvas page; sites are categorized as \"Comprehensive Sites\" (can provide all hour types) or \"Hour-Specific Sites\" (e.g. individual but not relational hours). Students are expected on site 15-20 hours per week for a minimum of 15 months, and most continue into a third year. Placements are typically unpaid and at some sites students must pay a fee for the training experience. Two CSUN-affiliated options exist - the on-campus Mitchell Family Counseling Clinic and Strength United - but as of the current clinic page, Mitchell's fee-for-service therapy program is paused while leadership redesigns the service model. Separately, all students must complete 20 hours of personal psychotherapy: 10 in the first-year EPC 659MFA/B courses and 10 during second-year fieldwork.",
+  "src": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/mft-handbook",
+  "model": "assisted",
+  "model_evidence": "Apply and interview at field sites based on the approved list, available on the cohort's private Canvas page. ... Students may only work at sites that have a contract in good standing with the university. You can find a list of currently approved sites on your cohort's dedicated Canvas page.",
+  "model_url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/mft-handbook",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Mitchell Family Counseling Clinic",
+   "Strength United"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Approximately 56 students admitted from 200-400 applicants each year (a 15-30% acceptance rate). COAMFTE-reported cohort sizes: 53 (2015-16), 55, 54, 51, 51, 57, 52, 54, 57, 53, 56 (2025-26).",
+  "gre": "required",
+  "prereqs": "EPC 451 Fundamentals of Counseling and Guidance (3) and PSY 310 Abnormal Psychology (3), each with a grade of B- or better, completed within the past 7 years and finished before the program starts - the handbook says \"no exceptions.\" Minimum 2.75 GPA overall or in the last 60 semester units (higher than the university minimum). Also required: statement of purpose (max 2 pages, double-spaced, answering three set questions), 2-3 professional or academic letters (personal references not accepted), resume, and an invitation-only group interview of 6-8 applicants lasting about 2 hours, business attire, non-reschedulable.",
+  "deadline": "Fall 2026 application window: October 1, 2025 to January 5, 2026.",
+  "src": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/master-science-marriage-family-therapy",
+  "gre_evidence": "The Graduate Record Examination (GRE) General Test is required for ALL applicants (updated for Fall 2025).",
+  "gre_url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/master-science-marriage-family-therapy",
+  "min_gpa": "Applicants must have an overall GPA of 2.75 or higher to be eligible for consideration.",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I feel like in this clinic you really get to hear people's stories because they come here wanting to share their story with you.\" She added that the training \"taught me to really focus on people's strengths.\"",
+   "who": "Kayla Caceres, CSUN MFT trainee, in the Daily Sundial (student newspaper)",
+   "sentiment": "positive",
+   "url": "https://sundial.csun.edu/85419/arts-entertainment/lifestyle/mitchell-family-counseling-clinic-student-trainees-take-on-the-future-of-therapy/"
+  },
+  {
+   "text": "On doing art therapy with children at the Mitchell clinic: \"Art is a way to have a shared language with children.\" On the limits of the work: \"We're only with the kids for an hour and a half once a week, it's hard to change a child's behavior without involving the parents.\"",
+   "who": "Nina Yazdi, second-year CSUN MFT trainee, Daily Sundial",
+   "sentiment": "mixed",
+   "url": "https://sundial.csun.edu/85419/arts-entertainment/lifestyle/mitchell-family-counseling-clinic-student-trainees-take-on-the-future-of-therapy/"
+  },
+  {
+   "text": "A prospective applicant on Student Doctor Network noted CSUN's appeal as a program listed on the Humanistic Psychology association's site with an available add-on certificate in college counseling.",
+   "who": "Student Doctor Network, \"Best CSU MFT program?\" thread, 2012",
+   "sentiment": "info",
+   "url": "https://forums.studentdoctor.net/threads/best-csu-mft-program.649186/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/5/52/Cal_State_University_Northridge.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Cal_State_University_Northridge.JPG",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Cbl62, via Wikimedia Commons",
+  "caption": "The CSUN campus in Northridge, San Fernando Valley"
+ },
+ "gaps": [
+  "Unit count: CSUN's own materials disagree. The current catalog and the handbook's \"In A Nutshell\" section both say 72 units; the handbook's prose paragraph and the university's majors page still say \"64-67 unit curriculum.\" The handbook resolves it - 64-67 units describes the retired 2012-2020 M.S. in Counseling, Option in MFT, which is explicitly \"no longer available for new student enrollment.\" The current 2021 curriculum totals 72 units. Our record's 64-67 figure is stale.",
+  "Day vs. evening cohorts: the program says classes are \"offered during the day and evenings,\" that students are assigned to a cohort, and that \"the program makes every attempt to ensure students are placed in their preferred cohort; however, the program cannot guarantee that preferred days and times of course offerings will always be available.\" No published document says how many cohorts run, which is day and which is evening, or how the assignment is made. This has to be asked at an information session.",
+  "Total cost of the degree is not published by the program. CSU 2025-26 systemwide graduate tuition is $2,340 per semester at 0-6.0 units and $4,032 at 6.1 or more, plus CSUN campus fees, but the program does not publish a program-total estimate and the two required summers complicate any simple multiplication.",
+  "The Mitchell Family Counseling Clinic's fee-for-service therapy program is currently paused while leadership redesigns the service model. No restart date is published, so it is unclear whether incoming students can count on it as a placement.",
+  "No substantive recent first-person student reviews found. Reddit, Student Doctor Network, GradCafe and Niche searches turned up nothing current and specific about the CSUN MFT cohort experience; the only student voices located were in a Daily Sundial feature about the clinic.",
+  "Faculty/supervisor names beyond the program coordinators (Dana Stone, curriculum; Deborah Buttitta, fieldwork; Esther Choi, graduate coordinator; Shyrea Minton, department chair) were not compiled."
+ ],
+ "sources": [
+  {
+   "label": "CSUN catalog - Marriage and Family Therapy, M.S. program requirements",
+   "url": "https://catalog.csun.edu/academics/epc/programs/ms-marriage-and-family-therapy/"
+  },
+  {
+   "label": "CSUN catalog - Educational Psychology and Counseling course descriptions (EPC)",
+   "url": "https://catalog.csun.edu/academics/epc/courses/"
+  },
+  {
+   "label": "CSUN MFT Program Handbook (curriculum, sample sequencing, fieldwork, admissions)",
+   "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/mft-handbook"
+  },
+  {
+   "label": "CSUN Department of Educational Psychology & Counseling - M.S. in Marriage & Family Therapy",
+   "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/master-science-marriage-family-therapy"
+  },
+  {
+   "label": "CSUN COAMFTE accreditation and student achievement data",
+   "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/coamfte-accreditation"
+  },
+  {
+   "label": "Mitchell Family Counseling Clinic (Teaching, Learning & Counseling Consortium)",
+   "url": "https://www.csun.edu/teaching-learning-counseling-consortium/services/mitchell-family-counseling-clinic"
+  },
+  {
+   "label": "Daily Sundial - Mitchell Family Counseling Clinic student trainees",
+   "url": "https://sundial.csun.edu/85419/arts-entertainment/lifestyle/mitchell-family-counseling-clinic-student-trainees-take-on-the-future-of-therapy/"
+  },
+  {
+   "label": "CSUN catalog - Schedule of Tuition and Fees, 2025-2026",
+   "url": "https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/"
+  },
+  {
+   "label": "CSUN majors and programs - Marriage and Family Therapy, M.S.",
+   "url": "https://www.csun.edu/academics/majors-and-programs/marriage-and-family-therapy-ms"
+  }
+ ]
+}

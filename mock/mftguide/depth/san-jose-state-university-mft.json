@@ -1,0 +1,214 @@
+{
+ "institution": "San Jose State University",
+ "character": [
+  "Start with the name, because it is the thing most likely to confuse you. This is an M.S. in Clinical Psychology, awarded by the Psychology department, not an MFT or counseling degree — and it is nonetheless a standard route to California LMFT licensure. The SJSU catalog puts it plainly: \"The required academic course work and supervised fieldwork of 60 semester units meets the course work requirements for the California State Marriage and Family Therapist (MFT) license and most of the requirements for the Licensed Professional Clinical Counselor (LPCC) license.\" The operative words are \"most of.\" Per the program's student handbook, LPCC candidates must additionally take EDCO 266 (Career Counseling), which sits outside the 60-unit degree and requires a special petition to enroll in extra units, and must accumulate 280 pre-degree field hours instead of the 150 required on the MFT track. So: MFT by default, LPCC only if you deliberately bolt on the extra course and hours.",
+  "Being housed in a psychology department rather than a counselor-education department changes the curriculum in visible ways. You take two separate semester-long psychopathology courses — PSYC 210 (adults) and PSYC 211 (children) — where most CA MFT programs teach one combined diagnosis course. You take a full graduate clinical assessment course (PSYC 203A) that also satisfies the university's graduate writing requirement, a clinical psychopharmacology course, and an applied research-methods course. The culminating experience is not a portfolio or a paper on a topic: it is a 30–35 page APA case conceptualization of a client you actually treated, followed by an oral defense in front of two faculty examiners in a professional case-conference format, with 80% required to pass and dismissal after a second failure. What you do not get is depth in family systems: only PSYC 208 (Family Assessment and Intervention) and PSYC 209 (Psychology of Contemporary Families) are systems courses, and there is no COAMFTE accreditation.",
+  "It is also, by a wide margin, the smallest of the three. SJSU says it \"seek[s] to build a cohort of 12-14 students each year,\" full-time only, no part-time, evening, hybrid or online option, meeting on campus three to four days a week. The barrier to entry is not a test — no GRE — but coursework and prior clinical experience: six specific undergraduate psychology prerequisites, at least 30 semester units of psychology overall, 3.0 GPA both in psychology and in the last two years, at least 100 hours of applied clinical experience before you apply (crisis text-line volunteering explicitly does not count), and one of your three letters must come from a clinical supervisor. Applications close January 1, interviews are in March, offers go out mid-April."
+ ],
+ "orientation": "Evidence-based practice and case formulation; faculty are deliberately eclectic (CBT, behavioral, mindfulness, psychodynamic, cross-cultural, feminist, health psychology) rather than committed to one model",
+ "signature": [
+  {
+   "code": "PSYC 203A",
+   "title": "Clinical Assessment I",
+   "units": "3",
+   "desc": "An in-depth introduction to objective, projective and behavioral assessment techniques used in the clinical evaluation of the behavior and functioning of adults, children and families. Satisfies GWAR: Graduation Writing Assessment Requirement.",
+   "verbatim": true,
+   "why": "Projective testing in a master's-level therapy curriculum is a psychology-department artifact — most MFT programs teach assessment as intake interviewing and DSM coding. That this course also carries the university's graduate writing requirement tells you the program treats assessment writing, not therapy technique, as the core professional literacy.",
+   "src": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=15&coid=134248"
+  },
+  {
+   "code": "PSYC 210",
+   "title": "Advanced Psychopathology",
+   "units": "3",
+   "desc": "Advanced course to provide knowledge and experience in the classification and treatment of disorders of adulthood as they are identified in mental health settings. Critical review of research related to the evaluation of treatment strategies.",
+   "verbatim": true,
+   "why": "Paired with PSYC 211, this gives you two full semesters of psychopathology — adult and child taught separately. Almost no California MFT-qualifying program spends a full year on diagnosis, and the 'critical review of research related to the evaluation of treatment strategies' framing is what the department means by evidence-based practice.",
+   "src": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=17&coid=160988"
+  },
+  {
+   "code": "PSYC 211",
+   "title": "Child Psychopathology",
+   "units": "3",
+   "desc": "An overview on the nature, assessment and treatment of Child Psychopathology. Emphasis will be placed on understanding DSM diagnoses from a developmental perspective. Objective methods of assessment and empirically supported treatments will be covered.",
+   "verbatim": true,
+   "why": "Required in the very first semester, before any practicum. Reading DSM categories through a developmental lens and pairing them with 'empirically supported treatments' is the clearest single statement of the program's orientation — it is training you to be a diagnostician who treats, not a systems thinker who reframes.",
+   "src": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=17&coid=160989"
+  },
+  {
+   "code": "PSYC 222",
+   "title": "Multiculturalism, Ethnicity and Gender in Psychotherapy",
+   "units": "3",
+   "desc": "Theoretical and practical understanding of multiculturalism, ethnicity and gender in clinical practice, including social, cultural and psychological factors that affect therapeutic intervention within individuals, couples and families.",
+   "verbatim": true,
+   "why": "Worth flagging because the course was recently rewritten: in the 2024-25 catalog it was titled 'Gender and Ethnic Issues in Counseling and Therapy' and described in terms of 'differing socialization, psychological structures, values and cultural assumptions.' The current title and text are broader. If you are comparing older reviews of this program, the multicultural requirement you read about is not quite the one you would take.",
+   "src": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=17&coid=160992"
+  },
+  {
+   "code": "PSYC 208",
+   "title": "Family Assessment and Intervention",
+   "units": "3",
+   "desc": "An interdisciplinary exploration of how therapists can analyze and change interpersonal dynamics in couples and families.",
+   "verbatim": true,
+   "why": "This is the program's single dedicated couples-and-families intervention course, and it sits in the final semester. If family systems work is why you want to be an MFT, note how little real estate it occupies here compared with SDSU's year-long theory sequence — and that its catalog description is one sentence long.",
+   "src": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=17&coid=161019"
+  },
+  {
+   "code": "PSYC 243",
+   "title": "Field Work in Psychology",
+   "units": "3",
+   "desc": "Supervised field work experience in outside agency settings. Course may be repeated twice for up to 6 units. Grading: Credit/No Credit. Note(s): Open only to students in the MS Clinical program.",
+   "verbatim": true,
+   "why": "'Outside agency settings' is the whole story: there is no in-house SJSU training clinic behind a one-way mirror. Your clinical hours come from a community agency you go out and secure yourself, and the course exists mainly as the registration vehicle that makes those hours count for the BBS.",
+   "src": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=17&coid=161002"
+  }
+ ],
+ "curriculum": {
+  "note": "Full-time cohort, lockstep, no part-time option; five 3-unit courses every semester for four semesters, starting in Fall. The sequence below is the department's own 'Required Sequence of Courses' PDF, whose course codes all resolve in the SJSU catalog. The department's HTML curriculum page shows a slightly different version of the same grid (PSYC 223 and PSYC 265 in place of PSYC 232 and PSYC 291); neither PSYC 223 nor PSYC 265 appears in the current catalog, so the PDF is used here.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (15 units)",
+    "courses": [
+     "PSYC 203A Clinical Assessment (3)",
+     "PSYC 211 Advanced Child Psychopathology (3)",
+     "PSYC 222 Ethnic and Gender Issues in Counseling and Psychotherapy (3)",
+     "PSYC 228 Professional Ethics for Psychologists (3)",
+     "PSYC 258 Methods of Psychotherapy/Counseling Procedures (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (15 units)",
+    "courses": [
+     "PSYC 209 Modern Family (3)",
+     "PSYC 210 Advanced Adult Psychopathology (3)",
+     "PSYC 212 Life Span Development (3)",
+     "PSYC 225 Group Counseling (3)",
+     "PSYC 232 Clinical Psychopharmacology (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (15 units)",
+    "courses": [
+     "PSYC 224A Clinical Psychology Practicum I (3)",
+     "PSYC 291 Methods & Design for Applied Research (3)",
+     "PSYC 243 Field Work (3)",
+     "PSYC 260 Crisis/Trauma Counseling (3)",
+     "PSYC 298 Masters Project (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (15 units)",
+    "courses": [
+     "PSYC 208 Family Therapy (Family and Couples) (3)",
+     "PSYC 226 Addictions Treatment (3)",
+     "PSYC 224B Clinical Psychology Practicum II (3)",
+     "PSYC 243 Field Work (3)",
+     "PSYC 298 Masters Project (3)"
+    ]
+   }
+  ],
+  "src": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/Required_sequence-ACCESSIBLE02.pdf"
+ },
+ "practicum": {
+  "starts": "Second year, fall term — the entire first year is coursework",
+  "hours": "Minimum 150 face-to-face clinical hours for the MFT track (280 for students pursuing LPCC), plus 75 client-centered advocacy hours which may overlap. Supervision at one hour individual or two hours group per five client hours. These count toward the 3,000 hours of supervised experience the BBS requires after the degree.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "There is no SJSU-run training clinic for this program. Students secure their own community fieldwork site; the program director provides information and contacts and the department runs an annual fieldwork fair in January, but choosing and landing the placement is the student's job, and most agency application deadlines fall in February and March. You must have a licensed supervisor on site or readily available. Registration is through PSYC 243 every semester you are at a placement, and there is a documented squeeze at the end: if you finish the fourth semester short of hours you must see clients over the summer within 90 days of the semester's end, or enroll (and pay) for an additional course for those hours to count.",
+  "src": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/MS%20Clinical%20Student%20Handbook%20-%202024%20final-ACCESSIBLE.pdf",
+  "model": "student-sourced",
+  "model_evidence": "You want to apply to and interview at 3 places minimally [...] If you apply to agencies that we have not been (or have not been in a while), you MUST discuss this with the Clinical Program Director (e.g., outside of Santa Clara County; agencies we have not had students at before)",
+  "model_url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/placement_tips.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "\"We typically have 12 students in each cohort\"; the admissions page says the program \"seek[s] to build a cohort of 12-14 students each year.\" Full-time only, no part-time study, classes 3–4 days per week on campus.",
+  "gre": "not required",
+  "prereqs": "Six required undergraduate courses (Introduction to Psychology; Elementary Statistics; Introduction to Research Methods; Psychobiology; upper-division Psychopathology/Abnormal Psychology; upper-division Clinical Psychology or Theory and Methods of Counseling), plus a minimum of 30 semester units in psychology overall and at least 10 semester psychology courses, 3.0 GPA in all psychology coursework and 3.0 in the last two years, and a minimum of 100 hours of applied clinical experience in a supervised mental health setting before applying (crisis text-line support does not count). Three letters — one must be from a clinical supervisor — plus a 2–3 page statement of intent.",
+  "deadline": "January 1 (applications open October 1); interviews typically in March; offers mid-April; acceptance due at the beginning of May. Fall entry only.",
+  "src": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/apply-program.php",
+  "gre_evidence": "Note that we do NOT require GRE scores for our program application.",
+  "gre_url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/apply-program.php",
+  "min_gpa": "A minimum GPA of 3.0 in all Psychology courses AND a 3.0 for the last 60 semester units",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "An admitted applicant reporting what SJSU faculty told them at interview: \"SJSU's program is consistently CBT focused\" — adding that the website describes an integrative approach despite what the professors said.",
+   "who": "The GradCafe forums, March 2021",
+   "sentiment": "mixed",
+   "url": "https://forum.thegradcafe.com/topic/128929-california-mft-masters-programs/"
+  },
+  {
+   "text": "The program is explicit about what it is not for: it states it does not prepare students for doctoral study, for a PPS school-counseling credential, or for the business side of private practice, and \"does not specifically train students in the business skills\" a solo practice requires.",
+   "who": "SJSU Psychology Department, program overview page",
+   "sentiment": "info",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/program-overview.php"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Tower_Hall%2C_San_Jos%C3%A9_State_University_-_DSC03886.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:Tower_Hall,_San_Jos%C3%A9_State_University_-_DSC03886.JPG",
+  "license": "CC0 1.0 (public domain dedication)",
+  "credit": "Photo by Daderot, via Wikimedia Commons (CC0)",
+  "caption": "Tower Hall, the 1910 landmark at the centre of San José State's downtown campus. The MS Clinical Psychology cohort meets on this campus three to four days a week; there is no separate clinic building."
+ },
+ "gaps": [
+  "SJSU does not publish an acceptance rate or an applicant count for this program. The only hard number is the target cohort size of 12–14, which is small enough that selectivity is presumably steep, but that is an inference, not a published figure.",
+  "The department's HTML curriculum page and its official 'Required Sequence' PDF disagree: the web page lists PSYC 223 (Multiculturalism and Diversity: Clinical Practice) and PSYC 265 (Advanced Conceptualization and Treatment Application), neither of which exists in the current SJSU catalog under those numbers. Verify the actual sequence with the department before relying on either.",
+  "No per-unit tuition figure applies — CSU charges a flat per-semester rate by unit band. For Fall 2026 SJSU lists $5,629.50/semester for full-time graduate CA residents (tuition plus mandatory fees) and $3,837.50 part-time. At four full-time semesters that is roughly $22,500, but SJSU does not publish an official program total.",
+  "No named training clinic, and the department does not publish a list of fieldwork sites or a placement rate.",
+  "No licensing exam pass rate, graduation rate or job placement rate is published (this program is not COAMFTE-accredited and so has no required disclosure).",
+  "Almost no independent student commentary is available. Reddit was unreachable through both search and direct fetch during this research; the only substantive third-party voice found was a single 2021 GradCafe post.",
+  "The catalog quotation establishing the MFT/LPCC relationship was read in the archived 2024-2025 catalog entry; the equivalent 2026-2027 catalog program page would not render during this research."
+ ],
+ "sources": [
+  {
+   "label": "MS in Clinical Psychology — program overview",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/program-overview.php"
+  },
+  {
+   "label": "MFT Licensure page (pre-degree hour requirements)",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/mft-licensing.php"
+  },
+  {
+   "label": "Curriculum page (semester grid)",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/curriculum.php"
+  },
+  {
+   "label": "Required Sequence of Courses (PDF)",
+   "url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/Required_sequence-ACCESSIBLE02.pdf"
+  },
+  {
+   "label": "MS Clinical Student Handbook 2024 (PDF) — comps, fieldwork, LPCC track",
+   "url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/MS%20Clinical%20Student%20Handbook%20-%202024%20final-ACCESSIBLE.pdf"
+  },
+  {
+   "label": "Information for Prospective Students (cohort size, prerequisites, GRE)",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/information-prospective-students.php"
+  },
+  {
+   "label": "Apply to the Program (deadline, letters, interview timeline)",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/apply-program.php"
+  },
+  {
+   "label": "SJSU catalog — Clinical Psychology, MS (2024-2025 archived catalog, MFT/LPCC statement)",
+   "url": "https://catalog.sjsu.edu/preview_program.php?catoid=15&poid=9730"
+  },
+  {
+   "label": "SJSU catalog — PSYC course descriptions, 2026-2027 catalog",
+   "url": "https://catalog.sjsu.edu/preview_course_nopop.php?catoid=17&coid=160992"
+  },
+  {
+   "label": "SJSU Bursar — Fall 2026 tuition and fees",
+   "url": "https://www.sjsu.edu/bursar/fees-due-dates/tuition-other-fees/fall.php"
+  },
+  {
+   "label": "Registering for Fieldwork (PSYC 243) policy PDF",
+   "url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/Registering%20for%20Fieldwork.pdf"
+  }
+ ]
+}

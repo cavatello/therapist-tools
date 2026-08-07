@@ -63,6 +63,14 @@ const PAGES = [
   ['continuing-education-california-lmft.html', { sources: '.artsrc li' }],
   ['getting-paid/index.html', { cards: '.lc', intro: '.intro p' }],
   ['privacy.html', { uplink: '.uplink a.uc' }],
+  // The cost-of-living tool, whose hero was rebuilt as a compact band. The
+  // three live figures are the assertion worth checking: they are computed on
+  // load, so if the script dies they render as the markup's placeholders and
+  // the page still looks finished.
+  ['therapist-cost-of-living-california.html', {
+    band: '.clband', cta: '.clgo', figures: '.clbig b', fields: '.clf input',
+    sections: '.clsec',
+  }],
   ['mft-programs-california.html', {
     charts: '.ig', dots: '.ig-d', bars: '.ig-b',
     internal: 'a.go.mine', cards: 'article.pg',

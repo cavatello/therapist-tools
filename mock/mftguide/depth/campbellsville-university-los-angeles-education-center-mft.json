@@ -1,0 +1,277 @@
+{
+ "institution": "Campbellsville University — Los Angeles Education Center (formerly Phillips Graduate University/Institute)",
+ "character": [
+  "If you searched \"Phillips Graduate Institute\" and landed here, this is what happened. Clinton E. Phillips and T. David Jansen — both alumni of Paul Popenoe's American Institute of Family Relations — founded the California Family Study Center in 1971. It became Phillips Graduate Institute in 1992 and Phillips Graduate University in 2016, and it trained more than 2,700 family therapists. Its WASC accreditation ran to 30 April 2019, at which point the institution voluntarily withdrew it. On 8 May 2019 Phillips announced that the MFT program would continue under Campbellsville University, a Kentucky Baptist university accredited by SACSCOC, with a new class starting that August pending SACSCOC approval. The pitch was continuity: \"the core faculty, which has led the PGI program for decades, is poised to continue the legacy under this partnership,\" and Dr. José Luis Flores told the press students would \"receive a Phillips education with a Campbellsville University degree.\" Phillips itself now states plainly that it \"suspended our in-person degree programs in California\" and \"transferred the MFT program to our partner university\"; Campbellsville's own site says \"Phillips Graduate University no longer offers academic programs and is not covered by Campbellsville's accreditation.\" The old Chatsworth campus on Plummer Street is gone. Classes now meet in a suite at 16830 Ventura Blvd., Encino.",
+  "For BBS purposes the answer is clean and it is the single fact most prospective students need: your degree is a Campbellsville University degree, and Campbellsville is accredited by SACSCOC — a regional accreditor recognized by the U.S. Department of Education — which is the accreditation basis the California Board of Behavioral Sciences recognises for out-of-state institutions. The Los Angeles site is separately approved to operate by California's Bureau for Private Postsecondary Education, and Campbellsville's own accreditation page lists the LA MMFT under \"BPPE/California BBS.\" What it is not is COAMFTE-accredited. Campbellsville does hold COAMFTE accreditation — for its Louisville/Online MMFT, a different program. The Los Angeles MMFT is not covered by it. If COAMFTE matters to you for portability outside California, this program does not give it to you.",
+  "The pedagogy survived the transfer largely intact, and it is genuinely unusual. The spine of the first year is not a lecture course but the Case Conference: from the very first term students \"observe actual therapy/counseling behind a one-way mirror and participate as co-therapists with the instructor and on reflecting teams,\" three hours a week on top of the full class day, for two consecutive terms. Very few California programs still put first-semester students behind glass watching live clients. The program runs its own clinic — the David H. Fox Counseling Center, operating as California Family Counseling Center (Cal Fam) — which serves predominantly Latino communities of the San Fernando Valley. Cost is $997 per unit, $59,820 in tuition and $66,495 in total estimated charges for the 60 units. The published outcomes are half a picture: on-time completion was 98% (53 of 54) for the 2022 reporting year and 93% (78 of 84) for 2023, but job placement, licensure examination passage and salary are all reported as \"n/a.\""
+ ],
+ "orientation": "Systemic/relational family therapy taught through live one-way-mirror observation — General Systems, Bowen, Structural, Strategic and Humanistic/Experiential first, then collaborative postmodern and strength-based models",
+ "signature": [
+  {
+   "code": "MFC 519",
+   "title": "Case Conference: Pragmatics and Human Communication",
+   "units": "3",
+   "desc": "\"Throughout the course, students observe actual therapy/counseling behind a one-way mirror and participate as co-therapists with the instructor and on reflecting teams. Following the session, students participate in discussions with the instructor/school counselor about what has been experienced and observed.\"",
+   "verbatim": true,
+   "why": "This is a first-term course. Most California programs keep students in classrooms for a year before they see a real client; here you are behind the mirror in week one and co-therapying with your instructor. The title's \"Pragmatics of Human Communication\" is a direct citation of Watzlawick, Beavin and Jackson — the Palo Alto lineage the school was founded out of. It runs as a three-hour weekly evening session on top of the full class day.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27727"
+  },
+  {
+   "code": "MFC 523",
+   "title": "Case Conference/Practicum",
+   "units": "3",
+   "desc": "\"Students continue the observational process from first semester with clients/pupils... Observing and participating as co-therapists and reflecting team members with a different client, students will apply their growing knowledge of theory, assessment and diagnosis. Students will begin to explore their personal functioning, that is their awareness of their impact on others.\"",
+   "verbatim": true,
+   "why": "The second half of a full year of live case work with a real, ongoing client seen by the whole class — a different client than term one, deliberately. The explicit turn to \"their awareness of their impact on others\" makes this a self-of-the-therapist course as much as a clinical one, which is a distinctly relational-school commitment.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27728"
+  },
+  {
+   "code": "MFC 529",
+   "title": "Group Dynamics/Practicum",
+   "units": "3",
+   "desc": "\"The course includes both didactic instruction on the theories of Yalom and others, and a 'laboratory' experience of being in a group. Students are encouraged to utilize this experience to enhance their personal and professional growth. Although not therapy, the experience can be therapeutic for those who participate fully.\"",
+   "verbatim": true,
+   "why": "A required experiential group laboratory — you are a member of the group, not a student of groups — is rare in California MFT curricula, where group therapy is usually taught didactically. The catalog is careful to say it is \"not therapy\" while conceding it \"can be therapeutic,\" which is the honest description of a T-group-descended process course.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27732"
+  },
+  {
+   "code": "MFC 502",
+   "title": "Family Therapy: Systemic Approaches",
+   "units": "3",
+   "desc": "\"Learning sequentially, students begin with a sensitive study of their own family systems before moving on to therapeutic and counseling applications with other families. The models presented are General Systems Theory, Bowen, Structural, Strategic, and Humanistic/Experiential.\"",
+   "verbatim": true,
+   "why": "The sequencing is the point: your own family of origin is the first case you study, before any client. That is a Bowenian teaching convention that many programs have quietly dropped, and it tells you the program expects personal exposure, not just theory acquisition.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27719"
+  },
+  {
+   "code": "MFC 550",
+   "title": "MFT's in Community Mental Health",
+   "units": "2",
+   "desc": "\"Special attention is given to culturally-relevant mental health assessment and treatment, recovery and wellness models, strength-based treatment planning and the reintegration of clients (consumers) in family and social systems. The course will also emphasize professional self-care and examine public service as a professional career for MFT's.\"",
+   "verbatim": true,
+   "why": "A required course that frames county public mental health as a career rather than a stopgap on the way to private practice. It fits the program's real placement ecology — the Greater Los Angeles MFT Consortium and LA County DMH stipends — and signals who this program actually trains you to be.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27735"
+  },
+  {
+   "code": "MFC 532",
+   "title": "Sexuality and Sex Therapy",
+   "units": "1",
+   "desc": "\"First, in a safe and supportive atmosphere, students will deepen their awareness of their own sexuality, increase their comfort with sexual language, and widen their perspectives on sexual variations. Second, the classes will examine the growing merger and integration of two previously separate fields, sex therapy and relationship therapy.\"",
+   "verbatim": true,
+   "why": "Only one unit, but the first stated purpose is the student's own sexual self-awareness rather than clinical technique — again the experiential house style. Worth knowing before you enrol if that is not what you want from a graduate seminar.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27738"
+  }
+ ],
+ "curriculum": {
+  "note": "Lockstep cohort: 60 term units across five consecutive terms including one summer, with one full day of class per week (Saturday or a weekday, 8am–5pm) plus a three-hour weekly Case Conference section in the first two terms. Part-time students extend to six or seven terms. The 2025–26 California-specific catalog gives the program a 104-week minimum.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "First Term (13 units)",
+    "courses": [
+     "MFC 502 Family Therapy: Systemic Approaches (3)",
+     "MFC 503 Developmental Psychology (3)",
+     "MFC 507 Foundations of Psychotherapy and Counseling (3)",
+     "MFC 518 Introduction to Research – I (1)",
+     "MFC 519 Case Conference: Pragmatics and Human Communication (3)"
+    ]
+   },
+   {
+    "label": "Second Term (12 units)",
+    "courses": [
+     "MFC 504 Diversity and Social Justice in Families, Schools, and Other Systems (2)",
+     "MFC 505 Family Therapy: Evolving Systemic Approaches (3)",
+     "MFC 520 Abnormal Psychology (2)",
+     "MFC 523 Case Conference/Practicum (3)",
+     "MFC 524 Assessment and Treatment in a Developmental Context (2)"
+    ]
+   },
+   {
+    "label": "Summer Term (11 units)",
+    "courses": [
+     "MFC 529 Group Dynamics/Practicum (3)",
+     "MFC 549 Psychological Testing (3)",
+     "MFC 550 MFTs in Community Mental Health (2)",
+     "MFC 600 Fundamentals of Addiction (3)"
+    ]
+   },
+   {
+    "label": "Third Term (13 units)",
+    "courses": [
+     "MFC 521 Introduction to Research – II (1)",
+     "MFC 528 Couple Therapy (3)",
+     "MFC 531 Applied Therapeutic Methodology: Relational Therapy I (3)",
+     "MFC 532 Sexuality and Sex Therapy (1)",
+     "MFC 533 Practicum – I (2)",
+     "MFC 539 Legal, Ethical, and Professional Issues (3)"
+    ]
+   },
+   {
+    "label": "Fourth Term (11 units)",
+    "courses": [
+     "MFC 522 Professional Project (1)",
+     "MFC 534 Applied Therapeutic Methodology: Relational Therapy II (3)",
+     "MFC 535 Practicum – II (2)",
+     "MFC 540 Professional Issues for Marriage and Family Therapists (2)",
+     "MFC 547 Psychopharmacology (3)"
+    ]
+   }
+  ],
+  "src": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/los-angeles-education-center-media/Phillips%20Graduate%20Brochure%20New.pdf"
+ },
+ "practicum": {
+  "starts": "Practicum begins after 13 units — i.e. after the first term — once faculty designate the student ready for clinical work; formal Practicum I and II (MFC 533/535) run in the third and fourth terms, taken concurrently with MFC 531 and MFC 534",
+  "hours": "375 hours, given in the 2025–26 California-specific catalog as a minimum of 100 relational, 200 individual client and 75 client-centered advocacy hours; note the course catalog descriptions for MFC 533 and MFC 535 instead state \"a minimum of 350 direct clinical hours and 100 alternative hours\" — the two official documents do not agree",
+  "who_places": "mixed",
+  "clinic": "David H. Fox Counseling Center, operating publicly as the California Family Counseling Center (Cal Fam), serving predominantly Latino communities of the San Fernando Valley",
+  "detail": "Be clear-eyed about who does the work here: the program has real infrastructure but you still apply and interview. Campbellsville names two LMFTs as its placement contacts (Shelly Stee and Bobbi Jankovich) and the MFC 533 catalog description says students are placed \"at placement sites approved by the Clinical Placement Directors\" and that \"the MFT Program at Phillips Education Center has affiliations with a variety of placements, including the David H. Fox Counseling Center\" — so there is a maintained affiliate list and an in-house clinic, which is more than most online or low-residency programs offer. But the in-house traineeship at Cal Fam is competitive rather than automatic: it is organised into specialised tracks with roughly eight openings each, and runs a published application, interview and notification cycle. In practice this is a mixed model — the program brings you a vetted list and an in-house option, you compete for the slot and interview for the site. Once placed the commitment is heavy and non-negotiable: 15 to 20 hours a week at the site by year two, on top of a full day of class and a weekly case conference, which is the single biggest reason people go part-time. This is a Los Angeles program placing into Los Angeles agencies; the Greater Los Angeles MFT Consortium and LA County Department of Mental Health stipend history are part of the same placement ecology.",
+  "src": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/clinical-training-and-placement.html",
+  "model": "assisted",
+  "model_evidence": "375 Hours Of Required Practicum Completed At A Phillips-Approved Agency ... Support Securing Clinical Placement Through The Clinical Placement Office ... MFT students receive guidance and hands-on experience through our Clinical Placement Office and affiliated training sites.",
+  "model_url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "California Family Counseling Center (Cal Fam)",
+   "Phillips On-Site Counseling Center"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published as a target. The BPPE School Performance Fact Sheet reports 54 students beginning in the cohort that graduated in 2022 and 84 in the cohort that graduated in 2023, so roughly 50–85 entrants a year. The Los Angeles Education Center does not admit international students.",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from a regionally accredited institution, completed graduate application, official transcripts, three letters of recommendation, a Statement of Interest of 500–750 words addressing why you want to become an LMFT and your relevant experience, and a faculty interview. $80 non-refundable application fee. No prerequisite psychology coursework is listed.",
+  "deadline": "Rolling — \"Applications are accepted on a rolling basis\"",
+  "src": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
+  "gre_evidence": "Completion of all 60 units of required courses with an overall GPA of 3.0 or higher",
+  "gre_url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
+  "min_gpa": null,
+  "conflict": "Two different totals appear on the school's own pages: 375 hours in one place, 350 plus 100 in another."
+ },
+ "voices": [
+  {
+   "text": "\"Having Phillips Graduate Institute and Campbellsville University join forces is a natural move\" — and students would \"receive a Phillips education with a Campbellsville University degree,\" with \"the core faculty, which has led the PGI program for decades... poised to continue the legacy.\"",
+   "who": "Dr. José Luis Flores, Phillips Graduate Institute press release, 8 May 2019",
+   "sentiment": "info",
+   "url": "https://www.prweb.com/releases/phillips-graduate-institute-continues-to-provide-graduate-level-counseling-education-marriage-and-family-therapy-master-s-degree-program-set-for-august-start-814645968.html"
+  },
+  {
+   "text": "\"All Phillips Graduate University formerly Phillips Graduate Institute and California Family Study Center degrees and certificates awarded prior to May 1, 2019 are regionally accredited by WASC\" — the institution withdrew WASC accreditation in April 2019 and \"transferred the MFT program to our partner university.\"",
+   "who": "Phillips Graduate University accreditation page, current",
+   "sentiment": "info",
+   "url": "https://pgu.edu/accreditation.html"
+  },
+  {
+   "text": "\"This is not a school where learning just takes place from a page, but rather, from the experience itself.\" Surveyed students reported the degree improved their job prospects and said they would recommend the school.",
+   "who": "Graduate quoted on California MFT program directory",
+   "sentiment": "positive",
+   "url": "https://californiamft.org/mft-programs/campbellsville-university/"
+  },
+  {
+   "text": "On-time completion 98% (53 of 54) for the 2022 reporting year and 93% (78 of 84) for 2023; job placement rate, licensure examination passage rate and salary data all reported as \"n/a\" for both years. Total charges for on-time completers listed at $54,275.",
+   "who": "BPPE School Performance Fact Sheet, MMFT, calendar years 2022–2023",
+   "sentiment": "mixed",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/los-angeles-education-center-media/MMFT%20School-Performance-Fact-Sheets%20January%202022-23.pdf"
+  },
+  {
+   "text": "\"Pursuing my Master's in Marriage and Family Therapy has been both challenging and rewarding. The best part of the program has been applying what I learn in the classroom to real clients during practicum... The most difficult part has been balancing graduate school with full-time work, practicum, and family responsibilities. Although it has required sacrifice and discipline, it has strengthened my resilience, time management, and commitment to serving others.\"",
+   "who": "Niche graduate review, Campbellsville MFT master's student, c. July 2026 (campus not stated by the reviewer)",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/campbellsville-university/reviews/"
+  },
+  {
+   "text": "\"If you are considering this program, be prepared to work hard and stay organized. Balancing coursework, practicum, work, and family can be challenging, but it is also incredibly rewarding. Take advantage of your professors, supervisors, and classmates as they are valuable resources...\"",
+   "who": "Niche graduate review, Campbellsville MFT master's student, c. July 2026 (campus not stated by the reviewer)",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/campbellsville-university/reviews/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/1/13/Administration_Building%2C_Campbellsville_University.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Administration_Building,_Campbellsville_University.jpg",
+  "license": "Public domain",
+  "credit": "Photo by Nyttend, via Wikimedia Commons (public domain)",
+  "caption": "The Administration Building on Campbellsville University's home campus in Campbellsville, Kentucky — the institution that now grants this degree. The MFT classes themselves meet 2,000 miles away, in a suite at 16830 Ventura Blvd. in Encino."
+ },
+ "gaps": [
+  "No COAMFTE accreditation for the Los Angeles MMFT. Campbellsville's COAMFTE accreditation covers only its Louisville/Online MMFT.",
+  "No licensure examination passage rate, job placement rate or salary data has ever been published — the BPPE fact sheet reports \"n/a\" across the board for both 2022 and 2023.",
+  "The two official documents disagree on required practicum hours: the 2025–26 California-specific catalog says 375 (100 relational + 200 individual + 75 advocacy); the MFC 533/535 course descriptions say 350 direct plus 100 alternative.",
+  "No student reviews, Reddit threads or forum discussion specific to the Campbellsville Los Angeles site could be found. The one Marriage & Family Therapy review on OnlineU (June 2015) predates the 2019 transfer and appears to refer to a Kentucky program.",
+  "Whether the original Phillips faculty are still teaching in 2026 could not be verified. The 2025–26 California-specific catalog names only three instructors (Danielle Lascano, Ed.D., LMFT, Program Director; Bobbi Jankovich, M.A., LMFT; Fereshteh Mazdyasni, M.A., LMFT).",
+  "Current operating details of the David H. Fox Counseling Center / Cal Fam traineeship could only be verified from a page whose posted application cycle dates are from 2018; the number of current trainee slots is unknown.",
+  "No published cohort-size target, no term-by-term class-size figure, and no attrition data beyond the two BPPE fact-sheet years."
+ ],
+ "corrections": [
+  {
+   "field": "practicum.hours",
+   "current": "375 practicum hours",
+   "correct": "375 is the figure the program markets and the 2025–26 California-specific catalog breaks it out as 100 relational + 200 individual client + 75 client-centered advocacy hours. But the academic catalog's own descriptions of MFC 533 and MFC 535 state \"a minimum of 350 direct clinical hours and 100 alternative hours\" — a different and larger requirement. Both are current official Campbellsville documents. Flag the conflict rather than picking one.",
+   "src": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27739"
+  },
+  {
+   "field": "location",
+   "current": "Los Angeles",
+   "correct": "Specifically Encino: 16830 Ventura Blvd., Suite 200, Encino, CA 91436. The former Phillips campus at 19900 Plummer St., Chatsworth is closed and still appears in stale listings.",
+   "src": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/"
+  }
+ ],
+ "sources": [
+  {
+   "label": "Phillips MMFT program page, Campbellsville Los Angeles Education Center",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html"
+  },
+  {
+   "label": "Los Angeles Education Center overview (address, current programs, Phillips status)",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/"
+  },
+  {
+   "label": "Clinical Training and Placement page",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/clinical-training-and-placement.html"
+  },
+  {
+   "label": "Phillips MMFT brochure with full five-term course schedule",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/los-angeles-education-center-media/Phillips%20Graduate%20Brochure%20New.pdf"
+  },
+  {
+   "label": "California-Specific Catalog Information 2025–2026 (tuition, total charges, practicum hour breakdown, faculty)",
+   "url": "https://catalog.campbellsville.edu/mime/media/view/20/1058/California-Specific-Catalog-Information-2025-2026.pdf"
+  },
+  {
+   "label": "Campbellsville University 2025–2026 Graduate Catalog, MFC course descriptions",
+   "url": "https://catalog.campbellsville.edu/preview_course_nopop.php?catoid=20&coid=27727"
+  },
+  {
+   "label": "Campbellsville University accreditation page (SACSCOC; COAMFTE listed for Louisville/Online only; BPPE/BBS for Los Angeles)",
+   "url": "https://www.campbellsville.edu/academics/academic-affairs/accreditation.html"
+  },
+  {
+   "label": "BPPE School Performance Fact Sheet, MMFT, 2022–2023",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/los-angeles-education-center-media/MMFT%20School-Performance-Fact-Sheets%20January%202022-23.pdf"
+  },
+  {
+   "label": "Phillips Graduate University accreditation statement (WASC withdrawal, program transfer)",
+   "url": "https://pgu.edu/accreditation.html"
+  },
+  {
+   "label": "Phillips Graduate Institute press release announcing the Campbellsville partnership, 8 May 2019",
+   "url": "https://www.prweb.com/releases/phillips-graduate-institute-continues-to-provide-graduate-level-counseling-education-marriage-and-family-therapy-master-s-degree-program-set-for-august-start-814645968.html"
+  },
+  {
+   "label": "Phillips Graduate University — Wikipedia (founding, name changes, presidents, closure)",
+   "url": "https://en.wikipedia.org/wiki/Phillips_Graduate_University"
+  },
+  {
+   "label": "David H. Fox Counseling Center pre-master's traineeship",
+   "url": "https://phillips.campbellsville.edu/counseling-center/pre-masters-traineeship/"
+  },
+  {
+   "label": "MFT Consortium of California / Greater Los Angeles consortium",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/california-consortium/index.html"
+  },
+  {
+   "label": "California MFT directory entry for Campbellsville",
+   "url": "https://californiamft.org/mft-programs/campbellsville-university/"
+  }
+ ]
+}

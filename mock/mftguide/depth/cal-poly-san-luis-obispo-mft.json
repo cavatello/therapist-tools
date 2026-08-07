@@ -1,0 +1,212 @@
+{
+ "institution": "Cal Poly San Luis Obispo",
+ "character": [
+  "The listing is real and current, not historical. Cal Poly San Luis Obispo runs an M.S. in Psychology whose entire purpose is the California LMFT license — the 2026–2028 catalog describes it as training \"master-level clinicians for marriage and family therapy (MFT) licensure in California\" and there is no non-clinical track. It is 69 semester units (73 with the thesis option), it admits 16–20 students once a year for fall only, and roughly 40 students are enrolled across all cohorts at any time. That makes it one of the smallest and cheapest routes to the license in the state: a public CSU with a fixed, lockstep, in-person schedule where every course runs once a year. The program is in the middle of converting from quarters to semesters — the shift happened in fall 2026, which is why the course numbers changed from three digits (PSY 520, 555, 569, 576) to four (PSY 5510, 5515, 5586, 5595).",
+  "The distinguishing feature is the in-house clinic, not the theory. Cal Poly operates the San Luis Obispo Counseling Service, a department-run community clinic staffed by M.S. students and supervised by licensed psychologists on the faculty, charging county residents $5–$25 a session on a sliding scale. Students see real clients under faculty supervision before they ever leave campus, then move to a four-quarter community traineeship. Curricular content, by contrast, is conventional and BBS-shaped: theories, diagnosis, assessment, group, couples, child/adolescent, substance use, psychopharmacology, law and ethics. The one thread that reads as a genuine commitment rather than a checkbox is culture — PSY 5516 Multicultural and Social Justice Counseling is a standalone required course, and the multicultural lens is written into the catalog descriptions of assessment, diagnosis and the theories course rather than quarantined in one class. If you want a school with a named theoretical identity — depth, somatic, systemic-structural — this is not it. What it offers instead is a small cohort, an on-campus clinic, program-arranged placements, and public-university tuition."
+ ],
+ "orientation": "Generalist systemic/family therapy with a required multicultural and social-justice counseling strand",
+ "signature": [
+  {
+   "code": "PSY 5586",
+   "title": "Counseling Clinic Practicum-Supervision",
+   "units": "2-3 (repeatable up to 5)",
+   "desc": "Applied experience and instruction in assessment, diagnosis, treatment planning and counseling of individuals, couples, families, children, and groups under direct supervision of faculty in program clinic.",
+   "verbatim": true,
+   "why": "The phrase 'in program clinic' is the whole point — this is direct faculty supervision of real client work inside a department-run clinic, not an off-campus site the student had to go find. Very few California MFT programs put students in front of paying community clients under their own faculty's supervision.",
+   "src": "https://catalog.calpoly.edu/courses/psy/"
+  },
+  {
+   "code": "PSY 5585",
+   "title": "Counseling Clinic Practicum-Group Seminar",
+   "units": "2 (repeatable up to 6)",
+   "desc": "Practicum clinic process and procedure. Therapeutic modality, client safety assessment and intervention, abuse and neglect, and treatment termination. Forum for client distribution, case consultation, tracking clinical experience, precursor to traineeship.",
+   "verbatim": true,
+   "why": "'Forum for client distribution' is unusually literal: the seminar is where cases are actually assigned to students out of the clinic's intake. It shows the clinic and the classroom are the same machine rather than two parallel requirements.",
+   "src": "https://catalog.calpoly.edu/courses/psy/"
+  },
+  {
+   "code": "PSY 5595",
+   "title": "Traineeship: Marriage and Family Therapy",
+   "units": "3 (repeatable up to 9)",
+   "desc": "Supervised experience in applied psychotherapy in a community-based setting. Includes the assessment, diagnosis, and treatment of adults, couples, families, children, adolescents, and groups. Weekly supervision with on-site and university supervisors.",
+   "verbatim": true,
+   "why": "Nine units of traineeship — more than any other single line in the degree — and the dual 'on-site and university' supervision means the school stays involved in the placement rather than handing you off to an agency.",
+   "src": "https://catalog.calpoly.edu/courses/psy/"
+  },
+  {
+   "code": "PSY 5545",
+   "title": "Advanced Family Therapy: Attachment, Trauma, and Parenting",
+   "units": "3",
+   "desc": "An advanced analysis of a family systems approach to therapy emphasizing the importance of attending to attachment, traumatic experiences, and parenting in understanding human behavior, family functioning, and development in cultural and ecological contexts.",
+   "verbatim": true,
+   "why": "This is the closest the curriculum comes to a theoretical signature: a second, advanced family-systems course beyond the introductory PSY 5510, explicitly fusing attachment and trauma into the systems frame rather than treating them as separate electives.",
+   "src": "https://catalog.calpoly.edu/courses/psy/"
+  },
+  {
+   "code": "PSY 5516",
+   "title": "Multicultural and Social Justice Counseling",
+   "units": "3",
+   "desc": "Psychological, cultural, and ecological analysis of experiences and histories of various U.S. cultural groups. Development of awareness of multiple dimensions of diversity, multicultural issues and relevant counseling skills to prepare students to clinically work proficiently, humbly, and effectively with multicultural populations.",
+   "verbatim": true,
+   "why": "A required 3-unit course taken in the first fall, not an elective. Note the word 'humbly' — the catalog is describing cultural humility as a trained clinical skill, and the same lens reappears inside the assessment and diagnosis course descriptions.",
+   "src": "https://catalog.calpoly.edu/courses/psy/"
+  }
+ ],
+ "curriculum": {
+  "note": "Lockstep, full-time, in-person cohort. Courses run once a year, day and evening, so the sequence is effectively fixed; full-time students finish in two years or two years plus two terms. Cal Poly publishes the required course list but not a term-by-term grid, so the courses below are listed as a single required block. The program converted from quarters to semesters in fall 2026; this is the 2026–2028 semester catalog.",
+  "total_units": "69 (73 with the thesis option)",
+  "terms": [
+   {
+    "label": "Required coursework (no published term-by-term sequence)",
+    "courses": [
+     "PSY 5510 Marriage & Family Therapy: Theory and Practice (3)",
+     "PSY 5512 Theories of Psychotherapy in Context (3)",
+     "PSY 5515 Counseling & Communication (4)",
+     "PSY 5516 Multicultural and Social Justice Counseling (3)",
+     "PSY 5520 Adult Diagnosis and Treatment Planning (3)",
+     "PSY 5522 Psychological Assessment (4)",
+     "PSY 5526 Group Therapy (3)",
+     "PSY 5528 Gender and Human Sexuality (2)",
+     "PSY 5530 Legal and Ethical Issues in Marriage and Family Therapy (3)",
+     "PSY 5540 Couples and Relational Therapy (2)",
+     "PSY 5542 Child and Adolescent Diagnosis and Treatment Planning (3)",
+     "PSY 5545 Advanced Family Therapy: Attachment, Trauma, and Parenting (3)",
+     "PSY 5550 Research Methods in Counseling (3)",
+     "PSY 5552 Child and Adolescent Therapy (3)",
+     "PSY 5555 Contemporary Approaches in Marriage and Family Therapy (2)",
+     "PSY 5558 Assessment and Treatment of Substance Use Disorders (3)",
+     "PSY 5560 Community Mental Health: Issues and Practices (2)",
+     "PSY 5565 Psychopharmacology for Therapists (2)",
+     "PSY 5585 Counseling Clinic Practicum-Group Seminar (4 total)",
+     "PSY 5586 Counseling Clinic Practicum-Supervision (5 total)",
+     "PSY 5595 Traineeship: Marriage and Family Therapy (9 total)",
+     "PSY 5597 Comprehensive Examination (0) — or PSY 5599 Thesis (4+)"
+    ]
+   }
+  ],
+  "src": "https://catalog.calpoly.edu/liberal-arts/psychology-child-development/psychology-ms/"
+ },
+ "practicum": {
+  "starts": "Spring of year one for a limited number of students; fall of year two for the rest (per the program's M.S. handbook)",
+  "hours": "Practicum (2 terms): 40 hours of clinical service — 15 individual, 15 couple/family, 10 group — plus 40 hours of observation. Traineeship (4 terms): 150 hours per term on site, of which at least 60 must be face-to-face counseling, with a caseload including at least 2 families, parent-child dyads and/or couples.",
+  "who_places": "program-placed",
+  "clinic": "San Luis Obispo Counseling Service at Cal Poly",
+  "detail": "Clinical work starts on campus, not at an outside agency: students first see clients at the San Luis Obispo Counseling Service, a department-run community clinic serving county residents who don't qualify for county behavioral health or can't afford private therapy, on a $5–$25 sliding scale, staffed by M.S. students and supervised by licensed psychologists in the Psychology and Child Development department. Practicum is capacity-limited — the handbook says only 8 students can enroll in the spring of year one, and everyone else waits until fall of year two — and while in it students get one hour a week of individual supervision from their faculty supervisor plus two hours a week of group supervision, totalling 20 individual and 40 group hours across the practicum. The relational sub-minimum is explicit and unusually early: 15 of the 40 practicum service hours must be couple or family work, and each traineeship term requires a caseload containing at least two families, parent-child pairs and/or couples. Placement for the four-quarter community traineeship is program-run, not student-run — the handbook states that the Traineeship Coordinator arranges placement interviews and that students may only contact agencies the Coordinator has approved. On site, trainees log 15–20 hours a week and receive 10 hours of individual and 20 hours of group supervision per term, with the catalog adding that supervision is 'weekly supervision with on-site and university supervisors.' Note that the hour figures above come from the 2019–20 handbook, written under the quarter system; the course structure carried over into the semester catalog but the per-term numbers may have been rescaled.",
+  "src": "https://content-calpoly-edu.s3.amazonaws.com/psycd/1/images/19-20%20MS%20Handbook%209.9.19-1.pdf",
+  "model": "placed",
+  "model_evidence": "The graduate program operates on a cohort model wherein classes are small, and students receive much individual attention in our on-campus practicum training clinic and community traineeship sites.",
+  "model_url": "https://psycd.calpoly.edu/graduate",
+  "model_why": "“Interviews are then arranged and, eventually, trainees are selected and placed.” The on-campus clinic is stage one; the programme places the community traineeship.",
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "SLO Counseling Service (on-campus practicum training clinic)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "16–20 admitted per year, one cohort, fall entry only; about 40 students enrolled across all cohorts",
+  "gre": "not required",
+  "prereqs": "Five prerequisite courses (3 semester / 4 quarter units each), completed by July 31 before enrollment: Research Methods in Psychology; Introductory Statistics; Personality Theory; Abnormal Psychology / Adult Mental Health & Psychopathology; Developmental Psychology / Lifespan Development. Bachelor's degree from a regionally accredited institution; 3.0 GPA in the last 60 semester units (applications at 2.5+ also reviewed). Applied through Cal State Apply with a personal statement and three letters of recommendation.",
+  "deadline": "January 5, 2027 at 5:00pm for Fall 2027 entry; group interviews held late February or early March",
+  "src": "https://psycd.calpoly.edu/graduate/application-information",
+  "gre_evidence": "The Graduate Record Exam (GRE) is not required for program admission.",
+  "gre_url": "https://psycd.calpoly.edu/graduate/application-information",
+  "min_gpa": "3.0 in the last 60 semester (90 quarter) units attempted (we will review applications with a 2.5 GPA and higher)",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"the program really sticks to the “learn by doing” ethos, so everyone in my cohort came in with experience either in residential treatment centers, ABA, crisis hotlines, or similar. they want to see that you have related experience and can walk the walk, even if your experience wasn’t extensive. aside from that, they’re of course looking for folks who are very warm and personable, and who perform well academically.\"",
+   "who": "u/blisablellbla, student in Cal Poly SLO's MS Psychology/MFT program describing their own cohort, r/CalPoly, Oct 2024",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/CalPoly/comments/1g3pw8r/experiences_with_cal_polys_mft_counseling_psych/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/4/48/Dexter_Building%2C_entrance%2C_Cal_Poly_SLO_%28August_2017%29.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dexter_Building,_entrance,_Cal_Poly_SLO_(August_2017).jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Stilfehler, via Wikimedia Commons",
+  "caption": "Entrance to the Dexter Building on the Cal Poly San Luis Obispo campus"
+ },
+ "gaps": [
+  "Cal Poly publishes the required course list but no term-by-term plan of study for the M.S. in Psychology; the 'terms' field is therefore a single required-coursework block.",
+  "No post-semester-conversion student handbook could be found. All practicum and traineeship hour figures come from the 2019–20 handbook, which was written under the quarter system — the structure carried over but the per-term hour counts may have been rescaled for semesters.",
+  "The department's own Course Requirements page still says students 'must successfully complete 90-quarter units,' which contradicts the 69-semester-unit 2026–2028 catalog. The catalog is the authoritative figure; the department page appears not to have been updated after the semester conversion.",
+  "No tuition or total cost figure could be sourced. Cal Poly's public tuition-and-fees pages returned 404s and the department financial aid page lists funding programs without dollar amounts.",
+  "No credible student discussion (Reddit, GradCafe, Student Doctor Network) could be gathered — the research session's web-search budget was exhausted before reviews could be searched, and direct Reddit API access was blocked. 'voices' is therefore empty rather than absent-because-nothing-exists.",
+  "The clinic's own pages describe it as serving the 'Master of Science Psychology Program' and never use the phrase 'MFT'; the link between clinic and MFT training is established from the department graduate page and the handbook rather than from the clinic site itself."
+ ],
+ "sources": [
+  {
+   "label": "Cal Poly Academic Catalog 2026–2028 — Psychology (MS)",
+   "url": "https://catalog.calpoly.edu/liberal-arts/psychology-child-development/psychology-ms/"
+  },
+  {
+   "label": "Cal Poly Academic Catalog 2026–2028 — Psychology (MS), PDF edition",
+   "url": "https://catalog.calpoly.edu/liberal-arts/psychology-child-development/psychology-ms/psychology-ms.pdf"
+  },
+  {
+   "label": "Cal Poly Academic Catalog — PSY course descriptions",
+   "url": "https://catalog.calpoly.edu/courses/psy/"
+  },
+  {
+   "label": "Psychology and Child Development — Graduate Program",
+   "url": "https://psycd.calpoly.edu/graduate"
+  },
+  {
+   "label": "Psychology and Child Development — Application Information",
+   "url": "https://psycd.calpoly.edu/graduate/application-information"
+  },
+  {
+   "label": "Psychology and Child Development — Community Programs",
+   "url": "https://psycd.calpoly.edu/community-programs"
+  },
+  {
+   "label": "San Luis Obispo Counseling Service at Cal Poly — About",
+   "url": "https://slocounselingservice.calpoly.edu/about"
+  },
+  {
+   "label": "M.S. in Psychology (MFT) Student Handbook 2019–20",
+   "url": "https://content-calpoly-edu.s3.amazonaws.com/psycd/1/images/19-20%20MS%20Handbook%209.9.19-1.pdf"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "degree",
+   "current": null,
+   "correct": "M.S. in Psychology — a Marriage and Family Therapy degree; the 2026–2028 catalog states the program 'trains master-level clinicians for marriage and family therapy (MFT) licensure in California'",
+   "src": "https://catalog.calpoly.edu/liberal-arts/psychology-child-development/psychology-ms/"
+  },
+  {
+   "field": "program_status",
+   "current": "BBS-listed only; possibly historical",
+   "correct": "Active and currently recruiting. Application deadline January 5, 2027 for Fall 2027 entry, and the program appears in the current 2026–2028 academic catalog.",
+   "src": "https://psycd.calpoly.edu/graduate/application-information"
+  },
+  {
+   "field": "total_units",
+   "current": null,
+   "correct": "69 semester units (73 with the thesis option), effective with the fall 2026 semester conversion",
+   "src": "https://catalog.calpoly.edu/liberal-arts/psychology-child-development/psychology-ms/psychology-ms.pdf"
+  },
+  {
+   "field": "url",
+   "current": "https://www.calpoly.edu/",
+   "correct": "https://psycd.calpoly.edu/graduate — the program's own page; the generic university homepage does not reach the MFT program in fewer than four clicks",
+   "src": "https://psycd.calpoly.edu/graduate"
+  },
+  {
+   "field": "calendar",
+   "current": null,
+   "correct": "Converted from quarters to semesters in fall 2026; PSY course numbers changed from three digits to four (e.g. PSY 576 → PSY 5595)",
+   "src": "https://psycd.calpoly.edu/graduate"
+  },
+  {
+   "field": "clinic",
+   "current": null,
+   "correct": "San Luis Obispo Counseling Service at Cal Poly — a department-run community training clinic, $5–$25 sliding scale",
+   "src": "https://slocounselingservice.calpoly.edu/about"
+  }
+ ]
+}

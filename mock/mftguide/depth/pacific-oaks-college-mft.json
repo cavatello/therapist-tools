@@ -1,0 +1,253 @@
+{
+ "institution": "Pacific Oaks College",
+ "character": [
+  "Pacific Oaks grew out of a Quaker-founded school in Pasadena in 1958 and its MFT program is the rare case where the social-justice branding is structurally visible in the course list. The organizing idea is human development read through social context: the required MFT 525 Interface of Society and Human Development \"integrates a variety of theories of human development, with a variety of societal issues, forces and dynamics including politics, economics, race, culture, gender, class, sex, privilege and oppression,\" and it is prerequisite-gated behind the three intro courses, so nobody skips it. MFT 653 Cross-Cultural Mores and Values then adds a second required course on socio-political constraints on development. That is two required courses carrying the frame, plus a program that explicitly says its graduates should \"consider issues of social justice, trauma within family and community systems.\"",
+  "The real differentiator, though, is the four identity-based specializations — African-American Family Studies, Latinx Family Studies, LGBTQIA+ Studies and Trauma Studies — and specifically the fact that the first three are built on an identical five-part architecture rather than being a grab-bag of electives: History and Culture (3 credits), Family Systems or Family and Child (3), Historical Trauma and Recovery (2), Psychology (3), and Community Resources and Advocacy (1). The advocacy course is the tell. MFT 614 puts \"particular emphasis... on social justice, advocacy theory and developing practice skills needed to become change agents,\" and MFT 618 African American Psychology teaches the field's own intellectual lineage by name — Kenneth Clark, William Cross, Na'im Akbar, Joseph White, Frantz Fanon, Frances Cress Welsing, Wade Nobles, Linda James Myers. Very few California MFT programs teach a named Black-psychology canon as a required course in a track.",
+  "One caveat about what 'anti-bias' means here. Pacific Oaks is nationally associated with anti-bias curriculum work, but the courses actually titled that way — HD 390 Developing Anti-Bias Curriculum, HD 562 Advanced Studies in Diversity and Anti-Bias Issues, HD 592 Advanced Studies in Implementing Anti-Bias Curriculum — live in the Human Development and Education programs, not in the MFT curriculum. There is no course called 'anti-bias' or 'cultural humility' in the MFT degree. The heritage reaches MFT through the developmental-in-social-context frame and the identity tracks, which is a real commitment, just not the same thing as a named anti-bias sequence. Practically: no in-house training clinic, all placements are LA-area community agencies, 36 hours of your own therapy are required, and the college's own student reviews are consistently warm about faculty and consistently sharp about financial aid and registration administration."
+ ],
+ "orientation": "Human development and family systems read through culture, oppression and social context — the catalog calls it a \"multidisciplinary, inclusive curriculum based on developmental and family systems theories and evidence-based theory and practice\"",
+ "signature": [
+  {
+   "code": "MFT 525",
+   "title": "Interface of Society and Human Development",
+   "units": "3",
+   "desc": "\"This course integrates a variety of theories of human development, with a variety of societal issues, forces and dynamics including politics, economics, race, culture, gender, class, sex, privilege and oppression,\" exploring how society shapes development, identity and life choices and becomes a factor in mental health symptoms.",
+   "verbatim": true,
+   "why": "This is the course that carries the entire Pacific Oaks thesis, and it is required in every track and gated behind three prerequisites. If you want to know whether the social-justice framing is real curriculum or marketing, this is the single course to read — and it is graded coursework, not an orientation session.",
+   "src": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  },
+  {
+   "code": "MFT 653",
+   "title": "Cross-Cultural Mores and Values",
+   "units": "3",
+   "desc": "Presents a conceptual framework for incorporating sociocultural factors into clinical and communication practice — family history, structures, dynamics, values, adaptive strengths and coping styles — plus \"socio-political constraints on human development (with emphasis on racism and normative value psychology).\" Racial/ethnic identity is treated as the core of self-identity.",
+   "verbatim": true,
+   "why": "The second required diversity course in the traditional track, taken concurrently with Practicum I so it lands while students are seeing clients. The phrase \"normative value psychology\" signals a critique of the discipline's own assumptions, which is more than the standard single multicultural-counseling survey.",
+   "src": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  },
+  {
+   "code": "MFT 614",
+   "title": "Latinx Community Resources and Advocacy",
+   "units": "1",
+   "desc": "Addresses the institutions that shape mental-health services and wellbeing in the Latinx community and the ecological context of marginalization. \"Particular emphasis is on social justice, advocacy theory and developing practice skills needed to become change agents for families in the LatinX communities.\"",
+   "verbatim": true,
+   "why": "Each identity specialization ends with a 1-credit advocacy course of exactly this shape (MFT 619 for African American Family Studies, MFT 662 for LGBTQIA+). Small, but it means the tracks close on systems change rather than on clinical technique — a design choice you can see in the credit table, not just the brochure.",
+   "src": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  },
+  {
+   "code": "MFT 618",
+   "title": "African American Psychology",
+   "units": "3",
+   "desc": "Examines models of Black mental health and ethnic and self-identity development, and the impact of society, culture, family, racism and poverty on personality. \"The history of Black Psychology and the pioneer theorists of this movement, such as Kenneth Clark, William Cross, Na'im Akbar, Joseph White, Franz Fanon, Frances Cress Welsing, Wade Noble, Linda James Myers, and others will be discussed.\"",
+   "verbatim": true,
+   "why": "A catalog description that names a specific intellectual canon is rare and is a strong signal the course has real content behind it. This is required in the African-American Family Studies specialization, alongside a separate history course and a historical-trauma course — a genuine three-course sequence, not a single survey.",
+   "src": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  },
+  {
+   "code": "MFT 656",
+   "title": "LGBTQIA+ History and Historical Trauma",
+   "units": "3",
+   "desc": "\"In this course, we will examine the historical emergence and construction of lesbian, gay, bisexual, transgender identities and beyond, beginning with indigenous identities in the pre-colonized world, moving into the 19th and 20th century in the United States and abroad,\" together with historical trauma and its definitions.",
+   "verbatim": true,
+   "why": "Starting from pre-colonial indigenous identities rather than Stonewall is a specific historiographic choice, and it opens a four-course LGBTQIA+ sequence (history, family systems, psychology, advocacy). Programs that offer 'LGBTQ competence' as a single elective are doing something categorically smaller than this.",
+   "src": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  },
+  {
+   "code": "MFT 605",
+   "title": "Pre-Practicum and Professionalism in the Field",
+   "units": "0",
+   "desc": "A 16-week hybrid course preparing students to work as an MFT Trainee: the paperwork required to contract with a training site, how to obtain personal liability insurance, and what resources trainees can use. \"Topics such as attire, vacations, boundaries and agency culture will also be covered.\"",
+   "verbatim": true,
+   "why": "Zero credits, but it is a required, graded-credit/no-credit course — and its content is the unglamorous mechanics that trip up first-year trainees. Paired with MFT 600 Clinical Training Orientation and the First Year Review, it shows a program that has formalized the transition into fieldwork rather than leaving it to an advising email.",
+   "src": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "No term-by-term sequence is published; the catalog organizes the degree by credit block and enforces order through course prerequisites instead. Roughly 2.5 years full-time or about 4 years part-time. All entering students take the same three courses first regardless of track — MFT 507, MFT 522 and MFT 555 — and can switch specialization after that first semester. Course codes and credits below are from the current 2026-2027 catalog; the specialization blocks replace, rather than add to, part of the traditional core, which is why a 62-credit specialization is only two credits more than the 60-credit base.",
+  "total_units": "60 credits (traditional track); 60–62 with a single specialization, 67–68 with a dual specialization, plus 5 credits for the optional LPCC specialization",
+  "terms": [
+   {
+    "label": "Foundation courses (12 credits) — traditional track",
+    "courses": [
+     "MFT 507 Communication and Counseling Skills (3)",
+     "MFT 508 Personality Theories and Psychological Testing (3)",
+     "MFT 522 Theories of Marriage and Family Therapy (3)",
+     "MFT 525 Interface of Society and Human Development (3)"
+    ]
+   },
+   {
+    "label": "Core courses (40 credits) — traditional track",
+    "courses": [
+     "MFT 533 Clinical Theories of Child Development (3)",
+     "MFT 545 Substance Use, Co-Occurring Disorders and Addiction (2)",
+     "MFT 553 Human Sexuality (2)",
+     "MFT 535 Family Violence (2)",
+     "MFT 555 Professional Ethics and the Law (2)",
+     "MFT 570 Evidence Based Practice (3)",
+     "MFT 571 Psychopathology of Adulthood (3)",
+     "MFT 575 Child Adolescent Therapy (3)",
+     "MFT 580 Research Methods and Critical Analysis (3)",
+     "MFT 625 Clinical Skills in Family Therapy (3)",
+     "MFT 635 Psychopharmacology (2)",
+     "MFT 640 Couples Therapy (2)",
+     "MFT 645 Group Therapy (2)",
+     "MFT 653 Cross-Cultural Mores and Values (3)",
+     "MFT 620 Gerontology (2)",
+     "MFT 660 Trauma and Recovery (3)"
+    ]
+   },
+   {
+    "label": "Practicum courses (8 credits) — all tracks",
+    "courses": [
+     "MFT 600 Clinical Training Orientation (0, online)",
+     "MFT 605 Pre-Practicum and Professionalism in the Field (0, online)",
+     "MFT 626 Practicum I (3)",
+     "MFT 628 Practicum II (3)",
+     "MFT 667 Practicum III: Clinical Portfolio (2)",
+     "MFT 685 Practicum Continuation (0, if needed)"
+    ]
+   },
+   {
+    "label": "African-American Family Studies specialization block (62 credits total)",
+    "courses": [
+     "MFT 615 African American History and Culture (3)",
+     "MFT 616 African American Family and Child (3)",
+     "MFT 617 African American Families, Historical Trauma and Recovery (2)",
+     "MFT 618 African American Psychology (3)",
+     "MFT 619 African American Community Resources & Advocacy (1)"
+    ]
+   },
+   {
+    "label": "Latinx Family Studies specialization block (62 credits total)",
+    "courses": [
+     "MFT 610 Latinx History and Culture (3)",
+     "MFT 611 Latinx Family Systems (3)",
+     "MFT 612 Latinx Families, Historical Trauma and Recovery (2)",
+     "MFT 613 Latinx Psychology (3)",
+     "MFT 614 Latinx Community Resources and Advocacy (1)"
+    ]
+   },
+   {
+    "label": "LGBTQIA+ Studies specialization block (60 credits total)",
+    "courses": [
+     "MFT 656 LGBTQIA+ History and Historical Trauma (3)",
+     "MFT 657 LGBTQIA+ Family Systems (3)",
+     "MFT 658 LGBTQIA+ Psychology (3)",
+     "MFT 662 LGBTQIA+ Community Resources and Advocacy (1)"
+    ]
+   },
+   {
+    "label": "Trauma Studies specialization block (61 credits total)",
+    "courses": [
+     "MFT 671 Complex Trauma and Recovery (3)",
+     "MFT 673 Historical Trauma (2)",
+     "MFT 677 Culture, Attachment, and Trauma (3)",
+     "MFT 680 Immigration Trauma (2)",
+     "MFT 682 Military Trauma and the Family (2)"
+    ]
+   },
+   {
+    "label": "LPCC specialization add-on (5 credits, any track)",
+    "courses": [
+     "MFT 670 Career Development Theories and Techniques (3)",
+     "MFT 681 Advanced Topics in Addictions Counseling (1)",
+     "MFT 683 Advanced Topics in Psychopharmacology (1)"
+    ]
+   }
+  ],
+  "src": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085"
+ },
+ "practicum": {
+  "starts": "After the First Year Review, which is triggered at 15 credits; MFT 600 and MFT 605 (both 0-credit) must be completed before a student can contract with a site",
+  "hours": "Minimum 225 face-to-face clinical traineeship hours (280 for students adding the LPCC specialization), across a 10–12 month commitment at an approved agency",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "There is no in-house training clinic. The college maintains relationships with clinics and community agencies across greater Los Angeles and Pasadena, but the student contracts with the site; the two 0-credit pre-practicum courses exist specifically to walk students through that contracting, insurance and paperwork process. Trainees may not work in private-practice settings, per BBS rules. The 225 hours run concurrently with MFT 626, MFT 628 and MFT 667, and the sequence ends in a Clinical Portfolio rather than a thesis. Separately, 36 hours of the student's own psychotherapy are required — at least 18 of them individual therapy, and at least 18 completed before practicum begins. The First Year Review evaluates seven named readiness competencies: maturity, insightfulness, capacity for establishing appropriate boundaries, reflection, professionalism, empathy and compassion, and interpersonal and relational skills.",
+  "src": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085",
+  "model": "assisted",
+  "model_evidence": "The Marriage and Family Therapy (MFT) Program maintains relationships with clinics, county and community-based agencies, and schools throughout the greater Los Angeles area to provide students with extensive opportunities for supervised clinical training as an MFT Trainee.",
+  "model_url": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from an accredited institution, official transcripts, summary of work/volunteer experience, personal statement, two letters of recommendation, a faculty interview, and \"demonstrated commitment to Pacific Oaks' mission and values.\" Up to 18 graduate credits may transfer; at least 42 of the 60 credits must be taken at Pacific Oaks.",
+  "deadline": "Rolling. The traditional and Trauma Studies tracks admit three times a year (Fall, Spring, Summer); the African-American Family Studies, Latinx Family Studies and LGBTQIA+ Studies specializations admit in Fall only.",
+  "src": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085",
+  "gre_evidence": "Bachelor's degree from an accredited institution, official transcripts, summary of work/volunteer experience, personal statement, two letters of recommendation, a faculty interview",
+  "gre_url": "https://www.pacificoaks.edu/academic-programs/ma-marriage-family-therapy/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"As an MFT student I'm motivated by my passion to help people and PO is structured with social Justice and diversity in mind.\"",
+   "who": "Niche, prospective MFT student review, ~2025 (4 stars)",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/pacific-oaks-college/reviews/"
+  },
+  {
+   "text": "An alum rated academics 5/5 — \"The professors were amazing\" — while reporting that \"administrative staff in counseling, enrollment, and financial aid made many errors in registration and financial aid.\"",
+   "who": "Niche, alum review, ~2026",
+   "sentiment": "mixed",
+   "url": "https://www.niche.com/graduate-schools/pacific-oaks-college/reviews/"
+  },
+  {
+   "text": "\"The worst part of my experience at Pacific Oaks is the lack of financial support... the department of financial assistance... does not respond to emails until payments are due.\"",
+   "who": "Niche, master's student review, August 2024 (4 stars)",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/pacific-oaks-college/reviews/"
+  },
+  {
+   "text": "A third-party program review notes Pacific Oaks holds WSCUC regional accreditation and BBS approval but is not COAMFTE- or CACREP-accredited, and publishes no MFT-specific graduation, placement or licensure-pass-rate data.",
+   "who": "Sentio University program review, 2025–26",
+   "sentiment": "info",
+   "url": "https://sentio.org/pacific-oaks-college-mft-program-review"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No term-by-term course sequence is published; the catalog uses credit blocks plus prerequisites, so the order below is structural rather than temporal.",
+  "Cohort size and entering-class size are not published.",
+  "No licensure exam pass rate, graduation rate or employment outcome data is published for the MFT program.",
+  "Verbatim course descriptions here are from the 2023-2024 Pacific Oaks catalog PDF (the most recent full-text catalog retrievable), while the course codes, credits and program structure are from the current 2026-2027 online catalog. Two codes changed between them: Practicum III: Clinical Portfolio moved from MFT 655 (3 credits) to MFT 667 (2 credits), and Human Sexuality moved from MFT 548 (1 credit) to MFT 553 (2 credits). Descriptions for those two renumbered courses are therefore not quoted.",
+  "The current catalog lists a fully synchronous online delivery modality for the MFT program (including a Trauma Studies specialization delivered online), which contradicts the 'not offered online' framing; the in-person/hybrid Pasadena track has students on campus for two courses a week with a third by live videoconference.",
+  "There is no in-house training clinic, and the catalog does not name any specific partner agencies.",
+  "No Reddit, Student Doctor Network or GradCafe discussion of this program was found; the available student voices are Niche reviews.",
+  "No freely-licensed photograph of the Pacific Oaks College Pasadena campus exists on Wikimedia Commons."
+ ],
+ "sources": [
+  {
+   "label": "M.A. in Marriage and Family Therapy program page",
+   "url": "https://www.pacificoaks.edu/academic-programs/ma-marriage-family-therapy/"
+  },
+  {
+   "label": "Academic catalog 2026-2027 — M.A. in Marriage and Family Therapy program requirements",
+   "url": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085"
+  },
+  {
+   "label": "Pacific Oaks College academic catalog (current index)",
+   "url": "https://catalog.pacificoaks.edu/"
+  },
+  {
+   "label": "Pacific Oaks 2023-2024 Academic Catalog and Student Handbook (PDF) — MFT course descriptions, program narrative, delivery modalities",
+   "url": "https://catalog.pacificoaks.edu/mime/media/view/163/21456/Pacific%20Oaks%202023-2024%20Academic%20Catalog%20and%20Student%20Handbook.pdf"
+  },
+  {
+   "label": "Pacific Oaks College — Wikipedia (1958 founding, Quaker heritage, WASC accreditation since 1959)",
+   "url": "https://en.wikipedia.org/wiki/Pacific_Oaks_College"
+  },
+  {
+   "label": "Niche graduate student reviews",
+   "url": "https://www.niche.com/graduate-schools/pacific-oaks-college/reviews/"
+  },
+  {
+   "label": "Sentio University third-party program review",
+   "url": "https://sentio.org/pacific-oaks-college-mft-program-review"
+  }
+ ]
+}

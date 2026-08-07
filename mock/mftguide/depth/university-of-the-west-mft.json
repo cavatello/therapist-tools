@@ -1,0 +1,333 @@
+{
+ "institution": "University of the West",
+ "character": [
+  "UWest's headline claim is that it offers \"the ONLY Buddhist-focused MFT curriculum in the state and the nation.\" Checked against the 2025–26 catalog, a narrower version of that holds. Three required courses carry Buddhism explicitly, and they sit at the three structural corners of the degree: PSYCH 505 Multicultural/Buddhist Community Mental Health is the single 3-unit Introduction course every student takes first, and it \"covers core learning areas while orienting students to Buddhist wisdom in the context of Western MFT\"; PSYCH 551 Theories II: Buddhist-Inspired Evidence-Based Practice is a required Core course and the second half of the theories sequence; and PSYCH 651 Buddhist Psychology & Addiction is the required Advanced substance-use course, treating addiction \"through the lenses of resiliency, recovery, medical, and Buddhist psychology models.\" So 9 of 63 required units are named-Buddhist — although a student may substitute PSYCH 529 Drug & Alcohol Theory & Intervention for PSYCH 651 and bring that down to 6. The catalog also commits to more than course titles: graduates are to be \"clinically and personally skilled in contemplative practice\" and \"versed in effective practices that borrow heavily from Buddhist psychology, such as Mindfulness-Based Stress Reduction, Mindfulness-Based Cognitive Therapy, Acceptance and Commitment Therapy, Compassion Focused Therapy, and Dialectical Behavioral Therapy Skills Training,\" plus \"the fundamentals of Emotionally Focused Therapy for couples\" and \"the applications of Interpersonal Neurobiology from the inside out.\" Two caveats a prospective student should hold: PSYCH 551's catalog description is a single generic sentence with no Buddhist content in it at all, and PSYCH 617 Application of Mindfulness in Western Therapy — the most obviously on-theme course in the catalog — is not in the MFT required list. Nor is PSYCH 503 Fundamentals of Buddhist Psychology, which belongs to the Buddhist Counseling Certificate.",
+  "The four specializations advertised on the program page do not appear in the catalog, and this is the single biggest discrepancy found. The website says students \"customize their degree by choosing a specialization, completing 12 units within their selected focus area,\" and names Generalist, Family Systems & Intergenerational Studies, Mindfulness-Based Therapy, and Community Mental Health. The 2025–26 catalog's MFT program requirements table has no specialization line and no elective units at all: Introduction 3 + Foundation 18 + Core 18 + Advanced 18 + Fieldwork/Practica 6 = 63, every course named. The only thing in the catalog resembling a specialization is one list headed \"Multicultural Generalist Specialization Courses\" — PSYCH 537 Motivational Interviewing, 602 Advanced Couples Counseling, 604 Advanced Child & Adolescent Interventions, 614 Religion & Psychotherapy, 650 Directed Reading, five 3-unit courses — which sits outside the 63 required units with no stated unit requirement. The marketing page is also visibly built from a business-program template, carrying blocks headed \"A Global Business Perspective\" and promising \"practical skills in leadership, finance, and entrepreneurship\" inside a therapy degree. Treat the four-specialization menu as unverified and ask admissions to show it to you in writing before enrolling.",
+  "The institution: small, cheap, real. UWest was founded in 1990 by Hsing Yun of the Taiwanese Buddhist order Fo Guang Shan, opened as Hsi Lai University in a Hsi Lai Temple classroom with four professors and about thirty students, and bought its 10-acre Rosemead hilltop campus from Biola in 1996. It was granted WASC Senior College and University Commission accreditation on 16 February 2006; WSCUC currently lists it as \"Accredited — Reflects the Commission's finding that the institution is in compliance with the Standards,\" most recent Commission action 30 October 2025, with an offsite review in Fall 2027 and a visit in Spring 2028. Graduate psychology tuition is $765 per unit for 2025–26, so 63 units is about $48,195, plus roughly $634 per semester in mandatory fees — genuinely inexpensive for a private California program, and the catalog notes UWest's MA in Psychology was ranked the ninth most affordable graduate psychology program in the US in 2015. But the scale is very small: federal data reports just 7 master's completions in the field (CIP 51.15) in the most recent year and 2 the year before, and the university publishes no cohort size, no licensure pass rate, no graduation rate and no placement data. There is no in-house training clinic; practicum is at outside agencies you help find."
+ ],
+ "orientation": "Buddhist psychology integrated with recovery-oriented, multicultural Western practice",
+ "signature": [
+  {
+   "code": "PSYCH 505",
+   "title": "Multicultural/Buddhist Community Mental Health (listed in the program tables as \"Buddhist & Multicultural Community Mental Health\")",
+   "units": "3",
+   "desc": "\"Introduces the MFT program, focusing on values exploration and acculturation/orientation to UWest, professional identity, and community mental health. Covers core learning areas while orienting students to Buddhist wisdom in the context of Western MFT.\"",
+   "verbatim": true,
+   "why": "This is the course that carries the Buddhist claim structurally: it is the entire 3-unit Introduction requirement, taken in the first term by every student, and it is the prerequisite for PSYCH 600 Group Psychotherapy and PSYCH 617. The Buddhist framing is placed at the front door rather than offered as an elective. Note the catalog itself uses two different titles for it.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "code": "PSYCH 651",
+   "title": "Buddhist Psychology & Addiction",
+   "units": "3",
+   "desc": "\"Examines the theories, etiology, assessment, diagnosis, and treatment of alcohol and substance use disorders and addiction through the lenses of resiliency, recovery, medical, and Buddhist psychology models, with special attention to co-occurring disorders.\" Prerequisite: 18 units of graduate work in Psychology.",
+   "verbatim": true,
+   "why": "Every California MFT program has to teach substance use for licensure; almost none teaches it through a Buddhist psychology frame. This is the clearest case of the Buddhist orientation reshaping a compliance requirement rather than sitting alongside it. Worth knowing that students may substitute the conventional PSYCH 529 Drug & Alcohol Theory & Intervention instead.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "code": "PSYCH 551",
+   "title": "Theories II: Buddhist-Inspired Evidence-Based Practice",
+   "units": "3",
+   "desc": "\"A follow-up course to PSYCH 531, designed to expand students' knowledge and experiences in counseling and helping skills.\" Prerequisite: PSYCH 531 Theories I. That two-line entry is the entire published catalog description.",
+   "verbatim": true,
+   "why": "Included precisely because of the mismatch: this is the required Core course whose title carries the program's central promise, and its catalog description contains no Buddhist content whatsoever. If you are choosing UWest for the Buddhist curriculum, this is the course to ask for a syllabus for before you commit.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "code": "PSYCH 623",
+   "title": "Poverty, Dislocation, & Stigma",
+   "units": "3",
+   "desc": "\"Seminar on the impact of poverty, deprivation, dislocation, social stress, and stigma upon mental health and recovery, with a focus upon culturally congruent therapeutic orientations and interventions.\" Prerequisite: 18 units of graduate work in Psychology.",
+   "verbatim": true,
+   "why": "A required 3-unit seminar built entirely around structural determinants of mental health — poverty, displacement, stigma — is unusual as a requirement rather than an elective, and it fits a program whose stated aim is community mental health with California's underserved populations. It pairs with PSYCH 607 Advanced Seminar in Culture & Psychotherapy in the final year.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "code": "PSYCH 505A",
+   "title": "Pre-Practicum",
+   "units": "0",
+   "desc": "\"This not-for-credit course meets one hour each week for a total of 15 hours. All second semester psychology students are required to enroll in this course. Provides first-year cohort continuity, support, and process during the second semester.\" Pass/No Pass only.",
+   "verbatim": true,
+   "why": "A zero-unit weekly cohort process hour in the second semester, required of everyone, is a small but telling structural choice: it keeps a small cohort together through the term just before practicum eligibility opens. It is the only cohort-maintenance mechanism in the curriculum.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "code": "PSYCH 617",
+   "title": "Application of Mindfulness in Western Therapy",
+   "units": "3",
+   "desc": "\"Introduces the concept of mindfulness and its influence on Western psychotherapeutic research and practice and historical and contemporary literature on the efficacy and effectiveness of mindful-based therapeutic approaches on the process and outcome of treatment.\" Prerequisite: graduate standing (elsewhere listed as PSYCH 505).",
+   "verbatim": true,
+   "why": "Listed here as a warning rather than a selling point: this is the course a prospective student would assume anchors a \"Mindfulness-Based Therapy\" specialization, and it is not in the 63-unit MFT requirement table at all. It appears in the Buddhist Chaplaincy and Buddhist Counseling Certificate course lists instead.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based and fully prescribed — the 63 units are five named blocks with no elective allowance in the catalog's requirements table. A minimum grade of B is required for every Foundation, Core and Advanced course; a failed course may be repeated once only. The catalog publishes a full-time sample progression across six terms (three years), with optional summer intersessions used to keep supervised clinical hours continuous. Although 9 units counts as full-time for financial aid, \"MFT students are expected to enroll in 12 units per term to complete the program following the cohort model.\" Up to 6 units may transfer in. A comprehensive exam, offered only in the spring semester, is required to graduate; the thesis (PSYCH 699A) is an approved alternative. Curriculum is aligned to California B&P Code §4980.37.",
+  "total_units": "63",
+  "terms": [
+   {
+    "label": "Year 1 — Term 1 (Fall)",
+    "courses": [
+     "PSYCH 501 Experimental Design & Statistical Analysis (3)",
+     "PSYCH 505 Multicultural/Buddhist Community Mental Health (3)",
+     "PSYCH 531 Theories I (3)",
+     "PSYCH 532 Law & Ethics (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Term 2 (Spring)",
+    "courses": [
+     "PSYCH 505A Pre-practicum (0)",
+     "PSYCH 530 Psychopathology (3)",
+     "PSYCH 533 Multicultural Counseling (3)",
+     "PSYCH 536 Marriage & Family Therapy I: Families (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Term 2.5 (Summer, optional)",
+    "courses": [
+     "PSYCH 702 Intersession Practicum (1) — required if supervised clinical training spans or begins during the summer session"
+    ]
+   },
+   {
+    "label": "Year 2 — Term 3 (Fall)",
+    "courses": [
+     "PSYCH 504 Counseling Children & Adolescents (3)",
+     "PSYCH 538 Psychological Testing (3)",
+     "PSYCH 540 Counseling Across the Lifespan (3)",
+     "PSYCH 700 Practicum (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Term 4 (Spring)",
+    "courses": [
+     "PSYCH 551 Theories II: Buddhist-Inspired Evidence-Based Practice (3)",
+     "PSYCH 556 Marriage & Family Therapy II: Couples (3)",
+     "PSYCH 600 Group Psychotherapy (3)",
+     "PSYCH 710 Advanced Practicum (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Term 4.5 (Summer, optional)",
+    "courses": [
+     "PSYCH 702 Intersession Practicum (1) — required if clinical training continues or spans the summer and the student is not registered for PSYCH 712"
+    ]
+   },
+   {
+    "label": "Year 3 — Term 5 (Fall)",
+    "courses": [
+     "PSYCH 623 Poverty, Dislocation, & Stigma (3)",
+     "PSYCH 633 Sex, Sexuality, & Gender (3)",
+     "PSYCH 643 Trauma & Resiliency (3)",
+     "PSYCH 712 Continuing Practicum (1–3) — required if collecting supervised hours after PSYCH 710; does not count toward graduation"
+    ]
+   },
+   {
+    "label": "Year 3 — Term 6 (Spring)",
+    "courses": [
+     "PSYCH 545 Psychopharmacology (3)",
+     "PSYCH 607 Advanced Seminar in Culture & Psychotherapy (3)",
+     "PSYCH 651 Buddhist Psychology & Addiction (3) — PSYCH 529 Drug & Alcohol Theory & Intervention may be substituted",
+     "PSYCH 699B Comprehensive Exam (0–1)",
+     "PSYCH 712 Continuing Practicum (1–3), if still collecting hours"
+    ]
+   },
+   {
+    "label": "Requirement structure as published (63 units)",
+    "courses": [
+     "Introduction 3 units — PSYCH 505",
+     "Foundation 18 units — PSYCH 501, 505A (0), 530, 531, 532, 533, 536",
+     "Core 18 units — PSYCH 504, 538, 540, 545, 551, 556",
+     "Advanced 18 units — PSYCH 600, 607, 623, 633, 643, 651",
+     "Fieldwork/Practica 6 units — PSYCH 700 + PSYCH 710"
+    ]
+   },
+   {
+    "label": "\"Multicultural Generalist Specialization Courses\" (listed in the catalog outside the 63 required units, with no stated unit requirement)",
+    "courses": [
+     "PSYCH 537 Motivational Interviewing (3)",
+     "PSYCH 602 Advanced Couples Counseling (3)",
+     "PSYCH 604 Advanced Child & Adolescent Interventions in Therapy (3)",
+     "PSYCH 614 Religion & Psychotherapy (3)",
+     "PSYCH 650 Directed Reading (3)"
+    ]
+   }
+  ],
+  "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+ },
+ "practicum": {
+  "starts": "Second year, fall term in the published full-time sequence. Eligibility opens after 18 units of coursework plus the department chair's approval, so it can begin earlier in principle; a zero-unit PSYCH 505A Pre-Practicum runs weekly through the second semester of year one.",
+  "hours": "6 units of fieldwork are required for graduation — PSYCH 700 Practicum (3) plus PSYCH 710 Advanced Practicum (3), which \"must be taken in consecutive semesters.\" The catalog does not publish a minimum number of direct client contact hours, a relational-hour sub-minimum, or a supervision ratio; it defers entirely to \"the pre-MFT licensure requirements, as guided by California's Board of Behavioral Sciences.\"",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "There is no in-house training clinic — every placement is at an outside agency, and \"all fieldwork and practica placements must be approved by the department chair and training director before training begins.\" The gate is a written contract: \"training sites must have a written contract with UWest indicating the commitment to abide by the supervisory conditions required for the pre-MFT licensure requirements, as guided by California's Board of Behavioral Sciences,\" which means an unaffiliated site you find yourself has to be brought into contract before you can start there. The classroom half is PSYCH 700, described as \"clinical experience at an approved practicum site with a focus on multicultural psychotherapy theory and related interventions,\" with coursework on \"group consultation, assessment, case conceptualization, intervention, self-of-the-therapist, and self-care,\" and the catalog states plainly that the \"approved practicum placement must provide quality supervision & training\" — the supervision itself comes from the site, not from UWest faculty. Continuity is managed by two extra registrations that do not count toward the degree: PSYCH 702 Intersession Practicum (1 unit) exists specifically to \"fulfil BBS guidelines requiring that students seeing clients are enrolled in a supervised practicum with no break in excess of 90 days\" over the summer, and PSYCH 712 Continuing Practicum (1–3 units, repeatable twice) covers hour collection beyond the required 6 units. The practical consequence for a prospective student is that the quality of your clinical training here depends almost entirely on the agency you land, and the total cost can exceed the 63-unit sticker if you need multiple terms of 702 and 712 to keep your hours continuous.",
+  "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf",
+  "model": "not published",
+  "model_evidence": "Students are required to gain 6 units of fieldwork (practicum) at an approved practicum site. Upon completion of 18 units of coursework students may seek the chair's approval to pursue a practicum. All fieldwork and practica placements must be approved by the department chair and training director before training begins.",
+  "model_url": "https://uwest.edu/wp-content/uploads/2025/03/2024-25_UWest_Academic_Catalog-1.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Not published. The program page claims a \"10:1 student-to-faculty ratio.\" Federal data reports 7 master's completions in the field (CIP 51.15) in the most recent reporting year and 2 in the prior year, which suggests a very small cohort.",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from an accredited institution \"in a related field of study\"; official transcripts from all post-secondary institutions; three academic or professional letters of recommendation; a personal statement on why you want to join the MFT program; English proficiency verification for non-native speakers.",
+  "deadline": "Two intakes a year — Fall (June 30) and Spring (October 30). The university reports that 80% of students receive some form of financial aid.",
+  "src": "https://www.uwest.edu/master-of-arts-in-marriage-and-family-therapy/",
+  "gre_evidence": "Minimum Undergraduate GPA for Admission ... MA Psychology 3.00",
+  "gre_url": "https://uwest.edu/wp-content/uploads/2025/03/2024-25_UWest_Academic_Catalog-1.pdf",
+  "min_gpa": "3.00",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Federal field-of-study data: 7 master's completions in Mental and Social Health Services (CIP 51.15) in the most recent reporting year and 2 the year before. Too few graduates for the Department of Education to publish earnings or debt figures — which is itself the finding.",
+   "who": "U.S. Dept. of Education College Scorecard, field-of-study data, retrieved August 2026",
+   "sentiment": "info",
+   "url": "https://collegescorecard.ed.gov/school/?449870-University-of-the-West"
+  },
+  {
+   "text": "Accreditation is current and unqualified: WSCUC lists UWest as \"Accredited — Reflects the Commission's finding that the institution is in compliance with the Standards,\" with the most recent Commission action on 30 October 2025 and the next offsite review in Fall 2027, visit Spring 2028.",
+   "who": "WASC Senior College and University Commission institution record",
+   "sentiment": "info",
+   "url": "https://www.wscuc.org/institutions/university-of-the-west/"
+  },
+  {
+   "text": "\"The rooms and hallways are dirty and feel like they haven't been cleaned in decades. The education building was literally collapsing in on itself.\" A second reviewer in January 2024: \"They take forever to reply and will eat a lot of your money, regardless if you have FAFSA or not.\" Both are undergraduates writing about campus facilities and administration, not the MFT program.",
+   "who": "Niche student reviews, sophomores, October 2023 and January 2024",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/colleges/university-of-the-west/"
+  },
+  {
+   "text": "\"I am quite fond of its small size, as it feels like you and all your fellow students and staff members are all part of one little family.\" Again an undergraduate, and again about the institution rather than the graduate program.",
+   "who": "Niche student review, freshman, February 2019",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/colleges/university-of-the-west/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/d/db/University_of_the_West%2C_CA.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:University_of_the_West,_CA.jpg",
+  "license": "CC BY 2.5",
+  "credit": "Photo by Wikipedia User:Geographer, via Wikimedia Commons",
+  "caption": "The University of the West campus in Rosemead — a 10-acre hilltop site bought from Biola University in 1996"
+ },
+ "gaps": [
+  "The four specializations advertised on the program page (Generalist, Family Systems & Intergenerational Studies, Mindfulness-Based Therapy, Community Mental Health), each said to be 12 units, do not appear anywhere in the 2025–26 academic catalog. The catalog's MFT requirements table accounts for all 63 units in named required courses with no elective or specialization allowance, and the only specialization heading present is a single list of five \"Multicultural Generalist Specialization Courses\" with no stated unit requirement. This could not be reconciled from any published source.",
+  "No minimum direct client contact hours, relational-hour sub-minimum, or supervision ratio is published for practicum. The catalog defers to BBS requirements without itemising them, so a prospective student cannot compare UWest's clinical floor to other programs.",
+  "No cohort size, acceptance rate, graduation rate, licensure exam pass rate or job placement data is published for the MFT program.",
+  "No total program cost is published. The $48,195 figure here is arithmetic — 63 units × the catalog's $765 per unit graduate psychology rate for 2025–26 — and excludes mandatory fees (about $634 per semester) and any non-degree-applicable practicum continuation units (PSYCH 702, PSYCH 712).",
+  "PSYCH 551 Theories II: Buddhist-Inspired Evidence-Based Practice has a two-line catalog description containing no Buddhist content, so what the course actually teaches could not be established from published sources.",
+  "PSYCH 503 Fundamentals of Buddhist Psychology and PSYCH 617 Application of Mindfulness in Western Therapy both exist in the catalog and both carry Buddhist content, but neither is in the MFT required curriculum — they belong to the Buddhist Chaplaincy and Buddhist Counseling Certificate programmes. The catalog notes the Buddhist Counseling Certificate \"does not meet the requirements to sit for licensure in Marriage and Family Therapy.\"",
+  "The catalog uses two different titles for the same required introductory course — \"Multicultural/Buddhist Community Mental Health\" in the course descriptions and sample progression, \"Buddhist & Multicultural Community Mental Health\" in the program requirements table.",
+  "Reddit was unreachable from this environment (HTTP 403), so no student comment text could be quoted. No MFT-specific student reviews were found on any platform; the only reviews located (Niche) are from undergraduates about campus facilities.",
+  "The programme page advertises telehealth counselling skills but no telehealth course appears in the catalog curriculum."
+ ],
+ "sources": [
+  {
+   "label": "University of the West 2025–2026 Academic Catalog (MFT program requirements, sample progression, course descriptions, tuition, accreditation)",
+   "url": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "label": "MA in Psychology — Marriage and Family Therapy program page (Buddhist claim, four specializations, admissions, deadlines)",
+   "url": "https://www.uwest.edu/master-of-arts-in-marriage-and-family-therapy/"
+  },
+  {
+   "label": "UWest 2024–25 Graduate Course Descriptions (cross-check on Buddhist and contemplative course content)",
+   "url": "https://uwest.edu/wp-content/uploads/2025/03/2024-25_UWest_Academic_Catalog-Grad-Course-Descriptions.pdf"
+  },
+  {
+   "label": "WSCUC institution record — accreditation status and review dates",
+   "url": "https://www.wscuc.org/institutions/university-of-the-west/"
+  },
+  {
+   "label": "Wikipedia — University of the West (founding, Fo Guang Shan, campus history)",
+   "url": "https://en.wikipedia.org/wiki/University_of_the_West"
+  },
+  {
+   "label": "U.S. Dept. of Education College Scorecard — field-of-study completions",
+   "url": "https://collegescorecard.ed.gov/school/?449870-University-of-the-West"
+  },
+  {
+   "label": "Niche — University of the West student reviews",
+   "url": "https://www.niche.com/colleges/university-of-the-west/"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "total_units",
+   "current": "63 units",
+   "correct": "Confirmed for 2025–26. Breakdown: Introduction 3, Foundation 18, Core 18, Advanced 18, Fieldwork/Practica 6.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "length",
+   "current": "2.5-3 years",
+   "correct": "Confirmed. The catalog's full-time sample progression runs six terms across three years, with two optional summer intersessions used for practicum continuity.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "format",
+   "current": "in-person, Fall and Spring starts",
+   "correct": "Confirmed. Fall application deadline June 30, Spring deadline October 30. Campus is Rosemead (Greater Los Angeles). MFT students are expected to carry 12 units per term to stay on the cohort model, even though 9 units is full-time for financial aid.",
+   "src": "https://www.uwest.edu/master-of-arts-in-marriage-and-family-therapy/"
+  },
+  {
+   "field": "LPCC",
+   "current": "no",
+   "correct": "Confirmed. The 63-unit MFT curriculum is aligned only to B&P Code §4980.37 (MFT). The catalog separately warns that the 42-unit and 33-unit Multicultural Counseling degrees and the Buddhist Counseling Certificate do not meet MFT or LPCC licensure requirements.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "tuition",
+   "current": null,
+   "correct": "$765 per unit for graduate psychology, 2025–26 — 63 units ≈ $48,195 — plus about $634 per semester in mandatory fees. Published full-time (9-unit) annual cost of attendance is $35,760 living on campus, $46,340 living off campus, $34,322 living with family.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "accreditation",
+   "current": null,
+   "correct": "WSCUC (WASC Senior College and University Commission), granted 16 February 2006; current status \"Accredited,\" most recent Commission action 30 October 2025, next offsite review Fall 2027 and visit Spring 2028. Not COAMFTE-accredited.",
+   "src": "https://www.wscuc.org/institutions/university-of-the-west/"
+  },
+  {
+   "field": "in_house_clinic",
+   "current": null,
+   "correct": "No in-house training clinic. All practicum is at external sites that must hold a written contract with UWest and be approved by the department chair and training director.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "capstone",
+   "current": null,
+   "correct": "Comprehensive exam (PSYCH 699B) required to graduate, offered only in the spring semester, with one retake available in the same semester; a thesis (PSYCH 699A) is an approved alternative. Minimum grade of B required in every Foundation, Core and Advanced course, each repeatable once only.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "specializations",
+   "current": null,
+   "correct": "UNVERIFIED — do not record the four 12-unit specializations from the program page (Generalist, Family Systems & Intergenerational Studies, Mindfulness-Based Therapy, Community Mental Health). They appear nowhere in the 2025–26 catalog, whose 63 units are fully accounted for by named required courses. The catalog lists only \"Multicultural Generalist Specialization Courses\" (PSYCH 537, 602, 604, 614, 650), outside the 63 units and with no stated unit requirement.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "buddhist_curriculum",
+   "current": null,
+   "correct": "The \"only Buddhist-focused MFT curriculum in the state and the nation\" claim is carried by three required courses totalling 9 of 63 units: PSYCH 505 Multicultural/Buddhist Community Mental Health (the whole Introduction requirement), PSYCH 551 Theories II: Buddhist-Inspired Evidence-Based Practice (Core), and PSYCH 651 Buddhist Psychology & Addiction (Advanced, substitutable with PSYCH 529, which would reduce it to 6 units). PSYCH 617 Application of Mindfulness in Western Therapy and PSYCH 503 Fundamentals of Buddhist Psychology exist but are not in the MFT requirements.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "practicum",
+   "current": null,
+   "correct": "6 units required (PSYCH 700 + PSYCH 710, consecutive semesters), beginning after 18 units and chair approval — year 2 fall in the published sequence. Student-found external sites requiring a written contract with UWest. Client-hour minimums are not published.",
+   "src": "https://www.uwest.edu/wp-content/uploads/2025/09/2025-26_UWest_Academic-Catalog.pdf"
+  },
+  {
+   "field": "scale",
+   "current": null,
+   "correct": "Very small: 7 master's completions in CIP 51.15 in the most recent reporting year, 2 the year before. Founded 1990 by Hsing Yun of Fo Guang Shan as Hsi Lai University; 10-acre Rosemead campus purchased from Biola University in 1996.",
+   "src": "https://collegescorecard.ed.gov/school/?449870-University-of-the-West"
+  }
+ ]
+}

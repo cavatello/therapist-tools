@@ -61,35 +61,10 @@ DEPTH_CSS = """<style>/* depth */
 .sc .crs h3{font-family:Fraunces,Georgia,serif;font-size:17.5px;line-height:1.3;
   font-weight:600;color:var(--ink);margin:0 0 9px}
 .sc .crs p{font-size:14.5px;line-height:1.7;margin:0 0 9px;max-width:none}
-.sc .trk{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:4px 0 8px;
-  background:#fff}
-.sc .trkr{display:grid;grid-template-columns:minmax(0,2.1fr) 96px 96px minmax(0,1.5fr);
-  gap:14px;padding:13px 16px;border-top:1px solid #EFEADC;align-items:baseline}
-.sc .trkr:first-child{border-top:0}
-.sc .trkr.hd{background:#FBF6E9;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9.6px;letter-spacing:.11em;text-transform:uppercase;color:#9A8F76}
-.sc .trkr.no{background:#FCF6F5}
-.sc .trkn b{display:block;font-size:14.6px;line-height:1.35;color:var(--ink);font-weight:600}
-.sc .trkn span{display:block;font-size:12.4px;line-height:1.5;color:#6B7A66;margin-top:3px}
-.sc .trku span{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9px;
-  letter-spacing:.1em;text-transform:uppercase;color:#A79E88;margin-bottom:2px}
-.sc .trku b{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--pine)}
-.sc .trkno{font-size:12.2px;line-height:1.35;color:#8E4B45;font-weight:600;display:block}
-.sc .trkf span{display:block;font-size:12.6px;line-height:1.5;color:#5A6A56}
-.sc .trkf span:first-child{color:var(--ink)}
-@media (max-width:720px){
-  .sc .trkr{grid-template-columns:1fr 1fr;gap:8px 14px}
-  .sc .trkr.hd{display:none}
-  .sc .trkn{grid-column:1 / -1}
-  .sc .trkf{grid-column:1 / -1}
-}
 .sc .cq{margin:0 0 10px;padding:0 0 0 15px;border-left:2px solid #E4D9BE;
   font-size:14.5px;line-height:1.7;color:#3B4A38;font-style:italic}
-/* No pseudo-element quotes. 256 of the 379 catalog descriptions already
-   carry their own quotation marks, so these doubled them - and because the
-   "catalog" source link is rendered INSIDE the blockquote, :after put the
-   closing quote after the link rather than after the quoted text. The
-   quotes belong in the data, where the writer can see where they close. */
+.sc .cq:before{content:"\\201C"}
+.sc .cq:after{content:"\\201D"}
 .sc .cwhy{background:#FBF6E9;border-radius:8px;padding:11px 13px;margin:0!important;
   font-size:13.6px;line-height:1.62;color:#4A5A46}
 .sc .cwhy span{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.4px;
@@ -124,6 +99,17 @@ DEPTH_CSS = """<style>/* depth */
 .sc .pr b{display:block;font-size:14.2px;line-height:1.5;color:var(--ink);
   font-weight:500;overflow-wrap:anywhere}
 .sc .verd.mix{background:#FAF7EE;border-color:#E9E0CB;border-left:4px solid #B9AE93}
+/* The quote a verdict rests on, printed under it. The whole placement
+   classification is a judgement about somebody else's sentence, so the sentence
+   goes on the page and the reader can disagree with me. */
+.sc .pq{margin:11px 0 0;padding:9px 0 0 14px;border-left:2px solid #D8CDB2;
+  font-size:13.6px;line-height:1.6;color:#4A5A46;font-style:italic}
+.sc .pq a{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10.6px;
+  letter-spacing:.05em;white-space:nowrap}
+.sc .verd .pq{border-left-color:rgba(0,0,0,.16)}
+.sc .pnote{font-size:13.8px;line-height:1.6;color:#4A5A46;margin:11px 0 0;
+  background:#FAF7EF;border:1px dashed #E4D9BE;border-radius:9px;padding:10px 13px}
+.sc .pnote b{color:var(--ink)}
 
 .sc .voxl{display:grid;gap:10px;margin:10px 0 6px}
 .sc .vox{display:block;background:#fff;border:1px solid var(--line);

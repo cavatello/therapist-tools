@@ -1,219 +1,366 @@
 {
-  "California Institute of Integral Studies": {
-    "id": "OozCl_m-Fi8",
-    "title": "Integral Counseling Psychology at CIIS | A Mind, Body, Spirit Approach to Therapy",
-    "channel": "California Institute of Integral Studies",
-    "why": "The school's own walkthrough of its Integral Counseling Psychology MFT track, showing how CIIS blends mind, body and spirit into clinical training.",
-    "kind": "program-overview"
-  },
-  "Pacifica Graduate Institute": {
-    "id": "00eO3lNxtho",
-    "title": "Becoming a licensed therapist-Pacifica's M.A. Counseling Psychology program-MFT & LPC",
-    "channel": "Pacifica Graduate Institute",
-    "why": "Pacifica walks through exactly how its depth-psychology M.A. leads to MFT and LPCC licensure, so you can see the clinical path and not just the philosophy.",
-    "kind": "program-overview"
-  },
-  "Sofia University": {
-    "id": "2VWvAGQRgAE",
-    "title": "Sofia University - MA in Counseling Psychology Program Spotlight",
-    "channel": "Sofia University",
-    "why": "A five-minute spotlight on Sofia's M.A. in Counseling Psychology that lays out the transpersonal orientation students will actually be trained in.",
-    "kind": "program-overview"
-  },
-  "The Wright Institute": {
-    "id": "hXozRAdGUlE",
-    "title": "The Wright Institute's Master of Arts (M.A.) in Counseling Psychology Program",
-    "channel": "TheWrightInstitute",
-    "why": "A detailed tour of the Wright Institute's M.A. in Counseling Psychology, the Berkeley program built specifically around clinical practice for MFT licensure.",
-    "kind": "program-overview"
-  },
-  "Palo Alto University": {
-    "id": "kWVGYGZJnUs",
-    "title": "MA in Counseling Student Panel",
-    "channel": "Palo Alto University",
-    "why": "An hour-long panel of current MA in Counseling students answering the practical questions about coursework, practicum and workload.",
-    "kind": "student-voices"
-  },
-  "Pepperdine University (GSEP)": {
-    "id": "AW0dgjnjx-o",
-    "title": "MA in Clinical Psychology MFT (Daytime Format) Testimonial: Mitch Martens",
-    "channel": "Pepperdine GSEP",
-    "why": "A student in the daytime MFT format describes what the Pepperdine clinical psychology M.A. is like day to day.",
-    "kind": "student-voices"
-  },
-  "University of Southern California (Rossier)": {
-    "id": "IElr12ukb3I",
-    "title": "Master of Science in Marriage and Family Therapy",
-    "channel": "USC Rossier",
-    "why": "A very short official spot confirming the shape of USC Rossier's M.S. in Marriage and Family Therapy - useful as a quick orientation, not a deep dive.",
-    "kind": "program-overview"
-  },
-  "Alliant International University (CSPP)": {
-    "id": "BIifLvBeWPY",
-    "title": "Marriage and Family Therapy: MFT Programs to Help Make an Impact - Alliant Intl University",
-    "channel": "Alliant University",
-    "why": "Alliant lays out how its MFT programs are structured across California campuses and what graduates go on to do.",
-    "kind": "program-overview"
-  },
-  "San Diego State University": {
-    "id": "MTOjmbv6atc",
-    "title": "Marriage and Family Therapy Spotlight - Sesen Negash",
-    "channel": "SDSU College of Education Video",
-    "why": "An SDSU MFT faculty member describes the program's systemic and social-justice orientation, which is the clearest signal of how the department thinks.",
-    "kind": "faculty-talk"
-  },
-  "San Jose State University": {
-    "id": "iwkj_fgLYDw",
-    "title": "Student Spotlight: Briettny Curtner | Counselor Education",
-    "channel": "SJSU Lurie College of Education",
-    "why": "A Counselor Education student at SJSU's Lurie College talks through her own path into the program and what the cohort experience feels like.",
-    "kind": "student-voices"
-  },
-  "California State University, Northridge": {
-    "id": "LVVMTyln5PM",
-    "title": "Stacy Withrow, M.A. in Marriage and Family Therapy, CSUN's Class of 2026",
-    "channel": "California State University Northridge",
-    "why": "A 26-minute conversation with a current CSUN M.A. in MFT student, the most candid look available at that program's day-to-day.",
-    "kind": "student-voices"
-  },
-  "University of San Francisco": {
-    "id": "35l-Z9W8Q2U",
-    "title": "Marriage & Family Therapy | USF Sacramento",
-    "channel": "University of San Francisco - Sacramento Campus",
-    "why": "A full USF information session on the Marriage and Family Therapy M.A., covering admissions, curriculum and traineeship placement.",
-    "kind": "info-session"
-  },
-  "Santa Clara University": {
-    "id": "HDuyeofhmik",
-    "title": "SCU - Department of Counseling Psychology Student Testimonials",
-    "channel": "scuecp",
-    "why": "Current students in SCU's Counseling Psychology department describe why they chose it and what the training emphasises.",
-    "kind": "student-voices"
-  },
-  "Saint Mary's College of California": {
-    "id": "RVjM7woep_U",
-    "title": "Kalmanovitz School of Education: Graduate Counseling Program",
-    "channel": "Saint Mary's College of California",
-    "why": "An overview of the Kalmanovitz School of Education's graduate counseling program, the route to MFT licensure at Saint Mary's.",
-    "kind": "program-overview"
-  },
-  "Antioch University Santa Barbara": {
-    "id": "c8PwO3ME7cc",
-    "title": "MA in Clinical Psychology program at Antioch University Santa Barbara",
-    "channel": "antiochausb",
-    "why": "Antioch Santa Barbara explains the structure and social-justice framing of its M.A. in Clinical Psychology, the MFT-licensure degree.",
-    "kind": "program-overview"
-  },
-  "Pacific Oaks College": {
-    "id": "GPdjZI3Eitc",
-    "title": "M.A. Marriage & Family Therapy, Traditional and Trauma Information Session, Pacific Oaks College",
-    "channel": "Pacific Oaks College",
-    "why": "A complete information session on Pacific Oaks' M.A. in MFT including the trauma-studies specialisation, with admissions and curriculum detail.",
-    "kind": "info-session"
-  },
-  "Dominican University of California": {
-    "id": "hrbgDTMjqhY",
-    "title": "Go at Your Own Pace with an MS in Counseling Psychology",
-    "channel": "Dominican University of California",
-    "why": "Dominican explains the pacing and flexibility of its M.S. in Counseling Psychology, aimed at students balancing work with the degree.",
-    "kind": "program-overview"
-  },
-  "Chapman University": {
-    "id": "MA1y3EDU8h0",
-    "title": "Marriage and Family Therapy (MFT) Information Session",
-    "channel": "Chapman University Admission",
-    "why": "A 24-minute admissions information session on Chapman's MFT program, walking through requirements, clinical training and timelines.",
-    "kind": "info-session"
-  },
-  "Loma Linda University": {
-    "id": "yfJn-ucfk3A",
-    "title": "Marital and Family Therapy",
-    "channel": "Loma Linda University Health",
-    "why": "Loma Linda's Department of Counseling and Family Sciences introduces its Marital and Family Therapy programs and their faith-integrated approach.",
-    "kind": "program-overview"
-  },
-  "Azusa Pacific University": {
-    "id": "Mw6MkvSW3xc",
-    "title": "Meet the Faculty: Lishelle Grant, MA, MFT",
-    "channel": "Azusa Pacific University",
-    "why": "A short faculty introduction from an APU psychology professor who is a practising MFT, giving a sense of who teaches in the graduate program.",
-    "kind": "faculty-talk"
-  },
-  "Point Loma Nazarene University": {
-    "id": "Wg1clgSWLZM",
-    "title": "Clinical Counseling, M.A.",
-    "channel": "Point Loma Nazarene University",
-    "why": "PLNU's overview of its M.A. in Clinical Counseling, the degree that leads to MFT and LPCC licensure at the San Diego campus.",
-    "kind": "program-overview"
-  },
-  "Vanguard University": {
-    "id": "jTe75KIA550",
-    "title": "Vanguard University - Clinical Psychology Graduate Programs",
-    "channel": "WatchVU",
-    "why": "Vanguard's overview of its graduate clinical psychology programs, which house the MFT-licensure track.",
-    "kind": "program-overview"
-  },
-  "California Baptist University": {
-    "id": "arOYgpVoqfY",
-    "title": "Online Master of Counseling Psychology Program at CBU/Online",
-    "channel": "cbuops",
-    "why": "CBU explains the format and content of its online Master of Counseling Psychology, useful if you are weighing a distance option.",
-    "kind": "program-overview"
-  },
-  "Fresno Pacific University": {
-    "id": "36ltIvqxmGE",
-    "title": "FPU Marriage & Family Therapy",
-    "channel": "Fresno Pacific University",
-    "why": "A four-minute look at FPU's Marriage and Family Therapy program and its Central Valley clinical training context.",
-    "kind": "program-overview"
-  },
-  "Hope International University": {
-    "id": "898929_75SE",
-    "title": "HIU's Marriage & Family Therapy Program",
-    "channel": "HIUconnect",
-    "why": "A brief official introduction to HIU's Marriage and Family Therapy master's program in Fullerton.",
-    "kind": "program-overview"
-  },
-  "University of La Verne": {
-    "id": "9-PgLDj-HYs",
-    "title": "Daneyda Ramirez on Master in Marriage Family Therapy (MFT)",
-    "channel": "University of La Verne",
-    "why": "A La Verne MFT student describes in her own words what drew her to the program and how it has shaped her.",
-    "kind": "student-voices"
-  },
-  "Concordia University Irvine (Townsend Institute)": {
-    "id": "kIb7wzcTv40",
-    "title": "Master's in Counseling: Clinical Mental Health - Concordia University Irvine's Townsend Institute",
-    "channel": "Concordia University Irvine",
-    "why": "The Townsend Institute introduces its M.A. in Counseling (Clinical Mental Health), including its distinctive competency and mentorship model.",
-    "kind": "program-overview"
-  },
-  "The Chicago School": {
-    "id": "dWgWqQC2nN8",
-    "title": "Marital and Family Therapy",
-    "channel": "TheChicagoSchool1979",
-    "why": "The Chicago School's own overview of its Marital and Family Therapy program and the systemic training it provides.",
-    "kind": "program-overview"
-  },
-  "Touro University Worldwide": {
-    "id": "LgKDTIAzXPQ",
-    "title": "The MA in Marriage and Family Therapy at TUW",
-    "channel": "Touro University Worldwide",
-    "why": "A four-minute walkthrough of Touro Worldwide's fully online M.A. in Marriage and Family Therapy, including how clinical hours are handled.",
-    "kind": "program-overview"
-  },
-  "Golden Gate University": {
-    "id": "xoXrVTfNXis",
-    "title": "Psychology Programs Info Session -  Spring 26",
-    "channel": "Golden Gate University",
-    "why": "A recent GGU information session covering its psychology programs, including the counseling psychology track toward MFT licensure.",
-    "kind": "info-session"
-  },
-  "Daybreak University": {
-    "id": "xZ-bOwroDsg",
-    "title": "Lorna Hecker (Distinguished Professor of Marriage and Family Therapy Program, Daybreak University)",
-    "channel": "Daybreak University",
-    "why": "A distinguished professor in Daybreak's Marriage and Family Therapy program introduces herself, giving a sense of the faculty behind this small couple-therapy-focused school.",
-    "kind": "faculty-talk"
-  }
+ "California Institute of Integral Studies": {
+  "id": "OozCl_m-Fi8",
+  "title": "Integral Counseling Psychology at CIIS | A Mind, Body, Spirit Approach to Therapy",
+  "channel": "California Institute of Integral Studies",
+  "why": "The school's own walkthrough of its Integral Counseling Psychology MFT track, showing how CIIS blends mind, body and spirit into clinical training.",
+  "kind": "program-overview"
+ },
+ "Pacifica Graduate Institute": {
+  "id": "00eO3lNxtho",
+  "title": "Becoming a licensed therapist-Pacifica's M.A. Counseling Psychology program-MFT & LPC",
+  "channel": "Pacifica Graduate Institute",
+  "why": "Pacifica walks through exactly how its depth-psychology M.A. leads to MFT and LPCC licensure, so you can see the clinical path and not just the philosophy.",
+  "kind": "program-overview"
+ },
+ "Sofia University": {
+  "id": "2VWvAGQRgAE",
+  "title": "Sofia University - MA in Counseling Psychology Program Spotlight",
+  "channel": "Sofia University",
+  "why": "A five-minute spotlight on Sofia's M.A. in Counseling Psychology that lays out the transpersonal orientation students will actually be trained in.",
+  "kind": "program-overview"
+ },
+ "The Wright Institute": {
+  "id": "hXozRAdGUlE",
+  "title": "The Wright Institute's Master of Arts (M.A.) in Counseling Psychology Program",
+  "channel": "TheWrightInstitute",
+  "why": "A detailed tour of the Wright Institute's M.A. in Counseling Psychology, the Berkeley program built specifically around clinical practice for MFT licensure.",
+  "kind": "program-overview"
+ },
+ "Palo Alto University": {
+  "id": "kWVGYGZJnUs",
+  "title": "MA in Counseling Student Panel",
+  "channel": "Palo Alto University",
+  "why": "An hour-long panel of current MA in Counseling students answering the practical questions about coursework, practicum and workload.",
+  "kind": "student-voices"
+ },
+ "Pepperdine University (GSEP)": {
+  "id": "AW0dgjnjx-o",
+  "title": "MA in Clinical Psychology MFT (Daytime Format) Testimonial: Mitch Martens",
+  "channel": "Pepperdine GSEP",
+  "why": "A student in the daytime MFT format describes what the Pepperdine clinical psychology M.A. is like day to day.",
+  "kind": "student-voices"
+ },
+ "University of Southern California (Rossier)": {
+  "id": "IElr12ukb3I",
+  "title": "Master of Science in Marriage and Family Therapy",
+  "channel": "USC Rossier",
+  "why": "A very short official spot confirming the shape of USC Rossier's M.S. in Marriage and Family Therapy - useful as a quick orientation, not a deep dive.",
+  "kind": "program-overview"
+ },
+ "Alliant International University (CSPP)": {
+  "id": "BIifLvBeWPY",
+  "title": "Marriage and Family Therapy: MFT Programs to Help Make an Impact - Alliant Intl University",
+  "channel": "Alliant University",
+  "why": "Alliant lays out how its MFT programs are structured across California campuses and what graduates go on to do.",
+  "kind": "program-overview"
+ },
+ "San Diego State University": {
+  "id": "MTOjmbv6atc",
+  "title": "Marriage and Family Therapy Spotlight - Sesen Negash",
+  "channel": "SDSU College of Education Video",
+  "why": "An SDSU MFT faculty member describes the program's systemic and social-justice orientation, which is the clearest signal of how the department thinks.",
+  "kind": "faculty-talk"
+ },
+ "San Jose State University": {
+  "id": "iwkj_fgLYDw",
+  "title": "Student Spotlight: Briettny Curtner | Counselor Education",
+  "channel": "SJSU Lurie College of Education",
+  "why": "A Counselor Education student at SJSU's Lurie College talks through her own path into the program and what the cohort experience feels like.",
+  "kind": "student-voices"
+ },
+ "California State University, Northridge": {
+  "id": "LVVMTyln5PM",
+  "title": "Stacy Withrow, M.A. in Marriage and Family Therapy, CSUN's Class of 2026",
+  "channel": "California State University Northridge",
+  "why": "A 26-minute conversation with a current CSUN M.A. in MFT student, the most candid look available at that program's day-to-day.",
+  "kind": "student-voices"
+ },
+ "University of San Francisco": {
+  "id": "35l-Z9W8Q2U",
+  "title": "Marriage & Family Therapy | USF Sacramento",
+  "channel": "University of San Francisco - Sacramento Campus",
+  "why": "A full USF information session on the Marriage and Family Therapy M.A., covering admissions, curriculum and traineeship placement.",
+  "kind": "info-session"
+ },
+ "Santa Clara University": {
+  "id": "HDuyeofhmik",
+  "title": "SCU - Department of Counseling Psychology Student Testimonials",
+  "channel": "scuecp",
+  "why": "Current students in SCU's Counseling Psychology department describe why they chose it and what the training emphasises.",
+  "kind": "student-voices"
+ },
+ "Saint Mary's College of California": {
+  "id": "RVjM7woep_U",
+  "title": "Kalmanovitz School of Education: Graduate Counseling Program",
+  "channel": "Saint Mary's College of California",
+  "why": "An overview of the Kalmanovitz School of Education's graduate counseling program, the route to MFT licensure at Saint Mary's.",
+  "kind": "program-overview"
+ },
+ "Antioch University Santa Barbara": {
+  "id": "c8PwO3ME7cc",
+  "title": "MA in Clinical Psychology program at Antioch University Santa Barbara",
+  "channel": "antiochausb",
+  "why": "Antioch Santa Barbara explains the structure and social-justice framing of its M.A. in Clinical Psychology, the MFT-licensure degree.",
+  "kind": "program-overview"
+ },
+ "Pacific Oaks College": {
+  "id": "GPdjZI3Eitc",
+  "title": "M.A. Marriage & Family Therapy, Traditional and Trauma Information Session, Pacific Oaks College",
+  "channel": "Pacific Oaks College",
+  "why": "A complete information session on Pacific Oaks' M.A. in MFT including the trauma-studies specialisation, with admissions and curriculum detail.",
+  "kind": "info-session"
+ },
+ "Dominican University of California": {
+  "id": "hrbgDTMjqhY",
+  "title": "Go at Your Own Pace with an MS in Counseling Psychology",
+  "channel": "Dominican University of California",
+  "why": "Dominican explains the pacing and flexibility of its M.S. in Counseling Psychology, aimed at students balancing work with the degree.",
+  "kind": "program-overview"
+ },
+ "Chapman University": {
+  "id": "MA1y3EDU8h0",
+  "title": "Marriage and Family Therapy (MFT) Information Session",
+  "channel": "Chapman University Admission",
+  "why": "A 24-minute admissions information session on Chapman's MFT program, walking through requirements, clinical training and timelines.",
+  "kind": "info-session"
+ },
+ "Loma Linda University": {
+  "id": "yfJn-ucfk3A",
+  "title": "Marital and Family Therapy",
+  "channel": "Loma Linda University Health",
+  "why": "Loma Linda's Department of Counseling and Family Sciences introduces its Marital and Family Therapy programs and their faith-integrated approach.",
+  "kind": "program-overview"
+ },
+ "Azusa Pacific University": {
+  "id": "Mw6MkvSW3xc",
+  "title": "Meet the Faculty: Lishelle Grant, MA, MFT",
+  "channel": "Azusa Pacific University",
+  "why": "A short faculty introduction from an APU psychology professor who is a practising MFT, giving a sense of who teaches in the graduate program.",
+  "kind": "faculty-talk"
+ },
+ "Point Loma Nazarene University": {
+  "id": "Wg1clgSWLZM",
+  "title": "Clinical Counseling, M.A.",
+  "channel": "Point Loma Nazarene University",
+  "why": "PLNU's overview of its M.A. in Clinical Counseling, the degree that leads to MFT and LPCC licensure at the San Diego campus.",
+  "kind": "program-overview"
+ },
+ "Vanguard University": {
+  "id": "jTe75KIA550",
+  "title": "Vanguard University - Clinical Psychology Graduate Programs",
+  "channel": "WatchVU",
+  "why": "Vanguard's overview of its graduate clinical psychology programs, which house the MFT-licensure track.",
+  "kind": "program-overview"
+ },
+ "California Baptist University": {
+  "id": "arOYgpVoqfY",
+  "title": "Online Master of Counseling Psychology Program at CBU/Online",
+  "channel": "cbuops",
+  "why": "CBU explains the format and content of its online Master of Counseling Psychology, useful if you are weighing a distance option.",
+  "kind": "program-overview"
+ },
+ "Fresno Pacific University": {
+  "id": "36ltIvqxmGE",
+  "title": "FPU Marriage & Family Therapy",
+  "channel": "Fresno Pacific University",
+  "why": "A four-minute look at FPU's Marriage and Family Therapy program and its Central Valley clinical training context.",
+  "kind": "program-overview"
+ },
+ "Hope International University": {
+  "id": "898929_75SE",
+  "title": "HIU's Marriage & Family Therapy Program",
+  "channel": "HIUconnect",
+  "why": "A brief official introduction to HIU's Marriage and Family Therapy master's program in Fullerton.",
+  "kind": "program-overview"
+ },
+ "University of La Verne": {
+  "id": "9-PgLDj-HYs",
+  "title": "Daneyda Ramirez on Master in Marriage Family Therapy (MFT)",
+  "channel": "University of La Verne",
+  "why": "A La Verne MFT student describes in her own words what drew her to the program and how it has shaped her.",
+  "kind": "student-voices"
+ },
+ "Concordia University Irvine (Townsend Institute)": {
+  "id": "kIb7wzcTv40",
+  "title": "Master's in Counseling: Clinical Mental Health - Concordia University Irvine's Townsend Institute",
+  "channel": "Concordia University Irvine",
+  "why": "The Townsend Institute introduces its M.A. in Counseling (Clinical Mental Health), including its distinctive competency and mentorship model.",
+  "kind": "program-overview"
+ },
+ "The Chicago School": {
+  "id": "dWgWqQC2nN8",
+  "title": "Marital and Family Therapy",
+  "channel": "TheChicagoSchool1979",
+  "why": "The Chicago School's own overview of its Marital and Family Therapy program and the systemic training it provides.",
+  "kind": "program-overview"
+ },
+ "Touro University Worldwide": {
+  "id": "LgKDTIAzXPQ",
+  "title": "The MA in Marriage and Family Therapy at TUW",
+  "channel": "Touro University Worldwide",
+  "why": "A four-minute walkthrough of Touro Worldwide's fully online M.A. in Marriage and Family Therapy, including how clinical hours are handled.",
+  "kind": "program-overview"
+ },
+ "Golden Gate University": {
+  "id": "xoXrVTfNXis",
+  "title": "Psychology Programs Info Session -  Spring 26",
+  "channel": "Golden Gate University",
+  "why": "A recent GGU information session covering its psychology programs, including the counseling psychology track toward MFT licensure.",
+  "kind": "info-session"
+ },
+ "Daybreak University": {
+  "id": "xZ-bOwroDsg",
+  "title": "Lorna Hecker (Distinguished Professor of Marriage and Family Therapy Program, Daybreak University)",
+  "channel": "Daybreak University",
+  "why": "A distinguished professor in Daybreak's Marriage and Family Therapy program introduces herself, giving a sense of the faculty behind this small couple-therapy-focused school.",
+  "kind": "faculty-talk"
+ },
+ "Antioch University Los Angeles": {
+  "id": "BktBaahzz08",
+  "title": "MA in Clinical Psychology",
+  "channel": "Antioch University Official",
+  "why": "The university's own overview of the M.A. in Clinical Psychology, the degree this page covers, stating it is offered by AU Los Angeles and prepares students for LMFT and LPCC licensure in small cohorts.",
+  "kind": "program-overview"
+ },
+ "Biola University (Talbot School of Theology)": {
+  "id": "4XEkJ2zCS10",
+  "title": "Master of Arts in Marriage and Family Therapy (MFT) at Biola University",
+  "channel": "Biola University",
+  "why": "Biola's own short overview of the M.A. in Marriage and Family Therapy, covering the clinical training and the Christian-formation emphasis that distinguishes this programme.",
+  "kind": "program-overview"
+ },
+ "Cal Poly Humboldt": {
+  "id": "yUO5Wu5yDy4",
+  "title": "Masters in Counseling Psychology at Humboldt State University",
+  "channel": "HumboldtStateCPS",
+  "why": "Posted by the Counseling Psychology programme's own channel, this describes the M.A. in Counseling Psychology at the campus now called Cal Poly Humboldt, which is the MFT-qualifying degree on this page.",
+  "kind": "program-overview"
+ },
+ "California Lutheran University": {
+  "id": "cUpQzZd6ET8",
+  "title": "M.S. in Counseling Psychology (MFT) at Cal Lutheran",
+  "channel": "California Lutheran University",
+  "why": "Cal Lutheran's own overview of the M.S. in Counseling Psychology (MFT), the exact degree on this page, describing the coursework and clinical training.",
+  "kind": "program-overview"
+ },
+ "California State University, Dominguez Hills": {
+  "id": "BJ98swKMSQ8",
+  "title": "Michael Laurent Intro MFT",
+  "channel": "csuDHTV",
+  "why": "Michael G. Laurent, Ph.D., of the CSUDH Department of Marital & Family Therapy introduces the department that runs the M.S. in Marital and Family Therapy, on the university's own channel.",
+  "kind": "faculty"
+ },
+ "California State University, Los Angeles": {
+  "id": "HRp56eKcFJ4",
+  "title": "SBFC Program Info Session Recording 10:30:18",
+  "channel": "Emily Hernandez",
+  "why": "A full recording of the Cal State LA School-Based Family Counseling admissions information session, posted by Emily J. Hernandez, Ed.D., who is listed as SBFC programme faculty; it walks through the degree, coursework and how to apply.",
+  "kind": "faculty"
+ },
+ "California State University, Sacramento": {
+  "id": "RJTvs4PB5JM",
+  "title": "Why Sac State? Learn more about our M.S. in counseling program!",
+  "channel": "Sac State College of Ed",
+  "why": "The Sac State College of Education's own video about the M.S. in Counseling, the degree that carries the Marriage, Couple, and Family Counseling concentration on this page.",
+  "kind": "program-overview"
+ },
+ "California State University, San Bernardino": {
+  "id": "ck-HVnG_gAc",
+  "title": "MS in Clinical/Counseling Psychology at CSU San Bernardino Info Session",
+  "channel": "Manijeh Badiee",
+  "why": "Dr. Manijeh Badiee, Professor and Director of the M.S. in Clinical/Counseling Psychology programme, runs a full admissions information session on entry requirements, the cohort structure and the application process.",
+  "kind": "faculty"
+ },
+ "Fuller Theological Seminary": {
+  "id": "ENJPM1CRklw",
+  "title": "Terry Hargrave on Training Great Therapists",
+  "channel": "Fuller Seminary",
+  "why": "Terry Hargrave, Fuller's Evelyn and Frank Freed Professor of Marital and Family Therapy, is interviewed about how the school trains therapists and what he thinks makes a good one.",
+  "kind": "faculty"
+ },
+ "Loyola Marymount University": {
+  "id": "G-GhMx9udgI",
+  "title": "Discover Marital and Family (Art) Therapy at LMU",
+  "channel": "LMU CFA",
+  "why": "A three-minute walkthrough of LMU's Marital and Family Therapy / Art Therapy master's, made by the college that runs it.",
+  "kind": "program-overview"
+ },
+ "Meridian University": {
+  "id": "sIjMHtmjBp4",
+  "title": "Psychology Program Overview - Meridian University",
+  "channel": "Meridian University",
+  "why": "A seven-minute explanation of how Meridian's graduate psychology degrees are structured and what the coursework is built around.",
+  "kind": "program-overview"
+ },
+ "National University (absorbed Northcentral University and John F. Kennedy University)": {
+  "id": "oJC7npsdSVc",
+  "title": "MA Counseling Psychology - Holistic Program Overview",
+  "channel": "John F. Kennedy University",
+  "why": "A four-minute overview of the MA in Counseling Psychology with the Holistic specialization, recorded under the John F. Kennedy University name before that programme was absorbed into National University.",
+  "kind": "program-overview"
+ },
+ "Northwestern University, The Family Institute": {
+  "id": "4EMZ0REYavU",
+  "title": "The Family Institute at Northwestern University Graduate Education 2019",
+  "channel": "The Family Institute",
+  "why": "A four-minute look at The Family Institute's graduate marriage and family therapy training, including its clinical training model.",
+  "kind": "program-overview"
+ },
+ "Notre Dame de Namur University": {
+  "id": "K4xg2sZVt9k",
+  "title": "Transform Your Future: Explore NDNU's Clinical Psychology Program",
+  "channel": "Notre Dame de Namur University (NDNU)",
+  "why": "A short introduction to NDNU's graduate Clinical Psychology programme, which is the degree that leads to MFT licensure there.",
+  "kind": "program-overview"
+ },
+ "San Francisco State University": {
+  "id": "ki9zo9ut1w8",
+  "title": "Dept of Counseling Graduate Admissions Information Session -SF State recorded Sept 2022",
+  "channel": "Department of Counseling SF State",
+  "why": "A recorded admissions information session from the Department of Counseling covering the Marriage, Family and Child Counseling programme, the course load, and how to apply.",
+  "kind": "program-overview"
+ },
+ "Sentio University": {
+  "id": "q6LvF-vR_wg",
+  "title": "Sentio Marriage and Family Therapy Program (MFT)",
+  "channel": "Sentio Therapist Training",
+  "why": "A two-and-a-half-minute description of Sentio's 20-month hybrid online/in-person MFT master's and how the training is delivered.",
+  "kind": "program-overview"
+ },
+ "Sonoma State University": {
+  "id": "rDV4qAPrcN4",
+  "title": "Sonoma State University School of Social Sciences - Counseling",
+  "channel": "CSUSonoma",
+  "why": "The dean of the School of Social Sciences introduces the Counseling department, which houses SSU's MA in Counseling, and the work its graduates go into.",
+  "kind": "program-overview"
+ },
+ "University of Redlands": {
+  "id": "FEbxRflxY14",
+  "title": "The Department of Counseling and Human Services programs are about transformation",
+  "channel": "University of Redlands",
+  "why": "Faculty and students describe the Department of Counseling and Human Services, including the MA in Clinical Mental Health Counseling that carries the MFT specialization.",
+  "kind": "program-overview"
+ },
+ "University of San Diego (SOLES)": {
+  "id": "tqpZ7dfa5Go",
+  "title": "\"Office Hours\" with Florencia Lebensohn-Chialvo, PhD",
+  "channel": "University of San Diego",
+  "why": "A short profile of Florencia Lebensohn-Chialvo, an assistant professor in SOLES's counseling and marital and family therapy department, talking about teaching family therapists.",
+  "kind": "faculty"
+ },
+ "University of the Pacific (Benerd College)": {
+  "id": "mLz8hoDCIGE",
+  "title": "University of the Pacific MA with LPCC",
+  "channel": "Justin Low",
+  "why": "A Benerd College faculty member walks through Pacific's MA in Counseling Psychology and how the LPCC coursework fits alongside the MFT track.",
+  "kind": "faculty"
+ },
+ "University of the West": {
+  "id": "4buqZrw7v0M",
+  "title": "University of the West - Master of Arts in Psychology - Marriage & Family Therapy",
+  "channel": "University of the West",
+  "why": "A full recorded session on UWest's 63-unit MA in Psychology - Marriage and Family Therapy, including how it meets California licensure requirements and how Buddhist psychology is integrated into the curriculum.",
+  "kind": "program-overview"
+ }
 }

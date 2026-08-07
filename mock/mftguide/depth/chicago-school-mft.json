@@ -1,0 +1,226 @@
+{
+ "institution": "The Chicago School",
+ "character": [
+  "The first thing to correct is the premise most people arrive with. The Chicago School is not a converted for-profit. IPEDS has classified it as a private, not-for-profit institution in every directory year available going back to 1985, when it was still listed as \"CHICAGO SCH PROF PSYC\" — there is no for-profit period to date. What is true is that it behaves like a national chain: it is one of six institutions inside The Community Solution Education System (its own IT help desk runs at helpdesk.tcsedsystem.edu), and the MA in Marriage, Couples, and Family Therapy is sold at Los Angeles, Anaheim, and now online, with San Diego quietly closed to new students and teaching out through Summer 2027. The programme is COAMFTE-accredited effective November 1, 2022 — initial accreditation with stipulations at COAMFTE's Fall 2022 meeting, stipulations removed at the Fall 2023 meeting, next review Fall 2028.",
+  "The curriculum's actual signature is a sequencing decision, and it is easy to miss in the course list. Almost every California MFT programme teaches counselling theories first and family systems second. The Chicago School inverts it: MM 563 Systems Theory and Family Therapy I is the prerequisite for MM 564 Systems Theory and Family Therapy II, which is in turn the prerequisite for MM 565 — a two-credit course called \"Systemic Perspectives on Counseling Theories\" that introduces \"the primary theories of counseling\" only after you have spent two full courses inside systems theory, and then only \"from a Systemic perspective.\" Individual theory is not taught on its own terms here; it is taught as a special case. The second signature is how heavily gated the degree is: a zero-credit Practicum Readiness Assessment (a one-hour written law-and-ethics exam, 70% to pass, referral to the Student Conduct Committee with possible dismissal after three failures), then two Clinical Competency Evaluations inside the practicum seminars — one formative, one summative, each requiring a full case report, a recorded or transcribed session, and a live case presentation — then a zero-credit Written Comprehensive Examination.",
+  "The numbers are the reason to read this page carefully. On the programme's own COAMFTE Graduate Achievement Data (Fall 2026 table), campus cohorts of 69 to 109 full-time students have graduated within the advertised three years at rates of 42% to 64% — roughly half of each cohort takes longer than advertised. Licensure rates for those who do finish are strong (81% to 95%, against COAMFTE's 70% benchmark) and job placement runs 90% to 100%. Against that, the US Department of Education's College Scorecard reports, for master's degrees under CIP 51.15 (which is where marriage and family therapy sits) at The Chicago School's shared OPE ID, a median federal graduate debt of $108,000 with a median monthly payment of $1,229 — and median earnings one year out of $54,966. That is a debt load roughly twice first-year earnings, and it is the highest figure in this segment by a wide margin. At the 2026-27 rate of $1,509 per credit hour, the 60-credit degree is about $90,540 in tuition alone. The fully online modality is brand new and unproven: COAMFTE data shows \"No Students\" for every cohort year from 2016-17 through 2024-25, and 21 students in the first 2025-26 cohort, all still in process."
+ ],
+ "orientation": "Systemic/family-systems, taught strictly — individual counselling theory is introduced only after two full courses of systems theory and explicitly reframed 'from a Systemic perspective', with a stated Recovery-and-Resilience emphasis for community mental health",
+ "signature": [
+  {
+   "code": "MM 565",
+   "title": "Systemic Perspectives on Counseling Theories",
+   "units": "2",
+   "desc": "\"This course introduces students to the primary theories of counseling. Additionally, the application of techniques, skills, and interventions utilizing the primary theories of counseling will be explored from a Systemic perspective.\" Prerequisite: MM 564 Systems Theory and Family Therapy II.",
+   "verbatim": true,
+   "why": "This is the clearest structural statement the programme makes. Most CA programmes open with a survey of counselling theories; here it is a two-credit course you cannot take until you have completed two full systems-theory courses, and even then the theories are filtered through a systemic lens. If you want to train as a generalist individual therapist who happens to have an MFT licence, this sequencing is working against you.",
+   "src": "https://catalog.thechicagoschool.edu/preview_course_nopop.php?catoid=176&coid=234788"
+  },
+  {
+   "code": "MM 557",
+   "title": "Recovery, Trauma, and Crisis Counseling within the Community",
+   "units": "3",
+   "desc": "\"This course introduces the basic theory and practice of the Recovery and Resilience model of mental health and its application in community mental health settings. Students will learn about ecological concepts, prevention, and intervention strategies aimed at serving the broad mental health needs of communities.\"",
+   "verbatim": true,
+   "why": "The programme's mission statement names \"recovery, and resilience\" explicitly, and this is the course where that claim is cashed. It signals that the training target is public and community mental health — county contracts, school-based sites, agencies serving serious mental illness — rather than the cash-pay private-practice track.",
+   "src": "https://catalog.thechicagoschool.edu/preview_course_nopop.php?catoid=176&coid=234263"
+  },
+  {
+   "code": "MM 569",
+   "title": "Practicum Readiness Assessment",
+   "units": "0",
+   "desc": "\"Students will take the Practicum Readiness Assessment the semester prior to starting Practicum I.\" Per the Program Guidebook it is a one-hour written examination responding to a clinical vignette with questions in two areas — Law and Ethics — requiring a cumulative 70% to pass. Course fee $55. Prerequisites: MM 545, MM 563, MM 528.",
+   "verbatim": true,
+   "why": "A zero-credit, fee-bearing exam that stands between you and any client contact is unusual, and its consequences are severe: fail twice and you are advised to postpone placement a full academic year; fail three times and you are referred to the Student Conduct Committee with a potential recommendation for dismissal. This single course explains a large part of why the on-time graduation rate sits between 42% and 64%.",
+   "src": "https://catalog.thechicagoschool.edu/preview_course_nopop.php?catoid=176&coid=234266"
+  },
+  {
+   "code": "MM 526",
+   "title": "Diagnosis and Treatment of Mental and Emotional Disorders in Family Systems",
+   "units": "3",
+   "desc": "\"This course emphasizes the integration of systematic assessment and intervention procedures with couples and families, within the context of the various family therapy models. Emphasis is placed on procedural issues, critique and utilization of the current DSM, and specific problems encountered in therapeutic work with family systems.\"",
+   "verbatim": true,
+   "why": "Note the phrase \"critique and utilization of the current DSM.\" Diagnosis is taught twice here — once individually in MM 515 Psychopathology in the Family Context, and again as a systemic problem in MM 526, with the DSM held at arm's length. Programmes that are quietly CBT-forward do not usually build a second, sceptical diagnosis course.",
+   "src": "https://catalog.thechicagoschool.edu/preview_course_nopop.php?catoid=176&coid=234254"
+  },
+  {
+   "code": "MM 582 / MM 583",
+   "title": "Marriage and Family Therapy Practicum II and III",
+   "units": "3 + 3",
+   "desc": "Each is a practicum seminar in which \"students will write their Clinical Competency Evaluation (CCE) based on a case from their practicum. Students are required to receive a passing grade on the CCE in order to pass this class.\" The Guidebook adds that each CCE \"includes a full clinical case report, a recorded and/or transcribed session, and a case presentation to the class and instructor.\"",
+   "verbatim": true,
+   "why": "Two separate CCEs — one formative in Practicum II, one summative in Practicum III — each requiring recorded or transcribed session material rather than student self-report. Video-based competency assessment is the thing that separates programmes that actually watch you work from programmes that take your word for it, and this one requires it twice, as a pass/fail gate on the course.",
+   "src": "https://catalog.thechicagoschool.edu/preview_course_nopop.php?catoid=176&coid=236185"
+  },
+  {
+   "code": "MM 590",
+   "title": "Comprehensive Examination (auto half time)",
+   "units": "0",
+   "desc": "\"Students should register for the MCFT Comprehensive Examination during the semester in which they will complete their coursework for the Master's degree. Students will be notified with regard to the date, time and location of the assessment.\" Course fee $55. Prerequisite: MM 583.",
+   "verbatim": true,
+   "why": "A second zero-credit, fee-bearing gate at the far end of the degree. Combined with MM 569 and the two CCEs, this is a programme with four separate high-stakes assessments outside normal coursework — a structure worth understanding before you commit, because each one is a place where the three-year timeline can break.",
+   "src": "https://catalog.thechicagoschool.edu/preview_course_nopop.php?catoid=176&coid=234271"
+  }
+ ],
+ "curriculum": {
+  "note": "60 credit hours (64 on the LPCC track). The Program Guidebook states that the term-by-term \"Curriculum Grid\" is tailored to each student's entry semester and is only \"available for download via the MFT Division Student Page in Canvas\" — it is not published publicly, so no verified term-by-term sequence exists outside the school. The list below is the full required-course set from the 2026-27 Acalog catalog, in catalog order, with prerequisite chains noted. The advertised length is three years standard from a fall start; the catalog warns students beginning in other semesters may need longer because of course sequencing.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Required core coursework (no public term-by-term sequence)",
+    "courses": [
+     "MM 515 Psychopathology in the Family Context (3)",
+     "MM 521 Child and Adolescent Treatment (3)",
+     "MM 523 Couples Therapy, Theory, and Techniques (3) — course fee $140",
+     "MM 526 Diagnosis and Treatment of Mental and Emotional Disorders in Family Systems (3) — prereq MM 515, MM 565",
+     "MM 528 Diversity in Family Therapy (3)",
+     "MM 532 Sexual Issues in Marriage and Family Therapy (3)",
+     "MM 538 Individual and Family Development Across the Lifespan (3)",
+     "MM 545 Professional, Legal, and Ethical Issues in Marriage and Family Therapy (3)",
+     "MM 547 Assessment in Marriage and Family Therapy (3) — prereq MM 515",
+     "MM 549 Psychopharmacology and Collaborative Care (3)",
+     "MM 555 Research Methods in Marriage and Family Therapy (3)",
+     "MM 557 Recovery, Trauma, and Crisis Counseling within the Community (3)",
+     "MM 560 Group Counseling and Systems (3)",
+     "MM 563 Systems Theory and Family Therapy I (3)",
+     "MM 564 Systems Theory and Family Therapy II (3) — prereq MM 563",
+     "MM 565 Systemic Perspectives on Counseling Theories (2) — prereq MM 564",
+     "MM 566 Treatment of Addictions in Family Systems (3) — prereq MM 563",
+     "MM 569 Practicum Readiness Assessment (0) — prereq MM 545, MM 563, MM 528; course fee $55",
+     "MM 575 Marriage and Family Therapy Practicum I (2) — prereq MM 569",
+     "MM 582 Marriage and Family Therapy Practicum II (3) — prereq MM 575",
+     "MM 583 Marriage and Family Therapy Practicum III (3) — prereq MM 582",
+     "MM 578 Marriage and Family Therapy Practicum IV (2) — prereq MM 583",
+     "MM 590 Comprehensive Examination (0) — prereq MM 583; course fee $55"
+    ]
+   },
+   {
+    "label": "LPCC Track add-on (64 total credits)",
+    "courses": [
+     "MM 514 Introduction to Counseling Skills in Systemic Therapy (1)",
+     "MM 652 Career Assessment (3) OR FO 638 Career Development and Counseling (3) — choose one"
+    ]
+   },
+   {
+    "label": "Optional / extension",
+    "courses": [
+     "MM 628 Advanced Practicum (1)",
+     "MM 619 Practicum Extension (0)"
+    ]
+   }
+  ],
+  "src": "https://catalog.thechicagoschool.edu/preview_program.php?catoid=176&poid=9184&returnto=22723"
+ },
+ "practicum": {
+  "starts": "After passing MM 569 Practicum Readiness Assessment, which is taken \"the semester prior to starting Practicum I\"; eligibility for the PRA requires completing MM 545, MM 515, MM 563, MM 528, MM 521 and MM 564 with a grade of B- or better. The exact calendar term is not published — the curriculum grid lives behind Canvas.",
+  "hours": "Minimum 300 face-to-face client hours, of which at least 100 must be relational (couples and families), accrued over a 12-month clinical training field placement",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "Placement is coordinated by a campus Director of Clinical Training, who \"regularly connects with students to assist in the practicum placement and maintenance process\" and to whom faculty advisors defer on all site issues — so this is a supported search rather than an assignment, and rather than the pure sink-or-swim model used by the fully-online competitors. Practicum is four sequential seminar courses (MM 575, MM 582, MM 583, MM 578) spanning four semesters or eight terms, with the field placement itself running 12 months; note a live discrepancy in the school's own materials, where the marketing page says practicum is \"eight credit hours\" while the 2025 Program Guidebook and the catalog course list both total ten. Supervision is two-layered: an on-site supervisor at a community agency, counselling centre or school-based site, plus a regularly scheduled practicum seminar with a faculty instructor for case consultation. Inside that seminar you must pass two Clinical Competency Evaluations — a formative one in MM 582 and a summative one in MM 583 — each requiring a full clinical case report, a recorded and/or transcribed session, and a live case presentation, which means the programme assesses you on observed work rather than self-report. There is no in-house training clinic: fieldwork happens at external partner agencies, students buy their own liability coverage and log hours in Tevera (a one-time $195 Experiential Learning Technology Fee covers the system), and transfer credit for practicum \"is not granted, and practicum hour requirements are never waived.\" For online students the practicum is completed in California, which is the practical constraint that makes the online pathway a California product rather than a national one.",
+  "src": "https://www.thechicagoschool.edu/wp-content/uploads/2025/12/MCFT-Program-Guidebook.pdf",
+  "model": "assisted",
+  "model_evidence": "The Director of Clinical Training (DCT) regularly connects with students to assist in the practicum placement and maintenance process. [...] The Director of Clinical Training facilitates practicum placement in coordination with the program faculty. The DCT has developed relationships with sites that offer a broad range of client populations and presenting problems.",
+  "model_url": "https://www.thechicagoschool.edu/wp-content/uploads/2025/12/MCFT-Program-Guidebook.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Per the COAMFTE Graduate Achievement Data (Fall 2026), campus-based full-time cohorts entering Los Angeles/Anaheim have run 69, 73, 79, 77, 102, 93, 92, 109, 95 and 46 students for cohort years 2016-17 through 2025-26. The online modality enrolled its first students in 2025-26: 21.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from an accredited institution in any field (a psychology bachelor's is explicitly not required), minimum 3.0 GPA, official transcripts, resume/CV, essay, three letters of recommendation, and a required admissions interview. $50 application fee.",
+  "deadline": "Rolling, with multiple start dates; the standard on-campus pathway is built around a fall start, and the catalog warns that students beginning in other semesters may need longer than three years because of course sequencing. Specific term deadlines are not published.",
+  "src": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/",
+  "gre_evidence": "The GRE is not required, however students who have taken the exam may submit their scores to enhance their application",
+  "gre_url": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "COAMFTE's Fall 2026 Graduate Achievement Data shows on-time (three-year) graduation for campus cohorts at 57%, 52%, 48%, 56%, 42%, 57% and 64% — meaning between a third and well over half of each entering cohort does not finish in the advertised time.",
+   "who": "COAMFTE Graduate Achievement Data Disclosure, The Chicago School, Fall 2026",
+   "sentiment": "negative",
+   "url": "https://www.thechicagoschool.edu/wp-content/uploads/2026/07/COAMFTE-GAD-Table-The-Chicago-School-Fall-2026.pdf"
+  },
+  {
+   "text": "Median federal graduate debt for master's students in CIP 51.15 at The Chicago School is $108,000, with a median monthly payment of $1,229, against median earnings one year after graduation of $54,966.",
+   "who": "US Department of Education College Scorecard, field-of-study data, latest release",
+   "sentiment": "negative",
+   "url": "https://collegescorecard.ed.gov/school/?455664-The-Chicago-School-at-Los-Angeles"
+  },
+  {
+   "text": "\"The San Diego location is no longer enrolling new students; previously enrolled San Diego students remain active and are included in the cohort data above, with completion anticipated through Summer 2027.\"",
+   "who": "Footnote to The Chicago School's own COAMFTE disclosure table, 2026",
+   "sentiment": "info",
+   "url": "https://www.thechicagoschool.edu/wp-content/uploads/2026/07/COAMFTE-GAD-Table-The-Chicago-School-Fall-2026.pdf"
+  },
+  {
+   "text": "A peer institution's independent directory profile notes that the programme \"does not publish a separate licensure-exam pass rate\" and that its in-house training clinic is \"not featured on the program page\" — fieldwork runs entirely through community partner agencies.",
+   "who": "Sentio University CA MFT directory profile, April 2026 (Sentio runs a competing California MFT programme — read accordingly)",
+   "sentiment": "mixed",
+   "url": "https://sentio.org/chicago-school-mft-program-review"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/b/b5/The_Chicago_School_%2851555785541%29.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:The_Chicago_School_(51555785541).jpg",
+  "license": "CC BY 2.0",
+  "credit": "Photo by ajay_suresh, via Wikimedia Commons, CC BY 2.0",
+  "caption": "The red-brick tower at 325 North Wells Street on the Chicago River, which houses The Chicago School's Chicago campus; the university's California programmes are taught at separate southern-California sites. This is the Chicago building the institution is named for. Its California MFT programmes are taught in Southern California."
+ },
+ "gaps": [
+  "The premise that The Chicago School 'converted to non-profit' does not hold up. IPEDS directory records list it as private not-for-profit (control code 2) in every year checked — 1985, 1990, 1995, 1998, 2000, 2005, 2008, 2010, 2012, 2015, 2018 and 2022. No for-profit period and therefore no conversion date exists in the federal record. It is a member of The Community Solution Education System, described on its own site as 'an integrated nonprofit system of six colleges and universities.'",
+  "Residency dates and cost are NOT published anywhere. The programme page confirms two mandatory in-person residencies in Southern California, one in year one and one in year two, mandatory for online and on-campus students alike, and says only that 'the schedule is shared in advance.' No calendar dates, no length in days, and no separate residency fee appear in the 2026-27 fee schedule. The only quantified proxy is the online cost-of-attendance budget, which allocates $7,613 for travel over a nine-month year. A magazine feature about residencies for the school's separate online Clinical Mental Health Counseling programme describes those as three days each, held in Washington DC — that is a different degree and should not be assumed to describe the MCFT residencies.",
+  "No term-by-term curriculum sequence is public. The Program Guidebook states the Curriculum Grid is available only through Canvas.",
+  "The school's own materials disagree on practicum credits: the marketing page says 'eight credit hours over four semesters', the 2025 Program Guidebook says 'ten credit hours completed over four semesters or eight terms', and the catalog course list totals ten (2+3+3+2).",
+  "No licensure-exam pass rate is published; COAMFTE's Graduate Achievement Data tracks licensure attainment, not exam performance.",
+  "College Scorecard field-of-study data for The Chicago School is reported against a single shared OPE6 ID (021553) covering all campuses, so the $108,000 median debt figure is system-wide across Chicago, Los Angeles, Anaheim, San Diego, DC and the online programmes — it cannot be isolated to the California MCFT cohort.",
+  "No first-person student discussion could be retrieved this session. Reddit, Niche, GradReports and Trustpilot were all unreachable from this environment (403/404), and the web-search budget was exhausted before forum sources could be gathered. The voices section is therefore built from documentary sources only.",
+  "No freely-licensed photograph of the Los Angeles campus (707 Wilshire Boulevard) or the Anaheim campus exists on Wikimedia Commons. There is no Commons category for the institution.",
+  "The catalog lists an LPCC track (64 credits, adding MM 514 plus MM 652 or FO 638) but the programme's public FAQ does not mention dual LMFT/LPCC preparation; a prospective student should confirm the track is actually offered at their campus."
+ ],
+ "sources": [
+  {
+   "label": "M.A. Marriage, Couples, and Family Therapy programme page",
+   "url": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/"
+  },
+  {
+   "label": "Acalog academic catalog 2026-27, MA MCFT programme requirements",
+   "url": "https://catalog.thechicagoschool.edu/preview_program.php?catoid=176&poid=9184&returnto=22723"
+  },
+  {
+   "label": "MA in Marriage, Couples, and Family Therapy Program Guidebook (Dec 2025)",
+   "url": "https://www.thechicagoschool.edu/wp-content/uploads/2025/12/MCFT-Program-Guidebook.pdf"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data Disclosure, Fall 2026",
+   "url": "https://www.thechicagoschool.edu/wp-content/uploads/2026/07/COAMFTE-GAD-Table-The-Chicago-School-Fall-2026.pdf"
+  },
+  {
+   "label": "Tuition and fees, academic year 2026-27",
+   "url": "https://www.thechicagoschool.edu/admissions/financing-your-education/tuition-fees/"
+  },
+  {
+   "label": "COAMFTE Notice of Actions (Fall 2022 initial accreditation with stipulations; Fall 2023 stipulations removed)",
+   "url": "https://www.coamfte.org/COAMFTE/Resources/Notice_of_Actions.aspx"
+  },
+  {
+   "label": "US Dept of Education College Scorecard API, field-of-study data, unitid 455664",
+   "url": "https://api.data.gov/ed/collegescorecard/v1/schools.json?id=455664&fields=latest.programs.cip_4_digit"
+  },
+  {
+   "label": "IPEDS institutional directory via Urban Institute Education Data API (control code by year, unitid 143978)",
+   "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/directory/1985/?unitid=143978"
+  },
+  {
+   "label": "Los Angeles campus page (707 Wilshire Boulevard address)",
+   "url": "https://www.thechicagoschool.edu/los-angeles/"
+  },
+  {
+   "label": "Sentio University independent CA MFT directory profile (competitor-authored)",
+   "url": "https://sentio.org/chicago-school-mft-program-review"
+  }
+ ]
+}

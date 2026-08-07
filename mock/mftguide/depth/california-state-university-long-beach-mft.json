@@ -1,0 +1,239 @@
+{
+ "institution": "California State University, Long Beach",
+ "character": [
+  "The rename is real but shallower than it sounds. Through the 2016-17 catalog this was an \"M.S. in Counseling, Option in Marriage and Family Therapy\"; the current title, \"Counseling Psychology (formerly Marriage and Family Therapy),\" dates from the 2020/2021 university catalog, and the course titles followed later — COUN 609 was still called \"MFT Practicum\" in the 2020-2021 catalog and is \"Counseling Psychology Practicum\" now. Nothing about licensure eligibility was lost. CSULB's own FAQ still opens with \"The Counseling Psychology degree prepares students to enter the field of Marriage and Family Therapy,\" and then says the program \"prepares students to apply for licensing with the Board of Behavioral Sciences for Licensed Marriage & Family Therapist (LMFT) and Licensed Professional Clinical Counselor (LPCC).\" CSULB does not publish a stated rationale for the change, but the dual LMFT/LPCC preparation is the visible difference between the old option name and the new degree name.",
+  "Two things genuinely distinguish the curriculum. First, family systems survived the rename as named, required, sequenced courses — COUN 508A (Family Systems Applied to Aging and Lifespan Development) followed by COUN 508B (Family Systems Methods), the second being pure application and practice. Second, the elective bank is unusually model-specific: rather than 'advanced techniques,' CSULB lets you spend a whole semester inside one named modality — COUN 682 Gestalt Therapy (run as an experiential group), COUN 683 Cognitive Behavioral Therapy, COUN 684 Emotionally Focused Therapy, COUN 680 Family Trauma Treatment Seminar, COUN 559 Play and Art Therapy. Trauma runs through the required core too: COUN 601 Trauma and Grief Counseling is required for Counseling Psychology students specifically, and the department's clinical training partners include the Long Beach Trauma Recovery Center alongside its own Community Clinic.",
+  "The economics are the reason people apply and the reason most don't get in. CSULB estimates \"$25,380 - $30,600 for California residents\" for the whole 65-unit degree as of Fall 2026, for a program that qualifies you for two licenses. Its own FAQ then says admission is \"highly competitive (acceptance rate is approximately 5% of the total number of applicants).\" A CSULB News piece in October 2025 filled in why: applications rose from about 300 a year before the pandemic to more than 1,000, and the department doubled the cohort from 25 to 50 to absorb some of it. Classes are built around working students — most core courses meet 4:00pm or 7:00pm Monday through Thursday with some weekend sessions — but the fieldwork is not: three semesters at roughly 15 hours a week, and the program notes that \"few of the non-profit settings have paid positions.\""
+ ],
+ "orientation": "Family-systems core with a strong trauma emphasis, taught through named single-model electives (CBT, EFT, Gestalt) rather than a single house theory",
+ "signature": [
+  {
+   "code": "COUN 609",
+   "title": "Counseling Psychology Practicum",
+   "units": "4",
+   "desc": "Counseling under intensive supervision on-campus in the Community Clinic and off-campus at an approved agency. Students will be required to assess, diagnose, develop appropriate interventions, and conduct counseling services for individuals, couples, or families. 150 fieldwork hours required.",
+   "verbatim": true,
+   "why": "Read the rest of this catalog entry before you enrol: a B or better is required to continue in the program, students who fail get exactly one second attempt, and \"if a student does not pass COUN 609 with a B grade or better after two semesters/attempts, they will be dismissed from the MS in Counseling Psychology program.\" Very few CA programs put an explicit dismissal trigger on a single clinical course.",
+   "src": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92746"
+  },
+  {
+   "code": "COUN 508B",
+   "title": "Family Systems Methods",
+   "units": "3",
+   "desc": "The application and practice of family systems therapeutic methods. Prerequisite: COUN 508A or consent of instructor. Counseling Psychology Majors Only.",
+   "verbatim": true,
+   "why": "The second half of a two-course systems sequence, and the tell that the MFT identity survived the rename — the degree title changed but the family-systems requirement is still stacked and still sequenced, with a theory course feeding a methods course.",
+   "src": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92756"
+  },
+  {
+   "code": "COUN 601",
+   "title": "Trauma and Grief Counseling",
+   "units": "3",
+   "desc": "Overview of developmentally informed models of trauma response, identifying and assessing problematic responses to trauma and loss, and guidelines for working with traumatized children, adolescents and families in various settings. Current treatment approaches of forms of post-traumatic distress and traumatic bereavement.",
+   "verbatim": true,
+   "why": "The catalog notes this is a required course for Counseling Psychology students and only recommended for the department's other counseling programs — a deliberate choice. Combined with the Long Beach Trauma Recovery Center as a training site, trauma is the closest thing this program has to a specialisation.",
+   "src": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92743"
+  },
+  {
+   "code": "COUN 682",
+   "title": "Gestalt Therapy",
+   "units": "3",
+   "desc": "This seminar is designed to be an experiential learning process of Gestalt Therapy. Students will learn Gestalt history, theory, and clinical application in a contemporary context to incorporate techniques into their own clinical practice.",
+   "verbatim": true,
+   "why": "An experiential semester in a single humanistic model is rare in California programs, which usually reduce Gestalt to a chapter in the survey theories course. Sitting alongside COUN 683 (CBT) and COUN 684 (Emotionally Focused Therapy), it means your elective choices actually determine which modality you leave able to practise.",
+   "src": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92750"
+  },
+  {
+   "code": "COUN 680",
+   "title": "Family Trauma Treatment Seminar",
+   "units": "3",
+   "desc": "Hands-on training in evidence-based treatment for families contending with trauma or loss. Readings, lectures, and in-class demonstrations and practice will focus on family assessment, goalsetting, narrative sharing, and family training on resilience-enhancing skills.",
+   "verbatim": true,
+   "why": "This is the course where the two distinguishing threads meet — family systems and trauma — and it is specific about method: narrative sharing and resilience-skills training with the whole family in the room, not individual trauma work with a family history taken.",
+   "src": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92748"
+  },
+  {
+   "code": "COUN 685",
+   "title": "Community Mental Health Counseling",
+   "units": "1",
+   "desc": "Advanced seminar on community mental health counseling with an emphasis on helping counselors gain skills required in contemporary community mental health settings, including recovery-oriented treatment for severe mental illness, case management, client advocacy, and local community service resources.",
+   "verbatim": true,
+   "why": "A required one-unit seminar on case management, client advocacy and severe mental illness is a very honest piece of curriculum design: it acknowledges that most graduates' first job is county or nonprofit community mental health, not private practice, and gives them the paperwork-and-systems skills that job actually requires.",
+   "src": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92753"
+  }
+ ],
+ "curriculum": {
+  "note": "CSULB publishes the required course list but not a term-by-term grid, so this is presented as a single required-coursework block. Students take 4–5 courses each Fall and Spring on either a 2-year or 2.5-year track; admission is Fall-only and the program is full-time (minimum three courses per semester). 59 units of core plus 3 units of research methods plus a 6-unit culminating option = 65 units minimum. Course descriptions cited here come from the 2024-2025 CSULB catalog, which is the most recent catalog year that renders full COUN course descriptions; the 2026-2027 catalog lists the same titles without descriptions.",
+  "total_units": "65",
+  "terms": [
+   {
+    "label": "Required coursework — core (59 units)",
+    "courses": [
+     "COUN 508A Family Systems Applied to Aging and Lifespan Development (3)",
+     "COUN 508B Family Systems Methods (3)",
+     "COUN 510 Law and Ethics for Counselors (3)",
+     "COUN 511 Counseling the Alcohol/Chemically Dependent Person (2)",
+     "COUN 512 Child and Spousal/Partner Abuse (1)",
+     "COUN 513 Introduction to Clinical Interviewing (3)",
+     "COUN 514 Psychopharmacology for Counselors (3)",
+     "COUN 515 Counseling Theories (3)",
+     "COUN 522 Counseling Methods and Techniques (3)",
+     "COUN 543 Human Sexuality Counseling (3)",
+     "COUN 555 Cross-Cultural Counseling (3)",
+     "COUN 556 Counseling Children and Adolescents (3)",
+     "COUN 557 Counseling Couples (3)",
+     "COUN 601 Trauma and Grief Counseling (3)",
+     "COUN 608 Psychological Assessment and Testing (3)",
+     "COUN 609 Counseling Psychology Practicum (4)",
+     "COUN 638 Group Counseling (3)",
+     "COUN 643D Counseling Field Work, Counseling Psychology (3)",
+     "COUN 644D Advanced Counseling Field Work, Counseling Psychology (3)",
+     "COUN 685 Community Mental Health Counseling (1)"
+    ]
+   },
+   {
+    "label": "Research methods — choose one (3 units)",
+    "courses": [
+     "EDP 520 Quantitative Research Methods in Education (3)",
+     "EDP 595 Qualitative Research Methods in Education (3)"
+    ]
+   },
+   {
+    "label": "Culminating requirement — choose one (6 units)",
+    "courses": [
+     "Option A: EDP 698 Thesis (6)",
+     "Option B: comprehensive exam plus six additional units of approved counseling electives"
+    ]
+   },
+   {
+    "label": "Elective options (Option B)",
+    "courses": [
+     "COUN 507 Foundations of Career Development in K-12 Schools (3)",
+     "COUN 559 Play and Art Therapy for Children/Adolescents (3)",
+     "COUN 680 Family Trauma Treatment Seminar (3)",
+     "COUN 682 Gestalt Therapy (3)",
+     "COUN 683 Cognitive Behavioral Therapy (3)",
+     "COUN 684 Emotionally Focused Therapy (3)"
+    ]
+   }
+  ],
+  "src": "https://www.csulb.edu/college-of-education/counseling-psychology/program-description"
+ },
+ "practicum": {
+  "starts": "The first clinical semester is COUN 609, which requires COUN 510, 511, 512, 513, 515, 522 and 608 as prerequisites — so realistically the second or third semester, once the core skills block is done",
+  "hours": "500 hours total: 150 hours in COUN 609 (combined on-site and off-site) plus 350 off-site fieldwork hours across COUN 643D and COUN 644D. The program's practicum page describes roughly 15 hours a week for three consecutive semesters; the catalog specifies 150 fieldwork hours for each of 643D and 644D while the practicum page describes 175 each.",
+  "who_places": "mixed",
+  "clinic": "Community Clinic for Counseling and Educational Services (on campus, College of Education); the department also names the Long Beach Trauma Recovery Center as a clinical training site",
+  "detail": "Every trainee begins clinical training on-site at the Community Clinic, which provides counselling, developmental and psychoeducational assessment, and academic intervention to school-age children, adults, and youth and adults with disabilities aged 16–22, at moderate cost, under direct supervision by College of Education faculty. At the same time students carry an off-site placement in a nonprofit setting, supervised by a California-licensed professional who has held the licence more than two years and is employed at that site. Practicum applications are due March 1 for the following fall and October 1 for spring, and fieldwork applications on the same calendar. The program flags that \"few of the non-profit settings have paid positions.\"",
+  "src": "https://www.csulb.edu/college-of-education/counseling-psychology/practicum-and-fieldwork",
+  "model": "not published",
+  "model_evidence": "All trainees in the CSULB Counseling Psychology program begin clinical training (Practicum) on-site at the Community Clinic for Counseling and Educational Services AND begin training off-site in a non-profit setting.",
+  "model_url": "https://www.csulb.edu/college-of-education/counseling-psychology/practicum-and-fieldwork",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Community Clinic for Counseling and Educational Services"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "About 50 per year, doubled from 25 in response to demand (CSULB News, October 2025). Fall admission only.",
+  "gre": "not required",
+  "prereqs": "No prerequisite courses are needed before applying or before admission — they can be completed in the first year. A degree in psychology is not required: \"Applicants may have a degree in any major/field.\" Minimum 2.85 overall GPA in the last degree earned from an accredited institution. Two recommenders. Selected applicants are interviewed, with decisions emailed 2–3 weeks after interviews conclude.",
+  "deadline": "Cal State Apply deadline December 1, 2026 for Fall 2027 (cycle opens October 1, 2026); Fall-only admission",
+  "src": "https://www.csulb.edu/college-of-education/counseling-psychology/faqs",
+  "gre_evidence": "No, the GRE is not required for admission consideration to the Counseling Psychology program.",
+  "gre_url": "https://www.csulb.edu/college-of-education/counseling-psychology/faqs",
+  "min_gpa": "2.85 overall grade point average in last degree (not credential or certificate) earned from an accredited institution of higher education",
+  "conflict": "The practicum page and the fieldwork course descriptions give different hour figures (175 against 150)."
+ },
+ "voices": [
+  {
+   "text": "Erica Curry, a 2018 graduate, on how her fieldwork site converted into a job: \"I didn't even have to look anywhere, because my practicum site was like, 'We want you.'\"",
+   "who": "CSULB News, October 2025 (alumna, university-published)",
+   "sentiment": "positive",
+   "url": "https://www.csulb.edu/news/article/csulb-prepares-counseling-psychology-grads-to-meet-the-mental-health-shortage"
+  },
+  {
+   "text": "Erica Curry on the training itself: \"Cal State Long Beach did a really good job of making sure we understood the important stuff... It gave me a really good springboard into where I'm at now.\"",
+   "who": "CSULB News, October 2025 (alumna, university-published)",
+   "sentiment": "positive",
+   "url": "https://www.csulb.edu/news/article/csulb-prepares-counseling-psychology-grads-to-meet-the-mental-health-shortage"
+  },
+  {
+   "text": "Department chair Bita Ghafoori on what she thinks makes the program work: \"The clinic(s) are a big factor in the students' competency. That's a special feature of CSULB.\"",
+   "who": "CSULB News, October 2025 (department chair)",
+   "sentiment": "info",
+   "url": "https://www.csulb.edu/news/article/csulb-prepares-counseling-psychology-grads-to-meet-the-mental-health-shortage"
+  },
+  {
+   "text": "The same article reports the strain behind the 5% acceptance rate: applications rose from roughly 300 a year to more than 1,000 after the pandemic, and the department doubled the cohort from 25 to 50 while recruiting two full-time lecturers and a tenure-track faculty member.",
+   "who": "CSULB News, October 2025",
+   "sentiment": "mixed",
+   "url": "https://www.csulb.edu/news/article/csulb-prepares-counseling-psychology-grads-to-meet-the-mental-health-shortage"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Walter_Pyramid.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Walter_Pyramid.jpg",
+  "license": "CC BY-SA 2.5",
+  "credit": "Photo by Summum, via Wikimedia Commons, CC BY-SA 2.5",
+  "caption": "The Walter Pyramid on the CSULB campus in Long Beach. Counseling Psychology classes meet mostly late afternoons and evenings here, Monday to Thursday, with some weekend sessions."
+ },
+ "gaps": [
+  "CSULB does not publish a stated reason for renaming the program from Marriage and Family Therapy to Counseling Psychology. What is documented is the timing (the 2020/2021 university catalog, with course titles such as COUN 609 renamed later) and that the current degree prepares for both LMFT and LPCC. Any account of 'why' beyond that would be speculation.",
+  "No term-by-term plan of study is published for the Counseling Psychology M.S. — the required course list exists but the sequence does not, so the curriculum section here is a single block rather than a semester grid. (CSULB publishes such a grid for its School Counseling program but not this one.)",
+  "The CSULB 2026-2027 catalog lists COUN course titles without descriptions; all quoted descriptions here come from the 2024-2025 catalog at the same course IDs.",
+  "COUN 684 Emotionally Focused Therapy appears on the program's elective list but no catalog course description for it could be located in any CSULB catalog year searched, so only its title is reported.",
+  "The fieldwork hour split is inconsistent across CSULB's own pages: the practicum page says 175 hours each for COUN 643D and 644D, the catalog entries for both say 150. The 500-hour total is consistent.",
+  "No licensure exam pass rate, graduation rate or formal job placement rate is published (the program is not COAMFTE-accredited). The '95% of graduates find work' figure in CSULB News carries no cohort or methodology.",
+  "No independent student reviews of this specific program could be verified. Reddit was unreachable through both search and direct fetch during this research; GradReports carries CSULB psychology master's reviews, but they are for the research/experimental M.A. in the College of Liberal Arts, not this College of Education program, so they are not cited here.",
+  "CSU tuition has no per-unit rate for graduates — it is a flat per-semester charge by unit band ($5,231/semester full-time, $3,437 part-time for CA residents in 2026-27). The program's own $25,380–$30,600 estimate is the more useful figure and reflects the 2-year vs 2.5-year track difference."
+ ],
+ "sources": [
+  {
+   "label": "Counseling Psychology — Program Description (course list, format, tracks)",
+   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/program-description"
+  },
+  {
+   "label": "Counseling Psychology — FAQs (5% acceptance rate, cost estimate, GPA, LMFT/LPCC)",
+   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/faqs"
+  },
+  {
+   "label": "Counseling Psychology — Practicum and Fieldwork",
+   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/practicum-and-fieldwork"
+  },
+  {
+   "label": "Counseling Psychology — Review & Notification (admissions process)",
+   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/review-notification"
+  },
+  {
+   "label": "Community Clinic for Counseling and Educational Services — About Us",
+   "url": "https://www.csulb.edu/college-of-education/community-clinic-for-counseling-and-educational-services/about-us"
+  },
+  {
+   "label": "CSULB News, 29 October 2025 — 'CSULB prepares counseling psychology grads to meet the mental health shortage'",
+   "url": "https://www.csulb.edu/news/article/csulb-prepares-counseling-psychology-grads-to-meet-the-mental-health-shortage"
+  },
+  {
+   "label": "CSULB catalog — COUN course descriptions (2024-2025 catalog)",
+   "url": "https://catalog.csulb.edu/preview_course_nopop.php?catoid=10&coid=92746"
+  },
+  {
+   "label": "CSULB catalog — Counseling Psychology, M.S. program entry (2021-2022 catalog, showing the post-rename degree title)",
+   "url": "https://catalog.csulb.edu/preview_program.php?catoid=6&poid=2729"
+  },
+  {
+   "label": "CSULB 2016-17 catalog — 'M.S. in Counseling, Option in Marriage and Family Therapy' (pre-rename)",
+   "url": "https://web.csulb.edu/divisions/academic_affairs/catalog/2016-2017/coed/advanced/ed_pms04.html"
+  },
+  {
+   "label": "CSULB Tuition and Fees, 2026-2027",
+   "url": "https://www.csulb.edu/student-records/tuition-and-fees"
+  },
+  {
+   "label": "CSULB Counseling Psychology Information and Application Packet (PDF)",
+   "url": "https://www.csulb.edu/sites/default/files/document/ms_counseling_psychology_application_packet_2020wm.pdf"
+  }
+ ]
+}

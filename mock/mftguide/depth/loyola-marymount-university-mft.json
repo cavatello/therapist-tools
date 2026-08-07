@@ -1,0 +1,274 @@
+{
+ "institution": "Loyola Marymount University",
+ "character": [
+  "This is not an MFT program with an art therapy elective attached — art therapy is the spine, and the two credentials are welded together at every level. The degree is the M.A. in Marital and Family Therapy with Specialized Training in Art Therapy, 57–60 semester units, accredited by the Commission on Accreditation of Allied Health Education Programs on the recommendation of the Accreditation Council for Art Therapy Education (CAAHEP/ACATE) — the specialised accreditation that makes the graduate eligible for the Art Therapy Credentials Board's ATR registration, on top of the California LMFT educational requirements. There is no version of the degree without the art therapy. It shows up in the studio courses (MFTH 601 Art Therapy Studio, MFTH 690 Art Therapy Studio: Professional Ethics and Identity), in assessment (MFTH 640 Psychological Tests & Art Therapy Assessment), in the DEI requirement (MFTH 692 Art-Based Exploration of DEI in Clinical Treatment), and — most tellingly — in all three practicum courses, each of whose catalog description reads 'supervised application of marital and family theory and psychotherapeutic techniques, including the application of art therapy, in field placement.' The gate is at the front door too: admission requires 18 semester units of studio art coursework that 'demonstrates proficiency and disciplined commitment in art making,' a portfolio of up to ten images, and a roughly 300-word written analysis of the psychological content of one of your own artworks. No other California MFT program asks for that.",
+  "The lineage is the oldest of its kind on the West Coast and among the oldest anywhere. Helen Landgarten, a painter, began developing the approach in 1964 working with geriatric and hospital patients, ran a trial program at Cedars-Sinai in 1967, and started a certificate program at Immaculate Heart College in 1972; the master's launched in 1973 and 'The first class graduated in 1975.' When IHC closed for financial reasons in 1980 the whole program moved to LMU as a separate department. It expanded to 60 units in 1988, opened the Helen B. Landgarten Art Therapy Clinic in 2007, and added the Art Therapy Research Institute in 2012. That fifty-year continuity is the reason the department has its own clinic, its own research institute, its own Mexico-based international courses (MFTH 620/622/629) and a summer arts workshop that has 'impacted upwards of 500 young people and their families' — infrastructure a newer program simply cannot assemble.",
+  "The cost is the honest counterweight. LMU charges $1,814 per semester hour for Marriage and Family Therapy in the 2026–2027 bulletin, so 57–60 units is roughly $103,000–$109,000 in tuition alone, before fees, art materials or living costs in Los Angeles — the top of the range for a California MFT degree. And the ATR is not conferred at graduation: the ATCB describes the ATR's '1000/100 requirements,' meaning post-degree supervised direct client contact and supervision hours accrued after you finish, running alongside (not instead of) the BBS's 3,000 hours for the LMFT. You are buying a two-credential pathway, and you pay for both in years as well as dollars."
+ ],
+ "orientation": "Clinical art therapy integrated with systemic marital and family therapy",
+ "signature": [
+  {
+   "code": "MFTH 601",
+   "title": "Art Therapy Studio: Theories and Practice",
+   "units": "2",
+   "desc": "A hands-on tutorial of various art techniques and directives, so students recognise art's clinical properties and develop creative problem-solving skills.",
+   "verbatim": true,
+   "why": "A required first-semester course in which the student is the one making art, not the client. This is the structural bet of the whole program — that you cannot use art clinically unless you have kept making it yourself — and it is why the studio-art prerequisite exists.",
+   "src": "https://bulletin.lmu.edu/course-descriptions/mfth/"
+  },
+  {
+   "code": "MFTH 640",
+   "title": "Psychological Tests & Art Therapy Assessment",
+   "units": "2",
+   "desc": "Advanced knowledge and training in clinical assessment and psychological testing, covering intelligence tests and objective, subjective, and projective psychological evaluations.",
+   "verbatim": true,
+   "why": "Most CA MFT programs teach one assessment course covering the DSM and standard instruments. Here the same course is required to carry formal art therapy assessment alongside conventional testing — an ACATE content area that has no equivalent in a standard MFT curriculum.",
+   "src": "https://bulletin.lmu.edu/course-descriptions/mfth/"
+  },
+  {
+   "code": "MFTH 690",
+   "title": "Art Therapy Studio: Professional Ethics and Identity",
+   "units": "2",
+   "desc": "Students examine their professional identity in relation to social justice through art directives addressing licensure, values, and legal and ethical responsibilities.",
+   "verbatim": true,
+   "why": "The capstone ethics course is taught through art-making rather than case law recitation, and it is where the dual-identity problem — am I an MFT or an art therapist, and what does each licence let me do — is deliberately worked through rather than left to the student.",
+   "src": "https://bulletin.lmu.edu/course-descriptions/mfth/"
+  },
+  {
+   "code": "MFTH 692",
+   "title": "Art-Based Exploration of DEI in Clinical Treatment",
+   "units": "2",
+   "desc": "A required art-based course on diversity, equity and inclusion in clinical treatment, taken in the same term as the first practicum.",
+   "verbatim": false,
+   "why": "Two things are notable: the DEI requirement is a separate required course rather than a thread, and it is delivered through art-making. It is scheduled in the same semester students start seeing clients, which is a deliberate pairing rather than a coincidence.",
+   "src": "https://bulletin.lmu.edu/schools-colleges/communication-fine-arts/marital-family-therapy-specialized-training-art/marital-family-therapy-specialized-training-art-ma/"
+  },
+  {
+   "code": "MFTH 680",
+   "title": "Marriage and Family Therapy Observation, Telehealth and Contemporary Practice",
+   "units": "2",
+   "desc": "Explores contemporary approaches to psychotherapy and clinical art therapy with a diverse range of client populations, including instruction on best practices in art therapy telehealth.",
+   "verbatim": true,
+   "why": "Art therapy over video is a genuinely unsolved clinical problem — materials, containment, and what happens to the artwork afterwards. A required course that names 'art therapy telehealth' specifically is a program that has had to think about it.",
+   "src": "https://bulletin.lmu.edu/course-descriptions/mfth/"
+  },
+  {
+   "code": "MFTH 622",
+   "title": "Multiculturalism and Art Therapy II in International Practice (Field Work)",
+   "units": "1",
+   "desc": "Field work in international environments facilitated virtually and in study abroad experiences, with guided supervision.",
+   "verbatim": true,
+   "why": "An optional summer sequence (MFTH 620/622/629) built around the department's long-running Mexico program — supervised international field work as a credit-bearing option, which almost no California MFT program offers.",
+   "src": "https://bulletin.lmu.edu/course-descriptions/mfth/"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort program, fall entry only, offered as a two-year or a three-year track with the same courses redistributed. The two-year track is shown below; the three-year track spreads the identical requirements over six semesters plus a required Summer Session I, delaying the first practicum from the second semester to the fourth. Summer Session I (MFTH 611 and 641) is required in both tracks; Summer Session II (the international courses) is optional. Units below are from the program's published course schedule; the 2026–2027 bulletin lists the degree as a minimum of 57–60 semester hours.",
+  "total_units": "57-60",
+  "terms": [
+   {
+    "label": "Year 1 — First Semester (Fall)",
+    "courses": [
+     "MFTH 600 Art Therapy Literature and Research (2)",
+     "MFTH 601 Art Therapy Studio: Theory and Practice (2)",
+     "MFTH 602 Fundamentals of Marriage/Family Systems, Law & Ethics (2)",
+     "MFTH 604 Child Psychotherapy: Theory and Practice (2)",
+     "MFTH 609 Introduction to Mental Health Services (2)",
+     "MFTH 615 Group Psychotherapy: Theory and Practice (2)",
+     "MFTH 638 Psychopathology & Psychopharmacology (2)",
+     "MFTH 640 Psychological Testing and Art Therapy Assessment (2)"
+    ]
+   },
+   {
+    "label": "Year 1 — Second Semester (Spring)",
+    "courses": [
+     "MFTH 606 Adolescent Psychotherapy: Theory and Practice (2)",
+     "MFTH 608 Theories of Marriage and Family Therapy (2)",
+     "MFTH 612 Marriage and Family Therapy: Issues and Applications (2)",
+     "MFTH 617 Practicum/Supervision I (3)",
+     "MFTH 642 Trauma Theory and Treatment/Suicide Assessment and Prevention (2)",
+     "MFTH 680 Marriage and Family Observation, Telehealth and Contemporary Practice (2)",
+     "MFTH 692 Art-Based Exploration in DEI in Clinical Treatment (2)"
+    ]
+   },
+   {
+    "label": "Summer Session I (required)",
+    "courses": [
+     "MFTH 611 Drug, Alcohol and Addiction Recovery Treatment (1)",
+     "MFTH 641 Aging/Long Term Care (2)"
+    ]
+   },
+   {
+    "label": "Summer Session II (optional — international)",
+    "courses": [
+     "MFTH 620 Multiculturalism and Art Therapy I in International Practice (1)",
+     "MFTH 622 Multiculturalism and Art Therapy II in International Practice (Field Work) (1)",
+     "MFTH 629 Family Art Therapy in International Practice (1)"
+    ]
+   },
+   {
+    "label": "Year 2 — Third Semester (Fall)",
+    "courses": [
+     "MFTH 613 Assessment and Intervention of Intimate Partner Violence, Abuse Assessment, Reporting & Treatment (2)",
+     "MFTH 618 Practicum/Supervision II Capstone (4)",
+     "MFTH 621 Cultural Considerations in Marriage/Family Therapy (3)",
+     "MFTH 691 Research Methodology (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fourth Semester (Spring)",
+    "courses": [
+     "MFTH 616 Human Sexuality, Couples, and Adult Psychotherapy (2)",
+     "MFTH 619 Practicum/Supervision Capstone III (4)",
+     "MFTH 630 Marriage/Family Therapy: Clinical Studies (3)",
+     "MFTH 690 Studio: Professional Ethics and Identity (2)",
+     "MFTH 696 Research/Clinical Paper (3)"
+    ]
+   }
+  ],
+  "src": "https://cfa.lmu.edu/programs/mft/academics/courseschedule/"
+ },
+ "practicum": {
+  "starts": "Second semester (spring of year one) on the two-year track; fourth semester on the three-year track",
+  "hours": "A minimum of 350 accumulated hours providing art therapy services to individuals, groups, and/or families, across three practicum courses; 16 hours per week during MFTH 617 and 20 hours per week during each of MFTH 618 and MFTH 619",
+  "who_places": null,
+  "clinic": "Helen B. Landgarten Art Therapy Clinic (opened 2007)",
+  "detail": "Practicum runs across three consecutive terms and 11 units — MFTH 617 (3 units), MFTH 618 Capstone II (4 units) and MFTH 619 Clinical Studies Capstone III (4 units) — and it begins unusually early, in the second semester of the two-year track, meaning students are seeing clients less than a year in. The weekly load steps up deliberately: sixteen hours a week in the first practicum, twenty hours a week in each of the next two, against a floor of 350 accumulated hours 'providing art therapy services to individuals, groups, and/or families.' Note that the required hours are counted as art therapy service hours, not generic clinical hours — that framing is what feeds the ATR pathway as well as the BBS one. Supervision is doubled: the program states that both clinical supervision and art therapy supervision are provided, which is the practical mechanism by which one placement generates hours toward two different credentials. The department runs its own site, the Helen B. Landgarten Art Therapy Clinic, whose mission is 'to serve the community by offering art therapy interventions to underserved children and families who have experienced trauma or are facing serious obstacles in life'; it contracts with outreach programs, schools and other organisations across Los Angeles County, and trainees deliver services there alongside licensed art therapists. A minimum grade of B in each practicum course is required to advance and to graduate. What the program does not publish is who initiates the placement — whether the department assigns students to clinic and contracted sites or whether students apply out — so the who_places field is left null rather than guessed.",
+  "src": "https://cfa.lmu.edu/programs/mft/academics/practicumtraining/",
+  "model": "placed",
+  "model_evidence": "At what kind of agencies does LMU place students? LMU contracts with a wide range of agencies for our students to provide services to complete practicum training.",
+  "model_url": "https://cfa.lmu.edu/programs/mft/academics/practicumtraining/practicumfaqsforprospectivestudents/",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Helen B. Landgarten Art Therapy Clinic (HBL Art Therapy Clinic)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published. The program's own overview page reports employment outcomes for graduating classes of roughly 18–21 students, which is the closest available proxy.",
+  "gre": "not required",
+  "prereqs": "12 semester units of psychology including developmental psychology and psychopathology/abnormal psychology, taken within the last 5 years for a letter grade; plus 18 semester units of studio art coursework that 'demonstrates proficiency and disciplined commitment in art making' and shows range across materials and processes — art history and art appreciation do not count. Bachelor's degree from an accredited institution, 3.0 minimum cumulative GPA. Application materials: two letters of recommendation, a 10–12 page double-spaced personal autobiography, an art portfolio of up to 10 images with titles/years/media/dimensions, a roughly 300-word statement analysing the psychological content of one of those artworks, and a recorded 10-minute video interview of four questions, followed by a virtual group interview if selected.",
+  "deadline": "November 30, 2026 for Fall 2027 entry; virtual interviews February 6 or 7, 2027. New students are admitted in the fall semester only.",
+  "src": "https://cfa.lmu.edu/programs/mft/admissions/",
+  "gre_evidence": "GRE (Optional) Some students may choose to take the GRE to further evidence their ability to succeed in academic settings, especially when they feel their GPA does not reflect their current abilities or dedication. A score of 158 on the verbal portion of the Graduate Record Exam (GRE) is recommended.",
+  "gre_url": "https://cfa.lmu.edu/programs/mft/admissions/",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I have loved my experience so far at Loyola Marymount University! I am in a 3-year Counseling program on the LPCC track, and I have completed my first year... The best part of my experience would have to be the amazing professors. They are so kind and genuinely care about us as students by giving us grace and patience during long night classes.\"",
+   "who": "Niche graduate review, LMU Counseling MA (LPCC track — a sibling clinical programme to LMU's MFT), 13 July 2025",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/loyola-marymount-university/reviews/"
+  },
+  {
+   "text": "\"My experience at the LMU has been incredible. The cohort, faculty, and staff are incredibly supportive, understanding, and very easy to connect and talk to... it focuses on helping you practice skills to be an effective counselor, provides first-hand clinical experience, and challenges you to be vulnerable and client-focused.\"",
+   "who": "Niche graduate review, LMU Counseling programme master's student, 25 May 2025",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/loyola-marymount-university/reviews/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/5/55/Loyola_Marymount_SunkenGardens_SacredHeartChapel.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Loyola_Marymount_SunkenGardens_SacredHeartChapel.jpg",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Mishigaki at English Wikipedia, via Wikimedia Commons",
+  "caption": "Sacred Heart Chapel above the Sunken Gardens on the LMU bluff campus in Westchester, Los Angeles"
+ },
+ "gaps": [
+  "The program does not publish who initiates practicum placement — whether the department places students into the Landgarten Clinic and its contracted sites or whether students apply out to sites themselves. 'who_places' is left null rather than inferred.",
+  "No published couple/family sub-minimum within the 350 practicum hours. The requirement is stated as art therapy services to 'individuals, groups, and/or families' without a relational floor, unlike California programs that break out a specific relational-hours count. The BBS relational-hours requirement would still apply at the licensure level.",
+  "Cohort size is not published anywhere on the program site; the 18–21 figure is inferred from employment-outcome tables, not stated as an admissions number.",
+  "The full ATR education and experience standards could not be fetched — atcb.org returned 404s on its credential-requirements pages. The '1000/100' figure comes from ATCB's ATR Bridge Plan page, which references 'the ATR's 1000/100 requirements' in passing; the authoritative breakdown of what portion of those hours can be earned pre- versus post-degree was not obtainable.",
+  "The bulletin lists MFTH 621 as 1–3 units and MFTH 630 as 2–3 units, which is why the degree total is a range (57–60) rather than a fixed number.",
+  "No credible student discussion (Reddit, GradCafe, Student Doctor Network) could be gathered — the research session's web-search budget was exhausted and direct Reddit API access was blocked. 'voices' is empty rather than absent-because-nothing-exists."
+ ],
+ "sources": [
+  {
+   "label": "LMU Academic Bulletin 2026–2027 — M.A. degree requirements",
+   "url": "https://bulletin.lmu.edu/schools-colleges/communication-fine-arts/marital-family-therapy-specialized-training-art/marital-family-therapy-specialized-training-art-ma/"
+  },
+  {
+   "label": "LMU Academic Bulletin 2026–2027 — MFTH course descriptions",
+   "url": "https://bulletin.lmu.edu/course-descriptions/mfth/"
+  },
+  {
+   "label": "LMU Academic Bulletin 2026–2027 — Tuition and Fees",
+   "url": "https://bulletin.lmu.edu/tuition-fees/"
+  },
+  {
+   "label": "Program — Course Schedule (two-year and three-year tracks)",
+   "url": "https://cfa.lmu.edu/programs/mft/academics/courseschedule/"
+  },
+  {
+   "label": "Program — Practicum Training",
+   "url": "https://cfa.lmu.edu/programs/mft/academics/practicumtraining/"
+  },
+  {
+   "label": "Program — Admission Requirements",
+   "url": "https://cfa.lmu.edu/programs/mft/admissions/"
+  },
+  {
+   "label": "Program — History and Mission",
+   "url": "https://cfa.lmu.edu/programs/mft/ourprogram/historyandmission/"
+  },
+  {
+   "label": "Program — Our Program (accreditation)",
+   "url": "https://cfa.lmu.edu/programs/mft/ourprogram/"
+  },
+  {
+   "label": "Helen B. Landgarten Art Therapy Clinic",
+   "url": "https://cfa.lmu.edu/programs/mft/clinic/"
+  },
+  {
+   "label": "Art Therapy Credentials Board — ATR",
+   "url": "https://www.atcb.org/credentials/atr/"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "total_units",
+   "current": null,
+   "correct": "Minimum 57–60 semester hours (2026–2027 bulletin). The range exists because MFTH 621 is 1–3 units and MFTH 630 is 2–3 units.",
+   "src": "https://bulletin.lmu.edu/schools-colleges/communication-fine-arts/marital-family-therapy-specialized-training-art/marital-family-therapy-specialized-training-art-ma/"
+  },
+  {
+   "field": "tuition",
+   "current": null,
+   "correct": "$1,814 per semester hour for Marriage and Family Therapy, 2026–2027 Edition — roughly $103,400–$108,800 in tuition for the 57–60 unit degree, before fees and materials",
+   "src": "https://bulletin.lmu.edu/tuition-fees/"
+  },
+  {
+   "field": "accreditation",
+   "current": null,
+   "correct": "Accredited by the Commission on Accreditation of Allied Health Education Programs (CAAHEP) upon the recommendation of the Accreditation Council for Art Therapy Education (ACATE), in addition to meeting California BBS educational requirements for the LMFT",
+   "src": "https://cfa.lmu.edu/programs/mft/ourprogram/"
+  },
+  {
+   "field": "founded",
+   "current": "Founded 1975",
+   "correct": "1975 is the year the first class graduated. The certificate program began at Immaculate Heart College in 1972 under Helen Landgarten, the master's degree launched in 1973, and the program moved to LMU in 1980 after IHC closed. 'Founded 1975' is defensible as a first-graduating-class date but is not the founding of the program.",
+   "src": "https://cfa.lmu.edu/programs/mft/ourprogram/historyandmission/"
+  },
+  {
+   "field": "art_therapy_optional",
+   "current": null,
+   "correct": "Not optional. Art therapy is built into the core degree — there is no version of the M.A. without it, and admission requires 18 semester units of studio art plus a portfolio.",
+   "src": "https://cfa.lmu.edu/programs/mft/admissions/"
+  },
+  {
+   "field": "clinic",
+   "current": null,
+   "correct": "Helen B. Landgarten Art Therapy Clinic, opened 2007; serves underserved children and families across Los Angeles County and provides practicum training placements",
+   "src": "https://cfa.lmu.edu/programs/mft/clinic/"
+  },
+  {
+   "field": "program_length",
+   "current": null,
+   "correct": "Two-year and three-year tracks are both offered with the same course requirements redistributed; fall entry only",
+   "src": "https://cfa.lmu.edu/programs/mft/academics/courseschedule/"
+  }
+ ]
+}

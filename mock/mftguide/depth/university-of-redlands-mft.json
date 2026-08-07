@@ -1,0 +1,263 @@
+{
+ "institution": "University of Redlands",
+ "character": [
+  "The base degree here is not an MFT degree and Redlands does not pretend otherwise. The catalog opens: \"The 60-unit Master of Arts in Clinical Mental Health Counseling (CMHC) prepares students for licensure as Professional Clinical Counselors (LPCC) in the state of California.\" That is the LPCC shape — CACREP-style core, career development, assessment, research, a counselling-identity spine — and the MFT specialization is bolted onto it. The arithmetic is unusually clean and unusually well published, which is worth crediting: the Fall 2026 pathway grid ends with a line reading \"60-units: Master of Arts in Clinical Mental Health Counseling (CMHC) / +6-units: Specialization / Total: 66-units.\" So the MFT specialization costs six extra units, not twelve — twelve is the specialization's advertised size, but half of it (CMHC 630 Theory & Practice in Family Counseling and CMHC 631 Couples & Relationship Counseling) is already inside the 60-unit core that every CMHC student takes. The 2023 handbook says it plainly: \"Course work includes 6-units taken as part of the 60-unit MA and 6 additional units offered in an online format for a total of 66 Units to earn the MA CMHC with MFT Specialization.\" The genuinely additional pieces are CMHC 632 (3 units) and three one-unit courses from the ‘Thinking Systemically Seminar Series’ — MFTS 700 Conflict Resolution, MFTS 701 Families & Violence, MFTS 702 Families & Gender.",
+  "Dual eligibility is the actual product. The program page states that MFT-specialization graduates can pursue \"licensure as a Licensed Marriage and Family Therapist (LMFT), in addition to licensure as a Licensed Professional Clinical Counselor (LPCC),\" and the 2025 handbook is more explicit still: \"CMHC graduates meet the Board of Behavioral Sciences requirements leading toward California licensure as Professional Clinical Counselors (PCC), Marriage and Family Therapists (MFT), or they may pursue dual licensure.\" For six units and a set of relational client hours, that is one of the cheaper routes to two California licences on offer — the tuition delta at the 2026–27 rate is $5,592. What you trade for it is systemic depth: the whole family-and-couples content of this degree is three three-unit courses and three one-unit seminars, against a program built around individual clinical counselling. Two of the four named faculty hold PhDs in Marriage and Family Therapy from Loma Linda, and the program coordinator, Janee Both Gragg, is dually licensed LPCC and LMFT — so the systemic expertise is real, it is just not the organising principle of the curriculum.",
+  "Two structural facts matter more than the brochure. First, size: the handbook lists \"four full and part-time faculty and several adjunct (i.e., part-time) faculty\" in the whole Department of Counseling and Human Services, which also runs the School Counseling program and a China-based Counseling and Psychotherapy master's — and CMHC students \"are likely to take classes with students in the School counseling program.\" Second, gatekeeping is formalised and visible in a way most programs keep quiet. Faculty \"convene to formally evaluate students twice each academic year (Fall and Summer)\" on a published 0–3 concern scale, where 3 means \"Student's pattern of performance raises significant questions about his/her ability to succeed in the program\" and triggers a referral to the Student Professional Development Committee. Failing the CPCE (EDUC 699, taken for zero units in the second spring) is one of seven listed triggers. If you want to know in advance what will get you remediated, Redlands has actually told you."
+ ],
+ "orientation": "Generalist clinical mental health counselling (LPCC-shaped) with an optional systemic layer — the specialization's own branding, ‘Thinking Systemically’, is the closest thing to a stated theoretical commitment",
+ "signature": [
+  {
+   "code": "CMHC 632",
+   "title": "Advanced Child & Adolescent Development and Intervention (labelled ‘Adv Human Development’ on the Fall 2026 pathway)",
+   "units": "3",
+   "desc": "Redlands publishes no public course description for this course. What is published: it is the single three-unit course that is genuinely additional to the 60-unit core for the MFT specialization, it sits in the second summer, and it is shared with the Child and Adolescent Intervention specialization, which uses the same course as its own advanced offering.",
+   "verbatim": false,
+   "why": "This is where half the MFT specialization's extra weight actually goes — into child and adolescent development, not into couples work. It tells you the specialization is aimed at family-system practice with children in it, and that a student can pick up both specializations by swapping which one-unit seminars they take.",
+   "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  },
+  {
+   "code": "MFTS 700 / 701 / 702",
+   "title": "Thinking Systemically Seminar Series — Conflict Resolution; Families & Violence; Families & Gender",
+   "units": "1 each (3 total)",
+   "desc": "No catalog descriptions are published. The handbook describes the parent block: \"The Clinical Mental Health Counseling (CMHC) program offers 12 units of specialized training focused on therapeutic intervention applicable to a broad range of relational systems\" — and the 2023 handbook notes the six additional units are \"offered in an online format.\"",
+   "verbatim": false,
+   "why": "One-unit topic seminars are rare in California MFT training and are the most distinctive thing on this transcript. They are also the mechanism that lets a student pick up a second specialization: the handbook says a student can earn both MFT and Child & Adolescent specializations \"but would need to select different 1-unit Thinking Systeically Seminar Series courses.\" A Spanish-speaking-communities track uses the same one-unit format (MFTS 704, 705, 706).",
+   "src": "https://www.redlands.edu/contentassets/b73eceda3e1b4fe4bd4d3912f7270c51/cmhc-2023-program-handbook.pdf"
+  },
+  {
+   "code": "CMHC 699A / 699B / 699C",
+   "title": "CMHC Practicum I, II, III",
+   "units": "2 each (6 total), plus CMHC 699D continuation (2) if hours are unfinished",
+   "desc": "\"Students admitted into the CMHC program, upon completing their first year of coursework, are required to perform practicum hours in a clinical setting across three semesters for a total of at least 450 hours (280 hours must be face-to-face counseling). ... Students earning the MFT Specialization are required to complete (200) additional face to face hours working with couples and families.\"",
+   "verbatim": true,
+   "why": "Note the unit weighting: three semesters of clinical work carry six units out of sixty. It also runs as a seminar with recorded sessions — sites must permit \"the use of those recordings in the CMHC 699 seminar series,\" so your tape gets watched by your cohort, not just your supervisor.",
+   "src": "https://catalog.redlands.edu/programs/MA.CMHC"
+  },
+  {
+   "code": "CMHC 698",
+   "title": "CMHC Pre-Practicum",
+   "units": "3",
+   "desc": "No published description. Its position is the information: on the Fall 2026 two-year pathway it sits in the first summer, immediately before the second-year practicum sequence begins, and on the three-year pathway it moves to the second summer to sit immediately before practicum there.",
+   "verbatim": false,
+   "why": "A dedicated three-unit pre-practicum term is more structure than most programs give the transition into client work, and the fact that it moves with the pathway confirms it is a gate rather than a filler course.",
+   "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  },
+  {
+   "code": "CMHC 621",
+   "title": "Counseling in a Global Context",
+   "units": "3",
+   "desc": "No published description. Required in the second spring of both the two-year and three-year general tracks, alongside CMHC 610 Sociocultural Counseling & Intervention in the first fall — two separate required multicultural courses in a 60-unit degree.",
+   "verbatim": false,
+   "why": "Two required diversity/context courses rather than the usual one, plus a whole third specialization dedicated to Counseling Spanish-Speaking Communities (CMHC 650 Advanced Counseling Hispanic; MFTS 706 Mi Familia), is a genuine institutional commitment in a program serving the Inland Empire.",
+   "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  },
+  {
+   "code": "EDUC 699",
+   "title": "CPCE (Counselor Preparation Comprehensive Examination)",
+   "units": "0",
+   "desc": "Carried at zero units in the second spring of both pathways. The handbook lists \"Student fails the CPCE\" as one of seven events that can trigger reassessment by the Student Professional Development Committee.",
+   "verbatim": false,
+   "why": "A zero-unit line on the pathway that can nonetheless get you referred for remediation is worth seeing before you enrol. It is also a marker that the program is built on the counselling-profession (CACREP-style) exam culture rather than the MFT one.",
+   "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based and lockstep, three 14-week semesters a year (Fall, Spring, Summer) with one-to-three week breaks between. Two-year and three-year pathways are published and \"the pathways provided are the only ways in which the program guarantees completion in the timeline listed.\" First-year load is deliberately heavier: \"students take more academic units during their first year than during their second to accommodate the time demands of being in practicum, which is approximately 15-20 hours per week.\" Sequence below is the Fall 2026 two-year general track with the MFT specialization courses marked.",
+  "total_units": "60 for the base MA; 66 with the Marriage and Family Therapy specialization (+6 units)",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (12)",
+    "courses": [
+     "EDUC 601 The Counseling Process (3)",
+     "CMHC 610 Sociocultural Counseling & Intervention (3)",
+     "CMHC 613 Counseling Law & Ethics (3)",
+     "EDUC 680 Human Development Across the Lifespan (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (12)",
+    "courses": [
+     "EDUC 655 Counseling Systems (3)",
+     "EDUC 653 Theories of Counseling & Psychotherapy (3)",
+     "CMHC 692 Crisis Intervention Counseling (3)",
+     "CMHC 695 Intro to Substance Abuse Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (12)",
+    "courses": [
+     "CMHC 698 CMHC Pre-Practicum (3)",
+     "CMHC 620 Counseling & Educational Assessment (3)",
+     "CMHC 630 Theory & Practice in Family Counseling (3) — also counts toward the MFT specialization",
+     "CMHC 693 Adv Counseling: Psych & Diag Procedures (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (8)",
+    "courses": [
+     "CMHC 615 Group Psychotherapy & Counseling (3)",
+     "CMHC 640 Research & Evaluation (3)",
+     "CMHC 699A Practicum I (2)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (8, +2 with MFT specialization)",
+    "courses": [
+     "EDUC 654 Career Development Theory & Practice (3)",
+     "CMHC 621 Counseling in a Global Context (3)",
+     "CMHC 699B Practicum II (2)",
+     "EDUC 699 CPCE (0)",
+     "MFT specialization: MFTS 701 Families & Violence (1)",
+     "MFT specialization: MFTS 700 Conflict Resolution (1)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (8, +4 with MFT specialization)",
+    "courses": [
+     "CMHC 694 Psychopharmacology (3)",
+     "CMHC 631 Couples & Relationship Counseling (3) — also counts toward the MFT specialization",
+     "CMHC 699C Practicum III (2)",
+     "MFT specialization: CMHC 632 Adv Human Development (3)",
+     "MFT specialization: MFTS 702 Families & Gender (1)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall (only if practicum hours are unfinished)",
+    "courses": [
+     "CMHC 699D Practicum Cont. (2) — \"Required only if practicum requirement is not completed.\""
+    ]
+   }
+  ],
+  "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+ },
+ "practicum": {
+  "starts": "Final year — \"Candidates are expected to start practicum in their final year of the program (2nd Fall term for 2-year track; 3rd Fall for 3-year track).\" Three consecutive semesters, CMHC 699A/B/C.",
+  "hours": "450 total practicum hours (direct + indirect). Of those, 300 must be direct client contact for Fall 2025 starts (280 for Fall 2024 starts). MFT specialization adds a relational requirement — and the two published figures disagree: the university catalog says \"200 additional face to face hours working with couples and families,\" while the 2025–2026 Practicum Handbook's hour table says \"A minimum of 40 of the direct client contact hours must be relational hours, but up to 500 relational hours can count toward MFT state licensure.\" Ask the program which governs before you enrol.",
+  "who_places": "student-finds",
+  "clinic": "No in-house client-serving training clinic. The School of Education runs a Mental Health Training & Integration Center (MHTIC), but the practicum handbook describes it only as offering peer group supervision — \"a collaborative space for clinical mental health candidates to meet with peers, discuss cases and challenges, navigate ethical concerns observed in the field\" — of which up to 12 hours per term may count as indirect practicum hours.",
+  "detail": "Practicum is the whole of the final year and finding the site is squarely on you: \"Candidates are responsible for identifying and confirming their own practicum site and Site Supervisor for each semester enrolled in practicum.\" The program does scaffold the search — it hosts a Practicum Fair each spring so students can \"meet supervisors and staff from many of our partner training sites,\" and it publishes an Active Partnership List of vetted sites — but if you want a site not already on that list you must file a Partnership Interest Form \"at least 3 months before the anticipated start of the practicum placement,\" because every partnership needs a Memorandum of Understanding \"often subject to legal review,\" and all new partnerships must be in place before Fall self-registration. The eligibility rules are restrictive and worth knowing early: the site \"may not be a private practice setting,\" \"may not be a for-profit practice setting,\" must deliver California-based services, must have a qualified supervisor working on-site, and must let you audio- or video-record your work both for site supervision and for use in the CMHC 699 seminar. Practicum at your own workplace is \"very unusual and is discouraged\" and requires a formal departmental appeal. The commitment is \"an average of 15–20 hours per week, inclusive of supervision time,\" and supervision runs at BBS ratio — \"One hour of supervision must be provided for every 5 hours of client contact,\" where an hour means one hour individual face-to-face or two hours in a group of no more than eight, in segments of no less than one continuous hour — carried by a site supervisor who has held an appropriate California licence for at least two years, plus a university CMHC 699 instructor who provides \"group and individual supervision\" and evaluates you alongside the site. Before you can start you need a Practicum Eligibility Form approved and professional liability insurance at $1,000,000 per incident / $3,000,000 aggregate. Hours are logged in Etrieve and must be site-supervisor-approved each term to pass the class; if the 450 hours are not done in three semesters you register for CMHC 699D and keep going.",
+  "src": "https://docs.google.com/document/d/1LltZIW8DjRLSOG4buYZXIwKq_pY5KtaUMK6nei3XsMo/edit?usp=sharing",
+  "model": "assisted",
+  "model_evidence": "The University of Redlands must have a memorandum of understanding (MOU) with the practicum site before you can begin. Please review our Active Partnership List to determine whether a partnership is in place with your potential site.",
+  "model_url": "https://www.redlands.edu/offices-directory/offices/school-of-education/student-support/clinical-mental-health-and-counseling-resources",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Not published. The handbook says only that \"Students enter as a cohort that functions as a learning community\" and refers to \"the small classes that are characteristic of the University of Redlands.\" The whole Department of Counseling and Human Services has \"four full and part-time faculty and several adjunct\" faculty across three programs.",
+  "gre": "not published",
+  "prereqs": "Bachelor's from a regionally accredited institution; 3.0 undergraduate GPA (below 3.0 requires a petition statement plus two additional recommendation letters); official transcripts; \"Two (2) letters of recommendation from faculty or professionals who know your work\"; a 500-word essay \"describing personal experience and interests in the field\"; a Certificate of Clearance; selected applicants complete a group interview.",
+  "deadline": "Fall term: Priority 1 — January 15; Priority 2 — June 1. \"Applications submitted after the Priority 2 deadline will be reviewed based upon program capacity.\"",
+  "src": "https://www.redlands.edu/academics/graduate/master-of-arts-in-clinical-mental-health-counseling",
+  "gre_evidence": "Evidence of a 3.0 undergraduate GPA or an approved petition",
+  "gre_url": "https://www.redlands.edu/academics/graduate/master-of-arts-in-clinical-mental-health-counseling",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "cost": {
+  "per_unit": "$932 per credit for 2026–27 (was $905 for 2025–26)",
+  "tuition_total": "$55,920 for the 60-unit MA; $61,512 for the 66-unit MA with the Marriage and Family Therapy specialization. The specialization therefore costs $5,592 in extra tuition.",
+  "fees": "Wellness Fee $100 per year; Student Service Fee $5 per term. Separately, students must buy professional liability insurance at $1M/$3M before the first practicum term.",
+  "src": "https://www.redlands.edu/admissions-and-aid/graduate/tuition-and-fees"
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/8/84/University_of_Redlands_Main_Quad-Mall.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:University_of_Redlands_Main_Quad-Mall.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Redspork02, via Wikimedia Commons (CC BY-SA 4.0)",
+  "caption": "The main quad at the University of Redlands, looking south toward the Administration Building."
+ },
+ "gaps": [
+  "Redlands publishes no public course descriptions. The catalog runs on Coursedog and its course records are behind an authenticated API; the ‘Requirements’ tab of the MA.CMHC program page returns no course list to a plain fetch, and the Armacost Library research guides for CMHC courses carry only titles. Everything in this file about individual courses comes from the pathway grids and handbooks, which give code, title, units and term but no content.",
+  "The relational-hour requirement for the MFT specialization is stated two incompatible ways in two current official documents: \"200 additional face to face hours working with couples and families\" (university catalog and both pathway PDFs) versus \"A minimum of 40 of the direct client contact hours must be relational hours\" (2025–2026 CMHC Practicum Handbook). This is the single most important unresolved fact for an MFT applicant and it should be confirmed with the program in writing.",
+  "Whether the MFT specialization can be declared after matriculation is not documented. Mechanically the six extra units fall in the second spring and second summer and the 2023 handbook says they are delivered online, which suggests late entry is possible — but the relational client hours have to be accrued during the Year-2 practicum, which begins the preceding fall, so the practical deadline is before practicum starts. No published policy states this.",
+  "Which campuses offer CMHC. The university currently lists four locations — Redlands (main), Los Angeles/Woodbury, San Francisco Bay Area/San Anselmo, and a Riverside regional campus at 3610 Central Ave described as \"Home to the School of Education graduate programs.\" The CMHC program page gives only the Redlands campus address (University Hall North, 1200 E. Colton Ave.) and lists format as On Campus. Whether the CMHC cohort also runs at Riverside could not be confirmed from any published source. Older Redlands regional campuses (Rancho Cucamonga, San Diego, Temecula, South Coast Metro) no longer appear on the university's campus-locations page at all.",
+  "Class meeting days and times, and whether the program is evening-scheduled for working students — not published.",
+  "Cohort size and admit numbers — not published.",
+  "CACREP status. No CACREP accreditation is claimed anywhere in the catalog, the program page or the handbooks; two faculty hold CACREP-accredited doctorates, which is a different thing. Treat the program as non-CACREP unless the program says otherwise.",
+  "No credible student discussion of this program was found on Reddit, Student Doctor Network or GradCafe.",
+  "The Fall 2026 pathway relabels CMHC 632 as ‘Adv Human Development’ while the handbooks call it ‘Advanced Child & Adolescent Development and Intervention’; only one course number exists, so this is a labelling inconsistency rather than two courses."
+ ],
+ "corrections": [
+  {
+   "field": "format",
+   "current": "nothing but on-campus",
+   "correct": "Needs qualifying. The 60-unit base MA is on-campus at Redlands (University Hall North; the catalog lists format as On Campus), but the 6 additional units of the MFT specialization are not: the CMHC handbook states the specialization is \"6-units taken as part of the 60-unit MA and 6 additional units offered in an online format.\" So an MFT-specialization student is on-campus for the degree and online for the specialization.",
+   "src": "https://www.redlands.edu/contentassets/b73eceda3e1b4fe4bd4d3912f7270c51/cmhc-2023-program-handbook.pdf"
+  },
+  {
+   "field": "units",
+   "current": "(not recorded)",
+   "correct": "60 units for the MA in Clinical Mental Health Counseling; 66 units with the Marriage and Family Therapy specialization. The Fall 2026 pathway PDF states it explicitly: \"60-units: Master of Arts in Clinical Mental Health Counseling (CMHC) / +6-units: Specialization / Total: 66-units.\" The specialization is advertised as 12 units, but 6 of those (CMHC 630, CMHC 631) are already inside the 60-unit core.",
+   "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  },
+  {
+   "field": "lpcc",
+   "current": "LPCC yes",
+   "correct": "Correct — LPCC is in fact the *default* outcome, not the add-on. The catalog frames the 60-unit degree as preparing students \"for licensure as Professional Clinical Counselors (LPCC) in the state of California\"; LMFT eligibility is the optional 6-unit specialization. Graduates with the specialization are dual-eligible: the program page says LMFT \"in addition to licensure as a Licensed Professional Clinical Counselor (LPCC),\" and the 2025 handbook says graduates may pursue PCC, MFT, \"or they may pursue dual licensure.\"",
+   "src": "https://www.redlands.edu/academics/graduate/master-of-arts-in-clinical-mental-health-counseling"
+  },
+  {
+   "field": "cost",
+   "current": "(not recorded)",
+   "correct": "$932 per credit for 2026–27 ($905 for 2025–26) — $55,920 for 60 units, $61,512 for 66 units with the MFT specialization. Plus a $100/year Wellness Fee and $5/term Student Service Fee.",
+   "src": "https://www.redlands.edu/admissions-and-aid/graduate/tuition-and-fees"
+  },
+  {
+   "field": "program_length",
+   "current": "(not recorded)",
+   "correct": "Two years across six 14-week terms (three terms a year, Fall/Spring/Summer), with a published three-year part-time pathway as an alternative. A seventh term (CMHC 699D) is added only if practicum hours are unfinished.",
+   "src": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  }
+ ],
+ "sources": [
+  {
+   "label": "University Catalog 2026 — MA.CMHC program page",
+   "url": "https://catalog.redlands.edu/programs/MA.CMHC"
+  },
+  {
+   "label": "CMHC Program Pathways, all specializations, Fall 2026 (PDF)",
+   "url": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/pathways-pdfs/cmhc-all-specializations-fall2026.pdf"
+  },
+  {
+   "label": "CMHC Pathway, earlier revision 9/3/24 (PDF)",
+   "url": "https://www.redlands.edu/contentassets/b73eceda3e1b4fe4bd4d3912f7270c51/master-of-arts-in-clinical-mental-health.pdf"
+  },
+  {
+   "label": "CMHC Program Handbook, Fall 2025 cohort",
+   "url": "https://docs.google.com/document/d/16PlHk4G7-bqN0AqelMP3jRQSGYvdY0LyTsVjNADb3kw/edit?usp=sharing"
+  },
+  {
+   "label": "CMHC Practicum Handbook 2025–2026",
+   "url": "https://docs.google.com/document/d/1LltZIW8DjRLSOG4buYZXIwKq_pY5KtaUMK6nei3XsMo/edit?usp=sharing"
+  },
+  {
+   "label": "CMHC Program Handbook 2023 (PDF) — contains the clearest statement of the MFT specialization's unit structure",
+   "url": "https://www.redlands.edu/contentassets/b73eceda3e1b4fe4bd4d3912f7270c51/cmhc-2023-program-handbook.pdf"
+  },
+  {
+   "label": "CMHC Program Handbook 2025–2026 (PDF)",
+   "url": "https://www.redlands.edu/globalassets/academics/colleges-and-schools/soe/clinical-mental-health-counseling-resources/2025-2026_cmhcprogramhandbook.pdf"
+  },
+  {
+   "label": "MA in Clinical Mental Health Counseling — program page (admissions, deadlines, licensure)",
+   "url": "https://www.redlands.edu/academics/graduate/master-of-arts-in-clinical-mental-health-counseling"
+  },
+  {
+   "label": "Graduate Tuition and Fees",
+   "url": "https://www.redlands.edu/admissions-and-aid/graduate/tuition-and-fees"
+  },
+  {
+   "label": "Regional campus locations",
+   "url": "https://www.redlands.edu/meet-redlands/regional-campus-locations/"
+  },
+  {
+   "label": "Clinical Mental Health Counseling Resources (pathways and handbooks index)",
+   "url": "https://www.redlands.edu/offices-directory/offices/school-of-education/student-support/clinical-mental-health-and-counseling-resources"
+  }
+ ]
+}

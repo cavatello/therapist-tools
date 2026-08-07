@@ -1,0 +1,207 @@
+{
+ "institution": "Sonoma State University",
+ "character": [
+  "Sonoma State's route to LMFT is not a marriage-and-family-therapy program at all in name — it is a 60-unit M.A. in Counseling with a Clinical Mental Health Counseling concentration, run out of a counselor-education department that also trains K-12 school counselors. The practical consequence is the answer to the question most applicants ask: getting LMFT eligibility out of this LPCC-shaped degree costs zero extra units and no extra semesters. The single 60-unit plan is the whole thing, and the department states it \"meets the California Board of Behavioral Sciences educational requirements for the marriage and family therapy and professional clinical counselor licenses in California.\" The BBS education-resources table confirms it, listing Sonoma State for both LMFT and LPCC. The dual coverage is welded into ordinary courses rather than bolted on: the catalog description of COUN 540 says it \"includes focus on 3 units of special topics toward the CA LPCC license,\" and COUN 545 carries one more such unit. You are not choosing a track at admission; you graduate eligible for both exams and decide afterward.",
+  "The other distinguishing thing is that Sonoma actually publishes its outcomes, because its accreditor makes it. The CMHC concentration is accredited by MPCAC — the Masters in Psychology and Counseling Accreditation Council, \"for the period of September 2022 through September 2030\" — not CACREP, which is the more common badge and a meaningfully different one. The department's public program-data page shows 223 applications for 2024-25, 34 accepted (15.2%), 29 matriculated, 59 enrolled in total, and 26 graduates; 2024 licensure exam pass rates were 100% on the LMFT clinical exam and 90% on LMFT law and ethics, against 60% on the LPCC clinical exam. Very few California programs put that on a public page. Structurally the program is heavy and lockstep — four courses a term, most of them 4 units, 16/13/15/16 units across four semesters — and the department's own FAQ concedes the second-year traineeship is a \"17-22 hour a week commitment, in addition to other coursework.\"",
+  "It is also the only public counseling master's in the North Bay, and the first semester is shared ground with the school-counseling students: COUN 501, 510A, 545 and 570 are the common 19-unit core before the two specializations diverge."
+ ],
+ "orientation": null,
+ "signature": [
+  {
+   "code": "COUN 510B",
+   "title": "Applied Counseling Practicum and Advanced Techniques",
+   "units": "4",
+   "desc": "\"This course provides students with an opportunity to continue the development of multiculturally-competent counseling skills necessary for advanced field training during the COUN 515A/B Supervised Field Experience sequence.\" CMHC students do on-campus client work; School Counseling students train in K-12 settings. Crisis intervention and trauma-informed approaches are emphasized.",
+   "verbatim": true,
+   "why": "This is the spring of year one, and it is where Sonoma puts clients in front of you a full year before the formal field placement. Most California programs make the first two semesters entirely didactic; here the second semester is already a supervised on-campus caseload, which is why liability insurance is due before spring starts.",
+   "src": "https://catalog.sonoma.edu/preview_course_nopop.php?catoid=12&coid=56563"
+  },
+  {
+   "code": "COUN 545",
+   "title": "Counseling Orientation, Law and Ethics, and Case Management Practices",
+   "units": "4",
+   "desc": "Examines \"legal and ethical responsibilities of the Clinical Mental Health Counselor (CMHC)\" — confidentiality, mandatory reporting, domestic violence assessment — alongside case management technique and \"cultural considerations as they impact counseling and case management practices.\" Fulfils MFT and LPCC educational requirements, including one unit toward the California LPCC license.",
+   "verbatim": true,
+   "why": "Worth reading closely because it shows the mechanics of the dual-licensure design: rather than a separate LPCC bridge, the extra LPCC content is metered out inside required courses one unit at a time. It also runs in the very first semester, so the law-and-ethics exam material is front-loaded rather than saved for the end.",
+   "src": "https://catalog.sonoma.edu/preview_course_nopop.php?catoid=6&coid=31746"
+  },
+  {
+   "code": "COUN 540",
+   "title": "Counseling Diverse Couples and Families",
+   "units": "4",
+   "desc": "\"This course offers theoretical, principle, and methodological foundations for understanding diverse couple and family relationships by providing an overview of historical and contemporary models of conceptualization, assessment, and intervention. Attention is devoted to important legal, ethical, and clinical considerations unique to working with families and couples, including partner abuse assessment, intervention, and dynamics; child abuse reporting; and roles of families and systems in substance abuse and dependence.\"",
+   "verbatim": true,
+   "why": "This single fall course carries essentially all of the relational-therapy training in a 60-unit degree — one 4-unit course covering couples, families, partner abuse and child abuse reporting. If systemic and family work is what draws you to LMFT rather than LPCC, know that Sonoma treats it as one course in a counseling curriculum, not as the organizing frame of the program.",
+   "src": "https://catalog.sonoma.edu/preview_course_nopop.php?catoid=5&coid=15292"
+  },
+  {
+   "code": "COUN 515A / 515B",
+   "title": "Clinical Mental Health Counseling / Supervised Field Experience I and II",
+   "units": "4 + 4",
+   "desc": "The two-semester second-year field sequence. \"Six hundred clock hours of supervised field experience\" are required for the CMHC specialization. \"All CMHC candidates are required to complete a clinical case presentation, and are also required to pass the CMHC Exit Exam. Both of these are required as part of the Counseling 515B Supervised Field Experience II course.\"",
+   "verbatim": true,
+   "why": "The 600-hour figure and the exit exam are the two numbers to plan around. 600 clock hours over two semesters at a site — the FAQ puts it at 17 to 22 hours a week — is a substantial second year, and unlike many programs the degree is gated on passing a departmental exit exam, not merely on completing hours.",
+   "src": "https://counseling.sonoma.edu/programs/clinical-mental-health-cmhc"
+  }
+ ],
+ "curriculum": {
+  "note": "Lockstep cohort, four courses a term across four semesters; the department also publishes a 2.5-year plan for students who need a lighter load. 19 units of shared counseling core (COUN 501, 510A, 511F, 513, 570) plus 41 units of CMHC-specific coursework. Course list below is the published 2-year sample plan.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Semester 1 — 16 units",
+    "courses": [
+     "COUN 501 Theory and Practice of the Professional Counselor (4)",
+     "COUN 510A Applied Counseling Techniques and Assessment (4)",
+     "COUN 545 Counseling Orientation, Law and Ethics, and Case Management Practices (4)",
+     "COUN 570 Multicultural Counseling (4)"
+    ]
+   },
+   {
+    "label": "Semester 2 — 13 units",
+    "courses": [
+     "COUN 510B Applied Counseling Practicum & Advanced Techniques (4)",
+     "COUN 503 Clinical Diagnosis & Treatment Planning (4)",
+     "COUN 582 Psychopharmacology for Counselors (3)",
+     "COUN 583 Substance Abuse & Dependence (2)"
+    ]
+   },
+   {
+    "label": "Semester 3 — 15 units",
+    "courses": [
+     "COUN 515A Clinical Mental Health Counseling / Field Experience I (4)",
+     "COUN 540 Counseling Diverse Couples & Families (4)",
+     "COUN 502 Lifespan Development in Clinical Practice (4)",
+     "COUN 511F Career Counseling: Foundations, Measurement and Assessment, and Issues Throughout the Lifespan (3)"
+    ]
+   },
+   {
+    "label": "Semester 4 — 16 units",
+    "courses": [
+     "COUN 515B Clinical Mental Health Counseling / Field Experience II (4)",
+     "COUN 580 Relationship and Sexuality Counseling (4)",
+     "COUN 512 Theory and Practice of Group Counseling (4)",
+     "COUN 513 Research, Evaluation and Assessment in Counseling (4)"
+    ]
+   }
+  ],
+  "src": "https://counseling.sonoma.edu/degree/cmhc/sample-plan-2-year"
+ },
+ "practicum": {
+  "starts": "Spring of year one (COUN 510B), then the formal two-semester field sequence across all of year two (COUN 515A fall, COUN 515B spring)",
+  "hours": "600 clock hours of supervised field experience for the CMHC specialization, across COUN 515A and 515B",
+  "who_places": null,
+  "clinic": null,
+  "detail": "Client contact starts earlier here than at most California programs. In the second semester of year one, COUN 510B has CMHC students doing on-campus client work while continuing skills training, and the department's FAQ describes that spring practicum as \"approximately 15 hours per week in addition to other coursework.\" Liability insurance is a hard gate on that: \"CMHC Students must secure liability insurance by the start of their second semester in the program,\" with the declarations page uploaded by the first day of spring. The real placement is the second year — COUN 515A and 515B together require \"Six hundred clock hours of supervised field experience,\" which the FAQ frames as a \"17-22 hour a week commitment, in addition to other coursework,\" at mental health clinics, counseling centers and college counseling centers. Graduation is gated on two things inside COUN 515B: \"All CMHC candidates are required to complete a clinical case presentation, and are also required to pass the CMHC Exit Exam.\" The department does not publish, on any page we could reach, who is responsible for securing the year-two site, whether the on-campus COUN 510B client work happens in a named training clinic, or a minimum number of relational (couple/family) hours within the 600.",
+  "src": "https://counseling.sonoma.edu/programs/clinical-mental-health-cmhc",
+  "model": "assisted",
+  "model_evidence": "Both the Clinical Mental Health and School Counseling programs are affiliated with many counseling and school traineeship sites throughout Sonoma County and the greater bay area. [...] In the spring semester of the CMHC students' first year, they attend a mandatory traineeship fair hosted by the Counseling Department.",
+  "model_url": "https://counseling.sonoma.edu/programs/program-faq",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "For 2024-25: 223 applications, 34 accepted (15.2% acceptance rate), 29 matriculated, 59 CMHC students enrolled in total, 26 graduated. Prior years: 166 applications / 24 admitted (2023-24), 166 / 27 (2022-23), 192 / 35 (2021-22).",
+  "gre": "not published",
+  "prereqs": "Minimum 3.0 undergraduate GPA. \"Both Abnormal Psychology and Personality Theory are required for admission.\" Applicants also need related human services experience — \"a minimum of one year full-time (30-40 hours per week) or two years part-time\" — plus an autobiographical essay demonstrating qualities such as \"psychological mindedness, reflectiveness, maturity.\" Preference for social science and humanities undergraduate degrees. The department describes admission as highly competitive and says many qualified applicants will not be interviewed.",
+  "deadline": null,
+  "src": "https://counseling.sonoma.edu/programs/cmhc/program-data-evaluation",
+  "gre_evidence": "A minimum undergraduate GPA of a 3.0 is required for admission.",
+  "gre_url": "https://counseling.sonoma.edu/admissions/application-process/application-requirements-cmhc",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "cost": {
+  "resident_tuition_fees": "$5,608 per semester full-time (7+ units) for California residents in 2026-27 — $4,274 tuition plus $1,334 campus-based fees — or $11,216 for the academic year. Part-time (1-6 units) is $3,814 per semester, $7,628 per year. Excludes optional fees, books, and living costs.",
+  "src": "https://seawolfservices.sonoma.edu/student-chargesfees/2026-27-student-chargesfees"
+ },
+ "outcomes": {
+  "detail": "2024 licensure exam results published by the department: LMFT Clinical 100%, LMFT Law & Ethics 90%, LPCC Clinical 60%, LPCC Law & Ethics 100%; 91% of that cohort obtained state licensure. 2023: LMFT Clinical 95%, LMFT Law & Ethics 100%, LPCC Clinical and Law & Ethics both 100%. 2022 LMFT Clinical was 67%. Employment in the counseling field: 82% in 2025 (n=17 respondents), 87% licensed or pursuing licensure in 2023 (n=39), 92% employed in 2021 (n=47).",
+  "src": "https://counseling.sonoma.edu/programs/cmhc/program-data-evaluation"
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/3/3f/SSU_Salazar_Hall_4646.png",
+  "page": "https://commons.wikimedia.org/wiki/File:SSU_Salazar_Hall_4646.png",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Stepheng3, via Wikimedia Commons, CC BY-SA 3.0",
+  "caption": "The north side of Ruben Salazar Hall on the Sonoma State University campus in Rohnert Park, a white colonnaded building with a lawn and its name sign in front."
+ },
+ "gaps": [
+  "Who secures the second-year field placement — program-placed, student-found, or a mix — is not stated on any Sonoma page we could reach. This is the single most consequential unknown for an applicant and worth asking the department directly.",
+  "Whether the on-campus client work in COUN 510B happens in a named training clinic (as opposed to informally through the department or the campus counseling center) is not published.",
+  "No relational / couple / family sub-minimum is published within the 600 field-experience hours. BBS counts relational hours separately toward the LMFT, so this matters.",
+  "The application deadline and whether the GRE is required are not stated on the CMHC application-requirements page; the page covers GPA, prerequisite courses, experience and essay only.",
+  "Course descriptions for COUN 580 (Relationship and Sexuality Counseling), COUN 512, COUN 502 and COUN 503 could not be retrieved — Sonoma's Acalog catalog returns empty responses for program and course-list pages from this environment, and only individual course pages surfaced by search could be fetched. Titles and unit values above come from the department's own published sample plan and are reliable.",
+  "No credible first-person student discussion of this program was found. Reddit search was unavailable from this environment, so treat this as 'not looked for exhaustively' rather than 'nothing exists'.",
+  "No freely-licensed campus photograph could be verified — Wikimedia Commons was unreachable from this environment. Do not substitute a university publicity image."
+ ],
+ "corrections": [
+  {
+   "field": "LMFT eligibility",
+   "current": "recorded as an LPCC-shaped Clinical Mental Health Counseling specialization; LMFT route unclear",
+   "correct": "The same 60-unit CMHC concentration satisfies BBS educational requirements for BOTH the LMFT and the LPCC. There is no separate MFT track, no bridge coursework and no additional units — LMFT eligibility costs zero extra units. The BBS education-resources table lists Sonoma State University for 'LMFT, LPCC'. The LPCC-specific content is embedded inside required courses (3 units inside COUN 540, 1 unit inside COUN 545).",
+   "src": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  },
+  {
+   "field": "accreditation",
+   "current": "not recorded",
+   "correct": "The CMHC concentration is accredited by MPCAC (Masters in Psychology and Counseling Accreditation Council) 'for the period of September 2022 through September 2030' — not CACREP.",
+   "src": "https://counseling.sonoma.edu/programs/clinical-mental-health-cmhc"
+  },
+  {
+   "field": "practicum start",
+   "current": "recorded as 'on-campus with field experience' without a start point",
+   "correct": "Client contact begins in the second semester of year one via COUN 510B (about 15 hours/week), a year before the formal COUN 515A/B field sequence, and liability insurance is required by the start of that second semester.",
+   "src": "https://counseling.sonoma.edu/programs/faq"
+  }
+ ],
+ "sources": [
+  {
+   "label": "Clinical Mental Health Counseling program page, Department of Counseling",
+   "url": "https://counseling.sonoma.edu/programs/clinical-mental-health-cmhc"
+  },
+  {
+   "label": "Degree Programs — Department of Counseling",
+   "url": "https://counseling.sonoma.edu/programs"
+  },
+  {
+   "label": "Sample CMHC Plan / 2-Year",
+   "url": "https://counseling.sonoma.edu/degree/cmhc/sample-plan-2-year"
+  },
+  {
+   "label": "Program FAQ — Department of Counseling",
+   "url": "https://counseling.sonoma.edu/programs/faq"
+  },
+  {
+   "label": "CMHC Program Data & Evaluation (applications, admits, licensure pass rates)",
+   "url": "https://counseling.sonoma.edu/programs/cmhc/program-data-evaluation"
+  },
+  {
+   "label": "CMHC application requirements",
+   "url": "https://counseling.sonoma.edu/admissions/application-process/application-requirements-cmhc"
+  },
+  {
+   "label": "COUN 510B course description, SSU catalog",
+   "url": "https://catalog.sonoma.edu/preview_course_nopop.php?catoid=12&coid=56563"
+  },
+  {
+   "label": "COUN 545 course description, SSU catalog",
+   "url": "https://catalog.sonoma.edu/preview_course_nopop.php?catoid=6&coid=31746"
+  },
+  {
+   "label": "COUN 540 course description, SSU catalog",
+   "url": "https://catalog.sonoma.edu/preview_course_nopop.php?catoid=5&coid=15292"
+  },
+  {
+   "label": "2026-27 Student Charges/Fees, Seawolf Service Center",
+   "url": "https://seawolfservices.sonoma.edu/student-chargesfees/2026-27-student-chargesfees"
+  },
+  {
+   "label": "BBS Education Resources — school/licence table",
+   "url": "https://www.bbs.ca.gov/applicants/education_resources.html"
+  }
+ ]
+}

@@ -1,0 +1,186 @@
+{
+ "institution": "Concordia University Irvine (Townsend Institute)",
+ "character": [
+  "Be clear about what this degree is. It is not a standalone marriage-and-family-therapy program — it is a 66-unit online M.A. in Counseling whose 42-unit core is a conventional, CACREP-shaped generalist counseling curriculum (the eight CACREP content areas are literally the program learning outcomes: ethical practice, social and cultural identities, lifespan development, career development, counseling practice, group work, assessment, research), with a 24-unit \"Marriage, Couple, and Family Counseling\" emphasis bolted on top. Only four of the twenty-two required courses are actually about couples and families: MCFC 606 Foundations and Contextual Dimensions of Marriage, Couple, and Family Counseling; MCFC 623 Foundations of Marriage and Family Therapy; MCFC 624 Advanced Marriage and Family Counseling; and COUN 627 Human Sexuality. The remaining emphasis units are psychopharmacology and the nine-unit practicum/internship sequence. And the accreditation picture is more complicated than the marketing implies: CACREP's directory shows Concordia University Irvine accredited for the M.A. Clinical Mental Health Counseling emphasis (since January 11, 2018) and the Ph.D. in Counselor Education and Supervision, while the Marriage, Couple and Family Counseling M.A. appears separately under \"In Process\" — not accredited. The student handbook says the same thing in its own words: the MCFC program \"was developed to align with the CACREP MCFC level standards, and is seeking CACREP accreditation under the 2024 curricular standards.\" There is no COAMFTE accreditation and none is claimed.",
+  "The Townsend overlay is not marketing decoration — nine of the sixty-six units are built directly on Dr. John Townsend's proprietary model, and you cannot avoid them. COUN 600 Townsend Institute Orientation (1.5) introduces \"the Townsend Growth Model\" and runs process groups; COUN 599 Townsend Institute Residency (1.5, with a $575 course fee) is the required in-person process-group intensive; COUN 610 Townsend Model Theory and Application (3) is a whole course on the model, \"applied as a framework for conceptualizing human development, understanding mental health disorders, and developing growth and treatment plans\"; and COUN 633 Counseling Skills and Techniques notes that \"students will also learn the foundational Townsend Model techniques.\" The handbook defines the model itself: growth through \"the Competence and Character Growth Path,\" with capacity in \"the domains of attachment, separation, integration, and adulthood\" determining outcomes in \"people, personal, and performance,\" and \"all growth and change occur with the nutrients of grace and truth, over time.\" Students are told they will apply it \"to their own personal growth and development and with clients.\" If you want an evidence-based systemic family-therapy training, understand that a meaningful slice of this degree is a single practitioner's framework rather than an established school of family therapy.",
+  "On the Christian question, be precise: the framing is explicitly Christian, the required coursework only lightly so, and there is no theology requirement. The Institute's mission is to deliver experiences that are \"biblically-informed, research-supported, and rooted in the Townsend growth model\"; the counseling program's mission opens \"As a Christ-centered counseling program\"; the university's graduate learning outcome for Ethical Leadership is to \"Apply standards of ethics informed by Christian teachings\"; and program learning outcome 1 asks graduates to develop a counselor identity \"informed by Concordia's Lutheran Christian identity.\" In the actual catalog course descriptions it surfaces twice: COUN 605 Legal, Ethical and Professional Issues covers \"ethical, legal and Christian standards/principles for conduct,\" and COUN 601 lists \"faith development\" among the developmental domains studied. No Bible, theology or biblical-counseling course appears in the 66 required units. Finally, the fact that most affects a California applicant is buried in the handbook, not on the program page: \"This emphasis is only provided for California-based students, and it has been approved by the California Board of Behavioral Sciences as meeting all academic requirements for the Licensed Marriage and Family Therapist application. The Concordia Counseling program cannot make a determination as to whether the program meets educational requirements in any other state.\" So yes for California LMFT — and effectively California-only."
+ ],
+ "orientation": "Christian-framed generalist counseling built on the proprietary Townsend growth model",
+ "signature": [
+  {
+   "code": "COUN 610",
+   "title": "Townsend Model Theory and Application",
+   "units": "3",
+   "desc": "\"This course explores the theoretical foundations and assumptions of The Townsend Model and contextualizes it into the broader field of counseling. The model is applied as a framework for conceptualizing human development, understanding mental health disorders, and developing growth and treatment plans.\"",
+   "verbatim": true,
+   "why": "This is the course that answers the 'is the Townsend branding real?' question — a required three-unit course teaching one living author's proprietary model as a diagnostic and treatment-planning framework. No other California MFT-qualifying program requires a full course in a named individual's model.",
+   "src": "https://catalog.cui.edu/courses/COUN610"
+  },
+  {
+   "code": "COUN 599",
+   "title": "Townsend Institute Residency",
+   "units": "1.5",
+   "desc": "\"Students will participate in an in-person process group training experience led by a trained faculty facilitator... Students will also have authentic growth-oriented interaction and receive targeted feedback from faculty members... Course Fee: $575. Offered as a Pass/No Pass course.\"",
+   "verbatim": true,
+   "why": "This is the four-day on-campus residency, and it is a graded degree requirement with its own $575 fee — the handbook lists \"failure to attend the required residency experience\" as a bar to graduation. For an otherwise fully online program it is the one time you must be physically in Irvine, and what happens there is unstructured process-group work on yourself, not lectures.",
+   "src": "https://catalog.cui.edu/courses/COUN599"
+  },
+  {
+   "code": "COUN 600",
+   "title": "Townsend Institute Orientation",
+   "units": "1.5",
+   "desc": "\"Townsend Institute Orientation course provides new students with an introduction to the Townsend Growth Model... Students will also participate in process group training experiences to practice the relational skills necessary to grow both personally and professionally in their character development. This accelerated 2-week online course...\"",
+   "verbatim": true,
+   "why": "Your very first course is a two-week orientation to the founder's model plus mandatory synchronous process groups. It sets the tone: personal character work is treated as a graded prerequisite to clinical training, and successful completion is required to move forward in the program.",
+   "src": "https://catalog.cui.edu/courses/COUN600"
+  },
+  {
+   "code": "COUN 605",
+   "title": "Legal, Ethical and Professional Issues",
+   "units": "3",
+   "desc": "\"The study of history, professional roles and responsibilities of the counseling profession, including ethical, legal and Christian standards/principles for conduct... Students will also investigate specific ethical and licensure standards within California and their home state.\"",
+   "verbatim": true,
+   "why": "The single clearest instance of explicit Christian content inside required coursework — a professional-ethics course that places \"Christian standards/principles\" alongside legal and professional ones. Read the rest of the catalog and you will find the Christian frame is stated far more often in mission statements than in course content; this is the exception.",
+   "src": "https://catalog.cui.edu/courses/COUN605"
+  },
+  {
+   "code": "MCFC 623",
+   "title": "Foundations of Marriage and Family Therapy",
+   "units": "3",
+   "desc": "\"This course investigates early to contemporary family therapy models including general systems theory. Ethical codes from the American Counseling Association and American Association of Marriage and Family Therapists provides a foundation for ethical practice and cultural considerations. Case conceptualization includes a biopsychosocial framework...\"",
+   "verbatim": true,
+   "why": "This is the whole of your systemic-theory training — one three-unit survey covering \"early to contemporary family therapy models.\" Compare with COAMFTE-accredited programs that run two sequenced three-unit theory courses; if depth in structural, strategic, Bowenian and narrative models is what you want, this is thin.",
+   "src": "https://catalog.cui.edu/courses/MCFC623"
+  },
+  {
+   "code": "MCFC 624",
+   "title": "Advanced Marriage and Family Counseling",
+   "units": "3",
+   "desc": "\"Working from a foundation of family systems theory, this course includes an in-depth study and skill development of evidence based marriage, couple and family interventions including intake, assessment, and collaborative treatment planning... interventions unique to families with children/adolescents, older adults, couples, interpersonal violence, and severe mental illness.\"",
+   "verbatim": true,
+   "why": "The applied half of the two-course MFT sequence, and the only place couples-specific and family-specific intervention skills are taught. Taken together with MCFC 623 and MCFC 606, the entire relational-therapy content of this MFT-licensure degree is nine units.",
+   "src": "https://catalog.cui.edu/courses/MCFC624"
+  }
+ ],
+ "curriculum": {
+  "note": "Fully online and asynchronous-plus-synchronous, in seven-week terms, with five start dates a year (the next listed starts are August 31 and October 26, 2026, then January 11 and March 15, 2027) — so there is no fixed cohort or lockstep sequence and the published requirement is a course list rather than a term grid. The program advertises three to four years depending on load and expects 13–19 hours a week per course, recommending that people working full time take one course at a time. One four-day in-person residency on the Irvine campus is required at some point in the program. Tuition is $715 per unit (about $47,000 for 66 units). Course order is set by prerequisites: COUN 600 first, then the core, with MCFC 640 Supervised Practicum gated behind roughly thirteen prior courses.",
+  "total_units": "66",
+  "terms": [
+   {
+    "label": "Core — required of all M.A. Counseling students (42 units)",
+    "courses": [
+     "COUN 599 Townsend Institute Residency (1.5)",
+     "COUN 600 Townsend Institute Orientation (1.5)",
+     "COUN 601 Human Growth and Development (3)",
+     "COUN 602 Theories of Counseling (3)",
+     "COUN 603 Clinical Psychopathology and Diagnosis (3)",
+     "COUN 604 Theory and Practice of Groups (3)",
+     "COUN 605 Legal, Ethical and Professional Issues (3)",
+     "COUN 607 Social and Cultural Foundations (3)",
+     "COUN 609 Theory and Practice of Assessment (3)",
+     "COUN 610 Townsend Model Theory and Application (3)",
+     "COUN 611 Foundations of Crisis and Trauma Counseling (3)",
+     "COUN 612 Career and Lifestyle Development (3)",
+     "COUN 613 Foundations of Addiction Counseling (3)",
+     "COUN 614 Methods and Practice of Research and Evaluation (3)",
+     "COUN 633 Counseling Skills and Techniques (3)"
+    ]
+   },
+   {
+    "label": "Marriage, Couple, and Family Counseling emphasis (24 units)",
+    "courses": [
+     "COUN 621 Psychopharmacology (3)",
+     "COUN 627 Human Sexuality (3)",
+     "MCFC 606 Foundations and Contextual Dimensions of Marriage, Couple, and Family Counseling (3)",
+     "MCFC 623 Foundations of Marriage and Family Therapy (3)",
+     "MCFC 624 Advanced Marriage and Family Counseling (3)",
+     "MCFC 640 Supervised Practicum (3)",
+     "MCFC 641 Supervised Internship I (3)",
+     "MCFC 642 Supervised Internship II (3)"
+    ]
+   }
+  ],
+  "src": "https://catalog.cui.edu/programs/MA_COUN"
+ },
+ "practicum": {
+  "starts": "After roughly thirteen prior courses — MCFC 640 Supervised Practicum is gated behind COUN 599, 600, 601, 602, 603, 604, 605, 607, 609, 610, 613, 633 and MCFC 606, 623 and 624, plus program approval — so in practice it falls in the back half of a three-to-four-year part-time program rather than in a fixed 'year two' or 'year three'.",
+  "hours": "700 total clock hours across three courses — a 100-hour practicum with at least 40 direct client contact hours, then Internship I and Internship II at 300 hours each with at least 120 direct client hours apiece — for a minimum of 280 direct client contact hours. No relational (couple/family) hour minimum is published.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "There is no in-house Concordia training clinic; because the degree is delivered online, every student trains at a site in their own community, and the handbook makes clear the student pursues the placement while the program approves it. A named faculty Field Coordinator (currently Joy Kelly Phifer, PhD, LCMHC, NCC) \"oversees, coordinates, and manages the practicum and internship process,\" including \"managing and approving site placements,\" but the handbook's advice to students — \"Students should prioritize pursuing practicum and internship sites where video/audio recording is permitted\" — is written to someone doing the pursuing. Practicum comes first and is the smaller, more closely watched piece: 100 hours with at least 40 direct client hours in a single semester, weekly individual and group supervision from a Concordia professor, and presentation of two or more case conceptualizations backed by audio/video recording or live observation. The two internships then move supervision to a dual model — weekly individual and group supervision from both a site supervisor and a Concordia supervisor — at 300 hours each with 120 direct client hours each, all logged in the Supervision Assist platform and evaluated with the CCS-R. Practical requirements you should budget for: proof of individual professional counseling liability insurance before you can even register for any of the three fieldwork courses, and a background check, since one listed bar to graduation is \"a background check that indicated behavior incompatible with the field of professional counseling.\" On the California handoff: while enrolled in these courses you are an MFT trainee under BBS rules, and the handbook directs MCFC students to the BBS website for the post-degree Associate (AMFT) path — but it describes no formal traineeship-to-associate transition service, and the MCFC emphasis itself \"is only provided for California-based students.\"",
+  "src": "https://drive.google.com/file/d/1BavaE-0GHLZtf8_TuzJQA3ZPZaRAOV3u/view?usp=drive_link",
+  "model": "not published",
+  "model_evidence": "Requiring 100 hours, you'll need a minimum of 40 direct client contact hours. You'll have weekly individual and group supervision from a Concordia professor.",
+  "model_url": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "A bachelor's degree from a regionally accredited college or university with a cumulative GPA of at least 3.00 on a 4.00 scale. No specific undergraduate coursework is required. Applicants below the GPA minimum may appeal and, if accepted, remain on provisional status until they complete 9 units with a 3.0 GPA and no grade below B.",
+  "deadline": "Rolling — five starts a year (August 31 and October 26, 2026; January 11 and March 15, 2027 among the listed upcoming terms). The application is a $50 non-refundable fee, one official transcript, a two-page/500-word minimum essay answering five specific prompts including \"In your experience, what is the best way that a person grows or changes?\" and \"What interested you in applying to the Townsend Institute as opposed to other programs?\", a minimum of two professional references, a current résumé, and a group interview with program faculty.",
+  "src": "https://catalog.cui.edu/programs/MA_COUN",
+  "gre_evidence": "Must have earned a cumulative GPA of 3.00 on a 4.00 scale",
+  "gre_url": "https://www.cui.edu/apply/graduate/",
+  "min_gpa": "3.00",
+  "conflict": null
+ },
+ "voices": [],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/5/55/060907-001-ConcordiaU-Irvine.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:060907-001-ConcordiaU-Irvine.jpg",
+  "license": "CC BY 3.0",
+  "credit": "Photo by Bobak Ha'Eri, via Wikimedia Commons",
+  "caption": "The CU Center, centerpiece of the Concordia University Irvine campus — the site of the program's required four-day residency"
+ },
+ "gaps": [
+  "Cohort size is not published and, with five rolling start dates a year and no lockstep cohort, may not be a meaningful figure. No completion, licensure or job-placement rates are published for the MCFC emphasis.",
+  "The claim that the program is \"approved by the CABBS as an approved MFT program\" is sourced only to Concordia's own program page and student handbook. The California BBS's LMFT applicant page points to Business and Professions Code section 4980.36 for degree requirements and references a \"Schools with MFT Programs\" list, but that list could not be located at a live URL on bbs.ca.gov during this research, so the claim could not be independently verified against a BBS-published source.",
+  "The handbook repeatedly refers to a separate \"MA Fieldwork Handbook\" / \"Practicum and Internship Manual\" that contains the actual site-approval, recording and supervision protocols. That document is not publicly linked from the catalog or the program pages, so the precise mechanics of how a student finds and gets a site approved are unverified beyond what the student handbook summarises.",
+  "No relational (couple/family) direct-hour minimum is published for practicum or internship — the 280 direct hours are defined generically as direct service with clients, which is a real difference from COAMFTE-accredited programs.",
+  "Whether the practicum and internship sites must be physically located in California is not stated. The handbook says the MCFC emphasis \"is only provided for California-based students,\" which strongly implies it, but the site-location rule itself is not spelled out.",
+  "No credible student discussion could be found. Reddit and comparable forums were not reachable during this research (Reddit blocks automated access and site-scoped web search was unavailable); GradReports carries 33 reviews of Concordia Irvine overall but none tagged to this program.",
+  "The student handbook's stated degree requirements (45 core + 6 elective + 9 clinical = 60 units) describe the Clinical Mental Health path and do not match the catalog's 42 + 24 = 66 units for the MCFC emphasis. The catalog was treated as authoritative for MCFC."
+ ],
+ "sources": [
+  {
+   "label": "Concordia University Irvine Catalog — MA_COUN Counseling (MA), 60–66 units: requirements, overview, learning outcomes, admissions",
+   "url": "https://catalog.cui.edu/programs/MA_COUN"
+  },
+  {
+   "label": "Concordia University Irvine Catalog — Townsend Institute school page and program handbooks",
+   "url": "https://catalog.cui.edu/schools/ti"
+  },
+  {
+   "label": "Townsend Institute MA Counseling Student Handbook 2026–2027 (PDF)",
+   "url": "https://drive.google.com/file/d/1BavaE-0GHLZtf8_TuzJQA3ZPZaRAOV3u/view?usp=drive_link"
+  },
+  {
+   "label": "M.A. in Counseling: Marriage, Couple, and Family Counseling — Townsend Institute program page",
+   "url": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling"
+  },
+  {
+   "label": "M.A. in Counseling: Marriage, Couple, and Family Counseling — university program page (residency, tuition, start dates)",
+   "url": "https://www.cui.edu/program/master-of-arts-in-counseling-marriage-couple-and-family-counseling/"
+  },
+  {
+   "label": "Townsend Institute overview page",
+   "url": "https://www.cui.edu/townsend/"
+  },
+  {
+   "label": "CACREP program directory — Concordia University Irvine (accredited and in-process listings)",
+   "url": "https://www.cacrep.org/directory/"
+  },
+  {
+   "label": "California BBS — LMFT applicant requirements",
+   "url": "https://www.bbs.ca.gov/applicants/lmft.html"
+  },
+  {
+   "label": "Course records: COUN 599, 600, 601, 602, 603, 604, 605, 607, 609, 610, 611, 612, 613, 614, 621, 627, 633; MCFC 606, 623, 624, 640, 641, 642",
+   "url": "https://catalog.cui.edu/courses/MCFC640"
+  }
+ ]
+}

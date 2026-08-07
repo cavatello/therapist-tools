@@ -1,0 +1,210 @@
+{
+ "institution": "California State University, Sacramento",
+ "character": [
+  "The dual-licensure claim is real and it is free. The 2026–27 catalog states flatly that the degree \"meets the educational requirements for becoming dually licensed as a Licensed Marriage and Family Therapist (LMFT) and a Licensed Professional Clinical Counselor (LPCC) in the State of California,\" and the programme FAQ sharpens it: graduates of any of the four concentrations qualify for the LPCC, and \"Only graduates from the Marriage, Couple, & Family Counseling (MCFC) concentration are eligible for licensure in the State of California as an LMFT.\" Both licences come out of the same 60 units — 30 units of core shared with the career, rehabilitation and school concentrations, 29 units of MCFC concentration, and a 1-unit culminating course. There is no LPCC bolt-on, no extra trauma or career course to petition for, no additional pre-degree hour requirement. Several California programmes advertise dual eligibility and then charge nine to twelve units for it; here the arithmetic in the catalog closes at exactly 60.",
+  "What you buy for that is a counselor-education degree, not a family-therapy degree, and the paperwork says so. The programme is CACREP-accredited in all four concentrations, and describes the MCFC concentration as \"COAMFTE aligned but not COAMFTE accredited\" — a precise and slightly unusual admission. The culminating experience is not a thesis or a case conceptualisation but the Counselor Preparation Comprehensive Examination, a multiple-choice exam covering the eight CACREP core areas, taken through the 1-unit EDC 500 in your final semester. The FAQ explains the degree title in the same register: \"The title of the degree complies with CACREP accreditation standards and embodies the focus on counseling in the program, as opposed to psychology or other helping professions.\" Only two of the concentration courses (EDC 234 and EDC 235) are family-therapy seminars, plus a 2-unit couples course and a 1-unit systems lab — the systems content is real but it is a minority of the units.",
+  "It is a rigid programme, and the rigidity is stated rather than discovered. Three years, full-time only, in person only: \"Classes are in-person at Sacramento State campus and are not available online or via a hybrid format. Students are only admitted on a full-time basis.\" Fall admission only, no spring or summer intake, and no transfer credit at all — \"we require each student of the program to attend the required cohort sequence.\" Students take 9–12 units each fall and spring, in a cohort, on a designated sequence, with classes offered during the day, late afternoon and evening. There is no GRE (\"we do not require or accept GRE scores\"), but there is an in-person Interview Day with experiential activities and a writing prompt. California-resident cost is the highest of the three CSUs compared here, at $5,683 per semester for 6.1+ units in 2026–27 ($4,274 tuition plus $1,409 in campus fees), or about $34,000 across three years of full-time enrolment before living costs."
+ ],
+ "orientation": "Systems-based marriage, couple and family counselling inside a CACREP counselor-education core; the catalog's own framing is that \"Emphasis is placed on developmental and preventative concerns from a holistic perspective.\"",
+ "signature": [
+  {
+   "code": "EDC 280",
+   "title": "Counseling Skills Lab",
+   "units": "2",
+   "desc": "\"This course provides supervised practice in acquiring, developing, and practicing interviewing skills and counseling micro-skills under supervision and observation... Emphasis is placed on becoming reflective practitioners by analyzing counselor and client qualities, building self-awareness and self-efficacy, receiving and implementing feedback, and evaluating their own and peers' developing clinical judgment.\"",
+   "verbatim": true,
+   "why": "Taken as a corequisite with EDC 216 Counseling Theory in the first fall, and recommended within your first six units — meaning you are being observed doing counselling micro-skills in your first semester, before you have taken diagnosis, ethics or family theory. It is graded credit/no credit and is a prerequisite for the group course, which is in turn a prerequisite for practicum, so the whole clinical chain hangs off it.",
+   "src": "https://catalog.csus.edu/courses-a-z/edc/"
+  },
+  {
+   "code": "EDC 476",
+   "title": "Advanced Skills in Marriage and Family Counseling",
+   "units": "1",
+   "desc": "\"Structured observation and supervised practice in marriage, couple, and family counseling. Application of material learned in EDC 234 to build on practice and use of systems theories and techniques. Emphasis on establishing relationships, interviewing techniques with multiple clients, assessment techniques, setting goals, developing theory based treatment plans using systems theories, and learning to think systemically. Laboratory two hours.\"",
+   "verbatim": true,
+   "why": "A one-unit, two-hour lab that exists only for the MCFC concentration and is a prerequisite for practicum for MCFC students specifically — the other three concentrations have their own gate course. The phrase \"interviewing techniques with multiple clients\" is the whole point: it is the only place in the sequence dedicated to the mechanics of having more than one person in the room, which is the skill the LMFT scope actually turns on.",
+   "src": "https://catalog.csus.edu/courses-a-z/edc/"
+  },
+  {
+   "code": "EDC 475",
+   "title": "Counseling Practicum",
+   "units": "3",
+   "desc": "\"Supervised counseling practice in Center for Counseling and Diagnostic Services (CCDS) and/or school settings... Basic requirements: 100 clock hours with at least 40 client contact hours, 1 hour per week of individual/triadic supervision, and one and half hours per week of group supervision.\"",
+   "verbatim": true,
+   "why": "The unusual part is not the hour count, which is standard CACREP, but the enforcement: it is credit/no-credit, the fieldwork handbook sets floors of 13 hours of individual/triadic and 21 hours of group supervision logged in SONIA, a supervisor can remove you from the clinic outright (an immediate No Credit and referral for remediation), and No Credit means you are disenrolled from internship. A second No Credit is dismissal from the programme.",
+   "src": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/assets/documents/fieldwork-handbook_edc_2025.pdf"
+  },
+  {
+   "code": "EDC 235",
+   "title": "Advanced Seminar: Marriage and Family Counseling",
+   "units": "3",
+   "desc": "\"This course focuses on advanced concepts and principles in family therapy, including working with children and adolescents in concert with families and other subsystems... Issues include clinical, ethical, legal, and diversity considerations, including migration; as well as managed care and continuum of care.\"",
+   "verbatim": true,
+   "why": "Taken as a corequisite with practicum, so the advanced systems theory lands in the same semester you first sit with families at the clinic. Two things in the description are unusual for a California MFT syllabus: migration named explicitly as a clinical-diversity consideration rather than a footnote, and managed care and continuum of care taught as clinical content rather than left to a business-of-practice elective.",
+   "src": "https://catalog.csus.edu/courses-a-z/edc/"
+  },
+  {
+   "code": "EDC 236",
+   "title": "Couples Counseling",
+   "units": "2",
+   "desc": "\"Focuses on applying major schools of couples and sex therapy to actual practice. Issues include evaluation of couples, interviewing strategies, power, diversity, ethical and legal considerations, treatment principles and practice, as well as outcome research in couples therapy. Lecture/discussion/practice.\"",
+   "verbatim": true,
+   "why": "Note the unit count: two, not three, and it requires both EDC 212 (Gender and Sexuality) and EDC 234 first. Couples work is treated as a capstone application of the sexuality course rather than a standalone survey, and it is one of the few couples courses in the state that names power and outcome research in its own description.",
+   "src": "https://catalog.csus.edu/courses-a-z/edc/"
+  },
+  {
+   "code": "EDC 500",
+   "title": "Master's Culminating Experience: Comprehensive Examination",
+   "units": "1",
+   "desc": "\"Students must pass the CPCE to demonstrate understanding of the 8 core content areas\" — Professional Counseling Orientation & Ethical Practice; Social & Cultural Diversity; Human Growth & Development; Career Development; Counseling & Helping Relationships; Group Counseling & Group Work; Assessment & Testing; and Research & Program Evaluation.",
+   "verbatim": true,
+   "why": "The culminating experience is a national multiple-choice exam, not a thesis, project or oral case defence, and you must pass it at a cut score set by the programme. It requires Advancement to Candidacy on file and a department petition the semester before. If you are considering doctoral study later, note that this programme produces no thesis and no written research artefact by default.",
+   "src": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort-based, full-time, three years, fall entry only, 9–12 units each fall and spring. Sacramento State publishes the requirements as three unit blocks rather than a term-by-term grid — no public roadmap document was found — so the blocks below are the catalog's own groupings for 2026–27. What the FAQ and course prerequisites do fix in time: EDC 216 and EDC 280 are taken together in the first fall; EDC 219 requires both; practicum (EDC 475) falls in the fourth semester; internship (EDC 480, twice) occupies the whole third year; EDC 500 is the final semester. Two courses that appear in the EDC catalog and might be assumed to be part of this degree are not — EDC 230 Law and Ethics for Marriage, Family, and Child Counseling and EDC 232 Family Violence are not in the MCFC requirement list; the core's EDC 252 carries law and ethics instead.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Required core courses, all four concentrations (30 units)",
+    "courses": [
+     "EDC 210 Advocacy, Social Justice, and Cultural Foundations in Counseling (3)",
+     "EDC 214 Dynamics of Human Development (3)",
+     "EDC 216 Counseling Theory (3)",
+     "EDC 218 Assessment In Counseling (3)",
+     "EDC 231 Diagnosis and Treatment Planning (3)",
+     "EDC 233 Substance Use and Addiction Counseling (3)",
+     "EDC 244 Trauma and Crisis Counseling (3)",
+     "EDC 250 Education Research (3) — serves as the Graduate Writing Intensive course for Advancement to Candidacy",
+     "EDC 252 Legal and Ethical Issues in Professional Counseling (3)",
+     "EDC 260 Career Development (3)"
+    ]
+   },
+   {
+    "label": "Marriage, Couple, and Family Counseling concentration (29 units)",
+    "courses": [
+     "EDC 212 Gender and Sexuality in Counseling (3)",
+     "EDC 219 Group Processes in Counseling (3)",
+     "EDC 234 Seminar: Marriage and Family Counseling (3)",
+     "EDC 254 Counseling and Psychotropic Medicine (3)",
+     "EDC 235 Advanced Seminar: Marriage and Family Counseling (3)",
+     "EDC 236 Couples Counseling (2)",
+     "EDC 280 Counseling Skills Lab (2)",
+     "EDC 475 Counseling Practicum (3)",
+     "EDC 476 Advanced Skills in Marriage and Family Counseling (1)",
+     "EDC 480 Counseling Internship (6) — taken twice, 3 units each, over two separate semesters"
+    ]
+   },
+   {
+    "label": "Culminating requirement (1 unit)",
+    "courses": [
+     "EDC 500 Master's Culminating Experience: Comprehensive Examination (1) — the CPCE, taken in the final semester, Advancement to Candidacy required first"
+    ]
+   }
+  ],
+  "src": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/"
+ },
+ "practicum": {
+  "starts": "Practicum (EDC 475) in the fourth semester — spring of year two. Internship (EDC 480) runs the full third year, fall and spring.",
+  "hours": "EDC 475: 100 clock hours minimum, of which at least 40 must be direct client contact and 60 indirect; 1 hour per week individual or triadic supervision (13 hours minimum total) and 1.5 hours per week group supervision (21 hours minimum total). EDC 480: 600 clock hours over two semesters, 300 per semester split 120 direct and 180 indirect; CACREP's 2024 standard requires 240 of the 600 to be direct service including individual and group counselling, \"and may also include couple/family counseling.\"",
+  "who_places": "mixed",
+  "clinic": "Center for Counseling and Diagnostic Services (CCDS), on campus",
+  "detail": "The two halves work on completely different principles, and prospective students routinely miss the second one. Practicum is handed to you: every MCFC student does EDC 475 at the on-campus CCDS, seeing community clients — individuals, couples, families, children and adolescents — under the direct observation of programme faculty, with recording consent forms supplied by the clinic. Internship is not handed to you. The fieldwork handbook is explicit: \"All counseling CIT's must interview with approved Internship sites, CIT's will not be placed at sites... sites will select CIT's to work with their clients.\" You may interview with up to three sites initially, and you may only approach sites that already hold an active MOU with the programme; a site without one has to petition the Fieldwork Coordinator a full year ahead and the request may be refused. The programme softens this with a spring Site Fair and faculty and Internship Coordinator support, but the consequence of failing to land a placement is severe — no enrolment in EDC 480 that semester, delayed graduation, a remediation plan, and dismissal from the programme if you fail to place after two semesters. Supervision during internship is split: one hour a week of individual or triadic supervision from the licensed on-site supervisor, plus one hour fifty minutes of weekly group supervision led by a Sacramento State faculty member, at which you must present audio or video of a session with a transcription. Almost all placements are unpaid — \"A few of the placements are paid internships; however, the vast majority are not.\" No relational (couple or family) hour sub-minimum is published for either stage; CACREP's direct-service floor requires individual and group work and merely permits couple/family hours, so a student who wants relational hours before graduating has to engineer them through site choice.",
+  "src": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/assets/documents/fieldwork-handbook_edc_2025.pdf",
+  "model": "assisted",
+  "model_evidence": "All counseling CIT's must interview with approved Internship sites, CIT's will not be placed at sites. ... CIT's may interview with up to three sites initially, CIT's who fail to obtain a internship offer will not be enrolled in EDC 480 that semester which will delay graduation ... CIT's will only apply to sites that have an active MOU/ Agreement with the MS Counseling Program",
+  "model_url": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/assets/documents/fieldwork-handbook_edc_2025.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Center for Counseling and Diagnostic Services (CCDS)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published. The programme says only that \"Admission is competitive with a limited number of students admitted each year\" and that students are placed in cohorts; no headcount appears in the catalog, the FAQ or the fieldwork handbook.",
+  "gre": "not published",
+  "prereqs": "A baccalaureate degree in any field, good standing at the last college attended, and a 3.0 GPA in the last 60 semester units — though the FAQ notes the faculty committee reviews all applications holistically even below that. Departmental materials: application form, personal statement and writing prompt, transcripts, recommendation forms, and a resume/CV. Shortlisted applicants attend an In-Person Admission Evaluation (Interview Day) that \"may include (but is not limited to) interviews, experiential activities, and writing samples.\" No transfer credit is accepted from other counselling programmes.",
+  "deadline": "Fall entry only — \"we do not offer Spring or Summer admission... You will apply by January for the next academic year, beginning the following Fall semester.\" Exact dates are posted each early autumn on the programme's prospective-students page.",
+  "src": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/",
+  "gre_evidence": "A grade point average of at least 3.0 (on a 4.0 scale) in the last 60 semester (or 90 quarter units)",
+  "gre_url": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/",
+  "min_gpa": "3.0 in the last 60 semester units",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "The programme answering the question most applicants actually have about the degree name: \"Although the license in California... is called an LMFT, the degree earned at Sacramento State University is the MS in Counseling with a concentration in Marriage, Couple, & Family Counseling. The degree title... is approved by the BBS for eligibility towards licensure of both LPCC and LMFT.\"",
+   "who": "MS in Counseling Frequently Asked Questions (PDF)",
+   "sentiment": "info",
+   "url": "https://www.csus.edu/college/education/masters-programs/_internal/_documents/faq-2024.pdf"
+  },
+  {
+   "text": "On money: \"A few of the placements are paid internships; however, the vast majority are not paid.\" And on scholarships: \"There are some scholarships, though not many.\" The third year is 600 hours of largely unpaid work while paying full-time tuition.",
+   "who": "MS in Counseling Frequently Asked Questions (PDF)",
+   "sentiment": "negative",
+   "url": "https://www.csus.edu/college/education/masters-programs/_internal/_documents/faq-2024.pdf"
+  },
+  {
+   "text": "On the school-counselling question, which is the exact opposite of Cal State LA's answer: \"No, we do not currently offer dual specializations. Due to the nature of the specialization programs and field work requirements, the dual specialization is not practical.\" A separate 15-unit PPS track exists, but only for graduates of a non-school concentration.",
+   "who": "MS in Counseling Frequently Asked Questions (PDF)",
+   "sentiment": "info",
+   "url": "https://www.csus.edu/college/education/masters-programs/_internal/_documents/faq-2024.pdf"
+  },
+  {
+   "text": "The fieldwork handbook on what happens if you cannot get a site: \"CIT's who fail to obtain an internship offer will not be enrolled in EDC 480 that semester which will delay graduation and may place the CIT on a remediation plan\" — and after two semesters without a placement, dismissal from the programme.",
+   "who": "Master of Science in Counseling Fieldwork Handbook, 2025",
+   "sentiment": "negative",
+   "url": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/assets/documents/fieldwork-handbook_edc_2025.pdf"
+  },
+  {
+   "text": "\"I’m in the counseling program and I would say with your experience you are very competitive. A lot of applicants recently have had little to no prior experience so leveraging the experience you do have will benefit you. I will say that the program does not make it easy if you plan to work full time and commute. It gets very demanding especially in the second year.\"",
+   "who": "u/Classic-Substance812, current student in Sac State's Counseling (MFT) program, r/CSUS, May 2024",
+   "sentiment": "mixed",
+   "url": "https://www.reddit.com/r/CSUS/comments/1coeoz7/mft_program/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/3/39/California_State_University_Sacramento_main_entrance.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:California_State_University_Sacramento_main_entrance.jpg",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Ronbo76, via Wikimedia Commons (CC BY-SA 3.0)",
+  "caption": "The main entrance to Sacramento State. Everything in this programme is in person on this campus, including the practicum: the Center for Counseling and Diagnostic Services is the on-campus clinic where all non-school concentrations do their 100 practicum hours."
+ },
+ "gaps": [
+  "No cohort size is published anywhere — not in the catalog, the FAQ, the fieldwork handbook or the department page. \"A limited number of students\" is as specific as it gets.",
+  "No term-by-term roadmap is published publicly. The FAQ confirms a cohort sequence exists and states which semester practicum and internship fall in, but the sequence document itself is only given to admitted students.",
+  "No standalone public page for the Center for Counseling and Diagnostic Services was found — no fees, hours, location within campus, or client volume. The clinic is described only inside the catalog and the fieldwork handbook.",
+  "No relational (couple/family) hour sub-minimum is published for practicum or internship.",
+  "Application deadline dates are not published in any evergreen document; the FAQ points to a page that updates annually.",
+  "Nothing credible was found in student discussion forums. Reddit search endpoints were unreachable during this pass, and an earlier survey of r/therapists, r/askatherapist, r/psychologystudents, The GradCafe and Student Doctor Network turned up no Sacramento State counselling thread worth citing. The voices above are all from the programme's own documents."
+ ],
+ "sources": [
+  {
+   "label": "Sacramento State Catalog 2026–27 — MS in Counseling (Marriage, Couple, and Family Counseling)",
+   "url": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/"
+  },
+  {
+   "label": "Sacramento State Catalog 2026–27 — Counselor Education (EDC) course descriptions",
+   "url": "https://catalog.csus.edu/courses-a-z/edc/"
+  },
+  {
+   "label": "Master of Science in Counseling Fieldwork Handbook, 2025 (PDF)",
+   "url": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/assets/documents/fieldwork-handbook_edc_2025.pdf"
+  },
+  {
+   "label": "MS in Counseling Frequently Asked Questions (PDF)",
+   "url": "https://www.csus.edu/college/education/masters-programs/_internal/_documents/faq-2024.pdf"
+  },
+  {
+   "label": "Counselor Education programme page",
+   "url": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/"
+  },
+  {
+   "label": "Bursar — Tuition, Fees & Living Costs, 2026–27",
+   "url": "https://www.csus.edu/administration-business-affairs/bursar/tuition-living-costs.html"
+  }
+ ],
+ "corrections": []
+}

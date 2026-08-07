@@ -1,0 +1,263 @@
+{
+ "institution": "Pacifica Graduate Institute",
+ "character": [
+  "Pacifica is the only California MFT programme built entirely around depth psychology, and it is not a garnish — it is the spine. The curriculum contains a six-course required sequence, Depth Psychology Theory and Practice I through VI, running from Analytical Psychology (Jung: ego, persona, shadow, anima/animus, complexes, individuation, dreams and active imagination) through Imaginal and Archetypal Psychology (Hillman, soul-making, 'seeing through the literal'), Psychoanalytic Psychotherapy, Attachment and Trauma, Environmental Psychology and Somatic Psychotherapy. Nowhere else in California is Hillman a required course rather than an elective footnote.",
+  "The depth frame also colonises courses that at other schools are pure compliance. The required 4.5-unit Psychopathology course studies the DSM 'In the spirit of Freud's drives and conflicts, and Jung's \"the gods are in the diseases\"'. Psychological Assessment, the standardised-testing requirement, ends with 'Qualitative analysis and mythic inquiry are explored within a depth psychological perspective.' Career Development asks students to evaluate assessment tools for 'psychological types, and archetypal categories' and to study 'the organizational psyche and individual calling, destiny, and self-understanding'. Whether that reads as intellectually serious or as a stretch is the single biggest question a prospective student should answer for themselves before enrolling.",
+  "Structurally it is a low-residency programme on a Carpinteria/Santa Barbara campus: three-day sessions roughly monthly in fall, winter and spring, plus a seven-day summer session in each of the first two years, across four cohort tracks (three weekend, one weekday). Class days are long — 9am to 9pm on the first two days of each session. It is also long and expensive by California standards: 93 quarter units over 30 months, a required original master's thesis published to ProQuest, oral and written comprehensive exams, 50 hours of personal psychotherapy, and total published charges of $90,026 for 2024 on-time completers, with average federal loan debt of $95,249. The regulator-filed on-time completion rate was 66% in 2024."
+ ],
+ "orientation": "Depth/Jungian and archetypal, with psychoanalytic and imaginal emphases",
+ "signature": [
+  {
+   "code": "CP 542R",
+   "title": "Depth Psychology Theory and Practice II: Imaginal, and Archetypal Psychology",
+   "units": "1.5",
+   "desc": "\"James Hillman's legacy of a polytheistic imagination and emphasis on soul-making is explored. Consideration is given to the development of a poetic basis of mind, a metaphorical sensibility in confronting the complexity of psychological life and 'seeing through the literal'.\"",
+   "verbatim": true,
+   "why": "A required course on Hillman and archetypal psychology in a licensure-track MFT programme is, as far as this research found, unique in California. If you want archetypal psychology in your clinical training rather than as a reading group, this is the course that delivers it.",
+   "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  },
+  {
+   "code": "CP 541",
+   "title": "Depth Psychology Theory and Practice I: Analytical Psychology",
+   "units": "2",
+   "desc": "\"Introduces the foundational concepts and theories of analytical psychology including the ego, persona, shadow, anima and animus, typology complexes, transference, and countertransference. The personal and archetypal dimensions of the unconscious, the individuation process... and the role of dreams and active imagination are explored.\"",
+   "verbatim": true,
+   "why": "This is where Pacifica's dreamwork lives — inside required Jungian theory in the winter of year one, not as a standalone dream course. It is taken in the same quarter as the second Counseling Skills course, so students are learning active imagination and clinical listening at the same time.",
+   "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  },
+  {
+   "code": "CP 502",
+   "title": "Psychopathology",
+   "units": "4.5",
+   "desc": "Covers DSM history and varieties of psychopathology, co-occurring disorders, systemic dysfunction in families, and suicidality risk and assessment. Then: \"In the spirit of Freud's drives and conflicts, and Jung's 'the gods are in the diseases,' suffering and the soul are explored in the tradition of depth and developmental psychology.\"",
+   "verbatim": true,
+   "why": "The clearest single sentence in the catalog about what Pacifica is. Every California program teaches DSM diagnosis; this is the only one that frames the DSM through Jung's line about the gods being in the diseases. It tells you the depth frame is not confined to elective territory.",
+   "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  },
+  {
+   "code": "CP 630A / CP 630B",
+   "title": "Psychological Assessment I, II",
+   "units": "2.5 + 2",
+   "desc": "Standardised and non-standardised testing, statistical concepts, test theory and construction, neuropsychological, intelligence and personality tests, and psychological reports — closing with: \"Qualitative analysis and mythic inquiry are explored within a depth psychological perspective.\"",
+   "verbatim": true,
+   "why": "Included precisely because psychological testing is the least depth-friendly BBS content area. Pacifica still runs mythic inquiry through it. Prospective students who want a conventional psychometrics grounding should read this sentence carefully and decide how they feel about it.",
+   "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  },
+  {
+   "code": "CP 545R",
+   "title": "Depth Psychology Theory and Practice V: Environmental Psychology",
+   "units": "1",
+   "desc": "\"Explore the nature and nuances of interrelationships between people and their living environments... with the goal of exploring the individual's relationship to place and space. Through review of related literature, experiential activities and writings, and a willingness to listen to and through place.\"",
+   "verbatim": true,
+   "why": "A required ecopsychology-adjacent course in year three. Elsewhere in California this is an elective if it exists at all. 'A willingness to listen to and through place' is the kind of phrasing that will tell you immediately whether this school is your temperament.",
+   "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  },
+  {
+   "code": "CP 650A–C / CP 651A–C",
+   "title": "Seminar in Directed Research I.A–I.C and II.A–II.C",
+   "units": "0.3 + 0.45 + 0.3 + 0.75 + 1 + 1",
+   "desc": "A seven-course research sequence culminating in an original master's thesis supervised by a Portfolio Thesis Advisor and published on ProQuest. Content includes \"the transferential aspects of depth psychological research\" and research as \"a container for soul work.\"",
+   "verbatim": false,
+   "why": "Most California MFT master's programs have no thesis. Pacifica requires one, spread across six graded seminars and two years, on top of an oral comprehensive exam in year two and a written clinical-vignette exam in year three. This is the largest single workload difference between Pacifica and a CSU program.",
+   "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  }
+ ],
+ "curriculum": {
+  "note": "Strict lockstep cohort over 30 months on the quarter system: fall, winter, spring and summer in years one and two, then fall and winter in year three. Students stay with the same cohort throughout. Classes meet in three-day sessions roughly monthly during fall/winter/spring plus a seven-day summer session in years one and two. Four tracks: C, D and V meet Friday–Sunday; W meets Monday–Wednesday. Fall entry only.",
+  "total_units": "93 quarter units",
+  "terms": [
+   {
+    "label": "Year 1 — Fall",
+    "courses": [
+     "CP 501 Counseling and Psychotherapeutic Theories and Techniques (2.5)",
+     "CP 534 Introduction to the Theories of the Depth Tradition (2)",
+     "CP 515 Counseling Skills: Process of Psychotherapy I (3)",
+     "CP 565 Professional Skills Development I.A. (0.25)"
+    ]
+   },
+   {
+    "label": "Year 1 — Winter",
+    "courses": [
+     "CP 520 Human Growth and Development (2)",
+     "CP 526 Geropsychology and Long Term Care (1)",
+     "CP 525 Ethics and the Law: Child Abuse Assessment and Treatment (1)",
+     "CP 541 Depth Psychology Theory and Practice I: Analytical Psychology (2)",
+     "CP 516 Counseling Skills: Process of Psychotherapy II (3)",
+     "CP 566 Professional Skills Development I.B (0.25)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring",
+    "courses": [
+     "CP 502 Psychopathology (4.5)",
+     "CP 605 Family Systems and Domestic Violence (1.5)",
+     "CP 542R Depth Psychology Theory and Practice II: Imaginal/Archetypal Psychology (1.5)",
+     "CP 517 Counseling Skills: Process of Psychotherapy III (3)",
+     "CP 567 Professional Skills Development I.C (0.25)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer",
+    "courses": [
+     "CP 530 Multicultural Counseling Theories and Techniques (2.5)",
+     "CP 523 Professional Orientation: Ethics and the Law (3.5)",
+     "CP 620 Research in Psychology (0.75)",
+     "CP 527 Group Counseling Theories and Techniques I (1.5)",
+     "CP 568 Professional Skills Development I.D. (0.25)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall",
+    "courses": [
+     "CP 610 Clinical Practice I (3)",
+     "CP 532 Child Psychotherapy (1.5)",
+     "CP 660A Counseling in Substance Use Disorders, Co-occurring Disorders and Behavioral Addictions I (3)",
+     "CP 607A Community Mental Health Counseling I (3)",
+     "CP 650A Seminar in Directed Research I.A. (0.3)",
+     "CP 665 Professional Skills Development II.A. (0.2)"
+    ]
+   },
+   {
+    "label": "Year 2 — Winter",
+    "courses": [
+     "CP 611 Clinical Practice II (3)",
+     "CP 601 Marriage, Family, and Relationship Counseling I (3)",
+     "CP 543R Depth Psychology Theory and Practice III: Psychoanalytic Psychotherapy (1)",
+     "CP 630A Psychological Assessment I (2.5)",
+     "CP 650B Seminar in Directed Research I.B. (0.45)",
+     "CP 666 Professional Skills Development II.B. (0.25)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring",
+    "courses": [
+     "CP 612 Clinical Practice III (3)",
+     "CP 660B Counseling in Substance Use Disorders, Co-occurring Disorders and Behavioral Addictions II (1.5)",
+     "CP 602 Marriage, Family, and Relationship Counseling II (3)",
+     "CP 607B Community Mental Health Counseling II (1.5)",
+     "CP 650C Seminar in Directed Research I.C. (0.3)",
+     "CP 667 Professional Skills Development II.C. (0.25)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer",
+    "courses": [
+     "CP 651A Seminar in Directed Research II.A. (0.75)",
+     "CP 522 Advanced Theories and Techniques: Human Sexuality (1)",
+     "CP 630B Psychological Assessment II (2)",
+     "CP 544R Depth Psychology Theory and Practice IV: Attachment and Trauma (1)",
+     "CP 528 Group Counseling Theories and Techniques II (2)",
+     "CP 613 Clinical Practice IV (1)",
+     "CP 668 Professional Skills Development II.D. (0.25)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall",
+    "courses": [
+     "CP 511 Cultural Psychology (2)",
+     "CP 608A Career Development I (0.75)",
+     "CP 670A Psychopharmacology I (2)",
+     "CP 651B Seminar in Directed Research II.B. (1)",
+     "CP 545R Depth Psychology Theory and Practice V: Environmental Psychology (1)",
+     "CP 614 Clinical Practice V (1)"
+    ]
+   },
+   {
+    "label": "Year 3 — Winter",
+    "courses": [
+     "CP 670B Psychopharmacology II (2.5)",
+     "CP 608B Career Development II (3.75)",
+     "CP 546 Depth Psychology Theory and Practice VI: Somatic Psychotherapy (1)",
+     "CP 651C Seminar in Directed Research II.C. (1)",
+     "CP 529 Group Counseling Theories and Techniques III (1)",
+     "CP 615 Clinical Practice VI (1)"
+    ]
+   }
+  ],
+  "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/"
+ },
+ "practicum": {
+  "starts": "Second year, fall quarter — gated by a faculty assessment in the spring of year one",
+  "hours": "Minimum 300-hour practicum including a minimum of 280 direct service hours",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "Pacifica has no in-house training clinic. Students find their own site — a community counseling center, social service agency, hospital or other approved facility — in their home area, with the Clinical Practicum Department providing guidelines and consultations rather than placements. Culturally diverse sites are encouraged. Because the programme is low-residency and draws students from outside Santa Barbara County, this means your practicum quality depends heavily on what exists where you live. Entry is gated: in the spring of year one, faculty formally assess each student's process skills and readiness for clinical practicum, and the outcome can be endorsement, endorsement with reservation, or a recommendation to discontinue the programme. The classroom side runs as Clinical Practice I–VI (CP 610–615) across years two and three.",
+  "src": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/",
+  "model": "student-sourced",
+  "model_evidence": "How do I find a practicum site? It is the student's responsibility to research and explore opportunities in your community. In the event that you are having a hard time obtaining a site please contact your Practicum Associate for more support.",
+  "model_url": "https://www.pacifica.edu/wp-content/uploads/2024/05/Supervised-Practicum-Guidelines-2023-2026.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Large. The BPPE School Performance Fact Sheet reports 106 students beginning the programme in calendar 2023 and 131 in 2024, split across four tracks.",
+  "gre": "not required",
+  "prereqs": "Bachelor's or master's degree from a regionally accredited or state-approved institution; a psychology degree is explicitly not required. The programme states it values applicants with backgrounds in social, psychological, religious or human services, academic training in psychology or the humanities, prior reading in depth psychology, mythology, literature, religion and art, and personal psychotherapy experience.",
+  "deadline": "Fall entry only, one intake per year. $75 application fee. Required: a 3–5 page personal statement, a 3–5 page APA-format academic writing sample, CV, one recommendation form, an acknowledgment of licensure requirements form, and official transcripts.",
+  "src": "https://www.pacifica.edu/admissions/admission-requirements/",
+  "gre_evidence": "No. The GRE/GMAT or other tests are not an admissions requirement.",
+  "gre_url": "https://www.pacifica.edu/admissions/admission-requirements/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "Regulator-filed outcomes, not opinion: of 131 students who began in 2024, 87 finished on time (66%); of the 97 graduates available for employment, 11 were reported employed in the field, an 11% placement rate.",
+   "who": "BPPE School Performance Fact Sheet, calendar years 2023/2024",
+   "sentiment": "info",
+   "url": "https://www.pacifica.edu/wp-content/uploads/2026/04/Counseling-MA_SPFS-2024-.pdf"
+  },
+  {
+   "text": "Total published charges for on-time completion were $90,026 in 2024; 74% of graduates took federal loans, averaging $95,249 in federal student loan debt.",
+   "who": "BPPE School Performance Fact Sheet, calendar years 2023/2024",
+   "sentiment": "info",
+   "url": "https://www.pacifica.edu/wp-content/uploads/2026/04/Counseling-MA_SPFS-2024-.pdf"
+  },
+  {
+   "text": "Thread titled \"Is Pacifica Graduate Institute worth the price tag — MA in Counseling Psychology\" — an applicant facing roughly $170k, with alumni disagreeing sharply. Comment text could not be retrieved this session; Reddit blocked automated access.",
+   "who": "Reddit, r/psychologystudents, 2024 (thread title only)",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/psychologystudents/comments/1dq6360/is_pacifica_graduate_institute_worth_the_price/"
+  },
+  {
+   "text": "Thread titled \"Pacifica Graduate Institute alums or students?\" — centred on attendance requirements and students weighing whether to leave after a quarter. Comment text could not be retrieved this session.",
+   "who": "Reddit, r/psychologystudents, 2023 (thread title only)",
+   "sentiment": "info",
+   "url": "https://www.reddit.com/r/psychologystudents/comments/12scqyh/pacifica_graduate_institute_alums_or_students/"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph exists. All six images in Wikimedia Commons' Category:Pacifica Graduate Institute (Pacifica Entrance, LambertCampus, LaderaCampus, CampbellLibrary, LambertOrganicGarden, WoodmanPublicProgram) are GFDL-self with migration=not-eligible — GFDL only, no Creative Commons dual licence — so none qualifies under the CC-BY / CC-BY-SA / CC0 / public-domain rule. photo is therefore null rather than a copyright risk.",
+  "There is no standalone mythology course in the M.A. Counseling Psychology curriculum. Mythology enters obliquely: 'the multidisciplinary role of myth and metaphor' in CP 534, 'mythic inquiry' in CP 630A/B, and 'archetypal categories' in CP 608. Pacifica does run a separate M.A./Ph.D. in Mythology and Religious Studies, but it is a different degree and not part of the MFT track.",
+  "There is likewise no standalone dream course in this programme. Dreams and active imagination are taught inside CP 541. Pacifica's Dream Tending work sits in Pacifica Extension, outside the degree.",
+  "The URL supplied in the assignment, https://www.pacifica.edu/degree-program/counseling-psychology-masters-program/, returns 404. The live page is https://www.pacifica.edu/degree-program/masters-counseling-psychology/.",
+  "The BPPE-reported 11% job-placement rate should be read with care: the same filing reports zero LMFT exam data because 'Licensure examination passage data is not available from the state agency' and the school was 'unable to collect data from 153 graduates'. The low placement figure reflects graduates the school could not follow up with as much as it reflects outcomes — but it is what the regulator filing says.",
+  "Reddit was unreachable from this environment (HTTP 403 across reddit.com, old.reddit.com, JSON endpoints, pullpush.io and mirrors), so no Reddit comment text could be quoted — only thread titles. Niche also blocked access (HTTP 403).",
+  "No cohort-level data on how many students are in each of the four tracks (C, D, V, W) is published."
+ ],
+ "sources": [
+  {
+   "label": "Masters in Counseling Psychology — program page, curriculum overview, graduation requirements and practicum",
+   "url": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/"
+  },
+  {
+   "label": "Course Descriptions: Masters in Counseling Psychology (full catalog, all CP course codes)",
+   "url": "https://www.pacifica.edu/degree-program/masters-counseling-psychology/courses/"
+  },
+  {
+   "label": "Pacifica admission requirements",
+   "url": "https://www.pacifica.edu/admissions/admission-requirements/"
+  },
+  {
+   "label": "BPPE School Performance Fact Sheet, M.A. Counseling Psychology, calendar years 2023/2024",
+   "url": "https://www.pacifica.edu/wp-content/uploads/2026/04/Counseling-MA_SPFS-2024-.pdf"
+  },
+  {
+   "label": "Pacifica School Performance Fact Sheets index",
+   "url": "https://www.pacifica.edu/admissions/school-performance-fact-sheets/"
+  }
+ ]
+}

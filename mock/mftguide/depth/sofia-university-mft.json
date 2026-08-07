@@ -1,0 +1,234 @@
+{
+ "institution": "Sofia University",
+ "character": [
+  "Sofia is the direct institutional descendant of the Institute of Transpersonal Psychology — the catalog still organises its degrees under 'The Institute of Transpersonal Psychology' — and the MACP is the only California MFT-qualifying degree in which transpersonal psychology is a separately unit-counted requirement rather than a flavour. Fourteen of the 90–97.5 quarter units sit in a block the catalog calls the Transpersonal Arc: Creative Expression Parts 1 and 2, Clinical Applications of Meditation and Mindfulness Parts 1 and 2, Mind-Body Integration: Aikido A and B, Transpersonal Theory and Literature, a 3-unit Psychosynthesis skills lab, and three further units of Transpersonal Skills Labs chosen along a creative, spiritual or somatic track.",
+  "The Aikido requirement is the single most unusual thing here. Two required units of an actual martial art, taught as clinical training: MLR4001/4002 provide 'practical training in maintaining center and awareness under pressure, learning to blend and harmonize with others, and the development of a personal sense of presence', with back and forward rolls learned and practised. The spiritual-focus skills labs list Holotropic Breathwork, the Enneagram, spiritual emergency/emergence therapy and mindfulness-based CBT and DBT; the somatic labs list Yoga Nidra, Hakomi and Qigong. Around that arc, the clinical core is conventional and BBS-mapped, with a strong systems-theory spine and a practicum sequence in which each quarter is built on a different case-formulation lens — transpersonal, then systems-theory, then evidence-based.",
+  "Practically, this is an online, low-residency programme with two ten-day intensives a year — one in person in Palo Alto at the start of fall, one virtual-synchronous at the start of spring — which means travel, lodging and an intensive fee on top of tuition. It is cheaper than its private California peers ($62,525 published total charges for on-time 2024 completers, average federal loan debt $16,425 for 2024 graduates) and the cohorts are small (18 students began in 2023, 32 in 2024). But it is also the record in this batch with the most serious public complaints: the sharpest reviews describe high instructor turnover, last-minute schedule changes and a post-COVID loss of the experiential character that was the whole reason to attend. Weigh those against the fact that the transpersonal training itself is genuinely unavailable elsewhere in California."
+ ],
+ "orientation": "Transpersonal, with a systems/family-therapy clinical core and somatic, mindfulness and expressive-arts practice",
+ "signature": [
+  {
+   "code": "MLR4001 / MLR4002",
+   "title": "Mind-Body Integration: Aikido A and B",
+   "units": "1 + 1",
+   "desc": "\"This course introduces the principles of Aikido and its application to human relationships... It provides practical training in maintaining center and awareness under pressure, learning to blend and harmonize with others, and the development of a personal sense of presence... Basic back and forward rolls will be learned and practiced (accommodations can be provided.)\"",
+   "verbatim": true,
+   "why": "Two required units of a martial art in an MFT degree. No other California licensure programme asks this. It is the clearest signal of what Sofia means by whole-person training — and a real logistical question, since it has to happen at the in-person intensive.",
+   "src": "https://catalog.sofia.edu/counseling-psychology-masters/mlr4001"
+  },
+  {
+   "code": "MLR6001",
+   "title": "Transpersonal Theory and Literature",
+   "units": "2",
+   "desc": "\"An introduction to the Transpersonal as a field of study... an interest in the immanent and transcendent dimensions of human experience: exceptional human functioning, experiences, performances and achievements, true genius, the nature and meaning of deep religious and mystical experiences, non-ordinary states of consciousness.\"",
+   "verbatim": true,
+   "why": "The theoretical anchor of the Transpersonal Arc, and the course that inherits the old Institute of Transpersonal Psychology's canon directly. This is the reading list, not the ambience.",
+   "src": "https://catalog.sofia.edu/counseling-psychology-masters/mlr6001"
+  },
+  {
+   "code": "MLR1066",
+   "title": "Transpersonal Skills Lab — Psychosynthesis (Creative/Spiritual/Somatic Focus)",
+   "units": "3",
+   "desc": "\"Hands-on experiences and opportunities for creative expression through psychosynthesis... engaging in self-exploration as a core component of psychosynthesis. The two primary goals of the labs are: Restorative self-exploration in the service of whole person learning and experiential engagement with transpersonal practices that can be applied in clinical settings.\"",
+   "verbatim": true,
+   "why": "A required 3-unit lab in Assagioli's psychosynthesis, with art materials supplied. Psychosynthesis appears as an elective at a couple of California schools; requiring three units of it is Sofia-specific.",
+   "src": "https://catalog.sofia.edu/counseling-psychology-masters/mlr1066"
+  },
+  {
+   "code": "MLR3065 / MLR4065",
+   "title": "Transpersonal Skills Lab 1 (Spiritual Focus) / (Somatic Focus)",
+   "units": "1 each",
+   "desc": "Spiritual focus: \"Topics vary and may include components of Holotropic Breathwork, using the Enneagram with clients, psychosynthesis, spiritual emergency/emergence therapy, and mindfulness-based CBT and DBT techniques.\" Somatic focus: \"components of Yoga Indra and transformative yoga, Hakomi, Qigong, meditation and mindfulness, body-oriented psychotherapy tools and techniques.\"",
+   "verbatim": true,
+   "why": "These name the specific modalities on offer — Holotropic Breathwork, spiritual emergence therapy, Hakomi, Qigong — which is exactly the level of detail most programme pages avoid. Note the caveat: topics vary by term, so the specific list is not a guarantee for any given cohort.",
+   "src": "https://catalog.sofia.edu/counseling-psychology-masters/mlr3065"
+  },
+  {
+   "code": "MLR2071 / MLR2073 / MLR2075",
+   "title": "Practicum 2, 3 and 4: Transpersonal-, Systems-Theory- and Evidence-Based Case Formulation, Treatment Planning and Applications",
+   "units": "4.5 each",
+   "desc": "Three consecutive practicum quarters, each anchored to a different case-formulation lens applied to the same live caseload — transpersonal schools of therapy, then systems theory, then evidence-based models — each combining 1.5 units of theory, diagnosis, prognosis and documentation with 3.0 units of application to clients the student is currently seeing.",
+   "verbatim": false,
+   "why": "This is a smart structural choice and worth noticing: rather than teaching theories in the abstract and then letting students figure out placement, the same clients get reformulated three times through three different lenses. It is also the answer to whether the transpersonal material actually reaches the consulting room.",
+   "src": "https://catalog.sofia.edu/counseling-psychology-masters/mlr2071"
+  },
+  {
+   "code": "MLR20001–MLR20007",
+   "title": "Group Dynamics, Parts 1–7",
+   "units": "0.5 × 6 + 1.5 = 4.5 total",
+   "desc": "Group counseling theory, leadership skills and techniques across seven sequential parts spanning the programme, including group dynamics, group process and developmental stage theories. Part 5's description adds: \"Students will have a chance to 'try on' group membership and leadership. Closed, cohort process course.\"",
+   "verbatim": true,
+   "why": "Broken into seven small pieces so it runs alongside the whole degree rather than as one semester. The catalog explicitly calls it a closed cohort process course — the closest thing in this batch of three schools to a sustained interpersonal-process group, though it is not described as an unstructured T-group.",
+   "src": "https://catalog.sofia.edu/counseling-psychology-masters/mlr20005"
+  }
+ ],
+ "curriculum": {
+  "note": "The catalog publishes requirements as unit blocks, not a term-by-term grid, so the terms below are those blocks rather than a quarter sequence — no published sequence was found. Three years minimum on the quarter system, entry available in summer, fall, winter or spring. Advisors are assigned at the start and meet each student annually, at an intensive or by teleconference, for a documented progress and practicum-readiness review.",
+  "total_units": "90.0–97.5 quarter units, depending on concentration (LMFT concentration adds 3 units; LPCC concentration adds 10.5; students may take both)",
+  "terms": [
+   {
+    "label": "Transpersonal Arc (14.0 units, required)",
+    "courses": [
+     "MLR10011 Creative Expression, Part 1 (1)",
+     "MLR10012 Creative Expression, Part 2 (1)",
+     "MLR30011 Clinical Applications of Meditation and Mindfulness, Part 1 (1.5)",
+     "MLR30012 Clinical Applications of Meditation and Mindfulness, Part 2 (0.5)",
+     "MLR4001 Mind-Body Integration: Aikido A (1)",
+     "MLR4002 Mind-Body Integration: Aikido B (1)",
+     "MLR6001 Transpersonal Theory and Literature (2)",
+     "MLR1066 Transpersonal Skills Lab — Psychosynthesis (3)",
+     "3 units chosen from MLR1065/3065/4065/1067/3067/4067 Transpersonal Skills Labs (creative, spiritual or somatic focus)"
+    ]
+   },
+   {
+    "label": "Introductory Clinical Courses (22.5 units)",
+    "courses": [
+     "MLR20061/20062 Human Development Across the Lifespan, Parts 1–2 (3 + 1.5)",
+     "MLR20001–20007 Group Dynamics, Parts 1–7 (4.5 total)",
+     "MLR20071/20072 Counseling Principles and Practices, Parts 1–2 (3 + 1.5)",
+     "MLR20111/20112 Systems Theory and Application, Parts 1–2 (3.5 + 1)",
+     "MLR20281/20282 Power, Culture, and Identity in Counseling Psychology, Parts 1–2 (3.5 + 1)"
+    ]
+   },
+   {
+    "label": "Intermediate Clinical Courses (13.5 units)",
+    "courses": [
+     "MLR2069 Pre-Practicum: Clinical Training Preparation (1.5)",
+     "MLR20531/20532 Law and Ethics, Parts 1–2 (1.5 + 3)",
+     "MLR20781/20782 Psychopathology, Parts 1–2 (1.5 + 3)",
+     "MLR5025 Career Development A (1.5)",
+     "MLR6035 Research Methods A (1.5)"
+    ]
+   },
+   {
+    "label": "Advanced Clinical Courses (23.5–28.0 units)",
+    "courses": [
+     "MLR2013 Child and Adolescent Focused Therapy and Intervention (2)",
+     "MLR2077 Psychopharmacology, Brain Structure and Development, and Severe Mental Illness (4.5)",
+     "MLR2010 Human Sexuality, Gender Identity, and Treatment of Psychosexual Dysfunction (2)",
+     "MLR20231/20232 Addiction: Social Implications and Recovery, Parts 1–2 (3 + 1.5)",
+     "MLR20301/20302 Advanced Trauma and Crisis Interventions, Parts 1–2 (3 + 1.5)",
+     "MLR20401/20402 Advanced Theory and Skills, Parts 1–2 (2 + 1)",
+     "LMFT concentration (3): MLR20121/20122/20123 Advanced Couples Counseling, Parts 1–3",
+     "LPCC concentration (10.5): MLR5026 Advanced Career Development, MLR6036 Advanced Research Methods, MLR6037 Assessment, Appraisal, and Testing of Individuals"
+    ]
+   },
+   {
+    "label": "Capstone Clinical Practicum Sequence (16.5 units)",
+    "courses": [
+     "MLR2080 Practicum Tracking and Evaluation (0)",
+     "MLR2070 Practicum 1 (3)",
+     "MLR2071 Practicum 2: Transpersonal-Based Case Formulation (4.5)",
+     "MLR2073 Practicum 3: Systems Theory-Based Case Formulation (4.5)",
+     "MLR2075 Practicum 4: Evidence-Based Case Formulation (4.5)",
+     "MLR2079 Supplemental Practicum (1, repeatable if extra hours are needed)"
+    ]
+   }
+  ],
+  "src": "https://catalog.sofia.edu/counseling-psychology-masters/master-of-arts/master-of-arts-in-counseling-psychology-macp"
+ },
+ "practicum": {
+  "starts": "After MLR2069 Pre-Practicum and 40 hours of personal psychotherapy are complete; minimum four quarters",
+  "hours": "In California, a minimum of 225 supervised clinical hours for LMFT and a minimum of 280 supervised direct counseling hours for LPCC. Varies for students licensing in other states.",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "Sofia has no training clinic. \"All students will need to secure a traineeship position at an approved local site providing mental health services\" — in the student's own community, wherever they live, since the programme is online. A designated MACP faculty member must approve each site, and students register for a zero-unit Practicum Tracking and Evaluation course alongside the sequence. To advance, students must be in good academic standing, have cleared all practicum prerequisites, have completed 40 hours of personal psychotherapy (20 of them before the sequence starts), and have no outstanding incompletes. MLR2079 Supplemental Practicum can be added for a further quarter if hours run short. Because placement is entirely student-driven and the cohort is geographically dispersed, the quality of clinical training here varies more by location than at any campus-based programme.",
+  "src": "https://catalog.sofia.edu/counseling-psychology-masters/master-of-arts/master-of-arts-in-counseling-psychology-macp",
+  "model": "student-sourced",
+  "model_evidence": "A minimum of four quarters of practicum coursework is required, and all students will need to secure a traineeship position at an approved local site providing mental health services. [...] The MACP faculty member in charge of monitoring the practicum must approve the Clinical Practicum site.",
+  "model_url": "https://catalog.sofia.edu/counseling-psychology-masters/master-of-arts/master-of-arts-in-counseling-psychology-macp",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Small. The BPPE School Performance Fact Sheet reports 18 students beginning the online MACP in calendar 2023 and 32 in 2024. The separately-reported residential MACP recorded zero starts in both years.",
+  "gre": "not published",
+  "prereqs": null,
+  "deadline": "Four intakes a year. For the 2026–27 cycle the published quarter starts are 6 July 2026 (apply by 15 June), 28 September 2026 (apply by 7 September), 11 January 2027 (apply by 7 December 2026) and 5 April 2027 (apply by 15 March). Enrollment is restricted to residents of states where Sofia holds authorisation.",
+  "src": "https://www.sofia.edu/admissions/",
+  "gre_evidence": "Master of Arts in Counseling Psychology Application Materials: Online application, Application fee, Statement of purpose, Two letters of recommendation, Resume or Curriculum Vitae, Official college or university transcripts, Proof of English proficiency (if applicable), Foreign transcript evaluation (if applicable), Form of identification, Faculty interview [...] Applicants are required to have a bachelor's degree or higher from an accredited college or university or international equivalent with a minimum GPA of 3.0.",
+  "gre_url": "https://catalog.sofia.edu/graduate-application-requirements",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"Each year, there was a high number of quality instructor turn-over... we are given last minute schedule changes, (after semester starts)... this school is no longer experiential after covid, I wanted this school because of the incredible people they once recruited to do immersion courses.\"",
+   "who": "OnlineU review, Counseling Psychology, February 2021",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/sofia-university"
+  },
+  {
+   "text": "\"The program was hugely disorganized with severe administrative and structural issues... Its clinical program lacked a solid foundation and is always drawing on questionable approaches and new age spirituality.\"",
+   "who": "OnlineU review, Psychology, June 2019",
+   "sentiment": "negative",
+   "url": "https://www.onlineu.com/online-reviews/sofia-university"
+  },
+  {
+   "text": "\"Competitive pricing and Low residency program which you may do online at home except for two times per year you go to the school for intensives, which are intense! I love it.\" — written by a student in the MACP LMFT track.",
+   "who": "OnlineU review, Counseling, April 2013",
+   "sentiment": "positive",
+   "url": "https://www.onlineu.com/online-reviews/sofia-university"
+  },
+  {
+   "text": "\"I'm doing the low residency program, which can make it a little hard to feel connected with my classmates at times, since most of my classes are online.\"",
+   "who": "OnlineU review, Counseling, July 2013",
+   "sentiment": "mixed",
+   "url": "https://www.onlineu.com/online-reviews/sofia-university"
+  },
+  {
+   "text": "Regulator-filed outcomes for the online MACP: 18 students began in 2023 and all 18 finished on time (100%); of 32 who began in 2024, 19 finished on time (59%). Published total charges $62,525; average federal loan debt of 2024 graduates $16,425.",
+   "who": "BPPE School Performance Fact Sheet, calendar years 2023 & 2024",
+   "sentiment": "info",
+   "url": "https://www.sofia.edu/wp-content/uploads/2026/06/2024-SPFS-Combined.pdf"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/4/47/Sofia_University_-_Palo_Alto_Campus.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sofia_University_-_Palo_Alto_Campus.jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Wikimedia Commons user SofiaMarketing (own work), via Wikimedia Commons, CC BY-SA 4.0",
+  "caption": "Sofia University's Palo Alto campus at 1069 East Meadow Circle. Uploaded to Commons by the university's own marketing account under a free licence."
+ },
+ "gaps": [
+  "No term-by-term course sequence is published anywhere. The catalog lists requirements only as unit blocks (Transpersonal Arc, Introductory / Intermediate / Advanced Clinical, Capstone Practicum), so the 'terms' above are those blocks, not quarters.",
+  "Admissions prerequisites for the MACP specifically — GPA minimum, prerequisite coursework, essay and recommendation requirements, whether there is an interview — are not published on either the catalog program page or the university admissions page. Only application deadlines and fee-payment dates were found. The general 'Graduate Application Requirements' link on sofia.edu did not resolve to a requirements list.",
+  "The BPPE fact sheet reports a 0% job placement rate for the online MACP in both 2023 and 2024, with 0 graduates recorded as employed in the field out of 18 and 19 available. That is almost certainly a follow-up/reporting failure rather than a real outcome, but the filing gives no explanation, so it is reported here as-is rather than interpreted away.",
+  "Two figures for total units are in circulation: the catalog says 90.0–97.5 units, while the marketing program page says 90–94.5 and cites the 2020–2021 catalog for its clinical-core listing. The catalog figure is the one used here.",
+  "Sofia now operates a second campus in Costa Mesa (3333 Harbor Blvd) alongside Palo Alto. Which campus the MACP in-person intensive is held at is not stated on the MACP pages; the catalog says only 'on campus'.",
+  "No Reddit, Student Doctor Network or GradCafe discussion of Sofia's MACP could be located, and Reddit was in any case unreachable from this environment (HTTP 403 across all endpoints and mirrors tried). All voices here come from OnlineU reviews and the BPPE filing.",
+  "The strongest reviews are from 2013 and the harshest from 2019 and 2021. Nothing more recent than 2021 was found, so the current state of the administrative problems described is unknown."
+ ],
+ "sources": [
+  {
+   "label": "Master of Arts in Counseling Psychology (MACP) — Sofia University Academic Catalog",
+   "url": "https://catalog.sofia.edu/counseling-psychology-masters/master-of-arts/master-of-arts-in-counseling-psychology-macp"
+  },
+  {
+   "label": "Sofia course catalog — individual MACP course descriptions (MLR course codes)",
+   "url": "https://catalog.sofia.edu/counseling-psychology-masters"
+  },
+  {
+   "label": "MA in Counseling Psychology — program page (format, cost, start dates, program highlights)",
+   "url": "https://www.sofia.edu/courses/ma-in-counseling-psychology/"
+  },
+  {
+   "label": "Sofia University admissions — quarter start dates and application deadlines",
+   "url": "https://www.sofia.edu/admissions/"
+  },
+  {
+   "label": "BPPE School Performance Fact Sheets 2024 (combined), Masters in Counseling Psychology (Online) section",
+   "url": "https://www.sofia.edu/wp-content/uploads/2026/06/2024-SPFS-Combined.pdf"
+  },
+  {
+   "label": "Sofia University Office of Institutional Research",
+   "url": "https://www.sofia.edu/institutional-research/"
+  },
+  {
+   "label": "Student reviews of Sofia University",
+   "url": "https://www.onlineu.com/online-reviews/sofia-university"
+  }
+ ]
+}

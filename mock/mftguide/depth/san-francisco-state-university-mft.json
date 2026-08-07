@@ -1,0 +1,269 @@
+{
+ "institution": "San Francisco State University",
+ "character": [
+  "SFSU does not have an MFT department. It has a Department of Counseling that runs three master's degrees and five specializations at once — Career, College, Clinical Mental Health, School, and Marriage, Family & Child Counseling — and MFCC is a concentration inside the M.S. in Counseling. Everyone in the building takes the same core (COUN 700, 702, 703, 705/706, 715, 720, 736, 738, 794, 811, 833, 857, 890, 891, 892) and the MFCC concentration is what gets bolted on top: a two-semester couple-and-family sequence (COUN 858 and 860), a child-treatment seminar (861), a 2-unit sexuality course (859) and a 1-unit consultation course (827). That is exactly 60 units with no electives — every one of the 21 required courses is prescribed. The department states the training emphasis plainly: \"a culturally-informed and inclusive approach, and a developmentally-informed systemic-familial-relational orientation to counseling.\"",
+  "The department is CACREP-accredited and it shows in the fieldwork structure more than the coursework. Fieldwork starts in the very first semester — COUN 705 and COUN 706 must be taken concurrently, same section, same instructor, with a signed site contract before you enroll — and runs four consecutive semesters across two different year-long placements, 700 hours total with a 280-hour direct-contact floor. There is no in-house training clinic; the department instead maintains a vetted \"Master List\" of sites, and its 2023–24 CACREP report claims over 200 training partners and roughly 45,000 hours of mostly unpaid counseling delivered to Bay Area communities each year. Money partly offsets that: 72 of 148 enrolled students received $10,000 federally funded training stipends in 2024, and the department awarded $41,000 more in scholarships.",
+  "It is also the hardest of the three to get into, by a wide margin, and the department publishes the numbers. In the 2023–24 cycle it received 573 applications, admitted 55 and enrolled 49 across all three degrees — a roughly 10% admit rate — of whom 20 entered MFCC. Total department enrollment was 148, with 54 in MFCC. There is no GRE, but there is a 2,000-hour prior human-services work-experience requirement, a 3.0 GPA in the last 60 units, a 1,300-word personal statement, a post-admission writing-proficiency screen, and a single December 15 deadline for fall entry only. Students take an average of 2.9 years to finish (range 2–7). Anyone eyeing the LPCC should read the fine print: MFCC cannot be taken as an emphasis, so the LPCC route is MFCC plus a Clinical Mental Health Counseling emphasis, which is four additional courses (12 units) and a whole extra year of field placement on top of the 60."
+ ],
+ "orientation": "Systemic–familial–relational and developmentally-informed, inside a CACREP counselor-education frame with a heavy social-justice / cultural-foundations emphasis",
+ "signature": [
+  {
+   "code": "COUN 705",
+   "title": "Counseling Practicum",
+   "units": "3",
+   "desc": "\"Practicum and trainee experience designed to integrate foundational counseling knowledge with applied fieldwork. Emphasis on the development of culturally responsive and ethical counseling skills through supervised practice, self-reflection, and feedback. Engage in mock and field-based sessions...\"",
+   "verbatim": true,
+   "why": "This is the first-semester course, and the prerequisite line is the real information: \"concurrent enrollment in COUN 706; contract with an approved field training site.\" You need a placement lined up before you take your first practicum class. Very few California MFT programs put students in front of clients in semester one; SFSU requires 40 direct client-contact hours by the end of it or you cannot advance.",
+   "src": "https://bulletin.sfsu.edu/courses/coun/"
+  },
+  {
+   "code": "COUN 858",
+   "title": "Couple and Family Counseling I",
+   "units": "3",
+   "desc": "\"Major theoretical approaches: analytic, behavioral, systems, intergenerational, and existential. Reading, demonstrations, activities emphasize working with couples.\"",
+   "verbatim": true,
+   "why": "The first half of a two-semester relational sequence — most CA programs teach one combined couples-and-families course. Note the ordering: 858 is couples-focused, 860 is families-focused, and 858 sits in the second year (fall), after a full year of fieldwork. Prerequisites are COUN 700 and COUN 706.",
+   "src": "https://bulletin.sfsu.edu/courses/coun/"
+  },
+  {
+   "code": "COUN 860",
+   "title": "Couple and Family Counseling II",
+   "units": "3",
+   "desc": "\"Applied psychotherapeutic techniques in working with families and relationships. Emphasis on direct experience working with families through simulations, demonstrations, case material.\"",
+   "verbatim": true,
+   "why": "The applied half. \"Direct experience working with families through simulations\" is the distinguishing clause — this is a skills lab, not a survey, and it is scheduled in the final spring semester alongside the internship and the culminating paper.",
+   "src": "https://bulletin.sfsu.edu/courses/coun/"
+  },
+  {
+   "code": "COUN 859",
+   "title": "Counseling Aspects of Sexuality",
+   "units": "2",
+   "desc": "\"Major sexual problems encountered in counseling; causes; counseling approaches; techniques and treatments; clinical implications including feminine orientations. Satisfies MFCC requirements for child sexual abuse and human sexuality.\"",
+   "verbatim": true,
+   "why": "A dedicated 2-unit sexuality course, required only of MFCC students (it is listed as a recommended elective for the other specializations). The last sentence tells you it is doing double duty against two separate BBS content requirements, which is why it is 2 units rather than 3.",
+   "src": "https://bulletin.sfsu.edu/courses/coun/"
+  },
+  {
+   "code": "COUN 861",
+   "title": "Seminar on Child Treatment",
+   "units": "3",
+   "desc": "\"Concepts, processes, techniques of child and adolescent treatment, crisis intervention, supportive counseling, and psychotherapeutic treatment.\"",
+   "verbatim": true,
+   "why": "The \"Child\" in Marriage, Family and Child Counseling is not decorative — this is a full required semester on child and adolescent treatment, scheduled in the first-year spring so it lands while students are already carrying a caseload. Prerequisites are COUN 705 and 706.",
+   "src": "https://bulletin.sfsu.edu/courses/coun/"
+  },
+  {
+   "code": "COUN 827",
+   "title": "The Consultation Process",
+   "units": "1",
+   "desc": "\"Dynamics of the consultation process; implications for various specialists in developing effective working relationships with teachers and parents.\"",
+   "verbatim": true,
+   "why": "A required 1-unit course — an unusual object in a CA MFT curriculum — taken concurrently with the 2-unit sexuality course in the final spring. Its explicit target is working with teachers and parents, a tell that SFSU expects a lot of its MFCC graduates to end up in school-based and child-serving agencies.",
+   "src": "https://bulletin.sfsu.edu/courses/coun/"
+  }
+ ],
+ "curriculum": {
+  "note": "Fall admission only, in-person only, no online or hybrid option; full-time and part-time are both possible but the department warns that work schedules must flex around daytime, late-afternoon and evening classes. The department publishes both a 2-year and a 3-year roadmap; the 2-year grid is reproduced below (4 terms × 15 units = 60). The 3-year plan spreads the same 60 units as 9/12 + 12/9 + 9/9, moving COUN 705/706 to the second year. Course titles below are the official 2026–27 bulletin titles; the department's own advising handbook grid contains several mislabeled rows (e.g. it labels COUN 857 \"Seminar in Research\" and COUN 720 \"Special expertise course\"). Sequence is from the 2024–25 Student Advising Handbook; unit counts and the required-course list are from the 2026–27 Bulletin.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (15 units)",
+    "courses": [
+     "COUN 702 Developmental Foundations for Counselors (3)",
+     "COUN 705 Counseling Practicum (3)",
+     "COUN 706 Counseling Skills and Process (3)",
+     "COUN 833 Social and Cultural Foundations in Counseling (3)",
+     "COUN 857 Law and Ethics for Counselors (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (15 units)",
+    "courses": [
+     "COUN 700 Theories of Counseling and Psychotherapy (3)",
+     "COUN 703 Psychological Foundations for Counselors (3)",
+     "COUN 736 Advanced Counseling Process (3)",
+     "COUN 738 Addictions (3)",
+     "COUN 861 Seminar on Child Treatment (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (15 units)",
+    "courses": [
+     "COUN 720 Career Counseling (3)",
+     "COUN 794 Seminar in Research (3)",
+     "COUN 811 Group Counseling Process (3)",
+     "COUN 858 Couple and Family Counseling I (3)",
+     "COUN 890 Integrative Counseling and Internship (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (15 units)",
+    "courses": [
+     "COUN 715 Assessment in Counseling (3)",
+     "COUN 827 The Consultation Process (1)",
+     "COUN 859 Counseling Aspects of Sexuality (2)",
+     "COUN 860 Couple and Family Counseling II (3)",
+     "COUN 891 Case Studies and Internship Seminar (3)",
+     "COUN 892 Culminating Experience for Counselors (3)"
+    ]
+   }
+  ],
+  "src": "https://bulletin.sfsu.edu/colleges/health-social-sciences/counseling/ms-counseling-concentration-marriage-famiyl-child-counseling/"
+ },
+ "practicum": {
+  "starts": "First semester of the first year — COUN 705 and COUN 706 taken concurrently, in the same section with the same instructor, and you must already have a signed contract with an approved site to enroll",
+  "hours": "700 total fieldwork hours across four semesters, of which a minimum of 280 must be direct face-to-face client contact (in person or telehealth video). The per-semester ladder is 40 direct / 100 total in COUN 705, 60 / 150 in COUN 736, 90 / 200 in COUN 890, and 90 / 250 in COUN 891. No relational (couple/family) sub-minimum is published for the degree; SFSU's 700 hours are a CACREP requirement, and the handbook is explicit that \"these hours are not equivalent to hours that count toward licensure. Only some of these 700 hours will be applied to licensure.\"",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "There is no in-house SFSU counseling clinic — all training happens at outside agencies, and the department says it works with over 200 community training partners across the Bay Area. Placement is the student's responsibility but is heavily gated: you may only apply to sites on the department's pre-approved \"Master List\" (kept on Teams), and the final decision is \"a matter of consultation between the student, their faculty advisor, and the specialization faculty coordinator,\" with an internship coordinator and a faculty liaison layered on top. You do two separate year-long placements, each running fall-through-spring: COUN 705/706 then 736 in year one, then 890 then 891 at a different site in year two. Site commitment is 12–16 hours a week on at least two days in year one and 16–20 hours a week in year two, with a required caseload of 3–5 clients weekly in year one and 5–10 in year two. Supervision is triple-layered: at least one hour a week of individual supervision from a licensed on-site supervisor (for MFCC students the site supervisor must be a licensed therapist), roughly 1.5 hours a week of group supervision delivered through the weekly three-hour class meeting, plus five hours of individual supervision inside COUN 705. Every approved site has agreed to let trainees audio-record two to three client sessions per semester in COUN 736, 890 and 891 for review with both the site supervisor and the course instructor — you cannot pass those courses without the recordings. Fall below 80% of a semester's required hours and you get an Incomplete; two grades below B in 736/890/891 means declassification from the program.",
+  "src": "https://counseling.sfsu.edu/sites/default/files/documents/Practicum%20&%20Trainee%20Hand%20book%2024-25.pdf",
+  "model": "assisted",
+  "model_evidence": "Traineeship placement is the responsibility of the student working with their faculty advisor, specialization coordinator, and the internship coordinator in the Department of Counseling.",
+  "model_url": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Practicum%20Handbook.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "About 20 new MFCC students a year. Department-wide the 2023–24 cycle drew 573 applicants, admitted 55 and enrolled 49 across all three degrees (a ~10% admit rate); of the 49, 20 entered MFCC, 21 the M.S. in Counseling and 8 the M.S. in Clinical Mental Health Counseling. Total department enrollment that year was 148, of whom 54 were MFCC.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree with a minimum 3.0 GPA in the last 60 units; a minimum of 2,000 hours of work experience in human services before applying; two letters of professional recommendation (personal references are not accepted); CV of no more than 3 pages; personal statement of no more than 1,300 words; affidavit of authorship; summary of experience form; $25 department fee on top of the Cal State Apply fee. Admitted students are conditionally classified and must pass a departmental writing sample after admission but before enrolling — those who fail must take a writing course, \"usually at an additional cost.\"",
+  "deadline": "Cal State Apply opens October 1 and closes December 15 at 8:59pm PST. Fall admission only — \"there are no spring admits.\"",
+  "src": "https://counseling.sfsu.edu/admission-instruction-and-requirements",
+  "gre_evidence": "The Department of Counseling DOES NOT require GRE or undergraduate prerequisite courses",
+  "gre_url": "https://counseling.sfsu.edu/admission-instruction-and-requirements",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "cost": {
+  "per_unit": null,
+  "tuition_total": "2025–26 California-resident graduate rate: $4,032 tuition + $939 mandatory campus fees = $4,971 per semester at 6.1+ units, or $3,279 per semester at 6.0 units or fewer. Full-time that is $9,942 a year, about $19,884 for the two-year plan and roughly $29,800 for the three-year plan.",
+  "all_in": "Tuition and fees only — excludes books, professional liability insurance (required during practicum and internship), transportation to two different Bay Area placement sites, and San Francisco living costs, which are the dominant expense. Students who extend a placement into the summer must additionally enroll and pay for 1 unit of COUN 735.",
+  "financial_aid": "Unusually strong for a CSU counseling program: in 2024 the department awarded $720,000 in federally funded training stipends to 72 students (49% of the 148 enrolled) at $10,000 each, plus $41,000 in departmental scholarships to 19 students. The stipends come with service commitments — the disability and school-based mental health training grants require one to two years of post-graduate service in a designated setting.",
+  "src": "https://bursar.sfsu.edu/students/current-academic-year"
+ },
+ "voices": [
+  {
+   "text": "A second-year student: \"You begin your clinical work during your first semester, which is rare for an MFT program,\" and \"I have personally found it to be a high quality and very rewarding experience.\" Still structurally accurate — COUN 705/706 remain first-semester, site-contract-required courses in the 2026–27 bulletin.",
+   "who": "Student Doctor Network, \"Feedback on MFT Program at SDSU, SFSU and Sonoma State?\", December 2009",
+   "sentiment": "positive",
+   "url": "https://forums.studentdoctor.net/threads/feedback-on-mft-program-at-sdsu-sfsu-and-sonoma-state.679748/"
+  },
+  {
+   "text": "The same student described the curriculum as having \"a strong leaning towards psychodynamic theory and interpersonal therapy.\" Treat as dated — the current bulletin describes a \"developmentally-informed systemic-familial-relational orientation,\" and the faculty and course list have turned over since.",
+   "who": "Student Doctor Network, December 2009",
+   "sentiment": "mixed",
+   "url": "https://forums.studentdoctor.net/threads/feedback-on-mft-program-at-sdsu-sfsu-and-sonoma-state.679748/"
+  },
+  {
+   "text": "The department's own student experience survey (N=24) is the most candid thing published about it: 43% rated their experience excellent, 29% good, 16% average and 10% poor. On fieldwork specifically, only 62% called their practicum/internship experience good or excellent — the lowest-scoring item except department communication (63%). Peer support scored highest at 91%.",
+   "who": "SFSU Department of Counseling, 2023–2024 CACREP Annual Performance Report",
+   "sentiment": "mixed",
+   "url": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Department%20of%20Counseling%20Annual%20Report%20Final.pdf"
+  },
+  {
+   "text": "Of 22 May-2024 graduates surveyed, 86% were employed and all of those found work within six months; average reported salary was $84,000 (range $70K–$105K). Read it with care: the sample is department-wide and skews toward school and college counselors, and only 15% were on the MFT licensure track at the time of the survey.",
+   "who": "SFSU Department of Counseling graduate survey, fall 2024",
+   "sentiment": "info",
+   "url": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Department%20of%20Counseling%20Annual%20Report%20Final.pdf"
+  },
+  {
+   "text": "\"I'm a 2nd year at SFSU's masters in clinical psychology program, which is one of two MFT tracks at SFSU (the other is a masters in counseling, part of the Education/Counseling department)... It is clinically intensive (no research) with a strong leaning towards psychodynamic theory and interpersonal therapy. You begin your clinical work during your first semester, which is rare for an MFT program. I have personally found it to be a high quality and very rewarding experience.\"",
+   "who": "Student Doctor Network forums, second-year SFSU MFT-track student ('Ashelia'), 20 Dec 2009",
+   "sentiment": "positive",
+   "url": "https://forums.studentdoctor.net/threads/feedback-on-mft-program-at-sdsu-sfsu-and-sonoma-state.679748/"
+  },
+  {
+   "text": "\"San Francisco State University's graduate program is very competitive and not diverse at all. The chair of the department is very incompetent at her job, she does not respond to emails or questions effectively and when I emailed the counseling department, whoever emailed me back could not spell the word application. Most of the staff have a very nasty attitude and are unwilling to help students with questions. If you apply for the graduate program, good luck. Don't waste your time or money.\"",
+   "who": "GradReports review, SFSU Counseling degree, class of 2021, posted 15 June 2021 (Justine)",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/san-francisco-state-university"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/9/9a/SFSU_campus_center.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:SFSU_campus_center.jpg",
+  "license": "CC0 1.0 (public domain dedication)",
+  "credit": "Photo by Grandmaster Huon, via Wikimedia Commons (CC0)",
+  "caption": "The center of the SF State campus in the Lake Merced district, October 2024. The Department of Counseling sits in the College of Health and Social Sciences; there is no counseling clinic on campus, so MFCC trainees commute to two different Bay Area agency placements over two years."
+ },
+ "gaps": [
+  "No MFCC-specific admit rate. The 573-applicant / 55-admit / 49-enroll figures are department-wide across three degrees; the department does not break out applications by specialization, only enrollments (20 of the 49 new students entered MFCC).",
+  "No published relational (couple/family) sub-minimum inside the 700-hour degree fieldwork requirement. The handbook only states the 280-hour direct-contact floor and separately explains the BBS's post-degree 500-hour couples-and-families rule.",
+  "The 2024–25 Student Advising Handbook's MFCC course-requirements table lists COUN 741 (Crisis Counseling) as required, which would make the degree 63 units. The 2026–27 Bulletin does not list COUN 741 and totals exactly 60, and neither of the handbook's own MFCC roadmaps includes 741. We have used the Bulletin. This matters for the LPCC calculation: if 741 is not part of the MFCC 60, the CMHC emphasis costs 12 extra units rather than 9.",
+  "No published MFCC-specific licensure-exam pass rate. The annual report gives GPA, supervisor-evaluation pass rates and disposition data, but not BBS exam outcomes.",
+  "Reddit could not be searched (the site blocked automated retrieval), and Student Doctor Network's only substantive SFSU thread is from 2009. No recent independent student reviews were located.",
+  "Whether a 2025–26 practicum handbook exists; the most recent one the department has posted is 2024–25."
+ ],
+ "sources": [
+  {
+   "label": "SFSU Bulletin 2026–27 — M.S. in Counseling: Concentration in Marriage, Family, and Child Counseling",
+   "url": "https://bulletin.sfsu.edu/colleges/health-social-sciences/counseling/ms-counseling-concentration-marriage-famiyl-child-counseling/"
+  },
+  {
+   "label": "SFSU Bulletin 2026–27 — Counseling (COUN) course descriptions",
+   "url": "https://bulletin.sfsu.edu/courses/coun/"
+  },
+  {
+   "label": "Practicum & Internship Handbook 2024–2025, SFSU Department of Counseling",
+   "url": "https://counseling.sfsu.edu/sites/default/files/documents/Practicum%20&%20Trainee%20Hand%20book%2024-25.pdf"
+  },
+  {
+   "label": "Student Advising Handbook 2024–2025, SFSU Department of Counseling (MFCC roadmaps)",
+   "url": "https://counseling.sfsu.edu/sites/default/files/documents/Student%20Advising%20Handbook%202024%20-%202025.pdf"
+  },
+  {
+   "label": "2023–2024 CACREP Annual Performance Report, SFSU Department of Counseling",
+   "url": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Department%20of%20Counseling%20Annual%20Report%20Final.pdf"
+  },
+  {
+   "label": "Admission Instruction and Requirements, SFSU Department of Counseling",
+   "url": "https://counseling.sfsu.edu/admission-instruction-and-requirements"
+  },
+  {
+   "label": "Practicum and Internship, SFSU Department of Counseling",
+   "url": "https://counseling.sfsu.edu/practicum-and-internship"
+  },
+  {
+   "label": "SFSU Bursar's Office — Current Academic Year 2025–2026 tuition and fees",
+   "url": "https://bursar.sfsu.edu/students/current-academic-year"
+  },
+  {
+   "label": "Student Doctor Network — Feedback on MFT Program at SDSU, SFSU and Sonoma State?",
+   "url": "https://forums.studentdoctor.net/threads/feedback-on-mft-program-at-sdsu-sfsu-and-sonoma-state.679748/"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "lpcc",
+   "current": "Conditional — requires additionally completing the Clinical Mental Health Counseling emphasis to be endorsed for LPCC",
+   "correct": "Correct but under-specified. Exact cost of the LPCC add-on: the CMHC emphasis requires COUN 704 (Biopsychosocial Aspects of Health, Behavioral Health, Aging & Disability), COUN 870 (Professional Issues, Clinical Case Management & Systems of Care) and COUN 737 (Psychopharmacology), plus COUN 741 (Crisis Counseling) because the MFCC 60-unit list does not include it — four courses, 12 semester units beyond the 60. It also requires a third, separate field placement: 480 total hours including 240 direct-contact hours in a mental health counseling setting, which the handbook says means \"more than two (2) years in traineeships.\" Also worth recording: MFCC is available only as a specialization and cannot be added as an emphasis, so the combination must run in this direction (MFCC degree + CMHC emphasis), never the reverse.",
+   "src": "https://counseling.sfsu.edu/sites/default/files/documents/Practicum%20&%20Trainee%20Hand%20book%2024-25.pdf"
+  },
+  {
+   "field": "units",
+   "current": "60 units min",
+   "correct": "Confirmed by the 2026–27 Bulletin — \"Minimum 60 units,\" and the 21 required courses sum to exactly 60 with no electives. No change needed. (Caveat: the department's 2024–25 advising handbook table lists a 22nd course, COUN 741, which would total 63; the Bulletin and both published MFCC roadmaps do not.)",
+   "src": "https://bulletin.sfsu.edu/colleges/health-social-sciences/counseling/ms-counseling-concentration-marriage-famiyl-child-counseling/"
+  },
+  {
+   "field": "length",
+   "current": null,
+   "correct": "Published 2-year and 3-year roadmaps; department-reported average time to degree is 2.9 years (range 2–7).",
+   "src": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Department%20of%20Counseling%20Annual%20Report%20Final.pdf"
+  },
+  {
+   "field": "format",
+   "current": null,
+   "correct": "\"The program is an in-person program.\" Fall admission only, no spring admits. Full-time or part-time is possible, but students must be able to take daytime, late-afternoon and evening classes.",
+   "src": "https://bulletin.sfsu.edu/colleges/health-social-sciences/counseling/ms-counseling-concentration-marriage-famiyl-child-counseling/"
+  },
+  {
+   "field": "other_accreditation",
+   "current": null,
+   "correct": "CACREP-accredited (the department's fieldwork requirements are written directly against the CACREP 2016 standards, and it files annual CACREP performance reports). Not COAMFTE.",
+   "src": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Department%20of%20Counseling%20Annual%20Report%20Final.pdf"
+  }
+ ]
+}

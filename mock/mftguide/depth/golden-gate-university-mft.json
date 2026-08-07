@@ -1,0 +1,232 @@
+{
+ "institution": "Golden Gate University",
+ "character": [
+  "Golden Gate University is a business, tax and law school that also runs a small psychotherapy programme, and the proportions matter. In the 2022-23 IPEDS reporting year GGU conferred 758 degrees: 480 in business, 117 JDs, and 65 across all of psychology at every level — of which 26 were master's. The MA in Counseling Psychology is therefore not a large operation inside a psychology-first institution; it is a niche programme inside a career-focused school built for working adults, with all the trade-offs that implies. It is also newly reorganised. GGU stood up a School of Psychology with a Founding Dean, Tom Wooldridge, PsyD, ABPP, FIPA — the FIPA is a Fellowship of the International Psychoanalytical Association — describing it as \"built on more than a decade of psychology education at GGU.\" The counselling programme itself is older than the school that now houses it: an archived version of its page from April 2019 shows the same 60 units, the same Psychotherapy Action Network partnership, and tuition of $1,050 per unit against today's $1,090.",
+  "What genuinely distinguishes this programme is that it is psychodynamic and says so, which in the California online market is close to unique. Its strategic partner is the Psychotherapy Action Network, an advocacy organisation whose entire purpose is to defend depth-oriented therapy against symptom-focused models, and the programme's own site-selection criteria commit to it in writing: \"We believe that psychotherapy must acknowledge the complexity of the individual and the uniqueness of individual suffering, rather than the identification and resolution of discrete symptoms.\" You can see this in the unit weightings. PSYCH 323 Psychodynamic Models of Counseling gets a full three units. PSYCH 336 Evidence-Based Practice Treatment gets one. And 50 hours of personal psychotherapy with a licensed clinician are a degree requirement, not a recommendation — the department maintains a sliding-scale referral list in an appendix of the student handbook, and there is a formal waiver form if the cost is unmanageable. Almost no other online-delivered California programme requires you to be in therapy yourself.",
+  "Layered on top of that, awkwardly, is a hard pivot toward artificial intelligence. The programme's published learning outcomes now include \"Critically evaluate and ethically integrate artificial intelligence and digital technologies in clinical practice,\" the directed-elective list opens with AI 300 Applied AI and Agents: From Tools to Intelligent Systems — a course about building and deploying AI agents, prompt design and low-code prototyping — and the new School of Psychology runs a \"human systems lab\" whose projects include \"ethical AI guidance for clinical environments.\" Whether a psychoanalytically-inflected counselling degree and a course on deploying AI agents belong in the same 60 units is a fair question to put to the programme director. The other thing to weigh honestly: GGU is not COAMFTE- or CACREP-accredited and publishes no graduation rate, no licensure rate, no job placement rate and no exam pass rate. There is no external accreditor forcing those numbers into daylight, and the programme has not volunteered them."
+ ],
+ "orientation": "Psychodynamic/relational depth — explicitly anti-symptom-reduction, partnered with the Psychotherapy Action Network, with a required personal-psychotherapy component; recently overlaid with an institutional push on AI in clinical practice",
+ "signature": [
+  {
+   "code": "PSYCH 323",
+   "title": "Psychodynamic Models of Counseling",
+   "units": "3",
+   "desc": "\"Examines the major traditional and contemporary psychodynamic models of counseling and psychotherapy. These are concerned with the conscious, subconscious, unconscious and subjective constructions of life experiences. Students will learn how to work with individuals using these models, paying attention to the models' principles of change and techniques, and their underlying theoretical rationale.\"",
+   "verbatim": true,
+   "why": "Three required units on psychodynamic theory — twice the weight given to evidence-based practice, and more than most California programmes give the topic at all. Together with the PsiAN partnership and the personal-therapy requirement, this is the clearest evidence that the depth orientation is real rather than decorative.",
+   "src": "https://ggu.edu/course/psych-323-psychodynamic-models-of-counseling/"
+  },
+  {
+   "code": "AI 300",
+   "title": "Applied AI and Agents: From Tools to Intelligent Systems",
+   "units": "3",
+   "desc": "\"Students gain hands-on experience with leading AI applications across text, image, data, and code; design and deploy multi-step workflows that integrate human judgment with model output; build, test, and iterate on AI agents using current frameworks; and prototype applications with low-code and no-code platforms... Students complete a capstone deploying a working AI-enabled workflow or agent for a defined professional use case.\"",
+   "verbatim": true,
+   "why": "This is a general graduate AI-fluency course, not a clinical-ethics-of-AI course, and it now sits at the head of the directed-elective list for a psychotherapy degree. It is the single most unusual line in any California MFT-track curriculum and prospective students should decide deliberately whether three units of agent-building is what they want from a 60-unit clinical training.",
+   "src": "https://ggu.edu/course/ai-300-applied-ai-and-agents-from-tools-to-intelligent-systems/"
+  },
+  {
+   "code": "PSYCH 336",
+   "title": "Evidence-Based Practice Treatment",
+   "units": "1",
+   "desc": "\"Explores evidence-based practice treatments, best practices and the areas of emerging research knowledge within a recovery-orientated paradigm. Students will become familiar with specific evidence-based interventions to use for individuals diagnosed with serious mental illness, including co-occurring disorders... Should be taken within the last two trimesters of study.\"",
+   "verbatim": true,
+   "why": "One unit, taken at the very end of the programme. Read alongside the three units for psychodynamic models, the unit allocation is the programme's real statement of priorities — and it is a genuine trade-off, not a neutral one, if you are aiming at agency work where manualised EBPs are the currency.",
+   "src": "https://ggu.edu/course/psych-336-evidence-based-practice-treatment/"
+  },
+  {
+   "code": "PSYCH 334",
+   "title": "Relational Abuse: Assessment, Treatment and Reporting",
+   "units": "1",
+   "desc": "\"Prepares students to identify, intervene, report and treat intimate partner and spousal abuse, geriatric abuse, family abuse and child maltreatment. Legal, cultural and psychosocial issues will be covered. Students will learn about current issues and recent research in the area of family violence, trauma and child maltreatment.\"",
+   "verbatim": true,
+   "why": "One of five one- and two-unit micro-courses (with PSYCH 331 Human Sexuality, PSYCH 333 Substance Use, PSYCH 335 Special Issues in the Treatment of Families and PSYCH 336) that carry the California BBS-mandated content areas. Bundling the statutory requirements into short modules is efficient and keeps the three-unit slots for theory — but it also means the abuse-reporting content you will be legally accountable for is a single unit.",
+   "src": "https://ggu.edu/course/psych-334-relational-abuse-assessment-treatment-and-reporting/"
+  },
+  {
+   "code": "PSYCH 394",
+   "title": "Practicum: Counseling Psychology",
+   "units": "0–3 per term",
+   "desc": "\"Students are required to complete a total of 300 clinical hours during the program consisting of face-to-face counseling with individuals (adults, children, adolescents, couples, families or groups)... students will attend a practicum seminar that will provide group consultation utilizing written case studies and oral case presentations... Students are required to enroll in the PSYCH 394 seminar course during every term that they will be participating in their traineeship placement.\" Prerequisites: PSYCH 320, 326, 321, and consent of the department chair.",
+   "verbatim": true,
+   "why": "The 0-unit enrolment option is the mechanically important detail: it lets students keep accruing supervised hours past the required minimum without paying for more units, which is how GGU delivers on its claim that graduates typically leave with well beyond the 300-hour floor toward the 3,000 California requires.",
+   "src": "https://ggu.edu/course/psych-394-practicum-counseling-psychology/"
+  },
+  {
+   "code": "PSYCH 306",
+   "title": "Group Models of Counseling",
+   "units": "3",
+   "desc": "\"Content includes a survey of group-counseling theories, techniques, and research; discussion of professional, ethical, and clinical issues in group practice; review of the developmental stages of groups; and practice as group members and as leader. Experiential practice is incorporated throughout.\"",
+   "verbatim": true,
+   "why": "\"Practice as group members and as leader\" with \"experiential practice incorporated throughout\" is a commitment to actually running the group process on students, not just teaching about it — worth asking how that is delivered in the fully asynchronous online format, where the hybrid format's two campus weeks per trimester would be the obvious vehicle.",
+   "src": "https://ggu.edu/course/psych-306-group-models-of-counseling/"
+  }
+ ],
+ "curriculum": {
+  "note": "60 units, no published term-by-term sequence — GGU lists the whole requirement as a single 'Directed Electives – 60 units' block, so the list below is the full required-course set rather than a term grid. GGU runs on trimesters with three entry points (Fall, Spring, Summer) and no cohort. Two formats: fully online asynchronous (no residency) or hybrid, which adds two designated campus weeks per trimester at the San Francisco Mission Street campus; students may mix formats within a term. Full-time students are advertised to finish in under 2.5 years. Undergraduate PSYCH 102 and PSYCH 120 taken at GGU carry internal transfer credit toward PSYCH 302 and PSYCH 320 respectively.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Required coursework (single published block; no term sequence is public)",
+    "courses": [
+     "AI 300 Applied AI and Agents: From Tools to Intelligent Systems (3)",
+     "PSYCH 302 Lifespan Development: Theories and Applications for Therapists (3)",
+     "PSYCH 304 Cross-Cultural Aspects of Psychology (3)",
+     "PSYCH 306 Group Models of Counseling (3)",
+     "PSYCH 308 Applied Psychological Research (3)",
+     "PSYCH 320 Therapeutic Communication and Counseling Skills (3)",
+     "PSYCH 321 Psychopathology (3)",
+     "PSYCH 322 Psychological Assessment (3)",
+     "PSYCH 323 Psychodynamic Models of Counseling (3)",
+     "PSYCH 324 Child/Adolescent Psychology, Assessment and Treatment (3)",
+     "PSYCH 325 Principles of Couple and Family Counseling (3)",
+     "PSYCH 326 Legal and Ethical Responsibility for Counselors (3)",
+     "PSYCH 329 The Neuroscience of Counseling and Psychopharmacology (3)",
+     "PSYCH 331 Human Sexuality (1)",
+     "PSYCH 333 Substance Use, Co-Occurring Disorders and Addiction (1)",
+     "PSYCH 334 Relational Abuse: Assessment, Treatment and Reporting (1)",
+     "PSYCH 335 Special Issues in the Treatment of Families (2)",
+     "PSYCH 336 Evidence-Based Practice Treatment (1)",
+     "PSYCH 337 Community Mental Health (3)",
+     "PSYCH 339 Cognitive-Behavioral and Short-Term Models of Counseling (3)",
+     "PSYCH 351 Career Counseling and Development (3)",
+     "PSYCH 394 Practicum: Counseling Psychology (0–3 per term; 6 units required across at least three academic terms per the programme page — the Psychology Student Handbook says 9 units)"
+    ]
+   },
+   {
+    "label": "Non-course degree requirement",
+    "courses": [
+     "50 hours of personal psychotherapy with a licensed clinician (or under supervision by one) — individual, couple, family, group, or a combination; documented on a Verification of Psychotherapy form; deferrable to post-graduation or waivable by the Program Director"
+    ]
+   }
+  ],
+  "src": "https://ggu.edu/programs/ma-counseling-psychology/"
+ },
+ "practicum": {
+  "starts": "You must apply for Traineeship Candidacy before the end of your second trimester of enrolment, and must have completed (or be on track to complete) PSYCH 320, PSYCH 321 and PSYCH 326, with substantial progress on the theory courses PSYCH 323, 324, 325 and 339. Most students begin traineeship as soon as Candidacy is granted; the handbook advises planning at least six months ahead because many Bay Area agencies recruit December-to-March for autumn starts.",
+  "hours": "Minimum 300 face-to-face client contact hours under licensed supervision, across at least three trimesters, with concurrent enrolment in PSYCH 394 every term you are accruing hours",
+  "who_places": "student-finds",
+  "clinic": null,
+  "detail": "GGU is explicit and unusually candid: \"While it is your responsibility to find a traineeship, we are committed to assisting you during each step of the process.\" That assistance is more concrete than most online programmes offer — a named Psychology Department Traineeship Coordinator maintains a Traineeship and Internship Sites spreadsheet, Career Services runs CV and interview preparation, and the handbook tells you plainly that \"most students apply to 5 – 7 traineeship sites,\" which is the kind of calibrating detail schools rarely publish. The gate is Traineeship Candidacy, a formal status assessing \"academic and emotional preparedness\": a Candidacy form goes to the Department Chair alongside faculty feedback and any atypical reports, and if there are concerns a Candidacy Committee of at least two faculty convenes, can require an in-person meeting, and in rare cases can require a student to leave the programme — and the same committee re-evaluates you if a placement is ever terminated. Every site must be approved by the Department Chair with a written agreement covering both parties' responsibilities, plus a Supervised Fieldwork Agreement and BBS Form 37A-523; supervision is by an on-site licensed supervisor, hours are logged in Time2Track, and proof of student liability insurance is required at registration. There is no in-house training clinic — placements are at county and community mental health agencies, outpatient clinics, psychiatric hospitals, schools, residential and chemical-dependency programmes — but there is a partial substitute in \"an on-campus clinical case conference led by one of our professors\" running alongside the PSYCH 394 seminar, which is conducted synchronously by Zoom even for otherwise-asynchronous students. Two practical warnings the handbook gives that most do not: traineeship schedules are usually non-negotiable and \"for most placements, you will need to be available 2 – 3 full days each week, for around 20 hours of work in total\"; and to do a practicum at all you must be physically located in a state where GGU is authorised to operate.",
+  "src": "https://ggu.edu/wp-content/uploads/2025/06/Psychology-Student-Handbook.docx",
+  "model": "not published",
+  "model_evidence": "Practical application of assessment, counseling, consultation and case management skills in an approved mental health setting.",
+  "model_url": "https://catalog.ggu.edu/preview_course_nopop.php?catoid=9&coid=5687",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "No cohorts — rolling admission at three trimester start points. Scale is small: GGU reported 26 psychology master's degrees conferred in 2022-23 (IPEDS) and the College Scorecard shows 52 master's awards in CIP 42.28 across its two most recent reporting years, against 758 total GGU degrees and 480 business degrees in the same year.",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree from a regionally accredited US institution (or recognised foreign equivalent), official transcripts, Statement of Purpose, resume, and two letters of recommendation; English proficiency documentation for non-native speakers. No prerequisite coursework and no psychology background required. No strict minimum GPA is stated — applicants below 3.0 are invited to address it in the Statement of Purpose. No interview is listed.",
+  "deadline": "Rolling, across Fall, Spring and Summer trimesters. Published examples: Fall 2026 term begins 8 September 2026 with a domestic application deadline of 18 August 2026; Spring 2027 begins 12 January 2027 with a domestic deadline of 17 December 2026 (international applicants earlier).",
+  "src": "https://ggu.edu/programs/ma-counseling-psychology/",
+  "gre_evidence": "No GMAT or GRE Required",
+  "gre_url": "https://ggu.edu/programs/ma-counseling-psychology/",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"The curriculum laid the educational and theoretical foundation for my practice today, and the faculty fostered an environment where I was not simply learning theory, I was learning how to practice my therapy.\"",
+   "who": "Alumni testimonial published by GGU on its own programme page — marketing copy, read accordingly",
+   "sentiment": "positive",
+   "url": "https://ggu.edu/programs/ma-counseling-psychology/"
+  },
+  {
+   "text": "\"Most traineeships have a set schedule... In the majority of cases, this schedule is not negotiable, and you will need to be available at the required times in order to accept a traineeship... For most placements, you will need to be available 2 – 3 full days each week, for around 20 hours of work in total.\"",
+   "who": "GGU Psychology Student Handbook, 2025",
+   "sentiment": "info",
+   "url": "https://ggu.edu/wp-content/uploads/2025/06/Psychology-Student-Handbook.docx"
+  },
+  {
+   "text": "An independent California MFT directory profile records the programme's outcomes as \"Graduation rate: Not published. Job placement rate: Not published. Licensure rate: Not published. Licensure exam pass rate: Not published.\"",
+   "who": "Sentio University CA MFT directory profile, April 2026 (Sentio runs a competing California MFT programme)",
+   "sentiment": "negative",
+   "url": "https://sentio.org/golden-gate-university-mft-program-review"
+  },
+  {
+   "text": "College Scorecard reports average federal graduate debt of $50,493 for master's graduates in CIP 42.28 at GGU (median suppressed, n=18), against median earnings of $63,266 one year out and $95,577 four years out.",
+   "who": "US Department of Education College Scorecard, field-of-study data, latest release",
+   "sentiment": "positive",
+   "url": "https://collegescorecard.ed.gov/school/?115083-Golden-Gate-University"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/e/e7/GGU_exterior_1.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:GGU_exterior_1.JPG",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by BrokenSphere, via Wikimedia Commons",
+  "caption": "The exterior of Golden Gate University's downtown San Francisco campus, photographed in January 2010. The hybrid format's two campus weeks per trimester take place here."
+ },
+ "gaps": [
+  "When the counselling programme started could not be pinned down. GGU's new School of Psychology page says it is \"built on more than a decade of psychology education at GGU\" but gives no founding year, and the school's Dean is described as a Founding Dean, meaning the school (not the programme) is new. The oldest hard evidence found is an Internet Archive capture from 2 April 2019 of ggu.edu/degrees-and-courses/psychology/master-of-arts-in-counseling-psychology, already showing 60 units, the PsiAN partnership and MFT and I-O concentrations. Confusingly, IPEDS completions data shows no psychology master's degrees conferred at GGU in any year sampled from 2016 through 2022, with the first appearing in 2023 (26 awards under CIP 42.0101) — either the programme graduated its first substantial group very recently, or GGU reported these degrees under a non-psychology CIP before 2023. This should be confirmed with the programme director.",
+  "Program size is inferable but not published. The best available proxies are IPEDS completions (26 psychology master's in 2022-23) and College Scorecard (52 awards in CIP 42.28 over two years). GGU does not publish enrolment for the programme.",
+  "No graduation rate, licensure rate, job placement rate or licensure-exam pass rate is published. The programme is not COAMFTE- or CACREP-accredited, so no accreditor compels disclosure. This is the single largest information gap of the three programmes researched.",
+  "The programme page and the Psychology Student Handbook disagree on the practicum unit requirement: the page says \"a total of 6 units of PSYCH 394... across three academic terms\" while the handbook says \"Students are required to complete 9 units of Psych 394 before graduation.\" The 2019 archived page also said 9 units. Confirm which applies to your entry term.",
+  "GGU's Acalog catalog (catalog.ggu.edu) could not be navigated from this environment — its section pages returned empty without a browser session, so the course descriptions used here come from GGU's public per-course pages rather than the catalog proper.",
+  "Median federal graduate debt is suppressed in the College Scorecard for this programme (only the average, $50,493, is released, on a cohort of 18), so a like-for-like median comparison with the other two programmes is not possible.",
+  "No first-person student discussion could be retrieved. Reddit (direct and via mirrors), Niche, GradReports and Trustpilot were all unreachable from this environment, and the web-search budget was exhausted before forum sources could be gathered.",
+  "The total-cost figure is approximate. GGU publishes $1,090 per unit, which multiplies to $65,400 over 60 units, but does not publish a programme total; an independent directory computes roughly $65,000 from a flat full-time trimester rate of $13,080, so the two methods agree closely."
+ ],
+ "sources": [
+  {
+   "label": "M.A. in Counseling Psychology programme page (curriculum, traineeship, tuition, FAQ)",
+   "url": "https://ggu.edu/programs/ma-counseling-psychology/"
+  },
+  {
+   "label": "GGU Psychology Student Handbook (June 2025)",
+   "url": "https://ggu.edu/wp-content/uploads/2025/06/Psychology-Student-Handbook.docx"
+  },
+  {
+   "label": "GGU School of Psychology (Founding Dean's message, human systems lab)",
+   "url": "https://ggu.edu/school/school-of-psychology/"
+  },
+  {
+   "label": "PSYCH 323 Psychodynamic Models of Counseling course page",
+   "url": "https://ggu.edu/course/psych-323-psychodynamic-models-of-counseling/"
+  },
+  {
+   "label": "AI 300 Applied AI and Agents course page",
+   "url": "https://ggu.edu/course/ai-300-applied-ai-and-agents-from-tools-to-intelligent-systems/"
+  },
+  {
+   "label": "PSYCH 394 Practicum: Counseling Psychology course page",
+   "url": "https://ggu.edu/course/psych-394-practicum-counseling-psychology/"
+  },
+  {
+   "label": "PSYCH 336 Evidence-Based Practice Treatment course page",
+   "url": "https://ggu.edu/course/psych-336-evidence-based-practice-treatment/"
+  },
+  {
+   "label": "PSYCH 334 Relational Abuse course page",
+   "url": "https://ggu.edu/course/psych-334-relational-abuse-assessment-treatment-and-reporting/"
+  },
+  {
+   "label": "PSYCH 306 Group Models of Counseling course page",
+   "url": "https://ggu.edu/course/psych-306-group-models-of-counseling/"
+  },
+  {
+   "label": "PSYCH 337 Community Mental Health course page",
+   "url": "https://ggu.edu/course/psych-337-community-mental-health/"
+  },
+  {
+   "label": "Archived MA Counseling Psychology page, 2 April 2019 (Internet Archive)",
+   "url": "https://web.archive.org/web/20190402133936/http://www.ggu.edu/degrees-and-courses/psychology/master-of-arts-in-counseling-psychology"
+  },
+  {
+   "label": "US Dept of Education College Scorecard API, field-of-study data, unitid 115083",
+   "url": "https://api.data.gov/ed/collegescorecard/v1/schools.json?id=115083&fields=latest.programs.cip_4_digit"
+  },
+  {
+   "label": "IPEDS completions by CIP, 2023, via Urban Institute Education Data API (unitid 115083)",
+   "url": "https://educationdata.urban.org/api/v1/college-university/ipeds/completions-cip-2/2023/?unitid=115083"
+  },
+  {
+   "label": "Sentio University independent CA MFT directory profile (competitor-authored)",
+   "url": "https://sentio.org/golden-gate-university-mft-program-review"
+  }
+ ]
+}

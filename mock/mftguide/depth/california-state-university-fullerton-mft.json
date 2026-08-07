@@ -1,0 +1,238 @@
+{
+ "institution": "California State University, Fullerton (University Extension)",
+ "character": [
+  "The single most important fact about this program is one most applicants do not know: it is not state-supported. It runs through CSUF University Extension on a self-support basis, which means there is no California-resident tuition. You pay a flat per-unit price. The published rate for the Spring 2025 cohort is $675 per unit, and the degree is 63 units across 21 courses - $42,525 in tuition, before books, campus fees and parking. For comparison, CSU systemwide graduate tuition in 2025-26 is $2,340 per semester for a student taking 6.0 units or fewer. This cohort takes exactly two courses (6 units) every term, so a student in the state-supported version of the same degree pays $2,340 a term where an Extension student pays $4,050. CSUF says this plainly in its own FAQ: the Extension program, \"because it is not state-supported, has somewhat higher tuition. Both programs have the same courses, taught by the same instructors.\" Same degree, same faculty, same CACREP accreditation - roughly 70% more per term. Federal Direct unsubsidized loans are the only financial aid, and there are no state-funded grants attached to a self-support program.",
+  "The second thing to know is that it barely runs. This is the Department of Counseling's evening cohort, launched once every three years, and CSUF accepts approximately 24 students to it each time (versus roughly 60 a year to the traditional daytime program). Applications for the Spring 2025 cohort are closed, and CSUF's own site states the Extension part-time program is \"closed through Spring 2028.\" If you are looking now, this is a program to plan for, not apply to. It is also a one-way door: \"M.S. in Clinical Mental Health Counseling & Marriage and Family Therapy students can only take classes as part of this program\" - you cannot transfer into the traditional cohort.",
+  "What you buy for the premium is scheduling certainty for a working adult. Classes meet 7:00-9:45 p.m. Mondays and Wednesdays in fall and spring, and roughly 6:00-10:00 p.m. in summer (June to mid-August), for three years plus one term, starting in spring. Enrollment in the courses you need is guaranteed every semester, which the traditional program explicitly does not promise - CSUF notes traditional students \"may have to adjust their scheduling plans and graduation date when they are not able to get into courses that have reached their maximum enrollment.\" The program is also CACREP-accredited, which CSUF markets as one of the few in California, and which allows graduates to work with the VA and Tricare. The department describes its theoretical orientation as \"grounded in humanistic, relational, and integrative principles,\" with a strong stated emphasis on anti-racist practice and social justice advocacy - the admissions personal statement specifically requires applicants to \"discuss what motivates you to be an advocate for social justice.\" One caveat: the Ánimo: Latinx Counseling Concentration, available in the traditional program, \"is not currently offered\" to the evening cohort."
+ ],
+ "orientation": "Humanistic, relational and integrative - CACREP clinical mental health counseling with an explicit anti-racist and social-justice framing",
+ "signature": [
+  {
+   "code": "COUN 562",
+   "title": "Intimate Partner and Couples Counseling",
+   "units": "3",
+   "desc": "Treating intimate partners and couples, including overview of current theories, assessment, goal-setting, interventions, ethical issues and diversity issues. Assessing and treating intimate partner violence. Sexual dysfunctions and sex therapy.",
+   "verbatim": true,
+   "why": "One course carries couples work, intimate partner violence assessment, and sex therapy together. That compression tells you the program's center is clinical mental health counseling with MFT layered on, not a systemic family-therapy program that would spread these across several courses.",
+   "src": "https://catalog.fullerton.edu/preview_course_nopop.php?catoid=101&coid=616182"
+  },
+  {
+   "code": "COUN 530A",
+   "title": "Practicum",
+   "units": "3",
+   "desc": "Supervised clinical practice with adults, families and children in approved community agencies. Practice in case management, documentation, use of community resources. Emphasizes dysfunction and health functioning. Hours accrued toward 280 required for yearlong practicum experience. Credit/No Credit only.",
+   "verbatim": true,
+   "why": "This is where the published hour requirement lives - 280 hours across a yearlong practicum, accrued across COUN 530A, COUN 584A and COUN 590 together. Advancement into it is gated by a formal faculty evaluation the semester before, which can result in postponement or disqualification from the program.",
+   "src": "https://catalog.fullerton.edu/preview_course_nopop.php?catoid=101&coid=616179"
+  },
+  {
+   "code": "COUN 590",
+   "title": "Advanced Counseling Techniques",
+   "units": "1 (as scheduled in this cohort; catalog range 1-3)",
+   "desc": "Advanced interventions, such as disaster and trauma response with attention to resilience, helping issues with the severely mentally ill, case management and evidenced-based practice. Required as part of yearlong practicum experience. Hours may be accrued toward 280 minimum. Credit/No Credit only.",
+   "verbatim": true,
+   "why": "A required co-course that runs alongside practicum and is aimed squarely at public-sector work - disaster response and severe mental illness. It is the piece of the curriculum that assumes graduates will land in community agencies rather than private practice.",
+   "src": "https://catalog.fullerton.edu/preview_course_nopop.php?catoid=101&coid=616184"
+  },
+  {
+   "code": "COUN 500",
+   "title": "The Counseling Profession",
+   "units": "3",
+   "desc": "Counseling as a mental health profession, including its history, current functions and future directions. The counselor as a professional, including educational goals, personal values and cultural understandings. Opportunity to observe master counselors at work.",
+   "verbatim": true,
+   "why": "\"Opportunity to observe master counselors at work\" in the very first course of the sequence is a specific pedagogical commitment - modeling before doing - and it is the first course this cohort takes, in its opening spring term.",
+   "src": "https://catalog.fullerton.edu/preview_course_nopop.php?catoid=101&coid=616167"
+  },
+  {
+   "code": "COUN 538",
+   "title": "Crisis Intervention and Trauma Treatment",
+   "units": "3",
+   "desc": "Crisis theory and intervention, as well as basic aspects of theory and treatment of trauma experienced within diverse and multicultural contexts. Case management in the context of recovery orientation.",
+   "verbatim": true,
+   "why": "Scheduled in Year 2 Fall, immediately before practicum begins in Year 3 - the program front-loads crisis and trauma work so students walk into an agency with it rather than picking it up on the job.",
+   "src": "https://catalog.fullerton.edu/preview_course_nopop.php?catoid=75&coid=519815"
+  },
+  {
+   "code": "COUN 597",
+   "title": "Project",
+   "units": "3",
+   "desc": "Capstone program experience; taken final semester. Conduct original research relevant to the counseling field. Requires consent of faculty adviser.",
+   "verbatim": true,
+   "why": "The culminating experience is original research, not a comprehensive exam - and it is the second half of a two-course research sequence with COUN 521 Research in Counseling. For a part-time working student, a research project in the final term is a real workload consideration.",
+   "src": "https://catalog.fullerton.edu/preview_course_nopop.php?catoid=101&coid=616185"
+  }
+ ],
+ "curriculum": {
+  "note": "Strict lockstep part-time cohort: two courses (6 units) every term, spring/summer/fall, for three years plus one term, with no full-time option and no transfer into the traditional program. All classes are guaranteed each semester. The sequence below is the program's published Year/Term grid for the Spring cohort.",
+  "total_units": "63 units (21 courses)",
+  "terms": [
+   {
+    "label": "Year 1 - Spring",
+    "courses": [
+     "COUN 500 The Counseling Profession (3)",
+     "COUN 511A Pre-Practicum (3)"
+    ]
+   },
+   {
+    "label": "Year 1 - Summer",
+    "courses": [
+     "COUN 502 Career and Lifestyle Development (3)",
+     "COUN 523 Counseling and Culture (3)"
+    ]
+   },
+   {
+    "label": "Year 1 - Fall",
+    "courses": [
+     "COUN 518 Human Development and Functioning (3)",
+     "COUN 528 Groups: Process and Practice (3)"
+    ]
+   },
+   {
+    "label": "Year 2 - Spring",
+    "courses": [
+     "COUN 520 Modes of Individual Counseling (3)",
+     "COUN 527A Systems of Family Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 2 - Summer",
+    "courses": [
+     "COUN 522A Diagnosis and Treatment Planning (3)",
+     "COUN 526 Professional, Ethical and Legal Issues in Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 2 - Fall",
+    "courses": [
+     "COUN 524 Child and Adolescent Counseling (3)",
+     "COUN 562 Intimate Partner and Couples Counseling (3)",
+     "COUN 538 Crisis Intervention and Trauma Treatment (3)"
+    ]
+   },
+   {
+    "label": "Year 3 - Spring",
+    "courses": [
+     "COUN 530A Practicum (3)",
+     "COUN 535 Addictions Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 3 - Summer",
+    "courses": [
+     "COUN 525 Psychopharmacology for Counselors (3)",
+     "COUN 590 Advanced Counseling Techniques (1)"
+    ]
+   },
+   {
+    "label": "Year 3 - Fall",
+    "courses": [
+     "COUN 584A Advanced Practicum (3)",
+     "COUN 521 Research in Counseling (3)"
+    ]
+   },
+   {
+    "label": "Last Term - Spring",
+    "courses": [
+     "COUN 560 Appraisal in Counseling (3)",
+     "COUN 597 Project (3)"
+    ]
+   }
+  ],
+  "src": "https://extension.fullerton.edu/masters/counseling/schedule.aspx"
+ },
+ "practicum": {
+  "starts": "Year 3 Spring, at roughly the midpoint of the program (COUN 530A), continuing through COUN 584A in Year 3 Fall",
+  "hours": "280 hours minimum for the yearlong practicum experience, accrued across COUN 530A, COUN 584A and COUN 590",
+  "who_places": "program-placed",
+  "clinic": null,
+  "detail": "CSUF does not run an in-house training clinic for this program. Instead, \"The Department of Counseling has selected community agencies ('practicum sites') that will fit with working students' schedules\" - the placement network is curated by the department specifically around the fact that these students hold jobs. Practicum is \"a one to one and a half-year commitment, and is equivalent to a part-time job, requiring 15-20 hours per week at the agency. There is no salary or stipend.\" Students provide counseling to children, adults, couples and families, and continue taking two classes concurrently, one of which is a seminar \"in which students discuss their counseling experiences and show videotapes of their counseling sessions.\" The practicum seminar runs 8-10 students. Entry into practicum is gated by a formal faculty evaluation in the prior semester requiring a 3.0 graduate GPA, a B or better in COUN 526, and a favorable assessment of readiness to see clients; the alternatives are postponement with remediation or disqualification.",
+  "src": "https://extension.fullerton.edu/masters/counseling/faq.aspx",
+  "model": "assisted",
+  "model_evidence": "Students are responsible for selecting their own placement site; however, the Clinical Training Director must approve their selection by reviewing the application and signing the 4-Way Agreement. ... Appendix A provides a directory of Clinical Training Sites that meet these requirements and where previous CSUF Trainees have gained practicum experience hours.",
+  "model_url": "https://hhd.fullerton.edu/Counsel/_resources/pdfs/current-student/Complete_Handbook_updated%2008.12.25%20-%20FINAL.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Approximately 24 students, admitted once every three years to the evening cohort (the traditional daytime program admits roughly 60 per year). Per the FAQ, \"Most classes range from 25-35 students. Classes which require counseling training skills have about 13 students, and the Practicum seminar will have 8-10 students.\"",
+  "gre": "not required",
+  "prereqs": "Bachelor's degree with minimum 3.0 GPA; three letters of recommendation with at least one academic reference (exceptions possible); an approximately 1,000-word double-spaced personal statement with headings covering personal biography, motivation for social justice advocacy, suitability for the profession, and long-term goals; a 1-2 page resume detailing paid or volunteer mental-health experience; and an interview with department faculty. The main CSUF catalog additionally specifies four undergraduate behavioral-science prerequisites with a minimum 3.0 GPA across them - counseling theories, abnormal psychology/psychopathology, human development, and research methods or statistics - of which at least two must be complete before entry.",
+  "deadline": "Applications for Spring admission open in August, roughly six months before the cohort starts. However, the Extension part-time program is closed through Spring 2028; the next intake has not been dated. Applicants seeking a nearer start are directed to the traditional Fall admission cycle through the CSUF Department of Counseling.",
+  "src": "https://extension.fullerton.edu/masters/counseling/requirements.aspx",
+  "gre_evidence": "The GRE is not required for admissions.",
+  "gre_url": "https://extension.fullerton.edu/masters/counseling/requirements.aspx",
+  "min_gpa": "3.0 (Bachelor's degree (or equivalent) with a minimum 3.0 GPA)",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "A poster with program experience wrote that the \"CSUF MFT program mostly emphasizes on Carl Roger's Humanistic approach, as well as empathy\" and \"highly emphasizes more on diversity training,\" contrasting it with CSULB, whose \"program is more CBT-oriented.\"",
+   "who": "Student Doctor Network, \"Best CSU MFT program?\" thread, 2017",
+   "sentiment": "positive",
+   "url": "https://forums.studentdoctor.net/threads/best-csu-mft-program.649186/"
+  },
+  {
+   "text": "\"When I arrived here, it wasn't where I thought I would be, but I quickly realized - this is home. This award is wonderful but I think the best thing is always the students.\"",
+   "who": "Matt Englar-Carlson, CSUF Professor of Counseling, on receiving the CSUF Outstanding Professor Award (quoted on the program's own page)",
+   "sentiment": "info",
+   "url": "https://extension.fullerton.edu/masters/counseling/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Cal_State_Fullerton_Student_Recreation_Center_%28Fullerton%2C_California%29.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Cal_State_Fullerton_Student_Recreation_Center_(Fullerton,_California).jpg",
+  "license": "CC BY-SA 4.0",
+  "credit": "Photo by Spatms, via Wikimedia Commons",
+  "caption": "The Student Recreation Center on the Cal State Fullerton campus in Fullerton, Orange County"
+ },
+ "gaps": [
+  "The $675 per unit rate is labeled \"Spring 2025 cohort\" and CSUF states \"tuition rates are subject to change.\" Since the next cohort will not start before Spring 2028, the rate a future applicant pays is unknown; the $42,525 total is 63 units at the last published rate, not a quoted program price. CSUF does not publish a program-total figure anywhere.",
+  "The comparison to state-supported tuition is arithmetic on two published numbers - CSU 2025-26 graduate tuition of $2,340 per semester at 0-6.0 units versus 6 Extension units at $675 - not a figure either CSUF or the CSU publishes as a comparison. Campus fees, which apply on the state-supported side, are excluded.",
+  "No date is published for the next cohort. CSUF says the program starts \"every three years\" and is closed through Spring 2028, with an asterisked \"subject to change.\"",
+  "The Extension schedule page lists COUN 523 Counseling and Culture and COUN 538 Crisis Intervention and Trauma Treatment, which appear in the CSUF 2025-26 catalog's 63-unit program but are absent from the most recent catalog's COUN course listing. Course descriptions for those two were taken from earlier catalog editions and may not reflect current wording.",
+  "Applicant volume and acceptance rate for the evening cohort are not published - only the approximate cohort size of 24.",
+  "There is no in-house training clinic and CSUF does not publish the list of affiliated practicum agencies, so it is not possible to see in advance which populations or settings are actually available.",
+  "No recent first-person student accounts of the evening cohort were found on Reddit, GradCafe or Niche. The only substantive third-party comment located about the CSUF counseling program is a 2017 Student Doctor Network post about the traditional program's orientation.",
+  "The program is CACREP-accredited in clinical mental health counseling; it is not COAMFTE-accredited, so there is no required public student-achievement data table (graduation, licensure and job-placement rates) of the kind CSUN publishes."
+ ],
+ "sources": [
+  {
+   "label": "CSUF University Extension - M.S. in Clinical Mental Health Counseling & Marriage and Family Therapy (program overview)",
+   "url": "https://extension.fullerton.edu/masters/counseling/"
+  },
+  {
+   "label": "CSUF University Extension - Fees and financial aid",
+   "url": "https://extension.fullerton.edu/masters/counseling/fees.aspx"
+  },
+  {
+   "label": "CSUF University Extension - Program schedule (term-by-term course grid)",
+   "url": "https://extension.fullerton.edu/masters/counseling/schedule.aspx"
+  },
+  {
+   "label": "CSUF University Extension - Admission requirements",
+   "url": "https://extension.fullerton.edu/masters/counseling/requirements.aspx"
+  },
+  {
+   "label": "CSUF University Extension - FAQ (class times, self-support vs. state-supported, practicum, class sizes)",
+   "url": "https://extension.fullerton.edu/masters/counseling/faq.aspx"
+  },
+  {
+   "label": "CSUF catalog 2025-26 - Clinical Mental Health Counseling and Marriage and Family Therapy, M.S. (63 units)",
+   "url": "https://catalog.fullerton.edu/preview_program.php?catoid=95&poid=45015&print="
+  },
+  {
+   "label": "CSUF Department of Counseling - Degree Program (orientation, cohort sizes)",
+   "url": "https://hhd.fullerton.edu/counsel/degree/index.html"
+  },
+  {
+   "label": "CSU systemwide tuition schedule 2025-2026 (graduate rates at 0-6.0 and 6.1+ units)",
+   "url": "https://catalog.csun.edu/policies/schedule-of-tuition-and-fees/"
+  },
+  {
+   "label": "Student Doctor Network - \"Best CSU MFT program?\"",
+   "url": "https://forums.studentdoctor.net/threads/best-csu-mft-program.649186/"
+  }
+ ]
+}

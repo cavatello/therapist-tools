@@ -1,0 +1,254 @@
+{
+ "institution": "California State University, San Bernardino",
+ "character": [
+  "Start with the name, because it will confuse you on a program list: this is an M.S. in Clinical/Counseling Psychology awarded by the Psychology department, not a counselor-education or MFT degree, and it is a standard route to the California LMFT. Being housed in psychology rather than education changes the shape of the curriculum. The two skills courses are 6 units each — PSYC 6671 and 6672, Marriage and Family Therapy Skills I and II, each \"three hours seminar and three hours recitation\" — so a quarter of the entire degree is those two courses. You take a full graduate clinical assessment course (PSYC 6682, \"methods of intellectual, diagnostic, and personality assessment with children and adults\"), an advanced research-methods course, and, if you choose the thesis, a 4-unit graduate statistics course. What you do not get is breadth: there are no electives, no emphases, no concentrations, and only two systemically-framed courses (PSYC 6667 Family Processes and the MFT Skills sequence).",
+  "The thing that actually distinguishes it is the clinic. The Community Counseling Center, established in 1973 and still running on the San Bernardino campus, is where first-year students see their first clients — PSYC 6871 and 6872 are corequisites of the MFT Skills courses, so classroom skills training and live caseload run in the same semester under the same faculty. Supervision is by licensed clinicians from the department itself (currently two licensed psychologists and one LMFT), the clinic director personally does every intake and matches each new client to a therapist and supervisor, and it is a genuine community clinic on a sliding scale — \"we often see alumni and friends of family of alumni, but clients do not need any affiliation with CSUSB.\" It runs fall and spring only, closed over winter break and all summer, with evening hours Monday through Thursday. Second year moves outward: PSYC 6971/6972, Advanced Practicum in Counseling Psychology, is \"supervised counseling field work in private or public mental health agencies.\"",
+  "It is small and it is full-time. The department admits \"only 10 to 15 students each year,\" students typically carry 12 to 18 units a semester to finish in two, and there is no part-time, evening or online track. Admission is unusually academic for an MFT-track program: a psychology bachelor's (or a course of study the admissions committee judges equivalent), 3.0 GPA both overall and in the major, five named prerequisites including psychological statistics and research methods, and three letters of which at least two must come from former professors familiar with your scholarly work. If you want a therapy degree and dislike research, look elsewhere; if you want the MFT license as a stepping stone to a PhD, CSUSB says plainly that it \"has a track record of preparing students who later enter doctoral programs in clinical or counseling psychology,\" and offers a thesis option and second-year teaching assistantships to support that."
+ ],
+ "orientation": "Scientist-practitioner clinical psychology with a required marriage-and-family therapy skills core; community and public mental health framing rather than a single named theoretical school",
+ "signature": [
+  {
+   "code": "PSYC 6671",
+   "title": "Marriage and Family Therapy Skills I",
+   "units": "6",
+   "desc": "\"Foundational skills in counseling, the therapeutic alliance, crisis management and treatment planning. Three hours seminar and three hours recitation.\" Corequisite: concurrent enrollment in PSYC 6871 (MFT Practicum I).",
+   "verbatim": true,
+   "why": "A 6-unit skills course is rare — most CA programs teach a 3-unit techniques course. The double format (seminar plus recitation) plus the hard corequisite to the clinic practicum means your first semester of classroom skills training and your first semester of real clients are deliberately locked together.",
+   "src": "https://catalog.csusb.edu/coursesaz/psyc/psyc.pdf"
+  },
+  {
+   "code": "PSYC 6672",
+   "title": "Marriage and Family Therapy Skills II",
+   "units": "6",
+   "desc": "\"Advanced counseling skills used to identify and modify familial, relational, emotional, cognitive and behavioral aspects of individual, couple, family and sexual functioning. Three hours seminar and three hours recitation.\"",
+   "verbatim": true,
+   "why": "The second half, also 6 units and also corequisite with a clinic practicum (PSYC 6872). It requires a grade of no less than B- in 6671 to enter. Between them, 6671 and 6672 are 12 of the 60–68 units — this program spends more of its total mass on supervised skills training than most.",
+   "src": "https://catalog.csusb.edu/coursesaz/psyc/psyc.pdf"
+  },
+  {
+   "code": "PSYC 6619",
+   "title": "Community Disaster, Trauma and Resilience",
+   "units": "3",
+   "desc": "\"Community disaster and trauma response, crisis intervention, as well as training in resilience models for trauma recovery.\"",
+   "verbatim": true,
+   "why": "A required full semester on community-scale disaster response, not just individual trauma — very few California MFT-track curricula require this. Paired with PSYC 6618 (Community and Public Mental Health) it marks a program aimed at the public behavioral-health system of the Inland Empire rather than at private practice.",
+   "src": "https://catalog.csusb.edu/coursesaz/psyc/psyc.pdf"
+  },
+  {
+   "code": "PSYC 6618",
+   "title": "Community and Public Mental Health",
+   "units": "3",
+   "desc": "\"Provision of marriage and family therapy in community and public mental health settings, including recovery-oriented principles, client advocacy, case management, and systems of care as well as strategies for therapeutic intervention consistent with strengths-based, evidence-based practice.\"",
+   "verbatim": true,
+   "why": "Note the framing — \"provision of marriage and family therapy in community and public mental health settings.\" The course is explicitly about practising as an MFT inside county systems of care, with case management and advocacy treated as clinical skills rather than administrative overhead.",
+   "src": "https://catalog.csusb.edu/coursesaz/psyc/psyc.pdf"
+  },
+  {
+   "code": "PSYC 6682",
+   "title": "Clinical Assessment",
+   "units": "3",
+   "desc": "\"Methods of intellectual, diagnostic, and personality assessment with children and adults.\"",
+   "verbatim": true,
+   "why": "A real graduate psychological-testing course including intellectual assessment — the psychology-department fingerprint. Most CA MFT programs teach a lighter 'assessment for MFT practice' survey; this one is the standard clinical-psych assessment sequence, and it is one reason the program feeds doctoral applications.",
+   "src": "https://catalog.csusb.edu/coursesaz/psyc/psyc.pdf"
+  },
+  {
+   "code": "PSYC 6980",
+   "title": "Comprehensive Examination",
+   "units": "0",
+   "desc": "The comprehensive-exam culminating option is \"passage of written examination covering the areas of competence assessed on the California MFT license examinations,\" prepared for by 3 units of PSYC 6123 Directed Readings. Offered in the spring semester only; a failing student may retake it once, or switch to the thesis.",
+   "verbatim": true,
+   "why": "The exam is explicitly reverse-engineered from the BBS licensing exams rather than being a generic integrative paper. Choosing it over the thesis is also the single decision that sets your unit total: comps = 60 units, thesis = 68.",
+   "src": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/"
+  }
+ ],
+ "curriculum": {
+  "note": "Full-time, day-time, two-year lockstep cohort — no part-time, evening or online option. Students \"typically take 12 to 18 units per semester\" and may register for up to 15 without an overload petition. Core coursework is 57 units and is identical for everyone; the culminating experience is what moves the total, which is why the catalog states a range rather than a number (see corrections). The grid below is the department's own published two-year schedule, marked C for the comprehensive-exam track and T for the thesis track. PSYC 6630 (Teaching of Psychology, 2 units) is an optional extra, required only for students who want a Teaching Associate position in year two. Sequence from the MSCC Graduate Student Handbook; course list and unit values from the 2026–27 catalog.",
+  "total_units": "60 (comprehensive examination option) or 68 (thesis option)",
+  "terms": [
+   {
+    "label": "Year 1 — Fall",
+    "courses": [
+     "PSYC 6633 Professional Ethics & Law in Counseling (3)",
+     "PSYC 6665 Psychopathology (3)",
+     "PSYC 6671 Marriage and Family Therapy Skills I (6)",
+     "PSYC 6679 Theories of Counseling and Psychotherapy (3)",
+     "PSYC 6871 Marriage and Family Therapy Practicum I (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring",
+    "courses": [
+     "PSYC 6618 Community and Public Mental Health (3)",
+     "PSYC 6640 Advanced Methods in Psychological Research (3)",
+     "PSYC 6667 Family Processes (3)",
+     "PSYC 6672 Marriage and Family Therapy Skills II (6)",
+     "PSYC 6872 Marriage and Family Therapy Practicum II (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall",
+    "courses": [
+     "PSYC 6636 Multicultural Counseling (3)",
+     "PSYC 6638 Substance Abuse: Detection, Assessment and Treatment (3)",
+     "PSYC 6682 Clinical Assessment (3)",
+     "PSYC 6971 Advanced Practicum in Counseling Psychology I (2)",
+     "Comps track: PSYC 6123 Directed Readings (3)",
+     "Thesis track: PSYC 6641 Analysis of Variance (4) and PSYC 6953 Advanced Independent Study (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring",
+    "courses": [
+     "PSYC 6619 Community Disaster, Trauma and Resilience (3)",
+     "PSYC 6654 Advanced Life-Span Developmental Psychology (3)",
+     "PSYC 6674 Child Therapy (3)",
+     "PSYC 6972 Advanced Practicum in Counseling Psychology II (1)",
+     "Comps track: PSYC 6980 Comprehensive Examination (0)",
+     "Thesis track: PSYC 6642 Regression and Nonparametric Statistics (4) and PSYC 6974 Thesis (4)"
+    ]
+   }
+  ],
+  "src": "https://www.csusb.edu/sites/default/files/MSCC%20GS%20Handbook%202022.pdf"
+ },
+ "practicum": {
+  "starts": "First year, fall term — PSYC 6871 is a corequisite of PSYC 6671, so you begin seeing clients in your first semester",
+  "hours": "Not published. Neither the 2026–27 catalog, the department pages nor the MSCC Graduate Student Handbook state a minimum number of client-contact hours, a total-hours figure, or a relational (couple/family) sub-minimum for either the clinic practicum or the second-year advanced practicum. What is published is the unit weighting — 3 + 3 units of clinic practicum in year one, then 2 + 1 units of agency practicum in year two — and the handbook's instruction to start logging BBS Weekly Summary of Experience hours from the second semester onward.",
+  "who_places": "mixed",
+  "clinic": "Community Counseling Center, on the CSUSB campus — established 1973",
+  "detail": "The two years are structurally different, and that is the thing to understand about this program. Year one is entirely in-house: PSYC 6871 and 6872 are taken as corequisites of the 6-unit MFT Skills courses and are served at the department's own Community Counseling Center, so nobody has to go find a placement and everybody starts on the same footing in semester one. The Center is a real low-cost community clinic on a sliding-scale fee, open to San Bernardino-area residents with no CSUSB affiliation, and explicitly not to current CSUSB students (they go to campus CAPS instead). Clients typically meet their counselor weekly for 50 minutes and \"the length of counseling is not limited; if advisable, clients may begin in August and continue until mid-May when the Center closes for the summer\" — so trainees can carry a case for most of an academic year, but the clinic shuts for winter break and all summer, which caps how fast hours accumulate. Supervision is by licensed departmental faculty (currently two licensed psychologists and one LMFT), and clinic director Dr. Stacy Forcino conducts every intake herself and \"will match new clients with a therapist and supervisor who can best meet their needs.\" The clinic screens out the hardest cases by design: no ongoing violence or abuse, no active suicidality, eating disorders, serious mental illness or current substance problems, and no minors where parental involvement would be inappropriate. Year two is the opposite model — PSYC 6971/6972 is \"supervised counseling field work in private or public mental health agencies,\" i.e. an outside placement, run through a Field Liaison, Field Instructor and Director of Field Education, and some second-year internships pay a stipend. A grade of \"No Credit\" in advanced practicum requires repeating that semester of field placement and puts you on probation; a second one can end the program.",
+  "src": "https://www.csusb.edu/ccc/services",
+  "model": "not published",
+  "model_evidence": "The M.S. program operates an on-campus psychology clinic for clinical training purposes.",
+  "model_url": "https://www.csusb.edu/psychology/graduate-programs/graduate-admissions/clinical-counseling-psychology-admissions",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Community Counseling Center"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "\"Only 10 to 15 students are admitted each year.\" The department frames this as the reason students get \"close individual mentoring.\" No applicant count or admit rate is published.",
+  "gre": "not published",
+  "prereqs": "A baccalaureate in psychology, or a non-psychology degree with a course of study the department's graduate admissions committee judges to be satisfactory preparation. Minimum 3.0 cumulative undergraduate GPA and 3.0 in the major. Five named prerequisite courses or equivalents: PSYC 1100 Introduction to Psychology, PSYC 2210 Psychological Statistics, PSYC 3311 Research Methods in Psychology, PSYC 3385 Personality Psychology or PSYC 3386 Introduction to Psychotherapy, and PSYC 3390 Abnormal Psychology. Also required: a one-to-two-page statement covering preparation, goals and professional aspirations, and three letters of recommendation, \"at least two of these letters should be from former professors who are familiar with the student's scholarly activities.\"",
+  "deadline": "Not published on the department's admissions page; applications go through Cal State Apply for fall entry. The department runs a pre-recorded information session and, in some cycles, live Zoom sessions in November.",
+  "src": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/",
+  "gre_evidence": "A minimum cumulative undergraduate grade point average of 3.0",
+  "gre_url": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/",
+  "min_gpa": "3.0 cumulative undergraduate GPA",
+  "conflict": null
+ },
+ "cost": {
+  "per_unit": null,
+  "tuition_total": "2025–26 California-resident postbaccalaureate/graduate rate: $4,032 tuition + $1,094.54 mandatory campus charges = $5,126.54 for fall 2025, and $4,032 + $1,027.55 = $5,059.55 for spring 2026 at 6.1+ units. That is $10,186.09 for the year, or about $20,372 for the full two-year program. Part-time (0–6 units) is $3,434.54 fall and $3,367.55 spring.",
+  "all_in": "Tuition and mandatory fees only. The mandatory campus charges are notably higher than at SFSU or CSUB — $1,094.54 in fall, of which $503.73 is the Student Union fee and $237.65 Health Services. Excludes books, professional liability insurance, commuting to a second-year agency placement, and living costs.",
+  "financial_aid": "Limited and mostly second-year: \"each year a few Teaching Assistants are available in the second year of training, and a few faculty have grants to hire research assistants. Some second-year internships offer a stipend.\" Students wanting a TA line must take PSYC 6630 (Teaching of Psychology, 2 units) in year one, which is not part of the degree.",
+  "src": "https://www.csusb.edu/student-financial-services/tuition-and-fees/academic-year-2025-2026"
+ },
+ "voices": [
+  {
+   "text": "The department's own framing of scale: \"Students receive close individual mentoring as only 10 to 15 students are admitted each year. The M.S. program operates an on-campus psychology clinic for clinical training purposes.\"",
+   "who": "CSUSB Department of Psychology, Clinical/Counseling Psychology Admissions page",
+   "sentiment": "info",
+   "url": "https://www.csusb.edu/psychology/graduate-programs/graduate-admissions/clinical-counseling-psychology-admissions"
+  },
+  {
+   "text": "On where graduates go next, from the program's own page: the program \"has a track record of preparing students who later enter doctoral programs in clinical or counseling psychology\" — a claim few CA MFT-track master's programs make, and consistent with the thesis option and the graduate statistics requirement.",
+   "who": "CSUSB Department of Psychology, Clinical/Counseling Psychology Admissions page",
+   "sentiment": "info",
+   "url": "https://www.csusb.edu/psychology/graduate-programs/graduate-admissions/clinical-counseling-psychology-admissions"
+  },
+  {
+   "text": "The clinic states its own limits candidly: \"Because we are a training clinic, we are not able to provide services to couples/families with ongoing violence or abuse, or to individuals who are suicidal, have an eating disorder and/or serious mental illness, or have current problems with drugs or alcohol.\" Worth reading as a statement about the caseload you will actually carry in year one.",
+   "who": "CSUSB Community Counseling Center, Services page",
+   "sentiment": "mixed",
+   "url": "https://www.csusb.edu/ccc/services"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/e/e9/College_of_Social_and_Behavioral_Sciences%2C_CSUSB.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:College_of_Social_and_Behavioral_Sciences,_CSUSB.JPG",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Amerique, via Wikimedia Commons",
+  "caption": "The College of Social and Behavioral Sciences building at CSUSB, which houses the Department of Psychology and the M.S. in Clinical/Counseling Psychology."
+ },
+ "gaps": [
+  "No published client-contact hour minimums. Nothing on the catalog page, the department pages, the clinic pages or the MSCC Graduate Student Handbook states how many face-to-face hours the clinic practicum or the advanced practicum requires, and no relational (couple/family) sub-minimum is given anywhere.",
+  "No application deadline is published on the department's admissions page or in the catalog.",
+  "No applicant volume or admit rate — only the 10-to-15 cohort size.",
+  "No published licensure-exam pass rate, employment outcomes or time-to-degree data. The program is not CACREP- or COAMFTE-accredited, so no annual accreditation report of the kind SFSU publishes exists.",
+  "The department's admissions page describes the degree as \"a 63-71 semester-unit program,\" contradicting both the 2026–27 catalog and its own student handbook, which say 60–68. See corrections.",
+  "The most recent MSCC Graduate Student Handbook posted publicly is the 2022 edition; its two-year grid is dated 2022–23 / 2023–24.",
+  "The clinic's sliding-scale fee range is not published, only the phrase \"low-cost\" and \"sliding scale fee schedule.\"",
+  "No independent student reviews located. Reddit blocked automated retrieval and Student Doctor Network and The GradCafe had no substantive CSUSB threads."
+ ],
+ "sources": [
+  {
+   "label": "CSUSB Catalog 2026–27 — Master of Science in Clinical/Counseling Psychology",
+   "url": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/"
+  },
+  {
+   "label": "CSUSB Catalog 2025–26 — Psychology (PSYC) course descriptions (PDF)",
+   "url": "https://catalog.csusb.edu/coursesaz/psyc/psyc.pdf"
+  },
+  {
+   "label": "M.S. Clinical Counseling Graduate Student Handbook (2022), CSUSB Department of Psychology",
+   "url": "https://www.csusb.edu/sites/default/files/MSCC%20GS%20Handbook%202022.pdf"
+  },
+  {
+   "label": "Clinical/Counseling Psychology Admissions, CSUSB Department of Psychology",
+   "url": "https://www.csusb.edu/psychology/graduate-programs/graduate-admissions/clinical-counseling-psychology-admissions"
+  },
+  {
+   "label": "CSUSB Community Counseling Center — About Us",
+   "url": "https://www.csusb.edu/ccc/about-us"
+  },
+  {
+   "label": "CSUSB Community Counseling Center — Services",
+   "url": "https://www.csusb.edu/ccc/services"
+  },
+  {
+   "label": "CSUSB Student Financial Services — Academic Year 2025–2026 tuition and fees",
+   "url": "https://www.csusb.edu/student-financial-services/tuition-and-fees/academic-year-2025-2026"
+  }
+ ],
+ "corrections": [
+  {
+   "field": "units",
+   "current": "60–68 semester units (varies by culminating option)",
+   "correct": "Correct, and now fully explained. The 57 units of required core coursework are identical for everyone; only the culminating experience varies. Comprehensive examination option = 3 units (PSYC 6123 Directed Readings, 3 units, plus the 0-unit PSYC 6980 exam itself) for a 60-unit total. Thesis option = 11 units (a 4-unit graduate statistics course, PSYC 6641 Analysis of Variance or PSYC 6642 Regression and Nonparametric Statistics; PSYC 6953 Advanced Independent Study, 3 units; and PSYC 6974 Thesis, 4 units) for a 68-unit total. The department's handbook states it the same way: \"The M.S. degree requires completion of 68 units (Thesis Option) or 60 units (Comprehensive Exam Option).\" Nothing else — not electives, not practicum length, not a part-time track — moves the number.",
+   "src": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/"
+  },
+  {
+   "field": "units (conflicting source)",
+   "current": "60–68 semester units (varies by culminating option)",
+   "correct": "Flag, do not change: the department's own Clinical/Counseling Psychology Admissions page still calls it \"a 63-71 semester-unit program.\" This contradicts the 2026–27 catalog and the department's own graduate handbook, both of which say 60/68. Treat the catalog figure as authoritative and treat the admissions page as stale.",
+   "src": "https://www.csusb.edu/psychology/graduate-programs/graduate-admissions/clinical-counseling-psychology-admissions"
+  },
+  {
+   "field": "lpcc",
+   "current": null,
+   "correct": "No. Unlike SFSU and CSUB, CSUSB makes no LPCC claim anywhere. The catalog says the program \"offers required course work designed to meet the educational requirements for licensure as a Marriage and Family Therapist (MFT) as outlined by the California Board of Behavioral Sciences\" and stops there; the department's admissions page and program-finder page likewise reference only the MFT. There is no CMHC emphasis, no LPCC track and no reference to B&P Code section 4999.33 in the curriculum. Record as \"No — MFT only; no LPCC pathway published.\"",
+   "src": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/"
+  },
+  {
+   "field": "length",
+   "current": null,
+   "correct": "Two years. \"The program is a full-time, day-time program designed to be completed in two years,\" with a seven-year maximum from admission.",
+   "src": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/"
+  },
+  {
+   "field": "format",
+   "current": null,
+   "correct": "Full-time, day-time, on-campus lockstep cohort. No part-time, evening, hybrid or online option; students typically carry 12–18 units per semester.",
+   "src": "https://www.csusb.edu/sites/default/files/MSCC%20GS%20Handbook%202022.pdf"
+  },
+  {
+   "field": "notable",
+   "current": null,
+   "correct": "Runs its own on-campus training clinic, the Community Counseling Center (established 1973), where first-year students carry a live caseload as a corequisite of the 6-unit MFT Skills courses.",
+   "src": "https://www.csusb.edu/ccc/about-us"
+  }
+ ]
+}

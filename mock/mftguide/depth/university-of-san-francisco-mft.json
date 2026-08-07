@@ -1,0 +1,249 @@
+{
+ "institution": "University of San Francisco",
+ "character": [
+  "MFT at USF is not a standalone degree — it is one of four concentrations inside a single M.A. in Counseling Psychology run by the School of Education. The catalog lists the department's graduate majors as the MFT concentration, a Professional Clinical Counseling concentration, a School Counseling concentration with the Pupil Personnel Services credential, and a combined PCC + School Counseling concentration. You apply to the MFT concentration specifically and take a fully prescribed 60-unit list of twenty three-unit CPSY courses; there are no elective slots in it. The program runs as a cohort in either an eight-semester three-year format or a seven-semester two-year format (two-year is San Francisco only, and is aimed at applicants who already have a psychology or mental-health background). Classes are late-afternoon and evening — 3:45–6:15 p.m. and 7:20–9:50 p.m. — plus an intensive six-week summer term that runs Monday to Friday evenings with all-day Saturdays. It is also the most geographically spread MFT program in the Bay Area, taught at San Francisco, Sacramento, Santa Rosa, South Bay and East Bay sites, though as of this writing the program page carries an alert that it is \"not currently accepting applications at our San Francisco location for the Fall 2026 cohort.\"",
+  "The social-justice framing is real and it is load-bearing, but it shows up as language threaded through ordinary courses rather than as a separate required sequence. The application's Statement of Intent explicitly asks you to articulate your \"connection to our social justice mission.\" The catalog's program learning outcomes are written around exploring \"power, privilege, and marginalization, as it relates to therapy practice, through multiple perspectives, worldviews, and epistemologies.\" Inside the required twenty, the theories course is evaluated \"based on its culture-bound factors and applicability to diverse populations\"; the trauma course names \"trauma associated with racism, poverty, violence, immigration, refugee status, homelessness\"; the sexuality and gender course says it will \"critically analyze the role of power and privilege.\" But there is exactly one dedicated multicultural course (CPSY 677 Counseling Across Cultures) in the required list. A prospective student should read this as a curriculum written in a social-justice register, not as a curriculum with a social-justice specialization.",
+  "The genuinely unusual thing in USF's course inventory is a cluster of Latinx and immigrant mental-health courses that exist in almost no other California master's catalog: CPSY 671 Spanish for Mental Health, CPSY 672 (Spanish microcounseling skills and Latinx evidence-based practice), CPSY 673 Latinx Psychology, CPSY 674 Immigration and Asylum, and CPSY 675, a one-unit eight-day immersion taught on the ground in Latin America. Be clear-eyed about the catch: these are restricted to \"Certificate and Graduate\" level in Counseling Psychology and sit outside the MFT concentration's fully prescribed 60 units, so an MFT student would be adding units beyond the degree to take them. On the Catholic/Jesuit question, the answer is plain: the required twenty courses contain no theology, spirituality or religion course at all. The Jesuit identity here surfaces as the social-justice language and the community-mental-health orientation, not as content."
+ ],
+ "orientation": "Multicultural / social-justice-framed generalist, with a community-mental-health recovery-and-wellness model as the practice frame and a broad survey of systemic and relational models rather than allegiance to one school",
+ "signature": [
+  {
+   "code": "CPSY 646",
+   "title": "Community Mental Health",
+   "units": "3",
+   "desc": "\"This course helps students understand the model of community mental health recover and the skills needed for mental health practice. Students will participate in hands-on experiences through a community mental health immersion experience, in addition to learning about strength and evidence based therapeutic interventions aimed at mental health consumers of community mental health care.\"",
+   "verbatim": true,
+   "why": "The recovery model is the program's practice frame, and this is the course that carries it — including a required community immersion in which students interact directly with mental-health consumers before they ever have a caseload. Most CA programs teach community mental health as a policy lecture; this one sends you into it.",
+   "src": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=584903"
+  },
+  {
+   "code": "CPSY 671",
+   "title": "Spanish for Mental Health",
+   "units": "3",
+   "desc": "\"Taught by a bilingual mental health clinician with knowledge of the mental health lexicon required to provide adequate clinical services to Spanish-dominant clients, this course utilizes readings, exercises, and interactive activities to improve the conversational, writing, listening, and reading Spanish language skills of students in professional contexts.\" Students review clinical records written in Spanish.",
+   "verbatim": true,
+   "why": "A clinical-Spanish course taught by a clinician, not a language department, in which you read real Spanish-language clinical records. Only a handful of California programs offer this at all. Note that it is not part of the MFT concentration's required 60 units.",
+   "src": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=587961"
+  },
+  {
+   "code": "CPSY 674",
+   "title": "Immigration and Asylum",
+   "units": "3",
+   "desc": "The course covers \"the legal and psychological factors that impact immigrant clients,\" emphasises immigrant resilience, and addresses stressors \"including forced separation, humiliating removal proceedings, deportation, and lengthy bars from admission into the U.S.\" By the end students \"will be familiar with the legal marriage petition and asylum processes.\"",
+   "verbatim": true,
+   "why": "A full course teaching therapists the mechanics of asylum and marriage-petition law is genuinely rare — this is the kind of content usually left to a two-hour CE workshop. It signals that USF expects graduates to work with mixed-status families as a matter of course.",
+   "src": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=587964"
+  },
+  {
+   "code": "CPSY 675",
+   "title": "International Immersion in Latin America",
+   "units": "1",
+   "desc": "\"The culture and language immersion course taught in Latin America, is an intensive eight-day program that focuses on helping students explore their own sociocultural identities within the context of Latinx culture.\" Students receive Spanish-language tutoring, learn from local mental health professionals, and study indigenous healing practices.",
+   "verbatim": true,
+   "why": "An eight-day clinical immersion abroad, for one unit, inside a counseling master's is unusual anywhere in California. It is elective and outside the MFT required list, but it tells you where the department's energy is.",
+   "src": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=587965"
+  },
+  {
+   "code": "CPSY 640",
+   "title": "Relationship Therapy",
+   "units": "3",
+   "desc": "Reviews \"the formation and dynamics of interpersonal relationships in the individual, family, couples, and other relationships,\" and works through \"Bowen, strategic, structural, experiential, cognitive-behavioral, psychoanalytic, solution-focused, narrative, emotion-focused, Gottman method, and integrative approaches\" — each \"examined for their intervention effectiveness with diverse communities and relationships.\"",
+   "verbatim": true,
+   "why": "This is where USF's answer to 'what is your model?' lives: a single survey course naming eleven schools of couple and family work, framed around 'relational constellations' rather than the married dyad. It is breadth by design, not depth in one tradition.",
+   "src": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=584898"
+  },
+  {
+   "code": "CPSY 649",
+   "title": "Sexuality & Gender Issues",
+   "units": "3",
+   "desc": "Examines \"the social psychological theories and research on how gender and sexuality shapes self-conceptions and social interactions,\" builds assessment and intervention skill, and raises \"awareness of one's personal perceptions, attitudes in regard to sexuality and gender.\" Throughout, the course \"critically analyze[s] the role of power and privilege in human sexuality and gender.\"",
+   "verbatim": true,
+   "why": "California requires human-sexuality content for licensure and most programs discharge it in a one- or two-unit workshop. USF gives it a full three-unit required course built around clinical skill and self-examination, which is a meaningful difference in how seriously the topic is treated.",
+   "src": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=584905"
+  }
+ ],
+ "curriculum": {
+  "note": "Cohort model with fall entry, fully lockstep — the 60 units are twenty prescribed three-unit CPSY courses with no elective slots. The sequence below is the three-year (eight-semester) plan as published in the MFT Program Handbook (Fall 2020); the same twenty courses are still the stated major requirements in the USF catalog. A two-year, seven-semester version compresses the same courses using winter intersessions and is offered at the San Francisco campus only.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (9 units)",
+    "courses": [
+     "CPSY 631 Theories of Counseling and Psychotherapy (3)",
+     "CPSY 634 Ethical, Legal, and Professional Issues (3)",
+     "CPSY 677 Counseling Across Cultures (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (9 units)",
+    "courses": [
+     "CPSY 632 Child and Adolescent Development (3)",
+     "CPSY 639 Individual and Family Psychopathology (3)",
+     "CPSY 642 Counseling Methods (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (9 units)",
+    "courses": [
+     "CPSY 630 Individual and Systems Assessment (3)",
+     "CPSY 640 Relationship Therapy (3)",
+     "CPSY 650 Trauma and Crisis Counseling (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (9 units)",
+    "courses": [
+     "CPSY 647 Group Work in Clinical Settings (3)",
+     "CPSY 687 Family Systems Therapy (3)",
+     "CPSY 690 Research Methods (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (9 units)",
+    "courses": [
+     "CPSY 646 Community Mental Health: Concepts of Recovery, Wellness, Systems of Care and Advocacy (3)",
+     "CPSY 649 Sexuality and Gender Issues in Therapy (3)",
+     "CPSY 651 Adult Development and Geropsychology (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (9 units)",
+    "courses": [
+     "CPSY 654 Career Counseling (3)",
+     "CPSY 665 Substance Abuse and Addictions Counseling (3)",
+     "CPSY 683 Clinical Psychopharmacology (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall (3 units)",
+    "courses": [
+     "CPSY 637 Traineeship I (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Spring (3 units)",
+    "courses": [
+     "CPSY 638 Traineeship II (3)"
+    ]
+   }
+  ],
+  "src": "https://myusf.usfca.edu/sites/default/files/users/cncann/MFT%20Program%20Handbook%20Fall%202020.pdf"
+ },
+ "practicum": {
+  "starts": "Final year only — fall of year three in the three-year format, fall of year two in the two-year format. You apply during the spring of the preceding year.",
+  "hours": null,
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "USF calls its placement a Traineeship and it is the last thing in the program, not something running alongside coursework. CPSY 637 Traineeship I is \"a Level 1 supervised experience in marriage and family therapy in an institutional setting under professional supervision,\" focused on case conceptualisation, assessment, treatment planning and client-centred advocacy; CPSY 638 continues it. A third, one-unit CPSY 691 Traineeship III exists in the catalog with CPSY 638 as a prerequisite. Per the program handbook, \"Each student will carry a client caseload, provide therapy, develop treatment plans, and receive weekly clinical supervision at their sites,\" and an on-campus traineeship class runs in parallel. Sites are \"Bay Area community-based and school-based partners\" who come to the program to present their services and training so students can apply — so the program curates the partner pool but students compete for and secure their own placement. You cannot start Traineeship carrying an incomplete or any grade below B-. Students wanting LPCC eligibility must complete additional face-to-face clinical hours before graduation beyond what the LMFT requires.",
+  "src": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/program-overview",
+  "model": "not published",
+  "model_evidence": "During their final year in the program, students enter a traineeship with Bay Area community-based and school-based partners.",
+  "model_url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/program-overview",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Center for Community Counseling and Wellness (CCCW)"
+  ]
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not required",
+  "prereqs": "No psychology bachelor's required, but applicants need \"a background of academic preparation and/or professional experience\" demonstrating readiness for graduate work. Recommended GPA 2.75. Two current letters of recommendation (employers/supervisors preferred; not therapists, family or friends), a current résumé, and a 3–5 page double-spaced Statement of Intent that must address your \"connection to our social justice mission.\" $55 application fee, waived if you attend an SOE information session. Qualified applicants are invited to a group interview on campus or by Zoom. Up to six graduate credits may transfer.",
+  "deadline": "February 1 for fall entry; applications reviewed after the deadline as space allows",
+  "src": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/faqs",
+  "gre_evidence": "No, we do not require any standardized tests for the MFT MA program.",
+  "gre_url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/faqs",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "A Niche reviewer in the School of Education, February 2024, 4/5: \"I feel that this program is heavily committed to social justice which is something that is extremely important to me,\" adding that professors are practising clinicians in community-based mental health.",
+   "who": "Niche, USF School of Education graduate reviews, Feb 2024",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/university-of-san-francisco-school-of-education/"
+  },
+  {
+   "text": "In Niche's small survey sample for the School of Education (5 responses), 60% described the student body as \"social justice driven\" and 60% reported spending $25,000–$50,000 total on the degree — well under USF's own published $81,000 estimate for the MFT.",
+   "who": "Niche polling data, USF School of Education",
+   "sentiment": "info",
+   "url": "https://www.niche.com/graduate-schools/university-of-san-francisco-school-of-education/"
+  },
+  {
+   "text": "A GradCafe poster weighing USF against Santa Clara and CSPP was told by a USF alum: \"I went to USF and really can not say enough good things about it!\" — but was separately warned that USF gave MFT students no institutional aid that year, and the alum confirmed: \"do not expect any help from them.\"",
+   "who": "The GradCafe, \"ACCEPTED. But now what? MSW vs MFT\", 2014",
+   "sentiment": "mixed",
+   "url": "https://forum.thegradcafe.com/topic/50830-accepted-but-now-what-msw-vs-mft/"
+  },
+  {
+   "text": "A 2026 r/gradadmissions thread titled \"Accepted to my top choice but terrified of debt\" concerns the USF two-year MFT at roughly $81,000, with replies working through the return-on-investment arithmetic. (Thread indexed and verified previously; Reddit blocked direct retrieval on this pass.)",
+   "who": "Reddit, r/gradadmissions, 2026",
+   "sentiment": "negative",
+   "url": "https://www.reddit.com/r/gradadmissions/comments/1s6q40g/accepted_to_my_top_choice_but_terrified_of_debt/"
+  },
+  {
+   "text": "A 2023 r/gradadmissions thread of admitted USF Counseling Psychology MFT applicants comparing the two-year and three-year tracks against each other and against CIIS. (Thread indexed and verified previously; Reddit blocked direct retrieval on this pass.)",
+   "who": "Reddit, r/gradadmissions, 2023",
+   "sentiment": "positive",
+   "url": "https://www.reddit.com/r/gradadmissions/comments/11kkmqt/university_of_san_francisco_counseling_psychology/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/d/d4/University_of_San_Francisco_gate_-_San_Francisco%2C_CA.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:University_of_San_Francisco_gate_-_San_Francisco,_CA.jpg",
+  "license": "CC0 1.0 (public domain dedication)",
+  "credit": "Photo by Daderot, via Wikimedia Commons (CC0)",
+  "caption": "A gate at the University of San Francisco's Hilltop campus, photographed January 2024. The School of Education, which houses the Counseling Psychology M.A., is on Fulton Street on this campus."
+ },
+ "gaps": [
+  "Cohort size is not published anywhere USF puts online, and the FAQ does not give it.",
+  "Required traineeship hours are not published. The FAQ says only that LPCC-track students need \"additional hours of face-to-face clinical work\" beyond the LMFT minimum; the specific numbers live in a separate traineeship manual given to enrolled students.",
+  "The live USF catalog (catalog.usfca.edu) sits behind an AWS WAF challenge that blocks automated retrieval of program pages. The 60-unit course list here was read from the archived 2023–24 catalog program page and every course description from the live 2025–26 catalog (catoid=41) course pages, which did resolve. The current 2026–27 program page could not be opened, so a small change to the required list since 2023–24 cannot be ruled out.",
+  "The term-by-term sequence is from the Fall 2020 MFT Program Handbook — the most recent sequence USF has published openly. Course numbers match the current catalog, but term placement may have shifted.",
+  "No in-house training clinic was found; USF appears to place all trainees at external partner agencies.",
+  "USF does not publish an admit rate, a yield, or graduate licensure exam pass rates for the MFT concentration."
+ ],
+ "sources": [
+  {
+   "label": "USF catalog 2023–24 — MFT concentration program requirements (via Internet Archive)",
+   "url": "https://web.archive.org/web/2024id_/https://catalog.usfca.edu/preview_program.php?catoid=38&poid=36077"
+  },
+  {
+   "label": "USF catalog 2025–26 — Counseling Psychology (CPSY) course descriptions",
+   "url": "https://catalog.usfca.edu/preview_course_nopop.php?catoid=41&coid=584903"
+  },
+  {
+   "label": "USF catalog — Counseling Psychology department, list of concentrations (via Internet Archive)",
+   "url": "https://web.archive.org/web/2024id_/https://catalog.usfca.edu/preview_entity.php?catoid=38&ent_oid=4458&returnto=8629"
+  },
+  {
+   "label": "MFT program overview — formats, schedule, traineeship",
+   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/program-overview"
+  },
+  {
+   "label": "MFT program FAQs — deadlines, tests, traineeship timing, transfers",
+   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/faqs"
+  },
+  {
+   "label": "MFT how to apply — application requirements and Statement of Intent",
+   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/how-to-apply"
+  },
+  {
+   "label": "MFT tuition & aid — $1,350/unit for 2026–27, $81,000 total estimate",
+   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/tuition-aid"
+  },
+  {
+   "label": "MFT Program Handbook, Fall 2020 (course sequence, cohort model, traineeship)",
+   "url": "https://myusf.usfca.edu/sites/default/files/users/cncann/MFT%20Program%20Handbook%20Fall%202020.pdf"
+  },
+  {
+   "label": "Niche — USF School of Education graduate reviews",
+   "url": "https://www.niche.com/graduate-schools/university-of-san-francisco-school-of-education/"
+  },
+  {
+   "label": "The GradCafe — \"ACCEPTED. But now what? MSW vs MFT\" (USF and Santa Clara)",
+   "url": "https://forum.thegradcafe.com/topic/50830-accepted-but-now-what-msw-vs-mft/"
+  }
+ ]
+}

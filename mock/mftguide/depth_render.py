@@ -96,47 +96,6 @@ def character(paras, orientation):
     return chip + "".join("<p>%s</p>" % esc(p) for p in paras)
 
 
-# ---------------------------------------------------------------- tracks
-
-def tracks(tr):
-    """Concentrations inside one degree.
-
-    Several California institutions run ONE M.A. with several BBS-approved
-    concentrations under it, and the school is then two decisions rather than
-    one: the institution, then the track. The unit counts, length and delivery
-    format differ per track, and at some schools one track does not reach the
-    LMFT at all - which is the single most expensive thing a prospective
-    student can fail to notice, because it is usually the most convenient one.
-
-    Rendered as rows rather than prose because the whole value is the
-    comparison, and prose hides a column that differs by one number.
-    """
-    if not tr or not tr.get("rows"):
-        return ""
-    note = ("<p>%s%s</p>" % (esc(tr.get("note") or ""),
-            " " + _src(tr.get("src"), "the department") if tr.get("src") else "")
-            ) if tr.get("note") else ""
-    rows = []
-    for r in tr["rows"]:
-        lm = esc(r.get("lmft") or "")
-        cell = ('<span class="trkno">not an LMFT route</span>'
-                if r.get("lmft_no") else '<b>%s</b>' % lm)
-        rows.append(
-            '<div class="trkr%s"><div class="trkn"><b>%s</b>%s</div>'
-            '<div class="trku"><span>LMFT</span>%s</div>'
-            '<div class="trku"><span>LPCC</span><b>%s</b></div>'
-            '<div class="trkf"><span>%s</span><span>%s</span></div></div>'
-            % (" no" if r.get("lmft_no") else "",
-               esc(r.get("name") or ""),
-               '<span>%s</span>' % esc(r["note"]) if r.get("note") else "",
-               cell, esc(r.get("lpcc") or "&mdash;"),
-               esc(r.get("length") or ""), esc(r.get("format") or "")))
-    head = ('<div class="trkr hd"><div class="trkn">Concentration</div>'
-            '<div class="trku">LMFT units</div><div class="trku">LPCC units</div>'
-            '<div class="trkf">Length and format</div></div>')
-    return note + '<div class="trk">%s%s</div>' % (head, "".join(rows))
-
-
 # ---------------------------------------------------------------- courses
 
 def courses(sig):
@@ -200,54 +159,120 @@ def curriculum(cur):
 
 # ---------------------------------------------------------------- practicum
 
+# The five placement models, in the order a reader should feel better about
+# them. The wording is deliberately about consequence rather than quality: a
+# school does not become a worse school for expecting you to find your own site,
+# it becomes a school where a particular thing can go wrong.
+#
+# This replaces an earlier three-value `who_places` field that was set by hand
+# and unevidenced. Every value here came from a quote on the school's own page,
+# and the quote is printed underneath.
 PLACE = {
-    "program-placed": ("ok", "The programme places you",
-                       "The school owns the problem of finding you a site. This "
-                       "is the single biggest structural difference between "
-                       "programmes and it is worth more than almost anything "
-                       "else on this page."),
-    "student-finds": ("warn", "You find your own site",
-                      "You are responsible for securing a placement. Most "
-                      "programmes are like this and most students manage it, "
-                      "but a student who cannot find a site cannot graduate - "
-                      "and that risk is highest if you are rural, online, or "
-                      "need Spanish-language or specialty hours."),
-    "mixed": ("mix", "Mixed - some help, your responsibility",
-              "The programme maintains a site list or relationships and may "
-              "place some students, but securing the placement is ultimately "
-              "yours. Ask for last year's numbers, not the policy."),
+    "guaranteed": ("ok", "A seat is guaranteed",
+                   "The school states that every student in good standing gets a "
+                   "clinical placement. Three of the seventy-eight say this. It "
+                   "removes the single most common reason a two-year degree turns "
+                   "into a three-year one."),
+    "placed": ("ok", "The programme places you",
+               "The school finds or assigns the site. You are not competing for "
+               "one, which is worth more than almost anything else on this page "
+               "- though it is not the same as a guarantee, and it is worth "
+               "asking what happens if a placement falls through mid-year."),
+    "assisted": ("mix", "You apply, with the school&rsquo;s help",
+                 "There is an approved-site list and real support, and the seat "
+                 "is still yours to win. Most programmes are here and most "
+                 "students manage it. Ask for last year&rsquo;s numbers rather "
+                 "than the policy: how many students placed on the first round, "
+                 "and how many had to extend."),
+    "student-sourced": ("warn", "You find your own site",
+                        "Securing a placement is your responsibility. A student "
+                        "who cannot find a site cannot graduate, and that risk is "
+                        "highest if you are rural, studying online, or need "
+                        "Spanish-language or specialty hours."),
+    "not published": ("warn", "The school does not say",
+                      "Nothing on this school&rsquo;s published pages states who "
+                      "secures your placement. That is not the same as a bad "
+                      "answer - but it is the first question to ask admissions, "
+                      "and the specificity of the reply tells you a great deal. "
+                      "Thirty of the seventy-eight are in this position."),
 }
 
 
 def practicum(pr):
+    """The practicum section, led by the one fact that can cost a year.
+
+    Order matters here. The verdict goes first, then the quote it rests on,
+    then the mechanics. A reader who stops after the first block should have
+    got the thing they came for.
+    """
     if not pr:
         return ""
+    out = ""
+    w = PLACE.get(pr.get("model"))
+    if w:
+        ev = ""
+        if pr.get("model_evidence"):
+            ev = ('<blockquote class="pq">%s%s</blockquote>'
+                  % (esc(pr["model_evidence"]),
+                     ' <a href="%s" target="_blank" rel="noopener noreferrer">'
+                     "the school&rsquo;s own page &rarr;</a>" % pr["model_url"]
+                     if pr.get("model_url") else ""))
+        out += ('<div class="verd %s"><h3>%s</h3><p>%s</p>%s</div>'
+                % (w[0], w[1], w[2], ev))
+    if pr.get("branches"):
+        out += '<p class="pnote"><b>Read this twice.</b> %s</p>' % esc(pr["branches"])
+    if pr.get("own_clinic"):
+        names = pr.get("clinic_names") or []
+        out += ('<p class="pnote"><b>The school runs its own training clinic%s.</b> %s '
+                "Owning a clinic and holding a seat in it are different things, "
+                "so this sits beside the model above rather than replacing it.</p>"
+                % ("s" if len(names) > 1 else "",
+                   ("&nbsp;" + esc(" &middot; ".join(names))) if names else ""))
     rows = []
-    for label, key in (("Starts", "starts"), ("Hours required", "hours"),
+    for label, key in (("Who secures the seat", None),
+                       ("Starts", "starts"), ("Hours required", "hours"),
+                       ("How long it runs", "how_long"),
                        ("In-house clinic", "clinic")):
+        if key is None:
+            continue
         v = pr.get(key)
         if v:
             rows.append('<div class="pr"><span>%s</span><b>%s</b></div>'
                         % (label, esc(v)))
-    grid = '<div class="prg">%s</div>' % "".join(rows) if rows else ""
-    who = ""
-    w = PLACE.get(pr.get("who_places"))
-    if w:
-        who = ('<div class="verd %s"><h3>%s</h3><p>%s</p></div>'
-               % (w[0], w[1], w[2]))
-    detail = "<p>%s%s</p>" % (esc(pr.get("detail") or ""),
-                              " " + _src(pr.get("src"))
-                              if pr.get("src") else "") if pr.get("detail") else ""
-    return who + grid + detail
+    if rows:
+        out += '<div class="prg">%s</div>' % "".join(rows)
+    if pr.get("detail"):
+        out += "<p>%s%s</p>" % (esc(pr["detail"]),
+                                " " + _src(pr.get("src")) if pr.get("src") else "")
+    return out
 
 
 # ---------------------------------------------------------------- admissions
+
+# What the school says about an admissions test, in its own terms. "Not
+# published" is its own answer and must not read as "not required": most
+# schools simply list the application items and never mention a test, and a
+# reader who turns up without a score because a directory inferred one has been
+# failed by the directory.
+GRE_LABEL = {
+    "required": "Required",
+    "not required": "Not required",
+    "waivable": "Required, but waivable",
+    "not published": '<span class="np">the school does not say</span>',
+}
+
 
 def admissions(ad):
     if not ad:
         return ""
     rows = []
-    for label, key in (("Cohort size", "cohort_size"), ("GRE", "gre"),
+    if ad.get("gre"):
+        rows.append('<div class="r"><span>%s</span><b>%s</b></div>'
+                    % ("Admissions test", GRE_LABEL.get(ad["gre"], esc(ad["gre"]))))
+    if ad.get("min_gpa"):
+        rows.append('<div class="r"><span>Minimum GPA</span><b>%s</b></div>'
+                    % esc(str(ad["min_gpa"])))
+    for label, key in (("Cohort size", "cohort_size"),
                        ("Prerequisites", "prereqs"), ("Deadline", "deadline")):
         v = ad.get(key)
         if v:
@@ -255,8 +280,18 @@ def admissions(ad):
                         % (label, esc(v)))
     if not rows:
         return ""
-    return ('<div class="tbl">%s</div>' % "".join(rows)) + (
-        "<p>%s</p>" % _src(ad.get("src"), "admissions page") if ad.get("src") else "")
+    out = '<div class="tbl">%s</div>' % "".join(rows)
+    if ad.get("gre_evidence"):
+        out += ('<blockquote class="pq">%s%s</blockquote>'
+                % (esc(ad["gre_evidence"]),
+                   ' <a href="%s" target="_blank" rel="noopener noreferrer">'
+                   "source &rarr;</a>" % ad["gre_url"] if ad.get("gre_url") else ""))
+    if ad.get("conflict"):
+        out += ('<div class="verd warn"><h3>The school contradicts itself here</h3>'
+                "<p>%s</p></div>" % esc(ad["conflict"]))
+    if ad.get("src"):
+        out += "<p>%s</p>" % _src(ad.get("src"), "admissions page")
+    return out
 
 
 # ---------------------------------------------------------------- voices

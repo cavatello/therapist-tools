@@ -1,0 +1,261 @@
+{
+ "institution": "Notre Dame de Namur University",
+ "character": [
+  "Start with the question everyone actually has, because the answer changed recently and most of what is written about NDNU online is out of date. NDNU is operating, it is accredited, and the MS in Clinical Psychology / MFT is enrolling in 2026. On 13 February 2026 the WASC Senior College and University Commission took a Reaffirmation action; the university announced it on 23 March 2026 as a six-year reaffirmation, and WSCUC's institution record now reads \"Accredited – Reflects the Commission's finding that the institution is in compliance with the Standards,\" with the next scheduled items an Interim Report in Fall 2027, a Special Visit in Fall 2028 and a full Accreditation Visit in Fall 2031. That is the end of a long stretch of supervision: a Notice of Concern in February 2020, then special visits in February 2022, June 2023 and February 2024. Anything you read — including Wikipedia as of this writing — describing NDNU as accredited \"with Notice of Concern\" is stale.",
+  "The crisis was real and it reshaped the institution. In March 2020, citing ongoing financial problems, declining enrolment and COVID, NDNU suspended new admissions for summer and fall, laid off staff, disbanded athletics and discontinued all undergraduate programs; from 2021 it has been essentially a graduate school (business, education, psychology, plus undergraduate degree-completion). The property story matters too, and it is not finished: a planned sale of the Belmont campus to Stanford collapsed in May 2025, and on 29 September 2025 NDNU completed the sale of the 96.5-acre campus to UC Investments instead. President Beth Martin's statement is the operative fact for anyone enrolling now: \"Our ability to remain on campus for up to five years provides us with the time needed to thoughtfully plan for the university's next chapter and new campus location in San Mateo county.\" If you start in-person at Belmont in 2026 you will almost certainly finish there. If you are choosing on the basis of the campus itself, understand that the campus is a five-year lease-back, not a permanent home.",
+  "As a program, the thing that distinguishes NDNU from nearly every other California MFT option is that its centre of gravity is psychodynamic rather than systemic. The Clinical Psychology Department is led by Dean Helen Marlo, and its required curriculum includes a three-unit Psychodynamic Psychotherapy course surveying \"Freudian, Jungian, Ego Psychology, Object Relations, Humanistic, and Self-Psychology\"; the department describes training in \"psychodynamic psychotherapy and psychoanalysis... somatic, sensorimotor, play, sandplay, expressive arts, and group therapy\" and states outright that \"Personal psychotherapy is strongly recommended to support this transformation.\" Systemic and CBT coursework is present and BBS-compliant, but it is layered onto a depth foundation rather than the other way round. The degree comes in three sizes — a 37-unit non-licensure MSCP, the 60-unit MSCP/MFT, and a 67-unit MSCP/MFT/LPCC — and the department is explicit that it also trains people toward doctoral study, which is a different ambition from most terminal-master's MFT programs.",
+  "The financial picture is the risk that should actually worry you, more than closure. Tuition runs $1,028 per unit for 2025–26, about $61,680 for the 60-unit MFT concentration. College Scorecard's field-of-study data for master's degrees in Clinical, Counseling and Applied Psychology at NDNU shows median federal graduate debt of $81,798 (average $81,066) with a median monthly payment of $930, against median earnings of $66,641 one year out and $85,048 four years out. The earnings are decent for the field. The debt is high, and the program publishes no graduation rate, no licensure rate and no exam pass rate to help you judge how likely you are to reach those earnings."
+ ],
+ "orientation": "Psychodynamic/depth-integrative — psychoanalytic, Jungian and object-relations foundations inside a scholar-practitioner frame, with systemic, CBT and expressive-arts coursework layered on",
+ "signature": [
+  {
+   "code": "CPY 4240",
+   "title": "Psychodynamic Psychotherapy",
+   "units": "3",
+   "desc": "\"Classical models of psychoanalysis are surveyed including Freudian, Jungian, Ego Psychology, Object Relations, Humanistic, and Self-Psychology while being integrated into contemporary, Developmental, Relational and evidence-based practice... The psychotherapeutic relationship; conscious and unconscious processes; transference/countertransference; the development of personal qualities.\"",
+   "verbatim": true,
+   "why": "A full required course in psychoanalytic theory — with Jung named alongside Freud — is close to unique among California MFT-track programs, where psychodynamic content is usually one week of a survey course. If you want depth training and cannot afford Pacifica or CIIS, this is the practical reason to look at NDNU.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "code": "CPY 4150",
+   "title": "Innovations in Psychotherapy: Wellness, Spirituality, and Advanced Theories",
+   "units": "2",
+   "desc": "\"Topics may include personal growth, consciousness, motivation, affect, meaning, values, dreams, awareness, integrative health, and contemporary approaches in Depth, Integrative, Existential, Humanistic, Psychoanalytic, and Transpersonal Psychology. Focus is placed on theoretical integration, clinical application, and scholarly reflection.\"",
+   "verbatim": true,
+   "why": "Required, not elective. A course whose stated content includes dreams, consciousness and transpersonal psychology tells you the department is willing to put non-empirical traditions on the required list — the thing that separates a depth-oriented program from a generalist one. It can also be repeated as CPY 6150 for pass/fail enrichment.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "code": "CPY 4430",
+   "title": "Clinical Case Seminar I",
+   "units": "3",
+   "desc": "\"Students focus on the personal issues involved in transference and counter-transference in their cases; develop a better sense of the relationship between the development of personal qualities, their sense of self, values, professional behavior, and ethics... explore this opportunity for profound professional growth.\"",
+   "verbatim": true,
+   "why": "Six units of case seminar (I and II) run alongside the year of practicum, and the framing is analytic — transference and countertransference first, technique second. Compare with programs where the practicum seminar is essentially case management and paperwork. This is where NDNU's depth commitment actually touches your clinical work.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "code": "CPY 4130",
+   "title": "Psychotherapy Interventions: Expressive Arts Therapy",
+   "units": "3",
+   "desc": "\"Expressive therapy encompasses a range of creative modalities, such as art, music, drama, movement, and play, providing clinicians with powerful tools to enhance the therapeutic process. The course focuses on the development of entry level clinical competence in utilizing expressive modalities.\"",
+   "verbatim": true,
+   "why": "One of two choices for a required slot in the 60-unit MFT concentration (the alternative is Child and Adolescent Psychopathology). NDNU historically ran a well-known art therapy track, and this is the surviving curricular trace of it — a real option for clinicians who want non-verbal modalities and cannot find them elsewhere in a BBS-compliant program.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "code": "CPY 4650",
+   "title": "Positive Psychology and Mindfulness",
+   "units": "3",
+   "desc": "\"A particular emphasis on the personal and professional application of mindfulness and acceptance-based approaches such as Mindfulness-Based Cognitive Therapy (MBCT) and Acceptance Commitment Therapy (ACT)... providing them opportunities to experiment with various positive psychology approaches in their own lives.\"",
+   "verbatim": true,
+   "why": "Required in all three MSCP tracks. It is the empirical counterweight to the depth material — MBCT and ACT taught as protocols — and, characteristically for this department, you are expected to run the interventions on yourself first.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "There is no published term-by-term sequence. The catalog lists the concentration as a flat set of required courses; students move through part-time or full-time \"in loose cohorts,\" with courses offered in Fall, Spring and two intensive Summer sessions, in late afternoon, evening and weekend slots. Listed here as a single required-coursework block, which is how the 2025–2026 Graduate Catalog presents it. The 60-unit figure is the MSCP/MFT concentration; MSCP/MFT/LPCC is 67 units and a non-licensure MSCP is 37.",
+  "total_units": "60",
+  "terms": [
+   {
+    "label": "Required coursework — MSCP/Marriage and Family Therapy concentration (60 units)",
+    "courses": [
+     "CPY 4216 Psychopathology (3)",
+     "CPY 4221 Cross Cultural Issues (3)",
+     "CPY 4222 Family Systems and Relational Psychotherapy (3)",
+     "CPY 4230 Lifespan Development (3)",
+     "CPY 4235 Human Sexuality (1)",
+     "CPY 4240 Psychodynamic Psychotherapy (3)",
+     "CPY 4245 Professional Ethics and Law (3)",
+     "CPY 4252 Clinical Assessment and Treatment (3)",
+     "CPY 4275 Couples Psychotherapy (3)",
+     "CPY 4150 Psychotherapy Innovations: Wellness, Spirituality, and Advanced Theories (2)",
+     "CPY 4311 Cognitive Behavioral Therapy (3)",
+     "CPY 4420 Clinical Practicum I (3)",
+     "CPY 4422 Clinical Practicum II (3)",
+     "CPY 4430 Clinical Seminar I (3)",
+     "CPY 4432 Clinical Seminar II (3)",
+     "CPY 5200 Group Psychotherapy (3)",
+     "CPY 5205 Neurophysiology and Psychopharmacology (3)",
+     "CPY 5265 Diagnosis and Treatment of Addictions (3)",
+     "CPY 4896 Research Methods (3)",
+     "CPY 4650 Positive Psychology and Mindfulness (3)",
+     "Choose one: CPY 4130 Psychotherapy Interventions: Expressive Arts Therapy (3) OR CPY 4217 Child and Adolescent Psychopathology and Psychotherapy (3)",
+     "Optional: CPY 6992 Supervised Field Experience (1)",
+     "Optional research elective: CPY 4897/4898 Thesis or CPY 4882/4888 Capstone (3+3)"
+    ]
+   },
+   {
+    "label": "Additional courses for the 67-unit MSCP/MFT/LPCC concentration",
+    "courses": [
+     "CPY 4217 Child and Adolescent Psychopathology and Psychotherapy (3)",
+     "CPY 5550 Crisis, Trauma, and Recovery (3)",
+     "CPY 5560 Career Development Theories and Techniques (3)",
+     "Choose one: CPY 4286 Specialized Clinical Topics (1) OR CPY 4145 Death, Dying, and Bereavement (1)"
+    ]
+   }
+  ],
+  "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+ },
+ "practicum": {
+  "starts": "A full year — CPY 4420/4422 Clinical Practicum I and II run as a two-semester sequence alongside CPY 4430/4432 Clinical Case Seminar I and II. Students may also start accruing hours earlier through CPY 6992 Supervised Field Experience, available after 12 graduate units with the Director of Clinical Training's approval.",
+  "hours": "\"Our program provides a minimum of 500 hours of practicum experience that may be counted toward licensure.\" The course descriptions specify \"an average of 20 hours weekly (250 hours per semester) of supervised training and face-to-face psychotherapeutic experience.\" The BBS allows up to 1,300 of the 3,000 required licensure hours to be earned before graduation.",
+  "who_places": "mixed",
+  "clinic": null,
+  "detail": "You will do the interviewing, but you are not doing the searching alone. NDNU runs a Practicum Training Fair — the catalog lists it as a program distinction: \"Practicum Training Fair with numerous, reputable California agencies that offer competitive practicum and internship placements\" — and there is a named Director of Clinical Training, described on the program page as \"an experienced clinical psychologist [who] works to meet your clinical training needs, including through well established and individualized placements.\" That is meaningfully more institutional support than a purely online program offers, and the department claims \"successful placement of practicum students and graduates has characterized this program since its inception.\" But read the mechanics: the CPY 6992 description says students \"meet with the Director of Clinical Training by appointment after obtaining an approved practicum site,\" and \"a practicum packet must be completed and signed by all parties.\" You obtain the site; the school vets, approves and documents it. The placements are geographically specific — \"community agencies, schools, and hospitals throughout the Bay Area\" — which is the practical limit on this program: if you are not in the Bay Area, the network does not reach you. And one line in the catalog is decisive for anyone attracted by the online option: \"Clinical Practicum I and II and Clinical Seminar I and II are limited to California residents.\" You can take the coursework from anywhere the university is authorised; you cannot complete the clinical sequence unless you live in California.",
+  "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+  "model": "not published",
+  "model_evidence": "The Clinical Training Program, led by the Director of Clinical Training (DCT), nurtures professional interests. It includes a year of supervised clinical training at a respected community site and a practicum/case seminar sequence.",
+  "model_url": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": false,
+  "clinic_names": null
+ },
+ "admissions": {
+  "cohort_size": "Not published. College Scorecard reports 29 and 30 master's degrees awarded in Clinical, Counseling and Applied Psychology in the two most recent reported years, which is the best available proxy for annual output. There is no fixed cohort — students \"cycle through our program in loose cohorts.\"",
+  "gre": "not required",
+  "prereqs": "Completed NDNU application; official transcripts showing a bachelor's degree from an accredited institution; resume or vita; contact information for two references; and 3-unit undergraduate prerequisites in General Psychology and Abnormal Psychology. \"GPA of a 3.0 and above preferred, but 2.5–3.0 considered.\" Prerequisites must be completed by 15 graduate units and may be taken at NDNU. Transfer is capped at 15 units for the MFT concentrations.",
+  "deadline": "Rolling, with entry in fall, spring and summer. Priority deadlines: 1 August for Fall, 1 December for Spring, 1 April for Summer.",
+  "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+  "gre_evidence": "The Graduate Record Examination (GRE) and/or GMAT (Graduate Management Admission Test) are not institutional requirements for entrance into NDNU graduate programs.",
+  "gre_url": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+  "min_gpa": "2.5",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"The school is millions in debt and will be closing after the Spring of 2021. They have cut off all sports.\"",
+   "who": "Student review, Niche, August 2020 — worth reading against the fact that the university did not close and was reaffirmed by WSCUC in February 2026",
+   "sentiment": "negative",
+   "url": "https://www.niche.com/graduate-schools/notre-dame-de-namur-university/reviews/"
+  },
+  {
+   "text": "\"This outcome is a powerful validation of the extraordinary work of our faculty, staff, leadership, and Board during a time of significant transformation.\"",
+   "who": "President Beth Martin, Ph.D., on the six-year WSCUC reaffirmation, 23 March 2026",
+   "sentiment": "positive",
+   "url": "https://www.ndnu.edu/press-release/ndnu-achieves-6-year-reaccreditation-from-wscuc.html"
+  },
+  {
+   "text": "\"Most of our professors were still practicing clinicians so it helped a lot when they pulled from their personal experiences.\"",
+   "who": "Graduate student review, Niche, May 2024",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/notre-dame-de-namur-university/reviews/"
+  },
+  {
+   "text": "\"NDNU's evening program was able to accommodate my work schedule by providing evening/night classes.\"",
+   "who": "Alum review, Niche, January 2025",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/graduate-schools/notre-dame-de-namur-university/reviews/"
+  },
+  {
+   "text": "The program publishes no graduation rate, job placement rate, licensure rate or exam pass rate, and \"markets high first-time exam pass rates but does not publish a specific figure\"; it is also neither COAMFTE- nor CACREP-accredited.",
+   "who": "Sentio University program review, 2025–26",
+   "sentiment": "negative",
+   "url": "https://sentio.org/notre-dame-de-namur-university-mft-program-review"
+  },
+  {
+   "text": "\"Our ability to remain on campus for up to five years provides us with the time needed to thoughtfully plan for the university's next chapter and new campus location in San Mateo county.\"",
+   "who": "President Beth Martin on the completed sale of the 96.5-acre Belmont campus to UC Investments, 29 September 2025",
+   "sentiment": "info",
+   "url": "https://markets.financialcontent.com/postgazette/article/gnwcq-2025-9-29-notre-dame-de-namur-university-announces-the-completed-sale-of-the-belmont-campus-to-uc-investments"
+  },
+  {
+   "text": "\"This is a degree factory, people who have no business being therapist are passed through the program without ethical consideration. There is no real cultural competency, I have had racist instructors, the faculty is all white... Critical ethical classes, like child abuse, domestic violence and cross-cultural competency are condensed into a weekend or a few weeks... My psychological assessment class was a waste of time and money, along with the psychopathology course... We should be being prepared to properly assess, diagnose, and treat people, but we are not.\"",
+   "who": "GradReports review, Marriage & Family Therapy student, expected class of 2021, posted 5 Mar 2020 (Anh Tran)",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/notre-dame-de-namur-university"
+  },
+  {
+   "text": "\"The Master's level Art Therapy program has been an incredible opportunity for me to dive into my deepest passions: art and psychology. This program clearly had a high level of expertise in designing a program to blend these disciplines, ensuring to prepare the graduate student of not only the intensive clinical components of the program, but also allowing students to find room to explore their personal curiosity...\"",
+   "who": "GradReports review, Marriage & Family Therapy degree, class of 2019, posted 5 Mar 2020 (Clinton Johnson)",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/notre-dame-de-namur-university"
+  },
+  {
+   "text": "\"I'm currently in the graduate program for MFT, Art Therapy. I love the program as well as the small class size and personalized attention each student receives.\"",
+   "who": "Niche review, Notre Dame de Namur, MFT/Art Therapy graduate student, undated",
+   "sentiment": "positive",
+   "url": "https://www.niche.com/colleges/notre-dame-de-namur-university/reviews/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/5/5f/William_C._Ralston_House%2C_College_of_Notre_Dame_campus%2C_Belmont%2C_CA_9-5-2011_3-53-10_PM.JPG",
+  "page": "https://commons.wikimedia.org/wiki/File:William_C._Ralston_House,_College_of_Notre_Dame_campus,_Belmont,_CA_9-5-2011_3-53-10_PM.JPG",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Sanfranman59, via Wikimedia Commons, CC BY-SA 3.0",
+  "caption": "Ralston Hall, the 1860s William C. Ralston mansion at the centre of NDNU's Belmont campus. The 96.5-acre campus was sold to UC Investments in September 2025; the university has a five-year occupancy window while it plans a move elsewhere in San Mateo County."
+ },
+ "gaps": [
+  "No cohort size, entering class size, graduation rate, licensure rate or exam pass rate is published anywhere by the program or the university.",
+  "No term-by-term course sequence is published; the catalog gives a flat required-course list only.",
+  "The MSCP/MFT is neither COAMFTE- nor CACREP-accredited, so none of the standardised outcome disclosures those accreditors require exist.",
+  "The future campus location in San Mateo County has not been announced, and the terms of the five-year occupancy of Belmont beyond the president's statement are not public.",
+  "No Reddit, Student Doctor Network or GradCafe discussion of the NDNU MFT program could be located; the only student voices found are Niche reviews (4.64/5 across 22 graduate reviews).",
+  "It is not clear how many students take the fully-online option, and since Clinical Practicum I/II and Clinical Seminar I/II are limited to California residents, the practical size of the online cohort is unknown.",
+  "Faculty roster beyond Dean Helen Marlo and the Director of Clinical Training role could not be enumerated from the catalog."
+ ],
+ "corrections": [
+  {
+   "field": "format",
+   "current": "in-person, synchronous and asynchronous online",
+   "correct": "True as far as it goes, but incomplete in a way that matters. NDNU's own program page says \"this program doesn't provide 100% synchronous or 100% asynchronous, as some classes must be taken LIVE,\" and the catalog states \"Clinical Practicum I and II and Clinical Seminar I and II are limited to California residents.\" Modalities also rotate by semester — a course offered in person in Fall may only be offered asynchronously in Spring.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "field": "units",
+   "current": "60 units",
+   "correct": "60 units is the MSCP/MFT concentration. There are two other options in the same degree: a 67-unit MSCP/MFT/LPCC dual-licensure concentration, and a 37-unit non-licensure MSCP.",
+   "src": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "field": "accreditation_status",
+   "current": "(any record describing NDNU as WSCUC-accredited 'with Notice of Concern')",
+   "correct": "Stale. WSCUC's most recent Commission action is a Reaffirmation dated 13 February 2026; the institution record now reads \"Accredited – Reflects the Commission's finding that the institution is in compliance with the Standards.\" NDNU announced it on 23 March 2026 as a six-year reaffirmation. Wikipedia and several directory sites still carry the old Notice of Concern language.",
+   "src": "https://www.wscuc.org/institutions/notre-dame-de-namur-university/"
+  }
+ ],
+ "sources": [
+  {
+   "label": "NDNU 2025–2026 Graduate General Catalog (School of Psychology, MSCP/MFT requirements, course descriptions, practicum, admissions)",
+   "url": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf"
+  },
+  {
+   "label": "MS in Clinical Psychology / MFT program site",
+   "url": "https://ms.cp.mft.ndnu.edu/"
+  },
+  {
+   "label": "NDNU Marriage and Family Therapist (MFT) Degree page",
+   "url": "https://www.ndnu.edu/psychology/mscp-mft.html"
+  },
+  {
+   "label": "WSCUC institution record for Notre Dame de Namur University (action dates, review schedule)",
+   "url": "https://www.wscuc.org/institutions/notre-dame-de-namur-university/"
+  },
+  {
+   "label": "NDNU press release: six-year WSCUC reaccreditation, 23 March 2026",
+   "url": "https://www.ndnu.edu/press-release/ndnu-achieves-6-year-reaccreditation-from-wscuc.html"
+  },
+  {
+   "label": "NDNU announces completed sale of the Belmont campus to UC Investments, 29 September 2025",
+   "url": "https://markets.financialcontent.com/postgazette/article/gnwcq-2025-9-29-notre-dame-de-namur-university-announces-the-completed-sale-of-the-belmont-campus-to-uc-investments"
+  },
+  {
+   "label": "Notre Dame de Namur University — Wikipedia (2020 undergraduate discontinuation, athletics, Stanford withdrawal)",
+   "url": "https://en.wikipedia.org/wiki/Notre_Dame_de_Namur_University"
+  },
+  {
+   "label": "College Scorecard field-of-study data, NDNU (unit ID 120184), Clinical/Counseling and Applied Psychology, master's",
+   "url": "https://api.data.gov/ed/collegescorecard/v1/schools?school.name=Notre%20Dame%20de%20Namur&fields=id,school.name,latest.programs.cip_4_digit"
+  },
+  {
+   "label": "Sentio University review of the NDNU MFT program (tuition per unit, transparency gaps)",
+   "url": "https://sentio.org/notre-dame-de-namur-university-mft-program-review"
+  },
+  {
+   "label": "Niche graduate student reviews for NDNU",
+   "url": "https://www.niche.com/graduate-schools/notre-dame-de-namur-university/reviews/"
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "institution": "Vanguard University",
+ "character": [
+  "Vanguard's M.S. in Clinical Psychology is organised as a survey of therapeutic modalities rather than around a single house theory, and the required list makes that unusually literal: separate three-unit courses in Psychodynamic Theory and Treatment (PSYG-616), Cognitive-Behavioral Theory and Treatment (PSYG-617), Family Psychotherapy (PSYG-605), Couples Psychotherapy (PSYG-716), Group Psychotherapy (PSYG-717) and Child and Adolescent Psychotherapy (PSYG-615). Skills training opens with Client-Centered therapy in PSYG-601 and there is no capstone course forcing you to pick one orientation — the exit requirement is a case presentation. If you want a program with a strong theoretical commitment, this is not it; if you want broad exposure with the four BBS-relevant relational modalities each taught as its own course, it is a clean fit. The degree is 61 semester units, rising to 66 if you add the LPCC coursework, and Vanguard's mechanism for that is unusual: rather than a separate track, three courses carry variable credit and you take the higher value (PSYG-711 at 3 instead of 2, PSYG-720 at 3 instead of 2, plus PSYG-660 Career Development at 3).",
+  "The Christian question here has a precise answer. Exactly one course, PSYG-712 Psychology, Theology and Spirituality, carries the faith content — three units of sixty-one — and it is backed by a stated program learning outcome, \"Demonstrate and apply the integration of faith in the psychotherapeutic process.\" There is no Bible, theology or ministry requirement, no doctrinal statement in the admissions checklist, and the remaining sixty courses read as conventional clinical training. The identity is institutional and explicit — the mission statement is to equip students \"to serve with excellence as Christian mental health professionals,\" and the department describes itself as grounded in \"a Christian understanding of God, human nature, families, relationships, and God's redeeming compassion for humankind\" — but as a curriculum component it is one required course.",
+  "Two structural things matter more than the branding. First, Vanguard runs its own clinic, Journeys at Vanguard, opened on the Costa Mesa campus in March 2022 on a sliding-scale, nobody-turned-away model, staffed by graduate students under licensed supervision — one of a small number of California MFT-track master's programs with an in-house community clinic. Second, and less flattering: practicum starts late. On every published track — two-year, three-year, four-year — the practicum course first appears in the summer of year two, and the graduation bar is 225 clinical hours with a minimum of 150 face-to-face client contact hours, the lowest published requirement of the Christian-institution programs in this set. Offsetting that, the personal-therapy requirement is one of the heaviest in California: 30 sessions, begun within your first semester and running concurrent with coursework."
+ ],
+ "orientation": "Eclectic by design — a modality-by-modality survey (psychodynamic, CBT, family, couples, group, child/adolescent each as its own required course) opening from a Client-Centered skills base, with a single Christian integration course",
+ "signature": [
+  {
+   "code": "PSYG-601",
+   "title": "Clinical Foundations I",
+   "units": "3",
+   "desc": "\"Clinical and theoretical foundations of the field of clinical psychology are presented with an emphasis on Client-Centered therapy and the development of beginning level skills. Course includes supervised experience which will be used in assessing eligibility for trainee status.\"",
+   "verbatim": true,
+   "why": "This is the program's gatekeeping course, and the last clause is the part to read twice — your performance in it determines whether you are cleared for trainee status at all. Vanguard also states that the supervised experience means practising on Vanguard undergraduate volunteers in your first semester, which is a genuinely unusual arrangement: a live practice partner who is not a classmate and not yet a real client.",
+   "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  },
+  {
+   "code": "PSYG-611",
+   "title": "Clinical Foundations II",
+   "units": "1-3",
+   "desc": "\"This class offers continued training of basic clinical skills with an emphasis on facilitating the capacity for empathic listening, reflection, and skills necessary for building, monitoring, and maintaining a therapeutic alliance. Concurrent practicum placement is required.\"",
+   "verbatim": true,
+   "why": "A second, dedicated course on nothing but the alliance — empathic listening, reflection, maintaining the relationship — taken while you are already on placement. Most programs cover this in one skills course and move on; Vanguard splits it in two and puts the second half after you have real clients.",
+   "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  },
+  {
+   "code": "PSYG-712",
+   "title": "Psychology, Theology and Spirituality",
+   "units": "3",
+   "desc": "\"Explores the integration of psychology, theology, and spiritual formation and how it affects the mental health of the client. Consideration given to the role of the therapist and the therapeutic relationship with an emphasis on the Christian faith.\"",
+   "verbatim": true,
+   "why": "The whole of the faith requirement, in one course, three units of sixty-one, taken in the fall of year two. If you are weighing whether Vanguard's Christian identity will shape your training, this course plus the mission statement is the entire answer — nothing else in the required list is religious.",
+   "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  },
+  {
+   "code": "PSYG-726",
+   "title": "Case Conceptualization",
+   "units": "1.5 (taken twice, 3 total)",
+   "desc": "\"In-depth processing of clinical casework with emphasis on case conceptualization, etiology, diagnosing both theoretically and according to the DSM, treatment planning and prognosis. Case management and use of supervision are discussed with emphasis on appropriate referrals. Concurrent field placement is required for this course.\"",
+   "verbatim": true,
+   "why": "The half-unit-per-term structure taken across your final fall and spring is how Vanguard keeps you in a supervised case-processing group for a full year of placement. Note the explicit content on 'use of supervision' — teaching students how to be supervised is rarely named as a learning objective in a California catalog.",
+   "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  },
+  {
+   "code": "PSYG-724",
+   "title": "Psychosocial Stressors and Mental Health",
+   "units": "3",
+   "desc": "\"Examination of the unique theoretical and clinical components related to working with minors, the elderly, and issues related to pregnancy, death and dying. Students are trained to work within the public mental health system and with the severely mentally ill. Placement within the legal system, housing and healthcare alternatives will be explored.\"",
+   "verbatim": true,
+   "why": "A required course explicitly about the public mental-health system, severe mental illness, and the housing/legal/health infrastructure around it. Programs that train mainly for private practice do not require this. It signals that Vanguard expects a meaningful share of graduates to work in county and community settings.",
+   "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  },
+  {
+   "code": "PSYG-765",
+   "title": "Comprehensive Project",
+   "units": "3",
+   "desc": "\"This comprehensive class assists the student in the synthesis of knowledge gained over the span of the graduate program for the purpose of furthering professional identity and competency... Exit Project is completed and field placement is required concurrently with this course.\" The catalog specifies the exit project is \"a case presentation.\"",
+   "verbatim": true,
+   "why": "No thesis and no mock licensing exam — the degree ends in a case presentation drawn from your own live caseload, which is why concurrent field placement is required. It is a lighter exit than a comprehensive exam but a more clinical one.",
+   "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "One 61-unit degree with two delivery formats that Vanguard treats as separate cohorts: on-campus courses run 16 weeks (a 3-unit course is one three-hour meeting a week), online courses run 8 weeks (a 3-unit course is one two-hour live meeting a week) except practicum-related courses, which stay 16 weeks in both. The online track is open only to California residents and carries three mandatory on-campus weekends — Orientation Weekend, the Current Topics course in the first summer, and Group Psychotherapy over an extended weekend in the final spring. \"On campus and Online tracks are separate and students on each track are guaranteed priority registration in their format\"; switching needs program permission and space. Both formats lead to the same degree and the same BBS statement, so both are CA MFT-eligible. Tracks of 2, 3 and 4 years exist (the 2-year is accelerated and needs department approval); the 3-year track below is the one Vanguard calls most popular. LPCC adds 5 units: PSYG-660 plus one extra unit each on PSYG-711 and PSYG-720.",
+  "total_units": "61 (66 with the LPCC coursework)",
+  "terms": [
+   {
+    "label": "Year 1 — Fall (9 units)",
+    "courses": [
+     "PSYG-601 Clinical Foundations I (3)",
+     "PSYG-603 Advanced Psychopathology (3)",
+     "PSYG-604 Ethical & Legal Issues (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring (9 units)",
+    "courses": [
+     "PSYG-605 Family Psychotherapy (3)",
+     "PSYG-615 Child & Adolescent Psychotherapy (3)",
+     "PSYG-704 Addictive Behaviors (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer (6-7 units)",
+    "courses": [
+     "PSYG-710 Psychotherapy and Diversity (3)",
+     "PSYG-720 Clinical Psychopharmacology (2-3)",
+     "PSYG-618 Current Psychotherapy Topics (1)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall (9 units)",
+    "courses": [
+     "PSYG-614 Advanced Developmental Psychology (3)",
+     "PSYG-712 Psychology, Theology & Spirituality (3)",
+     "PSYG-716 Couples Psychotherapy (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer (3-7.5 units) — practicum begins",
+    "courses": [
+     "PSYG-711 Violence, Abuse & Trauma (2-3)",
+     "PSYG-613 Research Methodology (1)",
+     "PSYG-727 Practicum (0.5)",
+     "PSYG-660 Career Development (3) — optional, LPCC track"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring (10 units)",
+    "courses": [
+     "PSYG-611 Clinical Foundations II (1)",
+     "PSYG-616 Psychodynamic Theory & Treatment (3)",
+     "PSYG-626 Professional Skills in Clinical Practice (3)",
+     "PSYG-724 Psychosocial Stressors & Mental Health (3)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall (7.5 units)",
+    "courses": [
+     "PSYG-617 Cognitive-Behavioral Theory & Treatment (3)",
+     "PSYG-725 Psychological Testing (3)",
+     "PSYG-726 Case Conceptualization (1.5)"
+    ]
+   },
+   {
+    "label": "Year 3 — Spring (7.5 units)",
+    "courses": [
+     "PSYG-717 Group Psychotherapy (3)",
+     "PSYG-765 Comprehensive Project (3)",
+     "PSYG-726 Case Conceptualization (1.5)"
+    ]
+   }
+  ],
+  "src": "https://www.vanguard.edu/college-of-arts-and-sciences/clinical-psychology/resources/sample-curriculum-schedule"
+ },
+ "practicum": {
+  "starts": "Late — the summer of year two on every published track, including the accelerated two-year one. Placement then runs continuously through the remaining fall and spring semesters, tied to PSYG-626, PSYG-726 and PSYG-727.",
+  "hours": "225 clinical hours minimum with at least 150 face-to-face client contact hours for the MFT-track degree. LPCC students need 280 face-to-face hours. No relational (couples/family) sub-minimum is published.",
+  "who_places": "mixed",
+  "clinic": "Journeys at Vanguard, an on-campus community counseling center in Costa Mesa, opened March 2022",
+  "detail": "Clinical contact starts long before practicum does. In your first semester PSYG-601 puts you in supervised practice sessions with Vanguard undergraduate volunteers, and the catalog says that experience \"will be used in assessing eligibility for trainee status\" — so semester one is functionally a screening for whether you are allowed to see clients at all. Actual placement begins in the summer of year two and is governed by a hard rule: \"in compliance with state requirements, students must be concurrently enrolled in a practicum course (PSYG-626 Professional Skills in Clinical Practice, PSYG-726 Case Conceptualization or PSYG-727 Practicum) while gaining clinical hours,\" so you cannot bank hours in a gap term. Sites can be community counseling centers, college counseling centers or substance-abuse treatment programs, and one of them is the school's own — Journeys at Vanguard, opened in March 2022 on a sliding-scale model where clients pay what they can and, in the founding director's words, \"no person is turned away\"; graduate students staff it under licensed supervision. Placement is collaborative rather than assigned: Vanguard says \"the program will support and assist you in securing a placement at one of our more than 60 partner sites,\" which means you apply and interview, with a curated list and staff help. The graduation bar of 225 hours / 150 face-to-face is modest, and Vanguard is candid that the payoff differs by licence — MFT trainee hours \"may also be applied to licensing requirements... in the state of California,\" while for LPCC \"hours of experience gained as a student are not applied to licensing requirements,\" so an LPCC-bound student starts the clock at zero on graduation day. You must also be formally Advanced to Candidacy before the degree is confirmed, and that requires having begun placement and met the minimum client hours.",
+  "src": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf",
+  "model": "assisted",
+  "model_evidence": "The program will support and assist you in securing a placement at one of our more than 60 partner sites.",
+  "model_url": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Journeys at Vanguard"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Vanguard advertises \"small class sizes which average 12 students.\" A minimum residence of five academic semesters is required regardless of track.",
+  "gre": "not published",
+  "prereqs": "A bachelor's in psychology, or four courses completed with B- or better: Introduction to Statistics; Psychopathology or Abnormal Psychology; Developmental Psychology or Human Development; Theories of Personality or Counseling Theories. Application also needs three letters of recommendation, official transcripts, a resume/CV and a statement of purpose of at least 750 words. Note the ongoing requirements after admission: 30 sessions of personal therapy begun in the first semester, and a continuation standard that lets the program dismiss a student immediately if the Director of Clinical Training judges their clinical activity to pose significant risk of harm to clients.",
+  "deadline": "Fall term: 1 July. Spring term: 1 October. $45 application fee.",
+  "src": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms",
+  "gre_evidence": "It is required that all prerequisite courses have been completed with a grade of B- or better",
+  "gre_url": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "On the Journeys at Vanguard clinic's sliding-scale model, with a donor-funded scholarship for clients who cannot pay: \"no person is turned away.\" The center opened in March 2022 with six clinicians, all Vanguard alumni, and aimed to see up to 350 clients a week.",
+   "who": "Dr. Gesell, quoted in a Vanguard University news piece, 2022",
+   "sentiment": "info",
+   "url": "https://give.vanguard.edu/counseling-center-benefits-vu-students-and-blesses-community/"
+  },
+  {
+   "text": "The catalog's continuation standard is unusually blunt: if evaluations indicate a student's clinical activities \"have exposed, are exposing, or indicate future likelihood of exposing one or more clients to significant risk of harm, the student will immediately be dismissed from the program.\"",
+   "who": "Vanguard Graduate Program in Clinical Psychology catalog, 2025/26",
+   "sentiment": "info",
+   "url": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  }
+ ],
+ "photo": null,
+ "gaps": [
+  "No freely-licensed photograph of the Vanguard University campus exists on Wikimedia Commons — the only Vanguard files there are logos. Rather than hotlink a copyrighted university image, photo is null.",
+  "No independent student discussion of this program was found on Reddit, Student Doctor Network or GradCafe, so there are no genuine outside voices. Vanguard's own alumni testimonials were the only student-perspective material available and are not reproduced as if they were independent.",
+  "No relational (couples/family) client-hour sub-minimum is published — only the 225 total / 150 face-to-face figures.",
+  "Supervision mechanics are not published: individual vs group supervision ratios, weekly supervision hours, and whether sessions are recorded, live-observed or observed through a one-way mirror are all absent from the public catalog and program pages. The only stated structure is concurrent enrolment in a practicum course.",
+  "Journeys at Vanguard's role in the practicum system is not quantified anywhere public — how many of the cohort place there versus at outside sites, and whether it is a first placement or an option among the 60+ partner sites, is not stated.",
+  "Vanguard points readers to the BBS website for licensing-exam pass rates rather than publishing its own.",
+  "The catalog used is the 2025/26 edition; a 2026/27 edition was not published at the catalog.vanguard.edu path at the time of research."
+ ],
+ "sources": [
+  {
+   "label": "Vanguard University Graduate Program in Clinical Psychology, Academic Catalog 2025/26 (PDF)",
+   "url": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology.pdf"
+  },
+  {
+   "label": "Vanguard Academic Catalog — Clinical Psychology M.S. degree requirements",
+   "url": "https://catalog.vanguard.edu/cas/clinical-psychology/clinical-psychology-ms/index.html"
+  },
+  {
+   "label": "Vanguard Academic Catalog — PSYG course descriptions",
+   "url": "https://catalog.vanguard.edu/courses/psyg/"
+  },
+  {
+   "label": "Vanguard — Sample Curriculum Schedules (2/3/4-year tracks, on-campus vs online formats)",
+   "url": "https://www.vanguard.edu/college-of-arts-and-sciences/clinical-psychology/resources/sample-curriculum-schedule"
+  },
+  {
+   "label": "Vanguard — MS in Clinical Psychology program page (practicum, licensure statement, formats)",
+   "url": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms"
+  },
+  {
+   "label": "Vanguard University news — Journeys at Vanguard counseling center",
+   "url": "https://give.vanguard.edu/counseling-center-benefits-vu-students-and-blesses-community/"
+  },
+  {
+   "label": "Vanguard admissions/overview microsite (cohort size, tuition per unit)",
+   "url": "https://explore.vanguard.edu/degree-programs/masters/clinical-psychology/"
+  }
+ ]
+}

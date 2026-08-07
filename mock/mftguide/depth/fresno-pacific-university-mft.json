@@ -1,0 +1,267 @@
+{
+ "institution": "Fresno Pacific University",
+ "character": [
+  "The MFT program is not housed in a school of psychology or education — it is a degree of Fresno Pacific Biblical Seminary, and the required course list makes that concrete rather than decorative. Of the 65 minimum units, 6.5 are Biblical/Theological Studies (BIB 720, BIB 760, THEO 708, THEO 712), and the 12.5-unit \"Personal/Social Formation\" block adds MIN 709 Spirituality & Wellness, THEO 730 Discipleship and Ethics, and a three-semester COUN 705A/B/C Mentoring in Integration sequence. The capstone is COUN 791A/B, in which every student writes a \"Theory and Theology Integration paper that articulates why the student adopts a particular counseling theory and how that theory corresponds with (or challenges) their theological worldview,\" and the degree ends with COUN 770 Senior Counseling Discernment, a meeting with a group of eight to ten people the student assembles, \"representing family, student peers, practicum supervisor, and a pastor or spiritual mentor.\" Graduates receive a Seminary Integration Certificate alongside the M.A. Two of the nine published program learning outcomes are \"Demonstrate commitment to live as a disciple of Jesus in Christian community\" and \"Articulate commitment to a biblical theological Christian perspective,\" and admission requires \"one spiritual reference from a pastor or other ministry leader (not a family member).\" A prospective student who is not a practicing Christian should read that list and take it at face value: this is a confessional program in the Mennonite Brethren tradition (the seminary's own theological witness statement centers conversion, believer's baptism, biblical authority, discipleship, mission and a peace witness), and there is no non-theological pathway through the 65 units. Note the separate question of clients: the university's own Pacific Counseling Center states that its \"counselors respect the diversity of our community and welcome clients of all faiths or no faith.\"",
+  "The second real thing about this program is geographic. It sits on the main Fresno campus at 1717 S. Chestnut Ave. and is offered fully on-site there, which makes it one of very few MFT routes serving the Central Valley and the South Valley without a move to the coast. Courses run afternoons and evenings — the Fall 2026 seminary schedule shows COUN sections at 1:25–4:05, 2:50–5:30 and 6:00–8:00, with a common meal between the afternoon and evening blocks — and the handbook is explicit that \"students typically take three to five years to complete their degree,\" with published 3-year and 4-year plans. At $610 per unit for MFT/Counseling in both 2025-26 and 2026-27, the 65 units come to roughly $39,650 in tuition, low for a private program. The access story has a hard edge, though: courses are \"generally only taught once per year,\" a section needs a minimum of 7 students to run, and the handbook warns that placement is \"a highly competitive job market, and you will be vying for placements with students from several other schools in the greater Fresno and South Valley areas. If you are unable to secure a Practicum placement, you may be unable to advance to Practicum the following academic year.\"",
+  "Third, the program invests unusually heavily in longitudinal self-examination. Students write a Pathways to Transformation Paper in COUN 724 in their first semester, update it as part of the Trainee-Practicum Assessment portfolio a year or two later, and reference it again in the 6-to-8-page Self-Assessment Reflection for senior discernment. Personal therapy is expected once practicum begins, and the seminary maintains a Therapy Assistance Fund, replenished by contributions from the very agencies where trainees are placed, that reimburses practicum-year therapy costs — but only if your placement site contributes to the fund and you see a therapist from the program's vetted list, which the handbook says students should factor into which placement offer they accept. Faculty can also stop a student who is passing academically: \"If a student can maintain academic standards, but faculty are concerned with the student's ability to perform the job duties of a counselor, the student may not be allowed to move forward in the program.\""
+ ],
+ "orientation": "Christian integration (evangelical Anabaptist / Mennonite Brethren) layered over a developmental, model-agnostic clinical curriculum — students must \"align with a specific theoretical orientation\" and demonstrate competency in one individual and one family therapy approach before practicum.",
+ "signature": [
+  {
+   "code": "COUN 770",
+   "title": "Senior Counseling Discernment",
+   "units": "0",
+   "desc": "A zero-unit graduation requirement taken in the final practicum semester. The student assembles a discernment group \"typically comprised of eight to ten people representing family, student peers, practicum supervisor, and a pastor or spiritual mentor,\" writes a 6–8 page Self-Assessment Reflection referencing the Pathways to Transformation Paper, and the group discusses \"the student's gifts, seminary experience, goals for ministry, and potential places the student's gifts can best be utilized vocationally.\"",
+   "verbatim": true,
+   "why": "Almost no California MFT program ends by convening the student's family, peers, supervisor and pastor in one room to talk about the student's readiness. If you are weighing whether a seminary program will feel intrusive, this is the single clearest test case — it is required, it is not academic, and it explicitly includes people from the student's church and family life.",
+   "src": "https://www.fresno.edu/document/954"
+  },
+  {
+   "code": "COUN 747L",
+   "title": "Counseling Individuals Lab",
+   "units": "1",
+   "desc": "Taken concurrently with COUN 747. \"Students enrolled in COUN-747L Counseling Individuals Lab will provide counseling for an individual adult under the supervision of a faculty member. Students will meet for assessment of this experience and evaluation of their work in small supervision groups.\" The handbook states plainly that \"the experience in this course does not meet the requirements for trainee hours and cannot be counted toward licensure.\"",
+   "verbatim": true,
+   "why": "Real clients, faculty supervision, and none of it counts toward the 3,000 hours — that is a deliberate choice to let students fail safely a year or two before traineeship. It also means FPU students have seen a live adult client before they ever interview at a placement site, which matters in a competitive Fresno placement market.",
+   "src": "https://www.fresno.edu/document/954"
+  },
+  {
+   "code": "COUN 736L",
+   "title": "Counseling Children Lab",
+   "units": "1",
+   "desc": "A companion lab to COUN 736 Counseling Children that \"provides an opportunity for students to work on developing their counseling skills with children. The lab typically requires a commitment of three to four hours per week for the semester in addition to class time.\" Prerequisites are COUN 728 Family Violence and COUN 721 Professional Ethics in Counseling.",
+   "verbatim": true,
+   "why": "A second required pre-traineeship clinical lab, this one specifically with children — three to four hours a week on top of the class. Very few programs require two separate supervised skills labs before practicum, and fewer still make one of them child-specific.",
+   "src": "https://www.fresno.edu/document/954"
+  },
+  {
+   "code": "COUN 750A / 750C / 750D",
+   "title": "Cross-Cultural Counseling: Los Angeles / International / Experiential",
+   "units": "1.5",
+   "desc": "Beyond the classroom-based COUN 750B Cross-Cultural Counseling: Core Competencies (1.5), every student must also take one of three place-based cross-cultural courses — Los Angeles, International, or Experiential (listed in the handbook as \"Experiential or INT\" and elsewhere as San Francisco). The program page also notes options to study in Israel during the summer or attend the Hispanic Summer Program.",
+   "verbatim": false,
+   "why": "The cross-cultural requirement is split into a taught core-competency course plus a mandatory immersion course, which is unusual — most programs discharge multicultural content in a single seminar. It is also one of the few parts of the curriculum that pulls students out of Fresno.",
+   "src": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma"
+  },
+  {
+   "code": "COUN 705A / 705B / 705C",
+   "title": "Mentoring in Integration I / II / III",
+   "units": "0.5 each (1.5 total)",
+   "desc": "A three-semester, half-unit-per-term mentoring sequence in the Personal/Social Formation block, taken in the spring of each of the program's three levels (beginning, middle and senior) in the published 3-year plan. It must be taken as an FPU Biblical Seminary course.",
+   "verbatim": false,
+   "why": "The integration of faith and clinical practice is not left to a single capstone; it is scaffolded as a small recurring course across the whole degree. That is the structural signature of a seminary-based MFT, and it is the piece most likely to feel either formative or imposed depending on the student.",
+   "src": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma"
+  },
+  {
+   "code": "COUN 791A / 791B",
+   "title": "Integration of Marriage & Family Studies I / II",
+   "units": "1 + 2",
+   "desc": "A two-part capstone taken in the senior year alongside Practicum. \"Students will write a Theory and Theology Integration paper that articulates why the student adopts a particular counseling theory and how that theory corresponds with (or challenges) their theological worldview,\" plus a second paper or project giving \"a clinical and theological analysis of, and proposed solution to, a clinical, sociopsychological, or other counseling-related problem\" drawn from their practicum. A 6-unit theoretical or exegetical thesis (COUN 799) is an accepted but \"less common\" alternative.",
+   "verbatim": true,
+   "why": "This is the assessment that decides whether a graduate can articulate a defensible theoretical orientation, and at FPU it is inseparable from theology — the paper has to say how the chosen model corresponds with or challenges the student's own worldview. There is no secular version of this capstone on offer.",
+   "src": "https://www.fresno.edu/document/954"
+  }
+ ],
+ "curriculum": {
+  "note": "65 minimum units. Not a lockstep cohort: students plan with a faculty advisor each semester from a published Degree Program Plan, and \"students typically take three to five years to complete their degree\" — the seminary publishes both a 3-year and a 4-year recommended sequence. Courses are generally taught once per year and a section needs at least 7 students to run, so sequencing errors cost a full year. Practicum runs on a Fall–Spring cycle, so \"students beginning in the Spring Semester will need three and one-half years to complete their program.\" The terms below are the handbook's own 3-year example plan (Appendix 5); the 4-year plan spreads the same courses over four years. All courses may be offered face-to-face, hybrid or online, but the program brochure states the degree is \"offered fully on-site at our main Fresno campus.\"",
+  "total_units": "65",
+  "terms": [
+   {
+    "label": "Year 1 — Fall",
+    "courses": [
+     "COUN 710 Introduction to Counseling (1)",
+     "COUN 721 Professional Ethics in Counseling (3)",
+     "COUN 724 Interpersonal Communication & Family Systems (3)",
+     "MIN 709 Spirituality & Wellness (1.5)",
+     "THEO 708 Intro to Bible, Christian Theology & Culture (1.5)"
+    ]
+   },
+   {
+    "label": "Year 1 — Spring",
+    "courses": [
+     "COUN 747 Counseling Individuals (2)",
+     "COUN 747L Counseling Individuals Lab (1)",
+     "COUN 705A Mentoring in Integration I (0.5)",
+     "BIB 720 The Church & God's Mission in the World (1.5)",
+     "COUN 752 Human Sexuality (3)",
+     "COUN 754 Group Counseling (1–3)",
+     "THEO 730 Discipleship & Ethics (1.5)"
+    ]
+   },
+   {
+    "label": "Year 1 — Summer",
+    "courses": [
+     "COUN 728 Family Violence (1.5)",
+     "COUN 750C or 750D Cross-Cultural Counseling: International or Experiential (1.5)",
+     "COUN 760 Substance Use Disorders (1)",
+     "COUN 756 Grief Counseling (1)",
+     "COUN 759 Psychobiology & Psychopharmacology (0.5)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fall",
+    "courses": [
+     "COUN 726 Human Development (3)",
+     "COUN 730 Clinical Assessment (3)",
+     "COUN 732 Aging and Long-Term Care (1)",
+     "COUN 744 Research, Testing and Family Assessment (2–3)",
+     "COUN 750B Cross-Cultural Counseling: Core Competencies (1.5)",
+     "THEO 712 The Story of the Church & Its Theology (1.5)"
+    ]
+   },
+   {
+    "label": "Year 2 — Spring",
+    "courses": [
+     "COUN 734 Counseling Couples & Families (3)",
+     "COUN 736 Counseling Children (2)",
+     "COUN 736L Counseling Children Lab (1)",
+     "COUN 740 Psychopathology (3)",
+     "COUN 705B Mentoring in Integration II (0.5)",
+     "BIB 760 Theology for Integration (2)",
+     "COUN 764 Trainee/Practicum Assessment (0)"
+    ]
+   },
+   {
+    "label": "Year 2 — Summer",
+    "courses": [
+     "COUN 755 Contemporary Issues in Counseling (1)",
+     "COUN 789 Trauma & Resilience (2)",
+     "COUN 792 Summer Practicum & Telehealth Practices (1)"
+    ]
+   },
+   {
+    "label": "Year 3 — Fall",
+    "courses": [
+     "COUN 793A Practicum I (3)",
+     "COUN 791A Integration of Marriage & Family Studies I (1)",
+     "COUN 738 Person, Family, and Culture (2)",
+     "COUN 770 Senior Counseling Discernment (0)"
+    ]
+   },
+   {
+    "label": "Year 3 — Spring",
+    "courses": [
+     "COUN 793B Practicum II (3)",
+     "COUN 791B Integration of Marriage & Family Studies II (2)",
+     "COUN 705C Mentoring in Integration III (0.5)"
+    ]
+   }
+  ],
+  "src": "https://www.fresno.edu/document/954"
+ },
+ "practicum": {
+  "starts": "Senior year. COUN 792 Summer Practicum & Telehealth Practices in the summer immediately before, then COUN 793A Practicum I in fall and COUN 793B Practicum II in spring — a Fall–Spring sequence, so a spring-entry student needs 3.5 years.",
+  "hours": "No published total-hours figure. The requirement is expressed as a rate: \"a minimum of 10 direct client contact hours per week (five direct client contact hours at each site if dual-site placement)\" across a 9-to-12-month placement, with supervision, documentation, assessment, training and advocacy on top — \"it is typical for students to spend 20-30 hours per week in their combined placement sites.\"",
+  "who_places": "student-finds",
+  "clinic": "Pacific Counseling Center (the university's own counseling service, with offices at the FPU Seminary campus in southeast Fresno, FPU North Campus, FPU Visalia and Mennonite Central Committee offices in Reedley). The handbook refers to \"Pacific Counseling Program placements\" as one of the approved practicum options and requires every practicum-assessment portfolio to include a cover letter \"written to Pacific Counseling Program and addressed appropriately to the Pacific Counseling Director\" — but it is one site among many, not a required rotation, and its published leadership team is licensed clinicians and registered associates rather than trainees.",
+  "detail": "Practicum is gated by COUN 764 Trainee/Practicum Assessment, a zero-unit course taken the spring before the practicum year: the student submits a digital portfolio (practicum application, an updated Pathways to Transformation Paper, a theoretical-orientation statement, pragmatic plans for money and self-care, a CV, a cover letter, transcript and course lists, lab-experience statements with graded benchmark assessments from COUN 747L and 736L, a psychosocial narrative report and an integrative paper) and sits a \"mini-discernment meeting\" with faculty; approval requires at least 18 completed units, \"although closer to 50 units is more typical.\" Students then find their own site: faculty must approve the CV and cover letter before anything is sent out, students apply and interview at approved agencies (a New Practicum Site Request Application is needed for anything off the list, and the university makes the final call), and the handbook is blunt that passing the assessment \"does not assure you of being accepted at a practicum site,\" because FPU trainees compete against students from several other schools across greater Fresno and the South Valley. The placement itself is one or two 9-to-12-month sites at a minimum of 10 direct client contact hours per week, with the agency — not the university — responsible for supervision, and some sites start in May/June and run 12–14 months past the seminary's own calendar, which students are contractually expected to complete. There is no published minimum for relational (couple/family) hours and no total client-hour count: FPU is a BBS-approved program under Business and Professions Code §4980.36 rather than a COAMFTE-accredited one, so it does not carry COAMFTE's relational- and observable-data-hour floors. Alongside the placement, students attend a weekly practicum class and a Counseling Roundtable case-consultation forum, are expected to be in their own personal therapy (with possible reimbursement from the Therapy Assistance Fund if their site contributes to it), and some elect COUN 793C Practicum III for extra experience — voluntarily, or because faculty judge them \"not fully prepared for the field of counseling.\" The trainee-to-associate handoff is explicit but unassisted: the handbook walks students through registering with the BBS for an Associate number after graduation and the remaining 3,000 hours, and COUN 793C exists partly so students can bank additional pre-degree hours toward AAMFT clinical-membership requirements.",
+  "src": "https://www.fresno.edu/document/954",
+  "model": "assisted",
+  "model_evidence": "After you have been approved for Practicum via the successful completion of your Trainee-Practicum Assessment AND your cover letter(s) and CV have been approved, you may apply to approved practicum agencies.",
+  "model_url": "https://www.fresno.edu/document/954",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Pacific Counseling Center"
+  ]
+ },
+ "admissions": {
+  "cohort_size": null,
+  "gre": "not published",
+  "prereqs": "Bachelor's degree from a regionally accredited institution; cumulative GPA 3.0 (a letter of explanation is required below that, and the seminary says it will sometimes waive the GPA requirement for demonstrated maturity, ministry experience, GRE scores or volunteer counseling hours). Prerequisite coursework: Introduction to Psychology, plus either Abnormal Psychology or Human Development. Two references — one academic and \"one spiritual reference from a pastor or other ministry leader (not a family member).\" Short-answer questions are sent after the application is submitted and the file is not reviewed until they are returned. A one-day, no-credit Bible Knowledge Requirement seminar and exam must be completed during the first month of the first term.",
+  "deadline": "Not published as a fixed date on the program page; \"notification of acceptance will be sent as soon as all necessary documents are on file and have been reviewed by the admissions committee,\" which reads as rolling. Practicum runs Fall–Spring, so a spring start adds half a year.",
+  "src": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma",
+  "gre_evidence": "We take into account their ministry experience for BIB/MIN programs, their GRE score, volunteer counseling hours experience and psych pre-requisites for the MFT degree.",
+  "gre_url": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"Fresno Pacific's Marriage and Family Therapy program is awesome. It provides many opportunities for me to grow as a person, spiritually, mentally and emotionally... The only con would be that the Master's program is 3 years long (which is pretty long compared to other Master's programs), but the quality of education and experience is worth the time.\"",
+   "who": "GradReports, MFT student review, 4.9/5, June 2014",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/fresno-pacific-university"
+  },
+  {
+   "text": "\"Fresno pacific offers classes during the evenings, making it easier for me to maintain my full-time job... Also, if you are a devoted Christian, then Fresno Pacific is the right place for you. Started and ending class with prayer has been such a wonderful experience.\"",
+   "who": "GradReports, graduate student review, 5/5, March 2018",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/fresno-pacific-university"
+  },
+  {
+   "text": "\"There were many positive things... The main one being small class sizes and direct easy access to professors. This personal experience was great when it came to learning. A few negatives include a large religious emphasis and more expensive classes.\"",
+   "who": "GradReports, Fresno Pacific student review, 2.9/5, May 2019",
+   "sentiment": "mixed",
+   "url": "https://www.gradreports.com/colleges/fresno-pacific-university"
+  },
+  {
+   "text": "\"I am very happy that I chose a university that uphold strong Christian values... However, FPU does not provide quality and/or challenging coursework. In fact, 'busy work' or assignments that meet time accreditation standards make up the bulk of the homework assignments.\"",
+   "who": "GradReports, Fresno Pacific student review, 0.8/5, August 2013",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/fresno-pacific-university"
+  },
+  {
+   "text": "The program advertises its own exam outcomes: \"FPU Biblical Seminary MFT students passed at a rate of 71% and 100%\" on California's Licensed Clinical Exam and Law & Ethics exam respectively. No cohort year or sample size is given.",
+   "who": "Fresno Pacific University, MFT program page (institutional claim, unverified)",
+   "sentiment": "info",
+   "url": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/8/8e/FPU-Campus-1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:FPU-Campus-1.jpg",
+  "license": "CC BY 2.5",
+  "credit": "Photo by Jon Harder, via Wikimedia Commons (CC BY 2.5)",
+  "caption": "The Fresno Pacific University campus in southeast Fresno. The Biblical Seminary, which houses the MFT program, is on this main campus at 1717 S. Chestnut Ave."
+ },
+ "gaps": [
+  "Full catalog course descriptions could not be retrieved. catalog.fresno.edu (the Acalog instance) sits behind an AWS WAF challenge that returns an empty JavaScript challenge page to every non-browser request, so the substance quoted here for individual courses comes from the MFT Program Handbook and the catalog text mirrored on fresno.edu, not from per-course catalog entries. Course titles, codes and unit values are confirmed across three independent sources (handbook, program page, program brochure) and agree.",
+  "Cohort size is not published anywhere reachable. The only inferable data points: seminary sections require a minimum of 7 students to run, and the Fall 2026 schedule lists two sections of COUN 793A Practicum I, both taught by C. McGrady.",
+  "No total client-hour requirement for graduation is published — only a weekly rate (10 direct hours/week). No relational (couple/family) hour minimum is published either; FPU is BBS-approved under BPC §4980.36, not COAMFTE-accredited, so COAMFTE's relational and observable-data floors do not apply.",
+  "Licensure exam pass rates (71% / 100%) are stated on the program page without a cohort year, denominator or source.",
+  "The handbook's degree-requirements list names COUN 759 Psychobiology & Psychopharmacology (0.5) while its own Appendix 2/5/6 plans label the same course COUN 758. The catalog and brochure both use 759; this is almost certainly a typo in the appendices but has not been confirmed with the registrar.",
+  "The handbook lists COUN 750D as 'Cross-Cultural Counseling [Experiential]' and the appendices gloss it as 'SF' (San Francisco), while the program page's catalog text lists COUN 750D as 'Experiential' and COUN 750A as 'Los Angeles'. The destination cities appear to rotate; no current itinerary was found.",
+  "No admissions deadline dates, cohort start dates or acceptance rate are published.",
+  "No Reddit, Student Doctor Network or GradCafe discussion of this specific program was reachable — Reddit's search endpoints and every general web search engine returned bot blocks from this environment. The GradReports reviews quoted above are mostly 2013–2019 and only two are identifiably from MFT or graduate students."
+ ],
+ "sources": [
+  {
+   "label": "MFT Program Handbook 2026–2027 (revised July 18, 2026) — degree requirements, course sequences, practicum, discernment, personal therapy",
+   "url": "https://www.fresno.edu/document/954"
+  },
+  {
+   "label": "M.A. in Marriage and Family Therapy program page, including the embedded 2026–27 catalog text, admissions requirements and per-unit tuition",
+   "url": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma"
+  },
+  {
+   "label": "M.A. in Marriage and Family Therapy program brochure (dated 4/2026) — 65-unit course table, 'offered fully on-site at our main Fresno campus', Seminary Integration Certificate",
+   "url": "https://www.fresno.edu/document/2474"
+  },
+  {
+   "label": "Fresno Pacific Biblical Seminary course schedule, Fall 2026 — actual class days, times and instructors",
+   "url": "https://www.fresno.edu/document/3100"
+  },
+  {
+   "label": "Pacific Counseling Center — locations, fees, and the statement that it welcomes clients 'of all faiths or no faith'",
+   "url": "https://www.fresno.edu/departments/pacific-counseling-center"
+  },
+  {
+   "label": "Pacific Counseling Center leadership and clinical supervisors",
+   "url": "https://www.fresno.edu/departments/on-site-counseling-center-leadership"
+  },
+  {
+   "label": "Fresno Pacific Biblical Seminary theological witness statement (Mennonite Brethren, evangelical and Anabaptist)",
+   "url": "https://www.fresno.edu/seminary/about/theological-witness-statement"
+  },
+  {
+   "label": "Seminary students page — current course schedules and the link to the 2026–2027 MFT Program Handbook",
+   "url": "https://www.fresno.edu/seminary/about/students"
+  },
+  {
+   "label": "GradReports — 45 student reviews of Fresno Pacific University",
+   "url": "https://www.gradreports.com/colleges/fresno-pacific-university"
+  }
+ ]
+}

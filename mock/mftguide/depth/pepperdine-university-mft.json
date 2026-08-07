@@ -1,0 +1,233 @@
+{
+ "institution": "Pepperdine University (GSEP)",
+ "character": [
+  "Pepperdine is religiously affiliated with the Churches of Christ and says so plainly in its catalog, and GSEP describes its psychology training as delivered \"in a Christian, values-centered context.\" But the MFT curriculum itself is secular clinical training. Read the 2026–27 catalog course list end to end and there is no theology course, no faith-integration course, no chapel or spiritual-formation requirement anywhere in the 60–66 units. The only place religion appears at all is inside PSY 622 Multicultural Counseling, where \"spirituality\" is listed alongside race, class, sexual orientation and ableness as one multicultural variable among many. If you want a program where a Christian framework shapes case conceptualization, this is not it; if you were worried a religious university would require you to profess something, that worry is misplaced here too. What the affiliation does buy is a mission-statement paragraph and a university culture, not a course.",
+  "The bigger thing prospective students get wrong is treating \"Pepperdine MFT\" as one program. It is three, with different lengths, campuses, admission bars and prices. The Daytime format is 62 units over two academic years (six terms), full-time only, one September start a year, at the Drescher Graduate Campus in Malibu — not West Los Angeles — with a psychology bachelor's preferred, a GRE score or a signed waiver form, a pre-specified lockstep sequence, and four consecutive terms of practicum beginning in the second term. The Evening format is 60–66 units at the Calabasas, Irvine and West Los Angeles graduate campuses, admits three times a year, takes any bachelor's degree (with two waivable foundation courses, PSY 657 and PSY 659, for non-psych majors), can be done part-time, and — the real structural difference — lets you take the core \"in any sequence after the necessary prerequisites have been met.\" The Online format uses the Evening curriculum on four 11-week terms a year and requires a fourth practicum term. Tuition tracks the split: $1,655 per unit at the graduate campuses versus $2,060 per unit at Malibu and online (2026–27), so the Malibu daytime degree costs roughly a quarter more per unit than the same school's evening degree.",
+  "The one genuinely uncommon thing in the course list is the Aliento / Latinx Communities emphasis, run out of the Irvine campus. It is not a certificate bolted onto the side: students take Latinx-specific versions of six core courses (PSY 674 diagnosis, 675 assessment, 676 theories, 677 multicultural, 678 techniques, 679 life cycle), two full terms of graded Spanish for clinical work — taught in Spanish, with all assignments in Spanish at the advanced level — an optional summer immersion in a Latin American country carrying a $3,000–$8,000 travel fee, required community service projects with local agencies and church communities, and PSY 663, a bilingual practicum in which \"case presentations and case consultations will be conducted bilingually, with an emphasis on Spanish.\" Very few California MFT programs make Spanish-language clinical competence a graded degree requirement rather than an elective interest."
+ ],
+ "orientation": "Generalist practitioner-scholar clinical psychology; the two-course couple/family sequence surveys every major systemic model rather than committing to one",
+ "signature": [
+  {
+   "code": "PSY 663",
+   "title": "Bilingual Clinical Practicum: Latinx Emphasis",
+   "units": "2, 2, 2",
+   "desc": "\"A prerequisite for this course is fluency in Spanish. Case presentations and case consultations will be conducted bilingually, with an emphasis on Spanish... The course will provide opportunities to practice oral and written Spanish language needed for psychotherapy service delivery.\"",
+   "verbatim": true,
+   "why": "A required, graded, three-term practicum seminar conducted in Spanish is close to unique among California MFT programs — most treat Spanish-language capacity as a hiring bonus, not a degree requirement. It is also the clearest signal that the Aliento emphasis is a real training track and not marketing.",
+   "src": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf"
+  },
+  {
+   "code": "PSY 673A",
+   "title": "Spanish Language and Culture in Counseling Latinx: Intermediate/Advanced",
+   "units": "3",
+   "desc": "\"The focus is on the proficiency required for conducting psychotherapy and psychological assessments with a variety of Spanish-dominant populations and providing professional and community-based presentations in Spanish. The course will be taught in Spanish, and all assignments must be completed in Spanish.\"",
+   "verbatim": true,
+   "why": "Note the catalog's fee footnote: PSY 673A is one of only four courses university-wide that include an international trip, with past costs of $3,000–$8,000 per person. A prospective Aliento student should budget for that; it is not disclosed on the program marketing page.",
+   "src": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf"
+  },
+  {
+   "code": "PSY 606",
+   "title": "Interpersonal Skills and Group Therapy",
+   "units": "3",
+   "desc": "\"This course examines group formats for therapeutic change, personal development, interpersonal skills training, and relationship enhancement. An experiential laboratory group is included.\"",
+   "verbatim": true,
+   "why": "The one-sentence tail is the information: an experiential lab group means you will be a member of a process group, not just study one. Pair it with the catalog's formal Student Disclosure of Personal Information policy, which warns that students \"may be required or invited to disclose personal information\" in coursework and supervision.",
+   "src": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/courses/"
+  },
+  {
+   "code": "PSY 661",
+   "title": "Preparation for Practicum",
+   "units": "2",
+   "desc": "\"This course addresses common questions and concerns students have prior to beginning clinical work at their practicum sites. Students are taught how to prepare for beginning stages of therapy, how to effectively utilize consultation and supervision, how to deal with clients in crisis, advocacy practices, and other practical skills such as completing case notes and other forms of treatment documentation.\"",
+   "verbatim": true,
+   "why": "A dedicated 2-unit course whose job is to get you placed and ready — you must take it a full term before you may register for practicum. In practice this is where the site search happens, using the Experiential Learning Cloud (formerly Tevera) platform and the course instructor.",
+   "src": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/courses/"
+  },
+  {
+   "code": "PSY 669",
+   "title": "Trauma in Diverse Populations",
+   "units": "3",
+   "desc": "\"Students are introduced to foundational and science-informed principles in trauma psychology as they are contextualized by culture... The course will survey interpersonal trauma (including child abuse and partner and spousal abuse) as well as natural disasters and medical trauma. This course satisfies the BBS requirement for coursework in spousal or partner abuse assessment, detection, and intervention.\"",
+   "verbatim": true,
+   "why": "Most California programs satisfy the BBS spousal/partner-abuse mandate with a workshop or a module. Pepperdine spends a full 3-unit course on trauma and folds the mandate into it, which means the required content arrives inside a trauma-psychology frame rather than as a compliance box.",
+   "src": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/courses/"
+  },
+  {
+   "code": "PSY 671",
+   "title": "Career Development Theory and Techniques",
+   "units": "3",
+   "desc": "\"This course prepares students to address the intersections of career, values, and life roles in the context of career counseling and responding to career- and work-related issues for majority and marginalized groups. Students will gain core knowledge of major career development theories...\"",
+   "verbatim": true,
+   "why": "A required 3-unit career-counseling course is unusual in an MFT-only curriculum; it is here because Pepperdine builds every format to satisfy LPCC academic requirements (B&P §§4999.33/.34/.36) at the same time as LMFT. That dual eligibility is a real benefit, and this course is part of what you pay for it.",
+   "src": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/courses/"
+  }
+ ],
+ "curriculum": {
+  "note": "Pepperdine publishes required course lists but not a term-by-term grid for any format. The Daytime format is lockstep (\"students take courses in a pre-specified sequence\") over six terms; the Evening/Online core \"may be completed in any sequence after the necessary prerequisites have been met,\" so the Evening student builds their own path. Units below are the 2026–27 catalog lists.",
+  "total_units": "Daytime 62; Evening 60–66 (54 if foundation courses are waived and 6 graduate units transfer in); Online uses the Evening core plus a fourth practicum term",
+  "terms": [
+   {
+    "label": "Foundation courses — Evening/Online/Aliento only (6 units; waived for psychology majors)",
+    "courses": [
+     "PSY 657 Psychopathology (3)",
+     "PSY 659 Behavioral Principles and Theories of Learning (3)"
+    ]
+   },
+   {
+    "label": "Core coursework — Evening/Online format (60 units, no fixed sequence)",
+    "courses": [
+     "PSY 600 Diagnosis and Treatment of Mental Health Disorders (3)",
+     "PSY 603 Assessment of Individuals, Couples, and Families (3)",
+     "PSY 606 Interpersonal Skills and Group Therapy (3)",
+     "PSY 612 Theories of Counseling and Psychotherapy (3)",
+     "PSY 622 Multicultural Counseling (3)",
+     "PSY 623 Ethics and Law for Mental Health Professionals (3)",
+     "PSY 624 Individual and Family Treatment of Substance Abuse (3)",
+     "PSY 626 Research and Evaluation Methods for Mental Health Professionals (3)",
+     "PSY 627 Psychopharmacology for Mental Health Professionals (3)",
+     "PSY 628 Human Sexuality and Intimacy (1)",
+     "PSY 637 Techniques of Counseling and Psychotherapy (3)",
+     "PSY 639 Couple and Family Therapy I (3)",
+     "PSY 640 Couple and Family Therapy II (3)",
+     "PSY 642 Mental Health Systems, Practice, and Advocacy (3)",
+     "PSY 658 Individual, Couple, and Family Development: A Life Cycle Approach (3)",
+     "PSY 661 Preparation for Practicum (2)",
+     "PSY 662 Clinical Practicum (2, 2, 2 — Online requires a fourth term)",
+     "PSY 668 Clinical Interventions with Children and Adolescents (3)",
+     "PSY 669 Trauma in Diverse Populations (3)",
+     "PSY 671 Career Development Theory and Techniques (3)"
+    ]
+   },
+   {
+    "label": "Daytime format — 62 units in a pre-specified two-year sequence (differences from Evening)",
+    "courses": [
+     "Same 20 core courses, but no PSY 657/659 foundation requirement",
+     "PSY 662 Clinical Practicum taken four consecutive terms (2, 2, 2, 2 = 8 units) instead of three",
+     "11–14 units in Fall and Spring terms; 6–8 units in Summer terms"
+    ]
+   },
+   {
+    "label": "Aliento / Latinx Communities emphasis — 60–72 units (replaces or adds to the core)",
+    "courses": [
+     "PSY 663 Bilingual Clinical Practicum: Latinx Emphasis (2, 2, 2) — alternative to PSY 662",
+     "PSY 672 / 672A Spanish Language and Culture: Beginning Conversations and Understanding Linguistic Context (3, 3)",
+     "or PSY 673 / 673A Spanish Language and Culture in Counseling Latinx: Intermediate/Advanced (3, 3)",
+     "PSY 674 Diagnosis and Treatment of Mental Health Disorders: Latinx Emphasis (3)",
+     "PSY 675 Assessment of Individuals, Couples, and Families: Latinx Emphasis (3)",
+     "PSY 676 Theories of Counseling and Psychotherapy: Latinx Emphasis (3)",
+     "PSY 677 Multicultural Counseling: Latinx Emphasis (3)",
+     "PSY 678 Techniques of Counseling and Psychotherapy: Latinx Emphasis (3)",
+     "PSY 679 Individual, Couple, and Family Development: A Life Cycle Approach—Latinx Emphasis (3)"
+    ]
+   }
+  ],
+  "src": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf"
+ },
+ "practicum": {
+  "starts": "Daytime: the second term of the program, then four successive terms. Evening/Aliento: after PSY 661 and the prerequisite core (PSY 600, 606, 612, 623, 637, 639), typically the second year, for at least three consecutive terms. Online: four terms.",
+  "hours": "Minimum 225 hours of direct client contact for the LMFT track; 280 hours for students pursuing the LPCC. Catalog notes the LMFT hours count toward the BBS 3,000-hour total, while the LPCC hours satisfy curriculum requirements only and cannot be counted toward the 3,000 post-degree hours.",
+  "who_places": "mixed",
+  "clinic": "Pepperdine Community Counseling Clinics — West Los Angeles, Irvine, and a separate Telehealth Community Counseling Clinic; sliding-scale fees of $15–$90 per session, with most ongoing sessions $15–$35 and a $25 initial evaluation at West LA. GSEP also serves the Los Angeles Union Rescue Mission.",
+  "detail": "The clinical training and professional development staff \"regularly visit, evaluate, and approve established and potential sites,\" and students search via the Experiential Learning Cloud (formerly Tevera) platform with help from their Preparation for Practicum instructor — but the catalog is explicit that the student must obtain the placement: \"Students must obtain a placement in an approved clinical setting, with a signed, written agreement on file.\" For Daytime students the agreement must be in place before the first class meeting of practicum. The Evening clinical training team maintains agency relationships across Southern California; the Online program has its own placement team that recommends and approves sites. Faculty \"strongly recommend\" personal psychotherapy for all students but do not require it.",
+  "src": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf",
+  "model": "assisted",
+  "model_evidence": "Clinical training staff assist students in applying to practicum sites and provide guidance throughout the fieldwork/practicum.",
+  "model_url": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/",
+  "model_why": null,
+  "branches": "The GRE answer depends on format, and the marketing pages contradict the catalog: the Daytime programme requires the GRE or a completed waiver form, while the Evening programme advertises no standardised tests.",
+  "own_clinic": true,
+  "clinic_names": [
+   "GSEP Community Counseling Clinic – West Los Angeles",
+   "GSEP Community Counseling Clinic – Irvine",
+   "Pepperdine Telehealth Community Counseling Clinic"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Not published in the catalog. The Evening program's own page claims an average class size of 25 and a 12:1 faculty-to-student ratio.",
+  "gre": "waivable",
+  "prereqs": "Daytime: a bachelor's in psychology preferred; applicants without a psych major/minor must complete Abnormal Psychology or Psychopathology; Behavioral Principles/Cognitive/Clinical Psychology; General Psychology; Human or Lifespan Development; and Research Methods or Statistics. The catalog explicitly says neuroscience, cognitive science, biopsychology, neuropsychology, anthropology and health sciences are NOT considered closely related fields. Evening/Online: any bachelor's; applicants without psychology coursework in the last seven years take PSY 657 and PSY 659 as foundation courses. All formats: two recommendations (not from co-workers, family friends or clients) and a 2–5 page statement of purpose. Aliento applicants are all interviewed.",
+  "deadline": "Evening, Summer 2026 entry: early application January 23, application deadline February 20, materials complete March 6. Evening admits three times a year (Fall, Spring, Summer); Daytime admits once, in September.",
+  "src": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf",
+  "gre_evidence": "Scores from the Graduate Record Examination (GRE—General Test), taken within the past five years or a completed GRE waiver form.",
+  "gre_url": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf",
+  "min_gpa": "3.0",
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"My school experience at Pepperdine has changed my life... The courses are crafted by licensed professionals... Each of my professors who has led our live Zoom classes has also been licensed... I always hear back from my school's clinical team within the same day.\"",
+   "who": "GradReports, Pepperdine — Clinical Psychology (online), March 2026",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/pepperdine-university"
+  },
+  {
+   "text": "\"The lack of openmindedness in this program was shocking... The price is obscene for the material that is gone over... Most classes feel redundant and like you are teaching yourself and the professor uses class time to voice their personal views on the world instead.\"",
+   "who": "GradReports, Pepperdine — Clinical Psychology, August 2023",
+   "sentiment": "negative",
+   "url": "https://www.gradreports.com/colleges/pepperdine-university"
+  },
+  {
+   "text": "A student described the evening format as meeting once a week, 4:15–7:00pm or 7:15–10:00pm, which let them keep their commute to one to three days a week — and called the program great \"albeit expensive.\"",
+   "who": "Student Doctor Network, user BacktoSchoolMFT, 2009 (old, but the evening scheduling model is unchanged)",
+   "sentiment": "mixed",
+   "url": "https://forums.studentdoctor.net/threads/pepperdine-mft.616822/"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/9/93/Pepperdine_University_aerial_view_July_2021.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pepperdine_University_aerial_view_July_2021.jpg",
+  "license": "CC0 1.0 (public domain dedication)",
+  "credit": "Alfred Twu, via Wikimedia Commons",
+  "caption": "Pepperdine's Malibu campus seen from the south. Only the Daytime MFT format is taught here (at the Drescher Graduate Campus); the Evening format runs at Calabasas, Irvine and West Los Angeles."
+ },
+ "gaps": [
+  "Pepperdine publishes no term-by-term course sequence for any MACLP format — only unit lists. The Daytime format is described as lockstep but the grid itself is not public.",
+  "No cohort size, entering class profile, attrition rate, graduation rate or BBS exam pass rate is published for any format. The 'average class size 25 / 12:1' figure comes from the program marketing page, not a reported statistic.",
+  "Could not confirm that MA (MACLP) students are actually placed at Pepperdine's own Community Counseling Clinics. The clinic pages refer to 'master's- and doctoral-level interns' and 'masters and doctoral students in clinical psychology' without naming the degree programs; the PsyD program is also housed at GSEP.",
+  "The assignment's location string lists the daytime MA at West Los Angeles. The 2026–27 catalog and the daytime program page both place it at the Drescher Graduate Campus in Malibu; West Los Angeles hosts the Evening format and GSEP's headquarters.",
+  "No COAMFTE accreditation — Pepperdine does not claim it anywhere in its materials, and mftcalifornia.com's accreditation roundup lists Pepperdine under WSCUC only. The program is built to California BBS statute (B&P §§4980.36/4980.42) rather than to COAMFTE standards.",
+  "Could not find a public Aliento cohort size, or confirmation of how often the Latin American summer immersion actually runs."
+ ],
+ "sources": [
+  {
+   "label": "Pepperdine GSEP Academic Catalog 2026–2027 (PDF, 286 pp — MFT programs at pp. 167–199, tuition p. 34)",
+   "url": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf"
+  },
+  {
+   "label": "MA in Clinical Psychology with MFT (Evening Format) — course descriptions",
+   "url": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/courses/"
+  },
+  {
+   "label": "MA in Clinical Psychology with MFT (Evening Format) — program page",
+   "url": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/"
+  },
+  {
+   "label": "MA in Clinical Psychology with MFT (Daytime Format) — program page",
+   "url": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-day/"
+  },
+  {
+   "label": "GSEP Community Psychology Counseling Clinics",
+   "url": "https://gsep.pepperdine.edu/about/clinics/"
+  },
+  {
+   "label": "Pepperdine online MA in Clinical Psychology (2U-supported marketing site) — practicum and licensure-state detail",
+   "url": "https://onlinegrad.pepperdine.edu/psychology/masters-clinical-psychology-online/"
+  },
+  {
+   "label": "2U partner page listing Pepperdine's online MA in Clinical Psychology (MFT) among its supported programs",
+   "url": "https://2u.com/partners/pepperdine-university/"
+  },
+  {
+   "label": "GradReports — Pepperdine University student reviews",
+   "url": "https://www.gradreports.com/colleges/pepperdine-university"
+  },
+  {
+   "label": "Student Doctor Network — Pepperdine MFT thread",
+   "url": "https://forums.studentdoctor.net/threads/pepperdine-mft.616822/"
+  },
+  {
+   "label": "U.S. Dept. of Education College Scorecard — Pepperdine, master's in CIP 42.28 (Clinical, Counseling and Applied Psychology): median federal graduate loan debt $82,000 (n=289), median earnings one year out $49,456",
+   "url": "https://collegescorecard.ed.gov/school/?121150-Pepperdine-University"
+  }
+ ]
+}

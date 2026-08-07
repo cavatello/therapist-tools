@@ -1,0 +1,240 @@
+{
+ "institution": "Hope International University",
+ "character": [
+  "The thing that separates Hope from most California MFT programs is that it is COAMFTE-accredited — accredited May 1, 2008, per its own Graduate Achievement Data disclosure — and the accreditation visibly drives the design rather than sitting in a footnote. The clinical requirement is not the BBS floor but COAMFTE's: 400 clinical training hours made up of at least 300 direct client hours \"of which at least 100 must be relational,\" plus at least 100 supervision hours \"of which at least 50 must be observable data\" (recordings, behind-the-mirror, reflecting team, co-therapy, or a supervisor in the room). Very few BBS-approved-only programs in the state commit to a published relational-hours floor at all, and a student who wants portability to other states or eventual AAMFT clinical membership should weigh that heavily. The same standard shows up upstream: students run simulated-client sessions from their first semester, record themselves as therapists in PSY6995, sign a four-way clinical training agreement between student, site, supervisor and program, and finish with a Comprehensive Case Presentation (PSY6920) built around a video clip with a transcription plus a written case report.",
+  "The second structural fact is that the M.A. is the front half of a doctorate, and the two share almost everything. There is one MFT Program Handbook that opens by saying it \"is your guide to the Master and Doctoral degrees in MFT.\" Susan Hastings, PsyD, is Chair and Program Director of the MFT Program and is also named as DMFT Program Director. The DMFT course list literally embeds the master's — MA-level courses appear in italics inside the doctoral Areas I–IV — and the DMFT page tells applicants they \"earn their M.A. in Marriage & Family Therapy along the way.\" The doctorate adds 60 units on top of the 60-unit MA (120 total, 10 years to complete), including PSY8820 Supervision in MFT, three Advanced MFT Theory courses split by lineage (Intergenerational, Strategic/Structural/Experiential, Contemporary), PSY8200 Faith Integration and Psychology, an internship and a dissertation. The practical consequence for a master's applicant is a faculty picture worth checking: the College of Psychology and Counseling's public faculty page lists three named full-time faculty across the whole college (Laura Steele, PsyD, Dean; Susan Hastings, PsyD; Robin Felix, PsyD, who chairs the M.S. in Counseling) and roughly seventeen adjunct professors, several of them master's-credentialed. This is a small, teaching-and-clinic-oriented department, not a research faculty.",
+  "On delivery, it is on-ground in Fullerton and unusually schedule-compressed. The 60-unit MA \"may be completed in 24 months,\" fall and spring terms are 16 weeks split into two 8-week modules, summer is 8 weeks, and \"most courses are offered during the day and/or evening on Tuesdays and/or Thursdays, and some courses are offered on Monday and/or Wednesday evenings\" — in practice a two-day-a-week campus footprint. The 2026-27 program packet advertises a 13:1 student/teacher ratio and $775 per unit, i.e. about $46,500 in tuition plus a $1,200 one-time practicum fee, a $200 Child Abuse Seminar fee, ~$90 for Track Your Hours and ~$95 for CAMFT membership. The program's own published outcomes are worth reading before applying: entering cohorts have ranged from 66 (2022-23) down to 30 (2025-26); on-time (2-year) graduation has run between about 36% and 60%; maximum graduation rate was 96–100% for cohorts entering 2016 through 2020 but 70.45%, 80.64% and 77.27% for the 2021-22, 2022-23 and 2023-24 cohorts; and licensure rates have ranged from 70.83% to 92%, against COAMFTE's 70% benchmark. The program explains the low on-time figure by noting that \"about 40%-50% of students choose to complete the program in 3 years.\""
+ ],
+ "orientation": "Systemic/family-systems, explicitly COAMFTE-shaped, with Christian integration as a required and graded strand (PSY6120 Christian Principles in MFT; a program learning outcome that students \"identify and apply Christian principles to the practice of marriage and family therapy\").",
+ "signature": [
+  {
+   "code": "PSY6990",
+   "title": "EMDR Therapy [Eye Movement Desensitization and Reprocessing]",
+   "units": "3",
+   "desc": "\"This course involves a complete integrated training that provides the knowledge and skills to utilize EMDR therapy, a comprehensive understanding of case conceptualization and treatment planning, and the ability to integrate EMDR therapy into clinical practice.\" Prerequisite: enrolled in PSY6800 Supervised Practicum. The program packet adds that it \"fulfills the first step towards EMDR certification as required by the EMDR International Association.\"",
+   "verbatim": true,
+   "why": "Full EMDR basic training normally costs a licensed clinician thousands of dollars after graduation; embedding it as a 3-unit elective you can take while still a trainee is a genuinely unusual and concrete perk. It is one of only three electives on offer, so choosing it means giving up Group Therapy or Special Topics.",
+   "src": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  },
+  {
+   "code": "PSY6920",
+   "title": "Comprehensive Case Presentation",
+   "units": "1",
+   "desc": "The final-semester capstone: \"designed to demonstrate the student's in-depth knowledge and application of the following core areas: clinical evaluation, crisis management and psychosocial stressors, treatment plan and case management, therapeutic interventions, legal issues, ethical issues, and diversity.\" It has two parts — a written case report and an oral case presentation \"which consists of a video clip with a transcription.\" Graded credit/no credit.",
+   "verbatim": true,
+   "why": "This replaces a thesis or a comprehensive written exam with a defense of your own recorded therapy. It is the clearest expression of the COAMFTE-style emphasis on observable data, and it means every graduate has had their actual clinical work watched and assessed by faculty, not just their writing about it.",
+   "src": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  },
+  {
+   "code": "PSY6120",
+   "title": "Christian Principles in Marriage and Family Therapy",
+   "units": "3",
+   "desc": "\"This course examines the integration of Christian principles with marriage and family therapy theories. Emphasis will be placed on the vocation and calling of being a marriage and family therapist in today's world.\" It is a required core course for every MA student and appears again in Area I of the DMFT.",
+   "verbatim": true,
+   "why": "This is the whole of the required faith content — one 3-unit course, plus a learning outcome about applying Christian principles clinically. Compared with a seminary-housed program, the theological load here is light and contained; compared with a state school, it is not zero. HIU also files a Religious Organization Exemption from California Education Code 66270, which prospective students of any background should read directly.",
+   "src": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  },
+  {
+   "code": "PSY6300",
+   "title": "Treatment of Older Adults",
+   "units": "3",
+   "desc": "\"This course examines the theory and application of assessment and intervention techniques with older adults and their families. Emphasis is placed on understanding the biological, developmental, contextual, cultural, and social factors that prevail during advanced age and recognize their effects on treatment.\"",
+   "verbatim": true,
+   "why": "A full required 3-unit course on geriatric clinical work is rare — most California programs cover aging in a one-unit module or fold it into lifespan development. Paired with required 3-unit courses on children and on couples, it means HIU makes every graduate take a dedicated treatment course at each end of the lifespan.",
+   "src": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  },
+  {
+   "code": "PSY6995",
+   "title": "Professional Development II",
+   "units": "1",
+   "desc": "Taken the semester before clinical training begins: \"designed to develop and practice basic clinical interviewing skills. Emphasis is on the continued development of the therapist and the structure of the therapeutic process.\" In practice it is the Advance to Practicum vehicle — it \"guides students through the process of obtaining a clinical training site, the advance to practicum process, and enhancing clinical skills,\" and students record themselves as therapists in it. Graded credit/no credit.",
+   "verbatim": true,
+   "why": "One of three required 1-unit Professional Development courses (I in the first semester, II before practicum, Advanced in the last semester) that bookend and gate the degree. The middle one is the real checkpoint: it produces the Professional Development Plan and the group Advance to Practicum interview that decide whether you are allowed to see clients at all.",
+   "src": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  },
+  {
+   "code": "PSY6110",
+   "title": "Interpersonal Communication and Therapeutic Qualities",
+   "units": "3",
+   "desc": "\"This course covers micro and macro elements of interpersonal and systemic communication along with contemporary family communication theories. An emphasis is placed on the common factors of client change, the interpersonal skills associated with activating client change, and the self as the therapist.\"",
+   "verbatim": true,
+   "why": "Explicitly organized around common-factors research and self-of-the-therapist rather than a technique catalogue — a deliberate stance about what actually moves clients, and the course most likely to shape how HIU graduates talk about their work.",
+   "src": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  }
+ ],
+ "curriculum": {
+  "note": "60 units (66 if the two foundational prerequisites are required), completable in 24 months on a fall start; a three-year track exists and roughly 40–50% of students take it. On-ground at the Fullerton campus, mostly Tuesday and/or Thursday day or evening with some Monday/Wednesday evening courses. Fall and spring are 16 weeks made of two 8-week modules; summer is 8 weeks. Up to 9 graduate units may transfer in. The sequence below is the handbook's published two-year course sequence; note that Supervised Practicum begins in the summer between year one and year two, so clinical work spans roughly the final three semesters.",
+  "total_units": "60 (66 with prerequisites)",
+  "terms": [
+   {
+    "label": "Prerequisites (if required)",
+    "courses": [
+     "PSY5010 Counseling Theories (3)",
+     "PSY4310 Community Mental Health (3)"
+    ]
+   },
+   {
+    "label": "Year 1 — First Semester (10 units)",
+    "courses": [
+     "PSY5990 Professional Development I (1)",
+     "PSY6100 Lifespan Development (3)",
+     "PSY6130 Theories of Marriage and Family Therapy (3)",
+     "PSY5120 Professional Ethics and Law (3)",
+     "PSY5225 Child Abuse Seminar (0)"
+    ]
+   },
+   {
+    "label": "Year 1 — Second Semester (13 units)",
+    "courses": [
+     "PSY6995 Professional Development II (1)",
+     "PSY5200 Substance Abuse, Addiction, and the Family (3)",
+     "PSY6110 Interpersonal Communication & Therapeutic Qualities (3)",
+     "PSY6125 Multicultural Perspectives in Counseling (3)",
+     "PSY6180 Psychopathology (3)",
+     "**Advance to Practicum**"
+    ]
+   },
+   {
+    "label": "Summer (12 units)",
+    "courses": [
+     "PSY6800 Supervised Practicum (3)",
+     "PSY6120 Christian Principles of MFT (3)",
+     "PSY5230 Disaster, Trauma, & Abuse Response (2)",
+     "PSY5240 Family Violence Prevention & Intervention (2)",
+     "Elective — PSY6140 Group Therapy, PSY6900 Special Topics or PSY6990 EMDR Seminar (2–3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Third Semester (12 units)",
+    "courses": [
+     "PSY5130 Research Methodology (3)",
+     "PSY6190 Marriage & Family Therapy Assessment (3)",
+     "PSY6350 Treatment of Couples (3)",
+     "PSY6800 Supervised Practicum (3)"
+    ]
+   },
+   {
+    "label": "Year 2 — Fourth Semester (13 units)",
+    "courses": [
+     "PSY6150 Treatment of Children (3)",
+     "PSY6300 Treatment of Older Adults (3)",
+     "PSY6400 Psychopharmacology (2)",
+     "PSY6800 Supervised Practicum (3)",
+     "PSY6920 Comprehensive Case Presentation (1)",
+     "PSY6999 Advanced Professional Development (1)"
+    ]
+   }
+  ],
+  "src": "https://www.hiu.edu/pdf/41189217_mft_program_handbook_2025-2026.pdf"
+ },
+ "practicum": {
+  "starts": "Summer between year one and year two on the standard two-year track — students take PSY6995 Professional Development II in the spring semester, clear Advance to Practicum at the end of it, and enroll in the first of three PSY6800 Supervised Practicum courses that summer. Clinical training therefore covers roughly the final three of five terms, and community placements run \"at least one year.\"",
+  "hours": "400 clinical training hours to graduate: at least 300 direct client hours, of which at least 100 must be relational (couple, family or group), with a maximum of 100 telehealth hours counting toward the 300; plus at least 100 supervision hours, of which at least 50 must be observable data. Separately, 100 non-direct hours and 50 professional development hours are required (25 of the PD hours must be done before Advance to Practicum). Up to 1,300 of these hours, including up to 750 direct client contact hours, may be applied toward the BBS licensing requirement.",
+  "who_places": "student-finds",
+  "clinic": "Hope Counseling Center (HCC) — the university's on-site clinic, whose services \"are provided by graduate students under the direct supervision of a licensed therapist\" and which \"serves clients from the campus and the surrounding community.\" It is described as \"a convenient location for some MFT students to gain clinical training hours,\" i.e. one approved option rather than a required rotation. Its director, Tanya Ward, M.S., is listed as an adjunct professor in the same department.",
+  "detail": "Clinical training at HIU is a staged, gated process rather than a single placement year. Simulated-client work starts in the very first semester and continues throughout: students role-play as both client and therapist, run an intake, demonstrate interventions and receive feedback, and by PSY6995 they are recording themselves as therapists on their own equipment. Advance to Practicum (A2P) is the gate — one semester before clinical training, the student must have completed at least 12 units plus any prerequisites and specifically PSY5120, PSY6180, PSY5990, PSY6995, PSY5225 and PSY6130, have logged 25 professional development hours, hold a 3.0 GPA, produce CAMFT membership and malpractice insurance certificates, a CV and a Professional Development Plan, and pass \"an Advance to Practicum Group Interview with a Faculty Member\" alongside peers; a one-time $1,200 practicum fee is charged when the first PSY6800 is taken. The student, not the program, secures the trainee position: HIU maintains a Clinical Training Site List reviewed inside PSY6995, but a student who wants a site not on it must file an Online Petition for Site Approval that \"takes a minimum of 6-8 weeks\" and where \"approval is not guaranteed.\" Once placed, students sign a four-way clinical training agreement, join Track Your Hours (~$90/year), attend weekly on-site supervision plus the weekly PSY6800 class, and submit end-of-semester paperwork through Watermark; the expected time commitment is \"about 10 – 20 hours per week during the final year of study.\" Students stay enrolled in PSY6800 continuously until the 400 hours are complete, and after three consecutive practicum courses plus 400 approved hours they may audit further sections while still working at the site. The trainee-to-associate handoff is taught explicitly rather than left to chance: PSY6999 Advanced Professional Development, taken in the final semester, \"examines associate status, licensing law, and licensing requirements\" and synthesizes the program in preparation for \"an associateship and the path to licensure,\" and the handbook spells out how the pre-degree hours (up to 1,300, including up to 750 direct) carry over onto the BBS ledger.",
+  "src": "https://www.hiu.edu/pdf/41189217_mft_program_handbook_2025-2026.pdf",
+  "model": "assisted",
+  "model_evidence": "Students must obtain a trainee position at an approved clinical training site to complete the required hours.",
+  "model_url": "https://www.hiu.edu/pdf/41189217_mft_program_handbook_2025-2026.pdf",
+  "model_why": null,
+  "branches": null,
+  "own_clinic": true,
+  "clinic_names": [
+   "Hope Counseling Center"
+  ]
+ },
+ "admissions": {
+  "cohort_size": "Published per-cohort entering numbers in the COAMFTE Graduate Achievement Data table: 39 (2024-25), 44 (2023-24), 66 (2022-23), 44 (2021-22), 52 (2020-21), 59 (2019-20), 43 (2018-19), 48 (2017-18), 55 (2016-17), and 30 for 2025-26. The 2026-27 program packet advertises a 13:1 student/teacher ratio.",
+  "gre": "not published",
+  "prereqs": "Bachelor's degree with a minimum 3.0 undergraduate GPA (applicants below it can explain their circumstances and meet individually with the Program Director before a decision). Two letters of recommendation for the MA (three for the DMFT), from academic and/or professional referees who may not be relatives; a minimum 500-word statement of purpose answering four set questions; a $50 application fee; official transcripts. A group interview with an MFT faculty member is scheduled on the Fullerton campus. Applicants without a psychology background are required to take PSY5010 Counseling Theories and/or PSY4310 Community Mental Health within their first 18 units and before clinical training.",
+  "deadline": "Not published; the program is on-ground with fall starts and the two-year sequence is written as a fall start, but no fixed application deadline appears on the program page, in the handbook or in the application guide.",
+  "src": "https://www.hiu.edu/pdf/COAMFTE-GAD-Table-Summer-2026.pdf",
+  "gre_evidence": "students are placed in practicum sites where they undergo real-world training experiences with diverse clientele",
+  "gre_url": "https://www.hiu.edu/graduate-students/academics/colleges/college-of-psychology-and-counseling/master-of-art-marriage-and-family-therapy",
+  "min_gpa": null,
+  "conflict": null
+ },
+ "voices": [
+  {
+   "text": "\"I think Hope's program is great because it's accessible, especially to those who didn't major in Psychology as an undergraduate. It is a COAMFTE accredited program, which has its benefits when it comes to portability... My main struggle is that the class work doesn't seem very rigorous. I'm concerned that I won't be prepared well enough for the MFT licensing exam.\"",
+   "who": "GradReports, MFT student review, 2.7/5, March 2015",
+   "sentiment": "mixed",
+   "url": "https://www.gradreports.com/colleges/hope-international-university"
+  },
+  {
+   "text": "\"They seem really adamant about finding you a job after you are done with the program to complete your hours. They seem to have a huge network of employers as well... The biggest downside of the college is the fact that they have no financial aid besides loans for the graduate program... The second year of the program seems to be higher in difficulty due to the practicums and the supervised hours that needed.\"",
+   "who": "GradReports, MFT graduate-program review, 3.8/5, August 2013",
+   "sentiment": "mixed",
+   "url": "https://www.gradreports.com/colleges/hope-international-university"
+  },
+  {
+   "text": "\"This is a great school and grad program. The teachers are very helpful and accessible; they want to best prepare us for our field... It's a private school so that means the costs are higher and that makes it more difficult to afford. However, the Financial Aid available makes it doable.\"",
+   "who": "GradReports, graduate student review, 4.2/5, October 2013",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/hope-international-university"
+  },
+  {
+   "text": "\"The faculty really challenges the students to think about the theories. Also the discussions are very open and everyone is free to voice their opinions. It's also very diverse. Age, ethnicity, and economic, and gender.\"",
+   "who": "GradReports, graduate student review, 4.9/5, February 2014",
+   "sentiment": "positive",
+   "url": "https://www.gradreports.com/colleges/hope-international-university"
+  },
+  {
+   "text": "\"I could not have picked a better program. From my professors I learned so much in the classroom about therapy, and even more about life. The professors are kind, empathetic and your biggest cheerleaders to get you across the finish line.\" — Megan Allcock, MFT graduate.",
+   "who": "University-published testimonial in HIU's own 2026-27 MFT program packet (marketing copy, not an independent review)",
+   "sentiment": "positive",
+   "url": "https://www.hiu.edu/pdf/Major%20Sheets/GRAD/Psychology%20&%20Counseling/GRAD_MA_MFT_26-27_Packet.pdf"
+  }
+ ],
+ "photo": {
+  "file": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Hope_International_University_Googie_Architecture.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Hope_International_University_Googie_Architecture.jpg",
+  "license": "CC BY-SA 3.0",
+  "credit": "Photo by Wikimedia Commons user Slcoats (CC BY-SA 3.0)",
+  "caption": "One of the main buildings on Hope International University's Fullerton campus, 2500 E. Nutwood Ave., where the on-ground MFT program meets."
+ },
+ "gaps": [
+  "The MFT student/faculty demographics PDF that HIU links from its program page (mft_student_faculty_demographics_summer_2025.pdf) is a scanned image with no extractable text layer, so its numbers could not be read or reported.",
+  "No application deadline is published for the MA. Fall starts are implied by the two-year sequence but never stated as a requirement.",
+  "The program handbook available on the site is the 2025-2026 edition; the catalog is 2026-2027. Where the two differ on tuition or fees, the 2026-27 catalog and program packet were used.",
+  "Faculty listings are department-wide rather than MFT-specific — the College of Psychology and Counseling faculty page does not say which of its ~17 adjuncts teach in the MFT program versus the M.S. in Counseling. Joy Kang, PsyD (Clinical Training Director) and Jacqueline Mack-Harris, PsyD (Clinical Training Coordinator) appear in the handbook's contact list but not on the public faculty page.",
+  "The catalog's course-description section prints the Comprehensive Case Presentation course code as 'PY6920'; every other source (handbook, program packet, degree tables) uses PSY6920. Treated here as a typo.",
+  "No Reddit, Student Doctor Network or GradCafe discussion of this program was reachable — Reddit's search endpoints and every general web search engine returned bot blocks from this environment. The independent reviews quoted are from GradReports and are 2013–2015; the only recent student voice found was university-published marketing copy.",
+  "Job placement and licensure figures in the Graduate Achievement Data table are self-reported by the program to COAMFTE and were not independently verified."
+ ],
+ "sources": [
+  {
+   "label": "MFT Program Handbook 2025–2026 — curriculum structure, program format, clinical training hours, Advance to Practicum, CCP, MA and DMFT course lists",
+   "url": "https://www.hiu.edu/pdf/41189217_mft_program_handbook_2025-2026.pdf"
+  },
+  {
+   "label": "HIU Academic Catalog 2026–2027 — PSY course descriptions, DMFT degree requirements, Hope Counseling Center",
+   "url": "https://www.hiu.edu/uploads/publication/HIU_Catalog_2026-2027.pdf"
+  },
+  {
+   "label": "M.A. in Marriage and Family Therapy program page — COAMFTE accreditation, delivery format, clinical hours summary",
+   "url": "https://www.hiu.edu/graduate-students/academics/colleges/college-of-psychology-and-counseling/master-of-art-marriage-and-family-therapy"
+  },
+  {
+   "label": "M.A. MFT 2026–27 program packet — 13:1 ratio, $775/unit and full fee breakdown, application steps, curriculum sheet",
+   "url": "https://www.hiu.edu/pdf/Major%20Sheets/GRAD/Psychology%20&%20Counseling/GRAD_MA_MFT_26-27_Packet.pdf"
+  },
+  {
+   "label": "COAMFTE Graduate Achievement Data table, Summer 2026 — cohort sizes, graduation, job placement and licensure rates 2016–2026",
+   "url": "https://www.hiu.edu/pdf/COAMFTE-GAD-Table-Summer-2026.pdf"
+  },
+  {
+   "label": "Doctor of Marriage & Family Therapy program page — DMFT/MA relationship, Hope Counseling Center",
+   "url": "https://www.hiu.edu/graduate-students/academics/colleges/college-of-psychology-and-counseling/dmft/"
+  },
+  {
+   "label": "College of Psychology and Counseling faculty listing",
+   "url": "https://www.hiu.edu/graduate-students/academics/colleges/college-of-psychology-and-counseling/master-of-art-marriage-and-family-therapy/faculty"
+  },
+  {
+   "label": "GradReports — 17 student reviews of Hope International University",
+   "url": "https://www.gradreports.com/colleges/hope-international-university"
+  }
+ ]
+}
