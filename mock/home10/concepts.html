@@ -1,0 +1,336 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The research, mocked up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0E1512;color:#E7EDE9;font-family:Inter,system-ui,sans-serif;
+ -webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 30px}
+h1,h2,h3,h4,h5{margin:0;font-family:Archivo,Inter,sans-serif;font-weight:800;
+ letter-spacing:-.03em;line-height:1.1}
+.top{padding:44px 0 30px;border-bottom:1px solid #22302A}
+.top h1{font-size:clamp(28px,3.6vw,44px)}
+.top p{margin:14px 0 0;font-size:15.6px;line-height:1.62;color:#8FA99A;max-width:72ch}
+.top b{color:#F6C560}
+.sec{padding:34px 0}
+.item{border:1px solid #22302A;border-radius:16px;margin-bottom:22px;background:#111A16;
+ overflow:hidden}
+.ihd{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:20px 24px;
+ border-bottom:1px solid #22302A;align-items:start}
+.inum{font-family:Archivo,sans-serif;font-size:19px;font-weight:800;color:#F6C560}
+.ihd h3{font-size:19px;margin-bottom:6px}
+.ihd .one{font-size:14.2px;color:#B7CCC0;margin:0 0 10px;line-height:1.55}
+.src{font-size:12.4px;color:#7C9488;margin:0}
+.src b{color:#A9C4B6}
+.demo{background:#F6F5F2;color:#1B1B1B;padding:30px}
+
+/* ---- shared page-mock furniture ---- */
+.pgdemo{background:#fff;border:2px solid #1B1B1B;border-radius:12px;padding:28px 30px;
+ max-width:820px}
+.crumb{font-size:12.6px;color:#6D7A72;margin-bottom:14px}
+.crumb a{color:#1D6EF5;font-weight:600}
+.dh1{font-size:34px;letter-spacing:-.04em}
+.ddeck,.scope{margin:8px 0 0;font-size:15.4px;color:#5F6367}
+.mvk,.vk{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
+ letter-spacing:.13em;text-transform:uppercase;color:#8B968F;margin-bottom:8px}
+
+/* 1 two clocks */
+.meta{margin-top:22px;border-top:2px solid #1B1B1B;padding-top:16px}
+.mrow{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:13.4px}
+.mk{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.12em;
+ text-transform:uppercase;color:#8B968F}
+.mrow b{font-weight:700;margin-right:14px}
+.mall{color:#1D6EF5;font-weight:700;font-size:12.8px;margin-left:auto}
+.vintage{margin-top:14px;background:#EFF4FE;border-left:4px solid #1D6EF5;
+ border-radius:0 8px 8px 0;padding:13px 16px}
+.vintage b{font-family:Archivo,sans-serif;font-size:16px;font-weight:800;
+ letter-spacing:-.02em;display:block}
+.vintage i{font-style:normal;display:block;font-size:12.6px;color:#5F6367;margin-top:5px}
+.upd{margin-top:18px;border:1px solid #E4E2DC;border-radius:10px;padding:14px 17px}
+.upd summary{font-family:Archivo,sans-serif;font-size:14px;font-weight:800;cursor:pointer}
+.upd dl{margin:12px 0 0}
+.upd dl div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;padding:9px 0;
+ border-top:1px solid #EDEBE4}
+.upd dt{font-family:'IBM Plex Mono',monospace;font-size:11.4px;color:#8B968F}
+.upd dd{margin:0;font-size:13.2px;line-height:1.55;color:#3F4B44}
+
+/* 2 review status */
+.rs{display:grid;gap:10px;max-width:820px}
+.rrow{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start;
+ background:#fff;border:2px solid #1B1B1B;border-radius:10px;padding:15px 17px}
+.rbadge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
+ letter-spacing:.09em;text-transform:uppercase;padding:6px 11px;border-radius:20px;
+ border:2px solid #1B1B1B;white-space:nowrap}
+.rbadge.full{background:#1D6EF5;color:#fff;border-color:#1D6EF5}
+.rbadge.part{background:#FFE9A8}
+.rbadge.thin{background:#EDEBE4}
+.rbadge.gap{background:#FBE0DA}
+.rrow p{margin:0 0 5px;font-size:13.6px;line-height:1.55;color:#3F4B44}
+.rrow i{font-style:normal;font-size:12px;color:#8B968F}
+
+/* 3 chain */
+.chain{display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:stretch}
+.cstep{position:relative;padding-right:26px}
+.cstep:last-child{padding-right:0}
+.cstep:not(:last-child):after{content:'→';position:absolute;right:6px;top:50%;
+ font-size:19px;color:#1D6EF5;font-weight:700}
+.cwhen{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
+ letter-spacing:.12em;text-transform:uppercase;color:#8B968F;margin-bottom:9px}
+.ccard{display:block;background:#fff;border:2px solid #1B1B1B;border-radius:12px;
+ padding:16px 17px;box-shadow:4px 4px 0 #1B1B1B;height:calc(100% - 26px)}
+.ci{display:block;width:28px;height:28px;margin-bottom:11px}
+.ci svg{width:28px;height:28px;image-rendering:pixelated}
+.ccard b{display:block;font-family:Archivo,sans-serif;font-size:15.4px;font-weight:800;
+ letter-spacing:-.02em;margin-bottom:4px}
+.ccard i{font-style:normal;display:block;font-size:12px;color:#6D7A72;line-height:1.4}
+.ccard p{margin:11px 0 0;padding-top:10px;border-top:1px solid #EDEBE4;font-size:12.4px;
+ line-height:1.5;color:#3F4B44}
+.clbl{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.13em;
+ text-transform:uppercase;color:#8B968F;margin:26px 0 11px}
+.cgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:560px}
+.ccard.flat{box-shadow:none;height:auto}
+
+/* 4 hub */
+.hub{max-width:900px}
+.mostv{margin-top:20px;background:#EFF4FE;border-radius:10px;padding:14px 17px}
+.mostv a{display:inline-block;font-size:13.6px;font-weight:600;color:#1D6EF5;
+ margin-right:20px;text-decoration:underline}
+.hsec{font-size:22px;margin:32px 0 14px;padding-top:18px;border-top:2px solid #1B1B1B}
+.ins{border-left:4px solid #1D6EF5;padding-left:18px;margin-bottom:22px}
+.ins h3{font-size:19px;margin-bottom:9px}
+.insg{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:22px;align-items:start}
+.insg p{margin:0;font-size:13.8px;line-height:1.62;color:#3F4B44}
+.insf{background:#fff;border:2px solid #1B1B1B;border-radius:10px;padding:13px 15px}
+.insf b{display:block;font-family:Archivo,sans-serif;font-size:24px;font-weight:800;
+ letter-spacing:-.04em;color:#1D6EF5;line-height:1}
+.insf span{display:block;font-size:11.4px;color:#6D7A72;margin-top:5px;line-height:1.35}
+.ysk{margin-top:11px}
+.ysk summary{font-size:12.4px;color:#1D6EF5;font-weight:600;cursor:pointer}
+.ysk p{margin:9px 0 0;font-size:12.6px;line-height:1.6;color:#6D7A72;background:#F6F5F2;
+ border-radius:8px;padding:12px 14px}
+.hcalc{display:flex;align-items:center;gap:16px;background:#1B1B1B;color:#fff;
+ border-radius:12px;padding:20px 22px}
+.hcalc b{display:block;font-family:Archivo,sans-serif;font-size:19px;font-weight:800;
+ letter-spacing:-.025em}
+.hcalc i{font-style:normal;font-size:13px;color:#9DB3A6}
+.hcalc .hgo{margin-left:auto;font-size:13.4px;font-weight:700;color:#F6C560;white-space:nowrap}
+.cls{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cl h4{font-size:13.6px;margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid #E4E2DC}
+.cl a{display:block;padding:7px 0}
+.cl a b{display:block;font-size:13.4px;font-weight:600;line-height:1.3}
+.cl a span{display:block;font-size:11.8px;color:#6D7A72;line-height:1.4;margin-top:2px}
+.citeb{margin-top:30px;padding-top:20px;border-top:2px solid #1B1B1B}
+.citeb code{display:block;font-family:'IBM Plex Mono',monospace;font-size:11.8px;
+ line-height:1.6;background:#F6F5F2;border-radius:8px;padding:12px 14px;color:#3F4B44}
+.citeb p{margin:11px 0 0;font-size:12.4px;line-height:1.6;color:#6D7A72}
+
+/* 5 two views */
+.tv{background:#fff;border:2px solid #1B1B1B;border-radius:12px;overflow:hidden;max-width:900px}
+.tvtabs{display:flex;border-bottom:2px solid #1B1B1B}
+.tvtabs button{flex:1;font-family:Inter,sans-serif;font-size:13.4px;font-weight:700;
+ border:0;border-right:2px solid #1B1B1B;background:#F6F5F2;padding:14px;cursor:pointer;
+ color:#6D7A72}
+.tvtabs button:last-child{border-right:0}
+.tvtabs button.on{background:#1D6EF5;color:#fff}
+.tvpane{display:none;padding:22px}
+.tvpane.on{display:block}
+.tvnote{margin:0 0 16px;font-size:12.8px;color:#6D7A72}
+.rgroups{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rgroup{border:1px solid #E4E2DC;border-radius:10px;overflow:hidden}
+.rghd{display:flex;justify-content:space-between;align-items:baseline;background:#F6F5F2;
+ padding:11px 14px;border-bottom:1px solid #E4E2DC}
+.rghd b{font-family:Archivo,sans-serif;font-size:14px;font-weight:800}
+.rghd i{font-style:normal;font-size:11.6px;color:#8B968F}
+.rgbody{padding:8px 14px 12px}
+.rgbody a{display:block;font-size:12.8px;padding:5px 0;color:#3F4B44}
+.rgmore{display:block;font-size:11.6px;color:#8B968F;padding-top:7px;margin-top:5px;border-top:1px dashed #E4E2DC}
+.rgbody em{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:8.8px;
+ letter-spacing:.09em;background:#1D6EF5;color:#fff;padding:2px 6px;border-radius:10px}
+.lfilters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.lfilters span{font-size:12.2px;font-weight:600;border:2px solid #1B1B1B;border-radius:20px;
+ padding:6px 12px}
+.lrows{display:grid;gap:8px}
+.lrow{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:20px;align-items:center;
+ border:1px solid #E4E2DC;border-radius:10px;padding:13px 15px}
+.lrow b{font-family:Archivo,sans-serif;font-size:14.6px;font-weight:800;letter-spacing:-.02em}
+.lrow p{margin:4px 0 0;font-size:12px;color:#6D7A72}
+.bdg{font-family:'IBM Plex Mono',monospace;font-size:8.8px;letter-spacing:.09em;
+ text-transform:uppercase;padding:3px 8px;border-radius:12px;background:#EDEBE4;
+ margin-left:7px;white-space:nowrap}
+.bdg.co{background:#1D6EF5;color:#fff}
+.lcost{text-align:right}
+.lbar{display:block;height:8px;border-radius:5px;background:#EDEBE4;overflow:hidden;
+ margin-bottom:7px}
+.lbar i{display:block;height:100%;background:#1D6EF5}
+.lbar.gh{background:none;border:1.5px dashed #C9C6BE}
+.lcost b{font-family:Archivo,sans-serif;font-size:15.4px;color:#1D6EF5}
+.lcost b.mut{color:#8B968F;font-family:Inter,sans-serif;font-weight:500;font-size:12.4px}
+.fixrow{display:flex;gap:15px;align-items:center;border-top:2px solid #1B1B1B;
+ background:#F6F5F2;padding:16px 22px}
+.fixrow>span{width:28px;height:28px;flex:none}
+.fixrow>span svg{width:28px;height:28px;image-rendering:pixelated}
+.fixrow b{display:block;font-family:Archivo,sans-serif;font-size:14px;font-weight:800}
+.fixrow i{font-style:normal;font-size:12.2px;color:#6D7A72;line-height:1.5}
+.fixbtn{margin-left:auto;background:#1B1B1B;color:#fff;font-size:12.6px;font-weight:700;
+ padding:10px 16px;border-radius:8px;white-space:nowrap}
+
+/* 6 situation tabs */
+.st{background:#fff;border:2px solid #1B1B1B;border-radius:12px;overflow:hidden;max-width:860px}
+.sttabs{display:flex;flex-wrap:wrap;border-bottom:2px solid #1B1B1B}
+.sttabs button{font-family:Inter,sans-serif;font-size:12.8px;font-weight:700;border:0;
+ border-right:2px solid #1B1B1B;background:#F6F5F2;padding:13px 15px;cursor:pointer;
+ color:#6D7A72;flex:1}
+.sttabs button.on{background:#1D6EF5;color:#fff}
+.stp{display:none;padding:20px 22px}
+.stp.on{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stp a b{display:block;font-family:Archivo,sans-serif;font-size:14.4px;font-weight:800;
+ letter-spacing:-.02em;margin-bottom:4px}
+.stp a span{font-size:12.2px;color:#6D7A72;line-height:1.45}
+
+/* 7 exec summary */
+.es{display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;background:#fff;
+ border:2px solid #1B1B1B;border-radius:12px;padding:24px 26px;max-width:880px}
+.estoc a{display:block;font-size:12.8px;padding:5px 0;color:#3F4B44}
+.estoc a i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ color:#1D6EF5;margin-right:9px}
+.estoc .l2{padding-left:18px;font-size:12.2px;color:#6D7A72}
+.trust{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:12.2px;
+ color:#6D7A72;padding-bottom:14px;border-bottom:1px solid #E4E2DC;margin-bottom:16px}
+.essum{font-size:20px;margin-bottom:11px}
+.esbox{background:#EFF4FE;border-left:4px solid #1D6EF5;border-radius:0 10px 10px 0;
+ padding:17px 19px}
+.esbox p{margin:0 0 11px;font-size:13.8px;line-height:1.64;color:#26303B}
+.esbox p:last-child{margin:0;font-weight:600}
+.esrest{margin:14px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C9C6BE}
+
+@media(max-width:960px){
+ .chain,.cls,.stp.on,.rgroups,.cgrid{grid-template-columns:1fr}
+ .cstep:after{display:none}
+ .insg,.es,.rrow,.lrow{grid-template-columns:1fr}
+ .demo{padding:16px}
+ .pgdemo{padding:18px}
+}
+</style></head><body>
+<div class="top"><div class="wrap"><h1>The seven recommendations, built.</h1>
+<p>Each one is the concrete version of a pattern found on a comparable site, using
+<b>only content that is already on Therapist Support</b> — real page titles, real
+descriptions, real figures. Nothing below is new copy. The note under each heading says
+what it is copying and why that site does it.</p></div></div>
+<div class="sec"><div class="wrap"><div class="item"><div class="ihd"><span class="inum">01</span><div><h3>Two clocks, and the reason for the change</h3><p class="one">A publish date, a last-checked date, and — separately — the vintage of the data itself. Plus a dated list of what actually changed and why.</p><p class="src">GOV.UK publishes <b>Last updated</b> with a one-line reason per revision. Tax Foundation keeps the <b>data vintage</b> (&ldquo;January 1, 2026&rdquo;) separate from the publish date. Every practitioner analogue I checked — White Coat Investor, Kitces, LLC University — has no update date at all.</p></div></div><div class="demo">
+<div class="pgdemo">
+  <div class="crumb"><a href="#">Therapist Support</a> › <a href="#">Licensure</a> › <span>BBS fees, 2026</span></div>
+  <h1 class="dh1">BBS fees, 2026</h1>
+  <p class="ddeck">halved in July, and reverting in 2030</p>
+
+  <div class="meta">
+    <div class="mrow">
+      <span class="mk">Published</span><b>14 January 2026</b>
+      <span class="mk">Last checked</span><b>1 August 2026</b>
+      <a class="mall" href="#">See all updates</a>
+    </div>
+    <div class="vintage"><span class="vk">Figures current as of</span>
+      <b>1 July 2026 BBS fee schedule</b>
+      <i>The schedule reverts 30 June 2030; this page will change then.</i></div>
+  </div>
+
+  <details class="upd" open>
+    <summary>Updates to this page</summary>
+    <dl>
+      <div><dt>1 August 2026</dt><dd>Re-checked against the published schedule after the
+        1 July reduction took effect. No further change.</dd></div>
+      <div><dt>1 July 2026</dt><dd>Registration through licence fell from $1,750 to $875.
+        Every figure on the page and in the 3,000-hours calculator updated.</dd></div>
+      <div><dt>14 January 2026</dt><dd>First published.</dd></div>
+    </dl>
+  </details>
+</div></div></div><div class="item"><div class="ihd"><span class="inum">02</span><div><h3>Review status — publish the depth of the check</h3><p class="one">One badge per page saying how thoroughly it has been verified. Turns an uneven site into an honest one.</p><p class="src">80,000 Hours prints <b>&ldquo;Based on a medium-depth investigation&rdquo;</b> on every career review. Nobody in this category does it. It is the only way to have 65 lightly-sourced school pages sit beside a statute-verified tax page without the weak ones quietly discrediting the strong ones.</p></div></div><div class="demo"><div class="rs"><div class="rrow"><span class="rbadge full">Verified to source</span><div><p>Every figure re-checked against the statute or schedule it cites, 1 Aug 2026.</p><i>e.g. BBS fees, 2026 · Sole prop or corporation</i></div></div><div class="rrow"><span class="rbadge part">Figures checked, narrative not re-read</span><div><p>The numbers are current. The surrounding argument has not been reviewed since it was written.</p><i>e.g. The pension you give up</i></div></div><div class="rrow"><span class="rbadge thin">Published sources only</span><div><p>Built from what the institution publishes about itself. Nothing independently verified.</p><i>e.g. 65 programme pages</i></div></div><div class="rrow"><span class="rbadge gap">Known gap</span><div><p>Something on this page could not be established. It is named in &ldquo;What I could not establish&rdquo;.</p><i>e.g. Cohort size · practicum hours</i></div></div></div></div></div><div class="item"><div class="ihd"><span class="inum">03</span><div><h3>Calculators as a top-level menu, chained into an order</h3><p class="one">Not six equal cards — a stated sequence, because the tools genuinely depend on each other.</p><p class="src">Student Doctor Network gives <b>Calculators</b> its own nav slot and publishes a recommended order. White Coat Investor buried its tools three levels down under <b>Recommended → Tools</b> and ended up with one white-labelled widget.</p></div></div><div class="demo"><div class="chain"><div class="cstep"><span class="cwhen">Start here</span><a class="ccard" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M3 1h10v1h-10zM3 2h1v1h-1zM12 2h1v1h-1zM4 3h1v1h-1zM11 3h1v1h-1zM5 4h1v1h-1zM10 4h1v1h-1zM6 5h1v1h-1zM9 5h1v1h-1zM7 6h2v1h-2zM7 7h2v1h-2zM7 8h2v1h-2zM6 9h1v1h-1zM9 9h1v1h-1zM5 10h1v1h-1zM10 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM3 12h1v1h-1zM12 12h1v1h-1zM3 13h1v1h-1zM12 13h1v1h-1zM3 14h10v1h-10z"/><path fill="#F6C560" d="M4 2h8v1h-8zM5 3h6v1h-6zM6 4h4v1h-4zM7 5h2v1h-2z"/><path fill="#3F9577" d="M7 9h2v1h-2zM6 10h4v1h-4zM5 11h6v1h-6zM4 12h8v1h-8zM4 13h8v1h-8z"/></svg></span><b>3,000 Hours</b><i>which gate is actually holding you</i><p>Before anything else: when are you actually licensed?</p></a></div><div class="cstep"><span class="cwhen">Then</span><a class="ccard" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M6 1h4v1h-4zM5 2h1v1h-1zM10 2h1v1h-1zM5 3h1v1h-1zM10 3h1v1h-1zM1 4h14v1h-14zM1 5h1v1h-1zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM7 7h2v1h-2zM14 7h1v1h-1zM1 8h6v1h-6zM9 8h6v1h-6zM1 9h1v1h-1zM7 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path fill="#2C6350" d="M2 5h12v1h-12zM2 6h12v1h-12zM2 7h5v1h-5zM9 7h5v1h-5zM2 9h5v1h-5zM9 9h5v1h-5zM2 10h12v1h-12zM2 11h12v1h-12zM2 12h12v1h-12z"/><path fill="#F6C560" d="M7 8h2v1h-2z"/></svg></span><b>Associate Job Advisor</b><i>compare AMFT jobs, pay and your 3,000 hours</i><p>Two offers on take-home, real hourly worth and licensure date.</p></a></div><div class="cstep"><span class="cwhen">Once licensed</span><a class="ccard" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M2 1h12v1h-12zM2 2h1v1h-1zM13 2h1v1h-1zM2 3h1v1h-1zM13 3h1v1h-1zM2 4h1v1h-1zM13 4h1v1h-1zM2 5h1v1h-1zM13 5h1v1h-1zM2 6h1v1h-1zM13 6h1v1h-1zM2 7h1v1h-1zM13 7h1v1h-1zM2 8h1v1h-1zM13 8h1v1h-1zM2 9h1v1h-1zM13 9h1v1h-1zM2 10h1v1h-1zM13 10h1v1h-1zM2 11h1v1h-1zM13 11h1v1h-1zM2 12h1v1h-1zM13 12h1v1h-1zM2 13h1v1h-1zM13 13h1v1h-1zM2 14h12v1h-12z"/><path fill="#FFF3DC" d="M3 2h10v1h-10zM3 3h1v1h-1zM12 3h1v1h-1zM3 4h1v1h-1zM12 4h1v1h-1zM3 5h10v1h-10zM3 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM12 6h1v1h-1zM3 7h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM12 7h1v1h-1zM3 8h10v1h-10zM3 9h1v1h-1zM6 9h1v1h-1zM9 9h1v1h-1zM12 9h1v1h-1zM3 10h1v1h-1zM6 10h1v1h-1zM9 10h1v1h-1zM12 10h1v1h-1zM3 11h10v1h-10zM3 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM3 13h1v1h-1zM6 13h1v1h-1zM9 13h1v1h-1zM12 13h1v1h-1z"/><path fill="#F6C560" d="M4 3h8v1h-8zM4 4h8v1h-8zM10 12h2v1h-2zM10 13h2v1h-2z"/><path fill="#3F9577" d="M4 6h2v1h-2zM7 6h2v1h-2zM10 6h2v1h-2zM4 7h2v1h-2zM7 7h2v1h-2zM10 7h2v1h-2zM4 9h2v1h-2zM7 9h2v1h-2zM10 9h2v1h-2zM4 10h2v1h-2zM7 10h2v1h-2zM10 10h2v1h-2zM4 12h2v1h-2zM7 12h2v1h-2zM4 13h2v1h-2zM7 13h2v1h-2z"/></svg></span><b>Practice Simulator</b><i>what a California practice actually pays</i><p>Rate and caseload in, a real net figure out.</p></a></div><div class="cstep"><span class="cwhen">Then</span><a class="ccard" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M3 1h10v1h-10zM3 2h1v1h-1zM12 2h1v1h-1zM3 3h1v1h-1zM5 3h5v1h-5zM12 3h1v1h-1zM3 4h1v1h-1zM12 4h1v1h-1zM3 5h1v1h-1zM5 5h3v1h-3zM12 5h1v1h-1zM3 6h1v1h-1zM12 6h1v1h-1zM3 7h1v1h-1zM5 7h5v1h-5zM12 7h1v1h-1zM3 8h1v1h-1zM12 8h1v1h-1zM3 9h1v1h-1zM5 9h3v1h-3zM12 9h1v1h-1zM3 10h1v1h-1zM12 10h1v1h-1zM3 11h1v1h-1zM5 11h5v1h-5zM12 11h1v1h-1zM3 12h1v1h-1zM12 12h1v1h-1zM3 13h2v1h-2zM6 13h2v1h-2zM9 13h2v1h-2zM12 13h1v1h-1zM4 14h1v1h-1zM6 14h2v1h-2zM9 14h1v1h-1zM11 14h1v1h-1z"/><path fill="#FFF3DC" d="M4 2h8v1h-8zM4 3h1v1h-1zM10 3h2v1h-2zM4 4h8v1h-8zM4 5h1v1h-1zM8 5h4v1h-4zM4 6h8v1h-8zM4 7h1v1h-1zM10 7h2v1h-2zM4 8h8v1h-8zM4 9h1v1h-1zM8 9h1v1h-1zM11 9h1v1h-1zM4 10h5v1h-5zM11 10h1v1h-1zM4 11h1v1h-1zM10 11h2v1h-2zM4 12h8v1h-8zM5 13h1v1h-1zM8 13h1v1h-1zM11 13h1v1h-1z"/><path fill="#F6C560" d="M9 9h2v1h-2zM9 10h2v1h-2z"/></svg></span><b>Tax &amp; Retirement</b><i>how much of your tax bill is optional</i><p>Your own profit against every deferral account and the entity choice.</p></a></div></div><p class="clbl">And two that stand alone</p><div class="cgrid"><a class="ccard flat" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM2 3h1v1h-1zM13 3h1v1h-1zM3 4h1v1h-1zM12 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM5 6h1v1h-1zM10 6h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM7 9h2v1h-2zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h1v1h-1zM10 13h1v1h-1zM5 14h6v1h-6z"/><path fill="#3F9577" d="M2 2h12v1h-12zM3 3h9v1h-9zM4 4h7v1h-7zM5 5h6v1h-6zM6 6h4v1h-4zM7 7h2v1h-2zM7 8h2v1h-2z"/><path fill="#F6C560" d="M12 3h1v1h-1zM11 4h1v1h-1zM7 10h2v1h-2zM7 11h2v1h-2zM7 12h2v1h-2zM6 13h4v1h-4z"/></svg></span><b>Grow Your Practice</b><i>what a client is worth, and where they come from</i></a><a class="ccard flat" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M7 1h2v1h-2zM6 2h1v1h-1zM9 2h1v1h-1zM5 3h1v1h-1zM10 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM3 5h1v1h-1zM12 5h1v1h-1zM2 6h1v1h-1zM13 6h1v1h-1zM1 7h14v1h-14zM3 8h1v1h-1zM12 8h1v1h-1zM3 9h1v1h-1zM7 9h2v1h-2zM12 9h1v1h-1zM3 10h1v1h-1zM7 10h2v1h-2zM12 10h1v1h-1zM3 11h1v1h-1zM12 11h1v1h-1zM3 12h1v1h-1zM7 12h2v1h-2zM12 12h1v1h-1zM3 13h1v1h-1zM7 13h2v1h-2zM12 13h1v1h-1zM3 14h10v1h-10z"/><path fill="#F6C560" d="M7 2h2v1h-2zM6 3h4v1h-4zM5 4h6v1h-6zM4 5h8v1h-8zM3 6h10v1h-10z"/><path fill="#FFF3DC" d="M4 8h8v1h-8zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h8v1h-8zM4 12h3v1h-3zM9 12h3v1h-3zM4 13h3v1h-3zM9 13h3v1h-3z"/><path fill="#3F9577" d="M5 9h2v1h-2zM9 9h2v1h-2zM5 10h2v1h-2zM9 10h2v1h-2z"/></svg></span><b>Cost of Living</b><i>what a month costs, and what is left</i></a></div></div></div><div class="item"><div class="ihd"><span class="inum">04</span><div><h3>The topic hub, on the Our World in Data template</h3><p class="one">Scope line → most viewed → key insights (claim, figure, and what you should know about it) → the calculator → reading → cite. Overview first, details on demand.</p><p class="src">Our World in Data runs this exact sequence on all 126 topic pages, and states the rationale: Shneiderman's <b>&ldquo;overview first, zoom and filter, then details-on-demand&rdquo;</b>. The <b>What you should know about this data</b> box is where the caveats live, so the headline can stay a clean claim.</p></div></div><div class="demo">
+<div class="pgdemo hub">
+  <div class="crumb"><a href="#">Therapist Support</a> › <span>Money</span></div>
+  <h1 class="dh1">Money</h1>
+  <p class="scope">Includes entity choice, self-employment tax, retirement accounts and deductions.</p>
+
+  <div class="mostv"><span class="mvk">Most viewed</span>
+    <a href="#">Sole prop or corporation</a>
+    <a href="#">The S-corp payroll gap</a>
+    <a href="#">What you can deduct</a></div>
+
+  <h2 class="hsec">Key insights</h2>
+  <div class="ins"><h3>$18,244 of a $69,410 tax bill is a choice.</h3><div class="insg"><p>On a $208,350 practice profit, the difference between the worst legal outcome and the best one is decided by two things: the entity, and where the retirement money goes.</p><div class="insf"><b>$18,244</b><span>optional, on that profit</span></div></div><details class="ysk"><summary>What you should know about this figure</summary><p>Computed for a California-resident sole proprietor filing single at 2026 federal and California rates, with no other household income. Your own figure will differ; the calculator below runs it on your numbers.</p></details></div><div class="ins"><h3>A California therapist cannot form an LLC.</h3><div class="insg"><p>Cal. Corp. Code §17701.04(e) blocks a limited liability company from rendering services that require a licence. The real choice is sole proprietorship or a professional corporation.</p><div class="insf"><b>§17701.04(e)</b><span>the section that blocks it</span></div></div><details class="ysk"><summary>What you should know about this figure</summary><p>The professional corporation is a state filing; the S-corp election is a separate federal tax choice made on top of it. The two are routinely conflated.</p></details></div><div class="ins"><h3>California removed the SDI wage ceiling.</h3><div class="insg"><p>State disability insurance is charged at 1.3% on the entire salary with no cap — $1,248 on a $96,000 S-corp wage. Most S-corp comparisons omit it entirely.</p><div class="insf"><b>$1,248</b><span>on a $96,000 salary</span></div></div><details class="ysk"><summary>What you should know about this figure</summary><p>Rate confirmed against the EDD schedule for 2026. The cap was removed in 2024, which is why older comparisons understate the cost of an S-corp in California.</p></details></div>
+
+  <h2 class="hsec">Run it on your own numbers</h2>
+  <a class="hcalc" href="#"><span class="ci"><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M3 1h10v1h-10zM3 2h1v1h-1zM12 2h1v1h-1zM3 3h1v1h-1zM5 3h5v1h-5zM12 3h1v1h-1zM3 4h1v1h-1zM12 4h1v1h-1zM3 5h1v1h-1zM5 5h3v1h-3zM12 5h1v1h-1zM3 6h1v1h-1zM12 6h1v1h-1zM3 7h1v1h-1zM5 7h5v1h-5zM12 7h1v1h-1zM3 8h1v1h-1zM12 8h1v1h-1zM3 9h1v1h-1zM5 9h3v1h-3zM12 9h1v1h-1zM3 10h1v1h-1zM12 10h1v1h-1zM3 11h1v1h-1zM5 11h5v1h-5zM12 11h1v1h-1zM3 12h1v1h-1zM12 12h1v1h-1zM3 13h2v1h-2zM6 13h2v1h-2zM9 13h2v1h-2zM12 13h1v1h-1zM4 14h1v1h-1zM6 14h2v1h-2zM9 14h1v1h-1zM11 14h1v1h-1z"/><path fill="#FFF3DC" d="M4 2h8v1h-8zM4 3h1v1h-1zM10 3h2v1h-2zM4 4h8v1h-8zM4 5h1v1h-1zM8 5h4v1h-4zM4 6h8v1h-8zM4 7h1v1h-1zM10 7h2v1h-2zM4 8h8v1h-8zM4 9h1v1h-1zM8 9h1v1h-1zM11 9h1v1h-1zM4 10h5v1h-5zM11 10h1v1h-1zM4 11h1v1h-1zM10 11h2v1h-2zM4 12h8v1h-8zM5 13h1v1h-1zM8 13h1v1h-1zM11 13h1v1h-1z"/><path fill="#F6C560" d="M9 9h2v1h-2zM9 10h2v1h-2z"/></svg></span>
+    <div><b>Tax &amp; Retirement</b><i>how much of your tax bill is optional</i></div>
+    <span class="hgo">Open the calculator →</span></a>
+
+  <h2 class="hsec">Reading</h2>
+  <div class="cls"><div class="cl"><h4>Choosing a structure</h4><a href="#"><b>Sole prop or corporation</b><span>why a California therapist cannot form an LLC</span></a><a href="#"><b>The S-corp payroll gap</b><span>the $1,248 most comparisons leave out</span></a><a href="#"><b>Cost of incorporating</b><span>$800 before you see a client</span></a></div><div class="cl"><h4>Paying the tax</h4><a href="#"><b>Estimated taxes</b><span>four dates, and one of them is zero</span></a><a href="#"><b>What you can deduct</b><span>and the four things that do not work</span></a><a href="#"><b>The home office</b><span>both methods, worked, for telehealth</span></a></div><div class="cl"><h4>Putting money away</h4><a href="#"><b>The backdoor Roth</b><span>and the balance that ruins it</span></a><a href="#"><b>Solo 401(k) or SEP</b><span>which plan lets you put away more</span></a><a href="#"><b>The pension you give up</b><span>what a low S-corp salary costs later</span></a></div></div>
+
+  <div class="citeb"><span class="mvk">Cite this page</span>
+    <code>Therapist Support, &ldquo;Money&rdquo;, checked 1 August 2026,
+      cavatello.github.io/therapist-tools/money/</code>
+    <p>Everything here is free to reuse with attribution. If you are a programme or a
+      professional association and want to link to a figure, link to the page that carries
+      it rather than copying the number — it will change.</p></div>
+</div></div></div><div class="item"><div class="ihd"><span class="inum">05</span><div><h3>The 65 schools as two objects, not one</h3><p class="one">An orientation view for &ldquo;what are my options&rdquo; and a lookup view for &ldquo;does this one qualify&rdquo; — both kept, both linked.</p><p class="src">Kitces' AdvisorTech Map grew until it defeated its own purpose; he says so outright. The fix was adding a filterable directory <b>without deleting the map</b>. The correction affordance at the bottom is Levels.fyi's <b>Contribute</b> idea — how one person keeps 65 rows accurate.</p></div></div><div class="demo">
+<div class="tv">
+  <div class="tvtabs"><button class="on" data-v="compare">Compare — what are my options?</button>
+    <button data-v="find">Find — does this one qualify?</button></div>
+  <div class="tvpane on" data-v="compare">
+    <p class="tvnote">Orientation view. Grouped so you can see the shape of the field
+      before you filter it away.</p>
+    <div class="rgroups"><div class="rgroup"><div class="rghd"><b>LA &amp; Orange County</b><i>24 programmes</i></div><div class="rgbody"><a href="#">California State University, Northridge <em>COAMFTE</em></a><a href="#">Chapman University <em>COAMFTE</em></a><a href="#">University of Southern California</a><a href="#">Pepperdine University</a><a href="#">Loyola Marymount University</a><a href="#">CSU Fullerton (Extension)</a><span class="rgmore">+18 more</span></div></div><div class="rgroup"><div class="rghd"><b>SF Bay</b><i>12 programmes</i></div><div class="rgbody"><a href="#">California Institute of Integral Studies</a><a href="#">University of San Francisco</a><a href="#">Santa Clara University</a><a href="#">San Francisco State University</a><span class="rgmore">+8 more</span></div></div><div class="rgroup"><div class="rghd"><b>San Diego</b><i>7 programmes</i></div><div class="rgbody"><a href="#">San Diego State University <em>COAMFTE</em></a><a href="#">University of San Diego <em>COAMFTE</em></a><span class="rgmore">+5 more</span></div></div><div class="rgroup"><div class="rghd"><b>Central Valley</b><i>9 programmes</i></div><div class="rgbody"><a href="#">California State University, Fresno</a><span class="rgmore">+8 more</span></div></div><div class="rgroup"><div class="rghd"><b>North &amp; other</b><i>13 programmes</i></div><div class="rgbody"><a href="#">California State University, Chico</a><span class="rgmore">+12 more</span></div></div></div>
+  </div>
+  <div class="tvpane" data-v="find">
+    <p class="tvnote">Lookup view. The same 65 rows, filterable, sorted by published cost.</p>
+    <div class="lfilters"><span>COAMFTE only</span><span>Publishes tuition</span>
+      <span>Under $90k</span><span>SF Bay</span></div>
+    <div class="lrows"><a class="lrow" href="#"><div><b>California State University, Northridge</b> <span class="bdg co">COAMFTE</span><p>Northridge · 72 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a><a class="lrow" href="#"><div><b>San Diego State University</b> <span class="bdg co">COAMFTE</span><p>San Diego · 60 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a><a class="lrow" href="#"><div><b>University of San Diego</b> <span class="bdg co">COAMFTE</span><p>San Diego · 60 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a><a class="lrow" href="#"><div><b>Chapman University</b> <span class="bdg co">COAMFTE</span><p>Orange · 60 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a><a class="lrow" href="#"><div><b>University of Southern California</b> <span class="bdg">BBS-listed</span><p>Los Angeles · 60 units</p></div><div class="lcost"><span class="lbar"><i style="width:100%"></i></span><b>$152,340</b></div></a><a class="lrow" href="#"><div><b>Pepperdine University</b> <span class="bdg">BBS-listed</span><p>West LA · Irvine · Online · 60–68 units</p></div><div class="lcost"><span class="lbar"><i style="width:92%"></i></span><b>$140,080</b></div></a><a class="lrow" href="#"><div><b>Loyola Marymount University</b> <span class="bdg">BBS-listed</span><p>Los Angeles · 57–60 units</p></div><div class="lcost"><span class="lbar"><i style="width:71%"></i></span><b>$108,840</b></div></a><a class="lrow" href="#"><div><b>California Institute of Integral Studies</b> <span class="bdg">BBS-listed</span><p>San Francisco · 60 units</p></div><div class="lcost"><span class="lbar"><i style="width:57%"></i></span><b>$86,940</b></div></a><a class="lrow" href="#"><div><b>University of San Francisco</b> <span class="bdg">BBS-listed</span><p>San Francisco · Sacramento · 60 units</p></div><div class="lcost"><span class="lbar"><i style="width:53%"></i></span><b>$81,000</b></div></a><a class="lrow" href="#"><div><b>Santa Clara University</b> <span class="bdg">BBS-listed</span><p>Santa Clara · 90 quarter units</p></div><div class="lcost"><span class="lbar"><i style="width:43%"></i></span><b>$65,340</b></div></a><a class="lrow" href="#"><div><b>CSU Fullerton (Extension)</b> <span class="bdg">BBS-listed</span><p>Fullerton · 63 units</p></div><div class="lcost"><span class="lbar"><i style="width:28%"></i></span><b>$42,525</b></div></a><a class="lrow" href="#"><div><b>San Francisco State University</b> <span class="bdg">BBS-listed</span><p>San Francisco · 60 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a><a class="lrow" href="#"><div><b>California State University, Fresno</b> <span class="bdg">BBS-listed</span><p>Fresno · 60 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a><a class="lrow" href="#"><div><b>California State University, Chico</b> <span class="bdg">BBS-listed</span><p>Chico · 60 units</p></div><div class="lcost"><span class="lbar gh"></span><b class="mut">Not published</b></div></a></div>
+  </div>
+  <div class="fixrow"><span><svg  viewBox="0 0 16 16" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg" ><path fill="#17271F" d="M3 1h10v1h-10zM3 2h1v1h-1zM12 2h1v1h-1zM3 3h1v1h-1zM5 3h5v1h-5zM12 3h1v1h-1zM3 4h1v1h-1zM12 4h1v1h-1zM3 5h1v1h-1zM5 5h5v1h-5zM12 5h1v1h-1zM3 6h1v1h-1zM12 6h1v1h-1zM3 7h1v1h-1zM5 7h4v1h-4zM12 7h1v1h-1zM3 8h1v1h-1zM12 8h1v1h-1zM3 9h1v1h-1zM5 9h5v1h-5zM12 9h1v1h-1zM3 10h1v1h-1zM12 10h1v1h-1zM3 11h10v1h-10zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h1v1h-1zM10 13h1v1h-1zM6 14h1v1h-1zM9 14h1v1h-1zM7 15h2v1h-2z"/><path fill="#FFF3DC" d="M4 2h8v1h-8zM4 3h1v1h-1zM10 3h2v1h-2zM4 4h8v1h-8zM4 5h1v1h-1zM10 5h2v1h-2zM4 6h8v1h-8zM4 7h1v1h-1zM9 7h3v1h-3zM4 8h8v1h-8zM4 9h1v1h-1zM10 9h2v1h-2zM4 10h8v1h-8z"/><path fill="#8E4B45" d="M7 12h2v1h-2zM6 13h4v1h-4zM7 14h2v1h-2z"/></svg></span><div><b>Something wrong on a row?</b>
+    <i>Every programme row carries a correction link. Sixty-five rows maintained by one
+      person stay accurate because readers report drift.</i></div>
+    <a class="fixbtn" href="#">Report a change</a></div>
+</div></div></div><div class="item"><div class="ihd"><span class="inum">06</span><div><h3>A stage router that costs nothing but curation</h3><p class="one">Six tabs, three hand-picked links each. A career-stage entry point without a second information architecture.</p><p class="src">Kitces runs a seven-tab, forty-two-link version on his Start Here page. This matters because <b>NN/g advises against audience-based navigation</b> — people cannot reliably self-identify — and because White Coat Investor, with the strongest stage story in the category, never built one. A widget gets the benefit and can be deleted if it does not earn its place.</p></div></div><div class="demo"><div class="st"><div class="sttabs"><button class="on" data-s="0">Thinking about the degree</button><button class="" data-s="1">Registered associate</button><button class="" data-s="2">Newly licensed</button><button class="" data-s="3">Established solo</button><button class="" data-s="4">Growing</button></div><div class="stpanes"><div class="stp on" data-s="0"><a href="#"><b>MFT programmes</b><span>65 California schools, and what people say</span></a><a href="#"><b>Becoming an MFT</b><span>every licensure requirement, with its code section</span></a><a href="#"><b>Cost of Living</b><span>what a month costs, and what is left</span></a></div><div class="stp " data-s="1"><a href="#"><b>3,000 Hours</b><span>which gate is actually holding you</span></a><a href="#"><b>Associate Job Advisor</b><span>compare AMFT jobs, pay and your 3,000 hours</span></a><a href="#"><b>BBS fees, 2026</b><span>halved in July, and reverting in 2030</span></a></div><div class="stp " data-s="2"><a href="#"><b>Practice Simulator</b><span>what a California practice actually pays</span></a><a href="#"><b>The Rate Gap</b><span>what insurance pays against private pay</span></a><a href="#"><b>Insurance panels</b><span>the 60-day rule, and which panels are open</span></a></div><div class="stp " data-s="3"><a href="#"><b>Tax &amp; Retirement</b><span>how much of your tax bill is optional</span></a><a href="#"><b>Sole prop or corporation</b><span>why a California therapist cannot form an LLC</span></a><a href="#"><b>What you can deduct</b><span>and the four things that do not work</span></a></div><div class="stp " data-s="4"><a href="#"><b>Grow Your Practice</b><span>what a client is worth, and where they come from</span></a><a href="#"><b>Hiring an associate</b><span>the loaded cost and the break-even</span></a><a href="#"><b>SimplePractice</b><span>what the software actually costs, all in</span></a></div></div></div></div></div><div class="item"><div class="ihd"><span class="inum">07</span><div><h3>In short, plus a numbered table of contents</h3><p class="one">A plain-language abstract at the top of anything long, and an addressable ToC beside it.</p><p class="src">Kitces opens every article with an <b>Executive Summary</b> and mails it daily so readers can decide <em>not</em> to read the piece. 80,000 Hours pairs <b>In a nutshell:</b> with a numbered sticky ToC (1, 1.1, 2…). For statute-dense material aimed at someone who is not a tax professional, this is the difference between authoritative and impenetrable.</p></div></div><div class="demo">
+<div class="es">
+  <aside class="estoc"><p class="mvk">On this page</p><a href="#" class="l1"><i>1</i>Why two choices exist</a><a href="#" class="l2"><i>1.1</i>What California actually blocks</a><a href="#" class="l1"><i>2</i>The arithmetic</a><a href="#" class="l2"><i>2.1</i>Reasonable salary</a><a href="#" class="l2"><i>2.2</i>The SDI charge</a><a href="#" class="l1"><i>3</i>What it costs to run</a><a href="#" class="l1"><i>4</i>Choosing a structure in California</a><a href="#" class="l1"><i>5</i>Sources</a></aside>
+  <div class="esbody">
+    <div class="trust"><span>By Cavatello</span><span>Last checked 1 Aug 2026</span>
+      <span class="rbadge full">Verified to source</span></div>
+    <h2 class="essum">In short</h2>
+    <div class="esbox">
+      <p>A California therapist has two options, not three. An LLC is not available —
+        Cal. Corp. Code §17701.04(e) blocks it for licensed services — so the choice is
+        sole proprietorship or a professional corporation electing S-corp treatment.</p>
+      <p>On a $208,350 profit the corporation nets about $6,912 more, after the $800
+        franchise tax and payroll costs. That advantage shrinks with profit and can
+        reverse below roughly $80,000, and California's uncapped 1.3% SDI charge takes
+        $1,248 of it back on a $96,000 salary.</p>
+      <p>If you read nothing else: the entity is a smaller lever than the retirement
+        account, and most people get that backwards.</p>
+    </div>
+    <p class="esrest">Why two choices exist ······················</p>
+    <p class="esrest">····································</p>
+  </div>
+</div></div></div></div></div>
+<script>
+document.querySelectorAll('.tvtabs button').forEach(function(b){
+ b.addEventListener('click',function(){
+  var r=b.closest('.tv');
+  r.querySelectorAll('.tvtabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+  r.querySelectorAll('.tvpane').forEach(function(p){
+   p.classList.toggle('on',p.dataset.v===b.dataset.v)});
+ });
+});
+document.querySelectorAll('.sttabs button').forEach(function(b){
+ b.addEventListener('click',function(){
+  var r=b.closest('.st');
+  r.querySelectorAll('.sttabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+  r.querySelectorAll('.stp').forEach(function(p){
+   p.classList.toggle('on',p.dataset.s===b.dataset.s)});
+ });
+});
+</script></body></html>
