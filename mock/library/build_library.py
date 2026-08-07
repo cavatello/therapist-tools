@@ -154,8 +154,22 @@ def hub_path(t):
     return "%s/" % t
 
 
-def card(p, show_topic=False):
+def card(p, show_topic=False, up=""):
     """The content card. Five fields, and a deliberate list of omissions.
+
+    `up` IS NOT OPTIONAL DECORATION. Every page this site generates lives at the
+    root except the five topic hubs, which live in subdirectories. A bare
+    relative href on one of those resolves against the subdirectory, so
+    `amft-3000-hours-california.html` linked from /licensure/ points at
+    /licensure/amft-3000-hours-california.html, which has never existed. That
+    shipped, and it broke EVERY article link on ALL FIVE hubs - thirty-nine
+    dead links, including the ones to privacy, terms and the affiliate
+    disclosure.
+
+    It survived because the guard below had an explicit clause skipping bare
+    hrefs on subdirectory pages, which is precisely and only where the bug can
+    occur. A guard with an exemption for the failure case is worse than no
+    guard: it reports clean and it is believed.
 
     Format chip first because on this site the format gap is enormous - one
     card leads to something that computes your tax, the next to a paragraph -
@@ -173,9 +187,9 @@ def card(p, show_topic=False):
     if p.get("stale"):
         bits.append('<span class="chk">Checked %s</span>' % CHECKED)
     num = ('<span class="cnum">%s</span>' % esc(p["number"])) if p.get("number") else ""
-    return ('<a class="lc" href="%s"><span class="lch">%s</span>'
+    return ('<a class="lc" href="%s%s"><span class="lch">%s</span>'
             "<b>%s</b><span class=\"lco\">%s</span>%s</a>"
-            % (esc(p["file"]), "".join(bits), esc(p["question"]),
+            % (up, esc(p["file"]), "".join(bits), esc(p["question"]),
                esc(p["outcome"]), num))
 
 
@@ -372,7 +386,8 @@ def build_topic(t):
     if calcs:
         secs.append('<section class="sec"><h2 id="tools">%s tools</h2>'
                     '<div class="lcg">%s</div></section>'
-                    % (esc(T["name"]), "".join(card(p) for p in calcs)))
+                    % (esc(T["name"]),
+                       "".join(card(p, up="../") for p in calcs)))
     for c in T["clusters"]:
         items = [PAGES[f] for f in c["files"]
                  if f in PAGES and not PAGES[f].get("skip")]
@@ -382,7 +397,8 @@ def build_topic(t):
         secs.append('<section class="sec alt"><h2 id="%s">%s</h2>'
                     '<div class="lcg">%s</div></section>'
                     % (re.sub(r"[^a-z0-9]+", "-", c["name"].lower()).strip("-"),
-                       esc(c["name"]), "".join(card(p) for p in items)))
+                       esc(c["name"]),
+                       "".join(card(p, up="../") for p in items)))
 
     others = "".join(
         '<a class="xt" href="../%s"><b>%s</b><span>%s</span></a>'
@@ -694,10 +710,18 @@ def main():
         # makes this failure silent and site-wide rather than local.
         depth = fn.count("/")
         for href in re.findall(r'href="([^"#?]+\.html)(?:[#?][^"]*)?"', doc):
-            tgt = href[3:] if href.startswith("../") else href
-            if depth and not href.startswith("../"):
+            if href.startswith("http"):
                 continue
-            if tgt.startswith("http") or "/" in tgt:
+            # On a subdirectory page a bare relative href does not resolve to
+            # the root - it resolves to a sibling that does not exist. The old
+            # version of this loop `continue`d on exactly this case, which
+            # exempted the only place the bug could happen. Flag it instead.
+            if depth and not href.startswith("../"):
+                bad.append("%s: bare relative href %r - from a subdirectory "
+                           "this resolves to a sibling, not the root" % (fn, href))
+                break
+            tgt = href[3:] if href.startswith("../") else href
+            if "/" in tgt:
                 continue
             if tgt not in live and tgt not in [w[0] for w in written]:
                 bad.append("%s: links to missing %s" % (fn, tgt))

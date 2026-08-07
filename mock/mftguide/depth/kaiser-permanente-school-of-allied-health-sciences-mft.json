@@ -3,7 +3,7 @@
  "institution": "Kaiser Permanente School of Allied Health Sciences",
  "city": "Richmond, San Mateo and Lathrop",
  "degree": "M.S. in Counseling, Marriage and Family Therapy",
- "url": "https://kpsahs.edu/programs/master-science-counseling",
+ "url": "https://kpsahs.edu/academics/all-programs/counseling-ms",
  "orientation": "Integrated-health-system training, inside Kaiser Permanente's own mental health clinics",
  "character": [
   "One cohort a year, starting each July, of about twenty to twenty-five students, on a fixed 24-month full-time schedule of eight quarters. There is no part-time or extended track published anywhere in the catalog, which makes this one of the least flexible programmes on the Board&rsquo;s list and one of the most predictable.",
@@ -13,7 +13,7 @@
  "practicum": {
   "model": "placed",
   "model_evidence": "Clinical assignments for all programs are made by the clinical coordinator in collaboration with the program director. Students may be required to travel long distances to receive full clinical education.",
-  "model_url": "https://kpsahs.edu/student-resources/academic-catalog",
+  "model_url": "https://kpsahs.edu/academics/academic-catalog",
   "own_clinic": true,
   "clinic_names": [
    "Kaiser Permanente Northern California Mental Health Training Program clinics"
@@ -25,11 +25,11 @@
  "admissions": {
   "gre": "not required",
   "gre_evidence": "No admission test of any kind is required for the counseling programme; the Wonderlic applies only to Medical Assisting and Phlebotomy.",
-  "gre_url": "https://kpsahs.edu/programs/master-science-counseling",
+  "gre_url": "https://kpsahs.edu/academics/all-programs/counseling-ms",
   "min_gpa": "3.0 over the last 60 semester or 90 quarter units; a lower GPA can be addressed in the essay",
   "cohort_size": "About 20–25, one cohort a year starting in July",
   "prereqs": "Any undergraduate discipline, with no recency requirement. Essay, résumé and two references, applied through PsychologyCAS.",
-  "src": "https://kpsahs.edu/programs/master-science-counseling"
+  "src": "https://kpsahs.edu/academics/all-programs/counseling-ms"
  },
  "cost": {
   "total": 38970,
@@ -43,7 +43,7 @@
  "sources": [
   {
    "label": "Master science counseling",
-   "url": "https://kpsahs.edu/master-science-counseling/"
+   "url": "https://kpsahs.edu/academics/all-programs/counseling-ms"
   },
   {
    "label": "Counseling ms",

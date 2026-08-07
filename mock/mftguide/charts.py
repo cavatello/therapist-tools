@@ -93,6 +93,18 @@ YEARS = [("Two years", lambda y: y is not None and y < 2.25),
          ("More than three", lambda y: y is not None and y >= 3.25)]
 
 
+# A master's degree takes between one and six years. Anything outside that is
+# a misparse, not a programme - "90 quarter units in 6 quarters" reads as 30
+# years if the quarter branch grabs the unit count. Same principle as
+# MIN_UNITS: a parser reading prose should fail to an honest "not published"
+# rather than to a confident absurdity.
+YEARS_MIN, YEARS_MAX = 1.0, 6.0
+
+
+def _yrs(v):
+    return v if YEARS_MIN <= v <= YEARS_MAX else None
+
+
 def years_of(p):
     """Years to complete, from the free-text length field.
 
@@ -105,18 +117,41 @@ def years_of(p):
     L = (p.get("length") or "").lower()
     if not L:
         return None
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(?:[-–]\s*\d+(?:\.\d+)?\s*)?year", L)
+    # "2-year or 2.5-year tracks", "Three-year or four-year pathway",
+    # "Two-year full-time track ... or three-year". Five schools published a
+    # length in one of these shapes and were being counted as "not published"
+    # on the time chart - which is the chart telling a reader a school is silent
+    # when the school is not. The low end is taken, matching the range rule
+    # everywhere else: a school offering a two-year and a three-year track does
+    # take two years if you take the two-year track.
+    WORD = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+    # The separator between the number and "year" may be a space OR a hyphen.
+    # "2-year or 2.5-year tracks" failed the original pattern because after the
+    # hyphen it expected a second NUMBER (the "2.5-3 years" range case) and
+    # found the word "year" instead - so two schools that publish a length were
+    # counted as silent.
+    m = re.search(r"(\d+(?:\.\d+)?)\s*(?:[-–]\s*\d+(?:\.\d+)?)?[-\s]*year", L)
     if m:
-        return float(m.group(1))
-    m = re.search(r"(\d+(?:\.\d+)?)\s*semester", L)
+        return _yrs(float(m.group(1)))
+    m = re.search(r"\b(one|two|three|four|five|six)[-\s]year", L)
     if m:
-        return float(m.group(1)) / 2.0
-    m = re.search(r"(\d+(?:\.\d+)?)\s*quarter", L)
-    if m:
-        return float(m.group(1)) / 3.0
+        return _yrs(float(WORD[m.group(1)]))
+    # Months BEFORE term counts, and this ordering is load-bearing. A term count
+    # only converts to years by assuming how many terms a school runs a year,
+    # and that assumption is wrong for any school on a year-round calendar:
+    # Antioch Santa Barbara says "8 quarters (24 months)", which the quarter
+    # branch turned into 2.67 years on a 3-quarters-a-year assumption when the
+    # school had already stated 24 months. An explicit duration beats an
+    # inference from the school's own sentence every time.
     m = re.search(r"(\d+(?:\.\d+)?)\s*month", L)
     if m:
-        return float(m.group(1)) / 12.0
+        return _yrs(float(m.group(1)) / 12.0)
+    m = re.search(r"(\d+(?:\.\d+)?)\s*semester", L)
+    if m:
+        return _yrs(float(m.group(1)) / 2.0)
+    m = re.search(r"(\d+(?:\.\d+)?)\s*quarter", L)
+    if m:
+        return _yrs(float(m.group(1)) / 3.0)
     return None
 
 
@@ -124,10 +159,22 @@ def format_of(p):
     f = (p.get("format") or "").lower()
     if not f:
         return None
-    online = "online" in f or "distance" in f or "100%" in f
-    campus = ("in-person" in f or "on-campus" in f or "on campus" in f
-              or "campus" in f or "classroom" in f or "residential" in f
-              or "face-to-face" in f)
+    online = "online" in f or "distance" in f or "100%" in f or "remote" in f
+    # "in person" without the hyphen was not matched, so "In person, with
+    # evening and part-time options" read as no information at all. Nor were
+    # "on-ground", "in class" or "on site", all of which state delivery
+    # unambiguously.
+    #
+    # What is deliberately still NOT matched: "Evening and daytime cohorts" and
+    # "Cohort model; daytime and weekend schedules". Those describe a TIMETABLE,
+    # not a delivery mode, and a reader could hold either of them while studying
+    # entirely online. Guessing "in person" from a schedule would be inventing
+    # the one fact the field exists to carry.
+    campus = ("in-person" in f or "in person" in f or "on-campus" in f
+              or "on campus" in f or "campus" in f or "classroom" in f
+              or "residential" in f or "face-to-face" in f or "on-ground" in f
+              or "on ground" in f or "in class" in f or "on site" in f
+              or "on-site" in f)
     if "hybrid" in f or "blended" in f or "low-residency" in f or (online and campus):
         return "Hybrid or low-residency"
     if online:

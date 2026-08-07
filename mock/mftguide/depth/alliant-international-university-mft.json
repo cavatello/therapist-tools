@@ -142,9 +142,9 @@
   "gre": "not published",
   "prereqs": "General graduate admission: bachelor's from a regionally accredited institution, minimum 3.0 cumulative GPA unless the program states otherwise, two letters of recommendation, a 2–4 page essay, a CV, and an admissions interview where the program requires one. Alliant does not publish MFT-specific prerequisite coursework.",
   "deadline": "Rolling — the MA runs on both a semester calendar (fall/spring/summer starts) and an eight-week term calendar, and is \"open for enrollment during each of those respective enrollment periods.\" No fixed application deadline is published.",
-  "src": "https://www.alliant.edu/admissions/graduate-application-requirements/",
+  "src": "https://www.alliant.edu/admissions/graduate",
   "gre_evidence": "minimum cumulative GPA of 3.0 on a 4.0 scale unless otherwise stated",
-  "gre_url": "https://www.alliant.edu/admissions/graduate-application-requirements/",
+  "gre_url": "https://www.alliant.edu/admissions/graduate",
   "min_gpa": "3.0",
   "conflict": null
  },
@@ -183,7 +183,7 @@
    "text": "\"I chose Alliant because they are COAMFTE-accredited, and degree portability was really important to me. My experience through the masters and doctoral MFT programs has not only prepared me to be a therapist, but also to be an advocate for my clients.\"",
    "who": "Nicole Sabatini Gutierrez, MFT MA and PsyD alumna — testimonial published by Alliant itself",
    "sentiment": "positive",
-   "url": "https://www.alliant.edu/psychology/marital-and-family-therapy/ma/curriculum"
+   "url": "https://www.alliant.edu/marital-and-family-therapy/ma"
   }
  ],
  "photo": {
@@ -218,11 +218,11 @@
   },
   {
    "label": "MA in Marital and Family Therapy — program and curriculum page",
-   "url": "https://www.alliant.edu/psychology/marital-and-family-therapy/ma/curriculum"
+   "url": "https://www.alliant.edu/marital-and-family-therapy/ma"
   },
   {
    "label": "Alliant tuition and fees, 2026–27 academic year (MFT MA: $1,463/unit on campus, $1,135/unit online)",
-   "url": "https://www.alliant.edu/admissions/tuition/"
+   "url": "https://www.alliant.edu/admissions/tuition-and-fees"
   },
   {
    "label": "COAMFTE Graduate Achievement Data — Alliant MA, Los Angeles (cohort sizes, graduation, job placement, licensure rates)",
@@ -246,7 +246,7 @@
   },
   {
    "label": "Alliant graduate application requirements",
-   "url": "https://www.alliant.edu/admissions/graduate-application-requirements/"
+   "url": "https://www.alliant.edu/admissions/graduate"
   },
   {
    "label": "Wikipedia — Alliant International University (2015 conversion to a for-profit benefit corporation under Arist Education System / Bertelsmann; January 2026 rebrand to Alliant University; CSPP founded 1969)",

@@ -233,7 +233,7 @@
   {
    "field": "accreditation",
    "current": "(implied by the program's own wording) curriculum \"aligned with COAMFTE standards\"",
-   "correct": "Not COAMFTE-accredited, and absent from COAMFTE's directory of 127 accredited programs (25 in California; CSU Northridge is the only CSU). The alignment claim is self-declared and unaudited. Actual accreditation is WSCUC (institutional) plus BBS approval under B&P §4980.36. The claim does have observable substance — the program maps its goals to COAMFTE Standards v12.5 Developmental Competency Components and publishes COAMFTE-format Graduate Achievement Data and diversity reports — but it confers none of accreditation's portability benefits.",
+   "correct": "Not COAMFTE-accredited, and absent from COAMFTE's directory of 127 accredited programs (25 in California; CSU Northridge is the only CSU) (the full directory was captured and counted on 7 August 2026; COAMFTE's own page renders its list fifteen rows at a time in a client-side widget, so a reader clicking through sees a paginated view rather than the whole set). The alignment claim is self-declared and unaudited. Actual accreditation is WSCUC (institutional) plus BBS approval under B&P §4980.36. The claim does have observable substance — the program maps its goals to COAMFTE Standards v12.5 Developmental Competency Components and publishes COAMFTE-format Graduate Achievement Data and diversity reports — but it confers none of accreditation's portability benefits.",
    "src": "https://coamfte.edvera.com/directory/institutions"
   }
  ],

@@ -17,7 +17,8 @@
 // fails. Take the default export and destructure it.
 import pw from '/opt/node-tools/node_modules/playwright/index.js';
 const { chromium } = pw;
-import { readdirSync } from 'fs';
+import { readdirSync, existsSync } from 'fs';
+const raw = u => u.split('/stage2/')[1] || u;
 
 const ROOT = 'file:///home/claude/stage2/';
 const VIEWS = [
@@ -163,6 +164,37 @@ for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
 
     if (await page.locator('h1').count() !== 1)
       note(`${file} [${view.name}]`, 'not exactly one h1');
+
+    // EVERY relative link on the page must resolve to a file that exists.
+    // This check did not exist, and its absence let thirty-nine dead links
+    // ship on the five topic hubs - every article card, plus privacy, terms
+    // and the affiliate disclosure. The page's own builder HAD a guard for
+    // missing targets and it carried an explicit clause skipping bare hrefs on
+    // subdirectory pages, which is the only place the bug can occur.
+    //
+    // Asserting it in the browser rather than in the builder is the point: the
+    // browser resolves the href the way a reader's browser will, against the
+    // page's real base URL, so a path that is wrong only in context cannot
+    // pass the way it passed a string check.
+    const dead = await page.evaluate(() => {
+      const out = [];
+      for (const a of document.querySelectorAll('a[href]')) {
+        const raw = a.getAttribute('href');
+        if (!raw || /^(https?:|mailto:|tel:|#)/.test(raw)) continue;
+        out.push(new URL(raw, location.href).href);
+      }
+      return out;
+    });
+    // Resolved on disk, not fetched: Playwright's request context does not
+    // speak file://, so fetching returned a failure for every link on the site
+    // and the check reported the whole page broken. For a static site the
+    // filesystem IS the server, and existsSync is both correct and instant.
+    for (const u of [...new Set(dead)]) {
+      const path = decodeURIComponent(new URL(u).pathname);
+      const target = path.endsWith('/') ? path + 'index.html' : path;
+      if (!existsSync(target))
+        note(`${file} [${view.name}]`, `link goes nowhere: ${raw(u)}`);
+    }
 
     // Horizontal overflow, ignoring elements inside a scrollable ancestor.
     const over = await page.evaluate(w => {
