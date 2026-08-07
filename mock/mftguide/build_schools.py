@@ -464,6 +464,15 @@ def page(p):
                      '<p><a href="%s" target="_blank" rel="noopener noreferrer">'
                      "The programme&rsquo;s own page &rarr;</a></p>" % p["url"]))
 
+    trk = D.tracks(dep.get("tracks"))
+    if trk:
+        secs.append(("tracks", "The tracks inside this degree",
+                     "<p>This is one degree with several concentrations under "
+                     "it, so choosing the school is only half the decision. The "
+                     "units, the length and the delivery format differ by track "
+                     "&mdash; and where a track does not reach the LMFT, that is "
+                     "said in the row rather than in a footnote.</p>" + trk))
+
     med = D.media(vid, pho, name)
     if med:
         secs.append(("media", "See it and hear it", med))
@@ -665,6 +674,7 @@ def main():
         # research that came back but did not reach the page is a wiring bug,
         # and it is silent - the page still looks finished
         for key, marker in (("character", 'id="overview"'),
+                            ("tracks", 'id="tracks"'),
                             ("signature", 'id="courses"'),
                             ("voices", 'id="what-people-say"'),
                             ("gaps", 'id="what-i-could-not-find"')):

@@ -96,6 +96,47 @@ def character(paras, orientation):
     return chip + "".join("<p>%s</p>" % esc(p) for p in paras)
 
 
+# ---------------------------------------------------------------- tracks
+
+def tracks(tr):
+    """Concentrations inside one degree.
+
+    Several California institutions run ONE M.A. with several BBS-approved
+    concentrations under it, and the school is then two decisions rather than
+    one: the institution, then the track. The unit counts, length and delivery
+    format differ per track, and at some schools one track does not reach the
+    LMFT at all - which is the single most expensive thing a prospective
+    student can fail to notice, because it is usually the most convenient one.
+
+    Rendered as rows rather than prose because the whole value is the
+    comparison, and prose hides a column that differs by one number.
+    """
+    if not tr or not tr.get("rows"):
+        return ""
+    note = ("<p>%s%s</p>" % (esc(tr.get("note") or ""),
+            " " + _src(tr.get("src"), "the department") if tr.get("src") else "")
+            ) if tr.get("note") else ""
+    rows = []
+    for r in tr["rows"]:
+        lm = esc(r.get("lmft") or "")
+        cell = ('<span class="trkno">not an LMFT route</span>'
+                if r.get("lmft_no") else '<b>%s</b>' % lm)
+        rows.append(
+            '<div class="trkr%s"><div class="trkn"><b>%s</b>%s</div>'
+            '<div class="trku"><span>LMFT</span>%s</div>'
+            '<div class="trku"><span>LPCC</span><b>%s</b></div>'
+            '<div class="trkf"><span>%s</span><span>%s</span></div></div>'
+            % (" no" if r.get("lmft_no") else "",
+               esc(r.get("name") or ""),
+               '<span>%s</span>' % esc(r["note"]) if r.get("note") else "",
+               cell, esc(r.get("lpcc") or "&mdash;"),
+               esc(r.get("length") or ""), esc(r.get("format") or "")))
+    head = ('<div class="trkr hd"><div class="trkn">Concentration</div>'
+            '<div class="trku">LMFT units</div><div class="trku">LPCC units</div>'
+            '<div class="trkf">Length and format</div></div>')
+    return note + '<div class="trk">%s%s</div>' % (head, "".join(rows))
+
+
 # ---------------------------------------------------------------- courses
 
 def courses(sig):
