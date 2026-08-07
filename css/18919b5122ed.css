@@ -1,3 +1,4 @@
+/* restyle */
 /* ---------------------------------------------------------------- the header
    Two changes ship together here, and they are separable in principle but not
    in practice: the menu became topic-first (seven items, not three) and the
@@ -210,3 +211,4 @@ h3,[class] h3{font-weight:700}
 .sitenav-wordmark{font-weight:800;letter-spacing:-.03em;font-size:16px}
 .np-col b{letter-spacing:-.02em}
 .ftcols h5{letter-spacing:.1em}
+/* end restyle */

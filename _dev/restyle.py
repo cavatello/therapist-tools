@@ -393,6 +393,52 @@ def install_landing(s):
     return s if m.group(0) == new else s[:m.start()] + new + s[m.end():]
 
 
+# ---------------------------------------------------------------- the footer
+# Cut from 48 links to 23, on request: "footer is a huge mess, keep it simple
+# down there, good SEO, but not 50 options."
+#
+# WHAT WAS DROPPED AND WHY IT IS SAFE. The old "Learn" (13) and "Browse" (21)
+# columns listed the leaf articles. Every one of those 36 pages sits in the
+# mega-panel in the HEADER of all 133 pages, so each keeps a sitewide internal
+# link and nothing becomes an orphan. What the footer repeats now is the five
+# topic hubs and the three indexes - the structure a crawler should see on
+# every page - rather than the leaf list, which it already sees above.
+#
+# The Terms / Privacy / report-a-figure column is captured from the page and
+# re-emitted verbatim, so the legal small print is never rewritten by this pass.
+FOOT = [
+    ("Tools", [("practice-simulator.html", "Practice Simulator"),
+               ("therapist-tax-strategy-california.html", "Tax &amp; Retirement"),
+               ("grow-your-therapy-practice.html", "Grow Your Practice"),
+               ("associate-mft-job-advisor.html", "Associate Job Advisor"),
+               ("amft-3000-hours-california.html", "3,000 Hours"),
+               ("therapist-cost-of-living-california.html", "Cost of Living")]),
+    ("Topics", [("money/", "Money"),
+                ("licensure/", "Licensure"),
+                ("getting-paid/", "Getting paid"),
+                ("practice/", "Running a practice"),
+                ("training/", "Training")]),
+    ("Browse", [("resources.html", "Everything"),
+                ("questions.html", "Every question"),
+                ("calculators.html", "All the calculators"),
+                ("changes.html", "What changed")]),
+    ("About", [("about.html", "What this is"),
+               ("newsletter.html", "Stay updated"),
+               ("contact.html", "Contact"),
+               ("affiliate-disclosure.html", "Affiliate disclosure")]),
+]
+FOOT_HREFS = {h for _n, its in FOOT for h, _t in its}
+
+
+def build_footcols(small_print, pre=""):
+    cols = []
+    for name, items in FOOT:
+        links = "".join('<a href="%s">%s</a>' % (link(h, pre), t) for h, t in items)
+        cols.append("<div><h5>%s</h5>%s</div>" % (name, links))
+    cols.append(small_print)
+    return '<div class="ftcols">%s</div>' % "".join(cols)
+
+
 ALL_ENTRIES = [e for _k, _l, its, _h in GROUPS for e in its]
 KEYS = [k for k, _l, _i, _h in GROUPS]
 
@@ -417,7 +463,7 @@ def main():
         return len(re.findall(r"<div\b", nos)) - len(re.findall(r"</div>", nos))
 
     pre_delta, pre_words = {}, {}
-    n_font = n_links = n_panel = n_script = n_dupe = 0
+    n_font = n_links = n_panel = n_script = n_dupe = n_foot = 0
 
     for f, pre in pages():
         path = os.path.join(SITE, f)
@@ -465,13 +511,25 @@ def main():
                 s = s.replace("</body>", SCRIPT + "\n</body>", 1)
                 n_script += 1
 
-        # ---- 5. duplicate stylesheet links
+        # ---- 5. the footer columns. The small-print column is lifted out of
+        #        the page and handed back unchanged - this pass rewrites the
+        #        navigation columns and never the legal text.
+        fm = re.search(r'<div class="ftcols">[\s\S]*?</div></div>', s)
+        if fm:
+            spm = re.search(r"<div><h5>The small print</h5>[\s\S]*?</div>", fm.group(0))
+            if spm:
+                nf = build_footcols(spm.group(0), pre)
+                if fm.group(0) != nf:
+                    s = s[:fm.start()] + nf + s[fm.end():]
+                    n_foot += 1
+
+        # ---- 6. duplicate stylesheet links
         s2 = dedupe_css(s)
         if s2 != s:
             n_dupe += 1
         s = s2
 
-        # ---- 6. this pass's own stylesheet, last
+        # ---- 7. this pass's own stylesheet, last
         s = STYLEBLOCK.sub("", s)
         for name in mine():
             s = re.sub(r'\n?[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/%s">' % name, "", s)
@@ -481,7 +539,7 @@ def main():
         if 'class="sitenav"' in s:
             s = s.replace("</body>", block + "</body>", 1)
 
-        # ---- 7. the landing stylesheet
+        # ---- 8. the landing stylesheet
         if f == CANON:
             s = install_landing(s)
 
@@ -492,14 +550,24 @@ def main():
     print("buttons         %d" % n_links)
     print("panels          %d" % n_panel)
     print("scripts         %d" % n_script)
+    print("footers          %d" % n_foot)
     print("duplicate links %d page(s) cleaned" % n_dupe)
 
     guard(pre_delta, pre_words, delta)
 
 
 def words(s):
-    """Visible words, scripts and styles removed. The parity measure."""
+    """Visible words in the page CONTENT - header and footer excluded.
+
+    The parity guard exists to catch a restyle that silently eats a sentence of
+    the article. It must not fire when the chrome changes on purpose, which it
+    now does: the footer went from 48 links to 23. So measure between the
+    header and the footer, and check the chrome separately - the footer has its
+    own guard below, which asserts the exact link set rather than a word count.
+    """
     body = s[s.index("<body"):] if "<body" in s else s
+    body = re.sub(r"<header[\s\S]*?</header>", "", body)
+    body = re.sub(r"<footer[\s\S]*?</footer>", "", body)
     t = re.sub(r"<style[\s\S]*?</style>", "", re.sub(r"<script[\s\S]*?</script>", "", body))
     return len(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", t)).strip().split())
 
@@ -570,6 +638,18 @@ def guard(pre_delta, pre_words, delta):
         if f in pre_delta and delta(s) != pre_delta[f]:
             print("GUARD %s: div balance moved %+d -> %+d"
                   % (f, pre_delta[f], delta(s))); bad += 1
+
+        # The footer, by link set rather than by count. A column silently
+        # dropped looks identical to a column deliberately dropped.
+        fm = re.search(r'<div class="ftcols">[\s\S]*?</div></div>', s)
+        if fm:
+            got = {h[len(pre):] if pre and h.startswith(pre) else h
+                   for h in re.findall(r'<a href="([^"]+)"', fm.group(0))}
+            missing = FOOT_HREFS - got
+            if missing:
+                print("GUARD %s: footer missing %s" % (f, ", ".join(sorted(missing)))); bad += 1
+            if "terms.html" not in got or "privacy.html" not in got:
+                print("GUARD %s: footer lost the small print" % f); bad += 1
 
         # Content parity. A restyle that loses a sentence is not a restyle.
         if f in pre_words and words(s) < pre_words[f] - 3:
