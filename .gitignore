@@ -52,3 +52,8 @@ mock/mftguide/schools/
 # Regenerate with mock/mftguide/build_schools.py if ever needed.
 mock/landing/
 mock/mftguide/schools/
+
+# Abandoned mockups and build output that duplicates the live site.
+# Regenerate with mock/mftguide/build_schools.py if ever needed.
+mock/landing/
+mock/mftguide/schools/
