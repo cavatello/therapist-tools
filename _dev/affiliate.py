@@ -110,7 +110,7 @@ def pages():
 
 
 def main():
-    foot = promise = url = tagged = 0
+    foot = promise = url = tagged = relled = 0
     styled = []
 
     for f in pages():
@@ -141,6 +141,28 @@ def main():
                 if old and old in s and new not in (old,):
                     s = re.sub(re.escape(old) + r'(?![A-Za-z0-9/_-])', new, s)
             url += s.count(new)
+            # Google asks for rel="sponsored" on any link that exists because
+            # of a commercial arrangement, and nofollow alongside it. Setting it
+            # here rather than in the page builders means it cannot be forgotten
+            # on a page written later - the marking travels with the URL, not
+            # with whoever remembered to type it.
+            def fix_rel(m):
+                nonlocal relled
+                attrs = m.group(1)
+                cur = re.search(r'rel="([^"]*)"', attrs)
+                want = ["sponsored", "nofollow", "noopener", "noreferrer"]
+                have = cur.group(1).split() if cur else []
+                merged = " ".join(want + [h for h in have if h not in want])
+                if cur and cur.group(1) == merged:
+                    return m.group(0)
+                relled += 1
+                attrs = (re.sub(r'rel="[^"]*"', 'rel="%s"' % merged, attrs) if cur
+                         else attrs + ' rel="%s"' % merged)
+                if 'target=' not in attrs:
+                    attrs += ' target="_blank"'
+                return '<a href="' + new + '"' + attrs + ">"
+            s = re.sub(r'<a href="' + re.escape(new) + r'"([^>]*)>', fix_rel, s)
+
             # tag every anchor pointing at the affiliate URL that is not already tagged
             def add_tag(m):
                 nonlocal tagged
@@ -168,6 +190,7 @@ def main():
     print("promise blocks         %d" % promise)
     print("affiliate URLs         %d" % url)
     print("links tagged           %d  (%s)" % (tagged, ", ".join(styled) or "none"))
+    print("rel= corrected         %d" % relled)
 
     # ---- guards
     bad = 0
@@ -198,10 +221,16 @@ def main():
                 if re.search(r'href="' + re.escape(old) + r'"', s):
                     print("GUARD %s: bare %s survives as a link target"
                           % (f, old)); bad += 1
-            for m in re.finditer(r'<a href="' + re.escape(new) + r'"[^>]*>(?:(?!</a>).)*</a>', s):
+            for m in re.finditer(r'<a href="' + re.escape(new) + r'"([^>]*)>(?:(?!</a>).)*</a>', s):
                 after = s[m.end():m.end() + len(TAG)]
                 if after != TAG:
                     print("GUARD %s: affiliate link without a tag" % f); bad += 1
+                rel = re.search(r'rel="([^"]*)"', m.group(1))
+                missing = [r for r in ("sponsored", "nofollow", "noopener")
+                           if not rel or r not in rel.group(1).split()]
+                if missing:
+                    print("GUARD %s: affiliate link missing rel=%s"
+                          % (f, ",".join(missing))); bad += 1
             if new in s and TAG not in s:
                 print("GUARD %s: affiliate url present, no tag anywhere" % f); bad += 1
             if TAG in s and s.count(MARK) != 1:
