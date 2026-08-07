@@ -214,5 +214,31 @@
    "label": "U.S. Dept. of Education College Scorecard — USC, master's in CIP 51.15: median federal graduate loan debt $130,999 (n=62), median earnings one year out $61,960",
    "url": "https://collegescorecard.ed.gov/school/?123961-University-of-Southern-California"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "University of Southern California, Los Angeles"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 253,
+  "first_time_passed": 244,
+  "first_time_pct": 96,
+  "all_taking": 271,
+  "all_passed": 260,
+  "all_pct": 96,
+  "law_ethics_taking": 272,
+  "law_ethics_pct": 89,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

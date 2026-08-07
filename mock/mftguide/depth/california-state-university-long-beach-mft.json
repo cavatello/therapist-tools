@@ -235,5 +235,31 @@
    "label": "CSULB Counseling Psychology Information and Application Packet (PDF)",
    "url": "https://www.csulb.edu/sites/default/files/document/ms_counseling_psychology_application_packet_2020wm.pdf"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Long Beach"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 179,
+  "first_time_passed": 167,
+  "first_time_pct": 93,
+  "all_taking": 221,
+  "all_passed": 189,
+  "all_pct": 86,
+  "law_ethics_taking": 185,
+  "law_ethics_pct": 93,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

@@ -276,5 +276,39 @@
   "all_in": "Catalog estimate $30,500 for the full program = $3,050 per quarter × 10 quarters, comprising $2,700 tuition + $300 books and supplies + $20 non-refundable registration + $30 refundable library/IT fee. Plus a $100 non-refundable application fee.",
   "financial_aid": "None. \"Daybreak University does not participate in federal or state financial aid programs\" — no Title IV (Pell, Direct Loans), no Cal Grant, no VA benefits, no WIOA, confirmed by the BPPE 2024 annual report. A limited number of internal scholarships is available to full-time students with a 3.0+ GPA, awarded by a faculty committee each quarter.",
   "src": "https://www.bppe.ca.gov/webapplications/annualReports/2024/document/0ff7225f-35e3-4f17-b95c-5aff4cb4d5b8"
+ },
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Daybreak University"
+  ],
+  "floor": 40,
+  "enough": false,
+  "first_time_taking": 0,
+  "first_time_passed": 0,
+  "first_time_pct": null,
+  "all_taking": 0,
+  "all_passed": 0,
+  "all_pct": null,
+  "law_ethics_taking": 1,
+  "law_ethics_pct": null,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.daybreak.edu/file/academic/COAMFTE_GAD_Table_Masters_Program_2026.pdf",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [],
+  "access_note": "Daybreak was accredited on 1 May 2024, so seven of its cohorts predate accreditation and the three since have no completers yet. It also published the COAMFTE template with the placeholder brackets still in the title. There is nothing to report here yet, which is what a newly accredited programme should look like.",
+  "school_note": "PUBLISHES THE TABLE BUT IT CONTAINS NO OUTCOME NUMBERS AT ALL. Accredited 05/01/2024, so the seven cohorts 2016-2017 through 2022-2023 are marked 'NOT ACCREDITED' and the only three cohorts with enrolled students (2023-2024 through 2025-2026) are all 'IP' (In Process) across every metric. Enrollment counts are given (FT 5/13/17, PT 6/7/5) but not one graduation, job placement, or licensure figure exists. Daybreak MUST NOT appear in a comparison table with a number in it - it has none. It has also left the COAMFTE template's placeholder brackets in the published document ('Graduate Achievement Data for [MA in Counseling with a Specialization in Marriage and Family Therapy]', 'Accredited: [05/01/2024]'), and published the full multi-page COAMFTE instructions-to-programs boilerplate along with the table.",
+  "shown": 5
  }
 }

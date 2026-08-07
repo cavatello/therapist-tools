@@ -287,5 +287,31 @@
    "correct": "Accurate as stated by the programme, but the official roadmap lays those five semesters across three academic years (Year 1 fall and spring, Year 2 fall and spring, Year 3 fall) — about two and a half years full-time — with semester loads of 12, 13, 16, 12–15 and 3–10 units, and that is before any prerequisite or LPCC coursework.",
    "src": "https://kremen.fresnostate.edu/masters-mfcc/documents/Student%20Roadmap%20Fall%20Admissions.doc"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Fresno"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 295,
+  "first_time_passed": 231,
+  "first_time_pct": 78,
+  "all_taking": 480,
+  "all_passed": 316,
+  "all_pct": 66,
+  "law_ethics_taking": 304,
+  "law_ethics_pct": 79,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

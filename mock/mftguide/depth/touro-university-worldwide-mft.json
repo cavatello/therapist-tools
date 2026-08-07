@@ -244,5 +244,92 @@
    "label": "Sentio University independent CA MFT directory profile (competitor-authored)",
    "url": "https://sentio.org/touro-university-worldwide-mft-program-review"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "TOURO UNIVERSITY"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 170,
+  "first_time_passed": 131,
+  "first_time_pct": 77,
+  "all_taking": 214,
+  "all_passed": 161,
+  "all_pct": 75,
+  "law_ethics_taking": 465,
+  "law_ethics_pct": 77,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.tuw.edu/wp-content/uploads/COAMFTE_SAC_DISCLOSURE.pdf",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure.",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "75.00%",
+      "licensure": "88.55%",
+      "placement": "100%",
+      "n": "144"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "62.04%",
+      "licensure": "98.64%",
+      "placement": "100%",
+      "n": "274"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "59.54%",
+      "licensure": "93.22%",
+      "placement": "99.06%",
+      "n": "304"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "53.85%",
+      "licensure": null,
+      "placement": "85.23%",
+      "n": "312"
+     }
+    ]
+   },
+   {
+    "label": "PT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "48.57%",
+      "licensure": "88.89%",
+      "placement": "100%",
+      "n": "35"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "57.29%",
+      "licensure": null,
+      "placement": "84.85%",
+      "n": "96"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "Fully online program, accredited May 1, 2020. Reports FT and PT separately with DIFFERENT advertised lengths - 'Graduation Rate is the program's Advertised Length of Completion which is how long the program is designed to complete as written. (2 1/2 Years FT, 5 Years PT)' - so the FT and PT graduation columns are measured against different clocks and must not be pooled. THE SHARPEST ILLUSTRATION OF THE DENOMINATOR PROBLEM IN THIS SET: the 2020-2021 FT cohort of 274 students has a 62.04% graduation rate and a 98.64% licensure rate. The 98.64% is a share of the ~170 who graduated, not of the 274 who enrolled - so roughly 61% of the people who started ended up with any MFT credential, while the headline number reads 98.64%. Very large cohorts (up to 312 FT) with declining graduation rates (75.00% down to 53.85%). Touro publishes NO definitional footnote at all for what counts as licensure beyond the COAMFTE boilerplate, and unlike Alliant does not spell out that associate-level counts.",
+  "shown": 5
+ }
 }

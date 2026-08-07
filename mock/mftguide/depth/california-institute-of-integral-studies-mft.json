@@ -260,5 +260,31 @@
    "label": "Student reviews of CIIS",
    "url": "https://www.onlineu.com/online-reviews/california-institute-of-integral-studies"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California Institute of Integral Studies, S.F."
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 687,
+  "first_time_passed": 635,
+  "first_time_pct": 92,
+  "all_taking": 784,
+  "all_passed": 693,
+  "all_pct": 88,
+  "law_ethics_taking": 872,
+  "law_ethics_pct": 86,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

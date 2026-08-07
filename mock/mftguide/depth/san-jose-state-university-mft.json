@@ -210,5 +210,31 @@
    "label": "Registering for Fieldwork (PSYC 243) policy PDF",
    "url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/Registering%20for%20Fieldwork.pdf"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "San Jose State University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 50,
+  "first_time_passed": 45,
+  "first_time_pct": 90,
+  "all_taking": 53,
+  "all_passed": 48,
+  "all_pct": 91,
+  "law_ethics_taking": 73,
+  "law_ethics_pct": 93,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

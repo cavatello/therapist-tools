@@ -111,6 +111,42 @@ DEPTH_CSS = """<style>/* depth */
   background:#FAF7EF;border:1px dashed #E4D9BE;border-radius:9px;padding:10px 13px}
 .sc .pnote b{color:var(--ink)}
 
+/* The exam figure. The candidate count is deliberately NOT small print: a rate
+   without its denominator is the exact way this kind of number misleads, and
+   shrinking N is how a page pretends to disclose while hiding. It is set at
+   13px against the percentage's 40px, which is small relative to the headline
+   and large relative to a footnote - readable at a glance, on the same line of
+   sight, impossible to miss. */
+.sc .exg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:12px;margin:4px 0 16px}
+.sc .exb{background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px}
+.sc .exb b{display:block;font-family:Fraunces,Georgia,serif;font-size:40px;
+  line-height:1;color:var(--ink)}
+.sc .exb em{display:block;font-style:normal;font-size:14px;color:#3B4A38;
+  margin-top:6px}
+.sc .exb span{display:block;font-family:'IBM Plex Mono',monospace;font-size:13px;
+  color:var(--mut);margin-top:7px}
+.sc .exb.sw{background:#F7F4EC;border-style:dashed}
+.sc .exb.sw b{color:#5B5344}
+
+/* COAMFTE outcomes. The cohort size lives inside the row header rather than in
+   its own column, so it cannot be scanned past on the way to the percentage. */
+.sc .ocl{font-family:'IBM Plex Mono',monospace;font-size:10.6px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--mut);margin:16px 0 6px}
+.sc .octw{overflow-x:auto;border:1px solid var(--line);border-radius:11px;
+  background:#fff}
+.sc .octbl{border-collapse:collapse;width:100%;font-size:14px;min-width:460px}
+.sc .octbl th,.sc .octbl td{text-align:left;padding:9px 13px;
+  border-bottom:1px solid #F0EBDE}
+.sc .octbl thead th{background:#F7F3E9;font-family:'IBM Plex Mono',monospace;
+  font-size:9.6px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);
+  font-weight:500}
+.sc .octbl tbody th{font-weight:500;color:var(--ink);white-space:nowrap}
+.sc .octbl tbody th span{display:block;font-family:'IBM Plex Mono',monospace;
+  font-size:11.4px;color:var(--mut);font-weight:400;margin-top:2px}
+.sc .octbl tbody tr:last-child th,.sc .octbl tbody tr:last-child td{border-bottom:0}
+
 .sc .voxl{display:grid;gap:10px;margin:10px 0 6px}
 .sc .vox{display:block;background:#fff;border:1px solid var(--line);
   border-radius:10px;padding:14px 16px;text-decoration:none;min-width:0;

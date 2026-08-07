@@ -329,5 +329,31 @@
    "correct": "Very small: 7 master's completions in CIP 51.15 in the most recent reporting year, 2 the year before. Founded 1990 by Hsing Yun of Fo Guang Shan as Hsi Lai University; 10-acre Rosemead campus purchased from Biola University in 1996.",
    "src": "https://collegescorecard.ed.gov/school/?449870-University-of-the-West"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "University of the West"
+  ],
+  "floor": 40,
+  "enough": false,
+  "first_time_taking": 26,
+  "first_time_passed": 20,
+  "first_time_pct": null,
+  "all_taking": 34,
+  "all_passed": 24,
+  "all_pct": null,
+  "law_ethics_taking": 21,
+  "law_ethics_pct": null,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

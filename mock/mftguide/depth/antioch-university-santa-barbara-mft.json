@@ -279,5 +279,31 @@
    "label": "GradReports student reviews",
    "url": "https://www.gradreports.com/colleges/antioch-university-santa-barbara"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Antioch University, Santa Barbara"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 205,
+  "first_time_passed": 160,
+  "first_time_pct": 78,
+  "all_taking": 316,
+  "all_passed": 204,
+  "all_pct": 65,
+  "law_ethics_taking": 270,
+  "law_ethics_pct": 83,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

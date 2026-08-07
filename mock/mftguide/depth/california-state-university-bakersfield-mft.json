@@ -284,5 +284,31 @@
    "correct": "Confirmed — no COAMFTE accreditation and no CACREP accreditation is claimed anywhere on the program, department or catalog pages. The program's compliance framing is entirely statutory (BBS / B&P Code), not accreditation-based.",
    "src": "https://catalog.csub.edu/academic-degrees-programs/graduate-programs/counseling-psychology-ms/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Bakersfield"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 93,
+  "first_time_passed": 78,
+  "first_time_pct": 84,
+  "all_taking": 127,
+  "all_passed": 97,
+  "all_pct": 76,
+  "law_ethics_taking": 100,
+  "law_ethics_pct": 88,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

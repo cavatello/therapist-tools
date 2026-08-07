@@ -294,6 +294,172 @@ def admissions(ad):
     return out
 
 
+# ---------------------------------------------------------------- outcomes
+
+def outcomes(oc):
+    """COAMFTE Student Achievement Data, for this school and only this school.
+
+    Every figure carries its cohort size in the same cell, and the school's own
+    verbatim definition sits above the table. That is not decoration: nine of
+    the twelve define "licensure rate" as graduates who reached ANY level of MFT
+    licensure, which in California means filing an Associate registration - so
+    a 98% licensure rate is largely a statement about paperwork, and printing it
+    under a bare heading that says "licensure" would be the misleading part.
+
+    There is no cross-school version of this table anywhere on the site. See
+    coamfte_apply.py for the five separate reasons these numbers cannot be
+    lined up against each other even though they look as though they can.
+    """
+    if not oc:
+        return ""
+    out = ""
+    if oc.get("access_note"):
+        out += ('<div class="verd mix"><h3>About this disclosure</h3><p>%s</p></div>'
+                % oc["access_note"])
+    if oc.get("as_published"):
+        out += ('<p class="pnote ocdef"><b>In the school&rsquo;s own words, this counts:</b> '
+                "&ldquo;%s&rdquo; &mdash; which is worth reading before the "
+                "numbers, because it is rarely what the column heading suggests."
+                "</p>" % esc(oc["as_published"]))
+    for g in oc.get("groups") or []:
+        lab = ('<p class="ocl">%s</p>' % esc(g["label"])) if g.get("label") else ""
+        rows = "".join(
+            "<tr><th scope=\"row\">%s<span>%s in the cohort</span></th>"
+            "<td>%s</td><td>%s</td><td>%s</td></tr>"
+            % (esc(r["year"]), esc(r["n"]),
+               esc(r["graduation"]) or "&mdash;",
+               esc(r["licensure"]) or "&mdash;",
+               esc(r["placement"]) or "&mdash;")
+            for r in g["rows"])
+        out += (lab + '<div class="octw"><table class="octbl"><thead><tr>'
+                '<th scope="col">Cohort</th><th scope="col">Graduated</th>'
+                '<th scope="col">Reached licensure</th>'
+                '<th scope="col">In the field</th></tr></thead>'
+                "<tbody>%s</tbody></table></div>" % rows)
+    if not (oc.get("groups") or []):
+        out += ("<p>The school publishes the required table, and it currently "
+                "carries no completed cohorts.</p>")
+    out += ('<p class="pnote">Graduation is measured against each school&rsquo;s '
+            "own <b>advertised</b> length, which across the twelve accredited "
+            "programmes runs from two years to four and a half &mdash; so a low "
+            "figure often means students chose a longer track rather than that "
+            "they did not finish. Licensure and placement are usually shares of "
+            "the graduates who <b>answered a survey</b>, not of the cohort. Both "
+            "are reasons these numbers describe one programme over time and "
+            "cannot be set against another school&rsquo;s.</p>")
+    if oc.get("url"):
+        out += ('<p><a href="%s" target="_blank" rel="noopener noreferrer">'
+                "The school&rsquo;s own disclosure &rarr;</a> &middot; most "
+                "recent %d cohorts shown</p>" % (esc(oc["url"]), oc.get("shown", 5)))
+    return out
+
+
+# ---------------------------------------------------------------- exam
+
+def exam(ex):
+    """The Board's own by-school exam results for this school.
+
+    THE DESIGN IS THE ARGUMENT. Everything here is arranged so the figure
+    cannot be read as a ranking:
+
+      - The candidate count is set at the same size as the percentage. A rate
+        without its N is the specific way this kind of number misleads, and
+        making N small is how sites pretend otherwise.
+      - The statewide figure sits immediately beside it, so the reader has a
+        baseline before they have an opinion.
+      - The caveat is not a `<details>`. Collapsing it would be choosing to
+        have most readers not see the one thing that determines whether the
+        number means what it appears to mean.
+      - Nothing links to another school's figure, and no such figure exists on
+        the directory page. There is deliberately no way to line them up.
+    """
+    if not ex:
+        return ""
+    src = ('<a href="%s" target="_blank" rel="noopener noreferrer">'
+           "the Board&rsquo;s published exam results by school &rarr;</a>"
+           % esc(ex["source"]))
+    st = ex.get("statewide") or {}
+    if ex.get("enough"):
+        head = (
+            '<div class="exg">'
+            '<div class="exb"><b>%d%%</b><em>passed first time</em>'
+            '<span>%s of %s candidates</span></div>'
+            '<div class="exb sw"><b>%d%%</b><em>statewide, same window</em>'
+            '<span>%s of %s candidates</span></div>'
+            "</div>"
+            % (ex["first_time_pct"],
+               "{:,}".format(ex["first_time_passed"]),
+               "{:,}".format(ex["first_time_taking"]),
+               st.get("first_time", 0),
+               "{:,}".format(st.get("first_time_passed", 0)),
+               "{:,}".format(st.get("first_time_n", 0))))
+        extra = ("<p>Counting every attempt rather than only first attempts, "
+                 "the figure is <b>%d%%</b> across %s sittings here, against "
+                 "<b>%d%%</b> statewide. First attempts are the fairer "
+                 "comparison &mdash; counting resits measures how many tries "
+                 "people needed rather than how many passed, and it penalises "
+                 "a school whose graduates keep going.</p>"
+                 % (ex["all_pct"], "{:,}".format(ex["all_taking"]),
+                    st.get("all", 0)))
+    else:
+        head = ('<div class="verd mix"><h3>Too few candidates to publish a rate</h3>'
+                "<p>The Board recorded <b>%d</b> first-time candidates from this "
+                "school across the whole window, and this page does not print a "
+                "percentage below %d. On a handful of candidates a single result "
+                "moves the figure by tens of points, and a small programme would "
+                "be described by noise. It usually means the programme is small, "
+                "new, or both.</p></div>"
+                % (ex["first_time_taking"], ex["floor"]))
+        extra = ""
+
+    as_rec = ex.get("as_recorded") or []
+    rec = ""
+    if as_rec:
+        rec = ("<p class=\"pnote\">Recorded by the Board as <b>%s</b>. Its list is "
+               "kept by institution and its names lag: a school that has since "
+               "renamed appears under the name it had when the candidates "
+               "sat.</p>" % esc(" &middot; ".join(as_rec)))
+
+    # `exwarn` exists so the build check can assert this block by itself. The
+    # section id is on the <h2> and the body is its SIBLING, so "#exam-results
+    # .verd.warn" matches nothing - which is how a check that looked correct
+    # passed on a page that had lost the caveat entirely.
+    caveat = (
+        '<div class="verd warn exwarn"><h3>What this number is, and what it is not</h3>'
+        "<p><b>It describes candidates, not teaching.</b> In 2022 the Council on "
+        "Social Work Education removed licensing-exam pass rates from its "
+        "accreditation standards, saying the data &ldquo;may not be an equitable "
+        "measure of program outcomes&rdquo; &mdash; after the social-work exam "
+        "board&rsquo;s own analysis found first-time pass rates of 84% for white "
+        "candidates and 45% for Black candidates. A programme that enrols more "
+        "career-changers and more students of colour will post a lower rate while "
+        "teaching at least as well. The accrediting body with the most reason to "
+        "want this metric examined it and stopped using it.</p>"
+        "<p><b>The denominator is not this year&rsquo;s students.</b> These are "
+        "people who sat the exam during the window, often several years after "
+        "graduating and sometimes after the programme changed shape or owner.</p>"
+        "<p>It is published here because it is a real, official figure that is "
+        "otherwise almost impossible to find &mdash; and it is published on this "
+        "page only. There is no pass-rate column in the directory, nothing is "
+        "sorted by it, and no school on this site is ranked against another.</p>"
+        "</div>")
+
+    le = ""
+    if ex.get("law_ethics_pct"):
+        le = ("<p>On the separate California Law and Ethics exam, <b>%d%%</b> of "
+              "this school&rsquo;s %s first-time candidates passed, against "
+              "<b>%d%%</b> statewide.</p>"
+              % (ex["law_ethics_pct"], "{:,}".format(ex["law_ethics_taking"]),
+                 st.get("law_ethics_first_time") or 0)
+              if st.get("law_ethics_first_time") else
+              "<p>On the separate California Law and Ethics exam, <b>%d%%</b> of "
+              "this school&rsquo;s %s first-time candidates passed.</p>"
+              % (ex["law_ethics_pct"], "{:,}".format(ex["law_ethics_taking"])))
+
+    return (head + extra + le + rec + caveat +
+            "<p>%s &middot; %s</p>" % (esc(ex["period"]), src))
+
+
 # ---------------------------------------------------------------- voices
 
 SENT = {"positive": ("pos", "positive"), "negative": ("neg", "critical"),

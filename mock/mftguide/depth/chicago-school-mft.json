@@ -222,5 +222,80 @@
    "label": "Sentio University independent CA MFT directory profile (competitor-authored)",
    "url": "https://sentio.org/chicago-school-mft-program-review"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "The Chicago School of Professional Psychology at Los Angeles"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 255,
+  "first_time_passed": 199,
+  "first_time_pct": 78,
+  "all_taking": 374,
+  "all_passed": 261,
+  "all_pct": 70,
+  "law_ethics_taking": 341,
+  "law_ethics_pct": 75,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.thechicagoschool.edu/wp-content/uploads/2026/07/COAMFTE-GAD-Table-The-Chicago-School-Fall-2026.pdf",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [
+   {
+    "label": "Campus-based (Los Angeles and Anaheim) / FT",
+    "rows": [
+     {
+      "year": "2018-2019",
+      "graduation": "48",
+      "licensure": "83",
+      "placement": "98",
+      "n": "79"
+     },
+     {
+      "year": "2019-2020",
+      "graduation": "56",
+      "licensure": "87",
+      "placement": "96",
+      "n": "77"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "42",
+      "licensure": "88",
+      "placement": "98",
+      "n": "102"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "57",
+      "licensure": "95",
+      "placement": "100",
+      "n": "93"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "64",
+      "licensure": "93",
+      "placement": "90",
+      "n": "92"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "Two tables: the campus-based MFT master's offered at Los Angeles and Anaheim (accredited 11/01/2022), and an Online master's that has 'No Students' in every cohort except 2025-2026 (n=21, all IP) - the online modality only began enrolling in 2025 and therefore contributes NO outcome data. Rates are published as bare integers with no percent signs and no decimals; recorded verbatim here. Graduation rates are low (42-64%) against a 3-year advertised length, on large cohorts (69-109). IMPORTANT SCOPE NOTE published as a dagger footnote: 'This program was previously offered at the Los Angeles, Anaheim, and San Diego campuses. The San Diego location is no longer enrolling new students; previously enrolled San Diego students remain active and are included in the cohort data above, with completion anticipated through Summer 2027.' So the campus-based numbers blend three campuses, one of which is being wound down. The published PDF also includes COAMFTE's full instructions-to-programs boilerplate ahead of the actual tables.",
+  "shown": 5
+ }
 }

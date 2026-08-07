@@ -263,5 +263,32 @@
    "label": "GradReports — 45 student reviews of Fresno Pacific University",
    "url": "https://www.gradreports.com/colleges/fresno-pacific-university"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Fresno Pacific Bibilical Seminary, Fresno",
+   "Fresno Pacific University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 68,
+  "first_time_passed": 61,
+  "first_time_pct": 90,
+  "all_taking": 77,
+  "all_passed": 69,
+  "all_pct": 90,
+  "law_ethics_taking": 83,
+  "law_ethics_pct": 84,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

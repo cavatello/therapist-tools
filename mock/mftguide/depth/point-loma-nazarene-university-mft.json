@@ -194,5 +194,31 @@
    "label": "California MFT program profile — PLNU",
    "url": "https://californiamft.org/mft-programs/plnu/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "POINT LOMA NAZARENE UNIVERSITY"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 71,
+  "first_time_passed": 67,
+  "first_time_pct": 94,
+  "all_taking": 75,
+  "all_passed": 71,
+  "all_pct": 95,
+  "law_ethics_taking": 166,
+  "law_ethics_pct": 84,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

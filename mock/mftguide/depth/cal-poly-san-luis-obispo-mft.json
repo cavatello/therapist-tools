@@ -208,5 +208,31 @@
    "correct": "San Luis Obispo Counseling Service at Cal Poly — a department-run community training clinic, $5–$25 sliding scale",
    "src": "https://slocounselingservice.calpoly.edu/about"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Calif. Polytechnic State University, San Luis Obispo - Cal Poly"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 97,
+  "first_time_passed": 94,
+  "first_time_pct": 97,
+  "all_taking": 105,
+  "all_passed": 101,
+  "all_pct": 96,
+  "law_ethics_taking": 132,
+  "law_ethics_pct": 94,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

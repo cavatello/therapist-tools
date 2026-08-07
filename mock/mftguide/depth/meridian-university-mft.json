@@ -272,5 +272,31 @@
    "correct": "2024 BPPE filing: 21 students began, 8 degrees awarded, 6 on-time graduates, 28.57% on-time completion rate, 100% placement of the 6 available for employment, 50% of enrolled students took federal loans.",
    "src": "https://bppe.ca.gov/webapplications/annualReports/2024/details/4901131"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Meridian University"
+  ],
+  "floor": 40,
+  "enough": false,
+  "first_time_taking": 24,
+  "first_time_passed": 20,
+  "first_time_pct": null,
+  "all_taking": 29,
+  "all_passed": 25,
+  "all_pct": null,
+  "law_ethics_taking": 18,
+  "law_ethics_pct": null,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

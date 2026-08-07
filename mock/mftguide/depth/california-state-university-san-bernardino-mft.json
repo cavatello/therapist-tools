@@ -250,5 +250,31 @@
    "correct": "Runs its own on-campus training clinic, the Community Counseling Center (established 1973), where first-year students carry a live caseload as a corequisite of the 6-unit MFT Skills courses.",
    "src": "https://www.csusb.edu/ccc/about-us"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, San Bernardino"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 61,
+  "first_time_passed": 55,
+  "first_time_pct": 90,
+  "all_taking": 71,
+  "all_passed": 61,
+  "all_pct": 86,
+  "law_ethics_taking": 77,
+  "law_ethics_pct": 95,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

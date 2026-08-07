@@ -231,5 +231,80 @@
    "label": "Chapman University academic catalog — MFT course descriptions (2024–25 edition, catoid 34)",
    "url": "https://chapman.catalog.acalog.com/preview_course_nopop.php?catoid=34&coid=105973"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Chapman University, Orange"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 162,
+  "first_time_passed": 136,
+  "first_time_pct": 84,
+  "all_taking": 260,
+  "all_passed": 183,
+  "all_pct": 70,
+  "law_ethics_taking": 178,
+  "law_ethics_pct": 89,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.chapman.edu/crean/_files/marriage-family/gad-data.pdf",
+  "as_published": "Shows the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2018-2019",
+      "graduation": "81%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "26"
+     },
+     {
+      "year": "2019-2020",
+      "graduation": "83%",
+      "licensure": "100%",
+      "placement": "83%",
+      "n": "30"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "96%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "28"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "96%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "24"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "86%",
+      "licensure": null,
+      "placement": null,
+      "n": "28"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "Chapman is one of only two schools (with CSUN) that discloses a RESPONSE-RATE denominator for job placement: 'the percentage of graduates from the cohort year listed who reported their employment status to the program and are employed utilizing skills learned in the COAMFTE accredited program.' The added 'who reported their employment status to the program' clause means the denominator is respondents, not graduates - so Chapman's 100% job placement figures are not the same measurement as a school that says simply 'graduates from the cohort year'. Cohort sizes are consistently small (21-30). Licensure follows COAMFTE boilerplate 'ANY level', which in California means Associate registration. Linked from the program page as 'Student/Graduate Achievement Disclosure - COAMFTE'.",
+  "shown": 5
+ }
 }

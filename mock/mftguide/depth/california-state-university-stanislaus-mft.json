@@ -200,5 +200,31 @@
    "correct": "Verified correct — the department states \"60 units minimum,\" \"Basic Requirements (36 units)\" and \"Counseling Track Courses (24 units).\" No change needed.",
    "src": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Stanislaus"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 62,
+  "first_time_passed": 61,
+  "first_time_pct": 98,
+  "all_taking": 67,
+  "all_passed": 65,
+  "all_pct": 97,
+  "law_ethics_taking": 52,
+  "law_ethics_pct": 88,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

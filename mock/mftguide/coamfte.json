@@ -1,0 +1,1793 @@
+[
+ {
+  "institution": "Alliant International University (CSPP)",
+  "published": true,
+  "url": "https://www.alliant.edu/marital-and-family-therapy/ma",
+  "cohorts": [
+   {
+    "year": "2016-2017",
+    "graduation_rate": "62%",
+    "licensure_rate": "95%",
+    "job_placement_rate": "94%",
+    "n": "21",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "71%",
+    "licensure_rate": "79%",
+    "job_placement_rate": "100%",
+    "n": "21",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "63%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "19",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "58%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "12",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "69%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "16",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "93%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "14",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "83%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "18",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "94%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "16",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "15",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "19",
+    "campus": "Irvine",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "64%",
+    "licensure_rate": "93%",
+    "job_placement_rate": "95%",
+    "n": "45",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "65%",
+    "licensure_rate": "90%",
+    "job_placement_rate": "94%",
+    "n": "26",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "46%",
+    "licensure_rate": "97%",
+    "job_placement_rate": "100%",
+    "n": "41",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "63%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "35",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "64%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "39",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "67%",
+    "licensure_rate": "87%",
+    "job_placement_rate": "94%",
+    "n": "43",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "64%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "33",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "86%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "29",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "36",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "48",
+    "campus": "San Diego",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "67%",
+    "licensure_rate": "86%",
+    "job_placement_rate": "100%",
+    "n": "18",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "92%",
+    "licensure_rate": "73%",
+    "job_placement_rate": "100%",
+    "n": "12",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "56%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "18",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "70%",
+    "licensure_rate": "95%",
+    "job_placement_rate": "100%",
+    "n": "20",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "55%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "20",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "78%",
+    "licensure_rate": "87%",
+    "job_placement_rate": "100%",
+    "n": "18",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "87%",
+    "licensure_rate": "93%",
+    "job_placement_rate": "100%",
+    "n": "15",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "82%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "11",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "15",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "15",
+    "campus": "Los Angeles",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "83%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "12",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "45%",
+    "licensure_rate": "63%",
+    "job_placement_rate": "100%",
+    "n": "11",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "82%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "100%",
+    "n": "17",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "75%",
+    "licensure_rate": "92%",
+    "job_placement_rate": "100%",
+    "n": "12",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "79%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "14",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "95%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "21",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "87%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "15",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "91%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "88%",
+    "n": "11",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "13",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "13",
+    "campus": "Sacramento",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "44%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "27",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "56%",
+    "licensure_rate": "88%",
+    "job_placement_rate": "100%",
+    "n": "59",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "57%",
+    "licensure_rate": "90%",
+    "job_placement_rate": "96%",
+    "n": "75",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "69%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "96%",
+    "n": "166",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "48%",
+    "licensure_rate": "93%",
+    "job_placement_rate": "95%",
+    "n": "111",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "63%",
+    "licensure_rate": "95%",
+    "job_placement_rate": "93%",
+    "n": "139",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "69%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "90%",
+    "n": "134",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "190",
+    "campus": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "137",
+    "campus": "Online",
+    "track": "FT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. ... Alliant MFT Notes: Licensure rates include any graduate who achieves ANY level of postgraduate MFT licensure (e.g. associate, provisional, or registered, as applicable per jurisdiction).",
+  "notes": "FIVE SEPARATE TABLES, one per campus/modality (Irvine, San Diego, Los Angeles, Sacramento, Online) - each its own PDF; there is no combined Alliant figure and none should be constructed. A 'campus' key has been added to each cohort row to keep them distinguishable. Alliant is the ONLY school in this set that spells out in its own added note that 'licensure' counts associate/provisional/registered status - i.e. these are NOT independently licensed LMFTs. Graduation rates are markedly lower than the CA average here (many in the 44-69% range) because the advertised length is 2 years; students finishing later are counted as non-completers. Cohort sizes vary enormously WITHIN the same institution (n=11 at Sacramento vs n=190 online), so per-campus rates are not equally reliable. Sacramento 2017-2018 licensure of 63% falls below COAMFTE's own 70% benchmark. Individual campus PDFs: files.alliant.edu/institutional-information/accreditations/clinical-psychology/coamfte-student-achievement-data-ma-{irvine,san-diego,los-angeles,sacramento,online}.pdf"
+ },
+ {
+  "institution": "California State University, Northridge",
+  "published": true,
+  "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/coamfte-accreditation",
+  "cohorts": [
+   {
+    "year": "2015-2016",
+    "graduation_rate": "87%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "53",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "86%",
+    "licensure_rate": "96%",
+    "job_placement_rate": "96%",
+    "n": "55",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "78%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "54",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "86%",
+    "licensure_rate": "98%",
+    "job_placement_rate": "100%",
+    "n": "51",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "78%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "98%",
+    "n": "51",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "86%",
+    "licensure_rate": "98%",
+    "job_placement_rate": "97%",
+    "n": "57",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "92%",
+    "licensure_rate": "98%",
+    "job_placement_rate": "98%",
+    "n": "52",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "89%",
+    "licensure_rate": "98%",
+    "job_placement_rate": "96%",
+    "n": "54",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "57",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "53",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "56",
+    "track": "FT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure, which for our graduates includes pursuing an Associate License upon graduation. This data is based on graduates' self-report at time of survey.",
+  "notes": "THE MOST TRANSPARENT DISCLOSURE IN THE SET, and the key to reading everyone else's. CSUN states outright in its narrative text: 'The Commission requires that each program report the licensure rate for each cohort, which is defined as the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. In California, this is defined as achieving the Associate Level of licensure.' So a 98-100% 'licensure rate' means ~all graduates registered as Associates - it says nothing about how many became LMFTs. CSUN also uniquely discloses the JOB PLACEMENT DENOMINATOR: 'the number of individuals that provided their employment status to the program' - i.e. a survey-respondent denominator, not the full cohort. Both job placement and licensure are explicitly self-reported. Full-time only; no part-time track. Advertised length 3 years, which is why its graduation rates look better than 2-year programs' - not necessarily because more students finish."
+ },
+ {
+  "institution": "Chapman University",
+  "published": true,
+  "url": "https://www.chapman.edu/crean/_files/marriage-family/gad-data.pdf",
+  "cohorts": [
+   {
+    "year": "2015-2016",
+    "graduation_rate": "79%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "24",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "88%",
+    "licensure_rate": "87%",
+    "job_placement_rate": "86%",
+    "n": "25",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "86%",
+    "licensure_rate": "89%",
+    "job_placement_rate": "83%",
+    "n": "21",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "81%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "26",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "83%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "83%",
+    "n": "30",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "96%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "28",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "96%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "24",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "86%",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "28",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "27",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "28",
+    "track": "FT"
+   }
+  ],
+  "as_published": "Shows the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "Chapman is one of only two schools (with CSUN) that discloses a RESPONSE-RATE denominator for job placement: 'the percentage of graduates from the cohort year listed who reported their employment status to the program and are employed utilizing skills learned in the COAMFTE accredited program.' The added 'who reported their employment status to the program' clause means the denominator is respondents, not graduates - so Chapman's 100% job placement figures are not the same measurement as a school that says simply 'graduates from the cohort year'. Cohort sizes are consistently small (21-30). Licensure follows COAMFTE boilerplate 'ANY level', which in California means Associate registration. Linked from the program page as 'Student/Graduate Achievement Disclosure - COAMFTE'."
+ },
+ {
+  "institution": "Daybreak University",
+  "published": true,
+  "url": "https://www.daybreak.edu/file/academic/COAMFTE_GAD_Table_Masters_Program_2026.pdf",
+  "cohorts": [
+   {
+    "year": "2016-2017",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "NOT ACCREDITED",
+    "licensure_rate": "NOT ACCREDITED",
+    "job_placement_rate": "NOT ACCREDITED",
+    "n": null
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "5",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "6",
+    "track": "PT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "13",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "7",
+    "track": "PT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "17",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "5",
+    "track": "PT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "PUBLISHES THE TABLE BUT IT CONTAINS NO OUTCOME NUMBERS AT ALL. Accredited 05/01/2024, so the seven cohorts 2016-2017 through 2022-2023 are marked 'NOT ACCREDITED' and the only three cohorts with enrolled students (2023-2024 through 2025-2026) are all 'IP' (In Process) across every metric. Enrollment counts are given (FT 5/13/17, PT 6/7/5) but not one graduation, job placement, or licensure figure exists. Daybreak MUST NOT appear in a comparison table with a number in it - it has none. It has also left the COAMFTE template's placeholder brackets in the published document ('Graduate Achievement Data for [MA in Counseling with a Specialization in Marriage and Family Therapy]', 'Accredited: [05/01/2024]'), and published the full multi-page COAMFTE instructions-to-programs boilerplate along with the table."
+ },
+ {
+  "institution": "Hope International University",
+  "published": true,
+  "url": "https://www.hiu.edu/pdf/COAMFTE-GAD-Table-Summer-2026.pdf",
+  "cohorts": [
+   {
+    "year": "2016-2017",
+    "graduation_rate": "45.45%",
+    "licensure_rate": "83.63%",
+    "job_placement_rate": "100%",
+    "n": "55",
+    "track": "FT",
+    "maximum_graduation_rate": "96.4%"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "54.17%",
+    "licensure_rate": "70.83%",
+    "job_placement_rate": "94.7%",
+    "n": "48",
+    "track": "FT",
+    "maximum_graduation_rate": "98%"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "48.84%",
+    "licensure_rate": "73.17%",
+    "job_placement_rate": "100%",
+    "n": "43",
+    "track": "FT",
+    "maximum_graduation_rate": "100%"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "59.68%",
+    "licensure_rate": "74.07%",
+    "job_placement_rate": "100%",
+    "n": "59",
+    "track": "FT",
+    "maximum_graduation_rate": "99.00%"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "52.94%",
+    "licensure_rate": "92.00%",
+    "job_placement_rate": "100%",
+    "n": "52",
+    "track": "FT",
+    "maximum_graduation_rate": "96.15%"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "50%",
+    "licensure_rate": "83.87%",
+    "job_placement_rate": "100%",
+    "n": "44",
+    "track": "FT",
+    "maximum_graduation_rate": "70.45%"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "57.58%",
+    "licensure_rate": "83.33%",
+    "job_placement_rate": "80%",
+    "n": "66",
+    "track": "FT",
+    "maximum_graduation_rate": "80.64%"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "59.09%",
+    "licensure_rate": "80.77%",
+    "job_placement_rate": "100%",
+    "n": "44",
+    "track": "FT",
+    "maximum_graduation_rate": "77.27%"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "35.90%",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "39",
+    "track": "FT",
+    "maximum_graduation_rate": "35.90%"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "30",
+    "track": "FT",
+    "maximum_graduation_rate": "IP"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "HOPE PUBLISHES AN EXTRA COLUMN NO OTHER SCHOOL IN THIS SET HAS: 'Maximum Graduation Rate (%)', alongside the standard 'Graduation Rate in Advertised Time'. The two differ enormously - e.g. 2018-2019 is 48.84% in advertised time but 100% maximum. That extra column is captured here as 'maximum_graduation_rate'. Hope explains why: 'HIU's advertised graduation rate is 2 years. Students can choose a three-year program to spread the number of courses over each semester. About 40%-50% of students choose to complete the program in 3 years, which is a full-time track... the graduate rate for the advertised timeframe is lower than the maximum graduation rate.' Putting Hope's ~45-59% next to a 3-year program's ~87% would be actively misleading - it is measuring elapsed time against a shorter yardstick, not student failure. 2017-2018 licensure of 70.83% is barely above COAMFTE's 70% benchmark. Note the PDF's header row also contains an apparent typo, 'FT80.', in the maximum-graduation-rate column."
+ },
+ {
+  "institution": "Loma Linda University",
+  "published": true,
+  "url": "https://behavioralhealth.llu.edu/academics/counseling-and-family-sciences/marital-and-family-therapy-ms-online-or-campus/graduate-achievement-data-table",
+  "cohorts": [
+   {
+    "year": "2015-2016",
+    "graduation_rate": "100%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "94%",
+    "n": "17",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2015-2016",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "100%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "94%",
+    "n": "16",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "100%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "1",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "100%",
+    "licensure_rate": "92%",
+    "job_placement_rate": "92%",
+    "n": "12",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "100%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "1",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "94%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "88%",
+    "n": "16",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "86%",
+    "licensure_rate": "86%",
+    "job_placement_rate": "86%",
+    "n": "7",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "100%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "2",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "88%",
+    "licensure_rate": "73%",
+    "job_placement_rate": "73%",
+    "n": "25",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "67%",
+    "licensure_rate": "50%",
+    "job_placement_rate": "100%",
+    "n": "3",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "82%",
+    "licensure_rate": "94%",
+    "job_placement_rate": "85%",
+    "n": "17",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "78%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "80%",
+    "n": "9",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "87%",
+    "licensure_rate": "92%",
+    "job_placement_rate": "92%",
+    "n": "15",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "100%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "3",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "100%",
+    "licensure_rate": "79%",
+    "job_placement_rate": "79%",
+    "n": "14",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "1",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "17",
+    "program": "MS On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "5",
+    "program": "MS On-Campus",
+    "track": "PT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "56%",
+    "licensure_rate": "86%",
+    "job_placement_rate": "100%",
+    "n": "9",
+    "program": "MS Online",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "0",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "0",
+    "n": "No Students",
+    "program": "MS Online",
+    "track": "PT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "58%",
+    "licensure_rate": "80%",
+    "job_placement_rate": "100%",
+    "n": "12",
+    "program": "MS Online",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "2",
+    "program": "MS Online",
+    "track": "PT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "55%",
+    "licensure_rate": "0%",
+    "job_placement_rate": "0%",
+    "n": "11",
+    "program": "MS Online",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "4",
+    "program": "MS Online",
+    "track": "PT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "17",
+    "program": "MS Online",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "3",
+    "program": "MS Online",
+    "track": "PT"
+   }
+  ],
+  "as_published": "Licensure rate: the percentage of graduates from the cohort year that have achieved any level of MFT licensure.",
+  "notes": "DATA IS PUBLISHED ONLY AS JPG IMAGES (sbh-cfs-mftms-oncampus-gad-2026.jpg, sbh-cfs-mftms-online-gadtable-2026.jpg) - not selectable text, not a PDF, not an HTML table. It is technically 'publicly accessible' but not machine-readable or screen-reader accessible; the numbers here were read off the images. TWO separate programs (MS On-Campus, accredited May 1982; MS Online, accredited November 2021) each split FT/PT - captured via 'program' and 'track' keys. Advertised lengths DIFFER between them (on-campus FT 2yr / PT 3yr; online FT 2.5yr / PT 3.5yr), so their graduation rates are not comparable even to each other. CRITICAL SMALL-n PROBLEM: many part-time cells have n=1, 2, or 3, producing meaningless 100% and 50% figures - the 2020-2021 PT 'licensure rate' of 50% is one person out of two. The Online 2023-2024 FT cohort shows 0% job placement AND 0% licensure on n=11, which COAMFTE's own rules say requires contextual explanation; none is given on the page. Loma Linda also runs separate DMFT and PhD programs with their own tables not included here."
+ },
+ {
+  "institution": "National University",
+  "published": true,
+  "url": "https://www.nu.edu/wp-content/uploads/2025/08/COAMFTE-GAD-Table-NU-Masters-Program-2025.pdf",
+  "cohorts": [
+   {
+    "year": "2015-2016",
+    "graduation_rate": "41.05%",
+    "licensure_rate": "58.54%",
+    "job_placement_rate": "98.47%",
+    "n": "380",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "34.64%",
+    "licensure_rate": "56.10%",
+    "job_placement_rate": "96.33%",
+    "n": "332",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "37.50%",
+    "licensure_rate": "51.85%",
+    "job_placement_rate": "96.26%",
+    "n": "312",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "41.01%",
+    "licensure_rate": "50.98%",
+    "job_placement_rate": "98.00%",
+    "n": "278",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "57.26%",
+    "licensure_rate": "51.08%",
+    "job_placement_rate": "96.27%",
+    "n": "351",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "459",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "596",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "495",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "418",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "343",
+    "track": "FT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "THE MOST IMPORTANT DATA POINT IN THIS WHOLE SET FOR JUDGING COMPARABILITY. National uses the EXACT SAME boilerplate licensure definition as Chapman, Alliant, Hope, Touro and Northwestern - yet reports 50.98%-58.54%, roughly HALF what those schools report, and BELOW COAMFTE's own 70% benchmark in every single reported cohort. Identical words, wildly different numbers. That means the spread across schools is driven by data-collection practice (who answers the alumni survey, and how non-responders are treated) at least as much as by actual outcomes - so the licensure column cannot be read as a like-for-like quality measure. Also the largest cohorts in the set by far (278-596 students; 2021-2022 alone is 596) with the lowest graduation rates (34.64%-57.26%), against a 4.5-year advertised length. Note the tension: ~96-98% job placement alongside ~51-58% licensure, from the same alumni population - suggesting the two metrics use different denominators or different survey waves, though NU does not disclose this. Program is full-time only. Accredited 2012."
+ },
+ {
+  "institution": "Northwestern University, The Family Institute",
+  "published": true,
+  "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/student-achievement-data",
+  "cohorts": [
+   {
+    "year": "2015-2016",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "85.71%",
+    "job_placement_rate": "92.86%",
+    "n": "28",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "85.19%",
+    "job_placement_rate": "85.19%",
+    "n": "27",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "85.19%",
+    "job_placement_rate": "85.19%",
+    "n": "27",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "84.62%",
+    "job_placement_rate": "92.31%",
+    "n": "26",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "92.59%",
+    "licensure_rate": "88.00%",
+    "job_placement_rate": "92.00%",
+    "n": "27",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "96.77%",
+    "licensure_rate": "100.00%",
+    "job_placement_rate": "100.00%",
+    "n": "31",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "96.55%",
+    "job_placement_rate": "96.55%",
+    "n": "29",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "93.33%",
+    "job_placement_rate": "93.33%",
+    "n": "30",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "100.00%",
+    "licensure_rate": "90.00%",
+    "job_placement_rate": "90.00%",
+    "n": "30",
+    "program": "On-Campus",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "100%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "5",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "100%",
+    "licensure_rate": "100%",
+    "job_placement_rate": "100%",
+    "n": "2",
+    "program": "Online",
+    "track": "PT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "76%",
+    "licensure_rate": "87.50%",
+    "job_placement_rate": "87.50%",
+    "n": "25",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "36.84%",
+    "licensure_rate": "85.71%",
+    "job_placement_rate": "85.71%",
+    "n": "19",
+    "program": "Online",
+    "track": "PT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "50%",
+    "licensure_rate": "91.30%",
+    "job_placement_rate": "91.30%",
+    "n": "50",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "33",
+    "program": "Online",
+    "track": "PT"
+   }
+  ],
+  "as_published": "the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "Two branches (On-Campus and Online) reported separately - captured via 'program' and 'track'. NOT A CALIFORNIA PROGRAM: it is Illinois-based, so its 'ANY level of MFT licensure' maps onto Illinois's Associate Marriage and Family Therapist credential, not California's AMFT registration - the same phrase points at a different legal status than it does for the CA schools. TELLTALE PATTERN: in nearly every row the licensure rate is IDENTICAL to the job placement rate (85.19/85.19, 96.55/96.55, 93.33/93.33, 90.00/90.00, 87.50/87.50, 91.30/91.30). That strongly suggests both are computed off the same set of survey respondents rather than measured independently, which would make the two columns near-duplicates rather than two facts. On-campus graduation rates are 100.00% in six of nine cohorts - an outlier worth flagging. The Online branch is new and much weaker (36.84% and 50% graduation) with a rapidly growing cohort (5 to 50 FT in three years)."
+ },
+ {
+  "institution": "San Diego State University",
+  "published": true,
+  "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/coamfte",
+  "cohorts": [
+   {
+    "year": "2018-2019",
+    "graduation_rate": "73.3",
+    "licensure_rate": "100",
+    "job_placement_rate": "92.3",
+    "n": "30",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "93.55",
+    "licensure_rate": "100",
+    "job_placement_rate": "84",
+    "n": "31",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "96.6",
+    "licensure_rate": "96.6",
+    "job_placement_rate": "100",
+    "n": "30",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "96.1",
+    "licensure_rate": "92.3",
+    "job_placement_rate": "100",
+    "n": "26",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "100",
+    "licensure_rate": "87.10",
+    "job_placement_rate": "100",
+    "n": "31",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "93.55",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "31",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "29",
+    "track": "FT"
+   }
+  ],
+  "as_published": "based on an associate title that leads to an LMFT in the State of California",
+  "notes": "THE CLEAREST PROOF THAT 'LICENSURE RATE' DOES NOT MEAN LICENSED. SDSU is the only school in this set that REPLACES COAMFTE's boilerplate rather than repeating it: its licensure footnote reads simply 'based on an associate title that leads to an LMFT in the State of California'. So SDSU's 100% licensure figures for 2018-2019 and 2019-2020 mean 100% of responding graduates registered as AMFTs - a credential you apply for shortly after graduating - not that any of them are LMFTs. Because most other schools' 'ANY level of MFT licensure' resolves to the same thing in California, SDSU's wording is best read as the honest gloss on everyone else's. Rates are published to inconsistent precision on the same page (73.3, 93.55, 96.6, 87.10) - copied verbatim here, not normalized. Only 7 cohorts published, starting 2018-2019 - a shorter window than most peers. Full-time only."
+ },
+ {
+  "institution": "The Chicago School",
+  "published": true,
+  "url": "https://www.thechicagoschool.edu/wp-content/uploads/2026/07/COAMFTE-GAD-Table-The-Chicago-School-Fall-2026.pdf",
+  "cohorts": [
+   {
+    "year": "2016-2017",
+    "graduation_rate": "57",
+    "licensure_rate": "86",
+    "job_placement_rate": "94",
+    "n": "69",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "52",
+    "licensure_rate": "81",
+    "job_placement_rate": "100",
+    "n": "73",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "48",
+    "licensure_rate": "83",
+    "job_placement_rate": "98",
+    "n": "79",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "56",
+    "licensure_rate": "87",
+    "job_placement_rate": "96",
+    "n": "77",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "42",
+    "licensure_rate": "88",
+    "job_placement_rate": "98",
+    "n": "102",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "57",
+    "licensure_rate": "95",
+    "job_placement_rate": "100",
+    "n": "93",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "64",
+    "licensure_rate": "93",
+    "job_placement_rate": "90",
+    "n": "92",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "109",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "95",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "46",
+    "program": "Campus-based (Los Angeles and Anaheim)",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "No Students",
+    "licensure_rate": "No Students",
+    "job_placement_rate": "No Students",
+    "n": "No Students",
+    "program": "Online",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "21",
+    "program": "Online",
+    "track": "FT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "Two tables: the campus-based MFT master's offered at Los Angeles and Anaheim (accredited 11/01/2022), and an Online master's that has 'No Students' in every cohort except 2025-2026 (n=21, all IP) - the online modality only began enrolling in 2025 and therefore contributes NO outcome data. Rates are published as bare integers with no percent signs and no decimals; recorded verbatim here. Graduation rates are low (42-64%) against a 3-year advertised length, on large cohorts (69-109). IMPORTANT SCOPE NOTE published as a dagger footnote: 'This program was previously offered at the Los Angeles, Anaheim, and San Diego campuses. The San Diego location is no longer enrolling new students; previously enrolled San Diego students remain active and are included in the cohort data above, with completion anticipated through Summer 2027.' So the campus-based numbers blend three campuses, one of which is being wound down. The published PDF also includes COAMFTE's full instructions-to-programs boilerplate ahead of the actual tables."
+ },
+ {
+  "institution": "Touro University Worldwide",
+  "published": true,
+  "url": "https://www.tuw.edu/wp-content/uploads/COAMFTE_SAC_DISCLOSURE.pdf",
+  "cohorts": [
+   {
+    "year": "2019-2020",
+    "graduation_rate": "75.00%",
+    "licensure_rate": "88.55%",
+    "job_placement_rate": "100%",
+    "n": "144",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "48.57%",
+    "licensure_rate": "88.89%",
+    "job_placement_rate": "100%",
+    "n": "35",
+    "track": "PT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "62.04%",
+    "licensure_rate": "98.64%",
+    "job_placement_rate": "100%",
+    "n": "274",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "57.29%",
+    "licensure_rate": "IP",
+    "job_placement_rate": "84.85%",
+    "n": "96",
+    "track": "PT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "59.54%",
+    "licensure_rate": "93.22%",
+    "job_placement_rate": "99.06%",
+    "n": "304",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "72",
+    "track": "PT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "53.85%",
+    "licensure_rate": "IP",
+    "job_placement_rate": "85.23%",
+    "n": "312",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "53",
+    "track": "PT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "284",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "48",
+    "track": "PT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "277",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "23",
+    "track": "PT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure.",
+  "notes": "Fully online program, accredited May 1, 2020. Reports FT and PT separately with DIFFERENT advertised lengths - 'Graduation Rate is the program's Advertised Length of Completion which is how long the program is designed to complete as written. (2 1/2 Years FT, 5 Years PT)' - so the FT and PT graduation columns are measured against different clocks and must not be pooled. THE SHARPEST ILLUSTRATION OF THE DENOMINATOR PROBLEM IN THIS SET: the 2020-2021 FT cohort of 274 students has a 62.04% graduation rate and a 98.64% licensure rate. The 98.64% is a share of the ~170 who graduated, not of the 274 who enrolled - so roughly 61% of the people who started ended up with any MFT credential, while the headline number reads 98.64%. Very large cohorts (up to 312 FT) with declining graduation rates (75.00% down to 53.85%). Touro publishes NO definitional footnote at all for what counts as licensure beyond the COAMFTE boilerplate, and unlike Alliant does not spell out that associate-level counts."
+ },
+ {
+  "institution": "University of San Diego (SOLES)",
+  "published": true,
+  "url": "https://drive.google.com/file/d/1YhqPaDjm5Xq7600rTXmM7B2lEZ_BbVyH/view?usp=sharing",
+  "cohorts": [
+   {
+    "year": "2015-2016",
+    "graduation_rate": "79",
+    "licensure_rate": "100",
+    "job_placement_rate": "79",
+    "n": "24",
+    "track": "FT"
+   },
+   {
+    "year": "2016-2017",
+    "graduation_rate": "97",
+    "licensure_rate": "100",
+    "job_placement_rate": "100",
+    "n": "30",
+    "track": "FT"
+   },
+   {
+    "year": "2017-2018",
+    "graduation_rate": "82",
+    "licensure_rate": "97",
+    "job_placement_rate": "97",
+    "n": "33",
+    "track": "FT"
+   },
+   {
+    "year": "2018-2019",
+    "graduation_rate": "92",
+    "licensure_rate": "95",
+    "job_placement_rate": "95",
+    "n": "38",
+    "track": "FT"
+   },
+   {
+    "year": "2019-2020",
+    "graduation_rate": "94",
+    "licensure_rate": "90",
+    "job_placement_rate": "90",
+    "n": "31",
+    "track": "FT"
+   },
+   {
+    "year": "2020-2021",
+    "graduation_rate": "89",
+    "licensure_rate": "86",
+    "job_placement_rate": "86",
+    "n": "36",
+    "track": "FT"
+   },
+   {
+    "year": "2021-2022",
+    "graduation_rate": "91",
+    "licensure_rate": "91",
+    "job_placement_rate": "91",
+    "n": "33",
+    "track": "FT"
+   },
+   {
+    "year": "2022-2023",
+    "graduation_rate": "94",
+    "licensure_rate": "94",
+    "job_placement_rate": "94",
+    "n": "32",
+    "track": "FT"
+   },
+   {
+    "year": "2023-2024",
+    "graduation_rate": "85",
+    "licensure_rate": "97",
+    "job_placement_rate": "97",
+    "n": "39",
+    "track": "FT"
+   },
+   {
+    "year": "2024-2025",
+    "graduation_rate": "84",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "32",
+    "track": "FT"
+   },
+   {
+    "year": "2025-2026",
+    "graduation_rate": "IP",
+    "licensure_rate": "IP",
+    "job_placement_rate": "IP",
+    "n": "36",
+    "track": "FT"
+   }
+  ],
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "notes": "HOSTING PROBLEM WORTH FLAGGING: USD's required public disclosure is a PDF on a personal-style GOOGLE DRIVE share link, not on sandiego.edu. The obvious candidate page, https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/outcomes.php ('Learning and Career Outcomes'), contains NO graduation, licensure, or job placement rates at all - only learning outcomes and a list of alumni job titles. The actual GAD table is reachable only via a 'Graduate Achievement Data' Drive link on the program page. This is fragile and arguably fails COAMFTE's 'clearly displayed link on the program's homepage' requirement in spirit. DATA CAVEAT: from 2017-2018 onward the licensure rate is IDENTICAL to the job placement rate in EVERY row (97/97, 95/95, 90/90, 86/86, 91/91, 94/94, 97/97) - as with Northwestern, that pattern indicates both come from one alumni survey response set, so they are not two independent measurements. USD also uses a distinct IP definition that no one else uses: 'IP=In Process: Students from the cohort listed have yet to graduate and/or have not been in the field long enough to qualify for licensure' - an explicit acknowledgment that licensure takes time, which makes the other schools' fast-converging licensure numbers look more like associate registration. Rates published as bare integers, no percent signs. Accredited August 1, 1992. Full-time only, 2-year advertised length."
+ }
+]

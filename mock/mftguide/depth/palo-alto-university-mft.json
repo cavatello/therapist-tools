@@ -259,5 +259,31 @@
    "label": "GradReports — Palo Alto University reviews",
    "url": "https://www.gradreports.com/colleges/palo-alto-university"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Palo Alto University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 297,
+  "first_time_passed": 248,
+  "first_time_pct": 84,
+  "all_taking": 375,
+  "all_passed": 295,
+  "all_pct": 79,
+  "law_ethics_taking": 455,
+  "law_ethics_pct": 85,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

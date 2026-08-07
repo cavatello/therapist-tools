@@ -327,5 +327,31 @@
    "correct": "The School of Psychology & Marriage and Family Therapy contains two departments: Clinical Psychology (APA-accredited PhD and PsyD, Pasadena; students receive a sequential, non-admitting MA in Psychology after 88 units) and Marriage and Family Therapy (MSMFT and a hybrid DMFT). They are sibling departments, not a shared program.",
    "src": "https://www.fuller.edu/wp-content/uploads/2025/09/2025-26-Academic-Catalog-English-revised-9.18.25.pdf"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Fuller Theological Seminary, Pasadena"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 193,
+  "first_time_passed": 179,
+  "first_time_pct": 93,
+  "all_taking": 220,
+  "all_passed": 197,
+  "all_pct": 90,
+  "law_ethics_taking": 250,
+  "law_ethics_pct": 85,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

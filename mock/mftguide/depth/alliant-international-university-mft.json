@@ -260,5 +260,241 @@
    "label": "U.S. Dept. of Education College Scorecard — Alliant–San Diego, master's in CIP 51.15: median federal graduate loan debt $107,070 (n=105), median earnings one year out $53,383",
    "url": "https://collegescorecard.ed.gov/school/?110468-Alliant-International-University-San-Diego"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Alliant International University (aka CSPP)",
+   "Alliant International University (aka US International)"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 547,
+  "first_time_passed": 472,
+  "first_time_pct": 86,
+  "all_taking": 690,
+  "all_passed": 556,
+  "all_pct": 81,
+  "law_ethics_taking": 736,
+  "law_ethics_pct": 83,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.alliant.edu/marital-and-family-therapy/ma",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. ... Alliant MFT Notes: Licensure rates include any graduate who achieves ANY level of postgraduate MFT licensure (e.g. associate, provisional, or registered, as applicable per jurisdiction).",
+  "groups": [
+   {
+    "label": "Irvine / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "58%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "12"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "69%",
+      "licensure": "94%",
+      "placement": "100%",
+      "n": "16"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "93%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "14"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "83%",
+      "licensure": "94%",
+      "placement": "100%",
+      "n": "18"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "94%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "16"
+     }
+    ]
+   },
+   {
+    "label": "Los Angeles / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "70%",
+      "licensure": "95%",
+      "placement": "100%",
+      "n": "20"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "55%",
+      "licensure": "94%",
+      "placement": "100%",
+      "n": "20"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "78%",
+      "licensure": "87%",
+      "placement": "100%",
+      "n": "18"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "87%",
+      "licensure": "93%",
+      "placement": "100%",
+      "n": "15"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "82%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "11"
+     }
+    ]
+   },
+   {
+    "label": "Online / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "57%",
+      "licensure": "90%",
+      "placement": "96%",
+      "n": "75"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "69%",
+      "licensure": "94%",
+      "placement": "96%",
+      "n": "166"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "48%",
+      "licensure": "93%",
+      "placement": "95%",
+      "n": "111"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "63%",
+      "licensure": "95%",
+      "placement": "93%",
+      "n": "139"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "69%",
+      "licensure": "94%",
+      "placement": "90%",
+      "n": "134"
+     }
+    ]
+   },
+   {
+    "label": "Sacramento / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "75%",
+      "licensure": "92%",
+      "placement": "100%",
+      "n": "12"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "79%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "14"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "95%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "21"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "87%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "15"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "91%",
+      "licensure": "100%",
+      "placement": "88%",
+      "n": "11"
+     }
+    ]
+   },
+   {
+    "label": "San Diego / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "63%",
+      "licensure": "94%",
+      "placement": "100%",
+      "n": "35"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "64%",
+      "licensure": "94%",
+      "placement": "100%",
+      "n": "39"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "67%",
+      "licensure": "87%",
+      "placement": "94%",
+      "n": "43"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "64%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "33"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "86%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "29"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "FIVE SEPARATE TABLES, one per campus/modality (Irvine, San Diego, Los Angeles, Sacramento, Online) - each its own PDF; there is no combined Alliant figure and none should be constructed. A 'campus' key has been added to each cohort row to keep them distinguishable. Alliant is the ONLY school in this set that spells out in its own added note that 'licensure' counts associate/provisional/registered status - i.e. these are NOT independently licensed LMFTs. Graduation rates are markedly lower than the CA average here (many in the 44-69% range) because the advertised length is 2 years; students finishing later are counted as non-completers. Cohort sizes vary enormously WITHIN the same institution (n=11 at Sacramento vs n=190 online), so per-campus rates are not equally reliable. Sacramento 2017-2018 licensure of 63% falls below COAMFTE's own 70% benchmark. Individual campus PDFs: files.alliant.edu/institutional-information/accreditations/clinical-psychology/coamfte-student-achievement-data-ma-{irvine,san-diego,los-angeles,sacramento,online}.pdf",
+  "shown": 5
+ }
 }

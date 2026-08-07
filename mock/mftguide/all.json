@@ -1,0 +1,1718 @@
+[
+ {
+  "institution": "Alliant International University (CSPP)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "As a student of the CFT program, you are fully responsible in securing your practicum site.",
+   "url": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-ma-level-practicum-clinical-training-manual.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "300 direct client contact hours (minimum 150 relational hours)",
+   "hours_url": "https://files.alliant.edu/institutional-information/accreditations/mft/mft-ma-level-practicum-clinical-training-manual.pdf",
+   "how_long": "Three consecutive semesters (enrolled in PSY 73600 at least three consecutive semesters)"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "minimum cumulative GPA of 3.0 on a 4.0 scale unless otherwise stated",
+   "url": "https://www.alliant.edu/admissions/graduate-application-requirements/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "Classified assisted rather than student-sourced because the same 2025-26 Clinical Training Manual that puts responsibility on the student also directs students to the \"Approved Practicum Site document on the CFT Student Hub\" and notes that \"certain agencies in locations around Alliant's campuses have established relationship and contracts with the university\"; an Alliant CFT program handout adds that \"experienced faculty and staff assist students through each step in obtaining a field placement site approved by Alliant\" (https://ithelp.alliant.edu/uploads/2/2/4/5/2245311/cft_program_handout_fa18.pdf). The MFT clinical training manual makes no mention of an Alliant-operated training clinic used for MFT practicum. GRE is recorded as not published because Alliant's graduate application requirements page simply does not list any standardized test — it never states the GRE is not required."
+ },
+ {
+  "institution": "America Evangelical University / Kairos Pacific University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Internships are an integral part of the program, providing students with supervised practical experiences in real-world settings, crucial for developing effective therapeutic skills.",
+   "url": "https://kairos.aeu.edu/mft",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "400 hours of clinical training, including 300 direct client hours, of which 100 must be relational hours",
+   "hours_url": "https://kairos.aeu.edu/marriage-and-family-therapy",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Complete of the university's Application Form for Admission",
+   "url": "https://kairos.aeu.edu/admission-requirements",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "No page on the school's site states how a practicum site is obtained, whether the school runs a clinic, or how long practicum runs — three separate program pages (/mft, /marriage-and-family-therapy, /master-marriage-and-family-therapy) were checked and none address it. The only published admission-requirements page is generic to the whole university and is written for undergraduate entry (it asks for \"Possession of or candidacy for a high school diploma or GED\"); no graduate-specific test, GPA floor, or bachelor's-degree requirement is published there."
+ },
+ {
+  "institution": "Antioch University Los Angeles",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Beyond the classroom walls, you have the opportunity to implement your learning by practicing therapy under professional supervision at one of over 100 affiliated mental health services agencies.",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/",
+   "own_clinic": true,
+   "clinic_names": [
+    "Antioch Community Therapy Services (ACTS)",
+    "Antioch University Counseling Center (AUCC) — now closed"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Awards are determined by prior academic performance (minimum 3.40 GPA)",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-masters-programs/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The catalog page that would settle this — \"MAP Clinical Training and Licensure\" at antiochla-public.courseleaf.com — could not be fetched (the host would not resolve on repeated attempts), so the placement mechanism, required client-contact hours, and practicum length are all recorded as unverified rather than carried over from prior prose. Antioch does operate its own low-cost clinic used for AULA clinical training: the AULA Counseling Center page states \"The AUCC clinic is now closed, but counseling services and records are available through Antioch Community Therapy Service (ACTS)\" and that the center \"serves as a training site for students and graduates of the Master of Arts in Clinical Psychology program\" (https://www.antioch.edu/centers-institutes/aula-counseling-center/). The 3.40 GPA quoted is a scholarship threshold, not an admission minimum; no admission GPA floor and no GRE statement is published on the program pages."
+ },
+ {
+  "institution": "Antioch University Santa Barbara",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Clinical traineeships are an integral component of the MACP program. These experiences prepare students for psychotherapy and counseling work, and the training is completed under the supervision of a licensed professional.",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "225 hours of face-to-face counseling experience with individuals, couples, families, and/or groups are required",
+   "hours_url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The program does not require that applicants submit GRE scores.",
+   "url": "https://www.antioch.edu/academics/psychology/clinical-psychology-mft-ausb/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The program page names a Director of Clinical Training and an Administrative Director of Clinical Training but nowhere states whether the department places students, maintains an approved-site list, or expects students to find their own site — so the model is recorded as not published rather than guessed. The Latinx Mental Health concentration carries a sub-requirement: \"75 of the 225 client hours include in-person contact and/or client advocacy with Latinx or Hispanic clients.\" No AUSB-operated counseling clinic is published."
+ },
+ {
+  "institution": "Azusa Pacific University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "While students are responsible for securing a placement site, assistance is provided by the director of clinical training, site directors, and in the Introduction to Clinical Practice courses.",
+   "url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/marriage-family-therapy-ma.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Students are required to obtain 300 hours of direct client experience for the MFT license, and 300 hours of direct client experience for the LPCC license.",
+   "hours_url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/marriage-family-therapy-ma.pdf",
+   "how_long": "Clinical placements may range from 12-30 months depending upon course track sequences."
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "minimum 3.0 grade-point average on a 4.0 scale",
+   "url": "https://catalog.apu.edu/academics/college-education-behavioral-sciences/school-behavioral-sciences/marriage-family-therapy/marriage-family-therapy-ma/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The catalog is unusually explicit about the split of responsibility, which is why this is a confident \"assisted\" rather than a guess. The 12-30 month placement range is the single biggest schedule variable in this program. Supervision ratio is published as \"the student must receive one hour of individual or two hours of group supervision for every five hours of direct client experience.\" GRE is recorded as not published: neither the program page nor the catalog lists any standardized test, but neither states it is not required. No APU-operated training clinic is published."
+ },
+ {
+  "institution": "Biola University (Talbot School of Theology)",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Students may not interview for practicum sites until they have successfully passed the PQE",
+   "url": "https://catalog.biola.edu/tst/TAFT-ma/",
+   "own_clinic": true,
+   "clinic_names": [
+    "Biola Counseling Center"
+   ],
+   "hours_direct": "A minimum of 300 clinical training hours (225 of which are direct client contact hours) is required.",
+   "hours_url": "https://catalog.biola.edu/tst/TAFT-ma/",
+   "how_long": "Three practicum courses (TTFT 791, 792, 793); TTFT 794 Practicum Continuation may be taken for up to three additional semesters if hours are not finished"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "A GRE score is not required for admission.",
+   "url": "https://catalog.biola.edu/tst/TAFT-ma/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The catalog confirms students interview for sites, but no Biola page states who sources them (program-maintained list vs. student search), so the model is left as not published rather than guessed between assisted and student-sourced. Biola does operate the Biola Counseling Center, whose staff page lists an \"MFT Trainees\" group identified as \"M.A. in Marriage and Family Therapy program Talbot School of Theology\" (https://www.biolacounselingcenter.org/about/staff) — but it is not stated to be the required or default placement, and the same page shows most trainees come from doctoral programs at Rosemead, CBU, Fuller and APU. Practicum is gated behind the Practicum Qualifying Exam (PQE) and eight prerequisite courses. The catalog's GPA line is \"a minimum grade point average of 3.0 (on a 4.0 scale)\"; the program page notes applicants below that \"may still be considered for admission.\""
+ },
+ {
+  "institution": "Cal Poly Humboldt",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "Begin establishing a counseling relationship with one to three clients at Counseling & Psychological Services (CAPS), which provides Cal Poly Humboldt students support services and is the program's on-campus training clinic for Psychology graduate students in the Counseling program.",
+   "url": "https://www.humboldt.edu/academics/programs/psychology-counseling",
+   "own_clinic": true,
+   "clinic_names": [
+    "Counseling & Psychological Services (CAPS)"
+   ],
+   "hours_direct": "A minimum of 150 hours of direct (face-to-face) counseling experience with clients and 75 hours of advocacy and support must be earned prior to graduation.",
+   "hours_url": "https://www.humboldt.edu/sites/default/files/psychology/2025-04/counselinghandbook2024-2025.pdf",
+   "how_long": "Begins the second semester of year one at CAPS and continues through year two; students must register for practicum during all semesters they are working at an agency"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Please check with your program for GRE requirements; not all programs require GRE for admission.",
+   "url": "https://www.humboldt.edu/admission-aid/how-to-apply/graduate",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Year one is unambiguously in-house at the program's own campus clinic. Year two is either the same clinic or a community agency, and the program — not the student — drives that placement: \"You will be placed in CAPS or a community agency with primary counselor responsibilities\" (program page), and the student handbook says \"These placements are arranged with the student, their faculty supervisor, the Program Coordinator, and selected agencies with approved licensed supervisors at the end of the first year or during the second year of the program.\" The handbook also states \"Students must formally request permission for off-site fieldwork placements.\" The university's graduate admission page explicitly defers GRE policy to the department, and the Counseling Psychology program page publishes no GRE statement and no admission GPA minimum, so both are recorded as unpublished."
+ },
+ {
+  "institution": "Cal Poly Pomona",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Our program provides a list of approved practicum sites. Students are then responsible for contacting these sites and going through their application process.",
+   "url": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Introductory practicum in the spring semester of year one; formal practicum placement (\"traineeship\") through year two at half-time"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No, our program does not require the GRE for admission.",
+   "url": "https://www.cpp.edu/class/psychology/ms-psy-program/faq.shtml",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "Textbook \"assisted\": the program supplies the approved-site list, the student runs each site's own application process. No total direct-client-contact hour requirement is published — the only published load figure is \"students are at their practicum sites half-time (or 20 hours per week)\" with attendance \"on Mondays, Wednesdays, and/or Fridays.\" GPA discrepancy worth flagging: the program FAQ says \"You must have a minimum GPA of 3.0. Students with a GPA below 3.0 should not apply,\" which is lower than the 3.2 figure circulating in secondary write-ups — confirm with the department. No Cal Poly Pomona-operated counseling clinic is published for this program."
+ },
+ {
+  "institution": "Cal Poly San Luis Obispo",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "The graduate program operates on a cohort model wherein classes are small, and students receive much individual attention in our on-campus practicum training clinic and community traineeship sites.",
+   "url": "https://psycd.calpoly.edu/graduate",
+   "own_clinic": true,
+   "clinic_names": [
+    "SLO Counseling Service (on-campus practicum training clinic)"
+   ],
+   "hours_direct": "Practicum: 40 hours of clinical service (15 individual, 15 couple/family, 10 group) plus 40 hours observation. Traineeship: 150 hours per term on site, at least 60 of which must be face-to-face counseling.",
+   "hours_url": "https://content-calpoly-edu.s3.amazonaws.com/psycd/1/images/19-20%20MS%20Handbook%209.9.19-1.pdf",
+   "how_long": "Two-quarter supervised clinical sequence on campus, followed by a four-term community traineeship"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The Graduate Record Exam (GRE) is not required for program admission.",
+   "url": "https://psycd.calpoly.edu/graduate/application-information",
+   "min_gpa": "3.0 in the last 60 semester (90 quarter) units attempted (we will review applications with a 2.5 GPA and higher)"
+  },
+  "checked": "2026-08-07",
+  "notes": "This is the most program-controlled model in the slice. The on-campus practicum is in-house — \"The clinic director assigns screened clients to practicum students during weekly group supervision meetings\" — and the subsequent community traineeship is program-placed, not student-sourced: \"Interviews are then arranged and, eventually, trainees are selected and placed,\" and \"Please remember it is the Traineeship Coordinator's job to notify agencies of your interest— you are not to contact traineeship sites without first consulting him/her.\" Those quotes and the hours figures come from the department's posted MS handbook, whose most recent publicly hosted edition is 2019-20; the current graduate page still describes the same on-campus-clinic-plus-community-traineeship structure. Five prerequisite courses must be completed by July 31 before enrollment."
+ },
+ {
+  "institution": "California Baptist University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "We have over 100 well established organizational relationships that provide our students with experience in a diverse range of clinical settings... Each placement is pre-approved by the department",
+   "url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Minimum 2.75 GPA cumulative or last 60/90 unit GPA",
+   "url": "https://calbaptist.edu/academics/programs/master-of-science-counseling-psychology/application-requirements.php",
+   "min_gpa": "2.75"
+  },
+  "checked": "2026-08-07",
+  "notes": "CBU publishes that it holds 100+ organizational relationships and that the department pre-approves each placement, but no CBU page states whether the department places students, hands out an approved-site list you apply to, or expects you to find your own — so this stays not published rather than being guessed between assisted and student-sourced. Required client-contact hours are also not on any public page: the course catalog descriptions for PSY 534 Pre- or Post-Practicum, PSY 555 Practicum I and PSY 570 Practicum II carry no hour counts, and the MSCP student handbook sits behind the InsideCBU login. Note the published GPA floor is 2.75 (\"Minimum 2.75 GPA cumulative or last 60/90 unit GPA\"), lower than the 3.0 often quoted in third-party directories. Applicants without a psychology bachelor's \"must take either General Psychology (preferred) or Life Span Development.\""
+ },
+ {
+  "institution": "California Institute of Integral Studies",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "Students engage in a year-long practicum at one of our three award-winning Integral Counseling Clinics or an external site of their choosing.",
+   "url": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology",
+   "own_clinic": true,
+   "clinic_names": [
+    "Church Street Integral Counseling Center",
+    "Golden Gate Integral Counseling Center",
+    "Pierce Street Integral Counseling Center",
+    "Center for Somatic Therapy",
+    "Psychological Services Center",
+    "The Clinic Without Walls",
+    "Ketamine-Assisted Psychotherapy Clinic"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "A year-long practicum — \"one year of approved clinical fieldwork (or the equivalent of six semester units)\""
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A GPA of 3.0 or higher in previous coursework is required. However, a GPA below 3.0 does not automatically disqualify an applicant.",
+   "url": "https://www.ciis.edu/academics/graduate-programs/integral-counseling-psychology",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "In-house, but a seat is not automatic — CIIS's Field Placement Office describes a competitive application process even for its own clinics: students must \"Identify appropriate and approved practicum sites\" and \"Apply and interview by an approved practicum site. As practicums are competitive, students are encouraged to apply to at least six sites to reasonably ensure acceptance\" (https://www.ciis.edu/academics/department-counseling-psychology/field-placement-office). Count discrepancy across CIIS's own pages: the ICP program page says three Integral Counseling Clinics, the Field Placement Office page says \"five CIIS Integral Counseling Centers,\" and the clinics index lists seven clinics in total. No fixed direct-client-contact hour minimum is published; the load figure given is \"an average of 20 hours per week engaged in practicum.\" No GRE statement appears anywhere on the program page."
+ },
+ {
+  "institution": "California Lutheran University",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "A special feature of the program is a 12-month practicum placement in our on-site Community Counseling Center program.",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/program-highlights.html",
+   "own_clinic": true,
+   "clinic_names": [
+    "Community Counseling Center"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "12-month practicum placement"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "The priority deadline for the following fall semester is January 15.",
+   "url": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/admission-process.html",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The strongest in-house case in the slice: the Community Counseling Center is described as \"a low-cost community counseling facility which provides intensive on-site clinical training experience for graduate students,\" so there is no external site search at all. Total hours are framed as a ceiling, not a floor — \"up to 750 hours applicable to the California licensing requirement\" — and no minimum direct-client-contact or relational-hour figure is published. The admission-process page carries no GRE statement and no GPA minimum (the quoted line is the only concrete requirement on it); it directs applicants to contact clugrad@callutheran.edu, so both GRE and GPA are recorded as unpublished."
+ },
+ {
+  "institution": "California Southern University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Practicum and internship placement, supervision, and circumstances must be preapproved by the MA Director of Clinical Training.",
+   "url": "https://calsouthern.smartcatalogiq.com/en/2025-2026/general-catalog/school-of-behavioral-sciences/master-of-arts-in-psychology-with-an-emphasis-in-marriage-and-family-therapy",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "285 direct client contact hours minimum across the three practicum courses — MFT 6704 Practicum I: \"a minimum of 85 hours of direct client contact\"; MFT 6705 Practicum II and MFT 6706 Practicum III: \"a minimum of 100 hours of direct client contact\" each",
+   "hours_url": "https://calsouthern.smartcatalogiq.com/en/2025-2026/general-catalog/courses/mft-marriage-family-therapy/6000/mft-6704",
+   "how_long": "Three practicum courses, each of which \"is excluded from acceleration and may not be completed in less than 16 weeks\" — a minimum of roughly 48 weeks"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Regular/matriculating admission to master's programs requires a bachelor's degree or the equivalent from an accredited or approved post-secondary institution.",
+   "url": "https://calsouthern.smartcatalogiq.com/en/2025-2026/general-catalog/admissions/admissions-criteria/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The school is operating — the 2025-26 general catalog is live — but calsouthern.edu itself sits behind a bot-protection layer (Incapsula) that blocked every attempt to fetch the marketing program pages, so everything here comes from the catalog. The catalog says a placement must be \"preapproved\" and that the site must be \"an institution approved by California Southern University,\" and that the learner's placement \"must be located within a jurisdiction where the curriculum meets the educational requirements for license eligibility\" — but it never says whether the university supplies an approved-site list or the learner sources the site, so the model stays not published. This is a fully online program, so practicum-site sourcing is the whole ballgame for a California student. Additional practicum gates published in the catalog: 16 hours of individual personal psychotherapy during the program, a 3.0 minimum overall CGPA to enter practicum, and completion of the MA-MFT Practicum Preparedness Webinar. No GRE and no admission GPA minimum are published in the catalog's admissions criteria."
+ },
+ {
+  "institution": "California State University, Bakersfield",
+  "practicum": {
+   "model": "not published",
+   "evidence": "students must be available at least 20 hours per week during regular business hours (Monday through Friday 8 a.m. to 5 p.m.) for their clinical field placements in supervised settings within the community",
+   "url": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml",
+   "own_clinic": true,
+   "clinic_names": [
+    "University Counselor Training Clinic"
+   ],
+   "hours_direct": "A minimum of 150 hours of face-to-face experience counseling individuals, couples, families, or groups must be acquired during traineeship (3rd year of the CPSY program). Additionally, during the 2nd and 3rd years of the program, the student must acquire 75 hours of client-centered advocacy or face-to-face experience counseling individuals, couples, families, or groups.",
+   "hours_url": "https://www.csub.edu/psychology/_files/CPSY-Program-Handbook-2026.docx",
+   "how_long": "Four terms: two semesters of Practicum I/II in year two (three afternoons a week in the campus clinic) plus two semesters of Traineeship I/II in year three (20 hours a week at a community agency)"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A grade point average of 3.2 or better in your most recent 60 semester units of academic work",
+   "url": "https://www.csub.edu/psychology/applying-ms-counseling-psychology.shtml",
+   "min_gpa": "3.2 in the most recent 60 semester units"
+  },
+  "checked": "2026-08-07",
+  "notes": "Two-stage clinical training: the year-two practicum runs in CSUB's own University Counselor Training Clinic, but the year-three traineeship is at an outside agency. The program handbook lists 'placement in an approved setting' as a prerequisite for CPSY 6910/6920 and refers students to a separate 'CPSY Traineeship Handbook' that is not posted publicly, so who secures that agency seat is not published and is classified accordingly. CPSY 6980 Clinical Extension exists for 'students requiring more than two semesters to complete the required hours for Practica or for Traineeships' and does not count toward the degree. No standardized test appears anywhere in the published admission requirements on the applying page or in the program handbook, but no page states that the GRE is not required, so GRE status is recorded as not published rather than not required."
+ },
+ {
+  "institution": "California State University, Chico",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "During the third year of the program, MFT program students complete a clinical traineeship at one of our partner sites in the community. Students work on-site under the supervision of site staff with that organization's clientele. MFT students are not placed or “matched” with a site, but instead are able to choose the site that best fits their interests. Every Spring semester we host a “Traineeship Forum” where students can meet with our community partners.",
+   "url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+   "own_clinic": true,
+   "clinic_names": [
+    "Counseling Training Clinic (CTC)"
+   ],
+   "hours_direct": "Students must obtain a minimum of 225 face-to-face clinical hours in order to graduate.",
+   "hours_url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+   "how_long": "On-campus practica in the CTC across years one and two, then the community traineeship for the whole of year three at about 20 hours a week"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Standardized test scores (i.e. GRE, MAT, etc.) are NOT required for admission to the MFT program.",
+   "url": "https://www.csuchico.edu/academics/college/behavioral-social-sciences/departments/psychology/masters-programs/ms-marriage-family-therapy.shtml",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Classified assisted rather than student-sourced because the program maintains named community partner sites and hosts an annual Traineeship Forum, while explicitly stating students are not matched and choose their own site. The page also states 'Typically, we have more organizations interested in hosting our MFT trainees than we have students available.' No minimum GPA is stated on the program page."
+ },
+ {
+  "institution": "California State University, Dominguez Hills",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "The MFT program provides its students with a directory of sites with approved sites accessible in Tevera to eligible students after completing the Fieldwork Orientation(s) ... Students are free to select sites from this repository and contact the designated person listed to determine if the site is currently accepting students and the procedures to apply for the internship. ... Students should select three (3) agencies of interest at a minimum and engage in the interview process before choosing one agency.",
+   "url": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "must complete 300 client contact hours, 100 of which are relational, client contact with couples or families",
+   "hours_url": "https://www.csudh.edu/Assets/csudh-sites/mft/docs/mft-handbook-2024-25.pdf",
+   "how_long": "A multi-semester course that includes fieldwork training...occurs over a minimum of 12 months"
+  },
+  "gre": {
+   "status": "waivable",
+   "evidence": "Completion of the Graduate Record Examination General Aptitude (GRE) Test. An average GPA of 3.5 OR attainment of a previous master's degree waives this requirement",
+   "url": "https://catalog.csudh.edu/academics/marital-family-therapy/marital-family-therapy.pdf",
+   "min_gpa": "3.0 in the most recent 60 semester units of upper division course work"
+  },
+  "checked": "2026-08-07",
+  "notes": "No on-campus training clinic; all 300 hours are at outside agencies in the greater Los Angeles area. Students may petition to add a site not already on the list, but the handbook says vetting 'can take approximately 6-8 weeks' and site approval 'can take approximately two (2) months from the initial request to approval.' The program 'does NOT permit students to complete traineeships at their employer.' The GRE requirement is unusual among current California MFT programs and is worth confirming with the department before sitting the test."
+ },
+ {
+  "institution": "California State University, East Bay",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Marriage and Family Therapist trainees begin working in their placement sites during their second year of training. Fieldwork Placement sites are available throughout the Bay area.",
+   "url": "https://www.csueastbay.edu/epsy/graduate-programs/marriage-family-therapy.html",
+   "own_clinic": true,
+   "clinic_names": [
+    "Community Counseling Center (CSUEB campus)"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Fieldwork: Can be 12 – 20 hours per week depending on site schedule."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Graduate Record Examination (GRE) is NOT required.",
+   "url": "https://www.csueastbay.edu/epsy/graduate-programs/marriage-family-therapy.html",
+   "min_gpa": "3.0 cumulative undergraduate GPA"
+  },
+  "checked": "2026-08-07",
+  "notes": "The department's own FAQ PDF states that trainees 'gain hours as an MFT Trainee at department approved sites or the Community Counseling Center on the CSUEB campus' (https://www.csueastbay.edu/epsy/files/docs/mft/epsy-faq), so an approved-site list exists — but no published page says whether the department assigns the site or the student applies for it, so the model is recorded as not published rather than guessed. WARNING, CONFLICTING SOURCES ON THE GRE: the live MFT program page says the GRE 'is NOT required', while that same FAQ PDF says 'YES, you are required to take the GRE regardless if you already possess a post baccalaureate degree.' The program page is the more recent source and is used here; confirm with the department before sitting the test. No program-level client-contact hour total is published."
+ },
+ {
+  "institution": "California State University, Fresno (Fresno State)",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "The student is responsible for selecting a site that will provide the type of counseling experience that is of interest to his/her individual preferences. The university faculty member who supervises this course must approve the fieldwork site.",
+   "url": "https://kremen.fresnostate.edu/documents/counseling/CERHandbook.pdf",
+   "own_clinic": true,
+   "clinic_names": [
+    "Fresno Family Counseling Center (FFCC)"
+   ],
+   "hours_direct": "The student must complete 300 hours of approved fieldwork hours per semester for a total of 600 hours. ... 300 of the 600 hours must include providing direct face-to-face counseling services and is required to complete a minimum of 10 hours of experience leading groups.",
+   "hours_url": "https://kremen.fresnostate.edu/documents/counseling/CERHandbook.pdf",
+   "how_long": "Students in COUN 239 are expected to make a two-semester commitment to a selected field site."
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Graduate program applicants must have a minimum GPA of 3.0 in the last 60 semester (90 quarter) units attempted and a minimum of 3.0 on any post baccalaureate work at Fresno State.",
+   "url": "https://kremen.fresnostate.edu/masters-mfcc/apply.html",
+   "min_gpa": "3.0 in the last 60 semester units"
+  },
+  "checked": "2026-08-07",
+  "notes": "Two distinct stages. The advanced practicum (COUN 238) is held in Fresno State's own Fresno Family Counseling Center and is capacity-limited: 'Students must apply to take COUN 238: Advanced Practicum one (1) year prior to enrollment' and, if they cannot enrol in the semester they are accepted for, 'they will forfeit their priority status and will be placed at the end of the waiting list.' The separate 600-hour COUN 239 fieldwork is student-sourced, which is why the model is recorded as student-sourced. The published admission requirements list no standardized test, but no page states the GRE is not required, so GRE status is recorded as not published."
+ },
+ {
+  "institution": "California State University, Fullerton (University Extension)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Students are responsible for selecting their own placement site; however, the Clinical Training Director must approve their selection by reviewing the application and signing the 4-Way Agreement. ... Appendix A provides a directory of Clinical Training Sites that meet these requirements and where previous CSUF Trainees have gained practicum experience hours.",
+   "url": "https://hhd.fullerton.edu/Counsel/_resources/pdfs/current-student/Complete_Handbook_updated%2008.12.25%20-%20FINAL.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "their total required hours of 280 DCC/700 non-DCC, per CACREP requirements",
+   "hours_url": "https://hhd.fullerton.edu/Counsel/_resources/pdfs/current-student/Complete_Handbook_updated%2008.12.25%20-%20FINAL.pdf",
+   "how_long": "Practicum is a one to one and a half-year commitment, and is equivalent to a part-time job, requiring 15-20 hours per week at the agency."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The GRE is not required for admissions.",
+   "url": "https://extension.fullerton.edu/masters/counseling/requirements.aspx",
+   "min_gpa": "3.0 (Bachelor's degree (or equivalent) with a minimum 3.0 GPA)"
+  },
+  "checked": "2026-08-07",
+  "notes": "The Extension FAQ frames it more gently — 'The Department of Counseling has selected community agencies (\"practicum sites\") that will fit with working students' schedules' (https://extension.fullerton.edu/masters/counseling/faq.aspx) — but the Department of Counseling's own 2025-26 Clinical Training Handbook, which governs both the on-campus and Extension cohorts, is explicit that the student secures the seat: 'Students must secure an agency placement following the Clinical Training Site Selection Process ... It is important to get an early start on this process as most sites will be interviewing a semester ahead to choose their trainees and associates ... It is also important to apply at more than one agency, since the process can be highly competitive.' No on-campus training clinic. Placements must be secured 'no later than the first day of class in COUN 530 A/B.'"
+ },
+ {
+  "institution": "California State University, Long Beach",
+  "practicum": {
+   "model": "not published",
+   "evidence": "All trainees in the CSULB Counseling Psychology program begin clinical training (Practicum) on-site at the Community Clinic for Counseling and Educational Services AND begin training off-site in a non-profit setting.",
+   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/practicum-and-fieldwork",
+   "own_clinic": true,
+   "clinic_names": [
+    "Community Clinic for Counseling and Educational Services"
+   ],
+   "hours_direct": "150 hours of a combined off-site and on-site Practicum (COUN 609) experiences in addition to 350 off-site Fieldwork hours (COUN 643D & 644D)",
+   "hours_url": "https://www.csulb.edu/college-of-education/counseling-psychology/practicum-and-fieldwork",
+   "how_long": "Three consecutive semesters at roughly 15 hours per week: COUN 609 (150 hours), COUN 643D (175 hours) and COUN 644D (175 hours)"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No, the GRE is not required for admission consideration to the Counseling Psychology program.",
+   "url": "https://www.csulb.edu/college-of-education/counseling-psychology/faqs",
+   "min_gpa": "2.85 overall grade point average in last degree (not credential or certificate) earned from an accredited institution of higher education"
+  },
+  "checked": "2026-08-07",
+  "notes": "The Community Clinic page confirms the in-house half: 'It is a training site for the School Psychology, Counseling Psychology master's degree programs at CSU Long Beach' (https://www.csulb.edu/college-of-education/community-clinic-for-counseling-and-educational-services). But every trainee also trains off-site in a non-profit from the first clinical semester, and no CSULB page, the Practicum and Fieldwork page, the college Fieldwork for Counseling Programs page, or the program application packet states how that off-site seat is obtained — so the model is recorded as not published rather than guessed. The published hour totals also disagree between sources: the practicum page gives 175 hours each for COUN 643D and 644D while the catalog specifies 150 each."
+ },
+ {
+  "institution": "California State University, Los Angeles",
+  "practicum": {
+   "model": "not published",
+   "evidence": "These Clinic courses provide the opportunity for students to work in the Cal State LA's School-Based Family Counseling Clinic with families from the community who are referred for family and school-related problems. Students work in co-therapy teams under the direct supervision of licensed faculty members.",
+   "url": "https://www.calstatela.edu/coe/edsp/ms-school-based-family-counseling",
+   "own_clinic": true,
+   "clinic_names": [
+    "School-Based Family Clinic"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Students complete 15-20 hours per week of fieldwork in their second year and third year."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No specific undergraduate major is required nor is a standardized test (e.g., GRE) required.",
+   "url": "https://www.calstatela.edu/coe/edsp/ms-school-based-family-counseling",
+   "min_gpa": "A 2.75 grade point average in the last 60 semester units attempted."
+  },
+  "checked": "2026-08-07",
+  "notes": "The in-house clinic is real and starts early — the program's own information site says 'During the first and second semesters of your first year, you will complete the majority of your practicum hours in this clinic' (https://sites.google.com/view/calstatelasbfc/prospective-students/program-information), and the clinic page confirms 'Our clinicians are advanced graduate students enrolled in the School-Based Family Counseling program at Cal State LA' (https://www.calstatela.edu/coe/school-based-family-clinic). But students also do two full years of external MFT and school fieldwork (COUN 5286, COUN 5289), and no published page states how those sites are obtained, so the model is recorded as not published. No total client-contact-hour figure and no relational (couple/family) sub-minimum is published."
+ },
+ {
+  "institution": "California State University, Northridge",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Apply and interview at field sites based on the approved list, available on the cohort's private Canvas page. ... Students may only work at sites that have a contract in good standing with the university. You can find a list of currently approved sites on your cohort's dedicated Canvas page.",
+   "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/mft-handbook",
+   "own_clinic": true,
+   "clinic_names": [
+    "Mitchell Family Counseling Clinic",
+    "Strength United"
+   ],
+   "hours_direct": "600 Hours Fieldwork Requirement = Minimum of 500 Clinical Hours and 100 Supervision Hours ... 100+ Relational Hours (100 minimum) ... 100 Alternative Hours (100 maximum) ... Must include 50 hours of live supervision",
+   "hours_url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/mft-handbook",
+   "how_long": "Students are expected to be at their field sites for 15-20 hours per week for a minimum of 15 months."
+  },
+  "gre": {
+   "status": "required",
+   "evidence": "The Graduate Record Examination (GRE) General Test is required for ALL applicants (updated for Fall 2025).",
+   "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/programs/master-science-marriage-family-therapy",
+   "min_gpa": "Applicants must have an overall GPA of 2.75 or higher to be eligible for consideration."
+  },
+  "checked": "2026-08-07",
+  "notes": "The same handbook page also says flatly 'Each student must find their own placement.' It is classified assisted rather than student-sourced because the program maintains a contracted approved-site list on Canvas, categorised into 'Comprehensive Sites' and 'Hour-Specific Sites', and students apply and interview against that list; a site off the list must first be approved. CSUN runs two of its own agencies that students may apply to in the first fall (Strength United, Mitchell Family Counseling Center), but these are optional applications, not automatic seats. The handbook's own timeline expects most students to run into year three: 'Most students continue through their third year.' GRE is required with no minimum score — CSUN is the only school in this set that requires it outright."
+ },
+ {
+  "institution": "California State University, Sacramento",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "All counseling CIT's must interview with approved Internship sites, CIT's will not be placed at sites. ... CIT's may interview with up to three sites initially, CIT's who fail to obtain a internship offer will not be enrolled in EDC 480 that semester which will delay graduation ... CIT's will only apply to sites that have an active MOU/ Agreement with the MS Counseling Program",
+   "url": "https://www.csus.edu/college/education/masters-programs/specialties-concentrations/counselor-education/assets/documents/fieldwork-handbook_edc_2025.pdf",
+   "own_clinic": true,
+   "clinic_names": [
+    "Center for Counseling and Diagnostic Services (CCDS)"
+   ],
+   "hours_direct": "100-hour clinical practicum, and 600 hours of fieldwork experience",
+   "hours_url": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/",
+   "how_long": "EDC 480 must be taken for 6 units obtained over a minimum of 2 semesters in order for CIT's to be eligible for the degree."
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A grade point average of at least 3.0 (on a 4.0 scale) in the last 60 semester (or 90 quarter units)",
+   "url": "https://catalog.csus.edu/colleges/education/graduate-professional-studies-education/ms-in-counseling-marriage-couple-family-counseling/",
+   "min_gpa": "3.0 in the last 60 semester units"
+  },
+  "checked": "2026-08-07",
+  "notes": "This is the most explicit published placement policy in this set, and the consequences are spelled out: 'CIT's must successfully obtain placement to earn credit in EDC 480. CIT's who fail to obtain placement in EDC 480 after two semesters will be dismissed from the Counselor Education Program.' The 100-hour practicum (EDC 475) is on campus — 'In practicum, CIT's are under direct observation by their faculty supervisor in the CCSD' — but the 600-hour internship is the interview-and-secure stage. A site without a current MOU 'must contact the Fieldwork Coordinator one year in advance' and such requests 'are not guaranteed.' The catalog's admission requirements list no standardized test, but no live Sacramento State page states that the GRE is not required, so GRE status is recorded as not published."
+ },
+ {
+  "institution": "California State University, San Bernardino",
+  "practicum": {
+   "model": "not published",
+   "evidence": "The M.S. program operates an on-campus psychology clinic for clinical training purposes.",
+   "url": "https://www.csusb.edu/psychology/graduate-programs/graduate-admissions/clinical-counseling-psychology-admissions",
+   "own_clinic": true,
+   "clinic_names": [
+    "Community Counseling Center"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A minimum cumulative undergraduate grade point average of 3.0",
+   "url": "https://catalog.csusb.edu/colleges-schools-departments/social-behavioral-sciences/psychology/psychology-ms/",
+   "min_gpa": "3.0 cumulative undergraduate GPA"
+  },
+  "checked": "2026-08-07",
+  "notes": "The on-campus clinic is confirmed as the training venue — 'We are a training facility for the Department of Psychology's Masters in Clinical/Counseling Psychology Program' and 'Services are provided by graduate students who are supervised by licensed psychologists from the Department of Psychology' (https://www.csusb.edu/ccc). But the second-year advanced practicum is at an outside agency and neither the 2026-27 catalog, the department pages, nor the MSCC Graduate Student Handbook (https://www.csusb.edu/sites/default/files/MSCC%20GS%20Handbook%202022.pdf) says how that agency seat is obtained, so the model is recorded as not published. No minimum client-contact-hour figure, no total-hours figure and no relational sub-minimum is published anywhere; only unit weightings are given. The published admission requirements make no mention of a standardized test, but no page states the GRE is not required."
+ },
+ {
+  "institution": "California State University, Stanislaus",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Supervised client contact hours in individual, couples, family, or group counseling depending on agency providing practicum experience. Emphasis on formal assessment, diagnostic testing, client charting, treatment planning, and development of student's own theoretical orientation.",
+   "url": "https://catalog.csustan.edu/preview_course_nopop.php?catoid=30&coid=91498",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "PSYC 5910 is taken twice for 6 units total, in the second year"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Note: The Graduate Record Examination is no longer required.",
+   "url": "https://www.csustan.edu/psychology/graduate-programs/master-science-psychology-marriage-and-family-therapy-concentration-0",
+   "min_gpa": "A minimum 3.0 overall grade point average."
+  },
+  "checked": "2026-08-07",
+  "notes": "The thinnest published clinical-training information of any school in this set. The PSYC 5910 catalog description refers only to 'agency providing practicum experience' with no statement of who arranges the agency, no client-contact-hour target, no relational (couple or family) hour minimum and no supervision ratio; the department pages and program page add nothing. No on-campus MFT training clinic is published (the Practicum Intern Program listed under CAPS is the university's own counseling service, not a stated MFT-program placement). A second practicum, PSYC 5905 Client Advocacy Practicum, appears in the required course list with no published description or hour requirement. Prospective students should ask the department directly how a practicum agency is obtained before enrolling."
+ },
+ {
+  "institution": "Campbellsville University — Los Angeles Education Center (formerly Phillips Graduate University/Institute)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "375 Hours Of Required Practicum Completed At A Phillips-Approved Agency ... Support Securing Clinical Placement Through The Clinical Placement Office ... MFT students receive guidance and hands-on experience through our Clinical Placement Office and affiliated training sites.",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
+   "own_clinic": true,
+   "clinic_names": [
+    "California Family Counseling Center (Cal Fam)",
+    "Phillips On-Site Counseling Center"
+   ],
+   "hours_direct": "Completion of 375 hours of supervised clinical placement concurrent with practicum registration",
+   "hours_url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
+   "how_long": "Practicum Begins After Completing 13 Units And Receiving Faculty Approval; Students Spend 15+ Hours/Week At A Clinical Placement By Year 2"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Completion of all 60 units of required courses with an overall GPA of 3.0 or higher",
+   "url": "https://www.campbellsville.edu/academics/regional-centers/los-angeles-education-center/marriage-and-family-therapy/index.html",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Page is live and current for 2026-27 with a named program director; the program continues under Campbellsville after the Phillips Graduate University acquisition. Classified assisted — the phrasing is 'Support Securing Clinical Placement', i.e. the student secures the seat with help from a dedicated Clinical Placement Office, and hours must be at a 'Phillips-Approved Agency'. The school also runs its own on-site centre (Cal Fam) as a listed training opportunity, not a guaranteed placement. The 3.0 GPA quoted is a degree-completion requirement, not an admission minimum; no minimum admission GPA is published, and no standardized test appears in the published admission requirements. Note a published hours discrepancy flagged in the source material: the California-specific catalog gives 375 hours (100 relational, 200 individual, 75 client-centered advocacy) while the MFC 533/535 course descriptions state 'a minimum of 350 direct clinical hours and 100 alternative hours' — confirm with the program which governs."
+ },
+ {
+  "institution": "Chapman University",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "All students in our program have the unique experience of completing a one-year clinical practicum in our on-site community clinic, the Frances Smith Center for Individual and Family Therapy.",
+   "url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/index.aspx",
+   "own_clinic": true,
+   "clinic_names": [
+    "Frances Smith Center for Individual and Family Therapy"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "one-year clinical practicum"
+  },
+  "gre": {
+   "status": "waivable",
+   "evidence": "Graduate Record Exam (GRE) scores: have a cumulative undergraduate grade point average of 3.3 or higher. If your bachelor's degree cumulative GPA is below a 3.3, you may be considered for admission by submitting satisfactory Graduate Record Examination (GRE) scores as listed below.",
+   "url": "https://www.chapman.edu/crean/academic-programs/graduate-programs/ma-marriage-family/admissions.aspx",
+   "min_gpa": "3.3"
+  },
+  "checked": "2026-08-07",
+  "notes": "The GRE requirement is inverted relative to most schools: a GPA at or above 3.3 waives it, a GPA below 3.3 triggers it (recommended scores Verbal 153, Quantitative 146, Analytical Writing 4.5). The program page confirms the on-site clinic but does not state a direct-client-contact hour total, so hours_direct is left null rather than carried over from secondary notes."
+ },
+ {
+  "institution": "Concordia University Irvine (Townsend Institute)",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Requiring 100 hours, you'll need a minimum of 40 direct client contact hours. You'll have weekly individual and group supervision from a Concordia professor.",
+   "url": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "minimum of 40 direct client contact hours (practicum) plus a minimum of 120 direct client contact hours in each of two 300-hour internships",
+   "hours_url": "https://www.cui.edu/townsend/programs/masters/counseling-marriage-couple-and-family-counseling",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Must have earned a cumulative GPA of 3.00 on a 4.00 scale",
+   "url": "https://www.cui.edu/apply/graduate/",
+   "min_gpa": "3.00"
+  },
+  "checked": "2026-08-07",
+  "notes": "The programme page, the catalog programme entry (catalog.cui.edu/programs/MA_COUN) and the COUN641 course entry all describe hours and supervision but none states who locates the practicum or internship site, so the model is recorded as not published rather than inferred. The Townsend Institute counseling student handbook PDF linked from cui.edu returns a 404, and the archived 2022-2023 counseling handbook PDF also returns a 404. The graduate application page lists no standardized test among the requirements but does not affirmatively say the GRE is not required, so GRE status is recorded as not published."
+ },
+ {
+  "institution": "Daybreak University",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "The University has its own on-site counseling center, in Southern California, so you can gain real world experience and practice counseling both individuals and couples while learning to help them navigate their life challenges.",
+   "url": "https://www.daybreak.edu/academic/master_program.html",
+   "own_clinic": true,
+   "clinic_names": [
+    "Daybreak University on-site counseling center"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Cumulative grade point average (GPA) of 3.0 (lower GPAs will be considered based on strength of overall application)",
+   "url": "https://www.daybreak.edu/file/Academic_Catalog_2025_2026.pdf",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The master's programme page also states \"Your time spent counseling in the clinic will also help you meet your hourly counseling internship requirements for graduation.\" Neither the programme page nor the 2025-2026 academic catalog publishes a direct-client-contact hour total or a practicum duration on the pages fetched, and neither mentions the GRE; the only standardized test named in the catalog's admissions section is the TOEFL for non-native English speakers. The on-site centre is described in marketing copy without a proper name."
+ },
+ {
+  "institution": "Dominican University of California",
+  "practicum": {
+   "model": "placed",
+   "evidence": "Dominican's well-established practicum works with over 50 community agencies to place 100 percent of our trainees in the field.",
+   "url": "https://www.dominican.edu/academics/graduate-programs/master-science-counseling-psychology-ms-mftpcc",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "A minimum of 500 hours of practicum is required of which 280 must be direct counseling for the MFT Concentration and PCC Concentration.",
+   "hours_url": "https://dominican.smartcatalogiq.com/en/2024-2025/academic-catalog/graduate-degree-programs/counseling-psychology-ms-mft-pcc/",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A GPA of 3.0 is required for the last 60 units of graded undergraduate or graduate coursework.",
+   "url": "https://www.dominican.edu/academics/graduate-programs/master-science-counseling-psychology-ms-mftpcc",
+   "min_gpa": "3.0 for the last 60 units"
+  },
+  "checked": "2026-08-07",
+  "notes": "Classified \"placed\" on the strength of the university's own verb (\"to place 100 percent of our trainees\"), but note that this is marketing copy: neither the programme page nor the 2024-2025 catalog entry describes the mechanics, i.e. whether students apply and interview for seats themselves or are assigned. The catalog says only \"Students work in governmental agencies, schools or colleges, nonprofit and charitable corporations, or licensed health facilities. On-site licensed professionals closely supervise all students during their MFT and/or PCC Practicum experience.\" No public practicum handbook was reachable. The admissions requirement list does not mention the GRE but does not affirmatively rule it out."
+ },
+ {
+  "institution": "Fresno Pacific University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "After you have been approved for Practicum via the successful completion of your Trainee-Practicum Assessment AND your cover letter(s) and CV have been approved, you may apply to approved practicum agencies.",
+   "url": "https://www.fresno.edu/document/954",
+   "own_clinic": true,
+   "clinic_names": [
+    "Pacific Counseling Center"
+   ],
+   "hours_direct": "a minimum of 10 direct client contact hours per week (five direct client contact hours at each site if dual-site placement)",
+   "hours_url": "https://www.fresno.edu/document/954",
+   "how_long": "one (or two) 9-to-12-month long placement(s)"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "We take into account their ministry experience for BIB/MIN programs, their GRE score, volunteer counseling hours experience and psych pre-requisites for the MFT degree.",
+   "url": "https://www.fresno.edu/seminary/program/marriage-and-family-therapy-ma",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The MFT student handbook is explicit that a seat is not guaranteed: \"Successfully passing your Trainee-Practicum Assessment does not assure you of being accepted at a practicum site or having a practicum placement for the following academic year.\" Pacific Counseling Center is a Fresno Pacific-affiliated training agency and MFT students train there — the PCC page states \"The only FPU students who cannot receive services from PCC are graduate students in the Marriage and Family Therapy program because they will work with PCC as part of their academic training\" (https://www.fresno.edu/departments/pacific-counseling-center) — but PCC is one of several approved agencies students apply to, not an automatic in-house placement. Hours are published as a weekly rate, not an annual total. The GRE appears only as one factor weighed for applicants below the GPA floor (\"If your cumulative GPA for your bachelor's degree is below a 3.0 (4.0 scale), a letter of explanation is required\"), so GRE status is recorded as not published rather than required or waivable."
+ },
+ {
+  "institution": "Fuller Theological Seminary",
+  "practicum": {
+   "model": "not published",
+   "evidence": "All students have access to a broad range of practicum options through our dozens of site connections.",
+   "url": "https://fuller.edu/masters-in-marriage-and-family-therapy/",
+   "own_clinic": true,
+   "clinic_names": [
+    "Fuller Psychological and Family Services"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "a clinical placement, or 'practicum,' that normally spans one year"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "3.0 GPA or above",
+   "url": "https://fuller.edu/masters-in-marriage-and-family-therapy/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "\"Dozens of site connections\" establishes that affiliations exist but does not say whether the programme assigns a site or the student applies for one, so the model is recorded as not published. Fuller Psychological and Family Services is an in-house clinic and its own training page states \"FPFS provides training opportunities in the areas of psychotherapy, assessment, and didactic training for Marriage and Family students\" and \"Marriage and Family students typically see an average of eight to ten clients per week for 50-minute sessions\" (https://fpfs.org/training/), but neither FPFS nor Fuller says whether MSMFT students are placed there or apply. The 2025-26 academic catalog PDF, the clinical-training page and the programme outline page were all fetched and none states a GRE requirement or an MSMFT minimum GPA; the only 3.0 GPA figure on the programme page is a Vermeer Scholarship eligibility threshold, so min_gpa is left null."
+ },
+ {
+  "institution": "Golden Gate University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Practical application of assessment, counseling, consultation and case management skills in an approved mental health setting.",
+   "url": "https://catalog.ggu.edu/preview_course_nopop.php?catoid=9&coid=5687",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Students are required to complete a total of 300 clinical hours during the program consisting of face-to-face counseling with individuals (adults, children, adolescents, couples, families or groups).",
+   "hours_url": "https://catalog.ggu.edu/preview_course_nopop.php?catoid=9&coid=5687",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No GMAT or GRE Required",
+   "url": "https://ggu.edu/programs/ma-counseling-psychology/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The programme page's only sentence about faculty assistance concerns out-of-state licensure rules, not site-finding — \"Although faculty and staff are available to assist, students who intend to pursue licensure outside the state of California are responsible for determining the traineeship requirements\" — so it does not support an \"assisted\" classification and the model is recorded as not published. No minimum GPA is stated; the programme page says only that \"For applicants with a GPA under 3.0, the Statement of Purpose should address the circumstances that led to the applicant's academic performance.\" The traineeship handbook referenced in secondary sources was not publicly reachable."
+ },
+ {
+  "institution": "HIS University",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "A Practicum referral list is available in the office. However, the student has complete responsibility for selecting and negotiating with their Supervisor and their Agency.",
+   "url": "https://www.hisuniversity.edu/pdf2025/MFT%20Student%20Practicum%20Manual%2002012025.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "250 hours of supervised, direct, in-person contact Clinical Experience",
+   "hours_url": "https://www.hisuniversity.edu/pdf2025/MFT%20Student%20Practicum%20Manual%2002012025.pdf",
+   "how_long": "Two modules consisting of 125 hours each for a total of 250 hours"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Practicum Hours : 300 hours (Supervised, direct, in-person contact practicum)",
+   "url": "https://hisuniversity.edu/eng/academics_01",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Two published figures conflict on the same requirement: the academics page states \"Practicum Hours : 300 hours (Supervised, direct, in-person contact practicum)\" while the February 2025 MFT Student Practicum Manual states \"250 hours of supervised, direct, in-person contact Clinical Experience\" in \"Two modules consisting of 125 hours each.\" Confirm which governs before relying on either. The manual is unambiguous that site-finding is the student's job — a referral list exists but the programme does not place. No GRE requirement and no master's-level minimum GPA appear on the academics page; the 3.3 GPA figure shown there applies to the doctoral programmes only, and the gre.evidence field carries the practicum-hours quote because no admissions-test sentence exists on the page to quote."
+ },
+ {
+  "institution": "Hope International University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Students must obtain a trainee position at an approved clinical training site to complete the required hours.",
+   "url": "https://www.hiu.edu/pdf/41189217_mft_program_handbook_2025-2026.pdf",
+   "own_clinic": true,
+   "clinic_names": [
+    "Hope Counseling Center"
+   ],
+   "hours_direct": "At least 300 direct client hours (sessions of individual, group, couples, or family therapy) of which at least 100 must be relational hours.",
+   "hours_url": "https://www.hiu.edu/pdf/41189217_mft_program_handbook_2025-2026.pdf",
+   "how_long": "Students will continually enroll in the Supervised Practicum courses after the completion of 9 units and until the required 400 clinical training hours are completed."
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "students are placed in practicum sites where they undergo real-world training experiences with diverse clientele",
+   "url": "https://www.hiu.edu/graduate-students/academics/colleges/college-of-psychology-and-counseling/master-of-art-marriage-and-family-therapy",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The handbook maintains an approved-site list — \"Approved Clinical Training Sites are listed in the Clinical Training Site List and reviewed in Professional Development II\" — but the student must land the seat, which is the assisted model. Off-list sites are possible via petition and the handbook warns \"The site approval process takes a minimum of 6-8 weeks,\" which is a scheduling risk worth planning around. HIU does operate an in-house option: \"The Clinical Training Assistant oversees the Hope Counseling Center, which is an on-site community agency that promotes a private practice feel,\" described on the programme page as available \"for some MFT students,\" not all. Neither the programme page nor the 2025-2026 handbook states a GRE requirement or a minimum GPA, so the gre.evidence field carries the nearest programme-page sentence rather than an admissions-test quote."
+ },
+ {
+  "institution": "Jessup University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "you'll also be paired with a California clinical practitioner to complete in-person practicum hours",
+   "url": "https://jessup.edu/academics/majors-programs/graduate/master-of-arts-counseling-psychology/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "280 direct client contact hours during Practicum",
+   "hours_url": "https://jessup.edu/academics/majors-programs/graduate/master-of-arts-counseling-psychology/",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "GPA: minimum of 3.0 on a 4.0 scale",
+   "url": "https://jessup.edu/academics/majors-programs/graduate/master-of-arts-counseling-psychology/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The \"paired with a California clinical practitioner\" phrasing describes the remote option's supervisor arrangement, not who secures the practicum site, so it does not settle the model and it is recorded as not published. The School of Psychology page names two practicum coordinators (Brandi Juarez and Michele Corgiat) but does not describe their placement role, and no public practicum handbook was reachable. The programme also requires \"20 hours of personal psychotherapy while in the program.\" GPA below 3.0 may be petitioned for waiver. No admissions test is listed."
+ },
+ {
+  "institution": "Kaiser Permanente School of Allied Health Sciences",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Get supervised clinical experience early in your education. You will start logging practicum hours during your first year of study with access to integrated care environments at Kaiser Permanente.",
+   "url": "https://drupal.kpsahs.edu/master-science-counseling/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Our Graduate degree program requires that you have earned a BA or BS (or higher) degree. Additionally, you will need to submit an essay and two letters of reference.",
+   "url": "https://drupal.kpsahs.edu/admissions-requirements",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "This is a newly launched programme and the public site is thin: the programme page, the all-programs page, the course-descriptions page and the admissions-requirements page were all fetched and none states practicum hours, a GRE requirement or a minimum GPA. The current-catalog page (kpsahs.edu/current-catalog) renders as \"Loading documents...\" and served no catalog PDF, so the catalog could not be read. A strong but non-definitive lead: Kaiser Permanente's own Northern California mental health training site reports that \"the KP Counseling Center onboarded its newest cohort from the KP School of Allied Health Sciences\" comprising \"40 premaster's Marriage and Family Therapy practicum trainees\" (https://mentalhealthtraining-ncal.kaiserpermanente.org/onboarding-trainees-from-kp-school-of-allied-health-sciences/), which suggests cohort placement into Kaiser sites, but neither page states whether the school assigns those seats or students apply for them. Prospective students should ask admissions directly."
+ },
+ {
+  "institution": "La Sierra University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "An opportunity for the student to participate in the counseling of individuals and groups under supervision, as a laboratory experience, prior to being placed for school-based experience in EDPC 565.",
+   "url": "https://lasierra.edu/education/psychology-counseling/course-descriptions/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "All MFT/LPCC students are required to provide a minimum of 280 hours of face-to-face counseling and receive 20 hours of personal psychotherapy.",
+   "hours_url": "https://lasierra.edu/fileadmin/documents/education/school-psychology/mft-lpcc-course-schedule.pdf",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "The candidate must have a grade point average of B (3.00) or better in his/her overall program.",
+   "url": "https://lasierra.edu/schools/education/psychology-counseling/admission-requirements/",
+   "min_gpa": "3.00"
+  },
+  "checked": "2026-08-07",
+  "notes": "The programme page, the department admission-requirements page, the EDPC course-description page and the MFT/LPCC course-schedule PDF were all fetched and none describes how a practicum site is obtained, so the model is not published. The admission-requirements page lists no standardized test; it does add a departmental screen — \"A departmental interview should be arranged with the chair of the department or the dean of the school.\" Note the 20 hours of required personal psychotherapy, which is an out-of-pocket cost most programmes do not impose."
+ },
+ {
+  "institution": "Life Pacific University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "a 12-month practicum",
+   "url": "https://lifepacific.edu/academics/online/master-of-arts-in-counseling/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "a 12-month practicum"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "63-unit curriculum...consists of a series of twenty-one courses that build upon each other",
+   "url": "https://lifepacific.edu/academics/online/master-of-arts-in-counseling/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The programme page is the thinnest of the thirteen: it confirms a 12-month practicum inside a 63-unit, twenty-one-course curriculum but publishes no practicum hour total, no site-placement process, no GRE statement and no minimum GPA. The academic-catalog landing page (lifepacific.edu/academic-catalog/) says \"The 2024-2025 Life Pacific University Course catalog is available to browse digitally\" but exposes no reachable PDF or catalog URL, and the catalog archive page returned a 503 error, so no catalog could be read. The gre.evidence field carries a programme-page quote because the page contains no sentence about admissions tests to quote. Every field here should be confirmed with the registrar (registrar@lifepacific.edu) before use."
+ },
+ {
+  "institution": "Loma Linda University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Students work collaboratively with their department to secure practicum placements that align with their academic and professional goals.",
+   "url": "https://behavioralhealth.llu.edu/academics/practicum-sites",
+   "own_clinic": true,
+   "clinic_names": [
+    "School of Behavioral Health Resiliency Clinic"
+   ],
+   "hours_direct": "300 direct face-to-face client contact hours required. 100 of the 300 hours must include relational/systemic hours.",
+   "hours_url": "http://llucatalog.llu.edu/behavioral-health/marital-family-therapy/ms/",
+   "how_long": "\"Field experience must occur over a minimum of twelve months.\" Clinical phase entry follows a faculty evaluation after 18 quarter units (llucatalog.llu.edu)."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "GREs are not required.",
+   "url": "https://llu.edu/academics/programs/school-behavioral-health/marital-family-therapy-ms",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "Two LLU pages describe placement slightly differently and neither states outright that the student applies. The catalog says \"Students have numerous choices of placement sites in which to gain required clinical experience. These sites include community mental health centers, private and public agencies, school and hospital settings, and the School of Behavioral Health's Resiliency Clinic\" (llucatalog.llu.edu). The practicum-sites page adds that \"placement at any specific site is not guaranteed, as assignments depend on factors such as site availability, student qualifications, and program requirements\" and that its published site list is \"provided for informational purposes only.\" Classified assisted on the basis of the published partner-site list plus \"work collaboratively with their department to secure.\" The online branch states: \"Practicum placements are completed locally in your community at program-approved sites\" (behavioralhealth.llu.edu/.../marital-and-family-therapy-ms-online). GPA floor: \"A cumulative grade point average of 3.0 or above (on a 4.0 scale) in bachelor's coursework,\" with applicants \"as low as 2.75\" considered under conditions."
+ },
+ {
+  "institution": "Loyola Marymount University",
+  "practicum": {
+   "model": "placed",
+   "evidence": "At what kind of agencies does LMU place students? LMU contracts with a wide range of agencies for our students to provide services to complete practicum training.",
+   "url": "https://cfa.lmu.edu/programs/mft/academics/practicumtraining/practicumfaqsforprospectivestudents/",
+   "own_clinic": true,
+   "clinic_names": [
+    "Helen B. Landgarten Art Therapy Clinic (HBL Art Therapy Clinic)"
+   ],
+   "hours_direct": "students may accumulate up to 840 hours with a minimum of 350 accumulated hours providing art therapy services to individuals, groups, and/or families",
+   "hours_url": "https://cfa.lmu.edu/programs/mft/academics/practicumtraining/",
+   "how_long": "Two practicums: \"First internship, MFTH 617: sixteen hours per week\" (one semester) then \"Second internship, MFTH 618 and MFTH 619: twenty hours each week\" across a full academic year."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "GRE (Optional) Some students may choose to take the GRE to further evidence their ability to succeed in academic settings, especially when they feel their GPA does not reflect their current abilities or dedication. A score of 158 on the verbal portion of the Graduate Record Exam (GRE) is recommended.",
+   "url": "https://cfa.lmu.edu/programs/mft/admissions/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The practicum FAQ is explicit that the programme arranges the placement: \"Students are placed at an agency in the community where direct clinical services are provided to patients by the student,\" and, under \"How will I find a practicum?\", \"The Practicum Coordinator works collaboratively with students and agencies to arrange for practicum training that meets each student's strengths and individual training needs.\" The HBL Art Therapy Clinic is a programme facility listed as providing \"practicum training opportunities,\" but the practicum FAQ describes community agency placements, not the clinic, as the standard route. Also stated: \"the first and second practicum trainings typically occur at different training sites,\" and \"most of the practicum experiences are unpaid trainee-ships.\" GRE listed on the requirements-at-a-glance as \"GRE score (optional).\""
+ },
+ {
+  "institution": "Meridian University",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "Students in degree programs that require field placement (internship) are responsible for utilizing the University's Fieldwork Handbook and support services to find their own employment/internship site. The University does not provide students with internal field placement/internship.",
+   "url": "https://meridianuniversity.edu/academics/academic-structure",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A Bachelor's degree is required for admission to Meridian's Graduate Programs. The GPA requirement for admittance: Minimum GPA for admission to all degree programs at Meridian is a 3.0.",
+   "url": "https://meridianuniversity.edu/admissions/graduate-admissions/application-process",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The GRE is never mentioned on Meridian's admissions pages; the enumerated admissions requirements list no standardized test, and the overview page says only \"Please note that that the GMAT is not a requirement for Meridian programs\" (meridianuniversity.edu/admissions/graduate-admissions/admissions-overview). Because the school never states a GRE policy, this is recorded as not published rather than not required. The programme page states \"11 credits are from fieldwork (340 hours)\" but does not break out direct-service hours; total/direct hour split was not published on any page fetched. Sub-3.0 applicants may \"submit an addendum with your application outlining circumstances at the time.\""
+ },
+ {
+  "institution": "Mount Saint Mary's University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Each student can select their own practicum from a pre-determined list or suggest new sites with the guidance and approval of the clinical coordinator.",
+   "url": "https://www.msmu.edu/departments/psychology/graduate-programs/counseling-psychology/marriage-and-family-therapy/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Marriage and Family Therapy (MFT) candidates must complete 250 hours of direct counseling during the Practicum year.",
+   "hours_url": "https://www.msmu.edu/departments/psychology/graduate-programs/counseling-psychology/marriage-and-family-therapy/",
+   "how_long": "The final year of the degree — \"All students in the MFT specialization, regardless of option, must complete a field work traineeship in their last year\" — at \"15-20 hours per week,\" i.e. year 2 of the daytime track, year 3 of the evening track."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "MSMU does not require the GRE or other standardized test scores for admission.",
+   "url": "https://www.msmu.edu/departments/psychology/graduate-programs/counseling-psychology/faqs/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "MSMU publishes a \"View approved sites\" list and states \"Each student has the opportunity to select their own traineeship from the list below.\" Traineeship is \"most often ... during the daytime hours so the student must be prepared to make arrangements to be available.\" MSMU does operate a campus Counseling & Psychological Services Advanced Practicum Program, but that is a training placement for outside doctoral trainees, not the MFT programme's own student clinic — own_clinic recorded false for this degree. GPA: \"A minimum 3.0 cumulative grade-point average (GPA). If your GPA does not meet the minimum requirement, you may submit a GPA addendum\" (msmu.edu/.../counseling-psychology/admission/). Note msmu.edu blocks automated fetchers via robots.txt; these pages were read directly."
+ },
+ {
+  "institution": "National University (absorbed Northcentral University and John F. Kennedy University)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "While students are ultimately responsible for securing clinical sites and supervisors, the NU clinical faculty and staff bring to bear considerable experience, comprehensive support, and tremendous resources in facilitating the identification, vetting of, and contracting with agencies and supervisors.",
+   "url": "https://www.nu.edu/marriage-and-family-therapy-application-process/marriage-and-family-therapy-practicum-and-internship-placement/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "We do not require you take the GRE, GMAT or other graduate school entrance examination.",
+   "url": "https://www.nu.edu/marriage-and-family-therapy-application-process/mft-faq/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The MFT FAQ reinforces the same split of responsibility: \"the MFT Clinical Coordinator at National University will assist you, but each student is ultimately responsible for securing a local clinical training site and a qualified local supervisor,\" and NU publishes \"a list of sites where current and past students have completed their clinical training.\" A \"Director of Training Outreach (DTO) is available to support students who reside in areas with little or no viable site options.\" No minimum GPA is published — the only stated academic bar is \"a Bachelor's degree from a regionally or institutionally accredited or approved international institution.\" Direct-hour and duration figures were not confirmed on the pages fetched, so they are left null rather than carried over from prior notes."
+ },
+ {
+  "institution": "Northwestern University, The Family Institute",
+  "practicum": {
+   "model": "placed",
+   "evidence": "Do I secure my own placements? No. We have a dedicated clinical placement team that you will work with to secure your placement. Every site must be Northwestern-approved and meet TFI's high standards of excellence.",
+   "url": "https://mft.northwestern.edu/online-mft/faq/",
+   "own_clinic": true,
+   "clinic_names": [
+    "The Family Institute clinic (on-campus Evanston branch)"
+   ],
+   "hours_direct": "400+ Clinical Hours",
+   "hours_url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy",
+   "how_long": "Online branch: \"students work directly with clients for six consecutive quarters during their practicum externships,\" at \"up to 15 hours a week for clinical work and supervision\" for part-time students."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Do you require standardized test scores? No. The GRE and GMAT are not required for admission.",
+   "url": "https://mft.northwestern.edu/online-mft/faq/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Two different branches with two different practicum models. The on-campus Evanston branch advertises \"100% of Clinical Training in our Clinic\" and \"250 Hours of Supervision\" (family-institute.org) — that branch is in-house. The online branch, which is the one Californians enrol in, is placed: the FAQ says outright that students do not secure their own sites. Constraints published for the online branch: \"Can I complete my placement at my current place of employment? No,\" \"Trainees can be placed up to 75 miles away based on site availability,\" \"Placement specialists are unable to guarantee placement for students without access to a car. Not having a car may delay a student's placement,\" and \"Internships in this program are unpaid.\" California-specific timing: \"California policy states that MFT students may not begin the field placement portion of a program until they have completed 18 credit hours. Therefore, full-time MFT@Northwestern students will begin placement in Term 3 instead of Term 2 ... An extra term will be added to their curriculum.\" No minimum GPA is published."
+ },
+ {
+  "institution": "Notre Dame de Namur University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "The Clinical Training Program, led by the Director of Clinical Training (DCT), nurtures professional interests. It includes a year of supervised clinical training at a respected community site and a practicum/case seminar sequence.",
+   "url": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Our program provides a minimum of 500 hours of practicum experience that may be counted toward licensure.",
+   "hours_url": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+   "how_long": "\"This two-semester sequence of supervised practicum in the field provides an average of 20 hours weekly (250 hours per semester)\" (CPY 4420 / CPY 4422 course descriptions)."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The Graduate Record Examination (GRE) and/or GMAT (Graduate Management Admission Test) are not institutional requirements for entrance into NDNU graduate programs.",
+   "url": "https://www.ndnu.edu/documents/Graduate-Catalog-2025-2026.pdf",
+   "min_gpa": "2.5"
+  },
+  "checked": "2026-08-07",
+  "notes": "No NDNU page states who secures the practicum site for the main CPY 4420/4422 sequence, so the model is recorded as not published rather than guessed. Two leads point toward the student doing the securing but neither is decisive for the required sequence: the catalog's optional CPY 6992 Supervised Field Experience says \"Students meet with the Director of Clinical Training by appointment after obtaining an approved practicum site,\" and the programme page mentions students \"participate in events such as the biannual Practicum and Associates Training Fair.\" Also published: \"A practicum packet must be completed and signed by all parties to ensure that the site, student, and faculty agree with the BBS and departmental requirements,\" and \"Clinical Practicum I and II and Clinical Seminar I and II are limited to California residents.\" GPA: catalog institutional minimum is \"a bachelor's degree from an accredited institution and a cumulative grade point average of 2.5\"; the programme page states \"GPA of 3.0 and above is preferred, but 2.5-3.0 considered.\" Programme pages are JavaScript-rendered; the catalog PDF is the reliable source."
+ },
+ {
+  "institution": "Pacific Oaks College",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "The Marriage and Family Therapy (MFT) Program maintains relationships with clinics, county and community-based agencies, and schools throughout the greater Los Angeles area to provide students with extensive opportunities for supervised clinical training as an MFT Trainee.",
+   "url": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Students must complete a minimum of 225 face-to-face clinical traineeship hours (minimum of 280 face-to-face hours for LPCC) during a 10-12-month training commitment at an approved site",
+   "hours_url": "https://catalog.pacificoaks.edu/preview_program.php?catoid=203&poid=10968&returnto=27085",
+   "how_long": "10-12 months, spanning three practicum courses (MFT 626 → MFT 628 → MFT 667), with MFT 685 Practicum Continuation if hours are not complete."
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Bachelor's degree from an accredited institution, official transcripts, summary of work/volunteer experience, personal statement, two letters of recommendation, a faculty interview",
+   "url": "https://www.pacificoaks.edu/academic-programs/ma-marriage-family-therapy/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Classified assisted because the catalog documents maintained agency relationships plus a Clinical Training Office gate, while the programme page puts the securing on the student: \"Most students secure clinical training placements with community agencies in California in the Los Angeles and Pasadena areas,\" and \"Students enrolled in this program must complete the required practicum placement at a California-based, program-approved site.\" No page states explicitly that students apply and interview themselves, so treat this as the weaker of the assisted classifications here. Two 0-credit pre-practicum courses gate the search: \"Every MFT student must complete these two courses which serve as prerequisites for moving forward to placement in Practicum sites\" (MFT 600 Clinical Training Orientation and MFT 605 Pre-practicum and Professionalism in the Field), following a First Year Review that requires \"a minimum of 18 hours of required personal therapy.\" GRE is never mentioned in the published admissions list, and no admission GPA is stated — the catalog's 3.0 references are to graduation and to the First Year Review, not to entry."
+ },
+ {
+  "institution": "Pacifica Graduate Institute",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "How do I find a practicum site? It is the student's responsibility to research and explore opportunities in your community. In the event that you are having a hard time obtaining a site please contact your Practicum Associate for more support.",
+   "url": "https://www.pacifica.edu/wp-content/uploads/2024/05/Supervised-Practicum-Guidelines-2023-2026.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Pacifica students are required to accrue a minimum of 300 cumulative hours, of which 280 must be direct service (counseling) hours.",
+   "hours_url": "https://www.pacifica.edu/wp-content/uploads/2024/05/Supervised-Practicum-Guidelines-2023-2026.pdf",
+   "how_long": "\"you are required to be in practicum during second year from the 1st session of Fall Quarter through the 3rd session of Spring Quarter\" — a minimum of three quarters, concurrent with Clinical Practice I-III."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No. The GRE/GMAT or other tests are not an admissions requirement.",
+   "url": "https://www.pacifica.edu/admissions/admission-requirements/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The clearest student-sourced model in this slice, and the search burden is spelled out. The practicum guidelines instruct: \"Identify at least 5 sites in your local community that are of interest to you ... Find out the interview dates, and schedule an interview with each site. It is your responsibility to inquire about each site's process for selecting students.\" Timing is hard-gated: \"You must begin your search for a practicum site no later than Winter Quarter of your first year of study,\" and \"Students are required to secure an approved practicum site no later than August 1 ... If you have not secured a site by this date you may have to defer Clinical Practice for one academic year.\" Pacifica publishes a \"Practicum Site Search Map\" of sites past students used, described as informational, not an assignment list. Students must also \"procure their own Professional Liability Insurance\" at $1,000,000/$3,000,000 before accruing hours, and complete 50 hours of personal therapy. No minimum admission GPA is published."
+ },
+ {
+  "institution": "Palo Alto University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Finding Your Fieldwork Site. PAU's Clinical Training Team will help you as you secure an ideal practicum or field placement in your community that matches your specific interests – and support you throughout your field experience. We work closely with mental health agencies throughout the San Francisco Bay area and beyond.",
+   "url": "https://www.paloaltou.edu/academic-programs/ma-counseling/program-details",
+   "own_clinic": true,
+   "clinic_names": [
+    "Community Clinic",
+    "Sexual & Gender Identities Clinic",
+    "Clínica Latina",
+    "eClinic"
+   ],
+   "hours_direct": "The program requires a minimum of 700 hours, including a minimum of 280 face-to-face client hours with the student working in the role of Counselor Trainee or Therapist Trainee",
+   "hours_url": "https://www.paloaltou.edu/academic-programs/ma-counseling/program-details",
+   "how_long": "\"over a minimum of three academic quarters (typically 9-12 months)\""
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "GRE scores are not required for admissions to PAU master's degree programs. GRE scores will not be considered in the review of applications, even if students provide them.",
+   "url": "https://www.paloaltou.edu/academic-programs/ma-counseling/program-details",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "PAU runs its own clinics (\"The Clinics @ PAU\": Community Clinic, Sexual & Gender Identities Clinic, Clínica Latina, eClinic), but the counselling master's practicum is described as \"an on-site practicum in a community organization\" arranged with the Clinical Training Team's help, not as training inside the PAU clinics — so the model is assisted, not in-house. Published example settings include \"School districts, Teen counseling centers, Adult psychological service agencies, Aging senior counseling centers, Community mental health agencies.\" \"Supervision occurs at your practicum site and with PAU faculty online.\" No minimum GPA is published on the programme pages fetched."
+ },
+ {
+  "institution": "Pepperdine University (GSEP)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Clinical training staff assist students in applying to practicum sites and provide guidance throughout the fieldwork/practicum.",
+   "url": "https://gsep.pepperdine.edu/masters-clinical-psychology-mft-evening/",
+   "own_clinic": true,
+   "clinic_names": [
+    "GSEP Community Counseling Clinic – West Los Angeles",
+    "GSEP Community Counseling Clinic – Irvine",
+    "Pepperdine Telehealth Community Counseling Clinic"
+   ],
+   "hours_direct": "Students who ultimately want to become licensed as an LMFT in California will be required to complete a minimum of 225 hours of direct client contact in an approved clinical setting. Students ultimately seeking to become licensed as an LPCC in California will be required to complete a minimum of 280 hours of direct client contact in an approved clinical setting.",
+   "hours_url": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf",
+   "how_long": "Format-dependent: \"Daytime and Online format programs students must register for PSY 662 for two units each term, over a period of four consecutive terms (8 units); Evening and Aliento format program students must register for PSY 662 for 2 units each term, over a period of at least three consecutive terms (6 units).\""
+  },
+  "gre": {
+   "status": "waivable",
+   "evidence": "Scores from the Graduate Record Examination (GRE—General Test), taken within the past five years or a completed GRE waiver form.",
+   "url": "https://gsep.pepperdine.edu/content/2026-2027-gsep-catalog.pdf",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "GRE status differs by format, which the marketing pages do not flag. The catalog's Daytime Format admission list requires GRE scores \"or a completed GRE waiver form\" — hence waivable. The Evening format page states the opposite for its own applicants: \"No GRE or Standardized Tests Required. We offer an equitable admission process that considers your ability and commitment to succeed rather than test scores.\" GPA: the catalog's Daytime admission section says \"If your baccalaureate or master's degree GPA is lower than 3.0 or you are seeking an exception to the TOEFL/IELTS requirements, please fill out the Exception Request Form.\" Practicum: the catalog puts the obligation on the student — \"Students must obtain a placement in an approved clinical setting, with a signed, written agreement on file\" — while both format pages advertise \"130+ Clinical Practicum Sites\" and staff support (Daytime: \"Staff members support students throughout the interview process at approved settings\"). Pepperdine's own GSEP Community Counseling Clinics exist and are \"staffed by Pepperdine master's- and doctoral-level interns,\" but no fetched page states that MACLP MFT practicum is served by them."
+ },
+ {
+  "institution": "Point Loma Nazarene University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "PLNU will work with you to acquire a practicum experience and we have an on-site clinic where you will engage in hands-on therapeutic practices while being supervised by a licensed professional prior to starting a full practicum placement in the community. While PLNU helps students get matched, it is ultimately the student's responsibility to connect with, interview for, and solidify their placement.",
+   "url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+   "own_clinic": true,
+   "clinic_names": [
+    "PLNU trainee practicum clinic (on-campus, Mission Valley)"
+   ],
+   "hours_direct": "All students have to accrue a minimum of 700 training hours to be eligible to graduate (290 direct client contact hours and 410 non-clinical hours).",
+   "hours_url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+   "how_long": "\"In the second year of the program, the Practicum experience requires an average commitment of 20 hours per week\"; on-campus clinical work begins in year one."
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Completion of the MMPI-2 or MMPI-3 personality assessment. Interview with the Department of Graduate Psychology.",
+   "url": "https://www.pointloma.edu/graduate-studies/programs/clinical-counseling-ma",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The GRE is not mentioned anywhere on PLNU's MACC programme page, so its status is recorded as not published — but note that PLNU does require an admissions test of a different kind: completion of the MMPI-2 or MMPI-3 personality assessment, plus a departmental interview. Hybrid practicum structure: \"You will gain on-campus clinical experience from year one. Our state-of-the-art trainee practicum clinic offers students a unique opportunity to practice, review, and hone their counseling skills as they see real clients in a supervised recorded environment,\" followed by community placement — \"Guided, accessible internship placements are readily available through our established practicum sites at all the major mental health service providers throughout San Diego.\" GPA: \"You must also have an undergraduate cumulative GPA of at least 3.0. If you don't meet the minimum GPA requirement, please contact your enrollment counselor regarding the exceptions process.\" PLNU also notes it holds no COAMFTE or CACREP programmatic accreditation: \"In California, programmatic accreditation is not required for the degree obtained to be eligible for licensure.\""
+ },
+ {
+  "institution": "Rhombus University",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "Students will be directed by Rhombus University administration on engaging their local community to identify a counseling agency qualified to be a practicum site. This counseling agency must be a non-profit agency offering counseling with a licensed supervisor who has been licensed for a minimum of 2 years and who has completed the CA BBS required 6 CE supervision class.",
+   "url": "https://rhombusuniversity.edu/wp-content/uploads/2026/01/RU-2026-Catalog-01-2026-01-27.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Must have passed Practicum courses with completion of 280 hours of supervised clinical experience",
+   "hours_url": "https://rhombusuniversity.edu/wp-content/uploads/2026/01/RU-2026-Catalog-01-2026-01-27.pdf",
+   "how_long": "Practicum courses run 14 weeks each (versus 7 weeks for theory courses) in a self-paced 2-3 year, 60-unit degree."
+  },
+  "gre": {
+   "status": "required",
+   "evidence": "Following the interview with the result to proceed toward acceptance into the program, the student will take an entrance exam. The entrance exam is used for tracking progress of learning by comparing the entrance exam score with the exit exam score received upon graduation. The entrance exam is a requirement for admission before being fully accepted into the program, and yet is not used as a factor of acceptance or denial.",
+   "url": "https://rhombusuniversity.edu/wp-content/uploads/2026/01/RU-2026-Catalog-01-2026-01-27.pdf",
+   "min_gpa": "2.5"
+  },
+  "checked": "2026-08-07",
+  "notes": "The required test is Rhombus's own entrance exam, not the GRE — the GRE is not mentioned anywhere in the 2026 catalog. The catalog states the exam is mandatory for full acceptance but \"is not used as a factor of acceptance or denial\"; it is a pre/post learning-measurement instrument. Practicum: the student identifies the agency and Rhombus then contracts with it — \"Upon identification and approval of the practicum site, Rhombus University staff will engage in a relationship through a contract and guide students through the successful completion of the 280 hours.\" One standing option exists: \"Rhombus is contracted with New Visions Counseling Center to provide a practicum opportunity within the organization if students would like. They can also seek out outside practicum experience.\" Practicum entry is gated by a Practicum Qualifying Exam and 20 hours of individual counselling at the student's expense; graduation additionally requires a 3.0 GPA and a comprehensive exam at 70%+. Admission requires a \"Qualified Bachelor's Degree with a minimum GPA of 2.5\" and three letters of recommendation. Accreditation caveat from the school's own site: it states it \"will pursue accreditation\" and that the programme \"currently meets requirements in California to pursue licensure as a Marriage and Family Therapist,\" directing applicants to \"Visit the California Board of Behavioral Sciences website to verify our approval.\" Programme marketing pages carry almost no detail; the catalog PDF is the only substantive source."
+ },
+ {
+  "institution": "Saint Mary's College of California",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Our program connects you with schools, clinics, and community organizations across the wider Bay Area, helping you secure field placements that match your goals and prepare you for professional success.",
+   "url": "https://www.stmarys-ca.edu/kalmanovitz-school-of-education/counseling/masters-counseling-program",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "COUN 791: Counseling Field Experience (1-3 units each term; 6 units total)"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No, the GRE is not required. We do require a Bachelor's degree from an accredited college.",
+   "url": "https://www.stmarys-ca.edu/graduate-professional-studies/ma-counseling/frequently-asked-questions",
+   "min_gpa": "2.8"
+  },
+  "checked": "2026-08-07",
+  "notes": "Saint Mary's publishes no field-placement handbook or approved-site list publicly, and no direct-client-hour figure appears anywhere on the counseling program pages; the 'assisted' classification rests on the single sentence quoted above, which is the only public statement of how placements are obtained. Note separately that Saint Mary's own Counseling and Psychological Services (CAPS) runs an 'MFT/PCC Practicum Training Program' (https://www.stmarys-ca.edu/sites/default/files/2025-08/MFT_PCC%20Practicum%20Training%20Program%202025-2026.pdf, 'This is a 9.5-month, 24-hour/week position'), but that posting is open to any 'graduate students enrolled in a Master's in Counseling Psychology Program', not a program-operated training clinic reserved for SMC students."
+ },
+ {
+  "institution": "San Diego State University",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "The practicum is where students begin to work with clients and this is conducted at the Center for Community Counseling & Engagement during the first fall and spring semester.",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/faq",
+   "own_clinic": true,
+   "clinic_names": [
+    "Dede Alpert Center for Community Counseling and Engagement (CCCE)"
+   ],
+   "hours_direct": "Students must acquire a minimum of 300 direct clinical contact hours (in-person or through telehealth with individuals, couples, families or other systems) to graduate. A minimum of 100 of the 300 hours must be relational hours.",
+   "hours_url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/program-details",
+   "how_long": "Two semesters of Practicum (CSP 755 and CSP 765) at the CCCE plus a minimum of three CSP 785 Traineeship classes; 'at least 18 months of clinical practice in total'"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "GRE scores are not required. Please note, submitted GRE scores will not be reviewed.",
+   "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/faq",
+   "min_gpa": "2.85 for domestic applicants or 3.00 for international applicants"
+  },
+  "checked": "2026-08-07",
+  "notes": "Two-stage model: the practicum is in-house at the department's own clinic, then a second external traineeship where 'the majority of your hours will be completed'. SDSU says 'Trainees will commit to anywhere between 15-25 hours per week at their chosen site' and links a list of 'our community traineeship agencies', but the site does not state who secures that traineeship seat, so the external stage is not classifiable from published pages."
+ },
+ {
+  "institution": "San Francisco State University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Traineeship placement is the responsibility of the student working with their faculty advisor, specialization coordinator, and the internship coordinator in the Department of Counseling.",
+   "url": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Practicum%20Handbook.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Students must put in a minimum of 700 hours of field placement for each specialization, with at least 280 hours of direct client contact.",
+   "hours_url": "https://counseling.sfsu.edu/practicum-and-internship",
+   "how_long": "Four semesters of fieldwork (COUN 705, COUN 736, COUN 890, COUN 891)"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The Department of Counseling DOES NOT require GRE or undergraduate prerequisite courses",
+   "url": "https://counseling.sfsu.edu/admission-instruction-and-requirements",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "Sites are restricted to a department-vetted list: 'Students can only be placed in sites that are pre-approved by the Department of Counseling (see Master List on Teams)', and 'The Department of Counseling hosts an internship fair early in the spring semester where approved internship sites are invited to send supervisors/coordinators to meet and recruit trainees from the Department.' The Master List itself is behind a student login, so prospective applicants cannot see it before enrolling. Applicants also need 2,000 hours of prior human-services work experience before applying."
+ },
+ {
+  "institution": "San Jose State University",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "You want to apply to and interview at 3 places minimally [...] If you apply to agencies that we have not been (or have not been in a while), you MUST discuss this with the Clinical Program Director (e.g., outside of Santa Clara County; agencies we have not had students at before)",
+   "url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/placement_tips.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "The Board of Behavioral Sciences requires that students accrue a minimum of 225 hours of face-to-face counseling experience during the practicum experience (before graduation) [...] 75 hours can be client-centered advocacy (CCA), but the other 150 hours must be face-to-face hours",
+   "hours_url": "https://www.sjsu.edu/psych/docs/clinical_graduate_program/general_information/MS%20Clinical%20Student%20Handbook%20-%202026%20revision-ACCESSIBLE.pdf",
+   "how_long": "Two semesters — fieldwork runs across the fall and spring of the second year; 'a minimum of 6 units of fieldwork/pre-degree internship experience' at 'a minimum of 12 hours per week at their placement'"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Note that we do NOT require GRE scores for our program application.",
+   "url": "https://www.sjsu.edu/psych/graduate-programs/masters-clinical-psych/apply-program.php",
+   "min_gpa": "A minimum GPA of 3.0 in all Psychology courses AND a 3.0 for the last 60 semester units"
+  },
+  "checked": "2026-08-07",
+  "notes": "SJSU publishes no approved-site list; the program's own guidance document is titled 'Notes on Securing an Internship' and walks the student through researching agencies, applying, interviewing and accepting an offer on their own timeline ('Over Winter Break - prepare resume and cover letters, research agencies'). The program does approve sites and files the university affiliation agreement, and the Program Director points students to an external career fair in January, but the search itself is the student's. No clinical placement at all in year one: 'All first-year classes must be passed with a B or higher before starting external fieldwork placements.' Also requires 100 hours of prior applied clinical experience to apply."
+ },
+ {
+  "institution": "Santa Clara University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "The Practicum Spreadsheet is a collection of clinical sites that contain descriptions of clinical sites throughout the Bay Area. This information should describe how each site would like to be contacted (i.e. send a resume, call to make an appointment etc.) [...] Interviewing for a practicum site is like looking for a job. You will interview with various sites and eventually choose one that presents itself as the best match.",
+   "url": "https://www.scu.edu/media/ecp-media/ecp-media/pdfs/counseling-psychology-handbooks-forms-plans/Practicum-90-Unit-PDF-2025-2026.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "MFT: Supervised fieldwork experience with a minimum of 225 hours of face-to-face experience counseling individuals, families, or groups. Up to 75 hours may be gained performing client-centered advocacy. SCU-CPSY requires a total time at the site for the academic year to be at least 550 hours. LPCC: [...] a minimum of 280 face-to-face clinical hours.",
+   "hours_url": "https://www.scu.edu/media/ecp-media/ecp-media/pdfs/counseling-psychology-handbooks-forms-plans/Practicum-90-Unit-PDF-2025-2026.pdf",
+   "how_long": "9 units over 3 consecutive quarters (Fall, Winter, Spring), at 18-24 hours per week on site"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Provide one copy of official transcripts from all post-secondary institutions attended, showing a minimum 3.0 undergraduate GPA and any conferred degrees.",
+   "url": "https://www.scu.edu/ecp/admissions/application-process/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "GRE is recorded as 'not published' rather than 'not required': the SCU application-process page enumerates every required item (application, statement of purpose, resume, transcripts, three references, program-specific requirements, $50 fee) and no test appears on it, but nowhere on the ECP or Counseling Psychology pages is there an explicit statement that the GRE is not required. Practicum is the culminating experience: 'Practicum is intended to be the culminating experience in Counseling Psychology and taken the last year of your academic studies', and requires at least 63 units completed before the Fall practicum quarter."
+ },
+ {
+  "institution": "Sentio University",
+  "practicum": {
+   "model": "in-house",
+   "evidence": "Yes. Students in good standing receive guaranteed clinical training placement at the Sentio Counseling Center, our telehealth training clinic. This is different from programs that offer \"practicum support\" but leave students to find their own field placements.",
+   "url": "https://sentio.org/faq",
+   "own_clinic": true,
+   "clinic_names": [
+    "Sentio Counseling Center (SCC)"
+   ],
+   "hours_direct": "We guarantee students over 400 hours of clinical experience that can be counted toward licensure in California.",
+   "hours_url": "https://sentio.org/scc",
+   "how_long": null
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Do I need to take the GRE? The GRE is not required for admission to Sentio University.",
+   "url": "https://sentio.org/faq",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "GPA: 'While there is no minimum GPA requirement, undergraduate GPA is weighted as part of our holistic application evaluation process.' The SCC is an online/telehealth clinic ('an online practicum site'), with in-person elements in the Los Angeles area. Sentio states it is not accredited: 'Sentio University is not accredited and is pursuing accreditation', is BPPE-approved only, and applicants 'must be California residents or willing to relocate to California'. Program length stated as 20 months. Number of practicum terms is not published; classified in-house on the guarantee language above."
+ },
+ {
+  "institution": "Simpson University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "During the final year of study, students also experience excellent clinical training at a variety of trusted practicum sites within the broader community, where they work under the supervision of a licensed professional.",
+   "url": "https://simpsonu.edu/academics/graduate-studies/m-a-in-counseling-psychology/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Final year of study"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No GRE required",
+   "url": "https://simpsonu.edu/admissions/graduate-admissions/",
+   "min_gpa": "3.0 cumulative GPA (for final 60 semester credits – applicants with a lower GPA may still be considered through our holistic admissions process)"
+  },
+  "checked": "2026-08-07",
+  "notes": "Simpson's site says only that students train at 'trusted practicum sites within the broader community' — it never states whether the program places, assists with an approved-site list, or leaves the search to the student, so the model is genuinely not published. No direct-client-hour figure and no practicum handbook are published. simpsonu.edu blocks scripted requests (HTTP 403); pages were read via the WebFetch tool instead. Prerequisite coursework: 'Five courses required for non-psychology/social welfare majors.'"
+ },
+ {
+  "institution": "Sofia University",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "A minimum of four quarters of practicum coursework is required, and all students will need to secure a traineeship position at an approved local site providing mental health services. [...] The MACP faculty member in charge of monitoring the practicum must approve the Clinical Practicum site.",
+   "url": "https://catalog.sofia.edu/counseling-psychology-masters/master-of-arts/master-of-arts-in-counseling-psychology-macp",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "in California, a minimum of 225 supervised clinical hours are required for LMFT, and a minimum of 280 supervised direct counseling hours are required for LPCC",
+   "hours_url": "https://catalog.sofia.edu/counseling-psychology-masters/master-of-arts/master-of-arts-in-counseling-psychology-macp",
+   "how_long": "One full year — 'MACP students must complete one full year of Clinical Practicum as a Capstone Project'; a minimum of four quarters of practicum coursework"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Master of Arts in Counseling Psychology Application Materials: Online application, Application fee, Statement of purpose, Two letters of recommendation, Resume or Curriculum Vitae, Official college or university transcripts, Proof of English proficiency (if applicable), Foreign transcript evaluation (if applicable), Form of identification, Faculty interview [...] Applicants are required to have a bachelor's degree or higher from an accredited college or university or international equivalent with a minimum GPA of 3.0.",
+   "url": "https://catalog.sofia.edu/graduate-application-requirements",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The catalog's own words put the search on the student ('all students will need to secure a traineeship position at an approved local site') with the program approving the site afterward — no approved-site list or placement office is published. GRE recorded as 'not published': the catalog's full application-materials list for the MACP contains no test, but no explicit no-GRE statement exists. Additional gate before practicum: students must complete 40 hours of personal psychotherapy as a client (20 of them before entering the practicum sequence) and the MLR2069 Pre-Practicum course. Program is described as a three-year online/low-residency degree with mandatory ten-day intensives twice a year, one of them in person on the Palo Alto campus."
+ },
+ {
+  "institution": "Sonoma State University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Both the Clinical Mental Health and School Counseling programs are affiliated with many counseling and school traineeship sites throughout Sonoma County and the greater bay area. [...] In the spring semester of the CMHC students' first year, they attend a mandatory traineeship fair hosted by the Counseling Department.",
+   "url": "https://counseling.sonoma.edu/programs/program-faq",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Six hundred clock hours of supervised field experience are required for the CMHC specialization.",
+   "hours_url": "https://counseling.sonoma.edu/programs/clinical-mental-health-cmhc",
+   "how_long": "Two semesters of supervised field experience (COUN 515A and COUN 515B) in year two, following spring practicum in year one"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A minimum undergraduate GPA of a 3.0 is required for admission.",
+   "url": "https://counseling.sonoma.edu/admissions/application-process/application-requirements-cmhc",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The 600 hours are total field-experience clock hours, not direct client contact — Sonoma publishes no direct-contact sub-minimum. GRE is 'not published': the word GRE does not appear anywhere on the department's admissions, application-process or FAQ pages, so there is no statement either way. Prerequisite coursework is real: 'Both Abnormal Psychology and Personality Theory are required for admission', plus 'a minimum of one year full-time (30-40 hours per week) or two years part-time' of related human-services experience. Traineeship is a 17-22 hour a week commitment on top of coursework."
+ },
+ {
+  "institution": "Southern California Seminary",
+  "practicum": {
+   "model": "not published",
+   "evidence": "CO-771 Counseling Practicum 1, CO-772 Counseling Practicum 2, CO-773 Counseling Practicum 3 [...] CO-778 Practicum Continuance (optional)",
+   "url": "https://www.socalsem.edu/master-of-arts-marriage-family-therapy/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Three practicum courses (9 units), with an optional Practicum Continuance course"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Schedule MMPI (MACP, MAMFT, PsyD), Entrance Exam (PsyD only)",
+   "url": "https://www.socalsem.edu/admissions/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Southern California Seminary publishes essentially nothing about how MAMFT students obtain a practicum site: the program page lists only the three practicum course codes, and the graduate behavioral sciences, distinctives and admissions pages contain no placement, hours, clinic or approved-site information at all. No admission GPA minimum is published either (the only GPA given, 'a minimum 3.0 GPA', is a graduation requirement across 63 units, not an admissions threshold). The admissions page does show an MMPI is required for MAMFT applicants and that a separate entrance exam applies to the PsyD only; the GRE is never mentioned. socalsem.edu returns HTTP 403 to scripted requests and its catalog-download page could not be fetched, so pages were read via the WebFetch tool; the site itself is live and the program is still listed."
+ },
+ {
+  "institution": "The Chicago School",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "The Director of Clinical Training (DCT) regularly connects with students to assist in the practicum placement and maintenance process. [...] The Director of Clinical Training facilitates practicum placement in coordination with the program faculty. The DCT has developed relationships with sites that offer a broad range of client populations and presenting problems.",
+   "url": "https://www.thechicagoschool.edu/wp-content/uploads/2025/12/MCFT-Program-Guidebook.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "students participate in a 12-month clinical training field placement and accumulate a minimum of 300 face-to-face hours, including at least 100 relational hours, of supervised clinical experience in a mental health setting",
+   "hours_url": "https://www.thechicagoschool.edu/wp-content/uploads/2025/12/MCFT-Program-Guidebook.pdf",
+   "how_long": "Practicum consists of ten credit hours completed over four semesters or eight terms, wrapped around a 12-month clinical training field placement"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The GRE is not required, however students who have taken the exam may submit their scores to enhance their application",
+   "url": "https://www.thechicagoschool.edu/programs/counseling/marriage-couples-and-family-therapy/ma/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The student still applies and interviews: before beginning placement students must 'Attend the practicum orientation meeting prior to starting the practicum placement process. This meeting will include information about available sites and the procedures for interviewing for positions,' and must 'express their intent to apply for practicum and traineeship in writing to their Director of Clinical Training.' Gating is heavy: six named courses plus the MM569 Practicum Readiness Assessment exam and faculty sign-off are required before practicum can start, and 'Transfer of credit for practicum courses is not granted, and practicum hour requirements are never waived.' The detailed Practicum Manual is not public — it is 'accessible through the Director of Clinical Training'."
+ },
+ {
+  "institution": "The Wright Institute",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "In their first year of the program, students gain access to our database of practicum sites. The Field Placement Office will be in contact with students throughout the first year of the program to keep students apprised of the requirements for eligibility to attend practicum. The Field Placement Office assists students in preparing a curriculum vitae (CV) and completing practicum applications to multiple sites. [...] Students will ultimately sign a contract with one agency to complete their practicum, usually during the second year of the Counseling program.",
+   "url": "https://www.wi.edu/ma-clinical-experience",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "In order to graduate, you need to accrue a minimum of 500 hours of supervised clinical experience, including 280 direct client hours.",
+   "hours_url": "https://www.wi.edu/admission-ma-faq",
+   "how_long": "Second year of the two-year program (no placement in year one)"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Do I have to take the GRE general test? The GRE is not required.",
+   "url": "https://www.wi.edu/admission-ma-faq",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The Wright Institute holds written affiliation agreements with every site — 'The Wright Institute approves and has a written agreement with each site that details each party's responsibilities' — and reports 'Our students are now able to choose from 90 partner agencies'. The two-to-three-year risk is stated explicitly by the school: 'The Counseling program is designed to be completed in two years. If the practicum hours in the second year are not completed concurrently with coursework, then the program may extend into a third year.' GPA waiver language: 'Applicants who do not meet the minimum GPA requirement may still be accepted under exceptional circumstances.' No distance-learning option — 'all classes are held at the Institute.' The clinics listed on wi.edu (WI Clinic, CBT Clinic, Assessment Clinic) belong to the doctoral PsyD training sequence, not the MA Counseling program."
+ },
+ {
+  "institution": "Touro University Worldwide",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "TUW is not responsible for finding the clinical placement site and/or agency for students. The student is responsible for finding the clinical placement site and arranging a formal interview of the student.",
+   "url": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "300 Total Practicum Client Contact Hours",
+   "hours_url": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf",
+   "how_long": "Six practicum courses (18 credits)"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "Since Touro University Worldwide does not believe that entrance exams are accurate predictors of future student success, TUW does not require any GRE and/or GMAT for admission.",
+   "url": "https://www.tuw.edu/admissions/faq/",
+   "min_gpa": "2.5 (or 2.75 for transfer students from another graduate program)"
+  },
+  "checked": "2026-08-07",
+  "notes": "This is the most explicitly student-sourced program in the set, and the handbook says so twice. It does offer help without guaranteeing anything: 'The program will provide assistance in finding the clinical placement site but cannot guarantee a clinical placement site to the student. It is part of the professional growth and development of graduate students to try to obtain a clinical placement site (similar to finding employment in the MFT field after graduation).' Step 1 of the published search process is 'researching possible clinical placement sites on the internet in the area of your residence'. Sites must be approved after the fact: 'Students are eligible for Practicum credit and approval of hours when they are working in sites that have been evaluated and approved by the university/Assistant Program Director,' and hours do not accrue until the MOA is signed and practicum registration opens."
+ },
+ {
+  "institution": "University of La Verne",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Provides training and supervision that augments and enhances the training students receive at their approved practicum sites.",
+   "url": "https://catalog.laverne.edu/course-descriptions/mft/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Students must complete a minimum of 280 direct face-to-face hours by completion of the year-long practicum experience.",
+   "hours_url": "https://catalog.laverne.edu/course-descriptions/mft/",
+   "how_long": "Year-long sequence: MFT 520 Practicum I then MFT 521 Practicum II, with MFT 525 Practicum Continuation (0 units) available afterward"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A minimum overall undergraduate GPA of 3.0 is required.",
+   "url": "https://catalog.laverne.edu/college-public-health/marriage-family-therapy-ms/",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "Neither the programme page nor the catalog states who locates the practicum site — both refer only to 'approved practicum sites' — so the model could not be determined. Two different direct-hour figures are published on live La Verne pages: the programme page says 'Students engaged in Fieldwork will complete a minimum of 225 hours at an approved site' (https://health.laverne.edu/marriage-family-therapy/), while the catalog course descriptions say 280; ask the programme which applies to your admit year. The catalog's admission-requirements list makes no mention of the GRE at all, which is why GRE is recorded as not published rather than not required."
+ },
+ {
+  "institution": "University of Massachusetts Global (formerly Brandman)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Students are responsible for securing a practicum site while actively collaborating with their CFR and are encouraged to seek guidance and support from their CFR as needed throughout the process.",
+   "url": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "Of the 400 hours, 300 hours must be direct client contact (DCC) and at least 100 of the DCC hours must be relational hours.",
+   "hours_url": "https://www.umassglobal.edu/sites/default/files/documents/admissiondocuments/umassglobal-mft-clinical-handbook.pdf",
+   "how_long": "Students must complete a total of 400 hours to fulfill the experiential component of the program over a 12-month period."
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No Grad Level Exams Required This Master's degree program does not require applicants to take costly exams like the GRE.",
+   "url": "https://www.umassglobal.edu/academic-programs/marriage-family-therapy-and-professional-clinical-counseling",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "The Clinical Handbook also says students 'Search for a clinical site from the approved site list or identify an alternative non-approved agency in the community' — an approved-site list plus a named Clinical Faculty Representative supporting the search, but the student secures the seat. Non-approved agencies must be vetted and the handbook warns 'the approval process may take 1-2 months or longer.' No admission-GPA minimum was found on the pages fetched (the catalog PDF only states a 3.0 GPA must be maintained during study)."
+ },
+ {
+  "institution": "University of Phoenix",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "Students are required to secure their own clinical placement site.",
+   "url": "https://www.phoenix.edu/content/dam/edu/degrees/doc/mfct-online-program-handbook.pdf",
+   "own_clinic": true,
+   "clinic_names": [
+    "California Virtual Counseling Skills Center (CSC)"
+   ],
+   "hours_direct": "A minimum of 300 direct client hours are required to graduate.",
+   "hours_url": "https://www.phoenix.edu/content/dam/edu/degrees/doc/mfct-online-program-handbook.pdf",
+   "how_long": "40 weeks of clinical courses: Practicum (MFCC/592) 10 weeks, then Internship A and Internship B at 15 weeks each"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "GMAT/GRE test results are not required",
+   "url": "https://www.phoenix.edu/online-behavioral-sciences-degrees/marriage-family-child-counseling-masters-degree.html",
+   "min_gpa": "2.5"
+  },
+  "checked": "2026-08-07",
+  "notes": "The handbook is explicit that the student, not the programme, secures the site: 'It is every student's personal responsibility to apply, present professionally, submit a cover letter and resume, and interview for the position at the selected agency.' A Field Placement Coordinator exists but the handbook describes the student sending paperwork to that coordinator after being offered a position. The university does run its own telehealth clinic — 'The California Virtual Counseling Skills Center (CSC) offers free telehealth therapy services... Services are provided by student counselors who are in their clinical course' — but it is described only as something that 'may afford the opportunity for some students' to accrue hours, not the default placement. Enrolment in this programme is restricted to California residents."
+ },
+ {
+  "institution": "University of Redlands",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "The University of Redlands must have a memorandum of understanding (MOU) with the practicum site before you can begin. Please review our Active Partnership List to determine whether a partnership is in place with your potential site.",
+   "url": "https://www.redlands.edu/offices-directory/offices/school-of-education/student-support/clinical-mental-health-and-counseling-resources",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Three consecutive practicum semesters (CMHC 699A/B/C), started in the final year"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Evidence of a 3.0 undergraduate GPA or an approved petition",
+   "url": "https://www.redlands.edu/academics/graduate/master-of-arts-in-clinical-mental-health-counseling",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "The phrase 'your potential site' plus the site-supervisor-completed Practicum Site Agreement Form ('Once your site supervisor is finalized, provide them with the link to this form') indicates the student identifies and secures the site, while Redlands supplies an approved-site list and negotiates new MOUs. Redlands warns that establishing a partnership with a site not already on the list 'can take up to 3 months.' Direct client contact hours are not stated on any Redlands page I could fetch — the 2025-2026 CMHC Practicum Handbook is a Google Doc that requires JavaScript and could not be read. The programme's admission-requirements list makes no mention of the GRE."
+ },
+ {
+  "institution": "University of San Diego (SOLES)",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "Students choose where to complete their clinical work from a list of pre-approved agencies and practicum sites that best matches their interests and needs.",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/practicum.php",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "400 hours of direct client contact, 200 of which are acquired with couples and/or families",
+   "hours_url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/practicum.php",
+   "how_long": "3 semester sequence conducted over 12 months"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "The MA in Marital and Family Therapy program does not require the GRE.",
+   "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/admissions-requirements.php",
+   "min_gpa": "3.00"
+  },
+  "checked": "2026-08-07",
+  "notes": "USD publishes a list of roughly 17 named pre-approved practicum sites but attaches an explicit caveat on the same page: 'this list is subject to change' and it 'doesn't guarantee placement with listed agencies' — the seat still has to be won by the student. Supervisors must be 'AAMFT Approved Supervisors or meet equivalency standards.' Admissions page also states a minimum cumulative 3.00 undergraduate GPA."
+ },
+ {
+  "institution": "University of San Francisco",
+  "practicum": {
+   "model": "not published",
+   "evidence": "During their final year in the program, students enter a traineeship with Bay Area community-based and school-based partners.",
+   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/program-overview",
+   "own_clinic": true,
+   "clinic_names": [
+    "Center for Community Counseling and Wellness (CCCW)"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Final year of the programme — fall of year three on the three-year format, fall of year two on the two-year format; students apply for traineeship the preceding spring"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "No, we do not require any standardized tests for the MFT MA program.",
+   "url": "https://www.usfca.edu/education/programs/masters/marriage-family-therapy/faqs",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "USF does operate its own clinic and MFT students do train there: 'The USF Center for Community Counseling and Wellness (CCCW) provides free to low-cost mental health services to adults and couples in the San Francisco community while training the next generation of social justice therapists' and 'Clinicians at the CCCW are USF graduate Counseling Psychology MFT training program students under the supervision of licensed clinical supervisors' (https://www.usfca.edu/education/research-impact/center-community-counseling-wellness). But the programme overview describes traineeship as happening 'with Bay Area community-based and school-based partners', and no live USF page states who secures the traineeship seat, so the model is recorded as not published rather than in-house. The MFT Program Handbook says only that traineeship happens 'at an approved agency site or other approved clinical setting' and that 'Information pertaining to the Traineeship requirements is provided in a separate manual' that is not publicly posted. No direct-hour figure and no admission GPA minimum appear on the pages I could fetch."
+ },
+ {
+  "institution": "University of Southern California (Rossier)",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Conduct supervised field experience in a clinical setting that focuses on the development of novice therapists in a small group setting.",
+   "url": "https://admissions.rossier.usc.edu/how-to-apply/ms-in-marriage-and-family-therapy-mft-courses/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Three terms in year two: EDUC 644 (summer), EDUC 645A (fall), EDUC 645B (spring)"
+  },
+  "gre": {
+   "status": "not required",
+   "evidence": "GRE scores are neither required nor accepted for admission at USC Rossier.",
+   "url": "https://rossier.usc.edu/programs/masters/mft/mft-application-instructions",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "I fetched five separate USC pages (the programme page, the find-and-compare page, the courses page, the application-instructions page, and the Rossier students hub) and none states who locates or secures the practicum site, whether USC operates a training clinic, or how many direct client contact hours are required. The application instructions do warn that 'full-time work in the second year is highly discouraged' because of fieldwork demands. On GPA the same page says: 'There is no minimum GPA required to apply to USC Rossier programs, but competitive applicants typically have a GPA of 3.0 or above' — so no minimum is recorded."
+ },
+ {
+  "institution": "University of the Pacific (Benerd College)",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Counseling Practicum entails the supervised application of psychological procedures in appropriate settings.",
+   "url": "https://catalog.pacific.edu/uop/benerdcollege/macp/macp.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A cumulative GPA of 3.0 or better for the last 60 units of college or post-baccalaureate work",
+   "url": "https://catalog.pacific.edu/uop/benerdcollege/macp/macp.pdf",
+   "min_gpa": "3.0 (last 60 units)"
+  },
+  "checked": "2026-08-07",
+  "notes": "This is the thinnest published record in the slice. Neither the programme page nor the Benerd College catalog PDF says who finds the practicum site, whether Pacific operates a training clinic, how many direct client contact hours are required, or how long practicum runs — the catalog gives only the one-line CPSY 394 course description. The catalog's admissions list does not mention the GRE. The programme is new (first cohort fall 2024), so no practicum handbook has been published yet."
+ },
+ {
+  "institution": "University of the West",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Students are required to gain 6 units of fieldwork (practicum) at an approved practicum site. Upon completion of 18 units of coursework students may seek the chair's approval to pursue a practicum. All fieldwork and practica placements must be approved by the department chair and training director before training begins.",
+   "url": "https://uwest.edu/wp-content/uploads/2025/03/2024-25_UWest_Academic_Catalog-1.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": "Students entering an approved practicum must enroll in PSYCH 700 and PSYCH 710 in consecutive terms"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Minimum Undergraduate GPA for Admission ... MA Psychology 3.00",
+   "url": "https://uwest.edu/wp-content/uploads/2025/03/2024-25_UWest_Academic_Catalog-1.pdf",
+   "min_gpa": "3.00"
+  },
+  "checked": "2026-08-07",
+  "notes": "The catalog describes approval of a placement by the department chair and training director but never says who locates it, so the model cannot be determined between assisted and student-sourced. UWest publishes no direct client contact hour minimum, no relational-hour sub-minimum and no supervision ratio: it states only that 'Training sites must have a written contract with UWest indicating the commitment to abide by the supervisory conditions required for the pre-MFT licensure requirements, as guided by California's Board of Behavioral Sciences (BBS).' The catalog also notes UWest runs holistic review and that applicants below the 3.00 minimum 'are encouraged to apply for an exception.' No admissions test is mentioned anywhere in the graduate admission section."
+ },
+ {
+  "institution": "Vanguard University",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "The program will support and assist you in securing a placement at one of our more than 60 partner sites.",
+   "url": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms",
+   "own_clinic": true,
+   "clinic_names": [
+    "Journeys at Vanguard"
+   ],
+   "hours_direct": null,
+   "hours_url": null,
+   "how_long": null
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "It is required that all prerequisite courses have been completed with a grade of B- or better",
+   "url": "https://www.vanguard.edu/academics/academic-programs/graduate/clinical-psychology-ms",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "Full quote: 'During the program, you will complete a practicum placement at sites such as college counseling centers, substance abuse treatment centers, community counseling centers or others such as the Journeys at Vanguard counseling center, located on the campus. The program will support and assist you in securing a placement at one of our more than 60 partner sites.' Journeys at Vanguard is on campus but is a joint venture rather than a wholly Vanguard-run clinic — a Vanguard fundraising page describes it as run 'through a partnership between Vanguard University and Journeys Counseling Ministry' and says it 'is staffed by Vanguard's graduate clinical psychology students who offer therapy while being supervised by licensed therapists' (https://give.vanguard.edu/counseling-center-benefits-vu-students-and-blesses-community/). It is one option among the 60+ partner sites, not the default. No direct client contact hour figure, practicum duration, GRE statement or admission GPA minimum appears on the live programme page — the page lists transcripts, statement of purpose, resume, three recommendations and prerequisite coursework only."
+ },
+ {
+  "institution": "Weimar University",
+  "practicum": {
+   "model": "not published",
+   "evidence": "Students will complete 6 units (600 hours) of practicum thus completing 280 hours of direct client contact in a supervised clinical placement counseling individuals, couples, families, or groups.",
+   "url": "https://weimar.edu/academics/graduate-departments/ma-counseling-psychology-and-wellness/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "280 of those hours must be direct client contact in a clinical setting counseling individuals, couples, families, or groups",
+   "hours_url": "https://weimar.edu/academics/graduate-departments/ma-counseling-psychology-and-wellness/",
+   "how_long": "PSYC 590 Practicum in Counseling, 3 credits per term across both semesters of year 2 (6 credits total)"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "3.0 GPA within the last 45 units prior to graduation and all core courses for their undergraduate degree.",
+   "url": "https://weimar.edu/academics/graduate-departments/ma-counseling-psychology-and-wellness/",
+   "min_gpa": "3.0 (last 45 units)"
+  },
+  "checked": "2026-08-07",
+  "notes": "Neither the programme page nor the 2024-2025 Academic Bulletin says who locates the clinical placement — both refer only to 'a supervised clinical placement' and 'approved clinical settings.' A student testimonial on the programme page mentions 'face-to-face experience with diverse clients at the Depression and Anxiety Recovery Program(TM) and Beautiful Minds Medical', which suggests those Weimar-affiliated services take trainees, but the page never states this as the placement model, so it is not a basis for classification. The 2024-2025 bulletin mentions no GRE or other graduate entrance exam anywhere. Programme is active — page metadata shows a 5 August 2026 modification date."
+ },
+ {
+  "institution": "Western Institute for Social Research",
+  "practicum": {
+   "model": "student-sourced",
+   "evidence": "WISR Faculty believe that it is in each student's interest that they take responsibility for seeking out and establishing a Practicum site (necessary to their fulfilling the Practicum Requirement at WISR).",
+   "url": "https://wisr.edu/home/degree-programs/mft-program/",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "the Practicum must include 150 hours of face-to-face/direct client counseling, and for those wishing to also qualify for the LPCC license, the Practicum must include 280 hours of face-to-face/direct client counseling",
+   "hours_url": "https://wisr.edu/home/degree-programs/mft-program/",
+   "how_long": "The course involves a minimum of 306 hours of Supervised Practicum"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "Admission Requirement: Bachelor's Degree",
+   "url": "https://wisr.edu/home/degree-programs/mft-program/",
+   "min_gpa": null
+  },
+  "checked": "2026-08-07",
+  "notes": "WISR is the clearest student-sourced case in the slice and says so in detail: 'Of course, students must find a site that is geographically compatible' and 'Still, WISR faculty give students advice and guidance in how to find Practicum Sites, and WISR has begun to develop a database of some Practicum options.' A database is described as under development, not as an established approved-site list, and the responsibility statement is unambiguous. Timing warning from the same page: 'Many Practica only accept new trainees at the beginning of the academic year (summer to early fall)... students should seek and establish a placement in a Practicum at least a year before graduation.' Practicum also requires passing a 'Practicum Readiness Review conducted by two WISR MFT faculty' after six named courses. Published length of study is 2-3 years full time, 6 years part time. No admissions test or GPA minimum is published — the stated admission requirement is a bachelor's degree plus an interview with the President or Chief Academic Officer."
+ },
+ {
+  "institution": "Western Seminary",
+  "practicum": {
+   "model": "assisted",
+   "evidence": "It is the student's responsibility to find a Practicum/Internship placement. However, we are continuously expanding our resources to better assist students in this process. The Counseling Program Administrative Assistant and the Field Placement Coordinator are available to assist you in finding a Practicum/Internship placement to begin CN/CM 530.",
+   "url": "https://www.westernseminary.edu/files/counseling/sanjose/San_Jose_Practicum_Internship_Manual_2019.pdf",
+   "own_clinic": false,
+   "clinic_names": [],
+   "hours_direct": "a minimum of 280 hours of face-to-face experience counseling individuals, couples, families, or groups",
+   "hours_url": "https://www.westernseminary.edu/academics/masters-degrees/ma-in-counseling-california",
+   "how_long": "Four courses — CN/CM 530 Practicum then CN/CM 531, 532, 533 Internship; the manual notes internship sites typically require at least an eight-month commitment"
+  },
+  "gre": {
+   "status": "not published",
+   "evidence": "A cumulative undergraduate GPA of 3.0 or higher",
+   "url": "https://www.westernseminary.edu/academics/masters-degrees/ma-in-counseling-california",
+   "min_gpa": "3.0"
+  },
+  "checked": "2026-08-07",
+  "notes": "Classified assisted because the seminary names a Field Placement Coordinator, publishes a list of pre-approved practicum/internship sites in the manual, and runs a site-approval process for sites not on that list — but the student does the finding. Caveat for prospective students: the San Jose Practicum/Internship Manual I could fetch is dated 2019, so its hour tables predate the current BBS rules; it splits hours as 40 direct client contact in practicum plus 240 across the three internship courses, and states 'A student pursuing the MFT license must earn at least 225 direct client contact' during Practicum/Internship, which conflicts with the 280 figure on the current programme page. The programme also requires 'a minimum of 30 hours of personal counseling.' The programme page's admission list makes no mention of the GRE."
+ }
+]

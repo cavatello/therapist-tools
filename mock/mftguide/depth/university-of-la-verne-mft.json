@@ -212,5 +212,31 @@
    "label": "MFT Program Policies and Procedures page",
    "url": "https://health.laverne.edu/marriage-family-therapy/mft-program-policies-and-procedures/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "University of La Verne, La Verne"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 116,
+  "first_time_passed": 98,
+  "first_time_pct": 84,
+  "all_taking": 184,
+  "all_passed": 122,
+  "all_pct": 66,
+  "law_ethics_taking": 96,
+  "law_ethics_pct": 91,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

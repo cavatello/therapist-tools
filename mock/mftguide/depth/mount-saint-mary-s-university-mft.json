@@ -243,5 +243,31 @@
    "label": "Counseling and Psychological Services Advanced Practicum Program — establishes that the on-campus clinic trains doctoral psychology students, not MFT trainees; also the source for university demographics",
    "url": "https://www.msmu.edu/student-life/support-resources/counseling--psychological-services/advanced-practicum-program/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Mount St. Mary's University, Los Angeles"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 223,
+  "first_time_passed": 158,
+  "first_time_pct": 71,
+  "all_taking": 347,
+  "all_passed": 223,
+  "all_pct": 64,
+  "law_ethics_taking": 361,
+  "law_ethics_pct": 71,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

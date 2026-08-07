@@ -199,5 +199,31 @@
    "label": "Wikimedia Commons — campus sign photograph (CC0)",
    "url": "https://commons.wikimedia.org/wiki/File:Dominican_University_of_California_sign.jpg"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Dominican University of California"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 94,
+  "first_time_passed": 84,
+  "first_time_pct": 89,
+  "all_taking": 117,
+  "all_passed": 94,
+  "all_pct": 80,
+  "law_ethics_taking": 132,
+  "law_ethics_pct": 83,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

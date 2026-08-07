@@ -540,6 +540,19 @@ def page(p):
     if adm:
         secs.append(("getting-in", "Getting in", adm))
 
+    # After admissions and before what people say. It is about what happened to
+    # people who already went here, so it belongs after "how you get in" and
+    # before opinion - and putting it any higher would give it a prominence the
+    # caveat spends three paragraphs arguing against.
+    ex = D.exam(dep.get("exam"))
+    if ex:
+        secs.append(("exam-results", "How its graduates did on the Board&rsquo;s exam", ex))
+
+    oc = D.outcomes(dep.get("outcomes"))
+    if oc:
+        secs.append(("outcomes",
+                     "What the accreditor makes it publish", oc))
+
     vox = D.voices(dep.get("voices"))
     if vox or th:
         secs.append(("what-people-say", "What people say about it",

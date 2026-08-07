@@ -236,5 +236,80 @@
    "label": "GradReports — 17 student reviews of Hope International University",
    "url": "https://www.gradreports.com/colleges/hope-international-university"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Hope International University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 235,
+  "first_time_passed": 178,
+  "first_time_pct": 76,
+  "all_taking": 402,
+  "all_passed": 234,
+  "all_pct": 58,
+  "law_ethics_taking": 328,
+  "law_ethics_pct": 77,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.hiu.edu/pdf/COAMFTE-GAD-Table-Summer-2026.pdf",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2020-2021",
+      "graduation": "52.94%",
+      "licensure": "92.00%",
+      "placement": "100%",
+      "n": "52"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "50%",
+      "licensure": "83.87%",
+      "placement": "100%",
+      "n": "44"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "57.58%",
+      "licensure": "83.33%",
+      "placement": "80%",
+      "n": "66"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "59.09%",
+      "licensure": "80.77%",
+      "placement": "100%",
+      "n": "44"
+     },
+     {
+      "year": "2024-2025",
+      "graduation": "35.90%",
+      "licensure": null,
+      "placement": null,
+      "n": "39"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "HOPE PUBLISHES AN EXTRA COLUMN NO OTHER SCHOOL IN THIS SET HAS: 'Maximum Graduation Rate (%)', alongside the standard 'Graduation Rate in Advertised Time'. The two differ enormously - e.g. 2018-2019 is 48.84% in advertised time but 100% maximum. That extra column is captured here as 'maximum_graduation_rate'. Hope explains why: 'HIU's advertised graduation rate is 2 years. Students can choose a three-year program to spread the number of courses over each semester. About 40%-50% of students choose to complete the program in 3 years, which is a full-time track... the graduate rate for the advertised timeframe is lower than the maximum graduation rate.' Putting Hope's ~45-59% next to a 3-year program's ~87% would be actively misleading - it is measuring elapsed time against a shorter yardstick, not student failure. 2017-2018 licensure of 70.83% is barely above COAMFTE's 70% benchmark. Note the PDF's header row also contains an apparent typo, 'FT80.', in the maximum-graduation-rate column.",
+  "shown": 5
+ }
 }

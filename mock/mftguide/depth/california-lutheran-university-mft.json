@@ -315,5 +315,31 @@
    "correct": "Confirmed — no LPCC track. The 60-credit curriculum contains no career/life-development counseling course and the program materials never mention LPCC.",
    "src": "https://www.callutheran.edu/academics/graduate/ms-counseling-psychology/curriculum.html"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California Lutheran University, Thousand Oaks"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 192,
+  "first_time_passed": 167,
+  "first_time_pct": 87,
+  "all_taking": 280,
+  "all_passed": 203,
+  "all_pct": 72,
+  "law_ethics_taking": 220,
+  "law_ethics_pct": 88,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

@@ -216,5 +216,31 @@
    "label": "Vanguard admissions/overview microsite (cohort size, tuition per unit)",
    "url": "https://explore.vanguard.edu/degree-programs/masters/clinical-psychology/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Vanguard University of Southern California"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 120,
+  "first_time_passed": 102,
+  "first_time_pct": 85,
+  "all_taking": 157,
+  "all_passed": 122,
+  "all_pct": 78,
+  "law_ethics_taking": 145,
+  "law_ethics_pct": 88,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

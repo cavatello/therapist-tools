@@ -314,5 +314,31 @@
    "correct": "Correct as recorded — the campus is in Culver City and the catalog and university refer to it as AU Los Angeles / AULA. No change needed.",
    "src": "https://catalog.antioch.edu/preview_program.php?catoid=13&poid=7193"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Antioch University, Los Angeles"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 975,
+  "first_time_passed": 846,
+  "first_time_pct": 87,
+  "all_taking": 1326,
+  "all_passed": 986,
+  "all_pct": 74,
+  "law_ethics_taking": 1325,
+  "law_ethics_pct": 83,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

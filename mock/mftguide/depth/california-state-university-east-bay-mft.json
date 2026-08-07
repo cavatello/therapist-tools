@@ -228,5 +228,31 @@
    "label": "Niche - CSU East Bay graduate student reviews",
    "url": "https://www.niche.com/graduate-schools/california-state-university---east-bay/reviews/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Hayward"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 180,
+  "first_time_passed": 155,
+  "first_time_pct": 86,
+  "all_taking": 256,
+  "all_passed": 189,
+  "all_pct": 74,
+  "law_ethics_taking": 259,
+  "law_ethics_pct": 80,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

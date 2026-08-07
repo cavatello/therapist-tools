@@ -250,5 +250,31 @@
    "label": "Student Doctor Network — Wright Institute thread (PsyD)",
    "url": "https://forums.studentdoctor.net/threads/wright-institute.1428911/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Wright Institute, Berkeley"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 278,
+  "first_time_passed": 262,
+  "first_time_pct": 94,
+  "all_taking": 299,
+  "all_passed": 280,
+  "all_pct": 94,
+  "law_ethics_taking": 417,
+  "law_ethics_pct": 95,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

@@ -229,5 +229,31 @@
    "label": "U.S. Dept. of Education College Scorecard — Pepperdine, master's in CIP 42.28 (Clinical, Counseling and Applied Psychology): median federal graduate loan debt $82,000 (n=289), median earnings one year out $49,456",
    "url": "https://collegescorecard.ed.gov/school/?121150-Pepperdine-University"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Pepperdine University, Malibu"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 1095,
+  "first_time_passed": 937,
+  "first_time_pct": 86,
+  "all_taking": 1424,
+  "all_passed": 1104,
+  "all_pct": 78,
+  "law_ethics_taking": 1892,
+  "law_ethics_pct": 80,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

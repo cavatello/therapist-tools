@@ -206,5 +206,31 @@
    "url": "https://www.csus.edu/administration-business-affairs/bursar/tuition-living-costs.html"
   }
  ],
- "corrections": []
+ "corrections": [],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Sacramento"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 137,
+  "first_time_passed": 109,
+  "first_time_pct": 80,
+  "all_taking": 212,
+  "all_passed": 136,
+  "all_pct": 64,
+  "law_ethics_taking": 122,
+  "law_ethics_pct": 87,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

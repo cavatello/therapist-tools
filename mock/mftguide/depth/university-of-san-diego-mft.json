@@ -202,5 +202,80 @@
    "label": "MFT Curriculum and Pathway page",
    "url": "https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/curriculum-and-pathway.php"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "University of San Diego, San Diego"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 169,
+  "first_time_passed": 162,
+  "first_time_pct": 96,
+  "all_taking": 186,
+  "all_passed": 174,
+  "all_pct": 94,
+  "law_ethics_taking": 189,
+  "law_ethics_pct": 92,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://drive.google.com/file/d/1YhqPaDjm5Xq7600rTXmM7B2lEZ_BbVyH/view?usp=sharing",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2020-2021",
+      "graduation": "89",
+      "licensure": "86",
+      "placement": "86",
+      "n": "36"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "91",
+      "licensure": "91",
+      "placement": "91",
+      "n": "33"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "94",
+      "licensure": "94",
+      "placement": "94",
+      "n": "32"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "85",
+      "licensure": "97",
+      "placement": "97",
+      "n": "39"
+     },
+     {
+      "year": "2024-2025",
+      "graduation": "84",
+      "licensure": null,
+      "placement": null,
+      "n": "32"
+     }
+    ]
+   }
+  ],
+  "access_note": "USD&rsquo;s own &ldquo;Learning and Career Outcomes&rdquo; page carries no rates. The required disclosure is on a Google Drive share link instead, which is public but will not survive a broken share setting.",
+  "school_note": "HOSTING PROBLEM WORTH FLAGGING: USD's required public disclosure is a PDF on a personal-style GOOGLE DRIVE share link, not on sandiego.edu. The obvious candidate page, https://www.sandiego.edu/soles/academics/ma-marital-family-therapy/outcomes.php ('Learning and Career Outcomes'), contains NO graduation, licensure, or job placement rates at all - only learning outcomes and a list of alumni job titles. The actual GAD table is reachable only via a 'Graduate Achievement Data' Drive link on the program page. This is fragile and arguably fails COAMFTE's 'clearly displayed link on the program's homepage' requirement in spirit. DATA CAVEAT: from 2017-2018 onward the licensure rate is IDENTICAL to the job placement rate in EVERY row (97/97, 95/95, 90/90, 86/86, 91/91, 94/94, 97/97) - as with Northwestern, that pattern indicates both come from one alumni survey response set, so they are not two independent measurements. USD also uses a distinct IP definition that no one else uses: 'IP=In Process: Students from the cohort listed have yet to graduate and/or have not been in the field long enough to qualify for licensure' - an explicit acknowledgment that licensure takes time, which makes the other schools' fast-converging licensure numbers look more like associate registration. Rates published as bare integers, no percent signs. Accredited August 1, 1992. Full-time only, 2-year advertised length.",
+  "shown": 5
+ }
 }

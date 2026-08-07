@@ -238,5 +238,80 @@
    "label": "CSUN majors and programs - Marriage and Family Therapy, M.S.",
    "url": "https://www.csun.edu/academics/majors-and-programs/marriage-and-family-therapy-ms"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Northridge"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 335,
+  "first_time_passed": 264,
+  "first_time_pct": 79,
+  "all_taking": 523,
+  "all_passed": 350,
+  "all_pct": 67,
+  "law_ethics_taking": 328,
+  "law_ethics_pct": 87,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.csun.edu/eisner-education/educational-psychology-counseling/coamfte-accreditation",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure, which for our graduates includes pursuing an Associate License upon graduation. This data is based on graduates' self-report at time of survey.",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2018-2019",
+      "graduation": "86%",
+      "licensure": "98%",
+      "placement": "100%",
+      "n": "51"
+     },
+     {
+      "year": "2019-2020",
+      "graduation": "78%",
+      "licensure": "100%",
+      "placement": "98%",
+      "n": "51"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "86%",
+      "licensure": "98%",
+      "placement": "97%",
+      "n": "57"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "92%",
+      "licensure": "98%",
+      "placement": "98%",
+      "n": "52"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "89%",
+      "licensure": "98%",
+      "placement": "96%",
+      "n": "54"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "THE MOST TRANSPARENT DISCLOSURE IN THE SET, and the key to reading everyone else's. CSUN states outright in its narrative text: 'The Commission requires that each program report the licensure rate for each cohort, which is defined as the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. In California, this is defined as achieving the Associate Level of licensure.' So a 98-100% 'licensure rate' means ~all graduates registered as Associates - it says nothing about how many became LMFTs. CSUN also uniquely discloses the JOB PLACEMENT DENOMINATOR: 'the number of individuals that provided their employment status to the program' - i.e. a survey-respondent denominator, not the full cohort. Both job placement and licensure are explicitly self-reported. Full-time only; no part-time track. Advertised length 3 years, which is why its graduation rates look better than 2-year programs' - not necessarily because more students finish.",
+  "shown": 5
+ }
 }

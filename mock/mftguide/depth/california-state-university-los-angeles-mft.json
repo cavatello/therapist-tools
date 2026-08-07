@@ -278,5 +278,31 @@
    "correct": "Correct on substance; the two sources differ slightly on the number. The official programme page says 2–4 days per week; the programme's own SBFC site says \"Students take courses 2-3 times per week\" and adds that Saturday courses may be offered. The roadmap's first-year grid puts classes on Monday, Wednesday and two of Tuesday/Thursday, i.e. up to four days.",
    "src": "https://sites.google.com/view/calstatelasbfc/prospective-students/program-information"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Los Angeles"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 122,
+  "first_time_passed": 104,
+  "first_time_pct": 85,
+  "all_taking": 182,
+  "all_passed": 130,
+  "all_pct": 71,
+  "law_ethics_taking": 149,
+  "law_ethics_pct": 81,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

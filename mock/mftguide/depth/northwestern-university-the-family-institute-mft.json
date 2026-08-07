@@ -414,5 +414,99 @@
    "url": "https://forums.studentdoctor.net/threads/msmft-or-ma-counseling-psych-northwestern-or-roosevelt-university.1022317/"
   }
  ],
- "slug": "northwestern-university-the-family-institute-mft"
+ "slug": "northwestern-university-the-family-institute-mft",
+ "outcomes": {
+  "url": "https://www.family-institute.org/graduate-education/master-science-marriage-family-therapy/student-achievement-data",
+  "as_published": "the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [
+   {
+    "label": "On-Campus / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "92.59%",
+      "licensure": "88.00%",
+      "placement": "92.00%",
+      "n": "27"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "96.77%",
+      "licensure": "100.00%",
+      "placement": "100.00%",
+      "n": "31"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "100.00%",
+      "licensure": "96.55%",
+      "placement": "96.55%",
+      "n": "29"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "100.00%",
+      "licensure": "93.33%",
+      "placement": "93.33%",
+      "n": "30"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "100.00%",
+      "licensure": "90.00%",
+      "placement": "90.00%",
+      "n": "30"
+     }
+    ]
+   },
+   {
+    "label": "Online / FT",
+    "rows": [
+     {
+      "year": "2021-2022",
+      "graduation": "100%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "5"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "76%",
+      "licensure": "87.50%",
+      "placement": "87.50%",
+      "n": "25"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "50%",
+      "licensure": "91.30%",
+      "placement": "91.30%",
+      "n": "50"
+     }
+    ]
+   },
+   {
+    "label": "Online / PT",
+    "rows": [
+     {
+      "year": "2021-2022",
+      "graduation": "100%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "2"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "36.84%",
+      "licensure": "85.71%",
+      "placement": "85.71%",
+      "n": "19"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "Two branches (On-Campus and Online) reported separately - captured via 'program' and 'track'. NOT A CALIFORNIA PROGRAM: it is Illinois-based, so its 'ANY level of MFT licensure' maps onto Illinois's Associate Marriage and Family Therapist credential, not California's AMFT registration - the same phrase points at a different legal status than it does for the CA schools. TELLTALE PATTERN: in nearly every row the licensure rate is IDENTICAL to the job placement rate (85.19/85.19, 96.55/96.55, 93.33/93.33, 90.00/90.00, 87.50/87.50, 91.30/91.30). That strongly suggests both are computed off the same set of survey respondents rather than measured independently, which would make the two columns near-duplicates rather than two facts. On-campus graduation rates are 100.00% in six of nine cohorts - an outlier worth flagging. The Online branch is new and much weaker (36.84% and 50% graduation) with a rapidly growing cohort (5 to 50 FT in three years).",
+  "shown": 5
+ }
 }

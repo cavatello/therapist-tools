@@ -257,5 +257,31 @@
    "label": "Niche graduate student reviews for NDNU",
    "url": "https://www.niche.com/graduate-schools/notre-dame-de-namur-university/reviews/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Notre Dame de Namur University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 251,
+  "first_time_passed": 193,
+  "first_time_pct": 77,
+  "all_taking": 376,
+  "all_passed": 243,
+  "all_pct": 65,
+  "law_ethics_taking": 246,
+  "law_ethics_pct": 82,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

@@ -270,5 +270,80 @@
    "label": "OnlineU — National University Master's in Marriage & Family Therapy student reviews",
    "url": "https://www.onlineu.com/online-reviews/national-university/masters/marriage-and-family-therapy"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "National University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 846,
+  "first_time_passed": 569,
+  "first_time_pct": 67,
+  "all_taking": 1661,
+  "all_passed": 855,
+  "all_pct": 51,
+  "law_ethics_taking": 973,
+  "law_ethics_pct": 72,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://www.nu.edu/wp-content/uploads/2025/08/COAMFTE-GAD-Table-NU-Masters-Program-2025.pdf",
+  "as_published": "Licensure rate is the percentage of graduates from the cohort year that have achieved ANY level of MFT licensure. For Master's programs only, COAMFTE has established a benchmark of 70% licensure rate for each cohort.",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2015-2016",
+      "graduation": "41.05%",
+      "licensure": "58.54%",
+      "placement": "98.47%",
+      "n": "380"
+     },
+     {
+      "year": "2016-2017",
+      "graduation": "34.64%",
+      "licensure": "56.10%",
+      "placement": "96.33%",
+      "n": "332"
+     },
+     {
+      "year": "2017-2018",
+      "graduation": "37.50%",
+      "licensure": "51.85%",
+      "placement": "96.26%",
+      "n": "312"
+     },
+     {
+      "year": "2018-2019",
+      "graduation": "41.01%",
+      "licensure": "50.98%",
+      "placement": "98.00%",
+      "n": "278"
+     },
+     {
+      "year": "2019-2020",
+      "graduation": "57.26%",
+      "licensure": "51.08%",
+      "placement": "96.27%",
+      "n": "351"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "THE MOST IMPORTANT DATA POINT IN THIS WHOLE SET FOR JUDGING COMPARABILITY. National uses the EXACT SAME boilerplate licensure definition as Chapman, Alliant, Hope, Touro and Northwestern - yet reports 50.98%-58.54%, roughly HALF what those schools report, and BELOW COAMFTE's own 70% benchmark in every single reported cohort. Identical words, wildly different numbers. That means the spread across schools is driven by data-collection practice (who answers the alumni survey, and how non-responders are treated) at least as much as by actual outcomes - so the licensure column cannot be read as a like-for-like quality measure. Also the largest cohorts in the set by far (278-596 students; 2021-2022 alone is 596) with the lowest graduation rates (34.64%-57.26%), against a 4.5-year advertised length. Note the tension: ~96-98% job placement alongside ~51-58% licensure, from the same alumni population - suggesting the two metrics use different denominators or different survey waves, though NU does not disclose this. Program is full-time only. Accredited 2012.",
+  "shown": 5
+ }
 }

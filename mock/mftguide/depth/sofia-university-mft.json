@@ -230,5 +230,31 @@
    "label": "Student reviews of Sofia University",
    "url": "https://www.onlineu.com/online-reviews/sofia-university"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Sofia University, San Jose"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 56,
+  "first_time_passed": 51,
+  "first_time_pct": 91,
+  "all_taking": 82,
+  "all_passed": 68,
+  "all_pct": 83,
+  "law_ethics_taking": 32,
+  "law_ethics_pct": null,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

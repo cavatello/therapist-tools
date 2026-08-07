@@ -265,5 +265,31 @@
    "correct": "CACREP-accredited (the department's fieldwork requirements are written directly against the CACREP 2016 standards, and it files annual CACREP performance reports). Not COAMFTE.",
    "src": "https://counseling.sfsu.edu/sites/default/files/documents/2023-2024%20Department%20of%20Counseling%20Annual%20Report%20Final.pdf"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "San Francisco State University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 158,
+  "first_time_passed": 139,
+  "first_time_pct": 88,
+  "all_taking": 214,
+  "all_passed": 160,
+  "all_pct": 75,
+  "law_ethics_taking": 158,
+  "law_ethics_pct": 90,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

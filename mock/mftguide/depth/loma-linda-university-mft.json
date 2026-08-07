@@ -270,5 +270,146 @@
    "label": "MS MFT Outcome-Based Education framework (PDF)",
    "url": "https://behavioralhealth.llu.edu/sites/behavioralhealth.llu.edu/files/2026-03/sbh-cfs-mftms-framework.pdf"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Loma Linda University, Orinda"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 99,
+  "first_time_passed": 78,
+  "first_time_pct": 79,
+  "all_taking": 146,
+  "all_passed": 106,
+  "all_pct": 73,
+  "law_ethics_taking": 119,
+  "law_ethics_pct": 87,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://behavioralhealth.llu.edu/academics/counseling-and-family-sciences/marital-and-family-therapy-ms-online-or-campus/graduate-achievement-data-table",
+  "as_published": "Licensure rate: the percentage of graduates from the cohort year that have achieved any level of MFT licensure.",
+  "groups": [
+   {
+    "label": "MS On-Campus / FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "86%",
+      "licensure": "86%",
+      "placement": "86%",
+      "n": "7"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "88%",
+      "licensure": "73%",
+      "placement": "73%",
+      "n": "25"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "82%",
+      "licensure": "94%",
+      "placement": "85%",
+      "n": "17"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "87%",
+      "licensure": "92%",
+      "placement": "92%",
+      "n": "15"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "100%",
+      "licensure": "79%",
+      "placement": "79%",
+      "n": "14"
+     }
+    ]
+   },
+   {
+    "label": "MS On-Campus / PT",
+    "rows": [
+     {
+      "year": "2017-2018",
+      "graduation": "100%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "1"
+     },
+     {
+      "year": "2019-2020",
+      "graduation": "100%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "2"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "67%",
+      "licensure": "50%",
+      "placement": "100%",
+      "n": "3"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "78%",
+      "licensure": "100%",
+      "placement": "80%",
+      "n": "9"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "100%",
+      "licensure": "100%",
+      "placement": "100%",
+      "n": "3"
+     }
+    ]
+   },
+   {
+    "label": "MS Online / FT",
+    "rows": [
+     {
+      "year": "2021-2022",
+      "graduation": "56%",
+      "licensure": "86%",
+      "placement": "100%",
+      "n": "9"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "58%",
+      "licensure": "80%",
+      "placement": "100%",
+      "n": "12"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "55%",
+      "licensure": "0%",
+      "placement": "0%",
+      "n": "11"
+     }
+    ]
+   }
+  ],
+  "access_note": "Loma Linda publishes this disclosure only as JPG images. The figures below were read off those images; nothing on that page is selectable text, which means a screen reader cannot read a disclosure the accreditor requires to be public.",
+  "school_note": "DATA IS PUBLISHED ONLY AS JPG IMAGES (sbh-cfs-mftms-oncampus-gad-2026.jpg, sbh-cfs-mftms-online-gadtable-2026.jpg) - not selectable text, not a PDF, not an HTML table. It is technically 'publicly accessible' but not machine-readable or screen-reader accessible; the numbers here were read off the images. TWO separate programs (MS On-Campus, accredited May 1982; MS Online, accredited November 2021) each split FT/PT - captured via 'program' and 'track' keys. Advertised lengths DIFFER between them (on-campus FT 2yr / PT 3yr; online FT 2.5yr / PT 3.5yr), so their graduation rates are not comparable even to each other. CRITICAL SMALL-n PROBLEM: many part-time cells have n=1, 2, or 3, producing meaningless 100% and 50% figures - the 2020-2021 PT 'licensure rate' of 50% is one person out of two. The Online 2023-2024 FT cohort shows 0% job placement AND 0% licensure on n=11, which COAMFTE's own rules say requires contextual explanation; none is given on the page. Loma Linda also runs separate DMFT and PhD programs with their own tables not included here.",
+  "shown": 5
+ }
 }

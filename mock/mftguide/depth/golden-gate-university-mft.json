@@ -228,5 +228,31 @@
    "label": "Sentio University independent CA MFT directory profile (competitor-authored)",
    "url": "https://sentio.org/golden-gate-university-mft-program-review"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Golden Gate University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 66,
+  "first_time_passed": 42,
+  "first_time_pct": 64,
+  "all_taking": 116,
+  "all_passed": 63,
+  "all_pct": 54,
+  "law_ethics_taking": 85,
+  "law_ethics_pct": 69,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

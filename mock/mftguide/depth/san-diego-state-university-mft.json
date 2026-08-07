@@ -233,5 +233,80 @@
    "label": "SDSU News, Oct 2025 — 'Future therapy professionals offer wellness support'",
    "url": "https://www.sdsu.edu/news/2025/10/future-therapy-professionals-offer-wellness"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "San Diego State University"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 163,
+  "first_time_passed": 138,
+  "first_time_pct": 85,
+  "all_taking": 248,
+  "all_passed": 172,
+  "all_pct": 69,
+  "law_ethics_taking": 193,
+  "law_ethics_pct": 89,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ },
+ "outcomes": {
+  "url": "https://education.sdsu.edu/graduate/marriage-family-therapy-ms/coamfte",
+  "as_published": "based on an associate title that leads to an LMFT in the State of California",
+  "groups": [
+   {
+    "label": "FT",
+    "rows": [
+     {
+      "year": "2019-2020",
+      "graduation": "93.55",
+      "licensure": "100",
+      "placement": "84",
+      "n": "31"
+     },
+     {
+      "year": "2020-2021",
+      "graduation": "96.6",
+      "licensure": "96.6",
+      "placement": "100",
+      "n": "30"
+     },
+     {
+      "year": "2021-2022",
+      "graduation": "96.1",
+      "licensure": "92.3",
+      "placement": "100",
+      "n": "26"
+     },
+     {
+      "year": "2022-2023",
+      "graduation": "100",
+      "licensure": "87.10",
+      "placement": "100",
+      "n": "31"
+     },
+     {
+      "year": "2023-2024",
+      "graduation": "93.55",
+      "licensure": null,
+      "placement": null,
+      "n": "31"
+     }
+    ]
+   }
+  ],
+  "access_note": null,
+  "school_note": "THE CLEAREST PROOF THAT 'LICENSURE RATE' DOES NOT MEAN LICENSED. SDSU is the only school in this set that REPLACES COAMFTE's boilerplate rather than repeating it: its licensure footnote reads simply 'based on an associate title that leads to an LMFT in the State of California'. So SDSU's 100% licensure figures for 2018-2019 and 2019-2020 mean 100% of responding graduates registered as AMFTs - a credential you apply for shortly after graduating - not that any of them are LMFTs. Because most other schools' 'ANY level of MFT licensure' resolves to the same thing in California, SDSU's wording is best read as the honest gloss on everyone else's. Rates are published to inconsistent precision on the same page (73.3, 93.55, 96.6, 87.10) - copied verbatim here, not normalized. Only 7 cohorts published, starting 2018-2019 - a shorter window than most peers. Full-time only.",
+  "shown": 5
+ }
 }

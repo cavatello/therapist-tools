@@ -182,5 +182,31 @@
    "label": "Course records: COUN 599, 600, 601, 602, 603, 604, 605, 607, 609, 610, 611, 612, 613, 614, 621, 627, 633; MCFC 606, 623, 624, 640, 641, 642",
    "url": "https://catalog.cui.edu/courses/MCFC640"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Concordia University"
+  ],
+  "floor": 40,
+  "enough": false,
+  "first_time_taking": 1,
+  "first_time_passed": 1,
+  "first_time_pct": null,
+  "all_taking": 1,
+  "all_passed": 1,
+  "all_pct": null,
+  "law_ethics_taking": 1,
+  "law_ethics_pct": null,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

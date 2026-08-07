@@ -207,5 +207,32 @@
    "label": "GradReports — Azusa Pacific University student reviews",
    "url": "https://www.gradreports.com/colleges/azusa-pacific-university"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Azusa Pacific University,",
+   "Azusa Pacific University, Azusa"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 471,
+  "first_time_passed": 400,
+  "first_time_pct": 85,
+  "all_taking": 629,
+  "all_passed": 476,
+  "all_pct": 76,
+  "law_ethics_taking": 624,
+  "law_ethics_pct": 91,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

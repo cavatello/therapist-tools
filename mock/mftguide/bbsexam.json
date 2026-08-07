@@ -1,0 +1,2176 @@
+{
+ "generated_from": [
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2018_2.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2019_1.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2019_2.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2020_1.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2020_2.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2021_1.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2021_2.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2022_1.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2022_2.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2023_1.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2023_2.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2024_1.pdf",
+  "https://www.bbs.ca.gov/pdf/exam_stats/schlexamresults_2024_2.pdf"
+ ],
+ "period_label": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+ "statewide": {
+  "clinical": {
+   "first_time_taking": 17698,
+   "first_time_passed": 14096,
+   "all_taking": 26871,
+   "all_passed": 17835
+  },
+  "law_ethics": {
+   "first_time_taking": 21791,
+   "first_time_passed": 17541,
+   "all_taking": 28941,
+   "all_passed": 21651
+  }
+ },
+ "schools": [
+  {
+   "bbs_name": "Pepperdine University, Malibu",
+   "bbs_code": "135",
+   "clinical": {
+    "first_time_taking": 1095,
+    "first_time_passed": 937,
+    "all_taking": 1424,
+    "all_passed": 1104
+   },
+   "law_ethics": {
+    "first_time_taking": 1892,
+    "first_time_passed": 1523,
+    "all_taking": 2272,
+    "all_passed": 1780
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of Phoenix, San Diego",
+   "bbs_code": "236",
+   "clinical": {
+    "first_time_taking": 980,
+    "first_time_passed": 523,
+    "all_taking": 2261,
+    "all_passed": 946
+   },
+   "law_ethics": {
+    "first_time_taking": 759,
+    "first_time_passed": 415,
+    "all_taking": 1667,
+    "all_passed": 820
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Antioch University, Los Angeles",
+   "bbs_code": "241",
+   "clinical": {
+    "first_time_taking": 975,
+    "first_time_passed": 846,
+    "all_taking": 1326,
+    "all_passed": 986
+   },
+   "law_ethics": {
+    "first_time_taking": 1325,
+    "first_time_passed": 1104,
+    "all_taking": 1633,
+    "all_passed": 1299
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "National University",
+   "bbs_code": "129",
+   "clinical": {
+    "first_time_taking": 846,
+    "first_time_passed": 569,
+    "all_taking": 1661,
+    "all_passed": 855
+   },
+   "law_ethics": {
+    "first_time_taking": 973,
+    "first_time_passed": 696,
+    "all_taking": 1516,
+    "all_passed": 979
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Brandman University",
+   "bbs_code": "253",
+   "clinical": {
+    "first_time_taking": 691,
+    "first_time_passed": 470,
+    "all_taking": 1182,
+    "all_passed": 650
+   },
+   "law_ethics": {
+    "first_time_taking": 798,
+    "first_time_passed": 568,
+    "all_taking": 1203,
+    "all_passed": 788
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California Institute of Integral Studies, S.F.",
+   "bbs_code": "107",
+   "clinical": {
+    "first_time_taking": 687,
+    "first_time_passed": 635,
+    "all_taking": 784,
+    "all_passed": 693
+   },
+   "law_ethics": {
+    "first_time_taking": 872,
+    "first_time_passed": 752,
+    "all_taking": 1059,
+    "all_passed": 870
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California Baptist University, Riverside",
+   "bbs_code": "105",
+   "clinical": {
+    "first_time_taking": 578,
+    "first_time_passed": 389,
+    "all_taking": 981,
+    "all_passed": 569
+   },
+   "law_ethics": {
+    "first_time_taking": 802,
+    "first_time_passed": 584,
+    "all_taking": 1126,
+    "all_passed": 764
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "John F. Kennedy University, Orinda",
+   "bbs_code": "124",
+   "clinical": {
+    "first_time_taking": 533,
+    "first_time_passed": 426,
+    "all_taking": 802,
+    "all_passed": 543
+   },
+   "law_ethics": {
+    "first_time_taking": 402,
+    "first_time_passed": 323,
+    "all_taking": 600,
+    "all_passed": 433
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Alliant International University (aka US International)",
+   "bbs_code": "139",
+   "clinical": {
+    "first_time_taking": 526,
+    "first_time_passed": 453,
+    "all_taking": 667,
+    "all_passed": 535
+   },
+   "law_ethics": {
+    "first_time_taking": 669,
+    "first_time_passed": 551,
+    "all_taking": 826,
+    "all_passed": 661
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of San Francisco, San Francisco",
+   "bbs_code": "143",
+   "clinical": {
+    "first_time_taking": 453,
+    "first_time_passed": 374,
+    "all_taking": 651,
+    "all_passed": 462
+   },
+   "law_ethics": {
+    "first_time_taking": 656,
+    "first_time_passed": 554,
+    "all_taking": 806,
+    "all_passed": 649
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Azusa Pacific University, Azusa",
+   "bbs_code": "103",
+   "clinical": {
+    "first_time_taking": 448,
+    "first_time_passed": 380,
+    "all_taking": 604,
+    "all_passed": 454
+   },
+   "law_ethics": {
+    "first_time_taking": 582,
+    "first_time_passed": 525,
+    "all_taking": 672,
+    "all_passed": 585
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Out-of-State",
+   "bbs_code": "300",
+   "clinical": {
+    "first_time_taking": 422,
+    "first_time_passed": 315,
+    "all_taking": 636,
+    "all_passed": 426
+   },
+   "law_ethics": {
+    "first_time_taking": 643,
+    "first_time_passed": 490,
+    "all_taking": 868,
+    "all_passed": 641
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Santa Clara University",
+   "bbs_code": "144",
+   "clinical": {
+    "first_time_taking": 401,
+    "first_time_passed": 377,
+    "all_taking": 450,
+    "all_passed": 409
+   },
+   "law_ethics": {
+    "first_time_taking": 524,
+    "first_time_passed": 472,
+    "all_taking": 591,
+    "all_passed": 514
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Argosy University (aka American School of Prof. Psych.",
+   "bbs_code": "204",
+   "clinical": {
+    "first_time_taking": 399,
+    "first_time_passed": 218,
+    "all_taking": 972,
+    "all_passed": 399
+   },
+   "law_ethics": {
+    "first_time_taking": 221,
+    "first_time_passed": 138,
+    "all_taking": 520,
+    "all_passed": 265
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Fullerton",
+   "bbs_code": "006",
+   "clinical": {
+    "first_time_taking": 390,
+    "first_time_passed": 343,
+    "all_taking": 514,
+    "all_passed": 394
+   },
+   "law_ethics": {
+    "first_time_taking": 410,
+    "first_time_passed": 367,
+    "all_taking": 479,
+    "all_passed": 418
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Phillips Graduate Institute",
+   "bbs_code": "106",
+   "clinical": {
+    "first_time_taking": 384,
+    "first_time_passed": 281,
+    "all_taking": 653,
+    "all_passed": 388
+   },
+   "law_ethics": {
+    "first_time_taking": 330,
+    "first_time_passed": 260,
+    "all_taking": 473,
+    "all_passed": 350
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Pacifica Graduate Institute, Carpenteria",
+   "bbs_code": "154",
+   "clinical": {
+    "first_time_taking": 341,
+    "first_time_passed": 296,
+    "all_taking": 445,
+    "all_passed": 348
+   },
+   "law_ethics": {
+    "first_time_taking": 373,
+    "first_time_passed": 331,
+    "all_taking": 442,
+    "all_passed": 377
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Pacific Oaks College, Pasadena",
+   "bbs_code": "133",
+   "clinical": {
+    "first_time_taking": 336,
+    "first_time_passed": 206,
+    "all_taking": 680,
+    "all_passed": 307
+   },
+   "law_ethics": {
+    "first_time_taking": 404,
+    "first_time_passed": 250,
+    "all_taking": 734,
+    "all_passed": 398
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Northridge",
+   "bbs_code": "010",
+   "clinical": {
+    "first_time_taking": 335,
+    "first_time_passed": 264,
+    "all_taking": 523,
+    "all_passed": 350
+   },
+   "law_ethics": {
+    "first_time_taking": 328,
+    "first_time_passed": 285,
+    "all_taking": 419,
+    "all_passed": 345
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Palo Alto University",
+   "bbs_code": "258",
+   "clinical": {
+    "first_time_taking": 297,
+    "first_time_passed": 248,
+    "all_taking": 375,
+    "all_passed": 295
+   },
+   "law_ethics": {
+    "first_time_taking": 455,
+    "first_time_passed": 389,
+    "all_taking": 534,
+    "all_passed": 449
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Fresno",
+   "bbs_code": "005",
+   "clinical": {
+    "first_time_taking": 295,
+    "first_time_passed": 231,
+    "all_taking": 480,
+    "all_passed": 316
+   },
+   "law_ethics": {
+    "first_time_taking": 304,
+    "first_time_passed": 241,
+    "all_taking": 412,
+    "all_passed": 309
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Wright Institute, Berkeley",
+   "bbs_code": "150",
+   "clinical": {
+    "first_time_taking": 278,
+    "first_time_passed": 262,
+    "all_taking": 299,
+    "all_passed": 280
+   },
+   "law_ethics": {
+    "first_time_taking": 417,
+    "first_time_passed": 396,
+    "all_taking": 445,
+    "all_passed": 421
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "The Chicago School of Professional Psychology at Los Angeles",
+   "bbs_code": "251",
+   "clinical": {
+    "first_time_taking": 255,
+    "first_time_passed": 199,
+    "all_taking": 374,
+    "all_passed": 261
+   },
+   "law_ethics": {
+    "first_time_taking": 341,
+    "first_time_passed": 256,
+    "all_taking": 485,
+    "all_passed": 332
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of Southern California, Los Angeles",
+   "bbs_code": "145",
+   "clinical": {
+    "first_time_taking": 253,
+    "first_time_passed": 244,
+    "all_taking": 271,
+    "all_passed": 260
+   },
+   "law_ethics": {
+    "first_time_taking": 272,
+    "first_time_passed": 241,
+    "all_taking": 296,
+    "all_passed": 264
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Notre Dame de Namur University",
+   "bbs_code": "116",
+   "clinical": {
+    "first_time_taking": 251,
+    "first_time_passed": 193,
+    "all_taking": 376,
+    "all_passed": 243
+   },
+   "law_ethics": {
+    "first_time_taking": 246,
+    "first_time_passed": 201,
+    "all_taking": 335,
+    "all_passed": 256
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Hope International University",
+   "bbs_code": "131",
+   "clinical": {
+    "first_time_taking": 235,
+    "first_time_passed": 178,
+    "all_taking": 402,
+    "all_passed": 234
+   },
+   "law_ethics": {
+    "first_time_taking": 328,
+    "first_time_passed": 252,
+    "all_taking": 456,
+    "all_passed": 323
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Mount St. Mary's University, Los Angeles",
+   "bbs_code": "128",
+   "clinical": {
+    "first_time_taking": 223,
+    "first_time_passed": 158,
+    "all_taking": 347,
+    "all_passed": 223
+   },
+   "law_ethics": {
+    "first_time_taking": 361,
+    "first_time_passed": 257,
+    "all_taking": 486,
+    "all_passed": 332
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Antioch University, Santa Barbara",
+   "bbs_code": "243",
+   "clinical": {
+    "first_time_taking": 205,
+    "first_time_passed": 160,
+    "all_taking": 316,
+    "all_passed": 204
+   },
+   "law_ethics": {
+    "first_time_taking": 270,
+    "first_time_passed": 225,
+    "all_taking": 349,
+    "all_passed": 278
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Fuller Theological Seminary, Pasadena",
+   "bbs_code": "119",
+   "clinical": {
+    "first_time_taking": 193,
+    "first_time_passed": 179,
+    "all_taking": 220,
+    "all_passed": 197
+   },
+   "law_ethics": {
+    "first_time_taking": 250,
+    "first_time_passed": 213,
+    "all_taking": 286,
+    "all_passed": 238
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California Lutheran University, Thousand Oaks",
+   "bbs_code": "108",
+   "clinical": {
+    "first_time_taking": 192,
+    "first_time_passed": 167,
+    "all_taking": 280,
+    "all_passed": 203
+   },
+   "law_ethics": {
+    "first_time_taking": 220,
+    "first_time_passed": 194,
+    "all_taking": 266,
+    "all_passed": 225
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Hayward",
+   "bbs_code": "007",
+   "clinical": {
+    "first_time_taking": 180,
+    "first_time_passed": 155,
+    "all_taking": 256,
+    "all_passed": 189
+   },
+   "law_ethics": {
+    "first_time_taking": 259,
+    "first_time_passed": 206,
+    "all_taking": 324,
+    "all_passed": 243
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Long Beach",
+   "bbs_code": "008",
+   "clinical": {
+    "first_time_taking": 179,
+    "first_time_passed": 167,
+    "all_taking": 221,
+    "all_passed": 189
+   },
+   "law_ethics": {
+    "first_time_taking": 185,
+    "first_time_passed": 172,
+    "all_taking": 217,
+    "all_passed": 193
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Dominguez Hills",
+   "bbs_code": "004",
+   "clinical": {
+    "first_time_taking": 173,
+    "first_time_passed": 122,
+    "all_taking": 310,
+    "all_passed": 167
+   },
+   "law_ethics": {
+    "first_time_taking": 206,
+    "first_time_passed": 152,
+    "all_taking": 291,
+    "all_passed": 193
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "TOURO UNIVERSITY",
+   "bbs_code": "262",
+   "clinical": {
+    "first_time_taking": 170,
+    "first_time_passed": 131,
+    "all_taking": 214,
+    "all_passed": 161
+   },
+   "law_ethics": {
+    "first_time_taking": 465,
+    "first_time_passed": 360,
+    "all_taking": 592,
+    "all_passed": 424
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of San Diego, San Diego",
+   "bbs_code": "142",
+   "clinical": {
+    "first_time_taking": 169,
+    "first_time_passed": 162,
+    "all_taking": 186,
+    "all_passed": 174
+   },
+   "law_ethics": {
+    "first_time_taking": 189,
+    "first_time_passed": 174,
+    "all_taking": 205,
+    "all_passed": 187
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "San Diego State University",
+   "bbs_code": "015",
+   "clinical": {
+    "first_time_taking": 163,
+    "first_time_passed": 138,
+    "all_taking": 248,
+    "all_passed": 172
+   },
+   "law_ethics": {
+    "first_time_taking": 193,
+    "first_time_passed": 171,
+    "all_taking": 227,
+    "all_passed": 195
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Chapman University, Orange",
+   "bbs_code": "113",
+   "clinical": {
+    "first_time_taking": 162,
+    "first_time_passed": 136,
+    "all_taking": 260,
+    "all_passed": 183
+   },
+   "law_ethics": {
+    "first_time_taking": 178,
+    "first_time_passed": 158,
+    "all_taking": 208,
+    "all_passed": 176
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "San Francisco State University",
+   "bbs_code": "016",
+   "clinical": {
+    "first_time_taking": 158,
+    "first_time_passed": 139,
+    "all_taking": 214,
+    "all_passed": 160
+   },
+   "law_ethics": {
+    "first_time_taking": 158,
+    "first_time_passed": 142,
+    "all_taking": 180,
+    "all_passed": 159
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "St. Mary's College of CA, Moraga",
+   "bbs_code": "136",
+   "clinical": {
+    "first_time_taking": 157,
+    "first_time_passed": 136,
+    "all_taking": 218,
+    "all_passed": 160
+   },
+   "law_ethics": {
+    "first_time_taking": 184,
+    "first_time_passed": 158,
+    "all_taking": 228,
+    "all_passed": 193
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Western Seminary (Western Conservative Baptist Seminary)",
+   "bbs_code": "232",
+   "clinical": {
+    "first_time_taking": 142,
+    "first_time_passed": 124,
+    "all_taking": 193,
+    "all_passed": 148
+   },
+   "law_ethics": {
+    "first_time_taking": 130,
+    "first_time_passed": 110,
+    "all_taking": 157,
+    "all_passed": 127
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Sacramento",
+   "bbs_code": "011",
+   "clinical": {
+    "first_time_taking": 137,
+    "first_time_passed": 109,
+    "all_taking": 212,
+    "all_passed": 136
+   },
+   "law_ethics": {
+    "first_time_taking": 122,
+    "first_time_passed": 106,
+    "all_taking": 159,
+    "all_passed": 132
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Los Angeles",
+   "bbs_code": "009",
+   "clinical": {
+    "first_time_taking": 122,
+    "first_time_passed": 104,
+    "all_taking": 182,
+    "all_passed": 130
+   },
+   "law_ethics": {
+    "first_time_taking": 149,
+    "first_time_passed": 121,
+    "all_taking": 195,
+    "all_passed": 152
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Loyola Marymount University, Los Angeles",
+   "bbs_code": "126",
+   "clinical": {
+    "first_time_taking": 121,
+    "first_time_passed": 111,
+    "all_taking": 140,
+    "all_passed": 125
+   },
+   "law_ethics": {
+    "first_time_taking": 144,
+    "first_time_passed": 115,
+    "all_taking": 184,
+    "all_passed": 142
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Vanguard University of Southern California",
+   "bbs_code": "156",
+   "clinical": {
+    "first_time_taking": 120,
+    "first_time_passed": 102,
+    "all_taking": 157,
+    "all_passed": 122
+   },
+   "law_ethics": {
+    "first_time_taking": 145,
+    "first_time_passed": 128,
+    "all_taking": 170,
+    "all_passed": 150
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California Southern University",
+   "bbs_code": "246",
+   "clinical": {
+    "first_time_taking": 117,
+    "first_time_passed": 102,
+    "all_taking": 150,
+    "all_passed": 117
+   },
+   "law_ethics": {
+    "first_time_taking": 139,
+    "first_time_passed": 114,
+    "all_taking": 185,
+    "all_passed": 139
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of La Verne, La Verne",
+   "bbs_code": "140",
+   "clinical": {
+    "first_time_taking": 116,
+    "first_time_passed": 98,
+    "all_taking": 184,
+    "all_passed": 122
+   },
+   "law_ethics": {
+    "first_time_taking": 96,
+    "first_time_passed": 87,
+    "all_taking": 125,
+    "all_passed": 108
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Sonoma State University",
+   "bbs_code": "018",
+   "clinical": {
+    "first_time_taking": 110,
+    "first_time_passed": 105,
+    "all_taking": 122,
+    "all_passed": 113
+   },
+   "law_ethics": {
+    "first_time_taking": 111,
+    "first_time_passed": 105,
+    "all_taking": 121,
+    "all_passed": 114
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Chico",
+   "bbs_code": "003",
+   "clinical": {
+    "first_time_taking": 103,
+    "first_time_passed": 95,
+    "all_taking": 129,
+    "all_passed": 105
+   },
+   "law_ethics": {
+    "first_time_taking": 97,
+    "first_time_passed": 91,
+    "all_taking": 106,
+    "all_passed": 97
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Holy Names University, Oakland",
+   "bbs_code": "122",
+   "clinical": {
+    "first_time_taking": 102,
+    "first_time_passed": 76,
+    "all_taking": 163,
+    "all_passed": 99
+   },
+   "law_ethics": {
+    "first_time_taking": 145,
+    "first_time_passed": 95,
+    "all_taking": 216,
+    "all_passed": 129
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Loma Linda University, Orinda",
+   "bbs_code": "125",
+   "clinical": {
+    "first_time_taking": 99,
+    "first_time_passed": 78,
+    "all_taking": 146,
+    "all_passed": 106
+   },
+   "law_ethics": {
+    "first_time_taking": 119,
+    "first_time_passed": 104,
+    "all_taking": 148,
+    "all_passed": 119
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Calif. Polytechnic State University, San Luis Obispo - Cal Poly",
+   "bbs_code": "001",
+   "clinical": {
+    "first_time_taking": 97,
+    "first_time_passed": 94,
+    "all_taking": 105,
+    "all_passed": 101
+   },
+   "law_ethics": {
+    "first_time_taking": 132,
+    "first_time_passed": 124,
+    "all_taking": 139,
+    "all_passed": 130
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Dominican University of California",
+   "bbs_code": "117",
+   "clinical": {
+    "first_time_taking": 94,
+    "first_time_passed": 84,
+    "all_taking": 117,
+    "all_passed": 94
+   },
+   "law_ethics": {
+    "first_time_taking": 132,
+    "first_time_passed": 109,
+    "all_taking": 156,
+    "all_passed": 128
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Bakersfield",
+   "bbs_code": "002",
+   "clinical": {
+    "first_time_taking": 93,
+    "first_time_passed": 78,
+    "all_taking": 127,
+    "all_passed": 97
+   },
+   "law_ethics": {
+    "first_time_taking": 100,
+    "first_time_passed": 88,
+    "all_taking": 112,
+    "all_passed": 99
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Simpson University",
+   "bbs_code": "254",
+   "clinical": {
+    "first_time_taking": 74,
+    "first_time_passed": 60,
+    "all_taking": 105,
+    "all_passed": 75
+   },
+   "law_ethics": {
+    "first_time_taking": 72,
+    "first_time_passed": 58,
+    "all_taking": 96,
+    "all_passed": 76
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State Polytechnic University, Pomona",
+   "bbs_code": "019",
+   "clinical": {
+    "first_time_taking": 71,
+    "first_time_passed": 66,
+    "all_taking": 81,
+    "all_passed": 70
+   },
+   "law_ethics": {
+    "first_time_taking": 64,
+    "first_time_passed": 60,
+    "all_taking": 73,
+    "all_passed": 66
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "POINT LOMA NAZARENE UNIVERSITY",
+   "bbs_code": "261",
+   "clinical": {
+    "first_time_taking": 71,
+    "first_time_passed": 67,
+    "all_taking": 75,
+    "all_passed": 71
+   },
+   "law_ethics": {
+    "first_time_taking": 166,
+    "first_time_passed": 140,
+    "all_taking": 196,
+    "all_passed": 162
+   },
+   "periods": 12
+  },
+  {
+   "bbs_name": "Northcentral University",
+   "bbs_code": "256",
+   "clinical": {
+    "first_time_taking": 70,
+    "first_time_passed": 51,
+    "all_taking": 103,
+    "all_passed": 66
+   },
+   "law_ethics": {
+    "first_time_taking": 95,
+    "first_time_passed": 76,
+    "all_taking": 124,
+    "all_passed": 95
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Bethel Theological Seminary",
+   "bbs_code": "152",
+   "clinical": {
+    "first_time_taking": 67,
+    "first_time_passed": 65,
+    "all_taking": 85,
+    "all_passed": 71
+   },
+   "law_ethics": {
+    "first_time_taking": 65,
+    "first_time_passed": 52,
+    "all_taking": 78,
+    "all_passed": 64
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Golden Gate University",
+   "bbs_code": "151",
+   "clinical": {
+    "first_time_taking": 66,
+    "first_time_passed": 42,
+    "all_taking": 116,
+    "all_passed": 63
+   },
+   "law_ethics": {
+    "first_time_taking": 85,
+    "first_time_passed": 59,
+    "all_taking": 121,
+    "all_passed": 78
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, Stanislaus",
+   "bbs_code": "013",
+   "clinical": {
+    "first_time_taking": 62,
+    "first_time_passed": 61,
+    "all_taking": 67,
+    "all_passed": 65
+   },
+   "law_ethics": {
+    "first_time_taking": 52,
+    "first_time_passed": 46,
+    "all_taking": 63,
+    "all_passed": 55
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "California State University, San Bernardino",
+   "bbs_code": "012",
+   "clinical": {
+    "first_time_taking": 61,
+    "first_time_passed": 55,
+    "all_taking": 71,
+    "all_passed": 61
+   },
+   "law_ethics": {
+    "first_time_taking": 77,
+    "first_time_passed": 73,
+    "all_taking": 83,
+    "all_passed": 79
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Sofia University, San Jose",
+   "bbs_code": "155",
+   "clinical": {
+    "first_time_taking": 56,
+    "first_time_passed": 51,
+    "all_taking": 82,
+    "all_passed": 68
+   },
+   "law_ethics": {
+    "first_time_taking": 32,
+    "first_time_passed": 29,
+    "all_taking": 41,
+    "all_passed": 35
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "San Jose State University",
+   "bbs_code": "017",
+   "clinical": {
+    "first_time_taking": 50,
+    "first_time_passed": 45,
+    "all_taking": 53,
+    "all_passed": 48
+   },
+   "law_ethics": {
+    "first_time_taking": 73,
+    "first_time_passed": 68,
+    "all_taking": 80,
+    "all_passed": 75
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Humboldt State University, Arcata",
+   "bbs_code": "014",
+   "clinical": {
+    "first_time_taking": 46,
+    "first_time_passed": 41,
+    "all_taking": 62,
+    "all_passed": 50
+   },
+   "law_ethics": {
+    "first_time_taking": 50,
+    "first_time_passed": 45,
+    "all_taking": 59,
+    "all_passed": 52
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Fresno Pacific Bibilical Seminary, Fresno",
+   "bbs_code": "127",
+   "clinical": {
+    "first_time_taking": 41,
+    "first_time_passed": 35,
+    "all_taking": 49,
+    "all_passed": 42
+   },
+   "law_ethics": {
+    "first_time_taking": 17,
+    "first_time_passed": 14,
+    "all_taking": 26,
+    "all_passed": 16
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "William Jessup University",
+   "bbs_code": "266",
+   "clinical": {
+    "first_time_taking": 40,
+    "first_time_passed": 39,
+    "all_taking": 42,
+    "all_passed": 40
+   },
+   "law_ethics": {
+    "first_time_taking": 121,
+    "first_time_passed": 104,
+    "all_taking": 130,
+    "all_passed": 108
+   },
+   "periods": 9
+  },
+  {
+   "bbs_name": "OUT-OF-COUNTRY",
+   "bbs_code": "400",
+   "clinical": {
+    "first_time_taking": 30,
+    "first_time_passed": 22,
+    "all_taking": 66,
+    "all_passed": 31
+   },
+   "law_ethics": {
+    "first_time_taking": 27,
+    "first_time_passed": 16,
+    "all_taking": 47,
+    "all_passed": 27
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Southern California Seminary (aka Southern CA Bible College and Seminary)",
+   "bbs_code": "237",
+   "clinical": {
+    "first_time_taking": 28,
+    "first_time_passed": 19,
+    "all_taking": 66,
+    "all_passed": 25
+   },
+   "law_ethics": {
+    "first_time_taking": 36,
+    "first_time_passed": 20,
+    "all_taking": 81,
+    "all_passed": 33
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Fresno Pacific University",
+   "bbs_code": "153",
+   "clinical": {
+    "first_time_taking": 27,
+    "first_time_passed": 26,
+    "all_taking": 28,
+    "all_passed": 27
+   },
+   "law_ethics": {
+    "first_time_taking": 66,
+    "first_time_passed": 56,
+    "all_taking": 75,
+    "all_passed": 62
+   },
+   "periods": 11
+  },
+  {
+   "bbs_name": "University of the West",
+   "bbs_code": "255",
+   "clinical": {
+    "first_time_taking": 26,
+    "first_time_passed": 20,
+    "all_taking": 34,
+    "all_passed": 24
+   },
+   "law_ethics": {
+    "first_time_taking": 21,
+    "first_time_passed": 18,
+    "all_taking": 25,
+    "all_passed": 22
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Meridian University",
+   "bbs_code": "231",
+   "clinical": {
+    "first_time_taking": 24,
+    "first_time_passed": 20,
+    "all_taking": 29,
+    "all_passed": 25
+   },
+   "law_ethics": {
+    "first_time_taking": 18,
+    "first_time_passed": 16,
+    "all_taking": 23,
+    "all_passed": 20
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Azusa Pacific University,",
+   "bbs_code": "20",
+   "clinical": {
+    "first_time_taking": 23,
+    "first_time_passed": 20,
+    "all_taking": 25,
+    "all_passed": 22
+   },
+   "law_ethics": {
+    "first_time_taking": 42,
+    "first_time_passed": 40,
+    "all_taking": 44,
+    "all_passed": 42
+   },
+   "periods": 9
+  },
+  {
+   "bbs_name": "Alliant International University (aka CSPP)",
+   "bbs_code": "112",
+   "clinical": {
+    "first_time_taking": 21,
+    "first_time_passed": 19,
+    "all_taking": 23,
+    "all_passed": 21
+   },
+   "law_ethics": {
+    "first_time_taking": 67,
+    "first_time_passed": 57,
+    "all_taking": 76,
+    "all_passed": 64
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of Phoenix, Sacramento",
+   "bbs_code": "238",
+   "clinical": {
+    "first_time_taking": 20,
+    "first_time_passed": 7,
+    "all_taking": 95,
+    "all_passed": 21
+   },
+   "law_ethics": {
+    "first_time_taking": 6,
+    "first_time_passed": 3,
+    "all_taking": 33,
+    "all_passed": 18
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "New College of California, San Francisco",
+   "bbs_code": "130",
+   "clinical": {
+    "first_time_taking": 14,
+    "first_time_passed": 7,
+    "all_taking": 34,
+    "all_passed": 11
+   },
+   "law_ethics": {
+    "first_time_taking": 8,
+    "first_time_passed": 6,
+    "all_taking": 18,
+    "all_passed": 12
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "Cambridge University",
+   "bbs_code": "265",
+   "clinical": {
+    "first_time_taking": 10,
+    "first_time_passed": 3,
+    "all_taking": 20,
+    "all_passed": 9
+   },
+   "law_ethics": {
+    "first_time_taking": 32,
+    "first_time_passed": 18,
+    "all_taking": 62,
+    "all_passed": 24
+   },
+   "periods": 10
+  },
+  {
+   "bbs_name": "Bethany College",
+   "bbs_code": "157",
+   "clinical": {
+    "first_time_taking": 8,
+    "first_time_passed": 4,
+    "all_taking": 14,
+    "all_passed": 7
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 2,
+    "all_taking": 5,
+    "all_passed": 4
+   },
+   "periods": 10
+  },
+  {
+   "bbs_name": "Eisner Institute for Professional Studies",
+   "bbs_code": "250",
+   "clinical": {
+    "first_time_taking": 8,
+    "first_time_passed": 6,
+    "all_taking": 11,
+    "all_passed": 9
+   },
+   "law_ethics": {
+    "first_time_taking": 10,
+    "first_time_passed": 8,
+    "all_taking": 15,
+    "all_passed": 10
+   },
+   "periods": 12
+  },
+  {
+   "bbs_name": "Saybrook University",
+   "bbs_code": "137",
+   "clinical": {
+    "first_time_taking": 8,
+    "first_time_passed": 7,
+    "all_taking": 10,
+    "all_passed": 9
+   },
+   "law_ethics": {
+    "first_time_taking": 13,
+    "first_time_passed": 9,
+    "all_taking": 17,
+    "all_passed": 12
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "HIS University",
+   "bbs_code": "247",
+   "clinical": {
+    "first_time_taking": 7,
+    "first_time_passed": 4,
+    "all_taking": 23,
+    "all_passed": 6
+   },
+   "law_ethics": {
+    "first_time_taking": 11,
+    "first_time_passed": 7,
+    "all_taking": 18,
+    "all_passed": 10
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "La Sierra University",
+   "bbs_code": "252",
+   "clinical": {
+    "first_time_taking": 7,
+    "first_time_passed": 4,
+    "all_taking": 11,
+    "all_passed": 7
+   },
+   "law_ethics": {
+    "first_time_taking": 24,
+    "first_time_passed": 17,
+    "all_taking": 28,
+    "all_passed": 19
+   },
+   "periods": 11
+  },
+  {
+   "bbs_name": "Pacific Graduate School of Psychology, Palo Alto",
+   "bbs_code": "149",
+   "clinical": {
+    "first_time_taking": 7,
+    "first_time_passed": 6,
+    "all_taking": 8,
+    "all_passed": 7
+   },
+   "law_ethics": {
+    "first_time_taking": 16,
+    "first_time_passed": 14,
+    "all_taking": 19,
+    "all_passed": 17
+   },
+   "periods": 8
+  },
+  {
+   "bbs_name": "Ryokan College, Los Angeles",
+   "bbs_code": "216",
+   "clinical": {
+    "first_time_taking": 7,
+    "first_time_passed": 2,
+    "all_taking": 38,
+    "all_passed": 6
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 0,
+    "all_taking": 9,
+    "all_passed": 4
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "San Diego University for Integrative Studies",
+   "bbs_code": "244",
+   "clinical": {
+    "first_time_taking": 6,
+    "first_time_passed": 6,
+    "all_taking": 8,
+    "all_passed": 7
+   },
+   "law_ethics": {
+    "first_time_taking": 9,
+    "first_time_passed": 6,
+    "all_taking": 14,
+    "all_passed": 8
+   },
+   "periods": 12
+  },
+  {
+   "bbs_name": "Western Institute for Social Research, Berkeley",
+   "bbs_code": "220",
+   "clinical": {
+    "first_time_taking": 5,
+    "first_time_passed": 4,
+    "all_taking": 5,
+    "all_passed": 4
+   },
+   "law_ethics": {
+    "first_time_taking": 14,
+    "first_time_passed": 13,
+    "all_taking": 14,
+    "all_passed": 13
+   },
+   "periods": 11
+  },
+  {
+   "bbs_name": "California Graduate Institute, Los Angeles",
+   "bbs_code": "203",
+   "clinical": {
+    "first_time_taking": 4,
+    "first_time_passed": 3,
+    "all_taking": 20,
+    "all_passed": 8
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 1,
+    "all_taking": 9,
+    "all_passed": 3
+   },
+   "periods": 12
+  },
+  {
+   "bbs_name": "Santa Barbara Graduate Institute",
+   "bbs_code": "245",
+   "clinical": {
+    "first_time_taking": 4,
+    "first_time_passed": 3,
+    "all_taking": 6,
+    "all_passed": 5
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "periods": 6
+  },
+  {
+   "bbs_name": "Trinity College of Graduate Studies, Orange",
+   "bbs_code": "201",
+   "clinical": {
+    "first_time_taking": 4,
+    "first_time_passed": 2,
+    "all_taking": 23,
+    "all_passed": 6
+   },
+   "law_ethics": {
+    "first_time_taking": 4,
+    "first_time_passed": 3,
+    "all_taking": 8,
+    "all_passed": 4
+   },
+   "periods": 13
+  },
+  {
+   "bbs_name": "University of Santa Monica",
+   "bbs_code": "240",
+   "clinical": {
+    "first_time_taking": 4,
+    "first_time_passed": 2,
+    "all_taking": 10,
+    "all_passed": 3
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 3,
+    "all_passed": 3
+   },
+   "periods": 6
+  },
+  {
+   "bbs_name": "Antioch University, San Francisco",
+   "bbs_code": "242",
+   "clinical": {
+    "first_time_taking": 3,
+    "first_time_passed": 2,
+    "all_taking": 5,
+    "all_passed": 3
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 3,
+    "all_taking": 3,
+    "all_passed": 3
+   },
+   "periods": 6
+  },
+  {
+   "bbs_name": "California Institute of Human Science",
+   "bbs_code": "257",
+   "clinical": {
+    "first_time_taking": 3,
+    "first_time_passed": 3,
+    "all_taking": 3,
+    "all_passed": 3
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "periods": 3
+  },
+  {
+   "bbs_name": "California School of Professional Psychology, Fresno",
+   "bbs_code": "110",
+   "clinical": {
+    "first_time_taking": 3,
+    "first_time_passed": 3,
+    "all_taking": 3,
+    "all_passed": 3
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 3,
+    "all_taking": 3,
+    "all_passed": 3
+   },
+   "periods": 5
+  },
+  {
+   "bbs_name": "Capella University",
+   "bbs_code": "260",
+   "clinical": {
+    "first_time_taking": 3,
+    "first_time_passed": 2,
+    "all_taking": 6,
+    "all_passed": 3
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 2,
+    "all_taking": 4,
+    "all_passed": 3
+   },
+   "periods": 8
+  },
+  {
+   "bbs_name": "UMASS Global",
+   "bbs_code": "272",
+   "clinical": {
+    "first_time_taking": 3,
+    "first_time_passed": 2,
+    "all_taking": 3,
+    "all_passed": 2
+   },
+   "law_ethics": {
+    "first_time_taking": 92,
+    "first_time_passed": 67,
+    "all_taking": 103,
+    "all_passed": 75
+   },
+   "periods": 5
+  },
+  {
+   "bbs_name": "Webster University",
+   "bbs_code": "248",
+   "clinical": {
+    "first_time_taking": 3,
+    "first_time_passed": 2,
+    "all_taking": 10,
+    "all_passed": 4
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 9,
+    "all_passed": 6
+   },
+   "periods": 8
+  },
+  {
+   "bbs_name": "American Behavioral Studies Institute",
+   "bbs_code": "235",
+   "clinical": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 4,
+    "all_passed": 3
+   },
+   "law_ethics": {
+    "first_time_taking": 4,
+    "first_time_passed": 3,
+    "all_taking": 11,
+    "all_passed": 4
+   },
+   "periods": 7
+  },
+  {
+   "bbs_name": "California School of Professional Psychology, Berkeley",
+   "bbs_code": "109",
+   "clinical": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "law_ethics": {
+    "first_time_taking": 4,
+    "first_time_passed": 3,
+    "all_taking": 5,
+    "all_passed": 4
+   },
+   "periods": 6
+  },
+  {
+   "bbs_name": "Changed to school code 241",
+   "bbs_code": "100",
+   "clinical": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "law_ethics": {
+    "first_time_taking": 3,
+    "first_time_passed": 3,
+    "all_taking": 3,
+    "all_passed": 3
+   },
+   "periods": 4
+  },
+  {
+   "bbs_name": "Professional School of Psychology, Sacramento",
+   "bbs_code": "214",
+   "clinical": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 3
+  },
+  {
+   "bbs_name": "Bastyr University",
+   "bbs_code": "267",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "periods": 3
+  },
+  {
+   "bbs_name": "Biola University, La Mirada(Rosemead School of Psy)",
+   "bbs_code": "104",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 13,
+    "first_time_passed": 12,
+    "all_taking": 13,
+    "all_passed": 12
+   },
+   "periods": 4
+  },
+  {
+   "bbs_name": "Cambridge Graduate School of Psychology, Los Angeles",
+   "bbs_code": "205",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 7,
+    "first_time_passed": 4,
+    "all_taking": 11,
+    "all_passed": 6
+   },
+   "periods": 6
+  },
+  {
+   "bbs_name": "Concordia University",
+   "bbs_code": "268",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "Human Relations Center, Inc., Santa Clara",
+   "bbs_code": "208",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Pacific Union College, Angwin",
+   "bbs_code": "134",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Pentecostal Theological Seminary",
+   "bbs_code": "249",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "Remington College (Aka- Edu. Amercia Univ.)",
+   "bbs_code": "239",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 0,
+    "all_taking": 2,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 5,
+    "all_passed": 3
+   },
+   "periods": 6
+  },
+  {
+   "bbs_name": "Sierra University/A University Without Walls",
+   "bbs_code": "217",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "UC, San Diego",
+   "bbs_code": "054",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "UC, San Francisco",
+   "bbs_code": "055",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 1,
+    "all_taking": 2,
+    "all_passed": 1
+   },
+   "periods": 3
+  },
+  {
+   "bbs_name": "UC, Santa Barbara",
+   "bbs_code": "056",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "University for Humanistic Studies, San Diego",
+   "bbs_code": "218",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "University of the Pacific, Stockton",
+   "bbs_code": "146",
+   "clinical": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 0,
+    "all_taking": 2,
+    "all_passed": 1
+   },
+   "periods": 3
+  },
+  {
+   "bbs_name": "California Coast University - GRANDFATHER ONLY",
+   "bbs_code": "202",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 1,
+    "all_taking": 4,
+    "all_passed": 2
+   },
+   "periods": 3
+  },
+  {
+   "bbs_name": "Changed to school code 243",
+   "bbs_code": "102",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Daybreak University",
+   "bbs_code": "269",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Graduate Theological Union, Berkeley,",
+   "bbs_code": "121",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 0,
+    "all_taking": 3,
+    "all_passed": 1
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "International College, Los Angeles",
+   "bbs_code": "210",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 1,
+    "all_passed": 0
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "KAISER PERMANENTE SCHOOL OF ALLI ED HEALTH SCIENCES",
+   "bbs_code": "273",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 18,
+    "first_time_passed": 16,
+    "all_taking": 18,
+    "all_passed": 16
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Professional School of Psychological Studies, San Diego",
+   "bbs_code": "213",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Rhombus University",
+   "bbs_code": "270",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 0,
+    "all_taking": 2,
+    "all_passed": 1
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "Rosebridge Graduate School of Integrative Psychology",
+   "bbs_code": "215",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 1
+  },
+  {
+   "bbs_name": "Southern California School of Theology: Theological Studies",
+   "bbs_code": "138",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 1,
+    "all_taking": 4,
+    "all_passed": 2
+   },
+   "periods": 4
+  },
+  {
+   "bbs_name": "Walden University",
+   "bbs_code": "263",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "Weimar Institute",
+   "bbs_code": "271",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 0,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 2,
+    "first_time_passed": 2,
+    "all_taking": 2,
+    "all_passed": 2
+   },
+   "periods": 2
+  },
+  {
+   "bbs_name": "World University of America",
+   "bbs_code": "226",
+   "clinical": {
+    "first_time_taking": 0,
+    "first_time_passed": 0,
+    "all_taking": 8,
+    "all_passed": 0
+   },
+   "law_ethics": {
+    "first_time_taking": 1,
+    "first_time_passed": 1,
+    "all_taking": 1,
+    "all_passed": 1
+   },
+   "periods": 8
+  }
+ ]
+}

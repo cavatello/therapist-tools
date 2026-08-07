@@ -210,5 +210,31 @@
    "correct": "That is the program's marketing name and is fine to use, but the degree conferred is the M.S. in Psychology; the MFT pattern is an option within it. The catalog files the program under \"Psychology MS\" and writes requirements as \"6 units of 687 are required for the MS in Psychology degree.\" This matters for anyone whose out-of-state licensure board reads the diploma rather than the transcript.",
    "src": "https://catalog.csuchico.edu/colleges-departments/college-behavioral-social-sciences/psychology/psychology-ms/"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "California State University, Chico"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 103,
+  "first_time_passed": 95,
+  "first_time_pct": 92,
+  "all_taking": 129,
+  "all_passed": 105,
+  "all_pct": 81,
+  "law_ethics_taking": 97,
+  "law_ethics_pct": 94,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

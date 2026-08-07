@@ -249,5 +249,31 @@
    "label": "Sentio University third-party program review",
    "url": "https://sentio.org/pacific-oaks-college-mft-program-review"
   }
- ]
+ ],
+ "exam": {
+  "period": "July 2018 - December 2024, pooled (13 semiannual BBS reports)",
+  "source": "https://www.bbs.ca.gov/exams/exam_stats.html",
+  "as_recorded": [
+   "Pacific Oaks College, Pasadena"
+  ],
+  "floor": 40,
+  "enough": true,
+  "first_time_taking": 336,
+  "first_time_passed": 206,
+  "first_time_pct": 61,
+  "all_taking": 680,
+  "all_passed": 307,
+  "all_pct": 45,
+  "law_ethics_taking": 404,
+  "law_ethics_pct": 62,
+  "statewide": {
+   "first_time": 80,
+   "first_time_n": 17698,
+   "first_time_passed": 14096,
+   "all": 66,
+   "all_n": 26871,
+   "all_passed": 17835,
+   "law_ethics_first_time": 80
+  }
+ }
 }

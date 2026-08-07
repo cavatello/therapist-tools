@@ -89,6 +89,20 @@ const PAGES = [
     notice: '.verd.board', noticeLink: '.verd.board a[href*="sentio_uni_nts"]',
   }],
   ['cal-poly-humboldt-mft.html', { table: '.tbl' }],
+  // The Board's by-school exam figure. The caveat is asserted as a REQUIRED
+  // element, not an optional one: the whole justification for publishing this
+  // number is that it never appears without the note explaining what it does
+  // and does not measure. If the note can go missing, the feature should not
+  // ship.
+  ['california-institute-of-integral-studies-mft.html', {
+    exam: '#exam-results', examFigure: '.exb b', examN: '.exb span',
+    examStatewide: '.exb.sw', examCaveat: '.exwarn',
+  }],
+  // COAMFTE outcomes, and the cohort size that has to travel with every rate.
+  ['loma-linda-university-mft.html', {
+    outcomes: '#outcomes', cohortRows: '.octbl tbody tr',
+    cohortSizes: '.octbl tbody th span', verbatim: '.ocdef',
+  }],
   ['california-institute-of-integral-studies-mft.html', {
     video: '.vplay', courses: '.crs', terms: '.trm', practicum: '#practicum',
     voices: '.vox', gaps: '#what-i-could-not-find',
@@ -261,6 +275,21 @@ for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
       await page.locator(`#${id} .keep`).click();      // leave storage clean
       await page.waitForTimeout(100);
     }
+
+    // Two assertions that are about editorial policy rather than layout, and
+    // both would fail silently. There must be NO pass-rate figure anywhere in
+    // the directory, and no school page may print an exam rate without its
+    // caveat - those are the two promises the exam section makes about itself.
+    if (file === 'mft-programs-california.html' && view.name === 'desktop') {
+      const body = await page.evaluate(() => document.body.innerText);
+      if (/passed first time|pass rate/i.test(body))
+        note(file, 'a pass-rate figure has appeared in the directory');
+      if (await page.locator('.exb').count())
+        note(file, 'an exam figure block is on the directory page');
+    }
+    if (/-mft\.html$/.test(file) && await page.locator('.exb b').count()
+        && !(await page.locator('.exwarn').count()))
+      note(file, 'an exam rate with no caveat beside it');
 
     // The facade has to actually become a player.
     if (view.name === 'desktop' && await page.locator('.vplay').count()) {
