@@ -44,9 +44,16 @@ def main():
         sys.exit("landing: landing.css has no rule for " + ", ".join(missing))
 
     s = open(PAGE, encoding="utf-8").read()
-    m = re.search(r"<style>\s*\.lp\{[\s\S]*?</style>", s)
-    if not m:
-        sys.exit("landing: cannot find the .lp style block in index.html")
+    # The block is found by CONTENT, not by shape. The first version matched
+    # `<style>\s*\.lp\{`, which was true of the block it replaced and false of
+    # the block it wrote - landing.css opens with a comment - so the install
+    # succeeded and the guard immediately reported zero blocks. Whatever
+    # identifies the block has to survive the edit.
+    cand = [m for m in re.finditer(r"<style>[\s\S]*?</style>", s)
+            if ".lp{" in m.group(0)]
+    if len(cand) != 1:
+        sys.exit("landing: %d style blocks contain .lp{ in index.html" % len(cand))
+    m = cand[0]
     new = "<style>" + css + "</style>"
     if m.group(0) == new:
         print("landing: already current")
@@ -57,9 +64,10 @@ def main():
 
     # guard: exactly one .lp block, and the markup it styles is still there
     s2 = open(PAGE, encoding="utf-8").read()
-    if len(re.findall(r"<style>\s*\.lp\{", s2)) != 1:
-        sys.exit("landing: %d .lp blocks after install"
-                 % len(re.findall(r"<style>\s*\.lp\{", s2)))
+    n = len([1 for mm in re.finditer(r"<style>[\s\S]*?</style>", s2)
+             if ".lp{" in mm.group(0)])
+    if n != 1:
+        sys.exit("landing: %d .lp blocks after install" % n)
     for c in ("lheroD", "ltool", "lkit", "lnews", "lans"):
         if 'class="%s' % c not in s2 and '"%s"' % c not in s2 and c not in s2:
             sys.exit("landing: markup for .%s is gone" % c)
