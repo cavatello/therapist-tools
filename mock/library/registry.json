@@ -1481,6 +1481,110 @@
    "weight": 5,
    "skip": false,
    "leaf": false
+  },
+  {
+   "file": "insurance-panels-california-therapist.html",
+   "title": "insurance-panels-california-therapist.html",
+   "topic": "getting-paid",
+   "format": "guide",
+   "question": "How do I get on insurance panels in California?",
+   "outcome": "The real sequence, the 60-day rule, and which panels are open",
+   "number": "11.5 hours",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "insurance-reimbursement-rates-california-therapist.html",
+   "title": "insurance-reimbursement-rates-california-therapist.html",
+   "topic": "getting-paid",
+   "format": "guide",
+   "question": "What does insurance actually pay per session?",
+   "outcome": "Medicare and Medi-Cal computed, and the truth about commercial rates",
+   "number": "$41,234 a year",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "superbills-good-faith-estimate-california-therapist.html",
+   "title": "superbills-good-faith-estimate-california-therapist.html",
+   "topic": "getting-paid",
+   "format": "guide",
+   "question": "What paperwork do I owe a private-pay client?",
+   "outcome": "The Good Faith Estimate you must give, and a superbill that works",
+   "number": "$1,656 back",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "headway-alma-grow-therapy-compared-california.html",
+   "title": "headway-alma-grow-therapy-compared-california.html",
+   "topic": "getting-paid",
+   "format": "guide",
+   "question": "Headway, Alma, Grow — or my own contracts?",
+   "outcome": "All four routes priced at three caseloads, with the crossover",
+   "number": "$1.24 a session",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "alma-for-california-therapists.html",
+   "title": "alma-for-california-therapists.html",
+   "topic": "getting-paid",
+   "format": "answer",
+   "question": "Is Alma worth it for a California therapist?",
+   "outcome": "A flat fee instead of a cut, and what it does not tell you",
+   "number": "$1,140 a year",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "grow-therapy-for-california-therapists.html",
+   "title": "grow-therapy-for-california-therapists.html",
+   "topic": "getting-paid",
+   "format": "answer",
+   "question": "Is Grow Therapy worth it for a California therapist?",
+   "outcome": "The widest Medi-Cal reach, and a cut it does not publish",
+   "number": "14 Medi-Cal plans",
+   "stale": true,
+   "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "continuing-education-california-lmft.html",
+   "title": "continuing-education-california-lmft.html",
+   "topic": "training",
+   "format": "guide",
+   "question": "What CE do I actually owe, and what counts?",
+   "outcome": "36 hours, the mandated topics, and the cheapest compliant path",
+   "number": "62% failed audit",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "therapynotes-vs-simplepractice-california.html",
+   "title": "therapynotes-vs-simplepractice-california.html",
+   "topic": "practice",
+   "format": "guide",
+   "question": "TherapyNotes or SimplePractice?",
+   "outcome": "Priced properly, including the fees neither puts on its pricing page",
+   "number": "$31 a year apart",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
   }
  ],
  "topics": {
@@ -1554,22 +1658,33 @@
   },
   "getting-paid": {
    "name": "Getting paid",
-   "tagline": "What panels pay, and what the middlemen keep.",
+   "tagline": "What a session is worth, and who actually pays it.",
    "intro": [
-    "There are two prices for the same 53 minutes. Billed to insurance in California, CPT 90837 collects roughly $106 to $132, with Kaiser near $150 at the top and Cigna near $80 at the bottom. Billed privately in the Bay Area, the same hour runs $180 to $350, and most licensed LMFTs land between $200 and $275. That is a gap of about two to one, which is why roughly half of California therapists take no insurance at all — the reimbursement does not clear the cost of living, and every clinical hour drags about thirty minutes of unpaid paperwork behind it.",
-    "The platforms sit between the two. Headway charges no subscription and instead keeps an undisclosed share of your reimbursement, and will not show you your California rate until you are already credentialed. It accepts independently licensed clinicians only, so no AMFT, ASW or APCC can join. What this section can settle: what is actually documented about panel rates, market ranges and platform terms. What it cannot: your own contracted rate, which is negotiated, confidential, and specific to you."
+    "Three decisions sit under everything here. What to charge. Whether to take insurance at all, and if so whether to hold the contracts yourself or let a network hold them for you. And what paperwork you owe the clients who pay you directly, which in California is most of them.",
+    "What this section can settle: the arithmetic, and the difference between a published rate and a rumour. Medicare pays a California LMFT 75% of the physician fee schedule, which is $134.47 for a 60-minute session in Los Angeles, and every commercial rate in the state is quoted against that number. What it cannot settle is your own contracted rate, because those are confidential — and no network publishes a California per-session figure, whatever their marketing implies. Where a number is unknowable, these pages say so rather than guessing."
    ],
    "clusters": [
     {
-     "name": "What the two markets pay",
+     "name": "What the work is worth",
      "files": [
-      "rates.html"
+      "rates.html",
+      "insurance-reimbursement-rates-california-therapist.html"
      ]
     },
     {
-     "name": "Panels, and the platforms in front of them",
+     "name": "Getting on a panel, or not",
      "files": [
-      "headway-for-california-therapists.html"
+      "insurance-panels-california-therapist.html",
+      "headway-alma-grow-therapy-compared-california.html",
+      "headway-for-california-therapists.html",
+      "alma-for-california-therapists.html",
+      "grow-therapy-for-california-therapists.html"
+     ]
+    },
+    {
+     "name": "The paperwork",
+     "files": [
+      "superbills-good-faith-estimate-california-therapist.html"
      ]
     }
    ]
@@ -1592,7 +1707,8 @@
     {
      "name": "The software and the admin",
      "files": [
-      "simplepractice-california-therapists.html"
+      "simplepractice-california-therapists.html",
+      "therapynotes-vs-simplepractice-california.html"
      ]
     },
     {
@@ -1628,6 +1744,12 @@
     "Three of the sixteen are attached to a real regulator, through Oregon's or Colorado's facilitator licences — and those licences only work inside those states, in a licensed service centre. That is the whole of what a certificate can buy you legally. Everything else it buys is competence, supervision, a network and CE hours, which are real things worth paying for as long as you know that is what you are buying. What this section cannot settle: whether a given programme is any good clinically. It can tell you what it costs, what it teaches, and exactly where it stops."
    ],
    "clusters": [
+    {
+     "name": "Keeping the licence",
+     "files": [
+      "continuing-education-california-lmft.html"
+     ]
+    },
     {
      "name": "Psychedelic-assisted therapy training",
      "directory": true,

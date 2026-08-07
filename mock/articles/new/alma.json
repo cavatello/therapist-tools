@@ -1,0 +1,413 @@
+{
+ "slug": "alma-for-california-therapists",
+ "category": "Practice",
+ "stage": "run",
+ "minutes": 14,
+ "updated": "2026-08-07",
+ "title": "Alma for California therapists: what a flat membership costs",
+ "h1": "Alma, for California therapists, and <em>what a flat fee actually buys</em>",
+ "h1_plain": "Alma, for California therapists, and what a flat fee actually buys",
+ "kicker": "California &middot; insurance networks",
+ "dek": "Alma charges $1,140 a year and takes nothing from your cash-pay clients &mdash; both true, both published, and neither one is the price of being on Alma. Here is the arithmetic on a real caseload, the three payers you are required to join, and the Aetna cut that landed on 15 August 2026.",
+ "dek_plain": "Alma charges $1,140 a year and takes nothing from your cash-pay clients - both true, both published, and neither one is the price of being on Alma. Here is the arithmetic on a real caseload, the three payers you are required to join, and the Aetna cut that landed on 15 August 2026.",
+ "figure": [
+  "$1.24",
+  "what the membership costs you per session"
+ ],
+ "tool": [
+  "practice-simulator.html",
+  "Put Alma&rsquo;s offer in one run and your own rate in another",
+  "The simulator takes a rate, a session count and your real expenses and shows what is left after tax. Run it once at whatever payout Alma quotes you and once at your private-pay fee, then compare the two net figures rather than the two headline rates."
+ ],
+ "sections": [
+  [
+   "Whether you can join at all",
+   [
+    [
+     "p",
+     "If you are an associate &mdash; an AMFT, ASW or APCC still counting hours &mdash; you cannot join Alma. Alma&rsquo;s own provider FAQ answers the question in two sentences: &ldquo;Can I join Alma with a limited license? No. At this time, Alma is only available to clinicians who are fully licensed.&rdquo;<sup><a href=\"#s1\">[1]</a></sup> The same is true of Headway and of Grow Therapy. This is the first thing to establish, because a large share of the people reading a page like this are exactly the people who are not eligible for it."
+    ],
+    [
+     "p",
+     "It is worth knowing <b>why</b>, because the reason is Californian and it is not going to change soon. Every clinician on these networks is engaged as an independent contractor. California law forbids an associate from working that way. Business and Professions Code &sect;4980.43.3(a) says a trainee, associate or applicant for licensure &ldquo;shall only perform mental health and related services as an employee or volunteer, and not as an independent contractor&rdquo;, and that they shall not gain any experience within the scope of practice as a contractor.<sup><a href=\"#s2\">[2]</a></sup> The identical rule sits in &sect;4996.23.2(a) for associate clinical social workers<sup><a href=\"#s3\">[3]</a></sup> and in &sect;4999.46.3(a) for clinical counselor trainees and associates.<sup><a href=\"#s4\">[4]</a></sup>"
+    ],
+    [
+     "p",
+     "So the barrier is not that Alma has not got round to associates. A 1099 network and a California associate are legally incompatible. If you are still accruing, <a href=\"amft-3000-hours-california.html\">the 3,000-hours planner</a> is the page that applies to you, and the <a href=\"associate-mft-job-advisor.html\">associate job advisor</a> is the one that helps with the employment you do need."
+    ],
+    [
+     "p",
+     "If you are licensed &mdash; LMFT, LCSW, LPCC or psychologist &mdash; read on. What follows is what Alma charges, what it does not publish, which payers you actually get in California, and what happens to your clients if you leave."
+    ]
+   ]
+  ],
+  [
+   "What Alma charges, and what it does not publish",
+   [
+    [
+     "p",
+     "Alma&rsquo;s pricing is on its own site and it is genuinely simple. Membership is <b>$95 a month billed annually</b>, which Alma states as &ldquo;Billed at $1,140 per year&rdquo;.<sup><a href=\"#s1\">[1]</a></sup> Paid month to month it is <b>$125 a month</b>, or $1,500 over a year.<sup><a href=\"#s5\">[5]</a></sup> Alma&rsquo;s support centre adds the enforcement term: &ldquo;Providers must pay membership fees. Membership will be terminated after 60 days if fees are not paid.&rdquo;<sup><a href=\"#s6\">[6]</a></sup>"
+    ],
+    [
+     "p",
+     "Alma also states plainly that it takes nothing from your private-pay work. Asked whether it takes a cut of cash-pay visits, the FAQ answers: &ldquo;No. We charge a monthly fee for membership that gives you access to all of Alma&rsquo;s benefits. The income from your cash-pay clients stays with you.&rdquo;<sup><a href=\"#s1\">[1]</a></sup> That is a real difference from a network that takes a percentage of everything that moves through it, and it is worth having in writing."
+    ],
+    [
+     "p",
+     "Now the part that is not published. Alma holds the payer contract, and members are credentialed under Alma&rsquo;s tax identification number rather than their own &mdash; Alma&rsquo;s insurance FAQ says so: &ldquo;Members need to be credentialed under Alma&rsquo;s Tax ID, regardless of their current individual credential status.&rdquo;<sup><a href=\"#s7\">[7]</a></sup> The insurer pays Alma. Alma pays you a rate. <b>Alma does not publish that rate for California, and it does not publish whether it retains anything between the two.</b> Its careful FAQ answer covers cash pay only; nothing on its public site says a member receives the whole insurance reimbursement."
+    ],
+    [
+     "p",
+     "There is a figure circulating that looks like a rate and is not one. Alma&rsquo;s sign-up page carries an ROI calculator whose first control is a slider labelled &ldquo;Average payout per one hour session&rdquo;, running from <b>$50 to $250</b>, and it opens at $50.<sup><a href=\"#s1\">[1]</a></sup> That $50 is the bottom of a slider you are meant to drag. It is not a rate, not an average, and not a California figure. Neither Alma, Headway nor Grow Therapy publishes a California per-session rate; you see yours after you are credentialed, in the portal."
+    ],
+    [
+     "p",
+     "So the honest summary of the price is two lines. The visible price is $1,140 a year, or $1,500 if you pay monthly. The invisible price is whatever gap sits between what Aetna pays Alma and what Alma pays you, and it is not disclosed anywhere. The next section is about which of those two numbers actually matters."
+    ]
+   ]
+  ],
+  [
+   "The arithmetic: a flat fee against a percentage",
+   [
+    [
+     "p",
+     "Take a full-time solo caseload: 20 sessions a week, 46 working weeks, <b>920 sessions a year</b>. For a rate, use a real published California number rather than an invented one &mdash; the 2026 Medicare allowed amount for 90837 for an LMFT or LPCC in the Los Angeles locality is <b>$134.47</b>, computed from the CMS fee schedule and the statutory 75 per cent step-down, with the full working on <a href=\"insurance-panels-california-therapist.html\">the page on getting on panels</a>.<sup><a href=\"#s8\">[8]</a></sup> Commercial behavioural health contracts are commonly written as a percentage of the Medicare number, so it is a fair stand-in. Substitute your own when you have one."
+    ],
+    [
+     "p",
+     "At 920 sessions of $134.47 you bill $123,712 a year through the network. Against that, here is what Alma&rsquo;s flat fee costs per session as the caseload changes."
+    ],
+    [
+     "table",
+     [
+      "Sessions a week",
+      "Sessions a year",
+      "$1,140 a year works out at",
+      "Paying monthly ($1,500)",
+      "As a share of a $134.47 session"
+     ],
+     [
+      [
+       "5",
+       "230",
+       "$4.96 a session",
+       "$6.52",
+       "3.7%"
+      ],
+      [
+       "10",
+       "460",
+       "$2.48 a session",
+       "$3.26",
+       "1.8%"
+      ],
+      [
+       "15",
+       "690",
+       "$1.65 a session",
+       "$2.17",
+       "1.2%"
+      ],
+      [
+       "20",
+       "920",
+       "$1.24 a session",
+       "$1.63",
+       "0.92%"
+      ],
+      [
+       "25",
+       "1,150",
+       "$0.99 a session",
+       "$1.30",
+       "0.74%"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "A flat fee behaves like a percentage that shrinks as you work more. At a full caseload Alma&rsquo;s membership is equivalent to a network keeping <b>0.92%</b> of your billings. No percentage-based network keeps under one per cent of anything. Run it the other way and the point gets sharper: how many sessions do you need before the flat $1,140 is cheaper than a cut?"
+    ],
+    [
+     "table",
+     [
+      "If a network kept",
+      "That is per session",
+      "Break-even against $1,140",
+      "Which is"
+     ],
+     [
+      [
+       "5%",
+       "$6.72",
+       "170 sessions a year",
+       "3.7 a week"
+      ],
+      [
+       "10%",
+       "$13.45",
+       "85 sessions a year",
+       "1.8 a week"
+      ],
+      [
+       "15%",
+       "$20.17",
+       "57 sessions a year",
+       "1.2 a week"
+      ],
+      [
+       "20%",
+       "$26.89",
+       "43 sessions a year",
+       "0.9 a week"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "Above roughly <b>four insurance sessions a week</b>, a flat $1,140 beats even a five per cent cut. Anyone with a real caseload is past that in a fortnight. On fee structure alone, and holding the underlying rate equal, the membership model wins and it is not close."
+    ],
+    [
+     "p",
+     "But the underlying rate is not equal, and that is the whole catch. $1,140 divided by 920 sessions is <b>$1.24</b> a session. If the payout Alma quotes you is $1.24 lower than what another route would pay you for the same code, the rate difference has already eaten the entire annual membership. A $5 gap costs $4,600 a year &mdash; four memberships. The fee you can see is decided by a rounding error in the rate you cannot."
+    ],
+    [
+     "pull",
+     "$1.24",
+     "The rate gap that costs you a whole year&rsquo;s membership."
+    ],
+    [
+     "p",
+     "This is why the only useful question to ask Alma is not &ldquo;what does membership cost&rdquo;. It is &ldquo;what will you pay me for 90837 on Aetna in my county&rdquo;, asked before you commit, and held against what you would get holding the contract yourself."
+    ]
+   ]
+  ],
+  [
+   "Which payers you actually get in California, and how fast",
+   [
+    [
+     "p",
+     "Alma&rsquo;s insurance programme is not optional. Its own FAQ: &ldquo;all new members are required to join our insurance program and get credentialed with at least one of our payer partners &mdash; Aetna, Cigna, or Optum.&rdquo;<sup><a href=\"#s7\">[7]</a></sup> If you wanted Alma purely as an EHR and a directory, you cannot have it on those terms."
+    ],
+    [
+     "p",
+     "Alma&rsquo;s published list of insurance partners is national and it is worth reading closely for what is absent in California. Aetna, Cigna, Optum and the UnitedHealthcare family, Carelon Behavioral Health, Oscar, Oxford, Surest, UMR and Meritain all appear. Anthem Blue Cross and Blue Shield appears ten times &mdash; once each for Colorado, Connecticut, Kentucky, Maine, Missouri, Nevada, New Hampshire, Ohio, Virginia and Wisconsin. <b>California is not one of them.</b> Neither Blue Shield of California, nor Kaiser, nor any Medi-Cal managed care plan appears on the partner list.<sup><a href=\"#s1\">[1]</a></sup>"
+    ],
+    [
+     "p",
+     "That matters here more than it would elsewhere. Anthem Blue Cross of California and Blue Shield of California are two of the largest commercial books in the state. A network that does not carry them is a network you would still be credentialing directly alongside. Grow Therapy is the one of the three that does carry Blue Shield of California and a long list of Medi-Cal managed care plans; that is covered on <a href=\"grow-therapy-for-california-therapists.html\">the Grow Therapy page</a>."
+    ],
+    [
+     "p",
+     "On speed, Alma is doing the thing it is good at. Its insurance page states <b>&ldquo;Credentialing time: 45 days or less&rdquo;</b> and &ldquo;Credentialing 3 times faster than individual applications&rdquo;.<sup><a href=\"#s7\">[7]</a></sup> Set that against doing it yourself, where Anthem Blue Cross of California quotes about 45 days from a complete CAQH file, Blue Shield of California quotes 45 to 60, Evernorth says up to 90, and Medi-Cal enrolment runs 120 to 180 &mdash; per payer, one at a time, with the contract and the fee schedule as separate steps after that. The <a href=\"insurance-panels-california-therapist.html\">panels page</a> lays out each clock."
+    ],
+    [
+     "p",
+     "That gap is real and it is the strongest thing any of these networks sells. Weeks instead of months, and one application instead of six. What you are buying with it is time, and the price of the time is a rate you did not negotiate."
+    ]
+   ]
+  ],
+  [
+   "Getting paid, and getting out",
+   [
+    [
+     "p",
+     "Alma pays on a <b>weekly or fortnightly</b> schedule, your choice.<sup><a href=\"#s7\">[7]</a></sup> A 2026 review of the platform reports that for each claim Alma submits, reimbursement arrives within two weeks.<sup><a href=\"#s5\">[5]</a></sup> That is faster than a payer paying you directly, and much faster than a denied claim you have to appeal yourself."
+    ],
+    [
+     "p",
+     "Read the guarantee carefully, because it is narrower than the marketing implies. What Alma publishes is a <b>&ldquo;Payout Confidence policy &mdash; protecting you from unforeseen client payment issues&rdquo;</b>.<sup><a href=\"#s7\">[7]</a></sup> Client payment issues means the copay or the deductible the patient owes. It is not a statement that Alma pays you whether or not the insurer pays. Grow Therapy, by contrast, publishes exactly that promise in exactly those words &mdash; it &ldquo;guarantees insurance payouts, even if we are unable to successfully collect from insurance&rdquo;.<sup><a href=\"#s9\">[9]</a></sup> Alma&rsquo;s public pages do not make the equivalent claim. If absorbing claim risk is the reason you are considering a network at all, ask Alma to put its position on unpaid claims in writing before you sign."
+    ],
+    [
+     "p",
+     "Now the part people only think about on the way out. Because you are credentialed under Alma&rsquo;s tax ID rather than your own,<sup><a href=\"#s7\">[7]</a></sup> leaving Alma does not leave you with an Aetna contract. It leaves you with nothing at Aetna. Your in-network status was Alma&rsquo;s, and re-credentialing individually is the months-long process you joined a network to avoid. Any client who was seeing you in-network through Alma goes out of network the moment you go, unless and until you have your own contract."
+    ],
+    [
+     "p",
+     "<b>Alma&rsquo;s provider agreement is not public</b>, so the questions that matter most cannot be answered from the outside: whether there is a non-solicitation clause, how long it runs, what notice you owe, and what happens to your records. One published review reports that Alma&rsquo;s terms bar members from publicly disclosing their reimbursement rates.<sup><a href=\"#s5\">[5]</a></sup> Treat that as a reported claim rather than a verified one &mdash; but treat it as a reason to read the agreement you are sent, in full, before you sign it, and to ask directly for the exit terms in writing. A network that will not put its notice period and its non-solicitation terms in an email is telling you something."
+    ],
+    [
+     "p",
+     "The practical protection is the same one every therapist on every platform needs: keep a record system, a website and a way to be contacted that belong to you and not to the platform. If the only route your clients have to you runs through somebody else&rsquo;s directory, you do not have a practice, you have a shift."
+    ]
+   ]
+  ],
+  [
+   "The criticism, and the cut that landed on 15 August 2026",
+   [
+    [
+     "p",
+     "On 20 May 2026 Alma told its members that Aetna was cutting rates under their contract. As Alma described the changes to providers, Aetna intended to pay the same rate for a 53-minute-plus session (CPT 90837) as for a 37-to-52-minute one (90834); to pay the same for a high-complexity evaluation-and-management visit as for a moderate one; and to lower doctoral-level reimbursement for those visits to the master&rsquo;s-level rate. Alma&rsquo;s notice said: &ldquo;We disagree with these changes.&rdquo; Aetna told the trade press that its &ldquo;overarching reimbursement policies related to behavioral health providers and license levels have not changed&rdquo;.<sup><a href=\"#s10\">[10]</a></sup>"
+    ],
+    [
+     "p",
+     "The American Psychiatric Association wrote to Aetna on 8 June objecting, arguing that flattening these codes &ldquo;devalues higher-acuity and longer-duration services&rdquo; and that applying such cuts to mental health and not to medical-surgical care may run against the Mental Health Parity and Addiction Equity Act.<sup><a href=\"#s11\">[11]</a></sup> Alma ran a member survey and its founder said he would file the responses with Aetna."
+    ],
+    [
+     "p",
+     "Here is the part that is usually reported wrong, so it is worth stating precisely. <b>The 90837-to-90834 consolidation did not happen.</b> On 8 July Alma told members that negotiations had concluded and that three of Aetna&rsquo;s proposals were reversed: 90837 and 90834 will not be consolidated into a single rate, 99214 and 99215 will not be consolidated, and reimbursement will continue to reflect degree type and training. The implementation date moved from 15 July to <b>15 August 2026</b>. But Alma also told members that &ldquo;Aetna&rsquo;s final rates still reduce overall reimbursement for mental health services through Alma&rdquo;, and gave no detail on the remaining reductions.<sup><a href=\"#s11\">[11]</a></sup>"
+    ],
+    [
+     "p",
+     "Alma has not published the surviving cuts state by state, and there is no California figure in public. One New York clinician published his own contract&rsquo;s code-level percentages after the 8 July email: in New York, 90791 down 9.7%, 90834 down 3.6%, 90837 down 10.6%, 90832 unchanged; in New Jersey, 90791 down 16.8%, 90834 down 1.9%, 90837 down 15.2%.<sup><a href=\"#s12\">[12]</a></sup> Those are two states and one clinician&rsquo;s contract, not California and not a published schedule. Do not carry them across. Do ask Alma for your own numbers, code by code, in writing."
+    ],
+    [
+     "p",
+     "Three other things belong on the record, all sourced, none of them softened."
+    ],
+    [
+     "ul",
+     [
+      "<b>This has happened before, on a different payer.</b> In late 2024 Optum imposed cuts on clinicians practising through both Alma and Headway, described at the time as ranging from a few dollars a visit to $43, or about 30 per cent.<sup><a href=\"#s11\">[11]</a></sup> The rate is a term of a contract you are not a party to. It can move, and it has moved twice in two years.",
+      "<b>Two of the three payers you must join had money in Alma.</b> Alma&rsquo;s $130 million Series D in August 2022 was led by Thoma Bravo &ldquo;with participation from Cigna Ventures&rdquo;, and named Optum Ventures among existing investors.<sup><a href=\"#s13\">[13]</a></sup> Alma requires every new member to credential with Aetna, Cigna or Optum. Two of those three insurers&rsquo; venture arms were on the cap table of the company negotiating your rate with them.",
+      "<b>Alma has an owner now.</b> Spring Health completed its acquisition of Alma on 1 May 2026, and from 1 August 2026 the company operates as &ldquo;Alma, part of Spring Health&rdquo;. Alma&rsquo;s own note to providers says tools, support, pricing and contracts are unchanged, and that its founder continues as CEO.<sup><a href=\"#s14\">[14]</a></sup> Nothing about that is sinister. It does mean the entity setting your rate answers to a new board."
+     ]
+    ],
+    [
+     "p",
+     "The only survey of clinicians across these platforms comes from the Psychotherapy Action Network, which collected 667 responses covering Headway, Alma and Grow Therapy. Half of those using a platform reported earning the same or less than in independent practice, and 84 per cent said they had not been told about fee-splitting arrangements before joining.<sup><a href=\"#s15\">[15]</a></sup> It is a self-selected sample from an organisation that campaigns against these companies, so read it as signal rather than as a population estimate &mdash; but it is the only instrument that exists."
+    ]
+   ]
+  ],
+  [
+   "Headway, Grow Therapy, or your own contracts",
+   [
+    [
+     "p",
+     "The three networks are close enough to be confused and different enough that the choice is real. In one sentence each:"
+    ],
+    [
+     "ul",
+     [
+      "<b><a href=\"headway-for-california-therapists.html\">Headway</a></b> suits you if you want no subscription at all and are comfortable that the price is an undisclosed share of each reimbursement &mdash; and it is the one with the most published California payer detail, including Anthem Blue Cross of California and Blue Shield of California.",
+      "<b>Alma</b> suits you if you have a substantial caseload and would rather pay a fixed, knowable $1,140 than an unknown percentage, and if your clients are on Aetna, Cigna or Optum.",
+      "<b><a href=\"grow-therapy-for-california-therapists.html\">Grow Therapy</a></b> suits you if you want Medi-Cal managed care or Kaiser Northern California, or if you want the fastest credentialing and an explicit written guarantee that you are paid whether or not the insurer pays."
+     ]
+    ],
+    [
+     "p",
+     "And there is the fourth option, which is the one that pays most and asks most. Holding your own contracts means the whole contracted rate, a rate nobody can renegotiate above your head, and clients who stay yours when you change anything. It costs you the credentialing months &mdash; and roughly ninety unbilled hours in the first year, priced out on <a href=\"insurance-panels-california-therapist.html\">the panels page</a>. That page also computes the number this one leads to: a network has to pay you about <b>$115.77</b> a session before it beats holding the contract yourself. When Alma quotes you a figure, that is what to hold it against."
+    ],
+    [
+     "p",
+     "The honest verdict is unglamorous. Alma&rsquo;s fee is the cheapest structure of the three at any real caseload, and its fee is not the thing that decides this. If Alma&rsquo;s payout for your codes lands near $115.77 and you have empty hours, take it, and treat it as one channel rather than the practice. If it lands well below, and your practice is full at private-pay rates, the arithmetic says stay where you are &mdash; run it in <a href=\"practice-simulator.html\">the simulator</a> rather than taking anyone&rsquo;s word for it, including mine, and see <a href=\"rates.html\">the rate gap</a> for what private pay looks like against any of it. And if you have the patience for a two-to-four-month wait per payer, go direct."
+    ]
+   ]
+  ],
+  [
+   "What to do on Monday",
+   [
+    [
+     "p",
+     "Five things, in order, and the first four cost nothing."
+    ],
+    [
+     "ul",
+     [
+      "<b>Check you are eligible.</b> Fully licensed as an LMFT, LCSW, LPCC or psychologist, or you are not having this conversation yet.",
+      "<b>Work out your own break-even before you talk to anyone.</b> Multiply your realistic sessions a week by 46. Divide $1,140 by that number &mdash; that is what the membership costs per session. Then put your current rate, your session count and your real expenses into <a href=\"practice-simulator.html\">the practice simulator</a> and note the net figure, because that is the number any offer has to beat.",
+      "<b>Ask for the rate in writing, before you commit.</b> Specifically: the payout for 90791, 90834 and 90837, for your licence type, for Aetna, Cigna and Optum, in your county. Alma will not put it on a public page; it can put it in an email.",
+      "<b>Ask two exit questions in the same email.</b> Is there a non-solicitation clause and how long does it run, and what notice do I owe to leave. Ask for the provider agreement itself. It is not published, so this is the only way to read it.",
+      "<b>Then, if it stacks up, start at the company&rsquo;s own page</b> &mdash; <a href=\"https://helloalma.com/for-providers/\">helloalma.com/for-providers</a>. It is a form and a call with a growth manager rather than an instant sign-up, so expect a week before you see a number."
+     ]
+    ],
+    [
+     "p",
+     "One last thing, and it is the thing the 15 August cut should have taught everybody. Whatever you decide, do not let the platform become the practice. Keep your own record system, your own website and your own way of being contacted. A rate can be renegotiated over your head in a room you were not in; a client who knows how to find you cannot be."
+    ]
+   ]
+  ]
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "cite": "Alma, Membership benefits for mental health providers",
+   "url": "https://helloalma.com/for-providers/",
+   "note": "$95/month &ldquo;Billed at $1,140 per year&rdquo;; &ldquo;Can I join Alma with a limited license? No&hellip; only available to clinicians who are fully licensed&rdquo;; the cash-pay answer; the $50&ndash;$250 ROI slider; the Alma Insurance Partners list"
+  },
+  {
+   "n": 2,
+   "cite": "Cal. Business and Professions Code &sect;4980.43.3",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4980.43.3.&lawCode=BPC",
+   "note": "an MFT trainee, associate or applicant may work only as an employee or volunteer, &ldquo;and not as an independent contractor&rdquo;"
+  },
+  {
+   "n": 3,
+   "cite": "Cal. Business and Professions Code &sect;4996.23.2",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4996.23.2.&lawCode=BPC",
+   "note": "the same rule for associate clinical social workers"
+  },
+  {
+   "n": 4,
+   "cite": "Cal. Business and Professions Code &sect;4999.46.3",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4999.46.3.&lawCode=BPC",
+   "note": "the same rule for clinical counselor trainees and associates"
+  },
+  {
+   "n": 5,
+   "cite": "ChoosingTherapy, Alma for Therapists: Is It Worth It In 2026?",
+   "url": "https://www.choosingtherapy.com/alma-for-therapists-review/",
+   "note": "$125 a month paid monthly; reimbursement within two weeks of a submitted claim; the reported restriction on disclosing rates publicly"
+  },
+  {
+   "n": 6,
+   "cite": "Alma support centre, Membership Overview",
+   "url": "https://support.helloalma.com/hc/en-us/articles/22200117802907-Membership-Overview",
+   "note": "&ldquo;Providers must pay membership fees. Membership will be terminated after 60 days if fees are not paid.&rdquo;"
+  },
+  {
+   "n": 7,
+   "cite": "Alma, Insurance Program for Therapists",
+   "url": "https://helloalma.com/for-providers/insurance/",
+   "note": "&ldquo;Credentialing time: 45 days or less&rdquo;; weekly or bi-weekly payouts; the Payout Confidence policy wording; the requirement to credential with Aetna, Cigna or Optum; credentialing under Alma&rsquo;s Tax ID"
+  },
+  {
+   "n": 8,
+   "cite": "CMS, Physician Fee Schedule Look-Up Tool",
+   "url": "https://www.cms.gov/medicare/payment/fee-schedules/physician/lookup-tool",
+   "note": "the 2026 relative values and geographic indices behind the $134.47 Los Angeles allowed amount for 90837 at the LMFT/LPCC rate; the full working is on the panels page"
+  },
+  {
+   "n": 9,
+   "cite": "Grow Therapy help centre, Payout &amp; Earnings FAQ",
+   "url": "https://help.growtherapy.com/en/articles/5574668-payout-earnings-faq",
+   "note": "&ldquo;Grow Therapy guarantees insurance payouts, even if we are unable to successfully collect from insurance&rdquo; &mdash; quoted here for the contrast with Alma&rsquo;s narrower wording"
+  },
+  {
+   "n": 10,
+   "cite": "Behavioral Health Business, Aetna Cuts Rates with Alma-Contracted Therapists (21 May 2026)",
+   "url": "https://bhbusiness.com/2026/05/21/aetna-cuts-rates-with-alma-contracted-therapists/",
+   "note": "the three changes as Alma described them on 20 May; &ldquo;We disagree with these changes&rdquo;; Aetna&rsquo;s response; the 1 May Spring Health acquisition"
+  },
+  {
+   "n": 11,
+   "cite": "ClearHealthCosts, Aetna cuts pay rates for Alma clinicians, and adds its own therapy service (14 July 2026)",
+   "url": "https://clearhealthcosts.com/blog/2026/07/aetna-cuts-pay-rates-for-alma-clinicians-and-adds-its-own-therapy-service/",
+   "note": "the APA letter of 8 June; Alma&rsquo;s 8 July partial-rollback email quoted at length; the move from 15 July to 15 August; the 2024 Optum cuts across Alma and Headway"
+  },
+  {
+   "n": 12,
+   "cite": "Matthew Ryan, LCSW, The Aetna and Alma Rate Cuts Hit August 15 (4 August 2026)",
+   "url": "https://www.matthewryanlcsw.com/blog/the-aetna-and-alma-rate-cuts-hit-august-15-heres-what-actually-changed",
+   "note": "one clinician&rsquo;s code-level percentages for New York and New Jersey; no California figures are published"
+  },
+  {
+   "n": 13,
+   "cite": "PR Newswire, Alma Raises $130M in Series D Funding led by Thoma Bravo (25 August 2022)",
+   "url": "https://www.prnewswire.com/news-releases/alma-raises-130m-in-series-d-funding-led-by-thoma-bravo-to-advance-its-mission-to-simplify-access-to-high-quality-affordable-mental-health-care-301612534.html",
+   "note": "&ldquo;with participation from Cigna Ventures&rdquo;; Optum Ventures named among existing investors"
+  },
+  {
+   "n": 14,
+   "cite": "Alma, What Spring Health&rsquo;s acquisition of Alma means for Alma providers",
+   "url": "https://helloalma.com/blog/what-spring-health's-acquisition-of-alma-means-for-alma-providers/",
+   "note": "acquisition completed 1 May 2026; operating as &ldquo;Alma, part of Spring Health&rdquo; from 1 August 2026; pricing and contracts stated as unchanged"
+  },
+  {
+   "n": 15,
+   "cite": "Psychotherapy Action Network, Practice Management Companies study",
+   "url": "https://www.psian.org/practice-management-companies",
+   "note": "667 respondents across Headway, Alma and Grow Therapy; 50% earning the same or less than in independent practice; 84% not informed about fee-splitting. Self-selected sample, advocacy organisation"
+  }
+ ]
+}

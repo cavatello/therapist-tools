@@ -64,8 +64,7 @@ FOOT_OLD = ("<b>Built by Cavatello.</b> Free, and not selling anything. Nothing 
             "is legal, tax, financial or clinical advice, and using this site does not "
             "create a professional relationship &mdash; see the "
             '<a href="terms.html">Terms of Use</a>.')
-FOOT_NEW = ("<b>Built by Cavatello.</b> Free to use, no account, nothing stored. "
-            "Some links out to third-party services are affiliate links and are "
+FOOT_NEW = ("<b>Built by Cavatello.</b> Some links out to third-party services are affiliate links and are "
             "tagged where they appear; they cost you nothing and never change what a "
             "calculator here tells you. Nothing here is legal, tax, financial or "
             "clinical advice, and using this site does not create a professional "
@@ -75,9 +74,9 @@ PROMISE_OLD = ('<div class="lpromise"><h3>Nothing saved, nothing sold</h3><p>No 
                "no email required, nothing stored on a server. Your numbers live in the "
                "page and in a link you can copy. There is no paid tier and nothing here "
                "is trying to sell you a service.</p></div>")
-PROMISE_NEW = ('<div class="lpromise"><h3>Nothing saved, no account</h3><p>No account, '
-               "no email required, nothing stored on a server. Your numbers live in the "
-               "page and in a link you can copy. A few links out to third-party services "
+PROMISE_NEW = ('<div class="lpromise"><h3>How the calculators work</h3><p>The '
+               "calculators run in your browser, and your numbers travel in a link you "
+               "can copy. A few links out to third-party services "
                "are affiliate links, tagged where they appear &mdash; they never change "
                "what a calculator here tells you.</p></div>")
 

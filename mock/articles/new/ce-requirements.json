@@ -1,0 +1,596 @@
+{
+ "slug": "continuing-education-california-lmft",
+ "category": "Licensure",
+ "stage": "run",
+ "minutes": 12,
+ "updated": "2026-08-07",
+ "title": "California LMFT continuing education: the 36 hours, exactly",
+ "h1": "Your 36 hours of CE, and <em>the audit six in ten people fail</em>",
+ "h1_plain": "Your 36 hours of CE, and the audit six in ten people fail",
+ "kicker": "California &middot; licence renewal",
+ "dek": "Thirty-six hours every two years, six of them law and ethics, plus one-time courses in suicide risk, telehealth and HIV/AIDS. The Board restarted audits in March 2024 and 62% of the people it checked could not prove they had complied. Here is the whole requirement, what actually counts, and the cheapest compliant way through it.",
+ "dek_plain": "Thirty-six hours every two years, six of them law and ethics, plus one-time courses in suicide risk, telehealth and HIV/AIDS. The Board restarted audits in March 2024 and 62% of the people it checked could not prove they had complied. Here is the whole requirement, what actually counts, and the cheapest compliant way through it.",
+ "figure": [
+  "62%",
+  "of recent BBS CE audits ended in failure"
+ ],
+ "tool": [
+  "practice-simulator.html",
+  "Put the CE spend and the renewal fee in your expense lines",
+  "The simulator takes your fee, your session count and your expenses and shows profit after everything. Add the two-year CE cost and the renewal fee as an expense line and you will see what compliance actually costs you after tax, rather than guessing at it once every two years."
+ ],
+ "sections": [
+  [
+   "The month-23 problem",
+   [
+    [
+     "p",
+     "The renewal notice arrives, you look at the date, and you discover that the two-year period the Board is asking about is nearly over. This is the normal way California therapists do continuing education: nothing for twenty-two months, then a weekend of whatever is cheapest and closest to hand."
+    ],
+    [
+     "p",
+     "The requirement itself is not heavy. Thirty-six hours across a two-year renewal period is 21 minutes a week, and the cash cost can be held under $170 for the whole cycle. What goes wrong is almost never effort. It is timing, provenance and paperwork &mdash; hours taken in the wrong window, a provider whose approval you never checked, a certificate that is missing one required line."
+    ],
+    [
+     "p",
+     "And the Board is checking again. After a pause during the pandemic, the Board of Behavioral Sciences resumed routine CE audits on 12 March 2024. In the audits it has run since, 118 of 190 people could not demonstrate full compliance &mdash; a failure rate of 62%.<sup><a href=\"#s13\">[13]</a></sup> That is not a rounding error in a bureaucratic process. It is most of the people who got the letter."
+    ],
+    [
+     "p",
+     "This page sets out the whole requirement from the Board&rsquo;s own documents and the regulations behind them: what you owe, what an associate owes instead, which topics are mandated and on what cycle, what counts as a course, what the audit asks for, what it costs, and how to do it without a panic."
+    ]
+   ]
+  ],
+  [
+   "What you owe, and what an associate owes instead",
+   [
+    [
+     "p",
+     "A licensed marriage and family therapist must complete at least 36 hours of continuing education during each renewal period. That number comes from Business and Professions Code &sect;4980.54 and is restated in the Board&rsquo;s regulations at 16 CCR &sect;1887.3(a).<sup><a href=\"#s11\">[11]</a></sup><sup><a href=\"#s4\">[4]</a></sup> Six of those 36 must be in law and ethics, and they sit <b>inside</b> the 36, not on top of it.<sup><a href=\"#s4\">[4]</a></sup>"
+    ],
+    [
+     "p",
+     "A &ldquo;renewal period&rdquo; is the two-year window running from the first day after your licence&rsquo;s issue date, or its prior expiration date, to your current expiration date.<sup><a href=\"#s6\">[6]</a></sup><sup><a href=\"#s2\">[2]</a></sup> The renewal application puts it slightly differently and more usefully: the window runs to <b>the date you sign the renewal form</b>.<sup><a href=\"#s17\">[17]</a></sup> Everything must be finished before you sign, because signing is the act of certifying."
+    ],
+    [
+     "p",
+     "<b>The first renewal is not smaller.</b> This is the single most commonly misunderstood rule, and the Board lists it among the most common reasons audits fail.<sup><a href=\"#s13\">[13]</a></sup> A newly licensed LMFT owes the full 36 hours in the first renewal period, with no proration for a licence issued eleven months ago, and the Board <em>adds</em> a one-time seven-hour HIV/AIDS course that later renewals do not require.<sup><a href=\"#s3\">[3]</a></sup><sup><a href=\"#s1\">[1]</a></sup> First renewals are the heaviest cycle of your career, not the lightest."
+    ],
+    [
+     "p",
+     "The other half of the first-renewal trap is the start date. Your window opens the day after your licence issues, so the course you took while you were still an associate &mdash; even a good one, even last month &mdash; does not count toward the 36.<sup><a href=\"#s2\">[2]</a></sup> If you are still on the way to that licence, the sequence is laid out in <a href=\"become-an-mft-california.html\">the route to an LMFT licence in California</a>."
+    ],
+    [
+     "p",
+     "Associates owe something different and much smaller, and it is rarely written down clearly. A registered AMFT must complete three hours of continuing education in <b>California</b> law and ethics during each renewal period, and an associate&rsquo;s renewal period is one year, not two.<sup><a href=\"#s16\">[16]</a></sup><sup><a href=\"#s3\">[3]</a></sup> There is no 36-hour requirement for associates. The three hours are due every year even if you have already passed the California Law and Ethics exam &mdash; passing the exam does not excuse the course.<sup><a href=\"#s3\">[3]</a></sup> Associates also cannot apply for the temporary CE waiver that licensees can.<sup><a href=\"#s13\">[13]</a></sup>"
+    ],
+    [
+     "p",
+     "The gap is larger than it looks. An associate who takes three years to finish the 3,000 hours does nine hours of CE in that time. A licensee in the same three years does 54. If you are counting down those hours, <a href=\"amft-3000-hours-california.html\">the 3,000-hour arithmetic</a> is a separate problem worth planning properly."
+    ],
+    [
+     "table",
+     [
+      "Who you are",
+      "Renewal cycle",
+      "Hours owed",
+      "Of which mandated"
+     ],
+     [
+      [
+       "LMFT, first renewal",
+       "2 years",
+       "36",
+       "6 law and ethics, plus a one-time 7-hour HIV/AIDS course"
+      ],
+      [
+       "LMFT, every later renewal",
+       "2 years",
+       "36",
+       "6 law and ethics"
+      ],
+      [
+       "AMFT (associate)",
+       "1 year",
+       "3",
+       "all 3, in California law and ethics"
+      ],
+      [
+       "Licence on inactive or retired status",
+       "2 years",
+       "0",
+       "none"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "Inactive and retired licences are exempt from CE entirely under 16 CCR &sect;1887.2(a).<sup><a href=\"#s25\">[25]</a></sup> That exemption is a real option, not a loophole, and it is discussed in the traps section below."
+    ]
+   ]
+  ],
+  [
+   "The mandated content, and the cycle each one is on",
+   [
+    [
+     "p",
+     "There are four mandated topics for an LMFT, on three different cycles. The Board&rsquo;s summary chart, revised May 2026, is the authoritative list; do not work from a blog post, because the list has changed twice since 2020.<sup><a href=\"#s1\">[1]</a></sup>"
+    ],
+    [
+     "table",
+     [
+      "Requirement",
+      "Hours",
+      "Cycle",
+      "Authority"
+     ],
+     [
+      [
+       "General continuing education",
+       "36",
+       "Every renewal",
+       "&sect;4980.54; 16 CCR &sect;1887.3(a)"
+      ],
+      [
+       "Law and ethics",
+       "6",
+       "Every renewal",
+       "16 CCR &sect;1887.3(c)"
+      ],
+      [
+       "Suicide risk assessment and intervention",
+       "6",
+       "One-time, since 1 Jan 2021",
+       "&sect;4980.396"
+      ],
+      [
+       "Mental health services via telehealth",
+       "3",
+       "One-time, since 1 Jul 2023",
+       "&sect;4980.395"
+      ],
+      [
+       "HIV/AIDS assessment and treatment",
+       "7",
+       "First renewal only",
+       "16 CCR &sect;1887.3(b)"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "One note on the citations, because it will confuse you if you go looking. The Board&rsquo;s own chart cites the HIV/AIDS and law-and-ethics rules as &sect;1887.3(c) and (d); the regulation as currently in force letters them (b) and (c), following the 2022 amendment that took effect on 1 July 2023.<sup><a href=\"#s1\">[1]</a></sup><sup><a href=\"#s4\">[4]</a></sup> The substance is identical. The chart&rsquo;s lettering is simply stale."
+    ],
+    [
+     "p",
+     "The two one-time courses have a rule worth reading twice. Neither is required at renewal if you already submitted proof of it with your application for licensure &mdash; which everyone licensed after those dates did.<sup><a href=\"#s3\">[3]</a></sup> If you do take one now, it counts toward your 36 only if it falls inside your current renewal period. Take it earlier and it satisfies the one-time requirement but adds nothing to the 36.<sup><a href=\"#s2\">[2]</a></sup> The suicide requirement can also be met by documented graduate coursework or supervised practicum experience rather than a CE course, with certification from the school or supervisor.<sup><a href=\"#s14\">[14]</a></sup>"
+    ],
+    [
+     "p",
+     "The telehealth course must include law and ethics related to telehealth, and that portion may be applied to your six law-and-ethics hours if you can produce documentation showing the breakdown.<sup><a href=\"#s15\">[15]</a></sup> Keep the syllabus, not just the certificate, if you intend to rely on that."
+    ],
+    [
+     "p",
+     "As of August 2026 there is no other mandated topic for an LMFT. &sect;4980.54 directs the Board to <em>consider</em> including coursework in maternal mental health and menopausal mental health &mdash; consider, not require.<sup><a href=\"#s11\">[11]</a></sup> If a provider tells you a topic has become mandatory, check the Board&rsquo;s chart before you buy it. That chart is one page and carries a revision date."
+    ]
+   ]
+  ],
+  [
+   "What counts, and what does not",
+   [
+    [
+     "p",
+     "Start with the thing almost nobody knows: <b>the Board approves no providers and keeps no list.</b> Since 1 July 2017 the BBS has not maintained a provider list, and it says so plainly &mdash; licensees are responsible for finding and verifying that a provider is accepted, and the Board &ldquo;does not have the ability to verify if a provider&rsquo;s approval is in good standing or not.&rdquo;<sup><a href=\"#s3\">[3]</a></sup> It also does not approve individual courses.<sup><a href=\"#s2\">[2]</a></sup> Verification is entirely your job, and it is the job people skip."
+    ],
+    [
+     "p",
+     "What the Board does recognise is a short, closed list of <b>approval agencies</b>, named in 16 CCR &sect;1887.4.1. A course counts if the provider is approved by one of these seven:<sup><a href=\"#s7\">[7]</a></sup>"
+    ],
+    [
+     "ul",
+     [
+      "<b>APA</b> &mdash; American Psychological Association",
+      "<b>ASWB</b> &mdash; Association of Social Work Boards",
+      "<b>CAMFT</b> &mdash; California Association of Marriage and Family Therapists",
+      "<b>CPA</b> &mdash; California Psychological Association",
+      "<b>NASP</b> &mdash; National Association of School Psychologists",
+      "<b>NASW</b> &mdash; National Association of Social Workers",
+      "<b>NBCC</b> &mdash; National Board of Certified Counselors"
+     ]
+    ],
+    [
+     "p",
+     "Four other routes are acceptable: an accredited school, college or university meeting the accreditation standard in &sect;4980.54; a school approved by California&rsquo;s Bureau for Private Postsecondary Education; a provider approved by one of the seven agencies above; or an organisation the Board itself recognises as a provider &mdash; a list that currently includes AAMFT, AAMFT-CA, CALPCC, CAMFT, NASW-CA, CSCSW, CASP, CPA, CCA and ACA.<sup><a href=\"#s2\">[2]</a></sup><sup><a href=\"#s3\">[3]</a></sup> If a provider&rsquo;s approval line names something else &mdash; an addiction-counselling board, a state board in another state, a certification body &mdash; the hours do not count for you, however cheap they were."
+    ],
+    [
+     "p",
+     "<b>Format is not restricted.</b> There is no cap on self-study or online hours. 16 CCR &sect;1887 defines a course as any systematic learning of at least an hour, expressly including &ldquo;written, audio, or visual instruction or activities, including interactive video instruction and activities electronically transmitted from another location&rdquo;.<sup><a href=\"#s6\">[6]</a></sup> All 36 hours may be done at your kitchen table from text-based courses. Older guidance capping home study is out of date, and the larger national providers say so on their California pages.<sup><a href=\"#s22\">[22]</a></sup>"
+    ],
+    [
+     "p",
+     "Beyond ordinary courses, the regulation allows a defined set of alternatives:"
+    ],
+    [
+     "ul",
+     [
+      "<b>Teaching counts, up to 18 hours.</b> Teach a course for a board-accepted provider and you earn the same hours an attendee earns, capped at 18 per renewal period and claimable once per course.<sup><a href=\"#s4\">[4]</a></sup><sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>Board service counts.</b> Enforcement case review earns up to 6 hours, serving as a subject matter expert 6, an examination development workshop 6, and a professional organisation&rsquo;s law and ethics review committee up to 6 &mdash; but all of these may only satisfy the law and ethics portion.<sup><a href=\"#s4\">[4]</a></sup><sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>A BBS occupational analysis survey earns 6 hours</b> with no such restriction. The Board runs one roughly every five years and announces it.<sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>Academic units convert.</b> One semester unit is 15 CE hours; one quarter unit is 10.<sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>Supervisor training half-counts.</b> A law and ethics course taken to meet supervisor training requirements counts toward the 36 but cannot satisfy the six-hour law and ethics requirement.<sup><a href=\"#s4\">[4]</a></sup>",
+      "<b>Probation coursework never counts.</b> A course you take as a condition of Board discipline earns nothing toward CE.<sup><a href=\"#s4\">[4]</a></sup>"
+     ]
+    ],
+    [
+     "p",
+     "Now the things that do not count, and why. <b>Receiving supervision or consultation is not continuing education.</b> Neither is your own therapy. The Board does not publish a sentence saying so, and it is worth being straight about that rather than inventing one &mdash; the reason is structural. A course under &sect;1887 is something a <em>provider</em> offers and takes full responsibility for, and a valid record of completion must carry the provider&rsquo;s name and address, the approval agency&rsquo;s name, a course title, a date, an hour count and an instructor&rsquo;s signature.<sup><a href=\"#s6\">[6]</a></sup><sup><a href=\"#s8\">[8]</a></sup> Your consultation group cannot produce that document, so there is nothing to hand an auditor. A consultation group that formally registers as a provider through one of the seven agencies is a different matter, and a few have."
+    ],
+    [
+     "p",
+     "Content has limits too. A course must be relevant to your scope of practice, supported by evidence-based practice, consistent with current standards of care, and carry a syllabus with measurable learning objectives and a participant evaluation mechanism.<sup><a href=\"#s10\">[10]</a></sup> Self-improvement courses and courses designed for non-practitioners are explicitly not acceptable.<sup><a href=\"#s2\">[2]</a></sup>"
+    ]
+   ]
+  ],
+  [
+   "The audit, and what failing it actually means",
+   [
+    [
+     "p",
+     "Audits are not a formality and they are not rare enough to ignore. The Board&rsquo;s own 2026 publication gives the numbers:"
+    ],
+    [
+     "quote",
+     "Following a pause during the COVID-19 pandemic, the Board resumed routine CE audits on March 12, 2024. Since then, 190 audits have been conducted, and 118 individuals failed to demonstrate full compliance&mdash;a failure rate of 62%.",
+     "Board of Behavioral Sciences, <i>Stay Audit-Ready</i> &mdash; see source [13]"
+    ],
+    [
+     "p",
+     "If you are selected, the Board notifies you by letter or email and you submit documentation by the stated due date.<sup><a href=\"#s3\">[3]</a></sup> You never send certificates with a renewal &mdash; the Board will not keep them, and you will need the originals if audited.<sup><a href=\"#s2\">[2]</a></sup>"
+    ],
+    [
+     "p",
+     "<b>You keep the records for at least two years from the date of the renewal</b> the courses were taken for &mdash; that is 16 CCR &sect;1887.12, and it means a certificate from early in a cycle has to survive roughly four years from the day you earned it.<sup><a href=\"#s9\">[9]</a></sup> A record of completion is only valid if it contains all seven elements set out in 16 CCR &sect;1887.11.0:<sup><a href=\"#s8\">[8]</a></sup>"
+    ],
+    [
+     "ul",
+     [
+      "your name and licence number",
+      "the course title",
+      "the provider&rsquo;s name and address",
+      "<b>the name of the Board-recognised approval agency</b>, or a statement that the provider is recognised by the Board under &sect;1887.4.3",
+      "the date of the course",
+      "the number of CE hours",
+      "the signature of the instructor, provider or designee"
+     ]
+    ],
+    [
+     "p",
+     "The fourth one is the element people are missing when they fail. A PDF that says &ldquo;Certificate of Completion, 6 hours&rdquo; and nothing about who approved the provider is not a compliant record. Check that line the day you download the file, while you can still email the provider about it."
+    ],
+    [
+     "p",
+     "Failing has two tracks, and most write-ups only mention one. The practical outcome is usually a citation and fine: the Board says fines typically run <b>$150 to $1,500 and can reach $2,500</b>, and that citations and fines are reported to the National Practitioner Data Bank.<sup><a href=\"#s2\">[2]</a></sup> The second track is the serious one. You certified completion on your renewal application <b>under penalty of perjury</b>, and 16 CCR &sect;1887.1 provides that a licensee who cannot verify completion by producing a record on request is subject to discipline under BPC &sect;4982(b).<sup><a href=\"#s5\">[5]</a></sup> &sect;4982 lets the Board suspend or revoke a licence for unprofessional conduct, and subdivision (b) covers securing a licence by misrepresentation on an application submitted to the Board.<sup><a href=\"#s12\">[12]</a></sup> So this is not a parking ticket. It is a licence matter that usually gets resolved as a fine."
+    ],
+    [
+     "p",
+     "The Board also publishes the reasons audits fail, and they are all avoidable: courses from providers the Board does not accept; hours not completed within the renewal period and before the application was submitted; first-time renewers missing the extra coursework their licence type requires; and no retained proof of the one-time suicide or telehealth courses.<sup><a href=\"#s13\">[13]</a></sup>"
+    ],
+    [
+     "p",
+     "If you discover you are short after the fact, the Board&rsquo;s own advice is to complete the missing hours immediately and send it the course information with a letter of explanation, rather than wait to be asked.<sup><a href=\"#s3\">[3]</a></sup>"
+    ]
+   ]
+  ],
+  [
+   "What it costs, and the cheapest compliant cycle",
+   [
+    [
+     "p",
+     "CE pricing spans two orders of magnitude for the same 36 hours. Here are published prices, checked in August 2026, for options that are all acceptable to the Board."
+    ],
+    [
+     "table",
+     [
+      "Option",
+      "Published price",
+      "What it buys"
+     ],
+     [
+      [
+       "CAMFT clinical membership",
+       "$227/yr + $50 joining fee<sup><a href=\"#s18\">[18]</a></sup>",
+       "Member CE pricing, an on-demand library, <i>The Therapist</i>"
+      ],
+      [
+       "CAMFT on-demand law and ethics, 3 hours",
+       "$60 member / $85 non-member<sup><a href=\"#s19\">[19]</a></sup>",
+       "Half of your law and ethics requirement"
+      ],
+      [
+       "6-hour California law and ethics, CAMFT-approved provider",
+       "$74<sup><a href=\"#s20\">[20]</a></sup>",
+       "The entire law and ethics requirement"
+      ],
+      [
+       "Unlimited text-based CE, APA/ASWB/NBCC-approved",
+       "$89.99/yr, or $154.99 for two years<sup><a href=\"#s21\">[21]</a></sup>",
+       "As many general hours as you want"
+      ],
+      [
+       "26-hour California package, APA/ASWB/NBCC-approved",
+       "$63<sup><a href=\"#s23\">[23]</a></sup>",
+       "26 of the 36 hours"
+      ],
+      [
+       "BBS active licence renewal fee, on time, from 1 July 2026",
+       "$120<sup><a href=\"#s17\">[17]</a></sup>",
+       "The renewal itself, not CE"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "The honest cheapest fully compliant path for a two-year cycle: one year of an unlimited subscription from a provider approved by APA, ASWB or NBCC at <b>$89.99</b> for your 30 general hours, plus a six-hour California law and ethics course from a CAMFT-approved provider at <b>$74</b>.<sup><a href=\"#s21\">[21]</a></sup><sup><a href=\"#s20\">[20]</a></sup> That is <b>$163.99</b> of CE for the full 36 hours. Add the $120 renewal fee and the cycle costs $283.99, or $11.83 a month &mdash; the other BBS charges are broken out in <a href=\"bbs-fees-california-2026.html\">the 2026 fee schedule</a>.<sup><a href=\"#s17\">[17]</a></sup>"
+    ],
+    [
+     "p",
+     "CAMFT membership is worth having for the legal helpline and the community, but it does not pay for itself as a CE purchase. Clinical membership is $227 a year plus a $50 joining fee &mdash; $504 across a first two-year cycle &mdash; against a member discount of roughly $25 on a three-hour course.<sup><a href=\"#s18\">[18]</a></sup><sup><a href=\"#s19\">[19]</a></sup> Join for the other reasons, and treat the CE pricing as a rebate."
+    ],
+    [
+     "pull",
+     "$164",
+     "the cash cost of a fully compliant two-year cycle"
+    ],
+    [
+     "p",
+     "A note on why a separate law and ethics purchase is usually necessary: the cheap unlimited catalogues are national, and a California-specific six-hour law and ethics course is generally not in them. The regulation asks licensees for six hours &ldquo;in the subject of law and ethics&rdquo; without saying California law, while associates are told explicitly to take <b>California</b> law and ethics.<sup><a href=\"#s4\">[4]</a></sup><sup><a href=\"#s3\">[3]</a></sup> Take the California one anyway. It is the version that is useful to you, and it removes an argument you do not want to have with an auditor."
+    ],
+    [
+     "p",
+     "Now the genuinely free routes, described honestly rather than optimistically:"
+    ],
+    [
+     "ul",
+     [
+      "<b>Teaching: up to 18 free hours.</b> An accredited university is a board-accepted provider, so an adjunct or a regular guest lecturer already has half the cycle covered.<sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>A BBS occupational analysis survey: 6 free hours</b>, unrestricted &mdash; but only when the Board runs one, roughly every five years.<sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>Board or committee service: 6 more free hours</b>, restricted to the law and ethics portion. Enforcement case review, subject matter expert work, exam development and a professional organisation&rsquo;s law and ethics committee all pay 6, and since your law and ethics requirement is 6, only one of them is worth chasing in a given cycle.<sup><a href=\"#s4\">[4]</a></sup>",
+      "<b>County programmes are usually closed to you.</b> LA County DMH gives away a 6-hour law and ethics course and the 7-hour HIV/AIDS course, funded by MHSA &mdash; but eligibility is limited to clinicians employed within the county&rsquo;s public mental health system.<sup><a href=\"#s24\">[24]</a></sup> If you are solo and private-pay, that door is shut. Check your own county before assuming, but expect the same condition.",
+      "<b>The BBS itself offers no free law and ethics course.</b> Its free material is the FAQ, the summary chart and the audit publication &mdash; useful documents, worth zero CE hours.<sup><a href=\"#s2\">[2]</a></sup><sup><a href=\"#s1\">[1]</a></sup>"
+     ]
+    ],
+    [
+     "p",
+     "Stacked at their maximum, those free routes give a teaching therapist 18 + 6 + 6 = 30 hours, leaving six to buy. For everyone else the realistic free stack is 6 to 12 hours and depends on the Board announcing something. Plan on paying about $164 and treat any free hours as a rebate."
+    ],
+    [
+     "p",
+     "The cash price is also the small number. Thirty-six hours is 36 hours you are not seeing clients. At a stated $200 fee, that is <b>$7,200</b> of time &mdash; about 44 times the cash cost of the courses. Every hour of optimisation should go into <em>when</em> you do the hours, not into saving $20 on a course."
+    ],
+    [
+     "pull",
+     "$7,200",
+     "36 hours of unbilled time at a $200 fee"
+    ],
+    [
+     "p",
+     "Which argues for spending the hours on training you would want regardless. Several California psychedelic-assisted therapy programmes carry BBS-qualifying CE, so the training and the compliance are the same spend &mdash; the programmes and their hours are compared in <a href=\"psychedelic-therapy-training-california.html\">the guide to psychedelic therapy training in California</a>."
+    ]
+   ]
+  ],
+  [
+   "Six ways to lose hours you actually did",
+   [
+    [
+     "p",
+     "Every one of these has cost a real licensee real hours."
+    ],
+    [
+     "ul",
+     [
+      "<b>Hours earned outside the renewal period.</b> A course taken the week before your period opened is worth nothing toward that period, and it cannot be carried backward or forward. There is no carry-over in the California scheme.<sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>A provider whose approval had lapsed.</b> The Board keeps no list and cannot check for you.<sup><a href=\"#s3\">[3]</a></sup> Screenshot the provider&rsquo;s approval statement and its provider number on the day you take the course, and keep it with the certificate.",
+      "<b>Thinking law and ethics is extra.</b> The six hours are part of the 36, not added to them &mdash; you need 36 in total, of which 6 are law and ethics.<sup><a href=\"#s4\">[4]</a></sup> Nobody owes 42. The inverse error is worse: 36 general hours with no law and ethics course is a failed audit even though the arithmetic looks right.",
+      "<b>Double-counting.</b> You cannot claim the same course twice in one period.<sup><a href=\"#s4\">[4]</a></sup> A supervisor law and ethics course counts toward the 36 but not toward the 6.<sup><a href=\"#s4\">[4]</a></sup> A one-time course taken before this period satisfies the one-time requirement but adds nothing to the 36.<sup><a href=\"#s2\">[2]</a></sup>",
+      "<b>Counting supervision, consultation or your own therapy.</b> None of them produces a record of completion with the seven required elements, so none of them survives an audit.<sup><a href=\"#s8\">[8]</a></sup>",
+      "<b>Letting the licence go delinquent.</b> The most expensive one, below."
+     ]
+    ],
+    [
+     "p",
+     "If your licence expires, you still owe the same 36 hours &mdash; expiry does not reduce the requirement. What changes is everything else. It is unlawful to practise on an expired licence outside an exempt setting, you may not supervise or sign off experience hours, and you are not entitled to payment from a client or a third-party payor for work done while expired.<sup><a href=\"#s17\">[17]</a></sup> The delinquent renewal fee is <b>$170</b> against $120 on time, from 1 July 2026, and there is no grace period.<sup><a href=\"#s17\">[17]</a></sup> A licence not renewed within <b>three years</b> of expiry is cancelled outright: to practise again you reapply as a new applicant, meet current requirements and sit the examinations again.<sup><a href=\"#s17\">[17]</a></sup>"
+    ],
+    [
+     "p",
+     "One genuine mercy in the delinquent case: because the renewal application defines the window as running to the date you sign the form, hours you complete after expiry but before signing still count toward that period.<sup><a href=\"#s17\">[17]</a></sup> You are late, not disqualified."
+    ],
+    [
+     "p",
+     "If you are not practising, inactive status is the honest answer rather than drift. An inactive licence requires no CE at all, renews every two years at $70 on time from 1 July 2026, and can be held indefinitely.<sup><a href=\"#s25\">[25]</a></sup><sup><a href=\"#s17\">[17]</a></sup> Returning to active status requires completing the CE required at the time of reactivation.<sup><a href=\"#s17\">[17]</a></sup> There is also a temporary CE waiver for licensees with a qualifying disability or medical condition, or who are the primary caregiver for an immediate family member with a total disability &mdash; but it must be applied for at least 60 days before your expiration date, and it is not available to associates.<sup><a href=\"#s25\">[25]</a></sup><sup><a href=\"#s13\">[13]</a></sup>"
+    ]
+   ]
+  ],
+  [
+   "The Monday plan",
+   [
+    [
+     "p",
+     "Thirty-six hours over 104 weeks is 21 minutes a week, or an hour and a half a month. Done that way it is invisible. Done in month 23 it eats a weekend and produces the certificates most likely to fail an audit. Here is the whole cycle as a routine."
+    ],
+    [
+     "ul",
+     [
+      "<b>This morning: find your expiration date.</b> Look up your own licence on Breeze and write the expiry on the calendar, plus a note two years earlier marking the day your window opened. Everything else hangs off those two dates.",
+      "<b>This morning: make one folder.</b> One cloud folder per renewal period, named for the expiry date. Every certificate goes in it the day you earn it, and it stays there for two years past the renewal.<sup><a href=\"#s9\">[9]</a></sup>",
+      "<b>This week: buy the law and ethics course first.</b> It is the requirement people leave last and the one with no substitute. Roughly $74 for six California hours, or $60 as a CAMFT member for a three-hour half.<sup><a href=\"#s20\">[20]</a></sup><sup><a href=\"#s19\">[19]</a></sup>",
+      "<b>This week: settle the one-time courses once.</b> If you were licensed before January 2021 or July 2023, find your suicide risk and telehealth proof now and put a copy in the folder. If it does not exist, buy those hours this cycle &mdash; they count toward the 36 if taken inside the window.<sup><a href=\"#s14\">[14]</a></sup><sup><a href=\"#s15\">[15]</a></sup>",
+      "<b>Every month: one 90-minute block, booked like a client.</b> Eighteen hours a year clears 36 with room to spare. Book it in a slot you would not have billed anyway &mdash; the time is the real cost, not the fee.",
+      "<b>Every certificate, same day: check the seven elements.</b> Especially the approval agency name.<sup><a href=\"#s8\">[8]</a></sup> A missing line is fixable in week one and unfixable in year three.",
+      "<b>Month 22: count.</b> Add the folder up before you go near the renewal form. Confirm 36 total, 6 in law and ethics, and the one-time proofs present.",
+      "<b>Then sign.</b> The certification is made under penalty of perjury, and you should be able to open the folder and prove it in five minutes.<sup><a href=\"#s5\">[5]</a></sup>"
+     ]
+    ],
+    [
+     "p",
+     "The failure rate on recent audits is 62%, which tells you that the median California therapist is running this on memory.<sup><a href=\"#s13\">[13]</a></sup> A dated folder and a monthly block is the entire difference, and it costs about $164 and eighteen hours a year."
+    ],
+    [
+     "p",
+     "One last thing worth putting in your books: continuing education, your renewal fee and your professional association dues are ordinary business expenses. Add the whole cycle as an expense line and look at what it actually costs you after tax rather than what it costs on the invoice."
+    ]
+   ]
+  ]
+ ],
+ "sources": [
+  {
+   "n": 1,
+   "cite": "BBS, Licensee Continuing Education (CE) Requirements Summary (rev. 05/2026)",
+   "url": "https://www.bbs.ca.gov/pdf/forms/cechart.pdf",
+   "note": "the one-page chart of mandated coursework, hours, cycles and code sections"
+  },
+  {
+   "n": 2,
+   "cite": "BBS, Licensee Continuing Education Requirements and FAQs (rev. 05/2026)",
+   "url": "https://www.bbs.ca.gov/pdf/publications/ceinfo_brochure.pdf",
+   "note": "course timing, acceptable providers, alternative credit, records, fines"
+  },
+  {
+   "n": 3,
+   "cite": "BBS, Continuing Education (licensee page)",
+   "url": "https://www.bbs.ca.gov/licensees/cont_ed.html",
+   "note": "&ldquo;As of 7/1/17, the Board no longer keeps a list of valid CE Providers&rdquo;; approval agencies; registrant requirement"
+  },
+  {
+   "n": 4,
+   "cite": "16 CCR &sect;1887.3, Continuing Education Course Requirements and Credit for Specified Activities",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.3",
+   "note": "36 hours; HIV/AIDS; six hours law and ethics; teaching cap; board-service credit"
+  },
+  {
+   "n": 5,
+   "cite": "16 CCR &sect;1887.1, Continuing Education Requirements and License Renewal",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.1",
+   "note": "certification under penalty of perjury; failure to verify is subject to discipline under &sect;4982(b)"
+  },
+  {
+   "n": 6,
+   "cite": "16 CCR &sect;1887, Definitions",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887",
+   "note": "defines &ldquo;course&rdquo; to include written, audio, visual and electronically transmitted instruction"
+  },
+  {
+   "n": 7,
+   "cite": "16 CCR &sect;1887.4.1, Board-Recognized Approval Agencies",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.4.1",
+   "note": "the seven named agencies"
+  },
+  {
+   "n": 8,
+   "cite": "16 CCR &sect;1887.11.0, Records of Course Completion",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.11.0",
+   "note": "the seven elements a valid certificate must contain"
+  },
+  {
+   "n": 9,
+   "cite": "16 CCR &sect;1887.12, Licensee and Provider Course Records",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.12",
+   "note": "licensees keep records at least two years from the date of renewal"
+  },
+  {
+   "n": 10,
+   "cite": "16 CCR &sect;1887.4.0, Continuing Education Course Content",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.4.0",
+   "note": "relevance, evidence base, syllabus and evaluation requirements"
+  },
+  {
+   "n": 11,
+   "cite": "Cal. Bus. &amp; Prof. Code &sect;4980.54",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4980.54.&lawCode=BPC",
+   "note": "36 hours for licensees, 3 hours of California law and ethics for registrants, audit and two-year retention"
+  },
+  {
+   "n": 12,
+   "cite": "Cal. Bus. &amp; Prof. Code &sect;4982",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982.&lawCode=BPC",
+   "note": "unprofessional conduct; the Board may suspend or revoke"
+  },
+  {
+   "n": 13,
+   "cite": "BBS, Stay Audit-Ready: Don&rsquo;t Let Continuing Education Requirements Catch You Off Guard (PDE_26-003)",
+   "url": "https://www.bbs.ca.gov/pdf/publications/stay_audit_ready_ce.pdf",
+   "note": "audits resumed 12 March 2024; 118 of 190 failed; common failure reasons; no waivers for registrants"
+  },
+  {
+   "n": 14,
+   "cite": "BBS, Suicide Risk Assessment and Intervention Training FAQ (AB 1436)",
+   "url": "https://bbs.ca.gov/pdf/suicide_prevention.pdf",
+   "note": "one-time six-hour requirement; three ways to satisfy it; interaction with the 36 hours"
+  },
+  {
+   "n": 15,
+   "cite": "BBS, Telehealth Coursework FAQ (AB 1759, Ch. 520, Stats. 2022)",
+   "url": "https://www.bbs.ca.gov/pdf/ab_1759_faq_telehealth.pdf",
+   "note": "one-time three-hour requirement; must include law and ethics; may count toward the six"
+  },
+  {
+   "n": 16,
+   "cite": "BBS, Registrant Continuing Education Requirements and FAQs (rev. 05/2026)",
+   "url": "https://www.bbs.ca.gov/pdf/registrants_ce_info_brochure.pdf",
+   "note": "three hours of California law and ethics per one-year registration period"
+  },
+  {
+   "n": 17,
+   "cite": "BBS, Application for License Renewal &mdash; Instructions and Important Information (rev. 06/2026)",
+   "url": "https://www.bbs.ca.gov/pdf/forms/man_renewal.pdf",
+   "note": "renewal window to the date of signature; 2026 fees; delinquency, cancellation at three years, inactive status"
+  },
+  {
+   "n": 18,
+   "cite": "CAMFT, Join CAMFT &mdash; membership categories and dues",
+   "url": "https://www.camft.org/Membership/Join-CAMFT",
+   "note": "clinical membership $227 plus a $50 application fee; pre-licensed $95"
+  },
+  {
+   "n": 19,
+   "cite": "CAMFT On Demand, New Year, New Law &amp; Ethics: What You Need to Know for 2026",
+   "url": "https://ondemand.camft.org/courses/120165",
+   "note": "three law and ethics hours, $60 member / $85 non-member"
+  },
+  {
+   "n": 20,
+   "cite": "High Pass Education, California Law &amp; Ethics 6-hour for LMFTs, LPCCs &amp; LCSWs (CAMFT CEPA provider #137848)",
+   "url": "https://highpass.com/products/california-6-hour-law-ethics-lmft-lpcc-lcsw",
+   "note": "$74 for the full six-hour requirement"
+  },
+  {
+   "n": 21,
+   "cite": "CE4Less, Pricing",
+   "url": "https://ce4less.com/pricing/",
+   "note": "unlimited text-based CE $89.99/yr, $154.99 for two years; APA, ASWB and NBCC approved"
+  },
+  {
+   "n": 22,
+   "cite": "NetCE, California Counselors/Therapists CE Requirements, Accreditations &amp; Approvals",
+   "url": "https://www.netce.com/ce-requirements/counselor-therapist/ca/",
+   "note": "&ldquo;all of which may be completed through self-study (print) or online&rdquo;; NBCC ACEP 6361, APA and ASWB approved"
+  },
+  {
+   "n": 23,
+   "cite": "NetCE, California Counselors and Therapists special offer (26 hours)",
+   "url": "https://www.netce.com/CACTH25",
+   "note": "26 hours for $63"
+  },
+  {
+   "n": 24,
+   "cite": "Los Angeles County Department of Mental Health, Online Continuing Education Trainings",
+   "url": "https://file.lacounty.gov/sdsinter/dmh/1044560_OnlineContinuingEducationTrainings.pdf",
+   "note": "free 6-hour law and ethics and 7-hour HIV/AIDS courses, limited to clinicians in the county public mental health system"
+  },
+  {
+   "n": 25,
+   "cite": "16 CCR &sect;1887.2, Temporary Waivers of and Exemptions from Continuing Education Requirements",
+   "url": "https://www.law.cornell.edu/regulations/california/16-CCR-1887.2",
+   "note": "inactive and retired licences exempt; the 60-day temporary waiver and its criteria"
+  }
+ ]
+}

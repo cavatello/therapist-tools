@@ -54,6 +54,15 @@ const PAGES = [
   }],
   ['bbs-fees-california-2026.html', { uplink: '.uplink a.uc' }],
   ['become-an-mft-california.html', { uplink: '.uplink a.uc' }],
+  ['insurance-panels-california-therapist.html', {
+    sources: '.artsrc li', uplink: '.uplink a.uc',
+  }],
+  ['headway-alma-grow-therapy-compared-california.html', {
+    sources: '.artsrc li', uplink: '.uplink a.uc',
+  }],
+  ['continuing-education-california-lmft.html', { sources: '.artsrc li' }],
+  ['getting-paid/index.html', { cards: '.lc', intro: '.intro p' }],
+  ['privacy.html', { uplink: '.uplink a.uc' }],
   ['mft-programs-california.html', {
     charts: '.ig', dots: '.ig-d', bars: '.ig-b',
     internal: 'a.go.mine', cards: 'article.pg',
@@ -85,6 +94,8 @@ const browser = await chromium.launch({
 
 for (const view of (PHASE === 'bulk' ? [] : VIEWS)) {
   const ctx = await browser.newContext({ viewport: view });
+  await ctx.route('**/*', r =>
+    r.request().url().startsWith('file://') ? r.continue() : r.abort());
   for (const [file, sel] of PAGES) {
     const page = await ctx.newPage();
     const errs = [];
