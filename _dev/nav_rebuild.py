@@ -277,6 +277,11 @@ CSS = """
     scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x proximity}
   .sitenav-links::-webkit-scrollbar{display:none}
   .sitenav-top{scroll-snap-align:start}
+  /* the affordance. Seven items do not fit 390px and four of them are off the
+     right edge; a hard clip reads as "that is all there is". Fading the last
+     18px says there is more without adding a control. */
+  .sitenav-links{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 18px),transparent);
+    mask-image:linear-gradient(90deg,#000 calc(100% - 18px),transparent)}
 }
 
 /* ---- the panel. One group at a time, so a menu holding 36 destinations never

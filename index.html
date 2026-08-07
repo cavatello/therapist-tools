@@ -111,7 +111,12 @@
 .lsec.lpaper{background:var(--paper);border-top:3px solid var(--hard);
   border-bottom:3px solid var(--hard)}
 .lsec h2{font-size:clamp(28px,3.4vw,48px)}
-.lhead{max-width:22ch;margin:0 0 34px}
+/* 22ch measured 176px, not 176 characters: `ch` is the width of "0" in the
+   element's OWN font, and .lhead is a div set in Inter at 16px - so the cap
+   applied at body size and then the h2 inside it inherited a 176px box. "Who
+   makes this" set to three lines. The cap belongs on prose, and the heading
+   sets its own measure from its own type size. */
+.lhead{max-width:70ch;margin:0 0 34px}
 .lhead .llede{margin-top:.2em;max-width:62ch}
 
 /* --- hero ----------------------------------------------------------------
@@ -373,8 +378,11 @@
   border-top:2px dashed var(--hard);text-decoration:none;color:inherit}
 .lpair i{font-style:normal;flex:none;color:var(--ink);font-size:15px;line-height:1.4;
   font-weight:700}
+/* font-family:inherit is load-bearing. `.lfig b` and `.lpair b` are both
+   (0,1,1) and .lpair is nested inside .lfig, so without this the pair heading
+   inherits the FIGURE's serif and a 14px sentence sets in Fraunces. */
 .lpair b{display:block;font-size:14.5px;font-weight:700;line-height:1.35;
-  margin-bottom:3px}
+  margin-bottom:3px;font-family:inherit}
 .lpair span{display:block;font-size:13.2px;line-height:1.5;color:var(--muted)}
 .lpair:hover b{text-decoration:underline}
 
@@ -603,5 +611,6 @@ td p, th p, .fig p, .stat p, .kpi p{max-width:none}
 
 
 
-<link rel="stylesheet" href="css/2970c03400b9.css">
+
+<link rel="stylesheet" href="css/360d3a012e1d.css">
 </body></html>
