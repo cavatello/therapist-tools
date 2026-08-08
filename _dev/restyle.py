@@ -158,9 +158,15 @@ PRACTICE = [
      "headway-for-california-therapists.html"),
 ]
 TRAINING = [
-    ("mft-programs-california.html", "MFT programmes",
-     "65 California schools, and what people say",
+    ("mft-programs-california.html", "MFT programs",
+     "78 California schools, and what people say",
      "therapist-working-remotely-california.html"),
+    # The doctorates. A different licence, a different board and a different
+    # accreditation regime from the MFT route above it, which is why it is a
+    # separate entry rather than a line on that page.
+    ("psyd-programs-california.html", "PsyD programs",
+     "every doctorate in the state, and what accreditation decides",
+     "mft-programs-california.html"),
     ("psychedelic-therapy-training-california.html", "Psychedelic training",
      "16 certificates, and what each one lets you do",
      "become-an-mft-california.html"),
