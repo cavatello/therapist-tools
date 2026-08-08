@@ -50,10 +50,14 @@ CSS = """<style>%s
 .sitefoot .ftby{color:rgba(255,255,255,.62)}
 .sitefoot .ftby b{color:rgba(255,255,255,.88)}
 .sitefoot .ftby a,.sitefoot .ftcols a:focus-visible{color:#F6C560}
+/* The masthead subtitle: #7C766A on #FBF9F3 is 4.28:1 at 10px, just under the
+   floor, on every page of the site. */
+.sitenav .sitenav-sub{color:#635E53}
 """ % MARK + "</style>"
 
 # (label, colour, alpha) as declared above, for the contrast guard.
 DECLARED = [
+    (".sitenav-sub", (0x63, 0x5E, 0x53), 1.0, (0xFB, 0xF9, 0xF3)),
     (".ftcols a", (255, 255, 255), 0.78),
     (".ftcols p", (255, 255, 255), 0.62),
     (".ftby", (255, 255, 255), 0.62),
@@ -96,10 +100,12 @@ def pages():
 
 
 def main():
-    print("contrast against the footer band #16211B:")
+    print("measured contrast (footer band #16211B unless noted):")
     worst = 99.0
-    for label, rgb, a in DECLARED:
-        r = ratio(rgb, a, BAND)
+    for entry in DECLARED:
+        label, rgb, a = entry[0], entry[1], entry[2]
+        bg = entry[3] if len(entry) > 3 else BAND
+        r = ratio(rgb, a, bg)
         worst = min(worst, r)
         print("  %-12s %5.2f:1 %s" % (label, r, "ok" if r >= 4.5 else "FAILS"))
     if worst < 4.5:
@@ -110,7 +116,7 @@ def main():
     for rel in pages():
         p = os.path.join(SITE, rel)
         s = open(p, encoding="utf-8").read()
-        if "sitefoot" not in s:
+        if "sitefoot" not in s and "sitenav" not in s:
             continue
         orig = s
         s = re.sub(r"\n?<style>" + re.escape(MARK) + r"[\s\S]*?</style>\n?",
@@ -127,7 +133,7 @@ def main():
     bad = 0
     for rel in pages():
         s = open(os.path.join(SITE, rel), encoding="utf-8").read()
-        if "sitefoot" in s and s.count(MARK) != 1:
+        if ("sitefoot" in s or "sitenav" in s) and s.count(MARK) != 1:
             print("GUARD %s: %d copies of the override" % (rel, s.count(MARK)))
             bad += 1
     if bad:
