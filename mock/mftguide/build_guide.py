@@ -564,7 +564,7 @@ def build():
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Becoming an LMFT in California: every requirement, with the section it comes from</title>
 <meta name="description" content="The full route to California LMFT licensure — degree, practicum, the 3,000 hours, supervision, both exams, every Board fee at the 2026 reduced rates, and the rules that most often cost people a year. Every figure cited to the Board or the code.">
-<link rel="canonical" href="https://cavatello.github.io/therapist-tools/become-an-mft-california.html">
+<link rel="canonical" href="https://therapistsupport.org/become-an-mft-california.html">
 %s
 %s
 %s

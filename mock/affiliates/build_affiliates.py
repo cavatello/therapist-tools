@@ -31,7 +31,7 @@ WORK = os.path.dirname(HERE)
 SITE = os.path.join(WORK, "..", "stage2")
 CHROME = os.path.join(SITE, "become-an-mft-california.html")
 OUT = os.path.join(HERE, "out")
-BASE = "https://cavatello.github.io/therapist-tools/"
+BASE = "https://therapistsupport.org/"
 UPDATED = "7 August 2026"
 
 REG = json.load(open(os.path.join(HERE, "partners.json"), encoding="utf-8"))

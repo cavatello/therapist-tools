@@ -651,7 +651,7 @@ def page(p):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%s — MFT programme in California: accreditation, cost and what people say</title>
 <meta name="description" content="%s — degree, units, length, format, COAMFTE status and published tuition, plus real discussion from students and graduates. Part of a directory of {{NALL}} California MFT programmes.">
-<link rel="canonical" href="https://cavatello.github.io/therapist-tools/%s">
+<link rel="canonical" href="https://therapistsupport.org/%s">
 %s
 %s
 %s
@@ -725,7 +725,7 @@ def main():
         doc = open(os.path.join(OUTDIR, sl), encoding="utf-8").read()
         if doc.count("<h1") != 1:
             bad.append("%s: %d h1" % (sl, doc.count("<h1")))
-        if 'rel="canonical" href="https://cavatello.github.io/therapist-tools/%s"' % sl not in doc:
+        if 'rel="canonical" href="https://therapistsupport.org/%s"' % sl not in doc:
             bad.append("%s: canonical does not match its own filename" % sl)
         if not re.search(r"<script>[\s\S]*?navpanel[\s\S]*?</script>", doc):
             bad.append("%s: dead header" % sl)

@@ -87,7 +87,7 @@ else:
     today = datetime.date.today().isoformat()
     m = re.search(r'<url>.*?</url>', s, re.S)
     assert m, "sitemap.xml: no <url> block to copy the shape from"
-    entry = ('<url><loc>https://cavatello.github.io/therapist-tools/' + SLUG + '</loc>'
+    entry = ('<url><loc>https://therapistsupport.org/' + SLUG + '</loc>'
              '<lastmod>' + today + '</lastmod><changefreq>monthly</changefreq>'
              '<priority>0.9</priority></url>')
     s = s.replace("</urlset>", entry + "\n</urlset>", 1)

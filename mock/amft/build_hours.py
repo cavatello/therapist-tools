@@ -21,7 +21,7 @@ from css import CSS
 from engine import JS as ENGINE_JS
 from art import HERO_ART
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "amft-3000-hours-california.html"
 ADVISOR = "associate-mft-job-advisor.html"
 TITLE = ("How long to 3,000 hours? An AMFT hours calculator for California")

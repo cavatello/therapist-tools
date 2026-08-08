@@ -74,7 +74,7 @@ if os.path.isdir(_NEW):
             sys.exit("build_articles: new/%s duplicates an existing slug" % _f)
         ARTICLES.append(_a)
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SRC = os.path.join(HERE, "_chrome.html")
 OUT = HERE
 

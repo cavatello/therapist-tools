@@ -1073,7 +1073,7 @@ def build():
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>California MFT graduate programmes: %d schools, what each publishes, and what people say</title>
 <meta name="description" content="Every California graduate programme leading to LMFT licensure — degree, units, length, format, COAMFTE accreditation, LPCC eligibility and published tuition, with links to real forum discussion for each. No rankings, and no estimated tuition.">
-<link rel="canonical" href="https://cavatello.github.io/therapist-tools/mft-programs-california.html">
+<link rel="canonical" href="https://therapistsupport.org/mft-programs-california.html">
 %s
 %s
 %s

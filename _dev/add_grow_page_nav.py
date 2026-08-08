@@ -62,10 +62,10 @@ s = open(path).read()
 if SLUG in s:
     print("  %-18s already listed" % "sitemap.xml")
 else:
-    tools = ('  <url>\n    <loc>https://cavatello.github.io/therapist-tools/tools.html</loc>\n'
+    tools = ('  <url>\n    <loc>https://therapistsupport.org/tools.html</loc>\n'
              '    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>\n')
     assert s.count(tools) == 1
-    entry = ('  <url>\n    <loc>https://cavatello.github.io/therapist-tools/' + SLUG + '</loc>\n'
+    entry = ('  <url>\n    <loc>https://therapistsupport.org/' + SLUG + '</loc>\n'
              '    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>\n')
     s = s.replace(tools, tools + entry, 1)
     open(path, "w").write(s)

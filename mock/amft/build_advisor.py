@@ -15,7 +15,7 @@ from css import CSS
 from engine import JS
 from art import HERO_ART
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "associate-mft-job-advisor.html"
 TITLE = ("Associate MFT Job Advisor — compare California AMFT jobs, pay and "
          "3,000 hours")

@@ -8,4 +8,4 @@ Allow: /
 Disallow: /concepts.html
 Disallow: /tycoon.html
 
-Sitemap: https://cavatello.github.io/therapist-tools/sitemap.xml
+Sitemap: https://therapistsupport.org/sitemap.xml

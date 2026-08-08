@@ -25,7 +25,7 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-BASE = "https://cavatello.github.io/therapist-tools"
+BASE = "https://therapistsupport.org"
 DEST = "resources.html"
 
 HTML = """<!doctype html>

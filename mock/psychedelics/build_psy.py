@@ -36,7 +36,7 @@ OUT = os.path.join(HERE, "out")
 CHROME = os.path.join(os.path.dirname(HERE), "mftguide", "_chrome.html")
 UPDATED = "6 August 2026"
 HUB = "psychedelic-therapy-training-california.html"
-SITE = "https://cavatello.github.io/therapist-tools/"
+SITE = "https://therapistsupport.org/"
 
 FEATURED = "ciis-psychedelic-assisted-therapies"
 

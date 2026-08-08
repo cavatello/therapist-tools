@@ -44,7 +44,7 @@ import os, re, sys, json, html, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-BASE = "https://cavatello.github.io/therapist-tools/"
+BASE = "https://therapistsupport.org/"
 MARK = "<!-- discovery -->"
 
 # Pages that must never appear in the sitemap, and why.

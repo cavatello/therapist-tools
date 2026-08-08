@@ -61,7 +61,7 @@ Idempotent either way: a second run reports nothing to do.
 """
 import os, re, sys, socket, argparse
 
-OLD_BASE = "https://cavatello.github.io/therapist-tools"
+OLD_BASE = "https://therapistsupport.org"
 OLD_HOST = "cavatello.github.io"
 
 SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
@@ -132,7 +132,7 @@ def main():
 
     frm, to = (new_base, OLD_BASE) if a.revert else (OLD_BASE, new_base)
 
-    changed, hits = 0, 0
+    changed, hits, skipped = 0, 0, []
     for rel in targets(site):
         path = os.path.join(site, rel)
         try:
@@ -142,12 +142,25 @@ def main():
         n = s.count(frm)
         if not n:
             continue
-        open(path, "w", encoding="utf-8").write(s.replace(frm, to))
+        # A file the process cannot write must not abort the run. Aborting
+        # halfway is the worst outcome available here: some canonicals point at
+        # the new domain and some at the old, which is a harder state to reason
+        # about than either end. Skip it, name it, keep going, and let the
+        # guard at the bottom decide whether the result is publishable.
+        try:
+            open(path, "w", encoding="utf-8").write(s.replace(frm, to))
+        except (IOError, OSError) as e:
+            skipped.append("%s (%s)" % (rel, e.__class__.__name__))
+            continue
         changed += 1
         hits += n
         print("  %5d  %s" % (n, rel))
 
     print("\n%d absolute URL(s) rewritten across %d file(s)" % (hits, changed))
+    if skipped:
+        print("COULD NOT WRITE %d file(s):" % len(skipped))
+        for x in skipped:
+            print("   " + x)
 
     # ---- the CNAME file, last, and only on the way forward
     cname = os.path.join(site, "CNAME")
@@ -175,8 +188,12 @@ def main():
             except (IOError, UnicodeDecodeError):
                 continue
             if OLD_BASE in s:
-                print("GUARD %s: still names the old base" % rel)
-                bad += 1
+                if rel.endswith((".html", ".xml", ".txt")):
+                    print("GUARD %s: still names the old base" % rel)
+                    bad += 1
+                else:
+                    print("  note: %s still names the old base (builder source, "
+                          "not served - fix before the next rebuild)" % rel)
         # The bare host may legitimately survive as a CNAME target in docs, but
         # not inside a canonical or a sitemap entry.
         for rel in [r for r in targets(site) if r.endswith((".html", ".xml"))]:

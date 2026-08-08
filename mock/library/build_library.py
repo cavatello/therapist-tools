@@ -49,7 +49,7 @@ WORK = os.path.dirname(HERE)
 SITE = os.path.join(WORK, "..", "stage2")
 CHROME = os.path.join(SITE, "resources.html")
 OUT = os.path.join(HERE, "out")
-BASE = "https://cavatello.github.io/therapist-tools/"
+BASE = "https://therapistsupport.org/"
 UPDATED = "6 August 2026"
 CHECKED = "Aug 2026"
 

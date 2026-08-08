@@ -446,7 +446,7 @@ def build():
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Headway for California therapists: what it pays, what it keeps, and who it will not take</title>
 <meta name="description" content="What Headway actually costs a California therapist — no subscription, an undisclosed share of your reimbursement, rates you cannot see until you are credentialed, and a licence list that excludes every AMFT, ASW and APCC. Checked against Headway's own help centre.">
-<link rel="canonical" href="https://cavatello.github.io/therapist-tools/headway-for-california-therapists.html">
+<link rel="canonical" href="https://therapistsupport.org/headway-for-california-therapists.html">
 %s
 %s
 %s
