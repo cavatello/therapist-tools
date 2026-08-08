@@ -354,7 +354,8 @@ def block(rel, s, changes):
         rows.append('<span class="tsk">Last checked</span>'
                     '<span class="tsv">%s</span>' % esc(when))
     if rows:
-        rows.append('<a class="tsall" href="%schanges.html">All updates &rarr;</a>')
+        rows.append('<a class="tsall" href="%schanges.html">All updates '
+                    "&rarr;</a>" % up)
         # A school page is a page about a catalog whatever its topic tag
         # says. Several are tagged "licensure" because that is the reader's
         # journey, not because the Board's fee schedule is where their unit
