@@ -122,6 +122,10 @@ CSS = """<style>%s
    small caps labels, and Fraunces reserved for figures. */
 .tsmeta{border:2px solid #16211B;border-radius:12px;box-shadow:3px 3px 0 #16211B;
   background:#FBF9F3;padding:13px 15px 12px;margin:18px 0 0;max-width:none}
+/* The foot block is inserted as a bare sibling of the up-link and the footer,
+   so it has no container to inherit a gutter from. Match the up-link's. */
+.tsfoot{max-width:1120px;margin:30px auto 0;padding:0 26px}
+@media (max-width:560px){.tsfoot{padding:0 18px}}
 .tsmeta .tsrow{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
 .tsk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.4px;
   letter-spacing:.13em;text-transform:uppercase;color:#6C6555;margin-right:-12px}
@@ -136,11 +140,14 @@ CSS = """<style>%s
 .tsvint i{display:block;font-style:normal;font-size:12.2px;line-height:1.5;
   color:#5A5647;max-width:62ch}
 /* 02 - the badge, inside the meta card so it can never inherit a dark band */
-.tsdepth{margin:11px 0 0;padding:10px 0 0;border-top:2px dashed #D9D0BA;
-  background:transparent}
-.tsdepth:first-child{margin:0;padding:0;border-top:none;background:#FBF9F3;
-  border:2px solid #16211B;border-radius:12px;box-shadow:3px 3px 0 #16211B;
-  padding:12px 15px}
+/* On its own it carries its own background: this text is a fixed colour and
+   the band behind it is not. Testing POSITION (:first-child) was the previous
+   attempt and it failed the moment a standfirst appeared above it. */
+.tsdepth{margin:14px 0 0;background:#FBF9F3;border:2px solid #16211B;
+  border-radius:12px;box-shadow:3px 3px 0 #16211B;padding:12px 15px}
+/* Inside the meta card it is a section of that card, not a card of its own. */
+.tsmeta .tsdepth{margin:11px 0 0;padding:10px 0 0;background:transparent;
+  border:none;border-radius:0;box-shadow:none;border-top:2px dashed #D9D0BA}
 .tsbadge{display:inline-flex;align-items:center;gap:7px;margin:0;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
   font-weight:700;letter-spacing:.07em;text-transform:uppercase;
@@ -331,7 +338,8 @@ def block(rel, s, changes):
     gap_id = "what-i-could-not-find" if 'id="what-i-could-not-find"' in s else None
     has_gap = gap_id is not None or 'class="gapl"' in s
 
-    bits = []
+    bits = []     # the foot: provenance
+    top = []      # the hero: the summary, and nothing else
     clocks = None
 
     # ---- 01, the clocks
@@ -377,7 +385,7 @@ def block(rel, s, changes):
     # ---- 07, in short
     if q and out:
         fig = ('<span class="tsfig">%s</span>' % raw(num)) if num else ""
-        bits.append('<div class="tsshort"><p class="tsk">In short</p>'
+        top.append('<div class="tsshort"><p class="tsk">In short</p>'
                     "<q>%s</q><p class=\"tsa\">%s</p>%s</div>"
                     % (raw(q), raw(out), fig))
 
@@ -393,7 +401,8 @@ def block(rel, s, changes):
         bits.append('<details class="tsupd"><summary>What changed on this page'
                     " (%d)</summary><dl>%s</dl></details>" % (len(mine), items))
 
-    return MARK + "".join(bits) + END
+    foot = ('<div class="tsfoot">%s</div>' % "".join(bits)) if bits else ""
+    return MARK + "".join(top) + END, (MARK + foot + END) if foot else ""
 
 
 ABOUT = """<section id="how-pages-are-checked" class="pw">
@@ -482,7 +491,7 @@ def main():
 
         # Built from the ORIGINAL page, not the stripped one, so a date that
         # only exists inside the previous run's block is still findable.
-        blk = block(rel, orig, changes)
+        blk, foot = block(rel, orig, changes)
         s = drop_hero_date(s)
 
         # The window: from the <h1> to whatever ends the hero. Anything after
@@ -515,6 +524,15 @@ def main():
             print("  no anchor: %s" % rel)
             continue
         counts[badge(rel, s, "")] = counts.get(badge(rel, s, ""), 0) + 1
+
+        # The foot: above the "More on this" block if there is one, otherwise
+        # directly above the site footer. Both exist on every template.
+        for pat in (r"<!-- _dev/uplinks\.py -->", r"<section class=\"uplink\"",
+                    r"<footer"):
+            m = re.search(pat, s)
+            if m and foot:
+                s = s[:m.start()] + foot + s[m.start():]
+                break
 
         before = s
         s = rail(s)
@@ -554,8 +572,9 @@ def main():
         if s.count(MARK) != s.count(END):
             print("GUARD %s: unbalanced markers" % rel)
             bad += 1
-        if s.count(MARK) > 1:
-            print("GUARD %s: %d blocks" % (rel, s.count(MARK)))
+        if s.count(MARK) > 2:
+            print("GUARD %s: %d blocks, expected at most 2 (hero + foot)"
+                  % (rel, s.count(MARK)))
             bad += 1
         if MARK in s and CSSMARK not in s and not _linked(s):
             print("GUARD %s: block without its stylesheet" % rel)
