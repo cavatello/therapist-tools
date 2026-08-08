@@ -1,5 +1,5 @@
 /* psychedelic training */
-.px{--pine:#2C6350;--amber:#F6C560;--ink:#17271F;--line:#E2DACA;--mut:#7C8878;
+.px{--pine:#2C6350;--amber:#F6C560;--ink:#17271F;--line:#E2DACA;--mut:#4A5A46;
   --green:#3F9577;--red:#B5483F}
 .pxband{background:linear-gradient(135deg,#14261E 0%,#1B4536 48%,#2C6350 100%);
   color:#EFF5F2;padding:30px 0 36px}
@@ -86,7 +86,7 @@
   letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:5px;
   margin-right:6px}
 .sb.ok{background:#EAF3DE;color:#27500A}
-.sb.no{background:#F3EFE4;color:#8A8069}
+.sb.no{background:#F3EFE4;color:#635E53}
 .pxmeta .sb{background:rgba(255,255,255,.14);color:rgba(255,255,255,.82)}
 .pxmeta .sb.ok{background:rgba(246,197,96,.2);color:var(--amber)}
 
@@ -124,7 +124,7 @@
   margin:14px 0}
 .fx .f{background:#FBF6E9;border-radius:9px;padding:12px 14px;min-width:0}
 .fx .f span{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.4px;
-  letter-spacing:.08em;text-transform:uppercase;color:#9A8F76;margin-bottom:5px}
+  letter-spacing:.08em;text-transform:uppercase;color:#635E53;margin-bottom:5px}
 .fx .f b{display:block;font-size:13.6px;line-height:1.55;color:var(--ink);
   font-weight:500;overflow-wrap:anywhere}
 

@@ -36,7 +36,7 @@
  grid-template-columns:210px minmax(0,1fr);gap:38px;align-items:start}
 .artnav{position:sticky;top:18px}
 .artnav b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
- letter-spacing:.12em;text-transform:uppercase;color:#8A8477;margin-bottom:10px}
+ letter-spacing:.12em;text-transform:uppercase;color:#635E53;margin-bottom:10px}
 .artnav a{display:block;font-size:12.8px;line-height:1.45;color:#5D574C;text-decoration:none;
  padding:7px 0 7px 11px;border-left:2px solid #E4DCC8}
 .artnav a:hover{color:#2C6350}
@@ -63,7 +63,7 @@
  border-radius:0 12px 12px 0;padding:16px 18px;margin:22px 0}
 .quote p{font-size:14.4px;line-height:1.7;margin:0;color:#2A2620}
 .quote cite{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;
- font-size:10.6px;letter-spacing:.06em;text-transform:uppercase;color:#8A8477;margin-top:9px}
+ font-size:10.6px;letter-spacing:.06em;text-transform:uppercase;color:#635E53;margin-top:9px}
 /* A data table that will not fit a phone should scroll, not overflow. This is
    the same .tw wrapper the tax page uses, and nowrap-audit deliberately skips
    anything inside a real horizontal scroll container - a wide table behind a
@@ -73,7 +73,7 @@
 .tbl{width:100%;border-collapse:collapse;margin:20px 0;background:#FFFDF6;
  border:1px solid #E4DCC8;border-radius:12px;overflow:hidden;font-size:14.2px}
 .tbl th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.1em;
- text-transform:uppercase;color:#8A8477;padding:10px 13px;border-bottom:1px solid #E4DCC8}
+ text-transform:uppercase;color:#635E53;padding:10px 13px;border-bottom:1px solid #E4DCC8}
 .tbl td{padding:10px 13px;border-bottom:1px solid #E4DCC8;line-height:1.5}
 .tbl tr:last-child td{border-bottom:0}
 .tbl td.n{font-family:Fraunces,Georgia,serif;font-size:16px;color:#2C6350;white-space:nowrap}
@@ -91,10 +91,10 @@
 .artsrc ol{margin:0;padding-left:22px}
 .artsrc li{font-size:13px;line-height:1.66;color:#5D574C;margin-bottom:10px}
 .artsrc li a{color:#2C6350;font-weight:600}
-.artsrc .disc{font-size:12.4px;line-height:1.65;color:#8A8477;margin:16px 0 0;max-width:66ch}
+.artsrc .disc{font-size:12.4px;line-height:1.65;color:#635E53;margin:16px 0 0;max-width:66ch}
 .artnext{border-top:1px solid #E4DCC8;margin-top:30px;padding-top:22px}
 .artnext b{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.12em;
- text-transform:uppercase;color:#8A8477;display:block;margin-bottom:12px}
+ text-transform:uppercase;color:#635E53;display:block;margin-bottom:12px}
 .artnext .g{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .artnext a{background:#FFFDF6;border:1px solid #E4DCC8;border-radius:12px;padding:15px 16px;
  text-decoration:none;display:block}

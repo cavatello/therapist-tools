@@ -75,6 +75,8 @@ CHECKS = [
     (".none b on white",         "#4A5A46", WHITE, FLOOR),
     ("home CTA on pine",         "#FFFFFF", PINE,  FLOOR),
     ("home CTA on gold",         INK,       GOLD,  FLOOR),
+    ("hubnl body on card",       (209, 210, 208), "#214C3C", FLOOR),
+    ("hubnl link on gold",       INK,       GOLD,  FLOOR),
 ]
 
 CSS = """<style>%(mark)s
@@ -89,6 +91,13 @@ CSS = """<style>%(mark)s
 .ftnl.ftnl.ftnl .nlmeta,
 .ftnl.ftnl.ftnl .hint,
 .ftnl.ftnl.ftnl .sub{color:rgba(255,255,255,.72)}
+/* .hubnl is the same card in a different place - the signup panel inside a
+   section rather than the sitewide band - and it lost the same argument to
+   `.lib p`: dark green body text on a dark green card, 1.03:1. Found by the
+   sweep, not by eye, because both colours are "the site's green". */
+.hubnl.hubnl.hubnl h3{color:#fff}
+.hubnl.hubnl.hubnl p{color:rgba(255,255,255,.82)}
+.hubnl.hubnl.hubnl a{color:%(ink)s}
 /* 10px bold needs more than a mid grey-green carries on white. This is the
    colour the paragraph directly beneath it already uses. */
 .none.none b{color:#4A5A46}

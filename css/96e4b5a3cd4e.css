@@ -35,7 +35,7 @@
 .tsbadge:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 #16211B}
 .tswhat{margin:8px 0 0;font-size:12.4px;line-height:1.55;color:#5A5647;
   max-width:64ch}
-/* The rail numbers were #9A8F76 on paper: 3.04:1, under the 4.5:1 floor for
+/* The rail numbers were #635E53 on paper: 3.04:1, under the 4.5:1 floor for
    text this small. Measured, not eyeballed. */
 /* 07 - in short */
 .tsshort{border:2px solid #16211B;border-radius:12px;box-shadow:4px 4px 0 #F6C560;

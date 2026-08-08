@@ -33,7 +33,7 @@
 @media (min-width:1500px){.sitenav-in{max-width:1320px}}
 @media (min-width:1900px){.sitenav-in{max-width:1560px}}
 .sitenav-wordmark{color:#16211B}
-.sitenav-sub{color:#7C766A}
+.sitenav-sub{color:#635E53}
 /* the mark becomes a tile. It is already pixel art; an edge stops it floating
    on the paper like a sticker. */
 .sitenav-fig{border:2px solid #16211B;border-radius:5px;background:#fff}

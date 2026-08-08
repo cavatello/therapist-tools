@@ -4,7 +4,7 @@
    pages and should not wait on a 700 kB bundle to render. The tokens are the
    same values the simulator uses, copied rather than imported for that reason. */
 :root{--pine:#2C6350;--deep:#15342B;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
- --amber:#FFE3B8;--ink:#26241E;--muted:#7C766A;--line:#E7E2D6;--paper:#F4F0E6;--cream:#FBF9F3;}
+ --amber:#FFE3B8;--ink:#26241E;--muted:#635E53;--line:#E7E2D6;--paper:#F4F0E6;--cream:#FBF9F3;}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;
@@ -362,7 +362,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cf-f > span{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .cf-f > span i{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;
- color:#A29A88;margin-left:5px}
+ color:#635E53;margin-left:5px}
 .cform input[type=text],.cform input[type=email],.cform select,.cform textarea{
  width:100%;min-width:0;font:inherit;font-size:14px;color:var(--ink);min-height:44px;
  background:var(--cream);border:1.5px solid #E4D9BE;border-radius:10px;padding:11px 13px}

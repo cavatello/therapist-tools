@@ -12,7 +12,7 @@
  letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
 .qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
 .qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
- text-transform:uppercase;color:#8A8477}
+ text-transform:uppercase;color:#635E53}
 .qx .ar{font-size:18px;color:var(--pine)}
 .qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
  margin:0 -11px;padding-left:13px;padding-right:13px}
@@ -27,7 +27,7 @@
 .railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
  font-weight:600;letter-spacing:-.018em}
 .railh span{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.1em;
- text-transform:uppercase;color:#8A8477}
+ text-transform:uppercase;color:#635E53}
 .railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .rc{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:16px 17px;
  text-decoration:none;display:flex;flex-direction:column;gap:7px}
