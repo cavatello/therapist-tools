@@ -51,6 +51,30 @@ REG = json.load(open(REGISTRY, encoding="utf-8"))
 PAGES = {p["file"]: p for p in REG["pages"]}
 TOPICS = REG["topics"]
 
+# THE MARKER INSIDE THE STYLESHEET MUST BE A CSS COMMENT, NOT AN HTML ONE.
+#
+# This block used to open with MARK - the string "<!-- _dev/uplinks.py -->" -
+# and that one line silently deleted the rule underneath it for as long as the
+# up-link has existed.
+#
+# "<!--" is a CDO token. CSS tolerates it BETWEEN rules, so nothing errored and
+# nothing showed in the console - but the text after it, "_dev/uplinks.py -->",
+# is then read as the start of a selector, and the parser keeps consuming until
+# it finds a "{". The "{" it finds is the one belonging to `.uplink`. So the
+# rule that actually shipped was
+#
+#     _dev/uplinks.py --> .uplink { max-width:1120px;margin:34px auto 8px }
+#
+# an invalid selector, and the whole rule was dropped. The up-link therefore had
+# no max-width and no auto margins: it ran the full width of the viewport with
+# 26px of padding, while the footer directly beneath it sat in a 1180px centred
+# column. On a 1280px screen that reads as slightly off; on a 2560px screen the
+# two blocks are 700px out of alignment, which is what "the footer looks broken"
+# was describing.
+#
+# A CSS comment marks the block just as well and cannot eat a selector.
+CSSMARK = "/* _dev/uplinks.py */"
+
 CSS = """<style>%s
 /* The up-link. Quiet by default - it is the last thing on the page and it is
    for the reader who finished, not a mid-article interruption. */
@@ -70,7 +94,7 @@ CSS = """<style>%s
 .uplink a.uc span{display:block;font-size:12.6px;line-height:1.5;color:#5A6A56}
 .uplink .uall{display:inline-block;margin-top:14px;font-size:13.6px;color:#2C6350}
 @media (max-width:560px){.uplink{padding:0 18px}.uplink>div{padding:18px 17px}}
-</style>""" % MARK
+</style>""" % CSSMARK
 
 
 def siblings(p, n=3):
@@ -126,7 +150,8 @@ def main():
         before = s
         # remove any previous block first, so the pass is a rewrite not an append
         s = re.sub(re.escape(MARK) + r"[\s\S]*?" + re.escape(END) + r"\n?", "", s)
-        s = re.sub(r"\n?<style>" + re.escape(MARK) + r"[\s\S]*?</style>\n?", "", s)
+        s = re.sub(r"\n?<style>(?:" + re.escape(MARK) + "|"
+                   + re.escape(CSSMARK) + r")[\s\S]*?</style>\n?", "", s)
 
         # A page with no registry record gets nothing. That is not a failure -
         # the topic hubs, the question index and the changelog are the library
