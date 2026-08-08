@@ -24,7 +24,7 @@ set -u
 cd "$(dirname "$0")/.." || exit 1
 ROOT="$(pwd)"
 REMOTE="https://github.com/cavatello/therapist-tools.git"
-SITE="https://cavatello.github.io/therapist-tools/"
+SITE="https://therapistsupport.org/"
 WATCH_EXT="js html css txt md"
 BEAT="$ROOT/_dev/.watch-heartbeat"
 ERRF="$ROOT/_dev/.publish-error"

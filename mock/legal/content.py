@@ -20,7 +20,7 @@ built on what the site does, and it is much cheaper for a lawyer to review than
 to write from nothing. The user has been told this in as many words.
 """
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 BRAND = "Therapist Support"
 OWNER = "Cavatello"
 CONTACT_PAGE = "contact.html"

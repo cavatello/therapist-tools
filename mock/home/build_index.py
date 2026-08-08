@@ -30,7 +30,7 @@ import os, re, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = open(os.path.join(HERE, "..", "proto", "index.html")).read()
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 TAX = "therapist-tax-strategy-california.html"
 GROW = "grow-your-therapy-practice.html"
 COLA = "therapist-cost-of-living-california.html"

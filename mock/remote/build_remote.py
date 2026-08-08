@@ -26,7 +26,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TAXDIR = os.path.join(HERE, "..", "tax")
 CH = os.path.join(HERE, "..", "amft")
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "therapist-working-remotely-california.html"
 TITLE = ("Can a California Therapist Work Remotely? The Board says yes — "
          "the tax is the catch")

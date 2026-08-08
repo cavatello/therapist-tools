@@ -21,7 +21,7 @@ from css import CSS
 from render import JS as RENDER_JS
 import engine
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "therapist-tax-strategy-california.html"
 TITLE = ("Therapist Tax Strategy California — what a therapist can legally defer in 2026")
 DESC = ("Work out how much of a California therapy practice's tax bill is optional: "

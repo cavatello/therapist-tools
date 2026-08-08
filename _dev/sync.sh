@@ -20,7 +20,7 @@
 
 set -u
 cd "$(dirname "$0")/.." || exit 1
-SITE="https://cavatello.github.io/therapist-tools"
+SITE="https://therapistsupport.org"
 
 # Everything GitHub Pages actually serves. _dev/, _to_delete/ and node_modules/
 # are gitignored or unpublished and are deliberately absent.

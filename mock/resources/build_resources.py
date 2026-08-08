@@ -33,7 +33,7 @@ sys.path.insert(0, HERE)
 from content import GROUPS
 from questions import QUESTIONS, STAGES
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "resources.html"
 SOURCE = os.environ.get("CHROME_SOURCE", os.path.join(HERE, "_tools.html"))
 

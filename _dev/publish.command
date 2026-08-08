@@ -15,7 +15,7 @@ fi
 
 echo
 echo "----------------------------------------------------"
-echo "Live site:  https://cavatello.github.io/therapist-tools/"
+echo "Live site:  https://therapistsupport.org/"
 echo "Give it about a minute, then hard-refresh (Cmd+Shift+R)."
 echo
 echo "You can close this window."

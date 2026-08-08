@@ -2,7 +2,7 @@
 
 **This folder is the source of truth.**
 
-**Live site: https://cavatello.github.io/therapist-tools/** (GitHub Pages, free)
+**Live site: https://therapistsupport.org/** (GitHub Pages, free)
 
 `practice-income-planner.netlify.app` is **no longer a website** — as of 25 July 2026
 it holds nothing but a `_redirects` file that 301s every path to GitHub Pages. Do not
@@ -120,7 +120,7 @@ read-write but not delete-capable). Safe to drag to the Trash.
 
 ## Publishing to GitHub Pages (free, for phone review)
 
-Public preview: **https://cavatello.github.io/therapist-tools/**
+Public preview: **https://therapistsupport.org/**
 Repo: https://github.com/cavatello/therapist-tools
 
 This is separate from Netlify and costs nothing. Use it to look at the site on a

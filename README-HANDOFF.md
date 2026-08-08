@@ -61,7 +61,7 @@ site can only be edited as generated HTML.
 
 ## What IS safe
 
-Everything deployed is live at `cavatello.github.io/therapist-tools` and in the
+Everything deployed is live at `therapistsupport.org` and in the
 repo as generated HTML: hero v3, the answer grid, the NEXT block, breadcrumbs on
 all 14 pages, the CTA rescale, the three-rail documents, the section navs, the
 global width pass, and every bug fix. **24 files, all in sync as of the last

@@ -17,7 +17,7 @@ from render import JS as RENDER_JS
 
 CORE = open(os.path.join(HERE, "_engine_core.js")).read()
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "grow-your-therapy-practice.html"
 TITLE = "Grow Your Therapy Practice — what a client is worth, and how many you need"
 DESC = ("Work out what one therapy client is actually worth over their whole time with you, "
