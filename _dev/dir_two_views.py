@@ -52,10 +52,13 @@ MARK = "<!-- _dev/dir_two_views.py -->"
 END = "<!-- /dir_two_views -->"
 CSSMARK = "/* _dev/dir_two_views.py */"
 
-# Which view opens. "compare" is the concept's own answer - orientation before
-# filtering - and it is the one a reader arriving from search is served better
-# by. Flip to "find" here if the filters should keep opening first.
-DEFAULT_VIEW = "compare"
+# Which view opens. The concept's own answer was "compare" - orientation before
+# filtering, the Kitces AdvisorTech Map pattern - and it shipped that way for a
+# day. The owner looked at it and did not want it: someone arriving at a school
+# directory usually arrives with a school in mind, and making them dismiss an
+# overview to reach the filters is a step for the reader who needs it least.
+# The comparison view is still there behind its tab; it just no longer opens.
+DEFAULT_VIEW = "find"
 
 SHOWN_PER_GROUP = 6
 
