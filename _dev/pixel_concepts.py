@@ -65,6 +65,21 @@ CSSMARK = "/* _dev/pixel_concepts.py */"
 # on from search.
 SKIP = {"tycoon.html", "concepts.html", "index.html"}
 
+# The tool pages. Hand-built heroes with live figures; this pass stays out of
+# them. Listed explicitly rather than read from registry.json's `format` field
+# so that retagging a page in the registry cannot silently start rewriting a
+# hand-designed layout.
+TOOLS = {
+    "practice-simulator.html",
+    "therapist-tax-strategy-california.html",
+    "grow-your-therapy-practice.html",
+    "associate-mft-job-advisor.html",
+    "amft-3000-hours-california.html",
+    "therapist-cost-of-living-california.html",
+    "therapist-working-remotely-california.html",
+}
+SKIP |= TOOLS
+
 # The data behind each topic. Says what those pages actually cite; a topic with
 # no single schedule behind it gets None and no row is printed.
 VINTAGE = {
@@ -425,10 +440,34 @@ def _linked(doc):
     return False
 
 
+def unbuild(rel):
+    """Take the block back off a page that is now skipped.
+
+    Adding a page to SKIP stops the pass visiting it - which also stops it
+    removing what a previous run left behind. Without this, excluding a page
+    freezes whatever version of the block it happened to have.
+    """
+    p = os.path.join(SITE, rel)
+    if not os.path.exists(p):
+        return False
+    s = open(p, encoding="utf-8").read()
+    out = re.sub(re.escape(MARK) + r"[\s\S]*?" + re.escape(END), "", s)
+    out = re.sub(r"\n?<style>" + re.escape(CSSMARK) + r"[\s\S]*?</style>\n?",
+                 "", out)
+    if out != s:
+        open(p, "w", encoding="utf-8").write(out)
+        return True
+    return False
+
+
 def main():
     if not os.path.exists(REGISTRY):
         sys.exit("pixel_concepts: registry.json missing")
     changes = json.load(open(REGISTRY, encoding="utf-8")).get("changes", [])
+
+    removed = sum(1 for t in sorted(SKIP) if unbuild(t))
+    if removed:
+        print("%d skipped page(s) cleaned of an earlier block" % removed)
 
     n, railed, counts = 0, 0, {}
     for rel in pages():
@@ -445,13 +484,33 @@ def main():
         # only exists inside the previous run's block is still findable.
         blk = block(rel, orig, changes)
         s = drop_hero_date(s)
+
+        # The window: from the <h1> to whatever ends the hero. Anything after
+        # that boundary belongs to the page's content, not its masthead, and an
+        # anchor found there is a false match however high it sits in ANCHORS.
+        h1 = s.find("<h1")
+        window_end = len(s)
+        if h1 >= 0:
+            for pat in (r"</section>", r'<div class="[^"]*wrap', r"<article",
+                        r'<section class="slab'):
+                m = re.search(pat, s[h1:])
+                if m:
+                    window_end = min(window_end, h1 + m.start())
         placed = False
         for pat in ANCHORS:
-            m = re.search(pat, s)
-            if m:
+            m = re.search(pat, s[:window_end])
+            if m and m.end() >= h1:
                 s = s[:m.end()] + blk + s[m.end():]
                 placed = True
                 break
+        if not placed and h1 >= 0:
+            # Every template has an </h1>. Landing directly under it is worse
+            # placement than landing under the standfirst, and better than
+            # landing in the middle of a panel three sections down.
+            m = re.search(r"</h1>", s[h1:])
+            if m:
+                s = s[:h1 + m.end()] + blk + s[h1 + m.end():]
+                placed = True
         if not placed:
             print("  no anchor: %s" % rel)
             continue
