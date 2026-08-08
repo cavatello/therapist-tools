@@ -61,7 +61,7 @@ Idempotent either way: a second run reports nothing to do.
 """
 import os, re, sys, socket, argparse
 
-OLD_BASE = "https://therapistsupport.org"
+OLD_BASE = "https://cavatello.github.io/therapist-tools"
 OLD_HOST = "cavatello.github.io"
 
 SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
@@ -83,6 +83,9 @@ def resolves(host):
         return False
 
 
+SELF = os.path.basename(__file__)
+
+
 def targets(site):
     out = []
     for f in sorted(os.listdir(site)):
@@ -99,6 +102,11 @@ def targets(site):
             continue
         for root, _dirs, files in os.walk(p):
             for f in files:
+                # Never rewrite this file. On the first run it replaced its
+                # own OLD_BASE constant, which silently broke --revert - the
+                # one path you need when a migration goes wrong.
+                if f == SELF or "_snap" in root:
+                    continue
                 if f.endswith((".py", ".json", ".txt")):
                     rel = os.path.relpath(os.path.join(root, f), site)
                     out.append(rel)
