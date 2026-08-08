@@ -128,8 +128,14 @@ CSS = """<style>%s
   font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#16211B;
   background:#F6C560;border:2px solid #16211B;border-radius:999px;
   padding:6px 13px 5px;box-shadow:2px 2px 0 #16211B;white-space:nowrap}
+/* Centred on the page measure. Inserted as a bare sibling of the footer, so
+   it inherits no gutter - the third element in this session to run full-bleed
+   for that reason, which is why the sweep now checks for it. */
 .citeb{border:2px solid #16211B;border-radius:12px;background:#F4F0E6;
-  box-shadow:2px 2px 0 #16211B;padding:14px 16px;margin:34px 0 0}
+  box-shadow:2px 2px 0 #16211B;padding:14px 16px;max-width:1120px;
+  margin:34px auto 0;box-sizing:border-box}
+@media (min-width:1500px){.citeb{max-width:1320px}}
+@media (min-width:1900px){.citeb{max-width:1560px}}
 .citeb .mvk{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9.4px;letter-spacing:.13em;text-transform:uppercase;color:#6C6555;
   margin:0 0 7px}

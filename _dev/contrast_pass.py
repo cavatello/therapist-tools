@@ -91,7 +91,19 @@ def ratio(fg, bg):
 
 
 def css():
-    sel = ",".join(".%s" % c for c in LIGHT_ONLY)
+    # THE CLASS IS REPEATED THREE TIMES ON PURPOSE.
+    #
+    # A bare `.uk` is specificity (0,1,0) and loses to `.uplink .uk`, which is
+    # (0,2,0) — and loses no matter where it sits in the cascade, because
+    # specificity is decided before order. The first version of this pass was
+    # written as `.uk{...}`, published, and changed nothing at all on the one
+    # page where the rule was declared as a descendant selector.
+    #
+    # `.uk.uk.uk` is (0,3,0). It matches exactly the same elements as `.uk` and
+    # beats any single-ancestor rule without inventing an ancestor of its own or
+    # reaching for !important, which would take the colour away from the dark
+    # -band variants that legitimately override it.
+    sel = ",".join(".{0}.{0}.{0}".format(c) for c in LIGHT_ONLY)
     hexv = "#%02X%02X%02X" % MUTED
     return ("<style>%s\n"
             "/* One muted label colour, verified against every light surface in\n"
