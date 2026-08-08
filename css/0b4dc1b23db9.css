@@ -1,3 +1,4 @@
+/* restyle */
 /* ---------------------------------------------------------------- the header
    Two changes ship together here, and they are separable in principle but not
    in practice: the menu became topic-first (seven items, not three) and the
@@ -304,3 +305,4 @@ h3,[class] h3{font-weight:700}
 .slab{border-radius:14px;box-shadow:5px 5px 0 rgba(22,33,27,.55);
   border:2px solid #16211B}
 .rule{border-radius:10px}
+/* end restyle */
