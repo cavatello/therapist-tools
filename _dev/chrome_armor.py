@@ -74,7 +74,7 @@ CHECKS = [
     (".none b on white",         "#4A5A46", WHITE, FLOOR),
 ]
 
-CSS = """<style>%s
+CSS = """<style>%(mark)s
 /* Chrome outranks page body. See _dev/chrome_armor.py for why this is tripled:
    `.lib p` and `.ftnl p` are both (0,1,1), so which one paints the signup band
    was being decided by stylesheet emit order rather than by intent. */
@@ -89,7 +89,7 @@ CSS = """<style>%s
 /* 10px bold needs more than a mid grey-green carries on white. This is the
    colour the paragraph directly beneath it already uses. */
 .none.none b{color:#4A5A46}
-</style>""" % (MARK, {"ink": INK, "gold": GOLD})
+</style>""" % {"mark": MARK, "ink": INK, "gold": GOLD}
 
 
 def _lin(c):
