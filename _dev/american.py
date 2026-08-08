@@ -198,6 +198,14 @@ SKIP_TAGS = ("script", "style", "blockquote", "q", "code", "pre", "samp", "kbd")
 SKIP_RE = re.compile(
     r"<(%s)\b[\s\S]*?</\1>" % "|".join(SKIP_TAGS), re.I)
 
+# JSON-LD is inside a <script>, so the rule above protects it - but it is not
+# code. It is the description Google reads and, on 68 school pages, it was the
+# only place left saying "programme". Its string VALUES are converted; its keys,
+# its @type names and every "item" URL are not.
+LD_RE = re.compile(
+    r'(<script type="application/ld\+json"[^>]*>)([\s\S]*?)(</script>)', re.I)
+LD_STR = re.compile(r'"(name|description|headline|about|text|alternateName)":"((?:[^"\\]|\\.)*)"')
+
 # Attributes a reader actually sees.
 VISIBLE_ATTRS = ("title", "alt", "placeholder", "aria-label", "content")
 TAG_RE = re.compile(r"<[^>]+>")
@@ -235,7 +243,15 @@ def process(doc):
             holes[key] = phrase
             doc = doc.replace(phrase, key)
 
-    # 2. lift out the regions that must not change
+    # 2. JSON-LD first, while it is still findable, and before the <script>
+    #    protection hides it
+    def ld(m):
+        body = LD_STR.sub(
+            lambda v: '"%s":"%s"' % (v.group(1), convert(v.group(2))), m.group(2))
+        return m.group(1) + body + m.group(3)
+    doc = LD_RE.sub(ld, doc)
+
+    # 3. lift out the regions that must not change
     keeps = []
 
     def stash(m):
