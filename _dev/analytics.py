@@ -101,6 +101,19 @@ def main():
             else:
                 added += 1
 
+    # The privacy policy NAMES the measurement ID in prose - correctly, since a
+    # policy that describes a property the site does not run is inaccurate in
+    # the one document where accuracy is the whole point. It is not a tag, so
+    # the block stripper never sees it; it has to be swapped by hand.
+    pol = os.path.join(SITE, "privacy.html")
+    if os.path.exists(pol):
+        s = open(pol, encoding="utf-8").read()
+        for old in RETIRED_IDS:
+            if "measurement ID %s" % old in s:
+                s = s.replace("measurement ID %s" % old, "measurement ID %s" % ID)
+                open(pol, "w", encoding="utf-8").write(s)
+                print("privacy.html: policy text now names %s" % ID)
+
     print("%d page(s) newly instrumented" % added)
     print("%d page(s) moved off %s" % (moved, ", ".join(RETIRED_IDS)))
     print("%d page(s) re-emitted" % kept)
