@@ -197,13 +197,11 @@ def main():
         names = [c["name"] for c in t.get("clusters", []) if c.get("name")]
         scope = ""
         if names:
-            if len(names) > 1:
-                joined = ", ".join(names[:-1]) + " and " + names[-1]
-            else:
-                joined = names[0]
-            scope = ('<p class="hscope">This page covers <b>%s</b>. Every '
+            scope = ('<p class="hscope">%d pages, in %d sections: %s. Every '
                      "figure below is computed or cited, and links to the page "
-                     "that carries it.</p>" % esc(joined.lower()))
+                     "that carries it.</p>"
+                     % (len(mine), len(names),
+                        " &middot; ".join("<b>%s</b>" % raw(n) for n in names)))
 
         # ---- most asked
         asked = [p for p in mine if p.get("question")][:3]
@@ -216,7 +214,28 @@ def main():
                               for p in asked))
 
         # ---- key insights
-        figs = [p for p in mine if p.get("number")][:3]
+        def figrank(p):
+            """A dollar amount is a finding. A bare count usually is not.
+
+            "$18,244 optional on a $217,350 profit" and "39 cents on the
+            dollar" are claims about the world; "12 expense categories" is a
+            description of a form. Both are legitimate headline numbers on
+            their own pages - only one belongs at the top of a topic hub.
+            """
+            n = (p.get("number") or "").strip()
+            if n.startswith("$"):
+                order = 0
+            elif "%" in n[:6] or "cents" in n.lower():
+                order = 1
+            elif n.startswith("\u00a7"):
+                order = 2
+            elif re.match(r"^\d", n):
+                order = 3
+            else:
+                order = 4
+            return (order, -(p.get("weight") or 0), p["file"])
+
+        figs = sorted([p for p in mine if p.get("number")], key=figrank)[:3]
         ins = ""
         if figs:
             cards = []
