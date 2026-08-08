@@ -502,8 +502,8 @@
 <section class="lnews"><div class="lwrap lnarrow">
 <p class="leyebrow">Stay updated</p><h2>New tools, as they land</h2>
 <p class="llede">What has been added or changed here, plus rate and rule updates that move a figure you rely on. One email a month.</p>
-<form class="lnewsrow" onsubmit="return false"><input type="email" placeholder="you@practice.com" aria-label="Your email address"><button class="lcta" type="submit">Stay updated</button></form>
-<label class="lconsent"><input type="checkbox"><span>Also send me occasional notes about new tools on this site. Optional, separate from the monthly email, and you can stop either at any time.</span></label>
+<form class="nlform lnewsrow" method="post" action="https://formspree.io/f/xzdnyabp"><label class="sr" for="home-email">Email</label><input id="home-email" name="email" type="email" required placeholder="you@practice.com" aria-label="Your email address"><button class="lcta" type="submit">Stay updated</button></form>
+<label class="lconsent"><input type="checkbox" name="consent" value="yes"><span>Also send me occasional notes about new tools on this site. Optional, separate from the monthly email, and you can stop either at any time.</span></label>
 </div></section>
 </main>
 <footer class="sitefoot"><div class="ftin"><div class="ftcols"><div><h5>Tools</h5><a href="practice-simulator.html">Practice Simulator</a><a href="therapist-tax-strategy-california.html">Tax &amp; Retirement</a><a href="grow-your-therapy-practice.html">Grow Your Practice</a><a href="associate-mft-job-advisor.html">Associate Job Advisor</a><a href="amft-3000-hours-california.html">3,000 Hours</a><a href="therapist-cost-of-living-california.html">Cost of Living</a></div><div><h5>Topics</h5><a href="money/">Money</a><a href="licensure/">Licensure</a><a href="getting-paid/">Getting paid</a><a href="practice/">Running a practice</a><a href="training/">Training</a></div><div><h5>Browse</h5><a href="resources.html">Everything</a><a href="questions.html">Every question</a><a href="calculators.html">All the calculators</a><a href="changes.html">What changed</a></div><div><h5>About</h5><a href="about.html">What this is</a><a href="newsletter.html">Stay updated</a><a href="contact.html">Contact</a><a href="affiliate-disclosure.html">Affiliate disclosure</a></div><div><h5>The small print</h5><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy</a><a href="contact.html">Report a wrong figure</a><p>2026 federal and California rates. Estimates only &mdash; not tax, legal or financial advice.</p></div></div><p class="ftby"><b>Built by Cavatello.</b> Nothing here is legal, tax, financial or clinical advice, and using this site does not create a professional relationship &mdash; see the <a href="terms.html">Terms of Use</a>.</p></div></footer>
@@ -617,7 +617,78 @@ td p, th p, .fig p, .stat p, .kpi p{max-width:none}
 
 
 <link rel="stylesheet" href="css/7f1d472f8357.css">
-<link rel="stylesheet" href="css/7f1d472f8357.css">
+<script>
+(function(){
+  // Post the signup in the background instead of letting the browser navigate.
+  // Formspree's own "Thanks! The form was submitted successfully. Go back" page
+  // is a dead end - it throws the reader off the site mid-thought and gives them
+  // a back button as the only way home. Same request, same endpoint, but the
+  // answer lands where they were standing.
+  function esc(s){ return String(s).replace(/[<>&"]/g, ''); }
+  function ok(f){
+    var email = (f.querySelector('input[type=email]') || {}).value || '';
+    var d = document.createElement('div');
+    d.className = 'nlok';
+    d.setAttribute('role', 'status');
+    // Two kinds of form share this handler. A message and a mailing-list
+    // signup are not the same event and must not get the same answer - being
+    // told "you're on the list" after reporting a bug reads as though the
+    // report went nowhere.
+    if (f.dataset.kind === 'contact'){
+      d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+        + '<b>Message sent.</b>'
+        + '<p>It is read by a person, usually within a day or two'
+        + (email ? ', and any reply goes to <b style="display:inline;font-family:inherit;'
+            + 'font-size:inherit">' + esc(email) + '</b>' : '')
+        + '. If it is a bug, the fix and the date it landed go on the page it affects.</p>'
+        + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
+        + 'with a link to it, or just describe what looked wrong.</p></div>';
+      f.parentNode.replaceChild(d, f);
+      if (window.gtag) gtag('event', 'contact_message');
+      return;
+    }
+    d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+      + '<b>You\u2019re on the list.</b>'
+      + '<p><b style="display:inline;font-family:inherit;font-size:inherit">'
+      + esc(email) + '</b> is on it. The next issue goes out at the start of '
+      + 'the month \u2014 a free tool or two, what colleagues are charging, and whatever caught '
+      + 'someone out.</p>'
+      + '<p>Nothing else happens in the meantime. One click leaves, any time.</p></div>';
+    f.parentNode.replaceChild(d, f);
+    if (window.gtag) gtag('event', 'newsletter_signup');
+  }
+  function fail(f){
+    var e = f.querySelector('.nlerr');
+    if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
+    e.textContent = f.dataset.kind === 'contact'
+      ? 'That did not go through, and nothing was sent. Copy your message somewhere safe and '
+        + 'try again in a few minutes.'
+      : 'That did not go through, and nothing was sent. Check the address and try again.';
+  }
+  // Both form kinds, or the contact page silently falls back to a native
+  // POST and navigates to Formspree's dead-end thanks page - the exact
+  // behaviour this handler exists to prevent.
+  document.querySelectorAll('form.nlform, form.cform').forEach(function(f){
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var btn = f.querySelector('button[type=submit]'), label = btn ? btn.textContent : '';
+      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
+                 btn.textContent = 'Sending\u2026'; }
+      fetch(f.action, {method: 'POST', body: new FormData(f),
+                       headers: {'Accept': 'application/json'}})
+        .then(function(r){
+          if (r.ok) { ok(f); return; }
+          throw new Error('http ' + r.status);
+        })
+        .catch(function(){
+          fail(f);
+          if (btn) { btn.removeAttribute('aria-busy'); btn.disabled = false;
+                     btn.textContent = label; }
+        });
+    });
+  });
+})();
+</script>
 
 <link rel="stylesheet" href="css/0b4dc1b23db9.css">
 <script>/* _dev/analytics_events.py */
@@ -699,4 +770,16 @@ td p, th p, .fig p, .stat p, .kpi p{max-width:none}
   }).observe(document.documentElement, {childList: true, subtree: true});
 })();
 </script>
+<style>/* _dev/footer_fix.py */
+/* The footer is chrome and must not depend on which stylesheet a page
+   inherited. Scoped to .sitefoot so it outranks a page-local a{} rule, and
+   appended last so it cannot lose a load-order race. */
+.sitefoot .ftcols a{color:rgba(255,255,255,.78)}
+.sitefoot .ftcols a:hover{color:#fff;text-decoration:underline}
+.sitefoot .ftcols h5{color:#16211B;background:#F6C560}
+.sitefoot .ftcols p{color:rgba(255,255,255,.62)}
+.sitefoot .ftby{color:rgba(255,255,255,.62)}
+.sitefoot .ftby b{color:rgba(255,255,255,.88)}
+.sitefoot .ftby a,.sitefoot .ftcols a:focus-visible{color:#F6C560}
+</style>
 </body></html>
