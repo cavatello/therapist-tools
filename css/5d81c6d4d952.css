@@ -1,0 +1,5 @@
+/* _dev/empty_outputs.py */
+/* Empty until the script fills them. :empty stops matching the moment
+   it does, so the box appears on its own - no class toggling to keep in
+   sync with the behaviour. */
+#recap:empty,#sell:empty,#planout:empty,#blocks:empty,#corpout:empty,#remoteout:empty,#promo:empty,#growpromo:empty,#panel-rows:empty,#worthout:empty,#funnel:empty,#needout:empty,#capout:empty,#apanel:empty,#take:empty,#hour:empty,#cmp:empty,#plan:empty,#rows:empty{display:none}

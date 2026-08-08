@@ -250,6 +250,7 @@
 <link rel="stylesheet" href="css/e5a8878525b5.css">
 <link rel="stylesheet" href="css/dc474831b71f.css">
 <link rel="stylesheet" href="css/498e74b610cf.css">
+<link rel="stylesheet" href="css/f3c5f8978431.css">
 
 <link rel="stylesheet" href="css/0b4dc1b23db9.css">
 <script>/* _dev/analytics_events.py */
@@ -331,31 +332,4 @@
   }).observe(document.documentElement, {childList: true, subtree: true});
 })();
 </script>
-<style>/* _dev/mobile_nav.py */
-@media (max-width:900px){
-  /* The row scrolls. These four layers make it look like it scrolls, and stop
-     looking like it at each end. The two `local` layers travel with the
-     content and mask the shadow underneath; the two `scroll` layers stay put.
-     No script, no resize listener. */
-  .sitenav .sitenav-links{
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    scroll-snap-type:x proximity;
-    scrollbar-width:none;
-    background-image:
-      linear-gradient(to right, #FBF9F3 42%, rgba(251,249,243,0)),
-      linear-gradient(to left,  #FBF9F3 42%, rgba(251,249,243,0)),
-      radial-gradient(farthest-side at 0% 50%, rgba(22,33,27,.22), rgba(22,33,27,0)),
-      radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.22), rgba(22,33,27,0));
-    background-position:left center, right center, left center, right center;
-    background-size:34px 100%, 34px 100%, 13px 100%, 13px 100%;
-    background-repeat:no-repeat;
-    background-attachment:local, local, scroll, scroll;
-  }
-  .sitenav .sitenav-links::-webkit-scrollbar{display:none}
-  .sitenav .sitenav-links>*{scroll-snap-align:start}
-  /* Room for the shadow to sit in without clipping the first and last label. */
-  .sitenav .sitenav-links{padding-right:14px}
-}
-</style>
 </body></html>
