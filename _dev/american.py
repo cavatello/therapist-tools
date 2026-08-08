@@ -316,7 +316,13 @@ def main():
         doc = SKIP_RE.sub("", doc)
         for phrase in PROTECT:
             doc = doc.replace(phrase, "")
-        doc = re.sub(r'\b(?:href|src|data-[\w-]+)="[^"]*"', "", doc)
+        # Identifiers, not prose. An anchor id and the href that points at it
+        # have to agree with each other, and they are not read by anyone; a
+        # section whose heading now says "program" can keep #the-programme
+        # without a reader ever seeing it, and renaming it would break any
+        # inbound link that already exists.
+        doc = re.sub(r'\b(?:href|src|id|name|for|class|aria-controls|'
+                     r'aria-labelledby|data-[\w-]+)="[^"]*"', "", doc)
         for rx, _r in COMPILED:
             if rx.pattern == r"dialogue":
                 continue
