@@ -61,17 +61,33 @@ PROTECT = [
 
 # (pattern, replacement). Case is handled by _cased, which preserves an initial
 # capital, so each entry is written in lower case only.
+# (pattern, replacement). Case is handled by _cased, which preserves an initial
+# capital, so each entry is written in lower case only.
+#
+# EVERY STEM CARRIES ITS ENDINGS EXPLICITLY. The first version of this table did
+# not, and a stem rule is how you turn correct English into gibberish:
+#
+#     criticis -> criticiz   turned "criticism"  into "criticizm"   (15 times)
+#     specialis -> specializ turned "specialist" into "specializt"  (11 times)
+#     centre    -> center    turned "centred"    into "centerd"     (8 times)
+#
+# None of those crashed anything and none of them were caught by a guard looking
+# for BRITISH spellings, because the output was neither British nor English. The
+# guard at the bottom now also checks that the pass has not invented a word.
 WORDS = [
     # -- the two that matter most
     (r"programme", "program"),
-    (r"licence", "license"),
-    (r"licenced", "licensed"),
-    (r"licencing", "licensing"),
-    (r"practise", "practice"),          # covers practised, practises, practising
-    # -- -re
+    (r"licenc", "licens"),              # licence, licences, licencing, licenced
+    (r"practis(e|ed|es|ing)", lambda m: "practic" + ("ing" if m.group(1) == "ing" else m.group(1))),
+    # -- -re. Longest first: "centre" would otherwise eat "centred".
+    (r"centred", "centered"),
+    (r"centres", "centers"),
+    (r"centring", "centering"),
     (r"centre", "center"),
     (r"theatre", "theater"),
-    (r"metre", "meter"),
+    (r"kilometre", "kilometer"),
+    (r"metre", "meter"),
+    (r"metres", "meters"),
     # -- -our
     (r"colour", "color"),
     (r"behaviour", "behavior"),
@@ -81,42 +97,56 @@ WORDS = [
     (r"neighbour", "neighbor"),
     (r"rumour", "rumor"),
     (r"endeavour", "endeavor"),
-    # -- -ise / -isation
-    (r"organis", "organiz"),
-    (r"recognis", "recogniz"),
-    (r"specialis", "specializ"),
-    (r"emphasis(e|ed|es|ing)\b", lambda m: "emphasiz" + m.group(1)),
-    (r"apologis", "apologiz"),
-    (r"prioritis", "prioritiz"),
-    (r"summaris", "summariz"),
-    (r"utilis", "utiliz"),
-    (r"normalis", "normaliz"),
-    (r"minimis", "minimiz"),
-    (r"maximis", "maximiz"),
-    (r"standardis", "standardiz"),
-    (r"formalis", "formaliz"),
-    (r"categoris", "categoriz"),
-    (r"criticis", "criticiz"),
-    (r"realis(e|ed|es|ing)\b", lambda m: "realiz" + m.group(1)),
-    # analyse, but NOT analysis / analyses(noun) / analyst
-    (r"analyse\b", "analyze"),
-    (r"analysed\b", "analyzed"),
-    (r"analysing\b", "analyzing"),
+    (r"flavour", "flavor"),
+    (r"humour", "humor"),
+    # -- -ise. Endings are listed so the noun forms that are correct in American
+    #    English (specialist, criticism, specialism) are left alone.
+    (r"organis(e|ed|es|ing|ation|ations|ational|ationally)",
+     lambda m: "organiz" + m.group(1)),
+    (r"recognis(e|ed|es|ing|able|ably|ance)", lambda m: "recogniz" + m.group(1)),
+    (r"specialis(e|ed|es|ing|ation|ations)", lambda m: "specializ" + m.group(1)),
+    (r"criticis(e|ed|es|ing)", lambda m: "criticiz" + m.group(1)),
+    (r"emphasis(e|ed|es|ing)", lambda m: "emphasiz" + m.group(1)),
+    (r"apologis(e|ed|es|ing)", lambda m: "apologiz" + m.group(1)),
+    (r"prioritis(e|ed|es|ing|ation)", lambda m: "prioritiz" + m.group(1)),
+    (r"summaris(e|ed|es|ing)", lambda m: "summariz" + m.group(1)),
+    (r"utilis(e|ed|es|ing|ation)", lambda m: "utiliz" + m.group(1)),
+    (r"normalis(e|ed|es|ing|ation)", lambda m: "normaliz" + m.group(1)),
+    (r"minimis(e|ed|es|ing)", lambda m: "minimiz" + m.group(1)),
+    (r"maximis(e|ed|es|ing)", lambda m: "maximiz" + m.group(1)),
+    (r"standardis(e|ed|es|ing|ation)", lambda m: "standardiz" + m.group(1)),
+    (r"formalis(e|ed|es|ing|ation)", lambda m: "formaliz" + m.group(1)),
+    (r"categoris(e|ed|es|ing|ation)", lambda m: "categoriz" + m.group(1)),
+    (r"realis(e|ed|es|ing)", lambda m: "realiz" + m.group(1)),
+    (r"marginalis(e|ed|es|ing|ation)", lambda m: "marginaliz" + m.group(1)),
+    (r"contextualis(e|ed|es|ing|ation)", lambda m: "contextualiz" + m.group(1)),
+    (r"conceptualis(e|ed|es|ing|ation|ations)", lambda m: "conceptualiz" + m.group(1)),
+    (r"itemis(e|ed|es|ing)", lambda m: "itemiz" + m.group(1)),
+    (r"characteris(e|ed|es|ing)", lambda m: "characteriz" + m.group(1)),
+    (r"individualis(e|ed|es|ing)", lambda m: "individualiz" + m.group(1)),
+    (r"centralis(e|ed|es|ing|ation)", lambda m: "centraliz" + m.group(1)),
+    (r"colonis(e|ed|es|ing|ation)", lambda m: "coloniz" + m.group(1)),
+    (r"randomis(e|ed|es|ing)", lambda m: "randomiz" + m.group(1)),
+    (r"authoris(e|ed|es|ing|ation|ations)", lambda m: "authoriz" + m.group(1)),
+    (r"analys(e|ed|es\b(?! of)|ing)", None),   # replaced below; see the note
     # -- doubled l
     (r"counsell", "counsel"),           # counsellor, counselling
     (r"cancell", "cancel"),             # cancelled, cancelling
-    (r"labell", "label"),
-    (r"travell", "travel"),
+    (r"labelled", "labeled"),
+    (r"labelling", "labeling"),
+    (r"travelled", "traveled"),
+    (r"travelling", "traveling"),
+    (r"traveller", "traveler"),
     (r"modelling", "modeling"),
     (r"modelled", "modeled"),
-    (r"marvell", "marvel"),
-    (r"signall", "signal"),
+    (r"signalled", "signaled"),
+    (r"marvellous", "marvelous"),
     # -- single l where American doubles
-    (r"enrol\b", "enroll"),
-    (r"enrols\b", "enrolls"),
     (r"enrolment", "enrollment"),
-    (r"fulfil\b", "fulfill"),
+    (r"enrols\b", "enrolls"),
+    (r"enrol\b", "enroll"),
     (r"fulfilment", "fulfillment"),
+    (r"fulfil\b", "fulfill"),
     (r"instalment", "installment"),
     (r"skilful", "skillful"),
     # -- -ce / -se nouns
@@ -125,22 +155,40 @@ WORDS = [
     (r"pretence", "pretense"),
     # -- -ogue
     (r"catalogue", "catalog"),
-    (r"dialogue", "dialog") if False else (r"dialogue", "dialogue"),  # see note
     # -- odds and ends
     (r"judgement", "judgment"),
     (r"ageing", "aging"),
     (r"whilst", "while"),
     (r"amongst", "among"),
     (r"towards", "toward"),
-    (r"learnt", "learned"),
+    (r"learnt\b", "learned"),
     (r"spelt\b", "spelled"),
-    (r"grey", "gray"),
+    (r"grey\b", "gray"),
+    (r"greyed", "grayed"),
     (r"cheque", "check"),
-    (r"storey", "story"),
+    (r"storeys", "stories"),
     (r"draught", "draft"),
     (r"sceptic", "skeptic"),
     (r"aluminium", "aluminum"),
+    (r"moustache", "mustache"),
+    (r"plough", "plow"),
 ]
+
+# analyse -> analyze, but NOT analysis / analyses(noun) / analyst, all of which
+# are correct American English. Spelled out rather than stemmed, for the reason
+# in the comment above the table.
+WORDS = [w for w in WORDS if w[1] is not None] + [
+    (r"analyse\b", "analyze"),
+    (r"analysed\b", "analyzed"),
+    (r"analysing\b", "analyzing"),
+]
+
+# Forms this pass has produced by accident and must never produce again. The
+# guard checks for them by name: a British-spelling guard cannot catch output
+# that is not a word in either dialect.
+NEVER = ["criticizm", "specializt", "specializm", "centerd", "practiceing",
+         "analyzis", "organizm", "recognizance" if False else "colord"]
+
 # NOTE ON "dialogue". American English keeps it - "dialog" is the computing
 # sense (a dialog box), not the conversational one. Left as a no-op entry rather
 # than deleted so the next person does not "fix" the omission.
