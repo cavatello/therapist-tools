@@ -58,6 +58,11 @@ MARK = "<!-- _dev/pixel_concepts.py -->"
 END = "<!-- /pixel_concepts -->"
 CSSMARK = "/* _dev/pixel_concepts.py */"
 
+# Matched against the RELATIVE path, not the basename. Written as basenames
+# first time round, which silently skipped money/index.html and the other four
+# topic hubs along with the home page - the hubs are exactly the pages a
+# review-status badge is most useful on, because they are what a reader lands
+# on from search.
 SKIP = {"tycoon.html", "concepts.html", "index.html"}
 
 # The data behind each topic. Says what those pages actually cite; a topic with
@@ -187,7 +192,7 @@ def pages():
         if os.path.isdir(p):
             out += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
                     if f.endswith(".html")]
-    return [f for f in out if os.path.basename(f) not in SKIP]
+    return [f for f in out if f not in SKIP]
 
 
 def meta(s, name):
@@ -360,6 +365,24 @@ from the page it describes.</p>
 </section>"""
 
 
+def _linked(doc):
+    """True if one of the page's extracted stylesheets carries this block.
+
+    extract_css.py replaces a shared <style> with a <link> to css/<sha>.css, so
+    after the pipeline has run the marker is in the FILE, not in the page. A
+    guard that only looks inline would report all 130 pages as broken the next
+    time this ran, which is the kind of false alarm that gets a guard deleted.
+    """
+    for h in re.findall(r'href="(?:\.\./)*css/([0-9a-f]{12})\.css"', doc):
+        f = os.path.join(SITE, "css", "%s.css" % h)
+        try:
+            if CSSMARK in open(f, encoding="utf-8").read():
+                return True
+        except IOError:
+            pass
+    return False
+
+
 def main():
     if not os.path.exists(REGISTRY):
         sys.exit("pixel_concepts: registry.json missing")
@@ -430,7 +453,7 @@ def main():
         if s.count(MARK) > 1:
             print("GUARD %s: %d blocks" % (rel, s.count(MARK)))
             bad += 1
-        if MARK in s and CSSMARK not in s:
+        if MARK in s and CSSMARK not in s and not _linked(s):
             print("GUARD %s: block without its stylesheet" % rel)
             bad += 1
         if "<!--" in s.split("</head>")[-1] and MARK not in s:
