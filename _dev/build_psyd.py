@@ -44,7 +44,14 @@ sys.path.insert(0, HERE)
 from psyd_data import PROGRAMS, GONE, DEAD_END          # noqa: E402
 
 OUT = os.path.join(SITE, "psyd-programs-california.html")
-CHROME_FROM = os.path.join(SITE, "mft-programs-california.html")
+# The chrome is lifted from an ARTICLE page, not from the MFT directory.
+# extract_css.py links each page only to the blocks that page actually had, so
+# borrowing the directory's stylesheet set gave a page whose markup is
+# .art/.artband/.artwrap but whose CSS knows nothing about any of them: the
+# hero lost its dark band, .artmeta printed as running text and the breadcrumb
+# rendered as a numbered list. Copy the chrome from something built the same
+# way as what you are building.
+CHROME_FROM = os.path.join(SITE, "hiring-first-associate-california-therapist.html")
 CHECKED = "8 August 2026"
 
 
@@ -115,9 +122,13 @@ CSS = """<style>/* _dev/build_psyd.py */
 .pdr span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
   letter-spacing:.09em;text-transform:uppercase;color:#6C6555;padding-top:2px}
 .pdr b{font-weight:500;color:#16211B}
-.pdr b .np{color:#9A8F76;font-style:italic;font-weight:400}
+/* 3.04:1 at #9A8F76. "Not published" is a real answer on this site, so it has
+   to be readable, not just present. */
+.pdr b .np{color:#6C6555;font-style:italic;font-weight:400}
+/* Pine on cream measured 3.63:1 at this size - under the 4.5:1 floor. Darkened
+   until it passed rather than left because it looked fine. */
 .pdfig{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:17px;
-  color:#2C6350;letter-spacing:-.01em}
+  color:#1F4A3B;letter-spacing:-.01em}
 .pdyr{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
   letter-spacing:.08em;color:#6C6555;margin-left:5px}
 .pdnote{margin:11px 0 0;padding:10px 0 0;border-top:2px dashed #D9D0BA;
