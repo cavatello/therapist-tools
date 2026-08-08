@@ -161,6 +161,41 @@ def main():
             n += 1
     print("%d page(s) recounted -> %s" % (n, new_n))
 
+    # ---- 5. the directory's cost chart
+    # A school that publishes a figure belongs ON the chart, not in the list of
+    # dots underneath it. Inserted by position rather than rebuilt, for the same
+    # reason as the school page: mft-programs-california.html has been through
+    # the whole chrome pipeline since it was generated.
+    dpage = os.path.join(SITE, "mft-programs-california.html")
+    s = open(dpage, encoding="utf-8").read()
+    orig = s
+
+    total_lmft = 86940          # 60 units x $1,449, the LMFT track
+    top = 152340.0              # USC, the bar the widths are scaled to
+    bar = ('<div class="ig-b cmp"><span class="ig-l">California Institute of '
+           'Integral Studies</span><span class="ig-t"><i style="width:%.4f%%">'
+           '</i></span><span class="ig-v">$%s</span></div>'
+           % (100.0 * total_lmft / top, "{:,}".format(total_lmft)))
+    anchor = ('<div class="ig-b cmp"><span class="ig-l">Antioch University Los '
+              'Angeles</span>')
+    if "California Institute of Integral Studies</span><span class=\"ig-t\"" not in s:
+        if anchor not in s:
+            sys.exit("directory: could not find the insertion point in the cost chart")
+        s = s.replace(anchor, bar + anchor, 1)
+        print("directory: cost bar inserted at $%s (computed)" % "{:,}".format(total_lmft))
+
+    # and out of the "publishes neither" dots
+    dot = ('<span class="ig-d" title="California Institute of Integral Studies">'
+           "</span>")
+    if dot in s:
+        s = s.replace(dot, "", 1)
+        print("directory: removed from the no-figure list")
+
+    s = s.replace("<b>45 of the 78 publish neither</b>",
+                  "<b>%d of the %d publish neither</b>" % (silent, n_all))
+    if s != orig:
+        open(dpage, "w", encoding="utf-8").write(s)
+
     # ---- guards
     bad = 0
     s = open(PAGE, encoding="utf-8").read()
