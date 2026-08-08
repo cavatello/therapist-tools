@@ -184,10 +184,17 @@ html[data-tv="find"] .tvcompare{display:none !important}
   cursor:pointer;padding:0}
 .rgmore:hover{text-decoration:underline}
 
+/* Centred on the page's own measure. Inserted as a bare sibling of the
+   directory, so it has no container to inherit a gutter from - exactly the
+   mistake that made the "More on this" block run full-bleed while the footer
+   under it sat in a centred column. Same width as the up-link, so the two
+   blocks that sit next to each other line up. */
 .fixrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;
   align-items:center;border:2px solid #16211B;border-radius:12px;
   background:#F4F0E6;box-shadow:3px 3px 0 #16211B;padding:14px 16px;
-  margin:24px 0 8px}
+  max-width:1120px;margin:28px auto 8px;box-sizing:border-box}
+@media (min-width:1500px){.fixrow{max-width:1320px}}
+@media (min-width:1900px){.fixrow{max-width:1560px}}
 .fixrow b{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,
   system-ui,sans-serif;font-weight:800;letter-spacing:-.028em;font-size:16px;
   color:#16211B}

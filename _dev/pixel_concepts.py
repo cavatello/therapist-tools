@@ -124,7 +124,9 @@ CSS = """<style>%s
   background:#FBF9F3;padding:13px 15px 12px;margin:18px 0 0;max-width:none}
 /* The foot block is inserted as a bare sibling of the up-link and the footer,
    so it has no container to inherit a gutter from. Match the up-link's. */
-.tsfoot{max-width:1120px;margin:30px auto 0;padding:0 26px}
+.tsfoot{max-width:1120px;margin:30px auto 0;padding:0 26px;box-sizing:border-box}
+@media (min-width:1500px){.tsfoot{max-width:1320px}}
+@media (min-width:1900px){.tsfoot{max-width:1560px}}
 @media (max-width:560px){.tsfoot{padding:0 18px}}
 .tsmeta .tsrow{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
 .tsk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.4px;

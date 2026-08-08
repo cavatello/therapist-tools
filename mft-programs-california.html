@@ -755,7 +755,8 @@ else is from each institution's own site. If something here is wrong,
 
 
 <link rel="stylesheet" href="css/91efec3089fa.css">
-<link rel="stylesheet" href="css/4f9a793c8fac.css"><link rel="stylesheet" href="css/9d16e3bb9428.css"><link rel="stylesheet" href="css/9d16e3bb9428.css">
+<link rel="stylesheet" href="css/4f9a793c8fac.css"><link rel="stylesheet" href="css/9d16e3bb9428.css"><link rel="stylesheet" href="css/7f1d472f8357.css">
+<link rel="stylesheet" href="css/e5a8878525b5.css">
 <style>/* _dev/dir_two_views.py */
 /* Concept 05. The two views are switched by an attribute on <html>, so no
    existing element is wrapped or moved and every handler on the page keeps the
@@ -803,10 +804,17 @@ html[data-tv="find"] .tvcompare{display:none !important}
   cursor:pointer;padding:0}
 .rgmore:hover{text-decoration:underline}
 
+/* Centred on the page's own measure. Inserted as a bare sibling of the
+   directory, so it has no container to inherit a gutter from - exactly the
+   mistake that made the "More on this" block run full-bleed while the footer
+   under it sat in a centred column. Same width as the up-link, so the two
+   blocks that sit next to each other line up. */
 .fixrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;
   align-items:center;border:2px solid #16211B;border-radius:12px;
   background:#F4F0E6;box-shadow:3px 3px 0 #16211B;padding:14px 16px;
-  margin:24px 0 8px}
+  max-width:1120px;margin:28px auto 8px;box-sizing:border-box}
+@media (min-width:1500px){.fixrow{max-width:1320px}}
+@media (min-width:1900px){.fixrow{max-width:1560px}}
 .fixrow b{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,
   system-ui,sans-serif;font-weight:800;letter-spacing:-.028em;font-size:16px;
   color:#16211B}
@@ -860,7 +868,6 @@ html[data-tv="find"] .tvcompare{display:none !important}
   }
 })();
 </script>
-<link rel="stylesheet" href="css/7f1d472f8357.css">
 
 <link rel="stylesheet" href="css/0b4dc1b23db9.css">
 <script>/* _dev/analytics_events.py */
@@ -942,4 +949,16 @@ html[data-tv="find"] .tvcompare{display:none !important}
   }).observe(document.documentElement, {childList: true, subtree: true});
 })();
 </script>
+<style>/* _dev/footer_fix.py */
+/* The footer is chrome and must not depend on which stylesheet a page
+   inherited. Scoped to .sitefoot so it outranks a page-local a{} rule, and
+   appended last so it cannot lose a load-order race. */
+.sitefoot .ftcols a{color:rgba(255,255,255,.78)}
+.sitefoot .ftcols a:hover{color:#fff;text-decoration:underline}
+.sitefoot .ftcols h5{color:#16211B;background:#F6C560}
+.sitefoot .ftcols p{color:rgba(255,255,255,.62)}
+.sitefoot .ftby{color:rgba(255,255,255,.62)}
+.sitefoot .ftby b{color:rgba(255,255,255,.88)}
+.sitefoot .ftby a,.sitefoot .ftcols a:focus-visible{color:#F6C560}
+</style>
 </body></html>
