@@ -120,8 +120,13 @@ CSS = """<style>%s
   font-weight:600;color:#16211B;margin:2px 0 3px}
 .tsvint i{display:block;font-style:normal;font-size:12.2px;line-height:1.5;
   color:#5A5647;max-width:62ch}
-/* 02 - the badge */
-.tsbadge{display:inline-flex;align-items:center;gap:7px;margin:12px 0 0;
+/* 02 - the badge, inside the meta card so it can never inherit a dark band */
+.tsdepth{margin:11px 0 0;padding:10px 0 0;border-top:2px dashed #D9D0BA;
+  background:transparent}
+.tsdepth:first-child{margin:0;padding:0;border-top:none;background:#FBF9F3;
+  border:2px solid #16211B;border-radius:12px;box-shadow:3px 3px 0 #16211B;
+  padding:12px 15px}
+.tsbadge{display:inline-flex;align-items:center;gap:7px;margin:0;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
   font-weight:700;letter-spacing:.07em;text-transform:uppercase;
   border:2px solid #16211B;border-radius:999px;padding:6px 13px 5px;
@@ -133,6 +138,8 @@ CSS = """<style>%s
 .tsbadge:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 #16211B}
 .tswhat{margin:8px 0 0;font-size:12.4px;line-height:1.55;color:#5A5647;
   max-width:64ch}
+/* The rail numbers were #9A8F76 on paper: 3.04:1, under the 4.5:1 floor for
+   text this small. Measured, not eyeballed. */
 /* 07 - in short */
 .tsshort{border:2px solid #16211B;border-radius:12px;box-shadow:4px 4px 0 #F6C560;
   background:#fff;padding:15px 17px 14px;margin:20px 0 0}
@@ -161,7 +168,7 @@ CSS = """<style>%s
 /* 07 - the numbered rail */
 .artnav a,.scnav a,.drnav a,.pxnav a{position:relative}
 .tsn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
-  font-weight:700;color:#9A8F76;margin-right:8px;font-style:normal;
+  font-weight:700;color:#6C6555;margin-right:8px;font-style:normal;
   display:inline-block;min-width:1.4em}
 a.on .tsn,a[aria-current] .tsn{color:#2C6350}
 @media (max-width:620px){
@@ -270,6 +277,25 @@ ANCHORS = [
 ]
 
 
+STRIP_DATE = re.compile(
+    r"<span>Updated [^<]*</span>")
+
+
+def drop_hero_date(doc):
+    """Remove "Updated <date>" from the hero meta strip.
+
+    The whole point of concept 01 is that ONE date is not enough: a reader
+    cannot tell whether "Updated 6 August" means the argument was rewritten or
+    a figure was re-checked. Printing that vague date immediately above a strip
+    that answers the question precisely is worse than either alone - it invites
+    the reader to notice the two do not match and trust neither.
+    """
+    def one(m):
+        return STRIP_DATE.sub("", m.group(0), count=1)
+    return re.sub(r'<div class="(?:artmeta|scmeta|libmeta)">[\s\S]*?</div>',
+                  one, doc)
+
+
 def block(rel, s, changes):
     topic = meta(s, "ts:topic") or ""
     q = meta(s, "ts:question")
@@ -285,6 +311,7 @@ def block(rel, s, changes):
     has_gap = gap_id is not None or 'class="gapl"' in s
 
     bits = []
+    clocks = None
 
     # ---- 01, the clocks
     rows = []
@@ -306,8 +333,8 @@ def block(rel, s, changes):
             v = ('<div class="tsvint"><span class="tsk">Figures current as of'
                  '</span><b>%s</b>%s</div>'
                  % (esc(vint), '<i>%s</i>' % esc(note) if note else ""))
-        bits.append('<div class="tsmeta"><div class="tsrow">%s</div>%s</div>'
-                    % ("".join(rows), v))
+        clocks = ('<div class="tsmeta"><div class="tsrow">%s</div>%s%%s</div>'
+                  % ("".join(rows), v))
 
     # ---- 02, the badge
     b = ('<a class="tsbadge %s" href="about.html#how-pages-are-checked">%s</a>'
@@ -315,7 +342,16 @@ def block(rel, s, changes):
     if has_gap:
         b += ('<a class="tsbadge gap" href="#%s">Known gap</a>' % gap_id
                if gap_id else '<span class="tsbadge gap">Known gap</span>')
-    bits.append(b + '<p class="tswhat">%s</p>' % esc(why))
+    badge_html = ('<div class="tsdepth">%s<p class="tswhat">%s</p></div>'
+                  % (b, esc(why)))
+
+    # The card is assembled last so the badge can live inside it. Where a page
+    # has no check date there is no card, and the badge stands on its own with
+    # its own background - hence .tsdepth carrying one either way.
+    if clocks:
+        bits.append(clocks % badge_html)
+    else:
+        bits.append(badge_html)
 
     # ---- 07, in short
     if q and out:
@@ -400,6 +436,7 @@ def main():
                    "", s)
 
         blk = block(rel, s, changes)
+        s = drop_hero_date(s)
         placed = False
         for pat in ANCHORS:
             m = re.search(pat, s)
