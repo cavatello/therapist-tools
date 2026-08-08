@@ -1340,7 +1340,7 @@ function drawTake(a, b){
              fmt(c.net), "tot");
     if (c.health > 0) s += rec("Employer health contribution", "not pay, but it is money you "
              + "do not spend", "+" + fmt(c.health));
-    if (c.extra > 0) s += rec("Match, stipends, reimbursements", "retirement match, licence "
+    if (c.extra > 0) s += rec("Match, stipends, reimbursements", "retirement match, license "
              + "fees, CEUs, mileage", "+" + fmt(c.extra));
     if (c.supPaid > 0) s += rec("Supervision you pay for", "out of the take-home above",
              "−" + fmt(c.supPaid), "neg");
@@ -1482,7 +1482,7 @@ function drawCompare(a, b){
     ["Hours you work a week", "clinical, admin and supervision", "workedHrs", 0, n1],
     ["Real hourly", "value ÷ every hour worked", "realHourly", 1, fmt2],
     ["BBS hours a year", "after the 40-a-week and 6-supervision ceilings", "bbsYear", 1, n0],
-    ["Per BBS hour", "what each hour towards your licence pays", "perBbsHour", 1, fmt2],
+    ["Per BBS hour", "what each hour towards your license pays", "perBbsHour", 1, fmt2],
     ["Years to 3,000", "at this caseload alone", "yearsTo3000", -1, function(v){
       return isFinite(v) ? (Math.round(v * 10) / 10) + " yrs" : "—"; }]
   ];
@@ -1518,14 +1518,14 @@ function drawCompare(a, b){
      + fmt2(Math.abs(dh)) + (agree ? ' the same way.' : ' the other way.') + '</p>';
   var dbbs = Math.abs(a.bbsYear - b.bbsYear);
   if (dbbs < 1){
-    s += '<p>On licence progress they are level: both bank about ' + n0(a.bbsYear)
+    s += '<p>On license progress they are level: both bank about ' + n0(a.bbsYear)
        + ' countable hours a year, so neither gets you to 3,000 sooner. Decide this one on '
        + 'the money and on who is signing your hours.</p>';
   } else {
-    s += '<p>On licence progress, ' + esc(bbsWin.label) + ' banks ' + n0(dbbs)
+    s += '<p>On license progress, ' + esc(bbsWin.label) + ' banks ' + n0(dbbs)
        + ' more countable hours a year. Over the two years you are going to be doing this, '
        + 'that is ' + n0(dbbs * 2) + ' hours — '
-       + (dbbs * 2 >= 300 ? 'months' : 'weeks') + ' off your licence date.</p>';
+       + (dbbs * 2 >= 300 ? 'months' : 'weeks') + ' off your license date.</p>';
   }
   if (a.supPaid > 0 || b.supPaid > 0){
     var payer = a.supPaid > b.supPaid ? a : b;

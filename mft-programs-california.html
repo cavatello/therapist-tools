@@ -564,7 +564,7 @@ else is from each institution's own site. If something here is wrong,
       az=document.getElementById('az'), totop=document.getElementById('totop'),
       btns=[].slice.call(document.querySelectorAll('.fb')),
       LABEL={coamfte:'COAMFTE accredited', region:'Region', lpcc:'Opens LPCC',
-             tuition:'Publishes tuition', placed:'Programme places you',
+             tuition:'Publishes tuition', placed:'Program places you',
              gre:'No admissions test'},
       KEY='ts-mft-keep', keptOnly=false, kept={};
 
@@ -593,7 +593,7 @@ else is from each institution's own site. If something here is wrong,
       /* Count cards only. Counting both would say 156 of 156. */
       if(ok && c.classList.contains('pg')){ n++; seen[c.dataset.az]=1; }
     });
-    cnt.textContent = n + ' of ' + cards.length + ' programmes';
+    cnt.textContent = n + ' of ' + cards.length + ' programs';
     empty.style.display = n ? 'none' : 'block';
     drawChips(on);
     drawAz(seen);

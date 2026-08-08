@@ -102,7 +102,7 @@ REMOTE = ("therapist-working-remotely-california.html", "Working Remotely",
 
 TRACKS = [
     ("assoc", "If you are still accruing hours",
-     "You have a licence date you cannot see and an offer you cannot compare. "
+     "You have a license date you cannot see and an offer you cannot compare. "
      "Both are arithmetic.",
      [HOURS, ADVISOR, COL]),
     ("owner", "If you are running a practice",

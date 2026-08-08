@@ -1529,7 +1529,7 @@ function renderWeekStats(){
     ["Landed in the bank", fmt0(w.collected), S.ar.length ? fmt0(S.ar.reduce((s,a)=>s+a.amount,0)) + " still owed" : "nothing outstanding",
      "Cash that actually arrived. Private pay lands the same day; insurance pays 74% (95% with a biller) several weeks later. The gap between this and Billed is the most misunderstood number in private practice."],
     ["Expenses", fmt0(w.expenses), "rent, staff, software",
-     "Charged every week whether or not a single person books: rent, EHR, liability insurance, phone, licence, marketing and staff."],
+     "Charged every week whether or not a single person books: rent, EHR, liability insurance, phone, license, marketing and staff."],
     ["Weekly net", fmt0(w.collected - w.expenses), "before income tax",
      "Collected minus expenses. Personal tax has not been taken out yet — that lands every 13 weeks."],
     ["Client mood", Math.round(avgSat) + " / 100", act.length + " active",
@@ -1907,7 +1907,7 @@ function init(){
   };
   $("btnVacation").onclick = () => {
     S.vacation = !S.vacation;
-    feed("You", S.vacation ? "booked next week off." : "cancelled the week off.", "evt");
+    feed("You", S.vacation ? "booked next week off." : "canceled the week off.", "evt");
     render();
   };
   $("veil").onclick = e => { if(e.target === $("veil")) closeModal(); };
@@ -2137,7 +2137,7 @@ function renderChecklist(){
 /* ---------- the manual ---------- */
 const MANUAL = {
   "The point": `<h4>You are one therapist, and that is the whole problem</h4>
-    <p>You have a licence, a laptop and $8,000. The goal is a practice that supports you without consuming you —
+    <p>You have a license, a laptop and $8,000. The goal is a practice that supports you without consuming you —
     measured in take-home pay, reputation, and whether you still have anything left at the end of the week.</p>
     <p>Most management games let you build outward forever. You cannot. There are forty hours in your week and one of you.
     Every route to earning more runs through <b>charging more</b>, <b>leverage</b> (a group, an associate), or
@@ -2154,7 +2154,7 @@ const MANUAL = {
     <table>
     <tr><td>Dark square</td><td>Closed. You are not available. Click to open it.</td></tr>
     <tr><td>Cream "OPEN"</td><td>Open and unbooked — time you are paying for and not billing. Click to close it.</td></tr>
-    <tr><td>Coloured tile</td><td>A booked client. The colour is who pays: gold private, cyan insurance, violet sliding scale, green group.</td></tr>
+    <tr><td>Coloured tile</td><td>A booked client. The color is who pays: gold private, cyan insurance, violet sliding scale, green group.</td></tr>
     <tr><td>Purple tile</td><td>Reserved — supervision, marketing time, or training. Not available for clients.</td></tr>
     <tr><td>😀 😐 😞</td><td>How that client feels about the work. Click any tile to see why.</td></tr>
     </table>
@@ -2191,7 +2191,7 @@ const MANUAL = {
     <p>The gap between <b>Billed</b> and <b>Landed in the bank</b> in the This Week panel is the single most
     misunderstood number in private practice. Watch it.</p>
     <h5>What comes out every week</h5>
-    <p>Rent, EHR software, liability insurance, phone, licence and CEUs, whatever marketing you have running,
+    <p>Rent, EHR software, liability insurance, phone, license and CEUs, whatever marketing you have running,
     staff, and any associate's share. These are charged whether or not a single person books.</p>
     <h5>No-shows</h5>
     <p>Roughly 8% of sessions, halved if you employ an assistant to send reminders. A late-cancellation
