@@ -327,6 +327,10 @@ def drop_hero_date(doc):
 
 
 def block(rel, s, changes):
+    # Pages one level down need "../" on every href this block emits. Computed
+    # from the page's own path rather than assumed, because assuming is how
+    # this project shipped 39 dead links out of build_library.py.
+    up = "../" * rel.count("/")
     topic = meta(s, "ts:topic") or ""
     q = meta(s, "ts:question")
     out = meta(s, "ts:outcome")
@@ -350,7 +354,7 @@ def block(rel, s, changes):
         rows.append('<span class="tsk">Last checked</span>'
                     '<span class="tsv">%s</span>' % esc(when))
     if rows:
-        rows.append('<a class="tsall" href="changes.html">All updates &rarr;</a>')
+        rows.append('<a class="tsall" href="%schanges.html">All updates &rarr;</a>')
         # A school page is a page about a catalog whatever its topic tag
         # says. Several are tagged "licensure" because that is the reader's
         # journey, not because the Board's fee schedule is where their unit
@@ -368,8 +372,8 @@ def block(rel, s, changes):
                   % ("".join(rows), v))
 
     # ---- 02, the badge
-    b = ('<a class="tsbadge %s" href="about.html#how-pages-are-checked">%s</a>'
-         % (kind, esc(label)))
+    b = ('<a class="tsbadge %s" href="%sabout.html#how-pages-are-checked">%s</a>'
+         % (kind, up, esc(label)))
     if has_gap:
         b += ('<a class="tsbadge gap" href="#%s">Known gap</a>' % gap_id
                if gap_id else '<span class="tsbadge gap">Known gap</span>')
@@ -583,6 +587,16 @@ def main():
             bad += 1
         if "<!--" in s.split("</head>")[-1] and MARK not in s:
             pass
+        for m in re.finditer(re.escape(MARK) + r"([\s\S]*?)" + re.escape(END), s):
+            for href in re.findall(r'href="([^"#]*)', m.group(1)):
+                if not href or href.startswith(("http", "mailto:", "#")):
+                    continue
+                tgt = os.path.normpath(
+                    os.path.join(os.path.dirname(rel), href))
+                if not os.path.exists(os.path.join(SITE, tgt)):
+                    print("GUARD %s: emits %r which resolves to %s and does "
+                          "not exist" % (rel, href, tgt))
+                    bad += 1
         for tag in ("tsmeta", "tsshort"):
             if s.count('class="%s"' % tag) > 1:
                 print("GUARD %s: %d x .%s" % (rel, s.count('class="%s"' % tag), tag))
