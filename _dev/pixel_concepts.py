@@ -171,6 +171,15 @@ def esc(x):
     return html.escape(str(x), quote=False)
 
 
+def raw(x):
+    """A meta CONTENT value is already entity-encoded - it had to be, to sit
+    inside an attribute. Escaping it a second time is how "Biola University's"
+    turns into "Biola University&amp;#x27;s" on the page. Only the two
+    characters that could open a tag are touched; this never goes back into an
+    attribute."""
+    return str(x).replace("<", "&lt;").replace(">", "&gt;")
+
+
 def pages():
     out = [f for f in sorted(os.listdir(SITE)) if f.endswith(".html")]
     for d in SUBDIRS:
@@ -264,7 +273,11 @@ def block(rel, s, changes):
     when = checked(s)
     kind = badge(rel, s, topic)
     label, why = BADGES[kind]
-    has_gap = 'class="gapl"' in s or "What I could not establish" in s
+    # Link into the section only where the anchor actually exists. A badge
+    # pointing at an id that is not on the page is a badge that does nothing
+    # when clicked, which reads worse than not linking it at all.
+    gap_id = "what-i-could-not-find" if 'id="what-i-could-not-find"' in s else None
+    has_gap = gap_id is not None or 'class="gapl"' in s
 
     bits = []
 
@@ -275,7 +288,14 @@ def block(rel, s, changes):
                     '<span class="tsv">%s</span>' % esc(when))
     if rows:
         rows.append('<a class="tsall" href="changes.html">All updates &rarr;</a>')
-        vint, note = VINTAGE.get(topic, (None, None))
+        # A school page is a page about a catalog whatever its topic tag
+        # says. Several are tagged "licensure" because that is the reader's
+        # journey, not because the Board's fee schedule is where their unit
+        # counts come from - and printing "figures current as of the BBS fee
+        # schedule" on a page whose figures are unit counts is a false
+        # provenance claim, which is the one thing this block must never make.
+        vkey = "training" if kind == "thin" else topic
+        vint, note = VINTAGE.get(vkey, (None, None))
         v = ""
         if vint:
             v = ('<div class="tsvint"><span class="tsk">Figures current as of'
@@ -288,16 +308,16 @@ def block(rel, s, changes):
     b = ('<a class="tsbadge %s" href="about.html#how-pages-are-checked">%s</a>'
          % (kind, esc(label)))
     if has_gap:
-        b += ('<a class="tsbadge gap" href="#what-i-could-not-establish">'
-              'Known gap</a>')
+        b += ('<a class="tsbadge gap" href="#%s">Known gap</a>' % gap_id
+               if gap_id else '<span class="tsbadge gap">Known gap</span>')
     bits.append(b + '<p class="tswhat">%s</p>' % esc(why))
 
     # ---- 07, in short
     if q and out:
-        fig = ('<span class="tsfig">%s</span>' % esc(num)) if num else ""
+        fig = ('<span class="tsfig">%s</span>' % raw(num)) if num else ""
         bits.append('<div class="tsshort"><p class="tsk">In short</p>'
                     "<q>%s</q><p class=\"tsa\">%s</p>%s</div>"
-                    % (esc(q), esc(out), fig))
+                    % (raw(q), raw(out), fig))
 
     # ---- 01, the dated updates, only where the log actually has some
     mine = [c for c in changes if c.get("where") == os.path.basename(rel)]
