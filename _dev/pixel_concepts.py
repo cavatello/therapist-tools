@@ -218,6 +218,12 @@ def checked(s):
     m = re.search(r"Updated (\d{1,2} \w+ \d{4})", s)
     if m:
         return m.group(1)
+    # The date this pass printed last time. Without this the pass destroys its
+    # own input: it moves the date out of the hero strip and into the card, and
+    # on the next run there is nothing left in the hero to read.
+    m = re.search(r'<span class="tsv">([^<]+)</span>', s)
+    if m:
+        return m.group(1)
     return None
 
 
@@ -435,7 +441,9 @@ def main():
         s = re.sub(r"\n?<style>" + re.escape(CSSMARK) + r"[\s\S]*?</style>\n?",
                    "", s)
 
-        blk = block(rel, s, changes)
+        # Built from the ORIGINAL page, not the stripped one, so a date that
+        # only exists inside the previous run's block is still findable.
+        blk = block(rel, orig, changes)
         s = drop_hero_date(s)
         placed = False
         for pat in ANCHORS:
