@@ -155,6 +155,9 @@ html[data-tv="find"] .tvcompare{display:none !important}
 .tvtabs button[aria-pressed="true"]{background:#F6C560;box-shadow:3px 3px 0 #16211B}
 .tvtabs button:active{transform:translate(2px,2px);box-shadow:0 0 0 #16211B}
 .tvnote{font-size:13.4px;line-height:1.6;color:#5A5647;margin:0 0 16px;max-width:70ch}
+.pdxlink{font-size:14px;line-height:1.62;color:#3A3529;margin:22px 0 0;max-width:74ch;
+  border-left:3px solid #16211B;padding-left:14px}
+.pdxlink a{color:#2C6350}
 
 .rgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
   gap:13px;margin:0 0 22px}
@@ -331,10 +334,22 @@ def main():
     s = re.sub(r"\n?<style>" + re.escape(CSSMARK) + r"[\s\S]*?</style>\n?", "", s)
     s = re.sub(r"\n?<script>// _dev/dir_two_views\.py[\s\S]*?</script>\n?", "", s)
 
+    # The doctorate cross-link. It lives INSIDE the marked region on purpose:
+    # the first attempt inserted it just before the tabs as a separate edit,
+    # which put it between MARK and the tabs - so the next run of this pass
+    # stripped MARK..END and took the cross-link with it. Anything that has to
+    # survive this pass has to be emitted BY this pass.
+    xlink = ('<p class="pdxlink">Looking for a doctorate instead? The MFT and '
+             "LPCC routes are master&rsquo;s level and run through the Board of "
+             "Behavioral Sciences. Doctorates in psychology are a different "
+             "licence, a different board and a different accreditation regime "
+             "&mdash; <a href=\"psyd-programs-california.html\">every PsyD in "
+             "California is here</a>.</p>")
+
     i = s.find('<div class="flt">')
     if i < 0:
         sys.exit("dir_two_views: could not find the filter bar")
-    s = s[:i] + MARK + tabs + compare + END + s[i:]
+    s = s[:i] + MARK + xlink + tabs + compare + END + s[i:]
 
     # the correction row goes after the whole lookup, before the next section
     j = s.find('<div class="grid">')
