@@ -61,6 +61,7 @@ MARK = "/* _dev/chrome_armor.py */"
 INK = "#16211B"          # the design system's near-black
 GOLD = "#F6C560"         # the CTA chip
 NLBG = "#141712"         # the newsletter band
+PINE = "#2C6350"         # the home page's primary CTA
 WHITE = "#FFFFFF"
 NL_TEXT = (189, 190, 187)   # rgba(255,255,255,.78) composited over NLBG
 
@@ -72,6 +73,8 @@ CHECKS = [
     ("newsletter body on band",  NL_TEXT,   NLBG,  FLOOR),
     ("newsletter head on band",  "#FFFFFF", NLBG,  3.0),
     (".none b on white",         "#4A5A46", WHITE, FLOOR),
+    ("home CTA on pine",         "#FFFFFF", PINE,  FLOOR),
+    ("home CTA on gold",         INK,       GOLD,  FLOOR),
 ]
 
 CSS = """<style>%(mark)s
@@ -89,6 +92,14 @@ CSS = """<style>%(mark)s
 /* 10px bold needs more than a mid grey-green carries on white. This is the
    colour the paragraph directly beneath it already uses. */
 .none.none b{color:#4A5A46}
+/* Same bug, home page. `.lp a{color:inherit}` is (0,1,1) and the button's own
+   `.lcta{color:#fff}` is (0,1,0), so a pine CTA inherited the page's near-black
+   ink and read 2.37:1. The three gold variants are re-asserted above the fix so
+   raising the base does not turn THEIR text white on gold. */
+.lp a.lcta{color:#fff}
+.lp a.lcta.lgold,
+.lp .lmid a.lcta,
+.lp .lnews a.lcta{color:%(ink)s}
 </style>""" % {"mark": MARK, "ink": INK, "gold": GOLD}
 
 
