@@ -97,6 +97,15 @@ SWAPS = [
 
     # ---- hero deck
     ("Your own numbers, nothing saved.", "Your own numbers, worked properly."),
+
+    # ---- practice-simulator.html. The <p> wraps across a newline in the
+    # source, so the swap has to carry the newline and the indentation with it;
+    # a single-line literal matches nothing here and fails silently.
+    ('    <p class="anote">Your setup lives in the link,\n'
+     '    which is also how you share it.</p>\n', ""),
+    # The same claim in the meta description and in the JSON-LD, where it is
+    # the sentence Google shows under the result.
+    ("No account, nothing saved.", "Every figure traces to a published rate."),
 ]
 
 # The two "How it works" bullets on the home page. Both said the same thing,
