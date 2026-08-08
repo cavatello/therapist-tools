@@ -53,7 +53,7 @@ MARK = "/* _dev/mobile_nav.py */"
 
 NAVBG = "#FBF9F3"      # .sitenav background, from restyle.css
 
-CSS = """<style>%s
+CSS = """<style>%(mark)s
 @media (max-width:900px){
   /* The row scrolls. These four layers make it look like it scrolls, and stop
      looking like it at each end. The two `local` layers travel with the
@@ -79,7 +79,7 @@ CSS = """<style>%s
   /* Room for the shadow to sit in without clipping the first and last label. */
   .sitenav .sitenav-links{padding-right:14px}
 }
-</style>""" % (MARK, {"bg": NAVBG})
+</style>""" % {"mark": MARK, "bg": NAVBG}
 
 
 def pages():
