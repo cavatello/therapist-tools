@@ -1,0 +1,5 @@
+/* _dev/contrast_pass.py */
+/* One muted label colour, verified against every light surface in
+   the palette. Replaces #9A8F76, #A79E88 and #B0A896, all of which
+   measured under 4.5:1. */
+.uk,.chk,.cun,.yr,.vmeta,.sn,.tm,.tn,.np,.ig-k,.ocl,.disc,.nx-k,.nx-f,.org,.mods,.sb,.cred,.meth,.tvnote,.rgmore,.lname,.ud,.uall,.pdcity,.pdyr{color:#635D4E}
