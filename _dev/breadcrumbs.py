@@ -44,8 +44,12 @@ TRAILS = {
     "associate-mft-job-advisor.html":           ("Tools", "tools.html", "Job advisor"),
     "amft-3000-hours-california.html":          ("Tools", "tools.html", "3,000 hours"),
     "therapist-cost-of-living-california.html": ("Tools", "tools.html", "Cost of living"),
-    "rates.html":                               ("Learn", None, "The rate gap"),
-    "therapist-working-remotely-california.html": ("Learn", None, "Working remotely"),
+    # "Learn" was a segment that existed only in this table: no page, no href,
+    # and therefore an unclickable middle crumb and a BreadcrumbList whose
+    # second item Google drops for having no `item`. The topic hubs are real
+    # pages, so the trail now points at one.
+    "rates.html":                               ("Getting paid", "getting-paid/", "The rate gap"),
+    "therapist-working-remotely-california.html": ("Practice", "practice/", "Working remotely"),
     "about.html":                               ("About", None, "What this is"),
     "contact.html":                             ("About", None, "Contact"),
     "newsletter.html":                          ("About", None, "Stay updated"),
@@ -75,6 +79,12 @@ CSS = """
 .bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
 .bcr .sep{opacity:.36}
 .bcr [aria-current]{opacity:.95;font-weight:600}
+/* The negative top margin above assumes the crumb is the FIRST thing in the
+   hero. Where anything still sits above it, that pull becomes an overlap - two
+   uppercase strips printed on the same line, which is what shipped on
+   rates.html. Cancel it rather than trusting every template to be clean. */
+.hero-eyebrow + .bcr,.kicker + .bcr,.eyebrow + .bcr,
+p[class*=eyebrow] + .bcr,div[class*=eyebrow] + .bcr{margin-top:0}
 @media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
 """
 
@@ -186,8 +196,15 @@ def main():
         if _h1 > 0:
             _win = s[max(0, _h1 - 400):_h1]
             _k = None
-            for _m in re.finditer(r'<p class="[^"]*(?:kick|eyebrow)[^"]*"[^>]*>(.*?)</p>',
-                                  _win, re.S):
+            # DIV, not just P. rates.html carries <div class="hero-eyebrow">
+            # rather than a <p>, so it never matched, was never removed, and the
+            # crumb's own negative top margin - which exists to pull it up into
+            # the hero's padding - pulled it straight onto the eyebrow instead.
+            # The two strings printed on top of each other. A selector that
+            # names one tag is a selector that will miss the next template.
+            for _m in re.finditer(
+                    r'<(?:p|div) class="[^"]*(?:kick|eyebrow)[^"]*"[^>]*>(.*?)</(?:p|div)>',
+                    _win, re.S):
                 _k = _m
             if _k:
                 _text = re.sub(r"<[^>]+>", "", _k.group(1)).strip()

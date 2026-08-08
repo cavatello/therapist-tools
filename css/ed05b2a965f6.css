@@ -1,0 +1,29 @@
+/* _dev/breadcrumbs.py */
+/* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
+   to a reader who could see the other chapters. Deliberately the same weight
+   and tracking as the kicker it sits above, so it reads as chrome rather than
+   as content. Colour is inherited so it works on paper and on a dark slab
+   without a second rule. */
+/* Measured 44-86px of dead air between the masthead and the crumb, because the
+   hero's own padding-top was set before the crumb existed and the crumb then
+   added to it. Pulled up rather than reaching into each page's hero padding,
+   which differs per template. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;
+  margin:clamp(-30px,-2.2vw,-14px) 0 10px;
+ padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
+.bcr li{display:flex;align-items:center;gap:8px}
+.bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
+ display:inline-flex;align-items:center;border-bottom:1px solid transparent}
+.bcr a:hover{opacity:1;border-bottom-color:currentColor}
+.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.bcr .sep{opacity:.36}
+.bcr [aria-current]{opacity:.95;font-weight:600}
+/* The negative top margin above assumes the crumb is the FIRST thing in the
+   hero. Where anything still sits above it, that pull becomes an overlap - two
+   uppercase strips printed on the same line, which is what shipped on
+   rates.html. Cancel it rather than trusting every template to be clean. */
+.hero-eyebrow + .bcr,.kicker + .bcr,.eyebrow + .bcr,
+p[class*=eyebrow] + .bcr,div[class*=eyebrow] + .bcr{margin-top:0}
+@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
+.bcrq{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin:10px 0 0}/* end bcr */
