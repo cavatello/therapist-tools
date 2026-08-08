@@ -1598,6 +1598,19 @@
    "weight": 2,
    "skip": false,
    "leaf": true
+  },
+  {
+   "file": "psyd-programs-california.html",
+   "title": "California PsyD programs, and what accreditation actually decides",
+   "topic": "training",
+   "format": "reference",
+   "question": "Which PsyD programs are there in California?",
+   "outcome": "Every PsyD in the state, grouped by what its accreditation actually gets you",
+   "number": "20 of 25 are APA-accredited",
+   "stale": false,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
   }
  ],
  "topics": {
@@ -1774,6 +1787,12 @@
   }
  },
  "changes": [
+  {
+   "date": "2026-08-08",
+   "what": "Added a directory of every PsyD program based in California, grouped by APA accreditation status. The organising fact: the Board of Psychology requires regional institutional accreditation, not APA programmatic accreditation, but 16 CCR 1387 requires an APA/APPIC/CAPIC internship - so a non-APA doctorate can license you here and still make the internship year and any move out of state much harder.",
+   "where": "psyd-programs-california.html",
+   "src": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=2914.&lawCode=BPC"
+  },
   {
    "date": "2026-08-07",
    "what": "Reconciled the program directory against the Board's own list: 13 institutions added (65 to 78), and the LPCC column corrected for 33 of them — 7 that showed no answer are listed for LMFT and not LPCC, including Cal Poly Humboldt, Cal Poly San Luis Obispo and USC.",
