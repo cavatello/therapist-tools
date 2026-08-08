@@ -92,9 +92,39 @@ def esc(x):
     return html.escape(str(x), quote=False)
 
 
-def slug(name):
-    n = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode()
-    return re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-") + "-mft.html"
+def hrefs_from(doc):
+    """{normalised institution name: href or None}, read off the directory.
+
+    Twelve institutions have no page yet - they came in with the Board's list
+    and nothing has been written about them - so the value is None and the
+    orientation view prints the name without a link. A name that goes nowhere
+    is honest; a link that 404s is not.
+    """
+    out = {}
+    for art in re.findall(r'<article class="pg"[\s\S]*?</article>', doc):
+        h3 = re.search(r"<h3>(.*?)</h3>", art)
+        if not h3:
+            continue
+        link = re.search(r'href="([a-z0-9-]+-mft\.html)"', art)
+        out[norm(h3.group(1))] = link.group(1) if link else None
+    return out
+
+
+def norm(name):
+    """Match the directory's display name to programs.json's institution field.
+
+    They differ in punctuation and parenthetical suffixes - "California State
+    University, Fresno (Fresno State)" against "California State University,
+    Fresno" - so both sides are reduced to letters and digits and the
+    parenthetical is dropped.
+    """
+    n = unicodedata.normalize("NFKD", str(name)).encode("ascii", "ignore").decode()
+    # Numeric entities too. The directory writes an apostrophe as &#x27;
+    # and an alpha-only pattern left the "x27" behind, so "Saint Mary's
+    # College" and "Saint Marys College" did not match.
+    n = re.sub(r"&(?:[a-z]+|#\d+|#x[0-9a-fA-F]+);", " ", n)
+    n = re.sub(r"\([^)]*\)", " ", n)
+    return re.sub(r"[^a-z0-9]+", "", n.lower())
 
 
 def metros_of(p):
@@ -139,9 +169,12 @@ html[data-tv="find"] .tvcompare{display:none !important}
 .rgbody{padding:9px 14px 12px}
 .rgbody a{display:block;font-size:13.6px;line-height:1.4;color:#16211B;
   text-decoration:none;padding:6px 0;border-bottom:1px dashed #E4DCC8}
-.rgbody a:last-of-type{border-bottom:none}
+.rgbody .rgna{display:block;font-size:13.6px;line-height:1.4;color:#6C6555;
+  padding:6px 0;border-bottom:1px dashed #E4DCC8}
+.rgbody a:last-of-type,.rgbody .rgna:last-of-type{border-bottom:none}
+.rgbody .rgna em{margin-left:6px}
 .rgbody a:hover{color:#2C6350}
-.rgbody a em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;
+.rgbody a em,.rgbody .rgna em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9px;font-weight:700;letter-spacing:.08em;color:#16211B;
   background:#CFE3D6;border:1.5px solid #16211B;border-radius:999px;
   padding:2px 6px 1px;margin-left:6px;white-space:nowrap}
@@ -202,7 +235,7 @@ JS = """<script>%s
     more[j].addEventListener('click', function(e){
       var b = e.currentTarget;
       var box = b.parentNode;
-      var hidden = box.querySelectorAll('a[hidden]');
+      var hidden = box.querySelectorAll('a[hidden],span[hidden]');
       for(var k=0;k<hidden.length;k++){ hidden[k].hidden = false; }
       b.parentNode.removeChild(b);
     });
@@ -215,6 +248,13 @@ def main():
     if not os.path.exists(PAGE):
         sys.exit("dir_two_views: %s missing" % PAGE)
     progs = json.load(open(DATA, encoding="utf-8"))
+    page0 = open(PAGE, encoding="utf-8").read()
+    LINKS = hrefs_from(page0)
+    unmatched = [p["institution"] for p in progs
+                 if norm(p["institution"]) not in LINKS]
+    if unmatched:
+        print("  %d name(s) not matched to a directory row: %s"
+              % (len(unmatched), ", ".join(unmatched[:4])))
 
     buckets = {}
     for p in progs:
@@ -234,10 +274,16 @@ def main():
         items = []
         for i, p in enumerate(rows):
             tag = "<em>COAMFTE</em>" if p.get("coamfte") else ""
-            items.append('<a href="%s"%s>%s%s</a>'
-                         % (esc(slug(p["institution"])),
-                            "" if i < SHOWN_PER_GROUP else " hidden",
-                            esc(p["institution"]), tag))
+            hide = "" if i < SHOWN_PER_GROUP else " hidden"
+            href = LINKS.get(norm(p["institution"]))
+            if href:
+                items.append('<a href="%s"%s>%s%s</a>'
+                             % (esc(href), hide, esc(p["institution"]), tag))
+            else:
+                # On the Board's list, nothing written about it here yet. Named
+                # anyway - a reader comparing options needs to know it exists.
+                items.append('<span class="rgna"%s>%s%s</span>'
+                             % (hide, esc(p["institution"]), tag))
         more = ""
         if len(rows) > SHOWN_PER_GROUP:
             more = ('<button type="button" class="rgmore">+%d more</button>'
