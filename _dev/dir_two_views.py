@@ -362,10 +362,16 @@ def main():
     s = s[:k] + MARK + fix + END + s[k:]
 
     # the view attribute, so the first paint is already correct and nothing
-    # flashes the wrong pane before the script runs
+    # flashes the wrong pane before the script runs.
+    #
+    # This used to leave an existing data-tv alone, which made it write-once:
+    # changing DEFAULT_VIEW and re-running printed "guards clean" and changed
+    # nothing, because the attribute the guard checks was already there. It now
+    # REPLACES the value, so the constant at the top of this file is the single
+    # source of truth for which pane opens.
+    s = re.sub(r'\sdata-tv="[a-z]+"', "", s, count=1)
     s = re.sub(r"<html\b[^>]*>",
-               lambda m: (m.group(0) if "data-tv" in m.group(0)
-                          else m.group(0)[:-1] + ' data-tv="%s">' % DEFAULT_VIEW),
+               lambda m: m.group(0)[:-1] + ' data-tv="%s">' % DEFAULT_VIEW,
                s, count=1)
 
     n = s.lower().rfind("</body>")
