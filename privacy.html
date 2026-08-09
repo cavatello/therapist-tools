@@ -558,4 +558,97 @@
 .tblw.tblw.tblw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
 .tblw.tblw.tblw::-webkit-scrollbar-track{background:transparent}
 </style>
+<style>/* _dev/infographics.py */
+/* A visual vocabulary. Five shapes, all CSS, all reflowing at 390px, all
+   carrying their figures as real text so a screen reader gets the number and
+   not just a coloured box. */
+
+.ig{margin:26px 0;font-family:Inter,system-ui,sans-serif}
+.ig-cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:#2C6350;margin:0 0 9px}
+.ig-note{font-size:13.2px;line-height:1.6;color:#635E53;margin:10px 0 0;max-width:72ch}
+.ig-note b{color:#16211B}
+
+/* ---------------------------------------------------------------- split */
+.ig-split .bar{display:flex;border:2px solid #16211B;border-radius:10px;
+  overflow:hidden;box-shadow:4px 4px 0 #16211B;min-height:56px}
+.ig-split .seg{display:flex;flex-direction:column;justify-content:center;
+  padding:9px 13px;min-width:0}
+.ig-split .seg.a{background:#2C6350;color:#fff}
+.ig-split .seg.b{background:#FBF9F3;color:#16211B;border-left:2px solid #16211B}
+.ig-split .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:22px;
+  line-height:1}
+.ig-split .l{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.09em;text-transform:uppercase;margin-top:5px;line-height:1.4}
+.ig-split .seg.a .l{color:rgba(255,255,255,.86)}
+.ig-split .seg.b .l{color:#635E53}
+
+/* ---------------------------------------------------------------- steps */
+.ig-steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
+.ig-steps li{counter-increment:s;position:relative;display:grid;
+  grid-template-columns:38px 1fr;gap:13px;align-items:start;
+  padding:0 0 16px;margin:0}
+.ig-steps li::before{content:counter(s,decimal-leading-zero);
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border:2px solid #16211B;border-radius:9px;
+  background:#F6C560;color:#16211B;box-shadow:2px 2px 0 #16211B}
+/* the connector between steps, decorative only */
+.ig-steps li:not(:last-child)::after{content:"";position:absolute;
+  left:17px;top:38px;bottom:4px;width:2px;background:#D9D0BA}
+.ig-steps b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-weight:800;letter-spacing:-.02em;font-size:15.5px;color:#16211B;
+  margin:6px 0 3px}
+.ig-steps span{display:block;font-size:14px;line-height:1.6;color:#635E53;max-width:64ch}
+
+/* ----------------------------------------------------------------- bars */
+.ig-bars .row{display:grid;grid-template-columns:150px 1fr auto;gap:12px;
+  align-items:center;padding:7px 0;border-bottom:1.5px solid #E6E0D2}
+.ig-bars .row:last-child{border-bottom:0}
+.ig-bars .who{font-size:13.6px;line-height:1.35;color:#16211B;font-weight:600}
+.ig-bars .who i{display:block;font-style:normal;font-size:11.5px;color:#635E53;
+  font-weight:400}
+.ig-bars .track{background:#F4F0E6;border:1.5px solid #D9D0BA;border-radius:999px;
+  height:19px;position:relative;overflow:hidden}
+.ig-bars .fill{position:absolute;left:0;top:0;bottom:0;background:#2C6350;
+  border-radius:999px}
+.ig-bars .fill.lo{background:#8FB3A3}
+.ig-bars .val{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:15px;
+  color:#16211B;white-space:nowrap}
+
+/* ----------------------------------------------------------------- flow */
+.ig-flow .fr{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.ig-flow .node{flex:1 1 150px;border:2px solid #16211B;border-radius:11px;
+  background:#FBF9F3;padding:13px 14px;box-shadow:4px 4px 0 #16211B;min-width:0}
+.ig-flow .node.pay{background:#F6C560}
+.ig-flow .node b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-weight:800;font-size:14.5px;color:#16211B;letter-spacing:-.02em}
+.ig-flow .node span{display:block;font-size:12.6px;line-height:1.55;color:#635E53;
+  margin-top:4px}
+.ig-flow .arr{flex:0 0 42px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;padding:0 4px}
+.ig-flow .arr em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#2C6350;
+  text-align:center;line-height:1.2}
+.ig-flow .arr i{font-style:normal;font-size:19px;color:#16211B;line-height:1}
+
+/* ----------------------------------------------------------------- stat */
+.ig-stat .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:0;border:2px solid #16211B;border-radius:12px;overflow:hidden;
+  box-shadow:5px 5px 0 #16211B;background:#16211B}
+.ig-stat .c{background:#FBF9F3;padding:14px 15px}
+.ig-stat .n{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:27px;line-height:1;color:#16211B;letter-spacing:-.02em}
+.ig-stat .l{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#2C6350;
+  margin-top:7px;line-height:1.5}
+
+@media (max-width:640px){
+  .ig-bars .row{grid-template-columns:1fr auto;gap:6px 10px}
+  .ig-bars .track{grid-column:1 / -1;order:3}
+  .ig-flow .arr{flex-basis:100%;height:32px;transform:rotate(90deg)}
+  .ig-split .bar{flex-direction:column}
+  .ig-split .seg.b{border-left:0;border-top:2px solid #16211B}
+}
+</style>
 </body></html>

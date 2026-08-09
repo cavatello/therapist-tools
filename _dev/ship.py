@@ -74,6 +74,9 @@ STRUCTURE = [
     ("_dev/headline_figures.py",
      "fixes a chosen headline figure on an article whose builder no longer "
      "runs"),
+    ("_dev/infographics.py",
+     "the visual vocabulary - five CSS shapes and the pages that use them. "
+     "Before FLOORS, so block_spacing and content_frame see the figures"),
     ("_dev/hub_hero.py", "the AIDA heroes, with every figure measured"),
     ("_dev/stage_router.py", "the situation router on resources.html"),
     ("_dev/footer_order.py",
