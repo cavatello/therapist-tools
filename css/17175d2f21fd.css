@@ -6,7 +6,7 @@
 .navpanel.navpanel .np-col.np-col h5{font-size:10.5px}  /* was 9.5px - nav panel column headings, all 164 pages */
 .np-promo.np-promo .np-all.np-all{font-size:10.5px}  /* was 9.6px - 'The hub' in the nav panel */
 .sitenav-sub.sitenav-sub{font-size:10.5px}  /* was 10.0px - 'Supporting California therapists' */
-.tsshort.tsshort .tsk.tsk{font-size:10.5px}  /* was 9.4px - 'In short' */
+.tsk.tsk{font-size:10.5px}  /* was 9.4px - 'In short' */
 .tsn.tsn{font-size:10.5px}  /* was 9.6px - the numerals in an on-this-page rail */
 .pdr.pdr span{font-size:10.5px}  /* was 9.6px - the PsyD row labels - 150 of them */
 .pdfig.pdfig{font-size:10.5px}  /* was 9.6px - PsyD figures */
@@ -24,6 +24,7 @@
 .eap-rate-h.eap-rate-h{font-size:10.5px}  /* was 10.0px - EAP rate table headings */
 .artnext.artnext b{font-size:10.5px}  /* was 9.8px - next-article labels */
 .arr.arr em{font-size:10.5px}  /* was 9.0px - the arrow captions in ig-flow */
+.soon.soon{font-size:10.5px}  /* was 10.0px - 'coming soon' markers */
 .dc-t.dc-t th{font-size:10.5px}  /* was 9.8px - case-library table headings */
 .tbl.tbl th{font-size:10.5px}  /* was 9.8px - article table headings */
 .eap-tbl.eap-tbl th{font-size:10.5px}  /* was 9.8px - the EAP rate table */

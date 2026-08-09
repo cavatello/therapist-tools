@@ -67,7 +67,10 @@ RAISE = [
     (".navpanel .np-col h5", 9.5, "nav panel column headings, all 164 pages"),
     (".np-promo .np-all", 9.6, "'The hub' in the nav panel"),
     (".sitenav-sub", 10.0, "'Supporting California therapists'"),
-    (".tsshort .tsk", 9.4, "'In short'"),
+    # Bare, not `.tsshort .tsk`. The In-short kicker also appears outside that
+    # wrapper on five pages, and scoping the selector to the wrapper left those
+    # five at 9.4px - which the re-measure caught.
+    (".tsk", 9.4, "'In short'"),
     (".tsn", 9.6, "the numerals in an on-this-page rail"),
     (".pdr span", 9.6, "the PsyD row labels - 150 of them"),
     (".pdfig", 9.6, "PsyD figures"),
@@ -85,6 +88,7 @@ RAISE = [
     (".eap-rate-h", 10.0, "EAP rate table headings"),
     (".artnext b", 9.8, "next-article labels"),
     (".arr em", 9.0, "the arrow captions in ig-flow"),
+    (".soon", 10.0, "'coming soon' markers"),
     # `table th` is not a class, so `double()` leaves it alone and it loses to
     # every `.dc-t th` / `.tbl th` rule on the site. Named explicitly, at the
     # specificity those rules actually use.
