@@ -116,6 +116,8 @@ BRITISH_OK = [
     r"Board of Behavioural Sciences",       # never correct, but caught elsewhere
     r"Behavioural Health Examiners",        # the Arizona board's actual name
     r"[Ll]icence[s]? issued in (?:England|Wales|Scotland)",
+    r"USC Catalogue",              # the actual name of USC's actual publication
+    r"catalogue\.usc\.edu",       # served from that host, so the URL is not a typo
 ]
 
 
