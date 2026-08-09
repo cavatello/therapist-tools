@@ -420,7 +420,7 @@ PLACEMENTS = [
             "Thirty cases, by what went wrong",
             [("Sexual boundaries", "", 6, "6"),
              ("Boundary drift", "no sexual contact", 5, "5"),
-             ("Convictions", "including ones unrelated to therapy", 5, "5"),
+             ("Convictions", "three written up, two listed", 5, "5"),
              ("Discipline from elsewhere",
               "another state, another license", 4, "4"),
              ("Records and confidentiality", "", 3, "3"),
