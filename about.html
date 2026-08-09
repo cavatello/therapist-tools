@@ -69,6 +69,7 @@ from the page it describes.</p>
 
 
 
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Practice</h2><p class="ud">Filling the week, and running the admin behind it.</p><div class="ug"><a class="uc" href="hiring-first-associate-california-therapist.html"><b>Should I hire an associate?</b><span>The loaded cost, the break-even caseload, and the classification rule</span></a><a class="uc" href="therapist-working-remotely-california.html"><b>Can I see California clients from abroad?</b><span>The Board&#x27;s own answer, then the same practice priced in eight places</span></a><a class="uc" href="grow-your-therapy-practice.html"><b>How do I fill my caseload?</b><span>Client lifetime value, the leakiest channel, and a monthly enquiry target</span></a></div><a class="uall" href="practice/">All 12 pages on practice &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -286,6 +287,10 @@ a.card h3{text-decoration:none}
 
 
 
+
+
+
+
 <link rel="stylesheet" href="css/cf7ba749a7ea.css">
 
 <link rel="stylesheet" href="css/967d1434b320.css">
@@ -462,199 +467,14 @@ a.card h3{text-decoration:none}
 <link rel="stylesheet" href="css/f3c5f8978431.css">
 
 <link rel="stylesheet" href="css/5b9864342bfc.css">
+<link rel="stylesheet" href="css/8915cda5d9ab.css">
 <link rel="stylesheet" href="css/f75134b09224.css">
 <link rel="stylesheet" href="css/2f29aaadfa97.css">
 <link rel="stylesheet" href="css/98dfe0b8d12e.css">
 <link rel="stylesheet" href="css/0bc1ae1be8e7.css">
 <link rel="stylesheet" href="css/5f9da934c88f.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/aeea09f7e9b5.css">
+<link rel="stylesheet" href="css/a65314816362.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
-<style>/* _dev/content_frame.py */
-/* ============================================================ THE FRAME
-   One rhythm, one measure, one headline width. Measured before this pass:
-   the breadcrumb-to-H1 gap was 37px on an article and 14px on a case page,
-   and the H1 was capped at 529px inside a 740px column. */
-
-:root{
-  --ts-crumb-gap:34px;      /* one value, both templates */
-  --ts-headline:30ch;       /* was 20ch, which is ~13 characters at 40px */
-  --ts-prose:72ch;
-}
-
-/* --- breadcrumb to headline ------------------------------------------- */
-.bcr.bcr.bcr, .dc-crumb.dc-crumb.dc-crumb{margin-bottom:var(--ts-crumb-gap)}
-.bcr.bcr.bcr + h1, .dc-crumb.dc-crumb.dc-crumb + h1,
-.dc-crumb.dc-crumb.dc-crumb + .dc-title{margin-top:0}
-
-/* --- the headline uses its column ------------------------------------- */
-/* A display face at 37-41px needs about 30 characters a line, not 13. The cap
-   stays - an unbounded headline on a 2560px screen is its own problem - it is
-   just set to a width a headline can actually use. */
-.dc-title.dc-title.dc-title{max-width:var(--ts-headline)}
-.artband.artband h1, .art.art h1{max-width:var(--ts-headline)}
-
-/* ====================================== AN ARTICLE WITH NO SIDE RAIL
-   `.artwrap` is a two-column grid - a 210px "on this page" rail, then an
-   880px column of content. Every article page has both.
-
-   psyd-programs-california.html has no rail. So `.artbody` became the FIRST
-   grid child, landed in the 210px column, and the entire page - 25 programme
-   cards, each 320px wide - rendered inside a 210px strip with 970px of empty
-   paper beside it. Nothing errored. The grid did exactly what it was told.
-
-   Fixed by the structure rather than by the page: if `.artbody` is the first
-   child of the wrap, there is no rail, so it spans every column. That also
-   means the next page written without a rail cannot hit this. */
-.artwrap.artwrap > .artbody:first-child{grid-column:1 / -1;max-width:none}
-.artwrap.artwrap > .artbody:first-child > *{max-width:100%}
-
-/* ============================================== WIDE BLOCKS IN A COLUMN
-   A table whose content is wider than its column used to sit in a scroller
-   with no scrollbar, no fade and no affordance, and read as a bug. */
-
-/* 1. Let it fit.
-      The cause was measured, and it was not the wrap mode. The figure cells
-      carry `white-space:nowrap`, so a cell reading "$79 first clinician, $50
-      each additional, unlimited non-clinical users" is held on ONE line at
-      459px. Three such columns make a 996px table inside a 713px column, and
-      the first column gets squeezed to 40px. `overflow-wrap` cannot do
-      anything about that - nowrap wins.
-
-      So: release the nowrap, and wrap at spaces only. `break-word` breaks a
-      word only when that single word would overflow on its own, which keeps
-      "$1,140" and "3.1% + 30c" intact. `anywhere` would break inside the
-      number, which is why it is not used here. */
-@media (min-width:900px){
-  .tw.tw.tw td, .tw.tw.tw th, .li-tw.li-tw.li-tw td, .li-tw.li-tw.li-tw th, .dc-tw.dc-tw.dc-tw td, .dc-tw.dc-tw.dc-tw th, .octw.octw.octw td, .octw.octw.octw th, .srn-w.srn-w.srn-w td, .srn-w.srn-w.srn-w th, .tblw.tblw.tblw td, .tblw.tblw.tblw th{white-space:normal;overflow-wrap:break-word}
-  .tw.tw.tw table, .li-tw.li-tw.li-tw table, .dc-tw.dc-tw.dc-tw table, .octw.octw.octw table, .srn-w.srn-w.srn-w table, .tblw.tblw.tblw table{width:100%;min-width:0}
-}
-
-/* 2. Where it still cannot fit, make the overflow visible. */
-.tw.tw.tw, .li-tw.li-tw.li-tw, .dc-tw.dc-tw.dc-tw, .octw.octw.octw, .srn-w.srn-w.srn-w, .tblw.tblw.tblw{
-  position:relative;
-  scrollbar-width:thin;
-  scrollbar-color:#C9C0AA transparent;
-  background:
-    linear-gradient(to right, #FBF9F3 30%, rgba(251,249,243,0)) left center,
-    linear-gradient(to right, rgba(251,249,243,0), #FBF9F3 70%) right center,
-    radial-gradient(farthest-side at 0 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) left center,
-    radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) right center;
-  background-repeat:no-repeat;
-  background-size:36px 100%, 36px 100%, 14px 100%, 14px 100%;
-  background-attachment:local, local, scroll, scroll;
-}
-.tw.tw.tw::-webkit-scrollbar{height:9px}
-.tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
-.tw.tw.tw::-webkit-scrollbar-track{background:transparent}
-.li-tw.li-tw.li-tw::-webkit-scrollbar{height:9px}
-.li-tw.li-tw.li-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
-.li-tw.li-tw.li-tw::-webkit-scrollbar-track{background:transparent}
-.dc-tw.dc-tw.dc-tw::-webkit-scrollbar{height:9px}
-.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
-.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-track{background:transparent}
-.octw.octw.octw::-webkit-scrollbar{height:9px}
-.octw.octw.octw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
-.octw.octw.octw::-webkit-scrollbar-track{background:transparent}
-.srn-w.srn-w.srn-w::-webkit-scrollbar{height:9px}
-.srn-w.srn-w.srn-w::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
-.srn-w.srn-w.srn-w::-webkit-scrollbar-track{background:transparent}
-.tblw.tblw.tblw::-webkit-scrollbar{height:9px}
-.tblw.tblw.tblw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
-.tblw.tblw.tblw::-webkit-scrollbar-track{background:transparent}
-</style>
-<style>/* _dev/infographics.py */
-/* A visual vocabulary. Five shapes, all CSS, all reflowing at 390px, all
-   carrying their figures as real text so a screen reader gets the number and
-   not just a coloured box. */
-
-.ig{margin:26px 0;font-family:Inter,system-ui,sans-serif}
-.ig-cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
-  letter-spacing:.13em;text-transform:uppercase;color:#2C6350;margin:0 0 9px}
-.ig-note{font-size:13.2px;line-height:1.6;color:#635E53;margin:10px 0 0;max-width:72ch}
-.ig-note b{color:#16211B}
-
-/* ---------------------------------------------------------------- split */
-.ig-split .bar{display:flex;border:2px solid #16211B;border-radius:10px;
-  overflow:hidden;box-shadow:4px 4px 0 #16211B;min-height:56px}
-.ig-split .seg{display:flex;flex-direction:column;justify-content:center;
-  padding:9px 13px;min-width:0}
-.ig-split .seg.a{background:#2C6350;color:#fff}
-.ig-split .seg.b{background:#FBF9F3;color:#16211B;border-left:2px solid #16211B}
-.ig-split .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:22px;
-  line-height:1}
-.ig-split .l{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
-  letter-spacing:.09em;text-transform:uppercase;margin-top:5px;line-height:1.4}
-.ig-split .seg.a .l{color:rgba(255,255,255,.86)}
-.ig-split .seg.b .l{color:#635E53}
-
-/* ---------------------------------------------------------------- steps */
-.ig-steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
-.ig-steps li{counter-increment:s;position:relative;display:grid;
-  grid-template-columns:38px 1fr;gap:13px;align-items:start;
-  padding:0 0 16px;margin:0}
-.ig-steps li::before{content:counter(s,decimal-leading-zero);
-  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
-  display:flex;align-items:center;justify-content:center;
-  width:34px;height:34px;border:2px solid #16211B;border-radius:9px;
-  background:#F6C560;color:#16211B;box-shadow:2px 2px 0 #16211B}
-/* the connector between steps, decorative only */
-.ig-steps li:not(:last-child)::after{content:"";position:absolute;
-  left:17px;top:38px;bottom:4px;width:2px;background:#D9D0BA}
-.ig-steps b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
-  font-weight:800;letter-spacing:-.02em;font-size:15.5px;color:#16211B;
-  margin:6px 0 3px}
-.ig-steps span{display:block;font-size:14px;line-height:1.6;color:#635E53;max-width:64ch}
-
-/* ----------------------------------------------------------------- bars */
-.ig-bars .row{display:grid;grid-template-columns:150px 1fr auto;gap:12px;
-  align-items:center;padding:7px 0;border-bottom:1.5px solid #E6E0D2}
-.ig-bars .row:last-child{border-bottom:0}
-.ig-bars .who{font-size:13.6px;line-height:1.35;color:#16211B;font-weight:600}
-.ig-bars .who i{display:block;font-style:normal;font-size:11.5px;color:#635E53;
-  font-weight:400}
-.ig-bars .track{background:#F4F0E6;border:1.5px solid #D9D0BA;border-radius:999px;
-  height:19px;position:relative;overflow:hidden}
-.ig-bars .fill{position:absolute;left:0;top:0;bottom:0;background:#2C6350;
-  border-radius:999px}
-.ig-bars .fill.lo{background:#8FB3A3}
-.ig-bars .val{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:15px;
-  color:#16211B;white-space:nowrap}
-
-/* ----------------------------------------------------------------- flow */
-.ig-flow .fr{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.ig-flow .node{flex:1 1 150px;border:2px solid #16211B;border-radius:11px;
-  background:#FBF9F3;padding:13px 14px;box-shadow:4px 4px 0 #16211B;min-width:0}
-.ig-flow .node.pay{background:#F6C560}
-.ig-flow .node b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
-  font-weight:800;font-size:14.5px;color:#16211B;letter-spacing:-.02em}
-.ig-flow .node span{display:block;font-size:12.6px;line-height:1.55;color:#635E53;
-  margin-top:4px}
-.ig-flow .arr{flex:0 0 42px;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:3px;padding:0 4px}
-.ig-flow .arr em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#2C6350;
-  text-align:center;line-height:1.2}
-.ig-flow .arr i{font-style:normal;font-size:19px;color:#16211B;line-height:1}
-
-/* ----------------------------------------------------------------- stat */
-.ig-stat .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:0;border:2px solid #16211B;border-radius:12px;overflow:hidden;
-  box-shadow:5px 5px 0 #16211B;background:#16211B}
-.ig-stat .c{background:#FBF9F3;padding:14px 15px}
-.ig-stat .n{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;
-  font-size:27px;line-height:1;color:#16211B;letter-spacing:-.02em}
-.ig-stat .l{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#2C6350;
-  margin-top:7px;line-height:1.5}
-
-@media (max-width:640px){
-  .ig-bars .row{grid-template-columns:1fr auto;gap:6px 10px}
-  .ig-bars .track{grid-column:1 / -1;order:3}
-  .ig-flow .arr{flex-basis:100%;height:32px;transform:rotate(90deg)}
-  .ig-split .bar{flex-direction:column}
-  .ig-split .seg.b{border-left:0;border-top:2px solid #16211B}
-}
-</style>
 </body>
 </html>

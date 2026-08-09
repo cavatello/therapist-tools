@@ -22,6 +22,21 @@
 .dc-title.dc-title.dc-title{max-width:var(--ts-headline)}
 .artband.artband h1, .art.art h1{max-width:var(--ts-headline)}
 
+/* ====================================== AN ARTICLE WITH NO SIDE RAIL
+   `.artwrap` is a two-column grid - a 210px "on this page" rail, then an
+   880px column of content. Every article page has both.
+
+   psyd-programs-california.html has no rail. So `.artbody` became the FIRST
+   grid child, landed in the 210px column, and the entire page - 25 programme
+   cards, each 320px wide - rendered inside a 210px strip with 970px of empty
+   paper beside it. Nothing errored. The grid did exactly what it was told.
+
+   Fixed by the structure rather than by the page: if `.artbody` is the first
+   child of the wrap, there is no rail, so it spans every column. That also
+   means the next page written without a rail cannot hit this. */
+.artwrap.artwrap > .artbody:first-child{grid-column:1 / -1;max-width:none}
+.artwrap.artwrap > .artbody:first-child > *{max-width:100%}
+
 /* ============================================== WIDE BLOCKS IN A COLUMN
    A table whose content is wider than its column used to sit in a scroller
    with no scrollbar, no fade and no affordance, and read as a bug. */

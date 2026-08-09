@@ -400,7 +400,7 @@ PLACEMENTS = [
              ("Boundary drift", "no sexual contact", 5, "5"),
              ("Convictions", "including ones unrelated to therapy", 5, "5"),
              ("Discipline from elsewhere",
-              "another state, another licence", 4, "4"),
+              "another state, another license", 4, "4"),
              ("Records and confidentiality", "", 3, "3"),
              ("Money, billing and honesty", "", 3, "3"),
              ("After discipline", "probation and its terms", 3, "3"),

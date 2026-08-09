@@ -23,7 +23,7 @@ reach independent-contractor postings, which is why:
   - Spring Health's contractor job description states its own rate outright:
     "$70-$150 per 55 minute session"
   - Headspace posts $82-$87 per session for a 1099 role and $75-$80/hr for a
-    California W-2 role that requires CA licence AND CA residency
+    California W-2 role that requires CA license AND CA residency
   - Octave posts $122-$135/hr for a master's-level clinician in Los Angeles
   - Two Chairs posts $70/hr and then publishes a worked example converting it
     to $93.30 per attended session
@@ -85,7 +85,7 @@ ROWS = [
 
     ("Headspace", "California W-2 role", "$75&ndash;$80/hr", "pub",
      "W-2, part-time",
-     "A California posting requiring both a CA licence and CA residency, with a "
+     "A California posting requiring both a CA license and CA residency, with a "
      "floor of five sessions a week &mdash; low enough to sit alongside a private "
      "practice. Carries a 401(k), malpractice cover and a home-office stipend. "
      "Posting has since closed; cite as a point-in-time rate.",
