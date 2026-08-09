@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Generate `_dev/PASSES.md` - what each pass injects, and how to find it.
+
+WHY THIS EXISTS
+
+Because a duplicate shipped. A second Formspree submit handler was written and
+deployed on 9 August 2026, because the first one lives in
+`mock/amft/_chrome_js.txt` rather than in `_dev/`, and nothing in this
+directory answers the question "does this behaviour already exist?". Two
+handlers then raced to replace the same `<form>` node and fired two POSTs for
+one click.
+
+`_dev/` is forty-odd passes with names like `fill.py`, `measure.py` and
+`stage_router.py`. The names describe intent, not output. What a maintainer
+actually needs to know before writing a new pass is:
+
+  - which marker string that pass leaves in the page, so it can be grepped for
+  - what it injects, in one line
+  - whether it is in the pipeline or has been superseded
+
+So the index is generated from the passes themselves rather than written by
+hand, because a hand-written one is out of date the first time somebody is in
+a hurry - which is exactly the condition under which it gets consulted.
+
+HOW IT READS THE PASSES
+
+  the marker    a module-level `MARK`, `JSMARK` or `BLOCK` string literal,
+                which is this project's convention for "the thing I injected"
+  the summary   the first line of the module docstring
+  the stage     read from `_dev/ship.py`, so a pass that is written but not
+                wired shows as `not in the pipeline` rather than silently
+                looking active
+
+Nothing is imported. Every pass would run its `main()` on import if it were,
+and a documentation generator must not be able to change the site. The values
+are read with `ast`, which evaluates literals and nothing else.
+"""
+import ast, os, re, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SITE = os.path.dirname(HERE)
+OUT = os.path.join(HERE, "PASSES.md")
+MARKER_NAMES = ("MARK", "JSMARK", "BLOCK", "END", "BODYCLASS")
+
+# Behaviour that does NOT come from `_dev/`. This is the list the duplicate
+# handler would have been caught by, so it goes at the top of the generated
+# file rather than in a footnote.
+ELSEWHERE = [
+    ("mock/amft/_chrome_js.txt", "`Post the signup in the background`",
+     "the Formspree submit handler - posts by fetch and answers in the page. "
+     "`_dev/form_inline.py` lifts it onto every other page rather than "
+     "writing a second one."),
+    ("mock/amft/_chrome_css.txt", "`.nlok`, `.nlerr`",
+     "the confirmation and error styling that handler renders into."),
+    ("mock/psychedelics/build_psy.py", "&mdash;",
+     "the psychedelic training pages. **Builder cannot run** - its `data/` "
+     "directory is gone."),
+    ("mock/articles/build_articles.py", "&mdash;",
+     "every article page. **Builder cannot run** - its `_chrome.html` is "
+     "gone, which is why `headline_figures.py`, `payer_links.py` and "
+     "`ehr_market.py` exist as passes."),
+]
+
+
+def literals(path):
+    """Module-level string constants, read without importing."""
+    try:
+        tree = ast.parse(open(path, encoding="utf-8").read())
+    except SyntaxError:
+        return {}, None
+    out = {}
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            for t in node.targets:
+                if isinstance(t, ast.Name) and t.id in MARKER_NAMES:
+                    try:
+                        out[t.id] = ast.literal_eval(node.value)
+                    except (ValueError, SyntaxError):
+                        pass
+    return out, ast.get_docstring(tree)
+
+
+def stages():
+    """name -> stage, read from ship.py without importing it."""
+    p = os.path.join(HERE, "ship.py")
+    if not os.path.exists(p):
+        return {}
+    s = open(p, encoding="utf-8").read()
+    out = {}
+    for stage in ("BUILD", "STRUCTURE", "FLOORS", "SEO", "CSSCHAIN", "LAST",
+                  "VERIFY"):
+        m = re.search(r"^%s = \[([\s\S]*?)^\]" % stage, s, re.M)
+        if not m:
+            continue
+        for name in re.findall(r'"_dev/([a-z0-9_]+)\.py"', m.group(1)):
+            out[name] = stage.replace("CSSCHAIN", "CSS").lower()
+    return out
+
+
+def main():
+    st = stages()
+    rows = []
+    for f in sorted(os.listdir(HERE)):
+        if not f.endswith(".py") or f.startswith("_"):
+            continue
+        name = f[:-3]
+        lits, doc = literals(os.path.join(HERE, f))
+        summary = (doc or "").strip().split("\n")[0] if doc else ""
+        marks = []
+        for k in ("MARK", "JSMARK", "BLOCK"):
+            v = lits.get(k)
+            if isinstance(v, str) and len(v) > 3:
+                marks.append(v.strip())
+        if isinstance(lits.get("BODYCLASS"), str):
+            marks.append("body class %s" % lits["BODYCLASS"])
+        rows.append((name, st.get(name), marks, summary))
+
+    wired = [r for r in rows if r[1]]
+    loose = [r for r in rows if not r[1]]
+
+    o = ["# What every pass injects",
+         "",
+         "**Generated by `_dev/passes_index.py`. Do not edit by hand** - run "
+         "the pass instead, or the next run will overwrite you.",
+         "",
+         "Read this before writing a new pass. It exists because a duplicate "
+         "Formspree handler shipped on 9 August 2026: the original lives in "
+         "`mock/`, not in `_dev/`, and nothing here answered *does this "
+         "already exist?* Two handlers then raced on the same `<form>` node "
+         "and fired two POSTs for one click.",
+         "",
+         "The **marker** column is the string to grep a built page for. If "
+         "the behaviour you are about to add already has a marker, extend "
+         "that pass rather than writing a second one.",
+         "",
+         "## Behaviour that does not come from `_dev/`",
+         "",
+         "The list that would have caught it.",
+         "",
+         "| Where | Marker | What |",
+         "|---|---|---|"]
+    for where, marker, what in ELSEWHERE:
+        o.append("| `%s` | %s | %s |" % (where, marker, what))
+
+    o += ["",
+          "## In the pipeline",
+          "",
+          "In `_dev/ship.py` order of stages, alphabetical within a stage.",
+          "",
+          "| Pass | Stage | Marker in the page | What it does |",
+          "|---|---|---|---|"]
+    order = {"build": 0, "structure": 1, "floors": 2, "seo": 3, "css": 4,
+             "last": 5, "verify": 6}
+    for name, stage, marks, summary in sorted(
+            wired, key=lambda r: (order.get(r[1], 9), r[0])):
+        o.append("| `%s.py` | %s | %s | %s |"
+                 % (name, stage,
+                    " · ".join("`%s`" % m for m in marks) or "&mdash;",
+                    summary.replace("|", "\\|")))
+
+    o += ["",
+          "## Written, not wired",
+          "",
+          "In `_dev/` but not in `ship.py`. Either superseded, run by hand, or "
+          "waiting on something.",
+          "",
+          "| Pass | Marker | What it does |",
+          "|---|---|---|"]
+    for name, _s, marks, summary in loose:
+        o.append("| `%s.py` | %s | %s |"
+                 % (name, " · ".join("`%s`" % m for m in marks) or "&mdash;",
+                    summary.replace("|", "\\|")))
+    o.append("")
+
+    open(OUT, "w", encoding="utf-8").write("\n".join(o))
+    print("wrote _dev/PASSES.md")
+    print("  %d pass(es) in the pipeline, %d written but not wired"
+          % (len(wired), len(loose)))
+
+    # --------------------------------------------------------------- guards
+    bad = 0
+    nomark = [r[0] for r in wired if not r[2]]
+    nodoc = [r[0] for r in rows if not r[3]]
+    if nodoc:
+        print("GUARD: no module docstring, so nothing to index: %s"
+              % ", ".join(nodoc))
+        bad += 1
+    # A pass with no marker cannot be grepped for, which is the whole point of
+    # the index. Reported, not fatal: several passes legitimately rewrite
+    # existing markup rather than injecting anything.
+    if nomark:
+        print("  note: %d wired pass(es) inject no marker and cannot be "
+              "grepped for: %s" % (len(nomark), ", ".join(sorted(nomark))))
+
+    # Markers must be unique. Two passes sharing one would make every
+    # "is this already here?" check answer for the wrong pass.
+    seen = {}
+    for name, _s, marks, _d in rows:
+        for m in marks:
+            seen.setdefault(m, []).append(name)
+    for m, who in seen.items():
+        if len(who) > 1:
+            print("GUARD: %r is the marker for %s. Markers must be unique or "
+                  "an idempotency check strips the wrong block."
+                  % (m, " and ".join(who)))
+            bad += 1
+
+    if bad:
+        sys.exit("\n%d problem(s)" % bad)
+    print("guards clean - every pass documented, every marker unique")
+
+
+if __name__ == "__main__":
+    main()
