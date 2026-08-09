@@ -291,11 +291,18 @@
     set('o-yrs-b', wB ? (wB/52).toFixed(1) + ' years' : '\u2014');
 
     // Who gets there first, and by how much.
+    // A tie is the common case, not an edge case: any caseload at or above
+    // 17 direct clinical hours a week lands on the 104-week floor, so two
+    // busy offers licence you on the same day. Saying "0 weeks sooner"
+    // twice reads as a bug; saying "the same date" is the finding.
     var gap = Math.abs(wA - wB);
-    set('o-gap-a', (wA && wB) ? (wA <= wB ? gap + ' weeks sooner'
-      : '\u2014') : '\u2014');
-    set('o-gap-b', (wA && wB) ? (wB <= wA ? gap + ' weeks sooner'
-      : '\u2014') : '\u2014');
+    var lbl = function(mine, other){
+      if(!wA || !wB) return '\u2014';
+      if(mine === other) return 'the same date';
+      return mine < other ? gap + ' weeks sooner' : '\u2014';
+    };
+    set('o-gap-a', lbl(wA, wB));
+    set('o-gap-b', lbl(wB, wA));
 
     // THE ROW THAT MATTERS, AND THE ONE THIS CALCULATOR GOT WRONG FIRST TIME.
     //
