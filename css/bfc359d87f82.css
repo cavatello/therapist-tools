@@ -1,0 +1,16 @@
+/* _dev/wide_measure.py */
+/* Measure. Found by auditing at 2560px - a 27" 5K at default scaling - where
+   the failures are the opposite of the mobile ones and nobody looks for them.
+   These blocks had no max-width at all, so they ran the full window: the footer
+   byline was reaching 195 characters per line. 74ch is what the rest of the
+   site's prose already uses.
+
+   Tripled, for the reason this project has now hit six times: a late override
+   needs more class tokens than the longest descendant chain that could match
+   it. */
+.ftby.ftby.ftby{max-width:74ch}   /* the footer byline, on every page */
+.ftby.ftby.ftby p{max-width:74ch}   /* and its paragraphs */
+.li-under.li-under.li-under{max-width:74ch}   /* the insurance page's under-card note */
+.li-need.li-need.li-need p{max-width:74ch}   /* the eight-situations answers */
+.li-fine.li-fine.li-fine{max-width:80ch}   /* the how-this-was-built note */
+.dc-fine.dc-fine.dc-fine{max-width:80ch}   /* the same note on the case pages */
