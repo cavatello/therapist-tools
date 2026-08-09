@@ -217,7 +217,12 @@ def check():
             if tgt not in existing and not os.path.exists(os.path.join(SITE, tgt)):
                 add("dead-link", href)
         # The bug the .html-only check above cannot see.
-        for href in set(re.findall(r'href="(?!https?:|mailto:|tel:|#|/)([^"#?]+)"', s)):
+        # Any scheme at all, not a list of the ones remembered. The first
+        # version listed http/https/mailto/tel and then reported every inline
+        # `data:image/svg+xml` icon as a broken relative link - 40 findings that
+        # were all the guard's fault.
+        for href in set(re.findall(
+                r'href="(?![a-z][a-z0-9+.-]*:|#|/)([^"#?]+)"', s, re.I)):
             if not href.endswith((".html", ".pdf", ".xml", ".txt", ".ico", ".png",
                                   ".jpg", ".svg", ".css", ".js", "/")):
                 add("href-no-extension", href[:50])
