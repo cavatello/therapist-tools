@@ -153,6 +153,12 @@ PRACTICE = [
     ("therapy-liability-insurance-california.html", "Liability insurance",
      "eight programs, what they publish and what people pay",
      "therapist-cost-of-living-california.html"),
+    # The evidence behind the insurance page. It sits directly beneath it
+    # because the two only make sense together: the sublimits on that page are
+    # abstract until you have seen what a contested boundary case costs.
+    ("therapist-discipline-cases-california.html", "Discipline cases",
+     "30 real BBS decisions, and what each one cost",
+     "therapy-liability-insurance-california.html"),
     ("simplepractice-california-therapists.html", "SimplePractice",
      "what the software actually costs, all in",
      "headway-for-california-therapists.html"),
