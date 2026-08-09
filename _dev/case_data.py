@@ -107,11 +107,21 @@ GROUPS = [
     },
     {
         "key": "conviction",
-        "n": "Convictions, including the ones with nothing to do with therapy",
-        "lede": "Five cases from the largest category in the data by a wide "
-                "margin. Sixty-two of the 103 decisions cite &sect;4982(a). Most "
-                "of those are a DUI. None of them started with a client "
-                "complaint.",
+        "n": "Convictions, and the duty to report one",
+        # Trimmed from five write-ups to three, deliberately. Sixty-two of the
+        # 103 decisions are convictions and most are a DUI, so the category is
+        # by far the largest in the data - but past the first case they stop
+        # teaching anything new. What is kept is the modal case, the reporting
+        # duty, and the fact that no conviction is needed at all. The base rate
+        # stays in the lede, because it is the finding; the repetition does not.
+        "lede": "The largest category in the data by a wide margin &mdash; "
+                "sixty-two of the 103 decisions cite &sect;4982(a), and most of "
+                "those are a DUI arriving through the Department of Justice "
+                "notification feed rather than through a client. Three are "
+                "written up here rather than all of them, because past the first "
+                "one they repeat. What is kept is the case that shows what the "
+                "typical one looks like, the case about reporting it, and the "
+                "case that shows the Board does not need a conviction at all.",
     },
     {
         "key": "probation",
