@@ -276,7 +276,13 @@ def main():
                     print("GUARD %s: invented a price" % f); bad += 1
             if "aggregateRating" in json.dumps(node):
                 print("GUARD %s: emits a rating it does not have" % f); bad += 1
-        if s.count("<h1") != 1 and f not in ("privacy.html", "terms.html", "tools.html"):
+        # EXCLUDE is the list of pages this pass deliberately keeps out of the
+        # sitemap - a redirect stub, a layout scratchpad, a visual mockup. None
+        # of them is a published target, so holding them to a published page's
+        # heading structure only produces a guard failure that must be ignored,
+        # and a guard that must be ignored is a guard that gets ignored.
+        if s.count("<h1") != 1 and f not in (
+                "privacy.html", "terms.html") and f not in EXCLUDE:
             print("GUARD %s: %d h1" % (f, s.count("<h1"))); bad += 1
     if bad:
         sys.exit("discovery: %d guard failure(s)" % bad)
