@@ -37,6 +37,20 @@ ID = "G-XJCWHH9SFG"
 # failure mode that makes a migration look like a traffic collapse.
 RETIRED_IDS = ["G-BHXXEN4P0X"]
 
+# WHERE THE LIVE PROPERTY ACTUALLY IS, because it took a wrong turn to find it
+# and the next person should not repeat it.
+#
+#   G-XJCWHH9SFG  property "Therapistsupport" (549050855)
+#                 account  palo-alto-therapist.com (392417713)
+#                 stream   "Therapist Support" (15401186123)
+#
+# There is a SEPARATE property called "Github Therapy Tools" (547356777) under
+# the "Google Ads Account" (372904968) whose stream carries the RETIRED id
+# above and still points at https://cavatello.github.io/therapist-tools/. It
+# is not this site. Custom dimensions created there are invisible to these
+# pages, which is exactly the mistake that was made once.
+LIVE_PROPERTY = "a392417713p549050855"
+
 TAG = (
     "<!-- Google tag (gtag.js) -->\n"
     '<script async src="https://www.googletagmanager.com/gtag/js?id=%s"></script>\n'
