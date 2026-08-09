@@ -143,9 +143,29 @@ TINY = [
 TAPS = ["a.tsall", "a.uall", "a.tcall", "a.srmore", "a.go", "a.pdgo",
         "button.keep"]
 
-# Where a URL may legally be quoted. Everything a reader reads in sentences.
-PROSE = ("p, li, dd, dt, td, th, blockquote, figcaption, "
+# Where a URL may legally be quoted. Everything a reader reads in SENTENCES.
+#
+# `td` and `th` were in this list and had to come out, because `anywhere` and
+# `break-word` differ in exactly the way that matters to a table.
+#
+# `anywhere` is a soft wrap opportunity that IS counted when the browser
+# computes min-content width. That is precisely why it was chosen - it lets a
+# flex or grid track shrink past a long token instead of being widened by it.
+# Inside a table it is a disaster: every column's min-content width collapses to
+# roughly one character, so an auto-layout table at `width:100%` shrinks every
+# column to its narrowest and breaks every word. On a phone the payer table
+# rendered "Headway" as "Head / way", "Grow Therapy" as "Grow / Ther / apy" and
+# the column header "MINIMUM" as "MIN / IMU / M".
+#
+# Table cells get `break-word` instead: it breaks a genuinely over-long token
+# but leaves min-content width alone, so the columns keep their natural widths.
+# The tables that can still overflow are inside scrollers.
+#
+# None of the three pages that actually slid sideways was a table - they were
+# an <li> and two <p>s, each with a URL in it. `td, th` was never needed here.
+PROSE = ("p, li, dd, dt, blockquote, figcaption, "
          "summary, .lco, .srn, .tcio, cite, q")
+CELLS = "td, th"
 
 
 REPEAT = 4
@@ -174,6 +194,8 @@ CSS = """<style>%(mark)s
    leaves the element's min-content width intact, so a flex or grid track can
    still be widened by the same string. */
 %(prose)s{overflow-wrap:anywhere}
+/* Cells break long tokens but keep their natural column widths. See PROSE. */
+%(cells)s{overflow-wrap:break-word}
 @media (max-width:640px){
   /* Hit area, not type size. Nothing here gets visually bigger. */
   %(taps)s{min-height:24px;display:inline-flex;align-items:center;padding-block:4px}
@@ -211,7 +233,7 @@ def pages():
 
 def build_css():
     tiny = "\n".join("  %s{font-size:12px}" % triple(sel) for sel, _w in TINY)
-    return CSS % {"mark": MARK, "prose": PROSE,
+    return CSS % {"mark": MARK, "prose": PROSE, "cells": CELLS,
                   "taps": ",\n  ".join(TAPS), "tiny": tiny}
 
 
@@ -257,6 +279,13 @@ def main():
     if "overflow-wrap:anywhere" not in css:
         print("GUARD: the wrap rule is missing - the three wide pages stay wide")
         bad += 1
+    # The regression this pass shipped once: `anywhere` on a table cell
+    # collapses every column and breaks every word. It must never come back.
+    anywhere_sel = css.split("{overflow-wrap:anywhere}")[0].split("*/")[-1]
+    for cell in ("td", "th", "table"):
+        if re.search(r"(^|[\s,])" + cell + r"([\s,]|$)", anywhere_sel):
+            print("GUARD: %r is in the `anywhere` list - that breaks tables" % cell)
+            bad += 1
     if bad:
         sys.exit("\n%d problem(s)" % bad)
     print("guards clean")

@@ -293,7 +293,12 @@ table.li-pay td.who{font-weight:600;color:%(ink)s;white-space:nowrap}
     background-repeat:no-repeat;
     background-attachment:local, local, scroll, scroll;
   }
-  table.li-pay td.who, table.li-pay td.lim{white-space:normal}
+  /* A scroller only helps if the table keeps a usable width inside it. An
+     auto-layout table at width:100% shrinks to fit its container, so without a
+     min-width the columns just squeeze instead of scrolling. */
+  table.li-pay{min-width:560px}
+  table.li-rate{min-width:420px}
+  table.li-pay td.who, table.li-pay td.lim{white-space:nowrap}
   .li-two .n{font-size:31px}
   .li-wrap{padding:0 16px}
   /* The 12px phone floor, applied to this page's own labels before the
