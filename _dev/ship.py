@@ -133,6 +133,9 @@ LAST = [
     ("_dev/discovery.py",
      "sitemap.xml and structured data, derived from the pages that exist NOW. "
      "Nothing may add or rename a page after this"),
+    ("_dev/passes_index.py",
+     "regenerates _dev/PASSES.md - what each pass injects and the marker to "
+     "grep a built page for. Writes documentation, never the site"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.

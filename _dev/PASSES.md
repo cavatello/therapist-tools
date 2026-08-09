@@ -62,6 +62,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `css_dedupe.py` | css | &mdash; | Remove superseded stylesheets. Every page was carrying each pass twice. |
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
+| `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `seo_rules.py` | verify | &mdash; | The rule: a page cannot be added to this site badly, because publishing checks. |
 
@@ -124,7 +125,6 @@ In `_dev/` but not in `ship.py`. Either superseded, run by hand, or waiting on s
 | `nav_consolidate.py` | &mdash; | Collapse tools.html into the hub, and take Field Notes out of the top nav. |
 | `nav_rebuild.py` | &mdash; | Make the header work everywhere, and put the hub where a reader can find it. |
 | `pacifica_tuition.py` | &mdash; | Pacifica publishes its cost of attendance. This page said it did not. |
-| `passes_index.py` | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `psyd_data.py` | &mdash; | The California PsyD data, as researched from primary sources only. |
 | `quest_hud.py` | `/* _dev/quest_hud.py */` | Turn the hours ladder into something worth looking at. |
 | `rates_contrast.py` | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. |
