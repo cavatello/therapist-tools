@@ -111,6 +111,9 @@ FLOORS = [
     ("_dev/wide_measure.py",
      "line length on a 27-inch 5K, where the failures are the opposite of the "
      "mobile ones and nobody looks for them"),
+    ("_dev/nav_type_floor.py",
+     "the nav panel's column headings were 9.5px on every page - the smallest "
+     "type on the site, and the only thing naming each group of links"),
     ("_dev/one_grid.py",
      "one page grid, so a headline starts where the logo starts. Last in "
      "FLOORS because it has to outrank every container width set above it"),
