@@ -30,6 +30,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `analytics_events.py` | structure | `/* _dev/analytics_events.py */` | Send GA4 events for every email signup and contact message on the site. |
 | `block_removal.py` | structure | &mdash; | Remove the blocks that were asked for by name, and nothing else. |
 | `breadcrumbs.py` | structure | `/* _dev/breadcrumbs.py */` | A visible breadcrumb on every page, plus matching BreadcrumbList JSON-LD. |
+| `clarity.py` | structure | `<!-- _dev/clarity.py -->` | Microsoft Clarity, with the whole document masked from the page itself. |
 | `ehr_market.py` | structure | `<!-- _dev/ehr_market.py -->` | Turn a two-product comparison into the whole market, with every price. |
 | `error_tracking.py` | structure | `/* _dev/error_tracking.py */` | See the site break, instead of hearing about it. |
 | `footer_band.py` | structure | `<!-- _dev/footer_band.py -->` | Put the signup band at the top of the footer, on every page. |
@@ -87,7 +88,6 @@ In `_dev/` but not in `ship.py`. Either superseded, run by hand, or waiting on s
 | `case_depth.py` | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. |
 | `ciis_tuition.py` | &mdash; | CIIS publishes its tuition. This page said it did not. |
 | `claims.py` | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. |
-| `clarity.py` | `<!-- _dev/clarity.py -->` | Microsoft Clarity, with every piece of text masked. |
 | `cluster_links.py` | `/* _dev/cluster_links.py */` | Close the loop between the calculators and the articles. |
 | `copy_trim.py` | &mdash; | Retire two pieces of chrome copy that were repeated on every page. |
 | `cta_scale.py` | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
