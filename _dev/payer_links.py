@@ -240,7 +240,17 @@ def main():
     # sentence said "the table above leaves out". Same shape as this project's
     # oldest recurring bug: a pattern that matches several places, used as if
     # it matched one. Anchored to the heading first, then the next table close.
-    head = s.find("Which panels were open")
+    # The HEADING, not the first occurrence of its text.
+    #
+    # "Which panels were open in August 2026" appears twice: once in the
+    # on-this-page nav near the top, and once as the actual <h2> much further
+    # down. Anchoring on the bare string found the NAV, so the block was placed
+    # after a table that comes before the panels table - and a naive string
+    # comparison then "proved" it was in the right place. Third time this exact
+    # shape has come up: a pattern that matches in two places, used as if it
+    # matched in one.
+    hm = re.search(r"<h2[^>]*>\s*Which panels were open", s)
+    head = hm.start() if hm else -1
     anchor_pat = re.compile(r"</table>\s*</div>").search(s, head) if head > 0 else None
     if not anchor_pat:
         print("  MISSING  the panels table - nowhere to put the public payers")
@@ -267,7 +277,8 @@ def main():
     if s.count(MARK) != 1:
         print("GUARD: %d copies of the public-payer block" % s.count(MARK)); bad += 1
     # The block's first sentence says "the table above". Prove there is one.
-    head, blk = s.find("Which panels were open"), s.find(MARK)
+    hm2 = re.search(r"<h2[^>]*>\s*Which panels were open", s)
+    head, blk = (hm2.start() if hm2 else -1), s.find(MARK)
     if head < 0 or blk < 0 or blk < head:
         print("GUARD: the public-payer block is not after the panels table, but "
               "its own copy refers to 'the table above'")
