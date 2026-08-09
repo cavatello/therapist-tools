@@ -2,9 +2,9 @@
 .hh-figs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 12px}
 .hh-fig{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.34);
   border-radius:11px;padding:9px 13px;min-width:132px}
-.hh-fig .n{display:block;font-family:'Fraunces',Georgia,serif;font-size:25px;
+.hh-fig .hhn{display:block;font-family:'Fraunces',Georgia,serif;font-size:25px;
   line-height:1.05;color:#F6C560}
-.hh-fig .l{display:block;font-size:12.4px;line-height:1.4;margin-top:3px;
+.hh-fig .hhl{display:block;font-size:12.4px;line-height:1.4;margin-top:3px;
   color:rgba(255,255,255,.86);max-width:22ch}
 .hh-chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 0}
 .hh-chip{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
@@ -15,5 +15,5 @@
 .libband .dek b{color:#F6C560;font-weight:600}
 @media (max-width:640px){
   .hh-fig{min-width:0;flex:1 1 46%;padding:8px 10px}
-  .hh-fig .n{font-size:21px}
+  .hh-fig .hhn{font-size:21px}
 }
