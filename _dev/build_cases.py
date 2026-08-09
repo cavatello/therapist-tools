@@ -542,8 +542,15 @@ def hub_body():
             for c in minor:
                 o.append('<a class="dc-min" href="%s.html">' % c["slug"])
                 o.append('<span class="rt">%s</span>' % c["t"])
-                o.append('<span class="rm">%s &middot; %s</span>'
-                         % (c["eff"].split(";")[0], short_outcome(c)))
+                # The cost figure travels with the quiet rows too. The hub
+                # guard checks every case's amount appears intact somewhere on
+                # this page, and a row that dropped it would make the guard
+                # into a thing that fires for a formatting reason rather than a
+                # correctness one.
+                amt, _n = cost_parts(c["cost"])
+                o.append('<span class="rm">%s &middot; %s%s</span>'
+                         % (c["eff"].split(";")[0], short_outcome(c),
+                            (" &middot; " + amt) if amt else ""))
                 o.append("</a>")
             o.append("</div>")
         o.append("</div>")
@@ -1143,6 +1150,36 @@ def main():
     for g in GROUPS:
         if not by_group(g["key"]):
             print("GUARD: group %s has no cases" % g["key"]); bad += 1
+
+    # The discussion layer must cover every case that is presented as a full
+    # write-up, and must not contain an entry for a case that no longer exists.
+    # A stale DEPTH key is how a rename silently drops the analysis off a page
+    # without anything failing.
+    slugs = {c["slug"] for c in CASES}
+    for c in CASES:
+        if not c.get("minor") and c["slug"] not in DEPTH:
+            print("GUARD: %s has no discussion. Either write one in "
+                  "_dev/case_depth.py or mark the case \"minor\"." % c["slug"])
+            bad += 1
+    for k in DEPTH:
+        if k not in slugs:
+            print("GUARD: case_depth.py has an entry for %s, which is not a "
+                  "case" % k)
+            bad += 1
+    # And it must actually reach the page. A block that is built and then
+    # dropped by a later edit is the failure mode this project has shipped
+    # before, and it is invisible to a syntax check.
+    for c in CASES:
+        if c["slug"] not in DEPTH:
+            continue
+        page = open(os.path.join(SITE, c["slug"] + ".html"), encoding="utf-8").read()
+        for what, mark in (("discussion", 'id="discussion"'),
+                           ("questions", 'id="questions"'),
+                           ("why-this-is-here", 'class="dc-why"')):
+            if mark not in page:
+                print("GUARD %s: the %s block never landed on the page"
+                      % (c["slug"], what))
+                bad += 1
 
     if bad:
         sys.exit("\n%d problem(s)" % bad)
