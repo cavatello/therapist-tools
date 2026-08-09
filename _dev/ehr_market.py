@@ -176,15 +176,26 @@ def block():
              "checked. None of those numbers is in the table. What is in the "
              "table is what you pay in month seven.</p>")
 
+    # Five columns, not seven. Seven fit in the source and did not fit in the
+    # 880px article column - the Trial column fell off the right edge and
+    # Claims was clipped mid-word. What each plan buys now rides under its
+    # price as a second line, and the trial length moved to the notes list
+    # below, where there is room to say what it actually includes.
+    o.append("<style>%s\n"
+             ".ehrq{display:block;font-size:12.4px;line-height:1.45;"
+             "color:#635E53;font-weight:400;margin-top:3px}\n"
+             ".ehrp{white-space:nowrap}\n"
+             "</style>" % MARK.replace("<!--", "/*").replace("-->", "*/"))
     o.append('<div class="tw"><table class="tbl"><thead><tr>'
-             "<th>System</th><th>Cheapest solo plan</th><th>What that buys</th>"
+             "<th>System</th><th>Cheapest solo plan</th>"
              "<th>Each extra clinician</th><th>Telehealth</th>"
-             "<th>Claims</th><th>Trial</th></tr></thead><tbody>")
-    for name, url, solo, buys, extra, tele, claims, trial, _note in SYSTEMS:
+             "<th>Claims</th></tr></thead><tbody>")
+    for name, url, solo, buys, extra, tele, claims, _trial, _note in SYSTEMS:
         o.append("<tr><td><a href=\"%s\" target=\"_blank\" rel=\"noopener\">"
-                 "%s</a></td><td><b>%s</b></td><td>%s</td><td>%s</td>"
+                 "%s</a></td>"
+                 '<td><b class="ehrp">%s</b><i class="ehrq">%s</i></td>'
                  "<td>%s</td><td>%s</td><td>%s</td></tr>"
-                 % (url, name, solo, buys, extra, tele, claims, trial))
+                 % (url, name, solo, buys, extra, tele, claims))
     o.append("</tbody></table></div>")
     o.append('<p class="cap">Monthly, in US dollars, billed monthly. Annual '
              'billing takes roughly 10&ndash;15%% off at most of them. Checked '
@@ -234,9 +245,14 @@ def block():
 
     o.append("<h3>The notes worth reading before you shortlist</h3>")
     o.append("<ul>")
-    for name, url, _s, _b, _e, _t, _c, _tr, note in SYSTEMS:
+    for name, url, _s, _b, _e, _t, _c, trial, note in SYSTEMS:
+        # "Free trial: &mdash;." is worse than saying nothing. Two of the
+        # fifteen publish no trial length, and an em dash in a sentence reads
+        # as a typo rather than as an absence.
+        tail = ("" if trial in ("&mdash;", "")
+                else " <i>Free trial: %s.</i>" % trial)
         o.append('<li><b><a href="%s" target="_blank" rel="noopener">%s</a>'
-                 "</b> &mdash; %s</li>" % (url, name, note))
+                 "</b> &mdash; %s%s</li>" % (url, name, note, tail))
     o.append("</ul>")
 
     o.append("<p><b>Two of the fifteen changed identity this year.</b> "
