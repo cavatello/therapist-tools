@@ -436,7 +436,7 @@ def body():
     o.append('<h1 class="li-h" style="font-size:36px">Liability insurance for a '
              'California therapy practice.</h1>')
     o.append('<p class="li-d">Nobody requires it. Everybody requires it. The '
-             'Board of Behavioral Sciences does not condition your licence on '
+             'Board of Behavioral Sciences does not condition your license on '
              'carrying professional liability insurance &mdash; and Headway, '
              'Alma, Blue Shield, Optum, Kaiser, Medi&#8209;Cal and your landlord '
              'all do. This page has every program a California MFT can buy, what '
@@ -467,7 +467,7 @@ def body():
              'than the headline.</p></div>')
     o.append("</div>")
     o.append('<p class="li-note">A board complaint is not a lawsuit. There are no '
-             'damages; the exposure is your licence. Your insurer&rsquo;s obligation '
+             'damages; the exposure is your license. Your insurer&rsquo;s obligation '
              'is a reimbursement sublimit, not a duty to defend. And the two can '
              'run together: B&amp;P &sect;&thinsp;801(b) makes your insurer report '
              'any settlement over $10,000 to the BBS within 30 days, which turns '
@@ -536,7 +536,7 @@ def body():
                              "rendered on behalf of the practice. Check the "
                              "&ldquo;Who Is An Insured&rdquo; section"),
         ("Board defense", "An entity policy has no reason to carry it. A "
-                          "corporation has no licence for the Board to discipline"),
+                          "corporation has no license for the Board to discipline"),
     ]:
         o.append('<div class="li-cell"><span class="ck">%s</span>'
                  '<span class="cv" style="font-weight:400;font-size:13.4px">%s'

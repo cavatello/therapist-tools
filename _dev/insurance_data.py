@@ -154,7 +154,7 @@ CARRIERS = [
             "of ten years discovered HPSO had no legal consultation service. "
             "&ldquo;Honestly I&rsquo;m a little taken aback by how vulnerable I feel and "
             "how unknowingly unprotected I have been for so long.&rdquo;",
-            "A January 2026 BBB complaint alleges the licence-protection benefit "
+            "A January 2026 BBB complaint alleges the license-protection benefit "
             "is a reimbursement, not a defense: &ldquo;At no point did Affinity "
             "explain that the so-called &lsquo;license protection benefit&rsquo; was merely "
             "an ancillary reimbursement benefit.&rdquo;",
@@ -283,7 +283,7 @@ CARRIERS = [
         "key": "berxi",
         "name": "Berxi",
         "url": "https://www.berxi.com/insurance/counselor/",
-        "agency": "Berkshire Hathaway Global Insurance Services, CA licence #0K09397",
+        "agency": "Berkshire Hathaway Global Insurance Services, CA license #0K09397",
         "underwriter": "Berkshire Hathaway Specialty Insurance Company",
         "ambest": "A++ (Superior)",
         "ambest_url": "https://ratings.ambest.com/DisclosurePDF.aspx?AMBNum=864",
@@ -340,7 +340,7 @@ CARRIERS = [
         "key": "proliability",
         "name": "Proliability",
         "url": "https://www.proliability.com/professional-liability-insurance/mental-health-professionals.html",
-        "agency": "AMBA (formerly Mercer Consumer), CA licence #0I96562",
+        "agency": "AMBA (formerly Mercer Consumer), CA license #0I96562",
         "underwriter": "Liberty Insurance Underwriters Inc. (Liberty Mutual)",
         "ambest": "A (Excellent)",
         "ambest_url": "https://ratings.ambest.com/DisclosurePDF.aspx?AMBNum=3794",
@@ -686,7 +686,7 @@ CASES = [
                 "<b>being complained about is not rare; being disciplined is</b> "
                 "&mdash; 7 revocations, 9 surrenders and 24 probations that year.",
         "num": "$5,524",
-        "numlab": "average licence-protection claim, per CNA",
+        "numlab": "average license-protection claim, per CNA",
         "cover": "Your board-defense sublimit, not your $1M limit. A risk "
                  "manager who has handled around 800 of these says most resolve "
                  "with an explanatory letter for $3,000&ndash;5,000, and that "
@@ -741,7 +741,7 @@ CASES = [
         "num": "$317,516",
         "numlab": "average telebehavioral-health claim, CNA 2024",
         "cover": "<b>Probably nothing.</b> Coverage is granted where your "
-                 "licence permits practice &mdash; CPH&rsquo;s grant is telehealth "
+                 "license permits practice &mdash; CPH&rsquo;s grant is telehealth "
                  "&ldquo;provided such practice is authorized or allowable under the "
                  "scope of your license in the state where you practice.&rdquo; A "
                  "client in a hotel room in Nevada is three problems at once: "
@@ -810,7 +810,7 @@ NEEDS = [
         "watch": "Associates get <i>no</i> discounts at CPH until they are fully "
                  "licensed. And the employer&rsquo;s policy insures the employer: it "
                  "has no reason to carry board-defense cover for your "
-                 "registration, because a corporation has no licence for the BBS "
+                 "registration, because a corporation has no license for the BBS "
                  "to discipline.",
     },
     {
