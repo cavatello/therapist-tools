@@ -62,8 +62,8 @@
   align-items:center;padding:7px 0;border-bottom:1.5px solid #E6E0D2}
 .ig-bars .row:last-child{border-bottom:0}
 .ig-bars .who{font-size:13.6px;line-height:1.35;color:#16211B;font-weight:600}
-.ig-bars .who i{display:block;font-style:normal;font-size:11.5px;color:#635E53;
-  font-weight:400}
+.ig-bars.ig-bars .who i{display:block;font-style:normal;font-size:11.5px;
+  color:#635E53;font-weight:400}
 .ig-bars .track{background:#F4F0E6;border:1.5px solid #D9D0BA;border-radius:999px;
   height:19px;position:relative;overflow:hidden}
 .ig-bars .fill{position:absolute;left:0;top:0;bottom:0;background:#2C6350;
@@ -102,7 +102,13 @@
 @media (max-width:640px){
   .ig-bars .row{grid-template-columns:1fr auto;gap:6px 10px}
   .ig-bars .track{grid-column:1 / -1;order:3}
-  .ig-flow .arr{flex-basis:100%;height:32px;transform:rotate(90deg)}
+  /* Rotating the whole arrow cell turned its LABEL on its side too, which
+     read as a vertical strip of letters beside the flow. Only the glyph
+     turns; the label stays horizontal next to it. */
+  .ig-flow .arr{flex-basis:100%;height:auto;flex-direction:row;gap:9px;
+    justify-content:flex-start;padding:9px 4px}
+  .ig-flow .arr i{transform:rotate(90deg);display:block}
+  .ig-flow .arr em{text-align:left}
   .ig-split .bar{flex-direction:column}
   .ig-split .seg.b{border-left:0;border-top:2px solid #16211B}
 }
