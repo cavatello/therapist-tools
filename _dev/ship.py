@@ -43,6 +43,11 @@ SITE = os.path.dirname(HERE)
 BUILD = [
     ("_dev/build_insurance.py", "the liability insurance directory"),
     ("_dev/build_cases.py", "the discipline case library - hub plus 30 pages"),
+    ("_dev/build_assocpay.py",
+     "what associate jobs pay in LA and the Bay Area. A BUILDER, not a pass: "
+     "it writes its page whole from published pay scales every run, borrowing "
+     "chrome from the donor, so everything in STRUCTURE decorates it like any "
+     "other page"),
 ]
 
 # STRUCTURE. Chrome, navigation, cross-links, the blocks that carry meaning.

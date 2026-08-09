@@ -1280,14 +1280,20 @@ META = (
     "California employers, the 2026 wage floors an offer has to clear, and the "
     'four numbers that decide a nonprofit salary against a per-session offer." />\n'
     '<link rel="canonical" href="https://therapistsupport.org/%s">\n'
-    '<meta name="ts:topic" content="money">\n'
+    # licensure, not money. The page is about which job to take, and it sits
+    # in the same cluster as the job advisor and the hours calculator - the
+    # two pages a reader will bounce to from here. Weight 5 is the site's top
+    # band; anything above it is out of scale, because the sort is by -weight
+    # and there is no sixth tier.
+    '<meta name="ts:topic" content="licensure">\n'
     '<meta name="ts:format" content="guide">\n'
-    '<meta name="ts:question" content="Should a California associate take a '
-    'nonprofit salary or a per-session private practice offer?">\n'
-    '<meta name="ts:outcome" content="Four checks: the wage floors, the '
-    'published pay, the hours to licensure, and loan repayment eligibility.">\n'
-    '<meta name="ts:number" content="70304">\n'
-    '<meta name="ts:weight" content="90">\n'
+    '<meta name="ts:question" content="Nonprofit salary or private practice '
+    'per session &mdash; which associate job is actually worth more?">\n'
+    '<meta name="ts:outcome" content="Published pay scales for LA and the Bay '
+    'Area, the wage floors an offer must clear, and the four numbers that '
+    'decide it">\n'
+    '<meta name="ts:number" content="$70,304 salaried-exempt floor">\n'
+    '<meta name="ts:weight" content="5">\n'
     '<meta name="ts:stale" content="false">\n' % PAGE
 )
 
