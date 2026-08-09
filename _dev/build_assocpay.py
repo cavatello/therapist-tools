@@ -20,7 +20,7 @@ The site already has two calculators that do the arithmetic:
 `amft-3000-hours-california.html` projects a licensure date. Neither carries
 what the question actually needs, which is **evidence** - named California
 employers, published pay scales, the local wage floors the offer has to clear,
-and the loan-repayment programmes that are worth more than the entire salary
+and the loan-repayment programs that are worth more than the entire salary
 gap. That is a research page, not a calculator, and it links to both rather
 than rebuilding either.
 
@@ -43,7 +43,7 @@ THE FOUR FINDINGS THAT REFRAME THE QUESTION
    session rate across them.
 
 3. **Above about 17 direct clinical hours a week, working harder does not
-   licence you sooner.** 1,750 direct clinical hours over the statutory
+   license you sooner.** 1,750 direct clinical hours over the statutory
    104-week minimum is 16.83 hours a week. Past that the calendar binds, not
    the caseload. Below it, every hour is a week: at 10 clients a week an AMFT
    needs 175 weeks of clinical work, at 20 the 104-week floor takes over. So
@@ -51,7 +51,7 @@ THE FOUR FINDINGS THAT REFRAME THE QUESTION
    difference between two years and three and a half.
 
 4. **The loan-repayment gap is bigger than the salary gap.** NHSC is closed to
-   associates - it wants a full, unrestricted licence. But California's
+   associates - it wants a full, unrestricted license. But California's
    BH-CONNECT MBH-SLRP names AMFT, ASW and APCC in Tier 2 at up to $180,000
    against a four-year obligation, HCAI's LMHSPEP names them too at $15,000 up
    to three times, and PSLF turns on the employer being a 501(c)(3) or
@@ -217,7 +217,7 @@ BAY_NONPROFIT = [
      "https://www.senecafoa.org/careers"),
     ("Pacific Clinics", "Clinician I", "San Jose / Los Gatos",
      "$71,760 &ndash; $90,358",
-     "Associate registration; must licence within five years. 8% differential "
+     "Associate registration; must license within five years. 8% differential "
      "once licensed.",
      "https://careers.pacificclinics.org/"),
 ]
@@ -252,7 +252,7 @@ PRIVATE = [
      "everything else."),
 ]
 
-# ------------------------------------------------------------ hours to licence
+# ------------------------------------------------------------ hours to license
 # clinical hrs/week, weeks to 1,750 clinical, what binds
 def hours_rows():
     rows = []
@@ -269,8 +269,8 @@ LOANS = [
     ("BH-CONNECT MBH-SLRP &mdash; Tier 2", "Up to <b>$180,000</b>",
      "AMFT, ASW and APCC are named in Tier 2",
      "Four years full-time (32 hrs/week of direct client care) at a Medi-Cal "
-     "safety-net site &mdash; FQHC, community mental health centre, rural "
-     "health clinic, or a Medi-Cal-enrolled behavioural health facility. "
+     "safety-net site &mdash; FQHC, community mental health center, rural "
+     "health clinic, or a Medi-Cal-enrolled behavioral health facility. "
      "Cycle 2 closed 29 May 2026; the next is expected May 2027.",
      "https://hcai.ca.gov/workforce/initiatives/behavioral-health-bh-connect/mbhslrp/"),
     ("HCAI LMHSPEP", "Up to <b>$15,000</b>, receivable three times",
@@ -289,14 +289,14 @@ LOANS = [
      "https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service"),
     ("NHSC Loan Repayment", "Up to $50,000 &mdash; but not yet",
      "<b>Closed to associates.</b> Requires a full, permanent, unencumbered, "
-     "unrestricted licence",
+     "unrestricted license",
      "MFTs, LCSWs and LPCCs are all eligible disciplines once licensed. Worth "
      "knowing now because it changes what a post-licensure job is worth: the "
      "SUD variant pays up to $75,000 and the rural variant up to $100,000.",
      "https://nhsc.hrsa.gov/loan-repayment/nhsc-loan-repayment-program"),
     ("California SLRP", "$50,000 full-time",
      "<b>Closed to associates.</b> Requires a valid unrestricted California "
-     "licence",
+     "license",
      "Two-year obligation at a HPSA site. The 2026 cycle runs 15 July to "
      "15 September 2026.",
      "https://hcai.ca.gov/workforce/financial-assistance/loan-repayment/slrp/"),
@@ -348,7 +348,7 @@ SOURCES = [
          "psychologists and not MFTs, LCSWs or LPCCs",
          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml"
          "?sectionNum=2783.&lawCode=LAB"),
-        ("CAMFT Pre-licensed Corner &mdash; labour laws that affect MFTs",
+        ("CAMFT Pre-licensed Corner &mdash; labor laws that affect MFTs",
          "https://www.camft.org/Resources/Pre-licensed-Corner/"
          "Labor-Laws-that-Affect-MFTs"),
     ]),
@@ -390,7 +390,7 @@ SOURCES = [
          "?sectionNum=432.3.&lawCode=LAB"),
     ]),
     ("Loan repayment and benefits", [
-        ("HCAI &mdash; BH-CONNECT Medi-Cal behavioural health student loan "
+        ("HCAI &mdash; BH-CONNECT Medi-Cal behavioral health student loan "
          "repayment",
          "https://hcai.ca.gov/workforce/initiatives/behavioral-health-bh-connect/mbhslrp/"),
         ("HCAI &mdash; LMHSPEP",
@@ -627,7 +627,7 @@ CALC_JS = """<script>
     set('o-wks-b', wB ? wB + ' weeks' : '\\u2014');
     set('o-yrs-a', wA ? (wA/52).toFixed(1) + ' years' : '\\u2014');
     set('o-yrs-b', wB ? (wB/52).toFixed(1) + ' years' : '\\u2014');
-    // Everything earned between now and the licence, which is the number the
+    // Everything earned between now and the license, which is the number the
     // year-by-year comparison hides.
     set('o-tot-a', wA ? money(sal / 52 * wA) : '\\u2014');
     set('o-tot-b', wB ? money(ppWk * wB) : '\\u2014');
@@ -730,8 +730,8 @@ def body():
          "you sign."),
         ("2", "How many direct clinical hours, really?",
          "Not clients seen &mdash; hours the Board will credit as direct "
-         "clinical counselling. <b>Above about 17 a week, the statutory "
-         "104-week minimum takes over and working harder does not licence "
+         "clinical counseling. <b>Above about 17 a week, the statutory "
+         "104-week minimum takes over and working harder does not license "
          "you sooner.</b> Below it, every hour is a week. &ldquo;10 to 25 "
          "clients&rdquo; is the widest possible answer to the most "
          "important question."),
@@ -884,7 +884,7 @@ def body():
 
     o.append('<h3 class="ap-h3">Public agencies, and the finding nobody '
              'expects</h3>')
-    o.append('<p class="ap-d">County and city behavioural health pays '
+    o.append('<p class="ap-d">County and city behavioral health pays '
              'associates more than nonprofits do, and in San Francisco it is '
              'not close. <b>SF&rsquo;s class 2930 starts at $118,820 for a '
              'post whose own specification accepts an ASW, AMFT or APCC '
@@ -976,7 +976,7 @@ def body():
     o.append('<h2 class="ap-h">Seventeen hours a week is where the argument '
              'ends.</h2>')
     o.append('<p class="ap-d">An AMFT or APCC needs 3,000 supervised hours, of '
-             'which <b>at least 1,750 must be direct clinical counselling</b>, '
+             'which <b>at least 1,750 must be direct clinical counseling</b>, '
              'gained over <b>not less than 104 weeks</b>, at no more than 40 '
              'credited hours in any seven days. Two years is the floor no '
              'matter what you do.</p>')
@@ -1056,7 +1056,7 @@ def body():
              'licensure.</h2>')
     o.append('<p class="ap-d">The annual figures are what a job advert compares. '
              'The bottom row is what actually differs: <b>everything you earn '
-             'between now and the licence</b>. Nothing you type here leaves '
+             'between now and the license</b>. Nothing you type here leaves '
              'the page.</p>')
     o.append('<div class="ap-calc" id="ap-calc">')
     o.append('<div class="ap-cg">')
@@ -1136,12 +1136,12 @@ def body():
              'difference.</h2>')
     o.append('<p class="ap-d">Two offers $5,000 apart is a real difference. It '
              'is not the same order of magnitude as this. <b>California names '
-             'AMFTs, ASWs and APCCs &mdash; by registration, not by licence '
-             '&mdash; in a loan repayment programme worth up to $180,000</b>, '
+             'AMFTs, ASWs and APCCs &mdash; by registration, not by license '
+             '&mdash; in a loan repayment program worth up to $180,000</b>, '
              'and it is only available if your employer is a Medi-Cal '
              'safety-net site. A private practice is not one.</p>')
     o.append('<div class="ap-tw"><table class="ap-t">')
-    o.append("<tr><th>Programme</th><th>Worth</th><th>Open to associates?</th>"
+    o.append("<tr><th>Program</th><th>Worth</th><th>Open to associates?</th>"
              "<th>What it asks</th></tr>")
     for name, worth, who, asks, url in LOANS:
         o.append('<tr><td><a href="%s" target="_blank" rel="noopener"><b>%s</b>'
@@ -1149,7 +1149,7 @@ def body():
                  % (url, name, worth, who, asks))
     o.append("</table></div>")
     o.append('<p class="ap-cap">Award amounts and windows as published in '
-             '%s. Cycles close and reopen &mdash; check the programme page '
+             '%s. Cycles close and reopen &mdash; check the program page '
              'before you plan around one. <b>PSLF note:</b> a rule excluding '
              'employers said to be engaged in illegal activity was published '
              'in October 2025 to take effect 1 July 2026, and was vacated by '
@@ -1157,7 +1157,7 @@ def body():
              'took effect; PSLF is operating under the pre-existing employer '
              'rules, and an appeal is possible.</p>' % CHECKED)
     o.append('<p class="ap-d">The shape of it: <b>NHSC and the California '
-             'SLRP both want a full licence and are therefore closed to you '
+             'SLRP both want a full license and are therefore closed to you '
              'today</b>, but they are two more reasons the licensure date in '
              'the section above is worth money. LMHSPEP and BH-CONNECT are '
              'open now. PSLF starts counting from your first qualifying '
@@ -1199,7 +1199,7 @@ def body():
     o.append("<ul>")
     o.append('<li><b>How many direct clinical hours a week does someone in '
              'this post actually bill?</b> Not the target &mdash; the '
-             'realised number. This decides your licensure date more than '
+             'realized number. This decides your licensure date more than '
              'anything else in the offer.</li>')
     o.append('<li><b>Is the post exempt or non-exempt?</b> If it is under '
              '$70,304 it cannot be exempt in 2026, which means overtime past '
@@ -1359,12 +1359,24 @@ def main():
             print("GUARD: links to %s, which is not on the site" % href)
             bad += 1
 
-    # British spellings are a recurring import from research notes. The site
-    # is written in American English.
-    for wrong, right in (("licence fee", "license fee"), ("licence,", "license,"),
-                         ("labour law", "labor law"), ("organisation", "organization"),
-                         ("recognise", "recognize"), ("behaviour ", "behavior ")):
-        if wrong in s.lower():
+    # British spellings are a recurring import from research notes: the words
+    # are all spelled correctly, just not for this site.
+    #
+    # The patterns are DERIVED from the correct spellings rather than written
+    # out, and that is not cleverness for its own sake. The first version of
+    # this guard listed the British spellings as literals, a blanket
+    # search-and-replace over this file to fix the prose rewrote the guard's
+    # own patterns into the American spellings too, and the guard then fired on
+    # every correct word and caught nothing. There is now no British spelling
+    # literal anywhere in this file for a future sweep to find.
+    text = re.sub(r"<[^>]+>", " ", s).lower()
+    for right, cut, paste in (("license", "se", "ce"), ("labor", "or", "our"),
+                              ("behavior", "or", "our"), ("defense", "se", "ce"),
+                              ("counseling", "el", "ell"), ("organiz", "z", "s"),
+                              ("realized", "z", "s"), ("recognize", "z", "s"),
+                              ("center", "er", "re"), ("program", "", "me")):
+        wrong = right.replace(cut, paste) if cut else right + paste
+        if wrong in text:
             print("GUARD: %r appears; this site is written in American English "
                   "(%r)" % (wrong, right))
             bad += 1
