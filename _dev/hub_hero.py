@@ -161,7 +161,11 @@ HUBS = {
              "private-pay client is owed.",
         figs=[("$106&ndash;132", "insurance, against $180&ndash;350 private pay"),
               ("11.5", "hours to get on a panel"),
-              ("$1.24", "a session, between the platforms")],
+              # Was ("$1.24", "a session, between the platforms"), which reads
+              # as "a session is worth $1.24". It is really the per-session cost
+              # of Alma's membership - a footnote that had been promoted to a
+              # headline. This is the number that decides something.
+              ("$115.77", "what a network has to beat, at 20 a week")],
         chips=[("What the work is worth", None),
                ("Getting on a panel, or not", None),
                ("The paperwork", None)],

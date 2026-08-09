@@ -25,7 +25,6 @@ p{font-size:15px;line-height:1.7;color:#5D574C;margin:0 0 20px}
 a{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:11px;
  background:#17271F;color:#fff;font-weight:700;font-size:15px;text-decoration:none}
 </style>
-<script type="application/ld+json" data-bcr>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://therapistsupport.org/"},{"@type":"ListItem","position":2,"name":"All free tools","item":"https://therapistsupport.org/tools.html"}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJCWHH9SFG"></script>
 <script>
@@ -34,6 +33,7 @@ a{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-r
   gtag('js', new Date());
   gtag('config', 'G-XJCWHH9SFG');
 </script>
+<script type="application/ld+json" data-bcr>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://therapistsupport.org/"},{"@type":"ListItem","position":2,"name":"All free tools","item":"https://therapistsupport.org/tools.html"}]}</script>
 </head>
 <body>
 <main>
@@ -49,6 +49,7 @@ reference material without guessing which page holds which.</p>
    that logs an error is one someone later "fixes" by deleting the script. */
 (function(){try{location.replace(new URL("resources.html",location.href).href)}
 catch(e){}})();</script>
+
 
 
 
@@ -164,8 +165,17 @@ catch(e){}})();</script>
     return String(s == null ? '' : s).replace(/\s+/g, ' ').slice(0, 140);
   }
   function fileOf(src){
-    try { return String(src || '').split('/').pop().split('?')[0].slice(0, 60); }
-    catch (e) { return 'unknown'; }
+    // The last path segment alone is often useless: gtag loads from
+    // ".../gtag/js?id=G-..." and reports as "js", which names nothing. Keep the
+    // last two segments when the final one is short or extensionless.
+    try {
+      var parts = String(src || '').split('?')[0].split('/').filter(Boolean);
+      var tail = parts.pop() || '';
+      if (tail.length < 6 || tail.indexOf('.') === -1) {
+        tail = (parts.pop() || '') + '/' + tail;
+      }
+      return tail.replace(/^\//, '').slice(0, 60) || 'unknown';
+    } catch (e) { return 'unknown'; }
   }
 
   // ------------------------------------------------------ uncaught errors
@@ -201,7 +211,13 @@ catch(e){}})();</script>
     var el = e.target;
     if (!el || !el.tagName) return;
     var t = Date.now();
-    var key = el.tagName + '#' + (el.id || '') + '.' + ((el.className || '') + '').slice(0, 30);
+    // Structural identity only. Element TEXT is deliberately not included: on a
+    // calculator page an arbitrary element can contain a figure the reader
+    // typed, and a rage click is exactly the moment they are typing.
+    var near = el.closest && el.closest('[id]');
+    var key = el.tagName + '#' + (el.id || '') + '.'
+            + ((el.className || '') + '').trim().split(/\s+/)[0].slice(0, 24)
+            + (near && near.id && near.id !== el.id ? ' in#' + near.id.slice(0, 24) : '');
     if (key === last && (t - first) < 2000){
       count++;
       if (count === 4){
@@ -213,12 +229,12 @@ catch(e){}})();</script>
   }, true);
 })();
 </script>
+<link rel="stylesheet" href="css/2f29aaadfa97.css">
 <link rel="stylesheet" href="css/98dfe0b8d12e.css">
 <link rel="stylesheet" href="css/0bc1ae1be8e7.css">
 <link rel="stylesheet" href="css/5f9da934c88f.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
 <link rel="stylesheet" href="css/aeea09f7e9b5.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
-<link rel="stylesheet" href="css/2f29aaadfa97.css">
 </body>
 </html>

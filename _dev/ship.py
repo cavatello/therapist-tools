@@ -65,6 +65,12 @@ STRUCTURE = [
     ("_dev/touch_polish.py", "tap targets"),
     ("_dev/american.py", "American spellings in prose"),
     ("_dev/american_js.py", "American spellings inside script string literals"),
+    ("_dev/payer_links.py",
+     "verified enrolment links for every payer, plus NPPES, CAQH, Medi-Cal "
+     "and Medicare. Every URL opened and checked, not guessed"),
+    ("_dev/headline_figures.py",
+     "fixes a chosen headline figure on an article whose builder no longer "
+     "runs"),
     ("_dev/hub_hero.py", "the AIDA heroes, with every figure measured"),
     ("_dev/stage_router.py", "the situation router on resources.html"),
     ("_dev/footer_order.py",
