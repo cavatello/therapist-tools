@@ -55,6 +55,12 @@ STRUCTURE = [
     ("_dev/footer_band.py", "the signup band - inserts ABOVE the up-link"),
     ("_dev/footer_fix.py", "footer colour overrides"),
     ("_dev/analytics_events.py", "the event listener"),
+    ("_dev/tool_analytics.py",
+     "how the seven calculators are actually used - behaviour only, guarded "
+     "so no typed value can ever leave the browser"),
+    ("_dev/error_tracking.py",
+     "uncaught errors, failed resources and rage clicks. Before this, a broken "
+     "calculator and an uninterested reader looked identical"),
     ("_dev/mobile_nav.py", "the mobile nav affordance"),
     ("_dev/touch_polish.py", "tap targets"),
     ("_dev/american.py", "American spellings in prose"),

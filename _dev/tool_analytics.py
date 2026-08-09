@@ -77,6 +77,10 @@ TOOLS = {
     "calculators.html": "calculator-index",
 }
 
+# The index page lists the calculators; it does not compute anything, so it has
+# no result node and must not be held to the guard that every tool has one.
+NO_RESULT = {"calculators.html"}
+
 JS = """<script>%(mark)s
 (function(){
   var TOOL = %(tool)s;
@@ -257,11 +261,20 @@ def out_selector(s):
     that looks like an output gets watched; a false positive costs one early
     tool_result, a false negative costs the whole funnel."""
     ids = set(re.findall(r'id="([a-zA-Z0-9_-]*'
-                         r'(?:out|net|total|res|sum|verdict|answer|month|year)'
+                         r'(?:out|net|total|res|sum|verdict|answer|month|year'
+                         r'|plan|gates|week|note|next)'
                          r'[a-zA-Z0-9_-]*)"', s, re.I))
-    ids = {i for i in ids if not i.startswith("i-")}
+    ids = {i for i in ids if not i.startswith(("i-", "ft-", "nav"))}
     sels = ["#" + i for i in sorted(ids)]
-    sels += [".out", ".result", "[data-out]", "output"]
+    # The class convention was the thing the first version missed. `.num` and
+    # `.verdict` are how every one of these builders renders a computed figure,
+    # and three tools watched ZERO nodes because the selector only looked at
+    # ids. A tool that watches nothing still emits tool_start and tool_field,
+    # so the funnel looked fine and the result step was simply always zero -
+    # the same shape of bug as every other one in this project's history: the
+    # check and the thing being checked were looking at different places.
+    sels += [".num", ".verdict", ".cnum", ".tcnum",
+             ".out", ".result", "[data-out]", "output"]
     return ", ".join(sels)
 
 
@@ -310,6 +323,19 @@ def main():
         if base not in TOOLS and MARK in s:
             print("GUARD %s: instrumented but not a tool" % rel)
             bad += 1
+        # A tool that watches no output node can never emit tool_result. It
+        # would still emit tool_start and tool_field, so the reports would look
+        # populated and the funnel would silently read 0% for that tool for as
+        # long as nobody checked. Three tools shipped exactly that.
+        if base in TOOLS and base not in NO_RESULT:
+            m = re.search(r'var OUT = "([^"]*)"', s)
+            watched = len([x for x in (m.group(1).split(",") if m else [])
+                           if x.strip().startswith("#")])
+            if watched == 0:
+                print("GUARD %s: 0 output nodes watched - tool_result can never "
+                      "fire, so this tool would report a 0%% completion rate "
+                      "forever" % rel)
+                bad += 1
 
     # THE GUARD THIS PASS EXISTS FOR.
     #
