@@ -110,6 +110,9 @@ FLOORS = [
     ("_dev/one_grid.py",
      "one page grid, so a headline starts where the logo starts. Last in "
      "FLOORS because it has to outrank every container width set above it"),
+    ("_dev/rates_grid.py",
+     "rates.html's four stray blocks onto that same grid. After one_grid, "
+     "because it aligns them to what one_grid puts the article body on"),
 ]
 
 # SEO. Head-level facts, then the sitemap and structured data, which must see

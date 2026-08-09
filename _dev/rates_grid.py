@@ -68,7 +68,10 @@ PAD = 26
 STEPS = [(1500, 1320), (1900, 1560)]
 
 # the blocks that were centred at 900 while the page around them was on 1180
-STRAYS = [".hero", ".gapbar-wrap", ".colophon", ".sitefoot-in"]
+# `.sitefoot-in` looked like a fifth. It is a rule with no element - the page
+# uses the shared `.ftin` footer, which `_dev/one_grid.py` already handles - and
+# the guard below caught it rather than letting a dead selector ship.
+STRAYS = [".hero", ".gapbar-wrap", ".colophon"]
 
 
 def sheet():
