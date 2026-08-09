@@ -85,47 +85,47 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 |---|---|---|---|
 | `dir_two_views.py` | **unstable** | `<!-- _dev/dir_two_views.py -->` | Concept 05 - the 78 programs as two objects, not one. — a second run changes the page again |
 | `eap_rates.py` | **unstable** | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. — **re-running this damaged the live site.** It relocates its block, orphans a div and reports guards clean while doing it |
+| `empty_outputs.py` | **unstable** | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. — a second run changes six pages again |
+| `fixups.py` | **unstable** | &mdash; | Three defects reported from the live site, fixed together. — a second run changes the page again |
+| `hub_owid.py` | **unstable** | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. — a second run changes five hubs again |
 | `side_nav.py` | **unstable** | `/* _dev/side_nav.py */` | A fixed section nav in the gutter, for the pages the grid template cannot take. — a second run changes the page again |
+| `affiliate.py` | **broken** | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. — exits non-zero after writing four pages, which is the worst combination: it half-applies |
+| `ciis_tuition.py` | **broken** | &mdash; | CIIS publishes its tuition. This page said it did not. — exits non-zero, writes nothing |
 | `cluster_links.py` | **broken** | `/* _dev/cluster_links.py */` | Close the loop between the calculators and the articles. — TypeError: insert_at returns an int, and the caller unpacks two values |
 | `doc_rails.py` | **broken** | `/* _dev/doc_rails.py */` | Option 2, the three-rail document, applied to rates.html. — asserts the article's five h2s on rates.html and finds two |
+| `feepatch.py` | **broken** | &mdash; | BBS fees halved on 1 July 2026. The associate pages still show the old ones. — exits non-zero, writes nothing |
 | `insurance_wire.py` | **broken** | `<!-- _dev/insurance_wire.py -->` | Wire the liability-insurance page into the site, and record what we found — exits non-zero, writes nothing |
 | `legal_rails.py` | **broken** | `/* _dev/legal_rails.py */` | Option 2, the three-rail document, applied to terms.html and privacy.html. — exits non-zero |
+| `nav_consolidate.py` | **broken** | &mdash; | Collapse tools.html into the hub, and take Field Notes out of the top nav. — exits non-zero, writes nothing |
 | `quest_hud.py` | **broken** | `/* _dev/quest_hud.py */` | Turn the hours ladder into something worth looking at. — exits non-zero |
+| `typeface.py` | **broken** | &mdash; | Add the display face, sitewide, in one place. — exits non-zero, writes nothing |
+| `ads_state.py` | **safe** | &mdash; | The advertising sentence, derived from whether the site actually serves ads. — no-op on today's site |
+| `analytics.py` | **safe** | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. — the GA4 tag on all 164 pages; idempotent. Not wired because analytics_events.py already asserts the tag is present |
+| `build_psyd.py` | **safe** | &mdash; | Build psyd-programs-california.html — the California PsyD directory. — rebuilds the PsyD directory from psyd_data.py |
+| `build_redirect.py` | **safe** | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. — the tools.html -> resources.html stub |
+| `claims.py` | **safe** | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. — no-op on today's site |
+| `copy_trim.py` | **safe** | &mdash; | Retire two pieces of chrome copy that were repeated on every page. — no-op on today's site |
 | `cta_scale.py` | **safe** | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
+| `figure_scope.py` | **safe** | &mdash; | Stop figure styling leaking onto prose in the same block. — no-op on today's site |
+| `gold_slab.py` | **safe** | &mdash; | The simulator's gold chapter slab: deepen the band, flip the text. Option B. — no-op on today's site |
 | `hero_notes.py` | **safe** | `/* _dev/hero_notes.py */` | Get the housekeeping small print out of the hero. |
+| `hero_palette.py` | **safe** | &mdash; | Give the heroes a palette instead of a monotony and one outlier. |
+| `landing.py` | **safe** | &mdash; | Put _dev/landing.css into the landing page's inline <style> block. — no-op on today's site |
 | `layout_fixes.py` | **safe** | `/* _dev/layout_fixes.py */` | Two visible layout defects, both reported from screenshots. |
 | `link_cards.py` | **safe** | `/* _dev/link_cards.py */` | Make the tool cards actual links. |
 | `measure.py` | **safe** | `/* _dev/measure.py */` | Cap the reading measure. One rule, every page, idempotent. — the reading-measure cap, 159 pages |
 | `mobile_hero.py` | **safe** | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |
+| `nav_rebuild.py` | **safe** | &mdash; | Make the header work everywhere, and put the hub where a reader can find it. — 158 pages; idempotent. The nav that restyle.py now maintains - keep for reference, not for the pipeline |
+| `pacifica_tuition.py` | **safe** | &mdash; | Pacifica publishes its cost of attendance. This page said it did not. — no-op on today's site |
+| `rates_contrast.py` | **safe** | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. — no-op on today's site |
+| `rates_fix.py` | **safe** | &mdash; | Correct the two published-fee-schedule rows on rates.html. — no-op on today's site |
+| `rates_tokens.py` | **safe** | &mdash; | Two colours on rates.html that a later :root block quietly redefined. — no-op on today's site |
 | `registry_meta.py` | **safe** | `<!-- ts:meta -->` | Write each page's library metadata into the page itself. |
+| `registry_sync.py` | **safe** | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. — rebuilds registry.json from the pages |
 | `tax_assumptions.py` | **safe** | `the rate the EDD assigns to a new employer` | Disclose the one modelling choice the tax page was still making silently. — no-op on today's site |
 | `tool_chain.py` | **safe** | `<!-- _dev/tool_chain.py -->` | Concept 03, second half: the seven calculators as a sequence, not a pile. |
+| `urlfix.py` | **safe** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. — no-op on today's site |
 | `widen.py` | **safe** | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. — the two large-display width steps that one_grid.py and rates_grid.py both mirror |
-| `ads_state.py` | **untriaged** | &mdash; | The advertising sentence, derived from whether the site actually serves ads. |
-| `affiliate.py` | **untriaged** | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
-| `analytics.py` | **untriaged** | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. |
-| `build_psyd.py` | **untriaged** | &mdash; | Build psyd-programs-california.html — the California PsyD directory. |
-| `build_redirect.py` | **untriaged** | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. |
-| `ciis_tuition.py` | **untriaged** | &mdash; | CIIS publishes its tuition. This page said it did not. |
-| `claims.py` | **untriaged** | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. |
-| `copy_trim.py` | **untriaged** | &mdash; | Retire two pieces of chrome copy that were repeated on every page. |
-| `empty_outputs.py` | **untriaged** | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. |
-| `feepatch.py` | **untriaged** | &mdash; | BBS fees halved on 1 July 2026. The associate pages still show the old ones. |
-| `figure_scope.py` | **untriaged** | &mdash; | Stop figure styling leaking onto prose in the same block. |
-| `fixups.py` | **untriaged** | &mdash; | Three defects reported from the live site, fixed together. |
-| `gold_slab.py` | **untriaged** | &mdash; | The simulator's gold chapter slab: deepen the band, flip the text. Option B. |
-| `hero_palette.py` | **untriaged** | &mdash; | Give the heroes a palette instead of a monotony and one outlier. |
-| `hub_owid.py` | **untriaged** | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
-| `landing.py` | **untriaged** | &mdash; | Put _dev/landing.css into the landing page's inline <style> block. |
-| `nav_consolidate.py` | **untriaged** | &mdash; | Collapse tools.html into the hub, and take Field Notes out of the top nav. |
-| `nav_rebuild.py` | **untriaged** | &mdash; | Make the header work everywhere, and put the hub where a reader can find it. |
-| `pacifica_tuition.py` | **untriaged** | &mdash; | Pacifica publishes its cost of attendance. This page said it did not. |
-| `rates_contrast.py` | **untriaged** | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. |
-| `rates_fix.py` | **untriaged** | &mdash; | Correct the two published-fee-schedule rows on rates.html. |
-| `rates_tokens.py` | **untriaged** | &mdash; | Two colours on rates.html that a later :root block quietly redefined. |
-| `registry_sync.py` | **untriaged** | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. |
-| `typeface.py` | **untriaged** | &mdash; | Add the display face, sitewide, in one place. |
-| `urlfix.py` | **untriaged** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |

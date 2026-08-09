@@ -130,6 +130,40 @@ VERDICTS = {
     "fill": ("retired", "superseded by measure + content_frame + "
                         "wide_measure; no output left on the site"),
     "hero_action": ("retired", "superseded by hub_hero; no output left"),
+
+    # second triage batch, same method, same day
+    "empty_outputs": ("unstable", "a second run changes six pages again"),
+    "fixups": ("unstable", "a second run changes the page again"),
+    "hub_owid": ("unstable", "a second run changes five hubs again"),
+
+    "affiliate": ("broken", "exits non-zero after writing four pages, which "
+                            "is the worst combination: it half-applies"),
+    "ciis_tuition": ("broken", "exits non-zero, writes nothing"),
+    "feepatch": ("broken", "exits non-zero, writes nothing"),
+    "nav_consolidate": ("broken", "exits non-zero, writes nothing"),
+    "typeface": ("broken", "exits non-zero, writes nothing"),
+
+    "analytics": ("safe", "the GA4 tag on all 164 pages; idempotent. Not "
+                          "wired because analytics_events.py already asserts "
+                          "the tag is present"),
+    "nav_rebuild": ("safe", "158 pages; idempotent. The nav that restyle.py "
+                            "now maintains - keep for reference, not for the "
+                            "pipeline"),
+    "build_psyd": ("safe", "rebuilds the PsyD directory from psyd_data.py"),
+    "registry_sync": ("safe", "rebuilds registry.json from the pages"),
+    "build_redirect": ("safe", "the tools.html -> resources.html stub"),
+    "hero_palette": ("safe", ""),
+    "ads_state": ("safe", "no-op on today's site"),
+    "claims": ("safe", "no-op on today's site"),
+    "copy_trim": ("safe", "no-op on today's site"),
+    "figure_scope": ("safe", "no-op on today's site"),
+    "gold_slab": ("safe", "no-op on today's site"),
+    "landing": ("safe", "no-op on today's site"),
+    "pacifica_tuition": ("safe", "no-op on today's site"),
+    "rates_contrast": ("safe", "no-op on today's site"),
+    "rates_fix": ("safe", "no-op on today's site"),
+    "rates_tokens": ("safe", "no-op on today's site"),
+    "urlfix": ("safe", "no-op on today's site"),
 }
 
 # Anything beginning with one of these is a migration that has already run.
