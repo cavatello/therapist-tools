@@ -34,8 +34,12 @@ NEW_SMALL = ("<div><h5>The small print</h5>"
              '<a href="terms.html">Terms of Use</a>'
              '<a href="privacy.html">Privacy</a>'
              '<a href="contact.html">Report a wrong figure</a>'
-             "<p>2026 federal and California rates. Estimates only &mdash; not tax, "
-             "legal or financial advice.</p></div>")
+             # The byline directly below this column already says "nothing here is
+             # legal, tax, financial or clinical advice". Saying it again three
+             # inches higher read as a mistake, and it was one. What is left here
+             # is the part the byline does NOT say: which year the figures are.
+             "<p>Figures are 2026 federal and California rates, each carrying "
+             "the date it was last checked.</p></div>")
 
 OLD_BY = re.compile(r'<p class="ftby">.*?</p>', re.S)
 NEW_BY = ('<p class="ftby"><b>Built by Cavatello.</b> Free, and not selling anything. '

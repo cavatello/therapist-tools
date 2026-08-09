@@ -380,30 +380,53 @@ def main():
     h = open(HOME, encoding="utf-8").read()
     horig = h
     n = 0
+
+    # THE BUG THIS REPLACES, BECAUSE IT WAS VISIBLE AND UGLY.
+    #
+    # The extra link used to be inserted as a SIBLING of the audience card. The
+    # cards are direct children of `.lgrid.lg3`, a three-column grid - so adding
+    # one sibling per card gave the grid six children, and they flowed
+    #
+    #     row 1:  card 1   link 1   card 2
+    #     row 2:  link 2   card 3   link 3
+    #
+    # Every link ended up in a different cell from the card it belonged to, with
+    # a large hole in the middle of the section. Nothing errored: the markup was
+    # valid, the links worked, and the only symptom was that it looked broken.
+    #
+    # `.laud` is itself an <a>, so the link cannot be nested inside it. The card
+    # and its link are therefore wrapped in a div, and THAT is the grid child.
+    #
+    # Stripped first, both shapes, so this is idempotent over the old output.
+    h = re.sub(r'<a class="srmore"[^>]*>[\s\S]*?</a>', "", h)
+    h = re.sub(r'<div class="srpair">([\s\S]*?)</div>', r"\1", h)
+
     for label, key in HOME_ROUTES:
-        # the card's own "Start with ..." link is left alone; a second, quieter
-        # link is added beside it, and re-pointed rather than duplicated on a
-        # second run.
-        pat = re.compile(r'(' + re.escape(label) + r'[\s\S]{0,700}?)'
-                         r'(<a[^>]*href="resources\.html#where=[a-z]+"[^>]*>[\s\S]*?</a>)')
-        m = pat.search(h)
-        if m:
-            h = h[:m.start(2)] + (
-                '<a class="srmore" href="resources.html#where=%s">'
-                'Everything for this situation &rarr;</a>' % key) + h[m.end(2):]
-            n += 1
-            continue
-        m = re.search(re.escape(label) + r'[\s\S]{0,700}?</a>', h)
+        # The card is the <a class="laud"> whose own text carries the label.
+        m = None
+        for c in re.finditer(r'<a class="laud"[^>]*>[\s\S]*?</a>', h):
+            if label in c.group(0):
+                m = c
+                break
         if not m:
             continue
-        h = h[:m.end()] + (
-            '<a class="srmore" href="resources.html#where=%s">'
-            'Everything for this situation &rarr;</a>' % key) + h[m.end():]
+        h = (h[:m.start()]
+             + '<div class="srpair">' + m.group(0)
+             + '<a class="srmore" href="resources.html#where=%s">'
+               'Everything for this situation &rarr;</a>' % key
+             + "</div>"
+             + h[m.end():])
         n += 1
-    if n and "srmore{" not in h:
+
+    h = re.sub(r"\n?<style>/\* _dev/stage_router\.py \*/[\s\S]*?</style>\n?", "", h)
+    if n:
         e = h.lower().rfind("</body>")
         h = h[:e] + ('<style>/* _dev/stage_router.py */\n'
-                     '.srmore{display:block;margin-top:7px;font-size:13px;'
+                     '/* The pair is the grid child, not the card. See the note '
+                     'in the pass. */\n'
+                     '.srpair{display:flex;flex-direction:column;align-items:stretch}\n'
+                     '.srpair>.laud{flex:1 1 auto}\n'
+                     '.srmore{display:block;margin-top:9px;font-size:13px;'
                      'color:%s;text-decoration:none;border-bottom:1px solid #D8D0BC;'
                      'width:max-content}\n'
                      '.srmore:hover{border-bottom-color:%s}\n</style>\n'
