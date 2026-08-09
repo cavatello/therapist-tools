@@ -193,12 +193,17 @@ def main():
     # --------------------------------------------------------- table phrases
     for phrase, url, why in LINKS:
         n = s.count(phrase)
-        if n != 1:
-            print("  MISSING  %-46s (found %d times)" % (phrase[:46], n))
+        if n == 0:
+            print("  MISSING  %-46s" % phrase[:46])
             missing += 1
             continue
+        # The FIRST occurrence is the table cell; later ones are the numbered
+        # citation list at the foot of the page, which already carries its own
+        # links and must not be wrapped in a second one.
         s = s.replace(phrase, anchor(phrase, url), 1)
-        print("  ok       %-46s -> %s" % (phrase[:46], url[:52]))
+        print("  ok       %-46s -> %s%s"
+              % (phrase[:46], url[:52],
+                 "  (also in citations, left alone)" if n > 1 else ""))
 
     # ---------------------------------------------------------- prose links
     for context, text, url, why in PROSE:
@@ -211,6 +216,19 @@ def main():
         j = s.index(text, i)
         s = s[:j] + anchor(text, url) + s[j + len(text):]
         print("  ok       %-46s -> %s" % (text[:46], url[:52]))
+
+    # ------------------------------------------- a citation that went stale
+    # Citation [36] points at myplanportal.com, which still serves Aetna's
+    # classic behavioural-health form but which aetna.com no longer links to.
+    # It was correct when it was written; it is now a link into a deprecated
+    # surface. Repointed at the hub, which is the same page the table links.
+    stale = ("https://www.myplanportal.com/health-care-professionals/forms/"
+             "behavioral-health-application.html")
+    fresh = "https://www.aetna.com/health-care-professionals/join-the-aetna-network.html"
+    if stale in s:
+        s = s.replace(stale, fresh)
+        print("  ok       citation [36] repointed off the deprecated "
+              "myplanportal copy")
 
     # ------------------------------------------------- the two public payers
     block = PUBLIC % {"mark": MARK, "checked": CHECKED}
