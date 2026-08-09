@@ -124,7 +124,12 @@ CSS = """<style>/* _dev/build_cases.py */
 .dc-hero .hl{font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);margin:0 0 18px;
   max-width:62ch}
 .dc-hero .hl b{color:%(gold)s}
-.dc-figs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid %(ink)s;
+/* auto-fit, not repeat(4). The hero was trimmed from four figures to three
+   and the fourth cell stayed behind as a slab of bare ink on the right. A
+   fixed column count is a promise about how many figures there will always
+   be, and that is not a promise a hero should make. */
+.dc-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:0;border:2px solid %(ink)s;
   border-radius:12px;overflow:hidden;margin:0 0 18px;background:%(ink)s}
 .dc-figs>div{background:%(cream)s;padding:14px 15px}
 .dc-figs .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:29px;
