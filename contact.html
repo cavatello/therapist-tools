@@ -329,6 +329,74 @@
 <link rel="stylesheet" href="css/0bc1ae1be8e7.css">
 <link rel="stylesheet" href="css/5f9da934c88f.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/fb2cac1355b6.css">
+<link rel="stylesheet" href="css/fb2cac1355b6.css"><style>/* _dev/content_frame.py */
+/* ============================================================ THE FRAME
+   One rhythm, one measure, one headline width. Measured before this pass:
+   the breadcrumb-to-H1 gap was 37px on an article and 14px on a case page,
+   and the H1 was capped at 529px inside a 740px column. */
+
+:root{
+  --ts-crumb-gap:34px;      /* one value, both templates */
+  --ts-headline:30ch;       /* was 20ch, which is ~13 characters at 40px */
+  --ts-prose:72ch;
+}
+
+/* --- breadcrumb to headline ------------------------------------------- */
+.bcr.bcr.bcr, .dc-crumb.dc-crumb.dc-crumb{margin-bottom:var(--ts-crumb-gap)}
+.bcr.bcr.bcr + h1, .dc-crumb.dc-crumb.dc-crumb + h1,
+.dc-crumb.dc-crumb.dc-crumb + .dc-title{margin-top:0}
+
+/* --- the headline uses its column ------------------------------------- */
+/* A display face at 37-41px needs about 30 characters a line, not 13. The cap
+   stays - an unbounded headline on a 2560px screen is its own problem - it is
+   just set to a width a headline can actually use. */
+.dc-title.dc-title.dc-title{max-width:var(--ts-headline)}
+.artband.artband h1, .art.art h1{max-width:var(--ts-headline)}
+
+/* ============================================== WIDE BLOCKS IN A COLUMN
+   A table whose content is wider than its column used to sit in a scroller
+   with no scrollbar, no fade and no affordance, and read as a bug. */
+
+/* 1. Let it fit. `anywhere` is counted in min-content width, `break-word` is
+      not, so this is what actually collapses an over-wide table into its
+      column. Wide viewports only - see the note in the pass. */
+@media (min-width:900px){
+  .tw.tw.tw td, .tw.tw.tw th, .li-tw.li-tw.li-tw td, .li-tw.li-tw.li-tw th, .dc-tw.dc-tw.dc-tw td, .dc-tw.dc-tw.dc-tw th, .octw.octw.octw td, .octw.octw.octw th, .srn-w.srn-w.srn-w td, .srn-w.srn-w.srn-w th, .tblw.tblw.tblw td, .tblw.tblw.tblw th{overflow-wrap:anywhere}
+  .tw.tw.tw table, .li-tw.li-tw.li-tw table, .dc-tw.dc-tw.dc-tw table, .octw.octw.octw table, .srn-w.srn-w.srn-w table, .tblw.tblw.tblw table{width:100%;min-width:0}
+}
+
+/* 2. Where it still cannot fit, make the overflow visible. */
+.tw.tw.tw, .li-tw.li-tw.li-tw, .dc-tw.dc-tw.dc-tw, .octw.octw.octw, .srn-w.srn-w.srn-w, .tblw.tblw.tblw{
+  position:relative;
+  scrollbar-width:thin;
+  scrollbar-color:#C9C0AA transparent;
+  background:
+    linear-gradient(to right, #FBF9F3 30%, rgba(251,249,243,0)) left center,
+    linear-gradient(to right, rgba(251,249,243,0), #FBF9F3 70%) right center,
+    radial-gradient(farthest-side at 0 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) left center,
+    radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) right center;
+  background-repeat:no-repeat;
+  background-size:36px 100%, 36px 100%, 14px 100%, 14px 100%;
+  background-attachment:local, local, scroll, scroll;
+}
+.tw.tw.tw::-webkit-scrollbar{height:9px}
+.tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.tw.tw.tw::-webkit-scrollbar-track{background:transparent}
+.li-tw.li-tw.li-tw::-webkit-scrollbar{height:9px}
+.li-tw.li-tw.li-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.li-tw.li-tw.li-tw::-webkit-scrollbar-track{background:transparent}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar{height:9px}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-track{background:transparent}
+.octw.octw.octw::-webkit-scrollbar{height:9px}
+.octw.octw.octw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.octw.octw.octw::-webkit-scrollbar-track{background:transparent}
+.srn-w.srn-w.srn-w::-webkit-scrollbar{height:9px}
+.srn-w.srn-w.srn-w::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.srn-w.srn-w.srn-w::-webkit-scrollbar-track{background:transparent}
+.tblw.tblw.tblw::-webkit-scrollbar{height:9px}
+.tblw.tblw.tblw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.tblw.tblw.tblw::-webkit-scrollbar-track{background:transparent}
+</style>
 </body>
 </html>

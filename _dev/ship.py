@@ -74,6 +74,9 @@ FLOORS = [
     ("_dev/chrome_armor.py", "chrome that has to outrank the page body"),
     ("_dev/mobile_floor.py", "overflow, hit area, and the 12px text floor"),
     ("_dev/block_spacing.py", "every injected block owns the space beneath it"),
+    ("_dev/content_frame.py",
+     "one content frame: breadcrumb rhythm, headline measure, and wide blocks "
+     "that used to run past their column with no scroll affordance"),
     ("_dev/wide_measure.py",
      "line length on a 27-inch 5K, where the failures are the opposite of the "
      "mobile ones and nobody looks for them"),
