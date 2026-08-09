@@ -49,6 +49,11 @@ BUILD = [
 # restyle is first because every later pass assumes the masthead exists.
 STRUCTURE = [
     ("_dev/restyle.py", "masthead, nav panel and the nav script, on every page"),
+    ("_dev/ehr_market.py",
+     "the whole practice-software market with every published price, in place "
+     "of the two-product framing. Early in STRUCTURE for two reasons: it sets "
+     "ts:number, which pixel_concepts reads to build the In-short card, and "
+     "its prose has to reach american.py like any other copy"),
     ("_dev/uplinks.py", "the More-on-this block"),
     ("_dev/breadcrumbs.py", "breadcrumb trails where a trail exists"),
     ("_dev/pixel_concepts.py", "the In-short card and the provenance strip"),
@@ -74,9 +79,6 @@ STRUCTURE = [
     ("_dev/headline_figures.py",
      "fixes a chosen headline figure on an article whose builder no longer "
      "runs"),
-    ("_dev/ehr_market.py",
-     "the whole practice-software market with every published price, in place "
-     "of the two-product framing. Same reason as above: no builder to change"),
     ("_dev/infographics.py",
      "the visual vocabulary - five CSS shapes and the pages that use them. "
      "Before FLOORS, so block_spacing and content_frame see the figures"),
