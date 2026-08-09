@@ -127,9 +127,9 @@ HUBS = {
         figs=[("{cards_money}", "guides on this topic"),
               ("$18,244", "optional on a $217,350 profit"),
               ("12", "expense categories priced")],
-        chips=[("Money tools", "#money-tools"),
-               ("Sole prop or corporation", None),
-               ("Tax you can defer", None)],
+        chips=[("Money tools", None),
+               ("Sole proprietor, or a corporation", None),
+               ("Tax you can defer, and tax you must send", None)],
     ),
     "licensure": dict(
         eyebrow="Licensure &middot; California",
@@ -142,9 +142,9 @@ HUBS = {
         figs=[("{mft_schools}", "California MFT programs listed"),
               ("3,000", "hours over at least 104 weeks"),
               ("$875", "in Board fees, down from $1,750")],
-        chips=[("The route, and what it costs", None),
-               ("Where the degree comes from", None),
-               ("MFT programs directory", None)],
+        chips=[("Licensure tools", None),
+               ("The route, and what it costs", None),
+               ("Where the degree comes from", None)],
     ),
     "getting-paid": dict(
         eyebrow="Getting paid &middot; California",
@@ -171,9 +171,9 @@ HUBS = {
         figs=[("$4,800", "per client over 24 sessions"),
               ("14", "sessions a week to break even on an associate"),
               ("{insurers}", "insurance programs compared")],
-        chips=[("Filling the week", None),
-               ("The software and the admin", None),
-               ("Liability insurance", None)],
+        chips=[("Practice tools", None),
+               ("Filling the week", None),
+               ("The software and the admin", None)],
     ),
     "training": dict(
         eyebrow="Training &middot; California",
@@ -190,8 +190,7 @@ HUBS = {
               ("{psy_training}", "psychedelic trainings priced"),
               ("62%", "of CE audits failed")],
         chips=[("Keeping the license", None),
-               ("Psychedelic-assisted therapy training", None),
-               ("PsyD programs", None)],
+               ("Psychedelic-assisted therapy training", None)],
     ),
 }
 
