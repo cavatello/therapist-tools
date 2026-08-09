@@ -57,12 +57,19 @@ ARTEFACTS = ("_chrome.html",)
 TITLE_MAX, TITLE_MIN = 68, 15
 DESC_MAX, DESC_MIN = 168, 70
 
-SUFFIXES = (" — Therapist Support", " - Therapist Support",
+SUFFIXES = (" &mdash; Therapist Support", " &ndash; Therapist Support",
+            " — Therapist Support", " - Therapist Support",
             " | Therapist Support", " – Therapist Support")
 # A title must not end on one of these. Cutting at a boundary can leave a
 # dangling connective, which reads as a truncation even though it is not.
 DANGLE = {"and", "or", "the", "a", "an", "of", "in", "on", "for", "to", "with",
           "at", "by", "from", "what", "that", "which", "plus", "including"}
+
+# An author-placed boundary, in either the literal or the entity form. This site
+# writes `&mdash;` in its titles, so a pattern that matched only the character
+# found no boundary in any of them.
+BOUND = (r"\s*(?::|—|–|&mdash;|&ndash;|&#8212;|&#8211;)\s*|\s+(?:•|&bull;)\s+")
+DBOUND = (r"\s*(?:—|–|;|&mdash;|&ndash;)\s*|,\s+")
 
 
 def pages():
@@ -93,16 +100,28 @@ def shorten_title(t):
     t = re.sub(r"\s+", " ", t).strip()
     for suf in SUFFIXES:
         if t.endswith(suf) and vis(t[:-len(suf)]) >= TITLE_MIN:
-            cand = t[:-len(suf)].rstrip(" —-|–")
+            cand = re.sub(r"(?:\s|&mdash;|&ndash;|[—–|-])+$", "", t[:-len(suf)])
             if vis(cand) <= TITLE_MAX and ok_end(cand):
                 return cand
             t = cand          # keep going from the de-suffixed version
             break
     if vis(t) <= TITLE_MAX:
         return t
-    # Cut at the last author-placed boundary that leaves something real.
+    # A long parenthetical is the other thing that blows the budget, and it is
+    # always the least load-bearing part of the line: "National University
+    # (absorbed Northcentral University and John F. Kennedy University) - MFT
+    # program in California: ..." is 154 characters, 63 of them an aside.
+    without = re.sub(r"\s*\([^()]{12,}\)", "", t).strip()
+    if vis(without) >= TITLE_MIN and vis(without) < vis(t):
+        t = without
+        if vis(t) <= TITLE_MAX and ok_end(t):
+            return t
+    # Cut at the last author-placed boundary that leaves something real. The
+    # entity forms matter: this site writes `&mdash;` in its titles, and the
+    # first version of this pattern only looked for the literal character, so
+    # every title separated by an entity was reported and never shortened.
     best = None
-    for m in re.finditer(r"\s*[:—–]\s*|\s+•\s+", t):
+    for m in re.finditer(BOUND, t):
         head = t[:m.start()].rstrip()
         if TITLE_MIN <= vis(head) <= TITLE_MAX and ok_end(head):
             best = head       # the LAST qualifying boundary, so keep the most
@@ -129,7 +148,7 @@ def shorten_desc(d):
     # The first sentence is itself too long. Fall back to the last clause
     # boundary the author put in, and only if it still reads as one.
     best = None
-    for m in re.finditer(r"\s*[—–;]\s*|,\s+", d):
+    for m in re.finditer(DBOUND, d):
         head = d[:m.start()].rstrip()
         if DESC_MIN <= vis(head) <= DESC_MAX and ok_end(head):
             best = head
