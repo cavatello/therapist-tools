@@ -1158,8 +1158,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
     return String(s == null ? '' : s).replace(/\s+/g, ' ').slice(0, 140);
   }
   function fileOf(src){
-    try { return String(src || '').split('/').pop().split('?')[0].slice(0, 60); }
-    catch (e) { return 'unknown'; }
+    // The last path segment alone is often useless: gtag loads from
+    // ".../gtag/js?id=G-..." and reports as "js", which names nothing. Keep the
+    // last two segments when the final one is short or extensionless.
+    try {
+      var parts = String(src || '').split('?')[0].split('/').filter(Boolean);
+      var tail = parts.pop() || '';
+      if (tail.length < 6 || tail.indexOf('.') === -1) {
+        tail = (parts.pop() || '') + '/' + tail;
+      }
+      return tail.replace(/^\//, '').slice(0, 60) || 'unknown';
+    } catch (e) { return 'unknown'; }
   }
 
   // ------------------------------------------------------ uncaught errors
@@ -1195,7 +1204,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
     var el = e.target;
     if (!el || !el.tagName) return;
     var t = Date.now();
-    var key = el.tagName + '#' + (el.id || '') + '.' + ((el.className || '') + '').slice(0, 30);
+    // Structural identity only. Element TEXT is deliberately not included: on a
+    // calculator page an arbitrary element can contain a figure the reader
+    // typed, and a rage click is exactly the moment they are typing.
+    var near = el.closest && el.closest('[id]');
+    var key = el.tagName + '#' + (el.id || '') + '.'
+            + ((el.className || '') + '').trim().split(/\s+/)[0].slice(0, 24)
+            + (near && near.id && near.id !== el.id ? ' in#' + near.id.slice(0, 24) : '');
     if (key === last && (t - first) < 2000){
       count++;
       if (count === 4){
