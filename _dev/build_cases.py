@@ -423,9 +423,9 @@ def hub_body():
             o.append("<span>%s</span>" % c["role"])
             o.append("<span>%s</span>" % c["eff"].split(";")[0])
             o.append("<span class='o'>%s</span>" % short_outcome(c))
-            if c["cost"]:
-                o.append("<span class='c'>%s</span>" % c["cost"].split(",")[0]
-                         .split(" ")[0])
+            amt, _note = cost_parts(c["cost"])
+            if amt:
+                o.append("<span class='c'>%s</span>" % amt)
             o.append("</span></a>")
         o.append("</div>")
     o.append("</section>")
@@ -532,6 +532,29 @@ def hub_body():
     return "".join(o)
 
 
+# Grouped digits, ending on a digit. `^\$[\d,]+` also swallows the comma that
+# ENDS the amount - "$12,515, payable in full..." came out as "$12,515," with a
+# trailing comma sitting in a pill on the index.
+MONEY = re.compile(r"^\$\d{1,3}(?:,\d{3})*(?:\.\d{2})?")
+
+
+def cost_parts(cost):
+    """('$12,515', 'payable in full before any new license could issue').
+
+    `cost.split(",")[0]` was the first version, and it splits "$7,644" on its
+    THOUSANDS SEPARATOR. The In-short card on one page shipped reading "$7".
+    Same shape as every other bug in this project's history: the code was
+    looking for a clause boundary and the data had a comma that was not one."""
+    if not cost:
+        return (None, None)
+    cost = cost.strip()
+    m = MONEY.match(cost)
+    if not m:
+        return (None, cost)
+    rest = cost[m.end():].lstrip(" ,;").strip()
+    return (m.group(0), rest or None)
+
+
 def short_outcome(c):
     """A three-word version of the disposition, for the index chip."""
     o = re.sub(r"<[^>]+>", "", c["outcome"]).lower()
@@ -595,12 +618,14 @@ def case_body(c, prev, nxt):
     if c["hear"]:
         o.append("<p style='font-size:14px;color:rgba(255,255,255,.8)'>%s</p>"
                  % c["hear"])
-    if c["cost"]:
+    amt, note = cost_parts(c["cost"])
+    if amt:
         o.append('<span class="cost">%s</span>'
                  '<span class="costl">ordered in cost recovery under '
-                 'B&amp;P &sect;125.3</span>' % c["cost"].split(",")[0])
-        if "," in c["cost"] and not c["cost"].split(",")[1].strip().isdigit():
-            pass
+                 'B&amp;P &sect;125.3%s</span>'
+                 % (amt, (" &mdash; " + note) if note else ""))
+    elif note:
+        o.append('<span class="costl">Cost recovery: %s</span>' % note)
     else:
         o.append('<span class="costl">No cost recovery stated in the order</span>')
     o.append("</div>")
@@ -801,7 +826,7 @@ def main():
             plain(c["dek"] + " " + c["rule"], 300),
             t + "?",
             plain(c["outcome"], 120),
-            c["cost"].split(",")[0] if c["cost"] else plain(short_outcome(c)),
+            cost_parts(c["cost"])[0] or plain(short_outcome(c)),
             "3")
         doc = assemble(meta, case_body(c, prev, nxt), parts, css)
         open(os.path.join(SITE, c["slug"] + ".html"), "w", encoding="utf-8").write(doc)
@@ -900,6 +925,23 @@ def main():
         s = open(os.path.join(SITE, rel), encoding="utf-8").read()
         if "search.dca.ca.gov/download" in s:
             print("GUARD %s: links a decision PDF, which names the licensee" % rel)
+            bad += 1
+
+    # A money figure must survive intact. "$7,644" split on its comma renders as
+    # "$7", which is not an error, not a broken link and not a failing colour -
+    # it is simply a wrong number, and the only way to catch it is to insist the
+    # whole string is present on both the case page and the hub.
+    hubs = open(os.path.join(SITE, HUB), encoding="utf-8").read()
+    for c in CASES:
+        amt, _ = cost_parts(c["cost"])
+        if not amt:
+            continue
+        page = open(os.path.join(SITE, c["slug"] + ".html"), encoding="utf-8").read()
+        if amt not in page:
+            print("GUARD %s: cost %s is not on the page intact" % (c["slug"], amt))
+            bad += 1
+        if amt not in hubs:
+            print("GUARD hub: cost %s for %s is not intact" % (amt, c["slug"]))
             bad += 1
 
     # Every case must be reachable from the hub, and every group must be used.
