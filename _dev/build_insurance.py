@@ -693,12 +693,32 @@ def main():
     footer = chrome[foot_start:chrome.index("</footer>", foot_start) + len("</footer>")]
     links = re.findall(r'<link rel="stylesheet" href="css/[0-9a-f]{12}\.css">', chrome)
 
+    # THE BEHAVIOUR HAS TO COME WITH THE MARKUP.
+    #
+    # This page shipped with a nav panel that did not open. The header slice
+    # carries `<button data-nav>` and `<div id="navpanel">`, and the script that
+    # binds them lives at the END of the donor's body, after </footer> - so
+    # lifting the header alone produced a masthead with every button present and
+    # nothing behind them. `restyle.py` re-appends that script to every page, so
+    # the page was fine until it was rebuilt AFTER restyle ran, and then it was
+    # silently dead: no console error, no missing element, no failing guard.
+    #
+    # A page assembled from someone else's chrome has to take the chrome's
+    # scripts too. Everything after </footer> that is an inline <script> is
+    # chrome behaviour - the nav panel, the background signup post, the
+    # analytics event listener - and is copied verbatim. The guard at the bottom
+    # now refuses to write a page whose nav cannot open.
+    tail = chrome[chrome.index("</footer>", foot_start) + len("</footer>"):]
+    scripts = re.findall(r"<script(?![^>]*\bsrc=)[^>]*>[\s\S]*?</script>", tail)
+
     css = CSS % {"ink": INK, "pine": PINE, "gold": GOLD, "cream": CREAM,
                  "muted": MUTED, "red": RED}
 
     doc = ('<!DOCTYPE html>\n<html lang="en">\n' + head + meta + "</head>\n"
            "<body>" + header + "<main>" + body() + "</main>" + footer
-           + "\n" + "\n".join(links) + "\n" + css + "\n" + SCRIPT + "\n</body>\n</html>\n")
+           + "\n" + "\n".join(links) + "\n" + css
+           + "\n" + "\n".join(scripts)
+           + "\n" + SCRIPT + "\n</body>\n</html>\n")
 
     open(OUT, "w", encoding="utf-8").write(doc)
     print("\nwrote %s (%.0f KB)" % (os.path.basename(OUT), len(doc) / 1024))
@@ -710,6 +730,15 @@ def main():
         print("GUARD: %d h1" % s.count("<h1")); bad += 1
     if "<footer" not in s or "sitenav" not in s:
         print("GUARD: chrome missing"); bad += 1
+    # The nav must be able to OPEN. Markup without behaviour is the bug this
+    # page shipped, and it is invisible to every other check on this file.
+    if 'id="navpanel"' not in s:
+        print("GUARD: the nav panel markup is missing"); bad += 1
+    if "getElementById('navpanel')" not in s:
+        print("GUARD: the nav panel has no script - every nav button is dead")
+        bad += 1
+    if 'data-nav="' not in s:
+        print("GUARD: no nav buttons"); bad += 1
     n = len(re.findall(r'<article class="li-card"', s))
     if n != len(CARRIERS):
         print("GUARD: %d cards, expected %d" % (n, len(CARRIERS))); bad += 1
