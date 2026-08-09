@@ -1,0 +1,13 @@
+/* _dev/block_spacing.py */
+/* Every block below is injected by a pass into pages it has never seen, so it
+   owns the space beneath it instead of borrowing it from whatever follows.
+   `.tsshort` shipped with margin-bottom:0 and a 4px offset shadow, and landed
+   next to a paragraph with margin-top:0 - the text sat on the shadow. */
+.tsshort.tsshort.tsshort{margin-bottom:26px}   /* the In short card - 4px of shadow plus real air */
+.tsmeta.tsmeta.tsmeta{margin-bottom:22px}   /* the provenance strip */
+.tsfoot.tsfoot.tsfoot{margin-bottom:0}   /* sits directly on the signup band, which footer_order owns */
+.tsupd.tsupd.tsupd{margin-bottom:22px}   /* the what-changed disclosure */
+.uplink.uplink.uplink{margin-bottom:26px}   /* the More on this block */
+.fixrow.fixrow.fixrow{margin-bottom:22px}   /* the correction row */
+/* Nothing may butt straight up against the card either. */
+.tsshort + *, .tsmeta + *, .uplink + *{margin-top:0}
