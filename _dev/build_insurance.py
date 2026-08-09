@@ -96,6 +96,7 @@ CONTRAST = [
     ("label pine on cream", PINE, CREAM, FLOOR),
     ("ink on gold chip", INK, GOLD, FLOOR),
     ("white on pine", "#FFFFFF", PINE, FLOOR),
+    ("gold on pine", "#FFD37A", PINE, FLOOR),
     ("caution red on cream", RED, CREAM, FLOOR),
     ("white on ink", "#FFFFFF", INK, FLOOR),
 ]
@@ -258,8 +259,11 @@ table.li-pay td.who{font-weight:600;color:%(ink)s;white-space:nowrap}
 .li-aff p{font-size:14.6px;line-height:1.65;color:rgba(255,255,255,.9);
   margin:0 0 10px;max-width:70ch}
 .li-aff p:last-child{margin:0}
-.li-aff b{color:%(gold)s}
-.li-aff a{color:%(gold)s}
+/* Gold on pine measures 4.35:1 - just under the floor, and the audit caught it
+   on this page's own new markup. A lighter gold clears it at 4.91:1 without
+   leaving the palette. Same fix the sitewide .hint rule took. */
+.li-aff b{color:#FFD37A}
+.li-aff a{color:#FFD37A}
 
 .li-fine{font-size:13px;line-height:1.6;color:%(muted)s;max-width:74ch;
   border-top:2px solid %(ink)s;padding-top:14px;margin-top:28px}
@@ -292,6 +296,13 @@ table.li-pay td.who{font-weight:600;color:%(ink)s;white-space:nowrap}
   table.li-pay td.who, table.li-pay td.lim{white-space:normal}
   .li-two .n{font-size:31px}
   .li-wrap{padding:0 16px}
+  /* The 12px phone floor, applied to this page's own labels before the
+     sitewide pass has to catch them. Five of these carry a sentence rather
+     than a word - the price note under each carrier's headline is the clearest
+     case - and 10px on a phone is not a label, it is a squint. */
+  .li-k, .li-price .pn, .li-cell .ck, .li-form,
+  .li-case .odds, .li-note, .li-rep li, .li-cell .cv{font-size:12px}
+  .li-cell .cv{font-size:13px}
 }
 </style>"""
 

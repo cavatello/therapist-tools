@@ -73,7 +73,67 @@
 <link rel="stylesheet" href="css/2f29aaadfa97.css">
 <link rel="stylesheet" href="css/f3c5f8978431.css">
 
-<link rel="stylesheet" href="css/cf7ba749a7ea.css">
+<link rel="stylesheet" href="css/cf7ba749a7ea.css"><link rel="stylesheet" href="css/7d13db3f5bdd.css">
+<script>/* _dev/tool_chain.py */
+(function(){
+  var SIM = "practice-simulator.html";
+  function bagFromHash(){
+    var raw = location.hash.replace(/^#/, "");
+    var bag = {};
+    if (!raw) return bag;
+    var m = /^s=([A-Za-z0-9\-_]+)$/.exec(raw);
+    if (m){
+      /* The simulator keeps its whole state as one base64 blob. Unpack it so
+         the flat tools can read the handful of keys they share. */
+      try {
+        var o = JSON.parse(decodeURIComponent(atob(
+          m[1].replace(/-/g, "+").replace(/_/g, "/"))));
+        Object.keys(o).forEach(function(k){
+          var v = o[k];
+          if (v === null || v === undefined || v === "") return;
+          if (typeof v === "object") return;
+          bag[k] = String(v);
+        });
+      } catch (e) {}
+      return bag;
+    }
+    raw.split("&").forEach(function(p){
+      var i = p.indexOf("="); if (i < 0) return;
+      bag[p.slice(0, i)] = decodeURIComponent(p.slice(i + 1));
+    });
+    return bag;
+  }
+  function encodeFor(href, bag){
+    var keys = Object.keys(bag);
+    if (!keys.length) return href;
+    if (href.indexOf(SIM) === 0){
+      try {
+        return href + "#s=" + btoa(encodeURIComponent(JSON.stringify(bag)))
+          .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+      } catch (e) { return href; }
+    }
+    return href + "#" + keys.map(function(k){
+      return k + "=" + encodeURIComponent(bag[k]);
+    }).join("&");
+  }
+  function paint(){
+    var bag = bagFromHash();
+    var links = document.querySelectorAll("a[data-tcto]");
+    for (var i = 0; i < links.length; i++){
+      links[i].setAttribute("href", encodeFor(links[i].getAttribute("data-tcto"), bag));
+    }
+  }
+  paint();
+  /* Every tool writes its state with history.replaceState, and replaceState
+     does NOT fire hashchange - so listening for that alone captured whatever
+     was in the URL at load and then went stale the moment anyone typed.
+     Repainting on input and change covers all seven, because all seven rebind
+     on exactly those events. */
+  window.addEventListener("hashchange", paint);
+  document.addEventListener("input", paint, true);
+  document.addEventListener("change", paint, true);
+})();
+</script>
 <script>/* _dev/analytics_events.py */
 (function(){
   if (typeof window === 'undefined') return;
@@ -156,67 +216,6 @@
 <link rel="stylesheet" href="css/3f49478ba9b5.css">
 <link rel="stylesheet" href="css/2d40f9eb0dab.css">
 <link rel="stylesheet" href="css/0bc1ae1be8e7.css">
-<link rel="stylesheet" href="css/7d13db3f5bdd.css">
-<script>/* _dev/tool_chain.py */
-(function(){
-  var SIM = "practice-simulator.html";
-  function bagFromHash(){
-    var raw = location.hash.replace(/^#/, "");
-    var bag = {};
-    if (!raw) return bag;
-    var m = /^s=([A-Za-z0-9\-_]+)$/.exec(raw);
-    if (m){
-      /* The simulator keeps its whole state as one base64 blob. Unpack it so
-         the flat tools can read the handful of keys they share. */
-      try {
-        var o = JSON.parse(decodeURIComponent(atob(
-          m[1].replace(/-/g, "+").replace(/_/g, "/"))));
-        Object.keys(o).forEach(function(k){
-          var v = o[k];
-          if (v === null || v === undefined || v === "") return;
-          if (typeof v === "object") return;
-          bag[k] = String(v);
-        });
-      } catch (e) {}
-      return bag;
-    }
-    raw.split("&").forEach(function(p){
-      var i = p.indexOf("="); if (i < 0) return;
-      bag[p.slice(0, i)] = decodeURIComponent(p.slice(i + 1));
-    });
-    return bag;
-  }
-  function encodeFor(href, bag){
-    var keys = Object.keys(bag);
-    if (!keys.length) return href;
-    if (href.indexOf(SIM) === 0){
-      try {
-        return href + "#s=" + btoa(encodeURIComponent(JSON.stringify(bag)))
-          .replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-      } catch (e) { return href; }
-    }
-    return href + "#" + keys.map(function(k){
-      return k + "=" + encodeURIComponent(bag[k]);
-    }).join("&");
-  }
-  function paint(){
-    var bag = bagFromHash();
-    var links = document.querySelectorAll("a[data-tcto]");
-    for (var i = 0; i < links.length; i++){
-      links[i].setAttribute("href", encodeFor(links[i].getAttribute("data-tcto"), bag));
-    }
-  }
-  paint();
-  /* Every tool writes its state with history.replaceState, and replaceState
-     does NOT fire hashchange - so listening for that alone captured whatever
-     was in the URL at load and then went stale the moment anyone typed.
-     Repainting on input and change covers all seven, because all seven rebind
-     on exactly those events. */
-  window.addEventListener("hashchange", paint);
-  document.addEventListener("input", paint, true);
-  document.addEventListener("change", paint, true);
-})();
-</script>
 <link rel="stylesheet" href="css/98dfe0b8d12e.css">
 <link rel="stylesheet" href="css/18bfb4485127.css">
 </body></html>
