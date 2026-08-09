@@ -44,8 +44,14 @@ CAPS = [
     (".ftby p", "74ch", "and its paragraphs", 195),
     (".li-under", "74ch", "the insurance page's under-card note", 150),
     (".li-need p", "74ch", "the eight-situations answers", 139),
-    (".li-fine", "80ch", "the how-this-was-built note", 139),
-    (".dc-fine", "80ch", "the same note on the case pages", 0),
+    (".li-fine", "74ch", "the how-this-was-built note", 139),
+    (".dc-fine", "74ch", "the same note on the case pages", 102),
+    # These two are not a 2560 problem at all - the cards they sit in are inside
+    # a 1060px wrapper, so the lines are ~135 characters at EVERY width. They
+    # only surfaced now because the measure check runs at 2560 and nowhere else.
+    (".li-against li", "74ch", "the criticisms list inside a carrier card", 139),
+    (".li-rep li", "74ch", "the reported-price list inside a carrier card", 144),
+    (".li-need p", "74ch", "the eight-situations answers", 139),
 ]
 
 CSS = """<style>%(mark)s
