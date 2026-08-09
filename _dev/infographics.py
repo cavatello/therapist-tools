@@ -95,6 +95,11 @@ CSS = """<style>%(mark)s
    not just a coloured box. */
 
 .ig{margin:26px 0;font-family:Inter,system-ui,sans-serif;
+  /* Padding, because something else on this site gives `figure` a 2px border
+     and these blocks had none of their own - so every caption, label and note
+     started two pixels from the frame. Reported as "text too close to
+     borders", and it was: measured at x=158 inside a box whose edge is 156. */
+  padding:20px 22px;
   /* The aggressive break value used by the table rules is inherited in here
      and is counted in min-content width, so a narrow flex or grid item breaks
      one character per line instead of pushing its track wider. `break-word`
@@ -191,6 +196,7 @@ CSS = """<style>%(mark)s
   margin-top:7px;line-height:1.5}
 
 @media (max-width:640px){
+  .ig{padding:15px 16px}
   .ig-bars .row{grid-template-columns:1fr auto;gap:6px 10px}
   .ig-bars .track{grid-column:1 / -1;order:3}
   /* Rotating the whole arrow cell turned its LABEL on its side too, which
