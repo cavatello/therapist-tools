@@ -112,7 +112,7 @@
    "question": "Nonprofit salary or private practice per session — which associate job is actually worth more?",
    "outcome": "Published pay scales for LA and the Bay Area, the wage floors an offer must clear, and the four numbers that decide it",
    "number": "$70,304 salaried-exempt floor",
-   "stale": false,
+   "stale": true,
    "weight": 5,
    "skip": false,
    "leaf": false

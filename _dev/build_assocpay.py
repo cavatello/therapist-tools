@@ -1294,7 +1294,13 @@ META = (
     'decide it">\n'
     '<meta name="ts:number" content="$70,304 salaried-exempt floor">\n'
     '<meta name="ts:weight" content="5">\n'
-    '<meta name="ts:stale" content="false">\n' % PAGE
+    # `ts:stale` is misnamed and it matters. It does not mean "this page has
+    # gone stale" - mock/library/build_library.py reads it as the flag that
+    # PRINTS the "Checked Aug 2026" badge on the page's hub card. Setting it
+    # false on a page built this month is the opposite of what it looks like:
+    # it makes freshly-checked research the only card on the hub with no
+    # checked date, next to neighbours that have one.
+    '<meta name="ts:stale" content="true">\n' % PAGE
 )
 
 
