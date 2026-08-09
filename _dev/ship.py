@@ -60,6 +60,10 @@ STRUCTURE = [
     ("_dev/footer_band.py", "the signup band - inserts ABOVE the up-link"),
     ("_dev/footer_fix.py", "footer colour overrides"),
     ("_dev/analytics_events.py", "the event listener"),
+    ("_dev/clarity.py",
+     "Microsoft Clarity, with data-clarity-mask on every <body> so the whole "
+     "document is masked from the markup and not from a dashboard setting "
+     "somebody could change"),
     ("_dev/tool_analytics.py",
      "how the seven calculators are actually used - behaviour only, guarded "
      "so no typed value can ever leave the browser"),
