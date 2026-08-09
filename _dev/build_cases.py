@@ -50,6 +50,10 @@ sys.path.insert(0, HERE)
 from case_data import (CASES, GROUPS, AGGREGATE, SUBD_COUNTS, PROBATION_TERMS,  # noqa: E402
                        COST_BANDS, CITATION_GROUNDS, CHECKED, NEWSLETTERS,
                        LAWSREGS, DISPGUID, SUNSET, BROCHURE)
+# The discussion layer. Kept in its own module so that `case_data.py` stays a
+# record of what the decisions say and nothing else - see the header of
+# `case_depth.py` for why that separation is load-bearing rather than tidy.
+from case_depth import DEPTH  # noqa: E402
 
 HUB = "therapist-discipline-cases-california.html"
 CHROME_FROM = os.path.join(SITE, "hiring-first-associate-california-therapist.html")
