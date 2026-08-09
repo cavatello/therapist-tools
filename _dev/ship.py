@@ -66,6 +66,10 @@ STRUCTURE = [
     ("_dev/error_tracking.py",
      "uncaught errors, failed resources and rage clicks. Before this, a broken "
      "calculator and an uninterested reader looked identical"),
+    ("_dev/form_inline.py",
+     "both Formspree forms answer on the page instead of navigating to "
+     "formspree.io. After footer_band, which is what puts the signup form on "
+     "every page in the first place"),
     ("_dev/mobile_nav.py", "the mobile nav affordance"),
     ("_dev/touch_polish.py", "tap targets"),
     ("_dev/american.py", "American spellings in prose"),

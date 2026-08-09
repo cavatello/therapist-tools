@@ -55,6 +55,7 @@
 
 
 
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Practice</h2><p class="ud">Filling the week, and running the admin behind it.</p><div class="ug"><a class="uc" href="hiring-first-associate-california-therapist.html"><b>Should I hire an associate?</b><span>The loaded cost, the break-even caseload, and the classification rule</span></a><a class="uc" href="therapist-working-remotely-california.html"><b>Can I see California clients from abroad?</b><span>The Board&#x27;s own answer, then the same practice priced in eight places</span></a><a class="uc" href="grow-your-therapy-practice.html"><b>How do I fill my caseload?</b><span>Client lifetime value, the leakiest channel, and a monthly enquiry target</span></a></div><a class="uall" href="practice/">All 12 pages on practice &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -190,6 +191,7 @@
 
 
 
+
 <link rel="stylesheet" href="css/5b9864342bfc.css">
 <style>/* _dev/mobile_hero.py */
 @media (max-width:560px){
@@ -259,6 +261,8 @@
 /* end mh */</style>
 
 <link rel="stylesheet" href="css/7cbdacd0330d.css">
+
+
 
 
 
@@ -520,6 +524,60 @@
       last = key; count = 1; first = t;
     }
   }, true);
+})();
+</script>
+<link rel="stylesheet" href="css/bffbc8b79c85.css">
+<script>// _dev/form_inline.py
+(function(){
+  var SAID = {contact:['Sent.','It comes straight to a person, not a queue. If you left an email address you will get a reply; if you did not, that is fine too and the note still gets read.'], signup:['You&rsquo;re on the list.','About monthly. One click to leave, and the address is never sold or shared.']};
+  // Progressive enhancement, deliberately. If this script never runs, the
+  // form is an ordinary POST and still reaches Formspree - the reader just
+  // gets the off-site page they were getting before instead of an in-page
+  // answer. Nothing here is load-bearing for the message arriving.
+  var forms = document.querySelectorAll('form[action*="formspree.io"]');
+  if(!forms.length) return;
+  Array.prototype.forEach.call(forms, function(f){
+    if(f.getAttribute('data-fi')) return;
+    f.setAttribute('data-fi','1');
+    var kind = f.className.indexOf('nlform') > -1 ? 'signup' : 'contact';
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var btn = f.querySelector('button[type=submit],button');
+      var was = btn ? btn.textContent : '';
+      if(btn){ btn.disabled = true; btn.textContent = 'Sending\u2026'; }
+      f.classList.add('fi-busy');
+      var old = f.querySelector('.fi-err');
+      if(old) old.parentNode.removeChild(old);
+
+      fetch(f.action, {
+        method: 'POST',
+        body: new FormData(f),
+        headers: {'Accept': 'application/json'}
+      }).then(function(r){
+        if(!r.ok) throw new Error(r.status);
+        var box = document.createElement('div');
+        box.className = 'fi-ok';
+        box.setAttribute('role','status');
+        box.setAttribute('aria-live','polite');
+        box.innerHTML = '<b>' + SAID[kind][0] + '</b><p>' + SAID[kind][1] + '</p>';
+        f.parentNode.replaceChild(box, f);
+        if(box.scrollIntoView) box.scrollIntoView({block:'nearest'});
+      }).catch(function(){
+        // Never swallow what somebody wrote. The text stays in the box and
+        // the real address is shown, because a form that eats a message is
+        // worse than no form.
+        f.classList.remove('fi-busy');
+        if(btn){ btn.disabled = false; btn.textContent = was; }
+        var e = document.createElement('div');
+        e.className = 'fi-err';
+        e.setAttribute('role','alert');
+        e.innerHTML = '<p>That did not send \u2014 your message is still in ' +
+          'the box above. Try again, or email it to <a href="mailto:shawn@shawnwalters.com">' +
+          'shawn@shawnwalters.com</a>.</p>';
+        f.appendChild(e);
+      });
+    });
+  });
 })();
 </script>
 <link rel="stylesheet" href="css/f3c5f8978431.css">
