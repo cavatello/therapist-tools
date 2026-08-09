@@ -46,7 +46,12 @@ import os, re, sys, json, html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WORK = os.path.dirname(HERE)
-SITE = os.path.join(WORK, "..", "stage2")
+# The repo used to be work/stage2 alongside work/mock; it was flattened,
+# and this line was not - so every run since has died looking for
+# `mock/../stage2/mock/library/registry.json`. SITE is the repo root.
+# This builder only READS from SITE (registry.json and the chrome donor);
+# it writes to mock/library/out/, so a run cannot touch the live site.
+SITE = os.path.dirname(WORK)
 CHROME = os.path.join(SITE, "resources.html")
 OUT = os.path.join(HERE, "out")
 BASE = "https://therapistsupport.org/"
