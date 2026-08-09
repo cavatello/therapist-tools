@@ -604,7 +604,7 @@ CALC_JS = """<script>
     var sal = f('ap-sal'), salH = f('ap-salh'), salC = f('ap-salc');
     var rate = f('ap-rate'), sess = f('ap-sess'),
         adm = f('ap-adm'), admH = f('ap-admh');
-    var floor = f('ap-floor'), clin = 1750;
+    var floor = f('ap-floor'), lic = f('ap-lic'), clin = 1750;
 
     // Salaried: the week is the week, whatever the caseload does.
     var salWk = sal / 52, salHr = salH > 0 ? salWk / salH : 0;
@@ -627,10 +627,29 @@ CALC_JS = """<script>
     set('o-wks-b', wB ? wB + ' weeks' : '\\u2014');
     set('o-yrs-a', wA ? (wA/52).toFixed(1) + ' years' : '\\u2014');
     set('o-yrs-b', wB ? (wB/52).toFixed(1) + ' years' : '\\u2014');
-    // Everything earned between now and the license, which is the number the
-    // year-by-year comparison hides.
-    set('o-tot-a', wA ? money(sal / 52 * wA) : '\\u2014');
-    set('o-tot-b', wB ? money(ppWk * wB) : '\\u2014');
+
+    // Who gets there first, and by how much.
+    var gap = Math.abs(wA - wB);
+    set('o-gap-a', (wA && wB) ? (wA <= wB ? gap + ' weeks sooner'
+      : '\\u2014') : '\\u2014');
+    set('o-gap-b', (wA && wB) ? (wB <= wA ? gap + ' weeks sooner'
+      : '\\u2014') : '\\u2014');
+
+    // THE ROW THAT MATTERS, AND THE ONE THIS CALCULATOR GOT WRONG FIRST TIME.
+    //
+    // It originally showed each offer's earnings over ITS OWN road to
+    // licensure - which compares a 117-week total against a 104-week total
+    // and hands the win to whichever job takes longer. That is not a
+    // comparison, it is a units error dressed as a finding.
+    //
+    // Both offers are now carried to the SAME date: the later of the two
+    // licensure weeks. Whoever licenses first spends the remaining weeks
+    // earning licensed pay, which is the entire argument for a heavier
+    // caseload and the thing an offer letter never shows you.
+    var horizon = Math.max(wA, wB), licWk = lic / 52;
+    set('o-hz', horizon ? 'week ' + horizon : '\\u2014');
+    set('o-tot-a', wA ? money(salWk * wA + licWk * (horizon - wA)) : '\\u2014');
+    set('o-tot-b', wB ? money(ppWk * wB + licWk * (horizon - wB)) : '\\u2014');
 
     // The floor check. Non-session hours are the ones at risk, because the
     // session rate may not be averaged across them.
@@ -1093,10 +1112,20 @@ def body():
     o.append("</div>")
     o.append("</div>")
 
+    o.append('<div class="ap-cg">')
+    o.append('<div class="ap-cc">')
     o.append('<label class="ap-fl" for="ap-floor">Minimum wage where you '
              'work</label>')
     o.append('<input id="ap-floor" type="number" inputmode="decimal" '
-             'value="18.42" min="0" step="0.01" style="max-width:200px">')
+             'value="18.42" min="0" step="0.01">')
+    o.append("</div>")
+    o.append('<div class="ap-cc">')
+    o.append('<label class="ap-fl" for="ap-lic">What a year pays once you are '
+             'licensed</label>')
+    o.append('<input id="ap-lic" type="number" inputmode="decimal" '
+             'value="95000" min="0" step="1000">')
+    o.append("</div>")
+    o.append("</div>")
 
     o.append('<div class="ap-out">')
     o.append('<div class="r hd"><span>&nbsp;</span><span>Salaried</span>'
@@ -1106,7 +1135,9 @@ def body():
                       ("Per paid hour", "o-hr-a", "o-hr-b"),
                       ("Weeks to 1,750 clinical hours", "o-wks-a", "o-wks-b"),
                       ("Which is", "o-yrs-a", "o-yrs-b"),
-                      ("Earned over the whole road to licensure",
+                      ("Licensed", "o-gap-a", "o-gap-b"),
+                      ('Earned by <span id="o-hz">the later date</span>, '
+                       "counting licensed pay after each license date",
                        "o-tot-a", "o-tot-b")):
         o.append('<div class="r"><span class="lbl">%s</span>'
                  '<span class="va" id="%s">&mdash;</span>'
@@ -1116,6 +1147,18 @@ def body():
     o.append('<div id="ap-warn" class="ap-cap" style="display:none;'
              'margin:15px 0 0;color:%s"></div>' % RED)
 
+    o.append('<p class="ap-note"><b>Why the last row is the only fair '
+             'comparison.</b> Two offers that license you on different dates '
+             'cannot be compared over different lengths of road &mdash; the '
+             'slower one wins simply by taking longer. So both are carried to '
+             'the later of the two license dates, and whoever gets there first '
+             'spends the remaining weeks on licensed pay. That is the entire '
+             'case for the heavier caseload, and no offer letter shows it. '
+             'The licensed figure is <b>yours to set</b>; for a sense of '
+             'scale, San Francisco pays a licensed class 2932 clinician '
+             '$124,748 and Pacific Clinics pays a Clinician II '
+             '$85,050&ndash;$107,275, while Seneca simply adds $4,000 to '
+             'whatever you were on.</p>')
     o.append('<p class="ap-note"><b>What this deliberately leaves out.</b> '
              'Benefits, which are not small: employer-paid health cover '
              'averaged <b>$7,885</b> a year for single coverage and '
@@ -1345,7 +1388,9 @@ def main():
                          ("the footer", "<footer"),
                          ("a stylesheet link", 'href="css/'),
                          ("the calculator", 'id="ap-calc"'),
-                         ("the calculator's script", "ap-warn")):
+                         ("the calculator's script", "ap-warn"),
+                         ("the licensed-pay input", 'id="ap-lic"'),
+                         ("the common-horizon row", 'id="o-hz"')):
         if needle not in s:
             print("GUARD: %s is missing from the written page" % what)
             bad += 1
