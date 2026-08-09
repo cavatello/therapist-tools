@@ -74,6 +74,9 @@ STRUCTURE = [
     ("_dev/headline_figures.py",
      "fixes a chosen headline figure on an article whose builder no longer "
      "runs"),
+    ("_dev/ehr_market.py",
+     "the whole practice-software market with every published price, in place "
+     "of the two-product framing. Same reason as above: no builder to change"),
     ("_dev/infographics.py",
      "the visual vocabulary - five CSS shapes and the pages that use them. "
      "Before FLOORS, so block_spacing and content_frame see the figures"),

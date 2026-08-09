@@ -63,89 +63,10 @@ catch(e){}})();</script>
 
 
 
+
 <link rel="stylesheet" href="css/ed05b2a965f6.css">
 <link rel="stylesheet" href="css/2d40f9eb0dab.css">
-<link rel="stylesheet" href="css/3f49478ba9b5.css">
-<script>/* _dev/analytics_events.py */
-(function(){
-  if (typeof window === 'undefined') return;
-  // gtag may not have loaded yet, or may be blocked. Queue into dataLayer the
-  // way the snippet itself does, so a blocked loader costs the event and not
-  // the page.
-  function send(name, params){
-    try {
-      window.dataLayer = window.dataLayer || [];
-      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
-      else { window.dataLayer.push(['event', name, params]); }
-    } catch (e) {}
-  }
-
-  // Where on the page the form sat. Two signup forms on one page are the same
-  // event with different placements, and the placement is the thing worth
-  // knowing: a footer form and a hero form convert nothing like each other.
-  function place(form){
-    if (form.classList.contains('hero')) return 'hero';
-    var s = form.closest('footer, .sitefoot, .lnews, .nlband, section, main');
-    if (!s) return 'unknown';
-    if (s.tagName === 'FOOTER' || s.classList.contains('sitefoot')) return 'footer';
-    return s.id || (s.className || '').split(/\s+/)[0] || 'body';
-  }
-
-  function kindOf(form){
-    return form.dataset.kind === 'contact' ? 'contact' : 'newsletter';
-  }
-
-  function base(form){
-    var c = form.querySelector('input[type=checkbox][name=consent]');
-    return {
-      form_location: place(form),
-      form_id: form.className || 'form',
-      consent_given: c ? !!c.checked : null,
-      page_path: location.pathname
-    };
-  }
-
-  document.addEventListener('submit', function(e){
-    var f = e.target;
-    if (!f || f.tagName !== 'FORM') return;
-    if (!f.querySelector('input[type=email]')) return;
-    var kind = kindOf(f);
-    f.dataset.tsSent = '1';
-    send(kind === 'contact' ? 'contact_submit' : 'newsletter_submit', base(f));
-  }, true);
-
-  // The confirmation the page's own handler writes on a successful POST. Only
-  // this fires the conversion.
-  function confirmed(node){
-    var f = node.closest ? node.closest('form') : null;
-    if (!f) {
-      // The handler replaces the form with the notice on some templates, so
-      // fall back to the nearest form-ish ancestor's own dataset.
-      f = node.parentElement && node.parentElement.querySelector
-          ? node.parentElement.querySelector('form') : null;
-    }
-    var kind = f ? kindOf(f) : 'newsletter';
-    var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
-    if (kind === 'contact') { send('contact_sent', p); return; }
-    send('newsletter_signup', p);
-    send('generate_lead', p);   // GA4's own recommended name, for the standard reports
-  }
-
-  new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      Array.prototype.forEach.call(m.addedNodes || [], function(n){
-        if (n.nodeType !== 1) return;
-        if (n.classList && n.classList.contains('nlok')) confirmed(n);
-        else if (n.querySelector) {
-          var hit = n.querySelector('.nlok');
-          if (hit) confirmed(hit);
-        }
-      });
-    });
-  }).observe(document.documentElement, {childList: true, subtree: true});
-})();
-</script>
-<script>/* _dev/error_tracking.py */
+<link rel="stylesheet" href="css/3f49478ba9b5.css"><script>/* _dev/error_tracking.py */
 (function(){
   var CAP = 5, sent = 0;
 
@@ -240,5 +161,215 @@ catch(e){}})();</script>
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
 <link rel="stylesheet" href="css/a65314816362.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
+<link rel="stylesheet" href="css/7ddf0607da04.css">
+
+<style>/* _dev/breadcrumbs.py */
+/* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
+   to a reader who could see the other chapters. Deliberately the same weight
+   and tracking as the kicker it sits above, so it reads as chrome rather than
+   as content. Colour is inherited so it works on paper and on a dark slab
+   without a second rule. */
+/* Measured 44-86px of dead air between the masthead and the crumb, because the
+   hero's own padding-top was set before the crumb existed and the crumb then
+   added to it. Pulled up rather than reaching into each page's hero padding,
+   which differs per template. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;
+  margin:clamp(-30px,-2.2vw,-14px) 0 10px;
+ padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
+.bcr li{display:flex;align-items:center;gap:8px}
+.bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
+ display:inline-flex;align-items:center;border-bottom:1px solid transparent}
+.bcr a:hover{opacity:1;border-bottom-color:currentColor}
+.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.bcr .sep{opacity:.36}
+.bcr [aria-current]{opacity:.95;font-weight:600}
+/* The negative top margin above assumes the crumb is the FIRST thing in the
+   hero. Where anything still sits above it, that pull becomes an overlap - two
+   uppercase strips printed on the same line, which is what shipped on
+   rates.html. Cancel it rather than trusting every template to be clean. */
+.hero-eyebrow + .bcr,.kicker + .bcr,.eyebrow + .bcr,
+p[class*=eyebrow] + .bcr,div[class*=eyebrow] + .bcr{margin-top:0}
+@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
+.bcrq{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin:10px 0 0}/* end bcr */</style>
+<style>/* _dev/pixel_concepts.py */
+/* Concepts 01, 02 and 07. Pixel language throughout: 2px ink, a SOLID offset
+   shadow and never a blur; Bricolage for the headings, IBM Plex Mono for the
+   small caps labels, and Fraunces reserved for figures. */
+.tsmeta{border:2px solid #16211B;border-radius:12px;box-shadow:3px 3px 0 #16211B;
+  background:#FBF9F3;padding:13px 15px 12px;margin:18px 0 0;max-width:none}
+/* The foot block is inserted as a bare sibling of the up-link and the footer,
+   so it has no container to inherit a gutter from. Match the up-link's. */
+.tsfoot{max-width:1120px;margin:30px auto 0;padding:0 26px;box-sizing:border-box}
+@media (min-width:1500px){.tsfoot{max-width:1320px}}
+@media (min-width:1900px){.tsfoot{max-width:1560px}}
+@media (max-width:560px){.tsfoot{padding:0 18px}}
+.tsmeta .tsrow{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
+.tsk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.4px;
+  letter-spacing:.13em;text-transform:uppercase;color:#6C6555;margin-right:-12px}
+.tsv{font-size:13px;font-weight:600;color:#16211B}
+.tsall{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:#2C6350;margin-left:auto}
+/* The vintage is a SEPARATE clock and has to look like one, so it sits under a
+   rule rather than inline with the check date. */
+.tsvint{margin:11px 0 0;padding:10px 0 0;border-top:2px dashed #D9D0BA}
+.tsvint b{display:block;font-family:Fraunces,Georgia,serif;font-size:14.5px;
+  font-weight:600;color:#16211B;margin:2px 0 3px}
+.tsvint i{display:block;font-style:normal;font-size:12.2px;line-height:1.5;
+  color:#5A5647;max-width:62ch}
+/* 02 - the badge, inside the meta card so it can never inherit a dark band */
+/* On its own it carries its own background: this text is a fixed colour and
+   the band behind it is not. Testing POSITION (:first-child) was the previous
+   attempt and it failed the moment a standfirst appeared above it. */
+.tsdepth{margin:14px 0 0;background:#FBF9F3;border:2px solid #16211B;
+  border-radius:12px;box-shadow:3px 3px 0 #16211B;padding:12px 15px}
+/* Inside the meta card it is a section of that card, not a card of its own. */
+.tsmeta .tsdepth{margin:11px 0 0;padding:10px 0 0;background:transparent;
+  border:none;border-radius:0;box-shadow:none;border-top:2px dashed #D9D0BA}
+.tsbadge{display:inline-flex;align-items:center;gap:7px;margin:0;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
+  font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  border:2px solid #16211B;border-radius:999px;padding:6px 13px 5px;
+  box-shadow:2px 2px 0 #16211B;text-decoration:none}
+.tsbadge.full{background:#2C6350;color:#F4F0E6}
+.tsbadge.part{background:#F6C560;color:#16211B}
+.tsbadge.thin{background:#F0EADA;color:#3A3529}
+.tsbadge.gap{background:#fff;color:#B5483F;margin-left:7px}
+.tsbadge:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 #16211B}
+.tswhat{margin:8px 0 0;font-size:12.4px;line-height:1.55;color:#5A5647;
+  max-width:64ch}
+/* The rail numbers were #9A8F76 on paper: 3.04:1, under the 4.5:1 floor for
+   text this small. Measured, not eyeballed. */
+/* 07 - in short */
+.tsshort{border:2px solid #16211B;border-radius:12px;box-shadow:4px 4px 0 #F6C560;
+  background:#fff;padding:15px 17px 14px;margin:20px 0 0}
+.tsshort>p.tsk{margin:0 0 8px}
+.tsshort q{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,
+  system-ui,sans-serif;font-weight:800;letter-spacing:-.028em;font-size:18px;
+  line-height:1.2;color:#16211B;quotes:none;margin:0 0 7px}
+.tsshort p.tsa{margin:0;font-size:14px;line-height:1.6;color:#3A3529;max-width:64ch}
+.tsshort .tsfig{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:21px;color:#2C6350;margin:9px 0 0;letter-spacing:-.01em}
+/* 01 - the dated update list */
+.tsupd{margin:14px 0 0;border:2px solid #16211B;border-radius:12px;
+  background:#F4F0E6;box-shadow:2px 2px 0 #16211B;overflow:hidden}
+.tsupd>summary{cursor:pointer;list-style:none;padding:10px 15px;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#16211B}
+.tsupd>summary::-webkit-details-marker{display:none}
+.tsupd>summary::after{content:"+";float:right;font-weight:700}
+.tsupd[open]>summary::after{content:"\2212"}
+.tsupd dl{margin:0;padding:0 15px 13px}
+.tsupd dl>div{padding:10px 0;border-top:2px dashed #D9D0BA}
+.tsupd dt{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.2px;
+  letter-spacing:.08em;text-transform:uppercase;color:#6C6555;margin:0 0 3px}
+.tsupd dd{margin:0;font-size:13.2px;line-height:1.55;color:#3A3529;max-width:66ch}
+.tsupd dd a{color:#2C6350}
+/* 07 - the numbered rail */
+.artnav a,.scnav a,.drnav a,.pxnav a{position:relative}
+.tsn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
+  font-weight:700;color:#6C6555;margin-right:8px;font-style:normal;
+  display:inline-block;min-width:1.4em}
+a.on .tsn,a[aria-current] .tsn{color:#2C6350}
+@media (max-width:620px){
+  .tsmeta .tsrow{gap:4px 14px}
+  .tsshort q{font-size:16.5px}
+  .tsbadge{font-size:9.6px}
+}
+</style>
+<style>/* _dev/footer_fix.py */
+/* The footer is chrome and must not depend on which stylesheet a page
+   inherited. Scoped to .sitefoot so it outranks a page-local a{} rule, and
+   appended last so it cannot lose a load-order race. */
+.sitefoot .ftcols a{color:rgba(255,255,255,.78)}
+.sitefoot .ftcols a:hover{color:#fff;text-decoration:underline}
+.sitefoot .ftcols h5{color:#16211B;background:#F6C560}
+.sitefoot .ftcols p{color:rgba(255,255,255,.62)}
+.sitefoot .ftby{color:rgba(255,255,255,.62)}
+.sitefoot .ftby b{color:rgba(255,255,255,.88)}
+.sitefoot .ftby a,.sitefoot .ftcols a:focus-visible{color:#F6C560}
+/* The masthead subtitle: #7C766A on #FBF9F3 is 4.28:1 at 10px, just under the
+   floor, on every page of the site. */
+.sitenav .sitenav-sub{color:#635E53}
+</style>
+<script>/* _dev/analytics_events.py */
+(function(){
+  if (typeof window === 'undefined') return;
+  // gtag may not have loaded yet, or may be blocked. Queue into dataLayer the
+  // way the snippet itself does, so a blocked loader costs the event and not
+  // the page.
+  function send(name, params){
+    try {
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { window.dataLayer.push(['event', name, params]); }
+    } catch (e) {}
+  }
+
+  // Where on the page the form sat. Two signup forms on one page are the same
+  // event with different placements, and the placement is the thing worth
+  // knowing: a footer form and a hero form convert nothing like each other.
+  function place(form){
+    if (form.classList.contains('hero')) return 'hero';
+    var s = form.closest('footer, .sitefoot, .lnews, .nlband, section, main');
+    if (!s) return 'unknown';
+    if (s.tagName === 'FOOTER' || s.classList.contains('sitefoot')) return 'footer';
+    return s.id || (s.className || '').split(/\s+/)[0] || 'body';
+  }
+
+  function kindOf(form){
+    return form.dataset.kind === 'contact' ? 'contact' : 'newsletter';
+  }
+
+  function base(form){
+    var c = form.querySelector('input[type=checkbox][name=consent]');
+    return {
+      form_location: place(form),
+      form_id: form.className || 'form',
+      consent_given: c ? !!c.checked : null,
+      page_path: location.pathname
+    };
+  }
+
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    if (!f.querySelector('input[type=email]')) return;
+    var kind = kindOf(f);
+    f.dataset.tsSent = '1';
+    send(kind === 'contact' ? 'contact_submit' : 'newsletter_submit', base(f));
+  }, true);
+
+  // The confirmation the page's own handler writes on a successful POST. Only
+  // this fires the conversion.
+  function confirmed(node){
+    var f = node.closest ? node.closest('form') : null;
+    if (!f) {
+      // The handler replaces the form with the notice on some templates, so
+      // fall back to the nearest form-ish ancestor's own dataset.
+      f = node.parentElement && node.parentElement.querySelector
+          ? node.parentElement.querySelector('form') : null;
+    }
+    var kind = f ? kindOf(f) : 'newsletter';
+    var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
+    if (kind === 'contact') { send('contact_sent', p); return; }
+    send('newsletter_signup', p);
+    send('generate_lead', p);   // GA4's own recommended name, for the standard reports
+  }
+
+  new MutationObserver(function(muts){
+    muts.forEach(function(m){
+      Array.prototype.forEach.call(m.addedNodes || [], function(n){
+        if (n.nodeType !== 1) return;
+        if (n.classList && n.classList.contains('nlok')) confirmed(n);
+        else if (n.querySelector) {
+          var hit = n.querySelector('.nlok');
+          if (hit) confirmed(hit);
+        }
+      });
+    });
+  }).observe(document.documentElement, {childList: true, subtree: true});
+})();
+</script>
 </body>
 </html>
