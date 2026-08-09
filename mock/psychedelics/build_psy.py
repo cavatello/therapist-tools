@@ -379,13 +379,39 @@ def prog_page(p):
         HUB, esc(p["name"])[:46], esc(p.get("org") or ""), esc(p["name"]),
         esc(p.get("one_line") or ""), UPDATED, state_badges(sc), fig)
 
-    return page(
-        "%s — %s: cost, curriculum, and what the certificate actually lets you do"
-        % (esc(p["name"]), esc(p.get("org") or "")),
-        "%s — what it costs, what you would study, and exactly what a "
-        "California-licensed therapist can and cannot do with it."
-        % esc(p.get("one_line") or p["name"])[:150],
-        slugfile(p["slug"]), band, nav, body)
+    # TITLE. This used to be name + org + a 39-character generic tail, with no
+    # cap on either. Four of these ran past 190 characters and one past 300, so
+    # the only part a search result showed was the boilerplate every page
+    # shares. The tail is now what gets dropped, then the org, then a long
+    # parenthetical in the name - the identifying part is never what is cut.
+    name, org = esc(p["name"]), esc(p.get("org") or "")
+    if len(name) > 62:
+        short = re.sub(r"\s*\([^()]{12,}\)", "", name).strip()
+        if 15 <= len(short) < len(name):
+            name = short
+    for cand in ("%s — %s: cost, curriculum, and what the certificate actually "
+                 "lets you do" % (name, org),
+                 "%s — %s: cost and curriculum" % (name, org),
+                 "%s — %s" % (name, org),
+                 name):
+        title = cand
+        if len(title) <= 68:
+            break
+
+    # DESCRIPTION. `"%s ..." % esc(x)[:150]` slices the ARGUMENT, not the
+    # result - so the template's own 106-character tail was appended to an
+    # already-truncated fragment, producing "get a usable foundation for — what
+    # it costs" on one page and running others past 250. Truncation now happens
+    # on a word boundary, before the tail, with the whole string measured.
+    one = esc(p.get("one_line") or p["name"])
+    tail = (" — what it costs, what you would study, and exactly what a "
+            "California-licensed therapist can and cannot do with it.")
+    budget = 165 - len(tail)
+    if len(one) > budget:
+        one = one[:budget].rsplit(" ", 1)[0].rstrip(" ,;:—–-")
+    desc = one + tail
+
+    return page(title, desc, slugfile(p["slug"]), band, nav, body)
 
 
 # ---------------------------------------------------------------- hub
