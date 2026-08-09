@@ -94,7 +94,12 @@ CSS = """<style>%(mark)s
    carrying their figures as real text so a screen reader gets the number and
    not just a coloured box. */
 
-.ig{margin:26px 0;font-family:Inter,system-ui,sans-serif}
+.ig{margin:26px 0;font-family:Inter,system-ui,sans-serif;
+  /* The aggressive break value used by the table rules is inherited in here
+     and is counted in min-content width, so a narrow flex or grid item breaks
+     one character per line instead of pushing its track wider. `break-word`
+     is not counted, which is the whole difference. */
+  overflow-wrap:break-word;word-break:normal}
 .ig-cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:%(pine)s;margin:0 0 9px}
 .ig-note{font-size:13.2px;line-height:1.6;color:%(muted)s;margin:10px 0 0;max-width:72ch}
@@ -127,6 +132,11 @@ CSS = """<style>%(mark)s
 /* the connector between steps, decorative only */
 .ig-steps li:not(:last-child)::after{content:"";position:absolute;
   left:17px;top:38px;bottom:4px;width:2px;background:#D9D0BA}
+/* `li::before` IS a grid item. Without an explicit column the auto-flow puts
+   the number in 1/1, the title in 2/1 and then wraps the description back to
+   1/2 - the 38px column - which renders one character per line and made a
+   seven-step list 4,170px tall. Both children are pinned to column 2. */
+.ig-steps li > b,.ig-steps li > span{grid-column:2}
 .ig-steps b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
   font-weight:800;letter-spacing:-.02em;font-size:15.5px;color:%(ink)s;
   margin:6px 0 3px}
