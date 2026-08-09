@@ -707,6 +707,31 @@ def metablock(slug, title, desc, question, outcome, number, weight, fmt="case"):
         % (title, desc, slug, fmt, question, outcome, number, weight))
 
 
+def seo_title(t):
+    """A title a search result will actually show.
+
+    The budget is about 68 characters; past that the tail is replaced with an
+    ellipsis. The first version of this appended a fixed 35-character suffix to
+    every case headline and produced twenty-odd titles between 76 and 101
+    characters - so the only part a reader saw cut was the part that identified
+    the case. The suffix is now what gets dropped, and if the headline itself
+    is too long it is cut at a comma the author already put there, never
+    mid-clause."""
+    t = plain(t)
+    for tail in (" — a California BBS discipline case", " — a BBS discipline case",
+                 " — BBS discipline case", ""):
+        if len(t) + len(tail) <= 68:
+            return t + tail
+    # A colon and an em dash are boundaries too, and on these headlines they are
+    # usually the better cut: "Two DUIs, five years of probation: the most common
+    # case in California" is 69 characters, and the only comma in it falls after
+    # eight.
+    for m in reversed(list(re.finditer(r"\s*[:—–]\s*|,\s", t))):
+        if 24 <= m.start() <= 68:
+            return t[:m.start()].rstrip()
+    return t
+
+
 def plain(s, n=None):
     t = re.sub(r"<[^>]+>", "", s)
     t = (t.replace("&sect;", "section ").replace("&mdash;", "-")
@@ -747,8 +772,7 @@ def main():
     # ------------------------------------------------------------------ hub
     meta = metablock(
         HUB,
-        "What actually gets a California therapist disciplined &mdash; 30 BBS "
-        "cases, 2024&ndash;2026",
+        "What actually gets a California therapist disciplined",
         "Thirty real California BBS disciplinary decisions for LMFTs and AMFTs, "
         "de-identified: what happened, which subdivision of B&amp;P &sect;4982 it "
         "was charged under, how it resolved, and what the cost recovery was. Read "
@@ -773,7 +797,7 @@ def main():
         t = plain(c["t"])
         meta = metablock(
             c["slug"] + ".html",
-            "%s &mdash; a California BBS discipline case" % t,
+            seo_title(c["t"]),
             plain(c["dek"] + " " + c["rule"], 300),
             t + "?",
             plain(c["outcome"], 120),
@@ -801,6 +825,12 @@ def main():
             bad += 1
         if "<title>" not in s or 'rel="canonical"' not in s:
             print("GUARD %s: missing title or canonical" % rel); bad += 1
+        # A title past ~68 characters is truncated in the result, and on these
+        # pages the truncated part is the part that says which case it is.
+        t = re.search(r"<title>([\s\S]*?)</title>", s)
+        if t and len(html.unescape(t.group(1)).strip()) > 68:
+            print("GUARD %s: title is %d chars"
+                  % (rel, len(html.unescape(t.group(1)).strip()))); bad += 1
         # no internal link may point at a file that does not exist
         for href in set(re.findall(r'href="([a-z0-9-]+\.html)"', s)):
             if not os.path.exists(os.path.join(SITE, href)):
