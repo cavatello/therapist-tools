@@ -90,11 +90,18 @@ TARGETS = [
     (".dc-wrap", 1040, "the case library and all 30 case pages"),
     (".rwwrap", 1020, "working remotely"),
     (".clwrap", 1000, "cost of living"),
+    # Both are already 1180. What is wrong with them is the PADDING - 30px
+    # against the masthead's 26 - which put the footer, and the about and
+    # contact pages, exactly 4px inboard of every other block on the site.
+    # Four pixels is not visible on its own page and is very visible in the
+    # vertical line running down the left edge of a scroll.
+    (".ftin", 1180, "the footer, on all 158 pages - padding only"),
+    (".pw", 1180, "the about and contact bands - padding only"),
 ]
 
 # These already sit on the grid. Listed so the guard can prove the canon is
 # what this pass claims it is, rather than a number somebody picked.
-ALREADY = [".sitenav-in", ".ftin", ".pw", ".artband .in", ".artwrap",
+ALREADY = [".sitenav-in", ".artband .in", ".artwrap",
            ".pxband .in", ".pxwrap", ".scband .in", ".scwrap",
            ".mgband .in", ".mgwrap", ".pdband .in", ".pdwrap",
            ".hwband .in", ".hwwrap"]
