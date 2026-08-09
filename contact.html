@@ -331,5 +331,77 @@
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
 <link rel="stylesheet" href="css/aeea09f7e9b5.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
+<script>/* _dev/error_tracking.py */
+(function(){
+  var CAP = 5, sent = 0;
+
+  function send(name, params){
+    if (sent >= CAP) return;
+    sent++;
+    try {
+      params = params || {};
+      params.page = location.pathname.slice(0, 100);
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { window.dataLayer.push(['event', name, params]); }
+    } catch (e) {}
+  }
+
+  // Strip anything that could carry a figure a reader typed. A message like
+  // "Cannot read properties of undefined" is what is wanted; a message that has
+  // interpolated a value is not.
+  function clean(s){
+    return String(s == null ? '' : s).replace(/\s+/g, ' ').slice(0, 140);
+  }
+  function fileOf(src){
+    try { return String(src || '').split('/').pop().split('?')[0].slice(0, 60); }
+    catch (e) { return 'unknown'; }
+  }
+
+  // ------------------------------------------------------ uncaught errors
+  window.addEventListener('error', function(e){
+    // An error event on an element rather than the window is a resource that
+    // failed to load - a different problem with a different fix.
+    if (e && e.target && e.target !== window && e.target.tagName){
+      var t = e.target;
+      send('resource_error', {
+        kind: t.tagName.toLowerCase(),
+        file: fileOf(t.src || t.href)
+      });
+      return;
+    }
+    send('js_error', {
+      message: clean(e && e.message),
+      file: fileOf(e && e.filename),
+      line: (e && e.lineno) || 0
+    });
+  }, true);
+
+  window.addEventListener('unhandledrejection', function(e){
+    var r = e && e.reason;
+    send('promise_error', {
+      message: clean(r && (r.message || r)),
+      file: fileOf(r && r.fileName)
+    });
+  });
+
+  // ---------------------------------------------------------- rage clicks
+  var last = null, count = 0, first = 0;
+  document.addEventListener('click', function(e){
+    var el = e.target;
+    if (!el || !el.tagName) return;
+    var t = Date.now();
+    var key = el.tagName + '#' + (el.id || '') + '.' + ((el.className || '') + '').slice(0, 30);
+    if (key === last && (t - first) < 2000){
+      count++;
+      if (count === 4){
+        send('rage_click', {target: key.slice(0, 90)});
+      }
+    } else {
+      last = key; count = 1; first = t;
+    }
+  }, true);
+})();
+</script>
 </body>
 </html>

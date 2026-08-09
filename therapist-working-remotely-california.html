@@ -1389,4 +1389,236 @@ draw();
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
 <link rel="stylesheet" href="css/aeea09f7e9b5.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
+<script>/* _dev/tool_analytics.py */
+(function(){
+  var TOOL = "working-remotely";
+  if (!TOOL) return;
+
+  // ---------------------------------------------------------------- send
+  // Mirrors the queueing in _dev/analytics_events.py: if gtag has not loaded,
+  // or an extension has blocked it, push to dataLayer so a blocked loader
+  // costs the event rather than throwing inside a change handler.
+  function send(name, params){
+    try {
+      params = params || {};
+      params.tool = TOOL;
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { window.dataLayer.push(['event', name, params]); }
+    } catch (e) {}
+  }
+
+  // ------------------------------------------------------------- identity
+  // A field is identified by its id with the builders' "i-" prefix removed.
+  // This is a NAME. There is no path in this file from a value to a payload,
+  // and the build guard enforces that.
+  function fieldName(el){
+    var id = el.id || el.name || '';
+    return id.replace(/^i-/, '').slice(0, 40) || (el.type || el.tagName).toLowerCase();
+  }
+
+  // The newsletter and contact forms are already measured by
+  // _dev/analytics_events.py. Counting them here too would inflate every tool's
+  // field count by whatever the footer happens to contain.
+  function isToolField(el){
+    if (!el || !el.tagName) return false;
+    if (!/^(INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) return false;
+    if (el.type === 'submit' || el.type === 'button' || el.type === 'hidden') return false;
+    if (el.closest('form')) return false;
+    return true;
+  }
+
+  // ---------------------------------------------------------------- state
+  var started = false, startedAt = 0, resulted = false;
+  var touched = Object.create(null), touchedCount = 0, sentFields = 0;
+  var activeMs = 0, lastTick = 0, lastInteract = 0, visible = !document.hidden;
+
+  var FIELD_CAP = 25;          // GA4 quotas, and the tail is not informative
+  var IDLE_MS = 30000;         // interaction older than this is not "active"
+
+  function now(){ return Date.now(); }
+
+  function tick(){
+    var t = now();
+    if (lastTick && visible && (t - lastInteract) < IDLE_MS) activeMs += (t - lastTick);
+    lastTick = t;
+  }
+  setInterval(tick, 1000);
+
+  function interacted(){ lastInteract = now(); if (!lastTick) lastTick = now(); }
+
+  // --------------------------------------------------------------- events
+  function onField(el){
+    interacted();
+    var name = fieldName(el);
+    if (!started){
+      started = true; startedAt = now();
+      send('tool_start', {first_field: name});
+    }
+    if (!touched[name]){
+      touched[name] = 1; touchedCount++;
+      if (sentFields < FIELD_CAP){ sentFields++; send('tool_field', {field: name, seq: touchedCount}); }
+    }
+  }
+
+  document.addEventListener('change', function(e){
+    if (isToolField(e.target)) onField(e.target);
+  }, true);
+
+  // `input` fires per keystroke. It is used only to mark the session active and
+  // to catch the first touch of a field the reader never blurs - the per-field
+  // event still goes out once, from the dedupe above.
+  var inputTimer = null;
+  document.addEventListener('input', function(e){
+    if (!isToolField(e.target)) return;
+    var el = e.target;
+    interacted();
+    clearTimeout(inputTimer);
+    inputTimer = setTimeout(function(){ onField(el); }, 700);
+  }, true);
+
+  // --------------------------------------------------------------- result
+  // A result is "the reader got an answer". Detected by watching the output
+  // nodes for text that is neither empty nor a zero placeholder, which is what
+  // every one of these tools renders before anything is entered.
+  var OUT = "#sum, .out, .result, [data-out], output";
+  function looksLikeAnswer(t){
+    t = (t || '').trim();
+    if (!t) return false;
+    if (/^[\s$0.,\-—–%]*$/.test(t)) return false;   // $0, 0, -, blank
+    return /\d/.test(t);
+  }
+  function checkResult(){
+    if (resulted || !started) return;
+    var nodes = document.querySelectorAll(OUT);
+    for (var i = 0; i < nodes.length; i++){
+      if (looksLikeAnswer(nodes[i].textContent)){
+        resulted = true;
+        send('tool_result', {ms_to_result: Math.max(0, now() - startedAt)});
+        return;
+      }
+    }
+  }
+  if (window.MutationObserver){
+    var mo = new MutationObserver(function(){ checkResult(); });
+    try { mo.observe(document.body, {subtree: true, childList: true, characterData: true}); }
+    catch (e) {}
+  }
+
+  // -------------------------------------------------------------- sections
+  document.addEventListener('toggle', function(e){
+    var d = e.target;
+    if (!d || d.tagName !== 'DETAILS' || !d.open) return;
+    var s = d.querySelector('summary');
+    interacted();
+    send('tool_section', {section: ((s && s.textContent) || '').trim().slice(0, 60)});
+  }, true);
+
+  // ---------------------------------------------------------------- share
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a, button');
+    if (!a) return;
+    var label = ((a.textContent || '') + ' ' + (a.className || '')).toLowerCase();
+    var how = null;
+    if (/copy/.test(label)) how = 'copy_link';
+    else if (/print/.test(label)) how = 'print';
+    else if (/email|mailto/.test(label) || (a.href || '').indexOf('mailto:') === 0) how = 'email';
+    else if (/reset/.test(label)) how = 'reset';
+    if (how){ interacted(); send('tool_share', {method: how}); }
+  }, true);
+
+  // ----------------------------------------------------------- the summary
+  // One event that carries the shape of the visit. Sent when the page is
+  // hidden, not on unload - unload does not fire reliably on mobile Safari,
+  // which is a large share of this audience.
+  var summarySent = false;
+  function summary(){
+    if (summarySent || !started) return;
+    summarySent = true;
+    tick();
+    send('tool_depth', {
+      fields_touched: touchedCount,
+      active_seconds: Math.round(activeMs / 1000),
+      reached_result: resulted ? 'yes' : 'no'
+    });
+  }
+  document.addEventListener('visibilitychange', function(){
+    visible = !document.hidden;
+    if (document.hidden) summary(); else { lastTick = now(); }
+  });
+  window.addEventListener('pagehide', summary);
+})();
+</script>
+<script>/* _dev/error_tracking.py */
+(function(){
+  var CAP = 5, sent = 0;
+
+  function send(name, params){
+    if (sent >= CAP) return;
+    sent++;
+    try {
+      params = params || {};
+      params.page = location.pathname.slice(0, 100);
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { window.dataLayer.push(['event', name, params]); }
+    } catch (e) {}
+  }
+
+  // Strip anything that could carry a figure a reader typed. A message like
+  // "Cannot read properties of undefined" is what is wanted; a message that has
+  // interpolated a value is not.
+  function clean(s){
+    return String(s == null ? '' : s).replace(/\s+/g, ' ').slice(0, 140);
+  }
+  function fileOf(src){
+    try { return String(src || '').split('/').pop().split('?')[0].slice(0, 60); }
+    catch (e) { return 'unknown'; }
+  }
+
+  // ------------------------------------------------------ uncaught errors
+  window.addEventListener('error', function(e){
+    // An error event on an element rather than the window is a resource that
+    // failed to load - a different problem with a different fix.
+    if (e && e.target && e.target !== window && e.target.tagName){
+      var t = e.target;
+      send('resource_error', {
+        kind: t.tagName.toLowerCase(),
+        file: fileOf(t.src || t.href)
+      });
+      return;
+    }
+    send('js_error', {
+      message: clean(e && e.message),
+      file: fileOf(e && e.filename),
+      line: (e && e.lineno) || 0
+    });
+  }, true);
+
+  window.addEventListener('unhandledrejection', function(e){
+    var r = e && e.reason;
+    send('promise_error', {
+      message: clean(r && (r.message || r)),
+      file: fileOf(r && r.fileName)
+    });
+  });
+
+  // ---------------------------------------------------------- rage clicks
+  var last = null, count = 0, first = 0;
+  document.addEventListener('click', function(e){
+    var el = e.target;
+    if (!el || !el.tagName) return;
+    var t = Date.now();
+    var key = el.tagName + '#' + (el.id || '') + '.' + ((el.className || '') + '').slice(0, 30);
+    if (key === last && (t - first) < 2000){
+      count++;
+      if (count === 4){
+        send('rage_click', {target: key.slice(0, 90)});
+      }
+    } else {
+      last = key; count = 1; first = t;
+    }
+  }, true);
+})();
+</script>
 </body></html>
