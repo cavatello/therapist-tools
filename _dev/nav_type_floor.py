@@ -85,7 +85,14 @@ RAISE = [
     (".eap-rate-h", 10.0, "EAP rate table headings"),
     (".artnext b", 9.8, "next-article labels"),
     (".arr em", 9.0, "the arrow captions in ig-flow"),
-    ("table th", 9.8, "table column headings"),
+    # `table th` is not a class, so `double()` leaves it alone and it loses to
+    # every `.dc-t th` / `.tbl th` rule on the site. Named explicitly, at the
+    # specificity those rules actually use.
+    (".dc-t th", 9.8, "case-library table headings"),
+    (".tbl th", 9.8, "article table headings"),
+    (".eap-tbl th", 9.8, "the EAP rate table"),
+    (".li-tbl th", 9.8, "the liability table"),
+    (".pdtbl th", 9.8, "the PsyD table"),
 ]
 
 
