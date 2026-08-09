@@ -233,7 +233,15 @@ def main():
     # ------------------------------------------------- the two public payers
     block = PUBLIC % {"mark": MARK, "checked": CHECKED}
     # after the table's section, before the page's closing furniture
-    anchor_pat = re.search(r"</table>\s*</div>", s)
+    # AFTER THE PANELS TABLE, not after the first table on the page.
+    #
+    # The first version matched `</table></div>` anywhere, which is an earlier
+    # table, so the block landed ABOVE the panels table while its own first
+    # sentence said "the table above leaves out". Same shape as this project's
+    # oldest recurring bug: a pattern that matches several places, used as if
+    # it matched one. Anchored to the heading first, then the next table close.
+    head = s.find("Which panels were open")
+    anchor_pat = re.compile(r"</table>\s*</div>").search(s, head) if head > 0 else None
     if not anchor_pat:
         print("  MISSING  the panels table - nowhere to put the public payers")
         missing += 1
@@ -258,6 +266,12 @@ def main():
             print("GUARD: %s did not land" % url[:60]); bad += 1
     if s.count(MARK) != 1:
         print("GUARD: %d copies of the public-payer block" % s.count(MARK)); bad += 1
+    # The block's first sentence says "the table above". Prove there is one.
+    head, blk = s.find("Which panels were open"), s.find(MARK)
+    if head < 0 or blk < 0 or blk < head:
+        print("GUARD: the public-payer block is not after the panels table, but "
+              "its own copy refers to 'the table above'")
+        bad += 1
 
     # Every external link opens a tab, so every one needs noopener.
     for url, attrs in re.findall(r'<a class="pl" href="(https?://[^"]+)"([^>]*)>', s):
