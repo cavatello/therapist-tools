@@ -80,11 +80,11 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `module` | imported by another pass; not a pass |
 | `tool` | run by hand, deliberately outside the pipeline |
 | `retired` | superseded, and says so in its own docstring |
+| `refuses` | not idempotent, and now stops itself running twice |
 
 | Pass | Verdict | Marker | What it does |
 |---|---|---|---|
 | `dir_two_views.py` | **unstable** | `<!-- _dev/dir_two_views.py -->` | Concept 05 - the 78 programs as two objects, not one. — a second run changes the page again |
-| `eap_rates.py` | **unstable** | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. — **re-running this damaged the live site.** It relocates its block, orphans a div and reports guards clean while doing it |
 | `empty_outputs.py` | **unstable** | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. — a second run changes six pages again |
 | `fixups.py` | **unstable** | &mdash; | Three defects reported from the live site, fixed together. — a second run changes the page again |
 | `hub_owid.py` | **unstable** | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. — a second run changes five hubs again |
@@ -99,6 +99,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `nav_consolidate.py` | **broken** | &mdash; | Collapse tools.html into the hub, and take Field Notes out of the top nav. — exits non-zero, writes nothing |
 | `quest_hud.py` | **broken** | `/* _dev/quest_hud.py */` | Turn the hours ladder into something worth looking at. — exits non-zero |
 | `typeface.py` | **broken** | &mdash; | Add the display face, sitewide, in one place. — exits non-zero, writes nothing |
+| `eap_rates.py` | **refuses** | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. — **re-running this damaged the live site once.** It strips its own block and re-inserts it against anchors that have since moved. It now refuses to run when its block is present; regenerating means removing the block by hand first, so the destructive step is a decision |
 | `ads_state.py` | **safe** | &mdash; | The advertising sentence, derived from whether the site actually serves ads. — no-op on today's site |
 | `analytics.py` | **safe** | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. — the GA4 tag on all 164 pages; idempotent. Not wired because analytics_events.py already asserts the tag is present |
 | `build_psyd.py` | **safe** | &mdash; | Build psyd-programs-california.html — the California PsyD directory. — rebuilds the PsyD directory from psyd_data.py |

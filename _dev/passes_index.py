@@ -97,9 +97,12 @@ VERDICTS = {
 
     "side_nav": ("unstable", "a second run changes the page again"),
     "dir_two_views": ("unstable", "a second run changes the page again"),
-    "eap_rates": ("unstable", "**re-running this damaged the live site.** It "
-                              "relocates its block, orphans a div and reports "
-                              "guards clean while doing it"),
+    "eap_rates": ("refuses", "**re-running this damaged the live site once.** "
+                             "It strips its own block and re-inserts it "
+                             "against anchors that have since moved. It now "
+                             "refuses to run when its block is present; "
+                             "regenerating means removing the block by hand "
+                             "first, so the destructive step is a decision"),
 
     "cluster_links": ("broken", "TypeError: insert_at returns an int, and the "
                                 "caller unpacks two values"),
@@ -292,11 +295,13 @@ def main():
           "| `module` | imported by another pass; not a pass |",
           "| `tool` | run by hand, deliberately outside the pipeline |",
           "| `retired` | superseded, and says so in its own docstring |",
+          "| `refuses` | not idempotent, and now stops itself running twice |",
           "",
           "| Pass | Verdict | Marker | What it does |",
           "|---|---|---|---|"]
-    rank = {"unstable": 0, "broken": 1, "safe": 2, "untriaged": 3,
-            "module": 4, "tool": 5, "one-shot": 6, "retired": 7}
+    rank = {"unstable": 0, "broken": 1, "refuses": 2, "safe": 3,
+            "untriaged": 4, "module": 5, "tool": 6, "one-shot": 7,
+            "retired": 8}
     for name, _s, marks, summary in sorted(
             loose, key=lambda r: (rank.get(verdict(r[0])[0], 9), r[0])):
         v, note = verdict(name)

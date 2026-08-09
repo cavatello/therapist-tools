@@ -226,6 +226,37 @@ def main():
     s = open(p, encoding="utf-8").read()
     orig = s
 
+    # ------------------------------------------------------- REFUSE TO RE-RUN
+    #
+    # This pass is NOT idempotent, and finding that out cost a published page.
+    # On 9 August 2026 it was re-run against the live tree to test whether it
+    # was still safe to wire into the pipeline. It removed its own block and
+    # re-inserted it in a different place: `rates.html` ended up with an
+    # orphaned `<div class="eap-why">`, its caveat and context paragraphs
+    # stranded outside the block they belong to, and a British spelling
+    # restored because `american.py` had already run. It printed
+    # "guards clean - 10 row(s), every one carrying its model and a source"
+    # while doing all of that, and the publish watcher committed it inside a
+    # minute.
+    #
+    # The strip-and-reinsert above is the bug: the anchors it re-inserts
+    # against have since moved, so the second insertion is not where the first
+    # one was. Fixing that properly means re-deriving the anchors, which is
+    # work this table does not need - the content is right and is live.
+    #
+    # So it refuses. If the table genuinely needs regenerating, delete the
+    # block from rates.html by hand first and then run this. That makes the
+    # destructive step a decision somebody takes rather than a side effect of
+    # a test.
+    if MARK in s:
+        print("eap_rates: the table is already on %s." % PAGE)
+        print("REFUSING to re-run. This pass is not idempotent - it strips its")
+        print("own block and re-inserts it against anchors that have since")
+        print("moved, which orphaned a <div> on the live site once already.")
+        print("To regenerate: remove the block from %s by hand, then run this."
+              % PAGE)
+        return
+
     # ------------------------------------------------------------ idempotent
     s = re.sub(re.escape(MARK) + r"[\s\S]*?<!-- /eap_rates -->\n?", "", s)
     s = re.sub(r"\n?<style>/\* _dev/eap_rates\.py \*/[\s\S]*?</style>\n?", "", s)
