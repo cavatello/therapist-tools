@@ -372,8 +372,17 @@ def hub_body():
              'Behavioral Sciences published between 2024 and 2026, read in full. '
              '<b>Thirty of them are written up here</b> &mdash; what happened, '
              'which subdivision of &sect;4982 it was charged under, how it '
-             'resolved, and what it cost. No names. Every case number is given so '
-             'you can pull the signed decision yourself.</p>')
+             'resolved, what it cost, and a discussion of what the Board was '
+             'actually deciding. No names. Every case number is given so you can '
+             'pull the signed decision yourself.</p>')
+    # Naming both audiences out loud, because they arrive for different reasons
+    # and each will otherwise assume the page is for the other one.
+    o.append('<p class="hl"><b>Written for two readers.</b> If you teach or take '
+             'a law-and-ethics course, every case ends with three discussion '
+             'questions and links to the code sections it turns on. If you are a '
+             'licensed MFT or an associate wondering what actually gets people '
+             'disciplined in California, the answer is on this page and it is '
+             'probably not what you expect.</p>')
     o.append('<div class="dc-figs">')
     for n, l in (("103", "signed decisions read in full"),
                  ("30", "written up as case studies"),
@@ -387,28 +396,6 @@ def hub_body():
     o.append('<a href="#what-it-costs">What it costs</a>')
     o.append('<a href="%s">Insurance that answers for it</a>' % INSURANCE)
     o.append("</p>")
-    o.append("</section>")
-
-    # ------------------------------------------------------------ the note
-    o.append('<section class="dc-note">')
-    o.append("<h2>There are no names on this site, and that is deliberate</h2>")
-    o.append("<p>Every name is public record. The Board publishes them in its own "
-             "quarterly newsletter and the Department of Consumer Affairs hosts "
-             "the signed decisions. This site does not republish them, for an "
-             "editorial reason rather than a legal one: a page that names people "
-             "becomes a page people arrive at by searching a name, and at that "
-             "point it has stopped teaching anything.</p>")
-    o.append("<p>Nothing has been softened. Conduct, statute, outcome and dollar "
-             "figure are exactly as each decision states them. Cities, employers "
-             "and client initials are removed. Every case below carries its case "
-             "number and effective date.</p>")
-    o.append('<p><b>To verify any case here:</b> open the Board\'s quarterly '
-             'newsletter archive at <a href="%s" target="_blank" rel="noopener">'
-             'bbs.ca.gov/resources/general.html</a>, find the &ldquo;Formal '
-             'Disciplinary Actions&rdquo; section of the issue covering the '
-             'effective date, and match the case number. Each licensee name in '
-             'those PDFs is a live link to the signed Decision and Order.</p>'
-             % NEWSLETTERS)
     o.append("</section>")
 
     # ------------------------------------------------------------- the shape
@@ -569,6 +556,33 @@ def hub_body():
              'MFT can buy, with what each publishes and what people report '
              'actually paying &rarr;</a></p>' % INSURANCE)
     o.append("</div>")
+    o.append("</section>")
+
+    # -------------------------------------------- the name note, at the end
+    # It used to sit second, above the library. It is a policy statement
+    # about the site, not a way in to the material, and a reader who has
+    # just arrived has no reason to care yet. Moved here, where someone
+    # who has read a case and wondered about the missing names will find
+    # it.
+    o.append('<section class="dc-note">')
+    o.append("<h2>There are no names on this site, and that is deliberate</h2>")
+    o.append("<p>Every name is public record. The Board publishes them in its own "
+             "quarterly newsletter and the Department of Consumer Affairs hosts "
+             "the signed decisions. This site does not republish them, for an "
+             "editorial reason rather than a legal one: a page that names people "
+             "becomes a page people arrive at by searching a name, and at that "
+             "point it has stopped teaching anything.</p>")
+    o.append("<p>Nothing has been softened. Conduct, statute, outcome and dollar "
+             "figure are exactly as each decision states them. Cities, employers "
+             "and client initials are removed. Every case below carries its case "
+             "number and effective date.</p>")
+    o.append('<p><b>To verify any case here:</b> open the Board\'s quarterly '
+             'newsletter archive at <a href="%s" target="_blank" rel="noopener">'
+             'bbs.ca.gov/resources/general.html</a>, find the &ldquo;Formal '
+             'Disciplinary Actions&rdquo; section of the issue covering the '
+             'effective date, and match the case number. Each licensee name in '
+             'those PDFs is a live link to the signed Decision and Order.</p>'
+             % NEWSLETTERS)
     o.append("</section>")
 
     # ------------------------------------------------------------------- fine
