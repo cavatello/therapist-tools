@@ -655,11 +655,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 <tr><td><b>Lyra Health</b><span class="eap-sub">the 1099 network rate</span><span class="eap-sub">1099 network</span></td><td class="rate">&mdash;</td><td><span class="eap-badge eb-gap">Not published</span> The number this audience most wants, and it is <b>published nowhere</b>. Lyra&rsquo;s California contractor postings disclose no pay, lawfully &mdash; California&rsquo;s pay-scale rule reaches job postings for positions, not for independent contractors. Lyra&rsquo;s W-2 track does publish a $70,000&ndash;$92,000 salary band, which is a different job. <a href="https://careers.lyrahealth.com/licensed-therapist-jobs" target="_blank" rel="noopener">Source</a></td></tr>
 </tbody>
     </table>
-    <p class="eap-caveat"><b>One report is not a range.</b> The Lyra figure above is a single data point from one California clinician, and it is published as such rather than dressed up as a market rate. Treat it as a marker to negotiate against, not a benchmark. Every additional report with a date, a region, a license level and a W-2/contract flag makes this table worth more &mdash; send them.</p>
-    <p class="eap-context">For context, that $120 sits above the insurance rates in Part&nbsp;I and below the Bay Area private-pay range in Part&nbsp;II &mdash; which is roughly where the EAP channel is expected to land. What it does not tell you is the unpaid documentation time attached to it, and that is the number that decides whether $120 is good.</p>
-  </div>
-
-  <div class="eap-why"><!-- _dev/eap_rates.py -->
+<div class="eap-why"><!-- _dev/eap_rates.py -->
 <h4>Why this table stopped being empty</h4>
 <p>It was empty for a good reason, and the reason turned out to be wrong.
 Platform contracts <b>are</b> confidential, and there is no fee schedule to
@@ -686,14 +682,18 @@ awkward.</p>
 Virginia rates on 1 December 2024. Headway cut some New York doctoral rates by
 around 30% on 1 January 2025. Talkspace restructured its bonus on 1 April 2025
 in a way clinicians describe as a significant cut. Any figure from 2023 should
-be treated as void, which is why the two 2023 rows above are labeled and dated
+be treated as void, which is why the two 2023 rows above are labelled and dated
 rather than quietly folded into a range.</p>
 <p>Every figure was checked on 9 August 2026. Nothing here is averaged or
 estimated: each row is either published by the company or reported by a named
 clinician, and says which.</p>
 </div>
 <!-- /eap_rates -->
+    <p class="eap-caveat"><b>One report is not a range.</b> The Lyra figure above is a single data point from one California clinician, and it is published as such rather than dressed up as a market rate. Treat it as a marker to negotiate against, not a benchmark. Every additional report with a date, a region, a license level and a W-2/contract flag makes this table worth more &mdash; send them.</p>
+    <p class="eap-context">For context, that $120 sits above the insurance rates in Part&nbsp;I and below the Bay Area private-pay range in Part&nbsp;II &mdash; which is roughly where the EAP channel is expected to land. What it does not tell you is the unpaid documentation time attached to it, and that is the number that decides whether $120 is good.</p>
+  </div>
 
+  <div class="eap-why">
   <p>What can be said without a rate sheet is structural, and it is most of what decides whether the channel is worth it:</p>
 
   <ul class="eap-list">
@@ -1100,28 +1100,6 @@ clinician, and says which.</p>
 
 
 
-<style>/* _dev/eap_rates.py */
-.eap-tbl td b{display:block}
-.eap-tbl td span.eap-sub{display:block;font-size:12.5px;color:#6b6455;
-  font-weight:400;margin-top:2px}
-.eap-badge{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
-  border:1.5px solid currentColor;border-radius:999px;padding:2px 7px;
-  margin:0 0 6px;vertical-align:middle}
-.eb-pub{color:#2C6350}
-.eb-rep{color:#8a6a20}
-.eb-gap{color:#8a4038}
-.eap-tbl td.rate b{font-weight:inherit}
-.eap-why{border:2px solid #16211B;border-radius:12px;background:#FBF9F3;
-  box-shadow:5px 5px 0 #F6C560;padding:18px 20px;margin:18px 0 0}
-.eap-why h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
-  letter-spacing:-.02em;font-size:17px;color:#16211B;margin:0 0 8px}
-.eap-why p{font-size:14.6px;line-height:1.7;color:#3A3529;margin:0 0 10px;max-width:70ch}
-.eap-why p:last-child{margin:0}
-.eap-why b{color:#16211B}
-.eap-why a{color:#2C6350}
-</style>
-
 
 
 
@@ -1358,6 +1336,27 @@ clinician, and says which.</p>
 @media (min-width:1500px){.ratespage.ratespage .hero,.ratespage.ratespage .gapbar-wrap,.ratespage.ratespage .colophon{max-width:1320px}}
 @media (min-width:1900px){.ratespage.ratespage .hero,.ratespage.ratespage .gapbar-wrap,.ratespage.ratespage .colophon{max-width:1560px}}
 @media (max-width:640px){.ratespage.ratespage .hero,.ratespage.ratespage .gapbar-wrap,.ratespage.ratespage .colophon{padding-left:18px;padding-right:18px}}
+</style>
+<style>/* _dev/eap_rates.py */
+.eap-tbl td b{display:block}
+.eap-tbl td span.eap-sub{display:block;font-size:12.5px;color:#6b6455;
+  font-weight:400;margin-top:2px}
+.eap-badge{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  border:1.5px solid currentColor;border-radius:999px;padding:2px 7px;
+  margin:0 0 6px;vertical-align:middle}
+.eb-pub{color:#2C6350}
+.eb-rep{color:#8a6a20}
+.eb-gap{color:#8a4038}
+.eap-tbl td.rate b{font-weight:inherit}
+.eap-why{border:2px solid #16211B;border-radius:12px;background:#FBF9F3;
+  box-shadow:5px 5px 0 #F6C560;padding:18px 20px;margin:18px 0 0}
+.eap-why h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+  letter-spacing:-.02em;font-size:17px;color:#16211B;margin:0 0 8px}
+.eap-why p{font-size:14.6px;line-height:1.7;color:#3A3529;margin:0 0 10px;max-width:70ch}
+.eap-why p:last-child{margin:0}
+.eap-why b{color:#16211B}
+.eap-why a{color:#2C6350}
 </style>
 </body>
 </html>
