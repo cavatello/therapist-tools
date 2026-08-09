@@ -342,6 +342,43 @@ CSS = """<style>/* _dev/build_cases.py */
 </style>"""
 
 
+# ---------------------------------------------------------------- filter JS
+# Deliberately tiny and dependency-free. It hides whole groups rather than
+# individual rows, so the group heading and its lede - which carry as much of
+# the teaching as the rows do - travel with the cases they describe.
+#
+# Note what it does NOT do: no URL state, no analytics on the chip, no
+# animation. The site's tracking promise is that nothing a reader touches is
+# reported with a value attached, and a filter that wrote itself into the
+# query string would be the one place that leaked what someone was reading.
+FILTER_JS = """<script>
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.dc-fb')),
+      groups=[].slice.call(document.querySelectorAll('.dc-grp')),
+      out=document.getElementById('dc-count');
+  if(!chips.length||!groups.length)return;
+  function total(g){
+    return g.querySelectorAll('.dc-row').length+g.querySelectorAll('.dc-min').length;
+  }
+  function pick(key){
+    var n=0;
+    groups.forEach(function(g){
+      var on=(key==='all'||g.getAttribute('data-g')===key);
+      g.hidden=!on; if(on)n+=total(g);
+    });
+    chips.forEach(function(c){
+      c.setAttribute('aria-pressed', c.getAttribute('data-g')===key?'true':'false');
+    });
+    if(out)out.textContent=(key==='all'?'Showing all ':'Showing ')+n+
+      ' case'+(n===1?'':'s');
+  }
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){pick(c.getAttribute('data-g'));});
+  });
+})();
+</script>"""
+
+
 def esc(x):
     return html.escape(str(x), quote=False) if x is not None else ""
 
