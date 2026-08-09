@@ -382,4 +382,97 @@ in California.</p><!-- _dev/pixel_concepts.py --><div class="tsshort"><p class="
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
 <link rel="stylesheet" href="css/aeea09f7e9b5.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
+<style>/* _dev/content_frame.py */
+/* ============================================================ THE FRAME
+   One rhythm, one measure, one headline width. Measured before this pass:
+   the breadcrumb-to-H1 gap was 37px on an article and 14px on a case page,
+   and the H1 was capped at 529px inside a 740px column. */
+
+:root{
+  --ts-crumb-gap:34px;      /* one value, both templates */
+  --ts-headline:30ch;       /* was 20ch, which is ~13 characters at 40px */
+  --ts-prose:72ch;
+}
+
+/* --- breadcrumb to headline ------------------------------------------- */
+.bcr.bcr.bcr, .dc-crumb.dc-crumb.dc-crumb{margin-bottom:var(--ts-crumb-gap)}
+.bcr.bcr.bcr + h1, .dc-crumb.dc-crumb.dc-crumb + h1,
+.dc-crumb.dc-crumb.dc-crumb + .dc-title{margin-top:0}
+
+/* --- the headline uses its column ------------------------------------- */
+/* A display face at 37-41px needs about 30 characters a line, not 13. The cap
+   stays - an unbounded headline on a 2560px screen is its own problem - it is
+   just set to a width a headline can actually use. */
+.dc-title.dc-title.dc-title{max-width:var(--ts-headline)}
+.artband.artband h1, .art.art h1{max-width:var(--ts-headline)}
+
+/* ====================================== AN ARTICLE WITH NO SIDE RAIL
+   `.artwrap` is a two-column grid - a 210px "on this page" rail, then an
+   880px column of content. Every article page has both.
+
+   psyd-programs-california.html has no rail. So `.artbody` became the FIRST
+   grid child, landed in the 210px column, and the entire page - 25 programme
+   cards, each 320px wide - rendered inside a 210px strip with 970px of empty
+   paper beside it. Nothing errored. The grid did exactly what it was told.
+
+   Fixed by the structure rather than by the page: if `.artbody` is the first
+   child of the wrap, there is no rail, so it spans every column. That also
+   means the next page written without a rail cannot hit this. */
+.artwrap.artwrap > .artbody:first-child{grid-column:1 / -1;max-width:none}
+.artwrap.artwrap > .artbody:first-child > *{max-width:100%}
+
+/* ============================================== WIDE BLOCKS IN A COLUMN
+   A table whose content is wider than its column used to sit in a scroller
+   with no scrollbar, no fade and no affordance, and read as a bug. */
+
+/* 1. Let it fit.
+      The cause was measured, and it was not the wrap mode. The figure cells
+      carry `white-space:nowrap`, so a cell reading "$79 first clinician, $50
+      each additional, unlimited non-clinical users" is held on ONE line at
+      459px. Three such columns make a 996px table inside a 713px column, and
+      the first column gets squeezed to 40px. `overflow-wrap` cannot do
+      anything about that - nowrap wins.
+
+      So: release the nowrap, and wrap at spaces only. `break-word` breaks a
+      word only when that single word would overflow on its own, which keeps
+      "$1,140" and "3.1% + 30c" intact. `anywhere` would break inside the
+      number, which is why it is not used here. */
+@media (min-width:900px){
+  .tw.tw.tw td, .tw.tw.tw th, .li-tw.li-tw.li-tw td, .li-tw.li-tw.li-tw th, .dc-tw.dc-tw.dc-tw td, .dc-tw.dc-tw.dc-tw th, .octw.octw.octw td, .octw.octw.octw th, .srn-w.srn-w.srn-w td, .srn-w.srn-w.srn-w th, .tblw.tblw.tblw td, .tblw.tblw.tblw th{white-space:normal;overflow-wrap:break-word}
+  .tw.tw.tw table, .li-tw.li-tw.li-tw table, .dc-tw.dc-tw.dc-tw table, .octw.octw.octw table, .srn-w.srn-w.srn-w table, .tblw.tblw.tblw table{width:100%;min-width:0}
+}
+
+/* 2. Where it still cannot fit, make the overflow visible. */
+.tw.tw.tw, .li-tw.li-tw.li-tw, .dc-tw.dc-tw.dc-tw, .octw.octw.octw, .srn-w.srn-w.srn-w, .tblw.tblw.tblw{
+  position:relative;
+  scrollbar-width:thin;
+  scrollbar-color:#C9C0AA transparent;
+  background:
+    linear-gradient(to right, #FBF9F3 30%, rgba(251,249,243,0)) left center,
+    linear-gradient(to right, rgba(251,249,243,0), #FBF9F3 70%) right center,
+    radial-gradient(farthest-side at 0 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) left center,
+    radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) right center;
+  background-repeat:no-repeat;
+  background-size:36px 100%, 36px 100%, 14px 100%, 14px 100%;
+  background-attachment:local, local, scroll, scroll;
+}
+.tw.tw.tw::-webkit-scrollbar{height:9px}
+.tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.tw.tw.tw::-webkit-scrollbar-track{background:transparent}
+.li-tw.li-tw.li-tw::-webkit-scrollbar{height:9px}
+.li-tw.li-tw.li-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.li-tw.li-tw.li-tw::-webkit-scrollbar-track{background:transparent}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar{height:9px}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-track{background:transparent}
+.octw.octw.octw::-webkit-scrollbar{height:9px}
+.octw.octw.octw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.octw.octw.octw::-webkit-scrollbar-track{background:transparent}
+.srn-w.srn-w.srn-w::-webkit-scrollbar{height:9px}
+.srn-w.srn-w.srn-w::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.srn-w.srn-w.srn-w::-webkit-scrollbar-track{background:transparent}
+.tblw.tblw.tblw::-webkit-scrollbar{height:9px}
+.tblw.tblw.tblw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.tblw.tblw.tblw::-webkit-scrollbar-track{background:transparent}
+</style>
 </body></html>
