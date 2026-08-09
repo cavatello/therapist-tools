@@ -67,9 +67,10 @@ PROJECT_ID = "xzv1qvmwpe"
 
 TAG = """%(mark)s
 <script type="text/javascript">
-  /* Microsoft Clarity. The whole document is masked by
-     data-clarity-mask="True" on <body>, written by _dev/clarity.py - masking
-     cannot be forced from this tag, only from the markup or the dashboard. */
+  /* Microsoft Clarity. The whole document is masked by the
+     data-clarity-mask attribute on the body element, written by
+     _dev/clarity.py - masking cannot be forced from this tag, only from the
+     markup or from the dashboard. */
   (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
     t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -87,6 +88,15 @@ def pages():
             out += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
                     if f.endswith(".html")]
     return out
+
+
+def body_tag(s):
+    """The real body element, not a `<body>` written inside a head script."""
+    h = s.lower().find("</head>")
+    if h < 0:
+        return None
+    return re.search(r"<body([^>]*)>", s[h:], re.I) and \
+        re.compile(r"<body([^>]*)>", re.I).search(s, h)
 
 
 def strip(s):
@@ -128,11 +138,19 @@ def main():
             continue
         s = s[:i] + tag + "\n" + s[i:]
 
-        # The mask attribute, on <body>, on every page. This is the part that
-        # actually does the work; the tag above is just the loader.
-        m = re.search(r"<body([^>]*)>", s, re.I)
+        # The mask attribute, on the body element, on every page. This is the
+        # part that actually does the work; the tag above is just the loader.
+        #
+        # Searched AFTER </head>, and the first version of this pass did not.
+        # The literal text `<body>` appeared inside this file's own script
+        # comment, which sits in the head - so `re.search("<body[^>]*>")`
+        # matched the COMMENT on all 163 pages, wrote the attribute into a
+        # string of JavaScript, and left every real body element unmasked. The
+        # guard then read the same first match back and reported success.
+        # Anchoring past </head> is the fix; the guard below does the same.
+        m = body_tag(s)
         if not m:
-            print("  MISSING  %s has no <body>" % rel)
+            print("  MISSING  %s has no <body> after </head>" % rel)
             continue
         s = s[:m.start()] + "<body%s %s>" % (m.group(1).rstrip(), MASK) \
             + s[m.end():]
@@ -157,7 +175,7 @@ def main():
         if s.count(MARK) != 1:
             print("GUARD %s: %d Clarity tags" % (rel, s.count(MARK)))
             bad += 1
-        body = re.search(r"<body[^>]*>", s, re.I)
+        body = body_tag(s)
         if not body or MASK not in body.group(0):
             print("GUARD %s: <body> does not carry %s. Clarity would fall back "
                   "to the dashboard setting, which defaults to Balanced and "
@@ -165,6 +183,13 @@ def main():
             bad += 1
         if body and body.group(0).count(MASK) > 1:
             print("GUARD %s: the mask attribute is on <body> twice" % rel)
+            bad += 1
+        # Exactly one body element. More than one means something - very
+        # possibly this pass - has written `<body` into the page as text.
+        if len(re.findall(r"<body[\s>]", s, re.I)) != 1:
+            print("GUARD %s: %d `<body` in the document. The mask has to land "
+                  "on the element, not on a copy of the word."
+                  % (rel, len(re.findall(r"<body[\s>]", s, re.I))))
             bad += 1
         # An unmask anywhere would punch a hole in the whole thing.
         if "data-clarity-unmask" in s:
