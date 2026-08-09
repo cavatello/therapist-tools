@@ -21,6 +21,12 @@
 .clwrap.clwrap{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}  /* was 1000px */
 .ftin.ftin{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}  /* was 1180px */
 .pw.pw{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}  /* was 1180px */
+/* narrow columns, left-aligned inside the grid rather than
+   centred on their own - see COLUMNS in the pass */
+.lg.lg .lghero.lghero{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+.lg.lg .lghero.lghero .lgwrap.lgwrap{max-width:760px;margin-left:0;margin-right:auto;padding-left:0;padding-right:0}
+.lg.lg .lgbody.lgbody{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+.lg.lg .lgbody.lgbody .lgwrap.lgwrap{max-width:760px;margin-left:0;margin-right:auto;padding-left:0;padding-right:0}
 @media (min-width:1500px){
   .lgbody.lgbody > .lgwrap.lgwrap{max-width:1320px}
   .drwrap.drwrap{max-width:1320px}
@@ -38,6 +44,8 @@
   .clwrap.clwrap{max-width:1320px}
   .ftin.ftin{max-width:1320px}
   .pw.pw{max-width:1320px}
+  .lg.lg .lghero.lghero{max-width:1320px}
+  .lg.lg .lgbody.lgbody{max-width:1320px}
 }
 @media (min-width:1900px){
   .lgbody.lgbody > .lgwrap.lgwrap{max-width:1560px}
@@ -56,6 +64,8 @@
   .clwrap.clwrap{max-width:1560px}
   .ftin.ftin{max-width:1560px}
   .pw.pw{max-width:1560px}
+  .lg.lg .lghero.lghero{max-width:1560px}
+  .lg.lg .lgbody.lgbody{max-width:1560px}
 }
 @media (max-width:640px){
   .lgbody.lgbody > .lgwrap.lgwrap{padding-left:18px;padding-right:18px}
@@ -74,4 +84,6 @@
   .clwrap.clwrap{padding-left:18px;padding-right:18px}
   .ftin.ftin{padding-left:18px;padding-right:18px}
   .pw.pw{padding-left:18px;padding-right:18px}
+  .lg.lg .lghero.lghero{padding-left:18px;padding-right:18px}
+  .lg.lg .lgbody.lgbody{padding-left:18px;padding-right:18px}
 }
