@@ -66,6 +66,13 @@ MARK = "/* _dev/one_grid.py */"
 CANON = 1180        # matches .sitenav-in and .ftin, on every page
 PAD = 26            # matches the masthead's side padding
 
+# The grid is not one number. `_dev/widen.py` steps the masthead and the footer
+# out on large displays, and a flat override here would have pinned the
+# containers this pass touches at 1180 while the logo above them moved to 1560
+# on a 27-inch 5K - the same misalignment, only visible to fewer people. These
+# MUST stay equal to widen.py's STEP1 and STEP2, and the guard checks it.
+STEPS = [(1500, 1320), (1900, 1560)]
+
 # selector, the width it currently declares, what it is
 # Ordered widest-to-narrowest so the diff reads as a range being closed.
 TARGETS = [
@@ -93,6 +100,16 @@ ALREADY = [".sitenav-in", ".ftin", ".pw", ".artband .in", ".artwrap",
            ".hwband .in", ".hwwrap"]
 
 
+def double(sel):
+    """`.a .b` -> `.a.a .b.b`, so a late rule outranks a hoisted one.
+
+    Doubling the whole string would produce `.a .b.a .b`, which matches
+    nothing. Each simple selector is doubled on its own and the combinators
+    are left alone."""
+    return " ".join(
+        (p + p) if p.startswith(".") else p for p in sel.split())
+
+
 def sheet():
     o = ["<style>%s" % MARK,
          "/* One page grid: %dpx, %dpx of side padding, centred - the same box",
@@ -103,21 +120,18 @@ def sheet():
          "*/"]
     o[1] = o[1] % (CANON, PAD)
     for sel, was, _what in TARGETS:
-        # `.a .b` doubles as `.a.a .b.b`, not `.a .b.a .b`
-        parts = sel.split()
-        doubled = " ".join(
-            (p + p.replace(" ", "")) if p.startswith(".") and ">" not in p else p
-            for p in parts)
         o.append("%s{max-width:%dpx;padding-left:%dpx;padding-right:%dpx;"
                  "margin-left:auto;margin-right:auto}  /* was %dpx */"
-                 % (doubled, CANON, PAD, PAD, was))
+                 % (double(sel), CANON, PAD, PAD, was))
+    # the same steps widen.py gives the masthead and the footer
+    for at, w in STEPS:
+        o.append("@media (min-width:%dpx){" % at)
+        for sel, _w, _x in TARGETS:
+            o.append("  %s{max-width:%dpx}" % (double(sel), w))
+        o.append("}")
     o.append("@media (max-width:640px){")
     for sel, _w, _x in TARGETS:
-        parts = sel.split()
-        doubled = " ".join(
-            (p + p.replace(" ", "")) if p.startswith(".") and ">" not in p else p
-            for p in parts)
-        o.append("  %s{padding-left:18px;padding-right:18px}" % doubled)
+        o.append("  %s{padding-left:18px;padding-right:18px}" % double(sel))
     o.append("}")
     o.append("</style>")
     return "\n".join(o)
@@ -186,17 +200,28 @@ def main():
     # 2. The canon has to be the canon. If the masthead or the footer ever
     #    stops being 1180, this pass is aligning the page to the wrong number
     #    and every content block would move together, away from the logo.
+    # The masthead is set at three widths, not one - the base and two steps
+    # from widen.py. All three have to be in the set this pass mirrors, or the
+    # content aligns with the logo at one viewport and not at another.
+    expect = {CANON} | {w for _at, w in STEPS}
     for sel in (".sitenav-in", ".ftin"):
-        m = re.search(re.escape(sel) + r"\s*\{[^}]*max-width\s*:\s*(\d+)px",
-                      corpus)
-        if not m:
+        got = set()
+        for m in re.finditer(r"([^{}]*)\{([^{}]*)\}", corpus):
+            if not re.search(r"(^|,)\s*" + re.escape(sel) + r"\s*(,|$)",
+                             m.group(1).replace("\n", " ")):
+                continue
+            w = re.search(r"max-width\s*:\s*(\d+)px", m.group(2))
+            if w:
+                got.add(int(w.group(1)))
+        if not got:
             print("GUARD: cannot find a max-width for %s - the canon is "
                   "unverifiable" % sel)
             bad += 1
-        elif int(m.group(1)) != CANON:
-            print("GUARD: %s is %spx but this pass aligns everything to %dpx. "
-                  "The content would line up with each other and not with the "
-                  "masthead." % (sel, m.group(1), CANON))
+        elif got != expect:
+            print("GUARD: %s is set at %s but this pass mirrors %s. Content "
+                  "would line up with the masthead at some viewports and not "
+                  "others - update STEPS to match _dev/widen.py."
+                  % (sel, sorted(got), sorted(expect)))
             bad += 1
 
     # 3. One stylesheet per page, never two.
