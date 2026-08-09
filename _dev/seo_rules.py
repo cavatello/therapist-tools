@@ -157,16 +157,39 @@ def check():
         docs[rel] = open(os.path.join(SITE, rel), encoding="utf-8").read()
 
     # ------------------------------------------------ inbound link counting
+    def resolve(here, href):
+        """A link target, as a path relative to SITE.
+
+        `href="money/"` is how every section hub is linked in the nav. Counting
+        only hrefs ending in .html reported all five section index pages as
+        orphans, which is exactly backwards - they are among the most linked
+        pages on the site."""
+        if href.endswith("/"):
+            href += "index.html"
+        return os.path.normpath(os.path.join(here, href)).replace(os.sep, "/")
+
     for rel, s in docs.items():
         here = os.path.dirname(rel)
-        for href in set(re.findall(r'href="([^"#?:]+\.html)(?:[#?][^"]*)?"', s)):
-            tgt = os.path.normpath(os.path.join(here, href)).replace(os.sep, "/")
+        for href in set(re.findall(r'href="([^"#?:]+(?:\.html|/))(?:[#?][^"]*)?"', s)):
+            tgt = resolve(here, href)
             if tgt in inbound and tgt != rel:
                 inbound[tgt] += 1
 
     for rel, s in docs.items():
+        # A page deliberately kept out of the index is not held to the rules for
+        # pages that are in it. concepts.html is a layout scratchpad carrying a
+        # deliberate noindex; reporting it for having a noindex, no canonical,
+        # no description and no structured data is five findings that all say
+        # "this page is what it says it is".
+        if rel in EXCLUDE:
+            continue
+
         def add(code, detail=""):
             found.append("%s\t%s\t%s" % (rel, code, detail))
+
+        # Script bodies are not markup. Scanning them for hrefs reports every
+        # `'<a href="' + fn() + '">'` string concatenation as a broken link.
+        markup = re.sub(r"<script[\s\S]*?</script>", " ", s, flags=re.I)
 
         # ------------------------------------------------------------ head
         if len(re.findall(r"<h1\b", s, re.I)) != 1:
@@ -212,7 +235,7 @@ def check():
 
         # --------------------------------------------------------- links
         here = os.path.dirname(rel)
-        for href in set(re.findall(r'href="([^"#?:]+\.html)(?:[#?][^"]*)?"', s)):
+        for href in set(re.findall(r'href="([^"#?:]+\.html)(?:[#?][^"]*)?"', markup)):
             tgt = os.path.normpath(os.path.join(here, href)).replace(os.sep, "/")
             if tgt not in existing and not os.path.exists(os.path.join(SITE, tgt)):
                 add("dead-link", href)
@@ -222,7 +245,7 @@ def check():
         # `data:image/svg+xml` icon as a broken relative link - 40 findings that
         # were all the guard's fault.
         for href in set(re.findall(
-                r'href="(?![a-z][a-z0-9+.-]*:|#|/)([^"#?]+)"', s, re.I)):
+                r'href="(?![a-z][a-z0-9+.-]*:|#|/)([^"#?]+)"', markup, re.I)):
             if not href.endswith((".html", ".pdf", ".xml", ".txt", ".ico", ".png",
                                   ".jpg", ".svg", ".css", ".js", "/")):
                 add("href-no-extension", href[:50])
