@@ -81,7 +81,7 @@ them is a general-purpose SEO checklist item included because a blog said so.
                         a variant here, it is wrong on the merits: the Board
                         issues a license.
 """
-import os, re, sys, json, glob
+import html, os, re, sys, json, glob
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
@@ -133,12 +133,19 @@ def pages():
 
 
 def text_of(s):
-    """The page with script, style and markup removed - just the prose."""
+    """The page with script, style and markup removed - just the prose.
+
+    Entities are resolved, because this function's output is measured against
+    length limits and a reader sees `&mdash;` as one character. Leaving them
+    encoded made this rule disagree with `_dev/seo_meta.py`, which unescapes:
+    the same description measured 166 to the fixer and 178 to the guard, so
+    the fixer wrote a compliant string and the guard reported it as a new
+    finding. A guard and its fixer must measure the same thing."""
     s = re.sub(r"<script[\s\S]*?</script>", " ", s, flags=re.I)
     s = re.sub(r"<style[\s\S]*?</style>", " ", s, flags=re.I)
     s = re.sub(r"<!--[\s\S]*?-->", " ", s)
     s = re.sub(r"<[^>]+>", " ", s)
-    return re.sub(r"\s+", " ", s)
+    return re.sub(r"\s+", " ", html.unescape(s))
 
 
 def one(pat, s, g=1):
