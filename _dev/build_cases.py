@@ -742,13 +742,36 @@ def case_body(c, prev, nxt):
              % (c["case"] or "Not stated in the newsletter"))
     o.append("</div>")
 
-    o.append('<p class="dc-k">What happened</p>')
+    d = DEPTH.get(c["slug"])
+
+    # A contents rail. These pages run long now, and a reader who came for the
+    # statute should not have to scroll through the narrative to find it.
+    o.append('<div class="dc-toc">')
+    for href, label in (("#what-happened", "What happened"),
+                        ("#charged", "What it was charged as"),
+                        ("#outcome", "The outcome"),
+                        ("#rule", "The rule"),
+                        ("#discussion", "Discussion"),
+                        ("#insurance", "Insurance"),
+                        ("#questions", "Questions")):
+        if href == "#discussion" and not d:
+            continue
+        if href == "#questions" and not d:
+            continue
+        o.append('<a href="%s">%s</a>' % (href, label))
+    o.append("</div>")
+
+    if d:
+        o.append('<div class="dc-why"><span class="l">Why this case is '
+                 'here</span><p>%s</p></div>' % d["why"])
+
+    o.append('<p class="dc-k" id="what-happened">What happened</p>')
     o.append('<div class="dc-facts">')
     for p in c["facts"]:
         o.append("<p>%s</p>" % p)
     o.append("</div>")
 
-    o.append('<p class="dc-k">What it was charged as</p>')
+    o.append('<p class="dc-k" id="charged">What it was charged as</p>')
     o.append('<div class="dc-chg">')
     for cite, url, plain in c["charges"]:
         if url:
@@ -759,7 +782,7 @@ def case_body(c, prev, nxt):
             o.append('<div><span class="cc">%s</span><p>%s</p></div>' % (cite, plain))
     o.append("</div>")
 
-    o.append('<div class="dc-out">')
+    o.append('<div class="dc-out" id="outcome">')
     o.append("<h2>The outcome</h2>")
     o.append("<p>%s</p>" % c["outcome"])
     if c["hear"]:
@@ -777,12 +800,23 @@ def case_body(c, prev, nxt):
         o.append('<span class="costl">No cost recovery stated in the order</span>')
     o.append("</div>")
 
-    o.append('<div class="dc-ex">')
+    o.append('<div class="dc-ex" id="rule">')
     o.append("<h2>What the rule actually says</h2>")
     o.append("<p>%s</p>" % c["rule"])
     o.append("</div>")
 
-    o.append('<div class="dc-ex ins">')
+    # The discussion. Dashed border and a label, because everything above it is
+    # what the decision says and this is argument about it. A reader should be
+    # able to tell them apart at a glance rather than by reading a disclaimer.
+    if d:
+        o.append('<div class="dc-disc" id="discussion">')
+        o.append("<h2>Discussion</h2>")
+        o.append('<p class="sub">Analysis, not part of the decision</p>')
+        for para in d["disc"]:
+            o.append("<p>%s</p>" % para)
+        o.append("</div>")
+
+    o.append('<div class="dc-ex ins" id="insurance">')
     o.append("<h2>Where insurance reaches, and where it does not</h2>")
     o.append("<p>%s</p>" % c["ins"])
     o.append('<p style="margin-top:11px"><a href="%s">Compare what each program '
@@ -796,6 +830,16 @@ def case_body(c, prev, nxt):
         o.append("<li>%s</li>" % p)
     o.append("</ul>")
     o.append("</div>")
+
+    if d:
+        o.append('<div class="dc-ask" id="questions">')
+        o.append("<h2>Questions</h2>")
+        o.append('<p class="sub">For a law and ethics seminar, or for yourself</p>')
+        o.append("<ol>")
+        for q in d["ask"]:
+            o.append("<li>%s</li>" % q)
+        o.append("</ol>")
+        o.append("</div>")
 
     # prev / next
     o.append('<div class="dc-nav">')
