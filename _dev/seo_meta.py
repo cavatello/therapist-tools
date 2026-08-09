@@ -155,6 +155,46 @@ def shorten_desc(d):
     return best
 
 
+# ------------------------------------------------------------------ rewrites
+# The shorteners cut at boundaries the author placed - a colon, an em dash, a
+# bullet, the end of a sentence. Six pages have none, so there is nowhere safe
+# to cut and the pass has been reporting them as findings for weeks rather than
+# guessing. These are the authored replacements.
+#
+# The rule for adding to this table: write the shorter version yourself, keep
+# every fact the original carried or drop the fact deliberately, and never
+# truncate mid-clause. If you cannot say it shorter without losing something,
+# the page's headline claim is probably too complicated and that is the real
+# fix.
+REWRITES = {
+    "changes.html": {
+        "title": "What changed: the fees, limits and rates that moved",
+    },
+    "cost-of-incorporating-california-therapist.html": {
+        "title": "What incorporating actually costs a California therapist",
+        "description":
+            "Everyone quotes the tax an S election saves. Far fewer quote what "
+            "the corporation charges you &mdash; a floor that arrives whether "
+            "or not you earned anything.",
+    },
+    "insurance-panels-california-therapist.html": {
+        "description":
+            "The mechanics in order, the clock California law actually "
+            "imposes, and which panels were open in August 2026 &mdash; one "
+            "large one was not.",
+    },
+    "psychedelic-training-polaris-insight-kap.html": {
+        "title": "Polaris Insight KAP training: cost, curriculum, what it gets you",
+    },
+    "therapist-tax-deductions-california.html": {
+        "description":
+            "A real practice expense comes off self-employment tax, federal "
+            "tax and California&rsquo;s 9.3% at once &mdash; which is why "
+            "$22,000 of expenses is worth $8,608 at $140,000 of gross.",
+    },
+}
+
+
 def main():
     tfix = dfix = 0
     left_t, left_d = [], []
@@ -168,10 +208,17 @@ def main():
     for rel, s in docs.items():
         out = s
 
+        rw = REWRITES.get(rel, {})
+
         m = re.search(r"<title>([\s\S]*?)</title>", s, re.I)
         if m:
             t = re.sub(r"\s+", " ", m.group(1)).strip()
-            if vis(t) > TITLE_MAX:
+            if "title" in rw and vis(t) > TITLE_MAX:
+                out = (out[:m.start()] + "<title>%s</title>" % rw["title"]
+                       + out[m.end():])
+                tfix += 1
+                t = rw["title"]
+            elif vis(t) > TITLE_MAX:
                 short = shorten_title(t)
                 if short and short != t:
                     out = out[:m.start()] + "<title>%s</title>" % short + out[m.end():]
@@ -184,7 +231,12 @@ def main():
         m = re.search(r'(<meta\s+name="description"\s+content=")([^"]*)(")', out, re.I)
         if m:
             d = re.sub(r"\s+", " ", m.group(2)).strip()
-            if vis(d) > DESC_MAX:
+            if "description" in rw and vis(d) > DESC_MAX:
+                out = (out[:m.start()] + m.group(1) + rw["description"]
+                       + m.group(3) + out[m.end():])
+                dfix += 1
+                d = rw["description"]
+            elif vis(d) > DESC_MAX:
                 short = shorten_desc(d)
                 if short and short != d:
                     out = out[:m.start()] + m.group(1) + short + m.group(3) + out[m.end():]
