@@ -58,6 +58,7 @@ def leg(section, code="bpc"):
 GROUPS = [
     {
         "key": "sexual",
+        "short": "Sexual boundaries",
         "n": "Sexual boundaries",
         "lede": "Six cases. One went to a full hearing; the rest settled. The "
                 "penalty floor here is the highest in the guidelines, and for "
@@ -67,6 +68,7 @@ GROUPS = [
     },
     {
         "key": "dual",
+        "short": "Boundary drift",
         "n": "Boundary drift with no sexual contact",
         "lede": "Five cases where nobody touched anybody. Texting, emails, "
                 "dinners, a sleepover, a shared joint. These are the cases most "
@@ -76,6 +78,7 @@ GROUPS = [
     },
     {
         "key": "records",
+        "short": "Records",
         "n": "Records, confidentiality and the file",
         "lede": "Three cases about paper. A letter written for the wrong person, "
                 "a records request ignored for six months, an address never "
@@ -84,6 +87,7 @@ GROUPS = [
     },
     {
         "key": "money",
+        "short": "Money and billing",
         "n": "Money, billing and honesty",
         "lede": "Three cases. One involves no clients at all &mdash; the "
                 "conviction came from a bookkeeping job &mdash; and it still cost "
@@ -91,6 +95,7 @@ GROUPS = [
     },
     {
         "key": "another",
+        "short": "From elsewhere",
         "n": "Discipline that arrives from somewhere else",
         "lede": "Four cases under &sect;4982.25. If any other board, in any "
                 "state, disciplines any healing-arts licence you hold, that fact "
@@ -100,6 +105,7 @@ GROUPS = [
     },
     {
         "key": "fitness",
+        "short": "Fitness exams",
         "n": "Fitness-to-practice examinations",
         "lede": "One page, three cases, one lesson: an order to be examined is "
                 "not a request, and ignoring it is its own independent ground for "
@@ -107,6 +113,7 @@ GROUPS = [
     },
     {
         "key": "conviction",
+        "short": "Convictions",
         "n": "Convictions, and the duty to report one",
         # Trimmed from five write-ups to three, deliberately. Sixty-two of the
         # 103 decisions are convictions and most are a DUI, so the category is
@@ -127,6 +134,7 @@ GROUPS = [
     },
     {
         "key": "probation",
+        "short": "After discipline",
         "n": "What happens after discipline",
         "lede": "Three cases about the part nobody plans for. Probation runs "
                 "three to seven years, you pay for the monitoring, you tell your "

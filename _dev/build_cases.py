@@ -455,16 +455,34 @@ def hub_body():
     o.append('<p class="dc-d">Each one opens to a full write-up: the facts as the '
              'decision states them, every statute charged with a link to the code '
              'section, the disposition, the cost recovery, what the rule actually '
-             'requires, and where a liability policy does and does not reach.</p>')
+             'requires, where a liability policy does and does not reach, a '
+             'discussion of what the Board was deciding, and three questions for '
+             'a class.</p>')
+
+    # ------------------------------------------------------------ the filter
+    # Chips over a <select>, and one group per chip rather than a tag system,
+    # because the groups ARE the taxonomy - inventing a second one would give a
+    # reader two mental models of the same thirty cases.
+    o.append('<div class="dc-filt" role="group" aria-label="Filter cases">')
+    o.append('<button class="dc-fb" type="button" data-g="all" '
+             'aria-pressed="true">All thirty</button>')
+    for g in GROUPS:
+        o.append('<button class="dc-fb" type="button" data-g="%s" '
+                 'aria-pressed="false">%s <span aria-hidden="true">&middot; '
+                 '%d</span></button>' % (g["key"], g["short"], len(by_group(g["key"]))))
+    o.append("</div>")
+    o.append('<p class="dc-count" id="dc-count">Showing all 30 cases</p>')
 
     for g in GROUPS:
         cs = by_group(g["key"])
-        o.append('<div class="dc-grp" id="g-%s">' % g["key"])
+        main = [c for c in cs if not c.get("minor")]
+        minor = [c for c in cs if c.get("minor")]
+        o.append('<div class="dc-grp" id="g-%s" data-g="%s">' % (g["key"], g["key"]))
         o.append("<h2>%s <span style='font-family:Fraunces,Georgia,serif;"
                  "font-weight:600;color:%s'>&middot; %d</span></h2>"
                  % (g["n"], PINE, len(cs)))
         o.append('<p class="gl">%s</p>' % g["lede"])
-        for c in cs:
+        for c in main:
             # The parenthesis matters: `"%s" % x + ".html"` binds as
             # `("%s" % x) + ".html"`, which puts the extension OUTSIDE the
             # attribute and produces thirty dead links that the internal-link
@@ -482,7 +500,17 @@ def hub_body():
             if amt:
                 o.append("<span class='c'>%s</span>" % amt)
             o.append("</span></a>")
+        if minor:
+            o.append('<div class="dc-more"><p>Also in the record, same lesson</p>')
+            for c in minor:
+                o.append('<a class="dc-min" href="%s.html">' % c["slug"])
+                o.append('<span class="rt">%s</span>' % c["t"])
+                o.append('<span class="rm">%s &middot; %s</span>'
+                         % (c["eff"].split(";")[0], short_outcome(c)))
+                o.append("</a>")
+            o.append("</div>")
         o.append("</div>")
+    o.append(FILTER_JS)
     o.append("</section>")
 
     # ------------------------------------------------------------ what it costs
