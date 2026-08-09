@@ -100,11 +100,20 @@ CSS = """<style>%(mark)s
    A table whose content is wider than its column used to sit in a scroller
    with no scrollbar, no fade and no affordance, and read as a bug. */
 
-/* 1. Let it fit. `anywhere` is counted in min-content width, `break-word` is
-      not, so this is what actually collapses an over-wide table into its
-      column. Wide viewports only - see the note in the pass. */
+/* 1. Let it fit.
+      The cause was measured, and it was not the wrap mode. The figure cells
+      carry `white-space:nowrap`, so a cell reading "$79 first clinician, $50
+      each additional, unlimited non-clinical users" is held on ONE line at
+      459px. Three such columns make a 996px table inside a 713px column, and
+      the first column gets squeezed to 40px. `overflow-wrap` cannot do
+      anything about that - nowrap wins.
+
+      So: release the nowrap, and wrap at spaces only. `break-word` breaks a
+      word only when that single word would overflow on its own, which keeps
+      "$1,140" and "3.1%% + 30c" intact. `anywhere` would break inside the
+      number, which is why it is not used here. */
 @media (min-width:900px){
-  %(cells)s{overflow-wrap:anywhere}
+  %(cells)s{white-space:normal;overflow-wrap:break-word}
   %(tables)s{width:100%%;min-width:0}
 }
 
@@ -190,25 +199,25 @@ def main():
             print("GUARD %s: %d copies" % (rel, s.count(MARK)))
             bad += 1
 
-    # THE ONE THAT MATTERS. `overflow-wrap:anywhere` on a table cell at a phone
-    # width is a regression this project has already shipped: it broke "Headway"
-    # into "Head/way". It is allowed here ONLY inside a min-width:900px block.
-    m = re.search(r"@media \(min-width:900px\)\{([\s\S]*?)\n\}", css)
+    # THE ONE THAT MATTERS.
+    #
+    # `overflow-wrap:anywhere` on a table cell at phone width is a regression
+    # this project has already shipped once - it rendered "Headway" as
+    # "Head/way" and "MINIMUM" as "MIN/IMU/M". It must not appear at all: the
+    # fix here is releasing `white-space:nowrap`, which needs no such hammer.
+    body = re.sub(r"/\*[\s\S]*?\*/", "", css)
+    if "anywhere" in body:
+        print("GUARD: `overflow-wrap:anywhere` is in this stylesheet. It is not "
+              "needed - the cause was nowrap - and it breaks words mid-token on "
+              "a phone.")
+        bad += 1
+    m = re.search(r"@media \(min-width:900px\)\{([\s\S]*?)\n\}", body)
     if not m:
-        print("GUARD: the >=900px block is missing - `anywhere` would be global")
+        print("GUARD: the >=900px block is missing")
         bad += 1
-    elif "anywhere" not in m.group(1):
-        print("GUARD: `anywhere` is not inside the >=900px block")
-        bad += 1
-    # Strip CSS comments before looking. The first version of this guard fired
-    # on its own explanatory comment - "`anywhere` is counted in min-content
-    # width" - which is the guard checking the wrong thing, the exact failure
-    # mode it exists to prevent.
-    outside = css.replace(m.group(0), "") if m else css
-    outside = re.sub(r"/\*[\s\S]*?\*/", "", outside)
-    if "anywhere" in outside:
-        print("GUARD: `anywhere` also appears OUTSIDE the >=900px block. That is "
-              "the regression that rendered 'MINIMUM' as 'MIN/IMU/M' on a phone.")
+    elif "white-space:normal" not in m.group(1):
+        print("GUARD: the nowrap release is not inside the >=900px block, so it "
+              "would also apply on a phone, where a scroller is the right answer")
         bad += 1
 
     for s_ in SCROLLERS:
