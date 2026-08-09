@@ -1369,7 +1369,12 @@ def main():
     # own patterns into the American spellings too, and the guard then fired on
     # every correct word and caught nothing. There is now no British spelling
     # literal anywhere in this file for a future sweep to find.
-    text = re.sub(r"<[^>]+>", " ", s).lower()
+    # Reader-visible prose only. Scripts and stylesheets are stripped whole,
+    # not just tag-stripped: the donor chrome carries a JavaScript comment with
+    # a British spelling in it, and failing this build over a code comment
+    # nobody reads would be the guard crying wolf on its first outing.
+    text = re.sub(r"<(script|style)\b[\s\S]*?</\1>", " ", s, flags=re.I)
+    text = re.sub(r"<[^>]+>", " ", text).lower()
     for right, cut, paste in (("license", "se", "ce"), ("labor", "or", "our"),
                               ("behavior", "or", "our"), ("defense", "se", "ce"),
                               ("counseling", "el", "ell"), ("organiz", "z", "s"),
