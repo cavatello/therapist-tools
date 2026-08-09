@@ -294,7 +294,7 @@ table.li-pay td.who{font-weight:600;color:%(ink)s;white-space:nowrap}
     background-attachment:local, local, scroll, scroll;
   }
   /* A scroller only helps if the table keeps a usable width inside it. An
-     auto-layout table at width:100% shrinks to fit its container, so without a
+     auto-layout table at width:100%% shrinks to fit its container, so without a
      min-width the columns just squeeze instead of scrolling. */
   table.li-pay{min-width:560px}
   table.li-rate{min-width:420px}
