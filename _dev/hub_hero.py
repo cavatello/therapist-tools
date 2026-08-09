@@ -234,9 +234,9 @@ CSS = """<style>/* _dev/hub_hero.py */
 .hh-figs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 12px}
 .hh-fig{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.34);
   border-radius:11px;padding:9px 13px;min-width:132px}
-.hh-fig .n{display:block;font-family:'Fraunces',Georgia,serif;font-size:25px;
+.hh-fig .hhn{display:block;font-family:'Fraunces',Georgia,serif;font-size:25px;
   line-height:1.05;color:%(gold)s}
-.hh-fig .l{display:block;font-size:12.4px;line-height:1.4;margin-top:3px;
+.hh-fig .hhl{display:block;font-size:12.4px;line-height:1.4;margin-top:3px;
   color:rgba(255,255,255,.86);max-width:22ch}
 .hh-chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 0}
 .hh-chip{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
@@ -247,7 +247,7 @@ CSS = """<style>/* _dev/hub_hero.py */
 .libband .dek b{color:%(gold)s;font-weight:600}
 @media (max-width:640px){
   .hh-fig{min-width:0;flex:1 1 46%%;padding:8px 10px}
-  .hh-fig .n{font-size:21px}
+  .hh-fig .hhn{font-size:21px}
 }
 </style>"""
 
@@ -270,7 +270,7 @@ def anchor_for(page_html, label):
 
 def hero_block(cfg, m, page_html, up=""):
     figs = "".join(
-        '<div class="hh-fig"><span class="n">%s</span><span class="l">%s</span></div>'
+        '<div class="hh-fig"><span class="hhn">%s</span><span class="hhl">%s</span></div>'
         % (fill(n, m), fill(l, m)) for n, l in cfg["figs"])
     chips = []
     for label, forced in cfg["chips"]:
@@ -328,6 +328,11 @@ def main():
         k = s.find('<p class="dek">')
         k = s.find("</p>", k) + len("</p>")
         s = s[:k] + blk + s[k:]
+
+        # The eyebrow now says "Training - California", so the lone CALIFORNIA
+        # chip under the figures is the same word twice.
+        s = re.sub(r'<div class="libmeta">\s*<span>California</span>\s*</div>',
+                   "", s, count=1)
 
         e = s.lower().rfind("</body>")
         s = s[:e] + css + "\n" + s[e:]
