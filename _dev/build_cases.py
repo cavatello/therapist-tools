@@ -164,6 +164,70 @@ CSS = """<style>/* _dev/build_cases.py */
 .dc-row .rm span.o{background:%(ink)s;color:#fff;border-color:%(ink)s}
 .dc-row .rm span.c{background:%(gold)s;color:%(ink)s;border-color:%(ink)s}
 
+/* ------------------------------------------------------------ the filter */
+/* Chips, not a select. A reader scanning a library wants to see the whole set
+   of ways in before choosing one, and a collapsed <select> hides exactly that.
+   The count line below them is the honest part - it says what is showing. */
+.dc-filt{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.dc-fb{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;border:2px solid %(ink)s;
+  border-radius:999px;padding:8px 14px;background:#fff;color:%(ink)s;
+  cursor:pointer;box-shadow:3px 3px 0 %(ink)s;line-height:1}
+.dc-fb:hover{background:%(cream)s}
+.dc-fb[aria-pressed="true"]{background:%(gold)s;box-shadow:2px 2px 0 %(ink)s;
+  transform:translate(1px,1px)}
+.dc-count{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:%(pine)s;margin:0 0 18px}
+.dc-grp[hidden]{display:none}
+
+/* the two repeat DUI write-ups: kept, published, and deliberately quiet */
+.dc-more{border-top:2px solid #E6E0D2;margin:10px 0 0;padding:12px 0 4px}
+.dc-more>p{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:%(muted)s;margin:0 0 8px}
+.dc-min{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;
+  text-decoration:none;padding:6px 0}
+.dc-min:hover{background:%(cream)s}
+.dc-min .rt{font-size:14.4px;line-height:1.4;color:%(ink)s;font-weight:600}
+.dc-min .rm{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.07em;text-transform:uppercase;color:%(muted)s}
+
+/* ------------------------------------------- discussion, on the case page */
+/* Visually distinct from every block above it, on purpose. Everything higher
+   up the page is what the decision says; this is argument about it, and the
+   reader is entitled to see which is which without reading a disclaimer. */
+.dc-why{border:2px solid %(pine)s;border-left-width:9px;border-radius:12px;
+  background:%(paper)s;padding:15px 18px;margin:0 0 22px}
+.dc-why p{font-size:15.4px;line-height:1.62;color:%(ink)s;margin:0;max-width:66ch}
+.dc-why .l{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:%(pine)s;display:block;
+  margin:0 0 6px}
+.dc-disc{border:2px dashed #9CB3A6;border-radius:14px;background:#fff;
+  padding:21px 23px;margin:0 0 22px}
+.dc-disc h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+  letter-spacing:-.028em;font-size:20px;color:%(ink)s;margin:0 0 4px}
+.dc-disc .sub{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.11em;text-transform:uppercase;color:%(pine)s;margin:0 0 12px}
+.dc-disc p{font-size:15.4px;line-height:1.74;color:#3A3529;margin:0 0 13px;max-width:68ch}
+.dc-disc p:last-child{margin:0}
+.dc-disc p b{color:%(ink)s}
+.dc-ask{border:2px solid %(ink)s;border-radius:14px;background:%(cream)s;
+  box-shadow:6px 6px 0 %(pine)s;padding:20px 23px;margin:0 0 22px}
+.dc-ask h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+  letter-spacing:-.028em;font-size:20px;color:%(ink)s;margin:0 0 4px}
+.dc-ask .sub{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.11em;text-transform:uppercase;color:%(pine)s;margin:0 0 13px}
+.dc-ask ol{margin:0;padding:0 0 0 21px}
+.dc-ask li{font-size:15.2px;line-height:1.7;color:#3A3529;margin:0 0 11px;max-width:66ch}
+.dc-ask li:last-child{margin:0}
+
+/* ------------------------------------------------- contents, on a case page */
+.dc-toc{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 24px}
+.dc-toc a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  border:1.5px solid #CFC7B2;border-radius:999px;padding:6px 12px;
+  color:#4A4436;background:%(cream)s}
+.dc-toc a:hover{border-color:%(ink)s;background:%(gold)s;color:%(ink)s}
+
 /* ------------------------------------------------------------- the table */
 .dc-tw{overflow-x:auto;border:2px solid %(ink)s;border-radius:12px;
   box-shadow:5px 5px 0 %(ink)s;background:#fff;margin:0 0 14px}
