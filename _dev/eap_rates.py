@@ -179,6 +179,10 @@ def row_html(name, sub, rate, kind, model, basis, url):
         "</tr>" % (name, subhtml, model, rate_cell, cls, label, basis, url))
 
 
+# NOTE: this is %-formatted, so every literal percent sign in it must be
+# doubled. A bare "30%" here raises "not enough arguments for format
+# string" - the third time that exact mistake has been made in this
+# codebase, after build_insurance's width:100% and content_frame's 3.1%.
 WHY = """<div class="eap-why">%(mark)s
 <h4>Why this table stopped being empty</h4>
 <p>It was empty for a good reason, and the reason turned out to be wrong.
@@ -204,7 +208,7 @@ I, which is what makes a straight comparison invalid rather than merely
 awkward.</p>
 <p><b>Rates in this channel have been cut, repeatedly.</b> Alma cut New York and
 Virginia rates on 1 December 2024. Headway cut some New York doctoral rates by
-around 30% on 1 January 2025. Talkspace restructured its bonus on 1 April 2025
+around 30%% on 1 January 2025. Talkspace restructured its bonus on 1 April 2025
 in a way clinicians describe as a significant cut. Any figure from 2023 should
 be treated as void, which is why the two 2023 rows above are labelled and dated
 rather than quietly folded into a range.</p>
