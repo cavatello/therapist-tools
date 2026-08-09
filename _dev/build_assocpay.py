@@ -438,7 +438,14 @@ CSS = """<style>/* _dev/build_assocpay.py */
   max-width:20ch}
 .ap-hero .hl{font-size:17px;line-height:1.6;color:rgba(255,255,255,.92);
   margin:0 0 18px;max-width:64ch}
-.ap-hero .hl b{color:%(gold)s}
+/* Not the site gold. #F6C560 on pine measures 4.35:1 at this size, which is
+   under the 4.5 floor every other pass on this site enforces - close enough
+   to look fine and still fail an audit. #FFD37A is the lighter gold the hero
+   kicker directly above already uses on the same background, so this borrows
+   a colour that is in the palette rather than inventing one. On the ink
+   panels further down, plain %(gold)s clears the floor comfortably and is
+   left alone. */
+.ap-hero .hl b{color:#FFD37A}
 .ap-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
   gap:0;border:2px solid %(ink)s;border-radius:12px;overflow:hidden;margin:0 0 18px;
   background:%(ink)s}
@@ -694,6 +701,25 @@ def money(n):
     return "$%s" % format(int(round(n)), ",d")
 
 
+def _nums(rng):
+    """The two dollar figures out of a "$66,560 &ndash; $81,860" cell."""
+    got = [int(x.replace(",", "")) for x in re.findall(r"\$([\d,]+)", rng)]
+    if len(got) != 2:
+        sys.exit("build_assocpay: %r is not a two-figure range. Every band in "
+                 "the pay tables is read for the summary sentences under them, "
+                 "so a cell that cannot be parsed is a sentence that would "
+                 "have been wrong." % rng)
+    return got
+
+
+def band_floor(rng):
+    return _nums(rng)[0]
+
+
+def band_ceiling(rng):
+    return _nums(rng)[1]
+
+
 # ------------------------------------------------------------------ the body
 def body():
     o = ['<article class="ap-wrap">']
@@ -947,10 +973,18 @@ def body():
                  "</td><td>%s</td><td>%s</td><td class='f'>%s</td>"
                  "<td>%s</td></tr>" % (url, emp, role, city, rng, note))
     o.append("</table></div>")
+    # Counted, not asserted. The first draft of this sentence said "four of
+    # the five" from memory; it is three, and a wrong count sitting under a
+    # table the reader can count themselves is the fastest way to lose them.
+    WORD = ("none", "one", "two", "three", "four", "five", "six", "seven")
+    under = [r for r in LA_NONPROFIT if band_floor(r[3]) <= EXEMPT]
     o.append('<p class="ap-cap">The LA associate band runs roughly '
-             '<b>$58,000 to $95,000</b>, clustering at $68,000&ndash;$85,000. '
-             'Note that four of the five postings sit at or below the '
-             '$70,304 exempt floor at the bottom of their band.</p>')
+             '<b>$%s to $%s</b>. Note that %s of the %s postings start at or '
+             'below the $70,304 exempt floor, so the bottom of those bands '
+             'cannot lawfully be a salaried-exempt post.</p>'
+             % (format(min(band_floor(r[3]) for r in LA_NONPROFIT), ",d"),
+                format(max(band_ceiling(r[3]) for r in LA_NONPROFIT), ",d"),
+                WORD[len(under)], WORD[len(LA_NONPROFIT)]))
 
     o.append('<h3 class="ap-h3">Bay Area nonprofits</h3>')
     o.append('<div class="ap-tw"><table class="ap-t">')
@@ -961,14 +995,21 @@ def body():
                  "</td><td>%s</td><td>%s</td><td class='f'>%s</td>"
                  "<td>%s</td></tr>" % (url, emp, role, city, rng, note))
     o.append("</table></div>")
-    o.append('<p class="ap-cap">Bay Area nonprofits pay associates roughly '
-             '<b>$8,000 to $12,000 more</b> than LA nonprofits for the same '
-             'work, against a cost of living that is higher by a good deal '
-             'more than that &mdash; the site&rsquo;s '
+    # Median of the band floors either side, computed from the rows above, so
+    # the sentence moves when the tables do.
+    def med(rows):
+        v = sorted(band_floor(r[3]) for r in rows)
+        n = len(v)
+        return v[n // 2] if n % 2 else (v[n // 2 - 1] + v[n // 2]) / 2.0
+    o.append('<p class="ap-cap">On the rows above, the median Bay Area band '
+             'starts at %s against %s in LA &mdash; <b>about %s more</b> for '
+             'the same work, against a cost of living that is higher by a '
+             'good deal more than that. The site&rsquo;s '
              '<a href="%s">cost-of-living comparison</a> has the offsetting '
              'numbers. Seneca&rsquo;s <b>+$4,000 on licensure</b> is worth '
              'noticing: it prices the thing this whole decision is about.</p>'
-             % COL)
+             % (money(med(BAY_NONPROFIT)), money(med(LA_NONPROFIT)),
+                money(med(BAY_NONPROFIT) - med(LA_NONPROFIT)), COL))
 
     o.append('<h3 class="ap-h3">Private practice, per session</h3>')
     o.append('<p class="ap-d">Almost nothing is published here. Consultants '
@@ -1038,12 +1079,14 @@ def body():
              '<a href="https://leginfo.legislature.ca.gov/faces/'
              'codes_displaySection.xhtml?sectionNum=4980.43.&amp;lawCode=BPC" '
              'target="_blank" rel="noopener">&sect;4980.43</a>; the statute is '
-             'published, the division is ours. Assumes no weeks lost. The '
-             'shaded rows at the bottom are the ones where the six-year '
+             'published, the division is ours. Assumes no weeks lost. '
+             '<b>The two rows in red at the top</b> are where the six-year '
              'registration limit becomes a live risk &mdash; a registration '
              'may be renewed five times and no further, and at six clinical '
-             'hours a week you would need 292 weeks with nothing going '
-             'wrong.</p>')
+             'hours a week you would need 292 weeks with nothing at all going '
+             'wrong. <b>The four shaded rows at the foot</b> are where the '
+             'calendar has taken over: the caseload has stopped mattering and '
+             'every one of them licenses you on the same day.</p>')
 
     o.append('<h3 class="ap-h3">Four things that quietly change the '
              'answer</h3>')
