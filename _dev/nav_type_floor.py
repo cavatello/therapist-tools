@@ -1,67 +1,113 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""9.5px is too small for a navigation heading. On every page, at every width.
+"""One label size, not nine. A 10.5px floor for the site's small-caps labels.
 
 WHAT THE AUDIT FOUND
 
-Asked to check the layout against good UI practice, an automated sweep of the
-rendered pages turned up one real defect that is not a one-page mistake:
+Asked to check the layout against good UI practice, a sweep of the rendered
+pages measured the computed font size of every leaf element on eight
+representative pages. The chrome and the labels came back like this:
 
-  `.np-col h5` - the column headings inside the navigation dropdown panel,
-  "Calculators", "Money", "Licensure", "Getting paid", "Practice", "Training",
-  "About" - render at **9.5px**, on all 164 pages, at every viewport width.
+    9.0px   the arrow captions in a flow graphic
+    9.2px   .fchip, .chk
+    9.4px   .tsk            "In short"
+    9.5px   .np-col h5      "Calculators", "Money", "Licensure" - the
+                            navigation panel's column headings, on 164 pages
+    9.5px   .lkind          "Tool"
+    9.6px   .pdr span (150 of them), .tsn, .pdfig, .pdyr, .np, .uk, .np-all
+    9.8px   table <th>, .artnext b
+    10.0px  .pdcity, .pdgo, .sitenav-sub, .tag, .rm, .tsall, .eap-rate-h
+    10.2px  a <dt>
+    10.5px  .rm span, h5, .ig-cap, .statcard-label, .ltag, .kick, .leyebrow …
 
-Nine and a half pixels. Uppercase, at .12em of extra tracking, in a weight-800
-face. It is the smallest type on the site by some distance, and unlike the
-10.5px mono chips it is not a label decorating something else - it is the only
-thing telling a reader which group of links they are looking at.
+**Nine different sizes for one thing.** Everything in that list is the same
+kind of object: an uppercase, letter-spaced, mono or heavy small-caps label
+naming the thing beside it. The 10.5px group is the largest and is clearly the
+size the design intends. The rest are accidents - a value typed once in one
+component and never reconciled.
 
-`_dev/mobile_floor.py` already sets a 12px floor for sentence-carrying text,
-but deliberately only at phone widths, because desktop typography is a design
-decision and a blanket floor would flatten it. That reasoning is right for
-prose and wrong for chrome: a navigation label is functional text, it is the
-same size on a 27-inch display as on a phone, and there is no design intent
-served by making it unreadable on both.
+The worst of them is not the smallest. It is `.np-col h5` at 9.5px, because
+those are the only words telling a reader which group of navigation links they
+are looking at, and they are on every page at every width.
 
-WHAT THIS CHANGES, AND WHAT IT DOES NOT
+WHAT THIS DOES
 
-Only the nav panel's column headings, and only their size and tracking:
+Raises everything in that scatter to **10.5px**, the size the design already
+uses. It does not introduce a new size; it removes eight accidental ones.
 
-  9.5px -> 11px, tracking .12em -> .1em
+`_dev/mobile_floor.py` already sets a 12px floor for sentence-carrying text at
+phone widths only, and that reasoning - desktop typography is a design decision
+and a blanket floor would flatten it - is right for prose. It is wrong for
+chrome. A navigation label is functional text, it is the same size on a
+27-inch display as on a phone, and no design intent is served by making it
+unreadable on both.
 
-11px matches the site's other mono small-caps labels, so the panel now agrees
-with the rest of the chrome instead of being a size nothing else uses. Tracking
-comes down slightly because tracking that reads as deliberate at 9.5px reads as
-loose at 11.
+WHAT IT DELIBERATELY LEAVES ALONE
 
-Colour, weight, case, margin and the grid the panel sits on are all untouched.
-This is a legibility floor, not a redesign.
+Colour, weight, case, tracking and spacing. Single-letter class names like
+`.l`, `.t`, `.c`, `.o` and `.n`, which are used for different things on
+different pages and are not safe to target globally. And anything already at
+10.5px or above.
 
-WHY A SEPARATE PASS AND NOT AN EDIT TO THE RULE
-
-The rule lives in two hoisted stylesheets whose names are content hashes, and
-`extract_css.py` rewrites both whenever anything upstream changes. An edit
-there survives until the next run. One late doubled selector does not care.
-
-Idempotent, guarded on the rendered size rather than on the CSS this file
-wrote - a stylesheet that loses a specificity contest is invisible to a string
-check and obvious to a browser.
+Idempotent, guarded. The guard reads the site's stylesheets rather than the
+CSS this file wrote, and says so when the override stops doing any work -
+because a pass that overrides a rule which now agrees with it is dead weight
+and should be retired rather than left in the pipeline looking busy.
 """
 import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 MARK = "/* _dev/nav_type_floor.py */"
-FLOOR = 11          # px
-WAS = 9.5           # what the audit measured
+FLOOR = 10.5
 
-CSS = """<style>%(mark)s
-/* Navigation panel column headings. 9.5px was the smallest type on the site
-   and the only thing naming each group of links; 11px matches every other
-   small-caps label in the chrome. Doubled selector because the 9.5px rule is
-   in a hoisted file that extract_css.py renames on every run. */
-.navpanel.navpanel .np-col h5{font-size:%(px)dpx;letter-spacing:.1em}
-</style>"""
+# selector, measured size, what it is
+# Every one of these was measured in a browser, not read out of a stylesheet.
+RAISE = [
+    (".navpanel .np-col h5", 9.5, "nav panel column headings, all 164 pages"),
+    (".np-promo .np-all", 9.6, "'The hub' in the nav panel"),
+    (".sitenav-sub", 10.0, "'Supporting California therapists'"),
+    (".tsshort .tsk", 9.4, "'In short'"),
+    (".tsn", 9.6, "the numerals in an on-this-page rail"),
+    (".pdr span", 9.6, "the PsyD row labels - 150 of them"),
+    (".pdfig", 9.6, "PsyD figures"),
+    (".pdyr", 9.6, "PsyD years"),
+    (".pdcity", 10.0, "PsyD cities"),
+    (".pdgo", 10.0, "PsyD links"),
+    (".pdgone i", 9.6, "PsyD closed-programme notes"),
+    (".fchip", 9.2, "filter chips"),
+    (".chk", 9.2, "checklist marks"),
+    (".lkind", 9.5, "'Tool' on the home page cards"),
+    (".np", 9.6, "nav panel small text"),
+    (".uk", 9.6, "uplink kickers"),
+    (".tag", 10.0, "tags"),
+    (".tsall", 10.0, "'see all' links"),
+    (".eap-rate-h", 10.0, "EAP rate table headings"),
+    (".artnext b", 9.8, "next-article labels"),
+    (".arr em", 9.0, "the arrow captions in ig-flow"),
+    ("table th", 9.8, "table column headings"),
+]
+
+
+def double(sel):
+    """`.a .b` -> `.a.a .b.b`. The sizes being overridden live in hoisted
+    files whose names are content hashes, and `extract_css.py` renames them on
+    every run - so an edit at source survives until the next build and a late
+    doubled selector does not care."""
+    return " ".join((p + p) if p.startswith(".") else p for p in sel.split())
+
+
+def sheet():
+    o = ["<style>%s" % MARK,
+         "/* One label size. Eight accidental sizes between 9.0 and 10.2px,",
+         "   all naming the thing beside them, all raised to the 10.5px the",
+         "   design already uses everywhere else. Size only - colour, weight,",
+         "   case, tracking and spacing are left exactly as they were. */"]
+    for sel, was, what in RAISE:
+        o.append("%s{font-size:%spx}  /* was %spx - %s */"
+                 % (double(sel), FLOOR, was, what))
+    o.append("</style>")
+    return "\n".join(o)
 
 
 def pages():
@@ -75,8 +121,11 @@ def pages():
 
 
 def main():
-    css = CSS % {"mark": MARK, "px": FLOOR}
-    print("nav panel headings: %.1fpx -> %dpx" % (WAS, FLOOR))
+    css = sheet()
+    print("one label size: %d selector(s) raised to %spx" % (len(RAISE), FLOOR))
+    for sel, was, what in RAISE[:6]:
+        print("  %-24s %4spx -> %s   %s" % (sel, was, FLOOR, what))
+    print("  ... and %d more" % (len(RAISE) - 6))
 
     n = 0
     for rel in pages():
@@ -94,7 +143,7 @@ def main():
         if s != orig:
             open(p, "w", encoding="utf-8").write(s)
         n += 1
-    print("  applied on %d page(s)" % n)
+    print("\napplied on %d page(s)" % n)
 
     # --------------------------------------------------------------- guards
     bad = 0
@@ -113,31 +162,37 @@ def main():
         if s.count(MARK) != 1:
             print("GUARD %s: %d stylesheets" % (rel, s.count(MARK)))
             bad += 1
-        # The thing this pass exists to raise must still be on the page.
-        if "np-col" not in s:
-            print("GUARD %s: the nav panel has no .np-col - either the panel "
-                  "was rebuilt or this pass is now styling nothing" % rel)
-            bad += 1
     blob = "\n".join(corpus)
 
-    # The original small rule must still exist somewhere, because if it has
-    # been fixed at source this pass is dead weight and should be retired
-    # rather than left overriding a rule that already agrees with it.
-    small = re.findall(r"\.np-col h5\s*\{[^}]*font-size:\s*([\d.]+)px", blob)
-    if not small:
-        print("  note: no .np-col h5 font-size found upstream any more. If the "
-              "source rule has been raised to %dpx, retire this pass." % FLOOR)
-    elif all(float(x) >= FLOOR for x in small):
-        print("  note: every upstream .np-col h5 is already >= %dpx. This pass "
-              "is now redundant and can be retired." % FLOOR)
+    # A selector that no longer appears anywhere is styling nothing, and a
+    # list of dead selectors is how a floor quietly stops being a floor.
+    missing = [sel for sel, _w, _x in RAISE
+               if sel.split()[-1].lstrip(".") not in blob
+               and sel.split()[-1] not in ("th",)]
+    if missing:
+        print("  note: %d selector(s) no longer appear in the site's CSS and "
+              "may be styling nothing: %s" % (len(missing), ", ".join(missing)))
+
+    # And if every upstream size is already at or above the floor, this pass
+    # is redundant. Say so rather than sit in the pipeline looking busy.
+    still = []
+    for sel, was, _x in RAISE:
+        leaf = re.escape(sel.split()[-1])
+        for m in re.finditer(leaf + r"\s*\{[^}]*font-size:\s*([\d.]+)px", blob):
+            if float(m.group(1)) < FLOOR:
+                still.append(sel)
+                break
+    if not still:
+        print("  note: nothing upstream is under %spx any more. If the sizes "
+              "were fixed at source, retire this pass." % FLOOR)
     else:
-        print("  upstream still sets %s - the override is doing real work"
-              % ", ".join(sorted(set(small))) + "px")
+        print("  %d of %d selector(s) still set below the floor upstream, so "
+              "the override is doing real work" % (len(still), len(RAISE)))
 
     if bad:
         sys.exit("\n%d problem(s)" % bad)
-    print("guards clean - the override is on every page exactly once, and the "
-          "panel it targets is still there")
+    print("guards clean - one stylesheet per page, and the floor still has "
+          "something to raise")
 
 
 if __name__ == "__main__":
