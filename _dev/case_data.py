@@ -118,10 +118,12 @@ GROUPS = [
                 "sixty-two of the 103 decisions cite &sect;4982(a), and most of "
                 "those are a DUI arriving through the Department of Justice "
                 "notification feed rather than through a client. Three are "
-                "written up here rather than all of them, because past the first "
-                "one they repeat. What is kept is the case that shows what the "
-                "typical one looks like, the case about reporting it, and the "
-                "case that shows the Board does not need a conviction at all.",
+                "written up in full, because past the first one they repeat: the "
+                "case that shows what the typical one looks like, the case about "
+                "reporting it, and the case that shows the Board does not need a "
+                "conviction at all. The remaining two are listed at the end of "
+                "the group for completeness rather than because they teach "
+                "anything the first three do not.",
     },
     {
         "key": "probation",
@@ -1526,6 +1528,7 @@ CASES = [
     },
     {
         "slug": "discipline-case-a-forty-year-license-surrendered",
+        "minor": True,
         "group": "conviction",
         "t": "Licensed since the 1980s, surrendered after one DUI",
         "dek": "Offence in April, conviction in June, license gone by February.",
@@ -1614,6 +1617,7 @@ CASES = [
     },
     {
         "slug": "discipline-case-from-dui-to-surrender",
+        "minor": True,
         "group": "conviction",
         "t": "The whole arc: conviction, probation, then surrender seven months later",
         "dek": "The clearest illustration in the dataset of what failing "
