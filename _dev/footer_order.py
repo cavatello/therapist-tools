@@ -85,7 +85,16 @@ def band_span(s):
     end = s.find("</section>", m.end())
     if end < 0:
         return None
-    return (start, end + len("</section>"))
+    end += len("</section>")
+    # Carry footer_band's closing marker with the block. Leaving it behind
+    # splits a matched pair of markers across the page, which breaks that
+    # pass's MARK...END stripper on its next run - it then finds nothing to
+    # remove and adds a second band. That is exactly what happened, on 125
+    # pages, and it is the reason this four-line block exists.
+    mt = re.match(r"\s*<!-- /footer_band -->", s[end:end + 48])
+    if mt:
+        end += mt.end()
+    return (start, end)
 
 
 def main():

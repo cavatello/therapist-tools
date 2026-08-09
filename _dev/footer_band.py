@@ -92,8 +92,27 @@ def main():
         s = open(p, encoding="utf-8").read()
         orig = s
 
-        # always strip our own previous copy first
+        # Always strip our own previous copy first.
+        #
+        # This used to be one non-greedy MARK...END match, which assumes the two
+        # markers are still adjacent and still in that order. `_dev/footer_order.py`
+        # later moves the band - and, as written, ONLY the band - down to sit
+        # against the footer, leaving END behind above the relocated MARK. The
+        # regex then matched nothing, the strip silently did nothing, and this
+        # pass inserted a SECOND signup band on 125 pages. The guard below
+        # caught it. The stripper should not have needed the guard.
+        #
+        # So strip what is actually on the page rather than what this pass
+        # believes it wrote: the bracketed block if the markers still bracket
+        # it, then any surviving band, then any orphaned marker.
         s = re.sub(re.escape(MARK) + r"[\s\S]*?" + re.escape(END), "", s)
+        if base not in SKIP:
+            # Only on the pages this pass owns. about.html is the SOURCE the
+            # band is cloned from and rates.html carries its own copy tuned to
+            # that article; a blanket `<section class="ftnl">` strip deletes
+            # those originals, which is what the first version of this fix did.
+            s = re.sub(r'<section class="ftnl">[\s\S]*?</section>', "", s)
+            s = s.replace(MARK, "").replace(END, "")
 
         if base in SKIP or "sitefoot" not in s:
             if s != orig:
