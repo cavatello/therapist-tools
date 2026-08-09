@@ -1,0 +1,7 @@
+/* _dev/footer_order.py */
+/* The signup band now sits directly on the footer. They are the same colour
+   family, so the join has to disappear or it reads as two page endings. */
+.ftnl{margin-bottom:0 !important;border-bottom:0}
+.ftnl + .sitefoot,
+.ftnl + footer{margin-top:0;border-top:0}
+.sitefoot{margin-top:0}
