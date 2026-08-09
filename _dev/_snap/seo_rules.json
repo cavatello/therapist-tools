@@ -1,0 +1,10 @@
+{
+ "findings": [
+  "changes.html\ttitle-length\t73 chars",
+  "cost-of-incorporating-california-therapist.html\tdescription-length\t248 chars",
+  "cost-of-incorporating-california-therapist.html\ttitle-length\t82 chars",
+  "insurance-panels-california-therapist.html\tdescription-length\t218 chars",
+  "psychedelic-training-polaris-insight-kap.html\ttitle-length\t190 chars",
+  "therapist-tax-deductions-california.html\tdescription-length\t343 chars"
+ ]
+}

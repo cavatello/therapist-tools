@@ -77,10 +77,46 @@ do_setup() {
   do_publish "Set up publishing from the local folder"
 }
 
+# Runs immediately before every commit, so it cannot be skipped.
+#
+#   discovery.py   regenerates sitemap.xml from the pages that exist right now.
+#                  This is the whole reason the sitemap can never go stale: the
+#                  only path to the live site goes through it.
+#   seo_rules.py   read-only. Fails ONLY on findings that are new since
+#                  _dev/_snap/seo_rules.json, so a pre-existing problem never
+#                  blocks a push and a regression always does.
+#
+# Set TS_SKIP_CHECKS=1 to push anyway. That is deliberately awkward to type.
+prepublish() {
+  command -v python3 >/dev/null 2>&1 || { say "python3 not found - skipping checks"; return 0; }
+  [ -f "$ROOT/_dev/discovery.py" ] || return 0
+
+  say "Regenerating the sitemap..."
+  python3 "$ROOT/_dev/discovery.py" >/tmp/ts-discovery.log 2>&1 || {
+    say "discovery.py failed:"; tail -12 /tmp/ts-discovery.log; }
+
+  [ -f "$ROOT/_dev/seo_rules.py" ] || return 0
+  say "Checking the SEO rules..."
+  if python3 "$ROOT/_dev/seo_rules.py" >/tmp/ts-seo.log 2>&1; then
+    tail -1 /tmp/ts-seo.log | sed 's/^/  /'
+    return 0
+  fi
+  echo
+  cat /tmp/ts-seo.log
+  echo
+  if [ "${TS_SKIP_CHECKS:-0}" = "1" ]; then
+    say "TS_SKIP_CHECKS=1 - pushing anyway."
+    return 0
+  fi
+  fail "Not pushing. Fix the findings above, or:  TS_SKIP_CHECKS=1 ./_dev/publish.sh"
+}
+
 do_publish() {
   need_git
   [ -d "$ROOT/.git" ] || fail "Not set up yet. Run:  ./_dev/publish.sh setup"
   msg="${1:-Update $(date '+%Y-%m-%d %H:%M')}"
+
+  prepublish
 
   git add -A
   if git diff --cached --quiet; then
