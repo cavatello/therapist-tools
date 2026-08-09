@@ -87,9 +87,15 @@ def sheet():
          "%s{max-width:%dpx;padding-left:%dpx;padding-right:%dpx;"
          "margin-left:auto;margin-right:auto}" % (sel, CANON, PAD, PAD),
          "/* The measure moves onto the headline itself rather than staying in",
-         "   its container - same argument as _dev/one_grid.py. */",
-         ".%s.%s .hero h1{max-width:19ch}" % (BODYCLASS, BODYCLASS),
-         ".%s.%s .gapbar-wrap .gapbar{max-width:none}" % (BODYCLASS, BODYCLASS)]
+         "   its container - same argument as _dev/one_grid.py. 24ch, not 19:",
+         "   19 held the headline to 555px inside a 1128px grid and broke it",
+         "   over three lines with 570px of white beside it. */",
+         ".%s.%s .hero h1{max-width:24ch}" % (BODYCLASS, BODYCLASS),
+         ".%s.%s .gapbar-wrap .gapbar{max-width:none}" % (BODYCLASS, BODYCLASS),
+         "/* The gap bar and the on-this-page rail used to be 114px apart",
+         "   horizontally, which hid the fact that they are zero pixels apart",
+         "   vertically. Aligning them exposed it. */",
+         ".%s.%s .gapbar-wrap{margin-bottom:30px}" % (BODYCLASS, BODYCLASS)]
     for at, w in STEPS:
         o.append("@media (min-width:%dpx){%s{max-width:%dpx}}" % (at, sel, w))
     o.append("@media (max-width:640px){%s{padding-left:18px;"
