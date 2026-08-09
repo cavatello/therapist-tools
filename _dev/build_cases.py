@@ -405,26 +405,20 @@ def hub_body():
     o.append('<section class="dc-hero">')
     o.append('<p class="hk">Case library &middot; California &middot; 2024&ndash;2026</p>')
     o.append("<h1>What actually gets a California therapist disciplined</h1>")
-    o.append('<p class="hl">Every LMFT and AMFT disciplinary decision the Board of '
-             'Behavioral Sciences published between 2024 and 2026, read in full. '
-             '<b>Thirty of them are written up here</b> &mdash; what happened, '
-             'which subdivision of &sect;4982 it was charged under, how it '
-             'resolved, what it cost, and a discussion of what the Board was '
-             'actually deciding. No names. Every case number is given so you can '
-             'pull the signed decision yourself.</p>')
-    # Naming both audiences out loud, because they arrive for different reasons
-    # and each will otherwise assume the page is for the other one.
-    o.append('<p class="hl"><b>Written for two readers.</b> If you teach or take '
-             'a law-and-ethics course, every case ends with three discussion '
-             'questions and links to the code sections it turns on. If you are a '
-             'licensed MFT or an associate wondering what actually gets people '
-             'disciplined in California, the answer is on this page and it is '
-             'probably not what you expect.</p>')
+    # ONE sentence. The hero used to carry two long paragraphs plus the
+    # In-short card plus four figures plus the jump nav, and the reader could
+    # not see a single case without scrolling twice. Everything that was in
+    # those paragraphs - the two audiences, the method, the no-names rule - is
+    # still on the page; it is just no longer the first thing.
+    o.append('<p class="hl">Real BBS decisions, de-identified. <b>What happened,'
+             '</b> what it was charged under, and what it cost.</p>')
+    # Three figures, not four. The fourth was "62 of 103 cite 4982(a)", which
+    # is the finding of the section immediately below it and does not need
+    # saying twice before the reader has seen anything.
     o.append('<div class="dc-figs">')
-    for n, l in (("103", "signed decisions read in full"),
-                 ("30", "written up as case studies"),
-                 ("62", "of 103 cite &sect;4982(a) &mdash; a conviction"),
-                 ("$15,883", "the largest cost recovery ordered")):
+    for n, l in (("103", "decisions read"),
+                 ("30", "written up"),
+                 ("$15,883", "largest cost recovery")):
         o.append('<div><span class="n">%s</span><span class="l">%s</span></div>' % (n, l))
     o.append("</div>")
     o.append('<p class="hj">')
