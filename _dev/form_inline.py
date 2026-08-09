@@ -80,51 +80,35 @@ def is_handler(code):
 def handler():
     """The signup IIFE, exactly as the builder writes it.
 
-    Taken by locating the sentence and walking back to the `(function(){` that
-    opens its block, rather than by slicing at a fixed offset - the file has
-    several IIFEs and they get reordered."""
+    Taken by splitting on the file's own `/*---*/` separators and keeping the
+    segment that contains the sentence, rather than by walking braces. A brace
+    walker was the first version and it ran off the end of the file: the
+    handler contains `String(s).replace(/[<>&"]/g, '')`, and the lone double
+    quote inside that regex literal reads as the start of a string to anything
+    that is not a real JavaScript parser. The separators are already there and
+    are what the file is organised by."""
     if not os.path.exists(SOURCE):
         sys.exit("form_inline: %s is gone. That file is the single copy of "
                  "this handler; this pass cannot invent a replacement, and "
                  "writing a second implementation is what broke it last time."
                  % SOURCE)
     js = open(SOURCE, encoding="utf-8").read()
-    i = js.find(SIGIL)
-    if i < 0:
-        sys.exit("form_inline: %r is no longer in %s - the handler was renamed "
-                 "or removed" % (SIGIL, SOURCE))
-    start = js.rfind("(function(){", 0, i)
-    if start < 0:
-        sys.exit("form_inline: found the handler but not the function that "
-                 "opens it")
-    # walk to the matching close, counting braces outside strings and comments
-    depth = 0
-    end = -1
-    k = start
-    while k < len(js):
-        c = js[k]
-        if c in "'\"":
-            q = c
-            k += 1
-            while k < len(js) and js[k] != q:
-                k += 2 if js[k] == "\\" else 1
-        elif js.startswith("//", k):
-            k = js.find("\n", k)
-            if k < 0:
-                break
-        elif js.startswith("/*", k):
-            k = js.find("*/", k) + 1
-        elif c == "{":
-            depth += 1
-        elif c == "}":
-            depth -= 1
-            if depth == 0:
-                end = js.find(";", k)
-                break
-        k += 1
-    if end < 0:
-        sys.exit("form_inline: could not find the end of the handler")
-    return js[start:end + 1]
+    parts = [p.strip() for p in js.split("/*---*/")]
+    hit = [p for p in parts if SIGIL in p]
+    if len(hit) != 1:
+        sys.exit("form_inline: %d of the %d blocks in %s mention %r - expected "
+                 "exactly one" % (len(hit), len(parts), SOURCE, SIGIL))
+    code = hit[0]
+    # Cheap sanity, since nothing here parses JavaScript: it must be a
+    # self-contained IIFE and its braces must balance across the whole block.
+    if not code.startswith("(function(){") or not code.rstrip().endswith(");"):
+        sys.exit("form_inline: the block is not a self-contained IIFE")
+    if code.count("{") != code.count("}"):
+        sys.exit("form_inline: braces do not balance in the lifted handler")
+    if not is_handler(code):
+        sys.exit("form_inline: the lifted block does not bind a submit "
+                 "listener and post - it is not the handler")
+    return code
 
 
 def main():

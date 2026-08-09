@@ -77,6 +77,7 @@
 <footer class="sitefoot"><div class="ftin"><div class="ftcols"><div><h5>Tools</h5><a href="practice-simulator.html">Practice Simulator</a><a href="therapist-tax-strategy-california.html">Tax &amp; Retirement</a><a href="grow-your-therapy-practice.html">Grow Your Practice</a><a href="associate-mft-job-advisor.html">Associate Job Advisor</a><a href="amft-3000-hours-california.html">3,000 Hours</a><a href="therapist-cost-of-living-california.html">Cost of Living</a></div><div><h5>Topics</h5><a href="money/">Money</a><a href="licensure/">Licensure</a><a href="getting-paid/">Getting paid</a><a href="practice/">Running a practice</a><a href="training/">Training</a></div><div><h5>Browse</h5><a href="resources.html">Everything</a><a href="questions.html">Every question</a><a href="calculators.html">All the calculators</a><a href="changes.html">What changed</a></div><div><h5>About</h5><a href="about.html">What this is</a><a href="newsletter.html">Stay updated</a><a href="contact.html">Contact</a><a href="affiliate-disclosure.html">Affiliate disclosure</a></div><div><h5>The small print</h5><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy</a><a href="contact.html">Report a wrong figure</a><p>Figures are 2026 federal and California rates, each carrying the date it was last checked.</p></div></div><p class="ftby"><b>Built by Cavatello.</b> Nothing here is legal, tax, financial or clinical advice, and using this site does not create a professional relationship &mdash; see the <a href="terms.html">Terms of Use</a>.</p></div></footer>
 <link rel="stylesheet" href="css/7cbdacd0330d.css">
 <link rel="stylesheet" href="css/967d1434b320.css">
+<link rel="stylesheet" href="css/bffbc8b79c85.css">
 <link rel="stylesheet" href="css/05b68a8d947e.css">
 <script>
 /* Scroll-spy for the section rail. rootMargin is asymmetric on purpose: the
@@ -306,7 +307,79 @@
   }, true);
 })();
 </script>
-<link rel="stylesheet" href="css/bffbc8b79c85.css"><link rel="stylesheet" href="css/f3c5f8978431.css">
+<script>// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt
+(function(){
+  // Post the signup in the background instead of letting the browser navigate.
+  // Formspree's own "Thanks! The form was submitted successfully. Go back" page
+  // is a dead end - it throws the reader off the site mid-thought and gives them
+  // a back button as the only way home. Same request, same endpoint, but the
+  // answer lands where they were standing.
+  function esc(s){ return String(s).replace(/[<>&"]/g, ''); }
+  function ok(f){
+    var email = (f.querySelector('input[type=email]') || {}).value || '';
+    var d = document.createElement('div');
+    d.className = 'nlok';
+    d.setAttribute('role', 'status');
+    // Two kinds of form share this handler. A message and a mailing-list
+    // signup are not the same event and must not get the same answer - being
+    // told "you're on the list" after reporting a bug reads as though the
+    // report went nowhere.
+    if (f.dataset.kind === 'contact'){
+      d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+        + '<b>Message sent.</b>'
+        + '<p>It is read by a person, usually within a day or two'
+        + (email ? ', and any reply goes to <b style="display:inline;font-family:inherit;'
+            + 'font-size:inherit">' + esc(email) + '</b>' : '')
+        + '. If it is a bug, the fix and the date it landed go on the page it affects.</p>'
+        + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
+        + 'with a link to it, or just describe what looked wrong.</p></div>';
+      f.parentNode.replaceChild(d, f);
+      if (window.gtag) gtag('event', 'contact_message');
+      return;
+    }
+    d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+      + '<b>You\u2019re on the list.</b>'
+      + '<p><b style="display:inline;font-family:inherit;font-size:inherit">'
+      + esc(email) + '</b> is on it. The next issue goes out at the start of '
+      + 'the month \u2014 a free tool or two, what colleagues are charging, and whatever caught '
+      + 'someone out.</p>'
+      + '<p>Nothing else happens in the meantime. One click leaves, any time.</p></div>';
+    f.parentNode.replaceChild(d, f);
+    if (window.gtag) gtag('event', 'newsletter_signup');
+  }
+  function fail(f){
+    var e = f.querySelector('.nlerr');
+    if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
+    e.textContent = f.dataset.kind === 'contact'
+      ? 'That did not go through, and nothing was sent. Copy your message somewhere safe and '
+        + 'try again in a few minutes.'
+      : 'That did not go through, and nothing was sent. Check the address and try again.';
+  }
+  // Both form kinds, or the contact page silently falls back to a native
+  // POST and navigates to Formspree's dead-end thanks page - the exact
+  // behaviour this handler exists to prevent.
+  document.querySelectorAll('form.nlform, form.cform').forEach(function(f){
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var btn = f.querySelector('button[type=submit]'), label = btn ? btn.textContent : '';
+      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
+                 btn.textContent = 'Sending\u2026'; }
+      fetch(f.action, {method: 'POST', body: new FormData(f),
+                       headers: {'Accept': 'application/json'}})
+        .then(function(r){
+          if (r.ok) { ok(f); return; }
+          throw new Error('http ' + r.status);
+        })
+        .catch(function(){
+          fail(f);
+          if (btn) { btn.removeAttribute('aria-busy'); btn.disabled = false;
+                     btn.textContent = label; }
+        });
+    });
+  });
+})();
+</script>
+<link rel="stylesheet" href="css/f3c5f8978431.css">
 
 <link rel="stylesheet" href="css/5b9864342bfc.css">
 <link rel="stylesheet" href="css/59b6da339bd0.css">

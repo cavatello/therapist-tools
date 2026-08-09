@@ -60,6 +60,7 @@
 
 
 
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsmeta"><div class="tsrow"><span class="tsk">Last checked</span><span class="tsv">7 August 2026</span><a class="tsall" href="changes.html">All updates &rarr;</a></div><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Practice</h2><p class="ud">Filling the week, and running the admin behind it.</p><div class="ug"><a class="uc" href="hiring-first-associate-california-therapist.html"><b>Should I hire an associate?</b><span>The loaded cost, the break-even caseload, and the classification rule</span></a><a class="uc" href="therapist-working-remotely-california.html"><b>Can I see California clients from abroad?</b><span>The Board&#x27;s own answer, then the same practice priced in eight places</span></a><a class="uc" href="grow-your-therapy-practice.html"><b>How do I fill my caseload?</b><span>Client lifetime value, the leakiest channel, and a monthly enquiry target</span></a></div><a class="uall" href="practice/">All 12 pages on practice &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -203,6 +204,8 @@
 
 
 
+
+<link rel="stylesheet" href="css/bffbc8b79c85.css">
 <link rel="stylesheet" href="css/cf7ba749a7ea.css">
 
 <link rel="stylesheet" href="css/967d1434b320.css">
@@ -374,7 +377,79 @@
   }, true);
 })();
 </script>
-<link rel="stylesheet" href="css/bffbc8b79c85.css"><link rel="stylesheet" href="css/f3c5f8978431.css">
+<script>// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt
+(function(){
+  // Post the signup in the background instead of letting the browser navigate.
+  // Formspree's own "Thanks! The form was submitted successfully. Go back" page
+  // is a dead end - it throws the reader off the site mid-thought and gives them
+  // a back button as the only way home. Same request, same endpoint, but the
+  // answer lands where they were standing.
+  function esc(s){ return String(s).replace(/[<>&"]/g, ''); }
+  function ok(f){
+    var email = (f.querySelector('input[type=email]') || {}).value || '';
+    var d = document.createElement('div');
+    d.className = 'nlok';
+    d.setAttribute('role', 'status');
+    // Two kinds of form share this handler. A message and a mailing-list
+    // signup are not the same event and must not get the same answer - being
+    // told "you're on the list" after reporting a bug reads as though the
+    // report went nowhere.
+    if (f.dataset.kind === 'contact'){
+      d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+        + '<b>Message sent.</b>'
+        + '<p>It is read by a person, usually within a day or two'
+        + (email ? ', and any reply goes to <b style="display:inline;font-family:inherit;'
+            + 'font-size:inherit">' + esc(email) + '</b>' : '')
+        + '. If it is a bug, the fix and the date it landed go on the page it affects.</p>'
+        + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
+        + 'with a link to it, or just describe what looked wrong.</p></div>';
+      f.parentNode.replaceChild(d, f);
+      if (window.gtag) gtag('event', 'contact_message');
+      return;
+    }
+    d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+      + '<b>You\u2019re on the list.</b>'
+      + '<p><b style="display:inline;font-family:inherit;font-size:inherit">'
+      + esc(email) + '</b> is on it. The next issue goes out at the start of '
+      + 'the month \u2014 a free tool or two, what colleagues are charging, and whatever caught '
+      + 'someone out.</p>'
+      + '<p>Nothing else happens in the meantime. One click leaves, any time.</p></div>';
+    f.parentNode.replaceChild(d, f);
+    if (window.gtag) gtag('event', 'newsletter_signup');
+  }
+  function fail(f){
+    var e = f.querySelector('.nlerr');
+    if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
+    e.textContent = f.dataset.kind === 'contact'
+      ? 'That did not go through, and nothing was sent. Copy your message somewhere safe and '
+        + 'try again in a few minutes.'
+      : 'That did not go through, and nothing was sent. Check the address and try again.';
+  }
+  // Both form kinds, or the contact page silently falls back to a native
+  // POST and navigates to Formspree's dead-end thanks page - the exact
+  // behaviour this handler exists to prevent.
+  document.querySelectorAll('form.nlform, form.cform').forEach(function(f){
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var btn = f.querySelector('button[type=submit]'), label = btn ? btn.textContent : '';
+      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
+                 btn.textContent = 'Sending\u2026'; }
+      fetch(f.action, {method: 'POST', body: new FormData(f),
+                       headers: {'Accept': 'application/json'}})
+        .then(function(r){
+          if (r.ok) { ok(f); return; }
+          throw new Error('http ' + r.status);
+        })
+        .catch(function(){
+          fail(f);
+          if (btn) { btn.removeAttribute('aria-busy'); btn.disabled = false;
+                     btn.textContent = label; }
+        });
+    });
+  });
+})();
+</script>
+<link rel="stylesheet" href="css/f3c5f8978431.css">
 
 <link rel="stylesheet" href="css/5b9864342bfc.css">
 <link rel="stylesheet" href="css/59b6da339bd0.css">
