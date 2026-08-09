@@ -410,7 +410,13 @@ def hub_body():
                  % (g["n"], PINE, len(cs)))
         o.append('<p class="gl">%s</p>' % g["lede"])
         for c in cs:
-            o.append('<a class="dc-row" href="%s">' % c["slug"] + ".html")
+            # The parenthesis matters: `"%s" % x + ".html"` binds as
+            # `("%s" % x) + ".html"`, which puts the extension OUTSIDE the
+            # attribute and produces thirty dead links that the internal-link
+            # guard cannot see, because `href="slug"` does not match its
+            # `[a-z0-9-]+\.html` pattern. It shipped once, here, and the
+            # reachable-from-the-hub guard below is what caught it.
+            o.append('<a class="dc-row" href="%s.html">' % c["slug"])
             o.append('<span class="rt">%s</span>' % c["t"])
             o.append('<span class="rd">%s</span>' % c["dek"])
             o.append('<span class="rm">')
@@ -800,6 +806,14 @@ def main():
             if not os.path.exists(os.path.join(SITE, href)):
                 print("GUARD %s: links %s which does not exist" % (rel, href))
                 bad += 1
+        # A relative href with no extension is the shape of the bug above: it
+        # slips past the check directly overhead, because that check only looks
+        # at things already ending in .html.
+        for href in set(re.findall(r'href="(?!https?:|mailto:|#|/)([^"#?]+)"', s)):
+            if not href.endswith((".html", ".pdf", ".xml", ".ico", ".png",
+                                  ".svg", ".css", ".js", "/")):
+                print("GUARD %s: href=%r has no extension" % (rel, href))
+                bad += 1
         for url, attrs in re.findall(r'<a href="(https?://[^"]+)"([^>]*)>', s):
             if 'target="_blank"' in attrs and "noopener" not in attrs:
                 print("GUARD %s: %s opens a tab without noopener" % (rel, url[:44]))
@@ -827,6 +841,20 @@ def main():
         "Disneyland", "BDSM", "EMDR", "CPT", "HIPAA", "NPI", "BreEZe", "DUI",
         "Burns", "Depression", "Checklist", "Always", "You", "I", "When",
         "Gorgeous", "Light.", "Administrative", "Hearings", "Office",
+        # Sentence-openers and fragments of hyphenated proper nouns. "Her
+        # Medi-Cal billings" tripped this on the first run: the pattern sees
+        # "Her" + "Medi" and has no way to know the second is half a word.
+        "Her", "His", "She", "He", "They", "The", "That", "This", "There",
+        "Medi", "Cal", "And", "But", "After", "Across", "Asked", "Within",
+        "Each", "Every", "One", "Two", "Three", "Four", "Five", "Six", "Seven",
+        "Eight", "Nine", "Ten", "Sixty", "Staff", "Police", "Texting", "Gifts",
+        "Physical", "Four", "Convictions", "Charged", "Sentenced", "Per",
+        "Reading", "Nothing", "Read", "Note", "Because", "Where", "While",
+        "Outside", "Report", "Update", "Never", "Comply", "Call", "Keep",
+        "Put", "Get", "Ask", "Answer", "Diary", "Tell", "Take", "Give",
+        "Respond", "File", "Understand", "Reconcile", "Consultation",
+        "Escalation", "Supervision", "Warmth", "Billing", "Fifty", "Forty",
+        "Multi", "Board", "Holding", "Confirm", "Its", "Entirely", "Nobody",
     }
     NAMEISH = re.compile(r"\b([A-Z][a-z]{2,})\s+([A-Z][a-z]{2,})\b")
     for c in CASES:
