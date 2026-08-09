@@ -65,6 +65,9 @@ STRUCTURE = [
     ("_dev/touch_polish.py", "tap targets"),
     ("_dev/american.py", "American spellings in prose"),
     ("_dev/american_js.py", "American spellings inside script string literals"),
+    ("_dev/block_removal.py",
+     "removes the self-describing blocks that were asked for by name. Destructive, "
+     "so it refuses to cut when a match runs past a plausible size"),
     ("_dev/payer_links.py",
      "verified enrolment links for every payer, plus NPPES, CAQH, Medi-Cal "
      "and Medicare. Every URL opened and checked, not guessed"),
