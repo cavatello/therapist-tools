@@ -168,15 +168,27 @@ def main():
     start = None
     if "--from" in args:
         start = args[args.index("--from") + 1]
+    # `--to <name>` stops AFTER that pass. The pair exists because this repo
+    # is edited over a device bridge whose shell kills anything still running
+    # when the call returns, and a full run is right at that limit. Half a
+    # pipeline committed is worse than two halves run in sequence - it is how
+    # a page ended up committed at zero bytes once.
+    stop = None
+    if "--to" in args:
+        stop = args[args.index("--to") + 1]
 
     stages = [("verify", VERIFY)] if check_only else STAGES
     seen_start = start is None
+    stopped = False
     ran = failed = 0
 
     for label, group in stages:
         print("\n%s" % label.upper())
         for path, why in group:
             name = os.path.basename(path).replace(".py", "")
+            if stop is not None and stopped:
+                print("  %-24s skipped (--to %s)" % (name, stop))
+                continue
             if not seen_start:
                 if name == start:
                     seen_start = True
@@ -189,6 +201,8 @@ def main():
                 continue
             ok, _ = run(path, why)
             ran += 1
+            if stop is not None and name == stop:
+                stopped = True
             if not ok:
                 failed += 1
                 print("\nStopped. Every pass after this one would build on a "
