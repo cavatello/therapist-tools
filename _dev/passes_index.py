@@ -63,6 +63,87 @@ ELSEWHERE = [
 ]
 
 
+# ------------------------------------------------------------------ verdicts
+# Every unwired pass was run twice against a throwaway copy of the site on
+# 9 August 2026 - `git archive HEAD | tar -x -C /tmp/sitecopy` - and judged on
+# two things: does it exit 0, and does a second run change anything a first run
+# did not. Re-run the same way before trusting any of this; it is a snapshot of
+# a moving site, not a property of the file.
+#
+# It is written down because the alternative is finding out the way we did:
+# `eap_rates.py` was re-run against the LIVE tree to test it, relocated a block
+# on rates.html, orphaned a <div>, reintroduced a British spelling, reported
+# "guards clean", and was committed by the watcher inside a minute.
+#
+#   safe      exits 0, idempotent, output already live. Re-runnable.
+#   unstable  exits 0 but a second run keeps changing the page.
+#   broken    exits non-zero on today's site.
+#   one-shot  a migration that has already happened. Do not re-run.
+#   module    imported by another pass; not a pass at all.
+#   tool      run by hand, deliberately outside the pipeline.
+#   retired   superseded, and says so in its own docstring.
+VERDICTS = {
+    "widen": ("safe", "the two large-display width steps that one_grid.py and "
+                      "rates_grid.py both mirror"),
+    "measure": ("safe", "the reading-measure cap, 159 pages"),
+    "registry_meta": ("safe", ""),
+    "link_cards": ("safe", ""),
+    "mobile_hero": ("safe", ""),
+    "hero_notes": ("safe", ""),
+    "tax_assumptions": ("safe", "no-op on today's site"),
+    "layout_fixes": ("safe", ""),
+    "tool_chain": ("safe", ""),
+    "cta_scale": ("safe", ""),
+
+    "side_nav": ("unstable", "a second run changes the page again"),
+    "dir_two_views": ("unstable", "a second run changes the page again"),
+    "eap_rates": ("unstable", "**re-running this damaged the live site.** It "
+                              "relocates its block, orphans a div and reports "
+                              "guards clean while doing it"),
+
+    "cluster_links": ("broken", "TypeError: insert_at returns an int, and the "
+                                "caller unpacks two values"),
+    "doc_rails": ("broken", "asserts the article's five h2s on rates.html and "
+                            "finds two"),
+    "legal_rails": ("broken", "exits non-zero"),
+    "quest_hud": ("broken", "exits non-zero"),
+    "insurance_wire": ("broken", "exits non-zero, writes nothing"),
+
+    "case_data": ("module", "imported by build_cases.py"),
+    "case_depth": ("module", "imported by build_cases.py"),
+    "psyd_data": ("module", "imported by build_psyd.py"),
+    "insurance_data": ("module", "imported by build_insurance.py"),
+
+    "serve": ("tool", "local dev server"),
+    "seo_monitor": ("tool", "crawls the LIVE site; needs the network"),
+    "linkcheck_external": ("tool", "checks outbound links; needs the network"),
+    "indexnow": ("tool", "pings search engines; run after a deploy"),
+    "passes_index": ("tool", "this file"),
+    "ship": ("tool", "the pipeline itself"),
+
+    "hub_about_link": ("retired", ""),
+    "hub_cluster02_links": ("retired", ""),
+    "hub_guide_link": ("retired", ""),
+    "hub_headway_link": ("retired", ""),
+    "hub_programs_link": ("retired", ""),
+    "hub_psychedelic_link": ("retired", "superseded by registry.json"),
+    "fill": ("retired", "superseded by measure + content_frame + "
+                        "wide_measure; no output left on the site"),
+    "hero_action": ("retired", "superseded by hub_hero; no output left"),
+}
+
+# Anything beginning with one of these is a migration that has already run.
+ONESHOT_PREFIXES = ("add_", "fix_", "rebase_", "relink_", "rename_")
+
+
+def verdict(name):
+    if name in VERDICTS:
+        return VERDICTS[name]
+    if name.startswith(ONESHOT_PREFIXES):
+        return ("one-shot", "a migration that has already happened")
+    return ("untriaged", "")
+
+
 def literals(path):
     """Module-level string constants, read without importing."""
     try:
@@ -162,15 +243,33 @@ def main():
     o += ["",
           "## Written, not wired",
           "",
-          "In `_dev/` but not in `ship.py`. Either superseded, run by hand, or "
-          "waiting on something.",
+          "In `_dev/` but not in `ship.py`. **Verdicts come from running each "
+          "one twice against a throwaway copy of the site** "
+          "(`git archive HEAD | tar -x -C /tmp/sitecopy`), never against the "
+          "working tree - the watcher commits within a minute, and one such "
+          "test shipped a damaged `rates.html`.",
           "",
-          "| Pass | Marker | What it does |",
-          "|---|---|---|"]
-    for name, _s, marks, summary in loose:
-        o.append("| `%s.py` | %s | %s |"
-                 % (name, " · ".join("`%s`" % m for m in marks) or "&mdash;",
-                    summary.replace("|", "\\|")))
+          "| Verdict | Meaning |",
+          "|---|---|",
+          "| `safe` | exits 0, idempotent, output already live |",
+          "| `unstable` | exits 0, but a second run keeps changing the page |",
+          "| `broken` | exits non-zero on today's site |",
+          "| `one-shot` | a migration that has already happened |",
+          "| `module` | imported by another pass; not a pass |",
+          "| `tool` | run by hand, deliberately outside the pipeline |",
+          "| `retired` | superseded, and says so in its own docstring |",
+          "",
+          "| Pass | Verdict | Marker | What it does |",
+          "|---|---|---|---|"]
+    rank = {"unstable": 0, "broken": 1, "safe": 2, "untriaged": 3,
+            "module": 4, "tool": 5, "one-shot": 6, "retired": 7}
+    for name, _s, marks, summary in sorted(
+            loose, key=lambda r: (rank.get(verdict(r[0])[0], 9), r[0])):
+        v, note = verdict(name)
+        o.append("| `%s.py` | **%s** | %s | %s%s |"
+                 % (name, v, " · ".join("`%s`" % m for m in marks) or "&mdash;",
+                    summary.replace("|", "\\|"),
+                    (" — " + note) if note else ""))
     o.append("")
 
     open(OUT, "w", encoding="utf-8").write("\n".join(o))
@@ -204,6 +303,21 @@ def main():
             print("GUARD: %r is the marker for %s. Markers must be unique or "
                   "an idempotency check strips the wrong block."
                   % (m, " and ".join(who)))
+            bad += 1
+
+    # A pass with no verdict has never been triaged. Reported, not fatal -
+    # a new pass is untriaged by definition on the day it is written.
+    un = [r[0] for r in loose if verdict(r[0])[0] == "untriaged"]
+    if un:
+        print("  note: %d unwired pass(es) have no verdict yet: %s"
+              % (len(un), ", ".join(sorted(un))))
+
+    # A verdict for something that is not there any more is worse than none.
+    names = {r[0] for r in rows}
+    for k in VERDICTS:
+        if k not in names:
+            print("GUARD: a verdict is recorded for %s, which is not in _dev/"
+                  % k)
             bad += 1
 
     if bad:

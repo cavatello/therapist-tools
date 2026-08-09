@@ -69,78 +69,88 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 
 ## Written, not wired
 
-In `_dev/` but not in `ship.py`. Either superseded, run by hand, or waiting on something.
+In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice against a throwaway copy of the site** (`git archive HEAD | tar -x -C /tmp/sitecopy`), never against the working tree - the watcher commits within a minute, and one such test shipped a damaged `rates.html`.
 
-| Pass | Marker | What it does |
-|---|---|---|
-| `add_advisor_nav.py` | &mdash; | Put the Associate MFT Job Advisor into every navigation on the site. |
-| `add_footer_and_legal.py` | &mdash; | Put the footer on every page, and the legal links in every footer. |
-| `add_grow_page_nav.py` | &mdash; | Repoint every "Grow Your Practice" link at the new standalone page. |
-| `add_home_swap_nav.py` | &mdash; | Wire the home-page swap into every navigation. |
-| `add_resources_link.py` | &mdash; | Put resources.html in the footer of every page. |
-| `add_tax_page_nav.py` | &mdash; | Repoint every "Tax & Retirement" link at the new standalone page. |
-| `ads_state.py` | &mdash; | The advertising sentence, derived from whether the site actually serves ads. |
-| `affiliate.py` | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
-| `analytics.py` | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. |
-| `build_psyd.py` | &mdash; | Build psyd-programs-california.html — the California PsyD directory. |
-| `build_redirect.py` | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. |
-| `case_data.py` | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. |
-| `case_depth.py` | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. |
-| `ciis_tuition.py` | &mdash; | CIIS publishes its tuition. This page said it did not. |
-| `claims.py` | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. |
-| `cluster_links.py` | `/* _dev/cluster_links.py */` | Close the loop between the calculators and the articles. |
-| `copy_trim.py` | &mdash; | Retire two pieces of chrome copy that were repeated on every page. |
-| `cta_scale.py` | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
-| `dir_two_views.py` | `<!-- _dev/dir_two_views.py -->` | Concept 05 - the 78 programs as two objects, not one. |
-| `doc_rails.py` | `/* _dev/doc_rails.py */` | Option 2, the three-rail document, applied to rates.html. |
-| `eap_rates.py` | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. |
-| `empty_outputs.py` | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. |
-| `feepatch.py` | &mdash; | BBS fees halved on 1 July 2026. The associate pages still show the old ones. |
-| `figure_scope.py` | &mdash; | Stop figure styling leaking onto prose in the same block. |
-| `fill.py` | `/* _dev/fill.py */` | Narrow the reading cards to the column they actually hold. |
-| `fix_links_and_order.py` | &mdash; | Fix the dead links and put the simulator first. |
-| `fix_pass.py` | &mdash; | One pass over the published set for four live defects. |
-| `fixups.py` | &mdash; | Three defects reported from the live site, fixed together. |
-| `gold_slab.py` | &mdash; | The simulator's gold chapter slab: deepen the band, flip the text. Option B. |
-| `hero_action.py` | `/* _dev/hero_action.py */` | Every tool hero gets one thing to press. |
-| `hero_notes.py` | `/* _dev/hero_notes.py */` | Get the housekeeping small print out of the hero. |
-| `hero_palette.py` | &mdash; | Give the heroes a palette instead of a monotony and one outlier. |
-| `hub_about_link.py` | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
-| `hub_cluster02_links.py` | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
-| `hub_guide_link.py` | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
-| `hub_headway_link.py` | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
-| `hub_owid.py` | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
-| `hub_programs_link.py` | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
-| `hub_psychedelic_link.py` | &mdash; | RETIRED. Superseded by the content registry. |
-| `indexnow.py` | &mdash; | Tell Bing, Yandex, Seznam, Naver and Yep that pages changed, the moment they do. |
-| `insurance_data.py` | &mdash; | Data for therapy-liability-insurance-california.html. |
-| `insurance_wire.py` | `<!-- _dev/insurance_wire.py -->` | Wire the liability-insurance page into the site, and record what we found |
-| `landing.py` | &mdash; | Put _dev/landing.css into the landing page's inline <style> block. |
-| `layout_fixes.py` | `/* _dev/layout_fixes.py */` | Two visible layout defects, both reported from screenshots. |
-| `legal_rails.py` | `/* _dev/legal_rails.py */` | Option 2, the three-rail document, applied to terms.html and privacy.html. |
-| `link_cards.py` | `/* _dev/link_cards.py */` | Make the tool cards actual links. |
-| `linkcheck_external.py` | &mdash; | Check every OUTBOUND link on the site still resolves. |
-| `measure.py` | `/* _dev/measure.py */` | Cap the reading measure. One rule, every page, idempotent. |
-| `mobile_hero.py` | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |
-| `nav_consolidate.py` | &mdash; | Collapse tools.html into the hub, and take Field Notes out of the top nav. |
-| `nav_rebuild.py` | &mdash; | Make the header work everywhere, and put the hub where a reader can find it. |
-| `pacifica_tuition.py` | &mdash; | Pacifica publishes its cost of attendance. This page said it did not. |
-| `psyd_data.py` | &mdash; | The California PsyD data, as researched from primary sources only. |
-| `quest_hud.py` | `/* _dev/quest_hud.py */` | Turn the hours ladder into something worth looking at. |
-| `rates_contrast.py` | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. |
-| `rates_fix.py` | &mdash; | Correct the two published-fee-schedule rows on rates.html. |
-| `rates_tokens.py` | &mdash; | Two colours on rates.html that a later :root block quietly redefined. |
-| `rebase_domain.py` | &mdash; | Move the site from cavatello.github.io/therapist-tools to its own domain. |
-| `registry_meta.py` | `<!-- ts:meta -->` | Write each page's library metadata into the page itself. |
-| `registry_sync.py` | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. |
-| `relink_hub.py` | &mdash; | Stop routing the whole site through a redirect stub. |
-| `rename_newsletter_cta.py` | &mdash; | Newsletter -> "Stay updated", everywhere, and repoint the copy at what it is |
-| `seo_monitor.py` | &mdash; | Crawl the live site, compare against the last run, report what got worse. |
-| `serve.py` | &mdash; | Local dev server for the Therapy Practice Simulator. |
-| `ship.py` | &mdash; | The pipeline, written down, because it was only ever in someone's head. |
-| `side_nav.py` | `/* _dev/side_nav.py */` | A fixed section nav in the gutter, for the pages the grid template cannot take. |
-| `tax_assumptions.py` | `the rate the EDD assigns to a new employer` | Disclose the one modelling choice the tax page was still making silently. |
-| `tool_chain.py` | `<!-- _dev/tool_chain.py -->` | Concept 03, second half: the seven calculators as a sequence, not a pile. |
-| `typeface.py` | &mdash; | Add the display face, sitewide, in one place. |
-| `urlfix.py` | &mdash; | Repoint citations whose sources have moved, and name the ones that died. |
-| `widen.py` | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. |
+| Verdict | Meaning |
+|---|---|
+| `safe` | exits 0, idempotent, output already live |
+| `unstable` | exits 0, but a second run keeps changing the page |
+| `broken` | exits non-zero on today's site |
+| `one-shot` | a migration that has already happened |
+| `module` | imported by another pass; not a pass |
+| `tool` | run by hand, deliberately outside the pipeline |
+| `retired` | superseded, and says so in its own docstring |
+
+| Pass | Verdict | Marker | What it does |
+|---|---|---|---|
+| `dir_two_views.py` | **unstable** | `<!-- _dev/dir_two_views.py -->` | Concept 05 - the 78 programs as two objects, not one. — a second run changes the page again |
+| `eap_rates.py` | **unstable** | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. — **re-running this damaged the live site.** It relocates its block, orphans a div and reports guards clean while doing it |
+| `side_nav.py` | **unstable** | `/* _dev/side_nav.py */` | A fixed section nav in the gutter, for the pages the grid template cannot take. — a second run changes the page again |
+| `cluster_links.py` | **broken** | `/* _dev/cluster_links.py */` | Close the loop between the calculators and the articles. — TypeError: insert_at returns an int, and the caller unpacks two values |
+| `doc_rails.py` | **broken** | `/* _dev/doc_rails.py */` | Option 2, the three-rail document, applied to rates.html. — asserts the article's five h2s on rates.html and finds two |
+| `insurance_wire.py` | **broken** | `<!-- _dev/insurance_wire.py -->` | Wire the liability-insurance page into the site, and record what we found — exits non-zero, writes nothing |
+| `legal_rails.py` | **broken** | `/* _dev/legal_rails.py */` | Option 2, the three-rail document, applied to terms.html and privacy.html. — exits non-zero |
+| `quest_hud.py` | **broken** | `/* _dev/quest_hud.py */` | Turn the hours ladder into something worth looking at. — exits non-zero |
+| `cta_scale.py` | **safe** | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
+| `hero_notes.py` | **safe** | `/* _dev/hero_notes.py */` | Get the housekeeping small print out of the hero. |
+| `layout_fixes.py` | **safe** | `/* _dev/layout_fixes.py */` | Two visible layout defects, both reported from screenshots. |
+| `link_cards.py` | **safe** | `/* _dev/link_cards.py */` | Make the tool cards actual links. |
+| `measure.py` | **safe** | `/* _dev/measure.py */` | Cap the reading measure. One rule, every page, idempotent. — the reading-measure cap, 159 pages |
+| `mobile_hero.py` | **safe** | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |
+| `registry_meta.py` | **safe** | `<!-- ts:meta -->` | Write each page's library metadata into the page itself. |
+| `tax_assumptions.py` | **safe** | `the rate the EDD assigns to a new employer` | Disclose the one modelling choice the tax page was still making silently. — no-op on today's site |
+| `tool_chain.py` | **safe** | `<!-- _dev/tool_chain.py -->` | Concept 03, second half: the seven calculators as a sequence, not a pile. |
+| `widen.py` | **safe** | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. — the two large-display width steps that one_grid.py and rates_grid.py both mirror |
+| `ads_state.py` | **untriaged** | &mdash; | The advertising sentence, derived from whether the site actually serves ads. |
+| `affiliate.py` | **untriaged** | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
+| `analytics.py` | **untriaged** | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. |
+| `build_psyd.py` | **untriaged** | &mdash; | Build psyd-programs-california.html — the California PsyD directory. |
+| `build_redirect.py` | **untriaged** | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. |
+| `ciis_tuition.py` | **untriaged** | &mdash; | CIIS publishes its tuition. This page said it did not. |
+| `claims.py` | **untriaged** | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. |
+| `copy_trim.py` | **untriaged** | &mdash; | Retire two pieces of chrome copy that were repeated on every page. |
+| `empty_outputs.py` | **untriaged** | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. |
+| `feepatch.py` | **untriaged** | &mdash; | BBS fees halved on 1 July 2026. The associate pages still show the old ones. |
+| `figure_scope.py` | **untriaged** | &mdash; | Stop figure styling leaking onto prose in the same block. |
+| `fixups.py` | **untriaged** | &mdash; | Three defects reported from the live site, fixed together. |
+| `gold_slab.py` | **untriaged** | &mdash; | The simulator's gold chapter slab: deepen the band, flip the text. Option B. |
+| `hero_palette.py` | **untriaged** | &mdash; | Give the heroes a palette instead of a monotony and one outlier. |
+| `hub_owid.py` | **untriaged** | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
+| `landing.py` | **untriaged** | &mdash; | Put _dev/landing.css into the landing page's inline <style> block. |
+| `nav_consolidate.py` | **untriaged** | &mdash; | Collapse tools.html into the hub, and take Field Notes out of the top nav. |
+| `nav_rebuild.py` | **untriaged** | &mdash; | Make the header work everywhere, and put the hub where a reader can find it. |
+| `pacifica_tuition.py` | **untriaged** | &mdash; | Pacifica publishes its cost of attendance. This page said it did not. |
+| `rates_contrast.py` | **untriaged** | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. |
+| `rates_fix.py` | **untriaged** | &mdash; | Correct the two published-fee-schedule rows on rates.html. |
+| `rates_tokens.py` | **untriaged** | &mdash; | Two colours on rates.html that a later :root block quietly redefined. |
+| `registry_sync.py` | **untriaged** | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. |
+| `typeface.py` | **untriaged** | &mdash; | Add the display face, sitewide, in one place. |
+| `urlfix.py` | **untriaged** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. |
+| `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
+| `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
+| `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |
+| `psyd_data.py` | **module** | &mdash; | The California PsyD data, as researched from primary sources only. — imported by build_psyd.py |
+| `indexnow.py` | **tool** | &mdash; | Tell Bing, Yandex, Seznam, Naver and Yep that pages changed, the moment they do. — pings search engines; run after a deploy |
+| `linkcheck_external.py` | **tool** | &mdash; | Check every OUTBOUND link on the site still resolves. — checks outbound links; needs the network |
+| `seo_monitor.py` | **tool** | &mdash; | Crawl the live site, compare against the last run, report what got worse. — crawls the LIVE site; needs the network |
+| `serve.py` | **tool** | &mdash; | Local dev server for the Therapy Practice Simulator. — local dev server |
+| `ship.py` | **tool** | &mdash; | The pipeline, written down, because it was only ever in someone's head. — the pipeline itself |
+| `add_advisor_nav.py` | **one-shot** | &mdash; | Put the Associate MFT Job Advisor into every navigation on the site. — a migration that has already happened |
+| `add_footer_and_legal.py` | **one-shot** | &mdash; | Put the footer on every page, and the legal links in every footer. — a migration that has already happened |
+| `add_grow_page_nav.py` | **one-shot** | &mdash; | Repoint every "Grow Your Practice" link at the new standalone page. — a migration that has already happened |
+| `add_home_swap_nav.py` | **one-shot** | &mdash; | Wire the home-page swap into every navigation. — a migration that has already happened |
+| `add_resources_link.py` | **one-shot** | &mdash; | Put resources.html in the footer of every page. — a migration that has already happened |
+| `add_tax_page_nav.py` | **one-shot** | &mdash; | Repoint every "Tax & Retirement" link at the new standalone page. — a migration that has already happened |
+| `fix_links_and_order.py` | **one-shot** | &mdash; | Fix the dead links and put the simulator first. — a migration that has already happened |
+| `fix_pass.py` | **one-shot** | &mdash; | One pass over the published set for four live defects. — a migration that has already happened |
+| `rebase_domain.py` | **one-shot** | &mdash; | Move the site from cavatello.github.io/therapist-tools to its own domain. — a migration that has already happened |
+| `relink_hub.py` | **one-shot** | &mdash; | Stop routing the whole site through a redirect stub. — a migration that has already happened |
+| `rename_newsletter_cta.py` | **one-shot** | &mdash; | Newsletter -> "Stay updated", everywhere, and repoint the copy at what it is — a migration that has already happened |
+| `fill.py` | **retired** | `/* _dev/fill.py */` | Narrow the reading cards to the column they actually hold. — superseded by measure + content_frame + wide_measure; no output left on the site |
+| `hero_action.py` | **retired** | `/* _dev/hero_action.py */` | Every tool hero gets one thing to press. — superseded by hub_hero; no output left |
+| `hub_about_link.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
+| `hub_cluster02_links.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
+| `hub_guide_link.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
+| `hub_headway_link.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
+| `hub_programs_link.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
+| `hub_psychedelic_link.py` | **retired** | &mdash; | RETIRED. Superseded by the content registry. — superseded by registry.json |
