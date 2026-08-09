@@ -1,6 +1,0 @@
-/* _dev/nav_type_floor.py */
-/* Navigation panel column headings. 9.5px was the smallest type on the site
-   and the only thing naming each group of links; 11px matches every other
-   small-caps label in the chrome. Doubled selector because the 9.5px rule is
-   in a hoisted file that extract_css.py renames on every run. */
-.navpanel.navpanel .np-col h5{font-size:11px;letter-spacing:.1em}

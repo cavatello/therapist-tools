@@ -53,7 +53,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `content_frame.py` | floors | `/* _dev/content_frame.py */` | One content frame, because the site had six and they disagreed. |
 | `contrast_pass.py` | floors | `/* _dev/contrast_pass.py */` | Raise the muted label colour sitewide, measured rather than eyeballed. |
 | `mobile_floor.py` | floors | `/* _dev/mobile_floor.py */` | What a 390px phone gets wrong on 131 pages, found by looking at 390px. |
-| `nav_type_floor.py` | floors | `/* _dev/nav_type_floor.py */` | 9.5px is too small for a navigation heading. On every page, at every width. |
+| `nav_type_floor.py` | floors | `/* _dev/nav_type_floor.py */` | One label size, not nine. A 10.5px floor for the site's small-caps labels. |
 | `one_grid.py` | floors | `/* _dev/one_grid.py */` | One grid. Every page's content starts where the logo starts. |
 | `rates_grid.py` | floors | `/* _dev/rates_grid.py */` · `body class ratespage` | rates.html joins the grid, and keeps its own voice. |
 | `token_floor.py` | floors | `/* _dev/token_floor.py */` | Every text colour on the site, measured by photograph, raised to 4.5:1. |
