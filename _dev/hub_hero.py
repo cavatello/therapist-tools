@@ -92,6 +92,11 @@ def count_files(suffix=None, prefix=None):
 def measure():
     """Everything the copy below is allowed to say a number about."""
     m = {}
+    # 78 programs are LISTED in the directory; 66 of them have a page of their
+    # own. The hero says "listed", because that is what a reader gets when they
+    # open it - and both numbers are measured rather than typed, so the day the
+    # twelfth missing page is written, the copy moves on its own.
+    m["mft_listed"] = count_articles("mft-programs-california.html", r"<article")
     m["mft_schools"] = count_files(suffix="-mft.html")
     m["psyd"] = count_articles("psyd-programs-california.html", r'<article class="pdc">')
     m["psy_training"] = count_files(prefix="psychedelic-training-")
@@ -135,11 +140,12 @@ HUBS = {
         eyebrow="Licensure &middot; California",
         h1="Every gate between a master&rsquo;s degree and an LMFT license.",
         deck="{cards_licensure} guides plus a directory of "
-             "{mft_schools} California programs, priced and dated. The four "
+             "{mft_listed} California programs, priced and dated &mdash; "
+             "{mft_schools} of them with a page of their own. The four "
              "requirements that close at different speeds, what the Board "
              "charges now that fees have halved, and which one is actually "
              "holding you up.",
-        figs=[("{mft_schools}", "California MFT programs listed"),
+        figs=[("{mft_listed}", "California MFT programs listed"),
               ("3,000", "hours over at least 104 weeks"),
               ("$875", "in Board fees, down from $1,750")],
         chips=[("Licensure tools", None),
@@ -197,7 +203,7 @@ HUBS = {
 # The directory pages get the same job done, in their own markup.
 DIRS = {
     "mft-programs-california.html": dict(
-        sub="{mft_schools} California programs &middot; every one the Board recognizes",
+        sub="{mft_listed} California programs &middot; every one the Board recognizes",
     ),
     "psyd-programs-california.html": dict(
         sub="{psyd} doctorates &middot; 20 of them APA-accredited",
