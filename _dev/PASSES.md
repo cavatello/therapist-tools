@@ -23,6 +23,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 
 | Pass | Stage | Marker in the page | What it does |
 |---|---|---|---|
+| `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
@@ -38,6 +39,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `footer_order.py` | structure | `/* _dev/footer_order.py */` | The signup band belongs against the footer. Put it there, on every page. |
 | `form_inline.py` | structure | `// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt` | The signup band answers on the page. On all 158 pages, not on five. |
 | `headline_figures.py` | structure | `<!-- _dev/headline_figures.py -->` | Change a page's headline figure when its builder no longer exists. |
+| `hub_assocpay_link.py` | structure | &mdash; | One cluster section onto the licensure hub, by hand, for one reason. |
 | `hub_hero.py` | structure | `<!-- _dev/hub_hero.py -->` | Make every hub and directory hero do the job a landing page does. |
 | `infographics.py` | structure | `/* _dev/infographics.py */` · `<!-- _dev/infographics.py -->` | A visual vocabulary for this site, so content can stop being only prose. |
 | `mobile_nav.py` | structure | `/* _dev/mobile_nav.py */` | The mobile nav is scrollable and does not look it. Give it an edge. |
