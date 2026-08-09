@@ -99,6 +99,18 @@ TARGETS = [
     (".pw", 1180, "the about and contact bands - padding only"),
 ]
 
+# The other half of the thesis. A container that genuinely wants a narrow
+# reading measure - the legal pages are 760px, and rightly so - should get it
+# by being a narrow COLUMN INSIDE the grid, left-aligned to it, not by shrinking
+# and re-centring the whole page. Centred, privacy.html started its text at
+# x=364 while the logo above it was at 156.
+#
+#   band selector, column selector, the measure the column keeps
+COLUMNS = [
+    (".lg .lghero", ".lgwrap", 760, "privacy and terms, hero"),
+    (".lg .lgbody", ".lgwrap", 760, "privacy and terms, body"),
+]
+
 # These already sit on the grid. Listed so the guard can prove the canon is
 # what this pass claims it is, rather than a number somebody picked.
 ALREADY = [".sitenav-in", ".artband .in", ".artwrap",
@@ -130,15 +142,29 @@ def sheet():
         o.append("%s{max-width:%dpx;padding-left:%dpx;padding-right:%dpx;"
                  "margin-left:auto;margin-right:auto}  /* was %dpx */"
                  % (double(sel), CANON, PAD, PAD, was))
+    if COLUMNS:
+        o.append("/* narrow columns, left-aligned inside the grid rather than")
+        o.append("   centred on their own - see COLUMNS in the pass */")
+    for band, col, measure, _what in COLUMNS:
+        o.append("%s{max-width:%dpx;padding-left:%dpx;padding-right:%dpx;"
+                 "margin-left:auto;margin-right:auto}"
+                 % (double(band), CANON, PAD, PAD))
+        o.append("%s %s{max-width:%dpx;margin-left:0;margin-right:auto;"
+                 "padding-left:0;padding-right:0}"
+                 % (double(band), double(col), measure))
     # the same steps widen.py gives the masthead and the footer
     for at, w in STEPS:
         o.append("@media (min-width:%dpx){" % at)
         for sel, _w, _x in TARGETS:
             o.append("  %s{max-width:%dpx}" % (double(sel), w))
+        for band, _c, _m, _x in COLUMNS:
+            o.append("  %s{max-width:%dpx}" % (double(band), w))
         o.append("}")
     o.append("@media (max-width:640px){")
     for sel, _w, _x in TARGETS:
         o.append("  %s{padding-left:18px;padding-right:18px}" % double(sel))
+    for band, _c, _m, _x in COLUMNS:
+        o.append("  %s{padding-left:18px;padding-right:18px}" % double(band))
     o.append("}")
     o.append("</style>")
     return "\n".join(o)
@@ -167,6 +193,9 @@ def main():
     print("containers brought onto it:")
     for sel, was, what in TARGETS:
         print("  %-20s %4dpx -> %4d   %s" % (sel, was, CANON, what))
+    for band, col, measure, what in COLUMNS:
+        print("  %-20s column %4dpx, left-aligned in the grid   %s"
+              % (band, measure, what))
 
     n = 0
     for rel in sorted(os.listdir(SITE)):
@@ -196,7 +225,8 @@ def main():
     #    gets renamed would otherwise drop off the grid silently, and the only
     #    symptom would be a headline that moves - which is exactly the bug this
     #    pass exists to fix.
-    for sel, was, _what in TARGETS:
+    for sel, was, _what in ([(a, b, c) for a, b, c in TARGETS] +
+                            [(b, m, w) for _a, b, m, w in COLUMNS]):
         needle = sel.split()[-1]
         if needle not in corpus:
             print("GUARD: %s is no longer in the site's CSS. Either it was "
