@@ -54,6 +54,11 @@ BUILD = [
 # restyle is first because every later pass assumes the masthead exists.
 STRUCTURE = [
     ("_dev/restyle.py", "masthead, nav panel and the nav script, on every page"),
+    ("_dev/hub_assocpay_link.py",
+     "the LA/Bay Area pay page onto the licensure hub, in the cluster "
+     "registry.json files it under. A bridge, not a fifth hand-maintained "
+     "index - it lifts the section mock/library/build_library.py generated "
+     "rather than authoring a card. Retire it when the hubs are regenerated"),
     ("_dev/ehr_market.py",
      "the whole practice-software market with every published price, in place "
      "of the two-product framing. Early in STRUCTURE for two reasons: it sets "
