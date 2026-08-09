@@ -190,7 +190,7 @@ REWRITES = {
         "description":
             "A real practice expense comes off self-employment tax, federal "
             "tax and California&rsquo;s 9.3% at once &mdash; which is why "
-            "$22,000 of expenses is worth $8,608 at $140,000 of gross.",
+            "$22,000 of expenses is worth $8,608 at $140,000 gross.",
     },
 }
 
