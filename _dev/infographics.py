@@ -118,6 +118,12 @@ CSS = """<style>%(mark)s
   letter-spacing:.09em;text-transform:uppercase;margin-top:5px;line-height:1.4}
 .ig-split .seg.a .l{color:rgba(255,255,255,.86)}
 .ig-split .seg.b .l{color:%(muted)s}
+/* `.n` is a name several older stylesheets on this site already use for a
+   figure, and one of them paints it gold. Gold on pine failed contrast in the
+   first shipped version of this pass. Doubled selector so the shape's own
+   colour outranks whatever the page brought with it. */
+.ig-split.ig-split .seg.a .n{color:#fff}
+.ig-split.ig-split .seg.b .n{color:%(ink)s}
 
 /* ---------------------------------------------------------------- steps */
 .ig-steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
@@ -154,8 +160,8 @@ CSS = """<style>%(mark)s
 .ig-bars .fill{position:absolute;left:0;top:0;bottom:0;background:%(pine)s;
   border-radius:999px}
 .ig-bars .fill.lo{background:#8FB3A3}
-.ig-bars .val{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:15px;
-  color:%(ink)s;white-space:nowrap}
+.ig-bars.ig-bars .val{font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:15px;color:%(ink)s;white-space:nowrap}
 
 /* ----------------------------------------------------------------- flow */
 .ig-flow .fr{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
@@ -178,8 +184,8 @@ CSS = """<style>%(mark)s
   gap:0;border:2px solid %(ink)s;border-radius:12px;overflow:hidden;
   box-shadow:5px 5px 0 %(ink)s;background:%(ink)s}
 .ig-stat .c{background:%(cream)s;padding:14px 15px}
-.ig-stat .n{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;
-  font-size:27px;line-height:1;color:%(ink)s;letter-spacing:-.02em}
+.ig-stat.ig-stat .c .n{display:block;font-family:Fraunces,Georgia,serif;
+  font-weight:600;font-size:27px;line-height:1;color:%(ink)s;letter-spacing:-.02em}
 .ig-stat .l{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:%(pine)s;
   margin-top:7px;line-height:1.5}
