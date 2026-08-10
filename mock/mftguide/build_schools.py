@@ -498,9 +498,24 @@ def page(p):
             term = ('<b>%s</b>' % esc(cstat)) if cstat != "Accredited" else esc(cstat)
             detail = ("<p>The Commission&rsquo;s own record lists this program as "
                       "%s" % term)
+            lapsed = False
             if crenew:
                 detail += ", with an accreditation renewal date of %s" % esc(crenew)
+                try:
+                    import datetime as _dt
+                    lapsed = (_dt.datetime.strptime(crenew, "%d %B %Y").date()
+                              < _dt.date.today())
+                except ValueError:
+                    lapsed = False
             detail += ". "
+            if lapsed:
+                # A renewal date in the past with no published decision is the
+                # single most useful thing on this block for somebody choosing
+                # a program, and it is invisible unless it is said out loud.
+                detail += ("<b>That date has passed and the Commission has "
+                           "published no decision since.</b> Ask the program "
+                           "directly what its current status is before you "
+                           "enrol. ")
             if crec:
                 detail += ('<a href="%s" target="_blank" rel="noopener noreferrer">'
                            "Read the record</a>. " % crec)

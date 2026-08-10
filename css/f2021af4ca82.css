@@ -1,0 +1,67 @@
+/* resources.html */
+/* ---- the question index (direction C), the first section on the page.
+   Nobody arrives at this site browsing; they arrive with a question. So the
+   index is what a therapist types, and a calculator is a legitimate answer to
+   one - which is why a tool row is washed gold and says so. */
+.qx{border-top:1px solid var(--line)}
+.qx a{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
+ padding:15px 2px;text-decoration:none;border-bottom:1px solid var(--line)}
+.qx a:hover h3{color:var(--pine)}
+.qx h3{font-size:16.6px;line-height:1.32;font-weight:600;margin:0;letter-spacing:0}
+.qx .tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.2px;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
+.qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
+.qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
+ text-transform:uppercase;color:#635E53}
+.qx .ar{font-size:18px;color:var(--pine)}
+.qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
+ margin:0 -11px;padding-left:13px;padding-right:13px}
+.qxnote{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--pine);
+ border-radius:0 12px 12px 0;padding:15px 17px;margin:22px 0 0;font-size:13px;
+ line-height:1.65;color:var(--muted)}
+/* ---- career-stage rails (direction A). Three per rail, never more: the cap is
+   the point, not a limitation. */
+.rail{margin-top:34px}
+.railh{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+ flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:15px}
+.railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
+ font-weight:600;letter-spacing:-.018em}
+.railh span{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.1em;
+ text-transform:uppercase;color:#635E53}
+.railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.rc{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:16px 17px;
+ text-decoration:none;display:flex;flex-direction:column;gap:7px}
+.rc:hover{border-color:var(--pine)}
+.rc b{font-family:Fraunces,Georgia,serif;font-size:16px;line-height:1.26;font-weight:600}
+.rc i{font-style:normal;font-size:12.9px;line-height:1.6;color:var(--muted)}
+.rc .k{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.1em;
+ text-transform:uppercase;color:var(--pine);font-weight:600;margin-top:auto;padding-top:5px}
+.rc.tool{background:linear-gradient(160deg,rgba(246,197,96,.15),var(--white) 62%)}
+/* ---- newsletter */
+.hubnl{background:linear-gradient(135deg,#1E4436,#2C6350);color:#EFF5F2;border-radius:16px;
+ padding:26px 28px;margin:34px 0 6px;display:grid;grid-template-columns:1.25fr .75fr;
+ gap:22px;align-items:center}
+.hubnl h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.2vw,23px);margin:0;color:#fff}
+.hubnl p{margin:8px 0 0;font-size:13.4px;line-height:1.62;color:rgba(255,255,255,.84)}
+.hubnl a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;
+ border-radius:10px;background:var(--pop);color:#2A2010;font-weight:800;font-size:14px;
+ text-decoration:none}
+@media(max-width:760px){.railg{grid-template-columns:1fr}.hubnl{grid-template-columns:1fr}}
+.ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#2A2620}
+.band .ref{background:#fff;color:#2A2620}
+.band .ref b{color:#17271F}
+.band .ref i{color:#4E4940}
+.band .ref i b{color:#17271F}
+.ref i a{white-space:nowrap}
+@media (max-width:700px){.reflist{grid-template-columns:1fr}}
+/* ---- very large displays. On a 27" 5K the hub used 46% of the window: a
+   1120px container in a 2560px viewport, which is a lot of empty cream. The
+   prose measure still has to be protected, so the CONTAINER grows and the
+   reference grid gains a third column rather than the text lines getting
+   longer. Below 1800px nothing changes. */
+@media (min-width:1800px){
+  .pw{max-width:1460px}
+  .reflist{grid-template-columns:repeat(3,1fr)}
+  .qx h3{max-width:78ch}
+  .sub{max-width:88ch}
+}
