@@ -64,8 +64,12 @@ STRUCTURE = [
      "of the two-product framing. Early in STRUCTURE for two reasons: it sets "
      "ts:number, which pixel_concepts reads to build the In-short card, and "
      "its prose has to reach american.py like any other copy"),
+    ("_dev/taxonomy_leaves.py",
+     "the 48 case pages become leaves and three reference pages get real\n      clusters, so no topic hub ends in a 50-page catch-all. BEFORE\n      uplinks, which picks a page's siblings out of the registry"),
     ("_dev/uplinks.py", "the More-on-this block"),
     ("_dev/breadcrumbs.py", "breadcrumb trails where a trail exists"),
+    ("_dev/link_sinks.py",
+     "one contextual sentence into the two pages everything linked to and\n      that linked to nothing back"),
     ("_dev/pixel_concepts.py", "the In-short card and the provenance strip"),
     ("_dev/footer_band.py", "the signup band - inserts ABOVE the up-link"),
     ("_dev/footer_fix.py", "footer colour overrides"),
@@ -137,6 +141,8 @@ FLOORS = [
 SEO = [
     ("_dev/seo_head.py", "a canonical and a lang on every published page"),
     ("_dev/seo_meta.py", "titles and descriptions inside what a result shows"),
+    ("_dev/social_cards.py",
+     "an Open Graph and Twitter card on every indexable page. AFTER\n      seo_meta, because a derived card copies the title and description\n      that pass has just finalised"),
 ]
 
 # CSS. Hoisting comes after every <style> block exists, and nowhere else.
