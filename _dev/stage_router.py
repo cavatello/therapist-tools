@@ -145,7 +145,14 @@ STAGES = [
 
 # The home page's three audience cards point into the matching tab instead of
 # repeating the list.
+# Four, not three. The first three all assume the reader is already in the
+# profession - registered, licensed, or growing - and the site's largest body of
+# work by page count is the 66 school pages, the two programme directories and
+# the route guide, which serve somebody who has not started. That audience had
+# no door on the home page at all, while the router has had a "Choosing a
+# programme" stage for it the whole time. The card was the missing half.
 HOME_ROUTES = [
+    ("Considering the path", "program"),
     ("Registered associates", "assoc"),
     ("Solo private practice", "newly"),
     ("Practices with room to grow", "tax"),
