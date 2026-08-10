@@ -203,6 +203,33 @@ a.on .tsn,a[aria-current] .tsn{color:#2C6350}
 </style>""" % CSSMARK
 
 
+
+def _plain(x):
+    """Normalised for comparison only: no tags, no entities, no punctuation."""
+    x = re.sub(r"<[^>]+>", " ", str(x))
+    x = html.unescape(x)
+    x = re.sub(r"[^a-z0-9 ]", " ", x.lower())
+    return re.sub(r"\s+", " ", x).strip()
+
+
+def echoes_h1(q, page_html):
+    """Does this question just say the H1 again?
+
+    68 of the 167 pages with an In-short card did, including all 48 discipline
+    case pages - the headline, then the same sentence with a question mark, in
+    the first two lines. Substring either way, because an H1 of "Antioch
+    University Los Angeles" and a question of the same words are the same
+    problem as "...disciplined" and "...disciplined?".
+    """
+    m = re.search(r"<h1[^>]*>([\s\S]*?)</h1>", page_html or "")
+    if not m:
+        return False
+    a, b = _plain(m.group(1)), _plain(q)
+    if not a or not b:
+        return False
+    return a == b or a in b or b in a
+
+
 def esc(x):
     return html.escape(str(x), quote=False)
 
@@ -392,9 +419,14 @@ def block(rel, s, changes):
     # ---- 07, in short
     if q and out:
         fig = ('<span class="tsfig">%s</span>' % raw(num)) if num else ""
+        # The question is dropped where it only repeats the headline the card
+        # sits under. See echoes_h1() - this was 68 of 167 pages, and on the
+        # discipline hub it put the same sentence in the page's first two
+        # lines. The answer and the figure carry the card on their own.
+        head = "" if echoes_h1(q, s) else "<q>%s</q>" % raw(q)
         top.append('<div class="tsshort"><p class="tsk">In short</p>'
-                    "<q>%s</q><p class=\"tsa\">%s</p>%s</div>"
-                    % (raw(q), raw(out), fig))
+                    "%s<p class=\"tsa\">%s</p>%s</div>"
+                    % (head, raw(out), fig))
 
     # ---- 01, the dated updates, only where the log actually has some
     mine = [c for c in changes if c.get("where") == os.path.basename(rel)]
