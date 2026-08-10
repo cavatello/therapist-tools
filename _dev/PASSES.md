@@ -26,6 +26,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
+| `affiliate.py` | structure | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |
 | `analytics.py` | structure | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. |
@@ -96,7 +97,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `empty_outputs.py` | **unstable** | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. — a second run changes six pages again |
 | `fixups.py` | **unstable** | &mdash; | Three defects reported from the live site, fixed together. — a second run changes the page again |
 | `side_nav.py` | **unstable** | `/* _dev/side_nav.py */` | A fixed section nav in the gutter, for the pages the grid template cannot take. — a second run changes the page again |
-| `affiliate.py` | **broken** | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. — exits non-zero after writing four pages, which is the worst combination: it half-applies |
 | `ciis_tuition.py` | **broken** | &mdash; | CIIS publishes its tuition. This page said it did not. — exits non-zero, writes nothing |
 | `cluster_links.py` | **broken** | `/* _dev/cluster_links.py */` | Close the loop between the calculators and the articles. — TypeError: insert_at returns an int, and the caller unpacks two values |
 | `doc_rails.py` | **broken** | `/* _dev/doc_rails.py */` | Option 2, the three-rail document, applied to rates.html. — asserts the article's five h2s on rates.html and finds two |
@@ -162,8 +162,10 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `add_home_swap_nav.py` | **one-shot** | &mdash; | Wire the home-page swap into every navigation. — a migration that has already happened |
 | `add_resources_link.py` | **one-shot** | &mdash; | Put resources.html in the footer of every page. — a migration that has already happened |
 | `add_tax_page_nav.py` | **one-shot** | &mdash; | Repoint every "Tax & Retirement" link at the new standalone page. — a migration that has already happened |
+| `fix_affiliate.py` | **one-shot** | &mdash; | affiliate.py was stale, not broken. Re-anchor it and let it finish. — a migration that has already happened |
 | `fix_links_and_order.py` | **one-shot** | &mdash; | Fix the dead links and put the simulator first. — a migration that has already happened |
 | `fix_pass.py` | **one-shot** | &mdash; | One pass over the published set for four live defects. — a migration that has already happened |
+| `fix_resources_order.py` | **one-shot** | &mdash; | The toolkit page opens with a changelog. Move it, and say who it is for. — a migration that has already happened |
 | `fix_touro_notice.py` | **one-shot** | &mdash; | Two defects in the Touro show-cause notice, found on the live page. — a migration that has already happened |
 | `rebase_domain.py` | **one-shot** | &mdash; | Move the site from cavatello.github.io/therapist-tools to its own domain. — a migration that has already happened |
 | `relink_hub.py` | **one-shot** | &mdash; | Stop routing the whole site through a redirect stub. — a migration that has already happened |
