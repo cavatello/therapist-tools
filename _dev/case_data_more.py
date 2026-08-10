@@ -2735,8 +2735,10 @@ MORE = [
         # source: BBS decision 095.txt, redacted before it was read
         "slug": "discipline-case-serious-felonies-ignore-the-seven-year-rule",
         "group": "applying",
-        "t": "Nearly sixteen years on, a 2008 conviction still reached the "
-            "application",
+        # Trimmed from "Nearly sixteen years on, a 2008 conviction still
+        # reached the application" - 72 characters, and build_cases.py's
+        # seo_title() budget is 68 with no comma late enough to cut at.
+        "t": "A 2008 conviction still reached a 2024 application",
         "dek": "The seven-year lookback in section 480 does not apply to serious "
             "felonies; the registration issued on three years of probation.",
         "role": "ASW",
