@@ -995,3 +995,9 @@ DEPTH = {
         ],
     },
 }
+
+
+# --------------------------------------------------- the second collection
+from case_depth_more import MORE_DEPTH  # noqa: E402
+
+DEPTH.update(MORE_DEPTH)

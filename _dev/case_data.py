@@ -60,7 +60,7 @@ GROUPS = [
         "key": "sexual",
         "short": "Sexual boundaries",
         "n": "Sexual boundaries",
-        "lede": "Six cases. One went to a full hearing; the rest settled. The "
+        "lede": "One went to a full hearing; the rest settled. The "
                 "penalty floor here is the highest in the guidelines, and for "
                 "sexual contact as defined in &sect;729 the revocation cannot be "
                 "stayed by anyone &mdash; not the administrative law judge, not "
@@ -70,7 +70,7 @@ GROUPS = [
         "key": "dual",
         "short": "Boundary drift",
         "n": "Boundary drift with no sexual contact",
-        "lede": "Five cases where nobody touched anybody. Texting, emails, "
+        "lede": "Nobody touched anybody. Texting, emails, "
                 "dinners, a sleepover, a shared joint. These are the cases most "
                 "worth reading, because in every one of them the therapist could "
                 "have described what they were doing out loud and it would still "
@@ -80,7 +80,7 @@ GROUPS = [
         "key": "records",
         "short": "Records",
         "n": "Records, confidentiality and the file",
-        "lede": "Three cases about paper. A letter written for the wrong person, "
+        "lede": "All about paper. A letter written for the wrong person, "
                 "a records request ignored for six months, an address never "
                 "updated. Confidentiality is the second most common ground for a "
                 "citation in California, ahead of everything clinical.",
@@ -89,7 +89,7 @@ GROUPS = [
         "key": "money",
         "short": "Money and billing",
         "n": "Money, billing and honesty",
-        "lede": "Three cases. One involves no clients at all &mdash; the "
+        "lede": "One of these involves no clients at all &mdash; the "
                 "conviction came from a bookkeeping job &mdash; and it still cost "
                 "the registration.",
     },
@@ -97,7 +97,7 @@ GROUPS = [
         "key": "another",
         "short": "From elsewhere",
         "n": "Discipline that arrives from somewhere else",
-        "lede": "Four cases under &sect;4982.25. If any other board, in any "
+        "lede": "All under &sect;4982.25. If any other board, in any "
                 "state, disciplines any healing-arts licence you hold, that fact "
                 "alone is unprofessional conduct in California. A certified copy "
                 "of the other board's decision is conclusive evidence &mdash; "
@@ -107,7 +107,7 @@ GROUPS = [
         "key": "fitness",
         "short": "Fitness exams",
         "n": "Fitness-to-practice examinations",
-        "lede": "One page, three cases, one lesson: an order to be examined is "
+        "lede": "One lesson: an order to be examined is "
                 "not a request, and ignoring it is its own independent ground for "
                 "revocation with no &sect;4982 charge attached.",
     },
@@ -124,19 +124,38 @@ GROUPS = [
         "lede": "The largest category in the data by a wide margin &mdash; "
                 "sixty-two of the 103 decisions cite &sect;4982(a), and most of "
                 "those are a DUI arriving through the Department of Justice "
-                "notification feed rather than through a client. Three are "
-                "written up in full, because past the first one they repeat: the "
-                "case that shows what the typical one looks like, the case about "
-                "reporting it, and the case that shows the Board does not need a "
-                "conviction at all. The remaining two are listed at the end of "
-                "the group for completeness rather than because they teach "
-                "anything the first three do not.",
+                "notification feed rather than through a client. Only a few "
+                "DUIs are written up in full, because past the first they "
+                "repeat. What is here instead is the range: the modal case, "
+                "the duty to report a conviction inside thirty days, the "
+                "convictions that have nothing to do with a client at all, and "
+                "the cases the Board decided on its own evidence packet because "
+                "nobody filed a notice of defense.",
+    },
+    {
+        "key": "applying",
+        "short": "Applying with a record",
+        "n": "Applying with a record",
+        # A Statement of Issues is not an Accusation, and readers conflate them
+        # constantly. Nobody here did anything as a therapist: they applied, and
+        # the Board looked at what was already on the record. The reason this
+        # group earns its own heading is the outcomes - most of these end with
+        # the registration being ISSUED, on probation, rather than refused.
+        "lede": "The Board is not deciding what somebody did in a session. It "
+                "is deciding whether to let them start at all. &sect;480 lets "
+                "it look back seven years &mdash; except for a serious felony "
+                "under Penal Code &sect;1192.7, where there is no time limit at "
+                "all, and where &sect;1192.7(c)(23) sweeps in any felony "
+                "involving a weapon. What the statute will not let the Board do "
+                "is refuse on the conviction type alone: &sect;493 requires the "
+                "rehabilitation analysis in 16 CCR &sect;1813 every time. Read "
+                "these for what that analysis actually accepts.",
     },
     {
         "key": "probation",
         "short": "After discipline",
         "n": "What happens after discipline",
-        "lede": "Three cases about the part nobody plans for. Probation runs "
+        "lede": "The part nobody plans for. Probation runs "
                 "three to seven years, you pay for the monitoring, you tell your "
                 "clients and your employer, and the coursework you are ordered to "
                 "take does not count toward your continuing education.",
@@ -756,57 +775,51 @@ CASES = [
         ],
     },
     {
+        # The same afternoon as decision 2002023002307 in the second collection.
+        # The thin entry written from the newsletter summary was replaced by the
+        # full account from the decision itself. The slug is deliberately unchanged:
+        # the page is already indexed and linked.
         "slug": "discipline-case-drinking-at-lunch",
         "group": "dual",
-        "t": "One afternoon: drank at lunch, came back, saw clients",
-        "dek": "That is the entire factual record. Four years of probation, "
-               "$5,190.",
+        "t": "Alcohol at lunch, then a session and a group",
+        "dek": "Four years of probation, total abstinence, random testing at his own cost, and $5,190.",
         "role": "LMFT",
         "eff": "July 24, 2025",
-        "case": None,
-        "hear": None,
+        "case": "2002023002307",
+        "hear": null,
         "facts": [
-            "Staff reported that the clinical director appeared drunk at work and "
-            "smelled of alcohol.",
-            "He admitted making what he called the unprofessional decision to "
-            "drink at lunch and then return to provide individual psychotherapy "
-            "to a client and to co-facilitate a men's group.",
-            "There is nothing else in the record. One afternoon, no complaint "
-            "from any client, no clinical harm alleged.",
+         "On March 28, 2023 the respondent was employed as the clinical director of a community mental health program and was providing therapeutic services. Staff members reported that he appeared to be drunk, smelled like alcohol, and was acting abnormally.",
+         "The respondent admitted making what he called the &ldquo;unprofessional decision&rdquo; to consume alcohol at lunch and then return to work to render therapeutic services. Those services included individual psychotherapy with one client and co-facilitating a men&rsquo;s group.",
+         "The Board filed an accusation on May 24, 2024 pleading three causes for discipline out of that single afternoon: gross negligence or unprofessional conduct, use of alcohol in a manner dangerous or injurious to a client or impairing his ability to practice, and intentionally or recklessly causing physical or emotional harm to a client. He was served, timely filed a notice of defense contesting the accusation, and was represented by counsel.",
+         "The case settled. He did not admit the allegations; he agreed that the charges, if proven at a hearing, would constitute cause for discipline, and agreed to be bound by the Board&rsquo;s probationary terms. The Board adopted the stipulation on June 24, 2025."
         ],
         "charges": [
-            ("B&amp;P &sect;4982(d)", leg("4982"), "Gross negligence."),
-            ("B&amp;P &sect;4982(c)", leg("4982"),
-             "Use of alcohol to an extent or in a manner dangerous or injurious "
-             "to others, or that impairs the ability to practise safely."),
-            ("B&amp;P &sect;4982(i)", leg("4982"), "Recklessly causing emotional harm."),
+         [
+          "B&amp;P &sect;4982(d)",
+          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
+          "Gross negligence or incompetence in the performance of marriage and family therapy."
+         ],
+         [
+          "B&amp;P &sect;4982(c)",
+          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
+          "Using alcohol or a controlled substance to the extent, or in a manner, that is dangerous or injurious to the licensee, to any other person, or to the public, or that impairs the licensee&rsquo;s ability to practice safely. The same subdivision requires revocation of anyone who uses or offers to use drugs in the course of performing marriage and family therapy services."
+         ],
+         [
+          "B&amp;P &sect;4982(i)",
+          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
+          "Intentionally or recklessly causing physical or emotional harm to any client."
+         ]
         ],
-        "outcome": "Revocation stayed. Four years of probation.",
-        "cost": "$5,190",
-        "rule": "&sect;4982(c) does not require a diagnosis, a pattern, or a "
-                "consequence. It requires use in a manner that impairs the "
-                "ability to practise safely. A single session is enough, and the "
-                "disciplinary guidelines put the floor for impaired ability at "
-                "stayed revocation with 60 to 90 days of suspension and five "
-                "years of probation.",
-        "ins": "Impairment sits in the gap between what the policies cover and "
-               "what actually happens. There is no malpractice claim here at all "
-               "&mdash; no client sued, no damages &mdash; so the $1 million "
-               "limit is irrelevant. The four-year probation, the monitoring "
-               "costs of roughly $1,200 a year, and the ordered treatment are all "
-               "uninsured.",
+        "outcome": "LMFT license revoked, the revocation stayed, and four years of probation imposed. Conditions include total abstinence from alcohol and from controlled substances not lawfully prescribed, random and directed drug and alcohol testing at his own cost with automatic suspension of the license on a confirmed positive, a Board-approved dependency support program at least twice a week, weekly psychotherapy with a Board-approved therapist, one hour a week of independent supervised practice, two semester units of graduate coursework in substance use and abuse within 18 months, no supervising associates or trainees for the term, and written notice to clients and employers.",
+        "cost": "$5,190.00",
+        "rule": "Section 4982(c) does not require a conviction, a car, or a complaining client. It reaches any use of alcohol in a manner dangerous or injurious to another person or that impairs the ability to practice safely, which means a single afternoon of seeing clients after drinking is chargeable on its own terms. Because the conduct occurred while providing services, the same episode can also be pleaded as gross negligence and as recklessly causing harm to a client. When impairment is part of the case, the discipline that follows is shaped by the Uniform Standards for substance abuse: abstinence, random testing at the licensee&rsquo;s expense, a recovery support program, and automatic suspension if a test is positive, all for years rather than months.",
+        "ins": "Nothing here is covered by the policy&rsquo;s indemnity side. Practicing while impaired is not a covered professional error, and every professional liability policy excludes intentional acts, criminal acts, and conduct under the influence. The part of the policy that mattered is the license defense benefit, which pays for counsel in a board proceeding; this respondent was represented, contested the accusation, and settled for a stayed revocation rather than an actual one. Note also what insurance never touches: four years of testing fees, weekly therapy, weekly supervision, a twice-weekly program, graduate coursework, $1,200 a year in monitoring, and $5,190 in cost recovery all come out of pocket.",
         "prevent": [
-            "The report came from colleagues, not clients. Most therapists model "
-            "their risk as arriving from the people they treat; in this dataset "
-            "it arrives from coworkers, employers, other agencies and the "
-            "Department of Justice far more often.",
-            "California's diversion-style options for impaired licensees are "
-            "worth knowing about before you need them, because they are a very "
-            "different conversation to have with the Board than an accusation is.",
+         "Do not drink on a day you will see clients, regardless of the occasion, the quantity, or how long ago it was.",
+         "If you find yourself impaired at work, cancel the remaining schedule and tell someone who can cover. The sessions you go ahead and hold are the misconduct, not the drink at lunch.",
+         "If a colleague appears impaired at work, act the same day and document it. Staff reports are what created the record here, and a program that ignores them is exposing clients and itself."
         ],
     },
-
-    # ============================================================== records
     {
         "slug": "discipline-case-the-custody-letter",
         "group": "records",
@@ -1894,3 +1907,13 @@ COST_BANDS = [
     ("$15,883", "The highest in three years &mdash; the residential-facility "
      "sexual misconduct case"),
 ]
+
+
+# --------------------------------------------------- the second collection
+# Eighteen more, from a separate download of 105 decisions. Kept in their own
+# module so that where a case came from stays visible: everything above was
+# read from the Board's newsletters, everything in `case_data_more.py` came
+# through the redaction pipeline documented in that file's header.
+from case_data_more import MORE  # noqa: E402
+
+CASES = CASES + MORE
