@@ -876,7 +876,9 @@ def body():
                 % (url, name)) if url else "<b>%s</b>" % name
         o.append('<tr class="%s"><td>%s</td><td class="f">$%s</td>'
                  '<td>%s</td><td class="m">%s</td></tr>'
-                 % (cls, cell, rate, note, "yes" if ok else "NO"))
+                 # "no", not "NO". The row is already tinted and the figure is
+                 # already red; a third shout in the same row is one too many.
+                 % (cls, cell, rate, note, "yes" if ok else "no"))
     o.append("</table></div>")
     o.append('<p class="ap-cap">Coverage generally turns on where the work is '
              'performed, not where the employer is registered &mdash; the City '
