@@ -38,7 +38,11 @@
   "min_gpa": "Applicants must have an overall GPA of 2.75 or higher to be eligible for consideration.",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 May 2030",
+  "coamfte_checked": "10 August 2026",
+  "coamfte_record": "https://coamfte.edvera.com/directory/institutions/24045"
  },
  {
   "institution": "San Diego State University",
@@ -79,7 +83,11 @@
   "min_gpa": "2.85 for domestic applicants or 3.00 for international applicants",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 November 2030",
+  "coamfte_checked": "10 August 2026",
+  "coamfte_record": "https://coamfte.edvera.com/directory/institutions/24030"
  },
  {
   "institution": "California State University, Dominguez Hills",
@@ -993,7 +1001,10 @@
   "min_gpa": "3.0",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 November 2027",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "institution": "California Institute of Integral Studies",
@@ -1279,7 +1290,10 @@
   "min_gpa": null,
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 November 2027",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "institution": "University of La Verne",
@@ -1358,7 +1372,10 @@
   "min_gpa": "3.3",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 May 2027",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "institution": "Campbellsville University — Los Angeles Education Center (formerly Phillips Graduate University/Institute)",
@@ -1561,7 +1578,11 @@
   "min_gpa": null,
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited With Stipulations",
+  "coamfte_renewal": "1 November 2029",
+  "coamfte_checked": "10 August 2026",
+  "coamfte_note": "with stipulations &mdash; renewed for four years in autumn 2025, not the usual seven"
  },
  {
   "institution": "University of Massachusetts Global (formerly Brandman)",
@@ -1755,7 +1776,10 @@
   "min_gpa": "3.0",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 November 2028",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "institution": "Touro University Worldwide",
@@ -1801,7 +1825,11 @@
   "admissions_conflict": null,
   "placement_branches": null,
   "fields_checked": "2026-08-07",
-  "coamfte_note": "on show cause — read the notice at the top of this page"
+  "coamfte_note": "on show cause &mdash; read the notice at the top of this page",
+  "coamfte_status": "Accredited with Show-Cause",
+  "coamfte_renewal": "1 May 2026",
+  "coamfte_checked": "10 August 2026",
+  "coamfte_record": "https://coamfte.edvera.com/directory/institutions/24078"
  },
  {
   "institution": "Loma Linda University",
@@ -1842,7 +1870,11 @@
   "min_gpa": "3.0",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited With Stipulations",
+  "coamfte_renewal": "1 November 2029",
+  "coamfte_checked": "10 August 2026",
+  "coamfte_note": "with stipulations &mdash; renewed for four years in autumn 2025, not the usual seven"
  },
  {
   "institution": "University of San Diego (SOLES)",
@@ -1881,7 +1913,10 @@
   "min_gpa": "3.00",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 November 2030",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "institution": "Daybreak University",
@@ -1922,7 +1957,10 @@
   "min_gpa": "3.0",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 May 2030",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "institution": "Pacifica Graduate Institute",
@@ -2592,7 +2630,10 @@
   "min_gpa": null,
   "admissions_conflict": null,
   "placement_branches": "Two branches, two models. The Evanston on-campus branch trains students in The Family Institute's own clinic. The online branch — the one Californians enrol in — is placed: “Do I secure my own placements? No.” Published constraints on that branch: no placement at your current employer, up to 75 miles of travel, unpaid, and no guarantee without a car.",
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_status": "Accredited",
+  "coamfte_renewal": "1 May 2032",
+  "coamfte_checked": "10 August 2026"
  },
  {
   "coamfte": false,
