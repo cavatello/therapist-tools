@@ -484,12 +484,36 @@ def page(p):
 
     if coam:
         cnote = p.get("coamfte_note")
+        # The verbatim status term, not a boolean. "Accredited", "Accredited
+        # With Stipulations" and "Accredited with Show-Cause" all fold to True
+        # under `coamfte`, which is exactly how one program's status drifted to
+        # show-cause here without anyone noticing. Where the term is anything
+        # other than plain "Accredited", the block goes amber and says why.
+        cstat = p.get("coamfte_status")
+        crenew = p.get("coamfte_renewal")
+        crec = p.get("coamfte_record")
+        cchecked = p.get("coamfte_checked")
+        detail = ""
+        if cstat:
+            term = ('<b>%s</b>' % esc(cstat)) if cstat != "Accredited" else esc(cstat)
+            detail = ("<p>The Commission&rsquo;s own record lists this program as "
+                      "%s" % term)
+            if crenew:
+                detail += ", with an accreditation renewal date of %s" % esc(crenew)
+            detail += ". "
+            if crec:
+                detail += ('<a href="%s" target="_blank" rel="noopener noreferrer">'
+                           "Read the record</a>. " % crec)
+            if cchecked:
+                detail += "Checked %s." % esc(cchecked)
+            detail += "</p>"
         verdict = ('<div class="verd %s"><h3>COAMFTE accredited%s</h3>'
                    % ("warn" if cnote else "ok",
                       (", " + cnote) if cnote else "") +
                    "<p>This is the accreditation that decides whether the degree "
                    "travels. %d of the %d institutions on the Board&rsquo;s list "
                    "hold it, and this is one of them.</p>" % (N_COAM, N_ALL) +
+                   detail +
                    "<p>It matters most if there is any chance you will practise "
                    "outside California. It matters less inside California, where a "
                    "regionally-accredited, Board-listed degree is sufficient.</p></div>")
