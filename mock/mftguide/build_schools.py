@@ -147,7 +147,14 @@ def library_meta(p):
     joins the library on the next build with no central edit and no hand-written
     metadata.
     """
-    q = "What is %s's MFT programme like?" % p["institution"].split(" (")[0]
+    # American here, at the source, and not left to `_dev/american.py`. This
+    # string becomes the `ts:question` meta, which `_dev/pixel_concepts.py`
+    # renders into the In-short card as a <q> - and american.py protects that
+    # block, because it is generated from metadata rather than authored. The
+    # British form survived three pages of the last rebuild for exactly that
+    # reason. Everything else in this file stays British and is converted
+    # downstream; this one line cannot be.
+    q = "What is %s's MFT program like?" % p["institution"].split(" (")[0]
     bits = []
     if p.get("units"):
         bits.append(esc(p["units"]))
