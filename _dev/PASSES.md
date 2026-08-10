@@ -74,6 +74,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
+| `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
 | `seo_rules.py` | verify | &mdash; | The rule: a page cannot be added to this site badly, because publishing checks. |
 
 ## Written, not wired
