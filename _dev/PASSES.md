@@ -144,6 +144,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
 | `patch_counts.py` | **untriaged** | &mdash; | Point the two nav-panel blurbs at counts.py instead of at a memory. |
 | `patch_ig.py` | **untriaged** | &mdash; | Point the discipline-hub bar chart at the data instead of at a memory of it. |
+| `patch_touro.py` | **untriaged** | &mdash; | Touro's MFT track is accredited WITH SHOW CAUSE, and the page said "accredited". |
 | `patch_tsshort.py` | **untriaged** | &mdash; | The In-short card stops repeating the headline it sits under. |
 | `patch_years.py` | **untriaged** | &mdash; | Two claims on the hub that the second collection made untrue. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
