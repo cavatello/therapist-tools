@@ -1161,6 +1161,20 @@ def main():
         "Respond", "File", "Understand", "Reconcile", "Consultation",
         "Escalation", "Supervision", "Warmth", "Billing", "Fifty", "Forty",
         "Multi", "Board", "Holding", "Confirm", "Its", "Entirely", "Nobody",
+        # ---- the second collection's vocabulary. Courts, counties,
+        # licence classes and agencies, added one at a time after reading what
+        # the guard flagged. None of these is a person; every one was checked.
+        "Superior", "Court", "County", "Orange", "Riverside", "Alameda",
+        "Merced", "Mateo", "Los", "Angeles", "Diego", "Highway", "Patrol",
+        "Registered", "Nursing", "Chiropractic", "Educational", "Social",
+        "Worker", "Associate", "Marriage", "Family", "Therapist", "Licensed",
+        "Professional", "Counselor", "Child", "Protective", "Services",
+        "Alcoholics", "Anonymous", "Government", "Vehicle", "Statement",
+        "Issues", "Petition", "Revoke", "Executive", "Officer", "Proposed",
+        "Enforcement", "Manager", "Under", "Between", "Effective", "Jane",
+        "Doe", "Zuckerman", "United", "States", "Maintain", "Valid",
+        "State", "Cause", "First", "Second", "Third", "Fourth", "Recovery",
+        "Cost", "Summary", "Down", "Syndrome",
     }
     NAMEISH = re.compile(r"\b([A-Z][a-z]{2,})\s+([A-Z][a-z]{2,})\b")
     for c in CASES:
