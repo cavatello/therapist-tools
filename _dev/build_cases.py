@@ -55,6 +55,48 @@ from case_data import (CASES, GROUPS, AGGREGATE, SUBD_COUNTS, PROBATION_TERMS,  
 # `case_depth.py` for why that separation is load-bearing rather than tidy.
 from case_depth import DEPTH  # noqa: E402
 
+
+# ------------------------------------------------------------------ counting
+# Every figure the hub prints about itself is computed. The first version of
+# this file wrote "thirty" into nine strings, and the library is now
+# forty-eight; a number typed into prose is a number that goes stale silently.
+WORD = ("no", "one", "two", "three", "four", "five", "six", "seven", "eight",
+        "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+        "sixteen", "seventeen", "eighteen", "nineteen", "twenty")
+TENS = {30: "thirty", 40: "forty", 50: "fifty", 60: "sixty", 70: "seventy",
+        80: "eighty", 90: "ninety"}
+
+
+def word(n):
+    """Spelled out, because "Forty-eight cases" reads better than "48 cases"."""
+    if n <= 20:
+        return WORD[n]
+    t, u = divmod(n, 10)
+    base = TENS.get(t * 10)
+    if not base:
+        return str(n)
+    return base if not u else "%s-%s" % (base, WORD[u])
+
+
+def money_max():
+    """The largest cost recovery in the library, read off the cases.
+
+    It was $15,883 when this was typed by hand, then $32,956, then $33,704.
+    Nobody was going to remember to update it a third time."""
+    best, txt = 0, None
+    for c in CASES:
+        v = c.get("cost")
+        if not v:
+            continue
+        for m in re.findall(r"\$([\d,]+(?:\.\d\d)?)", v):
+            f = float(m.replace(",", ""))
+            if f > best:
+                best, txt = f, "$" + m.split(".")[0]
+    return txt or "&mdash;"
+
+
+NUM = len(CASES)
+
 HUB = "therapist-discipline-cases-california.html"
 CHROME_FROM = os.path.join(SITE, "hiring-first-associate-california-therapist.html")
 INSURANCE = "therapy-liability-insurance-california.html"
@@ -384,6 +426,16 @@ FILTER_JS = """<script>
 </script>"""
 
 
+def eff_of(c):
+    """The effective date, or an honest gap.
+
+    One decision's effective date is illegible in the scan. The page says so
+    rather than carrying a date nobody can read off the document - and this
+    function exists so that the four places that print a date all say the same
+    thing when there is not one."""
+    return (c.get("eff") or "date not legible").split(";")[0]
+
+
 def esc(x):
     return html.escape(str(x), quote=False) if x is not None else ""
 
@@ -421,14 +473,14 @@ def hub_body():
     # is the finding of the section immediately below it and does not need
     # saying twice before the reader has seen anything.
     o.append('<div class="dc-figs">')
-    for n, l in (("103", "decisions read"),
-                 ("30", "written up"),
-                 ("$15,883", "largest cost recovery")):
+    for n, l in ((str(NUM), "written up in full"),
+                 (money_max(), "largest cost recovery"),
+                 (str(len(GROUPS)), "ways it goes wrong")):
         o.append('<div><span class="n">%s</span><span class="l">%s</span></div>' % (n, l))
     o.append("</div>")
     o.append('<p class="hj">')
     o.append('<a href="#the-shape">The shape of it</a>')
-    o.append('<a href="#cases">The thirty cases</a>')
+    o.append('<a href="#cases">The %s cases</a>' % word(NUM))
     o.append('<a href="#what-it-costs">What it costs</a>')
     o.append('<a href="%s">Insurance that answers for it</a>' % INSURANCE)
     o.append("</p>")
@@ -487,7 +539,8 @@ def hub_body():
     # ------------------------------------------------------------- the cases
     o.append('<section class="dc-sec" id="cases">')
     o.append('<p class="dc-k">The library</p>')
-    o.append('<h2 class="dc-h">Thirty cases, grouped by what went wrong.</h2>')
+    o.append('<h2 class="dc-h">%s cases, grouped by what went wrong.</h2>'
+             % word(NUM).capitalize())
     o.append('<p class="dc-d">Each one opens to a full write-up: the facts as the '
              'decision states them, every statute charged with a link to the code '
              'section, the disposition, the cost recovery, what the rule actually '
@@ -501,13 +554,14 @@ def hub_body():
     # reader two mental models of the same thirty cases.
     o.append('<div class="dc-filt" role="group" aria-label="Filter cases">')
     o.append('<button class="dc-fb" type="button" data-g="all" '
-             'aria-pressed="true">All thirty</button>')
+             'aria-pressed="true">All %s</button>' % word(NUM))
     for g in GROUPS:
         o.append('<button class="dc-fb" type="button" data-g="%s" '
                  'aria-pressed="false">%s <span aria-hidden="true">&middot; '
                  '%d</span></button>' % (g["key"], g["short"], len(by_group(g["key"]))))
     o.append("</div>")
-    o.append('<p class="dc-count" id="dc-count">Showing all 30 cases</p>')
+    o.append('<p class="dc-count" id="dc-count">Showing all %d cases</p>'
+             % NUM)
 
     for g in GROUPS:
         cs = by_group(g["key"])
@@ -530,7 +584,7 @@ def hub_body():
             o.append('<span class="rd">%s</span>' % c["dek"])
             o.append('<span class="rm">')
             o.append("<span>%s</span>" % c["role"])
-            o.append("<span>%s</span>" % c["eff"].split(";")[0])
+            o.append("<span>%s</span>" % eff_of(c))
             o.append("<span class='o'>%s</span>" % short_outcome(c))
             amt, _note = cost_parts(c["cost"])
             if amt:
@@ -548,7 +602,7 @@ def hub_body():
                 # correctness one.
                 amt, _n = cost_parts(c["cost"])
                 o.append('<span class="rm">%s &middot; %s%s</span>'
-                         % (c["eff"].split(";")[0], short_outcome(c),
+                         % (eff_of(c), short_outcome(c),
                             (" &middot; " + amt) if amt else ""))
                 o.append("</a>")
             o.append("</div>")
@@ -600,7 +654,7 @@ def hub_body():
     o.append('<section class="dc-sec" id="insurance">')
     o.append('<div class="dc-ex ins">')
     o.append("<h2>Where insurance actually reaches</h2>")
-    o.append("<p>Read the thirty cases and the pattern is hard to miss: almost "
+    o.append("<p>Read them and the pattern is hard to miss: almost "
              "none of them is a malpractice claim. Nobody sued. The Board saw "
              "<b>seven</b> malpractice settlement reports in four years, against "
              "2,127 complaints in a single year. The $1,000,000 limit that every "
@@ -743,7 +797,7 @@ def case_body(c, prev, nxt):
     o.append('<div><span class="l">Licence type</span><span class="v">%s</span></div>'
              % c["role"])
     o.append('<div><span class="l">Effective</span><span class="v">%s</span></div>'
-             % c["eff"])
+             % eff_of(c))
     o.append('<div><span class="l">Case number</span><span class="v">%s</span></div>'
              % (c["case"] or "Not stated in the newsletter"))
     o.append("</div>")
@@ -854,7 +908,7 @@ def case_body(c, prev, nxt):
                  '<span class="t">%s</span></a>' % (prev["slug"], prev["t"]))
     else:
         o.append('<a href="%s"><span class="l">&larr; Back</span>'
-                 '<span class="t">All thirty cases</span></a>' % HUB)
+                 '<span class="t">All %s cases</span></a>' % (HUB, word(NUM)))
     if nxt:
         o.append('<a class="nx" href="%s.html"><span class="l">Next &rarr;</span>'
                  '<span class="t">%s</span></a>' % (nxt["slug"], nxt["t"]))
@@ -870,7 +924,7 @@ def case_body(c, prev, nxt):
              'rel="noopener">quarterly newsletter archive</a>, find the issue '
              'covering %s, and match the case number in the Formal Disciplinary '
              'Actions section. Not legal advice.</p>'
-             % (HUB, NEWSLETTERS, c["eff"].split(";")[0]))
+             % (HUB, NEWSLETTERS, eff_of(c)))
 
     o.append("</article>")
     return "".join(o)
@@ -995,14 +1049,14 @@ def main():
     meta = metablock(
         HUB,
         "What actually gets a California therapist disciplined",
-        "Thirty real California BBS disciplinary decisions for LMFTs and AMFTs, "
-        "de-identified: what happened, which subdivision of B&amp;P &sect;4982 it "
-        "was charged under, how it resolved, and what the cost recovery was. Read "
-        "from 103 signed decisions.",
+        "%d real California BBS disciplinary decisions, de-identified: what "
+        "happened, which subdivision it was charged under, how it resolved, and "
+        "what the cost recovery was. Read from two collections of signed "
+        "decisions." % NUM,
         "What actually gets a California therapist disciplined?",
-        "Thirty real cases, the exact code section each was charged under, and "
-        "what each one cost",
-        "103 decisions read, 30 written up",
+        "%s real cases, the exact code section each was charged under, and "
+        "what each one cost" % word(NUM).capitalize(),
+        "%d written up in full" % NUM,
         "5", fmt="reference")
     open(os.path.join(SITE, HUB), "w", encoding="utf-8").write(
         assemble(meta, hub_body(), parts, css))
