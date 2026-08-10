@@ -116,9 +116,18 @@ def main():
         s = open(path, encoding="utf-8").read()
         before = s
 
-        # 1. the global footer disclosure, appended once
-        if FOOT_ANCHOR in s and FOOT_SENTENCE not in s:
-            s = s.replace(FOOT_ANCHOR, FOOT_ANCHOR + FOOT_SENTENCE, 1)
+        # 1. the global footer disclosure - REMOVED, and removed on sight.
+        #
+        # The footer already links "Affiliate disclosure" as a nav item, which
+        # is where somebody who cares goes. Carrying the sentence as well meant
+        # every page ended with TWO disclaimers stacked on each other, and the
+        # first one was about money the reader does not pay. One disclaimer at
+        # the foot of a page is small print; two is a terms-of-service scroll.
+        #
+        # This pass now strips the sentence wherever a previous run left it,
+        # so the change reaches all 178 footers without a separate cleanup.
+        if FOOT_SENTENCE in s:
+            s = s.replace(FOOT_SENTENCE, "")
             foot += 1
 
         # 2. the home page promise block
@@ -203,9 +212,15 @@ def main():
             for claim in STALE:
                 if claim.lower() in s.lower():
                     print("GUARD %s: still claims %r" % (f, claim)); bad += 1
-        # every page with a footer must carry the disclosure
-        if "<footer" in s and FOOT_SENTENCE not in s:
-            print("GUARD %s: footer without the disclosure" % f); bad += 1
+        # The inverse of the old rule: no footer may carry the sentence. The
+        # disclosure lives at its own page, linked from the footer nav.
+        if FOOT_SENTENCE in s:
+            print("GUARD %s: the affiliate sentence is back in the footer" % f)
+            bad += 1
+        # ...but the link to the disclosure must still be there, or removing
+        # the sentence would have removed the disclosure itself.
+        if "<footer" in s and "affiliate-disclosure.html" not in s:
+            print("GUARD %s: no link to the affiliate disclosure" % f); bad += 1
         # no affiliate URL may appear untagged
         for pr in PARTNERS:
             new = pr["url"]
