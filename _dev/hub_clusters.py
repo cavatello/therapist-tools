@@ -62,11 +62,26 @@ def sections(html):
 def main():
     if not os.path.exists(HUB):
         sys.exit("hub_clusters: the %s hub is missing" % TOPIC)
+    # Regenerate rather than trusting whatever is on disk. `_dev/
+    # taxonomy_leaves.py` runs immediately before this pass and edits
+    # registry.json; an output generated before it would be a hub built from
+    # a registry that no longer exists. The generator writes only to
+    # mock/library/out/ and cannot reach the live site.
+    import subprocess
+    gen_script = os.path.join(SITE, "mock", "library", "build_library.py")
+    if not os.path.exists(gen_script):
+        sys.exit("hub_clusters: mock/library/build_library.py is missing, and "
+                 "this pass has nothing to lift from")
+    r = subprocess.run([sys.executable, gen_script], cwd=SITE,
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        sys.stdout.write(r.stdout)
+        sys.stdout.write(r.stderr)
+        sys.exit("hub_clusters: build_library.py failed, so the sections this "
+                 "pass would insert are unknown. Nothing was written.")
     if not os.path.exists(GEN):
-        sys.exit("hub_clusters: %s is missing.\n"
-                 "  Regenerate it first:  python3 mock/library/build_library.py\n"
-                 "  It writes only to mock/library/out/ and cannot touch the "
-                 "live site." % os.path.relpath(GEN, SITE))
+        sys.exit("hub_clusters: build_library.py ran and %s still does not "
+                 "exist" % os.path.relpath(GEN, SITE))
 
     gen = open(GEN, encoding="utf-8").read()
     s = open(HUB, encoding="utf-8").read()

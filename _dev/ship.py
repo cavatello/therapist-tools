@@ -82,6 +82,12 @@ STRUCTURE = [
      "its prose has to reach american.py like any other copy"),
     ("_dev/taxonomy_leaves.py",
      "the 48 case pages become leaves and three reference pages get real\n      clusters, so no topic hub ends in a 50-page catch-all. BEFORE\n      uplinks, which picks a page's siblings out of the registry"),
+    ("_dev/hub_clusters.py",
+     "sync the licensure hub's cluster sections to registry.json, "
+     "lifted from mock/library/build_library.py's output rather than "
+     "authored. After the builders, because the registry describes "
+     "pages that must already exist; before uplinks and breadcrumbs, "
+     "which read the hub's links"),
     ("_dev/uplinks.py", "the More-on-this block"),
     ("_dev/breadcrumbs.py", "breadcrumb trails where a trail exists"),
     ("_dev/link_sinks.py",
