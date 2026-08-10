@@ -73,6 +73,13 @@ BUILD = [
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that
     # point would ship a heading the page's own nav does not list.
+    # The county atlas. Reads `_dev/dca_stats.py`, which is written by
+    # `_dev/dca_licensees.py` from the state's monthly register. Every
+    # figure on the page is derived at build time, so when the register
+    # is refreshed the page moves with it and no prose needs editing.
+    ("_dev/build_atlas.py",
+     "all 165,000 California licensees counted by county, with the "
+     "associate-per-supervisor ratio and the delinquency rates"),
     ("_dev/payroll_ops.py",
      "what it costs to RUN the payroll - the EDD registration trigger, "
      "published prices for one employee, and the workers' compensation class "
@@ -235,6 +242,14 @@ LAST = [
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
 VERIFY = [
+    # The DCA licensee counts. `--check` only: it re-reads the committed
+    # `_dev/dca_stats.py` and reconciles it. The refresh half of that
+    # pass downloads 35MB from the state and CANNOT run here - this
+    # machine has no outbound network - so it is run monthly from
+    # somewhere that does, and only the derived counts are committed.
+    ("_dev/dca_licensees.py --check",
+     "the 165,000 California licensee counts still reconcile, and "
+     "nothing identifying has crept into the derived file"),
     ("_dev/notruncate.py",
      "a smoke alarm: no published page is empty or implausibly small. Two\n      pages have been committed at zero bytes by an interrupted pass, and\n      neither linkcheck nor seo_rules noticed, because both skip a file with\n      no links and no chrome"),
     ("_dev/linkcheck.py", "every internal link resolves"),
@@ -251,7 +266,11 @@ def run(path, why, timeout=600):
     sys.stdout.write("  %-24s " % name)
     sys.stdout.flush()
     try:
-        r = subprocess.run([sys.executable, os.path.join(SITE, path)],
+        # A pass may carry arguments - "_dev/x.py --check". Split them off
+        # the path so the entry stays one readable string in the lists above.
+        parts = path.split()
+        argv = [sys.executable, os.path.join(SITE, parts[0])] + parts[1:]
+        r = subprocess.run(argv,
                            cwd=SITE, capture_output=True, text=True,
                            timeout=timeout)
     except subprocess.TimeoutExpired:
@@ -304,7 +323,8 @@ def main():
                 else:
                     print("  %-24s skipped (--from %s)" % (name, start))
                     continue
-            if not os.path.exists(os.path.join(SITE, path)):
+            # path may carry arguments; only the first token is a file.
+            if not os.path.exists(os.path.join(SITE, path.split()[0])):
                 print("  %-24s MISSING - %s" % (name, why))
                 failed += 1
                 continue

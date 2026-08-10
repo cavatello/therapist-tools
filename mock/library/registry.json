@@ -1458,7 +1458,7 @@
   },
   {
    "file": "mft-programs-california.html",
-   "title": "California MFT graduate programmes: 78 schools, what each publishes, and what people say",
+   "title": "California MFT graduate programs",
    "topic": "licensure",
    "format": "directory",
    "question": "Which California MFT program should I apply to?",
@@ -2159,6 +2159,19 @@
    "leaf": false
   },
   {
+   "file": "therapists-by-county-california.html",
+   "title": "Therapists by county in California: all 165,000, from the register",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "How many therapists are there in my county, and how crowded is it?",
+   "outcome": "The whole California register counted by county and license type, with the associate-per-supervisor ratio and the delinquency rates nobody publishes",
+   "number": "165,235 on the register",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "therapy-liability-insurance-california.html",
    "title": "Liability insurance for a California therapy practice — Therapist Support",
    "topic": "practice",
@@ -2409,7 +2422,8 @@
       "associate-therapist-pay-los-angeles-bay-area.html",
       "associate-unpaid-hours-california.html",
       "associate-hours-telehealth-out-of-state.html",
-      "associate-hours-trackers-compared.html"
+      "associate-hours-trackers-compared.html",
+      "therapists-by-county-california.html"
      ]
     },
     {
