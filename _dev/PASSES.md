@@ -29,6 +29,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
+| `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
 | `build_unpaid.py` | build | &mdash; | You were not paid for the notes: the wage claim an associate can actually file. |
@@ -162,6 +163,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `patch_touro.py` | **untriaged** | &mdash; | Touro's MFT track is accredited WITH SHOW CAUSE, and the page said "accredited". |
 | `patch_tsshort.py` | **untriaged** | &mdash; | The In-short card stops repeating the headline it sits under. |
 | `patch_years.py` | **untriaged** | &mdash; | Two claims on the hub that the second collection made untrue. |
+| `state_workforce.py` | **untriaged** | &mdash; | The mental health workforce of every state, from BLS and the Census. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |

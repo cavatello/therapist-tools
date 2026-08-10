@@ -80,6 +80,14 @@ BUILD = [
     ("_dev/build_atlas.py",
      "all 165,000 California licensees counted by county, with the "
      "associate-per-supervisor ratio and the delinquency rates"),
+    # The state comparison. Reads `_dev/state_workforce.py` - BLS OEWS
+    # plus Census population plus each state's own license titles.
+    # The page leads with the titles because the obvious chart (MFTs
+    # per capita) measures statutes rather than supply, and a guard
+    # fails the build if that warning ever moves below the charts.
+    ("_dev/build_states.py",
+     "what a licensed therapist is called in 17 states, and the "
+     "per-capita comparison that survives those titles"),
     ("_dev/payroll_ops.py",
      "what it costs to RUN the payroll - the EDD registration trigger, "
      "published prices for one employee, and the workers' compensation class "

@@ -2172,6 +2172,19 @@
    "leaf": false
   },
   {
+   "file": "therapists-by-state-compared.html",
+   "title": "Therapists by state: what the license is called, and how many there are",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "How does California compare with other states for therapists?",
+   "outcome": "The license title in each state, the per-capita ranking that is not distorted by those titles, and why a marriage and family therapist map measures statutes rather than supply",
+   "number": "52% of US MFT jobs",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "therapy-liability-insurance-california.html",
    "title": "Liability insurance for a California therapy practice — Therapist Support",
    "topic": "practice",
@@ -2423,7 +2436,8 @@
       "associate-unpaid-hours-california.html",
       "associate-hours-telehealth-out-of-state.html",
       "associate-hours-trackers-compared.html",
-      "therapists-by-county-california.html"
+      "therapists-by-county-california.html",
+      "therapists-by-state-compared.html"
      ]
     },
     {
