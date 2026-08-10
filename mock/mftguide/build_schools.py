@@ -822,8 +822,17 @@ def main():
         # seeded by hand.
         if "<!-- ts:meta -->" not in doc or 'name="ts:topic"' not in doc:
             bad.append("%s: no library metadata - it would be an orphan" % sl)
-        if p.get("coamfte_note") and "show cause" not in doc:
-            bad.append("%s: the coamfte_note did not render" % sl)
+        # Check the note's own words, not one hardcoded phrase. This was
+        # written when "show cause" was the only note that existed, and it
+        # silently passed every other note that failed to render.
+        if p.get("coamfte_note"):
+            _n = p["coamfte_note"]
+            if _n not in doc and _n.split(" \u2014 ")[0] not in doc:
+                bad.append("%s: the coamfte_note %r did not render"
+                           % (sl, _n[:40]))
+        if p.get("coamfte_status") and p["coamfte_status"] not in doc:
+            bad.append("%s: the COAMFTE status term %r did not render"
+                       % (sl, p["coamfte_status"]))
         if p.get("notice") and p["notice"]["url"] not in doc:
             bad.append("%s: the Board notice did not render" % sl)
         if tuition(p) and tuition(p) not in doc:
