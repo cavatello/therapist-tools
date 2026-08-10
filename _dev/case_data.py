@@ -782,42 +782,109 @@ CASES = [
         "slug": "discipline-case-drinking-at-lunch",
         "group": "dual",
         "t": "Alcohol at lunch, then a session and a group",
-        "dek": "Four years of probation, total abstinence, random testing at his own cost, and $5,190.",
+        "dek": "Four years of probation, total abstinence, random testing at his "
+            "own cost, and $5,190.",
         "role": "LMFT",
         "eff": "July 24, 2025",
         "case": "2002023002307",
-        "hear": null,
+        "hear": None,
         "facts": [
-         "On March 28, 2023 the respondent was employed as the clinical director of a community mental health program and was providing therapeutic services. Staff members reported that he appeared to be drunk, smelled like alcohol, and was acting abnormally.",
-         "The respondent admitted making what he called the &ldquo;unprofessional decision&rdquo; to consume alcohol at lunch and then return to work to render therapeutic services. Those services included individual psychotherapy with one client and co-facilitating a men&rsquo;s group.",
-         "The Board filed an accusation on May 24, 2024 pleading three causes for discipline out of that single afternoon: gross negligence or unprofessional conduct, use of alcohol in a manner dangerous or injurious to a client or impairing his ability to practice, and intentionally or recklessly causing physical or emotional harm to a client. He was served, timely filed a notice of defense contesting the accusation, and was represented by counsel.",
-         "The case settled. He did not admit the allegations; he agreed that the charges, if proven at a hearing, would constitute cause for discipline, and agreed to be bound by the Board&rsquo;s probationary terms. The Board adopted the stipulation on June 24, 2025."
+            "On March 28, 2023 the respondent was employed as the clinical "
+                "director of a community mental health program and was "
+                "providing therapeutic services. Staff members reported that he "
+                "appeared to be drunk, smelled like alcohol, and was acting "
+                "abnormally.",
+            "The respondent admitted making what he called the "
+                "&ldquo;unprofessional decision&rdquo; to consume alcohol at "
+                "lunch and then return to work to render therapeutic services. "
+                "Those services included individual psychotherapy with one "
+                "client and co-facilitating a men&rsquo;s group.",
+            "The Board filed an accusation on May 24, 2024 pleading three "
+                "causes for discipline out of that single afternoon: gross "
+                "negligence or unprofessional conduct, use of alcohol in a "
+                "manner dangerous or injurious to a client or impairing his "
+                "ability to practice, and intentionally or recklessly causing "
+                "physical or emotional harm to a client. He was served, timely "
+                "filed a notice of defense contesting the accusation, and was "
+                "represented by counsel.",
+            "The case settled. He did not admit the allegations; he agreed "
+                "that the charges, if proven at a hearing, would constitute "
+                "cause for discipline, and agreed to be bound by the "
+                "Board&rsquo;s probationary terms. The Board adopted the "
+                "stipulation on June 24, 2025.",
         ],
         "charges": [
-         [
-          "B&amp;P &sect;4982(d)",
-          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
-          "Gross negligence or incompetence in the performance of marriage and family therapy."
-         ],
-         [
-          "B&amp;P &sect;4982(c)",
-          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
-          "Using alcohol or a controlled substance to the extent, or in a manner, that is dangerous or injurious to the licensee, to any other person, or to the public, or that impairs the licensee&rsquo;s ability to practice safely. The same subdivision requires revocation of anyone who uses or offers to use drugs in the course of performing marriage and family therapy services."
-         ],
-         [
-          "B&amp;P &sect;4982(i)",
-          "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
-          "Intentionally or recklessly causing physical or emotional harm to any client."
-         ]
+            [
+                "B&amp;P &sect;4982(d)",
+                "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
+                "Gross negligence or incompetence in the performance of "
+                    "marriage and family therapy.",
+            ],
+            [
+                "B&amp;P &sect;4982(c)",
+                "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
+                "Using alcohol or a controlled substance to the extent, or "
+                    "in a manner, that is dangerous or injurious to the "
+                    "licensee, to any other person, or to the public, or that "
+                    "impairs the licensee&rsquo;s ability to practice safely. "
+                    "The same subdivision requires revocation of anyone who "
+                    "uses or offers to use drugs in the course of performing "
+                    "marriage and family therapy services.",
+            ],
+            [
+                "B&amp;P &sect;4982(i)",
+                "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=4982&lawCode=BPC",
+                "Intentionally or recklessly causing physical or emotional "
+                    "harm to any client.",
+            ],
         ],
-        "outcome": "LMFT license revoked, the revocation stayed, and four years of probation imposed. Conditions include total abstinence from alcohol and from controlled substances not lawfully prescribed, random and directed drug and alcohol testing at his own cost with automatic suspension of the license on a confirmed positive, a Board-approved dependency support program at least twice a week, weekly psychotherapy with a Board-approved therapist, one hour a week of independent supervised practice, two semester units of graduate coursework in substance use and abuse within 18 months, no supervising associates or trainees for the term, and written notice to clients and employers.",
+        "outcome": "LMFT license revoked, the revocation stayed, and four years of "
+            "probation imposed. Conditions include total abstinence from "
+            "alcohol and from controlled substances not lawfully prescribed, "
+            "random and directed drug and alcohol testing at his own cost with "
+            "automatic suspension of the license on a confirmed positive, a "
+            "Board-approved dependency support program at least twice a week, "
+            "weekly psychotherapy with a Board-approved therapist, one hour a "
+            "week of independent supervised practice, two semester units of "
+            "graduate coursework in substance use and abuse within 18 months, "
+            "no supervising associates or trainees for the term, and written "
+            "notice to clients and employers.",
         "cost": "$5,190.00",
-        "rule": "Section 4982(c) does not require a conviction, a car, or a complaining client. It reaches any use of alcohol in a manner dangerous or injurious to another person or that impairs the ability to practice safely, which means a single afternoon of seeing clients after drinking is chargeable on its own terms. Because the conduct occurred while providing services, the same episode can also be pleaded as gross negligence and as recklessly causing harm to a client. When impairment is part of the case, the discipline that follows is shaped by the Uniform Standards for substance abuse: abstinence, random testing at the licensee&rsquo;s expense, a recovery support program, and automatic suspension if a test is positive, all for years rather than months.",
-        "ins": "Nothing here is covered by the policy&rsquo;s indemnity side. Practicing while impaired is not a covered professional error, and every professional liability policy excludes intentional acts, criminal acts, and conduct under the influence. The part of the policy that mattered is the license defense benefit, which pays for counsel in a board proceeding; this respondent was represented, contested the accusation, and settled for a stayed revocation rather than an actual one. Note also what insurance never touches: four years of testing fees, weekly therapy, weekly supervision, a twice-weekly program, graduate coursework, $1,200 a year in monitoring, and $5,190 in cost recovery all come out of pocket.",
+        "rule": "Section 4982(c) does not require a conviction, a car, or a "
+            "complaining client. It reaches any use of alcohol in a manner "
+            "dangerous or injurious to another person or that impairs the "
+            "ability to practice safely, which means a single afternoon of "
+            "seeing clients after drinking is chargeable on its own terms. "
+            "Because the conduct occurred while providing services, the same "
+            "episode can also be pleaded as gross negligence and as recklessly "
+            "causing harm to a client. When impairment is part of the case, the "
+            "discipline that follows is shaped by the Uniform Standards for "
+            "substance abuse: abstinence, random testing at the "
+            "licensee&rsquo;s expense, a recovery support program, and "
+            "automatic suspension if a test is positive, all for years rather "
+            "than months.",
+        "ins": "Nothing here is covered by the policy&rsquo;s indemnity side. "
+            "Practicing while impaired is not a covered professional error, and "
+            "every professional liability policy excludes intentional acts, "
+            "criminal acts, and conduct under the influence. The part of the "
+            "policy that mattered is the license defense benefit, which pays "
+            "for counsel in a board proceeding; this respondent was "
+            "represented, contested the accusation, and settled for a stayed "
+            "revocation rather than an actual one. Note also what insurance "
+            "never touches: four years of testing fees, weekly therapy, weekly "
+            "supervision, a twice-weekly program, graduate coursework, $1,200 a "
+            "year in monitoring, and $5,190 in cost recovery all come out of "
+            "pocket.",
         "prevent": [
-         "Do not drink on a day you will see clients, regardless of the occasion, the quantity, or how long ago it was.",
-         "If you find yourself impaired at work, cancel the remaining schedule and tell someone who can cover. The sessions you go ahead and hold are the misconduct, not the drink at lunch.",
-         "If a colleague appears impaired at work, act the same day and document it. Staff reports are what created the record here, and a program that ignores them is exposing clients and itself."
+            "Do not drink on a day you will see clients, regardless of the "
+                "occasion, the quantity, or how long ago it was.",
+            "If you find yourself impaired at work, cancel the remaining "
+                "schedule and tell someone who can cover. The sessions you go "
+                "ahead and hold are the misconduct, not the drink at lunch.",
+            "If a colleague appears impaired at work, act the same day and "
+                "document it. Staff reports are what created the record here, "
+                "and a program that ignores them is exposing clients and "
+                "itself.",
         ],
     },
     {

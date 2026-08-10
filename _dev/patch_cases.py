@@ -107,8 +107,9 @@ FIELDS = ["slug", "group", "t", "dek", "role", "eff", "case", "hear", "facts",
           "charges", "outcome", "cost", "rule", "ins", "prevent"]
 
 
-def lit(v, ind):
-    return json.dumps(v, ensure_ascii=False, indent=1).replace("\n", "\n" + " " * ind)
+sys.path.insert(0, HERE)
+from emit import emit as lit  # JSON -> PYTHON source. json.dumps writes `null`,
+                              # which parses as a NAME and blows up on import.
 
 
 start = s.index('        "slug": "discipline-case-drinking-at-lunch",')
