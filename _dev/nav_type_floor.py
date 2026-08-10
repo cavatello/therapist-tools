@@ -97,6 +97,22 @@ RAISE = [
     (".eap-tbl th", 9.8, "the EAP rate table"),
     (".li-tbl th", 9.8, "the liability table"),
     (".pdtbl th", 9.8, "the PsyD table"),
+    # ---- found by the four-width audit (390/768/1440/1920), August 2026.
+    # The library-hub classes came back when the hubs were regenerated from
+    # registry.json; the school-page classes were never reachable when the
+    # original list was measured.
+    (".tchip", 9.2, "topic chips on the resources page"),
+    (".sn", 9.2, "section numerals"),
+    (".tn", 9.4, "the page counts on topic cards"),
+    (".mvk", 9.4, "the Most-asked kicker on every hub"),
+    (".vkind", 9.6, "video kind labels on school pages"),
+    (".srcl", 9.6, "source labels on school pages"),
+    (".vmeta", 9.8, "video metadata"),
+    (".ccode", 9.8, "course codes"),
+    (".cun", 9.8, "course units"),
+    (".tm", 9.8, "term labels"),
+    (".reffold summary", 10.0, "the reference-list disclosure"),
+    (".tsupd dt", 10.2, "dated update terms"),
 ]
 
 
