@@ -166,6 +166,8 @@ LAST = [
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
 VERIFY = [
+    ("_dev/notruncate.py",
+     "a smoke alarm: no published page is empty or implausibly small. Two\n      pages have been committed at zero bytes by an interrupted pass, and\n      neither linkcheck nor seo_rules noticed, because both skip a file with\n      no links and no chrome"),
     ("_dev/linkcheck.py", "every internal link resolves"),
     ("_dev/seo_rules.py", "the SEO rules, against the recorded baseline"),
 ]

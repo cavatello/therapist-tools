@@ -56,6 +56,13 @@ FLOOR = 4096
 # still fail.
 STUBS = {"tools.html"}
 
+# Not published pages, and deliberately without the site chrome: two design
+# mockups (both noindex, follow - see _dev/social_cards.py) and one redirect
+# stub whose whole job is to be a single sentence pointing at resources.html.
+# They still have to be non-empty and still have to have a title; they are only
+# exempt from needing a masthead and an h1.
+NO_CHROME = {"tycoon.html", "concepts.html", "tools.html"}
+
 
 def pages():
     out = [f for f in sorted(os.listdir(SITE)) if f.endswith(".html")]
@@ -84,9 +91,11 @@ def main():
             continue
         if base not in STUBS and size < FLOOR:
             bad.append("%s is %d bytes, under the %d floor" % (rel, size, FLOOR))
-        for what, ok in (("<title>", "<title>" in s.lower()),
-                         ("an <h1>", "<h1" in s.lower()),
-                         ("the masthead", "sitenav" in s)):
+        checks = [("<title>", "<title>" in s.lower())]
+        if base not in NO_CHROME:
+            checks += [("an <h1>", "<h1" in s.lower()),
+                       ("a masthead", "sitenav" in s)]
+        for what, ok in checks:
             if not ok:
                 bad.append("%s has no %s" % (rel, what))
 
