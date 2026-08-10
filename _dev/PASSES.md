@@ -31,6 +31,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
 | `build_unpaid.py` | build | &mdash; | You were not paid for the notes: the wage claim an associate can actually file. |
+| `payroll_ops.py` | build | &mdash; | What it costs to RUN the payroll, on the page that already prices the hire. |
 | `affiliate.py` | structure | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |

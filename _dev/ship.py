@@ -69,6 +69,14 @@ BUILD = [
     ("_dev/build_outofstate.py",
      "whether a California associate can accrue hours from another state - "
      "the Board has published the answer five times and nobody reads it"),
+    # Not a builder: it inserts one section into a hand-written page. It sits
+    # in BUILD anyway, because the section nav on that page is generated in
+    # STRUCTURE from the headings that exist - a content edit made after that
+    # point would ship a heading the page's own nav does not list.
+    ("_dev/payroll_ops.py",
+     "what it costs to RUN the payroll - the EDD registration trigger, "
+     "published prices for one employee, and the workers' compensation class "
+     "code, onto the page that already prices the hire"),
 ]
 
 # STRUCTURE. Chrome, navigation, cross-links, the blocks that carry meaning.
