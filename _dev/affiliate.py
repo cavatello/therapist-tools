@@ -60,15 +60,14 @@ def load_partners():
 PARTNERS, REGISTRY = load_partners()
 AFFILIATE = {p["slug"]: (p["url"], p["bare"]) for p in PARTNERS}
 
-FOOT_OLD = ("<b>Built by Cavatello.</b> Free, and not selling anything. Nothing here "
-            "is legal, tax, financial or clinical advice, and using this site does not "
-            "create a professional relationship &mdash; see the "
-            '<a href="terms.html">Terms of Use</a>.')
-FOOT_NEW = ("<b>Built by Cavatello.</b> Some links out to third-party services are affiliate links and are "
-            "tagged where they appear; they cost you nothing and never change what a "
-            "calculator here tells you. Nothing here is legal, tax, financial or "
-            "clinical advice, and using this site does not create a professional "
-            'relationship &mdash; see the <a href="terms.html">Terms of Use</a>.')
+# The footer sentence this pass used to swap was retired by
+# _dev/claims.py and the footer rewritten around it by
+# _dev/add_footer_and_legal.py, so the swap matched nothing and the pass
+# failed its own guard on 179 pages while having already written 4.
+# It appends now, anchored on a string one pass owns and nothing else
+# rewrites.
+FOOT_ANCHOR = '<p class="ftby"><b>Built by Cavatello.</b> '
+FOOT_SENTENCE = 'Some links out to third-party services are affiliate links and are tagged where they appear; they cost you nothing and never change what a calculator here tells you. '
 
 PROMISE_OLD = ('<div class="lpromise"><h3>Nothing saved, nothing sold</h3><p>No account, '
                "no email required, nothing stored on a server. Your numbers live in the "
@@ -117,11 +116,10 @@ def main():
         s = open(path, encoding="utf-8").read()
         before = s
 
-        # 1. the global footer claim
-        n = s.count(FOOT_OLD)
-        if n:
-            s = s.replace(FOOT_OLD, FOOT_NEW)
-            foot += n
+        # 1. the global footer disclosure, appended once
+        if FOOT_ANCHOR in s and FOOT_SENTENCE not in s:
+            s = s.replace(FOOT_ANCHOR, FOOT_ANCHOR + FOOT_SENTENCE, 1)
+            foot += 1
 
         # 2. the home page promise block
         if PROMISE_OLD in s:
@@ -206,7 +204,7 @@ def main():
                 if claim.lower() in s.lower():
                     print("GUARD %s: still claims %r" % (f, claim)); bad += 1
         # every page with a footer must carry the disclosure
-        if "<footer" in s and "affiliate links" not in s:
+        if "<footer" in s and FOOT_SENTENCE not in s:
             print("GUARD %s: footer without the disclosure" % f); bad += 1
         # no affiliate URL may appear untagged
         for pr in PARTNERS:
@@ -234,7 +232,11 @@ def main():
                 print("GUARD %s: affiliate url present, no tag anywhere" % f); bad += 1
             if TAG in s and s.count(MARK) != 1:
                 print("GUARD %s: tag present, %d stylesheets" % (f, s.count(MARK))); bad += 1
-        if s.count("<h1") != 1 and f not in ("privacy.html", "terms.html", "tools.html"):
+        # tycoon.html and concepts.html are design mockups, noindex, and are
+        # not held to the one-h1 rule that applies to published pages.
+        if s.count("<h1") != 1 and f not in ("privacy.html", "terms.html",
+                                            "tools.html", "tycoon.html",
+                                            "concepts.html"):
             print("GUARD %s: %d h1" % (f, s.count("<h1"))); bad += 1
     if bad:
         sys.exit("affiliate: %d guard failure(s)" % bad)
