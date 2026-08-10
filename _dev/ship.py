@@ -48,6 +48,27 @@ BUILD = [
      "it writes its page whole from published pay scales every run, borrowing "
      "chrome from the donor, so everything in STRUCTURE decorates it like any "
      "other page"),
+    # The five pages the Facebook sweep produced. All five share
+    # `_dev/pagekit.py`, which carries the chrome-borrowing routine and one
+    # byte-identical style block - so extract_css hoists it once and
+    # css_dedupe collapses the five copies to one. They are BUILDERS: each
+    # rewrites its page whole every run, and everything in STRUCTURE
+    # decorates the result.
+    ("_dev/build_unpaid.py",
+     "the wage claim an associate can file when the non-clinical hours go "
+     "unpaid, and why the Board is not the place to file it"),
+    ("_dev/build_exams.py",
+     "seven quarters of both published pass rates for all seven California "
+     "behavioral sciences exams, transcribed from the board packets"),
+    ("_dev/build_times.py",
+     "the Board's own processing times, with the methodology break at "
+     "Q2 FY 2025/26 kept as two series rather than spliced into one"),
+    ("_dev/build_trackers.py",
+     "the five BBS hours trackers compared, with what the Board actually "
+     "accepts as a supervisor signature and who is behind each product"),
+    ("_dev/build_outofstate.py",
+     "whether a California associate can accrue hours from another state - "
+     "the Board has published the answer five times and nobody reads it"),
 ]
 
 # STRUCTURE. Chrome, navigation, cross-links, the blocks that carry meaning.

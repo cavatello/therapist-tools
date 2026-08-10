@@ -92,6 +92,32 @@
    "leaf": true
   },
   {
+   "file": "associate-hours-telehealth-out-of-state.html",
+   "title": "Can a California associate accrue hours from out of state? Yes",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "Can I finish my supervised hours by telehealth from another state?",
+   "outcome": "The five published Board answers, the four conditions, and the risk that is real &mdash; which is not the one people worry about",
+   "number": "5 published Board answers",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "associate-hours-trackers-compared.html",
+   "title": "BBS hours trackers compared: five products, and who is behind them",
+   "topic": "licensure",
+   "format": "comparison",
+   "question": "Which app should I log my supervised hours in?",
+   "outcome": "Prices, signature workflows and domain ages for all five, and the Board&rsquo;s published position on electronic signatures",
+   "number": "3 of 5 registered in 2026",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "associate-mft-job-advisor.html",
    "title": "Associate MFT Job Advisor",
    "topic": "licensure",
@@ -112,6 +138,19 @@
    "question": "Nonprofit salary or private practice per session — which associate job is actually worth more?",
    "outcome": "Published pay scales for LA and the Bay Area, the wage floors an offer must clear, and the four numbers that decide it",
    "number": "$70,304 salaried-exempt floor",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "associate-unpaid-hours-california.html",
+   "title": "Unpaid hours as a California associate: the wage claim, step by step",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "My supervisor doesn&rsquo;t pay me for notes or supervision &mdash; is there anything I can actually do?",
+   "outcome": "The wage claim the Board cannot help with: how to file it, what it costs, and the five statutes that decide what it is worth",
+   "number": "$0 to file, 3 years to do it",
    "stale": true,
    "weight": 5,
    "skip": false,
@@ -144,6 +183,19 @@
    "leaf": false
   },
   {
+   "file": "bbs-exam-pass-rates-california.html",
+   "title": "California LMFT, LCSW and LPCC exam pass rates, seven quarters",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What is the actual pass rate for the California clinical exam?",
+   "outcome": "Both published rates for all seven exams across seven quarters, and how far each one moves before anything has changed",
+   "number": "80% first-time, 65% overall",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "bbs-fees-california-2026.html",
    "title": "BBS fees halved in July 2026",
    "topic": "licensure",
@@ -153,6 +205,19 @@
    "number": "$875 in Board fees, down from $1,750",
    "stale": true,
    "weight": 3,
+   "skip": false,
+   "leaf": false
+  },
+  {
+   "file": "bbs-processing-times-california.html",
+   "title": "How long the BBS takes: California license and registration times",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "I passed the exam &mdash; how long until the license actually arrives?",
+   "outcome": "The Board's published processing times, the year-over-year shift, and the cost of an application that comes back",
+   "number": "96 days for an LMFT license",
+   "stale": true,
+   "weight": 5,
    "skip": false,
    "leaf": false
   },
@@ -2330,11 +2395,21 @@
      ]
     },
     {
+     "name": "The exam, and the wait after it",
+     "files": [
+      "bbs-exam-pass-rates-california.html",
+      "bbs-processing-times-california.html"
+     ]
+    },
+    {
      "name": "Counting the hours, and the job that banks them",
      "files": [
       "amft-3000-hours-california.html",
       "associate-mft-job-advisor.html",
-      "associate-therapist-pay-los-angeles-bay-area.html"
+      "associate-therapist-pay-los-angeles-bay-area.html",
+      "associate-unpaid-hours-california.html",
+      "associate-hours-telehealth-out-of-state.html",
+      "associate-hours-trackers-compared.html"
      ]
     },
     {
