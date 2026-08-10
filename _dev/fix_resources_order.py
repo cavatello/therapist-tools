@@ -63,19 +63,33 @@ def main():
     end = s.index('<section class="sec"><h2 id="calculators">')
     block = s[start:end]
     if "%s" not in block:
-        sys.exit("fix_resources_order: the changes block no longer carries its "
-                 "placeholder - the format arguments would go out of order")
+        sys.exit("fix_resources_order: the changes block lost its placeholder")
 
     if 'id="who"' in s:
         print("already reordered")
         return
 
-    # lift the changelog out, insert the orientation, put the changelog back
-    # immediately before the closing </div> of the body template
+    # The block carries a %s, and the body is built with positional %-formatting,
+    # so moving the text without moving its argument silently shifts every later
+    # argument by one - which surfaces as "%d format: a real number is required,
+    # not str", nowhere near the actual mistake.
+    #
+    # Rather than reorder a nine-item tuple by hand, the placeholder is swapped
+    # for a sentinel that %-formatting ignores, and the changelog is substituted
+    # after the format completes. The tuple is then left exactly as it was.
+    moved = block.replace("%s", "@@CHANGES@@").rstrip()
+
     s = s[:start] + WHO + s[end:]
 
     tail = s.index('</div>""" % (changes_block(4),')
-    s = s[:tail] + block.rstrip() + "\n" + s[tail:]
+    s = s[:tail] + moved + "\n" + s[tail:]
+    s = s.replace('</div>""" % (changes_block(4),\n', '</div>""" % (', 1)
+
+    # substitute after the format, wherever the body is finished
+    anchor = "\n    return "
+    i = s.index(anchor, s.index("@@CHANGES@@"))
+    s = (s[:i] + '\n    body = body.replace("@@CHANGES@@", changes_block(4))\n'
+         + s[i:])
 
     open(B, "w", encoding="utf-8").write(s)
     print("build_library.py: orientation first, changelog last")

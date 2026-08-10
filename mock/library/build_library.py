@@ -310,13 +310,16 @@ def build_hub():
                esc(TOPICS[t]["name"].lower())))
 
     body = """<div class="libwrap">
-<section class="promise"><h2 id="what-moved">What moved, and when</h2>
-<p>This site is a reference, so the useful kind of recency is not
-&ldquo;what did you publish this week&rdquo; &mdash; it is
-<b>which numbers have changed under you</b>. Every page carries the month it was
-last checked. These are the figures that actually moved.</p>
-%s
-<p><a href="changes.html">The whole log, with sources &rarr;</a></p></section>
+<section class="sec"><h2 id="who">Who this is for</h2>
+<p>California therapists, at every stage &mdash; somebody choosing between an MFT
+and a doctorate, an associate counting toward 3,000 hours, a newly licensed
+clinician working out what a practice actually pays, and a practice with room to
+grow. <b>Everything here is free, and nothing asks you to make an account.</b>
+Every figure is either computed from your own numbers or cited to the rule it
+came from, and every page carries the month it was last checked.</p>
+<p>If you do not know where to start, the three routes below are the same
+material sorted three ways: by the number you need, by the question you arrived
+with, or by the area you are dealing with.</p></section>
 
 <section class="sec"><h2 id="calculators">Start with a number</h2>
 <p>Seven calculators. You type your own figures in; nothing is stored, nothing
@@ -345,8 +348,14 @@ filterable directory rather than a paragraph.</p>
 <div class="lcg">%s</div></section>
 %s
 %s
-</div>""" % (changes_block(4),
-             "".join(card(p) for p in calcs),
+<section class="promise"><h2 id="what-moved">What moved, and when</h2>
+<p>This site is a reference, so the useful kind of recency is not
+&ldquo;what did you publish this week&rdquo; &mdash; it is
+<b>which numbers have changed under you</b>. Every page carries the month it was
+last checked. These are the figures that actually moved.</p>
+@@CHANGES@@
+<p><a href="changes.html">The whole log, with sources &rarr;</a></p></section>
+</div>""" % (             "".join(card(p) for p in calcs),
              len([p for p in REG["pages"] if not p.get("skip")]),
              "".join(row(p, show_topic=True) for p in qs),
              len([p for p in REG["pages"] if not p.get("skip")
@@ -372,6 +381,8 @@ filterable directory rather than a paragraph.</p>
              [("Therapist Support", "index.html"), ("Everything", None)],
              ["California", "Updated " + UPDATED,
               "%d pages" % len([p for p in REG["pages"] if not p.get("skip")])])
+    body = body.replace("@@CHANGES@@", changes_block(4))
+
     return page(
         "Everything on Therapist Support: calculators, guides and directories "
         "for California therapists",
