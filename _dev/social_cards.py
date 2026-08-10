@@ -108,7 +108,7 @@ def main():
         sys.exit("social_cards: og-image.png is missing, so every card this "
                  "pass writes would point at a 404")
 
-    added = kept = hidden = topped = 0
+    added = kept = hidden = topped = fixed_url = 0
     for rel in pages():
         p = os.path.join(SITE, rel)
         s = open(p, encoding="utf-8").read()
@@ -136,6 +136,18 @@ def main():
             # to a small square thumbnail instead of the wide card their
             # og:image was cut for. This adds the line and touches nothing
             # else - the authored copy is still the authored copy.
+            # An og:url pointing somewhere else is not editorial copy, it is
+            # a defect: practice-simulator.html carried
+            # og:url="https://therapistsupport.org/", so every share of the
+            # simulator credited the home page and split the share count.
+            # Corrected in place; the authored title and description are not
+            # touched.
+            canon = attr(s, r'<link rel="canonical" href="([^"]*)"')
+            og = attr(s, r'property="og:url" content="([^"]*)"')
+            if canon and og and og != canon:
+                s = re.sub(r'(<meta property="og:url" content=")[^"]*(")',
+                           lambda m: m.group(1) + canon + m.group(2), s, count=1)
+                fixed_url += 1
             if not re.search(r'name="twitter:card"', s, re.I):
                 i = s.lower().find("</head>")
                 if i > 0:
@@ -166,7 +178,11 @@ def main():
 
     print("share cards: %d derived, %d authored block(s) left alone "
           "(%d of them given the twitter:card they were missing), "
-          "%d mockup(s) set to noindex" % (added, kept, topped, hidden))
+          "%d mockup(s) set to noindex"
+          % (added, kept, topped, hidden))
+    if fixed_url:
+        print("  %d og:url(s) corrected to match the page's canonical"
+              % fixed_url)
 
     # --------------------------------------------------------------- guards
     bad = 0
@@ -200,9 +216,13 @@ def main():
             print("GUARD %s: no twitter:card, so the preview is a small "
                   "thumbnail rather than a card" % rel)
             bad += 1
-        # Nothing may be double-escaped. `&amp;amp;` renders literally in a
-        # share preview and is the classic tell that a pass escaped twice.
-        if "&amp;amp;" in s or "&amp;mdash;" in s:
+        # Nothing in the HEAD may be double-escaped. `&amp;amp;` renders
+        # literally in a share preview and is the classic tell that a pass
+        # escaped twice. Scoped to the head deliberately: the first version of
+        # this guard read the whole document and fired on six pages whose body
+        # prose legitimately displays a literal ampersand entity.
+        head = s[:s.lower().find("</head>")]
+        if "&amp;amp;" in head or "&amp;mdash;" in head:
             print("GUARD %s: double-escaped entity in the head" % rel)
             bad += 1
 
