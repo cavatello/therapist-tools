@@ -138,6 +138,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
 | `patch_ig.py` | **untriaged** | &mdash; | Point the discipline-hub bar chart at the data instead of at a memory of it. |
+| `patch_years.py` | **untriaged** | &mdash; | Two claims on the hub that the second collection made untrue. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |

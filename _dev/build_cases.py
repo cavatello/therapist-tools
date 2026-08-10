@@ -78,6 +78,19 @@ def word(n):
     return base if not u else "%s-%s" % (base, WORD[u])
 
 
+def years():
+    """The span the library actually covers, off the effective dates.
+
+    The kicker said 2024-2026 because that was true of the first collection.
+    A label that describes the corpus rather than the cases is a label that
+    goes wrong the first time the corpus grows."""
+    ys = sorted({int(y) for c in CASES for y in
+                 re.findall(r"\b(20\d\d)\b", c.get("eff") or "")})
+    if not ys:
+        return ""
+    return str(ys[0]) if ys[0] == ys[-1] else "%d&ndash;%d" % (ys[0], ys[-1])
+
+
 def money_max():
     """The largest cost recovery in the library, read off the cases.
 
@@ -460,7 +473,8 @@ def hub_body():
     # what this is, what is in it, and what the reader gets, above the fold and
     # with measured figures rather than adjectives.
     o.append('<section class="dc-hero">')
-    o.append('<p class="hk">Case library &middot; California &middot; 2024&ndash;2026</p>')
+    o.append('<p class="hk">Case library &middot; California &middot; %s</p>'
+             % years())
     o.append("<h1>What actually gets a California therapist disciplined</h1>")
     # ONE sentence. The hero used to carry two long paragraphs plus the
     # In-short card plus four figures plus the jump nav, and the reader could
@@ -496,7 +510,7 @@ def hub_body():
              'agencies than from members of the public, and the largest single '
              'driver of MFT discipline in California is the Department of Justice '
              'conviction and arrest feed under Penal Code &sect;11105.2. '
-             '<b>Sixty-two of the 103 decisions read for this library cite '
+             '<b>Sixty-two of the 103 decisions in the first collection cite '
              '&sect;4982(a), a substantially related conviction.</b> Most of '
              'those are a DUI. None of them began with someone complaining about '
              'therapy.</p>')
@@ -510,7 +524,7 @@ def hub_body():
 
     o.append('<h3 class="dc-h" style="font-size:22px;margin-top:30px">Which '
              'subdivision of &sect;4982, and how often</h3>')
-    o.append('<p class="dc-d">Counted from the text of the 103 decisions. A '
+    o.append('<p class="dc-d">Counted from the text of those 103 decisions. A '
              'single case can cite several.</p>')
     o.append('<div class="dc-tw"><table class="dc-t">')
     o.append("<tr><th>Subd.</th><th>What it prohibits</th><th>Cases</th>"
