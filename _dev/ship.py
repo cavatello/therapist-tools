@@ -179,6 +179,17 @@ FLOORS = [
     ("_dev/token_floor.py", "the hex tokens under the floor"),
     ("_dev/chrome_armor.py", "chrome that has to outrank the page body"),
     ("_dev/mobile_floor.py", "overflow, hit area, and the 12px text floor"),
+    # Three decoration passes that were written, guarded and never wired.
+    # Each was verified idempotent before wiring - run twice against a
+    # copy of the tree, the second run changes nothing - which is the
+    # only safe way to tell "this pass does missing work" from "this
+    # pass re-does its own work every time".
+    ("_dev/cta_scale.py",
+     "the page-foot CTAs back to a button's proportions, on the five "
+     "calculator pages that still had them page-width"),
+    ("_dev/fill.py",
+     "the reading cards narrowed to the column they actually hold"),
+    ("_dev/mobile_hero.py", "heroes that fit a phone"),
     ("_dev/block_spacing.py", "every injected block owns the space beneath it"),
     ("_dev/content_frame.py",
      "one content frame: breadcrumb rhythm, headline measure, and wide blocks "

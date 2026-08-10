@@ -68,7 +68,10 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `chrome_armor.py` | floors | `/* _dev/chrome_armor.py */` | Stop page-body stylesheets from repainting the masthead, footer and signup band. |
 | `content_frame.py` | floors | `/* _dev/content_frame.py */` | One content frame, because the site had six and they disagreed. |
 | `contrast_pass.py` | floors | `/* _dev/contrast_pass.py */` | Raise the muted label colour sitewide, measured rather than eyeballed. |
+| `cta_scale.py` | floors | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
+| `fill.py` | floors | `/* _dev/fill.py */` | Narrow the reading cards to the column they actually hold. |
 | `mobile_floor.py` | floors | `/* _dev/mobile_floor.py */` | What a 390px phone gets wrong on 131 pages, found by looking at 390px. |
+| `mobile_hero.py` | floors | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |
 | `nav_type_floor.py` | floors | `/* _dev/nav_type_floor.py */` | One label size, not nine. A 10.5px floor for the site's small-caps labels. |
 | `one_grid.py` | floors | `/* _dev/one_grid.py */` | One grid. Every page's content starts where the logo starts. |
 | `rates_grid.py` | floors | `/* _dev/rates_grid.py */` · `body class ratespage` | rates.html joins the grid, and keeps its own voice. |
@@ -122,7 +125,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `build_redirect.py` | **safe** | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. — the tools.html -> resources.html stub |
 | `claims.py` | **safe** | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. — no-op on today's site |
 | `copy_trim.py` | **safe** | &mdash; | Retire two pieces of chrome copy that were repeated on every page. — no-op on today's site |
-| `cta_scale.py` | **safe** | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
 | `figure_scope.py` | **safe** | &mdash; | Stop figure styling leaking onto prose in the same block. — no-op on today's site |
 | `gold_slab.py` | **safe** | &mdash; | The simulator's gold chapter slab: deepen the band, flip the text. Option B. — no-op on today's site |
 | `hero_notes.py` | **safe** | `/* _dev/hero_notes.py */` | Get the housekeeping small print out of the hero. |
@@ -131,7 +133,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `layout_fixes.py` | **safe** | `/* _dev/layout_fixes.py */` | Two visible layout defects, both reported from screenshots. |
 | `link_cards.py` | **safe** | `/* _dev/link_cards.py */` | Make the tool cards actual links. |
 | `measure.py` | **safe** | `/* _dev/measure.py */` | Cap the reading measure. One rule, every page, idempotent. — the reading-measure cap, 159 pages |
-| `mobile_hero.py` | **safe** | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |
 | `nav_rebuild.py` | **safe** | &mdash; | Make the header work everywhere, and put the hub where a reader can find it. — 158 pages; idempotent. The nav that restyle.py now maintains - keep for reference, not for the pipeline |
 | `pacifica_tuition.py` | **safe** | &mdash; | Pacifica publishes its cost of attendance. This page said it did not. — no-op on today's site |
 | `rates_contrast.py` | **safe** | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. — no-op on today's site |
@@ -181,7 +182,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `rebase_domain.py` | **one-shot** | &mdash; | Move the site from cavatello.github.io/therapist-tools to its own domain. — a migration that has already happened |
 | `relink_hub.py` | **one-shot** | &mdash; | Stop routing the whole site through a redirect stub. — a migration that has already happened |
 | `rename_newsletter_cta.py` | **one-shot** | &mdash; | Newsletter -> "Stay updated", everywhere, and repoint the copy at what it is — a migration that has already happened |
-| `fill.py` | **retired** | `/* _dev/fill.py */` | Narrow the reading cards to the column they actually hold. — superseded by measure + content_frame + wide_measure; no output left on the site |
 | `hero_action.py` | **retired** | `/* _dev/hero_action.py */` | Every tool hero gets one thing to press. — superseded by hub_hero; no output left |
 | `hub_about_link.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
 | `hub_cluster02_links.py` | **retired** | &mdash; | RETIRED - superseded by registry.json; see hub_psychedelic_link.py. |
