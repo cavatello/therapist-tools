@@ -28,6 +28,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |
+| `analytics.py` | structure | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. |
 | `analytics_events.py` | structure | `/* _dev/analytics_events.py */` | Send GA4 events for every email signup and contact message on the site. |
 | `block_removal.py` | structure | &mdash; | Remove the blocks that were asked for by name, and nothing else. |
 | `breadcrumbs.py` | structure | `/* _dev/breadcrumbs.py */` | A visible breadcrumb on every page, plus matching BreadcrumbList JSON-LD. |
@@ -107,7 +108,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `typeface.py` | **broken** | &mdash; | Add the display face, sitewide, in one place. — exits non-zero, writes nothing |
 | `eap_rates.py` | **refuses** | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. — **re-running this damaged the live site once.** It strips its own block and re-inserts it against anchors that have since moved. It now refuses to run when its block is present; regenerating means removing the block by hand first, so the destructive step is a decision |
 | `ads_state.py` | **safe** | &mdash; | The advertising sentence, derived from whether the site actually serves ads. — no-op on today's site |
-| `analytics.py` | **safe** | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. — the GA4 tag on all 164 pages; idempotent. Not wired because analytics_events.py already asserts the tag is present |
 | `build_psyd.py` | **safe** | &mdash; | Build psyd-programs-california.html — the California PsyD directory. — rebuilds the PsyD directory from psyd_data.py |
 | `build_redirect.py` | **safe** | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. — the tools.html -> resources.html stub |
 | `claims.py` | **safe** | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. — no-op on today's site |

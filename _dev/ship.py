@@ -73,6 +73,8 @@ STRUCTURE = [
     ("_dev/pixel_concepts.py", "the In-short card and the provenance strip"),
     ("_dev/footer_band.py", "the signup band - inserts ABOVE the up-link"),
     ("_dev/footer_fix.py", "footer colour overrides"),
+    ("_dev/analytics.py",
+     "one GA4 property on every page. It was never in this list, which was\n      survivable only because nothing regenerated a page after it had been\n      tagged - until the nine library hubs were rebuilt from registry.json\n      and arrived untagged, and analytics_events stopped the build asking\n      for exactly this pass. It must run BEFORE analytics_events, which\n      binds listeners to the tag this one installs"),
     ("_dev/analytics_events.py", "the event listener"),
     ("_dev/clarity.py",
      "Microsoft Clarity, with data-clarity-mask on every <body> so the whole "
