@@ -477,7 +477,10 @@ def page(p):
         '<div class="r"><span>%s</span><b>%s</b></div>' % (k, v) for k, v in rows)
 
     if coam:
-        verdict = ('<div class="verd ok"><h3>COAMFTE accredited</h3>'
+        cnote = p.get("coamfte_note")
+        verdict = ('<div class="verd %s"><h3>COAMFTE accredited%s</h3>'
+                   % ("warn" if cnote else "ok",
+                      (", " + cnote) if cnote else "") +
                    "<p>This is the accreditation that decides whether the degree "
                    "travels. %d of the %d institutions on the Board&rsquo;s list "
                    "hold it, and this is one of them.</p>" % (N_COAM, N_ALL) +
@@ -744,6 +747,8 @@ def main():
         # seeded by hand.
         if "<!-- ts:meta -->" not in doc or 'name="ts:topic"' not in doc:
             bad.append("%s: no library metadata - it would be an orphan" % sl)
+        if p.get("coamfte_note") and "show cause" not in doc:
+            bad.append("%s: the coamfte_note did not render" % sl)
         if p.get("notice") and p["notice"]["url"] not in doc:
             bad.append("%s: the Board notice did not render" % sl)
         if tuition(p) and tuition(p) not in doc:

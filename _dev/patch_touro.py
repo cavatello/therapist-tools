@@ -110,31 +110,36 @@ def main():
     # --------------------------------------------------------- the builder
     s = open(BUILDER, encoding="utf-8").read()
 
-    # One expression swapped inside the existing concatenation - no structural
-    # change to the block. A qualified accreditation is not a green tick:
-    # `coamfte_note` mirrors the existing `lpcc_note`, and when it is set the
-    # verdict renders as a caution with the qualifier in the heading, so
-    # "accredited" cannot appear unqualified anywhere on the page.
-    OLD = "\'<div class=\"verd ok\"><h3>COAMFTE accredited</h3>\'"
-    NEW = ("(\'<div class=\"verd %s\"><h3>COAMFTE accredited%s</h3>\'\n"
-           "                    % (\"warn\" if p.get(\"coamfte_note\") else \"ok\",\n"
-           "                       \", \" + p[\"coamfte_note\"]\n"
-           "                       if p.get(\"coamfte_note\") else \"\"))")
-    if OLD not in s:
-        sys.exit("patch_touro: the COAMFTE verdict string has moved. Do not "
-                 "guess - open build_schools.py and look.")
-    if s.count(OLD) != 1:
-        sys.exit("patch_touro: %d copies of the verdict string" % s.count(OLD))
-    s = s.replace(OLD, NEW, 1)
+    # The whole `if coam:` header is replaced, rather than a substring inside
+    # it, because the block is one parenthesised concatenation and swapping a
+    # fragment inside it is how the first attempt produced `verdict = ((`.
+    #
+    # A qualified accreditation is not a green tick. `coamfte_note` mirrors the
+    # existing `lpcc_note`: when set, the verdict renders as a caution and the
+    # qualifier goes in the heading, so "accredited" cannot appear unqualified
+    # anywhere on the page.
+    OLD = ('        verdict = (\'<div class="verd ok"><h3>COAMFTE accredited'
+           '</h3>\'\n')
+    NEW = ('        cnote = p.get("coamfte_note")\n'
+           '        verdict = (\'<div class="verd %s"><h3>COAMFTE accredited%s'
+           '</h3>\'\n'
+           '                   % ("warn" if cnote else "ok",\n'
+           '                      (", " + cnote) if cnote else "") +\n')
 
-    # and a guard: a qualifier in the data that does not reach the page is the
-    # same failure the notice guard already covers.
-    GOLD = '        if p.get("notice") and p["notice"]["url"] not in doc:'
+    if s.count(OLD) != 1:
+        sys.exit("patch_touro: the COAMFTE verdict header matched %d times, "
+                 "expected 1. Do not guess - open build_schools.py and look."
+                 % s.count(OLD))
+    if "coamfte_note" not in s:
+        s = s.replace(OLD, NEW, 1)
+
+    # A qualifier in the data that does not reach the page is the same failure
+    # the notice guard already covers.
+    GOLD = '        if p.get("notice") and p["notice"]["url"] not in doc:\n'
+    GNEW = ('        if p.get("coamfte_note") and "show cause" not in doc:\n'
+            '            bad.append("%s: the coamfte_note did not render" % sl)\n')
     if GOLD in s and "coamfte_note did not render" not in s:
-        s = s.replace(GOLD,
-                      '        if p.get("coamfte_note") and "show cause" not in doc:\n'
-                      '            bad.append("%s: the coamfte_note did not render" % sl)\n'
-                      + GOLD, 1)
+        s = s.replace(GOLD, GNEW + GOLD, 1)
 
     open(BUILDER, "w", encoding="utf-8").write(s)
     print("  ok  build_schools.py: coamfte_note qualifies the verdict")
