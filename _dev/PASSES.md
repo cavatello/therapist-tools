@@ -25,7 +25,12 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 |---|---|---|---|
 | `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
+| `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
+| `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
+| `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
+| `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
+| `build_unpaid.py` | build | &mdash; | You were not paid for the notes: the wage claim an associate can actually file. |
 | `affiliate.py` | structure | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |
@@ -42,6 +47,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `form_inline.py` | structure | `// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt` | The signup band answers on the page. On all 158 pages, not on five. |
 | `headline_figures.py` | structure | `<!-- _dev/headline_figures.py -->` | Change a page's headline figure when its builder no longer exists. |
 | `home_doorway.py` | structure | `<!-- _dev/home_doorway.py -->` | A fourth door on the home page, for the people who have not started yet. |
+| `hub_clusters.py` | structure | &mdash; | Bring the licensure hub's cluster sections back in line with the registry. |
 | `hub_hero.py` | structure | `<!-- _dev/hub_hero.py -->` | Make every hub and directory hero do the job a landing page does. |
 | `hub_owid.py` | structure | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
 | `infographics.py` | structure | `/* _dev/infographics.py */` · `<!-- _dev/infographics.py -->` | A visual vocabulary for this site, so content can stop being only prose. |
@@ -135,11 +141,13 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `urlfix.py` | **safe** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. — no-op on today's site |
 | `widen.py` | **safe** | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. — the two large-display width steps that one_grid.py and rates_grid.py both mirror |
 | `bbs_redact.py` | **untriaged** | &mdash; | Strip the licensee out of a BBS decision before anything else reads it. |
+| `bbs_stats.py` | **untriaged** | &mdash; | Seven quarters of the Board's own numbers, transcribed once. |
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
+| `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
