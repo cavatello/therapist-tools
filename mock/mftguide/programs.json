@@ -1778,7 +1778,13 @@
   "bbs_listed": true,
   "bbs_alias": null,
   "lpcc_note": null,
-  "notice": null,
+  "notice": {
+   "kind": "warning",
+   "title": "This programme's COAMFTE accreditation is on show cause",
+   "body": "Touro&rsquo;s own student-and-consumer-information page states that the Marriage and Family Therapy track &ldquo;is the only track accredited with show cause&rdquo; by COAMFTE. Show cause is the most serious status short of withdrawal: the programme keeps its accreditation while it is required to demonstrate why it should not lose it. <b>Two things this does not mean.</b> The institution is not in trouble &mdash; WSCUC lists Touro University Worldwide as accredited with no sanction, most recent Commission action 27 June 2025. And it does not stop you licensing in California: the Board lists this institution, and California licensure does not require COAMFTE accreditation at all. <b>What it does affect</b> is portability to states and employers that require a COAMFTE degree, and the risk that the programme&rsquo;s status changes while you are enrolled. If you are considering this programme, or are in it, ask the programme directly what the show-cause findings were and when the Commission next reviews them.",
+   "url": "https://www.tuw.edu/about/consumer-information/",
+   "as_of": "10 August 2026"
+  },
   "placement": "student-sourced",
   "placement_evidence": "TUW is not responsible for finding the clinical placement site and/or agency for students. The student is responsible for finding the clinical placement site and arranging a formal interview of the student.",
   "placement_url": "https://www.tuw.edu/wp-content/uploads/MFT-Handbook.pdf",
@@ -1794,7 +1800,8 @@
   "min_gpa": "2.5 (or 2.75 for transfer students from another graduate program)",
   "admissions_conflict": null,
   "placement_branches": null,
-  "fields_checked": "2026-08-07"
+  "fields_checked": "2026-08-07",
+  "coamfte_note": "on <b>show cause</b> &mdash; see the notice at the top of this page before you read this as a clean tick"
  },
  {
   "institution": "Loma Linda University",
