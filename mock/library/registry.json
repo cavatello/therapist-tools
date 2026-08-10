@@ -531,7 +531,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-a-decade-of-employer-warnings.html",
@@ -544,7 +544,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-a-felony-assault-and-a-default.html",
@@ -557,7 +557,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-a-forty-year-license-surrendered.html",
@@ -570,7 +570,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-a-mandated-report-never-filed.html",
@@ -583,7 +583,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-almost-forty-years-of-rehabilitation.html",
@@ -596,7 +596,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-asking-a-client-where-to-buy-drugs.html",
@@ -609,7 +609,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-billed-for-sessions-that-never-happened.html",
@@ -622,7 +622,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-cannabis-with-a-client.html",
@@ -635,7 +635,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-charged-without-a-conviction.html",
@@ -648,7 +648,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-denied-it-then-admitted-it.html",
@@ -661,7 +661,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-discipline-follows-your-other-license.html",
@@ -674,7 +674,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-disciplined-for-emails.html",
@@ -687,7 +687,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-drinking-at-lunch.html",
@@ -700,7 +700,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-eight-weeks-without-a-therapist.html",
@@ -713,7 +713,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-eight-years-of-escalation.html",
@@ -726,7 +726,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-embezzlement-outside-the-practice.html",
@@ -739,7 +739,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-failing-to-report-your-own-conviction.html",
@@ -752,7 +752,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-falsified-course-certificates-end-a-probation.html",
@@ -765,7 +765,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-felony-child-endangerment-never-reported.html",
@@ -778,7 +778,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-forged-supervisor-signature.html",
@@ -791,7 +791,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-four-ways-to-violate-probation.html",
@@ -804,7 +804,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-from-dui-to-surrender.html",
@@ -817,7 +817,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-ignoring-an-order-to-be-examined.html",
@@ -830,7 +830,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-letting-a-registration-lapse-on-probation.html",
@@ -843,7 +843,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-out-of-state-discipline.html",
@@ -856,7 +856,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-probation-traded-for-surrender.html",
@@ -869,7 +869,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-pseudonyms-and-sleepovers.html",
@@ -882,7 +882,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-psychology-probation-reaches-a-second-license.html",
@@ -895,7 +895,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-road-rage-and-a-default-revocation.html",
@@ -908,7 +908,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-serious-felonies-ignore-the-seven-year-rule.html",
@@ -921,7 +921,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-seven-business-practice-failures.html",
@@ -934,7 +934,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-seven-years-under-supervision.html",
@@ -947,7 +947,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-sex-with-a-residential-client.html",
@@ -960,7 +960,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-signed-her-supervisors-name.html",
@@ -973,7 +973,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-the-address-of-record.html",
@@ -986,7 +986,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-the-custody-letter.html",
@@ -999,7 +999,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-the-only-public-reproval.html",
@@ -1012,7 +1012,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-the-slow-boil.html",
@@ -1025,7 +1025,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-the-two-year-rule-is-not-a-loophole.html",
@@ -1038,7 +1038,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-thirty-days-to-report-discipline.html",
@@ -1051,7 +1051,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-thirty-four-year-sentence-then-registration.html",
@@ -1064,7 +1064,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-three-days-after-the-last-session.html",
@@ -1077,7 +1077,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-twenty-three-sessions-in-one-day.html",
@@ -1090,7 +1090,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-two-duis-five-years-probation.html",
@@ -1103,7 +1103,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-two-nursing-actions-before-registration.html",
@@ -1116,7 +1116,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-underground-psychedelics-and-two-clients.html",
@@ -1129,7 +1129,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "discipline-case-when-the-judge-cuts-the-bill.html",
@@ -1142,7 +1142,7 @@
    "stale": false,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": true
   },
   {
    "file": "dominican-university-of-california-mft.html",
@@ -2425,58 +2425,10 @@
      ]
     },
     {
-     "name": "More in Practice",
+     "name": "When something goes wrong",
      "files": [
-      "discipline-case-a-forty-year-license-surrendered.html",
-      "discipline-case-asking-a-client-where-to-buy-drugs.html",
-      "discipline-case-cannabis-with-a-client.html",
-      "discipline-case-charged-without-a-conviction.html",
-      "discipline-case-denied-it-then-admitted-it.html",
-      "discipline-case-discipline-follows-your-other-license.html",
-      "discipline-case-disciplined-for-emails.html",
-      "discipline-case-drinking-at-lunch.html",
-      "discipline-case-eight-years-of-escalation.html",
-      "discipline-case-embezzlement-outside-the-practice.html",
-      "discipline-case-failing-to-report-your-own-conviction.html",
-      "discipline-case-forged-supervisor-signature.html",
-      "discipline-case-four-ways-to-violate-probation.html",
-      "discipline-case-from-dui-to-surrender.html",
-      "discipline-case-ignoring-an-order-to-be-examined.html",
-      "discipline-case-out-of-state-discipline.html",
-      "discipline-case-pseudonyms-and-sleepovers.html",
-      "discipline-case-seven-business-practice-failures.html",
-      "discipline-case-seven-years-under-supervision.html",
-      "discipline-case-sex-with-a-residential-client.html",
-      "discipline-case-the-address-of-record.html",
-      "discipline-case-the-custody-letter.html",
-      "discipline-case-the-only-public-reproval.html",
-      "discipline-case-the-slow-boil.html",
-      "discipline-case-the-two-year-rule-is-not-a-loophole.html",
-      "discipline-case-thirty-days-to-report-discipline.html",
-      "discipline-case-three-days-after-the-last-session.html",
-      "discipline-case-twenty-three-sessions-in-one-day.html",
-      "discipline-case-two-duis-five-years-probation.html",
-      "discipline-case-when-the-judge-cuts-the-bill.html",
       "therapist-discipline-cases-california.html",
-      "therapy-liability-insurance-california.html",
-      "discipline-case-a-battery-conviction-and-a-default.html",
-      "discipline-case-a-decade-of-employer-warnings.html",
-      "discipline-case-a-felony-assault-and-a-default.html",
-      "discipline-case-a-mandated-report-never-filed.html",
-      "discipline-case-almost-forty-years-of-rehabilitation.html",
-      "discipline-case-billed-for-sessions-that-never-happened.html",
-      "discipline-case-eight-weeks-without-a-therapist.html",
-      "discipline-case-falsified-course-certificates-end-a-probation.html",
-      "discipline-case-felony-child-endangerment-never-reported.html",
-      "discipline-case-letting-a-registration-lapse-on-probation.html",
-      "discipline-case-probation-traded-for-surrender.html",
-      "discipline-case-psychology-probation-reaches-a-second-license.html",
-      "discipline-case-road-rage-and-a-default-revocation.html",
-      "discipline-case-serious-felonies-ignore-the-seven-year-rule.html",
-      "discipline-case-signed-her-supervisors-name.html",
-      "discipline-case-thirty-four-year-sentence-then-registration.html",
-      "discipline-case-two-nursing-actions-before-registration.html",
-      "discipline-case-underground-psychedelics-and-two-clients.html"
+      "therapy-liability-insurance-california.html"
      ]
     }
    ]
@@ -2503,7 +2455,7 @@
      ]
     },
     {
-     "name": "More in Training",
+     "name": "Where the doctorate comes from",
      "files": [
       "psyd-programs-california.html"
      ]
