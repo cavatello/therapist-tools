@@ -78,11 +78,32 @@ def attr(s, pat):
     return m.group(1).strip() if m else None
 
 
+DOUBLE = re.compile(r"&amp;(amp|lt|gt|quot|mdash|ndash|sect|rsquo|nbsp);")
+
+
+def unescape_fully(x):
+    """Unescape until it stops changing, capped.
+
+    One page's `<title>` is escaped twice at source - it reads
+    `Psychedelic-Assisted Therapy &amp;amp; Integration Training`, so the
+    browser tab and the search result both literally show "&amp;". A single
+    `html.unescape` leaves `&amp;`, which then re-escapes back to
+    `&amp;amp;` and the bug survives the round trip. Bounded rather than
+    `while True` because unescaping is not guaranteed to reach a fixed point
+    on hostile input."""
+    for _ in range(4):
+        y = html.unescape(x)
+        if y == x:
+            break
+        x = y
+    return x
+
+
 def esc(x):
     """Escaped for an attribute. The source is already HTML-escaped text, so
     it is unescaped first - otherwise `&amp;` in a title becomes `&amp;amp;`
     in the card, which is what a share preview would then display."""
-    return (html.unescape(x).replace("&", "&amp;").replace('"', "&quot;")
+    return (unescape_fully(x).replace("&", "&amp;").replace('"', "&quot;")
             .replace("<", "&lt;").replace(">", "&gt;"))
 
 
@@ -159,6 +180,17 @@ def main():
             if s != orig:
                 open(p, "w", encoding="utf-8").write(s)
             continue
+
+        # Repair a double-escaped title at source before deriving a card from
+        # it. Otherwise the card is fixed and the browser tab is still wrong,
+        # which is the worse half of the bug.
+        m = re.search(r"(<title>)([\s\S]*?)(</title>)", s)
+        if m and DOUBLE.search(m.group(2)):
+            good = esc(m.group(2))
+            s = s[:m.start()] + m.group(1) + good + m.group(3) + s[m.end():]
+            print("  fixed  %s had a double-escaped <title>" % rel)
+            open(p, "w", encoding="utf-8").write(s)
+            orig = s
 
         title = attr(s, r"<title>([\s\S]*?)</title>")
         desc = attr(s, r'<meta name="description" content="([^"]*)"')
