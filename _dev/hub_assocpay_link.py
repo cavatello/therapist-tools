@@ -1,6 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""One cluster section onto the licensure hub, by hand, for one reason.
+"""RETIRED on 10 August 2026 - the hubs are generated from registry.json now.
+
+This pass existed as a bridge across a builder that could not be run against
+the live site. `mock/library/build_library.py` was fixed, its output was
+checked and copied over all nine library pages, and the licensure hub now
+renders the "Counting the hours, and the job that banks them" cluster itself.
+The bridge has nothing left to carry, and on the first run after the hubs were
+regenerated it failed loudly rather than silently double-inserting - which is
+the behaviour its anchor guard was written for.
+
+Left in the tree rather than deleted, like the four `hub_*_link.py` passes
+before it, because the reasoning is the useful part.
+
+ORIGINAL HEADER FOLLOWS.
+
+One cluster section onto the licensure hub, by hand, for one reason.
 
 WHY THIS EXISTS WHEN THE HUBS ARE SUPPOSED TO BE GENERATED
 
@@ -81,6 +96,10 @@ def generated_section():
 
 
 def main():
+    print("hub_assocpay_link.py: retired - the licensure hub is generated "
+          "from registry.json and carries this cluster itself")
+    sys.exit(0)
+
     if not os.path.exists(os.path.join(SITE, PAGE)):
         sys.exit("hub_assocpay_link: %s does not exist - run "
                  "_dev/build_assocpay.py first" % PAGE)

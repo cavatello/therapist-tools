@@ -40,8 +40,8 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `footer_order.py` | structure | `/* _dev/footer_order.py */` | The signup band belongs against the footer. Put it there, on every page. |
 | `form_inline.py` | structure | `// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt` | The signup band answers on the page. On all 158 pages, not on five. |
 | `headline_figures.py` | structure | `<!-- _dev/headline_figures.py -->` | Change a page's headline figure when its builder no longer exists. |
-| `hub_assocpay_link.py` | structure | &mdash; | One cluster section onto the licensure hub, by hand, for one reason. |
 | `hub_hero.py` | structure | `<!-- _dev/hub_hero.py -->` | Make every hub and directory hero do the job a landing page does. |
+| `hub_owid.py` | structure | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
 | `infographics.py` | structure | `/* _dev/infographics.py */` · `<!-- _dev/infographics.py -->` | A visual vocabulary for this site, so content can stop being only prose. |
 | `link_sinks.py` | structure | `<!-- _dev/link_sinks.py -->` | Two pages everything links to, that link to nothing. |
 | `mobile_nav.py` | structure | `/* _dev/mobile_nav.py */` | The mobile nav is scrollable and does not look it. Give it an edge. |
@@ -94,7 +94,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `dir_two_views.py` | **unstable** | `<!-- _dev/dir_two_views.py -->` | Concept 05 - the 78 programs as two objects, not one. — a second run changes the page again |
 | `empty_outputs.py` | **unstable** | `/* _dev/empty_outputs.py */` | Hide the calculator output containers until they have something in them. — a second run changes six pages again |
 | `fixups.py` | **unstable** | &mdash; | Three defects reported from the live site, fixed together. — a second run changes the page again |
-| `hub_owid.py` | **unstable** | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. — a second run changes five hubs again |
 | `side_nav.py` | **unstable** | `/* _dev/side_nav.py */` | A fixed section nav in the gutter, for the pages the grid template cannot take. — a second run changes the page again |
 | `affiliate.py` | **broken** | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. — exits non-zero after writing four pages, which is the worst combination: it half-applies |
 | `ciis_tuition.py` | **broken** | &mdash; | CIIS publishes its tuition. This page said it did not. — exits non-zero, writes nothing |
@@ -137,6 +136,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
+| `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
