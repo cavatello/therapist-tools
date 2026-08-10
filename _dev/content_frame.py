@@ -80,12 +80,32 @@ CSS = """<style>%(mark)s
 
 :root{
   --ts-crumb-gap:34px;      /* one value, both templates */
+  /* Clearance ABOVE the crumb. Measured on the live site before this existed:
+     the case template rested at a gap of EXACTLY 0 from the sticky masthead at
+     every width - the crumb and the header bottom edge on the same pixel - and
+     the article template at 10-14px, which is not much better under a bar that
+     follows you down the page. Both templates now rest at this value. */
+  --ts-crumb-top:clamp(18px,1.5vw,26px);
   --ts-headline:30ch;       /* was 20ch, which is ~13 characters at 40px */
   --ts-prose:72ch;
 }
 
 /* --- breadcrumb to headline ------------------------------------------- */
 .bcr.bcr.bcr, .dc-crumb.dc-crumb.dc-crumb{margin-bottom:var(--ts-crumb-gap)}
+/* The two templates start from different places, so one margin-top cannot
+   serve both. The case template has no padding above the crumb at all; the
+   article template's hero carries about 34px of its own, which
+   `_dev/breadcrumbs.py` then pulls back against. So: give the case crumb the
+   token outright, and soften the article crumb's negative pull until the two
+   land on the same gap. The numbers below were set by measuring, not guessed -
+   re-measure if either template's hero padding changes. */
+.dc-crumb.dc-crumb.dc-crumb{margin-top:var(--ts-crumb-top)}
+.bcr.bcr.bcr{margin-top:clamp(-16px,-1.15vw,-8px)}
+/* Where an eyebrow still sits above the crumb, there is nothing to pull back
+   against and the negative margin would close the gap again. */
+.hero-eyebrow + .bcr.bcr.bcr,.kicker + .bcr.bcr.bcr,.eyebrow + .bcr.bcr.bcr,
+p[class*=eyebrow] + .bcr.bcr.bcr,div[class*=eyebrow] + .bcr.bcr.bcr{
+  margin-top:var(--ts-crumb-top)}
 .bcr.bcr.bcr + h1, .dc-crumb.dc-crumb.dc-crumb + h1,
 .dc-crumb.dc-crumb.dc-crumb + .dc-title{margin-top:0}
 
