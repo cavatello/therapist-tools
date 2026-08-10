@@ -107,28 +107,37 @@ EXEMPT = CA_MIN * 2 * 2080          # 70304.0
 # Local general minimum wages effective 1 July 2026, and the state floor for
 # comparison. Sorted high to low, because the reader is checking whether an
 # offered admin rate clears the one where they work.
+#
+# ON THE FOURTH COLUMN, WHICH IS A URL OR None AND NOT A URL FOR EVERY ROW.
+#
+# The first version of this table linked all eleven city names to the city's
+# own minimum-wage page. Six of those URLs were CONSTRUCTED from a plausible
+# pattern rather than found, and a link check afterwards showed what that is
+# worth: emeryville.org/191/Minimum-Wage-Ordinance and the two others tried
+# returned 404, and several city sites block a checker outright so a bad link
+# would not even have announced itself.
+#
+# So a name is a link only where the official page has been opened and seen to
+# resolve, and is plain text otherwise. The figures for the unlinked rows all
+# come from one source that HAS been read - the CalChamber summary cited under
+# the table - and saying so once is more honest than eleven links of which six
+# are guesses. A wrong citation is worse than a shared one.
 WAGE_FLOORS = [
-    ("Emeryville", "20.34", "Alameda County",
-     "https://www.emeryville.org/191/Minimum-Wage-Ordinance"),
+    ("Emeryville", "20.34", "Alameda County", None),
     ("San Francisco", "19.61", "City and county",
-     "https://www.sf.gov/information--understanding-minimum-wage"),
+     "https://www.sf.gov/information--minimum-wage-ordinance"),
     ("Berkeley", "19.61", "Alameda County",
-     "https://berkeleyca.gov/doing-business/operating-berkeley/minimum-wage"),
-    ("Pasadena", "18.57", "LA County",
-     "https://www.cityofpasadena.net/planning/wp-content/uploads/sites/56/"
-     "Minimum-Wage-Ordinance.pdf"),
-    ("Milpitas", "18.50", "Santa Clara County",
-     "https://www.milpitas.gov/819/Minimum-Wage"),
+     "https://berkeleyca.gov/doing-business/operating-berkeley/"
+     "workforce-standards-and-enforcement"),
+    ("Pasadena", "18.57", "LA County", None),
+    ("Milpitas", "18.50", "Santa Clara County", None),
     ("LA County &mdash; unincorporated", "18.47", "Not the City of LA",
      "https://dcba.lacounty.gov/minimum-wage/"),
-    ("Santa Monica", "18.47", "LA County",
-     "https://www.santamonica.gov/process-explainers/minimum-wage"),
+    ("Santa Monica", "18.47", "LA County", None),
     ("City of Los Angeles", "18.42", "Two hours a week in the city is enough",
      "https://wagesla.lacity.gov/"),
-    ("Fremont", "18.05", "Alameda County",
-     "https://www.fremont.gov/government/departments/city-manager/minimum-wage"),
-    ("Alameda (city)", "17.76", "Not Alameda County",
-     "https://www.alamedaca.gov/Departments/City-Manager/Minimum-Wage"),
+    ("Fremont", "18.05", "Alameda County", None),
+    ("Alameda (city)", "17.76", "Not Alameda County", None),
     ("California &mdash; state floor", "16.90", "Anywhere with no local ordinance",
      "https://www.dir.ca.gov/dlse/faq_minimumwage.htm"),
 ]
@@ -863,22 +872,26 @@ def body():
     for name, rate, note, url in WAGE_FLOORS:
         ok = float(rate) <= 18.00
         cls = "" if ok else "under"
-        o.append('<tr class="%s"><td><a href="%s" target="_blank" '
-                 'rel="noopener">%s</a></td><td class="f">$%s</td>'
+        cell = ('<a href="%s" target="_blank" rel="noopener">%s</a>'
+                % (url, name)) if url else "<b>%s</b>" % name
+        o.append('<tr class="%s"><td>%s</td><td class="f">$%s</td>'
                  '<td>%s</td><td class="m">%s</td></tr>'
-                 % (cls, url, name, rate, note,
-                    "yes" if ok else "NO"))
+                 % (cls, cell, rate, note, "yes" if ok else "NO"))
     o.append("</table></div>")
     o.append('<p class="ap-cap">Coverage generally turns on where the work is '
              'performed, not where the employer is registered &mdash; the City '
              'of Los Angeles ordinance reaches anyone working two hours a week '
              'inside city limits. A telehealth associate sitting in Berkeley '
              'for a Los Angeles practice is a real question, not a trick one. '
-             'Cross-checked against the '
+             '<b>Where a city name above is a link, that page was opened and '
+             'checked. Where it is not, the figure comes from the '
              '<a href="https://hrwatchdog.calchamber.com/2026/06/'
              'california-local-minimum-wage-increases-for-july-1-2026/" '
-             'target="_blank" rel="noopener">CalChamber summary</a> and each '
-             'city&rsquo;s own page.</p>')
+             'target="_blank" rel="noopener">CalChamber summary of the '
+             '1 July 2026 increases</a></b> &mdash; several city sites block '
+             'an automated check, and a link that has not been opened is not '
+             'a citation. Rates move again on 1 January and 1 July; check the '
+             'date before you rely on one.</p>')
 
     o.append('<h3 class="ap-h3">Per-session pay is piece rate, and piece rate '
              'has rules</h3>')
