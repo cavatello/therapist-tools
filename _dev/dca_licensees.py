@@ -64,7 +64,28 @@ clinicians and the ratio between them; the count of distinct cities. Those are
 simple sums over a categorical field, and they reconcile against the file's own
 record count - which the guard verifies.
 
-Idempotent. Re-downloads only when the state's file has changed.
+WHERE THIS CAN RUN, WHICH IS NOT WHERE THE SITE IS BUILT
+
+The machine that builds this site has no outbound network access - the download
+fails there with a proxy 403, every time. That is not a bug to route around; it
+is the shape of the setup.
+
+So this pass has two modes and the pipeline only ever uses the second:
+
+    python3 _dev/dca_licensees.py            refresh - needs network
+    python3 _dev/dca_licensees.py --check    verify - needs nothing
+
+`--check` re-reads the committed `dca_stats.py` and confirms it imports, that
+its totals reconcile, and that nothing identifying is in it. That is what runs
+on every build. The refresh is run monthly from anywhere with a network
+connection, and the only thing that gets committed is the derived counts.
+
+This is the same arrangement `_dev/bbs_stats.py` already uses: a small,
+tracked, human-readable data module, regenerated deliberately rather than
+fetched during a build. It also means a build can never fail because a state
+website was slow.
+
+Idempotent. Re-downloads only when the cache is missing.
 """
 import collections, csv, hashlib, io, os, re, subprocess, sys, urllib.request
 
@@ -382,7 +403,62 @@ def check(s):
     return bad
 
 
+def check_only():
+    """Verify the committed counts without touching the network."""
+    print("the DCA licensee counts")
+    if not os.path.exists(OUT):
+        sys.exit("dca_licensees: _dev/dca_stats.py is missing. Run this pass "
+                 "with no arguments, from a machine with network access, to "
+                 "regenerate it.")
+    sys.path.insert(0, HERE)
+    import importlib
+    import dca_stats
+    importlib.reload(dca_stats)
+
+    bad = 0
+    text = open(OUT, encoding="utf-8").read()
+    if re.search(r"\d+\s+[A-Z][a-z]+\s+(St|Ave|Rd|Dr|Blvd|Way|Ln|Ct)\b", text):
+        print("GUARD: something shaped like a street address is in dca_stats.py")
+        bad += 1
+    for f in FORBIDDEN:
+        if f in text:
+            print("GUARD: the field name %r reached the output" % f)
+            bad += 1
+    if sum(dca_stats.BY_TYPE.values()) != dca_stats.TOTAL:
+        print("GUARD: the type counts sum to %d against a total of %d"
+              % (sum(dca_stats.BY_TYPE.values()), dca_stats.TOTAL))
+        bad += 1
+    if sum(dca_stats.BY_STATUS.values()) != dca_stats.TOTAL:
+        print("GUARD: the status counts sum to %d against a total of %d"
+              % (sum(dca_stats.BY_STATUS.values()), dca_stats.TOTAL))
+        bad += 1
+    if len(dca_stats.COUNTIES) != 58:
+        print("GUARD: %d counties, and California has 58"
+              % len(dca_stats.COUNTIES))
+        bad += 1
+    if dca_stats.TOTAL < MIN_RECORDS:
+        print("GUARD: %d records, fewer than the %s floor"
+              % (dca_stats.TOTAL, format(MIN_RECORDS, ",d")))
+        bad += 1
+    try:
+        issuance_by_year()
+    except IssueDateIsNotAnIssueDate:
+        pass
+    else:
+        print("GUARD: issuance_by_year() no longer refuses")
+        bad += 1
+
+    if bad:
+        sys.exit("\n%d problem(s)" % bad)
+    print("  %s licensees as at %s, %d counties, %d cities - counts reconcile, "
+          "nothing identifying in the file"
+          % (format(dca_stats.TOTAL, ",d"), dca_stats.AS_AT,
+             len(dca_stats.COUNTIES), dca_stats.CITIES))
+
+
 def main():
+    if "--check" in sys.argv:
+        return check_only()
     print("the DCA licensee file")
     refuse_if_tracked()
     fetch()
