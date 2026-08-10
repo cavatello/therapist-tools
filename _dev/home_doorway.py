@@ -10,13 +10,13 @@ in the profession. Somebody deciding whether to become an MFT at all had no
 entry point on the home page.
 
 That is the largest single body of work on the site sitting behind no door:
-sixty-six school pages, the MFT programme directory, the PsyD directory, the
+sixty-six school pages, the MFT program directory, the PsyD directory, the
 route guide and the cost-of-living comparison. And `_dev/stage_router.py` has
-had a matching stage - "Choosing a programme / You have not started yet" - the
+had a matching stage - "Choosing a program / You have not started yet" - the
 whole time. The tab existed; the card did not.
 
 It also happens to be the top of the funnel for everything else on the site. A
-reader who arrives while choosing a programme is the same reader who needs the
+reader who arrives while choosing a program is the same reader who needs the
 hours calculator in two years and the tax pages in six.
 
 WHY A PASS RATHER THAN AN EDIT
@@ -55,9 +55,9 @@ TARGET = "mft-programs-california.html"
 
 CARD = (MARK + '<a class="laud" href="' + TARGET + '">'
         "<b>" + LABEL + "</b>"
-        "<span>Weighing an MFT against a doctorate, comparing programmes, and "
+        "<span>Weighing an MFT against a doctorate, comparing programs, and "
         "working out whether the California arithmetic adds up.</span>"
-        "<em>Start with the programmes &rarr;</em></a>" + END)
+        "<em>Start with the programs &rarr;</em></a>" + END)
 
 CSS = ("<style>" + CSSMARK + """
 /* Four cards, not three. auto-fit rather than repeat(4,...) so a fifth
@@ -89,12 +89,19 @@ def main():
 
     # First child of the audience grid: this audience comes before the others
     # in time, so it comes before them on the page.
-    m = re.search(r'<div class="lgrid lg3">', s)
-    if not m:
-        sys.exit("home_doorway: the audience grid <div class=\"lgrid lg3\"> is "
-                 "not on the home page. It has been renamed or removed - do "
-                 "not guess a new anchor, look at the page.")
-    s = s[:m.end()] + CARD + s[m.end():]
+    # `<div class="lgrid lg3">` appears more than once on the home page - the
+    # promise block uses the same grid - and anchoring on the first match put
+    # the card in the wrong section entirely. Anchored on the heading that
+    # names the section, then the first grid after it.
+    head = re.search(r"Who this is for", s)
+    m = re.search(r'<div class="lgrid lg3">', s[head.end():]) if head else None
+    if not head or not m:
+        sys.exit("home_doorway: could not find the audience grid - the "
+                 "\"Who this is for\" heading or the grid after it has been "
+                 "renamed. Do not guess a new anchor, look at the page.")
+    at = head.end() + re.search(r'<div class="lgrid lg3">',
+                                s[head.end():]).end()
+    s = s[:at] + CARD + s[at:]
 
     e = s.lower().rfind("</body>")
     s = s[:e] + CSS + "\n" + s[e:]
@@ -115,8 +122,9 @@ def main():
         print("GUARD: the card points at %s, which is not on the site" % TARGET)
         bad += 1
 
-    grid = re.search(r'<div class="lgrid lg3">([\s\S]*?)</div>\s*</div>\s*</section>', s)
-    n = len(re.findall(r'<a class="laud"', grid.group(1))) if grid else 0
+    h2 = s.find("Who this is for")
+    seg = s[h2:s.find("</section>", h2)] if h2 >= 0 else ""
+    n = len(re.findall(r'<a class="laud"', seg))
     if n != 4:
         print("GUARD: %d audience card(s) in the grid, expected 4" % n)
         bad += 1

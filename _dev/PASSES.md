@@ -40,6 +40,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `footer_order.py` | structure | `/* _dev/footer_order.py */` | The signup band belongs against the footer. Put it there, on every page. |
 | `form_inline.py` | structure | `// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt` | The signup band answers on the page. On all 158 pages, not on five. |
 | `headline_figures.py` | structure | `<!-- _dev/headline_figures.py -->` | Change a page's headline figure when its builder no longer exists. |
+| `home_doorway.py` | structure | `<!-- _dev/home_doorway.py -->` | A fourth door on the home page, for the people who have not started yet. |
 | `hub_hero.py` | structure | `<!-- _dev/hub_hero.py -->` | Make every hub and directory hero do the job a landing page does. |
 | `hub_owid.py` | structure | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
 | `infographics.py` | structure | `/* _dev/infographics.py */` · `<!-- _dev/infographics.py -->` | A visual vocabulary for this site, so content can stop being only prose. |
@@ -135,11 +136,13 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `bbs_redact.py` | **untriaged** | &mdash; | Strip the licensee out of a BBS decision before anything else reads it. |
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
+| `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
+| `patch_counts.py` | **untriaged** | &mdash; | Point the two nav-panel blurbs at counts.py instead of at a memory. |
 | `patch_ig.py` | **untriaged** | &mdash; | Point the discipline-hub bar chart at the data instead of at a memory of it. |
 | `patch_tsshort.py` | **untriaged** | &mdash; | The In-short card stops repeating the headline it sits under. |
 | `patch_years.py` | **untriaged** | &mdash; | Two claims on the hub that the second collection made untrue. |
