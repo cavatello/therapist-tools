@@ -46,6 +46,9 @@ shipping a broken image. Entries with no icon of their own borrow a named one.
 Idempotent. Run after the page builders and before linkcheck.
 """
 import os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import counts  # noqa: E402  - the site's counts, computed
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
@@ -94,7 +97,7 @@ LEARN = [
      "what it pays, and what it keeps",
      "therapist-cost-of-living-california.html"),
     ("mft-programs-california.html", "MFT programs",
-     "65 California schools, and what people say",
+     "%d California schools, and what people say" % counts.schools(),
      "therapist-working-remotely-california.html"),
     ("cost-of-incorporating-california-therapist.html", "Cost of incorporating",
      "$800 before you see a client",

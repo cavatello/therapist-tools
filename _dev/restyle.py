@@ -42,6 +42,9 @@ moves before it.
 Idempotent. Running it twice is a no-op.
 """
 import os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import counts  # noqa: E402  - the site's counts, computed
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
@@ -157,7 +160,7 @@ PRACTICE = [
     # because the two only make sense together: the sublimits on that page are
     # abstract until you have seen what a contested boundary case costs.
     ("therapist-discipline-cases-california.html", "Discipline cases",
-     "30 real BBS decisions, and what each one cost",
+     "%d real BBS decisions, and what each one cost" % counts.cases(),
      "therapy-liability-insurance-california.html"),
     ("simplepractice-california-therapists.html", "SimplePractice",
      "what the software actually costs, all in",
