@@ -754,6 +754,51 @@ def main():
     bad = []
     if len(set(SLUGS.values())) != len(SLUGS):
         bad.append("duplicate slugs")
+
+    # COAMFTE status, checked against the data rather than against the page.
+    #
+    # `coamfte` is a boolean and three different Commission statuses fold into
+    # it: "Accredited", "Accredited With Stipulations" and "Accredited with
+    # Show-Cause". One program sat on show-cause here for months because the
+    # boolean was still True and nothing else was recorded. So: every
+    # accredited program must carry the verbatim status term, and any term
+    # other than plain "Accredited" must also carry the note that turns the
+    # verdict block amber and says so on the card, the In-short and ts:outcome.
+    import datetime
+    for _p in PROGRAMS:
+        if not _p.get("coamfte"):
+            # A note on a program that is not accredited has nothing to
+            # qualify, and would render nowhere.
+            if _p.get("coamfte_note") or _p.get("coamfte_status"):
+                bad.append("%s: carries COAMFTE detail but coamfte is false"
+                           % _p.get("institution", _p.get("url", "?")))
+            continue
+        who = _p.get("institution") or _p.get("url", "?")
+        st = _p.get("coamfte_status")
+        if not st:
+            bad.append("%s: coamfte is true with no coamfte_status. A boolean "
+                       "cannot tell show-cause from plain accreditation."
+                       % who)
+            continue
+        if st != "Accredited" and not _p.get("coamfte_note"):
+            bad.append("%s: status is %r and there is no coamfte_note, so the "
+                       "page will claim plain accreditation" % (who, st))
+        if not _p.get("coamfte_checked"):
+            bad.append("%s: no coamfte_checked date" % who)
+        # A renewal date in the past is not an error in the data - it is a
+        # program whose accreditation term has run out without a published
+        # decision, which is precisely what wants looking at.
+        r = _p.get("coamfte_renewal")
+        if r:
+            try:
+                when = datetime.datetime.strptime(r, "%d %B %Y").date()
+            except ValueError:
+                bad.append("%s: coamfte_renewal %r is not 'D Month YYYY'"
+                           % (who, r))
+            else:
+                if when < datetime.date.today() and not _p.get("coamfte_note"):
+                    bad.append("%s: its COAMFTE renewal date (%s) has passed "
+                               "and the page says nothing about it" % (who, r))
     for sl, name, _n in written:
         doc = open(os.path.join(OUTDIR, sl), encoding="utf-8").read()
         if doc.count("<h1") != 1:
