@@ -48,7 +48,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `form_inline.py` | structure | `// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt` | The signup band answers on the page. On all 158 pages, not on five. |
 | `headline_figures.py` | structure | `<!-- _dev/headline_figures.py -->` | Change a page's headline figure when its builder no longer exists. |
 | `home_doorway.py` | structure | `<!-- _dev/home_doorway.py -->` | A fourth door on the home page, for the people who have not started yet. |
-| `hub_clusters.py` | structure | &mdash; | Bring the licensure hub's cluster sections back in line with the registry. |
+| `hub_clusters.py` | structure | &mdash; | Keep every topic hub's cluster sections identical to what the registry says. |
 | `hub_hero.py` | structure | `<!-- _dev/hub_hero.py -->` | Make every hub and directory hero do the job a landing page does. |
 | `hub_owid.py` | structure | `<!-- _dev/hub_owid.py -->` | Concept 04 - the five topic hubs on the Our World in Data template. |
 | `infographics.py` | structure | `/* _dev/infographics.py */` · `<!-- _dev/infographics.py -->` | A visual vocabulary for this site, so content can stop being only prose. |
