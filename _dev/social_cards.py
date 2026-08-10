@@ -108,7 +108,7 @@ def main():
         sys.exit("social_cards: og-image.png is missing, so every card this "
                  "pass writes would point at a 404")
 
-    added = kept = hidden = 0
+    added = kept = hidden = topped = 0
     for rel in pages():
         p = os.path.join(SITE, rel)
         s = open(p, encoding="utf-8").read()
@@ -131,6 +131,19 @@ def main():
 
         if re.search(r'property="og:title"', s, re.I):
             kept += 1
+            # Top up the one thing the authored blocks are missing. Thirty-one
+            # of the thirty-two have no twitter:card, so the preview falls back
+            # to a small square thumbnail instead of the wide card their
+            # og:image was cut for. This adds the line and touches nothing
+            # else - the authored copy is still the authored copy.
+            if not re.search(r'name="twitter:card"', s, re.I):
+                i = s.lower().find("</head>")
+                if i > 0:
+                    s = (s[:i] + MARK + "\n"
+                         + '<meta name="twitter:card" '
+                           'content="summary_large_image" />\n'
+                         + END + "\n" + s[i:])
+                    topped += 1
             if s != orig:
                 open(p, "w", encoding="utf-8").write(s)
             continue
@@ -151,8 +164,9 @@ def main():
         open(p, "w", encoding="utf-8").write(s)
         added += 1
 
-    print("share cards: %d derived, %d authored block(s) left alone, "
-          "%d mockup(s) set to noindex" % (added, kept, hidden))
+    print("share cards: %d derived, %d authored block(s) left alone "
+          "(%d of them given the twitter:card they were missing), "
+          "%d mockup(s) set to noindex" % (added, kept, topped, hidden))
 
     # --------------------------------------------------------------- guards
     bad = 0
