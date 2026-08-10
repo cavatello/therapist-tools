@@ -88,6 +88,29 @@ STRUCTURE = [
      "of the two-product framing. Early in STRUCTURE for two reasons: it sets "
      "ts:number, which pixel_concepts reads to build the In-short card, and "
      "its prose has to reach american.py like any other copy"),
+    # The registry handover, both halves, in the order the two passes
+    # were designed to run in. `registry_meta` writes each page's
+    # library metadata INTO the page; `registry_sync` reads it back and
+    # rebuilds registry.json from the pages, so the page is the source
+    # of truth and a new one joins the library with no central edit.
+    #
+    # They were both unwired, and the cost showed the moment a builder
+    # rewrote a page: mft-programs-california.html came out of
+    # mock/mftguide/build_programs.py with no `ts:` block at all, which
+    # made it invisible to every hub on the site and failed
+    # stage_router two stages later. Wired, that repairs itself.
+    #
+    # ORDER MATTERS AND THE FAILURE IS SILENT. registry.json holds
+    # UNESCAPED text; the page holds it HTML-escaped in a content=""
+    # attribute. meta escapes on the way in, sync unescapes on the way
+    # out. Put an already-escaped string into the registry by hand and
+    # meta escapes it twice - "&rsquo;" becomes "&amp;rsquo;" and the
+    # In-short card renders the entity as text. That is how four pages
+    # broke the first time these ran together.
+    ("_dev/registry_meta.py",
+     "each page's library metadata, written into the page"),
+    ("_dev/registry_sync.py",
+     "registry.json rebuilt from the pages that now carry it"),
     ("_dev/taxonomy_leaves.py",
      "the 48 case pages become leaves and three reference pages get real\n      clusters, so no topic hub ends in a 50-page catch-all. BEFORE\n      uplinks, which picks a page's siblings out of the registry"),
     ("_dev/hub_clusters.py",
