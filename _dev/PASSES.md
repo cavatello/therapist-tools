@@ -42,11 +42,13 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `hub_assocpay_link.py` | structure | &mdash; | One cluster section onto the licensure hub, by hand, for one reason. |
 | `hub_hero.py` | structure | `<!-- _dev/hub_hero.py -->` | Make every hub and directory hero do the job a landing page does. |
 | `infographics.py` | structure | `/* _dev/infographics.py */` · `<!-- _dev/infographics.py -->` | A visual vocabulary for this site, so content can stop being only prose. |
+| `link_sinks.py` | structure | `<!-- _dev/link_sinks.py -->` | Two pages everything links to, that link to nothing. |
 | `mobile_nav.py` | structure | `/* _dev/mobile_nav.py */` | The mobile nav is scrollable and does not look it. Give it an edge. |
 | `payer_links.py` | structure | `<!-- _dev/payer_links.py -->` | Make "where you apply" a link you can actually click. |
 | `pixel_concepts.py` | structure | `<!-- _dev/pixel_concepts.py -->` | Concepts 01, 02 and 07 from concepts.html, built sitewide in the Pixel style. |
 | `restyle.py` | structure | `/* restyle */` | The visual restyle and the topic-first header, as ONE self-contained pass. |
 | `stage_router.py` | structure | `<!-- _dev/stage_router.py -->` | Concept 06 - the stage router, built as a tab control over the section that |
+| `taxonomy_leaves.py` | structure | &mdash; | The 48 case pages become leaves, and three reference pages get real homes. |
 | `tool_analytics.py` | structure | `/* _dev/tool_analytics.py */` | Measure how the calculators are actually used, without collecting a value. |
 | `touch_polish.py` | structure | `/* _dev/touch_polish.py */` | Legibility and tap targets, measured across nine real device sizes. |
 | `uplinks.py` | structure | `<!-- _dev/uplinks.py -->` | Give every content page a way back up to its topic. |
@@ -62,6 +64,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `wide_measure.py` | floors | `/* _dev/wide_measure.py */` | Cap the line length on the blocks that run to 195 characters at 2560px. |
 | `seo_head.py` | seo | `<!-- _dev/seo_head.py -->` | Every published page gets a canonical and a lang, because four did not. |
 | `seo_meta.py` | seo | &mdash; | Bring titles and descriptions inside the length a result actually shows. |
+| `social_cards.py` | seo | `<!-- _dev/social_cards.py -->` | A share card on every page, not on thirty-two of them. |
 | `css_cdo_fix.py` | css | &mdash; | Remove HTML comment markers from stylesheets, and rehash the files. |
 | `css_dedupe.py` | css | &mdash; | Remove superseded stylesheets. Every page was carrying each pass twice. |
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
