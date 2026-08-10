@@ -107,6 +107,8 @@ STRUCTURE = [
      "the visual vocabulary - five CSS shapes and the pages that use them. "
      "Before FLOORS, so block_spacing and content_frame see the figures"),
     ("_dev/hub_hero.py", "the AIDA heroes, with every figure measured"),
+    ("_dev/hub_owid.py",
+     "the scope line, the most-asked links and the Key insights block on the\n      five topic hubs. Also never wired, for the same reason analytics.py\n      was not: nothing regenerated a hub, so its output survived by luck.\n      Regenerating the hubs from registry.json deleted all five blocks and\n      no guard noticed, because a missing section is not a broken one"),
     ("_dev/stage_router.py", "the situation router on resources.html"),
     ("_dev/footer_order.py",
      "MOVES the band down against the footer. Must follow footer_band and "
