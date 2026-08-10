@@ -459,7 +459,7 @@
 </div>
 </div></section>
 
-<section class="lsec lpaper"><div class="lwrap"><div class="lgrid lg3">
+<section class="lsec lpaper"><div class="lwrap"><div class="lgrid lg3"><!-- _dev/home_doorway.py --><a class="laud" href="mft-programs-california.html"><b>Considering the path</b><span>Weighing an MFT against a doctorate, comparing programmes, and working out whether the California arithmetic adds up.</span><em>Start with the programmes &rarr;</em></a><!-- /home_doorway -->
 <div class="lpromise"><h3>It computes, it doesn't opine</h3><p>Every dollar on this site is the output of a calculation you can follow, run on numbers you typed in. There are no illustrative figures and no worked examples standing in for your practice.</p></div>
 <div class="lpromise"><h3>California specifically</h3><p>Not a national calculator with a state dropdown. California has its own income tax schedule, its own franchise tax, and its own rule that a licensed therapist may not form an LLC — all of which change the answer.</p></div>
 <div class="lpromise"><h3>Updated when the rules move</h3><p>2026 federal and California rates, each one carrying the date it was last checked against its source. When a threshold moves, the change is listed on the <a href="changes.html">What changed</a> page rather than quietly swapped in.</p></div>
@@ -987,4 +987,12 @@ td p, th p, .fig p, .stat p, .kpi p{max-width:none}
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
 <link rel="stylesheet" href="css/17175d2f21fd.css">
 <link rel="stylesheet" href="css/7ddf0607da04.css">
+<style>/* _dev/home_doorway.py */
+/* Four cards, not three. auto-fit rather than repeat(4,...) so a fifth
+   audience would not need this rule edited again. Doubled selector because the
+   3-column rule lives in the home page's own inline stylesheet and a single
+   class would tie on specificity and lose on source order. */
+.lgrid.lg3.lg3{grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}
+@media (max-width:760px){.lgrid.lg3.lg3{grid-template-columns:minmax(0,1fr)}}
+</style>
 </body></html>
