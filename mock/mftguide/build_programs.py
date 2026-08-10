@@ -1210,6 +1210,34 @@ def main():
     open(OUT, "w", encoding="utf-8").write(doc)
 
     bad = []
+
+    # Entities in the DATA, which this builder escapes on the way into the
+    # page. A field holding "&rsquo;" is escaped a second time and renders as
+    # the literal text "&rsquo;" for a reader. That is not a typo class - it is
+    # the third time this project has shipped it (the Touro notice, a page
+    # title, and a whole program card), and it is invisible to every other
+    # guard because the markup is perfectly valid.
+    #
+    # The rule for every escaped field is: raw Unicode, never an entity.
+    _ENT = re.compile(r"&(?:rsquo|lsquo|mdash|ndash|amp|nbsp|hellip|ldquo"
+                      r"|rdquo|quot|apos|#\d+);")
+
+    def _scan(value, path, who):
+        if isinstance(value, str):
+            if _ENT.search(value):
+                bad.append("%s: %s holds an HTML entity (%s). Store raw "
+                           "Unicode - this field is escaped on render, so an "
+                           "entity here is escaped twice and shows as text."
+                           % (who, path, _ENT.search(value).group(0)))
+        elif isinstance(value, dict):
+            for k, v in value.items():
+                _scan(v, "%s.%s" % (path, k) if path else k, who)
+        elif isinstance(value, list):
+            for v in value:
+                _scan(v, path + "[]", who)
+
+    for _p in PROGRAMS:
+        _scan(_p, "", (_p.get("institution") or _p.get("url", "?"))[:48])
     if doc.count("<h1") != 1:
         bad.append("%d h1" % doc.count("<h1"))
     n = doc.count('<article class="pg"')
