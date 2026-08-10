@@ -152,7 +152,13 @@ def library_meta(p):
     if p.get("units"):
         bits.append(esc(p["units"]))
     if p.get("coamfte"):
-        bits.append("COAMFTE accredited")
+        # Qualified where a qualifier exists. This line feeds the
+        # In-short card, ts:outcome and the hub card - the three
+        # places a reader meets the claim before the verdict block
+        # that was already fixed.
+        bits.append("COAMFTE accredited"
+                    + (" (%s)" % p["coamfte_note"]
+                       if p.get("coamfte_note") else ""))
     out = ("What it costs, how practicum works, and what people say"
            if not bits else
            "%s — what it costs, how practicum works, and what people say"
