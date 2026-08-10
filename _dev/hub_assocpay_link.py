@@ -1,62 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""RETIRED on 10 August 2026 - the hubs are generated from registry.json now.
+"""RETIRED. Superseded by `_dev/hub_clusters.py` on 10 August 2026.
 
-This pass existed as a bridge across a builder that could not be run against
-the live site. `mock/library/build_library.py` was fixed, its output was
-checked and copied over all nine library pages, and the licensure hub now
-renders the "Counting the hours, and the job that banks them" cluster itself.
-The bridge has nothing left to carry, and on the first run after the hubs were
-regenerated it failed loudly rather than silently double-inserting - which is
-the behaviour its anchor guard was written for.
+This pass inserted one cluster section into one hub, lifted from
+`mock/library/build_library.py`'s output, as a bridge across a generator that
+could not be run against the live site. Its own docstring said it should be
+retired once the hub regeneration was done properly.
 
-Left in the tree rather than deleted, like the four `hub_*_link.py` passes
-before it, because the reasoning is the useful part.
+`_dev/hub_clusters.py` does that job for every topic hub at once, on the same
+principle - lift the cluster sections from the generator, never author them -
+and adds the guard this one did not have: it counts the decorations that live
+between sections, and refuses to write if a sync would eat one. That is the
+failure this project has already had, when regenerating hubs silently deleted
+the Key insights block from all five and nothing noticed.
 
-ORIGINAL HEADER FOLLOWS.
+Running this now would insert a section `hub_clusters.py` already maintains,
+so it exits without touching anything. The original is kept below the exit for
+the reasoning in it, which is still the reasoning behind its replacement.
+"""
+import sys
 
-One cluster section onto the licensure hub, by hand, for one reason.
+sys.exit("hub_assocpay_link: retired - _dev/hub_clusters.py maintains this "
+         "section, and every other cluster section on every hub. Nothing was "
+         "written.")
 
-WHY THIS EXISTS WHEN THE HUBS ARE SUPPOSED TO BE GENERATED
+# --------------------------------------------------------------------------
+# The original, kept for the argument it makes and not to be run.
 
-They are. `mock/library/build_library.py` renders all nine index pages from
-`mock/library/registry.json`, and the four `_dev/hub_*_link.py` passes that
-predate it are all retired with a note saying so. This one is not a fifth
-hand-maintained index; it is a bridge across a builder that cannot currently
-be run against the live site.
-
-The state of that builder, as of this pass:
-
-  - Its `SITE` was `mock/../stage2`, left over from a layout the repo has since
-    flattened, so **every run since the flattening died on a missing path.**
-    That is now fixed, and it runs.
-  - It writes to `mock/library/out/`, never to the site, so running it is safe.
-  - But its output is the *undecorated* hub - about 14KB smaller per page than
-    what is live, because forty-odd `_dev/` passes have since written into
-    those pages. Copying nine regenerated hubs over the live ones and
-    re-running the pipeline is a real change to five of the site's most
-    important pages, and it cannot be checked in a browser from here while
-    file staging is down.
-
-So: the builder stays fixed and unused, this pass inserts the ONE section the
-builder would have added, and the hub regeneration is a separate job with its
-own verification. When that job happens, this pass becomes a no-op and should
-be retired like its four predecessors.
-
-WHAT IT INSERTS
-
-Not authored markup - the exact section `build_library.py` emitted for this
-page, lifted from `mock/library/out/licensure/index.html` at run time rather
-than pasted in as a literal. That is the whole point: if the card format
-changes, or the page's title, outcome or `ts:number` changes, this pass picks
-the change up on the next run instead of freezing one day's rendering into a
-Python string.
-
-If the generated file is missing, the pass says how to regenerate it and stops.
-It does not fall back to a hand-written card, because a hand-written card that
-drifts from the generator is exactly the failure the registry was built to end.
-
-Idempotent, guarded.
 """
 import os, re, sys
 
@@ -182,3 +152,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
