@@ -30,3 +30,15 @@
 .eap-tbl.eap-tbl th{font-size:10.5px}  /* was 9.8px - the EAP rate table */
 .li-tbl.li-tbl th{font-size:10.5px}  /* was 9.8px - the liability table */
 .pdtbl.pdtbl th{font-size:10.5px}  /* was 9.8px - the PsyD table */
+.tchip.tchip{font-size:10.5px}  /* was 9.2px - topic chips on the resources page */
+.sn.sn{font-size:10.5px}  /* was 9.2px - section numerals */
+.tn.tn{font-size:10.5px}  /* was 9.4px - the page counts on topic cards */
+.mvk.mvk{font-size:10.5px}  /* was 9.4px - the Most-asked kicker on every hub */
+.vkind.vkind{font-size:10.5px}  /* was 9.6px - video kind labels on school pages */
+.srcl.srcl{font-size:10.5px}  /* was 9.6px - source labels on school pages */
+.vmeta.vmeta{font-size:10.5px}  /* was 9.8px - video metadata */
+.ccode.ccode{font-size:10.5px}  /* was 9.8px - course codes */
+.cun.cun{font-size:10.5px}  /* was 9.8px - course units */
+.tm.tm{font-size:10.5px}  /* was 9.8px - term labels */
+.reffold.reffold summary{font-size:10.5px}  /* was 10.0px - the reference-list disclosure */
+.tsupd.tsupd dt{font-size:10.5px}  /* was 10.2px - dated update terms */
