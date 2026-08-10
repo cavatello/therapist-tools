@@ -56,6 +56,8 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `mobile_nav.py` | structure | `/* _dev/mobile_nav.py */` | The mobile nav is scrollable and does not look it. Give it an edge. |
 | `payer_links.py` | structure | `<!-- _dev/payer_links.py -->` | Make "where you apply" a link you can actually click. |
 | `pixel_concepts.py` | structure | `<!-- _dev/pixel_concepts.py -->` | Concepts 01, 02 and 07 from concepts.html, built sitewide in the Pixel style. |
+| `registry_meta.py` | structure | `<!-- ts:meta -->` | Write each page's library metadata into the page itself. |
+| `registry_sync.py` | structure | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. |
 | `restyle.py` | structure | `/* restyle */` | The visual restyle and the topic-first header, as ONE self-contained pass. |
 | `stage_router.py` | structure | `<!-- _dev/stage_router.py -->` | Concept 06 - the stage router, built as a tab control over the section that |
 | `taxonomy_leaves.py` | structure | &mdash; | The 48 case pages become leaves, and three reference pages get real homes. |
@@ -135,8 +137,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `rates_contrast.py` | **safe** | &mdash; | Raise four colours in the rates.html palette until they clear 4.5:1. — no-op on today's site |
 | `rates_fix.py` | **safe** | &mdash; | Correct the two published-fee-schedule rows on rates.html. — no-op on today's site |
 | `rates_tokens.py` | **safe** | &mdash; | Two colours on rates.html that a later :root block quietly redefined. — no-op on today's site |
-| `registry_meta.py` | **safe** | `<!-- ts:meta -->` | Write each page's library metadata into the page itself. |
-| `registry_sync.py` | **safe** | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. — rebuilds registry.json from the pages |
 | `tax_assumptions.py` | **safe** | `the rate the EDD assigns to a new employer` | Disclose the one modelling choice the tax page was still making silently. — no-op on today's site |
 | `tool_chain.py` | **safe** | `<!-- _dev/tool_chain.py -->` | Concept 03, second half: the seven calculators as a sequence, not a pile. |
 | `urlfix.py` | **safe** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. — no-op on today's site |
