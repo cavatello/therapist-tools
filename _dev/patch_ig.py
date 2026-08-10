@@ -20,7 +20,9 @@ s = open(P, encoding="utf-8").read()
 
 start = s.index('        "therapist-discipline-cases-california.html",')
 start = s.rindex("    (\n", 0, start)
-end = s.index("\n    (", start + 5)
+# It is the last entry in PLACEMENTS, so there is no following "    (" to
+# stop at - the terminator is the list's own closing bracket.
+end = s.index("\n    ),\n]", start) + len("\n    ),")
 
 NEW = '''    # ---------------------------------------------------- discipline cases
     # Counts and labels come from case_data.py. They used to be literals here,
@@ -43,7 +45,7 @@ NEW = '''    # ---------------------------------------------------- discipline c
             "application form."),
     ),
 '''
-s = s[:start] + NEW + s[end + 1:]
+s = s[:start] + NEW.rstrip('\n') + s[end:]
 
 HELP = '''
 # The taxonomy and the counts have exactly one home.

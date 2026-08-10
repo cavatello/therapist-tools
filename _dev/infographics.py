@@ -78,6 +78,17 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
+
+# The taxonomy and the counts have exactly one home.
+import sys as _sys  # noqa: E402
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from case_data import CASES, GROUPS  # noqa: E402
+
+
+def _n(key):
+    return sum(1 for c in CASES if c["group"] == key)
+
+
 MARK = "/* _dev/infographics.py */"
 BLOCK = "<!-- _dev/infographics.py -->"
 END = "<!-- /infographics -->"
@@ -419,25 +430,25 @@ PLACEMENTS = [
     ),
 
     # ---------------------------------------------------- discipline cases
+    # ---------------------------------------------------- discipline cases
+    # Counts and labels come from case_data.py. They used to be literals here,
+    # authored when the library held thirty cases in eight groups; the library
+    # grew and this figure kept confidently drawing the old numbers until the
+    # anchor stopped matching and the guard caught it.
     (
         "therapist-discipline-cases-california.html",
-        r'<h2 class="dc-h">Thirty cases[\s\S]{0,600}?</p>',
+        r'<h2 class="dc-h">[A-Za-z-]+ cases, grouped by what went wrong[\s\S]{0,600}?</p>',
         lambda: bars(
-            "Thirty cases, by what went wrong",
-            [("Sexual boundaries", "", 6, "6"),
-             ("Boundary drift", "no sexual contact", 5, "5"),
-             ("Convictions", "three written up, two listed", 5, "5"),
-             ("Discipline from elsewhere",
-              "another state, another license", 4, "4"),
-             ("Records and confidentiality", "", 3, "3"),
-             ("Money, billing and honesty", "", 3, "3"),
-             ("After discipline", "probation and its terms", 3, "3"),
-             ("Fitness-to-practice", "", 1, "1")],
-            "Eleven of the thirty &mdash; more than a third &mdash; are "
-            "boundaries. Only one began as a complaint about clinical work. "
-            "<b>The pattern to take from this is that discipline mostly "
-            "arrives from conduct, paperwork and disclosure, not from a "
-            "treatment decision.</b>"),
+            "%d cases, by what went wrong" % len(CASES),
+            [(g["short"], "", _n(g["key"]), str(_n(g["key"])))
+             for g in sorted(GROUPS, key=lambda g: -_n(g["key"]))],
+            "Boundaries &mdash; sexual contact and the drift short of it "
+            "&mdash; and criminal convictions are the two halves of this "
+            "library. Only a handful began as a complaint about clinical "
+            "work. <b>The pattern to take from this is that discipline "
+            "usually arrives from outside the therapy room</b>, through a "
+            "conviction feed, an employer, another licensing board, or an "
+            "application form."),
     ),
 ]
 

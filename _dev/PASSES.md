@@ -130,6 +130,14 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `tool_chain.py` | **safe** | `<!-- _dev/tool_chain.py -->` | Concept 03, second half: the seven calculators as a sequence, not a pile. |
 | `urlfix.py` | **safe** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. — no-op on today's site |
 | `widen.py` | **safe** | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. — the two large-display width steps that one_grid.py and rates_grid.py both mirror |
+| `bbs_redact.py` | **untriaged** | &mdash; | Strip the licensee out of a BBS decision before anything else reads it. |
+| `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
+| `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
+| `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
+| `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
+| `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
+| `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
+| `patch_ig.py` | **untriaged** | &mdash; | Point the discipline-hub bar chart at the data instead of at a memory of it. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |
