@@ -31,14 +31,15 @@ THE FOUR FINDINGS
    two of the three throw it away.
 
 3. THE THREE LICENSES ARE AT COMPLETELY DIFFERENT POINTS OF THEIR LIVES.
-   There are 0.33 MFT associates per licensed MFT, 0.47 social work
+   There are 0.32 MFT associates per licensed MFT, 0.47 social work
    associates per LCSW, and 1.25 counselor associates per LPCC. The LPCC is
    still mostly a register of people who have not finished.
 
 4. ATTRITION IS VISIBLE IN THE BOARD'S OWN NUMBERS and nobody puts them
-   together: 29.74% of applications arrive deficient, the clinical exams pass
-   in the sixties and seventies, and 26.7% of counselor associate
-   registrations are delinquent against 6.4% of licensed MFTs.
+   together: 29.74% of applications arrive deficient, roughly one first-time
+   candidate in five does not pass the LMFT clinical exam, and 26.7% of
+   counselor associate registrations are delinquent against 6.4% of licensed
+   MFTs.
 
 WHAT THIS PAGE MUST NOT DO
 
@@ -50,7 +51,7 @@ reader what to choose.
 
 THE TUITION CAVEAT IS LOAD-BEARING
 
-Only 33 of the 78 programs publish a per-unit price or a total, and the
+Only 35 of the 78 programs publish a per-unit price or a total, and the
 California State University campuses are largely not among them because they
 publish a per-semester full-time rate instead. So the range printed is the
 range across the programs that publish - it is not the range across
@@ -252,16 +253,14 @@ def body():
          ["Registrations currently delinquent",
           ("%.1f%%" % D.DELINQUENCY["AMFT"]["pct"], "m"),
           ("%.1f%%" % D.DELINQUENCY["ASW"]["pct"], "m"),
-          ("%.1f%%" % D.DELINQUENCY["APCC"]["pct"], "m")],
-         ["California master's degrees a year in the matching field",
-          (n(G.SERIES[LAST]["511505"]), "m"),
-          (n(G.SERIES[LAST]["440701"]), "m"),
-          (n(G.SERIES[LAST]["511508"] + G.SERIES[LAST]["422803"]), "m")]],
+          ("%.1f%%" % D.DELINQUENCY["APCC"]["pct"], "m")]],
         caption="Counts are from the state&rsquo;s own licensee register as "
-                "at %s. The degree-per-year row is indicative rather than "
-                "exact: California programs file under several federal "
-                "subject codes and a single one does not map cleanly onto a "
-                "single license." % D.AS_AT,
+                "at %s. There is deliberately no &ldquo;degrees a year&rdquo; "
+                "row here: a California program teaching toward the LMFT and "
+                "the LPCC files under one federal subject code and qualifies "
+                "its graduates for both, so splitting the pipeline table "
+                "above into these three columns would invent a precision the "
+                "data does not have." % D.AS_AT,
         minw=760))
 
     o.append('<p class="pk-p">Read the last-but-one row. There are '
