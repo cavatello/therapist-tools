@@ -25,6 +25,17 @@ p{font-size:15px;line-height:1.7;color:#5D574C;margin:0 0 20px}
 a{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:11px;
  background:#17271F;color:#fff;font-weight:700;font-size:15px;text-decoration:none}
 </style>
+<!-- _dev/social_cards.py -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Therapist Support" />
+<meta property="og:title" content="Free tools for California therapists — moved to Resources" />
+<meta property="og:description" content="The free tools for California therapists now live on one page with the rest of the practice resources." />
+<meta property="og:url" content="https://therapistsupport.org/resources.html" />
+<meta property="og:image" content="https://therapistsupport.org/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- /social_cards -->
 <script type="application/ld+json" data-bcr>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://therapistsupport.org/"},{"@type":"ListItem","position":2,"name":"All free tools","item":"https://therapistsupport.org/tools.html"}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJCWHH9SFG"></script>
@@ -47,17 +58,6 @@ a{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-r
   })(window, document, "clarity", "script", "xzv1qvmwpe");
 </script>
 <!-- /clarity -->
-<!-- _dev/social_cards.py -->
-<meta property="og:type" content="article" />
-<meta property="og:site_name" content="Therapist Support" />
-<meta property="og:title" content="Free tools for California therapists — moved to Resources" />
-<meta property="og:description" content="The free tools for California therapists now live on one page with the rest of the practice resources." />
-<meta property="og:url" content="https://therapistsupport.org/resources.html" />
-<meta property="og:image" content="https://therapistsupport.org/og-image.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta name="twitter:card" content="summary_large_image" />
-<!-- /social_cards -->
 </head>
 <body data-clarity-mask="True">
 <main>
@@ -138,7 +138,147 @@ catch(e){}})();</script>
 
 <link rel="stylesheet" href="css/ed05b2a965f6.css">
 <link rel="stylesheet" href="css/2d40f9eb0dab.css">
-<link rel="stylesheet" href="css/3f49478ba9b5.css">
+<link rel="stylesheet" href="css/3f49478ba9b5.css"><link rel="stylesheet" href="css/a2b350271684.css">
+<link rel="stylesheet" href="css/2f29aaadfa97.css">
+<link rel="stylesheet" href="css/97ebf82c2256.css">
+<link rel="stylesheet" href="css/98dfe0b8d12e.css">
+<link rel="stylesheet" href="css/0bc1ae1be8e7.css">
+<link rel="stylesheet" href="css/5f9da934c88f.css">
+<link rel="stylesheet" href="css/4f4b2f50fe5a.css">
+<link rel="stylesheet" href="css/7ffee9d84d9d.css">
+<link rel="stylesheet" href="css/fb2cac1355b6.css">
+<link rel="stylesheet" href="css/1a54ea41ccf2.css">
+<link rel="stylesheet" href="css/7ddf0607da04.css">
+
+<style>/* _dev/breadcrumbs.py */
+/* The breadcrumb. Replaces the "Chapter NN" kicker, which only meant something
+   to a reader who could see the other chapters. Deliberately the same weight
+   and tracking as the kicker it sits above, so it reads as chrome rather than
+   as content. Colour is inherited so it works on paper and on a dark slab
+   without a second rule. */
+/* Measured 44-86px of dead air between the masthead and the crumb, because the
+   hero's own padding-top was set before the crumb existed and the crumb then
+   added to it. Pulled up rather than reaching into each page's hero padding,
+   which differs per template. */
+.bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;
+  margin:clamp(-30px,-2.2vw,-14px) 0 10px;
+ padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
+.bcr li{display:flex;align-items:center;gap:8px}
+.bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
+ display:inline-flex;align-items:center;border-bottom:1px solid transparent}
+.bcr a:hover{opacity:1;border-bottom-color:currentColor}
+.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.bcr .sep{opacity:.36}
+.bcr [aria-current]{opacity:.95;font-weight:600}
+/* The negative top margin above assumes the crumb is the FIRST thing in the
+   hero. Where anything still sits above it, that pull becomes an overlap - two
+   uppercase strips printed on the same line, which is what shipped on
+   rates.html. Cancel it rather than trusting every template to be clean. */
+.hero-eyebrow + .bcr,.kicker + .bcr,.eyebrow + .bcr,
+p[class*=eyebrow] + .bcr,div[class*=eyebrow] + .bcr{margin-top:0}
+@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
+.bcrq{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin:10px 0 0}/* end bcr */</style>
+<style>/* _dev/pixel_concepts.py */
+/* Concepts 01, 02 and 07. Pixel language throughout: 2px ink, a SOLID offset
+   shadow and never a blur; Bricolage for the headings, IBM Plex Mono for the
+   small caps labels, and Fraunces reserved for figures. */
+.tsmeta{border:2px solid #16211B;border-radius:12px;box-shadow:3px 3px 0 #16211B;
+  background:#FBF9F3;padding:13px 15px 12px;margin:18px 0 0;max-width:none}
+/* The foot block is inserted as a bare sibling of the up-link and the footer,
+   so it has no container to inherit a gutter from. Match the up-link's. */
+.tsfoot{max-width:1120px;margin:30px auto 0;padding:0 26px;box-sizing:border-box}
+@media (min-width:1500px){.tsfoot{max-width:1320px}}
+@media (min-width:1900px){.tsfoot{max-width:1560px}}
+@media (max-width:560px){.tsfoot{padding:0 18px}}
+.tsmeta .tsrow{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
+.tsk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.4px;
+  letter-spacing:.13em;text-transform:uppercase;color:#6C6555;margin-right:-12px}
+.tsv{font-size:13px;font-weight:600;color:#16211B}
+.tsall{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:#2C6350;margin-left:auto}
+/* The vintage is a SEPARATE clock and has to look like one, so it sits under a
+   rule rather than inline with the check date. */
+.tsvint{margin:11px 0 0;padding:10px 0 0;border-top:2px dashed #D9D0BA}
+.tsvint b{display:block;font-family:Fraunces,Georgia,serif;font-size:14.5px;
+  font-weight:600;color:#16211B;margin:2px 0 3px}
+.tsvint i{display:block;font-style:normal;font-size:12.2px;line-height:1.5;
+  color:#5A5647;max-width:62ch}
+/* 02 - the badge, inside the meta card so it can never inherit a dark band */
+/* On its own it carries its own background: this text is a fixed colour and
+   the band behind it is not. Testing POSITION (:first-child) was the previous
+   attempt and it failed the moment a standfirst appeared above it. */
+.tsdepth{margin:14px 0 0;background:#FBF9F3;border:2px solid #16211B;
+  border-radius:12px;box-shadow:3px 3px 0 #16211B;padding:12px 15px}
+/* Inside the meta card it is a section of that card, not a card of its own. */
+.tsmeta .tsdepth{margin:11px 0 0;padding:10px 0 0;background:transparent;
+  border:none;border-radius:0;box-shadow:none;border-top:2px dashed #D9D0BA}
+.tsbadge{display:inline-flex;align-items:center;gap:7px;margin:0;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
+  font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  border:2px solid #16211B;border-radius:999px;padding:6px 13px 5px;
+  box-shadow:2px 2px 0 #16211B;text-decoration:none}
+.tsbadge.full{background:#2C6350;color:#F4F0E6}
+.tsbadge.part{background:#F6C560;color:#16211B}
+.tsbadge.thin{background:#F0EADA;color:#3A3529}
+.tsbadge.gap{background:#fff;color:#B5483F;margin-left:7px}
+.tsbadge:hover{transform:translate(1px,1px);box-shadow:1px 1px 0 #16211B}
+.tswhat{margin:8px 0 0;font-size:12.4px;line-height:1.55;color:#5A5647;
+  max-width:64ch}
+/* The rail numbers were #9A8F76 on paper: 3.04:1, under the 4.5:1 floor for
+   text this small. Measured, not eyeballed. */
+/* 07 - in short */
+.tsshort{border:2px solid #16211B;border-radius:12px;box-shadow:4px 4px 0 #F6C560;
+  background:#fff;padding:15px 17px 14px;margin:20px 0 0}
+.tsshort>p.tsk{margin:0 0 8px}
+.tsshort q{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,
+  system-ui,sans-serif;font-weight:800;letter-spacing:-.028em;font-size:18px;
+  line-height:1.2;color:#16211B;quotes:none;margin:0 0 7px}
+.tsshort p.tsa{margin:0;font-size:14px;line-height:1.6;color:#3A3529;max-width:64ch}
+.tsshort .tsfig{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:21px;color:#2C6350;margin:9px 0 0;letter-spacing:-.01em}
+/* 01 - the dated update list */
+.tsupd{margin:14px 0 0;border:2px solid #16211B;border-radius:12px;
+  background:#F4F0E6;box-shadow:2px 2px 0 #16211B;overflow:hidden}
+.tsupd>summary{cursor:pointer;list-style:none;padding:10px 15px;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#16211B}
+.tsupd>summary::-webkit-details-marker{display:none}
+.tsupd>summary::after{content:"+";float:right;font-weight:700}
+.tsupd[open]>summary::after{content:"\2212"}
+.tsupd dl{margin:0;padding:0 15px 13px}
+.tsupd dl>div{padding:10px 0;border-top:2px dashed #D9D0BA}
+.tsupd dt{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.2px;
+  letter-spacing:.08em;text-transform:uppercase;color:#6C6555;margin:0 0 3px}
+.tsupd dd{margin:0;font-size:13.2px;line-height:1.55;color:#3A3529;max-width:66ch}
+.tsupd dd a{color:#2C6350}
+/* 07 - the numbered rail */
+.artnav a,.scnav a,.drnav a,.pxnav a{position:relative}
+.tsn{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
+  font-weight:700;color:#6C6555;margin-right:8px;font-style:normal;
+  display:inline-block;min-width:1.4em}
+a.on .tsn,a[aria-current] .tsn{color:#2C6350}
+@media (max-width:620px){
+  .tsmeta .tsrow{gap:4px 14px}
+  .tsshort q{font-size:16.5px}
+  .tsbadge{font-size:9.6px}
+}
+</style>
+<style>/* _dev/footer_fix.py */
+/* The footer is chrome and must not depend on which stylesheet a page
+   inherited. Scoped to .sitefoot so it outranks a page-local a{} rule, and
+   appended last so it cannot lose a load-order race. */
+.sitefoot .ftcols a{color:rgba(255,255,255,.78)}
+.sitefoot .ftcols a:hover{color:#fff;text-decoration:underline}
+.sitefoot .ftcols h5{color:#16211B;background:#F6C560}
+.sitefoot .ftcols p{color:rgba(255,255,255,.62)}
+.sitefoot .ftby{color:rgba(255,255,255,.62)}
+.sitefoot .ftby b{color:rgba(255,255,255,.88)}
+.sitefoot .ftby a,.sitefoot .ftcols a:focus-visible{color:#F6C560}
+/* The masthead subtitle: #7C766A on #FBF9F3 is 4.28:1 at 10px, just under the
+   floor, on every page of the site. */
+.sitenav .sitenav-sub{color:#635E53}
+</style>
 <script>/* _dev/analytics_events.py */
 (function(){
   if (typeof window === 'undefined') return;
@@ -305,16 +445,5 @@ catch(e){}})();</script>
   }, true);
 })();
 </script>
-<link rel="stylesheet" href="css/a2b350271684.css">
-<link rel="stylesheet" href="css/2f29aaadfa97.css">
-<link rel="stylesheet" href="css/97ebf82c2256.css">
-<link rel="stylesheet" href="css/98dfe0b8d12e.css">
-<link rel="stylesheet" href="css/0bc1ae1be8e7.css">
-<link rel="stylesheet" href="css/5f9da934c88f.css">
-<link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/7ffee9d84d9d.css">
-<link rel="stylesheet" href="css/fb2cac1355b6.css">
-<link rel="stylesheet" href="css/1a54ea41ccf2.css">
-<link rel="stylesheet" href="css/7ddf0607da04.css">
 </body>
 </html>
