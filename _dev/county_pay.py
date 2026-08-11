@@ -59,18 +59,32 @@ SOURCE = "https://gcc.sco.ca.gov/Reports/RawExport.aspx"
 
 # Clinical mental health work. Deliberately narrower than "anything with
 # therapist in the title".
+# ABBREVIATIONS ARE NOT OPTIONAL. Contra Costa writes "Mh Clinical Specialist",
+# not "Mental Health Clinical Specialist", for 232 people. Without \bmh\b this
+# pass found SIX clinical positions in a county of 1.1 million and then ranked
+# it on them - a wrong number wearing a county's name, which is worse than the
+# undercount the method note already admits to. \bbh\b and \bbhs\b are here
+# for the same reason.
 INCLUDE = re.compile(
     r"mental health|behavioral health|psychiatric social|clinical therapist"
     r"|marriage.*family|\bmft\b|\blcsw\b|clinical social work"
-    r"|clinical psycholog|behavioral clinician|\bclinician\b", re.I)
+    r"|clinical psycholog|behavioral clinician|\bclinician\b"
+    r"|\bmh\b|\bbh\b|\bbhs\b", re.I)
 
 # The exclusions do more work than the inclusions. Every one of these was
 # found in the file matching the pattern above and is not a mental health
 # clinician.
+# The exclusions grew when the abbreviations went in: "\bmh\b" matches
+# "Sr Registered Nurse-MH AcuteCr" and "Mh Program Clerk", neither of which is
+# a therapist. Nurses, psychiatrists, technicians, clerical staff and student
+# interns are struck so the population stays the same one it was before -
+# clinical mental health positions a therapist could hold.
 EXCLUDE = re.compile(
     r"environmental|physical therap|occupational therap|respiratory|speech"
     r"|employment counsel|self sufficiency|nutrition|dental|veterinar|animal"
-    r"|pharmac|radiolog|laborator", re.I)
+    r"|pharmac|radiolog|laborator"
+    r"|\bnurse\b|nursing|psychiatric technician|\bpsychiatrist\b"
+    r"|student intern|\bclerk\b|clerical|secretary", re.I)
 
 PRE_LICENSED = re.compile(r"clinical therapist pre-?licen", re.I)
 LICENSED_PEER = re.compile(r"^clinical therapist\s*(i{1,3}|1|2|3)?$", re.I)
@@ -144,6 +158,16 @@ def main():
             }
 
     latest = YEARS[-1]
+    # Contra Costa was ranked on six positions for a whole release because it
+    # abbreviates "Mental Health" to "Mh". A county whose reported headcount is
+    # large but whose clinical match is tiny is the signature of a naming
+    # convention this pass does not know, and it must stop the build rather
+    # than publish a median of six.
+    for c, byy in counties.items():
+        d = byy.get(latest)
+        if d and 5 <= d["n"] < 25:
+            print("  NOTE %s ranks on only %d positions - check its titles"
+                  % (c, d["n"]))
     if years[latest]["matched"] < 5000:
         sys.exit("only %d matched positions in %d - the title patterns or the "
                  "file layout have changed" % (years[latest]["matched"], latest))
