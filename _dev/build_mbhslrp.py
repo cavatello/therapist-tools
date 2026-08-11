@@ -298,8 +298,8 @@ def body():
          "sites that&hellip;"]))
     o.append(pk.quote(
         "Knows the rule, cannot find the employer &mdash; 1 comment",
-        ["I&rsquo;m an AMFT in Orange County, CA with about 2,300 hours "
-         "towards licensing. Seeking a hybrid/remote position at a site that "
+        ["I&rsquo;m an AMFT in Orange County, CA with about 2,300 hours&hellip; "
+         "Seeking a hybrid/remote position at a site that "
          "accepts Medi-Cal or 40% of uninsured clients so I can qualify for "
          "SLRP. I&rsquo;d really appreciate any leads."]))
     o.append(pk.quote(
@@ -475,7 +475,7 @@ def main():
         if format(amount, ",d") not in art:
             print("GUARD: the $%s tier is missing" % format(amount, ",d"))
             bad += 1
-    if "Associate marriage and family therapists" not in art:
+    if "associate marriage and family therapists" not in art:
         print("GUARD: the associate professions are not named in the tier table")
         bad += 1
 

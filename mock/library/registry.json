@@ -1470,6 +1470,19 @@
    "leaf": true
   },
   {
+   "file": "mbh-slrp-california.html",
+   "title": "MBH-SLRP explained: the $180,000 California pays associate therapists",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "How does the Medi-Cal Behavioral Health Student Loan Repayment Program actually work?",
+   "outcome": "The three award tiers, the 32-hour direct-care obligation, where you have to work, and the tax question HCAI does not answer",
+   "number": "$180,000, associate tier",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "medi-cal-safety-net-employers-california.html",
    "title": "Medi-Cal safety-net employers in California: the health centers, named",
    "topic": "licensure",
@@ -2485,6 +2498,7 @@
       "amft-3000-hours-california.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
+      "mbh-slrp-california.html",
       "medi-cal-safety-net-employers-california.html",
       "associate-mft-job-advisor.html",
       "associate-therapist-pay-los-angeles-bay-area.html",

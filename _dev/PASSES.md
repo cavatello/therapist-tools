@@ -30,6 +30,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
+| `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |

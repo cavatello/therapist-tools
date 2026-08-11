@@ -93,6 +93,12 @@ BUILD = [
     ("_dev/build_safetynet.py",
      "the 218 California health center organizations by name, with links "
      "that were checked before publication"),
+    # The one program of the four that reaches an associate, explained in
+    # full - including the 32-direct-hour obligation and the tax question
+    # HCAI does not answer.
+    ("_dev/build_mbhslrp.py",
+     "MBH-SLRP in full - the three tiers, the conditions nobody mentions, "
+     "and where the published sources disagree"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that
