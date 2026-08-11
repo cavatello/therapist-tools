@@ -69,6 +69,13 @@
   .srg{grid-template-columns:1fr}
 }
 </style>
+<style>/* _dev/dark_band_labels.py */
+/* The eyebrow above the h1 on a dark hero band. #F6C560 measures
+   4.26:1 on the lightest stop of these gradients and .pdband had
+   no rule at all, so it inherited the light-surface grey and
+   measured 1.20:1. #FFD37A measures 4.88:1. */
+.artband.artband .sub,.libband.libband .sub,.pdband.pdband .sub,.pxband.pxband .sub,.scband.scband .sub{color:#FFD37A}
+</style>
 <style>/* restyle */
 /* ---------------------------------------------------------------- the header
    Two changes ship together here, and they are separable in principle but not

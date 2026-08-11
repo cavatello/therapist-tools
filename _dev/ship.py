@@ -69,6 +69,12 @@ BUILD = [
     ("_dev/build_outofstate.py",
      "whether a California associate can accrue hours from another state - "
      "the Board has published the answer five times and nobody reads it"),
+    # The other direction: not "can my hours travel out of California" but
+    # "can my license and my hours travel in". Same reader, opposite
+    # question, and the loudest unserved theme in the associate group.
+    ("_dev/build_oos_license.py",
+     "bringing a license from another state - Path A, Path B, and why "
+     "continuing education cannot close a transcript gap"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

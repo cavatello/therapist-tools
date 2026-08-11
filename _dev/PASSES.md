@@ -28,6 +28,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
+| `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
@@ -71,6 +72,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `content_frame.py` | floors | `/* _dev/content_frame.py */` | One content frame, because the site had six and they disagreed. |
 | `contrast_pass.py` | floors | `/* _dev/contrast_pass.py */` | Raise the muted label colour sitewide, measured rather than eyeballed. |
 | `cta_scale.py` | floors | `/* _dev/cta_scale.py */` | Bring the big page-foot CTAs back to a button's proportions. |
+| `dark_band_labels.py` | floors | `/* _dev/dark_band_labels.py */` | The eyebrow label on a dark hero band, measured against the band it sits on. |
 | `fill.py` | floors | `/* _dev/fill.py */` | Narrow the reading cards to the column they actually hold. |
 | `mobile_floor.py` | floors | `/* _dev/mobile_floor.py */` | What a 390px phone gets wrong on 131 pages, found by looking at 390px. |
 | `mobile_hero.py` | floors | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |

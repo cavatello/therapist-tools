@@ -1535,6 +1535,19 @@
    "leaf": true
   },
   {
+   "file": "out-of-state-to-california-licensure.html",
+   "title": "Out-of-state to California licensure: Path A, Path B, and your hours",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "Can I bring my license and my supervised hours from another state?",
+   "outcome": "Which of the Board’s two routes you are on, the coursework each one costs, and how much of your licensed time converts into hours",
+   "number": "100 hrs/month, capped at 1,200",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "pacific-oaks-college-mft.html",
    "title": "Pacific Oaks College — MFT program in California",
    "topic": "licensure",
@@ -2435,6 +2448,7 @@
       "associate-therapist-pay-los-angeles-bay-area.html",
       "associate-unpaid-hours-california.html",
       "associate-hours-telehealth-out-of-state.html",
+      "out-of-state-to-california-licensure.html",
       "associate-hours-trackers-compared.html",
       "therapists-by-county-california.html",
       "therapists-by-state-compared.html"
