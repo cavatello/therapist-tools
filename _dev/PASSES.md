@@ -92,6 +92,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `css_dedupe.py` | css | &mdash; | Remove superseded stylesheets. Every page was carrying each pass twice. |
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
+| `ops_board.py` | last | &mdash; | The status board, generated like every other page rather than hand-written. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
@@ -157,6 +158,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |
 | `county_bh.py` | **untriaged** | &mdash; | The county behavioral health plans, with every link on the state's own page checked. |
 | `county_bh_data.py` | **untriaged** | &mdash; | County behavioral health plans. WRITTEN BY _dev/county_bh.py. |
+| `county_pay.py` | **untriaged** | &mdash; | What California counties actually pay mental health clinicians, from the state's file. |
+| `county_pay_data.py` | **untriaged** | &mdash; | County mental-health pay. WRITTEN BY _dev/county_pay.py. |
 | `dca_licensees.py` | **untriaged** | &mdash; | Every licensed therapist in California, counted, from the state's own file. |
 | `dca_stats.py` | **untriaged** | &mdash; | Counts derived from the DCA licensee file. GENERATED - do not edit. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
@@ -165,6 +168,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `hrsa_sites.py` | **untriaged** | &mdash; | The federal shortage-area and health-center files, reduced to counts. |
 | `hrsa_stats.py` | **untriaged** | &mdash; | Counts derived from HRSA bulk downloads. WRITTEN BY _dev/hrsa_sites.py. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
+| `ops_state.py` | **untriaged** | &mdash; | The parts of the status board only a person knows. Edit this, not the HTML. |
 | `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |

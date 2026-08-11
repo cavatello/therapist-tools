@@ -8,4 +8,8 @@ Allow: /
 Disallow: /concepts.html
 Disallow: /tycoon.html
 
+# The internal control panel and the proposals published alongside it.
+# Reachable by anyone with the URL, deliberately not in search.
+Disallow: /_ops/
+
 Sitemap: https://therapistsupport.org/sitemap.xml

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>therapistsupport.org &mdash; control panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4F0E6;--cream:#FBF9F3;--ink:#16211B;--pine:#2C6350;--gold:#F6C560;
+ --gp:#FFD37A;--muted:#635E53;--red:#B5483F;--line:#E2DACA;--deep:#15342B;--green:#3F9577;
+ --sans:'Bricolage Grotesque',system-ui,sans-serif;--body:Inter,system-ui,sans-serif;
+ --fig:'Fraunces',Georgia,serif;--mono:'IBM Plex Mono',ui-monospace,monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+ font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--sans);font-weight:800;line-height:1.08;letter-spacing:-.022em;margin:0}
+h1{font-size:clamp(30px,4.8vw,52px)}h2{font-size:clamp(23px,3vw,33px);margin:0 0 4px}
+h3{font-size:18px;margin:0 0 4px}
+p{margin:0 0 12px;max-width:76ch}a{color:var(--pine);text-underline-offset:3px}
+code{font-family:var(--mono);font-size:12.5px;background:rgba(22,33,27,.07);padding:1px 5px;
+ border-radius:2px;overflow-wrap:anywhere;word-break:break-word}
+.lab{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.15em;
+ text-transform:uppercase;color:var(--muted)}
+.mast{background:var(--deep);color:#fff;border-bottom:3px solid var(--ink);padding:40px 0 34px}
+.mast .lab{color:var(--gp)}.mast h1{color:#fff;margin:9px 0 12px;max-width:20ch}
+.mast p{color:#D9E6DF;max-width:64ch}
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{border:1.5px solid rgba(255,255,255,.28);padding:11px 13px}
+.kpi .n{font-family:var(--fig);font-weight:800;font-size:28px;color:var(--gp);display:block;line-height:1.05}
+.kpi .l{font-size:11.5px;color:#C9DAD2;line-height:1.35;display:block;margin-top:2px}
+nav{position:sticky;top:0;z-index:40;background:var(--cream);border-bottom:2px solid var(--ink)}
+nav ul{display:flex;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav a{display:block;white-space:nowrap;padding:11px 15px;font-family:var(--mono);font-size:11px;
+ letter-spacing:.11em;text-transform:uppercase;text-decoration:none;color:var(--muted);
+ border-right:1px solid var(--line)}
+nav a:hover{background:var(--gold);color:var(--ink)}
+section{padding:40px 0 6px}hr{border:0;border-top:2px solid var(--ink);opacity:.14;margin:36px 0 0}
+.kick{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.kick .n{font-family:var(--fig);font-weight:800;font-size:32px;color:var(--pine);line-height:1}
+.lede{font-size:17px;max-width:66ch;color:#2C3A33}
+.card{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+ padding:17px 19px;margin:0 0 17px}
+.card.gold{background:var(--gold)}
+.grid2{display:grid;gap:16px}@media(min-width:780px){.grid2{grid-template-columns:1fr 1fr}}
+.grid2>*{min-width:0}
+.ask{counter-reset:a;list-style:none;padding:0;margin:0}
+.ask>li{counter-increment:a;position:relative;padding:15px 0 15px 56px;
+ border-bottom:1px dashed rgba(22,33,27,.28)}
+.ask>li:last-child{border-bottom:0;padding-bottom:2px}
+.ask>li::before{content:counter(a);position:absolute;left:0;top:15px;width:34px;height:34px;
+ background:var(--ink);color:var(--gold);font-family:var(--mono);font-size:15px;font-weight:600;
+ display:grid;place-items:center;border-radius:2px}
+.ask b.h{font-family:var(--sans);font-weight:800;display:block;font-size:17px;margin-bottom:3px}
+.ask .why{font-size:14.2px;color:#4A3B10;margin:5px 0 0}
+.ask .do{font-size:13.5px;margin:8px 0 0;font-family:var(--mono);background:rgba(22,33,27,.09);
+ padding:7px 10px;border-radius:2px}
+.ask ol{font-size:14px;margin:9px 0 0;padding-left:20px}.ask ol li{margin-bottom:5px}
+.item{border-left:4px solid var(--line);padding:0 0 0 15px;margin:0 0 16px}
+.item.go{border-color:var(--green)}.item.block{border-color:var(--red)}
+.item.park{border-color:var(--muted)}
+.item .t{font-family:var(--sans);font-weight:800;font-size:17px;line-height:1.22}
+.item .m{font-size:13.2px;color:var(--muted);margin:3px 0 6px}
+.item p{font-size:14.3px;margin:0 0 8px}.item p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;
+ letter-spacing:.11em;text-transform:uppercase;padding:2px 7px;border:1.5px solid;border-radius:2px;
+ vertical-align:2px;margin-left:6px;white-space:nowrap}
+.t-go{color:#1E5C46;border-color:#1E5C46;background:#E4F0EA}
+.t-block{color:var(--red);border-color:var(--red);background:#F7E7E5}
+.t-park{color:var(--muted);border-color:var(--muted);background:#EFEBE0}
+.tw{overflow-x:auto;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+ background:var(--cream);margin:0 0 9px}
+table{border-collapse:collapse;width:100%;min-width:540px;font-size:14px}
+th{background:var(--deep);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+ text-transform:uppercase;text-align:left;padding:9px 12px;font-weight:600}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(226,218,202,.3)}
+td.f{font-family:var(--fig);font-weight:600;font-size:16px;text-align:right;white-space:nowrap}
+tr.hi{background:var(--gold)!important}
+.cap{font-size:13px;color:var(--muted);margin:7px 0 0}
+.docs a{display:block;background:var(--pine);color:#fff;border:2px solid var(--ink);
+ box-shadow:5px 5px 0 var(--ink);padding:16px 18px;text-decoration:none;margin:0 0 14px}
+.docs a:hover{background:var(--deep)}
+.docs .t{font-family:var(--sans);font-weight:800;font-size:19px;line-height:1.2}
+.docs .d{font-size:14px;color:#DCEAE3;margin-top:5px}
+.docs .go{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+ color:var(--gp);margin-top:9px;display:block}
+.shipped{list-style:none;padding:0;margin:0}
+.shipped li{position:relative;padding:11px 0 11px 28px;border-bottom:1px solid var(--line)}
+.shipped li:last-child{border-bottom:0}
+.shipped li::before{content:"";position:absolute;left:0;top:17px;width:11px;height:11px;
+ background:var(--pine);border:2px solid var(--pine)}
+.shipped a{font-family:var(--sans);font-weight:800;font-size:16px;text-decoration:none}
+.shipped a:hover{text-decoration:underline}
+.shipped .d{font-size:14px;color:#4A4437;margin-top:2px}
+.bar{height:11px;background:#E6E0D2;border:1.5px solid var(--ink);overflow:hidden;margin:5px 0 3px}
+.bar i{display:block;height:100%;background:var(--pine)}
+footer{background:var(--deep);color:#C4D5CD;margin-top:50px;padding:26px 0;font-size:13.5px;
+ border-top:3px solid var(--ink)}
+footer a{color:var(--gp)}
+</style>
+</head>
+<body>
+<header class="mast"><div class="wrap">
+<span class="lab">therapistsupport.org &middot; control panel &middot; rebuilt 11 August 2026</span>
+<h1>Everything in one place.</h1>
+<p>What&rsquo;s live, what&rsquo;s moving, what&rsquo;s waiting on you, and what&rsquo;s parked pending a decision. This page is rebuilt by the publishing pipeline, so it is current every time the site deploys.</p>
+<div class="kpi">
+<div><span class="n">187</span><span class="l">pages live &middot; 0 build failures</span></div>
+<div><span class="n">2</span><span class="l">things waiting on you</span></div>
+<div><span class="n">1</span><span class="l">proposal awaiting a decision</span></div>
+<div><span class="n">22</span><span class="l">approved pages remaining</span></div>
+</div></div></header>
+<nav><div class="wrap" style="padding:0"><ul>
+<li><a href="#you">Waiting on you</a></li>
+<li><a href="#docs">Proposals</a></li>
+<li><a href="#now">In flight</a></li>
+<li><a href="#blocked">Blocked</a></li>
+<li><a href="#next">Next up</a></li>
+<li><a href="#shipped">Shipped</a></li>
+<li><a href="#closed">Closed</a></li>
+</ul></div></nav>
+<div class="wrap">
+<section id="you"><div class="kick"><span class="n">01</span><h2>Waiting on you</h2></div>
+<p class="lede">Nothing else is blocked on you.</p>
+<div class="card gold"><ol class="ask">
+<li>
+<b class="h">Send one email to HCAI</b>
+<p class="why">Three questions, all unaddressed in every published document - I checked the grant guide specifically. Their answer unlocks a page whose analysis is already finished.</p>
+<ol>
+<li>Can a practitioner who owns their own California professional corporation be employed by it, and have that corporation count as the qualifying employer, assuming the setting itself qualifies?</li>
+<li>If so, can the Employment Verification Form be signed by the applicant in their capacity as owner, or must somebody else sign it?</li>
+<li>Does telehealth delivered from a clinician&rsquo;s home count toward the 32 hours a week of direct client care, or must those hours be delivered at the eligible practice site?</li>
+</ol>
+<div class="do">MBHSLRP@hcai.ca.gov &middot; or 916-326-3899, Mon&ndash;Fri 8&ndash;5</div>
+</li>
+<li>
+<b class="h">Decide on the visitor-stage hubs</b>
+<p class="why">Approved in principle and parked at your instruction. The full proposal, with three rendered mockups and the coverage audit of all 182 registry pages, is linked below. Say go and it moves to the top of the queue.</p>
+<div class="do">Read the proposal, then say go or later</div>
+</li>
+</ol></div></section>
+<hr><section id="docs"><div class="kick"><span class="n">02</span><h2>Proposals and prototypes</h2></div>
+<p class="lede">Published alongside this board, so they open in a browser on any device rather than living inside a chat.</p>
+<div class="docs">
+<a href="stage-architecture.html"><span class="t">Visitor-stage architecture &mdash; the full proposal</span><span class="d">Six-stage model, the coverage audit of all 182 registry pages, three IA options and three rendered mockups (the Desk, the Ladder, the Front Page). This is the thing awaiting your decision.</span><span class="go">Open &rarr;</span></a>
+</div></section>
+<hr><section id="now"><div class="kick"><span class="n">03</span><h2>In flight</h2></div>
+<div class="item go"><div class="t">County pay, from the State Controller&rsquo;s own file<span class="tag t-go">Data in, page next</span></div><div class="m">Three years parsed &middot; 1.22 million rows</div>
+<p>The only source that can say what a county <em>actually paid</em> rather than what it advertised, and nobody has done it for this audience. Spread is the story: <b>2.8&times; between the top and bottom county</b> for comparable work.</p>
+</div>
+<div class="tw"><table><tr><th>Clinical mental-health positions in California counties</th><th>2023</th><th>2024</th><th>2025</th></tr>
+<tr><td>Positions found</td><td class="f">12,679</td><td class="f">12,729</td><td class="f">12,850</td></tr>
+<tr><td>Counties reporting</td><td class="f">56</td><td class="f">56</td><td class="f">55</td></tr>
+<tr><td>Published range &mdash; median floor</td><td class="f">$80,080</td><td class="f">$82,285</td><td class="f">$84,074</td></tr>
+<tr class="hi"><td>Published range &mdash; median top</td><td class="f">$102,730</td><td class="f">$102,981</td><td class="f">$106,605</td></tr>
+<tr><td>Actual total wages &mdash; median</td><td class="f">$91,266</td><td class="f">$92,276</td><td class="f">$94,879</td></tr>
+</table></div>
+<p class="cap">Actual wages include part-year staff, which is why they sit below the published range and answer a different question. Counts are a floor, not a census &mdash; county title conventions vary and anything named unusually is missed.</p>
+<div class="grid2" style="margin-top:16px"><div class="card"><h3>The spread is the story</h3><p style="font-size:14.3px">Median top of the published range, 2025:</p><table style="min-width:0;font-size:13.5px">
+<tr><td>San Mateo</td><td class="f">$140,483</td></tr>
+<tr><td>Monterey</td><td class="f">$132,775</td></tr>
+<tr><td>Solano</td><td class="f">$128,455</td></tr>
+<tr><td>Napa</td><td class="f">$126,822</td></tr>
+<tr><td colspan="2" style="color:var(--muted)">&hellip; 42 counties between &hellip;</td></tr>
+<tr><td>Tuolumne</td><td class="f">$58,048</td></tr>
+<tr><td>Lake</td><td class="f">$55,203</td></tr>
+<tr><td>Imperial</td><td class="f">$50,855</td></tr>
+</table><p style="font-size:14.3px;margin:10px 0 0"><b>2.8&times; between the top and the bottom</b> for comparable work, inside one state, from the employers&rsquo; own returns.</p></div>
+<div class="card"><h3>The pre-licensed row, and its limit</h3><p style="font-size:14.3px">Exactly <b>one</b> county publishes an explicitly pre-licensed clinical title: <b>San Bernardino</b>, &ldquo;Clinical Therapist Pre-License&rdquo;, <b>175 people, $71,510&ndash;$91,270</b>.</p><p style="font-size:14.3px">Its licensed equivalent &mdash; 524 people across San Bernardino and Riverside &mdash; runs <b>$73,528&ndash;$104,682</b>.</p><p style="font-size:14.3px;margin-bottom:0">About <b>$13,400 of licensure premium at the top of the range</b>. One county, and the page will say so rather than generalize.</p></div></div></section>
+<hr><section id="blocked"><div class="kick"><span class="n">04</span><h2>Blocked, and on what</h2></div>
+<div class="item block"><div class="t">&ldquo;Your contract or theirs&rdquo; &mdash; leaving Headway, Alma, Grow<span class="tag t-block">Needs a primary source</span></div><div class="m">Highest remaining demand &middot; a 30-reaction / 30-comment thread</div>
+<p>Whether joining a platform credentials you under <em>their</em> group contract rather than giving you a portable individual one decides whether somebody depanels. Everything reachable is third-party blogs. <b>Not building it on that.</b></p>
+</div>
+<div class="item block"><div class="t">&ldquo;Can I be my own qualifying employer?&rdquo;<span class="tag t-block">Waiting on HCAI</span></div><div class="m">Analysis finished &middot; see ask 1</div>
+<p>Medi-Cal fee-for-service pays <b>$38.01</b> for the code private pay bills at <b>$150&ndash;250</b>, and the obligation is 32 direct hours a week rather than 20. At FFS rates roughly $83,000 a year worse off; at the higher county rate about a wash, with a third more clinical hours.</p>
+</div>
+</section>
+<hr><section id="next"><div class="kick"><span class="n">05</span><h2>Next up, nothing blocking</h2></div>
+<div class="grid2">
+<div class="item go"><div class="t">County pay page</div><div class="m">Data in hand</div><p>Pairs with the associate pay page and the county directory.</p></div>
+<div class="item go"><div class="t">Ask-a-question surface</div><div class="m">Item 27 of the 28 &mdash; worth promoting</div><p>Questions in, answered by the site with citations, each answer becomes a page. Would have helped all three MBH-SLRP posters who got four comments, one, and none.</p></div>
+<div class="item go"><div class="t">Application-portal directory</div><div class="m">No blockers</div><p>County HR and jobs URLs, CalOpps, county NeoGov instances, verified like the county plans. Portals do not expire the way postings do.</p></div>
+<div class="item go"><div class="t">The rest of the editorial list</div><div class="m">22 of 28 remaining</div><p>Advertising rule, telehealth documentation, paying associates, what licensure costs, supervisor directory, records, subpoenas, legislation tracker.</p></div>
+</div>
+<div style="margin-top:6px"><span class="lab">Approved editorial list &mdash; 6 of 28 done</span><div class="bar"><i style="width:21%"></i></div></div></section>
+<hr><section id="shipped"><div class="kick"><span class="n">06</span><h2>Shipped &mdash; every link live</h2></div>
+<ul class="shipped">
+<li><a href="https://therapistsupport.org/mbh-slrp-california.html">MBH-SLRP explained: the $180,000 California pays associate therapists</a><div class="d">32 direct-care hours a week, one lump payment, <b>breach means repaying the whole award within a year</b>, and cycle 1 was 3.7&times; oversubscribed &mdash; $331m requested against $90.1m available.</div></li>
+<li><a href="https://therapistsupport.org/medi-cal-safety-net-employers-california.html">Medi-Cal safety-net employers in California: the health centers, named</a><div class="d">57 county behavioral health plans and 218 health center organizations, every link fetched before publishing. <b>23 of the state&rsquo;s own links no longer point where they say.</b></div></li>
+<li><a href="https://therapistsupport.org/loan-forgiveness-employers-california.html">Loan forgiveness for California therapists: which employers qualify</a><div class="d">Four programs, <b>three different tests</b>. PSLF ignores your license entirely, so a county associate is likely accruing qualifying payments right now.</div></li>
+<li><a href="https://therapistsupport.org/getting-hired-as-a-california-associate.html">Getting hired as a California associate: why half your applications never reply</a><div class="d">&ldquo;Nobody will hire me&rdquo; is a <b>billing rule</b>, not an hour count. Medi-Cal names associates as billable staff; commercial payers do not.</div></li>
+<li><a href="https://therapistsupport.org/out-of-state-to-california-licensure.html">Out-of-state to California licensure: Path A, Path B, and your hours</a><div class="d">Path A against Path B across all three licenses, and the correction that <b>continuing education cannot fix a transcript</b>.</div></li>
+<li><a href="https://therapistsupport.org/therapists-by-state-compared.html">Therapists by state: what the license is called, and how many there are</a><div class="d">Per-capita workforce comparison with the license-title breakdown for every state in it.</div></li>
+<li><a href="https://therapistsupport.org/therapists-by-county-california.html">Therapists by county in California: all 165,000, from the register</a><div class="d">All 58 counties, built from the state&rsquo;s monthly licensee register.</div></li>
+</ul>
+<p class="cap">Titles and links come from the live registry, so a renamed page cannot leave a dead entry here.</p></section>
+<hr><section id="closed"><div class="kick"><span class="n">07</span><h2>Closed, with reasons</h2></div>
+<p class="lede">Written down so a future session does not re-propose them.</p>
+<div class="grid2">
+<div class="item park"><div class="t">On-site community forum</div><p>Cold start against groups with 22,800 members, moderation liability for this audience, and it would put confident wrong answers under the masthead.</p></div>
+<div class="item park"><div class="t">Job-posting archive</div><p>There is no such thing as an &ldquo;MBH-SLRP position&rdquo; &mdash; the program awards the individual, not the employer &mdash; and republishing postings is not available.</p></div>
+<div class="item park"><div class="t">Rural health clinic directory</div><p>One clinic is filed under three counties at once, another under five. The source data does not support publishing it.</p></div>
+<div class="item park"><div class="t">A second credentialing page</div><p>The existing panels page already covers CAQH, PECOS, PAVE, 855, NPI, Medicare, Medi-Cal and timelines. The real gap is the platform-contract question above.</p></div>
+</div></section>
+</div>
+<footer><div class="wrap"><p style="margin:0">Rebuilt by <code>_dev/ops_board.py</code> on every deploy. Not indexed, not in the sitemap, and not linked from the site &mdash; but reachable by anyone with the URL. Live site: <a href="https://therapistsupport.org">therapistsupport.org</a></p></div></footer>
+</body>
+</html>

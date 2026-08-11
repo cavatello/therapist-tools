@@ -1,0 +1,1240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Visitor-stage architecture — a proposal for therapistsupport.org</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F0E6; --cream:#FBF9F3; --ink:#17271F; --pine:#2C6350;
+  --gold:#F6C560; --gold-on-pine:#FFD37A; --muted:#635E53; --red:#B5483F;
+  --line:#E2DACA; --deep:#15342B; --green:#3F9577;
+  --sans:'Bricolage Grotesque','Archivo',Inter,system-ui,sans-serif;
+  --body:Inter,system-ui,sans-serif;
+  --fig:'Fraunces',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(34px,5.2vw,58px)}
+h2{font-size:clamp(26px,3.4vw,38px);margin:0 0 6px}
+h3{font-size:clamp(19px,2.1vw,23px);margin:0 0 6px}
+h4{font-size:16px;margin:0 0 4px}
+p{margin:0 0 14px;max-width:72ch}
+a{color:var(--pine);text-underline-offset:3px}
+.lab{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.fig{font-family:var(--fig);font-weight:800;font-variant-numeric:tabular-nums}
+
+/* ---- masthead ---- */
+.mast{background:var(--deep);color:var(--cream);border-bottom:3px solid var(--ink);
+  padding:46px 0 40px}
+.mast .lab{color:var(--gold-on-pine)}
+.mast h1{color:#fff;margin:10px 0 14px;max-width:22ch}
+.mast p{color:#DCE7E0;max-width:66ch;font-size:17px}
+.mast .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  border:1.5px solid rgba(255,255,255,.34);color:#EAF3EE;padding:5px 10px;border-radius:2px}
+
+/* ---- sticky nav ---- */
+nav.jump{position:sticky;top:0;z-index:40;background:var(--cream);
+  border-bottom:2px solid var(--ink);box-shadow:0 2px 0 rgba(23,39,31,.08)}
+nav.jump ul{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;
+  scrollbar-width:none}
+nav.jump ul::-webkit-scrollbar{display:none}
+nav.jump a{display:block;white-space:nowrap;padding:11px 15px;font-family:var(--mono);
+  font-size:11px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
+  color:var(--muted);border-right:1px solid var(--line)}
+nav.jump a:hover{background:var(--gold);color:var(--ink)}
+
+section{padding:52px 0 8px}
+.rule{border:0;border-top:2px solid var(--ink);margin:44px 0 0;opacity:.16}
+.kicker{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.kicker .n{font-family:var(--fig);font-weight:800;font-size:34px;color:var(--pine);
+  line-height:1}
+.lede{font-size:19px;line-height:1.55;max-width:64ch;color:#2A3A32}
+
+/* ---- cards ---- */
+.card{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  padding:20px 22px;margin:0 0 20px}
+.card.pine{background:var(--pine);color:#fff;border-color:var(--ink)}
+.card.pine p,.card.pine li{color:#E6F0EA}
+.card.pine h3,.card.pine h2{color:#fff}
+.card.pine .lab{color:var(--gold-on-pine)}
+.card.gold{background:var(--gold);box-shadow:5px 5px 0 var(--ink)}
+.grid{display:grid;gap:20px}
+/* grid items default to min-width:auto, so the pre-formatted code block in the
+   data-model card sets the whole track's min-content width and pushes the page
+   sideways on a phone. This is the fix, not a wider viewport. */
+.grid>*,.verdict>*,.pro>*{min-width:0}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+
+/* ---- verdict ---- */
+.verdict{display:grid;gap:16px}
+@media(min-width:820px){.verdict{grid-template-columns:1.15fr .85fr}}
+.vlist{list-style:none;margin:0;padding:0;counter-reset:v}
+.vlist li{counter-increment:v;position:relative;padding:0 0 14px 40px;margin:0 0 12px;
+  border-bottom:1px dashed var(--line)}
+.vlist li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.vlist li::before{content:counter(v);position:absolute;left:0;top:1px;width:26px;height:26px;
+  background:var(--ink);color:var(--gold);font-family:var(--mono);font-size:12px;font-weight:600;
+  display:grid;place-items:center;border-radius:2px}
+.vlist b{font-family:var(--sans);font-weight:800}
+
+/* ---- evidence ---- */
+.ev{border-left:5px solid var(--pine);padding:2px 0 2px 18px;margin:0 0 22px}
+.ev q{display:block;font-family:var(--fig);font-size:19px;font-weight:600;line-height:1.4;
+  color:var(--deep);quotes:none;margin-bottom:8px}
+.ev .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+
+/* ---- audit table ---- */
+.tw{overflow-x:auto;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  background:var(--cream);margin:0 0 10px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+th{background:var(--deep);color:#fff;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:11px 13px;
+  font-weight:600;vertical-align:bottom}
+td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(226,218,202,.28)}
+td .fig{font-size:19px}
+.badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1.5px solid;border-radius:2px;
+  white-space:nowrap}
+.b-yes{color:#1E5C46;border-color:#1E5C46;background:#E4F0EA}
+.b-no{color:var(--red);border-color:var(--red);background:#F7E7E5}
+.b-soon{color:#8A5B12;border-color:#8A5B12;background:#FBEFD6}
+
+/* ---- IA diagram ---- */
+.ia{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  padding:22px 20px;margin:0 0 22px}
+.ia .lab{margin-bottom:14px;display:block}
+.tier{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 6px}
+.node{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 11px;
+  border:2px solid var(--ink);background:#fff;border-radius:2px;text-align:center}
+.node.root{background:var(--ink);color:var(--gold);font-weight:600}
+.node.stage{background:var(--gold);font-weight:600}
+.node.topic{background:var(--pine);color:#fff}
+.node.leaf{background:#fff;color:var(--muted);border-color:var(--line);border-width:1.5px}
+.node.new{border-style:dashed;background:#FBEFD6}
+.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:14px}
+.ia .cap{font-size:14px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
+.pro{display:grid;gap:10px;margin-top:16px}
+@media(min-width:700px){.pro{grid-template-columns:1fr 1fr}}
+.pro div{font-size:14px;padding:10px 12px;border-left:3px solid}
+.pro .p{border-color:var(--green);background:#EDF5F1}
+.pro .c{border-color:var(--red);background:#F9EDEC}
+.pro b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  display:block;margin-bottom:3px}
+
+/* ---- mockup frame ---- */
+.frame{border:2px solid var(--ink);box-shadow:7px 7px 0 var(--ink);background:#fff;
+  overflow:hidden;margin:0 0 12px}
+.frame .bar{background:var(--ink);padding:7px 12px;display:flex;align-items:center;gap:8px}
+.frame .dot{width:9px;height:9px;border-radius:50%;background:#4B5A52}
+.frame .url{font-family:var(--mono);font-size:11px;color:#C7D3CC;margin-left:8px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mk{font-size:13px;line-height:1.5}
+.mk *{box-sizing:border-box}
+.mkhead{background:var(--cream);border-bottom:2px solid var(--ink);padding:9px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:14px}
+.mkhead .nv{display:flex;gap:12px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mkbody{padding:18px 16px 22px}
+
+/* mockup A — the desk */
+.deskhero{background:var(--pine);color:#fff;margin:-18px -16px 16px;padding:20px 16px 18px;
+  border-bottom:2px solid var(--ink)}
+.deskhero .lab{color:var(--gold-on-pine)}
+.deskhero h2{font-size:26px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
+.deskhero p{font-size:12.5px;color:#DAE8E1;margin:0;max-width:52ch}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.tile{border:2px solid var(--ink);background:var(--cream);padding:11px 12px;
+  box-shadow:3px 3px 0 var(--ink)}
+.tile .lab{font-size:9px;letter-spacing:.13em}
+.tile .num{font-family:var(--fig);font-weight:800;font-size:25px;line-height:1.05;
+  color:var(--deep);margin:3px 0 2px}
+.tile .sub{font-size:11px;color:var(--muted);line-height:1.35}
+.tile.act{background:var(--gold)}
+.tile.act .sub{color:#5A4713}
+.qrow{border:2px solid var(--ink);background:#fff;padding:10px 12px;margin-bottom:8px;
+  display:flex;gap:11px;align-items:flex-start}
+.qrow .qn{font-family:var(--mono);font-size:10px;color:var(--muted);padding-top:2px;min-width:16px}
+.qrow .qt{font-family:var(--sans);font-weight:600;font-size:13.5px;line-height:1.3}
+.qrow .qs{font-size:11.5px;color:var(--muted);margin-top:2px}
+.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--gold);border:1.5px solid var(--ink);padding:3px 7px;
+  white-space:nowrap}
+
+/* mockup B — the ladder */
+.ladder{position:relative;padding-left:30px;margin:4px 0 14px}
+.ladder::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;
+  background:var(--line)}
+.rung{position:relative;margin-bottom:13px}
+.rung::before{content:"";position:absolute;left:-26px;top:4px;width:15px;height:15px;
+  border:3px solid var(--line);background:#fff;border-radius:50%}
+.rung.done::before{background:var(--pine);border-color:var(--pine)}
+.rung.now::before{background:var(--gold);border-color:var(--ink);
+  box-shadow:0 0 0 4px rgba(246,197,96,.35)}
+.rung h4{font-size:13.5px}
+.rung .rs{font-size:11.5px;color:var(--muted)}
+.rung.now h4{color:var(--deep)}
+.rung .pill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.11em;
+  text-transform:uppercase;background:var(--ink);color:var(--gold);padding:2px 6px;
+  margin-left:7px;vertical-align:2px}
+.gate{border:2px solid var(--ink);background:var(--cream);padding:10px 12px;margin-top:7px;
+  box-shadow:3px 3px 0 var(--ink)}
+.gate .lab{font-size:9px}
+.gate .gv{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep)}
+
+/* mockup C — front page */
+.fp-mast{border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:14px}
+.fp-mast .k{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);display:flex;justify-content:space-between}
+.fp-mast h2{font-family:var(--fig);font-size:32px;font-weight:800;letter-spacing:-.01em;
+  margin:6px 0 4px;text-align:center}
+.fp-mast .dek{font-size:12px;color:var(--muted);text-align:center;font-style:italic}
+.fp-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.fp-lead h3{font-family:var(--fig);font-size:20px;line-height:1.18;margin-bottom:5px}
+.fp-lead p{font-size:12px;margin-bottom:9px;color:#33423A}
+.fp-lead .byl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fp-side{border-left:1px solid var(--line);padding-left:14px}
+.fp-side .lab{font-size:9px;display:block;margin-bottom:7px;
+  border-bottom:2px solid var(--ink);padding-bottom:4px}
+.fp-side ol{margin:0;padding-left:17px;font-size:11.5px;line-height:1.4}
+.fp-side li{margin-bottom:7px}
+.fp-side b{font-family:var(--sans);font-weight:600;display:block;font-size:12px}
+.fp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;
+  border-top:2px solid var(--ink);padding-top:11px}
+.fp-strip div{font-size:10.5px;line-height:1.32}
+.fp-strip .lab{font-size:8.5px;display:block;margin-bottom:3px}
+
+/* phone */
+.phones{display:grid;gap:18px}
+@media(min-width:640px){.phones{grid-template-columns:repeat(2,minmax(0,240px));justify-content:start}}
+.phone{border:3px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);
+  background:#fff;overflow:hidden;max-width:250px}
+.phone .notch{background:var(--ink);height:20px;display:grid;place-items:center}
+.phone .notch i{display:block;width:46px;height:5px;background:#4B5A52;border-radius:3px}
+
+/* build plan */
+.plan{counter-reset:s;list-style:none;padding:0;margin:0}
+.plan>li{counter-increment:s;background:var(--cream);border:2px solid var(--ink);
+  box-shadow:4px 4px 0 var(--ink);padding:15px 18px 15px 62px;position:relative;margin-bottom:14px}
+.plan>li::before{content:"S" counter(s);position:absolute;left:16px;top:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--gold);
+  background:var(--ink);padding:4px 7px;border-radius:2px}
+.plan h4{margin-bottom:3px;font-size:17px}
+.plan .why{font-size:14px;color:var(--muted);margin:0 0 8px}
+.plan .out{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--deep);
+  background:#fff;border:1.5px solid var(--line);padding:7px 10px;display:inline-block}
+.tick{list-style:none;padding:0;margin:8px 0 0}
+.tick li{position:relative;padding-left:24px;font-size:14px;margin-bottom:5px}
+.tick li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;
+  border:2px solid var(--ink);background:#fff}
+.tick li.d::before{background:var(--pine);border-color:var(--pine)}
+
+footer{background:var(--deep);color:#C9D8D1;margin-top:56px;padding:30px 0;
+  border-top:3px solid var(--ink);font-size:13.5px}
+footer a{color:var(--gold-on-pine)}
+.src{font-size:13px;color:var(--muted)}
+.src li{margin-bottom:4px}
+@media(max-width:700px){
+  /* the mockups' fake desktop nav is decorative — a real page would collapse
+     it to a menu button, and left in place it overflows the phone width */
+  .mkhead .nv{display:none}
+  .mkhead{flex-wrap:wrap}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .fp-cols{grid-template-columns:1fr}
+  .fp-side{border-left:0;padding-left:0;border-top:2px solid var(--ink);padding-top:11px}
+  .fp-strip{grid-template-columns:1fr 1fr}
+  .card{box-shadow:4px 4px 0 var(--ink)}
+}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="lab">Information architecture · proposal · 11 August 2026</span>
+    <h1>Five doors, not one hallway.</h1>
+    <p>A visitor-stage architecture for therapistsupport.org — what to build, what
+    <em>not</em> to build, and why the version you sketched is right in its instinct and
+    wrong in two of its five parts.</p>
+    <div class="meta">
+      <span class="chip">182 pages audited</span>
+      <span class="chip">3 IA options</span>
+      <span class="chip">3 visual directions</span>
+      <span class="chip">Verdict: build 3 now, 2 later</span>
+    </div>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap" style="padding:0">
+    <ul>
+      <li><a href="#verdict">Verdict</a></li>
+      <li><a href="#evidence">Evidence</a></li>
+      <li><a href="#critique">Critique</a></li>
+      <li><a href="#model">The model</a></li>
+      <li><a href="#audit">Coverage audit</a></li>
+      <li><a href="#options">IA options</a></li>
+      <li><a href="#mockups">Mockups</a></li>
+      <li><a href="#urls">URLs &amp; build</a></li>
+      <li><a href="#plan">To-do</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ VERDICT ============ -->
+<section id="verdict">
+  <div class="kicker"><span class="n">01</span><h2>The verdict, first</h2></div>
+  <p class="lede">Yes — build them. The instinct is correct and the evidence for it is
+  stronger than you probably realize: your own audience has <em>already</em> segmented
+  itself this way, in public, without being asked. But the four-stage list needs three
+  corrections before a line of code is written.</p>
+
+  <div class="verdict">
+    <div class="card">
+      <span class="lab">What survives review</span>
+      <ul class="vlist" style="margin-top:12px">
+        <li><b>Stage beats topic as an entry point.</b> Stage predicts which 15 of 182
+        pages matter to a visitor. Topic doesn't. Someone choosing a grad program and
+        someone deciding on an S-corp have <em>zero</em> page overlap.</li>
+        <li><b>The shareable-URL argument is the strongest one.</b> Right now there is no
+        link you can paste into a Facebook thread that says "this is for you." Five topic
+        hubs organized by <em>the site's</em> subject matter can't do that job.</li>
+        <li><b>The stages are real legal statuses,</b> not marketing personas. Trainee,
+        associate and licensee are defined in statute with different rules. That is
+        exactly the condition under which audience navigation is known to work.</li>
+      </ul>
+    </div>
+    <div class="card pine">
+      <span class="lab">What has to change</span>
+      <ul class="vlist" style="margin-top:12px">
+        <li><b>Four stages is really six.</b> And the two you'd add are where the traffic
+        and the money are.</li>
+        <li><b>"LMFT" is not a stage.</b> It's two audiences with almost nothing in
+        common, and lumping them is the single biggest weakness in the sketch.</li>
+        <li><b>Don't build the student hub yet.</b> The site currently has close to zero
+        content that only a trainee needs. A hub that links out to other people's pages
+        is the one failure mode that destroys trust.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card gold">
+    <span class="lab">One-line recommendation</span>
+    <p style="font-family:var(--sans);font-weight:800;font-size:clamp(19px,2.6vw,27px);
+      line-height:1.2;margin:8px 0 8px;max-width:44ch">
+      Ship three stage hubs as generated <em>views</em> over the pages you already have —
+      not as standalone sites — and let the other two earn their place by getting content
+      first.</p>
+    <p style="margin:0;font-size:14.5px">Zero duplicated content. One source of truth.
+    Roughly one builder pass plus a registry field, which is architecture this project
+    already runs five times over.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ EVIDENCE ============ -->
+<section id="evidence">
+  <div class="kicker"><span class="n">02</span><h2>Four pieces of evidence</h2></div>
+  <p class="lede">Not opinion. Two come from your own research, one from the standard
+  reference on this exact IA decision, one from a competitor who has already tested a
+  version of it.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>1. The audience already sorted itself</h3>
+      <p>The Facebook content analysis read three California groups totalling 22,800
+      members. They are not organized by topic. They are organized by stage — a
+      pre-licensed room and a licensed room — and the analysis found the
+      <em>emotional register differs sharply between them</em>:</p>
+      <div class="ev">
+        <q>I am just dealing with a lot of imposter syndrome &amp; questioning if I even
+        learned anything in grad school.</q>
+        <span class="src">Pre-licensed group — a register absent from the licensed group</span>
+      </div>
+      <div class="ev">
+        <q>Group practice owners!! How are you structuring associate caseloads…</q>
+        <span class="src">Licensed group — 2 reactions / 19 comments</span>
+      </div>
+      <p style="margin-bottom:0"><b>Read:</b> the segmentation you are proposing to impose
+      is one your readers have already built for themselves. You'd be matching it, not
+      inventing it.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. The standard objection, and the escape clause</h3>
+      <p>Nielsen Norman Group's <a href="https://www.nngroup.com/articles/audience-based-navigation/">
+      five reasons to avoid audience-based navigation</a> is the canonical warning, and
+      it is worth taking seriously: users don't know which group they're in, labels are
+      ambiguous about <em>for</em> versus <em>about</em>, self-identification is
+      cognitive tax, and overlapping content makes people pogo-stick between sections.</p>
+      <p>But the same article names the condition under which it does work: when
+      <b>"the content is unique to that audience group"</b> with <b>"enough information
+      specifically for that group to justify its own section."</b></p>
+      <p style="margin-bottom:0"><b>Read:</b> that sentence is the whole test, and it is
+      testable. §05 below runs it against all 182 pages. Three stages pass. Two don't —
+      yet.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. The competitor segments — but by the wrong axis</h3>
+      <p><a href="https://hourjourney.io/guides/amft-registration-process-california">hourjourney.io</a>,
+      the strongest California-specific incumbent, does segment. But it segments by
+      <em>credential</em> — LMFT, LCSW, LPCC, ASW — with a flat "Guides" list underneath.
+      Its nav is: How it works, Pricing, Hours Calculator, Guides, Log in, Start free
+      trial.</p>
+      <p style="margin-bottom:0"><b>Read:</b> credential segmentation is the obvious move
+      and it's taken. Stage segmentation is open, and it's the better axis — because a
+      person's credential is a fact about their paperwork, whereas their stage is a fact
+      about <em>what is going wrong for them this month</em>. Also note what that nav
+      tells you: it exists to sell an hours tracker. Yours exists to be free. The hub can
+      say so.</p>
+    </div>
+
+    <div class="card">
+      <h3>4. You have already half-built it</h3>
+      <p>The home page carries a <span class="lab" style="letter-spacing:.08em">Who this
+      is for</span> band with four situations — <em>Considering the path</em>,
+      <em>Registered associates</em>, <em>Solo private practice</em>, <em>Practices with
+      room to grow</em> — each with an "Everything for this situation →" link.</p>
+      <p>Those links currently go to filtered views of <code>resources.html</code>.
+      They're a promise the site makes and doesn't quite keep: a filter is a list, not a
+      destination.</p>
+      <p style="margin-bottom:0"><b>Read:</b> this is the cheapest possible validation.
+      The taxonomy exists, it's already four-deep, and it's already written in
+      second-person situational language rather than persona jargon. The work is to
+      <em>promote</em> those views into places, not to invent a new scheme.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ CRITIQUE ============ -->
+<section id="critique">
+  <div class="kicker"><span class="n">03</span><h2>Six objections to the sketch</h2></div>
+  <p class="lede">You asked to be critiqued rather than agreed with. Here is where the
+  concept as stated would go wrong, each with the fix I'd apply.</p>
+
+  <div class="card">
+    <h3>① "Aspiring → student → associate → LMFT" collapses the two most painful moments</h3>
+    <p>Two transitions carry more anxiety than anything in the four you named, and both
+    get erased by the boundaries you drew:</p>
+    <p><b>The gap between graduating and getting a registration number.</b> This is a real
+    status with its own law. Under the Board's 90-day rule, post-degree hours only count
+    if you were Live Scanned at the workplace <em>before</em> gaining them, and the
+    application has to be received within 90 days of the degree award date. Miss the
+    fingerprinting and those hours are simply gone — the Board accepts no alternative
+    documentation. That is a page, arguably a small hub, and it belongs to nobody in your
+    four-stage model.</p>
+    <p><b>The first two years after licensure.</b> A brand-new LMFT is deciding whether to
+    go solo at all. A twelve-year practice owner is deciding whether to hire. These are
+    not the same reader, and the site's own content splits cleanly along that line.</p>
+    <p style="margin-bottom:0"><b>Fix:</b> six stages, not four. Details in §04.</p>
+  </div>
+
+  <div class="card">
+    <h3>② The student hub would fail the only test that matters</h3>
+    <p>Run NN/g's condition against the library. Of 182 pages, the number written
+    specifically for someone <em>currently enrolled and in practicum</em> — trainee hour
+    caps, finding a placement, what to do in the last semester, when to sit law and
+    ethics — is approximately <b>zero</b>. The 66 program reviews serve the applicant,
+    not the enrolled student. They're a different reader who has already made the
+    decision those pages exist to inform.</p>
+    <p style="margin-bottom:0"><b>Fix:</b> hold it. Build five or six trainee-only pages
+    first, then open the hub. A hub that has to send its visitor off-site on the second
+    click is worse than no hub, and this is exactly NN/g's objection ④ — people arrive
+    already suspicious that they're seeing a partial view.</p>
+  </div>
+
+  <div class="card">
+    <h3>③ "Standalone sites" is the wrong mental model, and this repo has already been
+    bitten by it</h3>
+    <p>You said "almost standalone sites." I'd take the <em>feel</em> and refuse the
+    <em>structure</em>. Genuinely siloed sections mean duplicated chrome, split internal
+    linking, and a second copy of facts that will drift from the first.</p>
+    <p>That is not hypothetical here. This project has shipped the same class of bug three
+    separate times — data escaped twice, a tuition figure that said "not published" on one
+    card while the same page ranked it at $86,940. Every one of those came from a second
+    copy of something.</p>
+    <p style="margin-bottom:0"><b>Fix:</b> stage hubs are <em>generated views</em> over
+    <code>registry.json</code>, exactly like the topic clusters are today. A page gets a
+    <code>stages: []</code> field; the hub builder reads it. Nothing is copied, so nothing
+    can drift. You get the destination feel from a distinct accent color, its own
+    masthead, its own share card, and a "you are here" band on every leaf page.</p>
+  </div>
+
+  <div class="card">
+    <h3>④ Persona labels are the wrong words; search phrases are the right ones</h3>
+    <p>"Aspiring therapist" is a phrase almost nobody applies to themselves. NN/g's
+    objection ② is that labels leave people unsure whether a section is <em>for</em> them
+    or <em>about</em> them — and a noun label ("Students") has that problem badly.</p>
+    <p style="margin-bottom:0"><b>Fix:</b> name every hub in the reader's own situational
+    language, the way the home page band already does. <em>"You're deciding whether to do
+    this at all."</em> <em>"You're counting toward 3,000."</em> The h1 can carry the
+    search phrase; the door can carry the human one.</p>
+  </div>
+
+  <div class="card">
+    <h3>⑤ Stage is one axis. License type is the other, and it's currently unowned</h3>
+    <p>The site is MFT-first — 66 program reviews, MFT hour rules, MFT statutes. But
+    ASWs and APCCs are a large share of the same rooms, and your own research found the
+    single biggest unserved theme was an <em>APCC</em> denied over four graduate credits
+    from a CACREP school.</p>
+    <p style="margin-bottom:0"><b>Fix:</b> do not build a hub matrix — five stages ×
+    three licenses is 15 pages you'll never maintain. Instead every stage hub opens with
+    one honest line naming who it's written for and what differs for ASW/APCC, linking to
+    the specific place that difference is handled. Honest, cheap, and it converts a
+    weakness into a claim nobody else is making.</p>
+  </div>
+
+  <div class="card">
+    <h3>⑥ A tidy taxonomy is not what makes it a destination</h3>
+    <p>The strongest finding in your own analysis was the method note: comments measure
+    information demand, reactions measure approval. The posts that pulled 87 and 114
+    comments were not "resources for associates." They were <em>"I have 547 hours and
+    nobody will hire me"</em> and <em>"I'm considering bankruptcy."</em></p>
+    <p style="margin-bottom:0"><b>Fix:</b> every stage hub leads with the three questions
+    that stage is actually asking — in the asker's words — and only then shows the shelf.
+    A directory ranks content. A destination answers the room. That difference is the
+    entire design brief for §06.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ MODEL ============ -->
+<section id="model">
+  <div class="kicker"><span class="n">04</span><h2>The corrected model: six stages</h2></div>
+  <p class="lede">Each is a real status with different law, different money and a
+  different question. The two in amber are additions to your sketch.</p>
+
+  <div class="ia">
+    <span class="lab">Stage spine — the reader's own words, not persona nouns</span>
+    <div class="tier">
+      <span class="node stage">Deciding<br><span style="font-weight:400;text-transform:none;letter-spacing:0">is this worth it?</span></span>
+      <span class="node stage">In a program<br><span style="font-weight:400;text-transform:none;letter-spacing:0">trainee, practicum</span></span>
+      <span class="node stage new">The gap<br><span style="font-weight:400;text-transform:none;letter-spacing:0">degree → number</span></span>
+      <span class="node stage">Counting hours<br><span style="font-weight:400;text-transform:none;letter-spacing:0">associate</span></span>
+      <span class="node stage">Newly licensed<br><span style="font-weight:400;text-transform:none;letter-spacing:0">first 2 years</span></span>
+      <span class="node stage new">Running a practice<br><span style="font-weight:400;text-transform:none;letter-spacing:0">owner, supervisor</span></span>
+    </div>
+    <p class="cap">Dashed = not in the original four. Both are where the site's best
+    unbuilt content already sits in the queue.</p>
+  </div>
+
+  <div class="grid g3">
+    <div class="card"><span class="lab">Stage 1 · Deciding</span>
+      <h4 style="margin-top:6px">"Is this career financially viable?"</h4>
+      <p style="font-size:14px;margin-bottom:0">Asked verbatim, 68 comments. Largest page
+      inventory on the site by far. Highest search volume, lowest community heat.</p></div>
+    <div class="card"><span class="lab">Stage 2 · In a program</span>
+      <h4 style="margin-top:6px">"Nobody will take me for practicum."</h4>
+      <p style="font-size:14px;margin-bottom:0">A placement request pulled 3 reactions /
+      36 comments — the highest need-per-reaction ratio in the whole dataset. And the
+      site has nothing for it.</p></div>
+    <div class="card"><span class="lab">Stage 3 · The gap</span>
+      <h4 style="margin-top:6px">"Can I work before my number arrives?"</h4>
+      <p style="font-size:14px;margin-bottom:0">Yes — if you were Live Scanned first and
+      apply within 90 days. Otherwise those hours vanish. Small stage, permanent
+      consequences.</p></div>
+    <div class="card"><span class="lab">Stage 4 · Counting hours</span>
+      <h4 style="margin-top:6px">"547 hours and nobody will hire me."</h4>
+      <p style="font-size:14px;margin-bottom:0">87 and 114 comments. The longest stage
+      (2–5 years), the loudest room, and the flagship hub. This is the one to build
+      first.</p></div>
+    <div class="card"><span class="lab">Stage 5 · Newly licensed</span>
+      <h4 style="margin-top:6px">"Do I go on panels or not?"</h4>
+      <p style="font-size:14px;margin-bottom:0">Dominant licensed-group theme: 12
+      distinct posts in one group, single-digit reactions against 18–30 comments
+      each.</p></div>
+    <div class="card"><span class="lab">Stage 6 · Running a practice</span>
+      <h4 style="margin-top:6px">"How do I do this ethically?"</h4>
+      <p style="font-size:14px;margin-bottom:0">Asked with unusual moral force — pay
+      structure, associate caseloads, incorporation. Small audience, highest value per
+      reader.</p></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ AUDIT ============ -->
+<section id="audit">
+  <div class="kicker"><span class="n">05</span><h2>The coverage audit</h2></div>
+  <p class="lede">NN/g's test applied to all 182 registry pages: does this stage have
+  enough content that <em>only</em> it needs, to justify its own section? This table is
+  the decision.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr>
+        <th>Stage</th><th>Pages today</th><th>What they are</th>
+        <th>Queued</th><th>Opens?</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><b>1 · Deciding</b></td>
+          <td><span class="fig">73</span></td>
+          <td>66 program reviews, PsyD directory, the two program indexes,
+            become-an-MFT, cost of living, county atlas, state comparison, BBS fees</td>
+          <td>2</td>
+          <td><span class="badge b-yes">Open now</span></td>
+        </tr>
+        <tr>
+          <td><b>2 · In a program</b></td>
+          <td><span class="fig" style="color:var(--red)">0</span></td>
+          <td>Nothing trainee-specific exists. Program reviews serve the applicant, not
+            the enrolled student — a different reader</td>
+          <td>2</td>
+          <td><span class="badge b-no">Hold</span></td>
+        </tr>
+        <tr>
+          <td><b>3 · The gap</b></td>
+          <td><span class="fig" style="color:var(--red)">0</span></td>
+          <td>The 90-day rule is not covered anywhere on the site</td>
+          <td>1</td>
+          <td><span class="badge b-no">Hold — or fold into 4</span></td>
+        </tr>
+        <tr>
+          <td><b>4 · Counting hours</b></td>
+          <td><span class="fig">12</span></td>
+          <td>3,000-hours calculator, job advisor, LA/Bay pay, unpaid hours, telehealth
+            hours, tracker comparison, exam pass rates, processing times, fees, CE,
+            liability, discipline library</td>
+          <td>8</td>
+          <td><span class="badge b-yes">Open now — flagship</span></td>
+        </tr>
+        <tr>
+          <td><b>5 · Newly licensed</b></td>
+          <td><span class="fig">19</span></td>
+          <td>Simulator, rates, panels, the four platform reviews, superbills, LLC
+            correction, EHR comparisons, deductions, home office, quarterlies, remote
+            practice, filling the week</td>
+          <td>5</td>
+          <td><span class="badge b-yes">Open now</span></td>
+        </tr>
+        <tr>
+          <td><b>6 · Running a practice</b></td>
+          <td><span class="fig">8</span></td>
+          <td>Hiring an associate, both S-corp analyzes, incorporation cost, tax strategy,
+            Solo 401k, backdoor Roth, growth</td>
+          <td>4</td>
+          <td><span class="badge b-soon">Opens after the queue</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src" style="max-width:none">Counts exclude the 48 discipline cases and 16
+  psychedelic-training reviews, which are cross-stage and belong on the shelf of stages 4,
+  5 and 6 without being owned by any of them. "Queued" counts pages from the approved
+  28-page build list.</p>
+
+  <div class="card gold" style="margin-top:22px">
+    <span class="lab">The finding worth sitting with</span>
+    <p style="margin-bottom:0"><b>36% of the library — 66 of 182 pages — serves the one
+    stage with the least community heat.</b> Program reviews are the site's biggest
+    asset by page count and its quietest by engagement. The stage hubs make that visible
+    for the first time, which is uncomfortable and useful: it says the next 20 pages
+    should go to stages 2, 3 and 4, not to school number 67.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ OPTIONS ============ -->
+<section id="options">
+  <div class="kicker"><span class="n">06</span><h2>Three architectures</h2></div>
+  <p class="lede">The real question isn't whether to have stage hubs. It's what happens to
+  the five topic hubs when you do. Here are the three honest answers.</p>
+
+  <div class="ia">
+    <span class="lab">Option A — Replace · stage becomes the only spine</span>
+    <div class="tier"><span class="node root">Home</span></div>
+    <div class="conn">▼</div>
+    <div class="tier">
+      <span class="node stage">Deciding</span><span class="node stage">Program</span>
+      <span class="node stage">Associate</span><span class="node stage">Licensed</span>
+      <span class="node stage">Owner</span>
+    </div>
+    <div class="conn">▼</div>
+    <div class="tier">
+      <span class="node leaf">leaf</span><span class="node leaf">leaf</span>
+      <span class="node leaf">leaf</span><span class="node leaf">leaf</span>
+      <span class="node leaf">leaf</span><span class="node leaf">leaf</span>
+    </div>
+    <div class="pro">
+      <div class="p"><b>For</b> Cleanest possible nav. Every visitor picks one door and
+        never sees anything irrelevant again.</div>
+      <div class="c"><b>Against</b> Throws away five hubs of written intros and clusters.
+        Breaks every existing internal link and URL. And it strands the genuinely
+        cross-stage material — the discipline library serves three stages at once.</div>
+    </div>
+    <p class="cap"><span class="badge b-no">Not recommended</span></p>
+  </div>
+
+  <div class="ia">
+    <span class="lab">Option B — Parallel · stage entry, topic organization <b style="color:var(--pine)">← recommended</b></span>
+    <div class="tier"><span class="node root">Home</span></div>
+    <div class="conn">▼</div>
+    <div class="tier">
+      <span class="node stage">/for/deciding</span><span class="node stage">/for/associates</span>
+      <span class="node stage">/for/licensed</span>
+      <span style="align-self:center;color:var(--muted);font-family:var(--mono);font-size:11px">entry layer</span>
+    </div>
+    <div class="conn">▼ &nbsp;curated, sequenced, annotated ▼</div>
+    <div class="tier">
+      <span class="node topic">Money</span><span class="node topic">Licensure</span>
+      <span class="node topic">Getting paid</span><span class="node topic">Practice</span>
+      <span class="node topic">Training</span>
+    </div>
+    <div class="conn">▼</div>
+    <div class="tier">
+      <span class="node leaf">182 leaf pages · unmoved · unduplicated</span>
+    </div>
+    <div class="pro">
+      <div class="p"><b>For</b> No page moves, no URL breaks, no duplicated text. Hubs are
+        generated from a <code>stages</code> field, so they can never drift from the pages
+        they describe. Topic hubs keep serving search and the returning reader who knows
+        what they want.</div>
+      <div class="p"><b>For</b> A leaf page can belong to two stages honestly — the
+        liability-insurance page really does serve associates <em>and</em> owners — with
+        no pogo-sticking, because it renders a different "you are here" band depending on
+        which door you came through.</div>
+      <div class="c"><b>Against</b> Two navigational systems coexist, which needs the home
+        page to be explicit about which door is which. Solvable with copy.</div>
+      <div class="c"><b>Against</b> Requires a builder pass and a registry migration —
+        roughly the same lift as the topic-cluster system already running.</div>
+    </div>
+    <p class="cap"><span class="badge b-yes">Recommended</span> — this is the only option
+    that gets the destination feel without a second copy of anything.</p>
+  </div>
+
+  <div class="ia">
+    <span class="lab">Option C — Sub-sites · true silos, own chrome per stage</span>
+    <div class="tier"><span class="node root">Home (thin splash)</span></div>
+    <div class="conn">▼</div>
+    <div class="tier">
+      <span class="node stage">associates.·/ <br><span style="font-weight:400;text-transform:none">own nav, own footer</span></span>
+      <span class="node stage">licensed.·/ <br><span style="font-weight:400;text-transform:none">own nav, own footer</span></span>
+      <span class="node stage">programs.·/ <br><span style="font-weight:400;text-transform:none">own nav, own footer</span></span>
+    </div>
+    <div class="conn">▼</div>
+    <div class="tier">
+      <span class="node leaf">copy</span><span class="node leaf">copy</span>
+      <span class="node leaf">copy</span><span class="node leaf">shared page, duplicated</span>
+    </div>
+    <div class="pro">
+      <div class="p"><b>For</b> Maximum "complete resource for X" feel. Best possible
+        social share identity.</div>
+      <div class="c"><b>Against</b> Splits internal link equity three ways on a site whose
+        entire SEO position is built on dense internal linking.</div>
+      <div class="c"><b>Against</b> Cross-stage pages must be duplicated or arbitrarily
+        assigned. This repo has shipped a stale-duplicate bug three times; a fourth is a
+        matter of when.</div>
+    </div>
+    <p class="cap"><span class="badge b-no">Not recommended</span> — you can buy 90% of
+    the identity with 5% of the risk, which is what the mockups below do.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ MOCKUPS ============ -->
+<section id="mockups">
+  <div class="kicker"><span class="n">07</span><h2>Three visual directions</h2></div>
+  <p class="lede">Same design system, same builder, three different <em>lead modules</em>.
+  My recommendation is not to pick one — it's to use all three, matched to what each stage
+  is actually doing when it arrives.</p>
+
+  <!-- ---- A ---- -->
+  <h3 style="margin:26px 0 4px">Direction A — <span style="color:var(--pine)">The Desk</span></h3>
+  <p><b>For stage 4, associates.</b> An associate isn't browsing; they're tracking six
+  things at once and losing sleep over two of them. The hub opens as a working surface
+  with their own numbers in it — nothing typed leaves the browser, which the page says out
+  loud — then the three loud questions, then the shelf.</p>
+
+  <div class="frame">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="url">therapistsupport.org/for/associates</span></div>
+    <div class="mk">
+      <div class="mkhead">
+        <span class="brand">Therapist Support</span>
+        <span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span>
+        <span>Getting paid</span><span>Practice</span></span>
+      </div>
+      <div class="mkbody">
+        <div class="deskhero">
+          <span class="lab">You are counting toward 3,000</span>
+          <h2>Everything a California associate needs, in one place.</h2>
+          <p>Written for AMFTs. Where the rule differs for an ASW or an APCC, it says so
+          and links to the difference. No account, no database — nothing you type here is
+          sent anywhere.</p>
+        </div>
+
+        <span class="lab">Your desk · figures stay in this browser</span>
+        <div class="tiles" style="margin-top:8px">
+          <div class="tile"><span class="lab">Hours logged</span>
+            <div class="num">1,284</div><div class="sub">of 3,000 · 43%</div></div>
+          <div class="tile act"><span class="lab">Relational hours</span>
+            <div class="num">228</div><div class="sub">of 500 — <b>this is your gate</b></div></div>
+          <div class="tile"><span class="lab">Weeks elapsed</span>
+            <div class="num">61</div><div class="sub">of 104 minimum</div></div>
+          <div class="tile"><span class="lab">Projected license</span>
+            <div class="num">Mar 2028</div><div class="sub">at 18 hrs/week</div></div>
+          <div class="tile"><span class="lab">Registration expires</span>
+            <div class="num">Jul 2027</div><div class="sub">renewal now $75</div></div>
+          <div class="tile"><span class="lab">Law &amp; ethics</span>
+            <div class="num">Due</div><div class="sub">before first renewal</div></div>
+        </div>
+
+        <span class="lab">What this room is asking right now</span>
+        <div style="margin-top:8px">
+          <div class="qrow"><span class="qn">01</span>
+            <div><div class="qt">"I have 547 hours and everyone wants someone almost done."</div>
+              <div class="qs">Who actually hires at your hour count, by setting — with the
+              arithmetic on taking a worse offer sooner.</div></div>
+            <span class="qb">New</span></div>
+          <div class="qrow"><span class="qn">02</span>
+            <div><div class="qt">"My supervisor doesn't pay me for notes or supervision."</div>
+              <div class="qs">DLSE Form 1, the 30/90-day clock, and what the claim is
+              worth. Estimator on the page.</div></div>
+            <span class="qb">Tool</span></div>
+          <div class="qrow"><span class="qn">03</span>
+            <div><div class="qt">"Can I finish my hours by telehealth from another state?"</div>
+              <div class="qs">Yes, with conditions. Two questions get merged here and they
+              have different answers.</div></div>
+            <span class="qb">Cited</span></div>
+        </div>
+
+        <span class="lab" style="display:block;margin-top:14px">The shelf · 12 pages, in the order you'll need them</span>
+        <div class="fp-strip" style="grid-template-columns:repeat(4,1fr)">
+          <div><span class="lab">Getting in</span>Job advisor · LA &amp; Bay pay · unpaid hours</div>
+          <div><span class="lab">Counting</span>3,000-hours projector · trackers compared</div>
+          <div><span class="lab">Exams</span>Pass rates · processing times · prep compared</div>
+          <div><span class="lab">Staying clean</span>Fees · CE · liability · 48 case studies</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pro" style="margin-bottom:30px">
+    <div class="p"><b>Why it works</b> It's the only direction that gives something back on
+    arrival. A shared link that <em>computes</em> gets reposted; a link that lists does
+    not. It also puts the relational-hours gate — the thing that actually delays people —
+    in amber, which no competitor does.</div>
+    <div class="c"><b>Watch out</b> Six tiles is the ceiling; more reads as a cockpit.
+    And the privacy promise has to be in the hero, not the footer, or the tiles create the
+    exact anxiety the site's whole analytics rule exists to avoid.</div>
+  </div>
+
+  <!-- ---- B ---- -->
+  <h3 style="margin:26px 0 4px">Direction B — <span style="color:var(--pine)">The Ladder</span></h3>
+  <p><b>For stages 1–3, deciding and in-program.</b> Someone at the start doesn't have
+  numbers to track — they have a route they can't see the end of. The hub is that route,
+  with the gates marked and the current rung lit, and each rung opening onto the page and
+  the cost.</p>
+
+  <div class="frame">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="url">therapistsupport.org/for/deciding</span></div>
+    <div class="mk">
+      <div class="mkhead">
+        <span class="brand">Therapist Support</span>
+        <span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span>
+        <span>Getting paid</span><span>Practice</span></span>
+      </div>
+      <div class="mkbody">
+        <span class="lab">You are deciding whether to do this at all</span>
+        <h2 style="font-size:25px;margin:6px 0 6px">Eight years, five gates, and one
+        number that decides it.</h2>
+        <p style="font-size:12.5px;color:var(--muted);max-width:56ch;margin-bottom:16px">
+        Every gate below is statutory — there is no discretion in any of them. The costs
+        are the fees as they actually stand after the 1 July 2026 reduction.</p>
+
+        <div style="display:grid;grid-template-columns:1.35fr 1fr;gap:18px">
+          <div class="ladder">
+            <div class="rung now">
+              <h4>Deciding<span class="pill">You are here</span></h4>
+              <div class="rs">Is the arithmetic survivable? Debt in, associate pay,
+              licensed income, cost of living where you'd live.</div>
+              <div class="gate"><span class="lab">The number that decides it</span>
+                <div class="gv">Run the whole-career model →</div></div>
+            </div>
+            <div class="rung">
+              <h4>A qualifying degree</h4>
+              <div class="rs">66 California programs reviewed on cost, format,
+              accreditation and how long they really take.</div>
+            </div>
+            <div class="rung">
+              <h4>Practicum, before you graduate</h4>
+              <div class="rs">Trainee hours are capped and supervised differently. Finding
+              a placement is its own problem.</div>
+            </div>
+            <div class="rung">
+              <h4>3,000 supervised hours, over 104 weeks minimum</h4>
+              <div class="rs">500 of your 1,750 direct hours must be couples, families or
+              children. That is usually the gate, not the 3,000.</div>
+            </div>
+            <div class="rung">
+              <h4>Two exams</h4>
+              <div class="rs">Law and ethics, then clinical. Real pass rates, transcribed
+              from nine board packets.</div>
+            </div>
+            <div class="rung done">
+              <h4>Licensed</h4>
+              <div class="rs">And a completely different set of questions starts.</div>
+            </div>
+          </div>
+          <div>
+            <div class="gate" style="margin-top:0">
+              <span class="lab">Total board fees, whole route</span>
+              <div class="gv">$875</div>
+              <div style="font-size:11px;color:var(--muted)">was $1,750 · reverts 2030</div>
+            </div>
+            <div class="gate">
+              <span class="lab">Typical time, degree to license</span>
+              <div class="gv">5–7 yrs</div>
+              <div style="font-size:11px;color:var(--muted)">2–3 in a program, 2–5 as an associate</div>
+            </div>
+            <div class="gate">
+              <span class="lab">Cheapest CA program found</span>
+              <div class="gv">$26,470</div>
+              <div style="font-size:11px;color:var(--muted)">vs $105,060 at the top end</div>
+            </div>
+            <div class="gate" style="background:var(--gold)">
+              <span class="lab">Also worth knowing</span>
+              <div style="font-size:11.5px;line-height:1.4;margin-top:3px">
+              California has fewer licensed therapists per capita than you'd guess.
+              <b>See the state comparison →</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pro" style="margin-bottom:30px">
+    <div class="p"><b>Why it works</b> It answers the question a person at this stage
+    actually has — "how long and how much" — in one screen, and it makes the site's
+    program library feel like a step on a path instead of a directory of 66 things.</div>
+    <div class="c"><b>Watch out</b> A ladder implies everyone climbs the same one. The
+    out-of-state applicant and the career-changer don't, and the page needs a visible
+    "coming from another state?" exit near the top or it will read as excluding them —
+    which is NN/g objection ① in its purest form.</div>
+  </div>
+
+  <!-- ---- C ---- -->
+  <h3 style="margin:26px 0 4px">Direction C — <span style="color:var(--pine)">The Front Page</span></h3>
+  <p><b>For stages 5–6, licensed and owners.</b> This reader isn't tracking a number or
+  climbing a route — they're keeping up. The hub is a masthead: what changed, what's in
+  committee, what the room is arguing about, and the reference shelf under it. It is also
+  by far the most repostable of the three.</p>
+
+  <div class="frame">
+    <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="url">therapistsupport.org/for/licensed</span></div>
+    <div class="mk">
+      <div class="mkhead">
+        <span class="brand">Therapist Support</span>
+        <span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span>
+        <span>Getting paid</span><span>Practice</span></span>
+      </div>
+      <div class="mkbody">
+        <div class="fp-mast">
+          <div class="k"><span>For licensed California therapists</span>
+            <span>Checked 11 Aug 2026</span></div>
+          <h2>The Licensed Desk</h2>
+          <div class="dek">What changed in the rules, what it costs you, and what the
+          room is arguing about this month.</div>
+        </div>
+        <div class="fp-cols">
+          <div class="fp-lead">
+            <div class="byl">Lead · effective 1 April 2026</div>
+            <h3>Your Psychology Today profile is probably now non-compliant.</h3>
+            <p>16 CCR §1811 changed what every advertisement must carry — legal name as
+            filed, license <em>number</em>, and title. It applies to your website, your
+            directory profiles, your Instagram bio and your signage. Nobody has translated
+            it into the literal words your profile has to contain. Here they are, with a
+            checker that runs in your browser.</p>
+            <div class="byl" style="margin-top:12px">Second · effective 1 January 2026</div>
+            <h3 style="font-size:17px">A per-session duty most therapists don't know exists.</h3>
+            <p>16 CCR §1815.5 now requires you to verbally obtain and document the
+            client's full name and present physical location <em>every session</em>, plus
+            emergency resources for that location. Enforceable as unprofessional conduct.</p>
+          </div>
+          <div class="fp-side">
+            <span class="lab">What the room is asking</span>
+            <ol>
+              <li><b>"Is Grow Therapy a nightmare?"</b>30 / 30 — and depanelling is harder
+              than joining.</li>
+              <li><b>"Can I credential myself?"</b>5 / 20. Yes. CAQH, then each payer.
+              Timelines are real.</li>
+              <li><b>"S-corp or sole prop?"</b>9 / 19 — and it is never an LLC in
+              California.</li>
+              <li><b>"A CPA who knows therapists?"</b>5 / 27. The twelve questions to
+              ask.</li>
+            </ol>
+            <span class="lab" style="margin-top:12px">In committee</span>
+            <ol start="5">
+              <li><b>AB 1598</b>Would end the annual law-and-ethics exam.</li>
+              <li><b>SB 903</b>On the suspense file.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="fp-strip">
+          <div><span class="lab">Money</span>Simulator · tax strategy · S-corp vs sole prop · quarterlies</div>
+          <div><span class="lab">Getting paid</span>Rates · panels · Headway, Alma, Grow · superbills</div>
+          <div><span class="lab">Practice</span>EHR compared · liability · remote clients · filling the week</div>
+          <div><span class="lab">When it goes wrong</span>48 disciplinary case studies, de-identified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pro" style="margin-bottom:30px">
+    <div class="p"><b>Why it works</b> It's the only direction with a reason to return
+    monthly, which makes it the natural home for the newsletter signup and the one that
+    survives being posted in a #MarketingMonday thread — because it reads as news, not
+    promotion.</div>
+    <div class="c"><b>Watch out</b> A masthead dated "checked 11 Aug 2026" is a promise.
+    If the lead story is six months stale it does more damage than having no hub. Only
+    build this one if the change-tracking is automated off the existing
+    <code>ts:stale</code> badge machinery.</div>
+  </div>
+
+  <!-- phones -->
+  <h3 style="margin:30px 0 4px">On a phone</h3>
+  <p>All three collapse to the same pattern: hero, then the room's questions, then the
+  shelf. The desk tiles go two-across and the ladder drops its cost rail below the rungs.
+  This is the view that matters — the traffic arrives from a Facebook link on a
+  phone.</p>
+  <div class="phones">
+    <div class="phone">
+      <div class="notch"><i></i></div>
+      <div class="mk"><div class="mkbody" style="padding:12px 11px 16px">
+        <div class="deskhero" style="margin:-12px -11px 12px;padding:14px 11px">
+          <span class="lab" style="font-size:8px">Counting toward 3,000</span>
+          <h2 style="font-size:19px;margin:5px 0 4px">Everything a California associate
+          needs.</h2>
+          <p style="font-size:11px">Nothing you type is sent anywhere.</p>
+        </div>
+        <div class="tiles" style="grid-template-columns:1fr 1fr;gap:7px">
+          <div class="tile" style="padding:8px 9px"><span class="lab" style="font-size:8px">Hours</span>
+            <div class="num" style="font-size:19px">1,284</div><div class="sub" style="font-size:10px">of 3,000</div></div>
+          <div class="tile act" style="padding:8px 9px"><span class="lab" style="font-size:8px">Relational</span>
+            <div class="num" style="font-size:19px">228</div><div class="sub" style="font-size:10px">of 500 — gate</div></div>
+          <div class="tile" style="padding:8px 9px"><span class="lab" style="font-size:8px">Weeks</span>
+            <div class="num" style="font-size:19px">61</div><div class="sub" style="font-size:10px">of 104</div></div>
+          <div class="tile" style="padding:8px 9px"><span class="lab" style="font-size:8px">License</span>
+            <div class="num" style="font-size:17px">Mar 28</div><div class="sub" style="font-size:10px">projected</div></div>
+        </div>
+        <div class="qrow" style="padding:8px 9px;margin-top:10px"><span class="qn">01</span>
+          <div><div class="qt" style="font-size:11.5px">"547 hours and nobody will hire me."</div></div></div>
+        <div class="qrow" style="padding:8px 9px"><span class="qn">02</span>
+          <div><div class="qt" style="font-size:11.5px">"Unpaid for notes and supervision."</div></div></div>
+      </div></div>
+    </div>
+    <div class="phone">
+      <div class="notch"><i></i></div>
+      <div class="mk"><div class="mkbody" style="padding:12px 11px 16px">
+        <span class="lab" style="font-size:8px">Deciding whether to do this</span>
+        <h2 style="font-size:18px;margin:5px 0 8px">Eight years, five gates.</h2>
+        <div class="ladder" style="padding-left:24px">
+          <div class="rung now"><h4 style="font-size:12px">Deciding</h4>
+            <div class="rs" style="font-size:10px">Is the arithmetic survivable?</div></div>
+          <div class="rung"><h4 style="font-size:12px">A qualifying degree</h4>
+            <div class="rs" style="font-size:10px">66 programs compared</div></div>
+          <div class="rung"><h4 style="font-size:12px">Practicum</h4>
+            <div class="rs" style="font-size:10px">Capped, supervised differently</div></div>
+          <div class="rung"><h4 style="font-size:12px">3,000 hours / 104 weeks</h4>
+            <div class="rs" style="font-size:10px">500 must be relational</div></div>
+          <div class="rung"><h4 style="font-size:12px">Two exams</h4></div>
+          <div class="rung done"><h4 style="font-size:12px">Licensed</h4></div>
+        </div>
+        <div class="gate" style="padding:8px 9px"><span class="lab" style="font-size:8px">Board fees, whole route</span>
+          <div class="gv" style="font-size:17px">$875</div></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ URLS ============ -->
+<section id="urls">
+  <div class="kicker"><span class="n">08</span><h2>URLs, and how it gets built</h2></div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>The namespace</h3>
+      <p><code>/for/</code> — not <code>/stage/</code>, not top-level. It reads correctly
+      when pasted into a sentence, it can't collide with the five existing topic
+      directories, and it signals <em>for you</em> rather than <em>about you</em>, which
+      is NN/g's objection ② answered in the URL itself.</p>
+      <ul class="tick">
+        <li><code>/for/deciding/</code> — open now</li>
+        <li><code>/for/associates/</code> — open now · flagship</li>
+        <li><code>/for/licensed/</code> — open now</li>
+        <li><code>/for/students/</code> — held until it has 5 pages</li>
+        <li><code>/for/practice-owners/</code> — held until the queue lands</li>
+      </ul>
+      <p style="margin:12px 0 0;font-size:14px;color:var(--muted)">The four home-page
+      "Everything for this situation →" links repoint from
+      <code>resources.html#where=…</code> to these, which is a two-line change and
+      immediately keeps a promise the site is currently only half-keeping.</p>
+    </div>
+
+    <div class="card">
+      <h3>The data model</h3>
+      <p>One new field per page in <code>registry.json</code>, alongside the existing
+      <code>topic</code>:</p>
+      <div class="out" style="display:block;font-family:var(--mono);font-size:12px;
+        background:var(--paper);border:1.5px solid var(--line);padding:11px;
+        white-space:pre;overflow-x:auto">"file": "associate-unpaid-hours-california.html",
+"topic": "licensure",
+"stages": ["associate"],
+"stage_note": {
+  "associate": "What the claim is worth, and the
+     30-day clock that starts when you quit."
+}</div>
+      <p style="margin-top:12px"><code>stage_note</code> is the whole trick. It's the
+      one-line annotation the hub shows — what this page tells you <em>at your stage</em>
+      — and it's why a page can appear under two stages without either hub feeling like a
+      recycled list.</p>
+      <p style="margin-bottom:0">A <code>build_stages.py</code> pass reads the field and
+      writes the five hubs, exactly as <code>build_library.py</code> writes the topic
+      hubs today. Add it to <code>ship.py</code> BUILD; add a guard that every page has at
+      least one stage and every stage has ≥5 pages, so a hub can never quietly open
+      empty.</p>
+    </div>
+  </div>
+
+  <div class="card pine">
+    <h3>The "you are here" band — where the destination feel actually comes from</h3>
+    <p>Every leaf page gets a thin band under the breadcrumb: <em>"You're reading this as
+    an associate. ← back to everything for associates."</em> It renders from the
+    referring hub when there is one, and from the page's primary stage when there isn't.</p>
+    <p style="margin-bottom:0">That single band does more for the "standalone site"
+    feeling than a separate codebase would, because it makes the hub feel present on every
+    page rather than only at the entrance — and it costs one pass, no duplication, and
+    nothing that can go stale.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ============ PLAN ============ -->
+<section id="plan">
+  <div class="kicker"><span class="n">09</span><h2>The build, in order</h2></div>
+  <p class="lede">Sequenced so that something shareable exists after step 2, and nothing
+  opens before it can survive being read.</p>
+
+  <ol class="plan">
+    <li>
+      <h4>Tag the library</h4>
+      <p class="why">Add <code>stages</code> and <code>stage_note</code> to all 182
+      registry entries. Mechanical, and the notes are the actual writing work — one
+      sentence per page per stage.</p>
+      <span class="out">1 migration script · ~182 annotations · no visible change yet</span>
+    </li>
+    <li>
+      <h4>Build <code>/for/associates/</code> first — Direction A, the Desk</h4>
+      <p class="why">Loudest room, 12 pages ready, 8 more queued, and the only hub that
+      can hand something back on arrival. This is the one that gets reposted.</p>
+      <span class="out">build_stages.py · 1 hub · 3 lead questions · 6 desk tiles</span>
+    </li>
+    <li>
+      <h4>Repoint the home-page band and ship the "you are here" pass</h4>
+      <p class="why">Turns four half-kept promises into four destinations, and makes the
+      hub present on all 182 leaves.</p>
+      <span class="out">2 passes · touches every page · no new content</span>
+    </li>
+    <li>
+      <h4>Build <code>/for/deciding/</code> — Direction B, the Ladder</h4>
+      <p class="why">73 pages already sit here. Add the visible "coming from another
+      state?" exit so the ladder doesn't read as exclusionary.</p>
+      <span class="out">1 hub · reuses the program index and the fee data</span>
+    </li>
+    <li>
+      <h4>Build <code>/for/licensed/</code> — Direction C, the Front Page</h4>
+      <p class="why">Only after the advertising-rule and telehealth-documentation pages
+      exist, because the masthead needs a real lead story. Wire the dateline to the
+      existing checked-date machinery so it can't go stale silently.</p>
+      <span class="out">1 hub · blocked on 2 queued pages</span>
+    </li>
+    <li>
+      <h4>Write the five trainee pages, then open <code>/for/students/</code></h4>
+      <p class="why">Practicum placement, trainee hour caps, the last semester, when to
+      sit law and ethics, and the 90-day gap. Then the hub has something only it can
+      say.</p>
+      <span class="out">5 new pages · then 1 hub · absorbs stage 3</span>
+    </li>
+    <li>
+      <h4>Open <code>/for/practice-owners/</code> when the queue lands</h4>
+      <p class="why">Paying associates, becoming a supervisor, choosing a CPA. Eight pages
+      now, twelve after — enough to justify a section, not before.</p>
+      <span class="out">1 hub · blocked on 4 queued pages</span>
+    </li>
+  </ol>
+
+  <div class="card gold">
+    <span class="lab">Target to-do</span>
+    <ul class="tick" style="margin-top:10px">
+      <li>Registry migration: <code>stages</code> + <code>stage_note</code> on 182 pages</li>
+      <li><code>_dev/build_stages.py</code> + guards (min 5 pages/hub, every page tagged)</li>
+      <li>Wire into <code>ship.py</code> BUILD; add to the VERIFY stage</li>
+      <li>Hub 1 — <code>/for/associates/</code>, Desk lead module</li>
+      <li>"You are here" band pass across all leaves</li>
+      <li>Repoint home-page "Everything for this situation" ×4</li>
+      <li>Hub 2 — <code>/for/deciding/</code>, Ladder lead module</li>
+      <li>5 trainee pages → Hub 3 <code>/for/students/</code></li>
+      <li>Hub 4 — <code>/for/licensed/</code>, Front Page lead module</li>
+      <li>Hub 5 — <code>/for/practice-owners/</code></li>
+      <li>Per-hub social share card (the site already has <code>social_cards.py</code>)</li>
+      <li>Sitemap section per hub + one honest ASW/APCC line in each</li>
+    </ul>
+    <p style="margin:14px 0 0;font-size:14px"><b>Net new pages: 5 hubs + 5 trainee
+    pages = 10</b>, on top of the 28 already approved. Everything else is a view over
+    content that already exists.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section>
+  <div class="kicker"><span class="n">10</span><h2>Sources</h2></div>
+  <ul class="src">
+    <li><a href="https://www.nngroup.com/articles/audience-based-navigation/">Audience-Based Navigation: 5 Reasons to Avoid It</a> — Nielsen Norman Group</li>
+    <li><a href="https://www.bbs.ca.gov/pdf/90day_rule_faq.pdf">90-Day Rule FAQ</a> — California Board of Behavioral Sciences</li>
+    <li><a href="https://hourjourney.io/guides/amft-registration-process-california">AMFT Registration Process in California</a> — hourjourney.io (competitor IA)</li>
+    <li><a href="https://www.camft.org/Resources/Pre-licensed-Corner">Pre-licensed Corner</a> and <a href="https://www.camft.org/pl-join">Pre-licensed Membership</a> — CAMFT (the industry's own stage vocabulary)</li>
+    <li><a href="https://law.justia.com/codes/california/code-bpc/division-2/chapter-13/article-1/section-4980-03/">BPC §4980.03</a> — statutory definitions of trainee and associate</li>
+    <li>Project doc: <em>What California therapists are actually asking</em> — content analysis of three Facebook groups, 22,800 members, 10 Aug 2026</li>
+    <li>Site inventory: <code>mock/library/registry.json</code>, 182 pages, read 11 Aug 2026</li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0">Prepared for therapistsupport.org · 11 August 2026 · A proposal,
+    not a deployment. Nothing in this document has been shipped.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -277,6 +277,13 @@ LAST = [
     ("_dev/passes_index.py",
      "regenerates _dev/PASSES.md - what each pass injects and the marker to "
      "grep a built page for. Writes documentation, never the site"),
+    # The internal control panel at /_ops/. AFTER discovery, because one of
+    # its guards is that /_ops/ has not got into the sitemap discovery just
+    # wrote. Reads mock/library/registry.json for page counts and titles, so
+    # the board cannot drift from the site it describes.
+    ("_dev/ops_board.py",
+     "the status board at /_ops/, rebuilt from the registry and "
+     "_dev/ops_state.py. noindex, robots-disallowed, not in the sitemap"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
