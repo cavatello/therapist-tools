@@ -13,6 +13,17 @@ second backlog.
 
 UPDATED = "11 August 2026"
 
+# The passphrase that decrypts the published board. Change it here and the next
+# deploy re-encrypts under the new one. An environment variable OPS_PASSPHRASE
+# overrides it, which is the better home if this file ever goes anywhere public.
+#
+# The ciphertext IS public - anyone can fetch ops/index.html - so this is the
+# only thing between a passer-by and the board. Make it long, and do not reuse
+# a passphrase that guards anything that matters. Nothing genuinely
+# confidential belongs on the board in the first place.
+PASSPHRASE = "pine-gate-4980-associate"
+
+
 # Things waiting on the site's owner. Anything here should be doable in
 # minutes; if it takes longer it belongs in NEXT with a note.
 ASKS = [

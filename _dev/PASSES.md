@@ -92,7 +92,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `css_dedupe.py` | css | &mdash; | Remove superseded stylesheets. Every page was carrying each pass twice. |
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
-| `ops_board.py` | last | &mdash; | The status board, generated like every other page rather than hand-written. |
+| `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |

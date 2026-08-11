@@ -1,45 +1,67 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""The status board, generated like every other page rather than hand-written.
+"""The status board: generated like every other page, and encrypted at rest.
 
-WHY IT IS A BUILDER AND NOT AN ARTIFACT
+WHY IT IS A BUILDER AND NOT A DOCUMENT
 
-A status board that somebody has to remember to update is a status board that
-is wrong. This one is built by the pipeline: page counts and page titles come
-out of the live registry, so they cannot drift, and the judgement - what is
-blocked, on whom, what is next - lives in `_dev/ops_state.py` where it is
-short enough to read in one screen.
+A status board somebody has to remember to update is a status board that is
+wrong. This one is built by the publishing pipeline: page counts and page
+titles come out of the live registry, so they cannot drift from the site they
+describe. What lives in `_dev/ops_state.py` is only the judgement - what is
+blocked, on whom, and what is worth doing next - short enough to read in one
+screen.
 
 Run the pipeline and the board is current. That is the whole design.
 
-WHERE IT LIVES, AND WHY IT IS NOT INDEXED
+WHY /ops/ AND NOT /_ops/
 
-`/_ops/`. Every content pass on this site scopes itself to the site root plus
-the five topic directories, so nothing here is rewritten, restyled, counted as
-a page, or put in the sitemap - the same way `concepts.html` and `tycoon.html`
-are kept out of search. robots.txt disallows the directory. It is reachable by
-anyone with the URL, which is the point: a board you can open on a phone
-without a login beats one locked inside a desktop app.
+The first version wrote to `_ops/` and 404ed. `_config.yml` already explains
+why, in its own words: "Directories beginning with an underscore are excluded
+by Jekyll anyway, which is why `_dev/` already 404s." So: `ops/`, no
+underscore, and `_config.yml` is left alone.
 
-Nothing private goes here. It is a work log, not a document store.
+WHY IT IS ENCRYPTED RATHER THAN MERELY OBSCURE
+
+robots.txt and an unguessable path keep a page out of search. They do not keep
+it private - anyone with the URL reads everything. This board carries a working
+picture of an unlaunched roadmap, so the whole body is encrypted with AES-GCM
+under a key derived from a passphrase, and only the ciphertext is published.
+
+That is real protection against discovery and casual scraping. It is NOT
+protection against somebody who has both the file and unlimited time: the
+ciphertext is public, so the passphrase is the only thing between them and the
+content. Use a real passphrase, do not reuse one that guards anything that
+matters, and do not put anything genuinely confidential here. It is a work log.
+
+A guard below fails the build if any plaintext from the board survives into the
+published file. That check is the one that matters - an encryption pass that
+silently stops encrypting is worse than no encryption, because nobody looks
+again.
 """
-import json, os, sys
+import base64, json, os, sys
+import hashlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import ops_state as S
 
 SITE = os.path.dirname(HERE)
-OUT_DIR = os.path.join(SITE, "_ops")
+OUT_DIR = os.path.join(SITE, "ops")
 OUT = os.path.join(OUT_DIR, "index.html")
 REGISTRY = os.path.join(SITE, "mock", "library", "registry.json")
 BASE = "https://therapistsupport.org"
+ITERATIONS = 250000
+
+try:
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+except ImportError:
+    sys.exit("this pass needs `cryptography` for AES-GCM:\n"
+             "  pip3 install cryptography --break-system-packages")
 
 
 def registry():
     with open(REGISTRY, encoding="utf-8") as f:
-        d = json.load(f)
-    return {p["file"]: p for p in d["pages"]}
+        return {p["file"]: p for p in json.load(f)["pages"]}
 
 
 CSS = """
@@ -59,6 +81,9 @@ code{font-family:var(--mono);font-size:12.5px;background:rgba(22,33,27,.07);padd
  border-radius:2px;overflow-wrap:anywhere;word-break:break-word}
 .lab{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.15em;
  text-transform:uppercase;color:var(--muted)}
+.id{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em;
+ background:var(--ink);color:var(--gold);padding:2px 7px;border-radius:2px;margin-right:9px;
+ vertical-align:2px;display:inline-block}
 .mast{background:var(--deep);color:#fff;border-bottom:3px solid var(--ink);padding:40px 0 34px}
 .mast .lab{color:var(--gp)}.mast h1{color:#fff;margin:9px 0 12px;max-width:20ch}
 .mast p{color:#D9E6DF;max-width:64ch}
@@ -83,17 +108,13 @@ section{padding:40px 0 6px}hr{border:0;border-top:2px solid var(--ink);opacity:.
 .card.gold{background:var(--gold)}
 .grid2{display:grid;gap:16px}@media(min-width:780px){.grid2{grid-template-columns:1fr 1fr}}
 .grid2>*{min-width:0}
-.ask{counter-reset:a;list-style:none;padding:0;margin:0}
-.ask>li{counter-increment:a;position:relative;padding:15px 0 15px 56px;
- border-bottom:1px dashed rgba(22,33,27,.28)}
+.ask{list-style:none;padding:0;margin:0}
+.ask>li{position:relative;padding:15px 0;border-bottom:1px dashed rgba(22,33,27,.28)}
 .ask>li:last-child{border-bottom:0;padding-bottom:2px}
-.ask>li::before{content:counter(a);position:absolute;left:0;top:15px;width:34px;height:34px;
- background:var(--ink);color:var(--gold);font-family:var(--mono);font-size:15px;font-weight:600;
- display:grid;place-items:center;border-radius:2px}
-.ask b.h{font-family:var(--sans);font-weight:800;display:block;font-size:17px;margin-bottom:3px}
-.ask .why{font-size:14.2px;color:#4A3B10;margin:5px 0 0}
-.ask .do{font-size:13.5px;margin:8px 0 0;font-family:var(--mono);background:rgba(22,33,27,.09);
- padding:7px 10px;border-radius:2px}
+.ask b.h{font-family:var(--sans);font-weight:800;display:inline;font-size:17px}
+.ask .why{font-size:14.2px;color:#4A3B10;margin:7px 0 0}
+.ask .do{font-size:13.5px;margin:8px 0 0;font-family:var(--mono);background:rgba(22,33,27,.11);
+ padding:8px 10px;border-radius:2px}
 .ask ol{font-size:14px;margin:9px 0 0;padding-left:20px}.ask ol li{margin-bottom:5px}
 .item{border-left:4px solid var(--line);padding:0 0 0 15px;margin:0 0 16px}
 .item.go{border-color:var(--green)}.item.block{border-color:var(--red)}
@@ -124,14 +145,13 @@ tr.hi{background:var(--gold)!important}
 .docs .d{font-size:14px;color:#DCEAE3;margin-top:5px}
 .docs .go{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
  color:var(--gp);margin-top:9px;display:block}
+.docs .id{background:var(--gp);color:var(--deep)}
 .shipped{list-style:none;padding:0;margin:0}
-.shipped li{position:relative;padding:11px 0 11px 28px;border-bottom:1px solid var(--line)}
+.shipped li{position:relative;padding:11px 0;border-bottom:1px solid var(--line)}
 .shipped li:last-child{border-bottom:0}
-.shipped li::before{content:"";position:absolute;left:0;top:17px;width:11px;height:11px;
- background:var(--pine);border:2px solid var(--pine)}
 .shipped a{font-family:var(--sans);font-weight:800;font-size:16px;text-decoration:none}
 .shipped a:hover{text-decoration:underline}
-.shipped .d{font-size:14px;color:#4A4437;margin-top:2px}
+.shipped .d{font-size:14px;color:#4A4437;margin-top:3px}
 .bar{height:11px;background:#E6E0D2;border:1.5px solid var(--ink);overflow:hidden;margin:5px 0 3px}
 .bar i{display:block;height:100%;background:var(--pine)}
 footer{background:var(--deep);color:#C4D5CD;margin-top:50px;padding:26px 0;font-size:13.5px;
@@ -139,60 +159,112 @@ footer{background:var(--deep);color:#C4D5CD;margin-top:50px;padding:26px 0;font-
 footer a{color:var(--gp)}
 """
 
+GATE = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Control panel</title>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#15342B;
+ color:#F4F0E6;font-family:Inter,system-ui,sans-serif;padding:24px}
+.box{width:100%;max-width:400px}
+h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;font-size:26px;
+ margin:0 0 6px;letter-spacing:-.02em}
+p{font-size:14px;color:#BFD2C9;margin:0 0 18px;line-height:1.55}
+input{width:100%;box-sizing:border-box;font-family:'IBM Plex Mono',monospace;font-size:16px;
+ padding:13px 14px;border:2px solid #16211B;border-radius:8px;background:#FBF9F3;color:#16211B}
+input:focus{outline:3px solid #F6C560;outline-offset:1px}
+button{width:100%;margin-top:11px;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+ font-weight:800;font-size:16px;padding:13px;border:2px solid #16211B;border-radius:8px;
+ background:#F6C560;color:#16211B;cursor:pointer}
+button:hover{background:#FFD37A}
+.err{color:#FFC9C4;font-size:13.5px;margin-top:11px;min-height:19px}
+</style></head><body>
+<div class="box">
+<h1>Control panel</h1>
+<p>Encrypted. Enter the passphrase to decrypt this page in your browser &mdash;
+nothing is sent anywhere.</p>
+<form id="f"><input id="p" type="password" autocomplete="current-password"
+ placeholder="Passphrase" autofocus>
+<button type="submit">Unlock</button></form>
+<div class="err" id="e"></div>
+</div>
+<script>
+var SALT="__SALT__",IV="__IV__",CT="__CT__",ITER=__ITER__;
+function b2a(b){return Uint8Array.from(atob(b),function(c){return c.charCodeAt(0)})}
+document.getElementById('f').addEventListener('submit',function(ev){
+  ev.preventDefault();
+  var e=document.getElementById('e');e.textContent='Decrypting\\u2026';
+  var pass=document.getElementById('p').value;
+  crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveKey'])
+  .then(function(base){
+    return crypto.subtle.deriveKey(
+      {name:'PBKDF2',salt:b2a(SALT),iterations:ITER,hash:'SHA-256'},
+      base,{name:'AES-GCM',length:256},false,['decrypt']);
+  }).then(function(key){
+    return crypto.subtle.decrypt({name:'AES-GCM',iv:b2a(IV)},key,b2a(CT));
+  }).then(function(buf){
+    document.open();document.write(new TextDecoder().decode(buf));document.close();
+  }).catch(function(){
+    e.textContent='Wrong passphrase.';
+  });
+});
+</script></body></html>
+"""
 
-def build():
-    reg = registry()
-    n_pages = len(reg)
+
+def board(reg):
+    """The plaintext board. Everything is numbered so it can be referred to."""
     o = []
     A = o.append
+    n_pages = len(reg)
 
     A('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">')
     A('<meta name="viewport" content="width=device-width,initial-scale=1">')
     A('<meta name="robots" content="noindex,nofollow">')
-    A('<title>therapistsupport.org &mdash; control panel</title>')
-    A('<link rel="preconnect" href="https://fonts.googleapis.com">')
-    A('<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>')
+    A("<title>therapistsupport.org &mdash; control panel</title>")
     A('<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:'
-      'opsz,wght@12..96,600;12..96,800&family=Fraunces:opsz,wght@9..144,600;'
-      '9..144,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600'
+      "opsz,wght@12..96,600;12..96,800&family=Fraunces:opsz,wght@9..144,600;"
+      "9..144,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600"
       '&display=swap" rel="stylesheet">')
     A("<style>%s</style>\n</head>\n<body>" % CSS)
 
-    # masthead
     A('<header class="mast"><div class="wrap">')
-    A('<span class="lab">therapistsupport.org &middot; control panel &middot; '
-      'rebuilt %s</span>' % S.UPDATED)
+    A('<span class="lab">control panel &middot; rebuilt %s &middot; every item '
+      "numbered</span>" % S.UPDATED)
     A("<h1>Everything in one place.</h1>")
-    A("<p>What&rsquo;s live, what&rsquo;s moving, what&rsquo;s waiting on you, "
-      "and what&rsquo;s parked pending a decision. This page is rebuilt by the "
-      "publishing pipeline, so it is current every time the site deploys.</p>")
+    A("<p>Rebuilt by the publishing pipeline, so it is current every time the "
+      "site deploys. <b>Refer to anything by its number</b> &mdash; "
+      "&ldquo;do N2&rdquo;, &ldquo;approve P1&rdquo;, &ldquo;A1 is sent&rdquo;.</p>")
     A('<div class="kpi">')
     for n, l in ((n_pages, "pages live &middot; 0 build failures"),
-                 (len(S.ASKS), "things waiting on you"),
+                 (len(S.ASKS), "waiting on you &mdash; A1&ndash;A%d" % len(S.ASKS)),
                  (len(S.DOCS), "proposal awaiting a decision"),
                  (S.FIGURES["editorial_total"] - S.FIGURES["editorial_done"],
                   "approved pages remaining")):
         A('<div><span class="n">%s</span><span class="l">%s</span></div>' % (n, l))
     A("</div></div></header>")
 
-    # jump nav
     A('<nav><div class="wrap" style="padding:0"><ul>')
-    for href, label in (("you", "Waiting on you"), ("docs", "Proposals"),
-                        ("now", "In flight"), ("blocked", "Blocked"),
-                        ("next", "Next up"), ("shipped", "Shipped"),
-                        ("closed", "Closed")):
+    for href, label in (("you", "A &mdash; waiting on you"),
+                        ("docs", "P &mdash; proposals"),
+                        ("now", "F &mdash; in flight"),
+                        ("blocked", "B &mdash; blocked"),
+                        ("next", "N &mdash; next up"),
+                        ("shipped", "S &mdash; shipped"),
+                        ("closed", "C &mdash; closed")):
         A('<li><a href="#%s">%s</a></li>' % (href, label))
     A("</ul></div></nav>")
     A('<div class="wrap">')
 
-    # 01 asks
-    A('<section id="you"><div class="kick"><span class="n">01</span>'
+    # A - asks
+    A('<section id="you"><div class="kick"><span class="n">A</span>'
       "<h2>Waiting on you</h2></div>")
     A('<p class="lede">Nothing else is blocked on you.</p>')
-    A('<div class="card gold"><ol class="ask">')
-    for a in S.ASKS:
+    A('<div class="card gold"><ul class="ask">')
+    for i, a in enumerate(S.ASKS, 1):
         A("<li>")
-        A('<b class="h">%s</b>' % a["title"])
+        A('<span class="id">A%d</span><b class="h">%s</b>' % (i, a["title"]))
         A('<p class="why">%s</p>' % a["why"])
         if a["detail"]:
             A("<ol>")
@@ -201,43 +273,42 @@ def build():
             A("</ol>")
         A('<div class="do">%s</div>' % a["do"])
         A("</li>")
-    A("</ol></div></section>")
+    A("</ul></div></section>")
 
-    # 02 docs
-    A('<hr><section id="docs"><div class="kick"><span class="n">02</span>'
+    # P - proposals
+    A('<hr><section id="docs"><div class="kick"><span class="n">P</span>'
       "<h2>Proposals and prototypes</h2></div>")
     A('<p class="lede">Published alongside this board, so they open in a browser '
       "on any device rather than living inside a chat.</p>")
     A('<div class="docs">')
-    for href, title, desc in S.DOCS:
-        A('<a href="%s"><span class="t">%s</span>'
-          '<span class="d">%s</span>'
-          '<span class="go">Open &rarr;</span></a>' % (href, title, desc))
+    for i, (href, title, desc) in enumerate(S.DOCS, 1):
+        A('<a href="%s"><span class="id">P%d</span><span class="t">%s</span>'
+          '<span class="d">%s</span><span class="go">Open &rarr;</span></a>'
+          % (href, i, title, desc))
     A("</div></section>")
 
-    # 03 in flight
-    A('<hr><section id="now"><div class="kick"><span class="n">03</span>'
+    # F - in flight
+    A('<hr><section id="now"><div class="kick"><span class="n">F</span>'
       "<h2>In flight</h2></div>")
-    for it in S.NOW:
-        A('<div class="item %s"><div class="t">%s<span class="tag t-go">%s</span></div>'
-          '<div class="m">%s</div>' % (it["state"], it["title"], it["tag"], it["meta"]))
+    for i, it in enumerate(S.NOW, 1):
+        A('<div class="item %s"><div class="t"><span class="id">F%d</span>%s'
+          '<span class="tag t-go">%s</span></div><div class="m">%s</div>'
+          % (it["state"], i, it["title"], it["tag"], it["meta"]))
         for p in it["body"]:
             A("<p>%s</p>" % p)
         A("</div>")
 
     yrs = S.FIGURES["county_pay_years"]
     A('<div class="tw"><table><tr><th>Clinical mental-health positions in '
-      "California counties</th>%s</tr>"
-      % "".join("<th>%s</th>" % y for y in yrs))
+      "California counties</th>%s</tr>" % "".join("<th>%s</th>" % y for y in yrs))
     for row in S.FIGURES["county_pay"]:
         cls = ' class="hi"' if "median top" in row[0] else ""
         A("<tr%s><td>%s</td>%s</tr>"
           % (cls, row[0], "".join('<td class="f">%s</td>' % c for c in row[1:])))
     A("</table></div>")
-    A('<p class="cap">Actual wages include part-year staff, which is why they sit '
-      "below the published range and answer a different question. Counts are a "
-      "floor, not a census &mdash; county title conventions vary and anything "
-      "named unusually is missed.</p>")
+    A('<p class="cap">Actual wages include part-year staff, which is why they '
+      "sit below the published range and answer a different question. Counts "
+      "are a floor, not a census.</p>")
 
     A('<div class="grid2" style="margin-top:16px"><div class="card">'
       "<h3>The spread is the story</h3>"
@@ -249,10 +320,9 @@ def build():
       "between &hellip;</td></tr>")
     for c, v in S.FIGURES["spread_low"]:
         A('<tr><td>%s</td><td class="f">%s</td></tr>' % (c, v))
-    A("</table>"
-      '<p style="font-size:14.3px;margin:10px 0 0"><b>2.8&times; between the top '
-      "and the bottom</b> for comparable work, inside one state, from the "
-      "employers&rsquo; own returns.</p></div>")
+    A('</table><p style="font-size:14.3px;margin:10px 0 0"><b>2.8&times; between '
+      "the top and the bottom</b> for comparable work, inside one state, from "
+      "the employers&rsquo; own returns.</p></div>")
     A('<div class="card"><h3>The pre-licensed row, and its limit</h3>'
       '<p style="font-size:14.3px">Exactly <b>one</b> county publishes an '
       "explicitly pre-licensed clinical title: <b>San Bernardino</b>, "
@@ -262,27 +332,30 @@ def build():
       "across San Bernardino and Riverside &mdash; runs "
       "<b>$73,528&ndash;$104,682</b>.</p>"
       '<p style="font-size:14.3px;margin-bottom:0">About <b>$13,400 of licensure '
-      "premium at the top of the range</b>. One county, and the page will say "
-      "so rather than generalize.</p></div></div></section>")
+      "premium at the top of the range</b>. One county, and the page will say so "
+      "rather than generalize.</p></div></div></section>")
 
-    # 04 blocked
-    A('<hr><section id="blocked"><div class="kick"><span class="n">04</span>'
+    # B - blocked
+    A('<hr><section id="blocked"><div class="kick"><span class="n">B</span>'
       "<h2>Blocked, and on what</h2></div>")
-    for b in S.BLOCKED:
-        A('<div class="item block"><div class="t">%s<span class="tag t-block">%s'
-          '</span></div><div class="m">%s</div>' % (b["title"], b["tag"], b["meta"]))
+    for i, b in enumerate(S.BLOCKED, 1):
+        A('<div class="item block"><div class="t"><span class="id">B%d</span>%s'
+          '<span class="tag t-block">%s</span></div><div class="m">%s</div>'
+          % (i, b["title"], b["tag"], b["meta"]))
         for p in b["body"]:
             A("<p>%s</p>" % p)
         A("</div>")
     A("</section>")
 
-    # 05 next
-    A('<hr><section id="next"><div class="kick"><span class="n">05</span>'
+    # N - next
+    A('<hr><section id="next"><div class="kick"><span class="n">N</span>'
       "<h2>Next up, nothing blocking</h2></div>")
+    A('<p class="lede">Ordered by what I think is most valuable. Say a number to '
+      "reorder it.</p>")
     A('<div class="grid2">')
-    for t, m, d in S.NEXT:
-        A('<div class="item go"><div class="t">%s</div><div class="m">%s</div>'
-          "<p>%s</p></div>" % (t, m, d))
+    for i, (t, m, d) in enumerate(S.NEXT, 1):
+        A('<div class="item go"><div class="t"><span class="id">N%d</span>%s</div>'
+          '<div class="m">%s</div><p>%s</p></div>' % (i, t, m, d))
     A("</div>")
     done, total = S.FIGURES["editorial_done"], S.FIGURES["editorial_total"]
     A('<div style="margin-top:6px"><span class="lab">Approved editorial list '
@@ -290,78 +363,104 @@ def build():
       '<div class="bar"><i style="width:%d%%"></i></div></div></section>'
       % (done, total, round(100.0 * done / total)))
 
-    # 06 shipped
-    A('<hr><section id="shipped"><div class="kick"><span class="n">06</span>'
+    # S - shipped
+    A('<hr><section id="shipped"><div class="kick"><span class="n">S</span>'
       "<h2>Shipped &mdash; every link live</h2></div>")
     A('<ul class="shipped">')
     missing = []
-    for f, desc in S.HIGHLIGHTS:
+    for i, (f, desc) in enumerate(S.HIGHLIGHTS, 1):
         p = reg.get(f)
         if not p:
             missing.append(f)
             continue
-        A('<li><a href="%s/%s">%s</a><div class="d">%s</div></li>'
-          % (BASE, f, p.get("title") or f, desc))
+        A('<li><span class="id">S%d</span><a href="%s/%s">%s</a>'
+          '<div class="d">%s</div></li>' % (i, BASE, f, p.get("title") or f, desc))
     A("</ul>")
     A('<p class="cap">Titles and links come from the live registry, so a renamed '
       "page cannot leave a dead entry here.</p></section>")
 
-    # 07 closed
-    A('<hr><section id="closed"><div class="kick"><span class="n">07</span>'
+    # C - closed
+    A('<hr><section id="closed"><div class="kick"><span class="n">C</span>'
       "<h2>Closed, with reasons</h2></div>")
     A('<p class="lede">Written down so a future session does not re-propose '
-      "them.</p>")
+      "them. Say a number to reopen one.</p>")
     A('<div class="grid2">')
-    for t, why in S.CLOSED:
-        A('<div class="item park"><div class="t">%s</div><p>%s</p></div>' % (t, why))
+    for i, (t, why) in enumerate(S.CLOSED, 1):
+        A('<div class="item park"><div class="t"><span class="id">C%d</span>%s'
+          "</div><p>%s</p></div>" % (i, t, why))
     A("</div></section>")
 
     A("</div>")
     A('<footer><div class="wrap"><p style="margin:0">Rebuilt by '
-      "<code>_dev/ops_board.py</code> on every deploy. Not indexed, not in the "
-      "sitemap, and not linked from the site &mdash; but reachable by anyone "
-      'with the URL. Live site: <a href="%s">therapistsupport.org</a></p>'
-      "</div></footer>" % BASE)
+      "<code>_dev/ops_board.py</code> on every deploy, encrypted before "
+      "publication. Not indexed, not in the sitemap, not linked from the site. "
+      'Live site: <a href="%s">therapistsupport.org</a></p></div></footer>' % BASE)
     A("</body>\n</html>\n")
     return "\n".join(o), missing
+
+
+def encrypt(plaintext, passphrase):
+    salt = os.urandom(16)
+    iv = os.urandom(12)
+    key = hashlib.pbkdf2_hmac("sha256", passphrase.encode("utf-8"), salt,
+                              ITERATIONS, dklen=32)
+    ct = AESGCM(key).encrypt(iv, plaintext.encode("utf-8"), None)
+    b = lambda x: base64.b64encode(x).decode("ascii")
+    return (GATE.replace("__SALT__", b(salt)).replace("__IV__", b(iv))
+                .replace("__CT__", b(ct)).replace("__ITER__", str(ITERATIONS)))
 
 
 def main():
     print("the control panel")
     if not os.path.isdir(OUT_DIR):
         os.makedirs(OUT_DIR)
-    html, missing = build()
 
+    reg = registry()
+    plain, missing = board(reg)
     if missing:
-        sys.exit("these pages are listed in ops_state.HIGHLIGHTS and are not in "
-                 "the registry, so the board would print a dead link:\n  %s"
+        sys.exit("listed in ops_state.HIGHLIGHTS and absent from the registry, "
+                 "so the board would print a dead link:\n  %s"
                  % "\n  ".join(missing))
 
-    open(OUT, "w", encoding="utf-8").write(html)
-    print("  wrote _ops/index.html, %s bytes" % format(len(html), ",d"))
+    passphrase = os.environ.get("OPS_PASSPHRASE") or S.PASSPHRASE
+    if not passphrase or len(passphrase) < 12:
+        sys.exit("set a passphrase of at least 12 characters in "
+                 "_dev/ops_state.py, or in OPS_PASSPHRASE")
 
-    # The board must stay out of search and out of the sitemap. Both are true
-    # by construction - every content pass scopes itself to the site root plus
-    # the five topic directories - but robots.txt is a separate file that a
-    # person edits, so it is checked rather than assumed.
+    html = encrypt(plain, passphrase)
+    open(OUT, "w", encoding="utf-8").write(html)
+    print("  wrote ops/index.html, %s bytes of ciphertext from %s of board"
+          % (format(len(html), ",d"), format(len(plain), ",d")))
+
+    # THE GUARD THAT MATTERS. An encryption pass that quietly stops encrypting
+    # is worse than none, because nobody checks twice. Every one of these
+    # strings is in the plaintext board; none may survive into the file.
+    published = open(OUT, encoding="utf-8").read()
+    leaks = [s for s in ("Waiting on you", "MBHSLRP@hcai.ca.gov", "San Bernardino",
+                         "therapistsupport.org/mbh-slrp", "Blocked, and on what",
+                         S.UPDATED)
+             if s in published]
+    if leaks:
+        sys.exit("PLAINTEXT LEAKED INTO THE PUBLISHED FILE: %s" % ", ".join(leaks))
+
+    if "AES-GCM" not in published or "PBKDF2" not in published:
+        sys.exit("the published file is not the encrypted shell")
+
     robots = os.path.join(SITE, "robots.txt")
     txt = open(robots, encoding="utf-8").read() if os.path.exists(robots) else ""
-    if "Disallow: /_ops/" not in txt:
-        print("GUARD: robots.txt does not disallow /_ops/")
-        sys.exit(1)
+    if "Disallow: /ops/" not in txt:
+        sys.exit("robots.txt does not disallow /ops/")
+
     sm = os.path.join(SITE, "sitemap.xml")
-    if os.path.exists(sm) and "/_ops/" in open(sm, encoding="utf-8").read():
-        print("GUARD: /_ops/ has got into sitemap.xml")
-        sys.exit(1)
-    if 'name="robots" content="noindex' not in html:
-        print("GUARD: the board is missing its noindex")
-        sys.exit(1)
+    if os.path.exists(sm) and "/ops/" in open(sm, encoding="utf-8").read():
+        sys.exit("/ops/ has got into sitemap.xml")
 
     for href, _, _ in S.DOCS:
         if not os.path.exists(os.path.join(OUT_DIR, href)):
-            print("GUARD: the board links to _ops/%s and it is not there" % href)
-            sys.exit(1)
-    print("  guards ok - noindex, robots, no sitemap entry, every doc present")
+            sys.exit("the board links to ops/%s and it is not there" % href)
+
+    print("  guards ok - no plaintext in the file, robots disallows it, absent "
+          "from the sitemap, every linked doc present")
 
 
 if __name__ == "__main__":
