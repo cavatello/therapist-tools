@@ -156,6 +156,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `widen.py` | **safe** | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. — the two large-display width steps that one_grid.py and rates_grid.py both mirror |
 | `bbs_redact.py` | **untriaged** | &mdash; | Strip the licensee out of a BBS decision before anything else reads it. |
 | `bbs_stats.py` | **untriaged** | &mdash; | Seven quarters of the Board's own numbers, transcribed once. |
+| `build_bayarea.py` | **untriaged** | &mdash; | Can a Bay Area practicum-site and associate-site directory be built honestly? |
+| `build_stagedoors.py` | **untriaged** | &mdash; | Five doors, three ways each - the expanded stage-hub mockup set. |
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |
