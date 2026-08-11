@@ -69,7 +69,17 @@ INCLUDE = re.compile(
     r"mental health|behavioral health|psychiatric social|clinical therapist"
     r"|marriage.*family|\bmft\b|\blcsw\b|clinical social work"
     r"|clinical psycholog|behavioral clinician|\bclinician\b"
-    r"|\bmh\b|\bbh\b|\bbhs\b", re.I)
+    r"|\bmh\b|\bbh\b|\bbhs\b|\badmhs\b", re.I)
+
+# THE REAL FIX IS NOT MORE KEYWORDS, AND THIS IS THE NOTE SAYING SO.
+# Santa Barbara calls its clinicians "ADMHS Practitioner II" after its old
+# department name. Contra Costa writes "Mh". Every county invents its own
+# acronym and a keyword list will keep losing that race. The durable method is
+# to scope on DepartmentOrSubdivision - "Behavioral Wellness", "Health
+# Services-Mntl Health" are unambiguous - and then judge the title inside it.
+# That is a bigger change than a pattern edit and it is queued rather than
+# rushed; the NOTE printed in main() is what stops a county being ranked on a
+# handful of rows in the meantime.
 
 # The exclusions do more work than the inclusions. Every one of these was
 # found in the file matching the pattern above and is not a mental health
