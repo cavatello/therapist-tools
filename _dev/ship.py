@@ -191,6 +191,7 @@ STRUCTURE = [
 # after everything that emits markup and before the CSS is hoisted.
 FLOORS = [
     ("_dev/contrast_pass.py", "label contrast"),
+    ("_dev/dark_band_labels.py", "dark-band eyebrow contrast"),
     ("_dev/token_floor.py", "the hex tokens under the floor"),
     ("_dev/chrome_armor.py", "chrome that has to outrank the page body"),
     ("_dev/mobile_floor.py", "overflow, hit area, and the 12px text floor"),
