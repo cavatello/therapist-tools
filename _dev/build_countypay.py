@@ -73,6 +73,14 @@ RATIO = TOP["max_med"] / float(BOTTOM["max_med"])
 
 
 def money(n):
+    """A county that reported no usable salary range gets an em-dash, not a zero.
+
+    Some counties leave MinPositionSalary blank for a grade. Printing $0 there
+    would read as "this county pays nothing", which is the one thing it cannot
+    mean.
+    """
+    if n is None:
+        return "&mdash;"
     return "$%s" % format(int(n), ",d")
 
 
@@ -312,7 +320,7 @@ def body():
 
 META = pk.meta_block(
     PAGE,
-    "What California county jobs pay therapists, from the state's own file",
+    "What California county jobs pay therapists",
     "The same clinical role pays %.1f times more in one California county than "
     "another. %s positions across %d counties, from what employers reported to "
     "the State Controller." % (RATIO, format(cp.YEAR_TOTALS[LATEST]["matched"], ",d"),

@@ -52,13 +52,11 @@ ASKS = [
 
 # Work with the data in hand and nothing blocking it.
 NOW = [
-    {"title": "County pay, from the State Controller&rsquo;s own file",
-     "state": "go", "tag": "Data in, page next",
-     "meta": "Three years parsed &middot; 1.22 million rows",
-     "body": ["The only source that can say what a county <em>actually paid</em> "
-              "rather than what it advertised, and nobody has done it for this "
-              "audience. Spread is the story: <b>2.8&times; between the top and "
-              "bottom county</b> for comparable work."]},
+    {"title": "Ask-a-question surface", "state": "go", "tag": "Starting",
+     "meta": "Item 27 of the approved 28 &mdash; promoted",
+     "body": ["Questions in, answered by the site with citations, each answer "
+              "becomes a page. On the community analysis this is the highest-value "
+              "item on the whole editorial list."]},
 ]
 
 # Blocked, and explicitly on what. Never on "time".
@@ -82,16 +80,10 @@ BLOCKED = [
 
 # Unblocked and queued, most valuable first.
 NEXT = [
-    ("County pay page", "Data in hand",
-     "Pairs with the associate pay page and the county directory."),
-    ("Ask-a-question surface", "Item 27 of the 28 &mdash; worth promoting",
-     "Questions in, answered by the site with citations, each answer becomes a "
-     "page. Would have helped all three MBH-SLRP posters who got four comments, "
-     "one, and none."),
     ("Application-portal directory", "No blockers",
      "County HR and jobs URLs, CalOpps, county NeoGov instances, verified like "
      "the county plans. Portals do not expire the way postings do."),
-    ("The rest of the editorial list", "22 of 28 remaining",
+    ("The rest of the editorial list", "21 of 28 remaining",
      "Advertising rule, telehealth documentation, paying associates, what "
      "licensure costs, supervisor directory, records, subpoenas, legislation "
      "tracker."),
@@ -130,6 +122,10 @@ DOCS = [
 # resolved from the live registry, so renaming a page cannot leave a stale
 # entry here.
 HIGHLIGHTS = [
+    ("county-therapist-pay-california.html",
+     "The same clinical role pays <b>2.8&times; more</b> in one California county "
+     "than another &mdash; $140,483 in San Mateo against $50,855 in Imperial, "
+     "from what employers reported to the State Controller."),
     ("mbh-slrp-california.html",
      "32 direct-care hours a week, one lump payment, <b>breach means repaying "
      "the whole award within a year</b>, and cycle 1 was 3.7&times; "
@@ -158,7 +154,7 @@ HIGHLIGHTS = [
 
 # Numbers the board prints that are not derivable from the repository.
 FIGURES = {
-    "editorial_done": 6,
+    "editorial_done": 7,
     "editorial_total": 28,
     "county_pay": [
         ("Positions found", "12,679", "12,729", "12,850"),

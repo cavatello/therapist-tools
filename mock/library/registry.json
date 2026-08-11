@@ -573,6 +573,19 @@
    "leaf": false
   },
   {
+   "file": "county-therapist-pay-california.html",
+   "title": "What California county jobs pay therapists",
+   "topic": "getting-paid",
+   "format": "reference",
+   "question": "What does a California county job actually pay a therapist?",
+   "outcome": "Every county ranked by published salary range, three years of movement, and the one county that publishes what it pays a pre-licensed clinician",
+   "number": "2.8× between the top and bottom county",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "daybreak-university-mft.html",
    "title": "Daybreak University — MFT program in California",
    "topic": "licensure",
@@ -2531,7 +2544,8 @@
      "name": "What the work is worth",
      "files": [
       "rates.html",
-      "insurance-reimbursement-rates-california-therapist.html"
+      "insurance-reimbursement-rates-california-therapist.html",
+      "county-therapist-pay-california.html"
      ]
     },
     {

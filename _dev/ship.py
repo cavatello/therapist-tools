@@ -99,6 +99,12 @@ BUILD = [
     ("_dev/build_mbhslrp.py",
      "MBH-SLRP in full - the three tiers, the conditions nobody mentions, "
      "and where the published sources disagree"),
+    # What a county job actually pays, from the State Controller's bulk
+    # files. Reads _dev/county_pay_data.py, written by _dev/county_pay.py
+    # from three years of returns cached under _dev/_cache.
+    ("_dev/build_countypay.py",
+     "county therapist pay - every county ranked by published salary "
+     "range, and the 2.8x spread across the state"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

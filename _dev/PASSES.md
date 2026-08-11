@@ -26,6 +26,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
+| `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
