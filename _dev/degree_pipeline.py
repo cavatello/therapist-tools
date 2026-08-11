@@ -6,7 +6,7 @@ WRITTEN BY _dev/ipeds_degrees.py, which needs the network. Do not
 edit. `WIDE` is the set of CIP codes a California LMFT or LPCC
 degree actually files under; 51.1505 alone undercounts because the
 Board approves a degree by content rather than by CIP. 2020 is absent
-because this mirror returns it byte-identical to 2015 for every
+because this mirror returns it byte-identical to 2019 for every
 California institution, which is not a real year.
 """
 

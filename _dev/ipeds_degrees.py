@@ -118,7 +118,8 @@ def main():
          "degree actually files under; 51.1505 alone undercounts because the\n",
          "Board approves a degree by content rather than by CIP. %d is absent\n"
          % EXCLUDED,
-         "because this mirror returns it byte-identical to %d for every\n" % first,
+         "because this mirror returns it byte-identical to %d for every\n"
+         % (EXCLUDED - 1),
          'California institution, which is not a real year.\n"""\n\n']
     b.append("CHECKED = %r\n" % CHECKED)
     b.append("SOURCE = %r\n" % DOC)

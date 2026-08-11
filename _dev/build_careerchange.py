@@ -193,7 +193,8 @@ def body():
                 "counseling are shown for scale and are not counted in the "
                 "clinical pipeline &mdash; social work leads to the LCSW by a "
                 "different route, and a school counseling credential is not a "
-                "Board license at all." % (G.EXCLUDED_YEAR, FIRST),
+                "Board license at all."
+                % (G.EXCLUDED_YEAR, G.EXCLUDED_YEAR - 1),
         minw=860))
 
     o.append('<p class="pk-p">Two things worth sitting with. The clinical '
@@ -205,6 +206,24 @@ def body():
              "counseling side.</p>"
              % (WIDE_GROWTH, ALL_GROWTH, n(G.SERIES[FIRST]["440701"]), FIRST,
                 n(G.SERIES[LAST]["440701"]), LAST))
+
+    prev = G.YEARS[-2]
+    prev_wide = sum(G.SERIES[prev][c] for c in G.WIDE)
+    o.append(pk.callout(
+        "One caution about that %.0f%%" % WIDE_GROWTH,
+        ["Most of it lands in a single year. The clinical pipeline was <b>%s</b> "
+         "in %d and <b>%s</b> in %d &mdash; a step of that size in twelve "
+         "months can be a change in how institutions code their programs as "
+         "easily as it can be a change in how many people enrolled, and the "
+         "survey does not say which."
+         % (n(prev_wide), prev, n(G.WIDE_LATEST), LAST),
+         "The direction does not depend on it. Measured to %d and stopping "
+         "there, the clinical pipeline is up <b>%.0f%%</b> against <b>%.0f%%</b> "
+         "for California master&rsquo;s degrees generally &mdash; still more "
+         "than twice as fast, without the disputed year doing any of the work."
+         % (prev, 100.0 * (prev_wide - G.WIDE_FIRST) / G.WIDE_FIRST,
+            100.0 * (G.STATE_TOTAL[prev] - G.STATE_TOTAL[FIRST])
+            / G.STATE_TOTAL[FIRST])]))
 
     o.append(pk.callout(
         "What that looks like from inside the queue",
@@ -641,6 +660,7 @@ def main():
         ("the tuition caveat", "not the range across California"),
         ("the not-advice statement", "It does not say whether to do this"),
         ("the published-range caveat", "not what any individual earns"),
+        ("the single-year caution", "Most of it lands in a single year"),
     ], [j[0] for j in JUMPS])
 
     s = open(p, encoding="utf-8").read()
