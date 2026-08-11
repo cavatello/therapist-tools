@@ -105,6 +105,13 @@ BUILD = [
     ("_dev/build_countypay.py",
      "county therapist pay - every county ranked by published salary "
      "range, and the 2.8x spread across the state"),
+    # The stage the site had nothing for: already enrolled, about to see
+    # clients. Reads _dev/practicum_data.py, written by _dev/practicum.py
+    # from the 78-program research file. The placement taxonomy is the
+    # only comparison of its kind anywhere.
+    ("_dev/build_practicum.py",
+     "the practicum year - the seven trainee rules, and which of the 78 "
+     "programs finds your site and which leaves it to you"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

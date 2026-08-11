@@ -1691,6 +1691,19 @@
    "leaf": false
   },
   {
+   "file": "practicum-california-mft-trainee.html",
+   "title": "The practicum year in California: rules, hours and placement",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "How does the practicum work for a California MFT student?",
+   "outcome": "The seven trainee rules, all 78 programs compared on who finds your site, and the 1,300 hours only one of the three licenses lets you bank",
+   "number": "29 of 78 programs publish nothing about placement",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "privacy.html",
    "title": "Privacy Policy — Therapist Support",
    "topic": "practice",
@@ -2528,6 +2541,12 @@
      "directory": true,
      "files": [
       "mft-programs-california.html"
+     ]
+    },
+    {
+     "name": "More in Licensure",
+     "files": [
+      "practicum-california-mft-trainee.html"
      ]
     }
    ]
