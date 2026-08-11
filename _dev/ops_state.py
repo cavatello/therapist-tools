@@ -125,10 +125,22 @@ CLOSED = [
 # them. Paths are relative to /_ops/.
 DOCS = [
     ("stage-architecture.html",
-     "Visitor-stage architecture &mdash; the full proposal",
+     "P1 &middot; Visitor-stage architecture &mdash; the case",
      "Six-stage model, the coverage audit of all 182 registry pages, three IA "
-     "options and three rendered mockups (the Desk, the Ladder, the Front "
-     "Page). This is the thing awaiting your decision."),
+     "options and three rendered mockups. The <em>whether</em>."),
+    ("stage-doors.html",
+     "P2 &middot; Five doors, three ways each &mdash; the designs",
+     "16 rendered mockups: two or three alternatives for every door plus three "
+     "for the sitewide band, each with what it buys, what it costs and a "
+     "recommendation. Ends with the impact list &mdash; every pass that "
+     "changes, and the one configuration line that would make all five hubs "
+     "invisible. The <em>which</em> and the <em>what else</em>."),
+    ("bay-area-directories.html",
+     "P3 &middot; Bay Area practicum and associate sites",
+     "Whether the two directories can be sourced honestly, and from what. "
+     "313 nonprofit clinical organizations and 517 health-center sites are "
+     "reachable from federal files; group private practices are not reachable "
+     "at all, which is the finding."),
 ]
 
 # The pages worth surfacing on the board, newest first. Titles and links are
@@ -173,11 +185,11 @@ FIGURES = {
     "editorial_done": 7,
     "editorial_total": 28,
     "county_pay": [
-        ("Positions found", "12,679", "12,729", "12,850"),
+        ("Positions found", "12,297", "13,041", "13,184"),
         ("Counties reporting", "56", "56", "55"),
-        ("Published range &mdash; median floor", "$80,080", "$82,285", "$84,074"),
-        ("Published range &mdash; median top", "$102,730", "$102,981", "$106,605"),
-        ("Actual total wages &mdash; median", "$91,266", "$92,276", "$94,879"),
+        ("Published range &mdash; median floor", "$77,392", "$77,355", "$80,954"),
+        ("Published range &mdash; median top", "$102,170", "$100,656", "$105,827"),
+        ("Actual total wages &mdash; median", "$89,568", "$90,078", "$93,215"),
     ],
     "county_pay_years": ("2023", "2024", "2025"),
     "spread_high": [("San Mateo", "$140,483"), ("Monterey", "$132,775"),

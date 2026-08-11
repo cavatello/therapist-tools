@@ -374,8 +374,13 @@ def main():
 
     # The pre-licensed section must keep its sample-size caveat attached to the
     # number, not floating elsewhere.
-    i_num = art.find(money(cp.PRE_LICENSED["max"]))
-    i_caveat = art.find("sample of one county")
+    # Scope to the pre-licensed section. Searching the whole article for the
+    # figure finds whichever county happens to print the same number first in
+    # the big table, which moved when the title patterns were corrected and
+    # failed this guard on a page that was perfectly fine.
+    i_sec = art.find('id="prelicensed"')
+    i_num = art.find(money(cp.PRE_LICENSED["max"]), i_sec if i_sec > 0 else 0)
+    i_caveat = art.find("sample of one county", i_sec if i_sec > 0 else 0)
     if i_num < 0 or i_caveat < 0 or abs(i_num - i_caveat) > 4000:
         print("GUARD: the one-county caveat has drifted away from the figure")
         bad += 1
