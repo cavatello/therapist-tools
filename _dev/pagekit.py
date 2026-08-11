@@ -466,23 +466,26 @@ BRITISH = (("license", "se", "ce"), ("labor", "or", "our"),
            ("counseling", "el", "ell"), ("traveling", "l", "ll"),
            ("modeling", "l", "ll"), ("labeled", "eled", "elled"),
            ("canceled", "eled", "elled"),
-           ("organiz", "z", "s"), ("realiz", "z", "s"),
+           ("organiz", "z", "s"), ("realize", "ze", "se"),
            ("recogniz", "z", "s"), ("authoriz", "z", "s"),
            ("summariz", "z", "s"),
-           # These four take the full ending rather than the stem. The stem
+           # These take the full ending rather than the stem. The stem
            # forms collide with correct American words: the -s stem of
-           # "analyze" is inside "analysis", and the -s stem of "criticize"
-           # is inside "criticism". A guard that fires on "analysis" gets
+           # "analyze" is inside "analysis", the -s stem of "criticize"
+           # is inside "criticism", the -s stem of "realize" is inside
+           # "realistic", and the -s stem of "specialize" is inside
+           # "specialist". "enrollment" is here for the same reason one line
+           # down: the British "enrol" is a substring of "enrolled". A guard that fires on "analysis" gets
            # switched off, which is worse than a guard that misses a word.
            ("analyze", "ze", "se"), ("criticize", "ze", "se"),
            ("emphasize", "ze", "se"), ("apologize", "ze", "se"),
-           ("utiliz", "z", "s"), ("specializ", "z", "s"),
+           ("utiliz", "z", "s"), ("specialize", "ze", "se"),
            ("prioritiz", "z", "s"),
            ("judgment", "dgm", "dgem"), ("favor", "or", "our"),
            ("color", "or", "our"), ("center", "er", "re"),
            ("program", "", "me"), ("toward", "", "s"),
            ("while", "e", "st"), ("among", "", "st"),
-           ("enroll", "ll", "l"), ("fulfill", "ll", "l"))
+           ("enrollment", "ll", "l"), ("fulfill", "ll", "l"))
 
 
 def spelling(html):

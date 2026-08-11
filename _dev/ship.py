@@ -75,6 +75,12 @@ BUILD = [
     ("_dev/build_oos_license.py",
      "bringing a license from another state - Path A, Path B, and why "
      "continuing education cannot close a transcript gap"),
+    # Why half an associate's applications never get a reply. A billing
+    # rule, not an hour count - and the loan-repayment tier nobody in
+    # those threads mentioned.
+    ("_dev/build_gethired.py",
+     "getting hired as a California associate - which settings can "
+     "legally bill for a pre-licensed clinician, and what that is worth"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

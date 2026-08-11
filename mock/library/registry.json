@@ -1249,6 +1249,19 @@
    "leaf": true
   },
   {
+   "file": "getting-hired-as-a-california-associate.html",
+   "title": "Getting hired as a California associate: why half your applications never reply",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "I have 547 hours and everyone wants someone almost done — how do I get hired?",
+   "outcome": "Which settings can legally bill for a pre-licensed clinician, the $180,000 associate loan-repayment tier, and what a worse offer taken sooner is actually worth",
+   "number": "$180,000, associate tier",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "golden-gate-university-mft.html",
    "title": "Golden Gate University — MFT program in California",
    "topic": "licensure",
@@ -2444,6 +2457,7 @@
      "name": "Counting the hours, and the job that banks them",
      "files": [
       "amft-3000-hours-california.html",
+      "getting-hired-as-a-california-associate.html",
       "associate-mft-job-advisor.html",
       "associate-therapist-pay-los-angeles-bay-area.html",
       "associate-unpaid-hours-california.html",

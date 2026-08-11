@@ -27,6 +27,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
+| `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
