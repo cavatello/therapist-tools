@@ -52,11 +52,17 @@ ASKS = [
 
 # Work with the data in hand and nothing blocking it.
 NOW = [
-    {"title": "Ask-a-question surface", "state": "go", "tag": "Starting",
-     "meta": "Item 27 of the approved 28 &mdash; promoted",
-     "body": ["Questions in, answered by the site with citations, each answer "
-              "becomes a page. On the community analysis this is the highest-value "
-              "item on the whole editorial list."]},
+    {"title": "The two stages the site had nothing for",
+     "state": "go", "tag": "Both shipped",
+     "meta": "78 programs reduced &middot; nine years of federal completions",
+     "body": ["The coverage audit found <b>0 pages</b> for &ldquo;in a "
+              "program&rdquo; and <b>0</b> for &ldquo;deciding whether to "
+              "start&rdquo;, against 73 for people already inside. Both now "
+              "exist, and both carry a finding nobody else has published: "
+              "<b>29 of the 78 programs publish nothing about who finds your "
+              "practicum site</b>, and <b>only the MFT license lets any of "
+              "those hours count</b> &mdash; the LPCC and LCSW statutes "
+              "require all 3,000 after the degree."]},
 ]
 
 # Blocked, and explicitly on what. Never on "time".
@@ -80,13 +86,20 @@ BLOCKED = [
 
 # Unblocked and queued, most valuable first.
 NEXT = [
+    ("Ask-a-question surface", "Item 27 of the 28 &mdash; worth promoting",
+     "Questions in, answered by the site with citations, each answer becomes a "
+     "page. Would have helped all three MBH-SLRP posters who got four comments, "
+     "one, and none."),
     ("Application-portal directory", "No blockers",
      "County HR and jobs URLs, CalOpps, county NeoGov instances, verified like "
      "the county plans. Portals do not expire the way postings do."),
+    ("A supervisor directory", "Now the obvious next one",
+     "The practicum page names the supervision ratio a trainee needs and the "
+     "career-change page names supervision as an unpriced cost. Neither can "
+     "say where to find one."),
     ("The rest of the editorial list", "21 of 28 remaining",
      "Advertising rule, telehealth documentation, paying associates, what "
-     "licensure costs, supervisor directory, records, subpoenas, legislation "
-     "tracker."),
+     "licensure costs, records, subpoenas, legislation tracker."),
 ]
 
 # Decided against, with the reason, so a future session does not re-propose it.
@@ -122,10 +135,18 @@ DOCS = [
 # resolved from the live registry, so renaming a page cannot leave a stale
 # entry here.
 HIGHLIGHTS = [
+    ("practicum-california-mft-trainee.html",
+     "All 78 programs on one question &mdash; whose job is it to find your "
+     "practicum site. <b>29 publish nothing, 10 say it is yours.</b> Plus the "
+     "seven trainee rules, starting with the one that rules out every private "
+     "practice in the state."),
+    ("becoming-a-therapist-california-career-change.html",
+     "California&rsquo;s clinical master&rsquo;s pipeline grew <b>66% in eight "
+     "years</b> while graduate education overall grew 14%. The three licenses "
+     "compared on statute rather than temperament."),
     ("county-therapist-pay-california.html",
-     "The same clinical role pays <b>2.8&times; more</b> in one California county "
-     "than another &mdash; $140,483 in San Mateo against $50,855 in Imperial, "
-     "from what employers reported to the State Controller."),
+     "Every county ranked by what it actually paid, three years running. "
+     "<b>2.8&times; between the top and the bottom.</b>"),
     ("mbh-slrp-california.html",
      "32 direct-care hours a week, one lump payment, <b>breach means repaying "
      "the whole award within a year</b>, and cycle 1 was 3.7&times; "
@@ -145,11 +166,6 @@ HIGHLIGHTS = [
     ("out-of-state-to-california-licensure.html",
      "Path A against Path B across all three licenses, and the correction that "
      "<b>continuing education cannot fix a transcript</b>."),
-    ("therapists-by-state-compared.html",
-     "Per-capita workforce comparison with the license-title breakdown for "
-     "every state in it."),
-    ("therapists-by-county-california.html",
-     "All 58 counties, built from the state&rsquo;s monthly licensee register."),
 ]
 
 # Numbers the board prints that are not derivable from the repository.
