@@ -119,6 +119,7 @@ PROGRAM = ("https://hcai.ca.gov/workforce/initiatives/"
 JUMPS = [("what", "What it is"),
          ("tiers", "The three tiers"),
          ("conditions", "The conditions"),
+         ("odds", "Your odds"),
          ("sites", "Where you must work"),
          ("room", "What the room is asking"),
          ("tax", "The tax question"),
@@ -275,6 +276,90 @@ def body():
          '<a href="%s">the hiring page</a>.' % (PAY, HIRED)]))
     o.append("</section>")
 
+    # ---------------------------------------------------------------- odds
+    o.append('<section class="pk-sec" id="odds">')
+    o.append('<p class="pk-k">Your odds, and how they are decided</p>')
+    o.append('<h2 class="pk-h">%s applications. About a third were ruled '
+             "ineligible.</h2>" % format(APPS, ",d"))
+    o.append('<p class="pk-d">HCAI reviewed its first cycle in public, and the '
+             "numbers are the only published guide to how contested this is. "
+             "Nobody quotes them.</p>")
+
+    o.append(pk.table(
+        ["Cycle 1, as at 1 October 2025", "Figure"],
+        [["Completed applications received",
+          ("over %s" % format(APPS, ",d"), "f")],
+         ["Requested by <b>eligible</b> applications",
+          ("$%s" % format(int(ELIG_REQUESTED), ",d"), "f")],
+         ["Requested by <b>ineligible</b> applications",
+          ("$%s" % format(int(INELIG_REQUESTED), ",d"), "f")],
+         (["Available for award", ("$%s" % format(TOTAL_FUND, ",d"), "f")], "hi"),
+         ["Eligible applicants who are clinical social workers or marriage "
+          "and family therapists, associate and licensed",
+          ("%d%%" % CSW_MFT_SHARE, "f")],
+         ["Eligible applicants in Los Angeles County",
+          ("%s%% (%s)" % (LA_SHARE, format(LA_N, ",d")), "f")],
+         ["Eligible applicants who can provide care in Spanish",
+          ("%d%%" % SPANISH_SHARE, "f")]],
+        caption="Transcribed from HCAI&rsquo;s own BH-CONNECT cycle review. "
+                "Award notices for that cycle were anticipated in November "
+                "2025; the review does not report the awards themselves.",
+        minw=560))
+
+    o.append(pk.callout(
+        "What those figures mean, and what is derived rather than published",
+        ["<b>Eligible demand was about %.1f times the money.</b> $%s requested "
+         "against $%s available &mdash; so on the face of it roughly <b>%d%%</b> "
+         "of eligible requested dollars could be funded. That is published "
+         "arithmetic, not an estimate."
+         % (OVERSUBSCRIBED, format(int(ELIG_REQUESTED), ",d"),
+            format(TOTAL_FUND, ",d"), FUNDABLE_PCT),
+         "<b>About a third of applications did not clear eligibility.</b> This "
+         "part is derived: %s applicants are %s%% of the eligible pool, which "
+         "puts that pool near <b>%s</b> &mdash; leaving roughly %s of the %s+ "
+         "completed applications ineligible. Dividing the ineligible dollar "
+         "total by the average eligible request lands in the same place. It is "
+         "an inference from HCAI&rsquo;s numbers, not one of HCAI&rsquo;s "
+         "numbers."
+         % (format(LA_N, ",d"), LA_SHARE, format(ELIGIBLE, ",d"),
+            format(APPS - ELIGIBLE, ",d"), format(APPS, ",d")),
+         "<b>The average eligible applicant asked for about $%s.</b> If awards "
+         "landed near requests, $%s funds somewhere close to a thousand of "
+         "them &mdash; roughly one in %.1f eligible applicants. Treat that as "
+         "an order of magnitude and nothing finer; HCAI has not published the "
+         "awards."
+         % (format(AVG_REQUEST, ",d"), format(TOTAL_FUND, ",d"),
+            OVERSUBSCRIBED)]))
+
+    o.append('<h3 class="pk-h3">The %d points, and where they are</h3>' % 70)
+    o.append('<p class="pk-p">Because it is oversubscribed, applications are '
+             "scored. The 2025 grant guide publishes the rubric, and it is "
+             "worth reading as a description of the job the state is trying to "
+             "buy rather than as a form to game.</p>")
+    o.append(pk.table(
+        ["What is scored", "Points"],
+        [(["Services at a <b>county behavioral health</b> site", ("20", "f")], "hi"),
+         (["Publicly funded grants or programs", ("20", "f")], "hi"),
+         ["Languages spoken", ("15", "f")],
+         ["Experience in a Medi-Cal safety-net setting", ("10", "f")],
+         ["Located in a shortage area", ("5", "f")],
+         ["<b>Total</b>", ("70", "f")]],
+        caption="Two things fall out of this. A <b>county behavioral health "
+                "site is worth as much as any factor in the rubric</b> and "
+                "twice what safety-net experience alone is worth &mdash; which "
+                "is why the county plans are the list to start from. And "
+                "languages score higher than either shortage-area location or "
+                "safety-net experience, in a pool where %d%% already speak "
+                "Spanish." % SPANISH_SHARE,
+        minw=520))
+    o.append('<p class="pk-p">HCAI also states that it &ldquo;intends for '
+             "these funds to support a geographic and setting/market type "
+             "distribution in California&rdquo; &mdash; so the score is not "
+             "the whole of it, and being the thousandth strong application "
+             "from Los Angeles is not the same as being the first from a rural "
+             "county.</p>")
+    o.append("</section>")
+
     # --------------------------------------------------------------- sites
     o.append('<section class="pk-sec" id="sites">')
     o.append('<p class="pk-k">Where you have to work</p>')
@@ -429,6 +514,19 @@ def body():
             ("HCAI eligibility quiz &mdash; the state&rsquo;s own checker, "
              "which is what to use rather than this page", VERIFY_HCAI),
         ]),
+        ("The cycle, and the scoring", [
+            ("HCAI BH-CONNECT cycle review &mdash; the %s completed "
+             "applications, the eligible and ineligible request totals, and "
+             "the applicant breakdown by profession, county and language"
+             % format(APPS, ",d"),
+             "https://hcai.ca.gov/document/item-15_bh-connect-cycle-review"),
+            ("MBH-SLRP Grant Guide, 2025 &mdash; the 70-point scoring rubric, "
+             "the four-year obligation for clinical professions, the lump-sum "
+             "disbursement, HCAI&rsquo;s refusal to advise on tax, and the "
+             "recovery of the total award on breach",
+             "https://hcai.ca.gov/wp-content/uploads/2025/07/"
+             "MBH-SLRP-Grant-Guide-2025.pdf"),
+        ]),
         ("The figures", [
             ("Board of Behavioral Sciences, Policy and Advocacy Committee, "
              "17 April 2026 &mdash; the $%s available for award, the "
@@ -496,6 +594,11 @@ def main():
         ("the source disagreement", "do not agree, so here"),
         ("the tax statute", "increased availability of health care services"),
         ("the funding total", format(TOTAL_FUND, ",d")),
+        ("the oversubscription finding", "times the money"),
+        ("the derived-not-published label", "not one of HCAI&rsquo;s"),
+        ("the scoring rubric", "county behavioral health</b> site"),
+        ("the breach recovery", "shall recover the "),
+        ("HCAI declining to advise on tax", "HCAI does not give tax advice"),
     ], [j[0] for j in JUMPS])
 
     s = open(p, encoding="utf-8").read()
