@@ -34,6 +34,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
+| `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
@@ -180,6 +181,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `patch_touro.py` | **untriaged** | &mdash; | Touro's MFT track is accredited WITH SHOW CAUSE, and the page said "accredited". |
 | `patch_tsshort.py` | **untriaged** | &mdash; | The In-short card stops repeating the headline it sits under. |
 | `patch_years.py` | **untriaged** | &mdash; | Two claims on the hub that the second collection made untrue. |
+| `practicum.py` | **untriaged** | &mdash; | How each of California's MFT programs handles the practicum placement. |
+| `practicum_data.py` | **untriaged** | &mdash; | Practicum placement across California's MFT programs. |
 | `state_workforce.py` | **untriaged** | &mdash; | The mental health workforce of every state, from BLS and the Census. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |

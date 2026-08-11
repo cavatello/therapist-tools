@@ -60,6 +60,12 @@ NEW_CLUSTERS = [
       "therapy-liability-insurance-california.html"]),
     ("training", "Where the doctorate comes from",
      ["psyd-programs-california.html"]),
+    # The practicum page arrived with no cluster to belong to and was swept
+    # into the Licensure catch-all, which is exactly the failure this pass
+    # exists to stop. It is not part of "Counting the hours" - those pages
+    # are all about the post-degree associate - so it gets its own.
+    ("licensure", "The practicum, and the year before you register",
+     ["practicum-california-mft-trainee.html"]),
 ]
 
 
