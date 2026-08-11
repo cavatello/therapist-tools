@@ -27,6 +27,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
+| `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
@@ -155,6 +156,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `dca_licensees.py` | **untriaged** | &mdash; | Every licensed therapist in California, counted, from the state's own file. |
 | `dca_stats.py` | **untriaged** | &mdash; | Counts derived from the DCA licensee file. GENERATED - do not edit. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
+| `hrsa_sites.py` | **untriaged** | &mdash; | The federal shortage-area and health-center files, reduced to counts. |
+| `hrsa_stats.py` | **untriaged** | &mdash; | Counts derived from HRSA bulk downloads. WRITTEN BY _dev/hrsa_sites.py. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
 | `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |

@@ -81,6 +81,12 @@ BUILD = [
     ("_dev/build_gethired.py",
      "getting hired as a California associate - which settings can "
      "legally bill for a pre-licensed clinician, and what that is worth"),
+    # The follow-up question the hiring page raises and does not answer:
+    # so which employers? Reads _dev/hrsa_stats.py, written by
+    # _dev/hrsa_sites.py from HRSA bulk downloads.
+    ("_dev/build_forgiveness.py",
+     "which California employers unlock loan forgiveness - four programs, "
+     "three different tests, and only two that reach an associate"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

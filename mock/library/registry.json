@@ -1431,6 +1431,19 @@
    "leaf": true
   },
   {
+   "file": "loan-forgiveness-employers-california.html",
+   "title": "Loan forgiveness for California therapists: which employers qualify",
+   "topic": "licensure",
+   "format": "guide",
+   "question": "Which California employers qualify me for student loan forgiveness?",
+   "outcome": "What each of the four programs actually asks, which two reach an associate, and where California’s designated shortage areas are",
+   "number": "2 of 4 reach an associate",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "loma-linda-university-mft.html",
    "title": "Loma Linda University — MFT program in California",
    "topic": "licensure",
@@ -2458,6 +2471,7 @@
      "files": [
       "amft-3000-hours-california.html",
       "getting-hired-as-a-california-associate.html",
+      "loan-forgiveness-employers-california.html",
       "associate-mft-job-advisor.html",
       "associate-therapist-pay-los-angeles-bay-area.html",
       "associate-unpaid-hours-california.html",
