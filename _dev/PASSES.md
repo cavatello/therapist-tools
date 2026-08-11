@@ -32,6 +32,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
+| `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
@@ -156,6 +157,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `dca_licensees.py` | **untriaged** | &mdash; | Every licensed therapist in California, counted, from the state's own file. |
 | `dca_stats.py` | **untriaged** | &mdash; | Counts derived from the DCA licensee file. GENERATED - do not edit. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
+| `hc_orgs.py` | **untriaged** | &mdash; | California health center organizations, with every link actually checked. |
+| `hc_orgs_data.py` | **untriaged** | &mdash; | California health center organizations. WRITTEN BY _dev/hc_orgs.py. |
 | `hrsa_sites.py` | **untriaged** | &mdash; | The federal shortage-area and health-center files, reduced to counts. |
 | `hrsa_stats.py` | **untriaged** | &mdash; | Counts derived from HRSA bulk downloads. WRITTEN BY _dev/hrsa_sites.py. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
