@@ -93,6 +93,25 @@ PAY_WINDOW = "November 2026 and November 2027"
 MEDICAID_SHARE = 40
 RURAL_SHARE = 30
 
+# Cycle 1, from HCAI's own post-cycle review presented to its advisory
+# body. These are the only published numbers on how contested this is.
+APPS = 5100
+ELIG_REQUESTED = 331364366.86
+INELIG_REQUESTED = 178678573.79
+LA_SHARE = 32.65
+LA_N = 1123
+CSW_MFT_SHARE = 70
+SPANISH_SHARE = 38
+# Derived, and labelled as derived on the page: 1,123 is 32.65% of the
+# eligible pool, so the pool is about 3,440, which makes about a third
+# of the 5,100+ completed applications ineligible. Cross-checked against
+# the ineligible dollar total divided by the average eligible request,
+# which lands at 1,854 - the same order.
+ELIGIBLE = 3440
+AVG_REQUEST = 96341
+OVERSUBSCRIBED = 3.7
+FUNDABLE_PCT = 27
+
 VERIFY_HCAI = "https://hcai.ca.gov/loans-scholarships-grants/eligibility/"
 PROGRAM = ("https://hcai.ca.gov/workforce/initiatives/"
            "behavioral-health-bh-connect/mbhslrp/")
@@ -141,7 +160,7 @@ def body():
         [("$%sm" % (TOTAL_FUND // 1000000), "available for award"),
          ("$%s" % format(TIER2, ",d"), "the associate tier"),
          ("%d hrs" % DIRECT_HOURS, "a week of direct client care"),
-         ("1", "payment, to your loan servicer")],
+         ("%.1f&times;" % OVERSUBSCRIBED, "oversubscribed in cycle 1")],
         JUMPS))
 
     # ------------------------------------------------------- the loud warning
@@ -230,6 +249,16 @@ def body():
          "This is not in any guide. It is in the group, from somebody living "
          "it &mdash; see below. Eligibility attaches to where you work, and "
          "where you work can change underneath you."),
+        ("5", "If you do not finish, you repay <em>all</em> of it.",
+         "The grant guide is not gentle about this. For failure to start or "
+         "complete the service obligation, HCAI <b>&ldquo;shall recover the "
+         "total amounts paid&rdquo;</b> &mdash; not a pro-rated share, the "
+         "total &mdash; and any amount it is entitled to recover "
+         "<b>&ldquo;shall be paid within one year&rdquo;</b> of the date it "
+         "determines you are in breach. Put that next to condition 4 and the "
+         "shape of the risk is clear: if your employer falls out of "
+         "eligibility three years in, the exposure is not the unpaid "
+         "remainder. It is the whole award, inside twelve months."),
     ]))
 
     o.append(pk.callout(
@@ -329,10 +358,13 @@ def body():
     o.append('<p class="pk-k">The question nobody answers</p>')
     o.append('<h2 class="pk-h">Is a $%s award taxable income?</h2>'
              % format(TIER2, ",d"))
-    o.append('<p class="pk-d"><b>HCAI&rsquo;s FAQ does not address it.</b> '
-             "Neither does the technical assistance guide. On an award this "
-             "size the answer is worth tens of thousands of dollars, and there "
-             "is a federal provision that nobody in this conversation "
+    o.append('<p class="pk-d">HCAI answers it by declining to. The grant '
+             "guide says, in terms: <b>&ldquo;HCAI does not give tax advice. "
+             "Grantees should talk to a tax advisor for assistance in "
+             "determining whether the loan repayment they receive from "
+             "MBH-SLRP will qualify as taxable or reportable income.&rdquo;</b> "
+             "On an award this size that is a five-figure open question, and "
+             "there is a federal provision nobody in the conversation "
              "cites.</p>")
     o.append(pk.callout(
         "26 U.S.C. &sect;108(f)(4)",
