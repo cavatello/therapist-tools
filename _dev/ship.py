@@ -87,6 +87,12 @@ BUILD = [
     ("_dev/build_forgiveness.py",
      "which California employers unlock loan forgiveness - four programs, "
      "three different tests, and only two that reach an associate"),
+    # And the named employers behind one of those four settings. Reads
+    # _dev/hc_orgs_data.py, written by _dev/hc_orgs.py, which fetches every
+    # candidate domain before it is allowed to ship as a link.
+    ("_dev/build_safetynet.py",
+     "the 218 California health center organizations by name, with links "
+     "that were checked before publication"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

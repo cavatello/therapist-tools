@@ -1470,6 +1470,19 @@
    "leaf": true
   },
   {
+   "file": "medi-cal-safety-net-employers-california.html",
+   "title": "Medi-Cal safety-net employers in California: the health centers, named",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Which California employers are in the Medi-Cal safety net?",
+   "outcome": "All 218 health center organizations by name, with sites, counties and links that were checked before publication",
+   "number": "218 organizations, 3,038 sites",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "meridian-university-mft.html",
    "title": "Meridian University — MFT program in California",
    "topic": "licensure",
@@ -2472,6 +2485,7 @@
       "amft-3000-hours-california.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
+      "medi-cal-safety-net-employers-california.html",
       "associate-mft-job-advisor.html",
       "associate-therapist-pay-los-angeles-bay-area.html",
       "associate-unpaid-hours-california.html",
