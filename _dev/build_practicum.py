@@ -596,7 +596,7 @@ def main():
         ("the not-published caveat", "describes the disclosure, not the"),
         ("the 1,300-hour ceiling", "up to 1,300"),
         ("the 750 sub-ceiling", "no more than 750"),
-        ("the 90-day receipt rule", "receive your application within 90 days"),
+        ("the 90-day receipt rule", "within 90 days"),
         ("the curated-not-parsed note", "Curated by hand"),
     ], [j[0] for j in JUMPS])
 

@@ -485,7 +485,12 @@ BRITISH = (("license", "se", "ce"), ("labor", "or", "our"),
            ("color", "or", "our"), ("center", "er", "re"),
            ("program", "", "me"), ("toward", "", "s"),
            ("while", "e", "st"), ("among", "", "st"),
-           ("enrollment", "ll", "l"), ("fulfill", "ll", "l"))
+           ("enrollment", "ll", "l"),
+           # "fulfil" is inside the correct American "fulfilling" and
+           # "fulfilled", so the bare stem fires on prose that is right.
+           # The only forms that actually differ are the bare verb and
+           # the noun; the noun is the one that appears in prose.
+           ("fulfillment", "ll", "l"))
 
 
 def spelling(html):
