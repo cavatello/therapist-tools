@@ -154,6 +154,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |
+| `county_bh.py` | **untriaged** | &mdash; | The county behavioral health plans, with every link on the state's own page checked. |
+| `county_bh_data.py` | **untriaged** | &mdash; | County behavioral health plans. WRITTEN BY _dev/county_bh.py. |
 | `dca_licensees.py` | **untriaged** | &mdash; | Every licensed therapist in California, counted, from the state's own file. |
 | `dca_stats.py` | **untriaged** | &mdash; | Counts derived from the DCA licensee file. GENERATED - do not edit. |
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |

@@ -40,6 +40,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pagekit as pk
 import hc_orgs_data as hc
+import county_bh_data as cb
 import hrsa_stats as hs
 
 SITE = pk.SITE
@@ -63,7 +64,8 @@ FINDER = "https://findahealthcenter.hrsa.gov/"
 
 JUMPS = [("what", "What this is not"),
          ("twice", "Why they count twice"),
-         ("list", "The 218"),
+         ("counties", "The %d counties" % cb.TOTAL),
+         ("list", "The %d health centers" % len(hc.ORGS)),
          ("sources", "Sources")]
 
 # The four settings MBH-SLRP names. Only the first is enumerable from a public
@@ -77,10 +79,15 @@ SETTINGS = [
      "There is no equivalent public list. Many are county-operated or "
      "county-contracted, and you find them through the county rather than "
      "through a federal file."),
-    ("Rural health clinics", "Partly",
-     "%d carry a live mental health shortage-area designation, but the "
-     "designation file names facilities rather than employers."
-     % hs.CA_MH_HPSA_BY_TYPE.get("Rural Health Clinic", 0)),
+    ("Rural health clinics", "No, and here is why",
+     "%d carry a live mental health shortage-area designation, under %d "
+     "distinct names &mdash; and the county attribution on those rows does "
+     "not hold up. One clinic is filed under three counties at once and "
+     "another under five, and two appear twice under different spellings. "
+     "Publishing that as a directory would put wrong addresses in front of "
+     "people making employment decisions, so it is counted here and not "
+     "listed."
+     % (hs.CA_MH_HPSA_BY_TYPE.get("Rural Health Clinic", 0), 62)),
     ("Any setting at least %d%% Medicaid or uninsured &mdash; %d%% for rural "
      "hospitals" % (MEDICAID_SHARE, RURAL_SHARE), "No",
      "This is a fact about an employer&rsquo;s own patient mix. It is not "
@@ -96,17 +103,17 @@ def body():
     o.append(pk.hero(
         "Safety-net employers &middot; federal health center file read %s"
         % hc.CHECKED,
-        "%d organizations. %s sites. And four things this list is not."
-        % (len(hc.ORGS), format(hc.TOTAL_SITES, ",d")),
-        "These are the California organizations running federally designated "
-        "health center sites &mdash; one of the four settings that can carry "
-        "an <b>MBH-SLRP</b> service obligation, and the only one that can be "
-        "listed at all. <b>It is not a list of employers in the program, and "
-        "not a list of jobs.</b>",
-        [(str(len(hc.ORGS)), "organizations"),
-         (format(hc.TOTAL_SITES, ",d"), "active sites"),
-         (str(len(counties)), "counties covered"),
-         (str(hc.LINKED), "links checked before shipping")],
+        "%d county plans, %d health center organizations, and four things "
+        "this list is not." % (cb.TOTAL, len(hc.ORGS)),
+        "The public mental health employers in California, by name: the "
+        "county behavioral health plans that run Medi-Cal specialty mental "
+        "health, and the federally designated health centers. Every link was "
+        "fetched before it shipped. <b>It is not a list of employers in any "
+        "loan repayment program, and not a list of jobs.</b>",
+        [(str(cb.TOTAL), "county behavioral health plans"),
+         (str(len(hc.ORGS)), "health center organizations"),
+         (format(hc.TOTAL_SITES, ",d"), "health center sites"),
+         (str(cb.MOVED), "state links that no longer point where they say")],
         JUMPS))
 
     # ------------------------------------------------------- the loud warning
@@ -185,6 +192,60 @@ def body():
     ]))
     o.append("</section>")
 
+    # ---------------------------------------------------------- the counties
+    o.append('<section class="pk-sec" id="counties">')
+    o.append('<p class="pk-k">The county plans</p>')
+    o.append('<h2 class="pk-h">The %d agencies that run Medi-Cal specialty '
+             "mental health.</h2>" % cb.TOTAL)
+    o.append('<p class="pk-d">This is the list an associate most needs, and it '
+             "is not the same as the list of counties. Sutter and Yuba share "
+             "one plan; Alameda&rsquo;s covers the City of Berkeley. These are "
+             "the agencies the state contracts with, they are local government "
+             "employers, and they are where volume hiring of pre-licensed "
+             "clinicians happens &mdash; because Medi-Cal names registered "
+             'associates as a billable staff type, which is <a href="%s">the '
+             "reason half an associate&rsquo;s applications never get a "
+             "reply</a>.</p>" % HIRED)
+
+    o.append(pk.callout(
+        "What checking every link on the state&rsquo;s own page turned up",
+        ["DHCS publishes a website for each plan. Fetching all of them found "
+         "that <b>%d of the %d resolve somewhere other than the address the "
+         "state prints</b> &mdash; counties have moved their sites and the "
+         "directory has not followed. %d did not answer at all, and one, "
+         "Santa Cruz, now lands on a login page rather than a public one."
+         % (cb.MOVED, cb.TOTAL, cb.DEAD - 1),
+         "The links below are the addresses that actually answered, after "
+         "redirects. Where a site refused an automated request but the server "
+         "answered &mdash; which is ordinary bot protection on a government "
+         "site and not a fault &mdash; the state&rsquo;s address is kept. "
+         "Tulare is listed by DHCS with no website at all."],
+        big="%d of %d state-published links no longer point where they say."
+            % (cb.MOVED, cb.TOTAL)))
+
+    rows = []
+    for r in cb.PLANS:
+        name = pk.esc(r["county"])
+        cell = ('<a href="%s" rel="nofollow noopener" target="_blank">%s</a>'
+                % (r["url"], name)) if r["url"] else "<b>%s</b>" % name
+        if r["note"]:
+            note = "No working address" if r["note"] == "did not answer" \
+                   else "Not listed by DHCS"
+        elif r["moved"]:
+            note = "Moved since DHCS listed it"
+        else:
+            note = "As published"
+        rows.append([cell, (note, "m")])
+    o.append(pk.table(
+        ["County behavioral health plan", "Link status"], rows,
+        caption="Transcribed from DHCS&rsquo;s county mental health plan page "
+                "and checked %s. A plan appearing here says only that the "
+                "state contracts with it. It is not a job listing, and "
+                "whether it is a qualifying employer for anything is a "
+                "question for the program, not for this page." % cb.CHECKED,
+        minw=520))
+    o.append("</section>")
+
     # ------------------------------------------------------------- the list
     o.append('<section class="pk-sec" id="list">')
     o.append('<p class="pk-k">The directory</p>')
@@ -226,7 +287,12 @@ def body():
 
     # ------------------------------------------------------------- sources
     src, n = pk.sources([
-        ("The list", [
+        ("The county plans", [
+            ("DHCS &mdash; California county mental health plans, the source "
+             "for the %d agencies above and for the links that were checked "
+             "against it" % cb.TOTAL, cb.SOURCE),
+        ]),
+        ("The health centers", [
             ("HRSA Data Downloads &mdash; Health Center Program service "
              "delivery and look-alike sites, read %s, aggregated to "
              "organizations by _dev/hc_orgs.py with every link fetched before "
@@ -285,6 +351,8 @@ def main():
           % (PAGE, format(len(html), ",d"), len(hc.ORGS), hc.LINKED, nsrc))
 
     bad = pk.check_page(p, [
+        ("the county-link finding", "no longer point where they say"),
+        ("the rural-clinic explanation", "filed under three counties at once"),
         ("the not-a-job-list warning", "not a list of open jobs"),
         ("the absence-means-nothing warning", "Absence from this list means "
                                               "nothing"),
@@ -303,19 +371,26 @@ def main():
               % (len(missing), missing[0]))
         bad += 1
 
+    # And every county plan. A county silently dropped from this table reads
+    # as "your county does not run one", which is never true.
+    gone = [r["county"] for r in cb.PLANS if pk.esc(r["county"]) not in art]
+    if gone:
+        print("GUARD: %d county plan(s) missing, first: %s" % (len(gone), gone[0]))
+        bad += 1
+
     # Only checked links may ship. If a row without a verified URL has somehow
     # acquired an anchor, the page is asserting something nobody verified.
     import re as _re
     anchors = len(_re.findall(r'<a href="https?://[^"]+" rel="nofollow noopener" '
                               r'target="_blank">', art))
-    if anchors < hc.LINKED:
+    if anchors < hc.LINKED + cb.LINKED:
         print("GUARD: %d checked links but only %d anchors in the article"
-              % (hc.LINKED, anchors))
+              % (hc.LINKED + cb.LINKED, anchors))
         bad += 1
 
     # The four warnings are the page's license to exist. Guarded individually.
     for what, needle in (
-            ("the hero caveat", "not a list of employers in the program"),
+            ("the hero caveat", "not a list of employers in any loan repayment program"),
             ("the panel", "A list of organizations. Not of jobs, and not of "
                           "eligibility."),
             ("the participation caveat", "Participation is not a public fact"),
