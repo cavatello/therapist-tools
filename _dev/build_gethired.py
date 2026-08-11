@@ -587,8 +587,8 @@ META = pk.meta_block(
     "Getting hired as a California associate: why half your applications "
     "never reply",
     "547 hours and nobody will hire you. The reason is a billing rule, not "
-    "your hour count - and the settings that can employ you carry up to "
-    "$180,000 of loan repayment for associates.",
+    "your hour count - and the settings that can employ you carry "
+    "$180,000 of loan repayment.",
     "licensure", "guide",
     "I have 547 hours and everyone wants someone almost done &mdash; how do "
     "I get hired?",
