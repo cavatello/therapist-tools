@@ -297,26 +297,27 @@ def body():
 
     rows = []
     for r in pd.PROGRAMS:
-        ev = pk.esc(r["evidence"]) if r["evidence"] else "&mdash;"
-        clinic = "Yes" if r["own_clinic"] else "&mdash;"
-        if r["own_clinic"] and r["clinics"]:
-            names = r["clinics"]
-            if isinstance(names, (list, tuple)):
-                names = ", ".join(str(x) for x in names)
-            clinic = "Yes &mdash; %s" % pk.esc(str(names)[:70])
+        ev = pk.esc(r["evidence"]) if r["evidence"] else None
         rows.append([link(r), ("<b>%s</b>" % LABEL[r["placement"]], "m"),
-                     (clinic, "m"), "&ldquo;%s&rdquo;" % ev])
+                     ("Yes" if r["own_clinic"] else "&mdash;", "m"),
+                     ("%d h" % r["dcc"] if r["dcc"] else "&mdash;", "f"),
+                     "&ldquo;%s&rdquo;" % ev if ev else "&mdash;"])
     o.append(pk.table(
-        ["Program", "Who finds the site", "Own clinic", "In the program's own words"],
+        ["Program", "Who finds the site", "Own clinic", "Client hours",
+         "In the program's own words"],
         rows,
         caption="Read %s from each program&rsquo;s public fieldwork page, "
                 "handbook or catalog. Wording changes; the linked program "
                 "page carries the source for each one. A program named here "
                 "is a program with a published page on this site or a record "
                 "in the research file behind "
-                "<a href=\"%s\">the program comparison</a>."
+                "<a href=\"%s\">the program comparison</a>. "
+                "&ldquo;Client hours&rdquo; is the direct-client-contact "
+                "minimum the program states for graduation, curated by hand "
+                "&mdash; the full wording behind each one is on that "
+                "program&rsquo;s own page."
                 % (pd.CHECKED, PROGRAMS),
-        minw=980))
+        minw=900))
     o.append("</section>")
 
     # ----------------------------------------------------------------- hours
