@@ -204,6 +204,24 @@ def main():
         })
         seen.add(inst)
 
+    # What the degree costs, for the ones that publish enough to compute it.
+    # A per-unit price times the published unit count, or a stated total where
+    # there is one. The public campuses are largely absent because they
+    # publish a per-semester full-time rate rather than a per-unit one, so
+    # this is a range across the programs that publish, NOT the range across
+    # California - and the page has to say so beside the number.
+    tuition = []
+    for r in raw:
+        u = re.search(r"(\d{2,3})", r.get("units") or "")
+        u = int(u.group(1)) if u else None
+        per, tot = r.get("per_unit"), r.get("total")
+        cost = tot if tot else (u * per if (u and per) else None)
+        if cost:
+            tuition.append({"inst": r["institution"], "cost": int(round(cost)),
+                            "units": u, "per_unit": per,
+                            "stated": bool(tot)})
+    tuition.sort(key=lambda t: t["cost"])
+
     counts = collections.Counter(r["placement"] for r in rows)
     for k in ORDER:
         counts.setdefault(k, 0)
@@ -240,6 +258,8 @@ def main():
     b.append("DCC_N = %d\n" % len(dccs))
     b.append("DCC_BUCKETS = %r\n" % sorted(buckets.items()))
     b.append("DCC_MIN = %r\nDCC_MAX = %r\n" % (min(dccs), max(dccs)))
+    b.append("TUITION_N = %d\n" % len(tuition))
+    b.append("TUITION = %r\n" % tuition)
     b.append("PROGRAMS = %r\n" % rows)
     open(OUT, "w", encoding="utf-8").write("".join(b))
 
@@ -250,6 +270,9 @@ def main():
     print("  %d state a direct-client-contact minimum, %d to %d; commonest: %s"
           % (len(dccs), min(dccs), max(dccs),
              ", ".join("%d h (%d)" % kv for kv in buckets.most_common(4))))
+    print("  %d publish enough to compute a tuition figure, %s to %s"
+          % (len(tuition), "$%s" % format(tuition[0]["cost"], ",d"),
+             "$%s" % format(tuition[-1]["cost"], ",d")))
     print("  wrote %s" % os.path.basename(OUT))
 
 

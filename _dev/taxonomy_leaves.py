@@ -66,6 +66,14 @@ NEW_CLUSTERS = [
     # are all about the post-degree associate - so it gets its own.
     ("licensure", "The practicum, and the year before you register",
      ["practicum-california-mft-trainee.html"]),
+    # The career-change page is the front door to the whole licensure topic,
+    # so it belongs with the route rather than in a cluster of its own. Named
+    # here in full because this list replaces a cluster's files rather than
+    # appending to them.
+    ("licensure", "The route, and what it costs",
+     ["becoming-a-therapist-california-career-change.html",
+      "become-an-mft-california.html",
+      "bbs-fees-california-2026.html"]),
 ]
 
 

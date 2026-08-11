@@ -112,6 +112,14 @@ BUILD = [
     ("_dev/build_practicum.py",
      "the practicum year - the seven trainee rules, and which of the 78 "
      "programs finds your site and which leaves it to you"),
+    # And the stage before that one: deciding at all. Reads
+    # _dev/degree_pipeline.py, written by _dev/ipeds_degrees.py from the
+    # federal completions survey - the only series that says how many people
+    # a year California puts into this.
+    ("_dev/build_careerchange.py",
+     "the numbers somebody retraining deserves first - the pipeline, the "
+     "three licenses on statute rather than temperament, and the attrition "
+     "visible in the Board's own reporting"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

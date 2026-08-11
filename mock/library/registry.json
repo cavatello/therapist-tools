@@ -235,6 +235,19 @@
    "leaf": false
   },
   {
+   "file": "becoming-a-therapist-california-career-change.html",
+   "title": "Becoming a therapist in California: the numbers before you decide",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Should I retrain as a therapist in California?",
+   "outcome": "The pipeline, the three licenses compared on statute rather than temperament, an honest clock, the real cost and the visible attrition",
+   "number": "5,309 clinical master's a year, up 66% since 2015",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "biola-university-mft.html",
    "title": "Biola University (Talbot School of Theology)",
    "topic": "licensure",
@@ -2507,6 +2520,7 @@
     {
      "name": "The route, and what it costs",
      "files": [
+      "becoming-a-therapist-california-career-change.html",
       "become-an-mft-california.html",
       "bbs-fees-california-2026.html"
      ]
