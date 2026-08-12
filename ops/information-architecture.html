@@ -1,0 +1,340 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Information architecture, and every door &mdash; revised</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"><style>
+:root{
+  --paper:#F4F0E6; --cream:#FBF9F3; --ink:#17271F; --pine:#2C6350;
+  --gold:#F6C560; --gold-on-pine:#FFD37A; --muted:#635E53; --red:#B5483F;
+  --line:#E2DACA; --deep:#15342B; --green:#3F9577;
+  --sans:'Bricolage Grotesque','Archivo',Inter,system-ui,sans-serif;
+  --body:Inter,system-ui,sans-serif;
+  --fig:'Fraunces',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(34px,5.2vw,58px)}
+h2{font-size:clamp(26px,3.4vw,38px);margin:0 0 6px}
+h3{font-size:clamp(19px,2.1vw,23px);margin:0 0 6px}
+h4{font-size:16px;margin:0 0 4px}
+p{margin:0 0 14px;max-width:72ch}
+a{color:var(--pine);text-underline-offset:3px}
+.lab{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.fig{font-family:var(--fig);font-weight:800;font-variant-numeric:tabular-nums}
+
+/* ---- masthead ---- */
+.mast{background:var(--deep);color:var(--cream);border-bottom:3px solid var(--ink);
+  padding:46px 0 40px}
+.mast .lab{color:var(--gold-on-pine)}
+.mast h1{color:#fff;margin:10px 0 14px;max-width:22ch}
+.mast p{color:#DCE7E0;max-width:66ch;font-size:17px}
+.mast .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  border:1.5px solid rgba(255,255,255,.34);color:#EAF3EE;padding:5px 10px;border-radius:2px}
+
+/* ---- sticky nav ---- */
+nav.jump{position:sticky;top:0;z-index:40;background:var(--cream);
+  border-bottom:2px solid var(--ink);box-shadow:0 2px 0 rgba(23,39,31,.08)}
+nav.jump ul{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;
+  scrollbar-width:none}
+nav.jump ul::-webkit-scrollbar{display:none}
+nav.jump a{display:block;white-space:nowrap;padding:11px 15px;font-family:var(--mono);
+  font-size:11px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
+  color:var(--muted);border-right:1px solid var(--line)}
+nav.jump a:hover{background:var(--gold);color:var(--ink)}
+
+section{padding:52px 0 8px}
+.rule{border:0;border-top:2px solid var(--ink);margin:44px 0 0;opacity:.16}
+.kicker{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.kicker .n{font-family:var(--fig);font-weight:800;font-size:34px;color:var(--pine);
+  line-height:1}
+.lede{font-size:19px;line-height:1.55;max-width:64ch;color:#2A3A32}
+
+/* ---- cards ---- */
+.card{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  padding:20px 22px;margin:0 0 20px}
+.card.pine{background:var(--pine);color:#fff;border-color:var(--ink)}
+.card.pine p,.card.pine li{color:#E6F0EA}
+.card.pine h3,.card.pine h2{color:#fff}
+.card.pine .lab{color:var(--gold-on-pine)}
+.card.gold{background:var(--gold);box-shadow:5px 5px 0 var(--ink)}
+.grid{display:grid;gap:20px}
+/* grid items default to min-width:auto, so the pre-formatted code block in the
+   data-model card sets the whole track's min-content width and pushes the page
+   sideways on a phone. This is the fix, not a wider viewport. */
+.grid>*,.verdict>*,.pro>*{min-width:0}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+
+/* ---- verdict ---- */
+.verdict{display:grid;gap:16px}
+@media(min-width:820px){.verdict{grid-template-columns:1.15fr .85fr}}
+.vlist{list-style:none;margin:0;padding:0;counter-reset:v}
+.vlist li{counter-increment:v;position:relative;padding:0 0 14px 40px;margin:0 0 12px;
+  border-bottom:1px dashed var(--line)}
+.vlist li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.vlist li::before{content:counter(v);position:absolute;left:0;top:1px;width:26px;height:26px;
+  background:var(--ink);color:var(--gold);font-family:var(--mono);font-size:12px;font-weight:600;
+  display:grid;place-items:center;border-radius:2px}
+.vlist b{font-family:var(--sans);font-weight:800}
+
+/* ---- evidence ---- */
+.ev{border-left:5px solid var(--pine);padding:2px 0 2px 18px;margin:0 0 22px}
+.ev q{display:block;font-family:var(--fig);font-size:19px;font-weight:600;line-height:1.4;
+  color:var(--deep);quotes:none;margin-bottom:8px}
+.ev .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+
+/* ---- audit table ---- */
+.tw{overflow-x:auto;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  background:var(--cream);margin:0 0 10px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+th{background:var(--deep);color:#fff;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:11px 13px;
+  font-weight:600;vertical-align:bottom}
+td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(226,218,202,.28)}
+td .fig{font-size:19px}
+.badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1.5px solid;border-radius:2px;
+  white-space:nowrap}
+.b-yes{color:#1E5C46;border-color:#1E5C46;background:#E4F0EA}
+.b-no{color:var(--red);border-color:var(--red);background:#F7E7E5}
+.b-soon{color:#8A5B12;border-color:#8A5B12;background:#FBEFD6}
+
+/* ---- IA diagram ---- */
+.ia{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  padding:22px 20px;margin:0 0 22px}
+.ia .lab{margin-bottom:14px;display:block}
+.tier{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 6px}
+.node{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 11px;
+  border:2px solid var(--ink);background:#fff;border-radius:2px;text-align:center}
+.node.root{background:var(--ink);color:var(--gold);font-weight:600}
+.node.stage{background:var(--gold);font-weight:600}
+.node.topic{background:var(--pine);color:#fff}
+.node.leaf{background:#fff;color:var(--muted);border-color:var(--line);border-width:1.5px}
+.node.new{border-style:dashed;background:#FBEFD6}
+.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:14px}
+.ia .cap{font-size:14px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
+.pro{display:grid;gap:10px;margin-top:16px}
+@media(min-width:700px){.pro{grid-template-columns:1fr 1fr}}
+.pro div{font-size:14px;padding:10px 12px;border-left:3px solid}
+.pro .p{border-color:var(--green);background:#EDF5F1}
+.pro .c{border-color:var(--red);background:#F9EDEC}
+.pro b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  display:block;margin-bottom:3px}
+
+/* ---- mockup frame ---- */
+.frame{border:2px solid var(--ink);box-shadow:7px 7px 0 var(--ink);background:#fff;
+  overflow:hidden;margin:0 0 12px}
+.frame .bar{background:var(--ink);padding:7px 12px;display:flex;align-items:center;gap:8px}
+.frame .dot{width:9px;height:9px;border-radius:50%;background:#4B5A52}
+.frame .url{font-family:var(--mono);font-size:11px;color:#C7D3CC;margin-left:8px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mk{font-size:13px;line-height:1.5}
+.mk *{box-sizing:border-box}
+.mkhead{background:var(--cream);border-bottom:2px solid var(--ink);padding:9px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:14px}
+.mkhead .nv{display:flex;gap:12px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mkbody{padding:18px 16px 22px}
+
+/* mockup A — the desk */
+.deskhero{background:var(--pine);color:#fff;margin:-18px -16px 16px;padding:20px 16px 18px;
+  border-bottom:2px solid var(--ink)}
+.deskhero .lab{color:var(--gold-on-pine)}
+.deskhero h2{font-size:26px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
+.deskhero p{font-size:12.5px;color:#DAE8E1;margin:0;max-width:52ch}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.tile{border:2px solid var(--ink);background:var(--cream);padding:11px 12px;
+  box-shadow:3px 3px 0 var(--ink)}
+.tile .lab{font-size:9px;letter-spacing:.13em}
+.tile .num{font-family:var(--fig);font-weight:800;font-size:25px;line-height:1.05;
+  color:var(--deep);margin:3px 0 2px}
+.tile .sub{font-size:11px;color:var(--muted);line-height:1.35}
+.tile.act{background:var(--gold)}
+.tile.act .sub{color:#5A4713}
+.qrow{border:2px solid var(--ink);background:#fff;padding:10px 12px;margin-bottom:8px;
+  display:flex;gap:11px;align-items:flex-start}
+.qrow .qn{font-family:var(--mono);font-size:10px;color:var(--muted);padding-top:2px;min-width:16px}
+.qrow .qt{font-family:var(--sans);font-weight:600;font-size:13.5px;line-height:1.3}
+.qrow .qs{font-size:11.5px;color:var(--muted);margin-top:2px}
+.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--gold);border:1.5px solid var(--ink);padding:3px 7px;
+  white-space:nowrap}
+
+/* mockup B — the ladder */
+.ladder{position:relative;padding-left:30px;margin:4px 0 14px}
+.ladder::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;
+  background:var(--line)}
+.rung{position:relative;margin-bottom:13px}
+.rung::before{content:"";position:absolute;left:-26px;top:4px;width:15px;height:15px;
+  border:3px solid var(--line);background:#fff;border-radius:50%}
+.rung.done::before{background:var(--pine);border-color:var(--pine)}
+.rung.now::before{background:var(--gold);border-color:var(--ink);
+  box-shadow:0 0 0 4px rgba(246,197,96,.35)}
+.rung h4{font-size:13.5px}
+.rung .rs{font-size:11.5px;color:var(--muted)}
+.rung.now h4{color:var(--deep)}
+.rung .pill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.11em;
+  text-transform:uppercase;background:var(--ink);color:var(--gold);padding:2px 6px;
+  margin-left:7px;vertical-align:2px}
+.gate{border:2px solid var(--ink);background:var(--cream);padding:10px 12px;margin-top:7px;
+  box-shadow:3px 3px 0 var(--ink)}
+.gate .lab{font-size:9px}
+.gate .gv{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep)}
+
+/* mockup C — front page */
+.fp-mast{border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:14px}
+.fp-mast .k{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);display:flex;justify-content:space-between}
+.fp-mast h2{font-family:var(--fig);font-size:32px;font-weight:800;letter-spacing:-.01em;
+  margin:6px 0 4px;text-align:center}
+.fp-mast .dek{font-size:12px;color:var(--muted);text-align:center;font-style:italic}
+.fp-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.fp-lead h3{font-family:var(--fig);font-size:20px;line-height:1.18;margin-bottom:5px}
+.fp-lead p{font-size:12px;margin-bottom:9px;color:#33423A}
+.fp-lead .byl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fp-side{border-left:1px solid var(--line);padding-left:14px}
+.fp-side .lab{font-size:9px;display:block;margin-bottom:7px;
+  border-bottom:2px solid var(--ink);padding-bottom:4px}
+.fp-side ol{margin:0;padding-left:17px;font-size:11.5px;line-height:1.4}
+.fp-side li{margin-bottom:7px}
+.fp-side b{font-family:var(--sans);font-weight:600;display:block;font-size:12px}
+.fp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;
+  border-top:2px solid var(--ink);padding-top:11px}
+.fp-strip div{font-size:10.5px;line-height:1.32}
+.fp-strip .lab{font-size:8.5px;display:block;margin-bottom:3px}
+
+/* phone */
+.phones{display:grid;gap:18px}
+@media(min-width:640px){.phones{grid-template-columns:repeat(2,minmax(0,240px));justify-content:start}}
+.phone{border:3px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);
+  background:#fff;overflow:hidden;max-width:250px}
+.phone .notch{background:var(--ink);height:20px;display:grid;place-items:center}
+.phone .notch i{display:block;width:46px;height:5px;background:#4B5A52;border-radius:3px}
+
+/* build plan */
+.plan{counter-reset:s;list-style:none;padding:0;margin:0}
+.plan>li{counter-increment:s;background:var(--cream);border:2px solid var(--ink);
+  box-shadow:4px 4px 0 var(--ink);padding:15px 18px 15px 62px;position:relative;margin-bottom:14px}
+.plan>li::before{content:"S" counter(s);position:absolute;left:16px;top:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--gold);
+  background:var(--ink);padding:4px 7px;border-radius:2px}
+.plan h4{margin-bottom:3px;font-size:17px}
+.plan .why{font-size:14px;color:var(--muted);margin:0 0 8px}
+.plan .out{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--deep);
+  background:#fff;border:1.5px solid var(--line);padding:7px 10px;display:inline-block}
+.tick{list-style:none;padding:0;margin:8px 0 0}
+.tick li{position:relative;padding-left:24px;font-size:14px;margin-bottom:5px}
+.tick li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;
+  border:2px solid var(--ink);background:#fff}
+.tick li.d::before{background:var(--pine);border-color:var(--pine)}
+
+footer{background:var(--deep);color:#C9D8D1;margin-top:56px;padding:30px 0;
+  border-top:3px solid var(--ink);font-size:13.5px}
+footer a{color:var(--gold-on-pine)}
+.src{font-size:13px;color:var(--muted)}
+.src li{margin-bottom:4px}
+@media(max-width:700px){
+  /* the mockups' fake desktop nav is decorative — a real page would collapse
+     it to a menu button, and left in place it overflows the phone width */
+  .mkhead .nv{display:none}
+  .mkhead{flex-wrap:wrap}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .fp-cols{grid-template-columns:1fr}
+  .fp-side{border-left:0;padding-left:0;border-top:2px solid var(--ink);padding-top:11px}
+  .fp-strip{grid-template-columns:1fr 1fr}
+  .card{box-shadow:4px 4px 0 var(--ink)}
+}
+
+.pat{display:grid;gap:0;margin:14px 0;border:2px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);background:var(--cream);overflow:hidden}
+.pat .row{display:grid;grid-template-columns:44px 1fr;border-top:1px solid var(--line)}
+.pat .row:first-child{border-top:0}
+.pat .n{background:var(--deep);color:var(--gold);font-family:var(--mono);
+  font-size:12px;display:grid;place-items:center;font-weight:600}
+.pat .b{padding:11px 14px}
+.pat h4{font-size:15.5px;margin:0 0 3px}
+.pat p{font-size:14px;margin:0;color:#39473F}
+.pat .ex{font-family:var(--mono);font-size:11.5px;color:var(--pine);
+  background:#fff;border:1px solid var(--line);padding:5px 8px;margin-top:6px;
+  display:inline-block}
+.vs{display:grid;gap:12px;margin:12px 0}
+@media(min-width:820px){.vs{grid-template-columns:1fr 1fr}}
+.vs>div{border:2px solid var(--ink);padding:13px 15px}
+.vs .bad{background:#FFF6F5;border-left:6px solid var(--red)}
+.vs .good{background:#F2F8F4;border-left:6px solid var(--green)}
+.vs .lab{display:block;margin-bottom:7px}
+.vs .hl{font-family:var(--sans);font-weight:800;font-size:19px;line-height:1.2;
+  margin:0 0 6px}
+.vs p{font-size:13.5px;margin:0}
+.doorbar{display:grid;gap:10px;margin:12px 0 6px}
+@media(min-width:900px){.doorbar{grid-template-columns:repeat(5,1fr)}}
+.doorbar div{border:2px solid var(--ink);background:var(--cream);padding:11px 12px;
+  box-shadow:3px 3px 0 var(--ink)}
+.doorbar .u{font-family:var(--mono);font-size:10.5px;color:var(--pine);
+  word-break:break-all;display:block;margin-bottom:4px}
+.doorbar h4{font-size:14.5px;margin:0 0 4px}
+.doorbar p{font-size:12px;margin:0;color:var(--muted)}
+.doorbar .st{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:9px;
+  letter-spacing:.11em;text-transform:uppercase;border:1.5px solid var(--ink);padding:2px 6px}
+.doorbar .st.live{background:var(--pine);color:#fff;border-color:var(--pine)}
+.doorbar .st.next{background:var(--gold)}
+.doorbar .st.hold{background:#fff}
+.mkhero{background:var(--pine);color:#fff;margin:-18px -16px 14px;padding:18px 16px 16px;
+  border-bottom:2px solid var(--ink)}
+.mkhero .lab{color:var(--gold-on-pine)}
+.mkhero h2{font-size:25px;color:#fff;margin:6px 0 7px;letter-spacing:-.02em;line-height:1.1}
+.mkhero p{font-size:12.5px;color:#DAE8E1;margin:0;max-width:56ch}
+.mkfig{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:var(--cream);
+  border:2px solid var(--ink);padding:10px 12px;margin-top:12px}
+.mkfig div .v{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep);
+  display:block;line-height:1.05}
+.mkfig div .l{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-top:2px}
+.mkstart{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 12px}
+.mkstart a{display:block;border:2px solid var(--ink);background:var(--pine);color:#fff;
+  padding:9px 11px;text-decoration:none}
+.mkstart .q{display:block;font-family:var(--sans);font-weight:800;font-size:13.5px;
+  line-height:1.2}
+.mkstart .s{display:block;font-size:11px;color:#CFE2D9;margin-top:3px;line-height:1.3}
+.mkgrp{font-family:var(--sans);font-weight:800;font-size:13.5px;margin:12px 0 6px;
+  padding-bottom:4px;border-bottom:2px solid var(--ink)}
+.mkcards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mkcards div{border:2px solid var(--ink);background:var(--cream);padding:8px 10px}
+.mkcards .t{font-family:var(--sans);font-weight:700;font-size:12.5px;line-height:1.2;
+  display:block}
+.mkcards .n{font-size:10.5px;color:var(--muted);line-height:1.35;display:block;margin-top:3px}
+.trip{display:grid;gap:10px;margin:12px 0}
+@media(min-width:900px){.trip{grid-template-columns:repeat(4,1fr)}}
+.trip>div{border:2px solid var(--ink);background:#fff;padding:12px 13px;position:relative;
+  box-shadow:4px 4px 0 var(--ink)}
+.trip .s{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:5px}
+.trip h4{font-size:14.5px;margin:0 0 4px}
+.trip p{font-size:12.5px;margin:0;color:#39473F}
+.trip .hit{background:var(--gold)}
+.axes{border:2px solid var(--ink);background:var(--cream);box-shadow:5px 5px 0 var(--ink);
+  padding:0;overflow-x:auto;margin:12px 0}
+.axes table{min-width:720px;margin:0}
+.axes th:first-child,.axes td:first-child{position:sticky;left:0;background:var(--cream)}
+.axes th{background:var(--deep)}
+.axes td.x{text-align:center;font-family:var(--fig);font-weight:800;color:var(--pine);
+  font-size:17px}
+.axes td.o{text-align:center;color:var(--line)}
+code{font-family:var(--mono);font-size:12.5px;background:#fff;border:1px solid var(--line);
+  padding:1px 5px}
+.note{border-left:5px solid var(--gold);padding:2px 0 2px 16px;margin:14px 0}
+.note p{font-size:14.5px;margin:0 0 6px}
+@media(max-width:700px){
+  .mkfig,.mkstart,.mkcards{grid-template-columns:1fr 1fr}
+  .mkhero h2{font-size:21px}
+}
+</style></head><body><header class="mast"><div class="wrap"><span class="lab">Working document &middot; 12 August 2026 &middot; revised after the first door shipped</span><h1>One pattern, five doors.</h1><p>Every landing page in the site, and the architecture underneath them. Rebuilt around the two corrections that came back from the live page: <b>lead with what the reader gets, not with the tool</b>, and <b>say it in words a stranger already knows</b>.</p><div class="meta"><span class="chip">5 doors</span><span class="chip">1 live</span><span class="chip">No page moves</span><span class="chip">Supersedes the design half of P2</span></div></div></header><nav class="jump"><div class="wrap"><ul><li><a href="#pattern">The pattern</a></li><li><a href="#map">The map</a></li><li><a href="#doors">Five doors</a></li><li><a href="#journey">How somebody arrives</a></li><li><a href="#furniture">On every page</a></li><li><a href="#model">URLs and data</a></li><li><a href="#order">Build order</a></li></ul></div></nav><div class="wrap"><section id="pattern"><div class="kicker"><span class="n">01</span><h2>The pattern every door follows</h2></div><p class="lede">This is the actual proposal. The five mockups further down are the same six blocks with different content, and if the pattern is right they will all work.</p><div class="vs"><div class="bad"><span class="lab">What shipped first, and was wrong</span><p class="hl">&ldquo;One bar. Four gates. Nothing you type here leaves this browser.&rdquo;</p><p>A headline describing a widget, two of four blocks about privacy, and four figures that were the statute &mdash; numbers the reader already knows. Written for somebody arriving from a link in a group, already oriented. A hub over twenty pages read as one calculator.</p></div><div class="good"><span class="lab">What it says now</span><p class="hl">&ldquo;Everything a California associate needs, in one place.&rdquo;</p><p>The offer in the headline, the audience in the line above it, the scope in the line below, and figures about the <em>resource</em>: 20 guides, 58 portals checked, 165,000 licensees, $0. Then the four questions that actually bring people here.</p></div></div><div class="pat"><div class="row"><div class="n">01</div><div class="b"><h4>Who it is for, in the line above the headline</h4><p>A stranger decides in about a second whether a page is for them. Name them in their own words, including the licence letters they would search for.</p><span class="ex">For California associates &middot; AMFT, ASW and APCC</span></div></div><div class="row"><div class="n">02</div><div class="b"><h4>The offer, as the headline</h4><p>Not what the page contains, not what it does. What the reader walks away with. The same sentence for every door, with one word changed, is a feature rather than a shortcut - it makes the set legible.</p><span class="ex">Everything a California associate needs, in one place.</span></div></div><div class="row"><div class="n">03</div><div class="b"><h4>The scope, in one paragraph</h4><p>How much of it there is, in concrete nouns, so nobody has to scroll to find out whether it is thin. Ends with the two things that separate this site from the rest of the results: every figure has a named source, and it is free.</p><span class="ex">20 guides for the years between registration and your license &mdash;</span></div></div><div class="row"><div class="n">04</div><div class="b"><h4>Four figures about the resource, not the statute</h4><p>The old hero printed 3,000 / 1,750 / 500 / 104. A registered associate knows those. Print what they do not know: how much is here, how well checked it is, what it costs.</p><span class="ex">20 guides &middot; 58 portals checked &middot; 165,000 licensees &middot; $0</span></div></div><div class="row"><div class="n">05</div><div class="b"><h4>Start here - the four questions that bring people</h4><p>Taken from what people actually search and post, phrased as they phrase it. This is the block that turns a hub into a route, and it is where a cold arrival self-selects without being asked to.</p><span class="ex">Why is nobody hiring me?</span></div></div><div class="row"><div class="n">06</div><div class="b"><h4>The shelf, grouped and annotated</h4><p>Twenty flat cards is a wall; five headed groups is a table of contents. Each card carries what that page says AT THIS STAGE, from the registry, not the page's own summary - which is the whole difference between a stage hub and a re-listed topic hub.</p><span class="ex">Which county to apply to first, from what each one actually paid</span></div></div></div><div class="note"><p><b>Where the tool goes.</b> If a door has an interactive piece &mdash; the associates ledger, the students lookup &mdash; it sits <em>after</em> block 05, not before it. The tool is what makes somebody stay; the first five blocks are what stops them leaving.</p><p><b>And the words.</b> Requirement, not gate. Checkpoint, not gate. If a sentence needs the reader to learn a metaphor before it means anything, it is the wrong sentence for a page somebody found while worried.</p></div></section><hr class="rule"><section id="map"><div class="kicker"><span class="n">02</span><h2>The map</h2></div><p class="lede">Five doors, one per stage of the path. Stage is the <b>entry layer</b>; topic stays the organization; <b>no page moves</b>.</p><div class="doorbar"><div><span class="u">/for/deciding</span><h4>Deciding</h4><p>Thinking about it, or choosing between programs</p><span class="st next">Next &middot; 73 pages</span></div><div><span class="u">/for/students</span><h4>In a program</h4><p>Enrolled, practicum approaching or underway</p><span class="st next">Next &middot; 2 pages + 78 behind</span></div><div><span class="u">/for/associates</span><h4>Counting hours</h4><p>Registered, working toward the 3,000</p><span class="st live">Live &middot; 20 pages &middot; LIVE</span></div><div><span class="u">/for/licensed</span><h4>Licensed</h4><p>Licensed, and running or joining a practice</p><span class="st hold">Held &middot; 19 pages</span></div><div><span class="u">/for/practice-owners</span><h4>Practice owner</h4><p>Employing other people, or about to</p><span class="st hold">Held &middot; 8 pages &mdash; too thin</span></div></div><p class="lab" style="display:block;margin-top:20px">Why stage and topic are different axes</p><div class="axes"><table><tr><th>Page</th><th>Topic &mdash; where it is filed</th><th>Deciding</th><th>Student</th><th>Associate</th><th>Licensed</th><th>Owner</th></tr><tr><td>The practicum year</td><td>Licensure</td><td class="o">&middot;</td><td class="x">&bull;</td><td class="x">&bull;</td><td class="x">&bull;</td><td class="o">&middot;</td></tr><tr><td>What county jobs pay</td><td>Getting paid</td><td class="x">&bull;</td><td class="o">&middot;</td><td class="x">&bull;</td><td class="x">&bull;</td><td class="o">&middot;</td></tr><tr><td>Getting hired as an associate</td><td>Licensure</td><td class="o">&middot;</td><td class="x">&bull;</td><td class="x">&bull;</td><td class="o">&middot;</td><td class="o">&middot;</td></tr><tr><td>All 58 county job portals</td><td>Licensure</td><td class="o">&middot;</td><td class="o">&middot;</td><td class="x">&bull;</td><td class="x">&bull;</td><td class="o">&middot;</td></tr><tr><td>California MFT programs</td><td>Licensure</td><td class="x">&bull;</td><td class="x">&bull;</td><td class="o">&middot;</td><td class="o">&middot;</td><td class="o">&middot;</td></tr><tr><td>What insurance actually pays</td><td>Getting paid</td><td class="x">&bull;</td><td class="o">&middot;</td><td class="o">&middot;</td><td class="x">&bull;</td><td class="x">&bull;</td></tr><tr><td>Hiring your first associate</td><td>Practice</td><td class="o">&middot;</td><td class="o">&middot;</td><td class="o">&middot;</td><td class="o">&middot;</td><td class="x">&bull;</td></tr></table></div><p class="src">One page belongs to exactly one topic and to as many stages as have something to say about it. That is why the annotation is mandatory: the county pay page tells a career-changer what the job pays at the end, and tells an associate which employer to apply to first. Same page, two sentences, and without them the second hub is just the first one again.</p></section><hr class="rule"><section id="doors"><div class="kicker"><span class="n">03</span><h2>Five doors</h2></div><p class="lede">Same six blocks every time. The associates door is live and rendered here from its real content; the other four are mockups using pages that already exist.</p><div class="vh"><span class="tag">/for/deciding</span><h4>Deciding</h4><span class="rec">Proposed</span></div><p>Thinking about it, or choosing between programs. 73 pages</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/for/deciding</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div class="mkhero"><span class="lab">For people thinking about becoming a therapist in California</span><h2>Everything you need before you apply, in one place.</h2><p>78 programs compared on cost, format and who finds your practicum site. Which of the three licenses to aim at, and why it is a statute question rather than a personality one. What it costs end to end, and what the work pays afterward.</p></div><div class="mkfig"><div><span class="v">78</span><span class="l">programs compared</span></div><div><span class="v">$37,800</span><span class="l">cheapest published</span></div><div><span class="v">5&ndash;6 yr</span><span class="l">realistic, not the floor</span></div><div><span class="v">$0</span><span class="l">and no account, ever</span></div></div><span class="lab" style="display:block;margin-top:13px">Start here</span><div class="mkstart"><a href="#"><span class="q">Which license should I aim at?</span><span class="s">Only one of the three banks your practicum hours</span></a><a href="#"><span class="q">Which program, and what does it cost?</span><span class="s">All 78, priced, with the practicum question answered</span></a><a href="#"><span class="q">How long does this really take?</span><span class="s">Counted honestly, including the joins nobody advertises</span></a><a href="#"><span class="q">Can I afford the years I am not earning?</span><span class="s">The bill, before anybody sells you the vocation</span></a></div><div class="mkgrp">Choosing a license and a program</div><div class="mkcards"><div><span class="t">California MFT graduate programs</span><span class="n">All 78 the Board recognizes, compared</span></div><div><span class="t">Becoming a therapist as a career change</span><span class="n">The pipeline, the three licenses, the honest clock</span></div></div><div class="mkgrp">What it costs, and what it pays</div><div class="mkcards"><div><span class="t">What county jobs pay therapists</span><span class="n">From payroll, not from job adverts</span></div><div><span class="t">Cost of living for California therapists</span><span class="n">What a month costs where you would work</span></div></div></div></div></div><div class="vh"><span class="tag">/for/students</span><h4>In a program</h4><span class="rec">Proposed</span></div><p>Enrolled, practicum approaching or underway. 2 pages + 78 behind</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/for/students</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div class="mkhero"><span class="lab">For California students in an MFT or counseling program</span><h2>Everything for the practicum year, in one place.</h2><p>Who finds your practicum site at each of the 78 programs, in their own words. The seven rules that decide whether a placement counts at all. And which of the hours you are logging now the Board will still be counting three years from now.</p></div><div class="mkfig"><div><span class="v">29 of 78</span><span class="l">publish nothing about placement</span></div><div><span class="v">7</span><span class="l">rules that decide if it counts</span></div><div><span class="v">1,300</span><span class="l">hours you can bank early</span></div><div><span class="v">$0</span><span class="l">and no account, ever</span></div></div><span class="lab" style="display:block;margin-top:13px">Start here</span><div class="mkstart"><a href="#"><span class="q">Who finds my practicum site?</span><span class="s">Look up your program and read its own words</span></a><a href="#"><span class="q">Can I do my practicum in a private practice?</span><span class="s">No &mdash; not as an employee, not as a volunteer</span></a><a href="#"><span class="q">Do these hours count toward the 3,000?</span><span class="s">On the MFT route, up to 1,300 of them</span></a><a href="#"><span class="q">What happens between my degree and my number?</span><span class="s">90 days, and the clock starts at the award date</span></a></div><div class="mkgrp">Your practicum</div><div class="mkcards"><div><span class="t">The practicum year in California</span><span class="n">The seven rules, and all 78 programs compared</span></div><div><span class="t">California MFT graduate programs</span><span class="n">Your own program's page, with its sources</span></div></div><div class="mkgrp">What comes next</div><div class="mkcards"><div><span class="t">Getting hired as a California associate</span><span class="n">Start reading this before you graduate, not after</span></div><div><span class="t">How long to 3,000 hours?</span><span class="n">What your practicum hours are worth once you register</span></div></div></div></div></div><div class="vh"><span class="tag">/for/associates</span><h4>Counting hours</h4><span class="rec">Live now</span></div><p>Registered, working toward the 3,000. 20 pages &middot; LIVE</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/for/associates</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div class="mkhero"><span class="lab">For California associates &middot; AMFT, ASW and APCC</span><h2>Everything a California associate needs, in one place.</h2><p>20 guides for the years between registration and your license &mdash; the hours and what counts toward them, why employers can or cannot hire you, what the work pays county by county, the loan repayment nobody mentions, and the Board&rsquo;s own numbers.</p></div><div class="mkfig"><div><span class="v">20</span><span class="l">guides for this stage</span></div><div><span class="v">58</span><span class="l">county job portals, checked</span></div><div><span class="v">165,000</span><span class="l">licensees in the register</span></div><div><span class="v">$0</span><span class="l">and no account, ever</span></div></div><span class="lab" style="display:block;margin-top:13px">Start here</span><div class="mkstart"><a href="#"><span class="q">When do I actually finish?</span><span class="s">Your date, from the hours you are really logging</span></a><a href="#"><span class="q">Why is nobody hiring me?</span><span class="s">It is a billing rule, and it is not about your hour count</span></a><a href="#"><span class="q">What should this job pay?</span><span class="s">Salary against per-session, and what counties actually pay</span></a><a href="#"><span class="q">Do I have to work unpaid?</span><span class="s">No, and there is a wage claim with a deadline</span></a></div><div class="mkgrp">Your hours, and what counts toward them</div><div class="mkcards"><div><span class="t">How long to 3,000 hours?</span><span class="n">Which requirement is holding you up</span></div><div><span class="t">The practicum year in California</span><span class="n">What of your pre-degree hours the Board still counts</span></div></div><div class="mkgrp">Getting hired, and what it pays</div><div class="mkcards"><div><span class="t">Getting hired as a California associate</span><span class="n">Why half your applications get no reply</span></div><div><span class="t">Where to apply, all 58 counties</span><span class="n">Including the seven whose obvious URL is somebody else</span></div></div></div></div></div><div class="vh"><span class="tag">/for/licensed</span><h4>Licensed</h4><span class="rec">Held</span></div><p>Licensed, and running or joining a practice. 19 pages</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/for/licensed</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div class="mkhero"><span class="lab">For licensed California therapists &middot; LMFT, LCSW and LPCC</span><h2>What changed, and whether it applies to you.</h2><p>The rules that moved, newest first, each with the date it took effect and the date this page last checked it. Then the reference shelf: rates, panels, tax, records and the paperwork a private practice has to get right.</p></div><div class="mkfig"><div><span class="v">19</span><span class="l">guides for this stage</span></div><div><span class="v">Aug 2026</span><span class="l">last checked</span></div><div><span class="v">4</span><span class="l">rules changed this year</span></div><div><span class="v">$0</span><span class="l">and no account, ever</span></div></div><span class="lab" style="display:block;margin-top:13px">Start here</span><div class="mkstart"><a href="#"><span class="q">Is my directory profile still compliant?</span><span class="s">The advertising rule changed on 1 April 2026</span></a><a href="#"><span class="q">What do I have to document per telehealth session?</span><span class="s">A duty that attaches to the session, not the file</span></a><a href="#"><span class="q">What does insurance actually pay?</span><span class="s">Per session, by payer, in California</span></a><a href="#"><span class="q">Sole proprietor or professional corporation?</span><span class="s">With the arithmetic attached, not the pitch</span></a></div><div class="mkgrp">What changed</div><div class="mkcards"><div><span class="t">What changed: fees, limits and rates</span><span class="n">Reverse chronological, each with its effective date</span></div><div><span class="t">California LMFT continuing education</span><span class="n">The 36 hours, and which six are mandatory</span></div></div><div class="mkgrp">The reference shelf</div><div class="mkcards"><div><span class="t">What insurance actually pays per session</span><span class="n">By payer, in California</span></div><div><span class="t">Getting on insurance panels</span><span class="n">CAQH, PECOS, PAVE and the timelines</span></div></div></div></div></div><div class="vh"><span class="tag">/for/practice-owners</span><h4>Practice owner</h4><span class="rec">Held</span></div><p>Employing other people, or about to. 8 pages &mdash; too thin</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/for/practice-owners</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div class="mkhero"><span class="lab">For California therapists running a practice</span><h2>The four decisions, each with the arithmetic attached.</h2><p>Not articles &mdash; calculators with your own numbers in them. Whether to incorporate, whether to hire, panels against private pay, and which software. Held until the queue lands: eight pages is not enough to open on, and three of them belong to the licensed door.</p></div><div class="mkfig"><div><span class="v">8</span><span class="l">pages &mdash; the reason it is held</span></div><div><span class="v">$1,248</span><span class="l">the SDI line the pitch forgets</span></div><div><span class="v">15</span><span class="l">EHR systems priced</span></div><div><span class="v">$0</span><span class="l">and no account, ever</span></div></div><span class="lab" style="display:block;margin-top:13px">Start here</span><div class="mkstart"><a href="#"><span class="q">Incorporate, or stay a sole proprietor?</span><span class="s">The SDI line most comparisons leave out</span></a><a href="#"><span class="q">Can I afford to hire an associate?</span><span class="s">Break-even caseload, in your county</span></a><a href="#"><span class="q">Panels, or private pay?</span><span class="s">$38 to $250 for the same code</span></a><a href="#"><span class="q">Which EHR?</span><span class="s">15 systems, 14 with a published price</span></a></div><div class="mkgrp">The four decisions</div><div class="mkcards"><div><span class="t">Can a California therapist form an LLC?</span><span class="n">No &mdash; and what the actual choice is</span></div><div><span class="t">Hiring your first associate</span><span class="n">The real arithmetic, including supervision</span></div></div></div></div></div></section><hr class="rule"><section id="journey"><div class="kicker"><span class="n">04</span><h2>How somebody actually arrives</h2></div><p class="lede">The doors are five pages. Almost nobody lands on one. This is the journey the architecture has to serve, and the third step is the part that does not exist yet.</p><div class="trip"><div><span class="s">Step 01</span><h4>A search, with a specific worry</h4><p>&ldquo;can amft hours be unpaid california&rdquo;. Not a browse. One question, asked at the worst moment.</p></div><div><span class="s">Step 02</span><h4>A leaf page, deep in the site</h4><p>They land on the wage-claim page. It answers the question well. They have no idea nineteen other pages were written for them.</p></div><div class="hit"><span class="s">Step 03</span><h4>The band tells them where they are</h4><p>One line above the headline naming the stage, one block below it naming what people read next. <b>This is the piece that does not exist yet, and it is on 200 pages rather than five.</b></p></div><div><span class="s">Step 04</span><h4>The door, and the shelf</h4><p>Now the hub is a destination rather than a page nobody found. They arrive already knowing why they are there.</p></div></div><p class="src">Which is the argument for building the band <em>before</em> the remaining four doors: a door nobody can find is worth less than a signpost on two hundred pages.</p></section><hr class="rule"><section id="furniture"><div class="kicker"><span class="n">05</span><h2>What changes on every page</h2></div><p class="lede">Two small blocks and one nav entry. Nothing moves, nothing is renamed, no URL changes.</p><h3 style="margin:20px 0 6px">Above the article &mdash; the annotated breadcrumb</h3><p>Merged into the existing breadcrumb rather than stacked above it. Two navigational lines over a headline is one too many.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/associate-unpaid-hours-california.html</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div class="band"><span class="you">You are at &middot; counting hours</span><span>This page tells you <b>what the claim is worth, and the 30-day clock</b>.</span><span class="nx">All 20 for this stage &rarr;</span></div><div style="border:2px solid var(--ink);background:#fff;padding:14px 16px;margin-top:9px"><h3 style="font-size:19px">Unpaid hours as a California associate</h3><p style="font-size:12px;color:var(--muted);margin:0">The wage claim, step by step &mdash; and why the Board is not where you file it.</p></div></div></div></div><h3 style="margin:24px 0 6px">After the article &mdash; the next-step band</h3><p>Catches the reader at the highest-intent moment on the page: the one where they have finished and are deciding whether to leave.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/associate-unpaid-hours-california.html</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div style="border:2px solid var(--ink);background:#fff;padding:12px 14px"><h3 style="font-size:17px">&hellip; and that is the whole claim.</h3><p style="font-size:12px;color:var(--muted);margin:0">Sources and the form are below.</p></div><div class="bandfoot" style="margin-top:10px"><span class="lab">You are counting toward 3,000</span><h4>Nineteen other pages are written for this stage.</h4><p>Next, most people read: what a job has to be able to bill before it can hire you &middot; where to apply in all 58 counties &middot; the 3,000-hour calculator.</p></div></div></div></div><h3 style="margin:24px 0 6px">The nav gains one entry, not five</h3><p>The masthead is already on two rows at 1440px. Five more top-level items will not fit, and five persona labels in a nav is the pattern the research warns about. One entry that opens.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/</span></div><div class="mk"><div class="mkhead"><span class="brand">Therapist Support</span><span class="nv"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>For you</span></span></div><div class="mkbody"><div style="padding:6px 0 2px"><span class="lab">The masthead, with the doors behind one entry</span><div style="display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin:9px 0 12px;color:var(--muted)"><span>Calculators</span><span>Money</span><span>Licensure</span><span>Getting paid</span><span>Practice</span><span>Training</span><span style="background:var(--gold);border:1.5px solid var(--ink);padding:2px 8px;color:var(--ink)">For you &or;</span></div><div style="border:2px solid var(--ink);background:var(--cream);padding:11px 13px;box-shadow:4px 4px 0 var(--ink);max-width:430px"><span class="lab">Where are you on the path?</span><div style="display:grid;gap:5px;margin-top:7px;font-size:13px"><span><b>Thinking about it</b> &mdash; 73 guides</span><span><b>In a program</b> &mdash; the practicum year</span><span><b>Counting hours</b> &mdash; 20 guides</span><span><b>Licensed</b> &mdash; what changed, and the shelf</span><span><b>Running a practice</b> &mdash; four decisions</span></div></div></div></div></div></div></section><hr class="rule"><section id="model"><div class="kicker"><span class="n">06</span><h2>URLs and data</h2></div><div class="grid g2"><div class="card"><h3>The namespace</h3><p><code>/for/associates.html</code> &mdash; live. Then <code>/for/deciding.html</code>, <code>/for/students.html</code>, <code>/for/licensed.html</code>, <code>/for/practice-owners.html</code>.</p><p style="margin:0"><b>One level, not two.</b> The passes list the site root plus each directory one level down and do not recurse, so <code>/for/associates/index.html</code> would be invisible to every one of them. This was found the hard way.</p></div><div class="card"><h3>Two keys per page</h3><pre style="font-family:var(--mono);font-size:11.5px;overflow-x:auto;background:#fff;border:1.5px solid var(--line);padding:10px">"stages": ["associate", "student"],
+"stage_note": {
+  "associate": "What the claim is worth, and the 30-day clock.",
+  "student": "Why a placement cannot ask you to work unpaid."
+}</pre><p style="margin:0"><b>The note is mandatory</b>, and that has a consequence worth stating: it makes bulk tagging impossible. Two hundred honest one-line annotations cannot be written in one pass, and generated ones would be exactly the thin duplicate the field exists to prevent. So a page is tagged when a door that lists it is built. 20 are done.</p></div></div><div class="note"><p><b>Three things already shipped that this depends on.</b> <code>&quot;for&quot;</code> is in <code>SUBDIRS</code> in all forty passes, and <code>_dev/subdirs_check.py</code> now fails the build if they ever disagree. <code>registry_sync.py</code> preserves keys it does not own &mdash; it was deleting the tagging on the first run, silently. And <code>_dev/plain_gates.py</code> made 309 replacements across 199 pages.</p></div></section><hr class="rule"><section id="order"><div class="kicker"><span class="n">07</span><h2>Build order</h2></div><p class="lede">Changed from P2 in one place, and the journey above is the reason: the band comes before the remaining doors.</p><ol class="plan"><li><h4>SUBDIRS, the tagging, and the plain words <span class="badge">done</span></h4><p class="why">The configuration line first, so nothing built afterward is invisible. Then the two registry keys, and the sitewide sweep that replaced a metaphor with two plain nouns.</p><span class="out">Shipped 12 August. 202 pages, 0 failures.</span></li><li><h4>/for/associates &mdash; the reference implementation <span class="badge">done</span></h4><p class="why">Loudest room, twenty pages ready. Built, reviewed, and corrected twice - which is what makes it worth copying rather than the first draft of it.</p><span class="out">Live. The pattern in section 01 is this page.</span></li><li><h4>The band, on 200 pages, and the home page repointed</h4><p class="why">Step 3 of the journey. A door nobody can find is worth less than a signpost on two hundred pages, and this is one line in the breadcrumb pass plus one block in the footer pass.</p><span class="out">200 pages gain a stage line and a next-step block.</span></li><li><h4>/for/students &mdash; the practicum door</h4><p class="why">Runs entirely off data that shipped on 11 August. The most shareable single thing in the set: look up your program, read its own words about who finds your site.</p><span class="out">One door, one new lookup, no new research.</span></li><li><h4>/for/deciding &mdash; the largest shelf</h4><p class="why">73 pages, lowest urgency. It benefits from the two doors above already existing, because half of what it routes to is them.</p><span class="out">One door. The set reads as a set.</span></li><li><h4>/for/licensed &mdash; what changed</h4><p class="why">Blocked only on the advertising-rule and telehealth pages, both already on the approved editorial list. Built as a change log, not a masthead: a change log cannot go stale, because staleness is its content.</p><span class="out">One door, plus the two pages it needs.</span></li><li><h4>/for/practice-owners &mdash; last</h4><p class="why">Eight pages, three of which belong to the licensed door. Opening it now is how a hub becomes a thin duplicate. Four more owner pages and it opens honestly.</p><span class="out">The set closes.</span></li></ol><p class="src">Net new: <b>4 doors</b> and two page-furniture blocks. Everything else is a view over content that already exists.</p></section></div><footer><div class="wrap"><p style="margin:0">Working document, 12 August 2026. Supersedes the design half of <a href="stage-doors.html">P2</a>, which was drawn before the first door shipped and leads with the tool. The evidence, the coverage audit and the namespace argument are in <a href="stage-architecture.html">P1</a> and are not repeated. Mockups are real HTML in the shipping design system; the associates door is rendered from its live content. Nothing else here is live.</p></div></footer></body></html>

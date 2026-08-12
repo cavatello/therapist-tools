@@ -204,17 +204,24 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("information-architecture.html",
+     "P4 &middot; One pattern, five doors &mdash; the current proposal",
+     "<b>Read this one.</b> Every landing page mocked up, the architecture "
+     "underneath them, and the six-block pattern each door follows. Rebuilt "
+     "after the first door shipped and came back with two corrections: lead "
+     "with what the reader gets rather than the tool, and say it in words a "
+     "stranger already knows. Supersedes the design half of P2."),
+    ("stage-doors.html",
+     "P2 &middot; Five doors, three ways each &mdash; superseded in part",
+     "16 mockups with a recommendation each. The impact list in section 09 is "
+     "still current and still the thing that decides the timeline. The door "
+     "designs were drawn before the first one shipped and lead with the tool, "
+     "which is the mistake P4 corrects."),
     ("stage-architecture.html",
      "P1 &middot; Visitor-stage architecture &mdash; the case",
-     "Six-stage model, the coverage audit of all 182 registry pages, three IA "
-     "options and three rendered mockups. The <em>whether</em>."),
-    ("stage-doors.html",
-     "P2 &middot; Five doors, three ways each &mdash; the designs",
-     "16 rendered mockups: two or three alternatives for every door plus three "
-     "for the sitewide band, each with what it buys, what it costs and a "
-     "recommendation. Ends with the impact list &mdash; every pass that "
-     "changes, and the one configuration line that would make all five hubs "
-     "invisible. The <em>which</em> and the <em>what else</em>."),
+     "Whether to do this at all. Six-stage model, the coverage audit of all "
+     "182 registry pages, the evidence and the namespace argument. Not "
+     "repeated in P4."),
     ("bay-area-directories.html",
      "P3 &middot; Bay Area practicum and associate sites",
      "Whether the two directories can be sourced honestly, and from what. "
