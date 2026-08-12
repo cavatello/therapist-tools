@@ -63,7 +63,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "What date you finish, at the hours you are actually logging - and which of the four sub-totals is behind."
+   }
   },
   {
    "file": "antioch-university-los-angeles-mft.html",
@@ -102,7 +108,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Whether hours you gain from another state count. The Board has answered five times and nobody links it."
+   }
   },
   {
    "file": "associate-hours-trackers-compared.html",
@@ -115,7 +127,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Five hour-tracking products compared, and what the Board actually accepts as a supervisor signature."
+   }
   },
   {
    "file": "associate-mft-job-advisor.html",
@@ -128,7 +146,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Which setting fits the hours you still need, rather than the hours you already have."
+   }
   },
   {
    "file": "associate-therapist-pay-los-angeles-bay-area.html",
@@ -141,7 +165,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "What the offer should be, salary against per-session, before you accept one."
+   }
   },
   {
    "file": "associate-unpaid-hours-california.html",
@@ -154,7 +184,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "The wage claim for unpaid non-clinical time, step by step - and why the Board is not where you file it."
+   }
   },
   {
    "file": "azusa-pacific-university-mft.html",
@@ -193,7 +229,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "What the law and ethics exam actually passes at, first-time, across seven quarters."
+   }
   },
   {
    "file": "bbs-fees-california-2026.html",
@@ -206,7 +248,13 @@
    "stale": true,
    "weight": 3,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "What your renewal costs since July 2026, and what it goes back to in 2030."
+   }
   },
   {
    "file": "bbs-processing-times-california.html",
@@ -219,7 +267,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "How long the Board is taking right now, so a renewal or an application is filed with room to spare."
+   }
   },
   {
    "file": "become-an-mft-california.html",
@@ -570,7 +624,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Not yet - but the law and ethics course inside your first renewal period is, and it is easy to miss."
+   }
   },
   {
    "file": "cost-of-incorporating-california-therapist.html",
@@ -596,7 +656,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Where the application form is, in all 58 counties - including the seven whose obvious URL is somebody else."
+   }
   },
   {
    "file": "county-therapist-pay-california.html",
@@ -609,7 +675,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Which county to apply to first, from what each one actually paid rather than what it advertised."
+   }
   },
   {
    "file": "daybreak-university-mft.html",
@@ -1298,7 +1370,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "Why half your applications get no reply: it is a billing rule, not your hour count."
+   }
   },
   {
    "file": "golden-gate-university-mft.html",
@@ -1480,7 +1558,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "You may already be accruing qualifying payments. PSLF asks about your employer and not about your license."
+   }
   },
   {
    "file": "loma-linda-university-mft.html",
@@ -1519,7 +1603,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "The one loan-repayment program that names registered associates - and the 32-hour obligation attached."
+   }
   },
   {
    "file": "medi-cal-safety-net-employers-california.html",
@@ -1532,7 +1622,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "The employers that can legally bill for you, by name: 57 county plans and 218 health center organizations."
+   }
   },
   {
    "file": "meridian-university-mft.html",
@@ -1636,7 +1732,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "If you are moving here mid-registration: which hours travel, and which do not."
+   }
   },
   {
    "file": "pacific-oaks-college-mft.html",
@@ -1727,7 +1829,15 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "student",
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "What of your pre-degree hours the Board still counts, and the 90-day rule if you are newly graduated.",
+    "student": "Who finds your practicum site at each of the 78 programs, and the seven rules that decide if a placement counts."
+   }
   },
   {
    "file": "privacy.html",
@@ -2221,7 +2331,13 @@
    "stale": false,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "What the Board actually acts on. Several of these begin with an hours form or a supervisor signature."
+   }
   },
   {
    "file": "therapist-llc-california.html",
@@ -2286,7 +2402,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "How many associates are competing for a supervisor in your county, from the state register."
+   }
   },
   {
    "file": "therapists-by-state-compared.html",

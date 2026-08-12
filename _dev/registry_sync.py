@@ -219,7 +219,7 @@ def main():
         print("GUARD: %s disappeared from every record - this pass rebuilt "
               "them and dropped a field it does not own"
               % ", ".join(sorted(lost)))
-        problems.append("dropped field(s): %s" % ", ".join(sorted(lost)))
+        bad += 1
 
     if len(REG["pages"]) < 0.8 * len(old):
         print("GUARD: registry shrank from %d to %d - refusing"
