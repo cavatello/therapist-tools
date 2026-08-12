@@ -2,6 +2,28 @@
 # -*- coding: utf-8 -*-
 """/for/associates - the first stage door, built as the Ledger.
 
+WHO ACTUALLY ARRIVES HERE, WHICH THE FIRST VERSION GOT WRONG
+
+The first build opened with "One bar. Four requirements. Nothing you type here leaves
+this browser." That headline describes a widget. It was written for somebody
+arriving from a link posted in a group - already oriented, wanting the tool -
+and that is not who mostly arrives. Most arrive cold, from a search for one
+specific question, and a cold arrival needs to learn three things in the first
+screen:
+
+    am I in the right place, is this the whole thing, and where do I start
+
+The old hero answered none of them. Two of its four blocks were about privacy,
+which is a trust signal and not a reason to stay, and its four figures were the
+statute - 3,000, 1,750, 500, 104 - numbers a registered associate already
+knows. Nothing said "everything for this stage, in one place", so the page read
+as a single calculator rather than a hub over twenty pages.
+
+So the order is now: what this is and how much of it there is, then the four
+places most people start, then the tool, then the shelf grouped by subject.
+The privacy promise sits with the tool, where it is the answer to an actual
+question, rather than in the headline where it displaced the offer.
+
 WHY THIS DESIGN AND NOT THE OTHER TWO
 
 Three variants were drawn for this door. The Desk opens with six live tiles;
@@ -13,13 +35,18 @@ screen where six tiles do not. The other two are not discarded - the Desk's
 detail is what the bar expands into, and the Questions sit directly beneath
 it.
 
-THE GATE THAT LEADS
+THE WORD "GATE" IS GONE, AND THE REASON IS NOT ONLY THE JARGON
 
-Of the four sub-totals inside the 3,000, the one people miss is the 500
-relational hours - counselling couples, families and children. Somebody can
-reach 3,000 total and 1,750 direct and still not be finished. So the
-relational gate is the highest-contrast element on the page, not a footnote in
-the fourth tile.
+This page used to call the four requirements "gates". Two things were wrong
+with that. Nobody outside the person who wrote it knows what a gate is meant
+to be. And it framed the 3,000 as the thing you are working toward, when the
+3,000 is almost never what decides anybody's date - a caseload of adult
+individuals closes the total long before it produces 500 relational hours, and
+the 104 weeks bind anyone moving quickly.
+
+So they are requirements, they are named that, and the page says plainly which
+one usually runs out last rather than implying it is the big number at the
+top.
 
 NOTHING IS SENT ANYWHERE, AND THAT IS SAID IN THE HERO
 
@@ -67,10 +94,57 @@ STAGE = "associate"
 # to a file that exists.
 UP = "../"
 
-JUMPS = [("ledger", "Where you are"),
+JUMPS = [("start", "Start here"),
+         ("ledger", "Where you are"),
          ("asking", "What this room asks"),
-         ("shelf", "Everything for this stage"),
+         ("shelf", "All %d guides"),
          ("sources", "The rules behind it")]
+
+# The four things most people arrive wanting. Ordered by how often the
+# question turns up, not by how good the page is.
+START = [
+    ("amft-3000-hours-california.html", "When do I actually finish?",
+     "Your date, from the hours you are really logging"),
+    ("getting-hired-as-a-california-associate.html",
+     "Why is nobody hiring me?",
+     "It is a billing rule, and it is not about your hour count"),
+    ("associate-therapist-pay-los-angeles-bay-area.html",
+     "What should this job pay?",
+     "Salary against per-session, and what counties actually pay"),
+    ("associate-unpaid-hours-california.html", "Do I have to work unpaid?",
+     "No, and there is a wage claim with a deadline"),
+]
+
+# The shelf, grouped. Twenty ungrouped cards is a wall; five headed groups is
+# a table of contents, and a cold arrival can see the shape of the whole thing
+# without reading any of it.
+GROUPS = [
+    ("Your hours, and what counts toward them",
+     ["amft-3000-hours-california.html",
+      "practicum-california-mft-trainee.html",
+      "associate-hours-telehealth-out-of-state.html",
+      "associate-hours-trackers-compared.html",
+      "out-of-state-to-california-licensure.html"]),
+    ("Getting hired, and what it pays",
+     ["getting-hired-as-a-california-associate.html",
+      "associate-mft-job-advisor.html",
+      "associate-therapist-pay-los-angeles-bay-area.html",
+      "county-therapist-pay-california.html",
+      "county-job-portals-california.html",
+      "medi-cal-safety-net-employers-california.html",
+      "associate-unpaid-hours-california.html"]),
+    ("Money back on your loans",
+     ["loan-forgiveness-employers-california.html",
+      "mbh-slrp-california.html"]),
+    ("The Board: exams, fees and waiting",
+     ["bbs-exam-pass-rates-california.html",
+      "bbs-processing-times-california.html",
+      "bbs-fees-california-2026.html",
+      "continuing-education-california-lmft.html",
+      "therapist-discipline-cases-california.html"]),
+    ("The market you are qualifying into",
+     ["therapists-by-county-california.html"]),
+]
 
 # The three loudest threads in the community analysis, de-identified - no
 # name, no group, no quotable handle. The wording is the recurring shape of
@@ -223,22 +297,40 @@ def body(shelf):
     o = ['<article class="pk-wrap">']
 
     o.append(pk.hero(
-        "You are counting toward 3,000",
-        "One bar. Four gates. Nothing you type here leaves this browser.",
-        "Written for AMFTs. Where a rule differs for an ASW or an APCC it says "
-        "so and links to the difference. Everything below is computed on this "
-        "page &mdash; there is no account, no database and no share link that "
-        "could carry your figures anywhere.",
-        [("3,000", "hours in total"),
-         ("1,750", "direct clinical"),
-         ("500", "relational &mdash; the gate"),
-         ("104", "weeks minimum")],
-        JUMPS))
+        "For California associates &middot; AMFT, ASW and APCC",
+        "Everything a California associate needs, in one place.",
+        "%d guides for the years between registration and your license "
+        "&mdash; the hours and what counts toward them, why employers can or "
+        "cannot hire you, what the work pays county by county, the loan "
+        "repayment nobody mentions, and the Board&rsquo;s own numbers on "
+        "exams and waiting times. Every figure comes from a named source, and "
+        "the whole site is free."
+        % len(shelf),
+        [(str(len(shelf)), "guides for this stage"),
+         ("58", "county job portals, checked"),
+         ("165,000", "licensees in the register"),
+         ("$0", "and no account, ever")],
+        [(h, l % len(shelf) if '%d' in l else l)
+         for h, l in JUMPS]))
+
+    # ----------------------------------------------------------------- start
+    o.append('<section class="pk-sec" id="start">')
+    o.append('<p class="pk-k">Start here</p>')
+    o.append('<h2 class="pk-h">Four questions bring most people to this '
+             "page.</h2>")
+    o.append('<p class="pk-d">Written for AMFTs. Where a rule differs for an '
+             "ASW or an APCC, the page says so and links to the difference.</p>")
+    o.append('<div class="start">')
+    for href, q, sub in START:
+        o.append('<a href="%s%s"><span class="q">%s</span>'
+                 '<span class="s">%s</span></a>' % (UP, href, q, sub))
+    o.append("</div>")
+    o.append("</section>")
 
     # ---------------------------------------------------------------- ledger
     o.append('<section class="pk-sec" id="ledger">')
     o.append('<p class="pk-k">Where you are</p>')
-    o.append('<h2 class="pk-h">The whole requirement, in one line.</h2>')
+    o.append('<h2 class="pk-h">Which requirement is actually holding you up?</h2>')
     o.append('<p class="pk-d">Four numbers off your own log. The bar is the '
              "3,000; the tiles are the sub-totals underneath it, and one of "
              "them stops more people than the rest.</p>")
@@ -261,8 +353,8 @@ def body(shelf):
     o.append('<div class="lg-mk"><span style="left:58.3%">1,750 direct</span>'
              '<span style="left:99%">3,000</span></div>')
     o.append('<div class="lg-g gate">')
-    for gid, k in [("gDirect", "Direct clinical"), ("gRel", "Relational"),
-                   ("gWeeks", "Weeks"), ("gWhen", "Weeks still to go")]:
+    for gid, k in [("gDirect", "Direct clinical"), ("gRel", "Relational hours"),
+                   ("gWeeks", "Weeks elapsed"), ("gWhen", "Weeks still to go")]:
         o.append('<div id="%s"><span class="k">%s</span>'
                  '<span class="v">&mdash;</span>'
                  '<span class="s">&nbsp;</span></div>' % (gid, k))
@@ -272,7 +364,7 @@ def body(shelf):
              '<input id="lgRate" type="number" min="0" step="1" '
              'inputmode="numeric" placeholder="18"></div></div>')
     o.append('<p class="lg-note"><b id="lgTot">&mdash;</b> &middot; '
-             '<span id="lgPct">0%</span> of the way. The relational gate is '
+             '<span id="lgPct">0%</span> of the way. The relational requirement is '
              "marked because it is the one people reach 3,000 without: 500 "
              "hours with couples, families and children, inside the 1,750. "
              "Everything here is your arithmetic, not the Board&rsquo;s "
@@ -280,7 +372,7 @@ def body(shelf):
     o.append("</div>")
 
     o.append(pk.callout(
-        "The four numbers, and where they come from",
+        "The four requirements, and where they come from",
         ["<b>3,000</b> hours over at least <b>104 weeks</b>, of which at least "
          "<b>1,750</b> are direct clinical counseling and at least <b>500</b> "
          "of those are with couples, families and children. No more than 40 "
@@ -351,13 +443,13 @@ META = pk.meta_block(
     PAGE,
     "For California associates: everything for counting your 3,000 hours",
     "One page for registered associates - where you are against the 3,000 "
-    "hours and all four gates inside them, the three questions the "
+    "hours and all four requirements inside them, the three questions the "
     "pre-licensed groups actually ask, and every page written for this stage.",
     "licensure", "reference",
     "What do I need while I am a registered associate in California?",
     "The whole requirement in one bar, and every page on this site written "
     "for somebody counting hours",
-    "500 relational hours is the gate people reach 3,000 without",
+    "The 3,000 is almost never what decides your date",
     weight=5)
 
 
@@ -397,7 +489,7 @@ def main():
     bad = pk.check_page(p, [
         ("a stylesheet link that climbs a level", 'href="../css/'),
         ("the privacy promise in the hero", "leaves this browser"),
-        ("the relational gate", "reach 3,000 without"),
+        ("the relational finding", "almost never what decides your date"),
         ("the not-the-Board caveat", "not the Board&rsquo;s count"),
     ], [j[0] for j in JUMPS])
 
