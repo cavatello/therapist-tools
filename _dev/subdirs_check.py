@@ -33,10 +33,33 @@ import ast, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 
-# Directories that hold pages but are deliberately outside the passes: `ops/`
-# is the encrypted working area, `mock/` is research, `_dev/` is this folder.
-IGNORE = {"ops", "mock", "css", "js", "node_modules", "RESEARCH", "_to_delete",
+# Directories that hold no published pages at all: build inputs, research,
+# stylesheets, this folder.
+IGNORE = {"mock", "css", "js", "node_modules", "RESEARCH", "_to_delete",
           "_dev", "_ops", "img", "assets"}
+
+# `ops/` and `hours/` hold working documents, not published pages, and the
+# passes are right to skip them. That exemption is NOT a list of names, and it
+# deliberately is not: a hardcoded name is how a genuinely published directory
+# gets waved through by somebody in a hurry. A directory is exempt only if it
+# can prove it - every page in it carries a robots noindex, and none of them
+# is in the sitemap. Publish one indexable page into `ops/` and this check
+# starts failing again, which is the correct behavior.
+
+
+def is_working_dir(path, sitemap):
+    pages = [x for x in os.listdir(path) if x.endswith(".html")]
+    if not pages:
+        return False
+    for x in pages:
+        head = open(os.path.join(path, x), encoding="utf-8",
+                    errors="replace").read(4000)
+        m = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*>', head, re.I)
+        if not m or "noindex" not in m.group(0).lower():
+            return False
+        if "%s/%s" % (os.path.basename(path), x) in sitemap:
+            return False
+    return True
 
 PAT = re.compile(r"^SUBDIRS\s*=\s*(\([^)]*\))", re.M)
 
@@ -79,6 +102,9 @@ def main():
             bad += 1
 
     # And the other direction - a directory of pages that no pass can see.
+    sm = os.path.join(SITE, "sitemap.xml")
+    sitemap = (open(sm, encoding="utf-8").read()
+               if os.path.exists(sm) else "")
     for d in sorted(os.listdir(SITE)):
         p = os.path.join(SITE, d)
         if not os.path.isdir(p) or d.startswith(".") or d in IGNORE:
@@ -86,10 +112,16 @@ def main():
         if d in canon:
             continue
         html = [x for x in os.listdir(p) if x.endswith(".html")]
-        if html:
-            print("GUARD: %s/ holds %d page(s) and is not in SUBDIRS, so every "
-                  "pass skips it" % (d, len(html)))
-            bad += 1
+        if not html:
+            continue
+        if is_working_dir(p, sitemap):
+            print("  NOTE: %s/ holds %d working document(s) - noindex, absent "
+                  "from the sitemap - and is correctly outside the passes"
+                  % (d, len(html)))
+            continue
+        print("GUARD: %s/ holds %d page(s) and is not in SUBDIRS, so every "
+              "pass skips it" % (d, len(html)))
+        bad += 1
 
     if bad:
         sys.exit("\n%d problem(s)" % bad)
