@@ -64,6 +64,11 @@ NEW_CLUSTERS = [
     # into the Licensure catch-all, which is exactly the failure this pass
     # exists to stop. It is not part of "Counting the hours" - those pages
     # are all about the post-degree associate - so it gets its own.
+    # The stage doors are entry points rather than reference pages, so they
+    # get a cluster of their own rather than sitting among the pages they
+    # point at.
+    ("licensure", "Doors by stage",
+     ["for/associates.html"]),
     ("licensure", "The practicum, and the year before you register",
      ["practicum-california-mft-trainee.html"]),
     # The career-change page is the front door to the whole licensure topic,

@@ -29,6 +29,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
+| `build_forassociates.py` | build | &mdash; | /for/associates - the first stage door, built as the Ledger. |
 | `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
@@ -43,6 +44,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
 | `build_unpaid.py` | build | &mdash; | You were not paid for the notes: the wage claim an associate can actually file. |
 | `payroll_ops.py` | build | &mdash; | What it costs to RUN the payroll, on the page that already prices the hire. |
+| `stage_tags.py` | build | &mdash; | Which stage of the path each page is written for, and what it says there. |
 | `affiliate.py` | structure | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |
@@ -101,6 +103,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
 | `seo_rules.py` | verify | &mdash; | The rule: a page cannot be added to this site badly, because publishing checks. |
+| `subdirs_check.py` | verify | &mdash; | Every pass must agree on which directories the site has. |
 
 ## Written, not wired
 

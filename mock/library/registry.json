@@ -1334,6 +1334,19 @@
    "leaf": true
   },
   {
+   "file": "for/associates.html",
+   "title": "For California associates: everything for counting your 3,000 hours",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What do I need while I am a registered associate in California?",
+   "outcome": "The whole requirement in one bar, and every page on this site written for somebody counting hours",
+   "number": "500 relational hours is the gate people reach 3,000 without",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "fresno-pacific-university-mft.html",
    "title": "Fresno Pacific University — MFT program in California",
    "topic": "licensure",
@@ -1361,7 +1374,7 @@
   },
   {
    "file": "getting-hired-as-a-california-associate.html",
-   "title": "Getting hired as a California associate",
+   "title": "Getting hired as a California associate: why half your applications never reply",
    "topic": "licensure",
    "format": "guide",
    "question": "I have 547 hours and everyone wants someone almost done — how do I get hired?",
@@ -1594,7 +1607,7 @@
   },
   {
    "file": "mbh-slrp-california.html",
-   "title": "MBH-SLRP explained",
+   "title": "MBH-SLRP explained: the $180,000 California pays associate therapists",
    "topic": "licensure",
    "format": "guide",
    "question": "How does the Medi-Cal Behavioral Health Student Loan Repayment Program actually work?",
@@ -1613,7 +1626,7 @@
   },
   {
    "file": "medi-cal-safety-net-employers-california.html",
-   "title": "Medi-Cal safety-net employers in California",
+   "title": "Medi-Cal safety-net employers in California: the health centers, named",
    "topic": "licensure",
    "format": "reference",
    "question": "Which California employers are in the Medi-Cal safety net?",
@@ -2412,7 +2425,7 @@
   },
   {
    "file": "therapists-by-state-compared.html",
-   "title": "Therapists by state",
+   "title": "Therapists by state: what the license is called, and how many there are",
    "topic": "licensure",
    "format": "reference",
    "question": "How does California compare with other states for therapists?",
@@ -2425,7 +2438,7 @@
   },
   {
    "file": "therapy-liability-insurance-california.html",
-   "title": "Liability insurance for a California therapy practice",
+   "title": "Liability insurance for a California therapy practice — Therapist Support",
    "topic": "practice",
    "format": "reference",
    "question": "What malpractice insurance do I actually need?",
@@ -2438,7 +2451,7 @@
   },
   {
    "file": "therapynotes-vs-simplepractice-california.html",
-   "title": "Every therapy EHR compared, priced — California, 2026",
+   "title": "Every therapy EHR compared, priced — California, 2026 | Therapist Support",
    "topic": "practice",
    "format": "guide",
    "question": "Which practice-management system should a California therapist use?",
@@ -2697,6 +2710,12 @@
      "name": "The practicum, and the year before you register",
      "files": [
       "practicum-california-mft-trainee.html"
+     ]
+    },
+    {
+     "name": "Doors by stage",
+     "files": [
+      "for/associates.html"
      ]
     }
    ]

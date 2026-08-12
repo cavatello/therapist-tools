@@ -135,6 +135,15 @@ BUILD = [
     # `_dev/dca_licensees.py` from the state's monthly register. Every
     # figure on the page is derived at build time, so when the register
     # is refreshed the page moves with it and no prose needs editing.
+    # The first stage door. Reads the `stages` / `stage_note` tagging that
+    # _dev/stage_tags.py writes into the registry, so its shelf annotations
+    # cannot drift from the pages they describe.
+    ("_dev/stage_tags.py",
+     "which stage of the path each page is written for, and the one line "
+     "saying what it tells that reader - the door below reads this"),
+    ("_dev/build_forassociates.py",
+     "/for/associates - the whole 3,000-hour requirement in one bar, and "
+     "every page written for somebody counting them"),
     ("_dev/build_atlas.py",
      "all 165,000 California licensees counted by county, with the "
      "associate-per-supervisor ratio and the delinquency rates"),
@@ -316,6 +325,12 @@ LAST = [
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
 VERIFY = [
+    # Cheapest and first: forty passes each carry their own copy of SUBDIRS,
+    # and a directory missing from that list is invisible to every one of
+    # them while every guard still reports clean.
+    ("_dev/subdirs_check.py",
+     "every pass agrees which directories the site has, and every directory "
+     "of pages is in the list"),
     # The DCA licensee counts. `--check` only: it re-reads the committed
     # `_dev/dca_stats.py` and reconciles it. The refresh half of that
     # pass downloads 35MB from the state and CANNOT run here - this
