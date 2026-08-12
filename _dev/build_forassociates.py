@@ -35,7 +35,7 @@ read from the registry field written by _dev/stage_tags.py. That is the whole
 difference between a stage hub and a re-listed topic hub, and a guard here
 refuses to print a page that has no note.
 """
-import json, os, sys
+import json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -43,14 +43,21 @@ import pagekit as pk
 
 SITE = pk.SITE
 PAGE = "for/associates.html"
-# THE DONOR MUST ALREADY LIVE ONE LEVEL DOWN. Borrowing chrome from a page at
-# the site root gives you a masthead and footer whose links are bare
-# ("contact.html"), which resolve to /for/contact.html from here and are dead.
-# Some of them get depth-corrected by a later pass and some do not, so the
-# result is a footer that is half right - which is worse than one that is
-# uniformly wrong, because it looks fine. A topic hub is the correct donor:
-# it sits at the same depth and its links are already relative to it.
-DONOR = "licensure/index.html"
+# THE DONOR IS A ROOT PAGE, AND THE BUILDER MOVES ITS LINKS DOWN A LEVEL.
+#
+# Two things pull in opposite directions here. `pagekit.chrome_parts` only
+# recognises stylesheet links written as `href="css/<hash>.css"`, so the donor
+# has to be a page at the site root - borrowing from a topic hub yields no
+# stylesheets at all and the page ships unstyled. But a root page's chrome
+# links are bare, and `contact.html` resolves to `/for/contact.html` from
+# here, which is dead.
+#
+# The first attempt at this borrowed from a root page and let a later pass
+# correct the depth. It corrected some of them: the footer came out with
+# `../affiliate-disclosure.html` beside a bare `terms.html`, which is worse
+# than uniformly wrong because it looks fine. So the builder does it itself,
+# to everything, in one place.
+DONOR = "county-job-portals-california.html"
 REG = os.path.join(SITE, "mock", "library", "registry.json")
 STAGE = "associate"
 
@@ -190,6 +197,25 @@ JS = """<script>/* the ledger. Everything here stays in this browser: no storage
  draw();
 })();
 </script>"""
+
+
+
+def descend(html):
+    """Move a root page's chrome down one directory.
+
+    Rewrites every relative href and src to climb out of `/for/`. Absolute
+    URLs, protocol-relative URLs, fragments, `mailto:`, `tel:` and `data:`
+    URIs are left exactly as they are, and anything already climbing is left
+    alone so this stays safe to apply twice.
+    """
+    def fix(m):
+        attr, url = m.group(1), m.group(2)
+        if (url.startswith(("http://", "https://", "//", "#", "mailto:",
+                            "tel:", "data:", "../", "/"))
+                or not url.strip()):
+            return m.group(0)
+        return '%s="%s%s"' % (attr, UP, url)
+    return re.sub(r'\b(href|src)="([^"]*)"', fix, html)
 
 
 def body(shelf):
@@ -355,6 +381,8 @@ def main():
                  "it was built to pass" % (len(shelf), STAGE))
 
     head, header, footer, links, scripts = pk.chrome_parts(DONOR)
+    head, header, footer = descend(head), descend(header), descend(footer)
+    links = [descend(l) for l in links]
     html_body, nsrc = body(shelf)
     html = pk.assemble(head, META, header, html_body, footer, links, scripts,
                        extra=CSS + JS)
@@ -366,6 +394,7 @@ def main():
           % (PAGE, format(len(html), ",d"), len(shelf), nsrc))
 
     bad = pk.check_page(p, [
+        ("a stylesheet link that climbs a level", 'href="../css/'),
         ("the privacy promise in the hero", "leaves this browser"),
         ("the relational gate", "reach 3,000 without"),
         ("the not-the-Board caveat", "not the Board&rsquo;s count"),

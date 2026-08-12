@@ -545,10 +545,19 @@ def check_page(path, must_have, jump_ids):
 
     for what, needle in (("the masthead", "sitenav"),
                          ("the footer", "<footer"),
-                         ("a stylesheet link", 'href="css/'),
+                         # A pagekit page can now live one directory down -
+                         # the stage doors do - so its stylesheet link climbs.
+                         # Checking only the root form failed a page whose CSS
+                         # was present and correct.
+                         ("a stylesheet link", None),
                          ("the shared style block", "_dev/pagekit.py"),
                          ("exactly one h1", None)):
-        if needle is None:
+        if what == "a stylesheet link":
+            if 'href="css/' not in s and 'href="../css/' not in s:
+                print("GUARD: a stylesheet link is missing from the written "
+                      "page")
+                bad += 1
+        elif needle is None:
             if s.count("<h1") != 1:
                 print("GUARD: %d h1 elements, expected 1" % s.count("<h1"))
                 bad += 1
