@@ -46,6 +46,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import pagekit as pk
 import county_pay_data as cp
+import sf_pay_data as sf
 
 SITE = pk.SITE
 PAGE = "county-therapist-pay-california.html"
@@ -62,6 +63,7 @@ JUMPS = [("spread", "The spread"),
          ("trend", "Three years"),
          ("table", "Every county"),
          ("prelicensed", "Pre-licensed"),
+         ("sanfrancisco", "San Francisco"),
          ("method", "How it was counted"),
          ("sources", "Sources")]
 
@@ -73,14 +75,6 @@ RATIO = TOP["max_med"] / float(BOTTOM["max_med"])
 
 
 def money(n):
-    """A county that reported no usable salary range gets an em-dash, not a zero.
-
-    Some counties leave MinPositionSalary blank for a grade. Printing $0 there
-    would read as "this county pays nothing", which is the one thing it cannot
-    mean.
-    """
-    if n is None:
-        return "&mdash;"
     return "$%s" % format(int(n), ",d")
 
 
@@ -256,6 +250,96 @@ def body():
                 100.0 * (p["peer_max"] - p["max"]) / p["max"]))
     o.append("</section>")
 
+    # --------------------------------------------------------- san francisco
+    L = sf.YEARS[-1]
+    T = sf.YEAR_TOTALS[L]
+    o.append('<section class="pk-sec" id="sanfrancisco">')
+    o.append('<p class="pk-k">The county that is not in the file</p>')
+    o.append('<h2 class="pk-h">San Francisco is missing from every table '
+             "above, and it is one of the best payers in the state.</h2>")
+    o.append('<p class="pk-d">Not under-counted &mdash; <b>absent</b>. There is '
+             "no employer named San Francisco anywhere in the State "
+             "Controller&rsquo;s county file, because San Francisco is a "
+             "consolidated city and county and files in the "
+             "<em>cities</em> dataset instead. The table above reports %d of "
+             "California&rsquo;s 58 counties and this is one of the three it "
+             "cannot see.</p>" % cp.YEAR_TOTALS[LATEST]["counties"])
+
+    o.append(pk.quote(
+        "Read this before comparing the numbers",
+        ["San Francisco publishes what it <em>paid</em>. It does not publish a "
+         "salary range at all, so the figures below are <b>actual base salary "
+         "for full-time staff</b> &mdash; a different measure from the "
+         "published range that leads every table above, and one that normally "
+         "sits <em>below</em> the top of a range rather than at it.",
+         "That is why San Francisco gets its own section rather than a row. "
+         "Putting a derived range into a table of published ones would make "
+         "every other number on this page harder to trust, which is a bad "
+         "trade for one more line."]))
+
+    o.append(pk.table(
+        ["San Francisco, full-time"] + list(sf.YEARS),
+        [["People in these titles"]
+         + [(format(sf.YEAR_TOTALS[y]["n_all"], ",d"), "m") for y in sf.YEARS],
+         ["Of those, full-time"]
+         + [(format(sf.YEAR_TOTALS[y]["n_ft"], ",d"), "m") for y in sf.YEARS],
+         (["<b>Median base salary</b>"]
+          + [("<b>%s</b>" % money(sf.YEAR_TOTALS[y]["median"]), "f")
+             for y in sf.YEARS], "hi"),
+         ["Tenth percentile"]
+         + [(money(sf.YEAR_TOTALS[y]["p10"]), "f") for y in sf.YEARS],
+         ["Ninetieth percentile"]
+         + [(money(sf.YEAR_TOTALS[y]["p90"]), "f") for y in sf.YEARS]],
+        caption="Base salary only &mdash; overtime and other pay excluded, "
+                "benefits excluded. Full-time means the city recorded at least "
+                "%d paid hours, which removes people who started late, left "
+                "early or took leave. The county table above does <b>not</b> "
+                "filter that way, which is one more reason these sit apart."
+                % sf.FT_HOURS,
+        minw=620))
+
+    rows = []
+    for t in sf.BY_TITLE:
+        rows.append([pk.esc(t["job"]), (format(t["n"], ",d"), "m"),
+                     (money(t["median"]), "f"), (money(t["p10"]), "f"),
+                     (money(t["p90"]), "f")])
+    o.append(pk.table(
+        ["Classification, %s" % L, "Full-time people", "Median base",
+         "Tenth percentile", "Ninetieth percentile"], rows,
+        caption="The city&rsquo;s own classification titles. Five more that a "
+                "keyword search catches were left out by hand &mdash; juvenile "
+                "hall and family court counselors, an environmental health "
+                "inspector, and two single-person administrative roles &mdash; "
+                "because none of them is a clinical classification.",
+        minw=680))
+
+    o.append(pk.callout(
+        "What the comparison is actually worth",
+        ["A San Francisco <b>Behavioral Health Clinician</b> was paid a median "
+         "base of <b>%s</b>, and the senior grade <b>%s</b>. Against the "
+         "statewide county median of <b>%s</b> in <em>actual total wages</em> "
+         "&mdash; the nearest like-for-like column on this page &mdash; that "
+         "is a different market."
+         % (money(sf.BY_TITLE[0]["median"]), money(sf.BY_TITLE[1]["median"]),
+            money(cp.YEAR_TOTALS[LATEST]["wages_med"])),
+         "Two cautions in the same breath. The statewide figure includes "
+         "part-year staff and this one does not, so some of the gap is "
+         "measurement. And <b>%s of the %s full-time posts sit in one "
+         "department</b>, %s &mdash; this is one large employer, not a city-wide "
+         "average."
+         % (format(sf.TOP_DEPARTMENT[1], ",d"), format(T["n_ft"], ",d"),
+            sf.TOP_DEPARTMENT[0])],
+        big=money(sf.BY_TITLE[0]["median"])))
+
+    o.append('<p class="pk-p">Headcount is the other half of it. <b>%s</b> '
+             "people held these titles in %s, which would place San Francisco "
+             "among the largest public behavioral health employers in the Bay "
+             "Area &mdash; and the page said nothing about it until now. How "
+             'crowded the county already is with therapists is <a href="%s">the '
+             "county atlas</a>.</p>"
+             % (format(T["n_all"], ",d"), L, ATLAS))
+    o.append("</section>")
+
     # ---------------------------------------------------------------- method
     o.append('<section class="pk-sec" id="method">')
     o.append('<p class="pk-k">How it was counted</p>')
@@ -296,6 +380,10 @@ def body():
              "Controller&rsquo;s bulk county files for %s, read %s"
              % (", ".join(str(y) for y in Y), cp.CHECKED),
              cp.SOURCE),
+            ("San Francisco Employee Compensation, the city&rsquo;s own file "
+             "over DataSF, read %s &mdash; San Francisco is a consolidated "
+             "city and county and is not in the Controller&rsquo;s county "
+             "download at all" % sf.CHECKED, sf.PAGE),
         ]),
         ("Where the county job comes up elsewhere on this site", [
             ("Which settings can legally bill for a pre-licensed clinician",
@@ -320,7 +408,7 @@ def body():
 
 META = pk.meta_block(
     PAGE,
-    "What California county jobs pay therapists",
+    "What California county jobs pay therapists, from the state's own file",
     "The same clinical role pays %.1f times more in one California county than "
     "another. %s positions across %d counties, from what employers reported to "
     "the State Controller." % (RATIO, format(cp.YEAR_TOTALS[LATEST]["matched"], ",d"),
@@ -346,6 +434,8 @@ def main():
           % (PAGE, format(len(html), ",d"), len(cp.COUNTIES), nsrc))
 
     bad = pk.check_page(p, [
+        ("the San Francisco absence", "consolidated city and county"),
+        ("the different-measure caveat", "different measure from the"),
         ("the spread finding", "for the same work"),
         ("the range-not-actual decision", "answers a different question"),
         ("the floor-not-census caveat", "not a census"),
@@ -374,15 +464,29 @@ def main():
 
     # The pre-licensed section must keep its sample-size caveat attached to the
     # number, not floating elsewhere.
-    # Scope to the pre-licensed section. Searching the whole article for the
-    # figure finds whichever county happens to print the same number first in
-    # the big table, which moved when the title patterns were corrected and
-    # failed this guard on a page that was perfectly fine.
-    i_sec = art.find('id="prelicensed"')
-    i_num = art.find(money(cp.PRE_LICENSED["max"]), i_sec if i_sec > 0 else 0)
-    i_caveat = art.find("sample of one county", i_sec if i_sec > 0 else 0)
+    i_num = art.find(money(cp.PRE_LICENSED["max"]))
+    i_caveat = art.find("sample of one county")
     if i_num < 0 or i_caveat < 0 or abs(i_num - i_caveat) > 4000:
         print("GUARD: the one-county caveat has drifted away from the figure")
+        bad += 1
+
+    # San Francisco's figures must never migrate into the county table, which
+    # is a table of published ranges. If the median base salary ever appears
+    # above the San Francisco section, something has merged them.
+    i_sf = art.find('id="sanfrancisco"')
+    i_med = art.find(money(sf.YEAR_TOTALS[sf.YEARS[-1]]["median"]))
+    if i_sf < 0:
+        print("GUARD: the San Francisco section is missing")
+        bad += 1
+    elif 0 <= i_med < i_sf:
+        print("GUARD: a San Francisco figure appears above its own section - "
+              "actual pay and published ranges have been mixed")
+        bad += 1
+
+    # And the basis caveat has to sit with the figures, not drift.
+    i_cav = art.find("different measure from the", i_sf if i_sf > 0 else 0)
+    if i_cav < 0 or abs(i_cav - i_sf) > 3000:
+        print("GUARD: the basis caveat has drifted away from the section")
         bad += 1
 
     if bad:
