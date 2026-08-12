@@ -204,9 +204,19 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("home-page-options.html",
+     "P5 &middot; Six home pages, one column each &mdash; the current "
+     "proposal",
+     "<b>Read this one first.</b> The five-card band in P4 section 03 was "
+     "rejected: a band of five equal cards is a menu of menus, it asks a "
+     "stranger to classify themselves before anybody has told them what the "
+     "site is, and it is made of the same bordered cards as the eleven blocks "
+     "under it. Six alternatives drawn in the 37signals discipline &mdash; "
+     "one column, big plain type, prose instead of grids, one thing to do "
+     "&mdash; each with what it costs, and one recommended."),
     ("information-architecture.html",
-     "P4 &middot; One pattern, five doors &mdash; the current proposal",
-     "<b>Read this one.</b> Every landing page mocked up, the architecture "
+     "P4 &middot; One pattern, five doors &mdash; superseded in part",
+     "Every landing page mocked up, the architecture "
      "underneath them, and the six-block pattern each door follows. Rebuilt "
      "after the first door shipped and came back with two corrections: lead "
      "with what the reader gets rather than the tool, and say it in words a "
@@ -235,9 +245,10 @@ DOCS = [
 # entry here.
 HIGHLIGHTS = [
     ("for/associates.html",
-     "The first stage door. One bar, four gates, and the relational-hours gate "
-     "in gold because it is the one people reach 3,000 without. Nothing typed "
-     "into it leaves the browser."),
+     "The first stage door, and the reference implementation for the other "
+     "four. Rebuilt for the cold arrival: what this is, who it is for, and "
+     "how big it is, before any tool. <b>Nothing typed into it leaves the "
+     "browser.</b>"),
         ("county-job-portals-california.html",
      "Where to apply, in all 58 counties, every link fetched. <b>Seven "
      "guessable URLs belong to a city, a court, or nobody</b> &mdash; and "
