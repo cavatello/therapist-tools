@@ -70,6 +70,23 @@ NEW_CLUSTERS = [
     # so it belongs with the route rather than in a cluster of its own. Named
     # here in full because this list replaces a cluster's files rather than
     # appending to them.
+    # The portal directory belongs with the pages about getting the job, not
+    # with the pages about getting the license.
+    ("licensure", "Counting the hours, and the job that banks them",
+     ["county-job-portals-california.html",
+      "amft-3000-hours-california.html",
+      "getting-hired-as-a-california-associate.html",
+      "loan-forgiveness-employers-california.html",
+      "mbh-slrp-california.html",
+      "medi-cal-safety-net-employers-california.html",
+      "associate-mft-job-advisor.html",
+      "associate-therapist-pay-los-angeles-bay-area.html",
+      "associate-unpaid-hours-california.html",
+      "associate-hours-telehealth-out-of-state.html",
+      "associate-hours-trackers-compared.html",
+      "out-of-state-to-california-licensure.html",
+      "therapists-by-county-california.html",
+      "therapists-by-state-compared.html"]),
     ("licensure", "The route, and what it costs",
      ["becoming-a-therapist-california-career-change.html",
       "become-an-mft-california.html",

@@ -116,6 +116,13 @@ BUILD = [
     # _dev/degree_pipeline.py, written by _dev/ipeds_degrees.py from the
     # federal completions survey - the only series that says how many people
     # a year California puts into this.
+    # Where the application form actually is. Reads _dev/county_portals_data.py,
+    # written by _dev/county_portals.py, which fetches all 58 before shipping.
+    # Eight counties have a plausible-looking portal URL that belongs to a
+    # city, a court, or nobody.
+    ("_dev/build_portals.py",
+     "all 58 county job portals, verified - and the eight guessable URLs "
+     "that are the wrong employer"),
     ("_dev/build_careerchange.py",
      "the numbers somebody retraining deserves first - the pipeline, the "
      "three licenses on statute rather than temperament, and the attrition "

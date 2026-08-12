@@ -35,6 +35,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
+| `build_portals.py` | build | &mdash; | Where to apply for a county therapy job, in all 58 California counties. |
 | `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
@@ -165,6 +166,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `county_bh_data.py` | **untriaged** | &mdash; | County behavioral health plans. WRITTEN BY _dev/county_bh.py. |
 | `county_pay.py` | **untriaged** | &mdash; | What California counties actually pay mental health clinicians, from the state's file. |
 | `county_pay_data.py` | **untriaged** | &mdash; | County mental-health pay. WRITTEN BY _dev/county_pay.py. |
+| `county_portals.py` | **untriaged** | &mdash; | Where you actually apply for a county job, in all 58 California counties. |
+| `county_portals_data.py` | **untriaged** | &mdash; | County job portals. WRITTEN BY _dev/county_portals.py. |
 | `dca_licensees.py` | **untriaged** | &mdash; | Every licensed therapist in California, counted, from the state's own file. |
 | `dca_stats.py` | **untriaged** | &mdash; | Counts derived from the DCA licensee file. GENERATED - do not edit. |
 | `degree_pipeline.py` | **untriaged** | &mdash; | California master's degrees in the therapy pipeline, by year. |

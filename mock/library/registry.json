@@ -586,8 +586,21 @@
    "leaf": false
   },
   {
+   "file": "county-job-portals-california.html",
+   "title": "Where to apply for a California county job, all 58 counties",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Where do I apply for a county behavioral health job in California?",
+   "outcome": "All 58 county job portals with the wording that proves each belongs to the county, and the eight guessable URLs that do not",
+   "number": "7 of 58 guessable portal URLs are the wrong employer",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "county-therapist-pay-california.html",
-   "title": "What California county jobs pay therapists, from the state's own file",
+   "title": "What California county jobs pay therapists, from the state's file",
    "topic": "getting-paid",
    "format": "reference",
    "question": "What does a California county job actually pay a therapist?",
@@ -2535,6 +2548,7 @@
     {
      "name": "Counting the hours, and the job that banks them",
      "files": [
+      "county-job-portals-california.html",
       "amft-3000-hours-california.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
@@ -2544,8 +2558,8 @@
       "associate-therapist-pay-los-angeles-bay-area.html",
       "associate-unpaid-hours-california.html",
       "associate-hours-telehealth-out-of-state.html",
-      "out-of-state-to-california-licensure.html",
       "associate-hours-trackers-compared.html",
+      "out-of-state-to-california-licensure.html",
       "therapists-by-county-california.html",
       "therapists-by-state-compared.html"
      ]
