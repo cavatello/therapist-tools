@@ -43,7 +43,14 @@ import pagekit as pk
 
 SITE = pk.SITE
 PAGE = "for/associates.html"
-DONOR = "county-job-portals-california.html"
+# THE DONOR MUST ALREADY LIVE ONE LEVEL DOWN. Borrowing chrome from a page at
+# the site root gives you a masthead and footer whose links are bare
+# ("contact.html"), which resolve to /for/contact.html from here and are dead.
+# Some of them get depth-corrected by a later pass and some do not, so the
+# result is a footer that is half right - which is worse than one that is
+# uniformly wrong, because it looks fine. A topic hub is the correct donor:
+# it sits at the same depth and its links are already relative to it.
+DONOR = "licensure/index.html"
 REG = os.path.join(SITE, "mock", "library", "registry.json")
 STAGE = "associate"
 
