@@ -58,7 +58,7 @@ ATLAS = "therapists-by-county-california.html"
 ASSOCPAY = "associate-therapist-pay-los-angeles-bay-area.html"
 PRACTICUM = "practicum-california-mft-trainee.html"
 
-JUMPS = [("wrong", "The eight that trick you"),
+JUMPS = [("wrong", "The ones that trick you"),
          ("systems", "Four systems, 58 counties"),
          ("table", "Every county"),
          ("method", "How each was checked"),
@@ -75,8 +75,8 @@ def body():
     o.append(pk.hero(
         "County job portals &middot; all %d counties &middot; every link "
         "fetched %s" % (N, cpd.CHECKED),
-        "For eight California counties, the job portal you would guess "
-        "belongs to somebody else.",
+        "For %d California counties, the job portal you would guess "
+        "belongs to somebody else." % NWRONG,
         "Where the application form actually is, county by county &mdash; with "
         "the wording on each destination that proves it belongs to the county "
         "rather than to a city or a court.",
@@ -98,7 +98,7 @@ def body():
          "wrong employer &mdash; or to nobody, because three of these are "
          "empty shells."]))
 
-    o.append('<p class="pk-k">The eight that trick you</p>')
+    o.append('<p class="pk-k">The %d that trick you</p>' % NWRONG)
     o.append('<h2 class="pk-h">The obvious URL, and what actually answers '
              "there.</h2>")
     rows = []
@@ -278,12 +278,12 @@ META = pk.meta_block(
     PAGE,
     "Where to apply for a California county job, all 58 counties",
     "The application portal for every California county, each one fetched and "
-    "checked - including the eight where the address you would guess belongs "
+    "checked - including the seven where the address you would guess belongs "
     "to a city, a court, or nobody at all.",
     "licensure", "reference",
     "Where do I apply for a county behavioral health job in California?",
     "All 58 county job portals with the wording that proves each belongs to "
-    "the county, and the eight guessable URLs that do not",
+    "the county, and the seven guessable URLs that do not",
     "%d of %d guessable portal URLs are the wrong employer" % (NWRONG, N),
     weight=4)
 
@@ -338,6 +338,17 @@ def main():
     for county, guess, _ in cpd.WRONG_GUESS:
         if guess not in art:
             print("GUARD: the wrong-guess row for %s is missing" % county)
+            bad += 1
+
+    # Prose must not spell a count the data does not support. The page said
+    # "eight" in three places while the figure computed seven, which is the
+    # kind of thing a reader notices and an author never does.
+    WORDS = {5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine",
+             10: "ten"}
+    for k, word in WORDS.items():
+        if k != NWRONG and (" %s of the" % word) in art.lower():
+            print("GUARD: the prose says %r where the data says %d"
+                  % (word, NWRONG))
             bad += 1
 
     for w in pk.spelling(s):
