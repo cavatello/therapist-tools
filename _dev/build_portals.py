@@ -172,9 +172,9 @@ def body():
     o.append('<h2 class="pk-h">All %d, with the proof attached.</h2>' % N)
     o.append('<p class="pk-d">The third column is the wording on the '
              "destination page that establishes it belongs to the county. It "
-             "is there because for eight of these the obvious answer is wrong, "
-             "and an assertion without evidence would not have caught "
-             "them.</p>")
+             "is there because for %d of these the obvious answer is wrong, "
+             "and an assertion without evidence would not have caught them."
+             "</p>" % NWRONG)
 
     paid = {r["county"]: r for r in cp.COUNTIES}
     rows = []
