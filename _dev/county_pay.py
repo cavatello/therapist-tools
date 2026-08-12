@@ -71,6 +71,36 @@ INCLUDE = re.compile(
     r"|clinical psycholog|behavioral clinician|\bclinician\b"
     r"|\bmh\b|\bbh\b|\bbhs\b|\badmhs\b", re.I)
 
+# THE DEPARTMENT-SCOPED REWRITE WAS TRIED AND REJECTED. READ THIS BEFORE
+# PROPOSING IT AGAIN.
+#
+# The obvious durable fix is to stop matching titles and instead scope on
+# DepartmentOrSubdivision - "Behavioral Wellness", "Health Services-Mntl
+# Health" and "Mental Health" are unambiguous where an acronym is not - then
+# judge the title inside that scope. It was measured against the thirteen
+# counties the note in main() flags, and it makes the page WORSE:
+#
+#   1. County behavioral health departments are full of people who are not
+#      clinicians. Glenn's mental health department is 82 rows and the largest
+#      single title is "HHSA Case Manager II". Tehama's is 89 rows led by
+#      "Psychiatric Aide II" and "Accounting Specialist". Mono's is 48 led by
+#      "Case Manager" and "Staff Services Analyst". Scoping on the department
+#      pulls all of them into a median about what a therapist is paid.
+#   2. Several counties file environmental health inside the same combined
+#      health-and-human-services department - Amador, Inyo, Mendocino and
+#      Tehama all do - so the scope readmits exactly the people the EXCLUDE
+#      list exists to keep out.
+#   3. The flagged counties are mostly just small. Modoc has 8,700 residents,
+#      Trinity 16,000, Mono 13,000, Inyo 19,000. Their clinical staff really
+#      does number in single digits, and their genuinely clinical titles -
+#      "Behavioral Health Clinician I", "Clinician II", "MH Therapist I" - are
+#      ALREADY matched by the patterns below. There is little to recover.
+#
+# So the note in main() is the answer rather than a stopgap: it surfaces a
+# county ranked on too few rows so a person can look, which is what caught
+# Contra Costa and Santa Barbara. Adding a confirmed acronym when one is found
+# is cheap and safe; widening the net is neither.
+#
 # THE REAL FIX IS NOT MORE KEYWORDS, AND THIS IS THE NOTE SAYING SO.
 # Santa Barbara calls its clinicians "ADMHS Practitioner II" after its old
 # department name. Contra Costa writes "Mh". Every county invents its own
