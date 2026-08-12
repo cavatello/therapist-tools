@@ -40,7 +40,7 @@ STYLE = re.compile(r"[ \t]*<style>([\s\S]*?)</style>\n?")
 LINKED = re.compile(r'<link rel="stylesheet" href="(?:\.\./)*css/([0-9a-f]{12})\.css">')
 
 
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 
 def html_files():

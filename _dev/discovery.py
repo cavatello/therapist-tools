@@ -55,7 +55,7 @@ EXCLUDE = {
 }
 
 # priority, changefreq
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 
 ARTEFACTS = ("_chrome.html",)

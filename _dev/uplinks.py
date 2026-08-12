@@ -134,7 +134,7 @@ def block(p):
                                         esc(T["name"].lower()), END))
 
 
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 
 def pages():

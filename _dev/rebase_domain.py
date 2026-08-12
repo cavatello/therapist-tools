@@ -64,7 +64,7 @@ import os, re, sys, socket, argparse
 OLD_BASE = "https://cavatello.github.io/therapist-tools"
 OLD_HOST = "cavatello.github.io"
 
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 # The builders carry the base as a constant. Updating them here means the next
 # rebuild emits the new domain rather than silently reintroducing the old one -

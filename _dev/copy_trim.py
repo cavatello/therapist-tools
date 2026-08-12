@@ -34,7 +34,7 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 AFF_LONG = ("Some links out to third-party services are affiliate links and are "
             "tagged where they appear; they cost you nothing and never change "

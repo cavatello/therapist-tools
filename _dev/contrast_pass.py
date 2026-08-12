@@ -50,7 +50,7 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 MARK = "/* _dev/contrast_pass.py */"
 
 # The light surfaces in the palette. The DARKEST of these is the hardest case

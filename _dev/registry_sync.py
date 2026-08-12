@@ -45,7 +45,7 @@ import os, re, sys, json, html
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 REGISTRY = os.path.join(SITE, "mock", "library", "registry.json")
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 CATCHALL = "More in %s"
 
 

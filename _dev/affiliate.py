@@ -92,7 +92,7 @@ CSS = """
 TAG = '<span class="afl" title="Affiliate link">affiliate</span>'
 
 
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 
 def pages():

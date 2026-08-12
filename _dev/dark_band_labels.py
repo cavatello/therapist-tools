@@ -58,7 +58,7 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 MARK = "/* _dev/dark_band_labels.py */"
 FLOOR = 4.5
 

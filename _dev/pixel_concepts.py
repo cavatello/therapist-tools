@@ -51,7 +51,7 @@ import os, re, sys, json, html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 REGISTRY = os.path.join(SITE, "mock", "library", "registry.json")
 
 MARK = "<!-- _dev/pixel_concepts.py -->"

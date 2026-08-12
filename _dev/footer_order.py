@@ -46,7 +46,7 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 BAND_OPEN = re.compile(r'<section class="ftnl"')
 BAND_MARK = "<!-- _dev/footer_band.py -->"

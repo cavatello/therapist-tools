@@ -73,7 +73,7 @@ import os, re, sys, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 CSSDIR = os.path.join(SITE, "css")
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 MARK = "/* _dev/token_floor.py */"
 FLOOR = 4.5
 

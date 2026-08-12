@@ -47,7 +47,7 @@ import os, re, sys, collections
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 CSSDIR = os.path.join(SITE, "css")
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 LINK = re.compile(r'[ \t]*<link rel="stylesheet" href="((?:\.\./)*)css/'
                   r'([0-9a-f]{12})\.css">\n?')

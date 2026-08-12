@@ -87,7 +87,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 BASE = "https://therapistsupport.org/"
 SNAP = os.path.join(HERE, "_snap", "seo_rules.json")
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 # Pages excluded from the sitemap on purpose, and therefore from its symmetry
 # check. Kept in step with _dev/discovery.py by the guard at the bottom.

@@ -50,7 +50,7 @@ import os, re, sys, html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 EXCLUDE = {"tools.html", "concepts.html", "tycoon.html"}
 ARTEFACTS = ("_chrome.html",)
 

@@ -48,7 +48,7 @@ import counts  # noqa: E402  - the site's counts, computed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 CANON = "index.html"
 
 # ---------------------------------------------------------------- the panel

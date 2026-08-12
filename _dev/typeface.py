@@ -28,7 +28,7 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 FAM = "family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800"
 # The href is a css2 query. Insert before &display so the parameter order stays

@@ -41,7 +41,7 @@ import os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 BASE = "https://therapistsupport.org/"
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 MARK = "<!-- _dev/seo_head.py -->"
 
 # Not published, so not canonicalised. Kept in step with discovery.py's own

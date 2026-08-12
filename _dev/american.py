@@ -49,7 +49,7 @@ import os, re, sys, collections
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 # Proper nouns and strings that must survive verbatim. Swapped out for a
 # placeholder before the pass and back afterwards.

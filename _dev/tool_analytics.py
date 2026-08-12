@@ -61,7 +61,7 @@ import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 MARK = "/* _dev/tool_analytics.py */"
 
 # The pages that are tools. Instrumenting every page would emit tool_start on an

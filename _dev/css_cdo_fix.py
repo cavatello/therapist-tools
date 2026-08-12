@@ -37,7 +37,7 @@ import os, re, sys, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 CSSDIR = os.path.join(SITE, "css")
-SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training")
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 LINKED = re.compile(r'<link rel="stylesheet" href="((?:\.\./)*)css/([0-9a-f]{12})\.css">')
 CDO = re.compile(r"<!--(.*?)-->", re.S)
