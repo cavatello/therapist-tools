@@ -604,8 +604,8 @@ def build():
     o.append('<section id="compare"><div class="kicker">'
              '<span class="n">04</span><h2>Side by side</h2></div>')
     o.append('<p class="lede">Five questions a home page has to answer. A '
-             "cross means the page answers it above the fold; a dash means "
-             "it answers it eventually, or not at all.</p>")
+             "check means the page answers it in the first screen; a dash "
+             "means it answers it further down, or not at all.</p>")
     QS = ["What is this?", "Is it for me?", "Who made it?",
           "What is in it?", "What do I do now?"]
     SCORE = {
