@@ -75,6 +75,17 @@ RATIO = TOP["max_med"] / float(BOTTOM["max_med"])
 
 
 def money(n):
+    """An em dash for a missing figure, never $0.
+
+    A county whose published range has no usable floor - every value below the
+    $20,000 sanity floor, or the field simply left blank - renders as a dash.
+    Printing $0 reads as "this county pays nothing", which is never what a
+    missing value means. The same fix was made once in pagekit; this file
+    carries its own money() and needed it too, and only found out when the
+    corrected title patterns pulled in a county that had one.
+    """
+    if n is None:
+        return "&mdash;"
     return "$%s" % format(int(n), ",d")
 
 
