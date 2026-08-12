@@ -188,6 +188,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `patch_years.py` | **untriaged** | &mdash; | Two claims on the hub that the second collection made untrue. |
 | `practicum.py` | **untriaged** | &mdash; | How each of California's MFT programs handles the practicum placement. |
 | `practicum_data.py` | **untriaged** | &mdash; | Practicum placement across California's MFT programs. |
+| `sf_pay.py` | **untriaged** | &mdash; | What San Francisco pays its behavioral health clinicians, from the city's file. |
+| `sf_pay_data.py` | **untriaged** | &mdash; | San Francisco clinical pay. WRITTEN BY _dev/sf_pay.py. |
 | `state_workforce.py` | **untriaged** | &mdash; | The mental health workforce of every state, from BLS and the Census. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |

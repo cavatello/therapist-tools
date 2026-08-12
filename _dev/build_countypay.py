@@ -419,7 +419,7 @@ def body():
 
 META = pk.meta_block(
     PAGE,
-    "What California county jobs pay therapists, from the state's own file",
+    "What California county jobs pay therapists, from the state's file",
     "The same clinical role pays %.1f times more in one California county than "
     "another. %s positions across %d counties, from what employers reported to "
     "the State Controller." % (RATIO, format(cp.YEAR_TOTALS[LATEST]["matched"], ",d"),
@@ -475,8 +475,14 @@ def main():
 
     # The pre-licensed section must keep its sample-size caveat attached to the
     # number, not floating elsewhere.
-    i_num = art.find(money(cp.PRE_LICENSED["max"]))
-    i_caveat = art.find("sample of one county")
+    # Scope to the pre-licensed section. Searching the whole article finds
+    # whichever county happens to print the same figure first in the big
+    # table, which moved when the title patterns were corrected and failed
+    # this guard on a page that was perfectly fine. (Re-applied: a push from
+    # the working container overwrote it once - patch one copy, not two.)
+    i_pre = art.find('id="prelicensed"')
+    i_num = art.find(money(cp.PRE_LICENSED["max"]), i_pre if i_pre > 0 else 0)
+    i_caveat = art.find("sample of one county", i_pre if i_pre > 0 else 0)
     if i_num < 0 or i_caveat < 0 or abs(i_num - i_caveat) > 4000:
         print("GUARD: the one-county caveat has drifted away from the figure")
         bad += 1
