@@ -230,6 +230,13 @@ STRUCTURE = [
     ("_dev/mobile_nav.py", "the mobile nav affordance"),
     ("_dev/touch_polish.py", "tap targets"),
     ("_dev/american.py", "American spellings in prose"),
+    # Plain nouns instead of a metaphor. "Four gates, all four must close" was
+    # in the site nav, so it was on 199 pages - and it framed the 3,000 as the
+    # thing that decides your date, which it almost never is. Runs after every
+    # builder, like american.py, so a builder cannot reintroduce it.
+    ("_dev/plain_gates.py",
+     "requirement for an hour minimum, checkpoint for an academic step, and "
+     "no unexplained \"gate\" anywhere"),
     ("_dev/american_js.py", "American spellings inside script string literals"),
     ("_dev/block_removal.py",
      "removes the self-describing blocks that were asked for by name. Destructive, "

@@ -69,6 +69,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `mobile_nav.py` | structure | `/* _dev/mobile_nav.py */` | The mobile nav is scrollable and does not look it. Give it an edge. |
 | `payer_links.py` | structure | `<!-- _dev/payer_links.py -->` | Make "where you apply" a link you can actually click. |
 | `pixel_concepts.py` | structure | `<!-- _dev/pixel_concepts.py -->` | Concepts 01, 02 and 07 from concepts.html, built sitewide in the Pixel style. |
+| `plain_gates.py` | structure | &mdash; | Say "requirement", not "gate". |
 | `registry_meta.py` | structure | `<!-- ts:meta -->` | Write each page's library metadata into the page itself. |
 | `registry_sync.py` | structure | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. |
 | `restyle.py` | structure | `/* restyle */` | The visual restyle and the topic-first header, as ONE self-contained pass. |
