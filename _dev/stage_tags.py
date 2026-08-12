@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Which stage of the path each page is written for, and what it says there.
+
+WHY THE TAGGING IS INCREMENTAL RATHER THAN BULK
+
+The proposal that led to this recommends two fields per registry entry,
+`stages` and `stage_note`, and says plainly that **stage_note must be
+mandatory wherever stages has an entry**. It is the only thing standing
+between a stage hub and a re-listing of a topic hub, and an optional field
+gets skipped on exactly the pages where writing it is hardest.
+
+Holding to that rule has a consequence the proposal did not spell out: it
+makes bulk tagging impossible. Two hundred pages cannot be given two hundred
+honest one-line annotations in one pass, and generating them mechanically
+would produce exactly the thin duplicate the field exists to prevent.
+
+So a page is tagged when a hub that lists it is built, and not before. Nothing
+is tagged speculatively. The guard is therefore trivially satisfiable and
+still real: every entry here has a note somebody wrote.
+
+WHAT A GOOD stage_note IS
+
+Not the page's summary - the registry already holds `outcome` for that. It
+answers "what does this page tell ME, at MY stage", which is different for a
+reader counting hours than for a reader deciding whether to enrol. The county
+pay page tells a career-changer what the job pays at the end; it tells an
+associate which employer to apply to first. Same page, two notes.
+
+STAGES
+
+    deciding   thinking about it, or choosing between programs
+    student    enrolled, practicum approaching or underway
+    associate  registered, counting toward 3,000
+    licensed   licensed, first years
+    owner      running a practice with other people in it
+
+The gap between degree and registration number is deliberately folded into
+`student`, per the proposal: it is a real status with its own law, and it is
+too small to hold a hub of its own.
+"""
+import json, os, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+SITE = os.path.dirname(HERE)
+REG = os.path.join(SITE, "mock", "library", "registry.json")
+
+STAGES = ("deciding", "student", "associate", "licensed", "owner")
+
+# file -> {stage: the one line saying what this page tells THAT reader}
+TAGS = {
+    "amft-3000-hours-california.html": {
+        "associate": "What date you finish, at the hours you are actually "
+                     "logging - and which of the four sub-totals is behind."},
+    "getting-hired-as-a-california-associate.html": {
+        "associate": "Why half your applications get no reply: it is a "
+                     "billing rule, not your hour count."},
+    "associate-therapist-pay-los-angeles-bay-area.html": {
+        "associate": "What the offer should be, salary against per-session, "
+                     "before you accept one."},
+    "associate-unpaid-hours-california.html": {
+        "associate": "The wage claim for unpaid non-clinical time, step by "
+                     "step - and why the Board is not where you file it."},
+    "associate-hours-telehealth-out-of-state.html": {
+        "associate": "Whether hours you gain from another state count. The "
+                     "Board has answered five times and nobody links it."},
+    "associate-hours-trackers-compared.html": {
+        "associate": "Five hour-tracking products compared, and what the "
+                     "Board actually accepts as a supervisor signature."},
+    "county-job-portals-california.html": {
+        "associate": "Where the application form is, in all 58 counties - "
+                     "including the seven whose obvious URL is somebody else."},
+    "county-therapist-pay-california.html": {
+        "associate": "Which county to apply to first, from what each one "
+                     "actually paid rather than what it advertised."},
+    "loan-forgiveness-employers-california.html": {
+        "associate": "You may already be accruing qualifying payments. PSLF "
+                     "asks about your employer and not about your license."},
+    "mbh-slrp-california.html": {
+        "associate": "The one loan-repayment program that names registered "
+                     "associates - and the 32-hour obligation attached."},
+    "medi-cal-safety-net-employers-california.html": {
+        "associate": "The employers that can legally bill for you, by name: "
+                     "57 county plans and 218 health center organizations."},
+    "bbs-exam-pass-rates-california.html": {
+        "associate": "What the law and ethics exam actually passes at, "
+                     "first-time, across seven quarters."},
+    "bbs-processing-times-california.html": {
+        "associate": "How long the Board is taking right now, so a renewal or "
+                     "an application is filed with room to spare."},
+    "bbs-fees-california-2026.html": {
+        "associate": "What your renewal costs since July 2026, and what it "
+                     "goes back to in 2030."},
+    "out-of-state-to-california-licensure.html": {
+        "associate": "If you are moving here mid-registration: which hours "
+                     "travel, and which do not."},
+    "associate-mft-job-advisor.html": {
+        "associate": "Which setting fits the hours you still need, rather "
+                     "than the hours you already have."},
+    "therapists-by-county-california.html": {
+        "associate": "How many associates are competing for a supervisor in "
+                     "your county, from the state register."},
+    "practicum-california-mft-trainee.html": {
+        "associate": "What of your pre-degree hours the Board still counts, "
+                     "and the 90-day rule if you are newly graduated.",
+        "student": "Who finds your practicum site at each of the 78 programs, "
+                   "and the seven rules that decide if a placement counts."},
+    "continuing-education-california-lmft.html": {
+        "associate": "Not yet - but the law and ethics course inside your "
+                     "first renewal period is, and it is easy to miss."},
+    "therapist-discipline-cases-california.html": {
+        "associate": "What the Board actually acts on. Several of these begin "
+                     "with an hours form or a supervisor signature."},
+}
+
+
+def main():
+    print("stage tagging")
+    reg = json.load(open(REG, encoding="utf-8"))
+    by = {p["file"]: p for p in reg["pages"]}
+
+    missing = [f for f in TAGS if f not in by]
+    if missing:
+        sys.exit("%d tagged file(s) are not in the registry - renamed or "
+                 "deleted:\n  %s" % (len(missing), "\n  ".join(sorted(missing))))
+
+    n_pages = 0
+    n_notes = 0
+    for f, notes in TAGS.items():
+        for st in notes:
+            if st not in STAGES:
+                sys.exit("%s has unknown stage %r" % (f, st))
+            if not notes[st].strip():
+                sys.exit("%s has an empty note for %r" % (f, st))
+        p = by[f]
+        p["stages"] = sorted(notes, key=lambda s: STAGES.index(s))
+        p["stage_note"] = notes
+        n_pages += 1
+        n_notes += len(notes)
+
+    # THE RULE. A page carrying `stages` without a note for each one would be
+    # a page that appears on a hub with nothing to say there, which is the
+    # thin duplicate this whole field exists to prevent.
+    for p in reg["pages"]:
+        for st in p.get("stages", []):
+            if not (p.get("stage_note") or {}).get(st, "").strip():
+                sys.exit("%s is tagged %r with no stage_note - that is the one "
+                         "thing this field may not do" % (p["file"], st))
+
+    json.dump(reg, open(REG, "w", encoding="utf-8"), indent=1,
+              ensure_ascii=False)
+    counts = {}
+    for p in reg["pages"]:
+        for st in p.get("stages", []):
+            counts[st] = counts.get(st, 0) + 1
+    print("  %d page(s) tagged, %d note(s) written" % (n_pages, n_notes))
+    print("  by stage: %s" % ", ".join("%s %d" % (s, counts[s])
+                                       for s in STAGES if s in counts))
+    print("  %d of %d pages carry no stage yet, which is expected - a page is "
+          "tagged when a hub that lists it is built"
+          % (len(reg["pages"]) - sum(1 for p in reg["pages"] if p.get("stages")),
+             len(reg["pages"])))
+
+
+if __name__ == "__main__":
+    main()
