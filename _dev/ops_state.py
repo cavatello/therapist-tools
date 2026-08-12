@@ -11,7 +11,7 @@ Keep it short. A status board nobody trusts is one that has grown into a
 second backlog.
 """
 
-UPDATED = "11 August 2026"
+UPDATED = "12 August 2026"
 
 # The passphrase that decrypts the published board. Change it here and the next
 # deploy re-encrypts under the new one. An environment variable OPS_PASSPHRASE
@@ -41,28 +41,57 @@ ASKS = [
          "Does telehealth delivered from a clinician&rsquo;s home count toward "
          "the 32 hours a week of direct client care, or must those hours be "
          "delivered at the eligible practice site?"]},
-    {"title": "Decide on the visitor-stage hubs",
-     "why": "Approved in principle and parked at your instruction. The full "
-            "proposal, with three rendered mockups and the coverage audit of "
-            "all 182 registry pages, is linked below. Say go and it moves to "
-            "the top of the queue.",
-     "do": "Read the proposal, then say go or later",
-     "detail": []},
+    {"title": "Pick the doors, or say build them in the order proposed",
+     "why": "P2 now carries 16 rendered mockups &mdash; two or three real "
+            "alternatives for every door plus three for the sitewide band, each "
+            "with a recommendation and what it costs. Four of the five doors "
+            "can open; the student one opened yesterday.",
+     "do": "Read P2, then say go, or name the variants you prefer",
+     "detail": [
+         "The recommendations are: Deciding &rarr; Two Questions. Students "
+         "&rarr; Placement Desk over the Rules Card. Associates &rarr; the "
+         "Ledger. Licensed &rarr; the Change Log, not the masthead. Owners "
+         "&rarr; not yet.",
+         "The sitewide band is the bigger half: 5 hub pages against 200 leaf "
+         "pages that need a stage line. Recommendation is the annotated "
+         "breadcrumb plus the next-step band, and not the sticky rail.",
+         "One line of configuration decides whether any of it is visible - "
+         "`/for/` has to be added to SUBDIRS in the same commit that creates "
+         "the directory, or every pass and the sitemap skip it silently."]},
+    {"title": "Yes or no on the Bay Area directories",
+     "why": "P3. Sourcing is proved from three federal files rather than "
+            "argued: 313 nonprofit clinical organizations and 517 health-centre "
+            "sites, both re-downloadable by anybody.",
+     "do": "Read P3, then say go or later",
+     "detail": [
+         "It is two directories, not one. A trainee cannot work in a private "
+         "practice at all; a registered associate can. Building one list and "
+         "relabelling it would send students somewhere they legally cannot go.",
+         "The directory can only claim eligibility, never availability - no "
+         "public source says who takes trainees, and a wrong yes costs a "
+         "student an application cycle."]},
 ]
 
 # Work with the data in hand and nothing blocking it.
 NOW = [
-    {"title": "The two stages the site had nothing for",
-     "state": "go", "tag": "Both shipped",
-     "meta": "78 programs reduced &middot; nine years of federal completions",
-     "body": ["The coverage audit found <b>0 pages</b> for &ldquo;in a "
-              "program&rdquo; and <b>0</b> for &ldquo;deciding whether to "
-              "start&rdquo;, against 73 for people already inside. Both now "
-              "exist, and both carry a finding nobody else has published: "
-              "<b>29 of the 78 programs publish nothing about who finds your "
-              "practicum site</b>, and <b>only the MFT license lets any of "
-              "those hours count</b> &mdash; the LPCC and LCSW statutes "
-              "require all 3,000 after the degree."]},
+    {"title": "San Francisco, added to the county pay page",
+     "state": "go", "tag": "Shipped",
+     "meta": "441 people the page could not see &middot; from the city&rsquo;s own file",
+     "body": ["The page reported 55 of 58 counties and San Francisco was one of "
+              "the missing three &mdash; <b>absent, not under-counted</b>, "
+              "because a consolidated city and county files in the "
+              "Controller&rsquo;s cities dataset. It pays a behavioral health "
+              "clinician a median base of <b>$133,875</b> and the senior grade "
+              "<b>$144,788</b>. Its own section rather than a row, because the "
+              "measure is actual pay and the table is published ranges."]},
+    {"title": "Two counties were ranked on a handful of rows",
+     "state": "go", "tag": "Fixed",
+     "meta": "Contra Costa 6 &rarr; 531 &middot; Santa Barbara 5 &rarr; 215",
+     "body": ["Contra Costa writes &ldquo;Mh Clinical Specialist&rdquo; and "
+              "Santa Barbara writes &ldquo;ADMHS Practitioner II&rdquo;. The "
+              "title patterns matched neither, so both counties carried a "
+              "published median computed from a handful of people. The 2.8&times; "
+              "headline and the top and bottom counties are unchanged."]},
 ]
 
 # Blocked, and explicitly on what. Never on "time".
@@ -82,10 +111,25 @@ BLOCKED = [
               "direct hours a week rather than 20. At FFS rates roughly $83,000 "
               "a year worse off; at the higher county rate about a wash, with a "
               "third more clinical hours."]},
+    {"title": "The Bay Area directories",
+     "tag": "Waiting on your decision",
+     "meta": "Feasibility done &middot; 313 orgs and 517 sites reachable",
+     "body": ["Sourcing is proved and the design is written up as <b>P3</b>. It "
+              "needs a yes because it is two new page types and about 22 "
+              "profiles, and because the honest version says out loud that "
+              "<b>group private practices are unreachable</b> &mdash; the "
+              "largest associate employer, with no public register of any "
+              "kind."]},
 ]
 
 # Unblocked and queued, most valuable first.
 NEXT = [
+    ("Scope county titles on the department, not the acronym",
+     "The durable version of today&rsquo;s fix",
+     "Every county invents its own abbreviation and a keyword list keeps "
+     "losing that race. &ldquo;Behavioral Wellness&rdquo; and &ldquo;Health "
+     "Services-Mntl Health&rdquo; are unambiguous. The under-25 note is the "
+     "stopgap and it currently flags thirteen counties."),
     ("Ask-a-question surface", "Item 27 of the 28 &mdash; worth promoting",
      "Questions in, answered by the site with citations, each answer becomes a "
      "page. Would have helped all three MBH-SLRP posters who got four comments, "
@@ -93,7 +137,7 @@ NEXT = [
     ("Application-portal directory", "No blockers",
      "County HR and jobs URLs, CalOpps, county NeoGov instances, verified like "
      "the county plans. Portals do not expire the way postings do."),
-    ("A supervisor directory", "Now the obvious next one",
+    ("A supervisor directory", "The gap both new pages open",
      "The practicum page names the supervision ratio a trainee needs and the "
      "career-change page names supervision as an unpriced cost. Neither can "
      "say where to find one."),
