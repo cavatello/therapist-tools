@@ -28,9 +28,9 @@ WHY THIS DESIGN AND NOT THE OTHER TWO
 
 Three variants were drawn for this door. The Desk opens with six live tiles;
 the Three Questions opens with the loudest threads verbatim; the Ledger opens
-with one horizontal bar and the sub-gates marked. The Ledger won on a single
+with one horizontal bar and the sub-totals marked. The Ledger won on a single
 constraint: a large share of this traffic arrives on a phone, from a link
-posted in a group, and one bar with a marked gate survives a 390px first
+posted in a group, and one bar with the short requirement marked survives a 390px first
 screen where six tiles do not. The other two are not discarded - the Desk's
 detail is what the bar expands into, and the Questions sit directly beneath
 it.
@@ -198,7 +198,7 @@ CSS = """<style>/* _dev/build_forassociates.py - the ledger */
  font-size:23px;color:#16211B;line-height:1.1;margin:3px 0 2px;
  font-variant-numeric:tabular-nums}
 .lg-g .s{display:block;font-size:11.5px;color:#635E53;line-height:1.35}
-.lg-g.gate div.hot{background:#F6C560;border-color:#16211B}
+.lg-g.req div.hot{background:#F6C560;border-color:#16211B}
 .lg-g div.done{background:#EAF3DE}
 .lg-note{font-size:12.5px;color:#635E53;margin:14px 0 0}
 .lg-priv{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
@@ -212,6 +212,16 @@ CSS = """<style>/* _dev/build_forassociates.py - the ledger */
 .ask p{font-size:14.5px;margin:0 0 9px}
 .ask a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
  letter-spacing:.1em;text-transform:uppercase}
+.start{display:grid;gap:12px;margin:4px 0 0}
+@media(min-width:640px){.start{grid-template-columns:1fr 1fr}}
+.start a{display:block;border:2px solid #16211B;background:#2C6350;color:#fff;
+ padding:14px 16px;box-shadow:4px 4px 0 #16211B;text-decoration:none}
+.start a:hover{background:#16211B}
+.start .q{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,sans-serif;
+ font-weight:800;font-size:18px;line-height:1.2;margin-bottom:4px}
+.start .s{display:block;font-size:13.5px;color:#DCEAE3;line-height:1.4}
+.pk-h3{font-family:'Bricolage Grotesque','Archivo',Inter,sans-serif;font-weight:800;
+ font-size:19px;margin:22px 0 10px;padding-bottom:6px;border-bottom:2px solid #16211B}
 .shelf{display:grid;gap:12px}
 @media(min-width:720px){.shelf{grid-template-columns:1fr 1fr}}
 .shelf a.card{display:block;border:2px solid #16211B;background:#FBF9F3;padding:13px 15px;
@@ -352,7 +362,7 @@ def body(shelf):
     o.append('<div class="lg-bar"><i id="lgFill"></i></div>')
     o.append('<div class="lg-mk"><span style="left:58.3%">1,750 direct</span>'
              '<span style="left:99%">3,000</span></div>')
-    o.append('<div class="lg-g gate">')
+    o.append('<div class="lg-g req">')
     for gid, k in [("gDirect", "Direct clinical"), ("gRel", "Relational hours"),
                    ("gWeeks", "Weeks elapsed"), ("gWhen", "Weeks still to go")]:
         o.append('<div id="%s"><span class="k">%s</span>'
@@ -400,19 +410,42 @@ def body(shelf):
 
     # ---------------------------------------------------------------- shelf
     o.append('<section class="pk-sec" id="shelf">')
-    o.append('<p class="pk-k">Everything for this stage</p>')
-    o.append('<h2 class="pk-h">%d pages, each with what it tells you '
-             "here.</h2>" % len(shelf))
-    o.append('<p class="pk-d">The line under each title is not the page&rsquo;s '
-             "summary &mdash; it is what that page tells somebody at this "
-             "stage specifically. The same page says something different to a "
-             "student or to a licensed therapist.</p>")
-    o.append('<div class="shelf">')
-    for f, title, note in shelf:
-        o.append('<a class="card" href="%s%s"><span class="t">%s</span>'
-                 '<span class="n">%s</span></a>' % (UP, f, pk.esc(title),
-                                                    pk.esc(note)))
-    o.append("</div>")
+    o.append('<p class="pk-k">All %d guides</p>' % len(shelf))
+    o.append('<h2 class="pk-h">Everything on this site written for somebody '
+             "counting hours.</h2>")
+    o.append('<p class="pk-d">The line under each title is not the '
+             "page&rsquo;s summary &mdash; it is what that page tells somebody "
+             "at this stage specifically. The same page says something "
+             "different to a student or to a licensed therapist.</p>")
+
+    by_file = {f: (t, n) for f, t, n in shelf}
+    printed = set()
+    for heading, files in GROUPS:
+        rows = [f for f in files if f in by_file]
+        if not rows:
+            continue
+        o.append('<h3 class="pk-h3">%s</h3>' % heading)
+        o.append('<div class="shelf">')
+        for f in rows:
+            title, note = by_file[f]
+            printed.add(f)
+            o.append('<a class="card" href="%s%s"><span class="t">%s</span>'
+                     '<span class="n">%s</span></a>'
+                     % (UP, f, pk.esc(title), pk.esc(note)))
+        o.append("</div>")
+
+    # Anything tagged but not placed in a group still has to appear, or the
+    # tagging and the page silently disagree about what is on the shelf.
+    left = [f for f, _, _ in shelf if f not in printed]
+    if left:
+        o.append('<h3 class="pk-h3">Also for this stage</h3>')
+        o.append('<div class="shelf">')
+        for f in left:
+            title, note = by_file[f]
+            o.append('<a class="card" href="%s%s"><span class="t">%s</span>'
+                     '<span class="n">%s</span></a>'
+                     % (UP, f, pk.esc(title), pk.esc(note)))
+        o.append("</div>")
     o.append("</section>")
 
     src, nsrc = pk.sources([
@@ -488,7 +521,8 @@ def main():
 
     bad = pk.check_page(p, [
         ("a stylesheet link that climbs a level", 'href="../css/'),
-        ("the privacy promise in the hero", "leaves this browser"),
+        ("the offer in the headline", "in one place"),
+        ("the start-here block", "bring most people to this page"),
         ("the relational finding", "almost never what decides your date"),
         ("the not-the-Board caveat", "not the Board&rsquo;s count"),
     ], [j[0] for j in JUMPS])
