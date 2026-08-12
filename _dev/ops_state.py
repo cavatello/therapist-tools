@@ -74,24 +74,33 @@ ASKS = [
 
 # Work with the data in hand and nothing blocking it.
 NOW = [
+    {"title": "All 58 county job portals, verified",
+     "state": "go", "tag": "Shipped",
+     "meta": "Every link fetched &middot; 7 guessable URLs are the wrong employer",
+     "body": ["Four pages here point at the county job and none of them said "
+              "where the form is. Guessing the address fails for <b>seven of "
+              "the fifty-eight</b>, silently: <code>/careers/marin</code> is "
+              "the Superior Court, <code>/sandiego</code> and "
+              "<code>/santabarbara</code> are the cities, and Alameda, "
+              "Monterey and Trinity resolve to unbranded empty tenants while "
+              "the real portal sits elsewhere. <b>Alameda is not on NeoGov at "
+              "all.</b>"]},
     {"title": "San Francisco, added to the county pay page",
      "state": "go", "tag": "Shipped",
      "meta": "441 people the page could not see &middot; from the city&rsquo;s own file",
-     "body": ["The page reported 55 of 58 counties and San Francisco was one of "
-              "the missing three &mdash; <b>absent, not under-counted</b>, "
-              "because a consolidated city and county files in the "
-              "Controller&rsquo;s cities dataset. It pays a behavioral health "
-              "clinician a median base of <b>$133,875</b> and the senior grade "
-              "<b>$144,788</b>. Its own section rather than a row, because the "
-              "measure is actual pay and the table is published ranges."]},
+     "body": ["Absent, not under-counted &mdash; a consolidated city and "
+              "county files in the Controller&rsquo;s cities dataset. It pays "
+              "a behavioral health clinician a median base of <b>$133,875</b> "
+              "and the senior grade <b>$144,788</b>. Its own section rather "
+              "than a row, because the measure is actual pay and the table is "
+              "published ranges."]},
     {"title": "Two counties were ranked on a handful of rows",
      "state": "go", "tag": "Fixed",
      "meta": "Contra Costa 6 &rarr; 531 &middot; Santa Barbara 5 &rarr; 215",
      "body": ["Contra Costa writes &ldquo;Mh Clinical Specialist&rdquo; and "
               "Santa Barbara writes &ldquo;ADMHS Practitioner II&rdquo;. The "
-              "title patterns matched neither, so both counties carried a "
-              "published median computed from a handful of people. The 2.8&times; "
-              "headline and the top and bottom counties are unchanged."]},
+              "2.8&times; headline and the top and bottom counties are "
+              "unchanged."]},
 ]
 
 # Blocked, and explicitly on what. Never on "time".
@@ -124,23 +133,14 @@ BLOCKED = [
 
 # Unblocked and queued, most valuable first.
 NEXT = [
-    ("Scope county titles on the department, not the acronym",
-     "The durable version of today&rsquo;s fix",
-     "Every county invents its own abbreviation and a keyword list keeps "
-     "losing that race. &ldquo;Behavioral Wellness&rdquo; and &ldquo;Health "
-     "Services-Mntl Health&rdquo; are unambiguous. The under-25 note is the "
-     "stopgap and it currently flags thirteen counties."),
     ("Ask-a-question surface", "Item 27 of the 28 &mdash; worth promoting",
      "Questions in, answered by the site with citations, each answer becomes a "
      "page. Would have helped all three MBH-SLRP posters who got four comments, "
      "one, and none."),
-    ("Application-portal directory", "No blockers",
-     "County HR and jobs URLs, CalOpps, county NeoGov instances, verified like "
-     "the county plans. Portals do not expire the way postings do."),
     ("A supervisor directory", "The gap both new pages open",
      "The practicum page names the supervision ratio a trainee needs and the "
      "career-change page names supervision as an unpriced cost. Neither can "
-     "say where to find one."),
+     "say where to find one. Sourcing is the open question."),
     ("The rest of the editorial list", "21 of 28 remaining",
      "Advertising rule, telehealth documentation, paying associates, what "
      "licensure costs, records, subpoenas, legislation tracker."),
@@ -148,6 +148,14 @@ NEXT = [
 
 # Decided against, with the reason, so a future session does not re-propose it.
 CLOSED = [
+    ("Scoping county pay on the department instead of the title",
+     "Measured against the thirteen flagged counties and it makes the page "
+     "worse. County behavioral health departments are full of case managers, "
+     "peer support workers, accounting and office staff &mdash; Glenn&rsquo;s "
+     "largest title is &ldquo;HHSA Case Manager II&rdquo; &mdash; and four "
+     "counties file environmental health in the same combined department. The "
+     "flagged counties are mostly just small, and their genuinely clinical "
+     "titles are already matched. The under-25 note stays as the answer."),
     ("On-site community forum",
      "Cold start against groups with 22,800 members, moderation liability for "
      "this audience, and it would put confident wrong answers under the "
@@ -155,7 +163,8 @@ CLOSED = [
     ("Job-posting archive",
      "There is no such thing as an &ldquo;MBH-SLRP position&rdquo; &mdash; the "
      "program awards the individual, not the employer &mdash; and republishing "
-     "postings is not available."),
+     "postings is not available. The portal directory is the durable version: "
+     "a posting expires in six weeks, an address does not."),
     ("Rural health clinic directory",
      "One clinic is filed under three counties at once, another under five. The "
      "source data does not support publishing it."),
@@ -191,6 +200,10 @@ DOCS = [
 # resolved from the live registry, so renaming a page cannot leave a stale
 # entry here.
 HIGHLIGHTS = [
+    ("county-job-portals-california.html",
+     "Where to apply, in all 58 counties, every link fetched. <b>Seven "
+     "guessable URLs belong to a city, a court, or nobody</b> &mdash; and "
+     "Alameda is not on the system its own name is registered under."),
     ("practicum-california-mft-trainee.html",
      "All 78 programs on one question &mdash; whose job is it to find your "
      "practicum site. <b>29 publish nothing, 10 say it is yours.</b> Plus the "
