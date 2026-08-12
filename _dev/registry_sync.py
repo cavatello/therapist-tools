@@ -105,6 +105,16 @@ def main():
             "skip": bool(meta.get("skip")),
             "leaf": bool(meta.get("leaf")),
         }
+        # KEYS THIS PASS DOES NOT OWN SURVIVE. `rec` is rebuilt from the
+        # page's own meta tags every run, so anything held only in the
+        # registry - the stage tagging written by _dev/stage_tags.py, for one -
+        # would be silently deleted on the next build. It was, once. The page
+        # meta is the source of truth for the fields above and the registry is
+        # the source of truth for everything else, so carry the rest across.
+        for k, v in old.get(f, {}).items():
+            if k not in rec:
+                rec[k] = v
+
         found[f] = rec
         if f not in old:
             added.append(f)
@@ -195,6 +205,22 @@ def main():
                   % (t, ", ".join(sorted(missing))))
             bad += 1
     # This pass must never silently empty the registry - a bad regex would.
+    # Nothing that was in the registry may leave it without the page leaving
+    # the site. A key vanishing from every record at once is what a rewrite
+    # that forgot to carry fields across looks like.
+    before = set()
+    for r in old.values():
+        before |= set(r)
+    after = set()
+    for r in REG["pages"]:
+        after |= set(r)
+    lost = before - after
+    if lost and old:
+        print("GUARD: %s disappeared from every record - this pass rebuilt "
+              "them and dropped a field it does not own"
+              % ", ".join(sorted(lost)))
+        problems.append("dropped field(s): %s" % ", ".join(sorted(lost)))
+
     if len(REG["pages"]) < 0.8 * len(old):
         print("GUARD: registry shrank from %d to %d - refusing"
               % (len(old), len(REG["pages"])))
