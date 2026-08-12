@@ -193,10 +193,10 @@
 .verdict p + p{margin-top:10px}
 
 /* ---------- the hours ladder ---------- */
-.gates{display:grid;gap:11px;margin-top:18px}
-.gate{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+.checkpoints{display:grid;gap:11px;margin-top:18px}
+.checkpoint{background:var(--paper);border:1px solid var(--line);border-radius:14px;
  padding:14px 17px 15px}
-.gate.block{border-color:#E8D3A0;background:#FDF4DF}
+.checkpoint.block{border-color:#E8D3A0;background:#FDF4DF}
 .gatehead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;
  margin-bottom:9px}
 .gatehead b{font-family:Fraunces,Georgia,serif;font-size:16px;color:var(--ink)}
@@ -206,10 +206,10 @@
  overflow:hidden;position:relative}
 .gtrack i{display:block;height:100%;border-radius:4px;transition:width .35s ease;
  background:var(--pos)}
-.gate.block .gtrack i{background:var(--gold)}
-.gate p{font-size:11.7px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
-.gate .eta{font-size:12px;color:#4E4940;margin:8px 0 0;font-weight:600}
-.gate .eta b{color:var(--gold)}
+.checkpoint.block .gtrack i{background:var(--gold)}
+.checkpoint p{font-size:11.7px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
+.checkpoint .eta{font-size:12px;color:#4E4940;margin:8px 0 0;font-weight:600}
+.checkpoint .eta b{color:var(--gold)}
 .finish{margin-top:16px;background:#FDF4DF;border:1.5px solid #E8D3A0;border-radius:16px;
  padding:19px 21px}
 .finish em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.14em;
@@ -361,7 +361,7 @@
   margin:4px 0 3px}
 .bw i{display:block;font-style:normal;font-size:11px;color:var(--muted)}
 </style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"How long to 3,000 hours? An AMFT hours calculator for California","url":"https://therapistsupport.org/amft-3000-hours-california.html","applicationCategory":"FinanceApplication","operatingSystem":"Any web browser","description":"Work out your real licensure date as a California associate. The 3,000 is almost never the gate that decides it \u2014 this projects all four, including the 500 relational hours and the 104 weeks, and tells you which one you are actually waiting on.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to get 3,000 hours as an AMFT in California?","acceptedAnswer":{"@type":"Answer","text":"It depends on which of four requirements closes last. Registered associates need 3,000 hours over at least 104 weeks, of which at least 1,750 must be direct clinical counseling and at least 500 of those with couples, families or children. No more than 1,250 may be non-clinical, and no more than 40 hours count in any week. A caseload of adult individuals can complete the 3,000 without ever closing the 500."}}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"How long to 3,000 hours? An AMFT hours calculator for California","url":"https://therapistsupport.org/amft-3000-hours-california.html","applicationCategory":"FinanceApplication","operatingSystem":"Any web browser","description":"Work out your real licensure date as a California associate. The 3,000 is almost never the checkpoint that decides it \u2014 this projects all four, including the 500 relational hours and the 104 weeks, and tells you which one you are actually waiting on.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to get 3,000 hours as an AMFT in California?","acceptedAnswer":{"@type":"Answer","text":"It depends on which of four requirements closes last. Registered associates need 3,000 hours over at least 104 weeks, of which at least 1,750 must be direct clinical counseling and at least 500 of those with couples, families or children. No more than 1,250 may be non-clinical, and no more than 40 hours count in any week. A caseload of adult individuals can complete the 3,000 without ever closing the 500."}}]}]</script>
 <script type="application/ld+json" data-bcr>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://therapistsupport.org/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://therapistsupport.org/tools.html"},{"@type":"ListItem","position":3,"name":"3,000 hours","item":"https://therapistsupport.org/amft-3000-hours-california.html"}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJCWHH9SFG"></script>
@@ -476,7 +476,7 @@
 <p class="jobfoot">Practicum hours count if you were enrolled and had the coursework, within the pre-degree caps: 1,300 in total as a trainee, of which at most 750 may be counseling plus supervisor contact.</p>
 </div>
 </section>
-<section class="slab carbon" id="gates"><div class="ch-h"><span class="ch-n">02</span><h2>The four gates</h2></div>
+<section class="slab carbon" id="gates"><div class="ch-h"><span class="ch-n">02</span><h2>The four requirements</h2></div>
 <p class="dek">Each one projected from the week above. The one holding you up is marked &mdash; it is the only one worth changing your caseload for.</p>
 <div id="plan"></div>
 </section>
@@ -657,7 +657,7 @@ var CAB = {
 };
 var SS_BASE = 184500, SS_RATE = .062, MED_RATE = .0145, SDI_RATE = .013;
 
-/* BBS gates. Every one of these is in the Handbook; see the citations block. */
+/* BBS checkpoints. Every one of these is in the Handbook; see the citations block. */
 var NEED_TOTAL = 3000, NEED_DIRECT = 1750, NEED_REL = 500, NEED_WEEKS = 104;
 var CAP_NONCLIN = 1250, CAP_WEEK = 40, CAP_SUP_WEEK = 6, SUP_TRIGGER = 10;
 
@@ -831,7 +831,7 @@ function jobCalc(p){
 
 /* ------------------------------------------------------------- hours maths
    The 3,000 is the headline and almost never the constraint. This works out
-   every gate, then reports the last one to close, because that is the date. */
+   every checkpoint, then reports the last one to close, because that is the date. */
 function hoursCalc(){
   /* Couples, families and children are ONE field. The BBS counts them together
      against the same 500, so splitting them into three boxes asked the reader
@@ -873,7 +873,7 @@ function hoursCalc(){
     wTotal = wNonCap + weeksFor(after, directWk);
   }
 
-  var gates = [
+  var checkpoints = [
     {key:"total", label:"Total supervised hours", need:NEED_TOTAL, have:have.total,
      per:creditWk, weeksNeeded:wTotal, unit:"hours",
      note:"Clinical and non-clinical together, with non-clinical capped at 1,250."},
@@ -890,29 +890,29 @@ function hoursCalc(){
   ];
 
   /* Weeks worked, converted to calendar weeks: 48 working weeks a year means a
-     week of hours takes 52/48 of a calendar week to earn. The 104-week gate is
+     week of hours takes 52/48 of a calendar week to earn. The 104-week checkpoint is
      calendar weeks of supervised experience, so it does not get the stretch. */
   var stretch = 52 / weeks;
   var maxCal = 0, binding = null;
-  gates.forEach(function(g){
+  checkpoints.forEach(function(g){
     g.calWeeks = (g.key === "weeks") ? g.weeksNeeded : g.weeksNeeded * stretch;
     g.pct = g.need > 0 ? Math.min(100, g.have / g.need * 100) : 0;
     if (isFinite(g.calWeeks) && g.calWeeks > maxCal){ maxCal = g.calWeeks; binding = g; }
     if (!isFinite(g.calWeeks)) binding = binding || g;
   });
-  var stalled = gates.some(function(g){ return !isFinite(g.calWeeks); });
-  if (stalled) binding = gates.filter(function(g){ return !isFinite(g.calWeeks); })[0];
-  /* Every gate closed. maxCal is 0 and nothing was ever assigned to binding,
+  var stalled = checkpoints.some(function(g){ return !isFinite(g.calWeeks); });
+  if (stalled) binding = checkpoints.filter(function(g){ return !isFinite(g.calWeeks); })[0];
+  /* Every checkpoint closed. maxCal is 0 and nothing was ever assigned to binding,
      which used to be read straight through and threw. Someone whose hours are
      already done is exactly the reader who should get a clean answer. */
-  var finished = gates.every(function(g){ return g.have >= g.need; });
-  gates.forEach(function(g){ g.blocking = (!finished && g === binding); });
+  var finished = checkpoints.every(function(g){ return g.have >= g.need; });
+  checkpoints.forEach(function(g){ g.blocking = (!finished && g === binding); });
 
   var done = new Date();
   done.setDate(done.getDate() + Math.ceil(maxCal * 7));
 
   return {
-    gates: gates, binding: binding, stalled: stalled, finished: finished,
+    checkpoints: checkpoints, binding: binding, stalled: stalled, finished: finished,
     calWeeks: maxCal, months: maxCal / (52 / 12), date: done,
     directWk: directWk, relWk: relWk, nonclinWk: nonclinWk,
     nonclinCredited: nonclinCredited, creditWk: creditWk, weeks: weeks,
@@ -948,7 +948,7 @@ function drawPanel(a, b, h){
           + '<b>' + fmt2(a.realHourly) + '</b></div>';
   }
   if (h){
-    rows += '<div class="arow"><span>Licensed by<br>at this caseload, all four BBS gates</span>'
+    rows += '<div class="arow"><span>Licensed by<br>at this caseload, all four BBS checkpoints</span>'
           + '<b class="gold">' + (h.stalled ? "not on this mix"
               : h.date.toLocaleDateString("en-US",{month:"short",year:"numeric"})) + '</b></div>';
   }
@@ -1051,7 +1051,7 @@ function drawHour(a, b){
               n0(c.bbsYear) + " countable hours a year");
     s += tile("Years to 3,000 here", isFinite(c.yearsTo3000)
               ? (Math.round(c.yearsTo3000 * 10) / 10) + " yrs" : "—",
-              "on this caseload alone, ignoring the other three gates");
+              "on this caseload alone, ignoring the other three checkpoints");
     s += '</div>';
     if (unpaidShare > 0.001){
       /* Under a fee split there IS no "rate for the rest" - grossHourly equals
@@ -1230,16 +1230,16 @@ function drawHours(h){
     return;
   }
   var s = '<div class="gates">';
-  h.gates.forEach(function(g){
+  h.checkpoints.forEach(function(g){
     s += '<div class="gate' + (g.blocking ? ' block' : '') + '"><div class="gatehead"><b>'
        + g.label + '</b><span class="num">' + n0(g.have) + ' / ' + n0(g.need) + ' '
        + g.unit + '</span></div>'
        + '<div class="gtrack"><i style="width:' + g.pct.toFixed(1) + '%"></i></div>';
     if (g.have >= g.need){
-      s += '<p class="eta"><b>Done.</b> This gate is closed.</p>';
+      s += '<p class="eta"><b>Done.</b> This checkpoint is closed.</p>';
     } else if (!isFinite(g.calWeeks)){
       s += '<p class="eta"><b>Never, on this mix.</b> You are logging no hours of this kind, '
-         + 'so this gate does not move.</p>';
+         + 'so this checkpoint does not move.</p>';
     } else {
       s += '<p class="eta">' + n0(g.need - g.have) + ' to go at ' + n1(g.per) + ' a week &mdash; '
          + '<b>' + Math.ceil(g.calWeeks) + ' more calendar weeks</b>'
@@ -1250,9 +1250,9 @@ function drawHours(h){
   s += '</div>';
 
   s += '<div class="finish"><em>' + (h.finished ? 'On these numbers'
-       : h.stalled ? 'On this caseload' : 'All four gates close on') + '</em><b>'
-     + (h.finished ? 'All four gates are closed'
-        : h.stalled ? 'One gate never closes'
+       : h.stalled ? 'On this caseload' : 'All four checkpoints close on') + '</em><b>'
+     + (h.finished ? 'All four checkpoint are closed'
+        : h.stalled ? 'One checkpoint never closes'
         : h.date.toLocaleDateString("en-US",{month:"long", day:"numeric", year:"numeric"}))
      + '</b><p>';
   if (h.finished){
@@ -1269,7 +1269,7 @@ function drawHours(h){
        + 'supervisor now, not at hour 2,800.';
   } else {
     s += 'That is <b>' + Math.round(h.months) + ' months</b> from today, working '
-       + h.weeks + ' weeks a year. The gate deciding it is <b>'
+       + h.weeks + ' weeks a year. The checkpoint deciding it is <b>'
        + h.binding.label.toLowerCase() + '</b> — fix that one and the date moves; '
        + 'anything else you improve just banks hours you already have enough of.';
   }

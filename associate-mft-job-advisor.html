@@ -616,10 +616,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .verdict p + p{margin-top:10px}
 
 /* ---------- the hours ladder ---------- */
-.gates{display:grid;gap:11px;margin-top:18px}
-.gate{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+.checkpoints{display:grid;gap:11px;margin-top:18px}
+.checkpoint{background:var(--paper);border:1px solid var(--line);border-radius:14px;
  padding:14px 17px 15px}
-.gate.block{border-color:#E8D3A0;background:#FDF4DF}
+.checkpoint.block{border-color:#E8D3A0;background:#FDF4DF}
 .gatehead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;
  margin-bottom:9px}
 .gatehead b{font-family:Fraunces,Georgia,serif;font-size:16px;color:var(--ink)}
@@ -629,10 +629,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  overflow:hidden;position:relative}
 .gtrack i{display:block;height:100%;border-radius:4px;transition:width .35s ease;
  background:var(--pos)}
-.gate.block .gtrack i{background:var(--gold)}
-.gate p{font-size:11.7px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
-.gate .eta{font-size:12px;color:#4E4940;margin:8px 0 0;font-weight:600}
-.gate .eta b{color:var(--gold)}
+.checkpoint.block .gtrack i{background:var(--gold)}
+.checkpoint p{font-size:11.7px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
+.checkpoint .eta{font-size:12px;color:#4E4940;margin:8px 0 0;font-weight:600}
+.checkpoint .eta b{color:var(--gold)}
 .finish{margin-top:16px;background:#FDF4DF;border:1.5px solid #E8D3A0;border-radius:16px;
  padding:19px 21px}
 .finish em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.14em;
@@ -1016,7 +1016,7 @@ var CAB = {
 };
 var SS_BASE = 184500, SS_RATE = .062, MED_RATE = .0145, SDI_RATE = .013;
 
-/* BBS gates. Every one of these is in the Handbook; see the citations block. */
+/* BBS checkpoints. Every one of these is in the Handbook; see the citations block. */
 var NEED_TOTAL = 3000, NEED_DIRECT = 1750, NEED_REL = 500, NEED_WEEKS = 104;
 var CAP_NONCLIN = 1250, CAP_WEEK = 40, CAP_SUP_WEEK = 6, SUP_TRIGGER = 10;
 
@@ -1190,7 +1190,7 @@ function jobCalc(p){
 
 /* ------------------------------------------------------------- hours maths
    The 3,000 is the headline and almost never the constraint. This works out
-   every gate, then reports the last one to close, because that is the date. */
+   every checkpoint, then reports the last one to close, because that is the date. */
 function hoursCalc(){
   /* Couples, families and children are ONE field. The BBS counts them together
      against the same 500, so splitting them into three boxes asked the reader
@@ -1232,7 +1232,7 @@ function hoursCalc(){
     wTotal = wNonCap + weeksFor(after, directWk);
   }
 
-  var gates = [
+  var checkpoints = [
     {key:"total", label:"Total supervised hours", need:NEED_TOTAL, have:have.total,
      per:creditWk, weeksNeeded:wTotal, unit:"hours",
      note:"Clinical and non-clinical together, with non-clinical capped at 1,250."},
@@ -1249,29 +1249,29 @@ function hoursCalc(){
   ];
 
   /* Weeks worked, converted to calendar weeks: 48 working weeks a year means a
-     week of hours takes 52/48 of a calendar week to earn. The 104-week gate is
+     week of hours takes 52/48 of a calendar week to earn. The 104-week checkpoint is
      calendar weeks of supervised experience, so it does not get the stretch. */
   var stretch = 52 / weeks;
   var maxCal = 0, binding = null;
-  gates.forEach(function(g){
+  checkpoints.forEach(function(g){
     g.calWeeks = (g.key === "weeks") ? g.weeksNeeded : g.weeksNeeded * stretch;
     g.pct = g.need > 0 ? Math.min(100, g.have / g.need * 100) : 0;
     if (isFinite(g.calWeeks) && g.calWeeks > maxCal){ maxCal = g.calWeeks; binding = g; }
     if (!isFinite(g.calWeeks)) binding = binding || g;
   });
-  var stalled = gates.some(function(g){ return !isFinite(g.calWeeks); });
-  if (stalled) binding = gates.filter(function(g){ return !isFinite(g.calWeeks); })[0];
-  /* Every gate closed. maxCal is 0 and nothing was ever assigned to binding,
+  var stalled = checkpoints.some(function(g){ return !isFinite(g.calWeeks); });
+  if (stalled) binding = checkpoints.filter(function(g){ return !isFinite(g.calWeeks); })[0];
+  /* Every checkpoint closed. maxCal is 0 and nothing was ever assigned to binding,
      which used to be read straight through and threw. Someone whose hours are
      already done is exactly the reader who should get a clean answer. */
-  var finished = gates.every(function(g){ return g.have >= g.need; });
-  gates.forEach(function(g){ g.blocking = (!finished && g === binding); });
+  var finished = checkpoints.every(function(g){ return g.have >= g.need; });
+  checkpoints.forEach(function(g){ g.blocking = (!finished && g === binding); });
 
   var done = new Date();
   done.setDate(done.getDate() + Math.ceil(maxCal * 7));
 
   return {
-    gates: gates, binding: binding, stalled: stalled, finished: finished,
+    checkpoints: checkpoints, binding: binding, stalled: stalled, finished: finished,
     calWeeks: maxCal, months: maxCal / (52 / 12), date: done,
     directWk: directWk, relWk: relWk, nonclinWk: nonclinWk,
     nonclinCredited: nonclinCredited, creditWk: creditWk, weeks: weeks,
@@ -1307,7 +1307,7 @@ function drawPanel(a, b, h){
           + '<b>' + fmt2(a.realHourly) + '</b></div>';
   }
   if (h){
-    rows += '<div class="arow"><span>Licensed by<br>at this caseload, all four BBS gates</span>'
+    rows += '<div class="arow"><span>Licensed by<br>at this caseload, all four BBS checkpoints</span>'
           + '<b class="gold">' + (h.stalled ? "not on this mix"
               : h.date.toLocaleDateString("en-US",{month:"short",year:"numeric"})) + '</b></div>';
   }
@@ -1410,7 +1410,7 @@ function drawHour(a, b){
               n0(c.bbsYear) + " countable hours a year");
     s += tile("Years to 3,000 here", isFinite(c.yearsTo3000)
               ? (Math.round(c.yearsTo3000 * 10) / 10) + " yrs" : "—",
-              "on this caseload alone, ignoring the other three gates");
+              "on this caseload alone, ignoring the other three checkpoints");
     s += '</div>';
     if (unpaidShare > 0.001){
       /* Under a fee split there IS no "rate for the rest" - grossHourly equals
@@ -1589,16 +1589,16 @@ function drawHours(h){
     return;
   }
   var s = '<div class="gates">';
-  h.gates.forEach(function(g){
+  h.checkpoints.forEach(function(g){
     s += '<div class="gate' + (g.blocking ? ' block' : '') + '"><div class="gatehead"><b>'
        + g.label + '</b><span class="num">' + n0(g.have) + ' / ' + n0(g.need) + ' '
        + g.unit + '</span></div>'
        + '<div class="gtrack"><i style="width:' + g.pct.toFixed(1) + '%"></i></div>';
     if (g.have >= g.need){
-      s += '<p class="eta"><b>Done.</b> This gate is closed.</p>';
+      s += '<p class="eta"><b>Done.</b> This checkpoint is closed.</p>';
     } else if (!isFinite(g.calWeeks)){
       s += '<p class="eta"><b>Never, on this mix.</b> You are logging no hours of this kind, '
-         + 'so this gate does not move.</p>';
+         + 'so this checkpoint does not move.</p>';
     } else {
       s += '<p class="eta">' + n0(g.need - g.have) + ' to go at ' + n1(g.per) + ' a week &mdash; '
          + '<b>' + Math.ceil(g.calWeeks) + ' more calendar weeks</b>'
@@ -1609,9 +1609,9 @@ function drawHours(h){
   s += '</div>';
 
   s += '<div class="finish"><em>' + (h.finished ? 'On these numbers'
-       : h.stalled ? 'On this caseload' : 'All four gates close on') + '</em><b>'
-     + (h.finished ? 'All four gates are closed'
-        : h.stalled ? 'One gate never closes'
+       : h.stalled ? 'On this caseload' : 'All four checkpoints close on') + '</em><b>'
+     + (h.finished ? 'All four checkpoint are closed'
+        : h.stalled ? 'One checkpoint never closes'
         : h.date.toLocaleDateString("en-US",{month:"long", day:"numeric", year:"numeric"}))
      + '</b><p>';
   if (h.finished){
@@ -1628,7 +1628,7 @@ function drawHours(h){
        + 'supervisor now, not at hour 2,800.';
   } else {
     s += 'That is <b>' + Math.round(h.months) + ' months</b> from today, working '
-       + h.weeks + ' weeks a year. The gate deciding it is <b>'
+       + h.weeks + ' weeks a year. The checkpoint deciding it is <b>'
        + h.binding.label.toLowerCase() + '</b> — fix that one and the date moves; '
        + 'anything else you improve just banks hours you already have enough of.';
   }
@@ -1958,24 +1958,24 @@ else boot();
 <link rel="stylesheet" href="css/c4100a7461a2.css">
 <style>/* _dev/quest_hud.py */
 /* ---------------------------------------------------------------- the board
-   Wrapping the existing .gates grid rather than replacing it, so the engine's
+   Wrapping the existing .checkpoints grid rather than replacing it, so the engine's
    markup is untouched and every rule below is an override. */
-#plan .gates{
+#plan .checkpoints{
   background:linear-gradient(160deg,#12281F 0%,#17352A 55%,#1B4536 100%);
   border:1px solid #2C6350;border-radius:18px;padding:18px;gap:10px;
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 14px 34px rgba(18,40,31,.22);
   position:relative}
-#plan .gates::before{
+#plan .checkpoints::before{
   content:"FOUR GATES \00B7 ALL FOUR MUST CLOSE";
   display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.4px;
   letter-spacing:.18em;color:#7FB79B;margin:2px 2px 13px}
 
 /* ------------------------------------------------------------- each quest */
-#plan .gate{
+#plan .checkpoint{
   background:rgba(255,255,255,.045);border:1px solid rgba(127,183,155,.28);
   border-radius:12px;padding:14px 16px 15px;color:#E7F1EB;position:relative;
   transition:border-color .25s ease}
-#plan .gate:hover{border-color:rgba(127,183,155,.5)}
+#plan .checkpoint:hover{border-color:rgba(127,183,155,.5)}
 #plan .gatehead{display:flex;justify-content:space-between;align-items:baseline;
   gap:12px;flex-wrap:wrap}
 #plan .gatehead b{font-family:Fraunces,Georgia,serif;font-size:16.5px;color:#fff;
@@ -1997,22 +1997,22 @@ else boot();
 #plan .gtrack i{background:linear-gradient(90deg,#3F9577,#5EC49B);border-radius:0;
   box-shadow:0 0 14px rgba(94,196,155,.45)}
 
-/* ------------------------------------------------------------- the boss gate
-   The engine already decides which gate is holding the date. Previously that
+/* ------------------------------------------------------------- the boss checkpoint
+   The engine already decides which checkpoint is holding the date. Previously that
    was a slightly different background; now it is the loudest thing on screen,
    because it is the most useful fact on the page. */
-#plan .gate.block{background:rgba(246,197,96,.1);border-color:rgba(246,197,96,.6)}
-#plan .gate.block .gtrack i{background:linear-gradient(90deg,#C98B4B,#F6C560);
+#plan .checkpoint.block{background:rgba(246,197,96,.1);border-color:rgba(246,197,96,.6)}
+#plan .checkpoint.block .gtrack i{background:linear-gradient(90deg,#C98B4B,#F6C560);
   box-shadow:0 0 16px rgba(246,197,96,.5)}
-#plan .gate.block .gatehead b{color:#8A6023}
-#plan .gate.block::after{
+#plan .checkpoint.block .gatehead b{color:#8A6023}
+#plan .checkpoint.block::after{
   content:"HOLDING YOUR DATE";position:absolute;top:-9px;right:14px;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8.6px;letter-spacing:.14em;
   background:#F6C560;color:#3A2A08;padding:3px 9px;border-radius:20px;
   animation:qpulse 2.4s ease-in-out infinite}
 @keyframes qpulse{0%,100%{opacity:1}50%{opacity:.62}}
 @media (prefers-reduced-motion:reduce){
-  #plan .gate.block::after{animation:none}
+  #plan .checkpoint.block::after{animation:none}
   #plan .gtrack i{transition:none}
 }
 
@@ -2020,14 +2020,14 @@ else boot();
 #plan .qpc{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;
   letter-spacing:.06em;background:rgba(0,0,0,.3);color:#A9CFBC;border-radius:20px;
   padding:2px 8px;margin-left:8px}
-#plan .gate.block .qpc{background:rgba(246,197,96,.18);color:#8A6023}
-#plan .gate.done .qpc{background:rgba(94,196,155,.18);color:#7FDDB6}
+#plan .checkpoint.block .qpc{background:rgba(246,197,96,.18);color:#8A6023}
+#plan .checkpoint.done .qpc{background:rgba(94,196,155,.18);color:#7FDDB6}
 
 /* ---------------------------------------------------------------- the text */
-#plan .gate p{color:#B7CFC3;font-size:12px;line-height:1.62}
-#plan .gate .eta{color:#DCEAE2;font-size:12.4px}
-#plan .gate .eta b{color:#8A6023}
-#plan .gate.done .eta b{color:#7FDDB6}
+#plan .checkpoint p{color:#B7CFC3;font-size:12px;line-height:1.62}
+#plan .checkpoint .eta{color:#DCEAE2;font-size:12.4px}
+#plan .checkpoint .eta b{color:#8A6023}
+#plan .checkpoint.done .eta b{color:#7FDDB6}
 
 /* ------------------------------------------------------------- the plaque */
 #plan .finish{
@@ -2044,22 +2044,22 @@ else boot();
 #plan .finish p b{color:#8A6023;font-size:inherit}
 
 @media (max-width:560px){
-  #plan .gates{padding:14px;border-radius:14px}
+  #plan .checkpoints{padding:14px;border-radius:14px}
   #plan .gatehead .num{font-size:11.2px}
-  #plan .gate.block::after{right:10px;font-size:8px}
+  #plan .checkpoint.block::after{right:10px;font-size:8px}
 }
 /* end quest */</style>
 <script>/* quest */
 (function(){
   /* Ornament only. Reads the width the engine already wrote onto each bar and
-     shows it as a number; marks a finished gate so the palette can respond.
+     shows it as a number; marks a finished checkpoint so the palette can respond.
      It computes nothing and, if it throws, the page is exactly as correct as
      it was - which is why it is wrapped and why it never writes to state. */
   var plan = document.getElementById('plan');
   if (!plan || !('MutationObserver' in window)) return;
   function decorate(){
     try {
-      plan.querySelectorAll('.gate').forEach(function(g){
+      plan.querySelectorAll('.checkpoint').forEach(function(g){
         var fill = g.querySelector('.gtrack i');
         if (!fill) return;
         var pct = Math.max(0, Math.min(100, parseFloat(fill.style.width) || 0));

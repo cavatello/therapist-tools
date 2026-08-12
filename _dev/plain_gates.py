@@ -20,21 +20,25 @@ anybody moving quickly is bound by the 104 weeks instead. The site knew this -
 `amft-3000-hours-california.html` says it in as many words - and then buried it
 under a metaphor pointing the other way.
 
+TWO SENSES, TWO PLAIN WORDS
+
+The word was doing two jobs and both are better done by a plain noun:
+
+  the four hour minimums          -> **requirement**
+  an academic step you must pass  -> **checkpoint**
+  before practicum
+
+"Checkpoint" is not jargon and needs no explanation, which is the whole test.
+The first sense is a fixed list of exact phrases, because those sentences also
+needed their meaning corrected. The second is a short list of patterns, because
+the programme pages say it seventy different ways and every one of them means
+the same thing.
+
 WHAT THIS PASS DOES NOT TOUCH
 
-  Golden Gate University, and the three Golden Gate clinics at CIIS. Proper
-  nouns.
-
-  The programme pages' use of "gate" for an academic prerequisite - a course
-  you must pass before practicum, a clearance, a candidacy review. That is a
-  different and much more natural sense of the word, it is nearly always
-  attached to a specific named requirement in the same sentence, and rewriting
-  seventy of them mechanically would do more harm than the metaphor does. They
-  are left, and the guard below allows them by name.
-
-The rewrite is a fixed list of exact phrases rather than a pattern, because
-"gate" in "the gate to practicum" and "gate" in "the four gates" need opposite
-treatment and no regular expression can tell them apart.
+Golden Gate University, the three Golden Gate clinics at CIIS, and "gateway".
+Proper nouns. Everything else is rewritten, and the guard at the end fails the
+build on any survivor.
 """
 import os, re, sys
 
@@ -106,19 +110,33 @@ SWAPS = [
     # one-offs
     ("The last gate, taken after the 3,000 hours are already done",
      "The last step, taken after the 3,000 hours are already done"),
+    ("The four gates", "The four requirements"),
+    ("is gate three", "is the third one"),
+    ("What it keeps is the gate:", "What it keeps is the condition:"),
 ]
 
-# Where the word is allowed to survive: proper nouns, and the programme pages'
-# prerequisite sense.
+# The academic sense. Patterns rather than exact phrases, because seventy
+# programme pages say the same thing seventy ways. Verb uses ("CSUDH gates
+# entry to fieldwork") need a different rewrite from noun uses, so they are
+# listed first and matched first.
+PATTERNS = [
+    (r"\bgates entry to\b", "controls entry to"),
+    (r"\bgates? progression on\b", "makes progression conditional on"),
+    (r"\bgates? (?:the )?graduation on\b", "makes graduation conditional on"),
+    (r"\bgate entry to\b", "control entry to"),
+    (r"\bgates template\b", "restricts template"),
+    (r"\bbookend and gate the degree\b", "bookend and control the degree"),
+    (r"\bgate to (?:starting )?practicum\b", "checkpoint before practicum"),
+    (r"\bgate to entering\b", "checkpoint before entering"),
+    (r"\bTwo gates matter\b", "Two checkpoints matter"),
+    (r"\bTwo hard gates\b", "Two hard checkpoints"),
+    (r"\bgates?\b(?= (?:matter|sit|are|is))", "checkpoint"),
+    (r"\bgates\b", "checkpoints"),
+    (r"\bgate\b", "checkpoint"),
+]
+
+# The only survivors. Proper nouns.
 ALLOW = re.compile(r"golden gate|gateway|gatekeep", re.I)
-PROGRAM_SENSE = re.compile(
-    r"gates? (?:to|on|entry|progression|graduation|practicum|the degree)"
-    r"|(?:hard|formal|academic|entry|real|explicit|hidden|first|second|"
-    r"zero-unit|zero-credit|fee-bearing|practicum|advancement|writing)\s+gate"
-    r"|the gate is|gates? (?:practicum|entry|progression)"
-    r"|this is the gate|a gate (?:at|rather|on|in)|gate course|two gates"
-    r"|prerequisite gate|eligibility gate|licensure gate|same licensure gate"
-    r"|gates template", re.I)
 
 
 def pages():
@@ -142,6 +160,38 @@ def main():
             if old in s:
                 hits += s.count(old)
                 s = s.replace(old, new)
+
+        # Then the academic sense, outside tags and outside proper nouns.
+        def one(m):
+            t = m.group(0)
+            if ALLOW.search(s[max(0, m.start() - 12):m.end() + 8]):
+                return t
+            for pat, rep in PATTERNS:
+                new_t = re.sub(pat, rep, t)
+                if new_t != t:
+                    return new_t
+            return t
+
+        parts = re.split(r"(<[^>]+>)", s)
+        for i in range(0, len(parts), 2):
+            seg = parts[i]
+            if not re.search(r"\bgates?\b", seg, re.I):
+                continue
+            if re.search(r"golden gate|gateway|gatekeep", seg, re.I):
+                # rewrite around the proper noun rather than through it
+                keep = re.split(r"(Golden Gate|Gateway|gateway|Gatekeep)", seg)
+                for j in range(0, len(keep), 2):
+                    for pat, rep in PATTERNS:
+                        keep[j] = re.sub(pat, rep, keep[j])
+                seg2 = "".join(keep)
+            else:
+                seg2 = seg
+                for pat, rep in PATTERNS:
+                    seg2 = re.sub(pat, rep, seg2)
+            if seg2 != seg:
+                hits += 1
+                parts[i] = seg2
+        s = "".join(parts)
         if s != before:
             open(p, "w", encoding="utf-8").write(s)
             changed += 1
@@ -156,14 +206,15 @@ def main():
         t = re.sub(r"\s+", " ", t)
         for m in re.finditer(r"\bgates?\b", t, re.I):
             ctx = t[max(0, m.start() - 90):m.start() + 90]
-            if ALLOW.search(ctx) or PROGRAM_SENSE.search(ctx):
+            if ALLOW.search(t[max(0, m.start() - 14):m.end() + 10]):
                 continue
             print("GUARD %s: %r" % (rel, ctx.strip()[:130]))
             bad += 1
 
     if bad:
-        sys.exit("\n%d unexplained use(s) of \"gate\". Either say "
-                 "\"requirement\", or add the phrase to SWAPS." % bad)
+        sys.exit("\n%d unexplained use(s) of \"gate\". Say "
+                 "\"requirement\" for an hour minimum and \"checkpoint\" "
+                 "for an academic step, or add the phrase to SWAPS." % bad)
     print("  guards clean - no unexplained \"gate\" left in the prose")
 
 
