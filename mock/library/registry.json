@@ -591,7 +591,7 @@
    "topic": "licensure",
    "format": "reference",
    "question": "Where do I apply for a county behavioral health job in California?",
-   "outcome": "All 58 county job portals with the wording that proves each belongs to the county, and the eight guessable URLs that do not",
+   "outcome": "All 58 county job portals with the wording that proves each belongs to the county, and the seven guessable URLs that do not",
    "number": "7 of 58 guessable portal URLs are the wrong employer",
    "stale": true,
    "weight": 4,
