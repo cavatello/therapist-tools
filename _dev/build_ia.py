@@ -441,7 +441,7 @@ def build():
              "the <b>entry layer</b>; topic stays the organization; "
              "<b>no page moves</b>.</p>")
     o.append('<div class="doorbar">')
-    for url, state, name, count, who in DOORS:
+    for url, state, name, count, who, _ in DOORS:
         lab = {"live": "Live", "next": "Next", "hold": "Held"}[state]
         o.append('<div><span class="u">%s</span><h4>%s</h4><p>%s</p>'
                  '<span class="st %s">%s &middot; %s</span></div>'
@@ -725,14 +725,21 @@ def main():
         if needle not in html:
             print("GUARD: %s is missing" % what)
             bad += 1
-    # The word this document exists partly to remove must not be in it.
+    # The word this document exists partly to remove must not be in its own
+    # prose - but it may quote the headline it is correcting, and it has to be
+    # able to say "requirement, not gate" out loud. Style blocks carry an
+    # inherited CSS class name and are not prose at all.
     import re as _re
-    t = _re.sub(r"<[^>]+>", " ", html)
+    t = _re.sub(r"<(script|style)[\s\S]*?</\1>", " ", html, flags=_re.I)
+    t = _re.sub(r"<[^>]+>", " ", t)
+    QUOTING = ("golden gate", "not gate", "one bar. four gates",
+               "and was wrong", "argues against")
     for m in _re.finditer(r"\bgates?\b", t, _re.I):
-        ctx = t[max(0, m.start() - 40):m.start() + 40]
-        if "golden gate" in ctx.lower():
+        ctx = t[max(0, m.start() - 60):m.start() + 60].lower()
+        if any(q in ctx for q in QUOTING):
             continue
-        print("GUARD: %r - this document argues against that word" % ctx.strip())
+        print("GUARD: %r - this document argues against that word"
+              % t[max(0, m.start() - 40):m.start() + 40].strip())
         bad += 1
     if 'name="robots" content="noindex' not in html:
         print("GUARD: working document must not be indexable")
