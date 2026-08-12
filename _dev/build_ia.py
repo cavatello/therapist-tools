@@ -38,6 +38,7 @@ OUT = os.path.join(SITE, "ops", "information-architecture.html")
 UPDATED = "12 August 2026"
 
 NAV = [("pattern", "The pattern"), ("map", "The map"),
+       ("home", "The home page"),
        ("doors", "Five doors"), ("journey", "How somebody arrives"),
        ("furniture", "On every page"), ("model", "URLs and data"),
        ("order", "Build order")]
@@ -122,12 +123,79 @@ code{font-family:var(--mono);font-size:12.5px;background:#fff;border:1px solid v
   padding:1px 5px}
 .note{border-left:5px solid var(--gold);padding:2px 0 2px 16px;margin:14px 0}
 .note p{font-size:14.5px;margin:0 0 6px}
+
+.homeband{display:grid;gap:9px;margin:8px 0 10px}
+@media(min-width:820px){.homeband{grid-template-columns:repeat(5,1fr)}}
+.hb{display:block;border:2px solid var(--ink);background:var(--cream);
+  padding:10px 11px;text-decoration:none;color:inherit;box-shadow:3px 3px 0 var(--ink)}
+.hb-c{background:var(--gold)}
+.hs{display:block;font-family:var(--sans);font-weight:800;font-size:13.5px;
+  margin-bottom:4px;line-height:1.15}
+.hd{display:block;font-size:10.5px;color:var(--muted);line-height:1.35;
+  margin-bottom:7px}
+.hl2{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--pine);margin-bottom:4px}
+.hgo{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.08em;
+  text-transform:uppercase;background:var(--ink);color:var(--gold);
+  padding:3px 6px}
+.hnote{font-size:12px;color:var(--muted);margin:0 0 14px}
+.trustrow{display:grid;gap:8px;border-top:2px solid var(--ink);padding-top:11px}
+@media(min-width:640px){.trustrow{grid-template-columns:repeat(3,1fr)}}
+.trustrow div{font-size:11px;line-height:1.4}
+.trustrow b{display:block;font-family:var(--sans);font-weight:700;font-size:12.5px}
+.trustrow span{color:var(--muted)}
 @media(max-width:700px){
-  .mkfig,.mkstart,.mkcards{grid-template-columns:1fr 1fr}
+  .mkfig,.mkstart,.mkcards,.homeband{grid-template-columns:1fr 1fr}
   .mkhero h2{font-size:21px}
 }
 """
 
+
+HOME_MOCK = (
+    '<div class="mkhero"><span class="lab">Free tools for California '
+    "therapists</span>"
+    "<h2>Work out what a California practice actually pays you.</h2>"
+    "<p>Four calculators and a research library, all free, every figure "
+    "carrying the date it was last checked against its source.</p></div>"
+
+    '<span class="lab" style="display:block">Where are you on the path?</span>'
+    '<div class="homeband">'
+    '<a class="hb hb-a"><span class="hs">Thinking about it</span>'
+    '<span class="hd">Weighing an MFT against a doctorate, comparing '
+    "programs, and working out whether the arithmetic adds up.</span>"
+    '<span class="hl2">Start with the programs &rarr;</span>'
+    '<span class="hgo">Everything for this stage &mdash; 73 guides &rarr;</span></a>'
+    '<a class="hb hb-b"><span class="hs">In a program</span>'
+    '<span class="hd">Enrolled, with practicum coming, and nobody has told '
+    "you who finds your site.</span>"
+    '<span class="hl2">Start with the practicum year &rarr;</span>'
+    '<span class="hgo">Everything for this stage &rarr;</span></a>'
+    '<a class="hb hb-c"><span class="hs">Counting hours</span>'
+    '<span class="hd">AMFTs, ASWs and APCCs weighing up a placement and '
+    "counting toward 3,000 hours.</span>"
+    '<span class="hl2">Start with the Job Advisor &rarr;</span>'
+    '<span class="hgo">Everything for this stage &mdash; 20 guides &rarr;</span></a>'
+    '<a class="hb hb-d"><span class="hs">Licensed</span>'
+    '<span class="hd">Seeing your own clients, and working out what the '
+    "practice actually pays you.</span>"
+    '<span class="hl2">Start with the simulator &rarr;</span>'
+    '<span class="hgo">Everything for this stage &mdash; 19 guides &rarr;</span></a>'
+    '<a class="hb hb-e"><span class="hs">Running a practice</span>'
+    '<span class="hd">Deciding whether to incorporate, employ associates, '
+    "raise rates, or fill the week.</span>"
+    '<span class="hl2">Start with tax strategy &rarr;</span>'
+    '<span class="hgo">Everything for this stage &rarr;</span></a>'
+    "</div>"
+    '<p class="hnote">Not sure? <b>Most people start with one number: what '
+    "the practice actually pays them.</b> Open the simulator &rarr;</p>"
+
+    '<div class="trustrow"><div><b>It computes, it doesn&rsquo;t opine</b>'
+    "<span>Every figure traceable to a calculation</span></div>"
+    "<div><b>California specifically</b><span>Not a national guide with a "
+    "state note</span></div>"
+    "<div><b>Updated when the rules move</b><span>Each one dated against its "
+    "source</span></div></div>"
+)
 
 def frame(url, inner):
     return ('<div class="frame"><div class="bar"><span class="dot"></span>'
@@ -477,6 +545,79 @@ def build():
              "one again.</p>")
     o.append("</section><hr class=\"rule\">")
 
+    # ------------------------------------------------------------------ home
+    o.append('<section id="home"><div class="kicker"><span class="n">03</span>'
+             "<h2>The home page</h2></div>")
+    o.append('<p class="lede">The router already exists. The home page has '
+             "carried a <b>&ldquo;Who this is for&rdquo;</b> band since long "
+             "before any of this, with four situations and two links each. "
+             "One of those links is already the door &mdash; it just points "
+             "at a filtered list instead of a destination.</p>")
+
+    o.append('<div class="vs">'
+             '<div class="bad"><span class="lab">What each card links to '
+             "today</span>"
+             '<p class="hl">Everything for this situation &rarr;</p>'
+             "<p><code>resources.html#where=assoc</code> &mdash; a filter "
+             "applied to the master list. It works, and it is not a place. "
+             "Nothing about it says <em>twenty pages were written for you</em>, "
+             "there is nothing above it to orient a stranger, and you cannot "
+             "link somebody to it and have it mean anything.</p></div>"
+             '<div class="good"><span class="lab">What it links to '
+             "instead</span>"
+             '<p class="hl">Everything for this stage &rarr;</p>'
+             "<p><code>/for/associates.html</code> &mdash; a page with a "
+             "headline, a scope, four figures and a grouped shelf. <b>A filter "
+             "is a list; a door is a destination.</b> That is the entire "
+             "change to the home page, repeated five times.</p></div></div>")
+
+    o.append('<h3 style="margin:22px 0 8px">Three things change, and one of '
+             "them is not a link</h3>")
+    o.append('<div class="pat">')
+    for n, h, pp, ex in [
+        ("01", "The second link on each card becomes the door",
+         "The first link stays exactly as it is - \"Start with the Job "
+         "Advisor\" sends somebody straight to the thing they came for, and "
+         "that is worth keeping. The second one stops being a filter.",
+         "resources.html#where=assoc &rarr; /for/associates.html"),
+        ("02", "Four situations become five",
+         "The mapping is not one to one, and that is a finding rather than an "
+         "inconvenience. \"Considering the path\" is currently doing two "
+         "jobs: somebody weighing whether to do this at all, and somebody "
+         "already enrolled and about to start practicum. Those are different "
+         "people with different questions, and the second has had nothing "
+         "written for them until this week.",
+         "Considering the path &rarr; Thinking about it + In a program"),
+        ("03", "The band moves above the trust cards",
+         "It currently sits below three cards explaining why the figures can "
+         "be trusted. Those cards are good and they are not what a stranger "
+         "needs first. If the band is the router, it goes where a router goes: "
+         "the first thing under the headline.",
+         "hero &rarr; who this is for &rarr; why you can trust it &rarr; tools"),
+    ]:
+        o.append('<div class="row"><div class="n">%s</div><div class="b">'
+                 '<h4>%s</h4><p>%s</p><span class="ex">%s</span></div></div>'
+                 % (n, h, pp, ex))
+    o.append("</div>")
+
+    o.append('<h3 style="margin:24px 0 8px">The home page, with the band '
+             "repointed and moved up</h3>")
+    o.append(frame("/", HOME_MOCK))
+
+    o.append('<div class="note"><p><b>They are not microsites, and that is '
+             "deliberate.</b> Every door is a generated view over the same "
+             "library &mdash; one page, one URL, one copy of every figure. "
+             "Standalone sub-sites were considered in P1 and rejected: they "
+             "split the internal linking that is this site&rsquo;s whole "
+             "position, and they force the same fact to be written twice. "
+             "<b>This repository has shipped a stale-duplicate bug three "
+             "times</b> &mdash; double-escaping twice and the CIIS tuition "
+             "card &mdash; and duplication is how the fourth one arrives.</p>"
+             "<p>What makes a door <em>feel</em> like a destination is not "
+             "separation. It is the six blocks in section 01 and the band on "
+             "every leaf page in section 06.</p></div>")
+    o.append("</section><hr class=\"rule\">")
+
     # ----------------------------------------------------------------- doors
     o.append('<section id="doors"><div class="kicker"><span class="n">03</span>'
              "<h2>Five doors</h2></div>")
@@ -712,8 +853,8 @@ def main():
             print("GUARD: the jump nav points at #%s, absent" % h)
             bad += 1
     n = html.count('class="frame"')
-    if n != len(DOORS) + 3:
-        print("GUARD: %d mockups, expected %d" % (n, len(DOORS) + 3))
+    if n != len(DOORS) + 4:
+        print("GUARD: %d mockups, expected %d" % (n, len(DOORS) + 4))
         bad += 1
     for needle, what in [
         ("Everything a California associate needs", "the live headline"),
@@ -721,6 +862,9 @@ def main():
         ("This is the piece that does not exist yet",
          "the band as the missing step"),
         ("makes bulk tagging impossible", "the consequence of the note rule"),
+        ("A filter is a list; a door is a destination",
+         "the home-page change in one line"),
+        ("They are not microsites", "the answer to the sub-site question"),
     ]:
         if needle not in html:
             print("GUARD: %s is missing" % what)
