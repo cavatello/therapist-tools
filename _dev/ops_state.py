@@ -4,7 +4,7 @@
 
 `_dev/ops_board.py` reads this file plus the live registry and rebuilds
 `_ops/index.html` on every deploy. So page counts, titles and links are always
-current without anyone touching them; what lives here is the judgement -
+current without anyone touching them; what lives here is the judgment -
 what is blocked, on whom, and what is worth doing next.
 
 Keep it short. A status board nobody trusts is one that has grown into a
@@ -60,7 +60,7 @@ ASKS = [
          "the directory, or every pass and the sitemap skip it silently."]},
     {"title": "Yes or no on the Bay Area directories",
      "why": "P3. Sourcing is proved from three federal files rather than "
-            "argued: 313 nonprofit clinical organizations and 517 health-centre "
+            "argued: 313 nonprofit clinical organizations and 517 health-center "
             "sites, both re-downloadable by anybody.",
      "do": "Read P3, then say go or later",
      "detail": [
