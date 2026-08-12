@@ -41,7 +41,20 @@ ASKS = [
          "Does telehealth delivered from a clinician&rsquo;s home count toward "
          "the 32 hours a week of direct client care, or must those hours be "
          "delivered at the eligible practice site?"]},
-    {"title": "Pick the doors, or say build them in the order proposed",
+    {"title": "Say whether the associates door is right before more are built",
+     "why": "The first one is live and follows the recommendation exactly. "
+            "Everything after it - the sitewide band on 200 pages, then three "
+            "more doors - is much harder to unpick, so this is the cheap "
+            "moment to change direction.",
+     "do": "Open /for/associates and say keep, change, or stop",
+     "detail": [
+         "The ledger leads because this traffic arrives on a phone. If you "
+         "would rather it opened on the six-tile Desk or on the three "
+         "questions, that is a small change now and a large one later.",
+         "The shelf annotations are the part that takes the time - one line "
+         "per page per stage, written by hand. 20 are written. The next door "
+         "needs its own."]},
+    {"title": "The door build order, for the rest",
      "why": "P2 now carries 16 rendered mockups &mdash; two or three real "
             "alternatives for every door plus three for the sitewide band, each "
             "with a recommendation and what it costs. Four of the five doors "
@@ -74,33 +87,38 @@ ASKS = [
 
 # Work with the data in hand and nothing blocking it.
 NOW = [
-    {"title": "All 58 county job portals, verified",
+    {"title": "The first stage door is live &mdash; /for/associates",
      "state": "go", "tag": "Shipped",
-     "meta": "Every link fetched &middot; 7 guessable URLs are the wrong employer",
-     "body": ["Four pages here point at the county job and none of them said "
-              "where the form is. Guessing the address fails for <b>seven of "
-              "the fifty-eight</b>, silently: <code>/careers/marin</code> is "
-              "the Superior Court, <code>/sandiego</code> and "
-              "<code>/santabarbara</code> are the cities, and Alameda, "
-              "Monterey and Trinity resolve to unbranded empty tenants while "
-              "the real portal sits elsewhere. <b>Alameda is not on NeoGov at "
-              "all.</b>"]},
-    {"title": "San Francisco, added to the county pay page",
-     "state": "go", "tag": "Shipped",
-     "meta": "441 people the page could not see &middot; from the city&rsquo;s own file",
-     "body": ["Absent, not under-counted &mdash; a consolidated city and "
-              "county files in the Controller&rsquo;s cities dataset. It pays "
-              "a behavioral health clinician a median base of <b>$133,875</b> "
-              "and the senior grade <b>$144,788</b>. Its own section rather "
-              "than a row, because the measure is actual pay and the table is "
-              "published ranges."]},
-    {"title": "Two counties were ranked on a handful of rows",
-     "state": "go", "tag": "Fixed",
-     "meta": "Contra Costa 6 &rarr; 531 &middot; Santa Barbara 5 &rarr; 215",
-     "body": ["Contra Costa writes &ldquo;Mh Clinical Specialist&rdquo; and "
-              "Santa Barbara writes &ldquo;ADMHS Practitioner II&rdquo;. The "
-              "2.8&times; headline and the top and bottom counties are "
-              "unchanged."]},
+     "meta": "Variant 3C, the Ledger &middot; 20 pages on its shelf",
+     "body": ["Steps 1 and 2 of the build order in <b>P2</b>. The whole 3,000-"
+              "hour requirement as one bar with the four gates inside it, the "
+              "<b>500 relational hours</b> highlighted because that is the one "
+              "people reach 3,000 without, then the three questions the "
+              "pre-licensed groups actually ask, then the shelf.",
+              "Everything is computed in the browser &mdash; no storage, no "
+              "share hash, no network call &mdash; and a guard fails the build "
+              "if that ever stops being true. Each shelf entry carries what "
+              "that page says <em>at this stage</em>, from the new registry "
+              "field, so the door cannot become a re-listed topic hub."]},
+    {"title": "&ldquo;for&rdquo; added to SUBDIRS in all 40 passes",
+     "state": "go", "tag": "The trap, closed",
+     "meta": "Plus a new pass that stops them drifting again",
+     "body": ["Forty passes each carried their own copy of the directory list. "
+              "A new top-level directory was invisible to every one of them "
+              "and to the sitemap, <b>while every guard still reported "
+              "clean</b>. All forty now agree, and "
+              "<code>_dev/subdirs_check.py</code> runs in VERIFY to fail the "
+              "build if they ever disagree, if the list names a directory that "
+              "does not exist, or if a directory of pages is missing from "
+              "it."]},
+    {"title": "registry_sync was deleting the stage tagging",
+     "state": "go", "tag": "Caught on the first run",
+     "meta": "Predicted in P2, and it happened exactly that way",
+     "body": ["The pass rebuilds every page record from the page&rsquo;s own "
+              "meta tags, so a field held only in the registry vanished "
+              "silently on the next build. It now carries across any key it "
+              "does not own, and a guard fails if a field disappears from "
+              "every record at once."]},
 ]
 
 # Blocked, and explicitly on what. Never on "time".
@@ -133,14 +151,23 @@ BLOCKED = [
 
 # Unblocked and queued, most valuable first.
 NEXT = [
-    ("Ask-a-question surface", "Item 27 of the 28 &mdash; worth promoting",
+    ("The &ldquo;you are here&rdquo; band &mdash; S1 and S3",
+     "Step 3 of the door build order",
+     "The doors are five pages; the band is 200. A reader who lands on a leaf "
+     "page from a search never sees a hub unless the page tells them one "
+     "exists. Annotated breadcrumb above, next-step band below, and not the "
+     "sticky rail."),
+    ("Repoint the home &ldquo;Who this is for&rdquo; band",
+     "Ships with S1 and S3",
+     "It already carries four situations pointing at a filtered list. They "
+     "become the doors, and that is what makes any of this visible."),
+    ("/for/students &mdash; the Placement Desk",
+     "Step 4 &middot; runs entirely off practicum_data",
+     "The most shareable single thing in the whole proposal: pick your "
+     "program, get its published answer to who finds your practicum site."),
+    ("Ask-a-question surface", "Item 27 of the 28",
      "Questions in, answered by the site with citations, each answer becomes a "
-     "page. Would have helped all three MBH-SLRP posters who got four comments, "
-     "one, and none."),
-    ("A supervisor directory", "The gap both new pages open",
-     "The practicum page names the supervision ratio a trainee needs and the "
-     "career-change page names supervision as an unpriced cost. Neither can "
-     "say where to find one. Sourcing is the open question."),
+     "page."),
     ("The rest of the editorial list", "21 of 28 remaining",
      "Advertising rule, telehealth documentation, paying associates, what "
      "licensure costs, records, subpoenas, legislation tracker."),
@@ -200,7 +227,11 @@ DOCS = [
 # resolved from the live registry, so renaming a page cannot leave a stale
 # entry here.
 HIGHLIGHTS = [
-    ("county-job-portals-california.html",
+    ("for/associates.html",
+     "The first stage door. One bar, four gates, and the relational-hours gate "
+     "in gold because it is the one people reach 3,000 without. Nothing typed "
+     "into it leaves the browser."),
+        ("county-job-portals-california.html",
      "Where to apply, in all 58 counties, every link fetched. <b>Seven "
      "guessable URLs belong to a city, a court, or nobody</b> &mdash; and "
      "Alameda is not on the system its own name is registered under."),
