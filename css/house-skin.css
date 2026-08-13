@@ -35,9 +35,11 @@ body.house ::selection{background:var(--gold); color:var(--ink)}
 body.house :focus-visible{outline:2px solid var(--pine); outline-offset:2px}
 
 /* --- 2 · type: the display face on every heading ---------------------- */
+/* Type only - NEVER color. Headings inherit their ground's color: ink on
+   paper via the body, light on dark bands via the band. Setting color here
+   broke ~103 pages' dark heroes (found by the sitewide audit, 13 Aug). */
 body.house h1, body.house h2, body.house h3, body.house h4{
   font-family:var(--hs-disp); font-weight:800; letter-spacing:-.026em;
-  color:var(--ink);
 }
 body.house h1{letter-spacing:-.03em}
 /* figures set in Fraunces — the numeric classes each family exposes */
