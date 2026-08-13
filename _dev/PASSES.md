@@ -32,6 +32,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_forassociates.py` | build | &mdash; | /for/associates - the first stage door, built as the Ledger. |
 | `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
+| `build_home.py` | build | &mdash; | Rollout step 4: the home page, rebuilt to option A + option C's waterfall. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
@@ -163,9 +164,12 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `bbs_redact.py` | **untriaged** | &mdash; | Strip the licensee out of a BBS decision before anything else reads it. |
 | `bbs_stats.py` | **untriaged** | &mdash; | Seven quarters of the Board's own numbers, transcribed once. |
 | `build_bayarea.py` | **untriaged** | &mdash; | Can a Bay Area practicum-site and associate-site directory be built honestly? |
+| `build_bcopts.py` | **untriaged** | &mdash; | Three Basecamp-flavored home pages, and the five pages behind each. |
 | `build_home_options.py` | **untriaged** | &mdash; | Six ways the home page could open, drawn in the 37signals discipline. |
 | `build_housestyle.py` | **untriaged** | &mdash; | The house style - the fifth thing - drawn as six complete pages. |
 | `build_ia.py` | **untriaged** | &mdash; | The information architecture, and a mockup of every door - revised. |
+| `build_logo.py` | **untriaged** | &mdash; | Ten logo lockups - the wordmark itself carrying the support idea. |
+| `build_marks.py` | **untriaged** | &mdash; | Ten marks for Therapist Support, all built on the same idea: bearing weight. |
 | `build_products.py` | **untriaged** | &mdash; | The site drawn four times, once in each 37signals product's own language. |
 | `build_redesign.py` | **untriaged** | &mdash; | A whole-site redesign in the 37signals house style, drawn three ways. |
 | `build_stagedoors.py` | **untriaged** | &mdash; | Five doors, three ways each - the expanded stage-hub mockup set. |
@@ -184,6 +188,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `emit.py` | **untriaged** | &mdash; | JSON in, Python source out. |
 | `hc_orgs.py` | **untriaged** | &mdash; | California health center organizations, with every link actually checked. |
 | `hc_orgs_data.py` | **untriaged** | &mdash; | California health center organizations. WRITTEN BY _dev/hc_orgs.py. |
+| `house_swap.py` | **untriaged** | &mdash; | Rollout steps 2-3: put a page under the house skin. |
 | `hrsa_sites.py` | **untriaged** | &mdash; | The federal shortage-area and health-center files, reduced to counts. |
 | `hrsa_stats.py` | **untriaged** | &mdash; | Counts derived from HRSA bulk downloads. WRITTEN BY _dev/hrsa_sites.py. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
