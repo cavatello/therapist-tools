@@ -318,21 +318,25 @@ CSS = """
   text-transform:uppercase;color:var(--pine)}
 
 /* --- path rows (list form) -------------------------------------------- */
-.rows a{display:grid;grid-template-columns:34px 1fr auto;gap:16px;
-  align-items:baseline;padding:20px 0 20px 16px;border-top:1px solid var(--hair);
-  color:var(--ink);border-left:4px solid transparent}
+.rows a{display:block;padding:22px 0 22px 20px;
+  border-top:1px solid var(--hair);color:var(--ink);
+  border-left:5px solid transparent;position:relative}
 .rows a:last-child{border-bottom:1px solid var(--hair)}
 .rows a.h1{border-left-color:var(--h1)}.rows a.h2{border-left-color:var(--h2)}
 .rows a.h3{border-left-color:var(--h3)}.rows a.h4{border-left-color:var(--h4)}
 .rows a.h5{border-left-color:var(--h5)}.rows a.h6{border-left-color:var(--h6)}
-.rows .n{font-family:var(--mn);font-size:11.5px;color:var(--dim)}
-.rows .t{font-family:var(--disp);font-weight:800;font-size:29px;
-  letter-spacing:-.026em;display:block;line-height:1.08}
-.rows .q{display:block;font-size:15.5px;color:var(--dim);margin-top:4px}
-.rows .c{font-family:var(--mn);font-size:11px;color:var(--dim);
-  white-space:nowrap}
+.rows .who{display:block;font-family:var(--mn);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
+  margin-bottom:9px}
+.rows .t{font-family:var(--disp);font-weight:800;font-size:27px;
+  letter-spacing:-.026em;display:block;line-height:1.1;max-width:24ch}
+.rows .gets{display:block;font-size:16.5px;color:var(--dim);
+  margin-top:9px;max-width:56ch;line-height:1.45}
+.rows .c{position:absolute;right:0;top:24px;font-family:var(--mn);
+  font-size:11px;color:var(--dim);white-space:nowrap}
+@media(max-width:860px){.rows .t{font-size:21px;max-width:none}
+  .rows .c{position:static;display:block;margin-top:12px}}
 
-/* --- index, lists, tables --------------------------------------------- */
 .ix{display:grid;gap:22px 34px}
 @media(min-width:780px){.ix{grid-template-columns:repeat(3,1fr)}}
 .ix h5{font-family:var(--mn);font-size:10px;letter-spacing:.14em;
@@ -664,7 +668,7 @@ def home_a():
                    "up the same two numbers. <b>Nothing you type leaves your "
                    "browser.</b></p></div>"
                  + '<div class="band sunk"><span class="eb">Or start where '
-                   "you are</span><h2>Six paths. Yours is one of them.</h2>"
+                   "you are</span><h2>Which one of these is you right now?</h2>""<p class=\"fine\" style=\"font-size:16.5px;max-width:54ch;margin:-8px 0 26px\">Every page on this site is written for one of six moments. Pick the sentence that sounds like your week.</p>"
                  + rows_paths() + "</div>"
                  + '<div class="slab"><span class="eb">Why you can use these '
                    "numbers</span><h2>Every dollar here is the output of a "
