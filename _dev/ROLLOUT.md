@@ -212,3 +212,20 @@ User-reported mess at 2560px, fixed and re-gated:
 Gate: 14 pages × 5 viewports (375/768/1024/1440/2560) = 70/70 clean — overflow,
 JS errors, body ≥16px, h1-on-ground contrast ≥4.5:1 all automated. All of
 section 13 in house-skin.css retires with the old sheets at step 5.
+
+## SIM DISASTER FIX + FULL CONTRAST AUDIT (13 Aug 2026, fourth pass, `212020d0`)
+
+- The flat-dark slab treatment made the simulator four dark blocks — against
+  the one-slab rule. Tool sections are now WHITE CARDS with a 5px hue accent
+  (pine/red/amber/ink); the hero stays the page's single dark band. The purple
+  .bonus band joined the palette as deep; .hubnl and .dc-out grounds restored.
+- Cause of two regressions found the honest way: my own skin rules (white
+  .slab headings on now-white cards; ink .dc-h/.pr-h on dark grounds). The
+  audit that catches this class of bug is now the standard: EVERY visible
+  heading vs its real ground — 217 headings, 14 pages, all ≥4.5:1 — plus
+  56 overflow/JS checks at 375/768/1440/2560. Both clean before shipping.
+- house-skin.css link now carries ?v=<content-hash> (house_swap emits it), so
+  browsers stop serving stale design after each fix — the user's "still a
+  mess" screenshots were partly Pages' max-age cache.
+- hours/compare.html (user's own working doc, saved this morning) tripped
+  subdirs_check exactly as designed — missing noindex, added.
