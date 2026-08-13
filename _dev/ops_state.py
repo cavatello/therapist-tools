@@ -204,10 +204,20 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("house-style.html",
+     "P8 &middot; The house style &mdash; six complete pages, ready to build",
+     "<b>This is the one to decide on.</b> The recommendation from P7, "
+     "built: Basecamp's structure and restraint, Fizzy's label system on the "
+     "six paths, Campfire's signature closing anything that claims somebody "
+     "checked the numbers, and <b>exactly one HEY slab per page</b>. Six "
+     "full pages top to bottom &mdash; home, the associate landing page, a "
+     "content page, a directory, the email sign-up and about &mdash; plus "
+     "the tokens, the six path hues and a six-step build order. The "
+     "one-slab rule is enforced by a guard, because it is the rule that "
+     "carries the design."),
     ("redesign-37signals-products.html",
-     "P7 &middot; Four products, four identities &mdash; the current "
-     "proposal",
-     "<b>Start here.</b> 37signals does not have a house style; it has four "
+     "P7 &middot; Four products, four identities &mdash; the study",
+     "37signals does not have a house style; it has four "
      "products that look deliberately unlike each other. The site drawn four "
      "times &mdash; as <b>Basecamp</b>, <b>HEY</b>, <b>Campfire</b> and "
      "<b>Fizzy</b> &mdash; logo, home page, path page, content page and "
