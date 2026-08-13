@@ -219,6 +219,27 @@
    "leaf": false
   },
   {
+   "file": "bbs-90-day-rule-california.html",
+   "title": "The 90-day rule: when post-degree hours count in California",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "Do my hours count before my associate number arrives?",
+   "outcome": "The four conditions on all three tracks, the Live Scan trap, and the arithmetic of missing",
+   "number": "360 hours lost in one ordinary miss",
+   "stale": false,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "student",
+    "associate"
+   ],
+   "stage_note": {
+    "student": "The one deadline that starts before you graduate: get the employer Live Scan stamped before your award date.",
+    "associate": "If you worked between your degree and your number, whether those hours exist &mdash; and the documents that decide it."
+   }
+  },
+  {
    "file": "bbs-exam-pass-rates-california.html",
    "title": "California LMFT, LCSW and LPCC exam pass rates, seven quarters",
    "topic": "licensure",
@@ -2101,7 +2122,7 @@
   },
   {
    "file": "psyd-programs-california.html",
-   "title": "California PsyD programs, and what accreditation actually decides — Therapist Support",
+   "title": "California PsyD programs, and what accreditation actually decides",
    "topic": "training",
    "format": "reference",
    "question": "Which PsyD programs are there in California?",
@@ -2699,6 +2720,7 @@
       "finding-a-clinical-supervisor-california.html",
       "county-job-portals-california.html",
       "amft-3000-hours-california.html",
+      "bbs-90-day-rule-california.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
       "mbh-slrp-california.html",
