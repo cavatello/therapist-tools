@@ -223,3 +223,57 @@ body.house main.home .slab .eb{color:#79A08F !important}
 body.house main.home .wf .amt{color:var(--ink) !important;
   font-family:var(--hs-figs)}
 body.house main.home .wf .row.net .amt{color:var(--pine) !important}
+/* content cap at wide widths - full-bleed grounds, measured content.
+   1240px content well; 2560px was the width that broke things. */
+body.house main.home .band{
+  padding-left:max(var(--pad, 40px), calc(50% - 620px)) !important;
+  padding-right:max(var(--pad, 40px), calc(50% - 620px)) !important;
+}
+
+/* --- 13 · the deep-skin pass (27-inch audit, 13 Aug 2026). The old     */
+/*     families carry hardcoded gradients, brutalist borders and gold    */
+/*     chips. The bc2 rule is flat, few-coloured, one accent. These      */
+/*     re-ground them; they retire with their sheets at step 5.          */
+
+/* article-family dark hero (.artband: psyd, articles, hubs) */
+body.house .artband{background:var(--deep) !important}
+body.house .artband h1 em, body.house .artband .bcr [aria-current]{
+  color:var(--gold) !important}
+body.house .artband .kick{color:#79A08F !important}
+
+/* discipline hub hero - flatten the brutalist slab */
+body.house .dc-hero{
+  background:var(--deep) !important; border:0 !important;
+  border-radius:12px !important; box-shadow:none !important;
+}
+body.house .dc-hero .hj a{
+  background:transparent !important; border:1px solid rgba(255,217,118,.55)
+  !important; color:var(--gold) !important; box-shadow:none !important;
+  border-radius:20px !important;
+}
+body.house .dc-hero .hj a:hover{
+  background:rgba(255,217,118,.14) !important; transform:none !important}
+body.house .dc-figs{border:1px solid var(--line) !important;
+  box-shadow:none !important; border-radius:10px !important; overflow:hidden}
+body.house .dc-figs>div{background:var(--hs-card) !important}
+
+/* simulator + slab family - flatten every gradient to a bc2 ground */
+body.house .adv .band, body.house .adv .hero{background:var(--deep) !important}
+body.house .slab.pine{background:var(--deep) !important}
+body.house .slab.carbon{background:#161F1B !important}
+body.house .slab.brick{background:#6E352E !important}
+body.house .slab.gold{background:#6B4A18 !important}
+body.house .adv .fbar i{background:var(--gold) !important}
+body.house .adv .sell{background:rgba(255,217,118,.10) !important}
+/* the off-palette purple game layer joins the palette */
+body.house .lvchip{background:var(--pine) !important}
+body.house .xptrack i,
+body.house .mo i{background:var(--gold) !important}
+body.house .tbar i, body.house .gbar i{background:var(--pine) !important}
+body.house .simbtn{background:var(--pine) !important; box-shadow:none !important}
+body.house .simbtn.locked{background:#3F4A44 !important; box-shadow:none !important}
+body.house .bigcta{box-shadow:none !important; border:1.5px solid var(--pine) !important}
+
+/* soften the remaining brutalist hard-offset shadows sitewide */
+body.house .tsshort, body.house .card, body.house .pk-t{
+  box-shadow:none !important}
