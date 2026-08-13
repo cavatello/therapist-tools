@@ -73,6 +73,14 @@ def main():
     if not os.path.exists(HOME):
         sys.exit("home_doorway: index.html is missing")
     s = open(HOME, encoding="utf-8").read()
+    # Rollout step 4 (Aug 2026): the landing was rebuilt to option A by
+    # _dev/build_home.py and the audience cards this pass decorated no
+    # longer exist. The six claim rows carry the doorway's job now. No-op
+    # rather than retire, so an old index restored from a snapshot still
+    # gets its doorway back.
+    if 'class="bc2 home"' in s:
+        print("home_doorway: option-A home present - nothing to do")
+        return
     orig = s
 
     # our own output out first, in both possible shapes: bare, and already
