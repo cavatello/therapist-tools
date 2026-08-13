@@ -313,6 +313,16 @@ body.house .pk-hero{background:var(--deep) !important}
 body.house .pk-hero h1 em, body.house .pk-hero h2 em{
   color:var(--gold) !important; font-style:normal}
 
+/* the sim's purple "bonus" band joins the palette as a deep band */
+body.house .bonus{background:var(--deep) !important; color:#CFE0D6 !important}
+body.house .bonus::before{display:none !important}
+body.house .bonus .pr-h, body.house .bonus h2, body.house .bonus h3{
+  color:#FFFFFF !important}
+/* the hub newsletter block keeps its dark ground */
+body.house .hubnl{background:var(--deep) !important; border-radius:12px}
+/* case-page verdict block: dark ground, light heading */
+body.house .dc-out h2, body.house .dc-out h3{color:#FFFFFF !important}
+
 /* soften the remaining brutalist hard-offset shadows sitewide */
 body.house .tsshort, body.house .card, body.house .pk-t{
   box-shadow:none !important}
