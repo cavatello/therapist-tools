@@ -184,11 +184,10 @@ EXTRA = """
 
 /* --- the signature, Campfire's move ------------------------------------- */
 .hs .sign{border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
-.hs .sign .nm{font-family:'Caveat',cursive;font-size:36px;line-height:1;
-  color:var(--ink);margin:0 0 4px}
-.hs .sign .who{font-family:'IBM Plex Mono',monospace;font-size:12px;
+.hs .sign .who{font-family:'IBM Plex Mono',monospace;font-size:12.5px;
   color:var(--dim);margin:0}
-.hs .sign p.said{max-width:56ch;font-size:16px;color:var(--dim);margin:0 0 14px}
+.hs .sign p.said{max-width:50ch;font-size:21px;line-height:1.42;
+  letter-spacing:-.017em;color:var(--ink);margin:0 0 14px;font-weight:500}
 
 /* --- shelves, tables, lists --------------------------------------------- */
 .hs .ix{display:grid;gap:20px 32px}
@@ -351,10 +350,19 @@ def slab(eb, h, p, figs=None):
 
 
 def sign(said):
-    return ('<div class="sign"><p class="said">%s</p>'
-            '<p class="nm">Shawn Walters</p>'
-            '<p class="who">Shawn Walters, LMFT &middot; California &middot; '
-            "licensed since 2016</p></div>" % said)
+    """The made-by band. It used to be a signature with a name in it.
+
+    The name is out at the author's request, so what is left has to carry the
+    same job - who checked this and what happens when it is wrong - without
+    the person. That turns out to be a fair trade: the sentence was always
+    doing more work than the signature was, and an unsigned first-person
+    sentence still reads as a person rather than as a company.
+    """
+    return ('<div class="sign"><span class="eb">How this is made</span>'
+            '<p class="said">%s</p>'
+            '<p class="who">Written and checked by a licensed marriage and '
+            "family therapist in California &middot; "
+            '<a href="#">how corrections work &rarr;</a></p></div>' % said)
 
 
 IX = [
@@ -498,12 +506,12 @@ def page_home():
              "<h2>Everything on the site.</h2>" + index() + "</div>")
     o.append('<div class="band" style="padding-top:0">' + news() + "</div>")
     o.append('<div class="band" style="padding-top:0">'
-             + sign("I am a licensed therapist in California. Every number I "
-                    "needed to run a practice I had to work out myself, from "
-                    "statutes and fee schedules and other people&rsquo;s "
-                    "guesses. So I built the tools I wanted and wrote down "
-                    "everything I checked. If a figure here is wrong, tell me "
-                    "and I will fix it and say so on the changes page.")
+             + sign("Every number on this site was needed by somebody running a "
+                    "California practice before it was published here, and "
+                    "worked out from statutes and fee schedules rather than "
+                    "from anybody&rsquo;s guess. When a figure turns out to "
+                    "be wrong it is fixed and the correction is listed, with "
+                    "its date, on the changes page.")
              + "</div>")
     o.append(foot())
     return frame("/", "".join(o))
@@ -603,10 +611,10 @@ def page_assoc():
              + news("Told when the Board moves a rule.",
                     "The BBS changes these every couple of years. One email "
                     "when it does.")
-             + sign("This page exists because I counted these hours myself "
-                    "and could not find any of this in one place. If "
-                    "something here is out of date, it is on me &mdash; tell "
-                    "me and it gets fixed and listed.")
+             + sign("This page exists because none of it was written down in one "
+                    "place. If something here has gone out of date, say so "
+                    "&mdash; it gets fixed and the change is listed with its "
+                    "date rather than quietly swapped in.")
              + "</div>")
     o.append(foot())
     return frame("/paths/counting-hours", "".join(o))
@@ -695,10 +703,9 @@ def page_article():
                   "them, has <span class=\"hl\">bought nothing</span>. Ask "
                   "the question before the first session, not at the end."))
     o.append('<div class="band">' + news() +
-             sign("I wrote this because I could not find it anywhere, and "
-                  "because I have watched people lose months to it. Every "
-                  "statute here is linked to its own text so you can check "
-                  "me.") + "</div>")
+             sign("Every statute on this page is linked to its own text, so "
+                  "none of it has to be taken on trust. People lose months "
+                  "to the rule above; that is why it is at the top.") + "</div>")
     o.append(foot())
     return frame("/finding-a-clinical-supervisor-california", "".join(o))
 
@@ -828,9 +835,9 @@ def page_email():
                   "subscribe</span>, which is not a thing most newsletters "
                   "let you do."))
     o.append('<div class="band">'
-             + sign("If the list ever becomes something other than this, I "
-                    "will say so in the email that changes it, and you can "
-                    "leave from that same email.") + "</div>")
+             + sign("If the list ever becomes something other than this, the "
+                    "email that changes it will say so, and you can leave "
+                    "from that same email.") + "</div>")
     o.append(foot())
     return frame("/updates", "".join(o))
 
@@ -888,14 +895,12 @@ def page_about():
              "ever changes it will be said here first.</p></div>"
              "</div></div>")
     o.append('<div class="band" style="padding-top:0">'
-             + sign("I am a licensed therapist in California. Every number I "
-                    "needed to run a practice &mdash; what a fair rate is, "
-                    "what an associate job really pays, whether to "
+             + sign("The numbers a California practice runs on &mdash; a fair "
+                    "rate, what an associate job really pays, whether to "
                     "incorporate, what insurance actually reimburses &mdash; "
-                    "I had to work out myself, from statutes and fee "
-                    "schedules and other people&rsquo;s guesses in Facebook "
-                    "groups. So I built the tools I wanted, and then I wrote "
-                    "down everything I checked.")
+                    "are not published anywhere as a set. They were worked "
+                    "out one at a time here, from statutes and fee schedules, "
+                    "and every one of them shows its source.")
              + "</div>")
     o.append('<div class="band" style="padding-top:0">' + news() + "</div>")
     o.append(foot())
