@@ -274,6 +274,18 @@ body.house .simbtn{background:var(--pine) !important; box-shadow:none !important
 body.house .simbtn.locked{background:#3F4A44 !important; box-shadow:none !important}
 body.house .bigcta{box-shadow:none !important; border:1.5px solid var(--pine) !important}
 
+/* dark grounds keep light headings - the global heading-ink rule must
+   not reach inside a deep band */
+body.house .artband h1, body.house .artband h2,
+body.house .dc-hero h1, body.house .dc-hero h2, body.house .dc-h,
+body.house .adv .hero h1, body.house .adv .band h1,
+body.house .slab h1, body.house .slab h2, body.house .slab h3,
+body.house .slab.pine h2, body.house .slab.carbon h2,
+body.house .slab.brick h2, body.house .slab.gold h2{
+  color:#FFFFFF !important}
+body.house .dc-hero .dc-d, body.house .dc-hero p{color:#CFE0D6 !important}
+body.house .dc-hero .dc-k{color:#79A08F !important}
+
 /* soften the remaining brutalist hard-offset shadows sitewide */
 body.house .tsshort, body.house .card, body.house .pk-t{
   box-shadow:none !important}
