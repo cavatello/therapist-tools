@@ -204,6 +204,15 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("logo.html",
+     "P11 &middot; Ten logo lockups, all standing on something",
+     "The <b>logo</b>, not the icon &mdash; the whole lockup, and whether the "
+     "wordmark can carry the support idea on its own. It can: the strongest "
+     "options need no symbol at all, which is one less asset and a mark that "
+     "cannot be separated from the name. Rule, Plinth, Bracket, Stack, "
+     "Underline, Weight, Shelf, Ground, Column Rule, Dotted Floor &mdash; "
+     "each shown horizontal, stacked, at 13px, reversed on pine, and cropped "
+     "to a favicon. All CSS and live type, no image files. Read with P10."),
     ("marks.html",
      "P10 &middot; Ten marks, all about bearing weight",
      "Logo exploration on one idea &mdash; <b>support in the load-bearing "
