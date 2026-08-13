@@ -257,6 +257,11 @@ def main():
     for fn in sorted(os.listdir(CSSDIR)):
         if not fn.endswith(".css"):
             continue
+        # Named sheets (css/house.css, css/house-skin.css - the bc2 design,
+        # rollout steps 1-3) are not part of the old palette this pass
+        # polices, and must not be recoloured or renamed to a hash.
+        if not re.fullmatch(r"[0-9a-f]{12}", fn[:-4]):
+            continue
         path = os.path.join(CSSDIR, fn)
         body = open(path, encoding="utf-8").read()
         fixed, n = swap_in(body)
@@ -333,6 +338,8 @@ def main():
     bad = 0
     for fn in sorted(os.listdir(CSSDIR)):
         if not fn.endswith(".css"):
+            continue
+        if not re.fullmatch(r"[0-9a-f]{12}", fn[:-4]):
             continue
         b = open(os.path.join(CSSDIR, fn), encoding="utf-8").read()
         h = hashlib.sha1(b.encode("utf-8")).hexdigest()[:12]
