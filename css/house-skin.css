@@ -355,6 +355,19 @@ body.house .np-col h5{background:none !important; padding:0 !important}
 /* no heading ever carries a highlighter block */
 body.house h1, body.house h2{background:none !important; box-shadow:none !important}
 body.house h1 span:not(.scr), body.house h2 span{background:none !important}
+/* the warm-cream field family joins the cool palette, everywhere */
+body.house label.f, body.house .f, body.house .fgrid>*{
+  background:var(--hs-card) !important; border:1px solid var(--line) !important;
+  border-radius:8px !important}
+body.house label.f>span, body.house .f>span{color:var(--hs-dim) !important}
+body.house label.f input, body.house .f input, body.house .f select{
+  background:transparent !important; border:0 !important; color:var(--ink) !important}
+body.house .hcalc, body.house .pk-calc, body.house .srpanel, body.house .citeb,
+body.house .ins, body.house .insf, body.house .ref, body.house .tcnext,
+body.house .tctrack, body.house .dc-ask, body.house .dc-ex, body.house .dc-grp,
+body.house .dc-note, body.house .dc-tw, body.house .pk-ask, body.house .pk-tw,
+body.house .pk-v, body.house .pg, body.house .hmost a, body.house .dc-nav a{
+  border-color:var(--line) !important; border-width:1px !important}
 /* tool hero inputs: labels and hints legible on the deep band */
 body.house section.hero label, body.house section.hero .hint,
 body.house .hero .f span{color:#CFE0D6 !important}
