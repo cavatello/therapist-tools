@@ -337,6 +337,14 @@ LAST = [
     ("_dev/ops_board.py",
      "the status board at /_ops/, rebuilt from the registry and "
      "_dev/ops_state.py. noindex, robots-disallowed, not in the sitemap"),
+    # Rollout steps 2-3 (August 2026): every published page carries
+    # body.house + css/house-skin.css, loaded last. A page a builder just
+    # rewrote loses both, so this runs at the very end of every build to
+    # re-convert it. Idempotent, guarded, excludes tycoon.html and
+    # rates.html by decision.
+    ("_dev/house_swap.py --all",
+     "the house skin - body.house and the last-loaded skin sheet on every "
+     "published page, re-applied after everything above has run"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
