@@ -204,10 +204,19 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("redesign-37signals.html",
+     "P6 &middot; If 37signals had built this site &mdash; the whole thing",
+     "<b>Start here.</b> Logo, typography, color, navigation, footer, four "
+     "home pages, the six paths, a path page, an article, a directory, the "
+     "newsletter and the about page &mdash; drawn in <b>three complete "
+     "skins</b> plus phone views, so the choice is between finished "
+     "directions rather than between adjectives. The structural change is "
+     "that the six paths become the primary navigation and the topic hubs "
+     "move to an index at the foot of every page. Ends with a build order, "
+     "and with why a redesign and a move to Rails are two projects."),
     ("home-page-options.html",
-     "P5 &middot; Six home pages, one column each &mdash; the current "
-     "proposal",
-     "<b>Read this one first.</b> The five-card band in P4 section 03 was "
+     "P5 &middot; Six home pages, one column each &mdash; the home page alone",
+     "The five-card band in P4 section 03 was "
      "rejected: a band of five equal cards is a menu of menus, it asks a "
      "stranger to classify themselves before anybody has told them what the "
      "site is, and it is made of the same bordered cards as the eleven blocks "

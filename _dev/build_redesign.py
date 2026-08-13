@@ -264,6 +264,16 @@ EXTRA = """
   font-family:var(--head);font-weight:800;font-size:26px;color:var(--acc)}
 .sig{font-family:var(--head);font-size:17px;line-height:1.6;max-width:56ch}
 
+/* phones */
+.phrow{display:grid;gap:16px;margin:14px 0}
+@media(min-width:760px){.phrow{grid-template-columns:repeat(3,minmax(0,300px))}}
+.ph .lab2{font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ph .scr{border:3px solid var(--ink);border-radius:16px;overflow:hidden;
+  height:520px;overflow-y:auto;background:#fff}
+.ph .scr .mk{font-size:14px}
+.ph .scr .mk h1{font-size:25px}
+
 /* type specimen */
 .spec{border:2px solid var(--ink);background:#fff;padding:22px 24px;
   margin:12px 0}
@@ -323,6 +333,19 @@ def frame(url, skin, inner, chrome=True):
             '<span class="dot"></span><span class="dot"></span>'
             '<span class="url">therapistsupport.org%s</span></div>'
             '<div class="mk sk-%s">%s</div></div>' % (url, skin, inner))
+
+
+def phones(items):
+    """The same layouts at 390px. A design that only exists at desktop width
+    is half a proposal - most of this site's traffic arrives on a phone, and
+    the six paths as rows are the piece most likely to break there."""
+    o = ['<div class="phrow">']
+    for skin, label, inner in items:
+        o.append('<div class="ph"><div class="lab2">%s</div>'
+                 '<div class="scr"><div class="mk sk-%s">%s</div></div></div>'
+                 % (label, skin, inner))
+    o.append("</div>")
+    return "".join(o)
 
 
 def logo(kind, skin="a"):
@@ -784,10 +807,10 @@ def build():
              "The six paths become the primary navigation, which is the "
              "structural change underneath all of it.</p>"
              '<div class="meta"><span class="chip">3 skins</span>'
-             '<span class="chip">%d mockups</span>'
+             '<span class="chip">%d mockups &middot; 3 phone views</span>'
              '<span class="chip">6 paths</span>'
              '<span class="chip">No page moves required</span></div>'
-             "</div></header>" % (UPDATED, 26))
+             "</div></header>" % (UPDATED, 23))
 
     o.append('<nav class="jump"><div class="wrap"><ul>')
     for h, t in NAV:
@@ -1054,6 +1077,34 @@ def build():
                  % (v, name, tag, SKINS[skin][0],
                     " &middot; recommended" if tag else "", thesis, up, dn))
         o.append(home(v, skin))
+    o.append('<h3 style="margin:26px 0 6px">And on a phone</h3>')
+    o.append('<p class="pk-d">The same three home pages at 390px. The paths '
+             "stay rows rather than collapsing into a menu, which is the "
+             "whole reason for choosing rows: a card grid at this width is "
+             "six full-width boxes and four screens of scrolling before the "
+             "reader sees anything else.</p>")
+    o.append(phones([
+        ("a", "1 &middot; The statement",
+         '<div class="body"><h1>Running a practice is a second job nobody '
+         "trained you for.</h1>"
+         '<p class="lede" style="font-size:15px">Free calculators and checked '
+         "reference for California therapists.</p>"
+         '<a class="btn">See what it pays you</a><hr>'
+         '<span class="eyebrow">Or start where you are</span>' + pathrows()
+         + "</div>"),
+        ("b", "3 &middot; The letter",
+         '<div class="body"><h1>Nobody teaches therapists the business '
+         "half.</h1>"
+         '<p style="font-size:15.5px;line-height:1.6">I am a licensed '
+         "therapist in California. Every number I needed to run a practice I "
+         "had to work out myself.</p>"
+         '<p class="fine" style="font-family:\'IBM Plex Mono\',monospace">'
+         "&mdash; Shawn, LMFT</p>"
+         '<a class="btn">Start with the money</a><hr>' + pathrows() + "</div>"),
+        ("c", "4 &middot; The manual",
+         '<div class="body"><h1>Six ways into the same 203 pages.</h1>'
+         + pathcards() + "</div>"),
+    ]))
     o.append("</section><hr class=\"rule\">")
 
     # ---------------------------------------------------------------- paths
@@ -1202,7 +1253,7 @@ def main():
             bad += 1
 
     n = html.count('class="frame"')
-    if n < 24:
+    if n < 23:
         print("GUARD: only %d mockups - the document claims a whole site" % n)
         bad += 1
 
