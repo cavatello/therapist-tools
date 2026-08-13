@@ -204,9 +204,20 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("home-basecamp-three.html",
+     "P9 &middot; Three front doors, and the site behind them",
+     "<b>The current proposal.</b> Three Basecamp-flavored home pages that "
+     "argue different things about what a front door is for &mdash; lead "
+     "with the tool, lead with the six paths as a bento, or lead with one "
+     "worked number as a chart &mdash; plus the associate entry page, the "
+     "program directory, a content page, the email sign-up and about. "
+     "<b>An entirely new stylesheet</b>, written the way it would ship, and "
+     "<b>four infographics drawn in CSS</b> with the site's real figures: "
+     "the take-home waterfall, the six-stop path track, the tool interface "
+     "and the binding-requirement chart. Recommendation at the end."),
     ("house-style.html",
      "P8 &middot; The house style &mdash; six complete pages, ready to build",
-     "<b>This is the one to decide on.</b> The recommendation from P7, "
+     "The recommendation from P7, "
      "built: Basecamp's structure and restraint, Fizzy's label system on the "
      "six paths, Campfire's signature closing anything that claims somebody "
      "checked the numbers, and <b>exactly one HEY slab per page</b>. Six "
