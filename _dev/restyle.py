@@ -402,6 +402,12 @@ def install_landing(s):
     succeeded and the guard then reported zero blocks. Whatever identifies the
     block has to survive the edit.
     """
+    # Rollout step 4 (Aug 2026): the option-A home from _dev/build_home.py
+    # has no .lp block - its main is bc2 markup styled by css/house.css.
+    # Skip the landing.css install; everything else restyle does to the page
+    # (masthead, panel, nav script) still applies.
+    if 'class="bc2 home"' in s:
+        return s
     css = open(os.path.join(HERE, "landing.css"), encoding="utf-8").read()
     cand = [m for m in re.finditer(r"<style>[\s\S]*?</style>", s) if ".lp{" in m.group(0)]
     if len(cand) != 1:
