@@ -42,7 +42,16 @@ figcaption{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bot
 .card img{width:100%;display:block;background:#fff}
 .card a{display:block;max-height:620px;overflow:hidden}
 footer{padding:40px 0 70px;color:#8A9199;font-size:14px}
+
+.xnav{position:sticky;top:0;z-index:60;background:#111418;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.xnav .in{max-width:1680px;margin:0 auto;padding:0 30px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.xnav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:600;
+padding:7px 13px;border-radius:8px;font-family:'Inter',system-ui,sans-serif}
+.xnav a:hover{background:rgba(255,255,255,.1);color:#fff}
+.xnav a.here{background:#fff;color:#111418}
+.xnav .bd{color:rgba(255,255,255,.32);font-size:12.5px;margin-right:6px;font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:.08em}
 </style></head><body>
+<div class="xnav"><div class="in"><span class="bd">HOURS</span><a href="../">Design document</a><a href="../compare.html">A vs B</a><a href="./" class="here">All 46 screens</a></div></div>
 
 <header><div class="wrap">
   <h1>Every screen, both directions, at desktop size.</h1>
