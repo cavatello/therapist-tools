@@ -127,6 +127,11 @@ body.house .bcr, body.house .bcr a, body.house .bcr span{
   text-transform:uppercase; color:var(--hs-dim);
 }
 body.house .bcr a:hover{color:var(--pine)}
+/* on dark grounds the breadcrumb is light - the dim gray above is for paper */
+body.house :is(section.hero,.pk-hero,.artband,.scband,.clband,.clhero,.dc-hero,.adv .band) :is(.bcr,.bcr a,.bcr span,.bcr li){
+  color:#9DB8AA !important}
+body.house :is(section.hero,.pk-hero,.artband,.scband,.clband,.clhero,.dc-hero,.adv .band) .bcr [aria-current]{
+  color:var(--gold) !important}
 body.house .tsshort{
   background:var(--hs-card); border:1px solid var(--line);
   border-left:4px solid var(--gold); border-radius:8px;
