@@ -23,6 +23,21 @@ have.
 IDEMPOTENT. It strips any tag it finds - including the old property's - before
 inserting, so running it twice does not stack two gtag blocks, and changing ID
 below and re-running is the supported way to move properties.
+
+SECOND PROPERTY, ADDED 13 AUGUST 2026. Ahrefs Web Analytics now runs alongside
+GA4, for the search-side numbers GA4 does not carry. It is installed by the
+same mechanism and under the same rule: one loader per page, stripped before
+re-inserting, and a guard that fails the build on zero or two.
+
+It is a different kind of tag and the difference is the reason it is allowed
+here. Ahrefs Web Analytics sets no cookies and states that it collects no
+personal data; it records page views, referrer, device, language and
+continent-level location. GA4 sets cookies and takes approximate location from
+the IP address, and the privacy policy says so. A third-party script that
+collects anything at all has to be NAMED IN THE POLICY, so the guard at the
+bottom fails the build if privacy.html does not mention this one - a policy
+that lists one analytics provider while the site runs two is inaccurate in the
+single document where accuracy is the entire point.
 """
 import os, re, sys
 
@@ -62,6 +77,24 @@ TAG = (
     "</script>\n" % (ID, ID)
 )
 
+# Ahrefs Web Analytics. Cookieless, and it carries the search-side numbers -
+# which queries and which referring pages - that GA4 does not.
+AHREFS_KEY = "97cbyUk3WdB3ZHC6C7fxug"
+AHREFS_TAG = (
+    "<!-- Ahrefs Web Analytics -->\n"
+    '<script src="https://analytics.ahrefs.com/analytics.js" '
+    'data-key="%s" async></script>\n' % AHREFS_KEY
+)
+
+# Matched on the SRC rather than on the key, so a stale key from a previous
+# install is stripped rather than left firing beside the current one - the
+# same failure the RETIRED_IDS list exists to prevent on the Google side.
+AHREFS_BLOCK = re.compile(
+    r"(?:<!--\s*Ahrefs Web Analytics\s*-->\s*)?"
+    r'<script[^>]*src="https://analytics\.ahrefs\.com/analytics\.js"[^>]*>'
+    r"\s*</script>\s*",
+    re.S)
+
 # The comment is optional in the wild, the two <script> tags are not. Matched as
 # a unit so a partial strip cannot leave the loader without its config.
 BLOCK = re.compile(
@@ -99,12 +132,13 @@ def main():
         s = BLOCK.sub("", s)
         # A stray config line left behind by a hand edit, with no loader.
         s = re.sub(r"\s*gtag\('config', '(?:%s)'\);" % "|".join(RETIRED_IDS), "", s)
+        s = AHREFS_BLOCK.sub("", s)
 
         i = s.lower().find("</head>")
         if i < 0:
             nohead.append(rel)
             continue
-        s = s[:i] + TAG + s[i:]
+        s = s[:i] + TAG + AHREFS_TAG + s[i:]
 
         if s != orig:
             open(p, "w", encoding="utf-8").write(s)
@@ -148,9 +182,25 @@ def main():
         if s.count("gtag('config'") != 1:
             print("GUARD %s: %d config call(s)" % (rel, s.count("gtag('config'")))
             bad += 1
+        a = s.count("analytics.ahrefs.com/analytics.js")
+        if a != 1:
+            print("GUARD %s: %d Ahrefs loader(s), expected 1" % (rel, a))
+            bad += 1
+        if a and 'data-key="%s"' % AHREFS_KEY not in s:
+            print("GUARD %s: an Ahrefs loader on a different key" % rel)
+            bad += 1
+
+    # A third-party script that collects anything has to be named in the
+    # policy. This is the check that stops the two from drifting apart.
+    if os.path.exists(pol):
+        s = open(pol, encoding="utf-8").read()
+        if "Ahrefs" not in s:
+            print("GUARD privacy.html: the site runs Ahrefs Web Analytics and "
+                  "the policy does not name it")
+            bad += 1
     if bad or nohead:
         sys.exit("\n%d problem(s) - do not let this publish" % (bad + len(nohead)))
-    print("guards clean - %d page(s) on %s" % (len(pages()), ID))
+    print("guards clean - %d page(s) on %s + Ahrefs %s"\n          % (len(pages()), ID, AHREFS_KEY))
 
 
 if __name__ == "__main__":
