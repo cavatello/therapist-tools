@@ -128,6 +128,12 @@ def main():
     for fn in sorted(os.listdir(CSSDIR)):
         if not fn.endswith(".css"):
             continue
+        # Only the 12-hex sheets extract_css writes are orphan candidates.
+        # Named stylesheets (css/house.css, the lifted .bc2 sheet) are
+        # allowed to exist unlinked - that is rollout step 1, shipped
+        # unused on purpose - and must not be swept into _to_delete.
+        if not re.fullmatch(r"[0-9a-f]{12}", fn[:-4]):
+            continue
         if fn[:-4] in live:
             continue
         os.makedirs(bin_, exist_ok=True)
