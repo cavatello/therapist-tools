@@ -123,6 +123,15 @@ BUILD = [
     ("_dev/build_portals.py",
      "all 58 county job portals, verified - and the eight guessable URLs "
      "that are the wrong employer"),
+    # Where to find a supervisor, which the Board answers nowhere because it
+    # keeps no roster. Reads _dev/supervisor_lists_data.py, written by
+    # _dev/supervisor_lists.py, which fetches every candidate directory before
+    # shipping - several of the addresses people are still sent to have been
+    # sold or have stopped resolving.
+    ("_dev/build_supervisor.py",
+     "where a California supervisor list actually is - nine chapters of "
+     "twenty-three - and the private-practice rule that decides whether the "
+     "person you find can count your hours at all"),
     ("_dev/build_careerchange.py",
      "the numbers somebody retraining deserves first - the pipeline, the "
      "three licenses on statute rather than temperament, and the attrition "

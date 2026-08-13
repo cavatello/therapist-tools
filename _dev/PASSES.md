@@ -40,6 +40,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
+| `build_supervisor.py` | build | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
 | `build_unpaid.py` | build | &mdash; | You were not paid for the notes: the wage claim an associate can actually file. |
@@ -165,7 +166,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `build_home_options.py` | **untriaged** | &mdash; | Six ways the home page could open, drawn in the 37signals discipline. |
 | `build_ia.py` | **untriaged** | &mdash; | The information architecture, and a mockup of every door - revised. |
 | `build_stagedoors.py` | **untriaged** | &mdash; | Five doors, three ways each - the expanded stage-hub mockup set. |
-| `build_supervisor.py` | **untriaged** | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |

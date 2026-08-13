@@ -736,7 +736,7 @@ def body():
 
 META = pk.meta_block(
     PAGE,
-    "Finding a clinical supervisor in California, and the rule that decides",
+    "Finding a clinical supervisor in California: every list, checked",
     "There is no official list of California clinical supervisors, so here is "
     "every list that does exist, fetched and counted - plus the private "
     "practice rule that decides whether the person you find can count your "
