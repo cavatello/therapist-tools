@@ -944,7 +944,7 @@ def build():
          '<link rel="preconnect" href="https://fonts.googleapis.com">',
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
          '<link href="https://fonts.googleapis.com/css2?family=Bricolage+'
-         'Grotesque:opsz,wght@12..96,800&'
+         'Grotesque:opsz,wght@12..96,700;12..96,800&'
          'family=Fraunces:opsz,wght@9..144,600;9..144,800&'
          'family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&'
          'display=swap" rel="stylesheet">',
@@ -984,13 +984,10 @@ def build():
         ("Basecamp", "Restraint is the default",
          "Tinted paper and never pure white. One accent. Flat fills with a "
          "hairline ring and a soft shadow rather than borders. The headline "
-         "carries the volume &mdash; <b>68px at 800</b>, tracked in to "
-         "&minus;0.038em, which is where Basecamp&rsquo;s presence actually "
-         "comes from. The body does not follow it up: <b>17.5px body</b>, "
-         "because these pages run six thousand words with tables in them, "
-         "not four hundred words with a screenshot. <b>Loud headline, "
-         "readable body</b> is the whole trick, and inflating both is how "
-         "sites end up shouting."),
+         "carries the volume &mdash; <b>68px at 800</b> &mdash; and the body "
+         "deliberately does not follow it up: <b>17.5px</b>, because these "
+         "pages run six thousand words with tables in them, not four hundred "
+         "words with a screenshot. Loud headline, readable body."),
         ("Fizzy", "Six hues, one per path",
          "Used as a 10px chip and a 4px left rule. <b>Never as a background, "
          "never as body text, never on a button.</b> The job is that a reader "
@@ -1034,7 +1031,18 @@ def build():
              "text, which is the failure mode of every color-coded "
              "navigation ever shipped.</p>")
 
-    o.append('<div class="note"><p><b>What is deliberately not borrowed.</b> '
+    o.append('<div class="note"><p><b>The typeface is not borrowed, and an '
+             "earlier draft of this document got that wrong.</b> It set "
+             "everything in Inter, on the reasoning that a neutral face is "
+             "restraint. It is not &mdash; it is the default of every landing "
+             "page on the web, and the site already owns a better answer. "
+             "<b>Bricolage Grotesque 800</b> for display, <b>Fraunces</b> for "
+             "figures, <b>IBM Plex Mono</b> for labels and eyebrows, Inter "
+             "for body text only. That system is already on 203 pages, it is "
+             "already licensed and loading, and it is the one genuinely "
+             "distinctive thing about how this site looks. The layout "
+             "discipline is what was worth borrowing. The voice was "
+             "not.</p><p><b>What else is deliberately not borrowed.</b> "
              "No gradients, from anywhere. No 32px body text, which three of "
              "the four use and which would make a reference page unreadable. "
              "No full-page saturated canvas. No pill buttons &mdash; "
@@ -1107,12 +1115,13 @@ def build():
         o.append('<div class="row"><div class="n">%s</div><div class="b">'
                  "<h4>%s</h4><p>%s</p></div></div>" % (n, h, p))
     o.append("</div>")
-    o.append('<div class="note"><p><b>What this does not decide.</b> The '
-             "typeface. Everything above is set in Inter, which is free, "
-             "loads fast and is deliberately unremarkable &mdash; it is the "
-             "right default and it is also the easiest thing to change later, "
-             "because it is one token. If a licensed face is bought, buy it "
-             "after the structure ships, not before.</p>"
+    o.append('<div class="note"><p><b>Nothing here needs a new typeface.</b> '
+             "Display is Bricolage Grotesque, figures are Fraunces, labels "
+             "are IBM Plex Mono &mdash; the three faces already on every page "
+             "of this site. What changes is how they are set: bigger, "
+             "heavier, with more air around them, and with the body left "
+             "readable rather than scaled up to match. That is a stylesheet, "
+             "not a purchase.</p>"
              "<p><b>And still true:</b> a redesign and a move to Rails are "
              "two projects. This ships on the current static build; Rails "
              "would inherit finished templates.</p></div>")
@@ -1179,6 +1188,11 @@ def main():
             print("GUARD: %r appears - no personal name goes at the foot of "
                   "these pages" % nm)
             bad += 1
+    if "Bricolage" not in html or "Fraunces" not in html:
+        print("GUARD: the site's own display and figure faces are not in use "
+              "- an earlier draft replaced them with Inter and that was the "
+              "single worst decision in it")
+        bad += 1
     if "Caveat" in html:
         print("GUARD: the handwriting face is still loaded and nothing uses it")
         bad += 1
@@ -1186,7 +1200,7 @@ def main():
     for needle, what in [
         ("One slab per page. One.", "the rule that carries the design"),
         ("Never as a background", "the limit on the hue system"),
-        ("17.5px body", "the density decision"),
+        ("<b>17.5px</b>, because these", "the density decision"),
         ("two projects", "the Rails answer"),
     ]:
         if needle not in html:
