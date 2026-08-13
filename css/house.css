@@ -95,7 +95,11 @@
 
 /* ================= INFOGRAPHIC 1 - the take-home waterfall ============ */
 .wf{display:grid;gap:0;margin:8px 0 0}
-.wf .row{display:grid;grid-template-columns:190px 1fr 130px;gap:16px;
+/* inside the tool card the waterfall needs the card's own inset - it sits
+   beside .in, which carries the padding, not around it */
+.ui .wf{padding:0 22px 18px}
+.wf .row{display:grid;grid-template-columns:minmax(200px,240px) 1fr 150px;
+  gap:16px;
   align-items:center;padding:11px 0;border-top:1px solid var(--hair)}
 .wf .row:first-child{border-top:0}
 .wf .lb{font-family:var(--disp);font-weight:800;font-size:16px;

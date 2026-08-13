@@ -113,6 +113,11 @@ def convert(rel, revert=False):
         up = "../" * rel.count("/")
         link = ('<link rel="stylesheet" href="%scss/house-skin.css?v=%s">\n'
                 % (up, skin_v()))
+        # version the house.css link too, where a page carries one
+        hp = os.path.join(SITE, "css", "house.css")
+        hv = hashlib.sha1(open(hp, "rb").read()).hexdigest()[:8]
+        s = re.sub(r'href="((?:\.\./)*css/house\.css)(?:\?v=[0-9a-f]+)?"',
+                   r'href="\1?v=%s"' % hv, s)
         i = s.rfind("</body>")
         if i < 0:
             return "no </body>"
