@@ -98,6 +98,25 @@
    "leaf": true
   },
   {
+   "file": "associate-employers-bay-area.html",
+   "title": "Bay Area associate employers: who can lawfully bank your hours",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Who can employ a Bay Area associate for the 3,000 hours?",
+   "outcome": "Every enumerable employer category named and linked, the private-practice absence stated plainly, and the four statutory rules that decide whether hours count",
+   "number": "9 county plans, 39 health centers, 318 nonprofits",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "The Bay Area employers that can bank your 3,000 &mdash; complete where public files reach, and honest about the private-practice hole where they do not."
+   }
+  },
+  {
    "file": "associate-hours-telehealth-out-of-state.html",
    "title": "Can a California associate accrue hours from out of state? Yes",
    "topic": "licensure",
@@ -2740,6 +2759,7 @@
       "county-job-portals-california.html",
       "amft-3000-hours-california.html",
       "bbs-90-day-rule-california.html",
+      "associate-employers-bay-area.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
       "mbh-slrp-california.html",
