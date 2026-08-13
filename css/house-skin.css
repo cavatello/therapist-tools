@@ -325,6 +325,42 @@ body.house .hubnl{background:var(--deep) !important; border-radius:12px}
 /* case-page verdict block: dark ground, light heading */
 body.house .dc-out h2, body.house .dc-out h3{color:#FFFFFF !important}
 
-/* soften the remaining brutalist hard-offset shadows sitewide */
-body.house .tsshort, body.house .card, body.house .pk-t{
+/* --- 14 · ornament neutralizer, generated from the sheets 13 Aug ------- */
+/* every selector that carried a hard-offset brutalist shadow */
+body.house .btn, body.house .card, body.house .citeb, body.house .dc-ask,
+body.house .dc-chg, body.house .dc-ex, body.house .dc-facts, body.house .dc-fb,
+body.house .dc-grp, body.house .dc-nav a, body.house .dc-note,
+body.house .dc-tw, body.house .fact, body.house .fi-ok, body.house .hcalc,
+body.house .hgo, body.house .hmost a, body.house .ig-flow .node,
+body.house .ig-split .bar, body.house .ig-stat .g, body.house .ins,
+body.house .insf, body.house .np-hub, body.house .np-promo, body.house .pdc,
+body.house .pdgone, body.house .pdkey, body.house .pdn, body.house .pdwarn,
+body.house .pg, body.house .pk-ask, body.house .pk-calc, body.house .pk-q,
+body.house .pk-src, body.house .pk-tw, body.house .pk-v, body.house .ref,
+body.house .slab, body.house .src, body.house .srpanel, body.house .srtab,
+body.house .tccoda, body.house .tcnext, body.house .tcgo, body.house .tsbadge,
+body.house .tsdepth, body.house .tsmeta, body.house .tsupd,
+body.house .tsshort, body.house .pk-t{
   box-shadow:none !important}
+/* cards and panels: hairline instead of 2px black */
+body.house .pdc, body.house .pdkey, body.house .dc-facts, body.house .tsdepth,
+body.house .pk-q, body.house .pk-src, body.house .src, body.house .fact{
+  border-color:var(--line) !important; border-width:1px !important;
+  border-radius:10px !important; background:var(--hs-card) !important}
+/* gold chips become quiet: flat gold, no border, no shadow */
+body.house .arttool a, body.house .hh-chip, body.house .hgo,
+body.house .pr-cta, body.house .src .srk, body.house .tccoda{
+  border:0 !important; box-shadow:none !important; border-radius:20px !important}
+body.house .np-col h5{background:none !important; padding:0 !important}
+/* no heading ever carries a highlighter block */
+body.house h1, body.house h2{background:none !important; box-shadow:none !important}
+body.house h1 span:not(.scr), body.house h2 span{background:none !important}
+/* tool hero inputs: labels and hints legible on the deep band */
+body.house section.hero label, body.house section.hero .hint,
+body.house .hero .f span{color:#CFE0D6 !important}
+body.house section.hero .f, body.house .hero label.f{
+  border-color:rgba(255,217,118,.45) !important; background:transparent !important}
+/* the sim's toggle tray: sink ground, readable caption */
+body.house .sell{background:var(--hs-sink) !important; border:1px solid var(--line) !important}
+body.house .sell *{color:var(--ink) !important}
+body.house .sell .selk, body.house .sell small{color:var(--hs-dim) !important}
