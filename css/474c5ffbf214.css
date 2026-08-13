@@ -79,14 +79,14 @@
   letter-spacing:.11em;text-transform:uppercase;color:#2C6350;
   background:#FBF9F3;white-space:nowrap}
 .pk-t tr:last-child td{border-bottom:0}
-.pk-t td.f{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:17px;
+.pk-t td.pk-f{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:17px;
   color:#16211B;white-space:nowrap}
-.pk-t td.m{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;
+.pk-t td.pk-m{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;
   color:#16211B;white-space:nowrap}
-.pk-t td.n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;
+.pk-t td.pk-n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;
   color:#16211B;white-space:nowrap;text-align:right}
 .pk-t tr.bad td{background:#FCF1EF}
-.pk-t tr.bad td.f{color:#B5483F}
+.pk-t tr.bad td.pk-f{color:#B5483F}
 .pk-t tr.good td{background:#F2F7F4}
 .pk-t tr.hi td{background:#F4F0E6}
 .pk-cap{font-size:13.2px;line-height:1.65;color:#635E53;margin:0 0 26px;
