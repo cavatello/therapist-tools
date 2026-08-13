@@ -932,9 +932,9 @@ def build():
          '<link rel="preconnect" href="https://fonts.googleapis.com">',
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
          '<link href="https://fonts.googleapis.com/css2?family=Bricolage+'
-         'Grotesque:opsz,wght@12..96,800&family=Caveat:wght@600&'
+         'Grotesque:opsz,wght@12..96,800&'
          'family=Fraunces:opsz,wght@9..144,600;9..144,800&'
-         'family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&'
+         'family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700;800&'
          'display=swap" rel="stylesheet">',
          "<style>%s</style></head><body>" % css]
 
@@ -980,11 +980,14 @@ def build():
          "never as body text, never on a button.</b> The job is that a reader "
          "recognizes their path in a list without reading it, and that job is "
          "done with a rule and a dot."),
-        ("Campfire", "The signature closes anything that makes a claim",
-         "Home page, about page, and every article. It is a real signature "
-         "over a real sentence in the first person, and it is the single most "
-         "valuable move available to a site whose entire differentiator is "
-         "that one identifiable person checked the numbers."),
+        ("Campfire", "A made-by band closes anything that makes a claim",
+         "Home page, about page, and every article. Campfire ends a page with "
+         "a handwritten signature; this ends it with the sentence that "
+         "signature was there to support, and no name. The author does not "
+         "want one on the page, so the band has to carry the job alone "
+         "&mdash; who checked this, and what happens when it is wrong. That "
+         "is a fair trade: the sentence was always doing more work than the "
+         "signature was."),
         ("HEY", "One slab per page. One.",
          "Deep pine, scalloped top and bottom edges, and it goes to the "
          "single claim that page is making &mdash; not to a feature list. A "
@@ -1063,7 +1066,7 @@ def build():
     for n, h, p in [
         ("STEP 1", "The tokens and the two type sizes",
          "One stylesheet. Everything above is eight color tokens, six hues, "
-         "three heading sizes and one body size. It replaces the current "
+         "four heading sizes and one body size. It replaces the current "
          "palette rather than sitting beside it, so this is the step that "
          "cannot be half done."),
         ("STEP 2", "The navigation, the footer and the signature block",
@@ -1153,10 +1156,21 @@ def main():
             print("GUARD: hue %s is defined and never drawn" % hexv)
             bad += 1
 
+    # The author asked for no name on the page. A guard, because the
+    # signature pattern is the kind of thing that gets pasted back in.
+    for nm in ("Shawn", "Walters", "LMFT &middot; California &middot;"):
+        if nm in html:
+            print("GUARD: %r appears - no personal name goes at the foot of "
+                  "these pages" % nm)
+            bad += 1
+    if "Caveat" in html:
+        print("GUARD: the handwriting face is still loaded and nothing uses it")
+        bad += 1
+
     for needle, what in [
         ("One slab per page. One.", "the rule that carries the design"),
         ("Never as a background", "the limit on the hue system"),
-        ("16.5px body", "the density decision"),
+        ("17.5px body", "the density decision"),
         ("two projects", "the Rails answer"),
     ]:
         if needle not in html:
