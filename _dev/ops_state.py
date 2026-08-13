@@ -204,9 +204,20 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("redesign-37signals-products.html",
+     "P7 &middot; Four products, four identities &mdash; the current "
+     "proposal",
+     "<b>Start here.</b> 37signals does not have a house style; it has four "
+     "products that look deliberately unlike each other. The site drawn four "
+     "times &mdash; as <b>Basecamp</b>, <b>HEY</b>, <b>Campfire</b> and "
+     "<b>Fizzy</b> &mdash; logo, home page, path page, content page and "
+     "directory in each, with every color, radius and type classification "
+     "read off the real product's stylesheets. The words are identical in "
+     "all twenty mockups, so the only thing varying is the design. Ends with "
+     "a recommendation that is a fifth thing rather than any one of them."),
     ("redesign-37signals.html",
-     "P6 &middot; If 37signals had built this site &mdash; the whole thing",
-     "<b>Start here.</b> Logo, typography, color, navigation, footer, four "
+     "P6 &middot; If 37signals had built this site &mdash; three invented skins",
+     "Logo, typography, color, navigation, footer, four "
      "home pages, the six paths, a path page, an article, a directory, the "
      "newsletter and the about page &mdash; drawn in <b>three complete "
      "skins</b> plus phone views, so the choice is between finished "

@@ -953,7 +953,10 @@ def main():
             bad += 1
     # The words must be identical across skins, or this compares moods rather
     # than designs. The load-bearing sentence appears once per identity.
-    k = html.count("cannot simply hire your own")
+    # Counted over tag-stripped text: one skin highlights part of the
+    # sentence, and a raw substring search would report that as drift.
+    plain = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", html))
+    k = plain.count("cannot simply hire your own")
     if k != len(SKINS):
         print("GUARD: the shared sentence appears %d times, expected %d - the "
               "copy has drifted between skins" % (k, len(SKINS)))
