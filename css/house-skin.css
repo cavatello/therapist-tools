@@ -396,6 +396,15 @@ body.house .pk-v, body.house .pg, body.house .hmost a, body.house .dc-nav a{
 /* tool hero inputs: labels and hints legible on the deep band */
 body.house section.hero label, body.house section.hero .hint,
 body.house .hero .f span{color:#CFE0D6 !important}
+
+/* the deep hero's field VALUES: the sitewide .f input rule above forces
+   color:var(--ink), which is invisible on the deep band - and iOS paints
+   UA black on number inputs unless the value color is set explicitly.
+   Found from a user phone screenshot, 13 Aug. */
+body.house section.hero .f input, body.house .hero label.f input{
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+  caret-color:var(--gold) !important}
+body.house section.hero .fv, body.house .hero .fv{color:#CFE0D6 !important}
 body.house section.hero .f, body.house .hero label.f{
   border-color:rgba(255,217,118,.45) !important; background:transparent !important}
 /* the sim's toggle tray: sink ground, readable caption */
