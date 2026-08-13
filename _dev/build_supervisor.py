@@ -469,16 +469,23 @@ def body():
          "the ones worth planning around if you are heading for a private "
          "practice placement."], big="%d%%" % PAID_YES))
 
+    # The bar is a sized element, not a run of block characters. The first
+    # version drew one block per half percent, which made the widest row 77
+    # characters long, forced the table far past its min-width, and wrapped
+    # the two numeric columns onto separate lines on a 1280px screen. A
+    # proportional div cannot do that.
     rows = []
+    widest = max(p for _l, p, _n in COST)
     for label, pctv, n in COST:
-        bar = int(round(pctv * 2.2))
+        w = int(round(pctv / float(widest) * 100))
         rows.append([("<b>%s</b>" % label),
                      ("%d%%" % pctv, "f"),
                      (format(n, ",d"), "f"),
-                     '<span style="letter-spacing:-1px">%s</span>'
-                     % ("&#9608;" * max(1, bar))])
+                     '<span style="display:block;height:13px;width:%d%%;'
+                     'background:#2C6350;border:1.5px solid #16211B"></span>'
+                     % max(3, w)])
     o.append(pk.table(
-        ["Paid per month", "Share", "People", ""], rows, minw=620,
+        ["Paid per month", "Share", "People", "&nbsp;"], rows, minw=620,
         caption="Board of Behavioral Sciences, Pathway to Licensure survey "
                 "2024, question 18, %d respondents who said they paid. "
                 "<b>Read it carefully:</b> respondents were self-selected "
