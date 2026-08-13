@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Rollout step 5, family 1: the .artband editorial articles go bc2.
+"""Rollout step 5: page families go bc2, one family at a time.
+
+Family 1 (13 Aug): the .artband editorial articles -> body.bca + house-art.css
+Family 2 (13 Aug): the .scband program pages   -> body.bcs + house-sc.css
 
 WHAT "CONVERTED" MEANS FOR THIS FAMILY
 
@@ -48,10 +51,19 @@ import hashlib, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 
-# The family: every root page whose hero is section.artband, except the
-# psyd directory (build_psyd.py owns it; it converts with the directory
-# family, together with the pending internal-links request).
-EXCLUDE = {"psyd-programs-california.html", "tycoon.html", "rates.html"}
+# Each family: the marker that identifies membership, the body class that
+# gates its sheet, the sheet itself, and pages excluded even if they match.
+FAMILIES = [
+    {"cls": "bca", "marker": 'class="artband', "sheet": "house-art.css",
+     "nav": "artnav",
+     "exclude": {"psyd-programs-california.html", "tycoon.html",
+                 "rates.html"}},
+    {"cls": "bcs", "marker": 'class="scband', "sheet": "house-sc.css",
+     "nav": "scnav",
+     "exclude": {"associate-mft-job-advisor.html",
+                 "tycoon.html", "rates.html"}},
+]
+FAMILY_CLASSES = tuple(f["cls"] for f in FAMILIES)
 
 HASH_LINK = re.compile(
     r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/[0-9a-f]{12}\.css">\n?')
@@ -60,38 +72,55 @@ SKIN_LINK = re.compile(
     r'(?:\?v=[0-9a-f]+)?">\n?')
 HOUSE_LINKS = re.compile(
     r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house'
-    r'(?:-art|-chrome)?\.css(?:\?v=[0-9a-f]+)?">\n?')
+    r'(?:-art|-sc|-chrome)?\.css(?:\?v=[0-9a-f]+)?">\n?')
 BODY = re.compile(r"<body([^>]*)>")
 
-# Every class name a converted page may carry in <body>. Chrome names are
-# styled by house-chrome.css, art* and content names by house-art.css,
-# generic names by house.css element/component rules. A class outside this
-# list means a component nobody restyled - that page must not convert.
-COVERED = set("""
-house bc2 bca
+# Class allowlists. Chrome and shared names are common; each family adds
+# its own vocabulary. A class outside the union for its family means a
+# component nobody restyled - that page must not convert.
+SHARED = set("""
+house bc2 bca bcs
 sitenav sitenav-in sitenav-mark sitenav-fig sitenav-wordmark sitenav-sub
 sitenav-links sitenav-top on sitenav-cta hamb navpanel np-col np-h np-hub
-np-hub-t np-hub-d npq np-all
-art artband in bcr sep kick dek artmeta tsshort tsk tsa tsfig artfig
-artwrap artnav tsn artbody tw tbl n pull quote disc ehrp ehrq
-row who track fill val ig ig-cap ig-note seg a b l pl g
-arttool artsrc artnext
-tsfoot tsmeta tsrow tsv tsall tsvint tsdepth tsbadge part full tswhat
+np-hub-t np-hub-d npq np-all np-promo long short sr
+bcr sep tsshort tsk tsa tsfig tsn
+tsfoot tsmeta tsrow tsv tsall tsvint tsdepth tsbadge part full tswhat tsupd
 uplink uk ud ug uc uall
-long short sr consent nlform nlmeta nlok-tick np-promo ftby
-tsupd afl ig-steps ig-bars pl-dl pl-note pl-pub lo cap
+consent nlform nlmeta nlok-tick ftby
 ftnl ftin ftroom ftnl-row ftnl-t nlrow ftmail ftbtn ftnote
 sitefoot ftcols ftcol ftlbl
 """.split())
 
+COVERED = {
+ "bca": SHARED | set("""
+art artband in kick dek artmeta artfig
+artwrap artnav artbody tw tbl n pull quote disc ehrp ehrq
+row who track fill val ig ig-cap ig-note seg a b l pl g
+arttool artsrc artnext
+afl ig-steps ig-bars pl-dl pl-note pl-pub lo cap
+""".split()),
+ "bcs": SHARED | set("""
+scband in sub dek scmeta scfig row scwrap scnav scbody
+orient media vfig vplay vbtn vkind pfig cred
+crsl crs chd ccode cun cq cwhy srcl
+cutot trml trm tn
+verd mix ok warn neg pos pq exwarn
+tbl r prg pr np yr q
+exg exb sw
+ocl octw octbl ocdef
+voxl vox vwho thl th tm sn
+ask nxt nx srcs gapl pnote inf board
+sc gap thin vmeta
+""".split()),
+}
 
-def family():
+def family(fam):
     out = []
     for f in sorted(os.listdir(SITE)):
-        if not f.endswith(".html") or f in EXCLUDE:
+        if not f.endswith(".html") or f in fam["exclude"]:
             continue
         s = open(os.path.join(SITE, f), encoding="utf-8").read()
-        if 'class="artband' in s:
+        if fam["marker"] in s:
             out.append(f)
     return out
 
@@ -107,7 +136,7 @@ def body_classes(s):
     return (cm.group(1).split() if cm else []), m
 
 
-def check_page(rel, s):
+def check_page(rel, s, fam):
     """Return a list of guard failures for a converted page."""
     bad = []
     if HASH_LINK.search(s):
@@ -120,53 +149,52 @@ def check_page(rel, s):
     if "fonts.googleapis.com/css2" not in s:
         bad.append("fonts request missing")
     classes, _ = body_classes(s)
-    for c in ("bc2", "bca", "house"):
+    for c in ("bc2", fam["cls"], "house"):
         if classes.count(c) != 1:
             bad.append("body class %r count %d" % (c, classes.count(c)))
-    for href in re.findall(r'class="artnav"[^>]*>.*?</nav>', s, re.S):
+    for href in re.findall(r'class="%s"[^>]*>.*?</nav>' % fam["nav"],
+                           s, re.S):
         for anchor in re.findall(r'href="#([^"]+)"', href):
             if ('id="%s"' % anchor) not in s:
-                bad.append("artnav anchor #%s has no target" % anchor)
+                bad.append("%s anchor #%s has no target"
+                           % (fam["nav"], anchor))
     body = s[s.find("<body"):]
     unknown = set()
     for cl in re.findall(r'class="([^"]*)"', body):
         for c in cl.split():
-            if c not in COVERED:
+            if c not in COVERED[fam["cls"]]:
                 unknown.add(c)
     if unknown:
         bad.append("uncovered classes: %s" % " ".join(sorted(unknown)))
     return bad
 
 
-def convert(rel):
+def convert(rel, fam):
     p = os.path.join(SITE, rel)
     s = open(p, encoding="utf-8").read()
     orig = s
 
-    # strip every legacy sheet, the skin, and any stale house links
     s = HASH_LINK.sub("", s)
     s = SKIN_LINK.sub("", s)
     s = HOUSE_LINKS.sub("", s)
 
-    # the three sheets, in cascade order, right after the fonts request
     fonts = re.search(r'<link href="https://fonts\.googleapis\.com[^>]*>', s)
     if not fonts:
         return "NO FONTS LINK", s
     links = "".join('\n<link rel="stylesheet" href="css/%s?v=%s">'
                     % (n, v(n))
                     for n in ("house.css", "house-chrome.css",
-                              "house-art.css"))
+                              fam["sheet"]))
     s = s[:fonts.end()] + links + s[fonts.end():]
 
-    # body classes
     classes, m = body_classes(s)
     if m is None:
         return "NO BODY", s
-    for c in ("bc2", "bca", "house"):
+    lead = ["bc2", fam["cls"], "house"]
+    for c in lead:
         if c not in classes:
             classes.append(c)
-    order = ["bc2", "bca", "house"] + [c for c in classes
-                                       if c not in ("bc2", "bca", "house")]
+    order = lead + [c for c in classes if c not in lead]
     attrs = m.group(1)
     cm = re.search(r'class="([^"]*)"', attrs)
     new = 'class="%s"' % " ".join(order)
@@ -181,8 +209,8 @@ def convert(rel):
 SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training",
            "for")
 FAMILY_SHEETS = re.compile(
-    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-(?:art|chrome)'
-    r'\.css(?:\?v=[0-9a-f]+)?">\n?')
+    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-'
+    r'(?:art|sc|chrome)\.css(?:\?v=[0-9a-f]+)?">\n?')
 HOUSE_SHEET = re.compile(
     r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house\.css'
     r'(?:\?v=[0-9a-f]+)?">\n?')
@@ -207,7 +235,7 @@ def sweep_borrowed_chrome(check_only):
         p = os.path.join(SITE, rel)
         s = open(p, encoding="utf-8").read()
         classes, _ = body_classes(s)
-        if "bca" in classes:
+        if any(c in classes for c in FAMILY_CLASSES):
             continue
         has_bc2_markup = re.search(r'class="bc2[ "]', s) is not None
         new = FAMILY_SHEETS.sub("", s)
@@ -228,32 +256,34 @@ def sweep_borrowed_chrome(check_only):
 
 def main():
     check_only = "--check" in sys.argv
-    pages = family()
-    if not pages:
-        print("family_art: no artband pages found");  sys.exit(1)
-    failures = 0
-    for rel in pages:
-        if check_only:
-            s = open(os.path.join(SITE, rel), encoding="utf-8").read()
-            classes, _ = body_classes(s)
-            if "bca" not in classes:
-                print("UNCONVERTED %s" % rel); failures += 1; continue
-        else:
-            status, s = convert(rel)
-            if status.startswith("NO "):
-                print("FAIL %s: %s" % (rel, status)); failures += 1
-                continue
-        bad = check_page(rel, s)
-        for b in bad:
-            print("GUARD %s: %s" % (rel, b))
-        failures += len(bad)
+    failures, total = 0, 0
+    for fam in FAMILIES:
+        pages = family(fam)
+        if not pages:
+            print("family_art: no %s pages found" % fam["marker"])
+            sys.exit(1)
+        total += len(pages)
+        for rel in pages:
+            if check_only:
+                s = open(os.path.join(SITE, rel), encoding="utf-8").read()
+                classes, _ = body_classes(s)
+                if fam["cls"] not in classes:
+                    print("UNCONVERTED %s" % rel); failures += 1; continue
+            else:
+                status, s = convert(rel, fam)
+                if status.startswith("NO "):
+                    print("FAIL %s: %s" % (rel, status)); failures += 1
+                    continue
+            bad = check_page(rel, s, fam)
+            for b in bad:
+                print("GUARD %s: %s" % (rel, b))
+            failures += len(bad)
     failures += sweep_borrowed_chrome(check_only)
-    n = len(pages)
     if failures:
-        print("family_art: %d page(s), %d FAILURE(S)" % (n, failures))
+        print("family_art: %d page(s), %d FAILURE(S)" % (total, failures))
         sys.exit(1)
-    print("family_art: %d page(s) %s, all guards clean"
-          % (n, "checked" if check_only else "converted"))
+    print("family_art: %d page(s) %s across %d families, all guards clean"
+          % (total, "checked" if check_only else "converted", len(FAMILIES)))
 
 
 if __name__ == "__main__":
