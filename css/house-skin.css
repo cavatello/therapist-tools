@@ -257,8 +257,12 @@ body.house .dc-figs{border:1px solid var(--line) !important;
   box-shadow:none !important; border-radius:10px !important; overflow:hidden}
 body.house .dc-figs>div{background:var(--hs-card) !important}
 
-/* simulator + slab family - flatten every gradient to a bc2 ground */
-body.house .adv .band, body.house .adv .hero{background:var(--deep) !important}
+/* simulator + slab family - flatten every gradient to a bc2 ground.
+   The tool pages' hero is a bare <section class="hero"> (no wrapper). */
+body.house section.hero, body.house .adv .band, body.house .adv .hero{
+  background:var(--deep) !important}
+body.house section.hero h1{color:#FFFFFF !important}
+body.house section.hero h1 em{color:var(--gold) !important}
 body.house .slab.pine{background:var(--deep) !important}
 body.house .slab.carbon{background:#161F1B !important}
 body.house .slab.brick{background:#6E352E !important}
