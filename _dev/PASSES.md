@@ -165,6 +165,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `build_home_options.py` | **untriaged** | &mdash; | Six ways the home page could open, drawn in the 37signals discipline. |
 | `build_ia.py` | **untriaged** | &mdash; | The information architecture, and a mockup of every door - revised. |
 | `build_stagedoors.py` | **untriaged** | &mdash; | Five doors, three ways each - the expanded stage-hub mockup set. |
+| `build_supervisor.py` | **untriaged** | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |
@@ -200,6 +201,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `sf_pay.py` | **untriaged** | &mdash; | What San Francisco pays its behavioral health clinicians, from the city's file. |
 | `sf_pay_data.py` | **untriaged** | &mdash; | San Francisco clinical pay. WRITTEN BY _dev/sf_pay.py. |
 | `state_workforce.py` | **untriaged** | &mdash; | The mental health workforce of every state, from BLS and the Census. |
+| `supervisor_lists.py` | **untriaged** | &mdash; | Every place a California clinical supervisor list is supposed to be, fetched. |
+| `supervisor_lists_data.py` | **untriaged** | &mdash; | Where a California supervisor list actually is. WRITTEN BY _dev/supervisor_lists.py. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |
