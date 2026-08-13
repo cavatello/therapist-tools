@@ -87,6 +87,11 @@ def convert(rel, revert=False):
     cm = re.search(r'class="([^"]*)"', attrs)
     classes = cm.group(1).split() if cm else []
 
+    # Rollout step 5: a family-converted page (body.bca et al) owns its
+    # whole cascade - no legacy sheets, no skin. Leave it alone entirely.
+    if not revert and "bca" in classes:
+        return "bc2 family page, skipped"
+
     if revert:
         if "house" in classes:
             classes.remove("house")
@@ -147,9 +152,16 @@ def main():
     bad = 0
     for rel in pages_all():
         s = open(os.path.join(SITE, rel), encoding="utf-8").read()
+        classes = (re.search(r'<body[^>]*class="([^"]*)"', s) or
+                   [None, ""])[1].split()
+        if "bca" in classes:
+            # step-5 family page: no skin by design; family_art.py guards it
+            if SKIN.findall(s):
+                print("GUARD %s: family page still carries the skin" % rel)
+                bad += 1
+            continue
         n = len(SKIN.findall(s))
-        has = "house" in (re.search(r'<body[^>]*class="([^"]*)"', s) or
-                          [None, ""])[1].split()
+        has = "house" in classes
         if n > 1 or (n == 1) != has:
             print("GUARD %s: house=%s skin-links=%d" % (rel, has, n))
             bad += 1

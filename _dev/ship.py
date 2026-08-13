@@ -352,6 +352,10 @@ LAST = [
     ("_dev/house_swap.py --all",
      "the house skin - body.house and the last-loaded skin sheet on every "
      "published page, re-applied after everything above has run"),
+    ("_dev/family_art.py",
+     "rollout step 5, family 1 - the artband editorial pages carry the "
+     "three named house sheets and no legacy CSS; re-applied last so a "
+     "rebuilt page is re-converted and the ?v= hashes stay current"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
