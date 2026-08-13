@@ -246,3 +246,18 @@ User review on live found the theme not global. Root causes fixed:
 STILL OPEN: psyd directory cards should link internally to each school's own
 page on-site (user request) — build_psyd.py change, mapped but not yet coded.
 The real cure for all of section 13-14 remains Step 5 (markup conversion).
+
+## QUEUE ADDITION (bottom, per standing rule) — 13 Aug 2026
+8. NEW ASK — expand the MIND Foundation page (psychedelic-training-mind-
+   foundation-apt.html) into a full dedicated write-up of the Berlin
+   "Augmented Psychotherapy Training" — as much verified content as the
+   source supports, videos included, from
+   https://www.mind-foundation.org/augmented-psychotherapy-training
+   (fetch + verify before writing; existing page is the stub to grow).
+
+## LEGIBILITY BATCH 6 (13 Aug 2026): adaptive breadcrumbs (inherit + opacity,
+no container list), newsletter issue keys pine, np-promo hub card deep again,
+waterfall inset + wider label column, house.css link now content-versioned.
+Audited before ship. NOTE for step 5: the tax-page "reasoning" scroller and
+floating page-toc render broken-wide at 27" — layout, not color; needs the
+family conversion, not more skin.
