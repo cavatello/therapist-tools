@@ -35,6 +35,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_home.py` | build | &mdash; | Rollout step 4: the home page, rebuilt to option A + option C's waterfall. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
 | `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
+| `build_ninety.py` | build | &mdash; | The 90-day rule page - path 03's missing content. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
 | `build_portals.py` | build | &mdash; | Where to apply for a county therapy job, in all 58 California counties. |

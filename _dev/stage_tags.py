@@ -88,6 +88,12 @@ TAGS = {
     "bbs-processing-times-california.html": {
         "associate": "How long the Board is taking right now, so a renewal or "
                      "an application is filed with room to spare."},
+    "bbs-90-day-rule-california.html": {
+        "student": "The one deadline that starts before you graduate: get "
+                   "the employer Live Scan stamped before your award date.",
+        "associate": "If you worked between your degree and your number, "
+                     "whether those hours exist &mdash; and the documents "
+                     "that decide it."},
     "bbs-fees-california-2026.html": {
         "associate": "What your renewal costs since July 2026, and what it "
                      "goes back to in 2030."},

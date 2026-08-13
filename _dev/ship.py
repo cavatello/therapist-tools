@@ -81,6 +81,9 @@ BUILD = [
     ("_dev/build_gethired.py",
      "getting hired as a California associate - which settings can "
      "legally bill for a pre-licensed clinician, and what that is worth"),
+    ("_dev/build_ninety.py",
+     "the 90-day rule page - path 03's missing content, statute-verified; "
+     "chrome comes from the fees page so it rebuilds inside the family"),
     # The follow-up question the hiring page raises and does not answer:
     # so which employers? Reads _dev/hrsa_stats.py, written by
     # _dev/hrsa_sites.py from HRSA bulk downloads.

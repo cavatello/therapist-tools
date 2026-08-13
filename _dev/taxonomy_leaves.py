@@ -84,6 +84,7 @@ NEW_CLUSTERS = [
      ["finding-a-clinical-supervisor-california.html",
       "county-job-portals-california.html",
       "amft-3000-hours-california.html",
+      "bbs-90-day-rule-california.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
       "mbh-slrp-california.html",

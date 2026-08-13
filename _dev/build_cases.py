@@ -111,7 +111,12 @@ def money_max():
 NUM = len(CASES)
 
 HUB = "therapist-discipline-cases-california.html"
-CHROME_FROM = os.path.join(SITE, "hiring-first-associate-california-therapist.html")
+# Chrome comes from a frozen pre-conversion snapshot (_dev/chrome_donor.html)
+# rather than a live page: rollout step 5 converts live pages to the house
+# design one family at a time, and a converted donor would hand this builder
+# bc2 head links on top of its own family CSS - the mixed state the
+# collision audit forbids. The snapshot retires when this family converts.
+CHROME_FROM = os.path.join(SITE, "_dev", "chrome_donor.html")
 INSURANCE = "therapy-liability-insurance-california.html"
 
 INK = "#16211B"
