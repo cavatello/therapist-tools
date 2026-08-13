@@ -196,9 +196,33 @@ def card(p):
     note = ('<p class="pdnote">%s</p>' % esc(p["note"])) if p.get("note") else ""
     go = ('<a class="pdgo" href="%s" target="_blank" rel="noopener noreferrer">'
           "The program&rsquo;s own page &nearr;</a>" % esc(p["url"]))
+    # The site's OWN page for this school first (user, 13 Aug 2026):
+    # readers stay inside the site; the external program page is secondary.
+    ours = _school_page(p["inst"])
+    if ours:
+        go = ('<a class="pdgo" href="%s">Our page on this school &rarr;</a> '
+              % ours) + go
     return ('<article class="pdc"><h3>%s</h3><span class="pdcity">%s</span>'
             "%s%s%s</article>"
             % (esc(p["inst"]), esc(p["city"]), "".join(rows), note, go))
+
+
+def _school_page(inst, _cache={}):
+    """Map an institution name to its existing on-site school page, if any."""
+    if not _cache:
+        import re as _re
+        for f in os.listdir(SITE):
+            if f.endswith("-mft.html"):
+                _cache[_re.sub(r"[^a-z]", "", f[:-9].lower())] = f
+        _cache["_"] = True
+    import re as _re
+    base = _re.sub(r"[^a-z]", "", _re.sub(r"\(.*?\)|,.*$", "", inst).lower())
+    for key, f in _cache.items():
+        if key == "_":
+            continue
+        if key.startswith(base[:16]) or base.startswith(key[:16]):
+            return f
+    return None
 
 
 def body():
