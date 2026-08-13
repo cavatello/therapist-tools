@@ -229,3 +229,20 @@ section 13 in house-skin.css retires with the old sheets at step 5.
   mess" screenshots were partly Pages' max-age cache.
 - hours/compare.html (user's own working doc, saved this morning) tripped
   subdirs_check exactly as designed — missing noindex, added.
+
+## GLOBAL CONSISTENCY PASS (13 Aug 2026, fifth pass, `f828d981`, skin v=f976d0ca)
+
+User review on live found the theme not global. Root causes fixed:
+- Heading COLOR removed from the global type rule — it had broken ~103 dark
+  heroes (scband/psy families). Headings now inherit their ground's color.
+- Ornament neutralizer generated FROM the sheets: 71 hard-offset-shadow
+  selectors flattened, gold chips quieted, 2px black borders → hairlines.
+- Warm-cream .f field family re-toned to white/cool sitewide; heading
+  highlighter blocks killed; purple grounds (.bonus, .clband/.clhero) → deep;
+  .ftnl band text made light WHOLESALE (its children keep growing shapes).
+- Audit hardened: skips screen-reader-only elements, checks h1-h4 + dek/lede/
+  kick/labels vs real rendered ground on ALL 201 pages: 3,705 elements,
+  0 low-contrast, 0 overflow before shipping.
+STILL OPEN: psyd directory cards should link internally to each school's own
+page on-site (user request) — build_psyd.py change, mapped but not yet coded.
+The real cure for all of section 13-14 remains Step 5 (markup conversion).
