@@ -298,11 +298,16 @@ body.house .bigcta{box-shadow:none !important; border:1.5px solid var(--pine) !i
    not reach inside a deep band */
 body.house .pk-hero h1, body.house .pk-hero h2,
 body.house .artband h1, body.house .artband h2,
-body.house .dc-hero h1, body.house .dc-hero h2, body.house .dc-h,
+body.house .dc-hero h1, body.house .dc-hero h2,
 body.house .adv .hero h1, body.house .adv .band h1{
   color:#FFFFFF !important}
 body.house .dc-hero .dc-d, body.house .dc-hero p{color:#CFE0D6 !important}
 body.house .dc-hero .dc-k{color:#79A08F !important}
+/* section headings that sit on the paper ground stay ink */
+body.house .dc-h, body.house .pr-h{color:var(--ink) !important}
+/* the pagekit call-out keeps its dark ground (its type is set light) */
+body.house .pk-call{background:var(--deep) !important}
+body.house .pk-call h2, body.house .pk-call h3{color:#FFFFFF !important}
 /* pagekit hero re-grounded like the rest of the dark-band family */
 body.house .pk-hero{background:var(--deep) !important}
 body.house .pk-hero h1 em, body.house .pk-hero h2 em{
