@@ -216,7 +216,8 @@ def _school_page(inst, _cache={}):
                 _cache[_re.sub(r"[^a-z]", "", f[:-9].lower())] = f
         _cache["_"] = True
     import re as _re
-    base = _re.sub(r"[^a-z]", "", _re.sub(r"\(.*?\)|,.*$", "", inst).lower())
+    base = _re.sub(r"[^a-z]", "",
+                   _re.sub(r"^The\s+|\(.*?\)|,.*$", "", inst).lower())
     for key, f in _cache.items():
         if key == "_":
             continue
