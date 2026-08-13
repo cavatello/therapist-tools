@@ -229,7 +229,8 @@ CSS = """
 .track6 .pin{width:17px;height:17px;border-radius:50%;background:var(--card);
   margin:0 auto 22px;position:relative;z-index:1;
   box-shadow:0 0 0 3px var(--paper),0 0 0 6px currentColor}
-.track6 .t{display:block;font-family:var(--disp);font-weight:800;font-size:14.5px;
+.track6 .st{display:block;font-family:var(--disp);font-weight:800;
+  font-size:14.5px;
   letter-spacing:-.018em;line-height:1.15;color:var(--ink)}
 .track6 .c{display:block;font-family:var(--mn);font-size:10px;color:var(--dim);
   margin-top:5px}
@@ -480,7 +481,7 @@ def track(here=4):
     for n, claim, who, gets, c, hue, short in PATHS:
         cur = int(n) == here
         o.append('<a style="color:var(--%s)">%s<span class="pin"></span>'
-                 '<span class="t">%s</span><span class="c">%s</span></a>'
+                 '<span class="st">%s</span><span class="c">%s</span></a>'
                  % (hue,
                     '<span class="here">You are here</span>' if cur else "",
                     short, who.split("&middot;")[0].strip()))
@@ -1198,9 +1199,22 @@ def main():
             print("GUARD: %r - this document has its own stylesheet" % stale)
             bad += 1
 
-    for _num, name, q, _c, _h, _d in PATHS:
-        if name not in html or q not in html:
-            print("GUARD: path %r is incomplete" % name)
+    # Every path must appear as its CLAIM, not as its short name. The short
+    # name is a filing label; if it is the only thing on the page, the
+    # navigation is asking the reader to decode six words before choosing.
+    for _num, claim, who, gets, _c, _h, short in PATHS:
+        for field, what in ((claim, "the first-person claim"),
+                            (who, "the status line"),
+                            (gets, "what the reader gets")):
+            if field not in html:
+                print("GUARD: %s for %r is missing" % (what, short))
+                bad += 1
+
+    # And the old shorthand must not be the loud thing anywhere. A row whose
+    # headline is "Deciding" is the failure this revision exists to fix.
+    for _num, _claim, _who, _gets, _c, _h, short in PATHS:
+        if '<span class="t">%s</span>' % short in html:
+            print("GUARD: %r is being used as a headline again" % short)
             bad += 1
 
     # The author's name stays off the page.
