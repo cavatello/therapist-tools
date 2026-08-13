@@ -47,6 +47,10 @@ GATE = [
     "about.html",
 ]
 
+# Never converted: tycoon.html is a static design mockup, and rates.html
+# keeps its own editorial voice by decision (see _dev/rates_grid.py).
+EXCLUDE = {"tycoon.html", "rates.html"}
+
 BODY = re.compile(r"<body([^>]*)>")
 SKIN = re.compile(
     r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-skin\.css">\n?')
@@ -60,7 +64,7 @@ def pages_all():
         if os.path.isdir(p):
             out += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
                     if f.endswith(".html")]
-    return out
+    return [r for r in out if r not in EXCLUDE]
 
 
 def convert(rel, revert=False):
