@@ -1334,6 +1334,19 @@
    "leaf": true
   },
   {
+   "file": "finding-a-clinical-supervisor-california.html",
+   "title": "Finding a clinical supervisor in California, and the rule that decides",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "How do I find a clinical supervisor in California?",
+   "outcome": "Where every real supervisor list is, what the Board requires of a supervisor, and why a privately hired supervisor does not count in a private practice",
+   "number": "9 of 23 CAMFT chapters publish a supervisor list",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "for/associates.html",
    "title": "For California associates: everything for counting your 3,000 hours",
    "topic": "licensure",
@@ -2683,6 +2696,7 @@
     {
      "name": "Counting the hours, and the job that banks them",
      "files": [
+      "finding-a-clinical-supervisor-california.html",
       "county-job-portals-california.html",
       "amft-3000-hours-california.html",
       "getting-hired-as-a-california-associate.html",

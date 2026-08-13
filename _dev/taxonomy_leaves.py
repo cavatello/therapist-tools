@@ -77,8 +77,12 @@ NEW_CLUSTERS = [
     # appending to them.
     # The portal directory belongs with the pages about getting the job, not
     # with the pages about getting the license.
+    # The supervisor page belongs here rather than in "The route": nobody
+    # looks for a supervisor before they are registered, and the whole
+    # question is which weeks bank and which quietly do not.
     ("licensure", "Counting the hours, and the job that banks them",
-     ["county-job-portals-california.html",
+     ["finding-a-clinical-supervisor-california.html",
+      "county-job-portals-california.html",
       "amft-3000-hours-california.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
