@@ -1,0 +1,302 @@
+
+/* ===================================================================== */
+/*  therapistsupport.org — the school family, in the house style.        */
+/*  Rollout step 5, family 2 (.scband program pages, 66 of them).        */
+/*  Scope: body.bcs. Tokens and element rules come from css/house.css    */
+/*  (.bc2 on the same body); chrome keeps css/house-chrome.css.          */
+/*  This sheet owns ALL layout for the school shell and body — the       */
+/*  legacy hash sheets are not linked on converted pages.                */
+/* ===================================================================== */
+
+/* --- the shell -------------------------------------------------------- */
+body.bcs .scband{padding:46px var(--pad) 34px;background:var(--paper)}
+body.bcs .scband .in{max-width:1180px;margin:0 auto;display:grid;
+  grid-template-columns:minmax(0,1fr) 320px;gap:44px;align-items:start}
+@media(max-width:980px){body.bcs .scband .in{grid-template-columns:1fr;gap:26px}}
+
+body.bcs .bcr{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px;
+  padding:0;font-family:var(--mn);font-size:11px;letter-spacing:.04em}
+body.bcs .bcr a{color:var(--dim)}
+body.bcs .bcr a:hover{color:var(--pine)}
+body.bcs .bcr .sep{color:var(--hair);margin-left:6px}
+body.bcs .bcr [aria-current]{color:var(--ink)}
+
+body.bcs .scband .sub{font-family:var(--mn);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dim);margin:0 0 14px}
+body.bcs .scband h1{margin-bottom:18px}
+body.bcs .dek{font-size:21px;line-height:1.45;color:var(--dim);max-width:56ch;
+  margin:0 0 18px;letter-spacing:-.012em}
+@media(max-width:760px){body.bcs .dek{font-size:17.5px}}
+body.bcs .scmeta{display:flex;gap:8px;font-family:var(--mn);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+body.bcs .scmeta span+span::before{content:"\00b7";margin-right:8px;color:var(--hair)}
+
+/* the "In short" card is the page's one dark moment */
+body.bcs .tsshort{background:var(--deep);color:#fff;border-radius:var(--r);
+  padding:20px 22px;margin-top:24px;max-width:520px}
+body.bcs .tsshort .tsk{font-family:var(--mn);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+body.bcs .tsshort .tsa{font-size:15px;color:#C6DBD1;margin:0 0 10px}
+body.bcs .tsshort .tsfig{font-family:var(--figs);font-weight:800;font-size:24px;
+  color:var(--gold)}
+
+/* the hero stat card with its key-value rows */
+body.bcs .scfig{background:var(--card);border-radius:var(--r);padding:20px 22px;
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
+    0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .scfig > b{display:block;font-family:var(--figs);font-weight:800;
+  font-size:36px;line-height:1.05;color:var(--pine);margin-bottom:4px}
+body.bcs .scfig > span{font-size:14px;color:var(--dim);display:block;
+  margin-bottom:14px}
+body.bcs .scfig .row{display:flex;justify-content:space-between;gap:12px;
+  padding:8px 0;border-top:1px solid var(--hair);font-size:13.5px}
+body.bcs .scfig .row span{color:var(--dim)}
+body.bcs .scfig .row b{font-weight:600;text-align:right;max-width:60%}
+@media(max-width:980px){body.bcs .scfig{max-width:420px}}
+
+/* --- the measure and the rail ----------------------------------------- */
+body.bcs .scwrap{max-width:1180px;margin:0 auto;padding:8px var(--pad) 56px;
+  display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:48px;
+  align-items:start}
+@media(max-width:980px){body.bcs .scwrap{grid-template-columns:1fr;gap:30px}}
+body.bcs .scnav{order:2;position:sticky;top:86px;font-size:14px}
+@media(max-width:980px){body.bcs .scnav{order:0;position:static}}
+body.bcs .scnav b{display:block;font-family:var(--mn);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
+  font-weight:500;margin-bottom:10px}
+body.bcs .scnav a{display:flex;gap:9px;align-items:baseline;padding:7px 0;
+  color:var(--dim);border-bottom:1px solid var(--hair);line-height:1.35}
+body.bcs .scnav a:last-of-type{border-bottom:0}
+body.bcs .scnav a.on{color:var(--pine);font-weight:700}
+body.bcs .scnav .tsn{flex:none;font-family:var(--mn);font-style:normal;
+  font-size:10px;color:var(--dim);opacity:.7}
+body.bcs .scnav a.on .tsn{color:var(--pine);opacity:1}
+
+body.bcs .scbody{min-width:0;max-width:76ch}
+body.bcs .scbody h2{font-size:31px;max-width:26ch;margin:44px 0 16px;
+  scroll-margin-top:86px}
+body.bcs .scbody h2:first-child{margin-top:0}
+@media(max-width:760px){body.bcs .scbody h2{font-size:24px}}
+body.bcs .scbody h3{margin:0 0 8px;scroll-margin-top:86px}
+body.bcs .scbody p{margin:0 0 16px;max-width:70ch}
+body.bcs .scbody ul,body.bcs .scbody ol{margin:0 0 16px;padding-left:22px}
+body.bcs .scbody li{margin-bottom:7px}
+
+/* the orientation line — what kind of program this is, in one labeled row */
+body.bcs .orient{background:var(--wash);border-left:5px solid var(--pine);
+  border-radius:var(--rs);padding:14px 18px;margin:0 0 20px;max-width:none}
+body.bcs .orient span{display:block;font-family:var(--mn);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
+  margin-bottom:6px}
+body.bcs .orient b{font-weight:600;line-height:1.5}
+
+/* --- media: video figures and campus photos --------------------------- */
+body.bcs .media{display:grid;gap:16px;grid-template-columns:1fr 1fr;
+  margin:22px 0}
+@media(max-width:700px){body.bcs .media{grid-template-columns:1fr}}
+body.bcs .vfig{margin:0;background:var(--card);border-radius:var(--r);
+  overflow:hidden;box-shadow:0 1px 2px rgba(22,31,27,.05),
+    0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .vplay{display:block;position:relative;width:100%;border:0;padding:0;
+  cursor:pointer;background:var(--sink)}
+body.bcs .vplay img{display:block;width:100%;height:auto}
+body.bcs .vbtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:54px;height:54px;border-radius:50%;background:rgba(15,50,39,.88)}
+body.bcs .vbtn::after{content:"";position:absolute;left:56%;top:50%;
+  transform:translate(-50%,-50%);border-style:solid;
+  border-width:9px 0 9px 15px;border-color:transparent transparent
+  transparent #fff}
+body.bcs .vplay:hover .vbtn{background:var(--pine)}
+body.bcs .vkind{position:absolute;left:10px;top:10px;font-family:var(--mn);
+  font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--gold);color:var(--ink);padding:3px 8px;border-radius:3px}
+body.bcs .vfig figcaption{padding:12px 15px;font-size:13.5px;color:var(--dim);
+  line-height:1.45}
+body.bcs .vfig figcaption b{display:block;color:var(--ink);font-weight:600;
+  margin-bottom:3px}
+body.bcs .vfig iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+
+/* campus photo figure */
+body.bcs .pfig{margin:22px 0;background:var(--card);border-radius:var(--r);
+  overflow:hidden;box-shadow:0 1px 2px rgba(22,31,27,.05),
+    0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .pfig img{display:block;width:100%;height:auto}
+body.bcs .pfig figcaption{padding:12px 15px;font-size:13.5px;color:var(--dim);
+  line-height:1.45}
+body.bcs .cred{display:block;font-family:var(--mn);font-size:10.5px;
+  color:var(--dim);margin-top:6px;opacity:.85}
+
+/* --- the course cards -------------------------------------------------- */
+body.bcs .crsl{display:grid;gap:14px;margin:22px 0}
+@media(min-width:820px){body.bcs .crsl{grid-template-columns:1fr 1fr}}
+body.bcs .crs{background:var(--card);border-radius:var(--r);padding:16px 18px;
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .chd{display:flex;justify-content:space-between;gap:10px;
+  margin-bottom:8px}
+body.bcs .ccode{font-family:var(--mn);font-size:11px;letter-spacing:.08em;
+  color:var(--pine);font-weight:600}
+body.bcs .cun{font-family:var(--mn);font-size:11px;color:var(--dim)}
+body.bcs .crs h3{font-size:18px;margin:0 0 8px}
+body.bcs .cq{margin:0;font-size:14px;color:var(--dim);line-height:1.55;
+  quotes:none}
+body.bcs .cwhy{font-size:13.5px;margin:10px 0 0;padding-top:10px;
+  border-top:1px solid var(--hair);color:var(--ink)}
+body.bcs .cwhy::before{content:"Why it matters";display:block;
+  font-family:var(--mn);font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+
+/* --- the curriculum, term by term -------------------------------------- */
+body.bcs .cutot{font-family:var(--figs);font-weight:800;font-size:24px;
+  margin:0 0 14px}
+body.bcs .cutot b{color:var(--pine)}
+body.bcs .cutot span{display:block;font-family:var(--body);font-weight:400;
+  font-size:14px;color:var(--dim)}
+body.bcs .trml{display:grid;gap:14px;margin:18px 0}
+@media(min-width:820px){body.bcs .trml{grid-template-columns:1fr 1fr}}
+body.bcs .trm{background:var(--card);border-radius:var(--r);padding:15px 18px;
+  position:relative;box-shadow:0 1px 2px rgba(22,31,27,.05),
+    0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .trm > b{display:block;font-family:var(--disp);font-weight:800;
+  font-size:15.5px;letter-spacing:-.014em;margin-bottom:9px;
+  padding-right:66px}
+body.bcs .trm ol{margin:0;padding-left:18px;font-size:13.5px;color:var(--dim)}
+body.bcs .trm li{margin-bottom:4px}
+body.bcs .trm .tn{position:absolute;right:14px;top:16px;font-family:var(--mn);
+  font-size:10px;color:var(--dim);white-space:nowrap}
+
+/* --- verdicts ---------------------------------------------------------- */
+body.bcs .verd{background:var(--card);border-left:5px solid var(--h5);
+  border-radius:var(--rs);padding:16px 20px;margin:22px 0;
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .verd.ok,body.bcs .verd.pos{border-left-color:var(--h4)}
+body.bcs .verd.warn{border-left-color:var(--h5)}
+body.bcs .verd.neg{border-left-color:#B5483F}
+body.bcs .verd h3{font-size:18.5px;margin:0 0 8px}
+body.bcs .verd p{font-size:15px;margin:0 0 10px;max-width:none}
+body.bcs .verd p:last-child{margin-bottom:0}
+body.bcs .pq{margin:10px 0 0;padding:12px 15px;background:var(--sink);
+  border-radius:var(--rs);font-family:var(--figs);font-size:14.5px;
+  line-height:1.55;quotes:none}
+
+/* --- key-value rows: the programme table and practicum rows ------------ */
+body.bcs .tbl,body.bcs .prg{background:var(--card);border-radius:var(--r);
+  padding:4px 20px;margin:22px 0;
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .tbl .r,body.bcs .prg .pr{display:grid;
+  grid-template-columns:150px minmax(0,1fr);gap:16px;padding:11px 0;
+  border-top:1px solid var(--hair);font-size:14.5px}
+body.bcs .tbl .r:first-child,body.bcs .prg .pr:first-child{border-top:0}
+body.bcs .tbl .r > span,body.bcs .prg .pr > span{font-family:var(--mn);
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--dim);padding-top:2px}
+body.bcs .tbl .r > b,body.bcs .prg .pr > b{font-weight:500;line-height:1.5}
+@media(max-width:640px){body.bcs .tbl .r,body.bcs .prg .pr{
+  grid-template-columns:1fr}}
+body.bcs .np{font-style:normal;color:var(--dim)}
+body.bcs .yr{display:inline-block;font-family:var(--mn);font-size:9.5px;
+  letter-spacing:.1em;background:var(--sink);color:var(--dim);
+  padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:1px}
+
+/* --- exam pass-rate figures -------------------------------------------- */
+body.bcs .exg{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:22px 0}
+@media(max-width:640px){body.bcs .exg{grid-template-columns:1fr}}
+body.bcs .exb{background:var(--card);border-radius:var(--r);padding:18px 20px;
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .exb b{display:block;font-family:var(--figs);font-weight:800;
+  font-size:44px;line-height:1;color:var(--pine)}
+body.bcs .exb.sw b{color:var(--dim)}
+body.bcs .exb em{display:block;font-style:normal;font-family:var(--disp);
+  font-weight:800;font-size:14.5px;letter-spacing:-.014em;margin:8px 0 3px}
+body.bcs .exb span{font-size:13px;color:var(--dim)}
+
+/* --- accreditor outcome tables ----------------------------------------- */
+body.bcs .ocl{font-family:var(--mn);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dim);margin:18px 0 8px}
+body.bcs .octw{margin:0 0 18px;border-radius:var(--r);overflow-x:auto;
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .octbl{margin:0;min-width:480px}
+body.bcs .octbl th[scope="row"]{background:var(--card);color:var(--ink);
+  font-family:var(--body);font-size:14px;font-weight:600;text-transform:none;
+  letter-spacing:0;border-top:1px solid var(--hair)}
+body.bcs .octbl th[scope="row"] span{display:block;font-family:var(--mn);
+  font-size:10.5px;font-weight:400;color:var(--dim);margin-top:2px}
+body.bcs .octbl td{font-family:var(--figs);font-weight:600}
+
+/* --- student voices and threads ---------------------------------------- */
+body.bcs .voxl,body.bcs .thl{display:grid;gap:12px;margin:22px 0}
+body.bcs .vox,body.bcs .th{display:block;background:var(--card);
+  border-radius:var(--r);border-left:5px solid var(--hair);
+  padding:14px 18px;color:var(--ink);
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .vox.pos,body.bcs .th.pos{border-left-color:var(--h4)}
+body.bcs .vox.neg,body.bcs .th.neg{border-left-color:#B5483F}
+body.bcs .vox.mix,body.bcs .th.mix{border-left-color:var(--h5)}
+body.bcs .vox i{font-style:normal;font-size:14.5px;line-height:1.55;
+  display:block;margin-bottom:8px}
+body.bcs .vwho,body.bcs .tm{display:block;font-family:var(--mn);font-size:11px;
+  color:var(--dim)}
+body.bcs .th .tm{margin-bottom:5px}
+body.bcs .th b{display:block;font-family:var(--disp);font-weight:800;
+  font-size:16.5px;letter-spacing:-.016em;line-height:1.25;margin-bottom:5px}
+body.bcs .th i{font-style:normal;font-size:14px;color:var(--dim);
+  display:block;line-height:1.5}
+body.bcs .sn{display:inline-block;font-family:var(--mn);font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;background:var(--sink);
+  color:var(--dim);padding:2px 8px;border-radius:3px;margin-top:8px}
+
+/* --- what to ask ------------------------------------------------------- */
+body.bcs .ask{margin:22px 0;counter-reset:asks}
+body.bcs .ask .q{counter-increment:asks;position:relative;
+  padding:14px 0 14px 40px;border-top:1px solid var(--hair)}
+body.bcs .ask .q:first-child{border-top:0}
+body.bcs .ask .q::before{content:counter(asks);position:absolute;left:0;
+  top:16px;width:26px;height:26px;border-radius:50%;background:var(--wash);
+  color:var(--pine);font-family:var(--mn);font-size:12px;font-weight:600;
+  display:flex;align-items:center;justify-content:center}
+body.bcs .ask .q b{display:block;font-family:var(--disp);font-weight:800;
+  font-size:17px;letter-spacing:-.016em;margin-bottom:6px}
+body.bcs .ask .q p{font-size:14.5px;color:var(--dim);margin:0}
+
+/* --- honest gaps ------------------------------------------------------- */
+body.bcs .gapl{list-style:none;padding:0;margin:18px 0;
+  border-left:4px solid var(--gold)}
+body.bcs .gapl li{padding:8px 0 8px 16px;margin:0;font-size:14.5px;
+  color:var(--dim);border-bottom:1px solid var(--hair)}
+body.bcs .gapl li:last-child{border-bottom:0}
+body.bcs .pnote{font-size:13.5px;color:var(--dim);background:var(--sink);
+  border-radius:var(--rs);padding:12px 16px}
+
+/* --- read next and sources --------------------------------------------- */
+body.bcs .nxt{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);
+  margin:30px 0}
+@media(max-width:820px){body.bcs .nxt{grid-template-columns:1fr}}
+body.bcs .nx{display:block;background:var(--card);border-radius:var(--r);
+  padding:16px 18px;color:var(--ink);
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
+    0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .nx b{display:block;font-family:var(--disp);font-weight:800;
+  font-size:17px;letter-spacing:-.016em;margin-bottom:6px}
+body.bcs .nx span{font-size:13.5px;color:var(--dim);line-height:1.45}
+body.bcs .srcs{margin:26px 0 0;border-top:2px solid var(--ink);
+  padding-top:16px;font-size:14px}
+body.bcs .srcs summary{cursor:pointer;font-family:var(--mn);font-size:12px;
+  color:var(--pine)}
+body.bcs .srcs ol{margin:12px 0 0;padding-left:24px}
+body.bcs .srcs li{font-size:14px;color:var(--dim);line-height:1.55;
+  margin-bottom:8px}
+body.bcs .srcl{font-family:var(--mn);font-size:11px;margin-left:6px}
+
+/* --- late additions from the coverage guard ---------------------------- */
+/* tsbadge variants in the provenance block keep the shared chip look;
+   'gap' points at the honesty section and gets the amber accent */
+body.bcs .tsbadge.thin{background:var(--sink);color:var(--dim)}
+body.bcs .tsbadge.gap{background:var(--gold);color:var(--ink)}
+/* video attribution line inside the figure caption */
+body.bcs .vmeta{display:block;font-family:var(--mn);font-size:10.5px;
+  color:var(--dim);margin-top:5px;opacity:.85}
+
+/* long unbreakable tokens (URLs in the gap list, slashed names in an h1)
+   must not widen the page - anywhere lets min-content shrink */
+body.bcs .scband h1{overflow-wrap:anywhere}
+body.bcs .gapl li,body.bcs .scbody li,body.bcs .tbl .r > b,
+body.bcs .prg .pr > b{overflow-wrap:anywhere}
