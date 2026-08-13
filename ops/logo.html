@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Ten logo lockups, all standing on something</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+:root{
+  --paper:#F4F0E6; --cream:#FBF9F3; --ink:#17271F; --pine:#2C6350;
+  --gold:#F6C560; --gold-on-pine:#FFD37A; --muted:#635E53; --red:#B5483F;
+  --line:#E2DACA; --deep:#15342B; --green:#3F9577;
+  --sans:'Bricolage Grotesque','Archivo',Inter,system-ui,sans-serif;
+  --body:Inter,system-ui,sans-serif;
+  --fig:'Fraunces',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(34px,5.2vw,58px)}
+h2{font-size:clamp(26px,3.4vw,38px);margin:0 0 6px}
+h3{font-size:clamp(19px,2.1vw,23px);margin:0 0 6px}
+h4{font-size:16px;margin:0 0 4px}
+p{margin:0 0 14px;max-width:72ch}
+a{color:var(--pine);text-underline-offset:3px}
+.lab{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted)}
+.fig{font-family:var(--fig);font-weight:800;font-variant-numeric:tabular-nums}
+
+/* ---- masthead ---- */
+.mast{background:var(--deep);color:var(--cream);border-bottom:3px solid var(--ink);
+  padding:46px 0 40px}
+.mast .lab{color:var(--gold-on-pine)}
+.mast h1{color:#fff;margin:10px 0 14px;max-width:22ch}
+.mast p{color:#DCE7E0;max-width:66ch;font-size:17px}
+.mast .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  border:1.5px solid rgba(255,255,255,.34);color:#EAF3EE;padding:5px 10px;border-radius:2px}
+
+/* ---- sticky nav ---- */
+nav.jump{position:sticky;top:0;z-index:40;background:var(--cream);
+  border-bottom:2px solid var(--ink);box-shadow:0 2px 0 rgba(23,39,31,.08)}
+nav.jump ul{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;
+  scrollbar-width:none}
+nav.jump ul::-webkit-scrollbar{display:none}
+nav.jump a{display:block;white-space:nowrap;padding:11px 15px;font-family:var(--mono);
+  font-size:11px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
+  color:var(--muted);border-right:1px solid var(--line)}
+nav.jump a:hover{background:var(--gold);color:var(--ink)}
+
+section{padding:52px 0 8px}
+.rule{border:0;border-top:2px solid var(--ink);margin:44px 0 0;opacity:.16}
+.kicker{display:flex;align-items:baseline;gap:12px;margin-bottom:18px}
+.kicker .n{font-family:var(--fig);font-weight:800;font-size:34px;color:var(--pine);
+  line-height:1}
+.lede{font-size:19px;line-height:1.55;max-width:64ch;color:#2A3A32}
+
+/* ---- cards ---- */
+.card{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  padding:20px 22px;margin:0 0 20px}
+.card.pine{background:var(--pine);color:#fff;border-color:var(--ink)}
+.card.pine p,.card.pine li{color:#E6F0EA}
+.card.pine h3,.card.pine h2{color:#fff}
+.card.pine .lab{color:var(--gold-on-pine)}
+.card.gold{background:var(--gold);box-shadow:5px 5px 0 var(--ink)}
+.grid{display:grid;gap:20px}
+/* grid items default to min-width:auto, so the pre-formatted code block in the
+   data-model card sets the whole track's min-content width and pushes the page
+   sideways on a phone. This is the fix, not a wider viewport. */
+.grid>*,.verdict>*,.pro>*{min-width:0}
+@media(min-width:760px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+
+/* ---- verdict ---- */
+.verdict{display:grid;gap:16px}
+@media(min-width:820px){.verdict{grid-template-columns:1.15fr .85fr}}
+.vlist{list-style:none;margin:0;padding:0;counter-reset:v}
+.vlist li{counter-increment:v;position:relative;padding:0 0 14px 40px;margin:0 0 12px;
+  border-bottom:1px dashed var(--line)}
+.vlist li:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.vlist li::before{content:counter(v);position:absolute;left:0;top:1px;width:26px;height:26px;
+  background:var(--ink);color:var(--gold);font-family:var(--mono);font-size:12px;font-weight:600;
+  display:grid;place-items:center;border-radius:2px}
+.vlist b{font-family:var(--sans);font-weight:800}
+
+/* ---- evidence ---- */
+.ev{border-left:5px solid var(--pine);padding:2px 0 2px 18px;margin:0 0 22px}
+.ev q{display:block;font-family:var(--fig);font-size:19px;font-weight:600;line-height:1.4;
+  color:var(--deep);quotes:none;margin-bottom:8px}
+.ev .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+
+/* ---- audit table ---- */
+.tw{overflow-x:auto;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  background:var(--cream);margin:0 0 10px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+th{background:var(--deep);color:#fff;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:11px 13px;
+  font-weight:600;vertical-align:bottom}
+td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
+tbody tr:nth-child(even){background:rgba(226,218,202,.28)}
+td .fig{font-size:19px}
+.badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1.5px solid;border-radius:2px;
+  white-space:nowrap}
+.b-yes{color:#1E5C46;border-color:#1E5C46;background:#E4F0EA}
+.b-no{color:var(--red);border-color:var(--red);background:#F7E7E5}
+.b-soon{color:#8A5B12;border-color:#8A5B12;background:#FBEFD6}
+
+/* ---- IA diagram ---- */
+.ia{background:var(--cream);border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
+  padding:22px 20px;margin:0 0 22px}
+.ia .lab{margin-bottom:14px;display:block}
+.tier{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 6px}
+.node{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 11px;
+  border:2px solid var(--ink);background:#fff;border-radius:2px;text-align:center}
+.node.root{background:var(--ink);color:var(--gold);font-weight:600}
+.node.stage{background:var(--gold);font-weight:600}
+.node.topic{background:var(--pine);color:#fff}
+.node.leaf{background:#fff;color:var(--muted);border-color:var(--line);border-width:1.5px}
+.node.new{border-style:dashed;background:#FBEFD6}
+.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:14px}
+.ia .cap{font-size:14px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
+.pro{display:grid;gap:10px;margin-top:16px}
+@media(min-width:700px){.pro{grid-template-columns:1fr 1fr}}
+.pro div{font-size:14px;padding:10px 12px;border-left:3px solid}
+.pro .p{border-color:var(--green);background:#EDF5F1}
+.pro .c{border-color:var(--red);background:#F9EDEC}
+.pro b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  display:block;margin-bottom:3px}
+
+/* ---- mockup frame ---- */
+.frame{border:2px solid var(--ink);box-shadow:7px 7px 0 var(--ink);background:#fff;
+  overflow:hidden;margin:0 0 12px}
+.frame .bar{background:var(--ink);padding:7px 12px;display:flex;align-items:center;gap:8px}
+.frame .dot{width:9px;height:9px;border-radius:50%;background:#4B5A52}
+.frame .url{font-family:var(--mono);font-size:11px;color:#C7D3CC;margin-left:8px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mk{font-size:13px;line-height:1.5}
+.mk *{box-sizing:border-box}
+.mkhead{background:var(--cream);border-bottom:2px solid var(--ink);padding:9px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:14px}
+.mkhead .nv{display:flex;gap:12px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mkbody{padding:18px 16px 22px}
+
+/* mockup A — the desk */
+.deskhero{background:var(--pine);color:#fff;margin:-18px -16px 16px;padding:20px 16px 18px;
+  border-bottom:2px solid var(--ink)}
+.deskhero .lab{color:var(--gold-on-pine)}
+.deskhero h2{font-size:26px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
+.deskhero p{font-size:12.5px;color:#DAE8E1;margin:0;max-width:52ch}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.tile{border:2px solid var(--ink);background:var(--cream);padding:11px 12px;
+  box-shadow:3px 3px 0 var(--ink)}
+.tile .lab{font-size:9px;letter-spacing:.13em}
+.tile .num{font-family:var(--fig);font-weight:800;font-size:25px;line-height:1.05;
+  color:var(--deep);margin:3px 0 2px}
+.tile .sub{font-size:11px;color:var(--muted);line-height:1.35}
+.tile.act{background:var(--gold)}
+.tile.act .sub{color:#5A4713}
+.qrow{border:2px solid var(--ink);background:#fff;padding:10px 12px;margin-bottom:8px;
+  display:flex;gap:11px;align-items:flex-start}
+.qrow .qn{font-family:var(--mono);font-size:10px;color:var(--muted);padding-top:2px;min-width:16px}
+.qrow .qt{font-family:var(--sans);font-weight:600;font-size:13.5px;line-height:1.3}
+.qrow .qs{font-size:11.5px;color:var(--muted);margin-top:2px}
+.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--gold);border:1.5px solid var(--ink);padding:3px 7px;
+  white-space:nowrap}
+
+/* mockup B — the ladder */
+.ladder{position:relative;padding-left:30px;margin:4px 0 14px}
+.ladder::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;
+  background:var(--line)}
+.rung{position:relative;margin-bottom:13px}
+.rung::before{content:"";position:absolute;left:-26px;top:4px;width:15px;height:15px;
+  border:3px solid var(--line);background:#fff;border-radius:50%}
+.rung.done::before{background:var(--pine);border-color:var(--pine)}
+.rung.now::before{background:var(--gold);border-color:var(--ink);
+  box-shadow:0 0 0 4px rgba(246,197,96,.35)}
+.rung h4{font-size:13.5px}
+.rung .rs{font-size:11.5px;color:var(--muted)}
+.rung.now h4{color:var(--deep)}
+.rung .pill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.11em;
+  text-transform:uppercase;background:var(--ink);color:var(--gold);padding:2px 6px;
+  margin-left:7px;vertical-align:2px}
+.gate{border:2px solid var(--ink);background:var(--cream);padding:10px 12px;margin-top:7px;
+  box-shadow:3px 3px 0 var(--ink)}
+.gate .lab{font-size:9px}
+.gate .gv{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep)}
+
+/* mockup C — front page */
+.fp-mast{border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:14px}
+.fp-mast .k{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);display:flex;justify-content:space-between}
+.fp-mast h2{font-family:var(--fig);font-size:32px;font-weight:800;letter-spacing:-.01em;
+  margin:6px 0 4px;text-align:center}
+.fp-mast .dek{font-size:12px;color:var(--muted);text-align:center;font-style:italic}
+.fp-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.fp-lead h3{font-family:var(--fig);font-size:20px;line-height:1.18;margin-bottom:5px}
+.fp-lead p{font-size:12px;margin-bottom:9px;color:#33423A}
+.fp-lead .byl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.fp-side{border-left:1px solid var(--line);padding-left:14px}
+.fp-side .lab{font-size:9px;display:block;margin-bottom:7px;
+  border-bottom:2px solid var(--ink);padding-bottom:4px}
+.fp-side ol{margin:0;padding-left:17px;font-size:11.5px;line-height:1.4}
+.fp-side li{margin-bottom:7px}
+.fp-side b{font-family:var(--sans);font-weight:600;display:block;font-size:12px}
+.fp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;
+  border-top:2px solid var(--ink);padding-top:11px}
+.fp-strip div{font-size:10.5px;line-height:1.32}
+.fp-strip .lab{font-size:8.5px;display:block;margin-bottom:3px}
+
+/* phone */
+.phones{display:grid;gap:18px}
+@media(min-width:640px){.phones{grid-template-columns:repeat(2,minmax(0,240px));justify-content:start}}
+.phone{border:3px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);
+  background:#fff;overflow:hidden;max-width:250px}
+.phone .notch{background:var(--ink);height:20px;display:grid;place-items:center}
+.phone .notch i{display:block;width:46px;height:5px;background:#4B5A52;border-radius:3px}
+
+/* build plan */
+.plan{counter-reset:s;list-style:none;padding:0;margin:0}
+.plan>li{counter-increment:s;background:var(--cream);border:2px solid var(--ink);
+  box-shadow:4px 4px 0 var(--ink);padding:15px 18px 15px 62px;position:relative;margin-bottom:14px}
+.plan>li::before{content:"S" counter(s);position:absolute;left:16px;top:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--gold);
+  background:var(--ink);padding:4px 7px;border-radius:2px}
+.plan h4{margin-bottom:3px;font-size:17px}
+.plan .why{font-size:14px;color:var(--muted);margin:0 0 8px}
+.plan .out{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--deep);
+  background:#fff;border:1.5px solid var(--line);padding:7px 10px;display:inline-block}
+.tick{list-style:none;padding:0;margin:8px 0 0}
+.tick li{position:relative;padding-left:24px;font-size:14px;margin-bottom:5px}
+.tick li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;
+  border:2px solid var(--ink);background:#fff}
+.tick li.d::before{background:var(--pine);border-color:var(--pine)}
+
+footer{background:var(--deep);color:#C9D8D1;margin-top:56px;padding:30px 0;
+  border-top:3px solid var(--ink);font-size:13.5px}
+footer a{color:var(--gold-on-pine)}
+.src{font-size:13px;color:var(--muted)}
+.src li{margin-bottom:4px}
+@media(max-width:700px){
+  /* the mockups' fake desktop nav is decorative — a real page would collapse
+     it to a menu button, and left in place it overflows the phone width */
+  .mkhead .nv{display:none}
+  .mkhead{flex-wrap:wrap}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .fp-cols{grid-template-columns:1fr}
+  .fp-side{border-left:0;padding-left:0;border-top:2px solid var(--ink);padding-top:11px}
+  .fp-strip{grid-template-columns:1fr 1fr}
+  .card{box-shadow:4px 4px 0 var(--ink)}
+}
+
+.lg2{--pine:#26604C;--deep:#0F3227;--gold:#FFD976;--ink:#161F1B;
+  --dim:#5B665F;--paper:#F4F7F4;--hair:#DDE4DE;
+  --disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --mn:'IBM Plex Mono',ui-monospace,monospace}
+.lg2 .wm{font-family:var(--disp);font-weight:800;letter-spacing:-.028em;
+  line-height:1;color:var(--ink);white-space:nowrap}
+.lg2 .qual{font-family:var(--mn);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);display:block;white-space:nowrap}
+.rev .wm{color:#fff}.rev .qual{color:#8FB3A4}
+
+/* 01 the rule */
+.L-rule{display:inline-block}
+.L-rule .bar1{height:.16em;background:var(--ink);border-radius:.08em;
+  margin-top:.2em}
+.L-rule .bar2{height:.24em;background:var(--gold);border-radius:.12em;
+  margin-top:.1em}
+.rev .L-rule .bar1{background:#fff}
+
+/* 02 the plinth */
+.L-plinth{display:inline-block}
+.L-plinth .blk{background:var(--pine);padding:.34em .5em .38em;
+  border-radius:.16em}
+.L-plinth .blk .wm{color:#fff}
+.L-plinth .base{height:.26em;background:var(--gold);border-radius:.13em;
+  margin:.1em -.22em 0}
+.rev .L-plinth .blk{background:#fff}
+.rev .L-plinth .blk .wm{color:var(--deep)}
+
+/* 03 the bracket */
+.L-bracket{display:inline-flex;align-items:stretch;gap:.34em}
+.L-bracket .br{width:.2em;background:var(--gold);border-radius:.1em}
+.L-bracket .mid{display:flex;flex-direction:column;justify-content:center}
+
+/* 04 the stack */
+.L-stack{display:inline-block;text-align:center}
+.L-stack .l1{display:block}
+.L-stack .l2{display:block;letter-spacing:.06em;margin-top:.02em}
+.L-stack .base{height:.2em;background:var(--gold);border-radius:.1em;
+  margin-top:.18em}
+
+/* 05 the underline */
+.L-under .u{position:relative;display:inline-block}
+.L-under .u::after{content:'';position:absolute;left:-.04em;right:-.04em;
+  bottom:-.16em;height:.19em;background:var(--gold);border-radius:.1em}
+
+/* 06 the weight */
+.L-weight .a{font-weight:400}
+.L-weight .b{font-weight:800}
+.L-weight .base{height:.17em;background:var(--gold);border-radius:.09em;
+  margin-top:.2em}
+
+/* 07 the shelf */
+.L-shelf{display:inline-block}
+.L-shelf .sh{height:.2em;background:var(--gold);border-radius:.1em;
+  margin:.2em -.1em 0;position:relative}
+.L-shelf .sh::before,.L-shelf .sh::after{content:'';position:absolute;
+  top:-.16em;width:.2em;height:.2em;background:var(--gold);
+  border-radius:.06em}
+.L-shelf .sh::before{left:0}.L-shelf .sh::after{right:0}
+
+/* 08 the ground */
+.L-ground{display:inline-block;position:relative;padding-bottom:.16em}
+.L-ground .band{position:absolute;left:-.24em;right:-.24em;bottom:0;
+  height:.36em;background:var(--gold);border-radius:.06em;z-index:0}
+.L-ground .txt{position:relative;z-index:1}
+
+/* 09 the column rule */
+.L-col{display:inline-flex;gap:.4em;align-items:stretch}
+.L-col .v{width:.2em;background:var(--gold);border-radius:.1em}
+
+/* 10 the dotted floor */
+.L-dot .dl{height:.2em;margin-top:.22em;
+  background:radial-gradient(circle,var(--gold) 42%,transparent 44%);
+  background-size:.36em .36em;background-repeat:repeat-x;
+  background-position:center}
+
+/* the sheet */
+.sh2{border:2px solid var(--ink);background:#fff;box-shadow:6px 6px 0
+  var(--ink);margin:18px 0 0;overflow:hidden}
+.sh2 .hd{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;
+  padding:15px 18px;border-bottom:2px solid var(--ink);background:var(--cream)}
+.sh2 .hd .no{font-family:var(--fig);font-weight:800;font-size:24px;
+  color:var(--pine);line-height:1}
+.sh2 .hd h3{margin:0;font-size:20px}
+.sh2 .hd .idea{font-size:13.5px;color:#39473F;flex:1 1 300px}
+.sh2 .hd .v{margin-left:auto;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--ink);
+  padding:3px 8px;background:#fff;white-space:nowrap}
+.sh2 .hd .v.win{background:#26604C;color:#fff;border-color:#26604C}
+.sh2 .hd .v.no{background:#F6E4E1}
+.sh2 .row{display:grid}
+@media(min-width:980px){.sh2 .row{grid-template-columns:1.5fr 1fr .8fr 1fr .8fr}}
+.sh2 .cell{padding:20px 18px;border-left:1px solid #E6EAE6;display:flex;
+  flex-direction:column;gap:12px;justify-content:center;align-items:flex-start}
+.sh2 .cell:first-child{border-left:0}
+.sh2 .cl{font-family:var(--mono);font-size:8.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:#8A948D}
+.sh2 .cell.rev{background:#0F3227}
+.sh2 .cell.rev .cl{color:#7FA294}
+.sh2 .note{padding:13px 18px;border-top:1px solid #E6EAE6;font-size:13.5px;
+  color:#39473F;background:#FBFCFB}
+.fav{width:56px;height:56px;border-radius:12px;background:#fff;display:grid;
+  place-items:center;overflow:hidden;
+  box-shadow:0 1px 2px rgba(22,31,27,.14),0 6px 18px rgba(22,31,27,.12),
+    0 0 0 1px rgba(22,31,27,.06)}
+.fav.pine{background:#26604C}
+.hdr2{background:#F4F7F4;border:1px solid #DDE4DE;border-radius:8px;
+  padding:12px 15px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  width:100%}
+.hdr2 .sp{margin-left:auto}
+.hdr2 .lnk{font-family:'Inter',sans-serif;font-size:12px;color:#31403A}
+.hdr2 .cta{font-family:var(--disp);font-weight:800;font-size:12px;color:#fff;
+  background:#26604C;padding:6px 11px;border-radius:5px}
+.ftr2{background:#0F3227;border-radius:8px;padding:16px 18px;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;width:100%}
+.ftr2 .fl{font-family:'Inter',sans-serif;font-size:11.5px;color:#AEC6BB}
+.card2{background:#fff;border-radius:10px;padding:16px 18px;width:100%;
+  max-width:340px;box-shadow:0 1px 2px rgba(22,31,27,.06),
+    0 0 0 1px rgba(22,31,27,.06)}
+.card2 .t{font-family:var(--disp);font-weight:800;font-size:16px;
+  letter-spacing:-.02em;margin:12px 0 4px}
+.card2 .s{font-family:'Inter',sans-serif;font-size:12px;color:#5B665F;
+  margin:0 0 11px}
+.card2 .f{display:flex;gap:7px}
+.card2 .in{flex:1;border-radius:5px;padding:8px 10px;font-size:11.5px;
+  color:#5B665F;box-shadow:0 0 0 1px #DDE4DE;font-family:'Inter',sans-serif}
+.card2 .go{font-family:var(--disp);font-weight:800;font-size:11.5px;color:#fff;
+  background:#26604C;padding:8px 12px;border-radius:5px}
+.moves{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0
+  var(--ink);margin:14px 0}
+.moves .row{display:grid;grid-template-columns:100px 1fr;
+  border-top:1px solid var(--line)}
+.moves .row:first-child{border-top:0}
+.moves .n{background:var(--deep);color:var(--gold);font-family:var(--mono);
+  font-size:10.5px;display:grid;place-items:center;font-weight:600;
+  letter-spacing:.09em;padding:8px 4px;text-align:center}
+.moves .b{padding:11px 14px}
+.moves h4{font-size:15px;margin:0 0 3px}
+.moves p{font-size:13.5px;margin:0;color:#39473F}
+.note2{border-left:5px solid var(--gold);padding:2px 0 2px 16px;margin:16px 0}
+.note2 p{font-size:14.5px;margin:0 0 6px}
+code{font-family:var(--mono);font-size:12.5px;background:#fff;
+  border:1px solid var(--line);padding:1px 5px}
+</style></head><body><header class="mast"><div class="wrap"><span class="lab">Working document &middot; 13 August 2026</span><h1>Ten logos, all standing on something.</h1><p>The icons were the last document. This is the <b>logo</b> &mdash; the whole lockup, and the question of whether the wordmark can carry the support idea by itself rather than borrowing it from a symbol standing next to it. The good ones do, which means <b>no icon is needed at all</b>: one less asset, and a mark that cannot be separated from the name. Each is shown horizontal, stacked, at 13px, reversed, and cropped to a favicon.</p><div class="meta"><span class="chip">10 lockups</span><span class="chip">5 sizes each</span><span class="chip">Pure CSS and type</span><span class="chip">No image files</span></div></div></header><nav class="jump"><div class="wrap"><ul><li><a href="#idea">The idea</a></li><li><a href="#lockups">Ten lockups</a></li><li><a href="#applied">Applied</a></li><li><a href="#pick">Which one</a></li></ul></div></nav><div class="wrap"><section id="idea"><div class="kicker"><span class="n">01</span><h2>The idea, applied to type</h2></div><p class="lede">Same brief as the icons &mdash; support in the load-bearing sense &mdash; but the name has to do the work. Three ways type can carry weight, and all ten below are one of them.</p><div class="moves"><div class="row"><div class="n">SIT ON</div><div class="b"><h4>The name rests on a rule, a slab or a band</h4><p>The Rule, the Plinth, the Stack, the Ground, the Shelf. The supporting element runs the full width or wider, so the name is visibly carried rather than merely underlined.</p></div></div><div class="row"><div class="n">BE HELD</div><div class="b"><h4>Something grips the name from the sides</h4><p>The Bracket, the Column Rule. Weaker on brief, because holding from the side is a different physical idea from bearing weight &mdash; and the Column Rule is included to prove that.</p></div></div><div class="row"><div class="n">CARRY</div><div class="b"><h4>One part of the name holds the other</h4><p>The Weight and the Underline. The cleverest of the three, and the most fragile: both depend on a contrast that disappears at small sizes.</p></div></div><div class="row"><div class="n">THE RULE</div><div class="b"><h4>Gold is always the thing doing the supporting</h4><p>Carried over from the icon set. Ink is what is being held. It is what makes these a family rather than ten typographic ideas.</p></div></div></div><div class="note2"><p><b>None of these is an image file.</b> Every lockup below is the wordmark plus one or two CSS elements, sized in <code>em</code> so the whole thing scales from a single <code>font-size</code>. That means the header logo, the footer logo and the favicon are the same markup, and there is no export step and no second copy to drift &mdash; the same argument as the icons, and it applies harder here because a wordmark is the asset most often re-cut badly.</p></div></section><hr class="rule"><section id="lockups"><div class="kicker"><span class="n">02</span><h2>Ten lockups</h2></div><p class="lede">Each at every size it has to survive. The 13px column is where most logos are actually decided and where four of these fail.</p><div class="sh2 lg2"><div class="hd"><span class="no">01</span><h3>The Rule</h3><span class="idea">The name sits on a two-weight baseline that runs past it on both sides &mdash; ink over gold, the heavier line underneath.</span><span class="v win">Candidate</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-rule" style="font-size:21px"><span class="wm" style="font-size:21px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-rule" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-rule" style="font-size:13px"><span class="wm" style="font-size:13px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-rule" style="font-size:21px"><span class="wm" style="font-size:21px">T</span><div class="bar1"></div><div class="bar2"></div></span></div><div class="fav pine"><span class="L-rule" style="font-size:21px"><span class="wm" style="font-size:21px">T</span><div class="bar1"></div><div class="bar2"></div></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-rule" style="font-size:17px"><span class="wm" style="font-size:17px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-rule" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-rule" style="font-size:19px"><span class="wm" style="font-size:19px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">The purest expression of the brief and the only one that needs no icon at all. The doubled rule is the site&rsquo;s own marker underline, promoted from decoration to structure. Survives every size, including 13px, because the rule is the last thing to disappear.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">02</span><h3>The Plinth</h3><span class="idea">The name in a solid pine block, resting on a wider gold slab. A sign on a base.</span><span class="v win">Candidate</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-plinth" style="font-size:21px"><div class="blk"><span class="wm" style="font-size:21px">Therapist Support</span></div><div class="base"></div><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-plinth" style="font-size:15px"><div class="blk"><span class="wm" style="font-size:15px">Therapist Support</span></div><div class="base"></div><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-plinth" style="font-size:13px"><div class="blk"><span class="wm" style="font-size:13px">Therapist Support</span></div><div class="base"></div></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-plinth" style="font-size:21px"><div class="blk"><span class="wm" style="font-size:19px">T</span></div><div class="base"></div></span></div><div class="fav pine"><span class="L-plinth" style="font-size:21px"><div class="blk"><span class="wm" style="font-size:19px">T</span></div><div class="base"></div></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-plinth" style="font-size:17px"><div class="blk"><span class="wm" style="font-size:17px">Therapist Support</span></div><div class="base"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-plinth" style="font-size:15px"><div class="blk"><span class="wm" style="font-size:15px">Therapist Support</span></div><div class="base"></div></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-plinth" style="font-size:19px"><div class="blk"><span class="wm" style="font-size:19px">Therapist Support</span></div><div class="base"></div><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">The most confident at small sizes, because it is two solid shapes and the type is knocked out rather than drawn. Reads as a plaque, which is either exactly right for a reference site or slightly municipal, depending on the day.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">03</span><h3>The Bracket</h3><span class="idea">Two gold brackets holding the name between them, the way a shelf is held at both ends.</span><span class="v ">Possible</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-bracket" style="font-size:21px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:21px">Therapist Support</span><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span><span class="br"></span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-bracket" style="font-size:15px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:15px">Therapist Support</span><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="br"></span></span><span class="cl">13px, the killer</span><span class="L-bracket" style="font-size:13px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:13px">Therapist Support</span></span><span class="br"></span></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-bracket" style="font-size:21px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:21px">T</span></span><span class="br"></span></span></div><div class="fav pine"><span class="L-bracket" style="font-size:21px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:21px">T</span></span><span class="br"></span></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-bracket" style="font-size:17px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:17px">Therapist Support</span></span><span class="br"></span></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-bracket" style="font-size:15px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:15px">Therapist Support</span></span><span class="br"></span></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-bracket" style="font-size:19px"><span class="br"></span><span class="mid"><span class="wm" style="font-size:19px">Therapist Support</span><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span><span class="br"></span></span></div></div></div><div class="note">Elegant, and the brackets do read as structural. But bracketed type is a common editorial device and this loses its meaning at small sizes, where the brackets read as ordinary punctuation.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">04</span><h3>The Stack</h3><span class="idea">Two lines, the second wider than the first, on a rule. Load spreading downward, done with type.</span><span class="v win">Candidate</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-stack" style="font-size:21px"><span class="wm l1" style="font-size:21px">Therapist</span><span class="wm l2" style="font-size:21px">Support</span><div class="base"></div><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-stack" style="font-size:15px"><span class="wm l1" style="font-size:15px">Therapist</span><span class="wm l2" style="font-size:15px">Support</span><div class="base"></div><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-stack" style="font-size:13px"><span class="wm l1" style="font-size:13px">Therapist</span><span class="wm l2" style="font-size:13px">Support</span><div class="base"></div></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-stack" style="font-size:21px"><span class="wm l1" style="font-size:16px">T</span><span class="wm l2" style="font-size:16px">S</span><div class="base"></div></span></div><div class="fav pine"><span class="L-stack" style="font-size:21px"><span class="wm l1" style="font-size:16px">T</span><span class="wm l2" style="font-size:16px">S</span><div class="base"></div></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-stack" style="font-size:17px"><span class="wm l1" style="font-size:17px">Therapist</span><span class="wm l2" style="font-size:17px">Support</span><div class="base"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-stack" style="font-size:15px"><span class="wm l1" style="font-size:15px">Therapist</span><span class="wm l2" style="font-size:15px">Support</span><div class="base"></div></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-stack" style="font-size:19px"><span class="wm l1" style="font-size:19px">Therapist</span><span class="wm l2" style="font-size:19px">Support</span><div class="base"></div><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">The stacked lockup is the primary here rather than a secondary, which suits a footer and a share card better than a header. The widening is achieved with letter-spacing on the second line, so it needs no custom drawing.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">05</span><h3>The Underline</h3><span class="idea">One word underlined, and it is the word Support &mdash; the rule is under the thing it means.</span><span class="v win">Candidate</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-under" style="font-size:21px"><span class="wm" style="font-size:21px">Therapist <span class="u">Support</span></span><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-under" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist <span class="u">Support</span></span><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-under" style="font-size:13px"><span class="wm" style="font-size:13px">Therapist <span class="u">Support</span></span></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-under" style="font-size:21px"><span class="wm" style="font-size:22px"><span class="u">TS</span></span></span></div><div class="fav pine"><span class="L-under" style="font-size:21px"><span class="wm" style="font-size:22px"><span class="u">TS</span></span></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-under" style="font-size:17px"><span class="wm" style="font-size:17px">Therapist <span class="u">Support</span></span></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-under" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist <span class="u">Support</span></span></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-under" style="font-size:19px"><span class="wm" style="font-size:19px">Therapist <span class="u">Support</span></span><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">The wittiest of the ten and the easiest to explain in one sentence. The risk is that an underline on one word of a two-word name reads as a hyperlink, which is a real hazard on the web and worth testing before committing.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">06</span><h3>The Weight</h3><span class="idea">Therapist set light, Support set heavy, on a shared baseline. The second word is visibly carrying the first.</span><span class="v ">Possible</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-weight" style="font-size:21px"><span class="wm" style="font-size:21px"><span class="a">Therapist</span> <span class="b">Support</span></span><div class="base"></div><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-weight" style="font-size:15px"><span class="wm" style="font-size:15px"><span class="a">Therapist</span> <span class="b">Support</span></span><div class="base"></div><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-weight" style="font-size:13px"><span class="wm" style="font-size:13px"><span class="a">Therapist</span> <span class="b">Support</span></span><div class="base"></div></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-weight" style="font-size:21px"><span class="wm" style="font-size:20px"><span class="a">T</span><span class="b">S</span></span><div class="base"></div></span></div><div class="fav pine"><span class="L-weight" style="font-size:21px"><span class="wm" style="font-size:20px"><span class="a">T</span><span class="b">S</span></span><div class="base"></div></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-weight" style="font-size:17px"><span class="wm" style="font-size:17px"><span class="a">Therapist</span> <span class="b">Support</span></span><div class="base"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-weight" style="font-size:15px"><span class="wm" style="font-size:15px"><span class="a">Therapist</span> <span class="b">Support</span></span><div class="base"></div></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-weight" style="font-size:19px"><span class="wm" style="font-size:19px"><span class="a">Therapist</span> <span class="b">Support</span></span><div class="base"></div><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">Works at large sizes and is genuinely clever &mdash; the weight contrast IS the concept. Below about 16px the two weights converge and the whole idea evaporates, leaving an ordinary wordmark.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">07</span><h3>The Shelf</h3><span class="idea">The name sits on a gold shelf with a short return at each end, like a ledge with lips.</span><span class="v ">Possible</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-shelf" style="font-size:21px"><span class="wm" style="font-size:21px">Therapist Support</span><div class="sh"></div><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-shelf" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="sh"></div><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-shelf" style="font-size:13px"><span class="wm" style="font-size:13px">Therapist Support</span><div class="sh"></div></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-shelf" style="font-size:21px"><span class="wm" style="font-size:20px">TS</span><div class="sh"></div></span></div><div class="fav pine"><span class="L-shelf" style="font-size:21px"><span class="wm" style="font-size:20px">TS</span><div class="sh"></div></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-shelf" style="font-size:17px"><span class="wm" style="font-size:17px">Therapist Support</span><div class="sh"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-shelf" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="sh"></div></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-shelf" style="font-size:19px"><span class="wm" style="font-size:19px">Therapist Support</span><div class="sh"></div><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">The most literal and the most decorative. Fine at header size, and the returns become noise below 16px. Better as a share-card treatment than as the everyday lockup.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">08</span><h3>The Ground</h3><span class="idea">The lower third of the lockup is a solid gold band that the type sits into, overlapping it slightly &mdash; the name standing on ground rather than floating above it.</span><span class="v win">Candidate</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-ground" style="font-size:21px"><span class="band"></span><span class="txt wm" style="font-size:21px">Therapist Support</span><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-ground" style="font-size:15px"><span class="band"></span><span class="txt wm" style="font-size:15px">Therapist Support</span><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-ground" style="font-size:13px"><span class="band"></span><span class="txt wm" style="font-size:13px">Therapist Support</span></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-ground" style="font-size:21px"><span class="band"></span><span class="txt wm" style="font-size:21px">TS</span></span></div><div class="fav pine"><span class="L-ground" style="font-size:21px"><span class="band"></span><span class="txt wm" style="font-size:21px">TS</span></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-ground" style="font-size:17px"><span class="band"></span><span class="txt wm" style="font-size:17px">Therapist Support</span></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-ground" style="font-size:15px"><span class="band"></span><span class="txt wm" style="font-size:15px">Therapist Support</span></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-ground" style="font-size:19px"><span class="band"></span><span class="txt wm" style="font-size:19px">Therapist Support</span><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">The only one where the type and the supporting element actually touch, which is what makes it feel like weight rather than a line drawn nearby. Holds up reversed, which several others do not.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">09</span><h3>The Column Rule</h3><span class="idea">A vertical gold rule to the left, the name and its qualifier to the right. Support from the side rather than below.</span><span class="v no">Not on brief</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-col" style="font-size:21px"><span class="v"></span><span><span class="wm" style="font-size:21px">Therapist Support</span><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-col" style="font-size:15px"><span class="v"></span><span><span class="wm" style="font-size:15px">Therapist Support</span><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span></span><span class="cl">13px, the killer</span><span class="L-col" style="font-size:13px"><span class="v"></span><span><span class="wm" style="font-size:13px">Therapist Support</span></span></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-col" style="font-size:21px"><span class="v"></span><span><span class="wm" style="font-size:21px">TS</span></span></span></div><div class="fav pine"><span class="L-col" style="font-size:21px"><span class="v"></span><span><span class="wm" style="font-size:21px">TS</span></span></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-col" style="font-size:17px"><span class="v"></span><span><span class="wm" style="font-size:17px">Therapist Support</span></span></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-col" style="font-size:15px"><span class="v"></span><span><span class="wm" style="font-size:15px">Therapist Support</span></span></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-col" style="font-size:19px"><span class="v"></span><span><span class="wm" style="font-size:19px">Therapist Support</span><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></span></div></div></div><div class="note">Included as the control. It is a perfectly good lockup and it is not on brief &mdash; a left rule says pull-quote and sidebar, not weight. Useful proof that the brief is doing real work in the other nine.</div></div><div class="sh2 lg2"><div class="hd"><span class="no">10</span><h3>The Dotted Floor</h3><span class="idea">The name on a dotted rule, like a form line waiting to be filled in.</span><span class="v no">Not on brief</span></div><div class="row"><div class="cell"><span class="cl">Horizontal, header size</span><span class="L-dot" style="font-size:21px"><span class="wm" style="font-size:21px">Therapist Support</span><div class="dl"></div><span class="qual" style="font-size:8.82px;margin-top:.5em">California &middot; free</span></span></div><div class="cell"><span class="cl">Stacked</span><span class="L-dot" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="dl"></div><span class="qual" style="font-size:6.30px;margin-top:.5em">California &middot; free</span></span><span class="cl">13px, the killer</span><span class="L-dot" style="font-size:13px"><span class="wm" style="font-size:13px">Therapist Support</span><div class="dl"></div></span></div><div class="cell"><span class="cl">Favicon</span><div class="fav"><span class="L-dot" style="font-size:21px"><span class="wm" style="font-size:20px">TS</span><div class="dl"></div></span></div><div class="fav pine"><span class="L-dot" style="font-size:21px"><span class="wm" style="font-size:20px">TS</span><div class="dl"></div></span></div></div><div class="cell"><span class="cl">In a header</span><div class="hdr2"><span class="L-dot" style="font-size:17px"><span class="wm" style="font-size:17px">Therapist Support</span><div class="dl"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="lnk">Calculators</span><span class="cta">Open a calculator</span></div><span class="cl">Sign-up card</span><div class="card2"><span class="L-dot" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="dl"></div></span><p class="t">One email when a number moves.</p><p class="s">Six last year. Each one because a rule changed.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div><div class="cell rev"><span class="cl">Reversed, footer</span><div class="rev"><span class="L-dot" style="font-size:19px"><span class="wm" style="font-size:19px">Therapist Support</span><div class="dl"></div><span class="qual" style="font-size:7.98px;margin-top:.5em">California &middot; free</span></span></div></div></div><div class="note">Reads as a form field or a table of contents leader, and a dotted line is the visual language of something incomplete &mdash; the opposite of the stability the brief asks for. A useful wrong answer.</div></div></section><hr class="rule"><section id="applied"><div class="kicker"><span class="n">03</span><h2>The five candidates, applied</h2></div><p class="lede">Header, footer and sign-up card, which is every place the logo actually appears on this site.</p><div class="lg2"><div class="sh2" style="box-shadow:4px 4px 0 var(--ink)"><div class="hd"><h3>The Rule</h3></div><div class="row" style="grid-template-columns:1.3fr 1fr 1fr"><div class="cell"><span class="cl">Header</span><div class="hdr2"><span class="L-rule" style="font-size:18px"><span class="wm" style="font-size:18px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="cta">Open a calculator</span></div></div><div class="cell rev"><span class="cl">Footer</span><div class="ftr2 rev"><span class="L-rule" style="font-size:17px"><span class="wm" style="font-size:17px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div><span class="qual" style="font-size:7.14px;margin-top:.5em">California &middot; free</span></span><span class="sp"></span><span class="fl">California only &middot; nothing sold here</span></div></div><div class="cell"><span class="cl">Sign-up</span><div class="card2"><span class="L-rule" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist Support</span><div class="bar1"></div><div class="bar2"></div></span><p class="t">One email when a number moves.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div></div></div><div class="sh2" style="box-shadow:4px 4px 0 var(--ink)"><div class="hd"><h3>The Plinth</h3></div><div class="row" style="grid-template-columns:1.3fr 1fr 1fr"><div class="cell"><span class="cl">Header</span><div class="hdr2"><span class="L-plinth" style="font-size:18px"><div class="blk"><span class="wm" style="font-size:18px">Therapist Support</span></div><div class="base"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="cta">Open a calculator</span></div></div><div class="cell rev"><span class="cl">Footer</span><div class="ftr2 rev"><span class="L-plinth" style="font-size:17px"><div class="blk"><span class="wm" style="font-size:17px">Therapist Support</span></div><div class="base"></div><span class="qual" style="font-size:7.14px;margin-top:.5em">California &middot; free</span></span><span class="sp"></span><span class="fl">California only &middot; nothing sold here</span></div></div><div class="cell"><span class="cl">Sign-up</span><div class="card2"><span class="L-plinth" style="font-size:15px"><div class="blk"><span class="wm" style="font-size:15px">Therapist Support</span></div><div class="base"></div></span><p class="t">One email when a number moves.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div></div></div><div class="sh2" style="box-shadow:4px 4px 0 var(--ink)"><div class="hd"><h3>The Stack</h3></div><div class="row" style="grid-template-columns:1.3fr 1fr 1fr"><div class="cell"><span class="cl">Header</span><div class="hdr2"><span class="L-stack" style="font-size:18px"><span class="wm l1" style="font-size:18px">Therapist</span><span class="wm l2" style="font-size:18px">Support</span><div class="base"></div></span><span class="sp"></span><span class="lnk">The six paths</span><span class="cta">Open a calculator</span></div></div><div class="cell rev"><span class="cl">Footer</span><div class="ftr2 rev"><span class="L-stack" style="font-size:17px"><span class="wm l1" style="font-size:17px">Therapist</span><span class="wm l2" style="font-size:17px">Support</span><div class="base"></div><span class="qual" style="font-size:7.14px;margin-top:.5em">California &middot; free</span></span><span class="sp"></span><span class="fl">California only &middot; nothing sold here</span></div></div><div class="cell"><span class="cl">Sign-up</span><div class="card2"><span class="L-stack" style="font-size:15px"><span class="wm l1" style="font-size:15px">Therapist</span><span class="wm l2" style="font-size:15px">Support</span><div class="base"></div></span><p class="t">One email when a number moves.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div></div></div><div class="sh2" style="box-shadow:4px 4px 0 var(--ink)"><div class="hd"><h3>The Underline</h3></div><div class="row" style="grid-template-columns:1.3fr 1fr 1fr"><div class="cell"><span class="cl">Header</span><div class="hdr2"><span class="L-under" style="font-size:18px"><span class="wm" style="font-size:18px">Therapist <span class="u">Support</span></span></span><span class="sp"></span><span class="lnk">The six paths</span><span class="cta">Open a calculator</span></div></div><div class="cell rev"><span class="cl">Footer</span><div class="ftr2 rev"><span class="L-under" style="font-size:17px"><span class="wm" style="font-size:17px">Therapist <span class="u">Support</span></span><span class="qual" style="font-size:7.14px;margin-top:.5em">California &middot; free</span></span><span class="sp"></span><span class="fl">California only &middot; nothing sold here</span></div></div><div class="cell"><span class="cl">Sign-up</span><div class="card2"><span class="L-under" style="font-size:15px"><span class="wm" style="font-size:15px">Therapist <span class="u">Support</span></span></span><p class="t">One email when a number moves.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div></div></div><div class="sh2" style="box-shadow:4px 4px 0 var(--ink)"><div class="hd"><h3>The Ground</h3></div><div class="row" style="grid-template-columns:1.3fr 1fr 1fr"><div class="cell"><span class="cl">Header</span><div class="hdr2"><span class="L-ground" style="font-size:18px"><span class="band"></span><span class="txt wm" style="font-size:18px">Therapist Support</span></span><span class="sp"></span><span class="lnk">The six paths</span><span class="cta">Open a calculator</span></div></div><div class="cell rev"><span class="cl">Footer</span><div class="ftr2 rev"><span class="L-ground" style="font-size:17px"><span class="band"></span><span class="txt wm" style="font-size:17px">Therapist Support</span><span class="qual" style="font-size:7.14px;margin-top:.5em">California &middot; free</span></span><span class="sp"></span><span class="fl">California only &middot; nothing sold here</span></div></div><div class="cell"><span class="cl">Sign-up</span><div class="card2"><span class="L-ground" style="font-size:15px"><span class="band"></span><span class="txt wm" style="font-size:15px">Therapist Support</span></span><p class="t">One email when a number moves.</p><div class="f"><span class="in">you@example.com</span><span class="go">Subscribe</span></div></div></div></div></div></div></section><hr class="rule"><section id="pick"><div class="kicker"><span class="n">04</span><h2>Which one</h2></div><div class="note2"><p><b>The Rule.</b> The name over a two-weight baseline, ink above gold, running past the word on both sides. It is the only lockup here that needs no icon, no container and no color block &mdash; which means it works in an email signature, in plain text on a share card, and at 13px in a footer, all without being redrawn. It is also already the site&rsquo;s own gesture: the marker underline that has been decoration since the first page becomes the structural idea.</p><p><b>The Ground is the one to test it against.</b> It is the only lockup where the type and the supporting element actually overlap, so it reads as weight rather than as a line drawn nearby. It is stronger reversed than the Rule is, which matters because the footer is dark on every page.</p><p><b>And keep the Stack as the secondary.</b> A two-line lockup on a base, for the share card, the app icon and anywhere the horizontal one would have to be set too small to read.</p></div><div class="note2"><p><b>The one to be careful with.</b> The Underline is the wittiest of the ten &mdash; a rule under the word Support &mdash; and on the web an underline under one word reads as a link. That is testable in about ten minutes with five people and worth testing before it ships, because if it reads as a link it is not a charming logo, it is a broken one.</p><p><b>What is not on brief:</b> the Column Rule says pull-quote, and the Dotted Floor says form field &mdash; a dotted line is the visual language of something not yet filled in, which is the opposite of the stability being asked for. Both are here as controls, and their failure is evidence the brief is doing real work in the other eight.</p></div></section></div><footer><div class="wrap"><p style="margin:0">Working document, not linked from the site and not indexable. Every lockup is CSS and live type &mdash; there are no image files, and each scales from one font-size. Written 13 August 2026.</p></div></footer></body></html>
