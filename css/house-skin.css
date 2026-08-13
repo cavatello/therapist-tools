@@ -127,11 +127,22 @@ body.house .bcr, body.house .bcr a, body.house .bcr span{
   text-transform:uppercase; color:var(--hs-dim);
 }
 body.house .bcr a:hover{color:var(--pine)}
-/* on dark grounds the breadcrumb is light - the dim gray above is for paper */
-body.house :is(section.hero,.pk-hero,.artband,.scband,.clband,.clhero,.dc-hero,.adv .band) :is(.bcr,.bcr a,.bcr span,.bcr li){
-  color:#9DB8AA !important}
-body.house :is(section.hero,.pk-hero,.artband,.scband,.clband,.clhero,.dc-hero,.adv .band) .bcr [aria-current]{
-  color:var(--gold) !important}
+/* breadcrumbs ADAPT: inherit the band's own text colour (light on dark,
+   ink on paper) at reduced opacity - no container list to fall behind */
+body.house .bcr, body.house .bcr a, body.house .bcr span, body.house .bcr li{
+  color:inherit !important; opacity:.72; background:none !important}
+body.house .bcr a:hover{opacity:1; color:inherit !important}
+body.house .bcr [aria-current]{opacity:1; color:var(--gold) !important}
+/* on paper the inherit resolves to ink; keep the mono sizing from above */
+
+/* newsletter issue keys were gold-on-white; they are pine mono now */
+body.house .issue-row b{color:var(--pine) !important;
+  font-family:var(--hs-mn); letter-spacing:.02em}
+
+/* nav-panel hub card is a deep card with light type, as designed */
+body.house .np-promo{background:var(--deep) !important; color:#CFE0D6 !important}
+body.house .np-promo b, body.house .np-promo h4{color:#FFFFFF !important}
+body.house .np-promo span{color:#B9CFC2 !important}
 body.house .tsshort{
   background:var(--hs-card); border:1px solid var(--line);
   border-left:4px solid var(--gold); border-radius:8px;
