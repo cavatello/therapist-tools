@@ -174,3 +174,26 @@ do not jump the line.
    cycle" framing instead. AHLRP ($16k) and LMHSPEP ($15k) are closed cycles.
    Builder edits (build_forgiveness.py / build_mbhslrp.py), every figure
    verified against HCAI's own pages first.
+
+## PIPELINE HARDENED — full build green (13 Aug 2026, second pass)
+
+`python3 _dev/ship.py` runs 86/86 clean end-to-end with the redesign, verified
+on a mirror copy first, then run and pushed live (`268cece8`). Five landmines
+found by the mirror run and fixed:
+
+1. restyle.py demanded the old `.lp` block on index — now skips when the
+   option-A home is present.
+2. The approved option-A copy claimed "Nothing sold" — false since affiliate
+   links exist; affiliate.py rightly failed the build. build_home.py now
+   writes the narrowed, true claim.
+3. token_floor.py and 4. css_cdo_fix.py hash-name guards assumed every css/
+   file is extract_css output — both now skip named sheets (house.css,
+   house-skin.css), same as css_dedupe's orphan sweep.
+5. house_swap.py now RE-POSITIONS the skin link last on every run — a full
+   build hoists new style blocks into links after it, which broke the
+   order-wins contract on 132 pages until fixed.
+
+Also: build_home.py is wired into ship.py BUILD; home_doorway.py and
+stage_router.py detect the new home and skip their landing halves
+(stage_router's resources.html half still runs in full). The next session can
+run a full build with no manual follow-ups.
