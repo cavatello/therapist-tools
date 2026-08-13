@@ -1887,6 +1887,25 @@
    }
   },
   {
+   "file": "practicum-sites-bay-area.html",
+   "title": "Bay Area practicum sites: where an MFT trainee can be placed",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Where can a Bay Area trainee actually do practicum hours?",
+   "outcome": "Every trainee-eligible setting the public files can name, across nine counties, with the statutory rules that define the list",
+   "number": "5 program clinics, 9 county plans",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "student"
+   ],
+   "stage_note": {
+    "student": "The Bay Area settings the code lets you be placed in &mdash; and the site-agreement question to ask your program before contacting any of them."
+   }
+  },
+  {
    "file": "privacy.html",
    "title": "Privacy Policy — Therapist Support",
    "topic": "practice",
@@ -2745,7 +2764,8 @@
     {
      "name": "The practicum, and the year before you register",
      "files": [
-      "practicum-california-mft-trainee.html"
+      "practicum-california-mft-trainee.html",
+      "practicum-sites-bay-area.html"
      ]
     },
     {
