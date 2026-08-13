@@ -31,7 +31,7 @@ USAGE
 Runs anywhere in the pipeline after the page exists; ship.py should carry it
 late, after the css chain, so a rebuilt page is re-converted.
 """
-import os, re, sys
+import hashlib, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
@@ -53,7 +53,15 @@ EXCLUDE = {"tycoon.html", "rates.html"}
 
 BODY = re.compile(r"<body([^>]*)>")
 SKIN = re.compile(
-    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-skin\.css">\n?')
+    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-skin\.css'
+    r'(?:\?v=[0-9a-f]+)?">\n?')
+
+
+def skin_v():
+    """Content hash of the skin, so a changed sheet busts the browser cache
+    the moment the page is fetched instead of after Pages' max-age."""
+    p = os.path.join(SITE, "css", "house-skin.css")
+    return hashlib.sha1(open(p, "rb").read()).hexdigest()[:8]
 
 
 def pages_all():
@@ -103,7 +111,8 @@ def convert(rel, revert=False):
         # contract is that it wins every equal-specificity tie by order.
         s = SKIN.sub("", s)
         up = "../" * rel.count("/")
-        link = '<link rel="stylesheet" href="%scss/house-skin.css">\n' % up
+        link = ('<link rel="stylesheet" href="%scss/house-skin.css?v=%s">\n'
+                % (up, skin_v()))
         i = s.rfind("</body>")
         if i < 0:
             return "no </body>"
