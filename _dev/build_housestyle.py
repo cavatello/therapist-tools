@@ -31,7 +31,7 @@ one wholesale is costume.
 THE FOUR BORROWED MOVES, AND THE RULE ON EACH
 
   BASECAMP   Restraint is the default. Tinted paper, never pure white. Small
-             type by marketing standards - 16.5px body - because these pages
+             type by marketing standards - 17.5px body - because these pages
              are 6,000 words with tables in them. One accent. Flat fills.
   FIZZY      Six hues, one per path, used as a chip and a left rule and
              nothing else. Never as a background, never as body text.
@@ -971,10 +971,14 @@ def build():
     for src, h, p in [
         ("Basecamp", "Restraint is the default",
          "Tinted paper and never pure white. One accent. Flat fills with a "
-         "hairline ring and a soft shadow rather than borders. And small type "
-         "by marketing standards &mdash; <b>16.5px body</b>, because these "
-         "pages run six thousand words with tables in them, not four hundred "
-         "words with a screenshot."),
+         "hairline ring and a soft shadow rather than borders. The headline "
+         "carries the volume &mdash; <b>68px at 800</b>, tracked in to "
+         "&minus;0.038em, which is where Basecamp&rsquo;s presence actually "
+         "comes from. The body does not follow it up: <b>17.5px body</b>, "
+         "because these pages run six thousand words with tables in them, "
+         "not four hundred words with a screenshot. <b>Loud headline, "
+         "readable body</b> is the whole trick, and inflating both is how "
+         "sites end up shouting."),
         ("Fizzy", "Six hues, one per path",
          "Used as a 10px chip and a 4px left rule. <b>Never as a background, "
          "never as body text, never on a button.</b> The job is that a reader "
