@@ -200,7 +200,8 @@ def main():
             bad += 1
     if bad or nohead:
         sys.exit("\n%d problem(s) - do not let this publish" % (bad + len(nohead)))
-    print("guards clean - %d page(s) on %s + Ahrefs %s"\n          % (len(pages()), ID, AHREFS_KEY))
+    print("guards clean - %d page(s) on %s + Ahrefs %s"
+          % (len(pages()), ID, AHREFS_KEY))
 
 
 if __name__ == "__main__":
