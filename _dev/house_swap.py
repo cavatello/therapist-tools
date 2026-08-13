@@ -98,13 +98,16 @@ def convert(rel, revert=False):
             else:
                 na = attrs + ' class="house"'
             s = s[:m.start()] + "<body%s>" % na + s[m.end():]
-        if not SKIN.search(s):
-            up = "../" * rel.count("/")
-            link = '<link rel="stylesheet" href="%scss/house-skin.css">\n' % up
-            i = s.rfind("</body>")
-            if i < 0:
-                return "no </body>"
-            s = s[:i] + link + s[i:]
+        # Always (re)position the link LAST - a full pipeline run hoists new
+        # style blocks into links after this one, and the skin's whole
+        # contract is that it wins every equal-specificity tie by order.
+        s = SKIN.sub("", s)
+        up = "../" * rel.count("/")
+        link = '<link rel="stylesheet" href="%scss/house-skin.css">\n' % up
+        i = s.rfind("</body>")
+        if i < 0:
+            return "no </body>"
+        s = s[:i] + link + s[i:]
 
     if s == orig:
         return "already"
