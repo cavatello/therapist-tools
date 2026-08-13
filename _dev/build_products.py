@@ -228,16 +228,16 @@ EXTRA = """
 .lab-yellow{background:#F29100}.lab-pink{background:#F467C7}
 
 /* ------------------------------------------------------- shared pieces -- */
-.mk .bar{display:flex;align-items:center;gap:20px;padding:15px var(--pad);
+.mk .nb{display:flex;align-items:center;gap:20px;padding:15px var(--pad);
   flex-wrap:wrap}
-.s-bc .bar{border-bottom:1px solid #E1E7E2}
-.s-hey .bar{border-bottom:1px solid #EDEAE6}
-.s-cf .bar{border-bottom:2px solid #0028DA;max-width:none}
-.s-fz .bar{border-bottom:1px solid #E3E5E6}
-.mk .bar .sp{margin-left:auto}
-.mk .bar a{font-size:14.5px}
-.s-bc .bar a{color:#29353C}.s-fz .bar a{color:#17233C}
-.s-hey .bar a{color:#231C33;font-weight:600}
+.s-bc .nb{border-bottom:1px solid #E1E7E2}
+.s-hey .nb{border-bottom:1px solid #EDEAE6}
+.s-cf .nb{border-bottom:2px solid #0028DA;max-width:none}
+.s-fz .nb{border-bottom:1px solid #E3E5E6}
+.mk .nb .sp{margin-left:auto}
+.mk .nb a{font-size:14.5px}
+.s-bc .nb a{color:#29353C}.s-fz .nb a{color:#17233C}
+.s-hey .nb a{color:#231C33;font-weight:600}
 .rows{margin-top:4px}
 .rows a{display:grid;grid-template-columns:34px 1fr auto;gap:14px;
   align-items:baseline;padding:15px 0}
@@ -382,7 +382,7 @@ def logo(skin):
 
 def bar(skin, on=None):
     links = ["The six paths", "Calculators", "Library", "About"]
-    o = ['<div class="bar%s">%s<span class="sp"></span>'
+    o = ['<div class="nb%s">%s<span class="sp"></span>'
          % (" navbar" if skin == "fz" else "", logo(skin))]
     for l in links:
         w = ' style="font-weight:700"' if l == on else ""
@@ -947,6 +947,13 @@ def main():
         print("GUARD: %d mockups, expected %d - five surfaces per identity"
               % (n, len(SKINS) * 5))
         bad += 1
+    # `.bar` belongs to the browser-chrome wrapper in the inherited ops
+    # stylesheet and paints a dark ink background. A skin navigation using
+    # the same class rendered as dark-on-dark and was invisible.
+    if re.search(r'<div class="mk s-[a-z]+"><div class="bar', html):
+        print("GUARD: a skin navigation is using the chrome's .bar class")
+        bad += 1
+
     for key, name, _h, _w, _s, _t in SKINS:
         if 's-%s"' % key not in html:
             print("GUARD: the %s skin is never drawn" % name)
