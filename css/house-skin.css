@@ -157,6 +157,14 @@ body.house .ftnl h2 em{color:var(--gold) !important; font-style:normal}
 body.house .ftnl p{color:#B9CFC2 !important}
 body.house .ftnl .nlmeta{color:#8FAF9F !important}
 body.house .ftnl .consent span{color:#B9CFC2 !important}
+/* every piece of text in the dark band is light - wholesale, because the
+   band's children keep growing new shapes */
+body.house .ftnl label, body.house .ftnl span, body.house .ftnl small,
+body.house .ftnl div, body.house .ftnl li{color:#B9CFC2 !important}
+body.house .ftnl input, body.house .ftnl button, body.house .ftnl h2{
+  color:inherit}
+body.house .ftnl input[type="email"]{color:var(--ink) !important}
+body.house .ftnl button{color:#fff !important}
 body.house .nlform input[type="email"]{
   background:#FFFFFF; border:1px solid var(--line); border-radius:8px;
   color:var(--ink);
