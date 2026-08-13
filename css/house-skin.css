@@ -1,0 +1,197 @@
+/* ===================================================================== */
+/*  therapistsupport.org — the house skin. Rollout steps 2–3.            */
+/*  Loads LAST, and every rule is gated on body.house, so the cascade    */
+/*  is deterministic: unconverted pages are untouched, converted pages   */
+/*  read bc2 tokens (css/house.css is the source of those values).       */
+/*  The old family sheets keep doing LAYOUT; this sheet re-maps their    */
+/*  custom properties to the bc2 palette and restyles the shared chrome. */
+/*  Old sheets retire per-family at rollout step 5 when markup converts. */
+/* ===================================================================== */
+
+/* --- 1 · tokens: override the old :root palette for everything inside  */
+body.house{
+  --pine:#26604C; --deep:#0F3227; --carbon:#161F1B;
+  --gold:#FFD976; --pop:#FFD976; --amber:#E7F0EA;
+  --ink:#161F1B; --muted:#5B665F; --line:#DDE4DE;
+  --paper:#F4F7F4; --cream:#FFFFFF;
+  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5B665F;
+  --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --hs-body:'Inter',system-ui,sans-serif;
+  --hs-figs:'Fraunces',Georgia,serif;
+  --hs-mn:'IBM Plex Mono',ui-monospace,monospace;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--hs-body); letter-spacing:-.011em;
+}
+/* the family sub-scopes define their own copies — re-map those too */
+body.house .px, body.house .lib, body.house .sc{
+  --pine:#26604C; --amber:#FFD976; --ink:#161F1B; --line:#DDE4DE;
+  --mut:#5B665F;
+}
+body.house .adv, body.house main.adv{
+  --paper:#F4F7F4; --white:#FFFFFF; --ink:#161F1B; --muted:#5B665F;
+  --line:#DDE4DE;
+}
+body.house ::selection{background:var(--gold); color:var(--ink)}
+body.house :focus-visible{outline:2px solid var(--pine); outline-offset:2px}
+
+/* --- 2 · type: the display face on every heading ---------------------- */
+body.house h1, body.house h2, body.house h3, body.house h4{
+  font-family:var(--hs-disp); font-weight:800; letter-spacing:-.026em;
+  color:var(--ink);
+}
+body.house h1{letter-spacing:-.03em}
+/* figures set in Fraunces — the numeric classes each family exposes */
+body.house .pk-figs .n, body.house .lhdval b, body.house .lfig>b,
+body.house .fact b, body.house .lhdr b{
+  font-family:var(--hs-figs); font-weight:700; letter-spacing:-.01em;
+}
+/* mono eyebrows — the small-caps labels every family carries */
+body.house .hk, body.house .lkick>*:first-child, body.house .tsk,
+body.house .uk, body.house .tck, body.house .grouplab, body.house .lkind{
+  font-family:var(--hs-mn); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--hs-dim);
+}
+
+/* --- 3 · masthead + The Rule lockup ----------------------------------- */
+body.house .sitenav{
+  background:var(--hs-card); border-bottom:1px solid var(--line);
+  box-shadow:none;
+}
+body.house .sitenav-fig{display:none}
+body.house .sitenav-mark{
+  position:relative; display:inline-flex; padding:2px 12px 10px;
+  text-decoration:none;
+}
+/* the two-weight baseline: ink above gold, running past the word */
+body.house .sitenav-mark::before, body.house .sitenav-mark::after{
+  content:""; position:absolute; left:0; right:0; pointer-events:none;
+}
+body.house .sitenav-mark::before{bottom:6px; height:2px; background:var(--ink)}
+body.house .sitenav-mark::after{bottom:0; height:4px; background:var(--gold)}
+body.house .sitenav-wordmark{
+  font-family:var(--hs-disp); font-weight:800; font-size:19px;
+  letter-spacing:-.02em; color:var(--ink); line-height:1.1;
+}
+body.house .sitenav-sub{
+  font-family:var(--hs-mn); font-weight:500; font-size:8.5px;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--hs-dim);
+}
+body.house .sitenav-top{
+  font-family:var(--hs-body); font-weight:600; color:var(--ink);
+  border-radius:6px;
+}
+body.house .sitenav-top:hover, body.house .sitenav-top[aria-expanded="true"]{
+  background:var(--hs-sink); color:var(--ink);
+}
+body.house .sitenav-cta{
+  background:var(--pine); color:#fff; font-family:var(--hs-disp);
+  font-weight:800; border-radius:8px; border:0;
+}
+body.house .sitenav-cta:hover{background:#1A4739}
+
+/* --- 4 · nav panel ---------------------------------------------------- */
+body.house .navpanel{
+  background:var(--hs-card); border:1px solid var(--line);
+  border-radius:10px; box-shadow:0 18px 44px rgba(15,50,39,.14);
+}
+body.house .navpanel h5{
+  font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--hs-dim);
+}
+body.house .navpanel a{color:var(--ink); border-radius:8px}
+body.house .navpanel a:hover{background:var(--hs-sink)}
+body.house .navpanel a b{font-weight:600}
+body.house .navpanel a i{color:var(--hs-dim); font-style:normal}
+body.house .np-promo{background:var(--hs-wash); border-radius:8px}
+
+/* --- 5 · buttons ------------------------------------------------------ */
+body.house .lcta, body.house .tcgo, body.house .ctarow .btn,
+body.house .nlrow button, body.house .aherocta a:first-child{
+  background:var(--pine); color:#fff; font-family:var(--hs-disp);
+  font-weight:800; border-radius:8px; border:0;
+  box-shadow:0 1px 0 rgba(15,50,39,.25);
+}
+body.house .lcta:hover, body.house .tcgo:hover, body.house .ctarow .btn:hover,
+body.house .nlrow button:hover{background:#1A4739}
+body.house .lghost, body.house .ctarow .btn.ghost{
+  background:transparent; color:var(--pine); border:1.5px solid var(--pine);
+  border-radius:8px; font-weight:700; box-shadow:none;
+}
+
+/* --- 6 · breadcrumbs, badges, In-short, provenance -------------------- */
+body.house .bcr, body.house .bcr a, body.house .bcr span{
+  font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--hs-dim);
+}
+body.house .bcr a:hover{color:var(--pine)}
+body.house .tsshort{
+  background:var(--hs-card); border:1px solid var(--line);
+  border-left:4px solid var(--gold); border-radius:8px;
+}
+body.house .tsshort q{font-family:var(--hs-disp); font-weight:700; color:var(--ink)}
+body.house .tsbadge{
+  font-family:var(--hs-mn); letter-spacing:.08em; text-transform:uppercase;
+  border-radius:5px;
+}
+body.house .tsfoot .tswhat{color:var(--hs-dim)}
+
+/* --- 7 · uplink / More-on-this ---------------------------------------- */
+body.house .uplink{background:var(--hs-sink)}
+body.house .uplink .uc{
+  background:var(--hs-card); border:1px solid var(--line); border-radius:10px;
+}
+body.house .uplink .uc:hover{border-color:var(--pine)}
+body.house .uplink .uc b{font-weight:600; color:var(--ink)}
+body.house .uplink .uall{color:var(--pine); font-weight:700}
+
+/* --- 8 · signup band -------------------------------------------------- */
+body.house .ftnl{background:var(--hs-wash); border-top:1px solid var(--line)}
+body.house .ftnl h2{color:var(--ink)}
+body.house .ftnl p{color:var(--hs-dim)}
+body.house .nlform input[type="email"]{
+  background:var(--hs-card); border:1px solid var(--line); border-radius:8px;
+  color:var(--ink);
+}
+body.house .nlform input[type="email"]:focus{border-color:var(--pine)}
+body.house .nlmeta, body.house .consent span{color:var(--hs-dim)}
+
+/* --- 9 · footer ------------------------------------------------------- */
+body.house .sitefoot{background:var(--deep); color:#CFE0D6}
+body.house .sitefoot h5{
+  font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#79A08F;
+}
+body.house .sitefoot a{color:#E9F2EC}
+body.house .sitefoot a:hover{color:var(--gold)}
+body.house .sitefoot .ftby, body.house .sitefoot p{color:#9DB8AA}
+body.house .sitefoot .ftby a{color:#CFE0D6; text-decoration:underline}
+
+/* --- 10 · tables ------------------------------------------------------ */
+body.house .pk-t{background:var(--hs-card); border:1px solid var(--line)}
+body.house .pk-t th{
+  font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--hs-dim);
+  border-bottom:2px solid var(--ink); background:var(--hs-card);
+}
+body.house .pk-t td{border-color:var(--line)}
+body.house .pk-t code{
+  font-family:var(--hs-mn); background:var(--hs-sink);
+  border:1px solid var(--line); border-radius:4px;
+}
+
+/* --- 11 · cards and form fields --------------------------------------- */
+body.house .shelf .card, body.house .cards .card{
+  background:var(--hs-card); border:1px solid var(--line); border-radius:10px;
+}
+body.house .shelf .card:hover, body.house .cards .card:hover{
+  border-color:var(--pine);
+}
+body.house .shelf .card .t{font-weight:600; color:var(--ink)}
+body.house .shelf .card .n{color:var(--hs-dim)}
+body.house label.f input, body.house .lg-in input{
+  background:var(--hs-card); border:1px solid var(--line); border-radius:6px;
+  color:var(--ink); font-family:var(--hs-figs);
+}
+body.house label.f input:focus, body.house .lg-in input:focus{
+  border-color:var(--pine);
+}
