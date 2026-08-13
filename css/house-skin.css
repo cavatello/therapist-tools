@@ -261,8 +261,9 @@ body.house .dc-figs>div{background:var(--hs-card) !important}
 
 /* simulator + slab family - flatten every gradient to a bc2 ground.
    The tool pages' hero is a bare <section class="hero"> (no wrapper). */
-body.house section.hero, body.house .adv .band, body.house .adv .hero{
-  background:var(--deep) !important}
+body.house section.hero, body.house .adv .band, body.house .adv .hero,
+body.house .clband, body.house .clhero{
+  background:var(--deep) !important; background-image:none !important}
 body.house section.hero h1{color:#FFFFFF !important}
 body.house section.hero h1 em{color:var(--gold) !important}
 /* the tool sections were coloured slabs - four dark blocks on one page,
