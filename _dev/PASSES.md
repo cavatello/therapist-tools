@@ -25,6 +25,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 |---|---|---|---|
 | `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
+| `build_baysites.py` | build | &mdash; | P3, page one: where a Bay Area MFT trainee can actually be placed. |
 | `build_careerchange.py` | build | &mdash; | Becoming a therapist in California, for somebody arriving from another job. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
@@ -195,6 +196,8 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `hrsa_stats.py` | **untriaged** | &mdash; | Counts derived from HRSA bulk downloads. WRITTEN BY _dev/hrsa_sites.py. |
 | `hub_assocpay_link.py` | **untriaged** | &mdash; | RETIRED on 10 August 2026 - the hubs are generated from registry.json now. |
 | `ipeds_degrees.py` | **untriaged** | &mdash; | How many people a year California graduates into the therapy pipeline. |
+| `nonprofit_data.py` | **untriaged** | &mdash; | California NTEE-F exempt organizations. WRITTEN BY _dev/nonprofits.py. |
+| `nonprofits.py` | **untriaged** | &mdash; | California nonprofit mental-health organizations, from the IRS master file. |
 | `ops_state.py` | **untriaged** | &mdash; | The parts of the status board only a person knows. Edit this, not the HTML. |
 | `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |

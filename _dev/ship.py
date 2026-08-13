@@ -96,6 +96,10 @@ BUILD = [
     ("_dev/build_safetynet.py",
      "the 218 California health center organizations by name, with links "
      "that were checked before publication"),
+    ("_dev/build_baysites.py",
+     "P3 page one - the Bay Area practicum-sites directory: five program "
+     "clinics, nine county plans, the health centers and the nonprofit "
+     "clinical agencies, availability language banned by guard"),
     # The one program of the four that reaches an associate, explained in
     # full - including the 32-direct-hour obligation and the tax question
     # HCAI does not answer.

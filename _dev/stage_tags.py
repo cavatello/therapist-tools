@@ -106,6 +106,10 @@ TAGS = {
     "therapists-by-county-california.html": {
         "associate": "How many associates are competing for a supervisor in "
                      "your county, from the state register."},
+    "practicum-sites-bay-area.html": {
+        "student": "The Bay Area settings the code lets you be placed in "
+                   "&mdash; and the site-agreement question to ask your "
+                   "program before contacting any of them."},
     "practicum-california-mft-trainee.html": {
         "associate": "What of your pre-degree hours the Board still counts, "
                      "and the 90-day rule if you are newly graduated.",

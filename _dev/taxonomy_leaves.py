@@ -70,7 +70,8 @@ NEW_CLUSTERS = [
     ("licensure", "Doors by stage",
      ["for/associates.html"]),
     ("licensure", "The practicum, and the year before you register",
-     ["practicum-california-mft-trainee.html"]),
+     ["practicum-california-mft-trainee.html",
+      "practicum-sites-bay-area.html"]),
     # The career-change page is the front door to the whole licensure topic,
     # so it belongs with the route rather than in a cluster of its own. Named
     # here in full because this list replaces a cluster's files rather than
