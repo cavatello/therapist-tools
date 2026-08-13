@@ -204,3 +204,22 @@ body.house label.f input, body.house .lg-in input{
 body.house label.f input:focus, body.house .lg-in input:focus{
   border-color:var(--pine);
 }
+
+/* --- 12 · home page (rollout step 4). The rebuilt main.home is bc2      */
+/*     markup, but the retained chrome sheets carry unscoped .band/.amt   */
+/*     rules (hub_hero et al) that leak in - the audit's known collision. */
+/*     These pin the bc2 grounds back. Retire with the old sheets, step 5.*/
+body.house main.home .band{background:var(--paper) !important; color:var(--ink)}
+body.house main.home .band.sunk{background:var(--hs-sink) !important}
+body.house main.home .band .lede{color:var(--hs-dim) !important}
+body.house main.home .band .fine{color:var(--hs-dim) !important}
+body.house main.home .toc, body.house main.home .toc a{
+  color:var(--ink) !important}
+body.house main.home .slab{
+  background:var(--deep) !important; color:#E9F2EC !important}
+body.house main.home .slab h2{color:#FFFFFF !important}
+body.house main.home .slab p{color:#B9CFC2 !important}
+body.house main.home .slab .eb{color:#79A08F !important}
+body.house main.home .wf .amt{color:var(--ink) !important;
+  font-family:var(--hs-figs)}
+body.house main.home .wf .row.net .amt{color:var(--pine) !important}
