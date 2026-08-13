@@ -1,0 +1,416 @@
+[
+ {
+  "key": "a_app_00",
+  "title": "This Week \u2014 the home screen",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 752
+ },
+ {
+  "key": "a_app_01",
+  "title": "Sunday \u2014 the week arrives already written",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 808
+ },
+ {
+  "key": "a_app_02",
+  "title": "The Gates \u2014 nine requirements, four permanently met",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 752
+ },
+ {
+  "key": "a_app_03",
+  "title": "Catch Up \u2014 eleven seconds after connecting a calendar",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 878
+ },
+ {
+  "key": "a_app_04",
+  "title": "Countersign \u2014 what the supervisor sees",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 965
+ },
+ {
+  "key": "a_app_05",
+  "title": "Dana Reyes asked you to countersign week 71.",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 670
+ },
+ {
+  "key": "a_app_06",
+  "title": "The marketing site \u2014 what a stranger lands on",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 922
+ },
+ {
+  "key": "a_app_07",
+  "title": "Connect a calendar \u2014 the only question we ask",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 837
+ },
+ {
+  "key": "a_app_08",
+  "title": "Your calendar, with the derivation drawn on it",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 924
+ },
+ {
+  "key": "a_app_09",
+  "title": "What we keep \u2014 the boundary, in the product",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 835
+ },
+ {
+  "key": "a_app_10",
+  "title": "The same home screen, in the other two directions",
+  "group": "App screens",
+  "direction": "A",
+  "note": "Direction A \u2014 warm palette, denser surface",
+  "w": 1372,
+  "h": 770
+ },
+ {
+  "key": "a_mkt_00",
+  "title": "Get to your licence without losing a single week.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1132
+ },
+ {
+  "key": "a_mkt_01",
+  "title": "3,000 hours. Six years. And a form you fill in from memory.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 692
+ },
+ {
+  "key": "a_mkt_02",
+  "title": "Two tools. One calendar. One price.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1114
+ },
+ {
+  "key": "a_mkt_03",
+  "title": "Where are you right now?",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 715
+ },
+ {
+  "key": "a_mkt_04",
+  "title": "Sunday night is the whole product.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1035
+ },
+ {
+  "key": "a_mkt_05",
+  "title": "Four ways in. Pick whichever hurts least.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2600
+ },
+ {
+  "key": "a_mkt_06",
+  "title": "Connect a calendar. Get sixty-eight weeks back.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2417
+ },
+ {
+  "key": "a_mkt_07",
+  "title": "Works with your EHR. Without asking your EHR.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2600
+ },
+ {
+  "key": "a_mkt_08",
+  "title": "Three tracks. Three different rulebooks.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2600
+ },
+ {
+  "key": "a_mkt_09",
+  "title": "Show when you're free. Let them ask. Nothing moves without you",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2600
+ },
+ {
+  "key": "a_mkt_10",
+  "title": "Your supervisor signs in forty seconds. Without making an acco",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2600
+ },
+ {
+  "key": "a_mkt_11",
+  "title": "Am I okay? Answered before you have to work it out.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1430
+ },
+ {
+  "key": "a_mkt_12",
+  "title": "Six years has more deadlines in it than anyone tells you.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1275
+ },
+ {
+  "key": "a_mkt_13",
+  "title": "Five things no one else in this category does.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1770
+ },
+ {
+  "key": "a_mkt_14",
+  "title": "Things we won't build.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1024
+ },
+ {
+  "key": "a_mkt_15",
+  "title": "Section 16",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 375
+ },
+ {
+  "key": "a_mkt_16",
+  "title": "The questions we actually get.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 1149
+ },
+ {
+  "key": "a_mkt_17",
+  "title": "One price. Free before you're registered.",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 2600
+ },
+ {
+  "key": "a_mkt_18",
+  "title": "It takes about four minutes to find out where you actually sta",
+  "group": "Marketing site",
+  "direction": "A",
+  "note": "Direction A \u2014 the current site, 19 sections",
+  "w": 1440,
+  "h": 505
+ },
+ {
+  "key": "b_00",
+  "title": "Name everything. Plainly, and on purpose.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 1418
+ },
+ {
+  "key": "b_01",
+  "title": "One screen. One question. Answered before you ask it.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 1036
+ },
+ {
+  "key": "b_02",
+  "title": "The week arrives already written. You just say yes.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 933
+ },
+ {
+  "key": "b_03",
+  "title": "The supervisor never makes an account. Ever.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 767
+ },
+ {
+  "key": "b_04",
+  "title": "One number. No tiers, no \"contact us\", no annual-only trick.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 1258
+ },
+ {
+  "key": "b_05",
+  "title": "Take a position. It's the cheapest marketing there is.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 1218
+ },
+ {
+  "key": "b_06",
+  "title": "Copy their discipline. Leave their swagger.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 930
+ },
+ {
+  "key": "b_07",
+  "title": "This isn't better. It's a different bet.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 644
+ },
+ {
+  "key": "b_08",
+  "title": "Few colours, big type, almost no borders.",
+  "group": "Direction B",
+  "direction": "B",
+  "note": "Direction B \u2014 cool palette, radical subtraction",
+  "w": 944,
+  "h": 837
+ },
+ {
+  "key": "x_00",
+  "title": "Home \u2014 the screen someone opens most",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 988
+ },
+ {
+  "key": "x_01",
+  "title": "Sunday \u2014 confirming the week",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 915
+ },
+ {
+  "key": "x_02",
+  "title": "The Gates \u2014 where the registers matter most",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 869
+ },
+ {
+  "key": "x_03",
+  "title": "The marketing hero \u2014 a different audience entirely",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 756
+ },
+ {
+  "key": "x_04",
+  "title": "All fourteen, on one page",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 637
+ },
+ {
+  "key": "x_05",
+  "title": "Side by side, so you can see what the hybrid actually merges",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 548
+ },
+ {
+  "key": "x_06",
+  "title": "Which direction every existing prototype is drawn in",
+  "group": "A / B / C together",
+  "direction": "both",
+  "note": "The same screen drawn in each direction, side by side",
+  "w": 1188,
+  "h": 838
+ }
+]
