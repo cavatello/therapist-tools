@@ -477,13 +477,16 @@ def body():
     rows = []
     widest = max(p for _l, p, _n in COST)
     for label, pctv, n in COST:
-        w = int(round(pctv / float(widest) * 100))
+        # Pixels, not a percentage. A percentage width resolves against
+        # a cell whose own width is content-derived, so every bar
+        # collapsed to a quarter of the column it was drawn in.
+        w = int(round(pctv / float(widest) * 240))
         rows.append([("<b>%s</b>" % label),
                      ("%d%%" % pctv, "f"),
                      (format(n, ",d"), "f"),
-                     '<span style="display:block;height:13px;width:%d%%;'
+                     '<span style="display:block;height:13px;width:%dpx;'
                      'background:#2C6350;border:1.5px solid #16211B"></span>'
-                     % max(3, w)])
+                     % max(6, w)])
     o.append(pk.table(
         ["Paid per month", "Share", "People", "&nbsp;"], rows, minw=620,
         caption="Board of Behavioral Sciences, Pathway to Licensure survey "
