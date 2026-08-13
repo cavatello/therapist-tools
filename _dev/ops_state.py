@@ -204,6 +204,16 @@ CLOSED = [
 # Prototypes and proposals published alongside this board so it can link to
 # them. Paths are relative to /_ops/.
 DOCS = [
+    ("marks.html",
+     "P10 &middot; Ten marks, all about bearing weight",
+     "Logo exploration on one idea &mdash; <b>support in the load-bearing "
+     "sense</b>, something underneath holding. Plinth, bracket, cradle, "
+     "foundation, baseline, keystone, scaffold, shelf, column, bridge. Each "
+     "drawn as inline SVG on a 32-unit grid and shown five ways: 44px, 16px, "
+     "the header lockup, reversed out in the footer, and as an app square, "
+     "because a mark that only works at one size is not a mark. Gold is "
+     "always the element doing the supporting. Three candidates named at the "
+     "end, and three rejected with the reason."),
     ("home-basecamp-three.html",
      "P9 &middot; Three front doors, and the site behind them",
      "<b>The current proposal.</b> Three Basecamp-flavored home pages that "
