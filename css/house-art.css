@@ -51,7 +51,7 @@ body.bca .tsshort .tsfig{font-family:var(--figs);font-weight:800;font-size:24px;
 body.bca .artfig{background:var(--card);border-radius:var(--r);padding:20px 22px;
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
     0 0 0 1px rgba(22,31,27,.055)}
-body.bca .artfig b{display:block;font-family:var(--figs);font-weight:800;
+body.bca .artfig > b{display:block;font-family:var(--figs);font-weight:800;
   font-size:42px;line-height:1.05;color:var(--pine);margin-bottom:8px}
 body.bca .artfig span{font-size:14px;color:var(--dim);line-height:1.45;display:block}
 @media(max-width:980px){body.bca .artfig{max-width:420px}}

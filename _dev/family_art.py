@@ -178,6 +178,54 @@ def convert(rel):
     return ("converted" if changed else "already"), s
 
 
+SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training",
+           "for")
+FAMILY_SHEETS = re.compile(
+    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-(?:art|chrome)'
+    r'\.css(?:\?v=[0-9a-f]+)?">\n?')
+HOUSE_SHEET = re.compile(
+    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house\.css'
+    r'(?:\?v=[0-9a-f]+)?">\n?')
+
+
+def sweep_borrowed_chrome(check_only):
+    """Builders lift chrome (head included) from donor pages. Once a donor
+    is family-converted, every page rebuilt from it inherits the three
+    named sheets on top of its own legacy CSS - the exact mixed state the
+    collision audit forbids. This sweep, running last, strips the family
+    sheets from every non-family page: house-art/house-chrome always, and
+    house.css too unless the page really carries bc2 markup (the home
+    page does; a borrowed head does not make a page bc2)."""
+    fixed, bad = 0, 0
+    rels = [f for f in sorted(os.listdir(SITE)) if f.endswith(".html")]
+    for d in SUBDIRS:
+        p = os.path.join(SITE, d)
+        if os.path.isdir(p):
+            rels += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
+                     if f.endswith(".html")]
+    for rel in rels:
+        p = os.path.join(SITE, rel)
+        s = open(p, encoding="utf-8").read()
+        classes, _ = body_classes(s)
+        if "bca" in classes:
+            continue
+        has_bc2_markup = re.search(r'class="bc2[ "]', s) is not None
+        new = FAMILY_SHEETS.sub("", s)
+        if not has_bc2_markup:
+            new = HOUSE_SHEET.sub("", new)
+        if new != s:
+            if check_only:
+                print("SWEEP %s: borrowed family sheet(s) present" % rel)
+                bad += 1
+            else:
+                open(p, "w", encoding="utf-8").write(new)
+                fixed += 1
+    if fixed:
+        print("  swept borrowed family sheets off %d non-family page(s)"
+              % fixed)
+    return bad
+
+
 def main():
     check_only = "--check" in sys.argv
     pages = family()
@@ -199,6 +247,7 @@ def main():
         for b in bad:
             print("GUARD %s: %s" % (rel, b))
         failures += len(bad)
+    failures += sweep_borrowed_chrome(check_only)
     n = len(pages)
     if failures:
         print("family_art: %d page(s), %d FAILURE(S)" % (n, failures))
