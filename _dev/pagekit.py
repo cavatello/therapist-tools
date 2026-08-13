@@ -165,8 +165,25 @@ def table(headers, rows, caption=None, minw=560):
     """A bordered table. Each row is a list of cells, or (cells, row-class).
 
     A cell may be a plain string, or ("text", "class") to get the Fraunces
-    figure treatment (`f`) or the mono treatment (`m`).
+    figure treatment (`f`), the mono treatment (`m`) or the right-aligned
+    mono treatment (`n`).
+
+    THE SHORT CODE IS NOT THE CLASS NAME, AND THAT IS DELIBERATE
+
+    `f`, `m` and `n` are emitted as `pk-f`, `pk-m` and `pk-n`. They used to be
+    emitted literally, and `.f` is also a class on this site's form fields -
+    cream background, rounded border, `display:block`, `cursor:text`. Any
+    pagekit page that borrowed its chrome from a page carrying the form CSS
+    therefore rendered its figure cells as input boxes, stacked on top of each
+    other instead of side by side, because a table cell set to `display:block`
+    stops being a column.
+
+    It only showed up on pages descended from a tool page, which is why it
+    survived fifteen pages. Every other class here is namespaced; these three
+    were the exception, and now they are not. Builders still pass the short
+    code, so nothing outside this function changed.
     """
+    SHORT = {"f": "pk-f", "m": "pk-m", "n": "pk-n"}
     o = ['<div class="pk-tw"><table class="pk-t" style="min-width:%dpx">' % minw]
     o.append("<tr>" + "".join("<th>%s</th>" % h for h in headers) + "</tr>")
     for row in rows:
@@ -176,7 +193,8 @@ def table(headers, rows, caption=None, minw=560):
         o.append('<tr class="%s">' % cls if cls else "<tr>")
         for c in row:
             if isinstance(c, tuple):
-                o.append('<td class="%s">%s</td>' % (c[1], c[0]))
+                o.append('<td class="%s">%s</td>'
+                         % (SHORT.get(c[1], c[1]), c[0]))
             else:
                 o.append("<td>%s</td>" % c)
         o.append("</tr>")
@@ -315,14 +333,14 @@ _CSS = """<style>/* _dev/pagekit.py */
   letter-spacing:.11em;text-transform:uppercase;color:%(pine)s;
   background:%(cream)s;white-space:nowrap}
 .pk-t tr:last-child td{border-bottom:0}
-.pk-t td.f{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:17px;
+.pk-t td.pk-f{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:17px;
   color:%(ink)s;white-space:nowrap}
-.pk-t td.m{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;
+.pk-t td.pk-m{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;
   color:%(ink)s;white-space:nowrap}
-.pk-t td.n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;
+.pk-t td.pk-n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;
   color:%(ink)s;white-space:nowrap;text-align:right}
 .pk-t tr.bad td{background:#FCF1EF}
-.pk-t tr.bad td.f{color:%(red)s}
+.pk-t tr.bad td.pk-f{color:%(red)s}
 .pk-t tr.good td{background:#F2F7F4}
 .pk-t tr.hi td{background:%(paper)s}
 .pk-cap{font-size:13.2px;line-height:1.65;color:%(muted)s;margin:0 0 26px;
