@@ -468,14 +468,22 @@ def waterfall():
 
 
 def track(here=4):
+    """The track keeps the SHORT name, because a track is a diagram.
+
+    A six-stop diagram cannot carry a nine-word first-person sentence at each
+    stop and stay readable, so this is the one place the short label survives
+    - and it survives only because the row list above it has already taught
+    the reader what each one means. A diagram may use shorthand the page has
+    defined; navigation may not.
+    """
     o = ['<div class="track6">']
-    for n, name, q, c, hue, d in PATHS:
+    for n, claim, who, gets, c, hue, short in PATHS:
         cur = int(n) == here
         o.append('<a style="color:var(--%s)">%s<span class="pin"></span>'
-                 '<span class="t">%s</span><span class="c">%s pages</span></a>'
+                 '<span class="t">%s</span><span class="c">%s</span></a>'
                  % (hue,
                     '<span class="here">You are here</span>' if cur else "",
-                    name, c))
+                    short, who.split("&middot;")[0].strip()))
     o.append("</div>")
     return "".join(o)
 
@@ -517,23 +525,25 @@ def bind_chart():
 
 
 def rows_paths():
+    """Claim first, status second, outcome third, inventory last."""
     o = ['<div class="rows">']
-    for n, name, q, c, hue, d in PATHS:
-        o.append('<a class="%s"><span class="n">%s</span><span class="t">%s'
-                 '<span class="q">&ldquo;%s&rdquo;</span></span>'
-                 '<span class="c">%s pages &rarr;</span></a>'
-                 % (hue, n, name, q, c))
+    for n, claim, who, gets, c, hue, short in PATHS:
+        o.append('<a class="%s"><span class="who">%s</span>'
+                 '<span class="t">%s</span>'
+                 '<span class="gets">%s</span>'
+                 '<span class="c">%s guides &rarr;</span></a>'
+                 % (hue, who, claim, gets, c))
     o.append("</div>")
     return "".join(o)
 
 
 def bento():
     o = ['<div class="bento">']
-    for n, name, q, c, hue, d in PATHS:
-        o.append('<a class="%s"><span class="num">Path %s &middot; %s pages'
-                 '</span><span class="t">%s</span><span class="q">%s</span>'
-                 '<span class="go">Start here &rarr;</span></a>'
-                 % (hue, n, c, name, d))
+    for n, claim, who, gets, c, hue, short in PATHS:
+        o.append('<a class="%s"><span class="num">%s</span>'
+                 '<span class="t">%s</span><span class="q">%s</span>'
+                 '<span class="go">%s guides &rarr;</span></a>'
+                 % (hue, who, claim, gets, c))
     o.append("</div>")
     return "".join(o)
 
@@ -608,7 +618,7 @@ def foot():
             "<span>California only</span>"
             "<span>Not legal, tax or career advice</span>"
             "<span>Nothing sold here</span></div></div>"
-            % "".join("<a>%s</a>" % p[1] for p in PATHS))
+            % "".join("<a>%s</a>" % p[6] for p in PATHS))
 
 
 def frame(url, inner):
