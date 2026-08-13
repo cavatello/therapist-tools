@@ -86,6 +86,9 @@ EXTRA = """
   --pine:#2C6350;--deepp:#123C30;--goldp:#FFE7A3;--pad:38px;
   --p1:#2F6FDB;--p2:#7A5AF8;--p3:#0E8FA8;--p4:#17864A;--p5:#B0730B;
   --p6:#BC3F86;
+  --disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --figs:'Fraunces',Georgia,serif;
+  --mn:'IBM Plex Mono',ui-monospace,monospace;
   background:var(--paper);color:var(--ink);
   font-family:'Inter',system-ui,sans-serif;font-size:17.5px;line-height:1.62;
   letter-spacing:-.011em}
@@ -96,24 +99,25 @@ EXTRA = """
 .hs .wrap2{padding:0 var(--pad)}
 .hs .band{padding:54px var(--pad)}
 @media(max-width:700px){.hs .band{padding:32px var(--pad)}}
-.hs h1,.hs h2,.hs h3,.hs h4{font-family:'Inter',system-ui,sans-serif;
-  font-weight:800;letter-spacing:-.038em;line-height:1.02;margin:0 0 20px;
+.hs h1,.hs h2,.hs h3,.hs h4{font-family:var(--disp);
+  font-weight:800;letter-spacing:-.026em;line-height:1.03;margin:0 0 20px;
   color:var(--ink);text-wrap:balance}
 .hs h1{font-size:68px;max-width:17ch}
-.hs h2{font-size:42px;max-width:22ch;letter-spacing:-.034em}
-.hs h3{font-size:25px;line-height:1.14;letter-spacing:-.028em}
-.hs h4{font-size:19px;line-height:1.2;margin-bottom:6px;letter-spacing:-.026em}
+.hs h2{font-size:42px;max-width:22ch;letter-spacing:-.024em}
+.hs h3{font-size:25px;line-height:1.14;letter-spacing:-.02em}
+.hs h4{font-size:19px;line-height:1.2;margin-bottom:6px;letter-spacing:-.018em}
 @media(max-width:920px){.hs h1{font-size:50px}.hs h2{font-size:33px}}
 @media(max-width:700px){.hs h1{font-size:34px}.hs h2{font-size:26px}
   .hs h3{font-size:21px}}
-.hs .lede{font-size:22px;line-height:1.42;color:var(--dim);max-width:48ch;
-  margin-bottom:26px;letter-spacing:-.017em}
+.hs .lede{font-size:22px;line-height:1.45;color:var(--dim);max-width:48ch;
+  margin-bottom:26px;letter-spacing:-.012em}
 @media(max-width:700px){.hs .lede{font-size:18px}}
 .hs .eb{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
   letter-spacing:.15em;text-transform:uppercase;color:var(--dim);display:block;
   margin-bottom:12px}
 .hs .fine{font-size:13.5px;color:var(--dim)}
-.hs .btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;
+.hs .btn{display:inline-block;background:var(--pine);color:#fff;
+  font-family:var(--disp);font-weight:800;letter-spacing:-.012em;
   font-size:17px;padding:.78em 1.15em;border-radius:6px;
   box-shadow:0 1px 2px rgba(18,60,48,.14),0 4px 14px rgba(18,60,48,.08)}
 .hs .btn.o{background:var(--card);color:var(--ink);
@@ -138,8 +142,8 @@ EXTRA = """
 .hs .slab .hl{background:var(--goldp);color:var(--deepp)}
 .hs .slab .figs{display:grid;gap:14px;margin-top:22px}
 @media(min-width:700px){.hs .slab .figs{grid-template-columns:repeat(4,1fr)}}
-.hs .slab .figs b{display:block;font-family:'IBM Plex Mono',monospace;
-  font-size:34px;color:#fff;line-height:1.05;font-weight:600}
+.hs .slab .figs b{display:block;font-family:var(--figs);
+  font-size:38px;color:#fff;line-height:1.05;font-weight:600}
 .hs .slab .figs span{font-size:12.5px;color:#9FBDB1;display:block;margin-top:3px}
 
 /* --- navigation --------------------------------------------------------- */
@@ -153,7 +157,8 @@ EXTRA = """
   background:var(--card);border-radius:8px;padding:6px 7px;
   box-shadow:0 1px 2px rgba(27,36,32,.12),0 0 0 1px rgba(27,36,32,.06)}
 .hs .lgw .chip i{display:block;width:4px;border-radius:3px}
-.hs .lgw .wm{font-weight:600;font-size:18px;letter-spacing:-.03em;
+.hs .lgw .wm{font-family:var(--disp);font-weight:800;font-size:19px;
+  letter-spacing:-.022em;
   color:var(--ink);line-height:1.05}
 .hs .lgw .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:400}
@@ -171,7 +176,8 @@ EXTRA = """
 .hs .paths a.p6{border-left-color:var(--p6)}
 .hs .paths .n{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
   color:var(--dim)}
-.hs .paths .t{font-size:30px;font-weight:800;letter-spacing:-.034em;
+.hs .paths .t{font-family:var(--disp);font-size:30px;font-weight:800;
+  letter-spacing:-.026em;
   display:block;line-height:1.15}
 .hs .paths .q{display:block;font-size:15.5px;color:var(--dim);margin-top:3px;
   font-weight:400;letter-spacing:0}
@@ -186,8 +192,9 @@ EXTRA = """
 .hs .sign{border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
 .hs .sign .who{font-family:'IBM Plex Mono',monospace;font-size:12.5px;
   color:var(--dim);margin:0}
-.hs .sign p.said{max-width:50ch;font-size:21px;line-height:1.42;
-  letter-spacing:-.017em;color:var(--ink);margin:0 0 14px;font-weight:500}
+.hs .sign p.said{max-width:52ch;font-family:var(--figs);font-size:21px;
+  line-height:1.5;letter-spacing:0;color:var(--ink);margin:0 0 14px;
+  font-weight:600}
 
 /* --- shelves, tables, lists --------------------------------------------- */
 .hs .ix{display:grid;gap:20px 32px}
@@ -200,11 +207,13 @@ EXTRA = """
 .hs .ix li span{color:var(--dim)}
 .hs .list .r{display:grid;grid-template-columns:1fr auto;gap:16px;
   padding:14px 0;border-top:1px solid var(--line);align-items:baseline}
-.hs .list .nm2{font-size:19px;font-weight:700;letter-spacing:-.024em}
+.hs .list .nm2{font-family:var(--disp);font-size:19px;font-weight:800;
+  letter-spacing:-.018em}
 .hs .list .mt{display:block;font-size:13.5px;color:var(--dim);margin-top:2px}
 .hs .list .kk{font-family:'IBM Plex Mono',monospace;font-size:11px;
   color:var(--dim);text-align:right;white-space:nowrap}
-.hs .list .kk b{display:block;font-size:20px;color:var(--ink);font-weight:600}
+.hs .list .kk b{display:block;font-size:24px;color:var(--ink);
+  font-weight:800;font-family:var(--figs)}
 .hs table{border-collapse:collapse;width:100%;font-size:14.5px;margin:0 0 16px}
 .hs th{background:var(--deepp);color:#fff;font-family:'IBM Plex Mono',monospace;
   font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -232,7 +241,8 @@ EXTRA = """
 .hs .toc a.on{color:var(--pine);font-weight:600}
 .hs .aside{border-left:3px solid var(--goldp);padding-left:16px;margin:22px 0}
 .hs .aside p{margin:0;font-size:15.5px}
-.hs .pull{font-size:31px;font-weight:800;letter-spacing:-.032em;line-height:1.2;
+.hs .pull{font-family:var(--disp);font-size:31px;font-weight:800;
+  letter-spacing:-.024em;line-height:1.2;
   border-left:4px solid var(--pine);padding-left:20px;margin:26px 0;
   max-width:40ch}
 .hs .meta{font-family:'IBM Plex Mono',monospace;font-size:11px;
@@ -251,7 +261,8 @@ EXTRA = """
 .hs .news{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
   padding:20px 0;margin:30px 0;display:flex;gap:18px;align-items:center;
   flex-wrap:wrap}
-.hs .news .t{font-size:25px;font-weight:800;letter-spacing:-.03em;
+.hs .news .t{font-family:var(--disp);font-size:25px;font-weight:800;
+  letter-spacing:-.022em;
   flex:1 1 300px}
 .hs .news .in{flex:1 1 210px;background:var(--card);border-radius:6px;
   padding:11px 13px;color:var(--dim);font-size:14.5px;
@@ -265,7 +276,8 @@ EXTRA = """
 .hs .ft h6{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:#7FA294;margin:0 0 9px}
 .hs .ft a{display:block;padding:3px 0;color:#fff;font-size:13.5px}
-.hs .ft .wm{color:#fff;font-weight:600;font-size:17px;letter-spacing:-.03em}
+.hs .ft .wm{color:#fff;font-family:var(--disp);font-weight:800;
+  font-size:18px;letter-spacing:-.022em}
 .hs .ft .sub{font-family:'IBM Plex Mono',monospace;font-size:9px;
   letter-spacing:.18em;text-transform:uppercase;color:#7FA294;display:block}
 .hs .ft .base{margin-top:26px;padding-top:16px;border-top:1px solid #24564A;
