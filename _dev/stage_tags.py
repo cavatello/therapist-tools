@@ -106,6 +106,10 @@ TAGS = {
     "therapists-by-county-california.html": {
         "associate": "How many associates are competing for a supervisor in "
                      "your county, from the state register."},
+    "associate-employers-bay-area.html": {
+        "associate": "The Bay Area employers that can bank your 3,000 "
+                     "&mdash; complete where public files reach, and honest "
+                     "about the private-practice hole where they do not."},
     "practicum-sites-bay-area.html": {
         "student": "The Bay Area settings the code lets you be placed in "
                    "&mdash; and the site-agreement question to ask your "

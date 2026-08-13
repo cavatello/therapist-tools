@@ -46,6 +46,7 @@ import practicum_data as pdta
 
 SITE = pk.SITE
 PAGE = "practicum-sites-bay-area.html"
+PAGE2 = "associate-employers-bay-area.html"
 DONOR = "loan-forgiveness-employers-california.html"
 
 PRACTICUM = "practicum-california-mft-trainee.html"
@@ -53,6 +54,10 @@ SAFETYNET = "medi-cal-safety-net-employers-california.html"
 PORTALS = "county-job-portals-california.html"
 SUPERVISOR = "finding-a-clinical-supervisor-california.html"
 NINETY = "bbs-90-day-rule-california.html"
+GETHIRED = "getting-hired-as-a-california-associate.html"
+COUNTYPAY = "county-therapist-pay-california.html"
+FORGIVE = "loan-forgiveness-employers-california.html"
+ASSOCPAY = "associate-therapist-pay-los-angeles-bay-area.html"
 
 LEG = ("https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml"
        "?sectionNum=%s.&lawCode=BPC")
@@ -382,6 +387,280 @@ def body():
     return "".join(o), n
 
 
+
+
+JUMPS2 = [("gap", "The missing category"),
+          ("rules", "The four rules"),
+          ("counties", "The county system"),
+          ("centers", "The health centers"),
+          ("nonprofits", "The nonprofit organizations"),
+          ("private", "The private-practice route"),
+          ("sources", "Sources")]
+
+
+def body2():
+    hcs = bay_hc()
+    plans = bay_plans()
+    nps = bay_nonprofits()
+    linked_np = sum(1 for o in nps if o.get("url"))
+
+    o = ['<article class="pk-wrap">']
+    o.append(pk.hero(
+        "Bay Area &middot; counting the hours &middot; data read %s"
+        % nd.CHECKED,
+        "Who can lawfully bank a Bay Area associate&rsquo;s hours.",
+        "The employers a registered associate can count the 3,000 with, "
+        "across nine counties: %d county behavioral health plans, %d "
+        "health-center organizations and %d nonprofit clinical agencies "
+        "&mdash; every one named, every link checked. <b>And one warning "
+        "before any of it: the single largest category of Bay Area "
+        "associate employers is not on this page, because no public "
+        "dataset can name it.</b>"
+        % (len(plans), len(hcs), len(nps)),
+        [(str(len(plans)), "county behavioral health plans"),
+         (str(len(hcs)), "health-center organizations"),
+         (str(len(nps)), "nonprofit clinical agencies"),
+         ("0", "public datasets listing group practices")],
+        JUMPS2))
+
+    # ------------------------------------------- the absence, first screen
+    o.append('<section class="pk-sec" id="gap">')
+    o.append(pk.callout(
+        "Read this first &mdash; the category that is missing",
+        ["<b>Group private practices employ a large share of Bay Area "
+         "associates, and there is no public register of them.</b> The "
+         "Board&rsquo;s licensee file lists people, not employers. Business "
+         "registration does not record what a practice does. Commercial "
+         "directory sites are paid listings with their own incentives, and "
+         "are not a source this site will republish. So the tables below "
+         "cover the county, safety-net and nonprofit employers "
+         "<b>completely</b>, and the private sector <b>not at all</b> "
+         "&mdash; a directory that looked complete while missing its "
+         "biggest category would teach you the wrong shape of the market.",
+         "The private-practice route is real once your registration is "
+         "issued, and the honest way in is through people rather than "
+         "files: the supervisor directories on <a href=\"%s\">the "
+         "supervisor page</a> are the closest thing to a list of practices "
+         "that supervise, and <a href=\"%s\">the getting-hired page</a> "
+         "explains which settings can bill for a pre-licensed clinician "
+         "at all &mdash; which is the fact that decides who replies to "
+         "your application." % (SUPERVISOR, GETHIRED),
+         "Everything below describes what an organization <b>is</b>. "
+         "Nothing below tells you where the work is this month &mdash; "
+         "no public source records that, and this site does not print "
+         "what it cannot check."],
+        big="The tables are complete. The market is bigger than the "
+            "tables."))
+    o.append("</section>")
+
+    # --------------------------------------------------------- the rules
+    o.append('<section class="pk-sec" id="rules">')
+    o.append('<p class="pk-k">The statute, in four rows</p>')
+    o.append('<h2 class="pk-h">What decides whether an employer can bank '
+             "your hours.</h2>")
+    o.append(pk.table(
+        ["The rule", "Where it is written", "What it means here"],
+        [["An associate works as an employee or a volunteer, never as an "
+          "independent contractor",
+          '<a href="%s" target="_blank" rel="noopener noreferrer">'
+          "BPC &sect;4980.43.3(a)</a>" % (LEG % "4980.43.3"),
+          "A 1099 offer is an offer of hours the Board will not count "
+          "&mdash; at any setting on or off this page"],
+         ["Private practices and professional corporations are open to "
+          "you only once the registration is issued",
+          '<a href="%s" target="_blank" rel="noopener noreferrer">'
+          "BPC &sect;4980.43.3(b)</a>" % (LEG % "4980.43.3"),
+          "Working the gap between degree and number is a "
+          "community-setting game; the private sector starts on day one "
+          "of the registration, not before"],
+         ["You may not pay your own supervisor into existence",
+          '<a href="%s" target="_blank" rel="noopener noreferrer">'
+          "BPC &sect;4980.43.4(b)</a>" % (LEG % "4980.43.4"),
+          "In a private practice the supervisor must be employed by, "
+          "contracted by, or an owner of your employer &mdash; "
+          "privately retained supervision does not count, and <a "
+          'href="%s">the supervisor page</a> walks the trap' % SUPERVISOR],
+         ["Each employer&rsquo;s Live Scan starts that employer&rsquo;s "
+          "clock",
+          '<a href="%s">the 90-day rule</a>' % NINETY,
+          "If you are still pre-registration, hours at each workplace "
+          "count only from the date on that workplace&rsquo;s processed "
+          "Live Scan form &mdash; prints do not travel between employers"]],
+        minw=660))
+    o.append("</section>")
+
+    # ------------------------------------------------------ county system
+    o.append('<section class="pk-sec" id="counties">')
+    o.append('<p class="pk-k">Universe one &middot; the public system</p>')
+    o.append('<h2 class="pk-h">The nine county plans &mdash; the employers '
+             "that hire associates in volume.</h2>")
+    o.append('<p class="pk-d">County behavioral health runs Medi-Cal '
+             "specialty mental health, staffs it substantially with "
+             "pre-licensed clinicians, and publishes real salary ranges. "
+             'Applications go through <a href="%s">the county job '
+             'portals</a>; published pay is ranked on <a href="%s">the '
+             "county pay page</a>, and the Bay Area&rsquo;s own numbers "
+             'are broken out on <a href="%s">the associate pay page</a>.'
+             "</p>" % (PORTALS, COUNTYPAY, ASSOCPAY))
+    rows = []
+    for p_ in bay_plans():
+        nm = pk.esc(p_["county"])
+        rows.append([
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
+            % (p_["url"], nm) if p_.get("url") else nm,
+            "county behavioral health plan",
+        ])
+    o.append(pk.table(["County", "What it is"], rows, minw=480))
+    o.append("</section>")
+
+    # ------------------------------------------------------ health centers
+    o.append('<section class="pk-sec" id="centers">')
+    o.append('<p class="pk-k">Universe two &middot; the federal file</p>')
+    o.append('<h2 class="pk-h">The %d health-center organizations &mdash; '
+             "where the hours can pay twice.</h2>" % len(hcs))
+    o.append('<p class="pk-d">Federally designated health centers are both '
+             "associate employers and the one enumerable category of "
+             "Medi-Cal safety-net setting &mdash; the kind of workplace "
+             "where an MBH-SLRP obligation can be completed. What that is "
+             'worth, and to whom, is on <a href="%s">the loan-forgiveness '
+             "page</a>. A row without a link means the address in the "
+             "federal file did not answer when checked, <b>not</b> that "
+             "the organization has no website.</p>" % FORGIVE)
+    rows = []
+    for r in hcs:
+        nm = pk.esc(r["name"])
+        bayc = sorted(c for c in set(r["counties"]) if c in BAY)
+        rows.append([
+            '<a href="https://%s" target="_blank" rel="noopener noreferrer">'
+            "%s</a>" % (r["url"], nm) if r.get("url") else nm,
+            ", ".join(bayc),
+            (format(r["sites"], ",d"), "n"),
+        ])
+    o.append(pk.table(["Organization", "Bay Area counties",
+                       "Sites, statewide"], rows, minw=620))
+    o.append("</section>")
+
+    # --------------------------------------------------------- nonprofits
+    o.append('<section class="pk-sec" id="nonprofits">')
+    o.append('<p class="pk-k">Universe three &middot; the long list</p>')
+    o.append('<h2 class="pk-h">The %d nonprofit clinical organizations.</h2>'
+             % len(nps))
+    o.append('<p class="pk-d">Every active IRS-registered nonprofit in the '
+             "nine counties whose activity code is clinical mental health. "
+             "The code is self-reported &mdash; treat a row as a lead to "
+             "check, not a certification. Size is reported revenue; an "
+             "organization reporting none is usually small or newly filed "
+             "rather than inactive. The %d largest carry links that were "
+             "fetched before publication; the rest publish unlinked rather "
+             "than guessed. A further %d substance-use treatment "
+             "organizations are a real clinical system too, and are "
+             "deliberately not mixed into this table."
+             % (linked_np, nd.BAY_BY_BUCKET["substance"]))
+    rows = []
+    for np_ in nps:
+        nm = pk.esc(np_["name"])
+        rows.append([
+            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
+            % (np_["url"], nm) if np_.get("url") else nm,
+            pk.esc(np_["city"] or "&mdash;"),
+            np_["county"],
+            (band(np_["revenue"]), "m"),
+        ])
+    o.append(pk.table(["Organization", "City", "County", "Size, by revenue"],
+                      rows,
+                      caption="From the IRS Exempt Organizations master "
+                              "file, California extract, NTEE F30&ndash;F79 "
+                              "and F99, mapped to county through the Census "
+                              "ZCTA relationship file. Read %s. The same "
+                              "universe serves the trainee directory; for "
+                              "an associate every row is open, for a "
+                              "trainee the private-practice rows of the "
+                              "market never were." % nd.CHECKED,
+                      minw=640))
+    o.append("</section>")
+
+    # ------------------------------------------------- the private route
+    o.append('<section class="pk-sec" id="private">')
+    o.append('<p class="pk-k">The category the files cannot reach</p>')
+    o.append('<h2 class="pk-h">If you want the private-practice route '
+             "anyway.</h2>")
+    o.append(pk.numbered([
+        ("1", "Verify the arrangement before the interview flatters you.",
+         "W-2 employment or volunteering, never a 1099; the practice "
+         "bills for your work under its clinicians, and your supervisor "
+         "is employed by, contracted by, or an owner of the practice. "
+         "Any other shape means the weeks do not count, however good "
+         "the offer sounds."),
+        ("2", "Use the supervisor lists as an employer map.",
+         'The nine chapter and association directories on <a href="%s">'
+         "the supervisor page</a> are lists of people who supervise "
+         "&mdash; which makes them the nearest public thing to a list "
+         "of practices that hold associates." % SUPERVISOR),
+        ("3", "Read the billing fact that filters your applications.",
+         '<a href="%s">The getting-hired page</a> explains which '
+         "settings can actually bill for a pre-licensed clinician "
+         "&mdash; the single fact behind most unanswered applications."
+         % GETHIRED),
+        ("4", "If any hours predate your registration number, audit them "
+              "this week.",
+         'The <a href="%s">90-day rule</a> decides whether they exist. '
+         "Two documents settle it: the Board&rsquo;s receipt of your "
+         "application, and each employer&rsquo;s processed Live Scan "
+         "form." % NINETY),
+    ]))
+    o.append("</section>")
+
+    # ------------------------------------------------------------ sources
+    src, n = pk.sources([
+        ("The statutes", [
+            ("BPC &sect;4980.43.3 &mdash; employee or volunteer only; "
+             "private practice and professional corporations only after "
+             "the registration is issued", LEG % "4980.43.3"),
+            ("BPC &sect;4980.43.4 &mdash; who may supervise in a private "
+             "practice", LEG % "4980.43.4"),
+        ]),
+        ("The data", [
+            ("IRS Exempt Organizations Business Master File, California "
+             "extract &mdash; the nonprofit universe, reduced by "
+             "_dev/nonprofits.py with the classification rule documented "
+             "in the pass", "https://www.irs.gov/charities-non-profits/"
+             "exempt-organizations-business-master-file-extract-eo-bmf"),
+            ("Census 2020 ZCTA-to-county relationship file &mdash; the "
+             "ZIP-to-county mapping",
+             "https://www.census.gov/geographies/reference-files/"
+             "time-series/geo/relationship-files.html"),
+            ("HRSA Data Downloads &mdash; health center service delivery "
+             "sites, aggregated by _dev/hc_orgs.py with every link "
+             "fetched before publication",
+             "https://data.hrsa.gov/data/download"),
+        ]),
+    ], note="<b>This page lists employers by category, not jobs.</b> No "
+            "organization here has told anyone it has work, group private "
+            "practices cannot be listed from public data at all, and the "
+            "files behind the tables change monthly. Verify the "
+            "employment shape and the supervision arrangement with the "
+            "employer and the statute before you act. Nothing here is "
+            "legal or career advice.")
+    o.append(src)
+
+    o.append("</article>")
+    return "".join(o), n
+
+
+META2 = pk.meta_block(
+    PAGE2,
+    "Bay Area associate employers: who can lawfully bank your hours",
+    "The Bay Area employers an associate can count the 3,000 with - 9 "
+    "county plans, 39 health centers, 318 nonprofits - and the biggest "
+    "category no public file can name.",
+    "licensure", "reference",
+    "Who can employ a Bay Area associate for the 3,000 hours?",
+    "Every enumerable employer category named and linked, the "
+    "private-practice absence stated plainly, and the four statutory "
+    "rules that decide whether hours count",
+    "9 county plans, 39 health centers, 318 nonprofits",
+    weight=4)
+
 META = pk.meta_block(
     PAGE,
     "Bay Area practicum sites: where an MFT trainee can be placed",
@@ -405,30 +684,21 @@ BANNED = ["is hiring", "now hiring", "has openings", "open positions",
           "currently accepting"]
 
 
-def main():
-    html_body, n_sources = body()
+def build_one(page, meta, body_fn, must_have, jumps):
+    html_body, n_sources = body_fn()
     head, header, footer, links, scripts = pk.chrome_parts(DONOR)
-    html = pk.assemble(head, META, header, html_body, footer, links, scripts)
-    p = os.path.join(SITE, PAGE)
-    open(p, "w", encoding="utf-8").write(html)
+    html = pk.assemble(head, meta, header, html_body, footer, links, scripts)
+    path = os.path.join(SITE, page)
+    open(path, "w", encoding="utf-8").write(html)
 
-    s = open(p, encoding="utf-8").read()
-    problems = pk.check_page(p, [
-        ("the 4980.43.3 citation", "4980.43.3"),
-        ("the 4980.42 citation", "4980.42"),
-        ("the private-practice exclusion", "private practice"),
-        ("the site-agreement sentence", "written agreement"),
-        ("the not-of-openings verdict", "Not of openings"),
-        ("the unlinked-row explanation", "did not answer when checked"),
-    ], [j for j, _ in JUMPS])
+    s = open(path, encoding="utf-8").read()
+    problems = pk.check_page(path, must_have, [j for j, _ in jumps])
 
     bad = []
     art = pk.article(s).lower()
     for phrase in BANNED:
         if phrase in art:
             bad.append("availability language: %r" % phrase)
-
-    # every organization present, by name
     for np_ in bay_nonprofits():
         if pk.esc(np_["name"]) not in s:
             bad.append("nonprofit missing: %s" % np_["name"]); break
@@ -440,11 +710,31 @@ def main():
 
     if bad or problems:
         for b in bad:
-            print("GUARD %s: %s" % (PAGE, b))
+            print("GUARD %s: %s" % (page, b))
         sys.exit(1)
-    print("build_baysites: %s written - %d nonprofits, %d health centers, "
-          "9 plans, 5 clinic programs, %d sources"
-          % (PAGE, len(bay_nonprofits()), len(bay_hc()), n_sources))
+    return n_sources
+
+
+def main():
+    n1 = build_one(PAGE, META, body, [
+        ("the 4980.43.3 citation", "4980.43.3"),
+        ("the 4980.42 citation", "4980.42"),
+        ("the private-practice exclusion", "private practice"),
+        ("the site-agreement sentence", "written agreement"),
+        ("the not-of-openings verdict", "Not of openings"),
+        ("the unlinked-row explanation", "did not answer when checked"),
+    ], JUMPS)
+    n2 = build_one(PAGE2, META2, body2, [
+        ("the 4980.43.3 citation", "4980.43.3"),
+        ("the 4980.43.4 supervisor rule", "4980.43.4"),
+        ("the missing-category admission", "no public register of them"),
+        ("the market-shape verdict", "The market is bigger than the tables"),
+        ("the 1099 warning", "1099"),
+        ("the unlinked-row explanation", "did not answer when checked"),
+    ], JUMPS2)
+    print("build_baysites: %s + %s written - %d nonprofits, %d health "
+          "centers, 9 plans, %d + %d sources"
+          % (PAGE, PAGE2, len(bay_nonprofits()), len(bay_hc()), n1, n2))
 
 
 if __name__ == "__main__":

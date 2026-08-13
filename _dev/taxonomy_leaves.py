@@ -86,6 +86,7 @@ NEW_CLUSTERS = [
       "county-job-portals-california.html",
       "amft-3000-hours-california.html",
       "bbs-90-day-rule-california.html",
+      "associate-employers-bay-area.html",
       "getting-hired-as-a-california-associate.html",
       "loan-forgiveness-employers-california.html",
       "mbh-slrp-california.html",
