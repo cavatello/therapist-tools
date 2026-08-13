@@ -115,6 +115,10 @@ def main():
     for fn in sorted(os.listdir(CSSDIR)):
         if not fn.endswith(".css"):
             continue
+        # Named sheets (css/house.css, css/house-skin.css) are hand-named by
+        # design - the hash guard only applies to extract_css's output.
+        if not re.fullmatch(r"[0-9a-f]{12}", fn[:-4]):
+            continue
         b = open(os.path.join(CSSDIR, fn), encoding="utf-8").read()
         if "<!--" in b or "-->" in b:
             print("GUARD css/%s: still carries an HTML comment" % fn)
