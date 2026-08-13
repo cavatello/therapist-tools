@@ -385,6 +385,12 @@ def main():
     # Home page: point the three audience cards into the matching tab rather
     # than growing a second router underneath them.
     h = open(HOME, encoding="utf-8").read()
+    # Rollout step 4 (Aug 2026): the option-A home from _dev/build_home.py
+    # has no audience cards - the six claim rows do this job. Skip the home
+    # half; the resources.html router above still runs in full.
+    if 'class="bc2 home"' in h:
+        print("index.html: option-A home present - router links not needed")
+        return
     horig = h
     n = 0
 

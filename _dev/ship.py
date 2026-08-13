@@ -164,6 +164,13 @@ BUILD = [
     ("_dev/build_states.py",
      "what a licensed therapist is called in 17 states, and the "
      "per-capita comparison that survives those titles"),
+    # Rollout step 4: the home page, rebuilt whole to option A + the
+    # waterfall. A builder like any other - everything in STRUCTURE
+    # decorates its output; home_doorway and stage_router detect the new
+    # main and skip their old landing work.
+    ("_dev/build_home.py",
+     "the option-A home page - the tool card with the take-home waterfall, "
+     "the six claim rows, one slab"),
     ("_dev/payroll_ops.py",
      "what it costs to RUN the payroll - the EDD registration trigger, "
      "published prices for one employee, and the workers' compensation class "
