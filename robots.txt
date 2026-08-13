@@ -12,4 +12,11 @@ Disallow: /tycoon.html
 # Reachable by anyone with the URL, deliberately not in search.
 Disallow: /ops/
 
+# The hours design document, the A/B comparison and the screen gallery.
+# Same rule as /ops/ - internal design work, reachable by URL, not indexed.
+# hours/index.html is passphrase-gated in any case; screens/ is 46 desktop
+# renders of the prototypes and has no business in a search result for
+# someone looking for licensure information.
+Disallow: /hours/
+
 Sitemap: https://therapistsupport.org/sitemap.xml
