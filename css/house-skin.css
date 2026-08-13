@@ -84,10 +84,11 @@ body.house .sitenav-top:hover, body.house .sitenav-top[aria-expanded="true"]{
   background:var(--hs-sink); color:var(--ink);
 }
 body.house .sitenav-cta{
-  background:var(--pine); color:#fff; font-family:var(--hs-disp);
-  font-weight:800; border-radius:8px; border:0;
+  background:var(--pine) !important; color:#fff !important;
+  font-family:var(--hs-disp); font-weight:800; border-radius:8px;
+  border:0 !important; box-shadow:none !important;
 }
-body.house .sitenav-cta:hover{background:#1A4739}
+body.house .sitenav-cta:hover{background:#1A4739 !important}
 
 /* --- 4 · nav panel ---------------------------------------------------- */
 body.house .navpanel{
@@ -144,27 +145,35 @@ body.house .uplink .uc:hover{border-color:var(--pine)}
 body.house .uplink .uc b{font-weight:600; color:var(--ink)}
 body.house .uplink .uall{color:var(--pine); font-weight:700}
 
-/* --- 8 · signup band -------------------------------------------------- */
-body.house .ftnl{background:var(--hs-wash); border-top:1px solid var(--line)}
-body.house .ftnl h2{color:var(--ink)}
-body.house .ftnl p{color:var(--hs-dim)}
+/* --- 8 · signup band. The band stays DARK - the old sheets style its   */
+/*     children for a dark ground, so fighting that per-child is a       */
+/*     losing game; re-ground it in bc2 deep instead. chrome_armor.py    */
+/*     outranks plain skin rules on chrome, hence the !importants here.  */
+body.house .ftnl{background:var(--deep) !important; border-top:0}
+body.house .ftnl h2{color:#FFFFFF !important}
+body.house .ftnl h2 em{color:var(--gold) !important; font-style:normal}
+body.house .ftnl p{color:#B9CFC2 !important}
+body.house .ftnl .nlmeta{color:#8FAF9F !important}
+body.house .ftnl .consent span{color:#B9CFC2 !important}
 body.house .nlform input[type="email"]{
-  background:var(--hs-card); border:1px solid var(--line); border-radius:8px;
+  background:#FFFFFF; border:1px solid var(--line); border-radius:8px;
   color:var(--ink);
 }
-body.house .nlform input[type="email"]:focus{border-color:var(--pine)}
-body.house .nlmeta, body.house .consent span{color:var(--hs-dim)}
+body.house .nlform input[type="email"]:focus{border-color:var(--gold)}
 
-/* --- 9 · footer ------------------------------------------------------- */
-body.house .sitefoot{background:var(--deep); color:#CFE0D6}
+/* --- 9 · footer. Same armor situation - deep ground, quiet mono h5s.   */
+body.house .sitefoot{background:var(--deep) !important; color:#CFE0D6 !important}
 body.house .sitefoot h5{
-  font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.16em;
-  text-transform:uppercase; color:#79A08F;
+  font-family:var(--hs-mn) !important; font-size:10.5px !important;
+  letter-spacing:.16em !important; text-transform:uppercase !important;
+  color:#79A08F !important; background:none !important; padding:0 !important;
+  border-radius:0 !important; border:0 !important; display:block !important;
 }
-body.house .sitefoot a{color:#E9F2EC}
-body.house .sitefoot a:hover{color:var(--gold)}
-body.house .sitefoot .ftby, body.house .sitefoot p{color:#9DB8AA}
-body.house .sitefoot .ftby a{color:#CFE0D6; text-decoration:underline}
+body.house .sitefoot a{color:#E9F2EC !important}
+body.house .sitefoot a:hover{color:var(--gold) !important}
+body.house .sitefoot .ftby, body.house .sitefoot p{color:#9DB8AA !important}
+body.house .sitefoot .ftby a{color:#CFE0D6 !important; text-decoration:underline}
+body.house .sitefoot .ftcols>div>p{color:#8FAF9F !important}
 
 /* --- 10 · tables ------------------------------------------------------ */
 body.house .pk-t{background:var(--hs-card); border:1px solid var(--line)}
