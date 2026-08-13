@@ -197,3 +197,18 @@ Also: build_home.py is wired into ship.py BUILD; home_doorway.py and
 stage_router.py detect the new home and skip their landing halves
 (stage_router's resources.html half still runs in full). The next session can
 run a full build with no manual follow-ups.
+
+## DEEP-SKIN PASS — 27-inch audit (13 Aug 2026, third pass, `95ae8b10`)
+
+User-reported mess at 2560px, fixed and re-gated:
+- Home content capped at a 1240px well (full-bleed grounds kept) via padding:max().
+- Hardcoded dark heroes re-grounded flat bc2 deep: .artband, .dc-hero, .pk-hero,
+  section.hero (tool pages), slab.pine/carbon; brick/gold slabs flattened.
+- Light headings re-asserted on every dark ground (the global heading-ink rule
+  had made .pk-hero/.dc-hero h1s 2.4:1 — caught by the automated contrast gate).
+- Brutalist chips → quiet gold-outline mono pills; hard-offset shadows removed;
+  off-palette purple game layer (lvchip/xptrack/simbtn) joined the palette.
+- Note: the "gold highlighter" screenshot was text SELECTION (::selection gold).
+Gate: 14 pages × 5 viewports (375/768/1024/1440/2560) = 70/70 clean — overflow,
+JS errors, body ≥16px, h1-on-ground contrast ≥4.5:1 all automated. All of
+section 13 in house-skin.css retires with the old sheets at step 5.
