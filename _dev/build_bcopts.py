@@ -57,19 +57,51 @@ NAV = [("a", "A · The product page"), ("b", "B · The bento"),
        ("dir", "Program directory"), ("content", "Content page"),
        ("email", "Email sign-up"), ("about", "About"), ("pick", "Which one")]
 
+# The six, relabelled. WHAT WAS WRONG WITH THE OLD LABELS
+#
+# They were the taxonomy's names, not the reader's. "Deciding" is a gerund
+# with no object. "The gap" means nothing to anybody who has not read the
+# architecture document. "Counting hours" only parses if you already know
+# about the 3,000 - which is precisely the knowledge a cold arrival does not
+# have. Six labels that each need decoding is six decisions before the first
+# decision.
+#
+# The fix is three fields where there was one, and it follows how people
+# actually navigate: they match a SITUATION they would say out loud, confirm
+# it with a CREDENTIAL or life-stage they hold, and choose on the OUTCOME
+# they would get. So:
+#
+#   claim    - first person, present tense, something a reader would say
+#   who      - the status, so somebody can confirm they are in the right room
+#   gets     - what the path gives them, not how many pages it contains
+#
+# The page count moves to the quiet end of the row. It measures our inventory;
+# it was never a reason to click.
 PATHS = [
-    ("01", "Deciding", "Is this worth it?", "73", "h1", "Weighing the degree, "
-     "the debt, and whether the arithmetic works"),
-    ("02", "In a program", "Nobody will take me for practicum.", "31", "h2",
-     "Enrolled, with placement coming and no idea whose job it is"),
-    ("03", "The gap", "Can I work before my number arrives?", "4", "h3",
-     "Degree in hand, registration pending, hours quietly at risk"),
-    ("04", "Counting hours", "547 hours and nobody will hire me.", "21", "h4",
-     "The longest stage, the loudest room, the most to lose"),
-    ("05", "Newly licensed", "Do I go on panels or not?", "19", "h5",
-     "Two years of decisions that set what the practice pays for a decade"),
-    ("06", "Running a practice", "How do I do this ethically?", "24", "h6",
-     "Incorporating, hiring associates, and what a caseload owes people"),
+    ("01", "I am thinking about becoming a therapist",
+     "Considering the career &middot; not yet applied",
+     "What the degree costs, how long the license takes, and what the work "
+     "actually pays", "73", "h1", "Deciding"),
+    ("02", "I am in a master&rsquo;s program",
+     "Student or trainee &middot; practicum ahead",
+     "Finding a practicum site, the trainee hour rules, and getting to "
+     "graduation without losing hours", "31", "h2", "In a program"),
+    ("03", "I have graduated and I am waiting on my number",
+     "Degree awarded &middot; registration pending",
+     "The 90-day rule, Live Scan before you work, and why hours in this "
+     "window vanish if the order is wrong", "4", "h3", "The gap"),
+    ("04", "I am registered and building hours",
+     "AMFT &middot; ASW &middot; APCC",
+     "Which jobs count, what they pay, how to find a supervisor, and what "
+     "really decides your license date", "21", "h4", "Counting hours"),
+    ("05", "I just got licensed",
+     "LMFT &middot; LCSW &middot; LPCC &middot; first two years",
+     "Insurance panels or private pay, what to charge, and whether going "
+     "solo actually works", "19", "h5", "Newly licensed"),
+    ("06", "I run a practice",
+     "Owner &middot; supervisor &middot; employer",
+     "Incorporating, hiring associates, the tax that is optional, and where "
+     "the next ten clients come from", "24", "h6", "Running a practice"),
 ]
 
 CSS = """
