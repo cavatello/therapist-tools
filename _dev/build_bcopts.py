@@ -94,14 +94,25 @@ PATHS = [
      "AMFT &middot; ASW &middot; APCC",
      "Which jobs count, what they pay, how to find a supervisor, and what "
      "really decides your license date", "21", "h4", "Counting hours"),
-    ("05", "I just got licensed",
-     "LMFT &middot; LCSW &middot; LPCC &middot; first two years",
-     "Insurance panels or private pay, what to charge, and whether going "
-     "solo actually works", "19", "h5", "Newly licensed"),
-    ("06", "I run a practice",
-     "Owner &middot; supervisor &middot; employer",
-     "Incorporating, hiring associates, the tax that is optional, and where "
-     "the next ten clients come from", "24", "h6", "Running a practice"),
+    # 5 and 6 were "Newly licensed" and "Running a practice", split on
+    # tenure - first two years against everybody after. That boundary was
+    # wrong twice over. It asked the reader to classify on a dimension nobody
+    # thinks in ("am I in year two?"), and the content did not respect it:
+    # rates, panels, entity choice and taxes serve both.
+    #
+    # The seam that is actually there is WHETHER ANYONE ELSE WORKS FOR YOU.
+    # A reader knows the answer instantly, and it changes the law rather than
+    # the emphasis - payroll and employer tax, supervision liability, and the
+    # 4980.43.4 employment nexus all switch on at exactly that line. Every
+    # page in row 06 is downstream of a second person existing.
+    ("05", "I am licensed and it is just me",
+     "LMFT &middot; LCSW &middot; LPCC &middot; solo practice",
+     "What to charge, panels or private pay, sole proprietor or corporation, "
+     "and filling the week", "19", "h5", "Solo practice"),
+    ("06", "I have people working for me",
+     "Employer &middot; supervisor &middot; group practice",
+     "Hiring an associate and what one really costs, payroll and employer "
+     "tax, supervision liability, and growth", "24", "h6", "Employer"),
 ]
 
 CSS = """
