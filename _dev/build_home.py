@@ -111,7 +111,10 @@ def main_markup():
             "your practice pays you</a> "
             '<a class="btn ghost big" href="resources.html">Browse all 203 '
             "pages</a></p>"
-            '<p class="fine">No account. No email box. Nothing sold.</p>'
+            # Not "nothing sold" - the site carries tagged affiliate links,
+            # and _dev/affiliate.py rightly fails the build on the old claim.
+            '<p class="fine">No account. No email box. The few affiliate '
+            "links out are tagged where they appear.</p>"
             "</div>"
             '<div class="toc" style="align-self:end"><b>What is inside</b>'
             "%s%s%s%s</div></div></div>" % (
