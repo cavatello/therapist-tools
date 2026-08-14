@@ -20,7 +20,7 @@ body.bca .bcr{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22p
   padding:0;font-family:var(--mn);font-size:11px;letter-spacing:.04em}
 body.bca .bcr a{color:var(--dim)}
 body.bca .bcr a:hover{color:var(--pine)}
-body.bca .bcr .sep{color:var(--hair);margin-left:6px}
+body.bca .bcr .sep{color:var(--dim);margin-left:6px}
 body.bca .bcr [aria-current]{color:var(--ink)}
 
 body.bca .kick{font-family:var(--mn);font-size:11px;letter-spacing:.16em;

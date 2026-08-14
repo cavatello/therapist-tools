@@ -411,3 +411,10 @@ body.house section.hero .f, body.house .hero label.f{
 body.house .sell{background:var(--hs-sink) !important; border:1px solid var(--line) !important}
 body.house .sell *{color:var(--ink) !important}
 body.house .sell .selk, body.house .sell small{color:var(--hs-dim) !important}
+
+/* dc-hero In-short card: the hero-wide p rule above painted the card's own
+   labels pale green on the card's white ground (1.37:1, found by the step-5
+   family-1 gate audit, 13 Aug 2026). Scoped re-ink; retires with the dc
+   family's conversion at step 5. */
+body.house .dc-hero .tsshort p{color:var(--ink) !important}
+body.house .dc-hero .tsshort .tsk{color:var(--hs-dim) !important}
