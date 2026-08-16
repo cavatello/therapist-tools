@@ -190,6 +190,10 @@ TAGS = {
         "deciding": "The whole route from another career, ordered by "
                     "what you can start this month - written for the "
                     "person still deciding."},
+    "is-therapy-financially-viable-california.html": {
+        "deciding": "The is-there-money question answered in arithmetic "
+                    "- what entering costs, what the lean years pay, "
+                    "and what a full practice nets."},
     "therapist-tax-strategy-california.html": {
         "licensed": "The whole tax decision worked on your numbers - "
                     "sole prop against the corporation, with the payroll "

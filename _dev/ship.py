@@ -109,6 +109,13 @@ BUILD = [
      "clinical training with every fact linked and dated, and the "
      "questions to bring; availability language and personal contacts "
      "banned by guard"),
+    # Editorial tier 1, item 4: the prose front door to the simulator.
+    # Introduces NO figures of its own - a guard asserts every number
+    # it uses exists on the page it links it to.
+    ("_dev/build_viable.py",
+     "the is-therapy-financially-viable page - the whole career in "
+     "arithmetic, every figure lifted from the page that computes it, "
+     "ending at the simulator"),
     # The method page the directory and the rules page both point at:
     # whose job the search is, the statutory strikes, the four shelves,
     # and the questions that protect the hours. Invents no facts - it

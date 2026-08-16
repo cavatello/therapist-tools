@@ -1860,6 +1860,25 @@
    }
   },
   {
+   "file": "is-therapy-financially-viable-california.html",
+   "title": "Is therapy financially viable in California? The arithmetic",
+   "topic": "money",
+   "format": "guide",
+   "question": "Is being a therapist in California financially viable?",
+   "outcome": "The career walked in numbers - degree cost, the associate floor, the county spread, and a full caseload gross to net",
+   "number": "From a $70,304 associate floor to $138,940 practice net",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "deciding"
+   ],
+   "stage_note": {
+    "deciding": "The is-there-money question answered in arithmetic - what entering costs, what the lean years pay, and what a full practice nets."
+   }
+  },
+  {
    "file": "jfcs-east-bay.html",
    "title": "JFCS East Bay - Bay Area org profile",
    "topic": "licensure",
@@ -3243,6 +3262,7 @@
      "name": "What the practice pays you",
      "files": [
       "practice-simulator.html",
+      "is-therapy-financially-viable-california.html",
       "therapist-cost-of-living-california.html"
      ]
     },

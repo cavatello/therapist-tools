@@ -55,6 +55,13 @@ SITE = os.path.dirname(HERE)
 REG = os.path.join(SITE, "mock", "library", "registry.json")
 
 NEW_CLUSTERS = [
+    # The viability page is the prose front door to the simulator, so it
+    # belongs beside it. Named in full because this list REPLACES a
+    # cluster's files rather than appending.
+    ("money", "What the practice pays you",
+     ["practice-simulator.html",
+      "is-therapy-financially-viable-california.html",
+      "therapist-cost-of-living-california.html"]),
     ("practice", "When something goes wrong",
      ["therapist-discipline-cases-california.html",
       "therapy-liability-insurance-california.html"]),
