@@ -67,6 +67,10 @@ TAGS = {
     "associate-hours-trackers-compared.html": {
         "associate": "Five hour-tracking products compared, and what the "
                      "Board actually accepts as a supervisor signature."},
+    "prelicensed-job-sites-california.html": {
+        "associate": "61 employers statewide whose own sites say they "
+                     "take pre-licensed clinicians - each row links the "
+                     "page that says so."},
     "county-job-portals-california.html": {
         "associate": "Where the application form is, in all 58 counties - "
                      "including the seven whose obvious URL is somebody else."},

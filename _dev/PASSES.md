@@ -37,6 +37,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
 | `build_home.py` | build | &mdash; | Rollout step 4: the home page, rebuilt to option A + option C's waterfall. |
 | `build_insurance.py` | build | &mdash; | Build therapy-liability-insurance-california.html. |
+| `build_jobsites.py` | build | &mdash; | The statewide pre-licensed job-sites directory - confirmed entries only. |
 | `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
 | `build_ninety.py` | build | &mdash; | The 90-day rule page - path 03's missing content. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |

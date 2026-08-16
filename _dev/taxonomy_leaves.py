@@ -87,6 +87,7 @@ NEW_CLUSTERS = [
     ("licensure", "Counting the hours, and the job that banks them",
      ["finding-a-clinical-supervisor-california.html",
       "county-job-portals-california.html",
+      "prelicensed-job-sites-california.html",
       "amft-3000-hours-california.html",
       "bbs-90-day-rule-california.html",
       "associate-employers-bay-area.html",

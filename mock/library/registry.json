@@ -1967,6 +1967,25 @@
    }
   },
   {
+   "file": "prelicensed-job-sites-california.html",
+   "title": "California employers that say they take pre-licensed clinicians",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Which California employers say they take pre-licensed clinicians?",
+   "outcome": "61 employers statewide whose own sites state associate or pre-licensed roles, each with the page that says so and the date it was read",
+   "number": "61 of 198 reachable employer sites say it in writing",
+   "stale": false,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "associate"
+   ],
+   "stage_note": {
+    "associate": "61 employers statewide whose own sites say they take pre-licensed clinicians - each row links the page that says so."
+   }
+  },
+  {
    "file": "privacy.html",
    "title": "Privacy Policy — Therapist Support",
    "topic": "practice",
@@ -2820,6 +2839,7 @@
      "files": [
       "finding-a-clinical-supervisor-california.html",
       "county-job-portals-california.html",
+      "prelicensed-job-sites-california.html",
       "amft-3000-hours-california.html",
       "bbs-90-day-rule-california.html",
       "associate-employers-bay-area.html",

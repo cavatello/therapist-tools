@@ -112,6 +112,10 @@ BUILD = [
      "P3 item three, first cut - the ten Bay agencies whose own sites "
      "publish a clinical training program, each held to its own words, "
      "availability language banned"),
+    ("_dev/build_jobsites.py",
+     "the statewide pre-licensed employer directory - only the 61 orgs "
+     "whose own sites state associate or pre-licensed roles, each row "
+     "linking the page that says so, read on one dated day"),
     # The curated half of P3: EB CAMFT's public practicum directory,
     # every entry dated to its read, every site link fetched, the
     # chapter credited as the source of the listing.
