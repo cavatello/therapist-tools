@@ -343,3 +343,26 @@ lead files (232 statewide + 22 EBCAMFT). Writes RESEARCH/leads-verified-
 RESEARCH/mind-foundation-apt-2026-08-15.md (full APT program facts, cohort
 dates incl. a flagged source contradiction, 12 outcomes, 7 testimonial video
 IDs) for queue item 8.
+
+## USER DECISION — 15 Aug 2026: ops-board ask A2 ANSWERED
+"Say whether the associates door is right before more are built."
+
+VERDICT: the door CONCEPT is right — keep the /for/associates pattern and
+proceed with the remaining doors eventually. But the EXECUTION fails the
+bar: "content and design don't look great… messy, cluttered, so much going
+on, don't think that is basecamp design."
+
+Consequences, binding until the user says otherwise:
+1. Do NOT build the remaining three doors yet. /for/associates must first
+   be converted to bc2 (it is one of the two pages excluded from the family
+   conversions — the ledger/supervisor-widget CSS port, already item 3 on
+   the step-5 list) AND decluttered to the Basecamp standard: one dark band,
+   white cards, one accent, generous space, fewer simultaneous elements per
+   viewport. The declutter is a content-presentation edit, not just CSS —
+   fewer blocks visible at once, the ledger's shelf annotations kept but
+   given room.
+2. /for/associates after conversion is the TEMPLATE the other three doors
+   copy. Getting it right once is the whole point of the user's "cheap
+   moment to change direction" framing in the original ask.
+3. ops_state.py: mark ask A2 answered with this verdict at the next deploy
+   that touches it (avoid concurrent edits; whichever session ships next).
