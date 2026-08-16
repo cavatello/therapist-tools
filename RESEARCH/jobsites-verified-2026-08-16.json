@@ -1,0 +1,1190 @@
+[
+ {
+  "org": "Acadia Healthcare",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.acadiacareers.com/us/en",
+  "evidence": "lists counselors/therapists categories; no pre-licensed/associate/trainee statement on home or careers"
+ },
+ {
+  "org": "ACES (Autism Comprehensive Educational Services)",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.acesaba.com/careers",
+  "evidence": "ABA org: BT/RBT/BCBA roles only; no MH pre-licensed/associate roles stated"
+ },
+ {
+  "org": "Acorn Counseling",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.psychologytoday.com/us/therapists/bridges-therapy-group-of-ca-los-angeles-ca/447192",
+  "evidence": "listed therapist credentialed \"AMFT\" on group's Psychology Today profile (given URL; not org-owned domain)"
+ },
+ {
+  "org": "Akua Behavioral Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://akuamindbody.com/",
+  "evidence": "team listed as counselors/therapists/dietitians/physicians; careers redirects to Paylocity job board, no statement"
+ },
+ {
+  "org": "Aldea Children and Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.aldeainc.org/",
+  "evidence": "home has no statement; /careers and /employment blocked (robots.txt fetch failed)"
+ },
+ {
+  "org": "Alma Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.almafamilyservices.org/job-openings",
+  "evidence": "job/employment pages found but no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "Alsana",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.alsana.com/careers/",
+  "evidence": "\"Yes, Alsana does offer qualifying supervision hours with dedicated and experienced Clinicians\""
+ },
+ {
+  "org": "Amanecer Community Counseling Service",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://amanecerla.org/internships/",
+  "evidence": "\"MOUs with local universities for trainees and interns... MFT trainees... APCC intern\""
+ },
+ {
+  "org": "Amity Foundation",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.amityfdn.org/",
+  "evidence": "no clinical licensure-track language; careers link goes to Lever job board"
+ },
+ {
+  "org": "Aspiranet",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.aspiranet.org/careers",
+  "evidence": "mentions \"certification and licensure support\" but no pre-licensed/associate roles or supervised-hours program stated"
+ },
+ {
+  "org": "AVIVA Family and Children's Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://aviva.org/graduate-school-student-program/",
+  "evidence": "Graduate School Student Program: \"MFT Trainee from Pepperdine,\" \"MSW Intern from CSULA,\" weekly individual and group supervision"
+ },
+ {
+  "org": "Balance Treatment Programs",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.balancetreatment.com/about/job-opportunities",
+  "evidence": "Therapist/Clinical Program Supervisor roles listed; no pre-licensed/trainee statement"
+ },
+ {
+  "org": "Bay Area Psychotherapy Training Institute",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.bapti.org/",
+  "evidence": "staff roster of AMFT/APCC/ASW associates; \"Associateships\" employment page and clinical supervisors page"
+ },
+ {
+  "org": "Behavioral Health Services, Inc.",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.bhs-inc.org/careers",
+  "evidence": "home and careers pages contain no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "BRIDGES, Inc.",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.bridgesrehab.org/who-we-are/internships.html",
+  "evidence": "\"accept many levels of interns... master's degree level in behavioral health, social work\" with \"structured supervision\""
+ },
+ {
+  "org": "California Integrative Counseling Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.caintegrativecounseling.com/",
+  "evidence": "staff roster lists multiple \"AMFT\" and \"AMFT, APCC\" associates (e.g. \"Diana Hope Sokolove, AMFT, APCC\")"
+ },
+ {
+  "org": "Casa de la Familia",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://casadelafamilia.org/counseling-careers",
+  "evidence": "\"established teaching site for graduate-level and doctorate-level students looking for internship hours\" (MFT, SW, PCC, psychology)"
+ },
+ {
+  "org": "Center For Discovery",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://discoverybehavioralhealth.com/careers/",
+  "evidence": "parent careers site lists therapist/social worker categories; no pre-licensed/associate statement"
+ },
+ {
+  "org": "Central Counseling Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://centralcounselingservices.net/",
+  "evidence": "\"Our team, including LCSWs, LMFTs, LPCCs, and registered associates\""
+ },
+ {
+  "org": "Childhelp",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://childhelp.org/",
+  "evidence": "\"professional crisis counselors\" only; careers is external Paycom portal, no pre-licensed statement"
+ },
+ {
+  "org": "Children's Bureau",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://allforkids.org/careers/",
+  "evidence": "careers page has general benefits/professional development; no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "Club Xcite",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.clubxcite.com/",
+  "evidence": "education staffing (teachers, BCBA/RBT, SLP/OT/PT, nursing); no MH pre-licensed roles"
+ },
+ {
+  "org": "Community Research Foundation",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.crfbehavioralhealthcare.org/training/student-training-programs/",
+  "evidence": "\"We host more than 100 trainees annually and partner with more than 45 universities and training programs\" (MFT/SW/counseling masters)"
+ },
+ {
+  "org": "Concert Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://concerthealth.com/careers",
+  "evidence": "\"Collaborative Care Clinician\" roles; no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "Connections Family and Behavioral Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.connectionsfbs.com/",
+  "evidence": "staff list includes \"Kasey Berg (MA, AMFT, APCC),\" \"Eamon Burke (AMFT, MA),\" \"Pearson Bradley (MSW Student Intern)\""
+ },
+ {
+  "org": "Counseling4Kids",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.counseling4kids.org/work-with-us",
+  "evidence": "careers page describes benefits only; no pre-licensed/trainee/supervised-hours statement"
+ },
+ {
+  "org": "Cristina Trette Couples Therapy",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://integrativecouplestherapy.com/",
+  "evidence": "all listed therapists are LMFTs; no associates/trainees, no careers page"
+ },
+ {
+  "org": "DBT Center of the South Bay",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.dbtcentersouthbay.com/",
+  "evidence": "only Kari Barker, LMFT listed; no associates/trainees, no careers page"
+ },
+ {
+  "org": "Del Amo Behavioral Health System",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://delamobehavioralhealth.com/",
+  "evidence": "no pre-licensed statement on site; careers is external UHS job portal"
+ },
+ {
+  "org": "Desert Marriage & Family Counseling",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://desertmarriagefamily.com/",
+  "evidence": "staff bio: \"Clinical Director of Mental Health Program AMFT #138738\" (AMFT = BBS registered associate)"
+ },
+ {
+  "org": "Discovery Behavioral Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://discoverybehavioralhealth.com/",
+  "evidence": "job categories listed (therapist, clinical social worker) but no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "Discovery Mood & Anxiety Program",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://discoverymood.com/",
+  "evidence": "no statement; careers routes to Discovery Behavioral Health job board, also no statement"
+ },
+ {
+  "org": "Drew Child Development Corporation",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://drewcdc.org/careers/",
+  "evidence": "\"professional growth\" and \"continuing education\" only; no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "El Nido Family Centers",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://edencounseling.org/",
+  "evidence": "robots.txt disallows fetch (listed URL is edencounseling.org, likely mismatched)"
+ },
+ {
+  "org": "Empire Therapy & Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.empiretcs.net/about-us",
+  "evidence": "no mention of pre-licensed/associate roles or training; no careers page"
+ },
+ {
+  "org": "Engle Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://relationshipcenter.com/psychotherapist-sought",
+  "evidence": "\"experience supervising pre-licensed associates\"; \"Supervision to pre-licensed clinicians\""
+ },
+ {
+  "org": "Enki Health Services, Inc",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.elnidofamilycenters.org/open-positions",
+  "evidence": "(listed URL is elnidofamilycenters.org) open-positions page has no pre-licensed/associate mention"
+ },
+ {
+  "org": "Episcopal Community Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.ecs-sf.org/careers",
+  "evidence": "careers page defers to external portal; no pre-licensed/associate mention on site"
+ },
+ {
+  "org": "Evolve Treatment Centers",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://evolvetreatment.com/about-us/working-at-evolve/",
+  "evidence": "mentions \"fieldwork and practicum programs\" but not pre-licensed clinician roles or BBS hours"
+ },
+ {
+  "org": "Exodus Recovery",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.exodusrecovery.com/",
+  "evidence": "site only links external Indeed listing; no pre-licensed/associate mention"
+ },
+ {
+  "org": "Family Service Agency of Burbank",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://familyserviceagencyofburbank.org/about-us/",
+  "evidence": "\"clinical training of students in pre- and postdoctoral Psychology, Marriage and Family Counseling... Social Work\""
+ },
+ {
+  "org": "Family Service Agency of Santa Barbara",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://fsacares.org/employment/",
+  "evidence": "lists \"paid clinical supervision\" benefit but never names pre-licensed/associate roles"
+ },
+ {
+  "org": "Forward Recovery",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://forwardrecovery.com/",
+  "evidence": "no careers/training content; no pre-licensed mention"
+ },
+ {
+  "org": "Fred Finch Youth Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.fredfinch.org/training",
+  "evidence": "training page is CE for licensed clinicians only; no pre-licensed/associate mention found"
+ },
+ {
+  "org": "Fusion Care Group",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.fusioncaregroup.com/",
+  "evidence": "says \"employ our own licensed doctors and therapists\"; no pre-licensed mention"
+ },
+ {
+  "org": "Gateways Hospital & Jacob Mental Health Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.gatewayshospital.org/careers-training/",
+  "evidence": "internship programs incl. \"Doctoral Psychology Practicum Students\" (pre-licensed trainees; psych-board track, not BBS-specific)"
+ },
+ {
+  "org": "Hathaway-Sycamores Child & Family Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.sycamores.org/careers/",
+  "evidence": "\"Hours provided towards clinical licensure\"; student internship program with supervision"
+ },
+ {
+  "org": "Healing Crossroads",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.healingcrossroads.com/",
+  "evidence": "site testimonial references staff clinician \"AMFT Jennifer\" (AMFT on staff)"
+ },
+ {
+  "org": "Healthright 360",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.healthright360.org/",
+  "evidence": "site returns JavaScript-required redirect on both attempts; content not fetchable"
+ },
+ {
+  "org": "Helpline Youth Counseling, Inc",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.hycinc.org/careers",
+  "evidence": "mentions \"intern opportunities\" generically; no pre-licensed clinical roles stated"
+ },
+ {
+  "org": "Illumination Foundation",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://illuminationhealthhome.org/",
+  "evidence": "only external applytojob link; no pre-licensed/associate mention"
+ },
+ {
+  "org": "Insight Psychotherapy",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.insightpg.org/intern-training.php",
+  "evidence": "site nav has dedicated \"Intern Training\" page (page itself returned 409 on fetch)"
+ },
+ {
+  "org": "Interfaith Community Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.interfaithservices.org/careers/internship",
+  "evidence": "internships in \"Marriage and Family Therapy, Professional Clinical Counseling\" with \"supervision required to meet academic and certification requirements\""
+ },
+ {
+  "org": "Interface Children & Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.icfs.org/employment-html/",
+  "evidence": "employment page has no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Isetta Psychotherapy, Inc.",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.drvanessaisetta.com/",
+  "evidence": "solo practice site; no pre-licensed/associate or careers content"
+ },
+ {
+  "org": "La Jolla Recovery",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://lajollarecovery.com/careers/",
+  "evidence": "careers page mentions generic \"training and mentorship\" but no pre-licensed clinical roles"
+ },
+ {
+  "org": "LifeStance Health",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://careers.lifestance.com/",
+  "evidence": "careers site lists \"Students & Interns\" career path category (trainee roles; CA-specific associate roles not shown on landing page)"
+ },
+ {
+  "org": "Loma Linda University",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://llu.edu/",
+  "evidence": "homepage only links external jobs.lluh.org portal; no pre-licensed clinician statement found"
+ },
+ {
+  "org": "Los Angeles LGBT Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://lalgbtcenter.org/about/careers/",
+  "evidence": "careers page has no pre-licensed/associate/intern clinician mention"
+ },
+ {
+  "org": "Macy Grim Therapy",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.macygrimtherapy.com/",
+  "evidence": "solo practice site; no pre-licensed/associate mention"
+ },
+ {
+  "org": "Multi-Concept Recovery",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://multiconceptrecovery.com/careers/",
+  "evidence": "postings are \"Primary Therapist\" roles; no pre-licensed/associate mention"
+ },
+ {
+  "org": "Muse Treatment",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://musetreatment.com/careers/",
+  "evidence": "openings (Therapist, LVN, Case Manager) not described as pre-licensed; no associate/trainee mention"
+ },
+ {
+  "org": "New Dawn Counseling & Consulting",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.newdawncnc.com/work-with-us.html",
+  "evidence": "generic \"submit CV\" page; no pre-licensed/supervision mention"
+ },
+ {
+  "org": "New Growth Counseling Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.newgrowthcounseling.com/",
+  "evidence": "staff are two LMFTs only; no associate/trainee mention"
+ },
+ {
+  "org": "Newport Academy",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://careers.newporthealthcare.com/careers-home",
+  "evidence": "\"Therapist / Counselors\" category exists but no pre-licensed/supervision-toward-licensure mention"
+ },
+ {
+  "org": "Oakwood Family Institute",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://oakwoodtreatment.com/",
+  "evidence": "no careers/training content; no pre-licensed mention"
+ },
+ {
+  "org": "Optimist Youth Homes & Family Services",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://oyhfs.org/",
+  "evidence": "site body is JS-rendered; homepage and /careers/ returned no readable content"
+ },
+ {
+  "org": "Orenda Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.orendaclinical.com/",
+  "evidence": "no mention of associates/pre-licensed; /careers returns 404"
+ },
+ {
+  "org": "Pacific Asian Counseling Services",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.hugedomains.com/domain_profile.cfm?d=pacsla.com",
+  "evidence": "domain parked, \"pacsla.com is for sale\" (HugeDomains)"
+ },
+ {
+  "org": "Pacific Clinics",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://careers.pacificclinics.org/internships",
+  "evidence": "\"Clinical Internships\" plus Pacific Clinics Training Institute for behavioral health professionals"
+ },
+ {
+  "org": "Pacific Wellness Collective",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://pacificwellnesscollective.com/join-our-team-iv/",
+  "evidence": "\"Are you a registered Associate?\" on Join Our Team page"
+ },
+ {
+  "org": "Partners in Special Education",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://partnersped.com/careers/",
+  "evidence": "careers page has no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Pathways",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.clarvida.com/careers/counseling-therapy-services/",
+  "evidence": "\"Pre-Licensed Therapist\" listed among Clarvida counseling/therapy roles"
+ },
+ {
+  "org": "Penny Lane Centers",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.pennylane.org/careers/student-internship-opportunities",
+  "evidence": "internship page exists but no explicit pre-licensed/BBS clinical trainee statement"
+ },
+ {
+  "org": "Polaris Teen Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://polaristeen.com/",
+  "evidence": "site states center closed operations Aug 4, 2025; no such content"
+ },
+ {
+  "org": "Progress Foundation - Dore Urgent Care Clinic",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.progressfoundation.org/programs/",
+  "evidence": "\"highly trained counselors\" but no pre-licensed/associate/trainee statement"
+ },
+ {
+  "org": "Project 180",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.project180reentry.org/",
+  "evidence": "no careers/training pages; no pre-licensed clinician mention"
+ },
+ {
+  "org": "Rachel Cole, LCSW",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.rachelcolelcsw.com/",
+  "evidence": "solo practice site; no associate/pre-licensed/trainee mention"
+ },
+ {
+  "org": "Rady Children's Hospital",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.rchsd.org/",
+  "evidence": "no statement found; careers link redirects to external job portal"
+ },
+ {
+  "org": "Reasons Claire St. Johns",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://reasonsedc.com/",
+  "evidence": "\"psychiatrists, therapists, dietitians, and nurses\" \u2014 no pre-licensed/trainee mention"
+ },
+ {
+  "org": "Reasons Eating Disorder Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://reasonsedc.com/",
+  "evidence": "same site as above; no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Rebecca Newton Therapy",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://rebeccanewtontherapy.com/",
+  "evidence": "solo practice; no associate/pre-licensed/trainee mention"
+ },
+ {
+  "org": "Rebecca Stewart Marriage & Family Therapy, A Professional Corporation",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://rebeccastewarttherapy.com/",
+  "evidence": "solo licensed LMFT/LPCC; no associates or trainees mentioned"
+ },
+ {
+  "org": "Relationnship Therapy Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.sdrelationshipplace.com/careers/",
+  "evidence": "\"Associates will receive a minimum of 3 hours of supervision per week... toward licensure with the BBS\""
+ },
+ {
+  "org": "Renewal Health Group / Sanctuary Treatment Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://renewalrecovery.com/rehab-jobs/",
+  "evidence": "jobs page lists licensed staff (LMFT, LAADC, LVN); no pre-licensed mention"
+ },
+ {
+  "org": "Resurgence Behavioral Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://resurgencebehavioralhealth.com/careers/",
+  "evidence": "careers page has no pre-licensed/associate/BBS mention"
+ },
+ {
+  "org": "ROWI Teen & Parent Wellness Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://rowiteen.com/practicum-opportunities-at-rowi-teen-family-wellness-centers/",
+  "evidence": "\"intern and practicum opportunities for students pursuing graduate-level training in psychology, marriage and family therapy...\""
+ },
+ {
+  "org": "San Diego Youth Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://sdyouthservices.org/get-involved/internships/",
+  "evidence": "placements for \"clinical trainees and interns\" with \"AAMFT approved individual and group clinical supervision\""
+ },
+ {
+  "org": "San Fernando Valley Community Mental Health Center, Inc.",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.movinglivesforward.org/support-us/join-our-team/",
+  "evidence": "\"explore student training and internship opportunities\" \u2014 dedicated STUDENT TRAINING & INTERNSHIPS section"
+ },
+ {
+  "org": "Serene Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://serenehealth.com/careers/",
+  "evidence": "careers page has no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Southern California Counseling Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://sccc-la.org/train-at-sccc/",
+  "evidence": "\"Train with Us\" \u2014 \"complete your clinical requirements\"; counselor training + Medi-Cal associate training programs"
+ },
+ {
+  "org": "St. Anne's",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://stannes.org/career-opportunities/",
+  "evidence": "careers page has no pre-licensed/clinical supervision mention"
+ },
+ {
+  "org": "St. John's Well Child & Family Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.sjch.org/employment",
+  "evidence": "employment page lists provider/clinical teams; no pre-licensed/trainee statement"
+ },
+ {
+  "org": "STARS Behavioral Health Group",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.starsinc.com/careers/",
+  "evidence": "lists Youth Counselor, LVN/LPT, Mental Health Therapist; no pre-licensed/associate mention"
+ },
+ {
+  "org": "Step Up on Second, Inc",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.stepup.org/careers/",
+  "evidence": "mental health hiring areas listed but no pre-licensed/BBS supervision statement"
+ },
+ {
+  "org": "Summit Malibu",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://summitmalibu.com/",
+  "evidence": "no careers/training pages; no pre-licensed clinician mention"
+ },
+ {
+  "org": "Sylmar Health and Rehabilitation Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://oshpd.ca.gov/facility/sylmar-health-and-rehabilitation-center/",
+  "evidence": "URL is a CA state facility profile (skilled nursing), not the org's own site; no such statement"
+ },
+ {
+  "org": "Tarzana Treatment Centers",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.tarzanatc.org/careers/internships/",
+  "evidence": "\"year round program for clinical internships and practicum for: MSW, MFT Interns; Doctoral Level Psychology Students\""
+ },
+ {
+  "org": "The Art of Guiding Healers",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.theartofguidinghealers.org/clinical-supervision",
+  "evidence": "\"Associates working towards their 3,000 hours of experience... part of the clinical team\""
+ },
+ {
+  "org": "The Council on Alcoholism and Drug Abuse",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.cadasb.org/about/careers",
+  "evidence": "careers page says internship/traineeship opportunities \"Coming Soon\"; no current pre-licensed roles stated"
+ },
+ {
+  "org": "The Counseling Team International",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://frhealth.com/first-responder-wellness/careers",
+  "evidence": "mentions \"contract clinicians\" only; no associate/pre-licensed/trainee roles stated"
+ },
+ {
+  "org": "The House Of The Rising Son, LLC",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://thorstreatment.com/",
+  "evidence": "homepage has no mention; /careers returns 404"
+ },
+ {
+  "org": "The People Concern",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://thepeopleconcern.org/",
+  "evidence": "site references \"the agency's clinical internship program\""
+ },
+ {
+  "org": "The Place Within",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://theplacewithin.org/trainee-associate.php",
+  "evidence": "dedicated \"Trainees & Associates\" page in site navigation"
+ },
+ {
+  "org": "The Village Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://thevillagefs.org/about-our-village/careers/",
+  "evidence": "careers page has no associate/trainee/pre-licensed mention"
+ },
+ {
+  "org": "Trinity Youth Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://trinityys.org/get-involved/careers/",
+  "evidence": "careers page mentions education reimbursement only; no pre-licensed roles stated"
+ },
+ {
+  "org": "Trumpet Behavioral Health LLC",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.bluesprigautism.com/trumpet-behavioral-health/",
+  "evidence": "ABA provider; no AMFT/ACSW/APCC or BBS trainee mention"
+ },
+ {
+  "org": "United American Indian Involvement, Inc.",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://uaii.org/careers/",
+  "evidence": "careers page has no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Uplift Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://upliftfs.org/",
+  "evidence": "homepage has no mention; /careers/ blocked (robots.txt fetch failed)"
+ },
+ {
+  "org": "Valley Detox",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.valleydetoxcenter.com/",
+  "evidence": "no careers/training pages; no pre-licensed mention"
+ },
+ {
+  "org": "Ventura Recovery Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://venturarecoverycenter.com/",
+  "evidence": "staff listings only; no careers or trainee/associate mention"
+ },
+ {
+  "org": "Victor Treatment Centers",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://careers.victor.org/",
+  "evidence": "careers site mentions training generally; no AMFT/ACSW/pre-licensed roles stated"
+ },
+ {
+  "org": "Vista Del Mar Child and Family Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.vistadelmar.org/professional-training/internships",
+  "evidence": "internships page lists \"MFT Trainees and Interns\" and pre-doctoral psychology positions"
+ },
+ {
+  "org": "Vista Hill",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.vistahill.org/",
+  "evidence": "employment link goes to external UKG board; no pre-licensed mention on site"
+ },
+ {
+  "org": "Wayfinder Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.wayfinderfamily.org/career-opportunities",
+  "evidence": "careers page has no AMFT/ACSW/associate/trainee mention"
+ },
+ {
+  "org": "Well Paths",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://wellpathcare.com/",
+  "evidence": "national correctional healthcare co; no pre-licensed/BBS trainee mention"
+ },
+ {
+  "org": "Wellnest Emotional Health and Wellness",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.wellnestla.org/our-services/clinical-training-intern-development-program/",
+  "evidence": "\"premier training site for graduate social work students\"; Clinical Training & Intern Development Program"
+ },
+ {
+  "org": "William S.Hart",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.hartdistrict.org/apps/pages/counseling",
+  "evidence": "lists licensed LMFT/LCSW counselors only; no pre-licensed/trainee mention"
+ },
+ {
+  "org": "West Coast Counseling and Group Therapy Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://wcccla.com/",
+  "evidence": "only a testimonial mentioning \"her interns\"; no stated associate/trainee roles or program"
+ },
+ {
+  "org": "Westcare California Inc",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://westcare.com/join-our-team/",
+  "evidence": "join-our-team page has no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Western Youth Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.westernyouthservices.org/practicum-training/",
+  "evidence": "practicum training \"for graduate students enrolled in Social Work, Counseling, Marriage and Family Therapy\""
+ },
+ {
+  "org": "Women's Clinic Counseling",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.womens-clinic.org/",
+  "evidence": "no careers/training pages; no pre-licensed mention"
+ },
+ {
+  "org": "Alternative Family Services",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.afs4kids.org/internships/",
+  "evidence": "internships page: \"MFT Trainees, MSW student interns\" with weekly supervision"
+ },
+ {
+  "org": "Amrita Eating Disorder Treatment",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.amritaedt.com/",
+  "evidence": "no careers/training pages; no pre-licensed mention"
+ },
+ {
+  "org": "Approach Therapy",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://approachtherapy.com/",
+  "evidence": "lists licensed therapists only; /careers returns 404"
+ },
+ {
+  "org": "Asian Health Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://asianhealthservices.org/",
+  "evidence": "medical/dental rotations and youth internships only; no BBS associate/trainee mention"
+ },
+ {
+  "org": "Aspire Public Schools",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://aspirepublicschools.org/",
+  "evidence": "charter school network; no mental health trainee/pre-licensed mention"
+ },
+ {
+  "org": "Auburn Davis Center for DBT",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.drsusanlandesmft.com/",
+  "evidence": "solo/small practice site; no associate/trainee/careers content"
+ },
+ {
+  "org": "Bay Area Community Resources",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.bacr.org/careers",
+  "evidence": "careers page has no AMFT/ACSW/pre-licensed/trainee mention"
+ },
+ {
+  "org": "Bayside Marin",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.baysidemarin.com/",
+  "evidence": "careers link goes to external Acadia site; no pre-licensed mention on site"
+ },
+ {
+  "org": "Beacon School",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://beaconschool.com/",
+  "evidence": "site serves JavaScript-only redirect; content not fetchable (2 attempts)"
+ },
+ {
+  "org": "Bill Wilson Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.billwilsoncenter.org/bwc_jobs/",
+  "evidence": "jobs page has no pre-licensed/associate/trainee mention"
+ },
+ {
+  "org": "Caminar",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.caminar.org/careers",
+  "evidence": "careers lists case manager/admin roles; no pre-licensed/associate clinical language"
+ },
+ {
+  "org": "Catholic Charities",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://catholiccharitiessf.org/careers-at-catholic-charities/",
+  "evidence": "careers page has no pre-licensed/associate/trainee clinical language"
+ },
+ {
+  "org": "Celebral",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://cerebral.com/careers",
+  "evidence": "\"allow Therapist Associates to practice under the supervision of a licensed therapist\""
+ },
+ {
+  "org": "Children's Receiving Home of Sacramento",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://crhkids.org/careers/",
+  "evidence": "careers page generic; no pre-licensed/associate/trainee clinical language"
+ },
+ {
+  "org": "Children's Hospital and Research Center Oakland",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.ucsfbenioffchildrens.org/medical-professionals/graduate-training",
+  "evidence": "graduate training limited to medicine/dentistry/nursing/pharmacy; no BBS-track roles stated"
+ },
+ {
+  "org": "CIP Marin",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.cipmarin.org/",
+  "evidence": "JS-required redirect blocks fetch on home and /careers"
+ },
+ {
+  "org": "Community Options for Families and Youth",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://embrace-mh.org/careers",
+  "evidence": "\"seasoned clinician or just getting started\" only; no explicit pre-licensed/associate roles"
+ },
+ {
+  "org": "Conard House, Inc.",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://conardhouse.org/job-opportunities",
+  "evidence": "case manager roles + volunteer internships only; no BBS/pre-licensed clinical language"
+ },
+ {
+  "org": "Dunamis Wellness",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.resiliencyco.net/join-our-team",
+  "evidence": "\"team of trauma informed clinicians\"; no pre-licensed/associate/trainee language"
+ },
+ {
+  "org": "Eagle Rock Therapy",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.eaglerocktherapy.com/cgi-sys/suspendedpage.cgi",
+  "evidence": "site shows Bluehost \"Account Suspended!\" page"
+ },
+ {
+  "org": "Eden Counseling Services",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://edencounseling.org/",
+  "evidence": "robots.txt disallows all paths; fetch blocked"
+ },
+ {
+  "org": "Familias Unidas",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.familias-unidas.org/employment.html",
+  "evidence": "\"2-3 Masters level trainees (MSW or MFT Trainee)\" with weekly group/individual supervision"
+ },
+ {
+  "org": "Felton Institute",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://felton.org/training/clinical-internships/",
+  "evidence": "site lists \"Clinical Internship Training Program\" for supervised clinical interns"
+ },
+ {
+  "org": "Foundations San Francisco",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://foundationsrecoverynetwork.com/careers/",
+  "evidence": "\"Masters-level therapists\"/\"licensed therapists\" only; no pre-licensed categories"
+ },
+ {
+  "org": "Grateful Heart Holistic Therapy",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.gratefulhearttherapy.org/",
+  "evidence": "site is now a Morgan Records Management records-custodian page; no staffing info"
+ },
+ {
+  "org": "Harm Reduction Therapy Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://harmreductiontherapy.org/volunteer-with-hrtc/",
+  "evidence": "volunteer page covers kit assembly; no pre-licensed/associate clinical language"
+ },
+ {
+  "org": "Healthright 360",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.healthright360.org/",
+  "evidence": "JS-required redirect blocks fetch on home and /careers"
+ },
+ {
+  "org": "Homeless Children's Network",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.hcnkids.org/careers-internships",
+  "evidence": "\"Trainees are significant members of our team... Interns provide... therapy\"; weekly supervision"
+ },
+ {
+  "org": "Hope for Healthy Families",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.drdoctorharrell.com/",
+  "evidence": "domain now hosts unrelated gambling/slots content, not the org's site"
+ },
+ {
+  "org": "Lighthouse of Hope",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.wellnessandtherapy.org/about.html",
+  "evidence": "team includes \"Spanish-speaking pre-licensed therapist\" and \"registered associate marriage and family therapist\""
+ },
+ {
+  "org": "Lori Conroy, LMFT",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://loriconroy.com/",
+  "evidence": "solo practice site; no team, careers, or training content"
+ },
+ {
+  "org": "Marin Treatment Center",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://marintreatmentcenter.org/",
+  "evidence": "JS-required redirect blocks fetch on home and /employment"
+ },
+ {
+  "org": "Mendocino Coast",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.mendocinochc.org/careers",
+  "evidence": "careers page shows \"No openings\"; no pre-licensed/associate/trainee language"
+ },
+ {
+  "org": "Mindful Evolutions",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://mindfulevolutionstherapy.com/team",
+  "evidence": "team lists AMFT, ACSW, ASW staff, e.g. \"Supervised by Suzanne Vargas LCSW\""
+ },
+ {
+  "org": "New Life Community Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "http://www.newlifesc.org/",
+  "evidence": "own site (input URL was third-party directory) has no pre-licensed/trainee clinical language"
+ },
+ {
+  "org": "New Perspectives Center for Counseling in SF",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.sfnewperspectives.org/training-program",
+  "evidence": "\"internship program for Associate MFT, MSW and PCC therapists as well as practicum students\""
+ },
+ {
+  "org": "North American Mental Health Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://namhs.com/careers/",
+  "evidence": "\"110+ therapists and psychiatric providers\"; no pre-licensed/associate/supervision language"
+ },
+ {
+  "org": "Northern Valley Catholic Social Service",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://nvcss.org/careers",
+  "evidence": "careers page generic; no pre-licensed/associate/trainee clinical language"
+ },
+ {
+  "org": "Relationship Therapy Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.therelationshiptherapycenter.com/our-therapists/",
+  "evidence": "team lists multiple AMFT, APCC, and ASW (associate) clinicians"
+ },
+ {
+  "org": "Remi Vista",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://remivistainc.org/careers/",
+  "evidence": "lists \"Therapist, Social Worker\" roles without licensure-level or supervision language"
+ },
+ {
+  "org": "Restoration Family Counseling Center Inc.",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.restorationfcc.com/team",
+  "evidence": "all listed clinicians fully licensed (LMFT/LCSW); no associates/trainees"
+ },
+ {
+  "org": "Reviving Mind",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.revivingmind.com/the-reviving-mind-team",
+  "evidence": "leadership/MD team only; no pre-licensed or trainee clinical roles stated"
+ },
+ {
+  "org": "Sacramento Children's Home",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.kidshome.org/careers/",
+  "evidence": "careers page generic employer info; no pre-licensed/trainee/practicum language"
+ },
+ {
+  "org": "San Rafael City Schools",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.srcs.org/",
+  "evidence": "careers pages list no pre-licensed clinician roles; only CYBHI program mention"
+ },
+ {
+  "org": "SCV Counseling Center",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://scvtherapyservices.com/",
+  "evidence": "site has no mention of hiring, training, interns, or pre-licensed roles"
+ },
+ {
+  "org": "Seneca Family of Agencies",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://senecafoa.org/careers/graduate-internship-program/",
+  "evidence": "\"post-graduate clinician (ASW, AMFT, APCC)... Seneca will assist you in gaining your hours... supervision\""
+ },
+ {
+  "org": "Shine a Light Counseling Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.shinealight.info/",
+  "evidence": "\"mostly master's level Associates and Trainees who are trained by our team of licensed supervisors\""
+ },
+ {
+  "org": "Side by Side",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.sidebysideyouth.org/careers-and-internships/",
+  "evidence": "\"internship program offers 1 hour of clinical supervision per week, 2 hours of group supervision\""
+ },
+ {
+  "org": "Silcon Valley Therapy",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://siliconvalleytherapy.co/join-us/",
+  "evidence": "\"Supervision for associates that meet BBS requirements\""
+ },
+ {
+  "org": "Stanford Youth Solutions",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.ssyaf.org/clinical-supervision",
+  "evidence": "\"post-graduate students can complete internships as Associate Social Workers (ASW), MFT Interns, PCC Interns\""
+ },
+ {
+  "org": "Telecare Corporation",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.telecarecorp.com/jobs",
+  "evidence": "lists social workers/prescribers/peer staff; no pre-licensed associate or supervision-toward-licensure statement"
+ },
+ {
+  "org": "The Brown Therapy Group",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.thebrowntherapygroup.com/",
+  "evidence": "team lists \"Registered Associate MFT 143457 Supervised by Courtney Brown LMFT\" (8+ associates)"
+ },
+ {
+  "org": "The Lotus Collaborative, Inc",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.thelotuscollaborative.com/team",
+  "evidence": "team lists ACSW, AMFT, APCC primary therapists (e.g. \"Jill Wimmer, AMFT\")"
+ },
+ {
+  "org": "Therapy Works",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.mytherapyworks.com/careers",
+  "evidence": "\"Licensed or Associate Therapist\" role plus \"Clinical Supervision, Consultation with Clinical Director\""
+ },
+ {
+  "org": "Through the Looking Glass",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://lookingglass.org/masters-practicum-training/",
+  "evidence": "\"Clinical supervision is also provided to Masters level graduates who are accruing hours toward licensure\""
+ },
+ {
+  "org": "TLC Child and Family Services",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://tlc4kids.org/about/careers/",
+  "evidence": "\"Behavioral Health Clinician\" roles listed but no pre-licensed/associate/supervision language"
+ },
+ {
+  "org": "US Department of Veterans Affairs",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.psychologytraining.va.gov/",
+  "evidence": "\"VA provides Internships, Postdoctoral Fellowships, and Doctoral Practicum Training\" (1,264 funded positions)"
+ },
+ {
+  "org": "Vida Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.vida.com/careers/",
+  "evidence": "careers page has no pre-licensed/associate roles or supervision statement; no posts found"
+ },
+ {
+  "org": "VistAbility, formerly Contra Costa ARC",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.vistability.net/",
+  "evidence": "behavioral health services mentioned but no pre-licensed clinician or supervision language"
+ },
+ {
+  "org": "WEAVE",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.weaveinc.org/employment",
+  "evidence": "employment page covers benefits/EEO only; no clinical licensure or supervision mention"
+ },
+ {
+  "org": "Wellspring Psychotherapy Center",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://wellspringpsychotherapycenter.com/",
+  "evidence": "staff listed as \"Registered Associate MFT\", \"Registered Associate CSW\", \"Registered Associate PCC\""
+ },
+ {
+  "org": "West Coast Children's Clinic",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.westcoastcc.org/",
+  "evidence": "\"APA-accredited Doctoral Internship in Clinical Psychology and 9-month MSW Internship\""
+ },
+ {
+  "org": "Yolo Community Care Continuum",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://y3c.org/careers/",
+  "evidence": "\"Working on getting your licensed hours? Contact the HR department... to see if we can accommodate you!\""
+ },
+ {
+  "org": "Youth Homes, Inc",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://youthhomes.org/advanced-practicum",
+  "evidence": "Advanced Practicum for trainees with \"coursework toward a master's degree in clinical/counseling psychology or social work\""
+ },
+ {
+  "org": "California Psychological Institute",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://www.cpifresno.com/",
+  "evidence": "\"Our staff consists of licensed mental health professionals and registered interns\""
+ },
+ {
+  "org": "Child Abuse Prevention Council",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://nochildabuse.org/join-our-team/",
+  "evidence": "generic \"Training and Professional Growth\" benefit; no pre-licensed clinical roles stated"
+ },
+ {
+  "org": "County of Colusa",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.countyofcolusaca.gov/325/Behavioral-Health",
+  "evidence": "fetch blocked twice (robots.txt fetch failed / connect timeout)"
+ },
+ {
+  "org": "County of Madera (Hires prelicensed clinicians for the county)",
+  "verdict": "UNREACHABLE",
+  "evidence_url": "https://www.governmentjobs.com/careers/maderacountyca/jobs/newprint/1975481",
+  "evidence": "URL disallowed by robots.txt; posting could not be fetched"
+ },
+ {
+  "org": "Kings View Corporation",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.kingsview.org/careers/",
+  "evidence": "mentions \"mental health clinicians\" but no pre-licensed/associate or BBS supervision statement"
+ },
+ {
+  "org": "PathPoint",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.pathpoint.org/careers",
+  "evidence": "career paths are DSP-focused; no clinical licensure or pre-licensed roles mentioned"
+ },
+ {
+  "org": "Promesa Behavioral Health",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://promesabehavioral.org/career/",
+  "evidence": "only \"Child Care Worker I\" shown; no clinical licensure pathway language"
+ },
+ {
+  "org": "RH Community Builders",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://rhcommunitybuilders.com/join-our-team",
+  "evidence": "\"Clinicians, counselors, and psychiatric staff\" listed but no pre-licensed/associate specifics"
+ },
+ {
+  "org": "Roubicek and Thacker",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://roubicekandthacker.com/",
+  "evidence": "\"Registered Associate Marriage & Family Therapist #153285... Under supervision of Dr. Kyle Weir, PhD, LMFT\""
+ },
+ {
+  "org": "Sierra Meadows Behavioral Health",
+  "verdict": "CONFIRMED",
+  "evidence_url": "https://sierrameadowsbehavioralhealth.com/training-program/",
+  "evidence": "\"operate a doctoral internship program in health service psychology\" (APPIC member)"
+ },
+ {
+  "org": "Telemynd",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.telemynd.com/careers",
+  "evidence": "requires \"current independent license in each state of practice\"; licensed-only"
+ },
+ {
+  "org": "Turning Point of Central California Inc",
+  "verdict": "NOT-FOUND",
+  "evidence_url": "https://www.tpocc.org/",
+  "evidence": "site links only to an external UltiPro job board (unrenderable); no pre-licensed statement on own site"
+ }
+]

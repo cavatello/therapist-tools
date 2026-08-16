@@ -1,0 +1,212 @@
+# Pre-licensed job sites - independently verified 16 Aug 2026
+
+Each verdict is from reading the org's OWN site (home + careers/training pages)
+the same day. CONFIRMED = the site itself states pre-licensed/associate roles or a
+supervised-hours training program. NOT-FOUND = site reachable, no such statement
+found - which is a disclosure fact, not proof they never hire associates.
+Source leads: RESEARCH/prelicensed-job-sites-leads.md (CAMFT-derived; its text is
+not reproduced). Liveness detail: RESEARCH/leads-verified-2026-08-16.json.
+
+## CONFIRMED (61)
+- Acorn Counseling | https://www.psychologytoday.com/us/therapists/bridges-therapy-group-of-ca-los-angeles-ca/447192 | listed therapist credentialed "AMFT" on group's Psychology Today profile (given URL; not org-owned domain)
+- Alsana | https://www.alsana.com/careers/ | "Yes, Alsana does offer qualifying supervision hours with dedicated and experienced Clinicians"
+- Amanecer Community Counseling Service | https://amanecerla.org/internships/ | "MOUs with local universities for trainees and interns... MFT trainees... APCC intern"
+- AVIVA Family and Children's Services | https://aviva.org/graduate-school-student-program/ | Graduate School Student Program: "MFT Trainee from Pepperdine," "MSW Intern from CSULA," weekly individual and group supervision
+- Bay Area Psychotherapy Training Institute | https://www.bapti.org/ | staff roster of AMFT/APCC/ASW associates; "Associateships" employment page and clinical supervisors page
+- BRIDGES, Inc. | https://www.bridgesrehab.org/who-we-are/internships.html | "accept many levels of interns... master's degree level in behavioral health, social work" with "structured supervision"
+- California Integrative Counseling Center | https://www.caintegrativecounseling.com/ | staff roster lists multiple "AMFT" and "AMFT, APCC" associates (e.g. "Diana Hope Sokolove, AMFT, APCC")
+- Casa de la Familia | https://casadelafamilia.org/counseling-careers | "established teaching site for graduate-level and doctorate-level students looking for internship hours" (MFT, SW, PCC, psychology)
+- Central Counseling Services | https://centralcounselingservices.net/ | "Our team, including LCSWs, LMFTs, LPCCs, and registered associates"
+- Community Research Foundation | https://www.crfbehavioralhealthcare.org/training/student-training-programs/ | "We host more than 100 trainees annually and partner with more than 45 universities and training programs" (MFT/SW/counseling masters)
+- Connections Family and Behavioral Services | https://www.connectionsfbs.com/ | staff list includes "Kasey Berg (MA, AMFT, APCC)," "Eamon Burke (AMFT, MA)," "Pearson Bradley (MSW Student Intern)"
+- Desert Marriage & Family Counseling | https://desertmarriagefamily.com/ | staff bio: "Clinical Director of Mental Health Program AMFT #138738" (AMFT = BBS registered associate)
+- Engle Center | https://relationshipcenter.com/psychotherapist-sought | "experience supervising pre-licensed associates"; "Supervision to pre-licensed clinicians"
+- Family Service Agency of Burbank | https://familyserviceagencyofburbank.org/about-us/ | "clinical training of students in pre- and postdoctoral Psychology, Marriage and Family Counseling... Social Work"
+- Gateways Hospital & Jacob Mental Health Center | https://www.gatewayshospital.org/careers-training/ | internship programs incl. "Doctoral Psychology Practicum Students" (pre-licensed trainees; psych-board track, not BBS-specific)
+- Hathaway-Sycamores Child & Family Services | https://www.sycamores.org/careers/ | "Hours provided towards clinical licensure"; student internship program with supervision
+- Healing Crossroads | https://www.healingcrossroads.com/ | site testimonial references staff clinician "AMFT Jennifer" (AMFT on staff)
+- Insight Psychotherapy | https://www.insightpg.org/intern-training.php | site nav has dedicated "Intern Training" page (page itself returned 409 on fetch)
+- Interfaith Community Services | https://www.interfaithservices.org/careers/internship | internships in "Marriage and Family Therapy, Professional Clinical Counseling" with "supervision required to meet academic and certification requirements"
+- LifeStance Health | https://careers.lifestance.com/ | careers site lists "Students & Interns" career path category (trainee roles; CA-specific associate roles not shown on landing page)
+- Pacific Clinics | https://careers.pacificclinics.org/internships | "Clinical Internships" plus Pacific Clinics Training Institute for behavioral health professionals
+- Pacific Wellness Collective | https://pacificwellnesscollective.com/join-our-team-iv/ | "Are you a registered Associate?" on Join Our Team page
+- Pathways | https://www.clarvida.com/careers/counseling-therapy-services/ | "Pre-Licensed Therapist" listed among Clarvida counseling/therapy roles
+- Relationnship Therapy Center | https://www.sdrelationshipplace.com/careers/ | "Associates will receive a minimum of 3 hours of supervision per week... toward licensure with the BBS"
+- ROWI Teen & Parent Wellness Center | https://rowiteen.com/practicum-opportunities-at-rowi-teen-family-wellness-centers/ | "intern and practicum opportunities for students pursuing graduate-level training in psychology, marriage and family therapy..."
+- San Diego Youth Services | https://sdyouthservices.org/get-involved/internships/ | placements for "clinical trainees and interns" with "AAMFT approved individual and group clinical supervision"
+- San Fernando Valley Community Mental Health Center, Inc. | https://www.movinglivesforward.org/support-us/join-our-team/ | "explore student training and internship opportunities" — dedicated STUDENT TRAINING & INTERNSHIPS section
+- Southern California Counseling Center | https://sccc-la.org/train-at-sccc/ | "Train with Us" — "complete your clinical requirements"; counselor training + Medi-Cal associate training programs
+- Tarzana Treatment Centers | https://www.tarzanatc.org/careers/internships/ | "year round program for clinical internships and practicum for: MSW, MFT Interns; Doctoral Level Psychology Students"
+- The Art of Guiding Healers | https://www.theartofguidinghealers.org/clinical-supervision | "Associates working towards their 3,000 hours of experience... part of the clinical team"
+- The People Concern | https://thepeopleconcern.org/ | site references "the agency's clinical internship program"
+- The Place Within | https://theplacewithin.org/trainee-associate.php | dedicated "Trainees & Associates" page in site navigation
+- Vista Del Mar Child and Family Services | https://www.vistadelmar.org/professional-training/internships | internships page lists "MFT Trainees and Interns" and pre-doctoral psychology positions
+- Wellnest Emotional Health and Wellness | https://www.wellnestla.org/our-services/clinical-training-intern-development-program/ | "premier training site for graduate social work students"; Clinical Training & Intern Development Program
+- Western Youth Services | https://www.westernyouthservices.org/practicum-training/ | practicum training "for graduate students enrolled in Social Work, Counseling, Marriage and Family Therapy"
+- Alternative Family Services | https://www.afs4kids.org/internships/ | internships page: "MFT Trainees, MSW student interns" with weekly supervision
+- Celebral | https://cerebral.com/careers | "allow Therapist Associates to practice under the supervision of a licensed therapist"
+- Familias Unidas | https://www.familias-unidas.org/employment.html | "2-3 Masters level trainees (MSW or MFT Trainee)" with weekly group/individual supervision
+- Felton Institute | https://felton.org/training/clinical-internships/ | site lists "Clinical Internship Training Program" for supervised clinical interns
+- Homeless Children's Network | https://www.hcnkids.org/careers-internships | "Trainees are significant members of our team... Interns provide... therapy"; weekly supervision
+- Lighthouse of Hope | https://www.wellnessandtherapy.org/about.html | team includes "Spanish-speaking pre-licensed therapist" and "registered associate marriage and family therapist"
+- Mindful Evolutions | https://mindfulevolutionstherapy.com/team | team lists AMFT, ACSW, ASW staff, e.g. "Supervised by Suzanne Vargas LCSW"
+- New Perspectives Center for Counseling in SF | https://www.sfnewperspectives.org/training-program | "internship program for Associate MFT, MSW and PCC therapists as well as practicum students"
+- Relationship Therapy Center | https://www.therelationshiptherapycenter.com/our-therapists/ | team lists multiple AMFT, APCC, and ASW (associate) clinicians
+- Seneca Family of Agencies | https://senecafoa.org/careers/graduate-internship-program/ | "post-graduate clinician (ASW, AMFT, APCC)... Seneca will assist you in gaining your hours... supervision"
+- Shine a Light Counseling Center | https://www.shinealight.info/ | "mostly master's level Associates and Trainees who are trained by our team of licensed supervisors"
+- Side by Side | https://www.sidebysideyouth.org/careers-and-internships/ | "internship program offers 1 hour of clinical supervision per week, 2 hours of group supervision"
+- Silcon Valley Therapy | https://siliconvalleytherapy.co/join-us/ | "Supervision for associates that meet BBS requirements"
+- Stanford Youth Solutions | https://www.ssyaf.org/clinical-supervision | "post-graduate students can complete internships as Associate Social Workers (ASW), MFT Interns, PCC Interns"
+- The Brown Therapy Group | https://www.thebrowntherapygroup.com/ | team lists "Registered Associate MFT 143457 Supervised by Courtney Brown LMFT" (8+ associates)
+- The Lotus Collaborative, Inc | https://www.thelotuscollaborative.com/team | team lists ACSW, AMFT, APCC primary therapists (e.g. "Jill Wimmer, AMFT")
+- Therapy Works | https://www.mytherapyworks.com/careers | "Licensed or Associate Therapist" role plus "Clinical Supervision, Consultation with Clinical Director"
+- Through the Looking Glass | https://lookingglass.org/masters-practicum-training/ | "Clinical supervision is also provided to Masters level graduates who are accruing hours toward licensure"
+- US Department of Veterans Affairs | https://www.psychologytraining.va.gov/ | "VA provides Internships, Postdoctoral Fellowships, and Doctoral Practicum Training" (1,264 funded positions)
+- Wellspring Psychotherapy Center | https://wellspringpsychotherapycenter.com/ | staff listed as "Registered Associate MFT", "Registered Associate CSW", "Registered Associate PCC"
+- West Coast Children's Clinic | https://www.westcoastcc.org/ | "APA-accredited Doctoral Internship in Clinical Psychology and 9-month MSW Internship"
+- Yolo Community Care Continuum | https://y3c.org/careers/ | "Working on getting your licensed hours? Contact the HR department... to see if we can accommodate you!"
+- Youth Homes, Inc | https://youthhomes.org/advanced-practicum | Advanced Practicum for trainees with "coursework toward a master's degree in clinical/counseling psychology or social work"
+- California Psychological Institute | https://www.cpifresno.com/ | "Our staff consists of licensed mental health professionals and registered interns"
+- Roubicek and Thacker | https://roubicekandthacker.com/ | "Registered Associate Marriage & Family Therapist #153285... Under supervision of Dr. Kyle Weir, PhD, LMFT"
+- Sierra Meadows Behavioral Health | https://sierrameadowsbehavioralhealth.com/training-program/ | "operate a doctoral internship program in health service psychology" (APPIC member)
+
+## NOT-FOUND (124)
+- Acadia Healthcare | https://www.acadiacareers.com/us/en | lists counselors/therapists categories; no pre-licensed/associate/trainee statement on home or careers
+- ACES (Autism Comprehensive Educational Services) | https://www.acesaba.com/careers | ABA org: BT/RBT/BCBA roles only; no MH pre-licensed/associate roles stated
+- Akua Behavioral Health | https://akuamindbody.com/ | team listed as counselors/therapists/dietitians/physicians; careers redirects to Paylocity job board, no statement
+- Aldea Children and Family Services | https://www.aldeainc.org/ | home has no statement; /careers and /employment blocked (robots.txt fetch failed)
+- Alma Family Services | https://www.almafamilyservices.org/job-openings | job/employment pages found but no pre-licensed/associate/trainee statement
+- Amity Foundation | https://www.amityfdn.org/ | no clinical licensure-track language; careers link goes to Lever job board
+- Aspiranet | https://www.aspiranet.org/careers | mentions "certification and licensure support" but no pre-licensed/associate roles or supervised-hours program stated
+- Balance Treatment Programs | https://www.balancetreatment.com/about/job-opportunities | Therapist/Clinical Program Supervisor roles listed; no pre-licensed/trainee statement
+- Behavioral Health Services, Inc. | https://www.bhs-inc.org/careers | home and careers pages contain no pre-licensed/associate/trainee statement
+- Center For Discovery | https://discoverybehavioralhealth.com/careers/ | parent careers site lists therapist/social worker categories; no pre-licensed/associate statement
+- Childhelp | https://childhelp.org/ | "professional crisis counselors" only; careers is external Paycom portal, no pre-licensed statement
+- Children's Bureau | https://allforkids.org/careers/ | careers page has general benefits/professional development; no pre-licensed/associate/trainee statement
+- Club Xcite | https://www.clubxcite.com/ | education staffing (teachers, BCBA/RBT, SLP/OT/PT, nursing); no MH pre-licensed roles
+- Concert Health | https://concerthealth.com/careers | "Collaborative Care Clinician" roles; no pre-licensed/associate/trainee statement
+- Counseling4Kids | https://www.counseling4kids.org/work-with-us | careers page describes benefits only; no pre-licensed/trainee/supervised-hours statement
+- Cristina Trette Couples Therapy | https://integrativecouplestherapy.com/ | all listed therapists are LMFTs; no associates/trainees, no careers page
+- DBT Center of the South Bay | https://www.dbtcentersouthbay.com/ | only Kari Barker, LMFT listed; no associates/trainees, no careers page
+- Del Amo Behavioral Health System | https://delamobehavioralhealth.com/ | no pre-licensed statement on site; careers is external UHS job portal
+- Discovery Behavioral Health | https://discoverybehavioralhealth.com/ | job categories listed (therapist, clinical social worker) but no pre-licensed/associate/trainee statement
+- Discovery Mood & Anxiety Program | https://discoverymood.com/ | no statement; careers routes to Discovery Behavioral Health job board, also no statement
+- Drew Child Development Corporation | https://drewcdc.org/careers/ | "professional growth" and "continuing education" only; no pre-licensed/associate/trainee statement
+- Empire Therapy & Family Services | https://www.empiretcs.net/about-us | no mention of pre-licensed/associate roles or training; no careers page
+- Enki Health Services, Inc | https://www.elnidofamilycenters.org/open-positions | (listed URL is elnidofamilycenters.org) open-positions page has no pre-licensed/associate mention
+- Episcopal Community Services | https://www.ecs-sf.org/careers | careers page defers to external portal; no pre-licensed/associate mention on site
+- Evolve Treatment Centers | https://evolvetreatment.com/about-us/working-at-evolve/ | mentions "fieldwork and practicum programs" but not pre-licensed clinician roles or BBS hours
+- Exodus Recovery | https://www.exodusrecovery.com/ | site only links external Indeed listing; no pre-licensed/associate mention
+- Family Service Agency of Santa Barbara | https://fsacares.org/employment/ | lists "paid clinical supervision" benefit but never names pre-licensed/associate roles
+- Forward Recovery | https://forwardrecovery.com/ | no careers/training content; no pre-licensed mention
+- Fred Finch Youth Center | https://www.fredfinch.org/training | training page is CE for licensed clinicians only; no pre-licensed/associate mention found
+- Fusion Care Group | https://www.fusioncaregroup.com/ | says "employ our own licensed doctors and therapists"; no pre-licensed mention
+- Helpline Youth Counseling, Inc | https://www.hycinc.org/careers | mentions "intern opportunities" generically; no pre-licensed clinical roles stated
+- Illumination Foundation | https://illuminationhealthhome.org/ | only external applytojob link; no pre-licensed/associate mention
+- Interface Children & Family Services | https://www.icfs.org/employment-html/ | employment page has no pre-licensed/associate/trainee mention
+- Isetta Psychotherapy, Inc. | https://www.drvanessaisetta.com/ | solo practice site; no pre-licensed/associate or careers content
+- La Jolla Recovery | https://lajollarecovery.com/careers/ | careers page mentions generic "training and mentorship" but no pre-licensed clinical roles
+- Loma Linda University | https://llu.edu/ | homepage only links external jobs.lluh.org portal; no pre-licensed clinician statement found
+- Los Angeles LGBT Center | https://lalgbtcenter.org/about/careers/ | careers page has no pre-licensed/associate/intern clinician mention
+- Macy Grim Therapy | https://www.macygrimtherapy.com/ | solo practice site; no pre-licensed/associate mention
+- Multi-Concept Recovery | https://multiconceptrecovery.com/careers/ | postings are "Primary Therapist" roles; no pre-licensed/associate mention
+- Muse Treatment | https://musetreatment.com/careers/ | openings (Therapist, LVN, Case Manager) not described as pre-licensed; no associate/trainee mention
+- New Dawn Counseling & Consulting | https://www.newdawncnc.com/work-with-us.html | generic "submit CV" page; no pre-licensed/supervision mention
+- New Growth Counseling Services | https://www.newgrowthcounseling.com/ | staff are two LMFTs only; no associate/trainee mention
+- Newport Academy | https://careers.newporthealthcare.com/careers-home | "Therapist / Counselors" category exists but no pre-licensed/supervision-toward-licensure mention
+- Oakwood Family Institute | https://oakwoodtreatment.com/ | no careers/training content; no pre-licensed mention
+- Orenda Family Services | https://www.orendaclinical.com/ | no mention of associates/pre-licensed; /careers returns 404
+- Partners in Special Education | https://partnersped.com/careers/ | careers page has no pre-licensed/associate/trainee mention
+- Penny Lane Centers | https://www.pennylane.org/careers/student-internship-opportunities | internship page exists but no explicit pre-licensed/BBS clinical trainee statement
+- Polaris Teen Center | https://polaristeen.com/ | site states center closed operations Aug 4, 2025; no such content
+- Progress Foundation - Dore Urgent Care Clinic | https://www.progressfoundation.org/programs/ | "highly trained counselors" but no pre-licensed/associate/trainee statement
+- Project 180 | https://www.project180reentry.org/ | no careers/training pages; no pre-licensed clinician mention
+- Rachel Cole, LCSW | https://www.rachelcolelcsw.com/ | solo practice site; no associate/pre-licensed/trainee mention
+- Rady Children's Hospital | https://www.rchsd.org/ | no statement found; careers link redirects to external job portal
+- Reasons Claire St. Johns | https://reasonsedc.com/ | "psychiatrists, therapists, dietitians, and nurses" — no pre-licensed/trainee mention
+- Reasons Eating Disorder Center | https://reasonsedc.com/ | same site as above; no pre-licensed/associate/trainee mention
+- Rebecca Newton Therapy | https://rebeccanewtontherapy.com/ | solo practice; no associate/pre-licensed/trainee mention
+- Rebecca Stewart Marriage & Family Therapy, A Professional Corporation | https://rebeccastewarttherapy.com/ | solo licensed LMFT/LPCC; no associates or trainees mentioned
+- Renewal Health Group / Sanctuary Treatment Center | https://renewalrecovery.com/rehab-jobs/ | jobs page lists licensed staff (LMFT, LAADC, LVN); no pre-licensed mention
+- Resurgence Behavioral Health | https://resurgencebehavioralhealth.com/careers/ | careers page has no pre-licensed/associate/BBS mention
+- Serene Health | https://serenehealth.com/careers/ | careers page has no pre-licensed/associate/trainee mention
+- St. Anne's | https://stannes.org/career-opportunities/ | careers page has no pre-licensed/clinical supervision mention
+- St. John's Well Child & Family Center | https://www.sjch.org/employment | employment page lists provider/clinical teams; no pre-licensed/trainee statement
+- STARS Behavioral Health Group | https://www.starsinc.com/careers/ | lists Youth Counselor, LVN/LPT, Mental Health Therapist; no pre-licensed/associate mention
+- Step Up on Second, Inc | https://www.stepup.org/careers/ | mental health hiring areas listed but no pre-licensed/BBS supervision statement
+- Summit Malibu | https://summitmalibu.com/ | no careers/training pages; no pre-licensed clinician mention
+- Sylmar Health and Rehabilitation Center | https://oshpd.ca.gov/facility/sylmar-health-and-rehabilitation-center/ | URL is a CA state facility profile (skilled nursing), not the org's own site; no such statement
+- The Council on Alcoholism and Drug Abuse | https://www.cadasb.org/about/careers | careers page says internship/traineeship opportunities "Coming Soon"; no current pre-licensed roles stated
+- The Counseling Team International | https://frhealth.com/first-responder-wellness/careers | mentions "contract clinicians" only; no associate/pre-licensed/trainee roles stated
+- The House Of The Rising Son, LLC | https://thorstreatment.com/ | homepage has no mention; /careers returns 404
+- The Village Family Services | https://thevillagefs.org/about-our-village/careers/ | careers page has no associate/trainee/pre-licensed mention
+- Trinity Youth Services | https://trinityys.org/get-involved/careers/ | careers page mentions education reimbursement only; no pre-licensed roles stated
+- Trumpet Behavioral Health LLC | https://www.bluesprigautism.com/trumpet-behavioral-health/ | ABA provider; no AMFT/ACSW/APCC or BBS trainee mention
+- United American Indian Involvement, Inc. | https://uaii.org/careers/ | careers page has no pre-licensed/associate/trainee mention
+- Uplift Family Services | https://upliftfs.org/ | homepage has no mention; /careers/ blocked (robots.txt fetch failed)
+- Valley Detox | https://www.valleydetoxcenter.com/ | no careers/training pages; no pre-licensed mention
+- Ventura Recovery Center | https://venturarecoverycenter.com/ | staff listings only; no careers or trainee/associate mention
+- Victor Treatment Centers | https://careers.victor.org/ | careers site mentions training generally; no AMFT/ACSW/pre-licensed roles stated
+- Vista Hill | https://www.vistahill.org/ | employment link goes to external UKG board; no pre-licensed mention on site
+- Wayfinder Family Services | https://www.wayfinderfamily.org/career-opportunities | careers page has no AMFT/ACSW/associate/trainee mention
+- Well Paths | https://wellpathcare.com/ | national correctional healthcare co; no pre-licensed/BBS trainee mention
+- William S.Hart | https://www.hartdistrict.org/apps/pages/counseling | lists licensed LMFT/LCSW counselors only; no pre-licensed/trainee mention
+- West Coast Counseling and Group Therapy Center | https://wcccla.com/ | only a testimonial mentioning "her interns"; no stated associate/trainee roles or program
+- Westcare California Inc | https://westcare.com/join-our-team/ | join-our-team page has no pre-licensed/associate/trainee mention
+- Women's Clinic Counseling | https://www.womens-clinic.org/ | no careers/training pages; no pre-licensed mention
+- Amrita Eating Disorder Treatment | https://www.amritaedt.com/ | no careers/training pages; no pre-licensed mention
+- Approach Therapy | https://approachtherapy.com/ | lists licensed therapists only; /careers returns 404
+- Asian Health Services | https://asianhealthservices.org/ | medical/dental rotations and youth internships only; no BBS associate/trainee mention
+- Aspire Public Schools | https://aspirepublicschools.org/ | charter school network; no mental health trainee/pre-licensed mention
+- Auburn Davis Center for DBT | https://www.drsusanlandesmft.com/ | solo/small practice site; no associate/trainee/careers content
+- Bay Area Community Resources | https://www.bacr.org/careers | careers page has no AMFT/ACSW/pre-licensed/trainee mention
+- Bayside Marin | https://www.baysidemarin.com/ | careers link goes to external Acadia site; no pre-licensed mention on site
+- Bill Wilson Center | https://www.billwilsoncenter.org/bwc_jobs/ | jobs page has no pre-licensed/associate/trainee mention
+- Caminar | https://www.caminar.org/careers | careers lists case manager/admin roles; no pre-licensed/associate clinical language
+- Catholic Charities | https://catholiccharitiessf.org/careers-at-catholic-charities/ | careers page has no pre-licensed/associate/trainee clinical language
+- Children's Receiving Home of Sacramento | https://crhkids.org/careers/ | careers page generic; no pre-licensed/associate/trainee clinical language
+- Children's Hospital and Research Center Oakland | https://www.ucsfbenioffchildrens.org/medical-professionals/graduate-training | graduate training limited to medicine/dentistry/nursing/pharmacy; no BBS-track roles stated
+- Community Options for Families and Youth | https://embrace-mh.org/careers | "seasoned clinician or just getting started" only; no explicit pre-licensed/associate roles
+- Conard House, Inc. | https://conardhouse.org/job-opportunities | case manager roles + volunteer internships only; no BBS/pre-licensed clinical language
+- Dunamis Wellness | https://www.resiliencyco.net/join-our-team | "team of trauma informed clinicians"; no pre-licensed/associate/trainee language
+- Foundations San Francisco | https://foundationsrecoverynetwork.com/careers/ | "Masters-level therapists"/"licensed therapists" only; no pre-licensed categories
+- Grateful Heart Holistic Therapy | https://www.gratefulhearttherapy.org/ | site is now a Morgan Records Management records-custodian page; no staffing info
+- Harm Reduction Therapy Center | https://harmreductiontherapy.org/volunteer-with-hrtc/ | volunteer page covers kit assembly; no pre-licensed/associate clinical language
+- Lori Conroy, LMFT | https://loriconroy.com/ | solo practice site; no team, careers, or training content
+- Mendocino Coast | https://www.mendocinochc.org/careers | careers page shows "No openings"; no pre-licensed/associate/trainee language
+- New Life Community Services | http://www.newlifesc.org/ | own site (input URL was third-party directory) has no pre-licensed/trainee clinical language
+- North American Mental Health Services | https://namhs.com/careers/ | "110+ therapists and psychiatric providers"; no pre-licensed/associate/supervision language
+- Northern Valley Catholic Social Service | https://nvcss.org/careers | careers page generic; no pre-licensed/associate/trainee clinical language
+- Remi Vista | https://remivistainc.org/careers/ | lists "Therapist, Social Worker" roles without licensure-level or supervision language
+- Restoration Family Counseling Center Inc. | https://www.restorationfcc.com/team | all listed clinicians fully licensed (LMFT/LCSW); no associates/trainees
+- Reviving Mind | https://www.revivingmind.com/the-reviving-mind-team | leadership/MD team only; no pre-licensed or trainee clinical roles stated
+- Sacramento Children's Home | https://www.kidshome.org/careers/ | careers page generic employer info; no pre-licensed/trainee/practicum language
+- San Rafael City Schools | https://www.srcs.org/ | careers pages list no pre-licensed clinician roles; only CYBHI program mention
+- SCV Counseling Center | https://scvtherapyservices.com/ | site has no mention of hiring, training, interns, or pre-licensed roles
+- Telecare Corporation | https://www.telecarecorp.com/jobs | lists social workers/prescribers/peer staff; no pre-licensed associate or supervision-toward-licensure statement
+- TLC Child and Family Services | https://tlc4kids.org/about/careers/ | "Behavioral Health Clinician" roles listed but no pre-licensed/associate/supervision language
+- Vida Health | https://www.vida.com/careers/ | careers page has no pre-licensed/associate roles or supervision statement; no posts found
+- VistAbility, formerly Contra Costa ARC | https://www.vistability.net/ | behavioral health services mentioned but no pre-licensed clinician or supervision language
+- WEAVE | https://www.weaveinc.org/employment | employment page covers benefits/EEO only; no clinical licensure or supervision mention
+- Child Abuse Prevention Council | https://nochildabuse.org/join-our-team/ | generic "Training and Professional Growth" benefit; no pre-licensed clinical roles stated
+- Kings View Corporation | https://www.kingsview.org/careers/ | mentions "mental health clinicians" but no pre-licensed/associate or BBS supervision statement
+- PathPoint | https://www.pathpoint.org/careers | career paths are DSP-focused; no clinical licensure or pre-licensed roles mentioned
+- Promesa Behavioral Health | https://promesabehavioral.org/career/ | only "Child Care Worker I" shown; no clinical licensure pathway language
+- RH Community Builders | https://rhcommunitybuilders.com/join-our-team | "Clinicians, counselors, and psychiatric staff" listed but no pre-licensed/associate specifics
+- Telemynd | https://www.telemynd.com/careers | requires "current independent license in each state of practice"; licensed-only
+- Turning Point of Central California Inc | https://www.tpocc.org/ | site links only to an external UltiPro job board (unrenderable); no pre-licensed statement on own site
+
+## UNREACHABLE (13)
+- El Nido Family Centers | https://edencounseling.org/ | robots.txt disallows fetch (listed URL is edencounseling.org, likely mismatched)
+- Healthright 360 | https://www.healthright360.org/ | site returns JavaScript-required redirect on both attempts; content not fetchable
+- Optimist Youth Homes & Family Services | https://oyhfs.org/ | site body is JS-rendered; homepage and /careers/ returned no readable content
+- Pacific Asian Counseling Services | https://www.hugedomains.com/domain_profile.cfm?d=pacsla.com | domain parked, "pacsla.com is for sale" (HugeDomains)
+- Beacon School | https://beaconschool.com/ | site serves JavaScript-only redirect; content not fetchable (2 attempts)
+- CIP Marin | https://www.cipmarin.org/ | JS-required redirect blocks fetch on home and /careers
+- Eagle Rock Therapy | https://www.eaglerocktherapy.com/cgi-sys/suspendedpage.cgi | site shows Bluehost "Account Suspended!" page
+- Eden Counseling Services | https://edencounseling.org/ | robots.txt disallows all paths; fetch blocked
+- Healthright 360 | https://www.healthright360.org/ | JS-required redirect blocks fetch on home and /careers
+- Hope for Healthy Families | https://www.drdoctorharrell.com/ | domain now hosts unrelated gambling/slots content, not the org's site
+- Marin Treatment Center | https://marintreatmentcenter.org/ | JS-required redirect blocks fetch on home and /employment
+- County of Colusa | https://www.countyofcolusaca.gov/325/Behavioral-Health | fetch blocked twice (robots.txt fetch failed / connect timeout)
+- County of Madera (Hires prelicensed clinicians for the county) | https://www.governmentjobs.com/careers/maderacountyca/jobs/newprint/1975481 | URL disallowed by robots.txt; posting could not be fetched

@@ -1,0 +1,1858 @@
+[
+ {
+  "org": "AACI",
+  "url": "https://www.aaci.org",
+  "region": "Unsorted",
+  "status": "empty",
+  "final": "https://www.aaci.org/",
+  "note": null
+ },
+ {
+  "org": "Acadia Healthcare",
+  "url": "http://www.acadiahealthcare.com",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.acadiahealthcare.com/",
+  "note": null
+ },
+ {
+  "org": "ACES (Autism Comprehensive Educational Services)",
+  "url": "https://www.acesaba.com/location-sandiegoacademy/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.acesaba.com/locations/san-diego-academy",
+  "note": null
+ },
+ {
+  "org": "Acorn Counseling",
+  "url": "https://www.psychologytoday.com/us/therapists/acorn-counseling-group-of-santa-barbara-ventura-santa-barbara-ca/447192",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.psychologytoday.com/us/therapists/bridges-therapy-group-of-ca-los-angeles-ca/447192",
+  "note": null
+ },
+ {
+  "org": "Akua Behavioral Health",
+  "url": "https://www.akuamindbody.com/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://akuamindbody.com/",
+  "note": null
+ },
+ {
+  "org": "Aldea Children and Family Services",
+  "url": "https://www.aldeainc.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.aldeainc.org/",
+  "note": null
+ },
+ {
+  "org": "Alma Family Services",
+  "url": "https://almafamilyservices.org",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.almafamilyservices.org/",
+  "note": null
+ },
+ {
+  "org": "Almaden Valley Counseling Service",
+  "url": "http://www.avcounseling.org",
+  "region": "Unsorted",
+  "status": "empty",
+  "final": "https://www.avcounseling.org/",
+  "note": null
+ },
+ {
+  "org": "Alsana",
+  "url": "https://www.alsana.com/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.alsana.com/",
+  "note": null
+ },
+ {
+  "org": "Alternative Options Counseling Center",
+  "url": "https://www.altoptions.com/",
+  "region": "Unsorted",
+  "status": "empty",
+  "final": "https://www.altoptions.com/",
+  "note": null
+ },
+ {
+  "org": "Amanecer Community Counseling Service",
+  "url": "https://amanecerla.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://amanecerla.org/",
+  "note": null
+ },
+ {
+  "org": "Amity Foundation",
+  "url": "https://www.amityfdn.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.amityfdn.org/",
+  "note": null
+ },
+ {
+  "org": "Aspiranet",
+  "url": "http://www.aspiranet.org",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.aspiranet.org/",
+  "note": null
+ },
+ {
+  "org": "AVIVA Family and Children's Services",
+  "url": "https://aviva.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://aviva.org/",
+  "note": null
+ },
+ {
+  "org": "Balance Treatment Programs",
+  "url": "https://www.balancetreatment.com/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.balancetreatment.com/",
+  "note": null
+ },
+ {
+  "org": "Bay Area Psychotherapy Training Institute",
+  "url": "https://www.bapti.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.bapti.org/",
+  "note": null
+ },
+ {
+  "org": "Behavioral Health Services, Inc.",
+  "url": "http://www.bhs-inc.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.bhs-inc.org/",
+  "note": null
+ },
+ {
+  "org": "Bethany Christian Services",
+  "url": "http://www.bethany.org",
+  "region": "Unsorted",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "BRIDGES, Inc.",
+  "url": "http://www.bridgesrehab.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://www.bridgesrehab.org/",
+  "note": null
+ },
+ {
+  "org": "California Integrative Counseling Center",
+  "url": "http://www.caintegrativecounselingcenter.com",
+  "region": "Unsorted",
+  "status": "moved",
+  "final": "https://www.caintegrativecounseling.com/",
+  "note": null
+ },
+ {
+  "org": "Casa de la Familia",
+  "url": "https://casadelafamilia.org/",
+  "region": "Unsorted",
+  "status": "ok",
+  "final": "https://casadelafamilia.org/",
+  "note": null
+ },
+ {
+  "org": "Center For Discovery",
+  "url": "https://centerfordiscovery.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://centerfordiscovery.com/",
+  "note": null
+ },
+ {
+  "org": "Central Counseling Services",
+  "url": "http://centralcounselingservices.net",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://centralcounselingservices.net/",
+  "note": null
+ },
+ {
+  "org": "Childhelp",
+  "url": "http://www.childhelp.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://childhelp.org/",
+  "note": null
+ },
+ {
+  "org": "ChildNet Youth and Family Services",
+  "url": "https://www.childnet.net/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://www.childnet.net/",
+  "note": null
+ },
+ {
+  "org": "Children\u2019s Bureau",
+  "url": "https://www.all4kids.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://allforkids.org/",
+  "note": null
+ },
+ {
+  "org": "Club Xcite",
+  "url": "https://www.exciteway.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.clubxcite.com/",
+  "note": null
+ },
+ {
+  "org": "Coherence Associates",
+  "url": "http://www.coherenceassociates.com/contact",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 404: Not Found"
+ },
+ {
+  "org": "College Hospital Cerritos",
+  "url": "https://www.chc.la/index.php?q=cerHome",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://www.chc.la/index.php?q=cerHome",
+  "note": null
+ },
+ {
+  "org": "Community Research Foundation",
+  "url": "http://www.comresearch.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.crfbehavioralhealthcare.org/",
+  "note": null
+ },
+ {
+  "org": "Concert Health",
+  "url": "https://www.concerthealth.io",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://concerthealth.com/",
+  "note": null
+ },
+ {
+  "org": "Connections Family and Behavioral Services",
+  "url": "https://www.connectionsfbs.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.connectionsfbs.com/",
+  "note": null
+ },
+ {
+  "org": "Counseling4Kids",
+  "url": "http://www.counseling4kids.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.counseling4kids.org/",
+  "note": null
+ },
+ {
+  "org": "Cristina Trette Couples Therapy",
+  "url": "https://www.cristinatrette.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://integrativecouplestherapy.com/",
+  "note": null
+ },
+ {
+  "org": "DBT Center of the South Bay",
+  "url": "http://www.dbtcentersouthbay.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.dbtcentersouthbay.com/",
+  "note": null
+ },
+ {
+  "org": "Del Amo Behavioral Health System",
+  "url": "https://delamohospital.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://delamobehavioralhealth.com/?redirect=delamohospital.com",
+  "note": null
+ },
+ {
+  "org": "Desert Marriage & Family Counseling",
+  "url": "https://www.desertmarriagefamily.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://desertmarriagefamily.com/",
+  "note": null
+ },
+ {
+  "org": "Didi Hirsch Mental Health Services",
+  "url": "https://didihirsch.org/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://didihirsch.org/",
+  "note": null
+ },
+ {
+  "org": "Discovery Behavioral Health",
+  "url": "http://discoverybehavioralhealth.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://discoverybehavioralhealth.com/",
+  "note": null
+ },
+ {
+  "org": "Discovery Mood & Anxiety Program",
+  "url": "https://discoverymood.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://discoverymood.com/",
+  "note": null
+ },
+ {
+  "org": "Drew Child Development Corporation",
+  "url": "http://drewcdc.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://drewcdc.org/",
+  "note": null
+ },
+ {
+  "org": "Dynamic Interventions",
+  "url": "https://dynamicinterventions.com/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://dynamicinterventions.com/",
+  "note": null
+ },
+ {
+  "org": "El Nido Family Centers",
+  "url": "https://edencounseling.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://edencounseling.org/",
+  "note": null
+ },
+ {
+  "org": "Empire Therapy & Family Services",
+  "url": "http://www.empiretcs.net/about-us",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.empiretcs.net/about-us",
+  "note": null
+ },
+ {
+  "org": "Engle Center",
+  "url": "http://www.englecenter.com",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://relationshipcenter.com/",
+  "note": null
+ },
+ {
+  "org": "Enki Health Services, Inc",
+  "url": "https://www.elnidofamilycenters.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.elnidofamilycenters.org/",
+  "note": null
+ },
+ {
+  "org": "Episcopal Community Services",
+  "url": "https://ecs-sf.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.ecs-sf.org/",
+  "note": null
+ },
+ {
+  "org": "Evolve Treatment Centers",
+  "url": "https://evolvetreatment.com/contact/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://evolvetreatment.com/contact/",
+  "note": null
+ },
+ {
+  "org": "Exodus Recovery",
+  "url": "https://www.exodusrecovery.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.exodusrecovery.com/",
+  "note": null
+ },
+ {
+  "org": "Family Service Agency of Burbank",
+  "url": "https://familyserviceagencyofburbank.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://familyserviceagencyofburbank.org/",
+  "note": null
+ },
+ {
+  "org": "Family Service Agency of Santa Barbara",
+  "url": "https://fsacares.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://fsacares.org/",
+  "note": null
+ },
+ {
+  "org": "Forward Recovery",
+  "url": "https://forwardrecovery.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://forwardrecovery.com/",
+  "note": null
+ },
+ {
+  "org": "Fred Finch Youth Center",
+  "url": "https://www.fredfinch.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.fredfinch.org/",
+  "note": null
+ },
+ {
+  "org": "Fusion Care Group",
+  "url": "https://www.fusioncaregroup.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.fusioncaregroup.com/",
+  "note": null
+ },
+ {
+  "org": "Gateways Hospital &Jacob Mental Health Center",
+  "url": "https://www.gatewayshospital.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.gatewayshospital.org/",
+  "note": null
+ },
+ {
+  "org": "Hathaway-Sycamores Child & Family Services",
+  "url": "https://www.hathaway-sycamores.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.sycamores.org/",
+  "note": null
+ },
+ {
+  "org": "Healing Crossroads",
+  "url": "https://www.healingcrossroads.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.healingcrossroads.com/",
+  "note": null
+ },
+ {
+  "org": "Healthright 360",
+  "url": "http://healthright360.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.healthright360.org/",
+  "note": null
+ },
+ {
+  "org": "Helpline Youth Counseling, Inc",
+  "url": "https://www.hycinc.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.hycinc.org/",
+  "note": null
+ },
+ {
+  "org": "Illumination Foundation",
+  "url": "https://www.ifhomeless.org",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://illuminationhealthhome.org/",
+  "note": null
+ },
+ {
+  "org": "Insight Psychotherapy",
+  "url": "http://www.insightpg.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.insightpg.org/",
+  "note": null
+ },
+ {
+  "org": "Interfaith Community Services",
+  "url": "https://www.interfaithservices.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.interfaithservices.org/",
+  "note": null
+ },
+ {
+  "org": "Interface Children & Family Services",
+  "url": "https://www.icfs.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.icfs.org/",
+  "note": null
+ },
+ {
+  "org": "Isetta Psychotherapy, Inc.",
+  "url": "https://www.drvanessaisetta.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.drvanessaisetta.com/",
+  "note": null
+ },
+ {
+  "org": "La Jolla Recovery",
+  "url": "https://lajollarecovery.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://lajollarecovery.com/",
+  "note": null
+ },
+ {
+  "org": "LifeStance Health",
+  "url": "https://lifestance.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://lifestance.com/",
+  "note": null
+ },
+ {
+  "org": "Loma Linda University",
+  "url": "https://home.llu.edu/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://llu.edu/?rsource=home.llu.edu/",
+  "note": null
+ },
+ {
+  "org": "Los Angeles LGBT Center",
+  "url": "https://lalgbtcenter.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://lalgbtcenter.org/",
+  "note": null
+ },
+ {
+  "org": "Macy Grim Therapy",
+  "url": "https://www.macygrimtherapy.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.macygrimtherapy.com/",
+  "note": null
+ },
+ {
+  "org": "Maple Counseling Center",
+  "url": "http://www.maplecounseling.org",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 404: Not Found"
+ },
+ {
+  "org": "Masada Homes",
+  "url": "https://masadahomes.org/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://masadahomes.org/",
+  "note": null
+ },
+ {
+  "org": "Mindful Pasadena",
+  "url": "https://mindfulpasadena.com/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "timed out"
+ },
+ {
+  "org": "Multi-Concept Recovery",
+  "url": "https://multiconceptrecovery.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://multiconceptrecovery.com/",
+  "note": null
+ },
+ {
+  "org": "Muse Treatment",
+  "url": "https://musetreatment.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://musetreatment.com/",
+  "note": null
+ },
+ {
+  "org": "New Alternatives, Inc.",
+  "url": "https://sandiego.networkofcare.org/mh/services/agency.aspx?pid=NewAlternativesIncResidentialandFosterCare_61_2_0",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "New Dawn Counseling & Consulting",
+  "url": "https://www.newdawncnc.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.newdawncnc.com/",
+  "note": null
+ },
+ {
+  "org": "New Growth Counseling Services",
+  "url": "https://www.newgrowthcounseling.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.newgrowthcounseling.com/",
+  "note": null
+ },
+ {
+  "org": "Newport Academy",
+  "url": "https://www.newportacademy.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.newportacademy.com/",
+  "note": null
+ },
+ {
+  "org": "North County Lifeline",
+  "url": "https://www.nclifeline.org/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "Oakwood Family Institute",
+  "url": "https://oakwoodtreatment.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://oakwoodtreatment.com/",
+  "note": null
+ },
+ {
+  "org": "Optimist Youth Homes & Family Services",
+  "url": "https://www.oyhfs.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://oyhfs.org/",
+  "note": null
+ },
+ {
+  "org": "Orenda Family Services",
+  "url": "http://www.orendaclinical.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.orendaclinical.com/",
+  "note": null
+ },
+ {
+  "org": "Pacific Asian Counseling Services",
+  "url": "https://www.pacsla.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.hugedomains.com/domain_profile.cfm?d=pacsla.com",
+  "note": null
+ },
+ {
+  "org": "Pacific Clinics",
+  "url": "http://www.pacificclinics.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.pacificclinics.org/",
+  "note": null
+ },
+ {
+  "org": "Pacific Wellness Collective",
+  "url": "https://pacificwellnesscollective.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://pacificwellnesscollective.com/",
+  "note": null
+ },
+ {
+  "org": "Partners in Special Education",
+  "url": "https://partnersped.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://partnersped.com/",
+  "note": null
+ },
+ {
+  "org": "Pathways",
+  "url": "https://www.pathwaysofcalifornia.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.clarvida.com/",
+  "note": null
+ },
+ {
+  "org": "Penny Lane Centers",
+  "url": "http://www.pennylane.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.pennylane.org/",
+  "note": null
+ },
+ {
+  "org": "Polaris Teen Center",
+  "url": "https://polaristeen.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://polaristeen.com/",
+  "note": null
+ },
+ {
+  "org": "Progress Foundation - Dore Urgent Care Clinic",
+  "url": "https://www.progressfoundation.org/programs",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.progressfoundation.org/programs/",
+  "note": null
+ },
+ {
+  "org": "Project 180",
+  "url": "https://www.project180reentry.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.project180reentry.org/",
+  "note": null
+ },
+ {
+  "org": "Rachel Cole, LCSW",
+  "url": "https://www.rachelcolelcsw.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.rachelcolelcsw.com/",
+  "note": null
+ },
+ {
+  "org": "Rady Children's Hospital",
+  "url": "https://www.rchsd.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.rchsd.org/",
+  "note": null
+ },
+ {
+  "org": "Reasons Claire St. Johns",
+  "url": "https://reasonsedc.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://reasonsedc.com/",
+  "note": null
+ },
+ {
+  "org": "Reasons Eating Disorder Center",
+  "url": "http://www.Reasonsedc.com",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://reasonsedc.com/",
+  "note": null
+ },
+ {
+  "org": "Rebecca Newton Therapy",
+  "url": "https://rebeccanewtontherapy.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://rebeccanewtontherapy.com/",
+  "note": null
+ },
+ {
+  "org": "Rebecca Stewart Marriage & Family Therapy, A Professional Corporation",
+  "url": "https://rebeccastewarttherapy.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://rebeccastewarttherapy.com/",
+  "note": null
+ },
+ {
+  "org": "Relationnship Therapy Center",
+  "url": "https://www.sdrelationshipplace.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.sdrelationshipplace.com/",
+  "note": null
+ },
+ {
+  "org": "Renewal Health Group / Sanctuary Treatment Center",
+  "url": "https://renewalrecovery.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://renewalrecovery.com/",
+  "note": null
+ },
+ {
+  "org": "Resilience Treatment Center",
+  "url": "https://resiliencetreatment.com/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+ },
+ {
+  "org": "Resurgence Behavioral Health",
+  "url": "https://resurgencebehavioralhealth.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://resurgencebehavioralhealth.com/",
+  "note": null
+ },
+ {
+  "org": "ROWI Teen & Parent Wellness Center",
+  "url": "https://www.rowiteen.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://rowiteen.com/",
+  "note": null
+ },
+ {
+  "org": "San Diego Youth Services",
+  "url": "http://www.sdyouthservices.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://sdyouthservices.org/",
+  "note": null
+ },
+ {
+  "org": "San Fernando Valley Community Mental Health Center, Inc.",
+  "url": "https://www.movinglivesforward.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.movinglivesforward.org/",
+  "note": null
+ },
+ {
+  "org": "Serene Health",
+  "url": "https://www.serenehealth.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://serenehealth.com/",
+  "note": null
+ },
+ {
+  "org": "Sharper Future",
+  "url": "https://programs.capic.net/therapist/therapist-detail?p_id=MTAyfCUkIyF8c2hhcnBlcl9sYQ==&lt;",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "<urlopen error [Errno -2] Name or service not known>"
+ },
+ {
+  "org": "Southern California Counseling Center",
+  "url": "https://sccc-la.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://sccc-la.org/",
+  "note": null
+ },
+ {
+  "org": "St. Anne's",
+  "url": "https://stannes.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://stannes.org/",
+  "note": null
+ },
+ {
+  "org": "St. John\u2019s Well Child & Family Center",
+  "url": "https://www.wellchild.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.sjch.org/",
+  "note": null
+ },
+ {
+  "org": "STARS Behavioral Health Group",
+  "url": "https://www.starsinc.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.starsinc.com/",
+  "note": null
+ },
+ {
+  "org": "Step Up on Second, Inc",
+  "url": "https://www.stepuponsecond.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.stepup.org/",
+  "note": null
+ },
+ {
+  "org": "Summit Malibu",
+  "url": "https://summitmalibu.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://summitmalibu.com/",
+  "note": null
+ },
+ {
+  "org": "Sylmar Health and Rehabilitation Center",
+  "url": "https://oshpd.ca.gov/facility/sylmar-health-and-rehabilitation-center/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://oshpd.ca.gov/facility/sylmar-health-and-rehabilitation-center/",
+  "note": null
+ },
+ {
+  "org": "Tarzana Treatment Centers",
+  "url": "https://www.tarzanatc.org/services/the-tarzana-treatment-centers-residential-experience/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.tarzanatc.org/services/the-tarzana-treatment-centers-residential-experience/",
+  "note": null
+ },
+ {
+  "org": "The Art of Guiding Healers",
+  "url": "https://theartofguidinghealers.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.theartofguidinghealers.org/",
+  "note": null
+ },
+ {
+  "org": "The Council on Alcoholism and Drug Abuse",
+  "url": "https://cadasb.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.cadasb.org/",
+  "note": null
+ },
+ {
+  "org": "The Counseling Team International",
+  "url": "https://www.thecounselingteam.com",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://frhealth.com/",
+  "note": null
+ },
+ {
+  "org": "The House Of The Rising Son, LLC",
+  "url": "https://www.thorstreatment.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://thorstreatment.com/",
+  "note": null
+ },
+ {
+  "org": "The People Concern",
+  "url": "https://www.thepeopleconcern.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://thepeopleconcern.org/",
+  "note": null
+ },
+ {
+  "org": "The Place Within",
+  "url": "http://www.theplacewithin.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://theplacewithin.org/",
+  "note": null
+ },
+ {
+  "org": "The Village Family Services",
+  "url": "https://www.thevillagefs.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://thevillagefs.org/",
+  "note": null
+ },
+ {
+  "org": "Trinity Youth Services",
+  "url": "https://trinityys.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://trinityys.org/",
+  "note": null
+ },
+ {
+  "org": "Trumpet Behavioral Health LLC",
+  "url": "https://tbh.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.bluesprigautism.com/trumpet-behavioral-health/",
+  "note": null
+ },
+ {
+  "org": "United American Indian Involvement, Inc.",
+  "url": "http://uaii.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://uaii.org/",
+  "note": null
+ },
+ {
+  "org": "Uplift Family Services",
+  "url": "https://upliftfs.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://upliftfs.org/",
+  "note": null
+ },
+ {
+  "org": "Valley Detox",
+  "url": "https://www.valleydetoxcenter.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.valleydetoxcenter.com/",
+  "note": null
+ },
+ {
+  "org": "Ventura Recovery Center",
+  "url": "https://venturarecoverycenter.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://venturarecoverycenter.com/",
+  "note": null
+ },
+ {
+  "org": "Victor Treatment Centers",
+  "url": "https://www.victor.org/victor-treatment-centers",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.victor.org/",
+  "note": null
+ },
+ {
+  "org": "Vista Del Mar Child and Family Services",
+  "url": "https://www.vistadelmar.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.vistadelmar.org/",
+  "note": null
+ },
+ {
+  "org": "Vista Hill",
+  "url": "https://www.vistahill.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.vistahill.org/",
+  "note": null
+ },
+ {
+  "org": "Wayfinder Family Services",
+  "url": "https://www.wayfinderfamily.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.wayfinderfamily.org/",
+  "note": null
+ },
+ {
+  "org": "Well Paths",
+  "url": "https://wellpathcare.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://wellpathcare.com/",
+  "note": null
+ },
+ {
+  "org": "Wellnest Emotional Health and Wellness",
+  "url": "https://www.wellnestla.org/about/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.wellnestla.org/about/",
+  "note": null
+ },
+ {
+  "org": "William S.Hart",
+  "url": "https://www.hartdistrict.org/apps/pages/counseling",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.hartdistrict.org/apps/pages/counseling",
+  "note": null
+ },
+ {
+  "org": "West Coast Counseling and Group Therapy Center",
+  "url": "https://wcccla.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://wcccla.com/",
+  "note": null
+ },
+ {
+  "org": "Westcare California Inc",
+  "url": "https://www.westcare.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://westcare.com/",
+  "note": null
+ },
+ {
+  "org": "Western Youth Services",
+  "url": "http://www.westernyouthservices.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.westernyouthservices.org/",
+  "note": null
+ },
+ {
+  "org": "Women's Clinic Counseling",
+  "url": "https://www.womens-clinic.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.womens-clinic.org/",
+  "note": null
+ },
+ {
+  "org": "Access Institute of Psychological Services",
+  "url": "https://www.accessinst.org/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://www.accessinst.org/",
+  "note": null
+ },
+ {
+  "org": "Alternative Family Services",
+  "url": "https://www.afs4kids.org/services/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.afs4kids.org/services/",
+  "note": null
+ },
+ {
+  "org": "Amrita Eating Disorder Treatment",
+  "url": "https://www.amritaedt.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.amritaedt.com/",
+  "note": null
+ },
+ {
+  "org": "Approach Therapy",
+  "url": "https://approachtherapy.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://approachtherapy.com/",
+  "note": null
+ },
+ {
+  "org": "Asian Health Services",
+  "url": "http://asianhealthservices.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://asianhealthservices.org/",
+  "note": null
+ },
+ {
+  "org": "Aspire Public Schools",
+  "url": "https://aspirepublicschools.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://aspirepublicschools.org/",
+  "note": null
+ },
+ {
+  "org": "Auburn Davis Center for DBT",
+  "url": "https://drsusanlandesmft.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.drsusanlandesmft.com/",
+  "note": null
+ },
+ {
+  "org": "Bay Area Community Resources",
+  "url": "https://bacr.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.bacr.org/",
+  "note": null
+ },
+ {
+  "org": "Bayside Marin",
+  "url": "https://www.baysidemarin.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.baysidemarin.com/",
+  "note": null
+ },
+ {
+  "org": "Beacon School",
+  "url": "http://www.beaconschool.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://beaconschool.com/",
+  "note": null
+ },
+ {
+  "org": "Bill Wilson Center",
+  "url": "https://www.billwilsoncenter.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.billwilsoncenter.org/",
+  "note": null
+ },
+ {
+  "org": "Caminar",
+  "url": "https://www.caminar.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.caminar.org/",
+  "note": null
+ },
+ {
+  "org": "Catholic Charities",
+  "url": "http://www.catholiccharitiessf.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://catholiccharitiessf.org/",
+  "note": null
+ },
+ {
+  "org": "Celebral",
+  "url": "https://getcerebral.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://cerebral.com/",
+  "note": null
+ },
+ {
+  "org": "Center for Mindful Psychotherapy",
+  "url": "http://www.mindfulcenter.org",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "Child Development Institute",
+  "url": "https://cdikids.org",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "Children's Receiving Home of Sacramento",
+  "url": "https://www.crhkids.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://crhkids.org/",
+  "note": null
+ },
+ {
+  "org": "Children\u2019s Hospital and Research Center Oakland",
+  "url": "https://www.childrenshospitaloakland.org/main/home.aspx",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.ucsfbenioffchildrens.org/",
+  "note": null
+ },
+ {
+  "org": "CIP Marin",
+  "url": "http://www.cipmarin.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.cipmarin.org/",
+  "note": null
+ },
+ {
+  "org": "Community Options for Families and Youth",
+  "url": "http://www.cofy.org",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://embrace-mh.org/",
+  "note": null
+ },
+ {
+  "org": "Conard House, Inc.",
+  "url": "https://conardhouse.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://conardhouse.org/",
+  "note": null
+ },
+ {
+  "org": "Dunamis Wellness",
+  "url": "https://dunamiscenter.com/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.resiliencyco.net/",
+  "note": null
+ },
+ {
+  "org": "Eagle Rock Therapy",
+  "url": "https://www.eaglerocktherapy.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.eaglerocktherapy.com/cgi-sys/suspendedpage.cgi",
+  "note": null
+ },
+ {
+  "org": "Eden Counseling Services",
+  "url": "https://www.edencounseling.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://edencounseling.org/",
+  "note": null
+ },
+ {
+  "org": "Encompass Community Services",
+  "url": "https://www.encompasscs.org/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "Epiphany Center",
+  "url": "http://www.theephiphanycenter.org",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "<urlopen error [Errno -2] Name or service not known>"
+ },
+ {
+  "org": "Familias Unidas",
+  "url": "http://www.familias-unidas.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.familias-unidas.org/",
+  "note": null
+ },
+ {
+  "org": "Felton Institute",
+  "url": "https://felton.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://felton.org/",
+  "note": null
+ },
+ {
+  "org": "Foundations San Francisco",
+  "url": "https://www.foundationsrecoverynetwork.com/locations/foundations-san-francisco/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://foundationsrecoverynetwork.com/locations/foundations-san-francisco/",
+  "note": null
+ },
+ {
+  "org": "Grateful Heart Holistic Therapy",
+  "url": "http://www.gratefulhearttherapy.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.gratefulhearttherapy.org/",
+  "note": null
+ },
+ {
+  "org": "Harm Reduction Therapy Center",
+  "url": "https://harmreductiontherapy.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://harmreductiontherapy.org/",
+  "note": null
+ },
+ {
+  "org": "Healthright 360",
+  "url": "https://www.healthright360.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.healthright360.org/",
+  "note": null
+ },
+ {
+  "org": "Homeless Children\u2019s Network",
+  "url": "https://www.hcnkids.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.hcnkids.org/",
+  "note": null
+ },
+ {
+  "org": "Hope for Healthy Families",
+  "url": "https://www.hopeforhealthyfamilies.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.drdoctorharrell.com/",
+  "note": null
+ },
+ {
+  "org": "Kiasi Retreats",
+  "url": "https://kiasiretreats.com/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 404: Not Found"
+ },
+ {
+  "org": "Lighthouse of Hope",
+  "url": "http://www.lighthouseofhopecc.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.wellnessandtherapy.org/",
+  "note": null
+ },
+ {
+  "org": "Lori Conroy, LMFT",
+  "url": "https://loriconroy.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://loriconroy.com/",
+  "note": null
+ },
+ {
+  "org": "Marin Treatment Center",
+  "url": "https://marintreatmentcenter.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://marintreatmentcenter.org/",
+  "note": null
+ },
+ {
+  "org": "Mendocino Coast",
+  "url": "http://www.mendocinochc.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.mendocinochc.org/",
+  "note": null
+ },
+ {
+  "org": "Mindful Evolutions",
+  "url": "https://mindfulevolutionstherapy.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://mindfulevolutionstherapy.com/",
+  "note": null
+ },
+ {
+  "org": "Mindset Counseling Group",
+  "url": "https://www.mindsetscounseling.com",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "<urlopen error [Errno -3] Temporary failure in name resolution>"
+ },
+ {
+  "org": "Monterey Counseling and Wellness",
+  "url": "https://www.montereycounselingcenter.com/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 404: Not Found"
+ },
+ {
+  "org": "Mountain Valley Child and Family Services",
+  "url": "https://mountainvalleyfamilyservices.net/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://mountainvalleyfamilyservices.net/",
+  "note": null
+ },
+ {
+  "org": "New Life Community Services",
+  "url": "https://www.freerehabcenters.org/details/new-life-community-services-inc",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.freerehabcenters.org/details/new-life-community-services-inc",
+  "note": null
+ },
+ {
+  "org": "New Perspectives Center for Counseling in SF",
+  "url": "http://www.sfnewperspectives.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.sfnewperspectives.org/",
+  "note": null
+ },
+ {
+  "org": "North American Mental Health Services",
+  "url": "https://www.namhs.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://namhs.com/",
+  "note": null
+ },
+ {
+  "org": "Northern Valley Catholic Social Service",
+  "url": "https://nvcss.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://nvcss.org/",
+  "note": null
+ },
+ {
+  "org": "Oakes Children\u2019s Center Inc",
+  "url": "https://www.oakeschildrenscenter.org/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "<urlopen error [Errno -2] Name or service not known>"
+ },
+ {
+  "org": "Positive Methods Mindful Counseling and Wellness",
+  "url": "https://www.positivemethods.org/about",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 404: Not Found"
+ },
+ {
+  "org": "Relationship Therapy Center",
+  "url": "http://www.therelationshiptherapycenter.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.therelationshiptherapycenter.com/",
+  "note": null
+ },
+ {
+  "org": "Remi Vista",
+  "url": "https://remivistainc.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://remivistainc.org/",
+  "note": null
+ },
+ {
+  "org": "Restoration Family Counseling Center Inc.",
+  "url": "https://www.restorationfcc.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.restorationfcc.com/",
+  "note": null
+ },
+ {
+  "org": "Reviving Mind",
+  "url": "https://www.revivingmind.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.revivingmind.com/",
+  "note": null
+ },
+ {
+  "org": "Sacramento Children's Home",
+  "url": "https://www.kidshome.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.kidshome.org/",
+  "note": null
+ },
+ {
+  "org": "Safe & Sound",
+  "url": "https://safeandsound.org/what-we-do/the-problem/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 404: Not Found"
+ },
+ {
+  "org": "San Rafael City Schools",
+  "url": "https://www.srcs.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.srcs.org/",
+  "note": null
+ },
+ {
+  "org": "SCV Counseling Center",
+  "url": "https://scvtherapyservices.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://scvtherapyservices.com/",
+  "note": null
+ },
+ {
+  "org": "Seneca Family of Agencies",
+  "url": "https://www.senecafoa.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://senecafoa.org/",
+  "note": null
+ },
+ {
+  "org": "Shine a Light Counseling Center",
+  "url": "http://www.shinealight.info",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.shinealight.info/",
+  "note": null
+ },
+ {
+  "org": "Sholl Therapy Group",
+  "url": "https://www.sholltherapygroup.com",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "http://www.curaintegrativehealth.com/",
+  "note": null
+ },
+ {
+  "org": "Side by Side",
+  "url": "https://www.sidebysideyouth.org/programs/community-counseling/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.sidebysideyouth.org/programs/community-counseling/",
+  "note": null
+ },
+ {
+  "org": "Silcon Valley Therapy",
+  "url": "https://www.siliconvalleytherapy.co",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://siliconvalleytherapy.co/",
+  "note": null
+ },
+ {
+  "org": "Social Advocates for Youth (SAY)",
+  "url": "https://www.saysc.org/",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://www.saysc.org/",
+  "note": null
+ },
+ {
+  "org": "Stanford Youth Solutions",
+  "url": "https://www.ssyaf.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.ssyaf.org/",
+  "note": null
+ },
+ {
+  "org": "StarVista",
+  "url": "https://star-vista.org/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 409: Conflict"
+ },
+ {
+  "org": "Telecare Corporation",
+  "url": "https://www.telecarecorp.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.telecarecorp.com/",
+  "note": null
+ },
+ {
+  "org": "The Brown Therapy Group",
+  "url": "http://thebrowntherapygroup.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.thebrowntherapygroup.com/",
+  "note": null
+ },
+ {
+  "org": "The Lotus Collaborative, Inc",
+  "url": "https://www.thelotuscollaborative.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.thelotuscollaborative.com/",
+  "note": null
+ },
+ {
+  "org": "Therapy Works",
+  "url": "https://mytherapyworks.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.mytherapyworks.com/",
+  "note": null
+ },
+ {
+  "org": "Through the Looking Glass",
+  "url": "https://www.lookingglass.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://lookingglass.org/",
+  "note": null
+ },
+ {
+  "org": "TLC Child and Family Services",
+  "url": "https://tlc4kids.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://tlc4kids.org/",
+  "note": null
+ },
+ {
+  "org": "University of California, San Francisco",
+  "url": "https://www.ucsf.edu/",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "HTTP Error 403: Forbidden"
+ },
+ {
+  "org": "US Department of Veterans Affairs",
+  "url": "https://www.va.gov/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.va.gov/",
+  "note": null
+ },
+ {
+  "org": "Vida Health",
+  "url": "https://www.vida.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.vida.com/",
+  "note": null
+ },
+ {
+  "org": "VistAbility, formerly Contra Costa ARC",
+  "url": "https://vistability.org/",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.vistability.net/",
+  "note": null
+ },
+ {
+  "org": "WEAVE",
+  "url": "https://www.weaveinc.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.weaveinc.org/",
+  "note": null
+ },
+ {
+  "org": "Wellspring Psychotherapy Center",
+  "url": "https://www.wellspringpsychotherapycenter.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://wellspringpsychotherapycenter.com/",
+  "note": null
+ },
+ {
+  "org": "West Coast Children\u2019s Clinic",
+  "url": "https://www.westcoastcc.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.westcoastcc.org/",
+  "note": null
+ },
+ {
+  "org": "Yolo Community Care Continuum",
+  "url": "http://www.y3c.org/home1.aspx",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://y3c.org/",
+  "note": null
+ },
+ {
+  "org": "Youth Homes, Inc",
+  "url": "https://www.youthhomes.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://youthhomes.org/",
+  "note": null
+ },
+ {
+  "org": "California Psychological Institute",
+  "url": "http://www.cpifresno.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.cpifresno.com/",
+  "note": null
+ },
+ {
+  "org": "Central Valley Center for Community Advocacy (CVCCA)",
+  "url": "http://www.cvccacounseling.com/contact.html",
+  "region": "Multiple Locations",
+  "status": "dead",
+  "final": null,
+  "note": "<urlopen error [Errno -2] Name or service not known>"
+ },
+ {
+  "org": "Child Abuse Prevention Council",
+  "url": "https://nochildabuse.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://nochildabuse.org/",
+  "note": null
+ },
+ {
+  "org": "County of Colusa",
+  "url": "https://www.countyofcolusa.org/325/Behavioral-Health",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.countyofcolusaca.gov/325/Behavioral-Health",
+  "note": null
+ },
+ {
+  "org": "County of Madera (Hires prelicensed clinicians for the county)",
+  "url": "http://agency.governmentjobs.com/maderacountyca/job_bulletin.cfm?jobID=1975481&amp;sharedWindow=0",
+  "region": "Multiple Locations",
+  "status": "moved",
+  "final": "https://www.governmentjobs.com/careers/maderacountyca/jobs/newprint/1975481",
+  "note": null
+ },
+ {
+  "org": "Kings View Corporation",
+  "url": "https://www.kingsview.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.kingsview.org/",
+  "note": null
+ },
+ {
+  "org": "PathPoint",
+  "url": "http://www.pathpoint.org",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.pathpoint.org/",
+  "note": null
+ },
+ {
+  "org": "Promesa Behavioral Health",
+  "url": "http://promesabehavioral.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.promesabehavioral.org/",
+  "note": null
+ },
+ {
+  "org": "Remi Vista, Inc.",
+  "url": "http://www.remivistainc.org",
+  "region": "Multiple Locations",
+  "status": "empty",
+  "final": "https://www.remivistainc.org/",
+  "note": null
+ },
+ {
+  "org": "RH Community Builders",
+  "url": "https://www.rhcommunitybuilders.com",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://rhcommunitybuilders.com/",
+  "note": null
+ },
+ {
+  "org": "Roubicek and Thacker",
+  "url": "https://roubicekandthacker.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://roubicekandthacker.com/",
+  "note": null
+ },
+ {
+  "org": "Sierra Meadows Behavioral Health",
+  "url": "https://www.sierrameadowsbehavioralhealth.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://sierrameadowsbehavioralhealth.com/",
+  "note": null
+ },
+ {
+  "org": "Telemynd",
+  "url": "https://www.telemynd.com/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.telemynd.com/",
+  "note": null
+ },
+ {
+  "org": "Turning Point of Central California Inc",
+  "url": "https://www.tpocc.org/",
+  "region": "Multiple Locations",
+  "status": "ok",
+  "final": "https://www.tpocc.org/",
+  "note": null
+ }
+]
