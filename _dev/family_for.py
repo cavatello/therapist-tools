@@ -1,59 +1,59 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Rollout step 5, family 2: the pagekit research/directory pages go bc2.
+"""Rollout step 5 + P2: the /for/ stage doors go bc2 as their own family.
 
-Family 2 (13 Aug): article.pk-wrap pages -> body.bcp + css/house-pk.css
+Family "for" (15 Aug): article.fd-wrap pages -> body.bcf + css/house-for.css
 
-Follows _dev/family_art.py exactly — the family's markup is already
-semantic and uniform (pk hero, question panel, verdict stack, tables,
-callout, checklist, calculators, sources), so it converts by REPLACING
-ITS CSS WHOLESALE rather than by re-emitting content:
+/for/associates.html is the first member and the TEMPLATE the other three
+doors copy - P2 door 3, option 3C "The Ledger" (3A's tiles as the expanded
+state after input, 3B's questions below the bar), decluttered to the A2
+verdict: one dark band, white cards, one accent, room. The markup comes
+from _dev/build_forassociates.py; ALL design lives in css/house-for.css.
+
+Follows _dev/family_pk.py exactly:
 
   1. every hash-named legacy sheet link is removed (head and body-end),
-     and the house-skin link with them; the pagekit-family INLINE style
-     blocks are removed too (markers: _dev/pagekit.py, _dev/build_states.py,
-     _dev/build_forassociates.py — the builders re-emit them on a rebuild
-     and this pass, running LAST, re-strips them). A converted page loads
-     exactly three stylesheets, in this order, all in <head>:
+     the house-skin link with them, and any stray house-* family link a
+     borrowed chrome brought along; the family's INLINE style blocks are
+     removed too (markers: _dev/pagekit.py, _dev/build_forassociates.py,
+     _dev/pixel_concepts.py - passes re-emit them on a rebuild and this
+     pass, running LAST, re-strips them). A converted page loads exactly
+     three stylesheets, in this order, all in <head>:
          css/house.css?v=<hash>         tokens + element rules (.bc2)
          css/house-chrome.css?v=<hash>  the shared chrome, extracted
-         css/house-pk.css?v=<hash>      this family's layout (body.bcp)
-  2. <body class="house"> becomes <body class="bc2 bcp house">.
-  3. nothing else. No markup changes, no script changes: the ledger on
-     /for/associates, the wage-claim and forgiveness calculators, the
-     nav toggle, GA4/Ahrefs/Clarity, form_inline and every content byte
-     keep their positions — the widgets' JS queries ids and class names
-     that all survive unchanged.
-
-EXCLUDED BY DECISION: finding-a-clinical-supervisor-california.html.
-It carries the pk shell but embeds the associate-job-advisor app with
-its 19.8KB inline .adv stylesheet — the same reason
-associate-mft-job-advisor.html sat out family 1. It converts with the
-tool family (step 5, family 4), when that app CSS is rewritten.
+         css/house-for.css?v=<hash>     this family's layout (body.bcf)
+  2. <body class="house"> becomes <body class="bc2 bcf house">.
+  3. nothing else. No markup changes, no script changes: the ledger's
+     ids and class hooks, the nav toggle, GA4/Ahrefs/Clarity, form_inline
+     and every content byte keep their positions.
 
 WHY THIS IS SAFE AGAINST THE 30-NAME COLLISION AUDIT: a converted page
-carries NO old sheet, so the audit's collisions are moot on it; the pk-*
-names live on in old shared sheets, but only unconverted pages load
-those, and every rule in house-pk.css is gated on body.bcp anyway.
+carries NO old sheet, so the audit's collisions are moot on it; every
+rule in house-for.css is gated on body.bcf anyway. family_art.py's
+borrowed-chrome sweep lists "bcf" in FAMILY_CLASSES so it does not strip
+house-chrome off these pages; family_pk's sweep strips any borrowed
+house-pk link off them (they are not body.bcp), which is correct.
 
 GUARDS (a page that fails any of these fails the run, loudly):
   - after conversion: exactly the three named sheets, no 12-hex sheet,
     no skin link, no inline <style> left anywhere in the page
   - the fonts request is still present, untouched
   - every hero jump chip href="#..." still has a matching id=
-  - the body class list carries bc2, bcp and house exactly once each
-  - every class used in static body markup (scripts and style blocks
-    stripped first) is in the covered-vocabulary allowlist, so a page
-    with a component this sheet does not style cannot ship half-dressed
+  - the body class list carries bc2, bcf and house exactly once each
+  - every class used in static body markup (scripts stripped first) is
+    in the covered-vocabulary allowlist, so a page with a component this
+    sheet does not style cannot ship half-dressed
+  - the ledger's expanded-state hook (.lg-g) is present, so the sheet's
+    display:none cannot orphan the tiles
 
 USAGE
-    python3 _dev/family_pk.py           convert/refresh the family
-    python3 _dev/family_pk.py --check   verify only, change nothing
+    python3 _dev/family_for.py           convert/refresh the family
+    python3 _dev/family_for.py --check   verify only, change nothing
 
 Idempotent: a second run only refreshes the ?v= content hashes.
-ship.py carries it in LAST, after house_swap (which re-skins these
-pages every run — this pass, running later, undoes that) and after
-family_art (whose sweep skips body.bcp pages by name).
+ship.py carries it at the very end of LAST, after house_swap (which
+re-skins these pages every run - this pass undoes that) and after the
+other family passes (whose sweeps skip or correctly trim body.bcf).
 """
 import hashlib, os, re, sys
 
@@ -61,14 +61,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.dirname(HERE)
 
 FAM = {
-    "cls": "bcp", "marker": 'class="pk-wrap', "sheet": "house-pk.css",
-    "exclude": {"finding-a-clinical-supervisor-california.html",
-                # /for/associates left this family 15 Aug 2026: rebuilt to
-                # 3C The Ledger under article.fd-wrap, owned by
-                # _dev/family_for.py + css/house-for.css. The exclusion is
-                # belt-and-braces; the pk-wrap marker is gone from it.
-                "associates.html",
-                "tycoon.html", "rates.html"},
+    "cls": "bcf", "marker": 'class="fd-wrap', "sheet": "house-for.css",
+    "exclude": {"tycoon.html", "rates.html"},
 }
 
 SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training",
@@ -81,26 +75,27 @@ SKIN_LINK = re.compile(
     r'(?:\?v=[0-9a-f]+)?">\n?')
 HOUSE_LINKS = re.compile(
     r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house'
-    r'(?:-art|-sc|-pk|-chrome)?\.css(?:\?v=[0-9a-f]+)?">\n?')
-PK_SHEET = re.compile(
-    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-pk\.css'
+    r'(?:-art|-sc|-pk|-tool|-rest|-chrome|-for)?\.css'
+    r'(?:\?v=[0-9a-f]+)?">\n?')
+FOR_SHEET = re.compile(
+    r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/house-for\.css'
     r'(?:\?v=[0-9a-f]+)?">\n?')
 BODY = re.compile(r"<body([^>]*)>")
 
-# The family's own inline style blocks, by their pass markers. Builders
-# re-emit these on a full rebuild; this pass re-strips them. Any OTHER
-# <style> left on a converted page fails the run — unrecognized styling
-# is exactly what must not ship half-old (the house_swap rule).
+# The family's own inline style blocks, by their pass markers. Builders and
+# passes re-emit these on a full rebuild; this pass re-strips them. Any
+# OTHER <style> left on a converted page fails the run - unrecognized
+# styling is exactly what must not ship half-old (the house_swap rule).
 STYLE_BLOCKS = [
     re.compile(r'<style>/\* _dev/pagekit\.py \*/[\s\S]*?</style>\n?'),
-    re.compile(r'<style>/\* _dev/build_states\.py \*/[\s\S]*?</style>\n?'),
     re.compile(r'<style>/\* _dev/build_forassociates\.py'
                r'[\s\S]*?</style>\n?'),
+    re.compile(r'<style>/\* _dev/pixel_concepts\.py \*/[\s\S]*?</style>\n?'),
 ]
 
-# Class allowlist: chrome + shared names, then the pk vocabulary.
+# Class allowlist: chrome + shared names, then the door vocabulary.
 COVERED = set("""
-house bc2 bcp
+house bc2 bcf
 sitenav sitenav-in sitenav-mark sitenav-fig sitenav-wordmark sitenav-sub
 sitenav-links sitenav-top on sitenav-cta hamb navpanel np-col np-h np-hub
 np-hub-t np-hub-d npq np-all np-promo long short sr
@@ -109,15 +104,10 @@ ftnl ftin ftroom ftnl-row ftnl-t ftmail ftbtn ftnote
 sitefoot ftcols ftcol ftlbl
 tsshort tsk tsa tsfig tsfoot tsdepth tsbadge part full tswhat
 uplink uk ud ug uc uall
-pk-wrap pk-sec pk-k pk-h pk-h3 pk-d pk-p pk-fine pk-cap
-pk-hero hk hl hj pk-figs n l
-pk-q ql pk-v vn vt
-pk-tw pk-t pk-f pk-m pk-n bad good hi mid
-pk-call big pk-ask
-pk-calc pk-cg pk-cc pk-fl pk-out r hd tot lbl va pk-note
-pk-src pk-chart pk-mini soc
-lg lg-priv lg-in lg-bar lg-mk lg-g lg-note req hot done k v s
-ask an q start t shelf card
+fd-wrap pk-sec pk-k pk-h pk-h3 pk-d pk-fine
+pk-hero hk hl hj hpriv pk-call pk-src
+lg lg-in lg-read lg-bar lg-mk lg-g lg-note req hot done open k v s
+ask an q start t n shelf card
 """.split())
 
 
@@ -171,6 +161,8 @@ def check_page(rel, s):
         for anchor in re.findall(r'href="#([^"]+)"', chips):
             if ('id="%s"' % anchor) not in s:
                 bad.append("hero jump #%s has no target" % anchor)
+    if 'class="lg-g req"' not in s:
+        bad.append("the ledger's expanded-state hook (.lg-g) is missing")
     body = s[s.find("<body"):]
     static = re.sub(r"<(script|style)\b[\s\S]*?</\1>", " ", body)
     unknown = set()
@@ -224,9 +216,9 @@ def convert(rel):
 
 def sweep_borrowed(check_only):
     """Builders lift chrome (head included) from donor pages; a page built
-    from a converted pk donor inherits the house-pk link on top of its own
-    legacy CSS. Strip house-pk from every page that is not body.bcp —
-    family_art.py's sweep handles house/house-art/house-sc/house-chrome."""
+    from a converted door donor would inherit the house-for link on top of
+    its own CSS. Strip house-for from every page that is not body.bcf -
+    the other families' sweeps handle their own sheets."""
     fixed, bad = 0, 0
     rels = [f for f in sorted(os.listdir(SITE)) if f.endswith(".html")]
     for d in SUBDIRS:
@@ -240,16 +232,16 @@ def sweep_borrowed(check_only):
         classes, _ = body_classes(s)
         if FAM["cls"] in classes:
             continue
-        new = PK_SHEET.sub("", s)
+        new = FOR_SHEET.sub("", s)
         if new != s:
             if check_only:
-                print("SWEEP %s: borrowed house-pk link present" % rel)
+                print("SWEEP %s: borrowed house-for link present" % rel)
                 bad += 1
             else:
                 open(p, "w", encoding="utf-8").write(new)
                 fixed += 1
     if fixed:
-        print("  swept borrowed house-pk link off %d non-family page(s)"
+        print("  swept borrowed house-for link off %d non-family page(s)"
               % fixed)
     return bad
 
@@ -257,10 +249,10 @@ def sweep_borrowed(check_only):
 def main():
     check_only = "--check" in sys.argv
     if not os.path.exists(os.path.join(SITE, "css", FAM["sheet"])):
-        sys.exit("family_pk: css/%s is missing" % FAM["sheet"])
+        sys.exit("family_for: css/%s is missing" % FAM["sheet"])
     pages = family()
     if not pages:
-        print("family_pk: no %s pages found" % FAM["marker"])
+        print("family_for: no %s pages found" % FAM["marker"])
         sys.exit(1)
     failures = 0
     for rel in pages:
@@ -280,9 +272,9 @@ def main():
         failures += len(bad)
     failures += sweep_borrowed(check_only)
     if failures:
-        print("family_pk: %d page(s), %d FAILURE(S)" % (len(pages), failures))
+        print("family_for: %d page(s), %d FAILURE(S)" % (len(pages), failures))
         sys.exit(1)
-    print("family_pk: %d page(s) %s, all guards clean"
+    print("family_for: %d page(s) %s, all guards clean"
           % (len(pages), "checked" if check_only else "converted"))
 
 

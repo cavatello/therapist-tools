@@ -65,8 +65,10 @@ FAMILIES = [
 ]
 # "bcp" is family 2 (the pagekit pages, _dev/family_pk.py); it is listed
 # here so sweep_borrowed_chrome does not strip house-chrome.css off a
-# page that family owns.
-FAMILY_CLASSES = tuple(f["cls"] for f in FAMILIES) + ("bcp", "bct", "bcz")
+# page that family owns. "bcf" is the /for/ stage doors (_dev/family_for.py),
+# listed for the same reason.
+FAMILY_CLASSES = tuple(f["cls"] for f in FAMILIES) + ("bcp", "bct", "bcz",
+                                                      "bcf")
 
 HASH_LINK = re.compile(
     r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/[0-9a-f]{12}\.css">\n?')
