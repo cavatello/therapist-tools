@@ -25,6 +25,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 |---|---|---|---|
 | `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
+| `build_bayarea_practicum.py` | build | &mdash; | P3, the curated half: EB CAMFT's practicum-site directory, annotated. |
 | `build_baysites.py` | build | &mdash; | P3, page one: where a Bay Area MFT trainee can actually be placed. |
 | `build_careerchange.py` | build | &mdash; | Becoming a therapist in California, for somebody arriving from another job. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
