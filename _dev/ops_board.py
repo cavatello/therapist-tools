@@ -220,6 +220,10 @@ document.getElementById('f').addEventListener('submit',function(ev){
 # time, so the section always shows the harness's real output for the
 # deploy being published - never a hand-typed claim.
 GATES = [
+    (["orphan_guard.py"], "orphan_guard.py",
+     "The reverse of linkcheck: builds the whole internal link graph and "
+     "fails if any page in the sitemap has no inbound link at all - so "
+     "nothing ships as an unreachable orphan."),
     (["linkcheck.py"], "linkcheck.py",
      "Follows every internal link on every page and fails the build if any "
      "of them goes nowhere or to the wrong place."),

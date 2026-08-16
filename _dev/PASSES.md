@@ -116,6 +116,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
+| `orphan_guard.py` | verify | &mdash; | No page ships unreachable: every indexable page must have an inbound link. |
 | `seo_rules.py` | verify | &mdash; | The rule: a page cannot be added to this site badly, because publishing checks. |
 | `subdirs_check.py` | verify | &mdash; | Every pass must agree on which directories the site has. |
 
