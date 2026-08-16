@@ -1374,6 +1374,27 @@
    "leaf": true
   },
   {
+   "file": "east-bay-practicum-site-directory.html",
+   "title": "East Bay practicum sites: EB CAMFT directory, annotated",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Which East Bay sites were taking practicum students for 2026-27?",
+   "outcome": "Every published entry in the chapter's directory annotated with the statutes, every site link fetched, every claim dated",
+   "number": "21 sites, 3 hire associates",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "student",
+    "associate"
+   ],
+   "stage_note": {
+    "student": "The 21 sites in EB CAMFT's own 2026-27 directory &mdash; who was accepting at the dated read, hours, supervision, and the named contact to write to.",
+    "associate": "Three of the chapter's practicum sites say they also hire registered associates &mdash; one of them is associates-only."
+   }
+  },
+  {
    "file": "finding-a-clinical-supervisor-california.html",
    "title": "Finding a clinical supervisor in California: every list, checked",
    "topic": "licensure",
