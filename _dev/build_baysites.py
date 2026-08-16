@@ -43,6 +43,12 @@ import nonprofit_data as nd
 import hc_orgs_data as hc
 import county_bh_data as cb
 import practicum_data as pdta
+import orgprofile_data as od
+
+# IRS name -> the profile leaf build_orgprofiles.py writes. Every
+# curated org has one (that builder asserts the sets match), so a row
+# here gains a profile link the moment the org was researched.
+PROFILES = {o["irs"]: o["slug"] for o in od.ORGS}
 
 SITE = pk.SITE
 PAGE = "practicum-sites-bay-area.html"
@@ -298,9 +304,15 @@ def body():
     rows = []
     for np_ in nps:
         nm = pk.esc(np_["name"])
+        cell = ('<a href="%s" target="_blank" rel="noopener noreferrer">'
+                "%s</a>" % (np_["url"], nm) if np_.get("url") else nm)
+        prof = PROFILES.get(np_["name"])
+        if prof:
+            # what the org's own site publishes about training, one org
+            # per page, every fact dated - written by build_orgprofiles
+            cell += ' &middot; <a href="%s">profile &rarr;</a>' % prof
         rows.append([
-            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
-            % (np_["url"], nm) if np_.get("url") else nm,
+            cell,
             pk.esc(np_["city"] or "&mdash;"),
             np_["county"],
             (band(np_["revenue"]), "m"),
@@ -559,9 +571,15 @@ def body2():
     rows = []
     for np_ in nps:
         nm = pk.esc(np_["name"])
+        cell = ('<a href="%s" target="_blank" rel="noopener noreferrer">'
+                "%s</a>" % (np_["url"], nm) if np_.get("url") else nm)
+        prof = PROFILES.get(np_["name"])
+        if prof:
+            # what the org's own site publishes about training, one org
+            # per page, every fact dated - written by build_orgprofiles
+            cell += ' &middot; <a href="%s">profile &rarr;</a>' % prof
         rows.append([
-            '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>'
-            % (np_["url"], nm) if np_.get("url") else nm,
+            cell,
             pk.esc(np_["city"] or "&mdash;"),
             np_["county"],
             (band(np_["revenue"]), "m"),

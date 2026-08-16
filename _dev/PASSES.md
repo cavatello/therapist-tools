@@ -44,6 +44,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_mbhslrp.py` | build | &mdash; | MBH-SLRP in full: the $180,000 an associate can be paid, and its conditions. |
 | `build_ninety.py` | build | &mdash; | The 90-day rule page - path 03's missing content. |
 | `build_oos_license.py` | build | &mdash; | Bringing a license from another state: Path A, Path B, and why CE cannot help. |
+| `build_orgprofiles.py` | build | &mdash; | The 24 Bay Area organization profiles - one leaf per curated org. |
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
 | `build_portals.py` | build | &mdash; | Where to apply for a county therapy job, in all 58 California counties. |
 | `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
@@ -214,6 +215,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `nonprofit_data.py` | **untriaged** | &mdash; | California NTEE-F exempt organizations. WRITTEN BY _dev/nonprofits.py. |
 | `nonprofits.py` | **untriaged** | &mdash; | California nonprofit mental-health organizations, from the IRS master file. |
 | `ops_state.py` | **untriaged** | &mdash; | The parts of the status board only a person knows. Edit this, not the HTML. |
+| `orgprofile_data.py` | **untriaged** | &mdash; | The 24 Bay Area organization profiles - hand-written from the banked |
 | `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |

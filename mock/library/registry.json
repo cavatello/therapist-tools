@@ -1,6 +1,19 @@
 {
  "pages": [
   {
+   "file": "aaci-san-jose.html",
+   "title": "AACI - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does AACI publish a clinical training program?",
+   "outcome": "Yes at the doctoral level - an APA-accredited psychology internship at $26 an hour; MFT-level placement is not addressed on its site",
+   "number": "$26.00 an hour for the entire internship year",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "about.html",
    "title": "About Therapist Support",
    "topic": "practice",
@@ -381,6 +394,19 @@
    "leaf": true
   },
   {
+   "file": "buckelew-programs.html",
+   "title": "Buckelew Programs - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Buckelew Programs publish a clinical training program?",
+   "outcome": "No program page - one passing mention of internships, an AMFT on staff, and a benefits page",
+   "number": "The North Bay's largest nonprofit MH provider, since 1970",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "cal-poly-humboldt-mft.html",
    "title": "Cal Poly Humboldt — MFT program in California",
    "topic": "licensure",
@@ -615,6 +641,19 @@
    "leaf": true
   },
   {
+   "file": "caminar.html",
+   "title": "Caminar - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Caminar publish a clinical training program?",
+   "outcome": "Yes - a school-based practicum description with 20 to 40 paid clinical hours a week, via its careers page",
+   "number": "20 to 40 hours of paid clinical work per week",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "campbellsville-university-los-angeles-education-center-mft.html",
    "title": "Campbellsville University",
    "topic": "licensure",
@@ -622,6 +661,19 @@
    "question": "What is the MFT program at Campbellsville University like?",
    "outcome": "Courses, curriculum, practicum and cost — Los Angeles",
    "number": "$66,495 total",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "center-for-mindful-psychotherapy.html",
+   "title": "Center for Mindful Psychotherapy - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What is the Center for Mindful Psychotherapy?",
+   "outcome": "A nonprofit collective of roughly 125 associate MFTs - the collective is the associates, not a program beside them",
+   "number": "A collective of ~125 associate MFTs",
    "stale": true,
    "weight": 1,
    "skip": false,
@@ -699,6 +751,19 @@
    }
   },
   {
+   "file": "contra-costa-crisis-center.html",
+   "title": "Contra Costa Crisis Center - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does the Contra Costa Crisis Center offer clinical practicum hours?",
+   "outcome": "What it publishes is a 54-hour volunteer track with a year-long shift commitment - not a clinical practicum",
+   "number": "A 54-hour volunteer training, then a weekly shift for a year",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "cost-of-incorporating-california-therapist.html",
    "title": "What incorporating actually costs a California therapist",
    "topic": "money",
@@ -750,6 +815,19 @@
     "deciding": "What the job pays at the end, county by county, from employers' own returns - a 2.8x spread inside one state.",
     "associate": "Which county to apply to first, from what each one actually paid rather than what it advertised."
    }
+  },
+  {
+   "file": "crisis-support-services-alameda.html",
+   "title": "Crisis Support Services of Alameda County - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Crisis Support Services of Alameda County publish a clinical training program?",
+   "outcome": "Yes - its site describes interns obtaining hours for licensure, and supervision of trainees and associates",
+   "number": "A 24-hour crisis line running since 1966",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
   },
   {
    "file": "daybreak-university-mft.html",
@@ -1402,6 +1480,19 @@
    "leaf": true
   },
   {
+   "file": "east-bay-agency-for-children.html",
+   "title": "East Bay Agency for Children - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does EBAC publish a clinical training program?",
+   "outcome": "Yes - a grief-focused MSW practicum described on its careers page; MFT specifics not addressed",
+   "number": "A grief-focused practicum for MSW students",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "east-bay-practicum-site-directory.html",
    "title": "East Bay practicum sites: EB CAMFT directory, annotated",
    "topic": "licensure",
@@ -1421,6 +1512,45 @@
     "student": "The 21 sites in EB CAMFT's own 2026-27 directory &mdash; who was accepting at the dated read, hours, supervision, and the named contact to write to.",
     "associate": "Three of the chapter's practicum sites say they also hire registered associates &mdash; one of them is associates-only."
    }
+  },
+  {
+   "file": "eden-housing-resident-services.html",
+   "title": "Eden Housing Resident Services - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Is Eden Housing Resident Services a clinical placement lead?",
+   "outcome": "No - a housing organization whose IRS code lands near mental health; no clinical content on its site",
+   "number": "160+ housing communities, zero clinical pages",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "edgewood-center.html",
+   "title": "Edgewood Center for Children and Families - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Edgewood publish a clinical training program?",
+   "outcome": "No - a site search for internship returns nothing; the question goes to the organization directly",
+   "number": "More than 15 programs across 6 Bay Area locations",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "family-paths.html",
+   "title": "Family Paths - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Family Paths publish a clinical training program?",
+   "outcome": "Yes, with a published pause - its own site announces the intern program pauses at the end of August 2026",
+   "number": "Program pause announced for the end of August 2026",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
   },
   {
    "file": "finding-a-clinical-supervisor-california.html",
@@ -1486,6 +1616,19 @@
    "weight": 5,
    "skip": false,
    "leaf": false
+  },
+  {
+   "file": "fred-finch-youth-center.html",
+   "title": "Fred Finch Youth Center - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Fred Finch publish a clinical training program?",
+   "outcome": "No - its Training Institute is licensed-clinician CE, not a licensure track",
+   "number": "Serving youth and families since 1891",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
   },
   {
    "file": "fresno-pacific-university-mft.html",
@@ -1717,6 +1860,32 @@
    }
   },
   {
+   "file": "jfcs-east-bay.html",
+   "title": "JFCS East Bay - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does JFCS East Bay publish a clinical training program?",
+   "outcome": "No - nothing published about practicum or trainees; the careers page is an employer profile",
+   "number": "Ten federal plus six Jewish paid holidays",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "john-muir-behavioral-health.html",
+   "title": "John Muir Behavioral Health - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does John Muir Behavioral Health publish a clinical training program?",
+   "outcome": "No - the only residencies published are physician and pharmacy tracks",
+   "number": "Physician and pharmacy residencies only",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "kaiser-permanente-school-of-allied-health-sciences-mft.html",
    "title": "Kaiser Permanente School of Allied Health Sciences",
    "topic": "licensure",
@@ -1737,6 +1906,19 @@
    "question": "What is La Sierra University's MFT program actually like?",
    "outcome": "Courses, curriculum, practicum and cost — Riverside",
    "number": "$730 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "lincoln-families.html",
+   "title": "Lincoln Families - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Lincoln Families publish a clinical training program?",
+   "outcome": "Yes - a practicum page with the supervision hours itemized and a $4,000 first-year educational reimbursement",
+   "number": "$4,000 first-year educational reimbursement",
    "stale": true,
    "weight": 1,
    "skip": false,
@@ -1858,6 +2040,19 @@
    }
   },
   {
+   "file": "momentum-for-health.html",
+   "title": "Momentum for Health - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Momentum for Health publish a clinical training program?",
+   "outcome": "Yes - a practicum and field placement page, described as paid, across outpatient, residential and PHP settings",
+   "number": "4,500+ people served a year across 44 languages",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "mount-saint-mary-s-university-mft.html",
    "title": "Mount Saint Mary's University — MFT program in California",
    "topic": "licensure",
@@ -1923,6 +2118,19 @@
    "leaf": true
   },
   {
+   "file": "one-life-counseling-center.html",
+   "title": "One Life Counseling Center - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does One Life Counseling Center publish a clinical training program?",
+   "outcome": "Yes - paid trainee and associate roles described, with six supervision groups and explicit Spanish capacity",
+   "number": "Six active supervision groups",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "out-of-state-to-california-licensure.html",
    "title": "Out-of-state to California licensure: Path A, Path B, and your hours",
    "topic": "licensure",
@@ -1975,6 +2183,19 @@
    "question": "Does Palo Alto's CMHC lead to an MFT license?",
    "outcome": "The MFCC emphasis that makes a counseling degree count, and its schedule",
    "number": null,
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "peninsula-healthcare-connection.html",
+   "title": "Peninsula Healthcare Connection - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Peninsula Healthcare Connection publish a clinical training program?",
+   "outcome": "No page found - the behavioral-health team it describes is licensed-level",
+   "number": "15+ years of street-level healthcare in Palo Alto",
    "stale": true,
    "weight": 1,
    "skip": false,
@@ -2068,6 +2289,19 @@
    }
   },
   {
+   "file": "prc-baker-places.html",
+   "title": "PRC - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does PRC publish a clinical training program?",
+   "outcome": "No page found - the careers surface is a bare portal, and Baker Places has no standalone site since the 2016 merger",
+   "number": "5,000+ clients a year",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "prelicensed-job-sites-california.html",
    "title": "California employers that say they take pre-licensed clinicians",
    "topic": "licensure",
@@ -2098,6 +2332,19 @@
    "weight": 1,
    "skip": false,
    "leaf": false
+  },
+  {
+   "file": "progress-foundation.html",
+   "title": "Progress Foundation - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Progress Foundation publish a clinical training program?",
+   "outcome": "No program page found - what it publishes is a promotion-from-within employment culture and full-paid benefits",
+   "number": "100% employer-paid medical, dental and vision",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
   },
   {
    "file": "psychedelic-therapy-training-california.html",
@@ -2353,6 +2600,19 @@
    "leaf": false
   },
   {
+   "file": "rams-san-francisco.html",
+   "title": "RAMS - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does RAMS publish a clinical training program?",
+   "outcome": "Yes - a named Training Institute with MFT, PCC and MSW practicums and a doctoral internship dating to 1979",
+   "number": "30+ programs across 130+ sites, in 30+ languages",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "rates.html",
    "title": "The California Therapy Rate Gap",
    "topic": "getting-paid",
@@ -2477,6 +2737,19 @@
    "question": "What is Sentio University's MFT program actually like?",
    "outcome": "Courses, curriculum, practicum and cost — Los Angeles",
    "number": "$67,200 total",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "side-by-side-youth.html",
+   "title": "Side by Side - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Side by Side publish a clinical training program?",
+   "outcome": "Yes - community counseling internships with the supervision hours stated",
+   "number": "1 hour individual plus 2 hours group supervision a week",
    "stale": true,
    "weight": 1,
    "skip": false,
@@ -2788,6 +3061,19 @@
    }
   },
   {
+   "file": "translifeline.html",
+   "title": "Trans Lifeline - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Can Trans Lifeline volunteering count toward clinical hours?",
+   "outcome": "Its site says only that credit may be possible case by case - get it in writing from your program first",
+   "number": "150,000+ calls answered by a trans-led peer line",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
    "file": "university-of-la-verne-mft.html",
    "title": "University of La Verne — MFT program in California",
    "topic": "licensure",
@@ -2899,6 +3185,32 @@
    "question": "Does Vanguard's clinical psych MS qualify for LMFT?",
    "outcome": "A Costa Mesa degree on sixteen-week terms, priced per unit, Board-listed",
    "number": "$855 a unit",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "westcoast-childrens-clinic.html",
+   "title": "WestCoast Children's Clinic - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does WestCoast Children's Clinic publish a clinical training program?",
+   "outcome": "Yes - an 8-month compensated MSW/MFT program with named partner schools, plus doctoral tracks",
+   "number": "An 8-month compensated program, September to April",
+   "stale": true,
+   "weight": 1,
+   "skip": false,
+   "leaf": true
+  },
+  {
+   "file": "westside-community-mental-health.html",
+   "title": "Westside Community Mental Health Center - Bay Area org profile",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Does Westside Community Mental Health Center publish a clinical training program?",
+   "outcome": "No - nothing published; a direct-question lead rather than a shelf",
+   "number": "Roughly 60 years serving San Francisco",
    "stale": true,
    "weight": 1,
    "skip": false,

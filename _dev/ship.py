@@ -100,6 +100,15 @@ BUILD = [
      "P3 page one - the Bay Area practicum-sites directory: five program "
      "clinics, nine county plans, the health centers and the nonprofit "
      "clinical agencies, availability language banned by guard"),
+    # P3's last item: one leaf per curated org, from the banked research.
+    # After build_baysites in the list but independent of it - the
+    # directories link the profiles via the shared orgprofile_data map.
+    ("_dev/build_orgprofiles.py",
+     "the 24 Bay Area organization profiles - one ts:leaf page per "
+     "curated org: what it is, what its own site publishes about "
+     "clinical training with every fact linked and dated, and the "
+     "questions to bring; availability language and personal contacts "
+     "banned by guard"),
     # The method page the directory and the rules page both point at:
     # whose job the search is, the statutory strikes, the four shelves,
     # and the questions that protect the hours. Invents no facts - it
