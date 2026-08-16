@@ -85,6 +85,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `registry_sync.py` | structure | &mdash; | Rebuild registry.json from the pages, so a new page needs no central edit. |
 | `restyle.py` | structure | `/* restyle */` | The visual restyle and the topic-first header, as ONE self-contained pass. |
 | `stage_router.py` | structure | `<!-- _dev/stage_router.py -->` | Concept 06 - the stage router, built as a tab control over the section that |
+| `stage_shell.py` | structure | &mdash; | The "you are here" shell - S1 above the article, S3 after it. |
 | `taxonomy_leaves.py` | structure | &mdash; | The 48 case pages become leaves, and three reference pages get real homes. |
 | `tool_analytics.py` | structure | `/* _dev/tool_analytics.py */` | Measure how the calculators are actually used, without collecting a value. |
 | `touch_polish.py` | structure | `/* _dev/touch_polish.py */` | Legibility and tap targets, measured across nine real device sizes. |

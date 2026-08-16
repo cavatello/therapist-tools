@@ -18,8 +18,12 @@ fonts, the masthead + nav panel, the signup band, the footer, and every
 end-of-body script. No URL moves; every link written here is guarded to
 exist on disk before the page is written.
 
-Path 03 is folded into path 04 per the settled decision, so both rows point
-at /for/associates.html until the 90-day page exists.
+THE ROWS POINT AT THE STAGE DOORS now that all four exist (16 Aug): 01 ->
+/for/deciding, 02 -> /for/students, 04 -> /for/associates, 05 ->
+/for/licensed. Path 03 gets the 90-day page itself - that reader has one
+urgent question, not a shelf - and 06 keeps the hiring page until an
+owners door earns its content. This is the "repoint the home band" step
+from the stage-doors proposal.
 
 Idempotent: reruns replace the same <main> again. Runs manually for now;
 wire into ship.py BUILD once its interaction with home_doorway.py and
@@ -37,11 +41,11 @@ PAGE = os.path.join(SITE, "index.html")
 
 # claim-row targets - every one must exist on disk (guarded below)
 ROW_HREF = {
-    "01": "becoming-a-therapist-california-career-change.html",
-    "02": "practicum-california-mft-trainee.html",
-    "03": "for/associates.html",
+    "01": "for/deciding.html",
+    "02": "for/students.html",
+    "03": "bbs-90-day-rule-california.html",
     "04": "for/associates.html",
-    "05": "practice/",
+    "05": "for/licensed.html",
     "06": "hiring-first-associate-california-therapist.html",
 }
 

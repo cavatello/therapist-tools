@@ -757,3 +757,7 @@ body.bcz.hw table.cmp th{color:#CFE0D6 !important}
     max-width:100% !important;min-width:0 !important}
   body.bcz .li-sec{overflow-x:auto !important}
 }
+/* become-an-mft: both table.fee header rows sit on a dark bar the same way
+   li-pay/cmp do; the inline sheet's th color (var(--mut), a light-ground
+   olive) lands at 1.89:1 on it. Same fix as those tables. */
+body.bcz table.fee th{color:#CFE0D6 !important}

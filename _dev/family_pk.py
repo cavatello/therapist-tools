@@ -109,6 +109,7 @@ ftnl ftin ftroom ftnl-row ftnl-t ftmail ftbtn ftnote
 sitefoot ftcols ftcol ftlbl
 tsshort tsk tsa tsfig tsfoot tsdepth tsbadge part full tswhat
 uplink uk ud ug uc uall
+ss1 ssnext sk sn gk ga lk
 pk-wrap pk-sec pk-k pk-h pk-h3 pk-d pk-p pk-fine pk-cap
 pk-hero hk hl hj pk-figs n l
 pk-q ql pk-v vn vt

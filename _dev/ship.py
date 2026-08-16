@@ -266,6 +266,14 @@ STRUCTURE = [
     ("_dev/pixel_concepts.py", "the In-short card and the provenance strip"),
     ("_dev/footer_band.py", "the signup band - inserts ABOVE the up-link"),
     ("_dev/footer_fix.py", "footer colour overrides"),
+    # The "you are here" shell from the stage-doors proposal: S1 (one
+    # annotated line above the article) + S3 (the next-step band after
+    # it), on every stage-tagged page. Runs after the doors exist and
+    # after footer_band so S3 has its anchor; the door counts come from
+    # the same registry tagging the doors read.
+    ("_dev/stage_shell.py",
+     "the you-are-here shell - S1 stage line above the article and the "
+     "S3 next-step band after it, on every stage-tagged page"),
     ("_dev/affiliate.py",
      "the affiliate disclosure in every footer, a visible tag beside every\n      affiliate link, and rel=sponsored on each. Never wired, which is why\n      nobody noticed its footer anchor had gone stale and it was leaving the\n      disclosure on 4 pages of 177. AFTER the footer passes, whose sentence\n      it appends to"),
     ("_dev/analytics.py",
