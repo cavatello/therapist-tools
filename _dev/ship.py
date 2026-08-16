@@ -191,6 +191,10 @@ BUILD = [
      "the third stage door - /for/deciding: the route and its cost, "
      "county pay at the end, the 78 programs on placement, from "
      "hand-written deciding stage notes"),
+    ("_dev/build_forlicensed.py",
+     "the fourth and last stage door - /for/licensed: take-home at your "
+     "rate, panel arithmetic, the entity decision, and the CE clock, "
+     "from hand-written licensed stage notes"),
     ("_dev/build_atlas.py",
      "all 165,000 California licensees counted by county, with the "
      "associate-per-supervisor ratio and the delinquency rates"),

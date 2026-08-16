@@ -35,6 +35,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_forassociates.py` | build | &mdash; | /for/associates - the first stage door, built as the Ledger. |
 | `build_fordeciding.py` | build | &mdash; | /for/deciding - the third stage door, to the associates-door pattern. |
 | `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
+| `build_forlicensed.py` | build | &mdash; | /for/licensed - the fourth and last stage door, to the associates-door |
 | `build_forstudents.py` | build | &mdash; | /for/students - the second stage door, to the associates-door pattern. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
 | `build_home.py` | build | &mdash; | Rollout step 4: the home page, rebuilt to option A + option C's waterfall. |

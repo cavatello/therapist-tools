@@ -692,10 +692,10 @@
    "skip": false,
    "leaf": false,
    "stages": [
-    "associate"
+    "licensed"
    ],
    "stage_note": {
-    "associate": "Not yet - but the law and ethics course inside your first renewal period is, and it is easy to miss."
+    "licensed": "36 hours per renewal, and the audit 62% fail - what counts, what does not, and the paper to keep."
    }
   },
   {
@@ -1462,6 +1462,19 @@
    "leaf": false
   },
   {
+   "file": "for/licensed.html",
+   "title": "For licensed California therapists: the practice, in numbers",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What do I need now that I am licensed in California?",
+   "outcome": "Take-home at your rate and caseload, panel arithmetic per payer, the entity decision, and the CE clock",
+   "number": "36 CE hours per renewal, and an audit most fail on paperwork",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "for/students.html",
    "title": "For California MFT students: the practicum, and what comes after",
    "topic": "licensure",
@@ -1558,7 +1571,13 @@
    "stale": false,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "What a client is worth at your rate, and which of three channels actually fills a caseload."
+   }
   },
   {
    "file": "headway-alma-grow-therapy-compared-california.html",
@@ -1584,7 +1603,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "What Headway pays and what it keeps, priced at real caseloads - read before signing."
+   }
   },
   {
    "file": "hiring-first-associate-california-therapist.html",
@@ -1683,7 +1708,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "What each payer actually reimburses, computed per code - before you decide which panels are worth it."
+   }
   },
   {
    "file": "kaiser-permanente-school-of-allied-health-sciences-mft.html",
@@ -1986,7 +2017,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "What your practice actually pays you at your rate and caseload, after expenses and tax - live, in the browser."
+   }
   },
   {
    "file": "practicum-california-mft-trainee.html",
@@ -2456,7 +2493,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "What the software actually costs all-in at your caseload, including the fees the pricing page skips."
+   }
   },
   {
    "file": "sofia-university-mft.html",
@@ -2536,10 +2579,10 @@
    "skip": false,
    "leaf": false,
    "stages": [
-    "deciding"
+    "licensed"
    ],
    "stage_note": {
-    "deciding": "What a month costs in the places you might practice, against what the work actually pays."
+    "licensed": "What a month costs where you practice, against what your caseload brings in - the relocation arithmetic."
    }
   },
   {
@@ -2555,9 +2598,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
-    "associate"
+    "associate",
+    "licensed"
    ],
    "stage_note": {
+    "licensed": "48 real Board decisions and what each one cost - most begin with paperwork, not with clients.",
     "associate": "What the Board actually acts on. Several of these begin with an hours form or a supervisor signature."
    }
   },
@@ -2598,7 +2643,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "The whole tax decision worked on your numbers - sole prop against the corporation, with the payroll gap most comparisons leave out."
+   }
   },
   {
    "file": "therapist-working-remotely-california.html",
@@ -2611,7 +2662,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "The same practice run from eight places - what moving does to your license, your taxes and your clients."
+   }
   },
   {
    "file": "therapists-by-county-california.html",
@@ -2662,7 +2719,13 @@
    "stale": false,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "licensed"
+   ],
+   "stage_note": {
+    "licensed": "Eight malpractice programs compared on what they publish and what people actually pay."
+   }
   },
   {
    "file": "therapynotes-vs-simplepractice-california.html",
@@ -2961,7 +3024,8 @@
      "files": [
       "for/associates.html",
       "for/students.html",
-      "for/deciding.html"
+      "for/deciding.html",
+      "for/licensed.html"
      ]
     }
    ]

@@ -190,7 +190,44 @@ TAGS = {
         "deciding": "The whole route from another career, ordered by "
                     "what you can start this month - written for the "
                     "person still deciding."},
+    "therapist-tax-strategy-california.html": {
+        "licensed": "The whole tax decision worked on your numbers - "
+                    "sole prop against the corporation, with the payroll "
+                    "gap most comparisons leave out."},
+    "practice-simulator.html": {
+        "licensed": "What your practice actually pays you at your rate "
+                    "and caseload, after expenses and tax - live, in the "
+                    "browser."},
+    "grow-your-therapy-practice.html": {
+        "licensed": "What a client is worth at your rate, and which of "
+                    "three channels actually fills a caseload."},
+    "insurance-reimbursement-rates-california-therapist.html": {
+        "licensed": "What each payer actually reimburses, computed per "
+                    "code - before you decide which panels are worth it."},
+    "headway-for-california-therapists.html": {
+        "licensed": "What Headway pays and what it keeps, priced at real "
+                    "caseloads - read before signing."},
+    "therapy-liability-insurance-california.html": {
+        "licensed": "Eight malpractice programs compared on what they "
+                    "publish and what people actually pay."},
+    "therapist-working-remotely-california.html": {
+        "licensed": "The same practice run from eight places - what "
+                    "moving does to your license, your taxes and your "
+                    "clients."},
+    "simplepractice-california-therapists.html": {
+        "licensed": "What the software actually costs all-in at your "
+                    "caseload, including the fees the pricing page "
+                    "skips."},
+    "continuing-education-california-lmft.html": {
+        "licensed": "36 hours per renewal, and the audit 62% fail - "
+                    "what counts, what does not, and the paper to keep."},
+    "therapist-cost-of-living-california.html": {
+        "licensed": "What a month costs where you practice, against "
+                    "what your caseload brings in - the relocation "
+                    "arithmetic."},
     "therapist-discipline-cases-california.html": {
+        "licensed": "48 real Board decisions and what each one cost - "
+                    "most begin with paperwork, not with clients.",
         "associate": "What the Board actually acts on. Several of these begin "
                      "with an hours form or a supervisor signature."},
 }
