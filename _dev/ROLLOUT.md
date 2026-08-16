@@ -614,3 +614,57 @@ CLAIM (16 Aug 2026): session-C agent revising /for/associates to the
 light direction above. Touches: css/house-for.css, _dev/build_forassociates.py
 (comments/markup presentation only), for/associates.html. Other sessions:
 stay off these files until a shipped/blocked section lands below.
+
+## SHIPPED — /for/associates re-lit to the LIGHT page (16 Aug 2026,
+## session C, commit `2f21c999`)
+
+Executes the 16 Aug CHANGE verdict above. The page markup is BYTE-
+IDENTICAL to the d04f304c pass (every fact, figure, link, annotation,
+title/meta/JSON-LD/script preserved — the builder edit is commentary
+only); the entire redesign is css/house-for.css, rewritten:
+- The dark hero band is GONE. Paper top to bottom: quiet dim mono
+  kicker, HUGE ink Bricolage h1 (clamp 38–72px), the In-short answer
+  as calm unboxed text (no card, no gold border), one dim standfirst,
+  quiet dim privacy line, and the jump chips reduced to one line of
+  plain underlined pine text links.
+- NO gold type anywhere. The page's single accent moment: the
+  relational tile's soft gold WASH (#FFF3D3, ink text) in the ledger.
+  Three text colors total: ink, dim, pine (links only — .an headlines
+  and tsfig went ink).
+- The ledger keeps its white hairline card (it is an instrument);
+  EVERYTHING else unboxed onto hairline dividers: sections carry a
+  hairline top + 46px pad + 92px gaps; questions, start doors, shelf
+  rows, requirements panel, sources and provenance are hairline
+  entries (shelf/start titles are pine links, notes dim); the gold
+  tsbadge became a dim hairline-outline badge.
+
+GATE (mirror-first at /tmp/mirror — full ship.py 95/95 there before
+the repo was touched; repo ship also 95/95, --check clean, 208 pages):
+- OVERFLOW + JS: 7 pages (the door + one per family + home) ×
+  375/768/1440/2560 = 28 checks, 0 failures.
+- CONTRAST at 1440 (h1–h4, kick, standfirst, privacy line, jump links,
+  In-short, ledger labels/readouts/markers, OPEN tiles incl. the gold
+  wash, questions, start, shelf titles+notes, sources, badge — vs real
+  rendered ground): 0 low on the door and five others; the only 4 low
+  are about.html's documented pre-existing rest-family defects (bcr on
+  dark 1.16:1, tsshort re-ink 1.37:1 — still for the rest session).
+  Automated gold-type sweep on the door: 0 elements. dim-on-paper
+  measures 5.5:1.
+- Screenshots 1440 (top, ledger open, questions, shelf) + 375 (top,
+  ledger), eyeballed against "would 37signals ship this": quiet paper
+  page, hairlines, one gold wash tile. Gate scripts kept as
+  _dev/_gate_light.mjs / _dev/_shots_light.mjs.
+
+INCIDENT, worth knowing: the watcher was silently DEAD after
+d04f304c — a stale .git/index.lock (23:58, crashed mid-commit) made
+every cycle fail with "Nothing changed"; _dev/autopublish.log showed
+the fatal. Removed the lock, next cycle pushed clean. If a push ever
+looks stuck, check that log and that lock FIRST.
+
+Live verification (`2f21c999`, tree == origin): for/associates.html
+and css/house-for.css (?v=62766926) both byte-identical live vs repo.
+
+NEXT: the page again AWAITS THE USER'S KEEP/CHANGE NOD. If approved,
+this LIGHT hero treatment is a CANDIDATE direction for other heroes —
+NOT propagated anywhere else yet; doors 1/2/4/5 still wait for the nod
+and then copy this page.
