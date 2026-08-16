@@ -193,69 +193,12 @@ ASKING = [
      "associate-hours-telehealth-out-of-state.html"),
 ]
 
-CSS = """<style>/* _dev/build_forassociates.py - the ledger */
-.lg{border:2px solid var(--pk-ink,#16211B);background:#fff;padding:18px 18px 20px;
- box-shadow:5px 5px 0 var(--pk-ink,#16211B);margin:0 0 20px}
-.lg-in{display:grid;gap:12px;margin-bottom:18px}
-@media(min-width:660px){.lg-in{grid-template-columns:repeat(4,1fr)}}
-.lg-in label{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
- font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#635E53;
- margin-bottom:5px}
-.lg-in input{width:100%;font-family:'Fraunces',Georgia,serif;font-weight:800;
- font-size:20px;padding:8px 10px;background:#FBF6E9;border:2px solid #E4D9BE;
- color:#16211B}
-.lg-in input:focus{outline:3px solid #F6C560;outline-offset:1px;border-color:#16211B}
-.lg-bar{position:relative;height:34px;border:2px solid #16211B;background:#F4F0E6;
- overflow:hidden;margin:6px 0 4px}
-.lg-bar i{display:block;height:100%;background:#2C6350;width:0;transition:width .25s}
-.lg-mk{position:relative;height:26px;margin-bottom:14px}
-.lg-mk span{position:absolute;top:0;font-family:'IBM Plex Mono',ui-monospace,monospace;
- font-size:10px;color:#635E53;white-space:nowrap;transform:translateX(-50%);padding-top:3px}
-.lg-mk span::before{content:"";position:absolute;left:50%;top:-4px;width:2px;height:5px;
- background:#16211B}
-.lg-g{display:grid;gap:10px}
-@media(min-width:560px){.lg-g{grid-template-columns:repeat(4,1fr)}}
-.lg-g div{border:2px solid #16211B;background:#FBF9F3;padding:10px 12px;
- box-shadow:3px 3px 0 #16211B}
-.lg-g .k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
- letter-spacing:.13em;text-transform:uppercase;color:#635E53;display:block}
-.lg-g .v{display:block;font-family:'Fraunces',Georgia,serif;font-weight:800;
- font-size:23px;color:#16211B;line-height:1.1;margin:3px 0 2px;
- font-variant-numeric:tabular-nums}
-.lg-g .s{display:block;font-size:11.5px;color:#635E53;line-height:1.35}
-.lg-g.req div.hot{background:#F6C560;border-color:#16211B}
-.lg-g div.done{background:#EAF3DE}
-.lg-note{font-size:12.5px;color:#635E53;margin:14px 0 0}
-.lg-priv{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
- letter-spacing:.1em;text-transform:uppercase;color:#2C6350;margin:0 0 10px}
-.ask{border:2px solid #16211B;background:#fff;padding:14px 16px;margin:0 0 12px;
- box-shadow:4px 4px 0 #16211B}
-.ask q{display:block;font-family:'Fraunces',Georgia,serif;font-size:20px;
- font-weight:700;line-height:1.25;color:#16211B;quotes:none}
-.ask .an{font-family:'Bricolage Grotesque','Archivo',Inter,sans-serif;font-weight:800;
- font-size:15px;margin:9px 0 5px;color:#2C6350}
-.ask p{font-size:14.5px;margin:0 0 9px}
-.ask a{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
- letter-spacing:.1em;text-transform:uppercase}
-.start{display:grid;gap:12px;margin:4px 0 0}
-@media(min-width:640px){.start{grid-template-columns:1fr 1fr}}
-.start a{display:block;border:2px solid #16211B;background:#2C6350;color:#fff;
- padding:14px 16px;box-shadow:4px 4px 0 #16211B;text-decoration:none}
-.start a:hover{background:#16211B}
-.start .q{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,sans-serif;
- font-weight:800;font-size:18px;line-height:1.2;margin-bottom:4px}
-.start .s{display:block;font-size:13.5px;color:#DCEAE3;line-height:1.4}
-.pk-h3{font-family:'Bricolage Grotesque','Archivo',Inter,sans-serif;font-weight:800;
- font-size:19px;margin:22px 0 10px;padding-bottom:6px;border-bottom:2px solid #16211B}
-.shelf{display:grid;gap:12px}
-@media(min-width:720px){.shelf{grid-template-columns:1fr 1fr}}
-.shelf a.card{display:block;border:2px solid #16211B;background:#FBF9F3;padding:13px 15px;
- box-shadow:4px 4px 0 #16211B;text-decoration:none;color:inherit}
-.shelf a.card:hover{background:#F6C560}
-.shelf .t{font-family:'Bricolage Grotesque','Archivo',Inter,sans-serif;font-weight:800;
- font-size:15.5px;line-height:1.25;margin-bottom:5px}
-.shelf .n{font-size:13.5px;color:#3A4A42;line-height:1.45}
-</style>"""
+# NO PAGE CSS HERE, AND THAT IS THE POINT. The first build shipped a 60-rule
+# inline block; the A2 verdict called the result cluttered and not the house
+# style. The design now lives ONLY in css/house-for.css, gated on body.bcf
+# and linked by _dev/family_for.py - one sheet, reviewable in one place, and
+# the template the other three doors copy. (pagekit's shared block still
+# rides along via pk.assemble; family_for strips it, running last.)
 
 JS = """<script>/* the ledger. Everything here stays in this browser: no storage,
    no hash, no query string, no network. */
@@ -268,6 +211,10 @@ JS = """<script>/* the ledger. Everything here stays in this browser: no storage
  function draw(){
   var tot=num("lgTotal"),dir=num("lgDirect"),rel=num("lgRel"),
       wk=num("lgWeeks"),rate=num("lgRate");
+  /* 3A's tiles are the EXPANDED state: they appear once any figure is
+     typed. Before that the ledger is one quiet bar (the 3C empty state). */
+  var g=document.querySelector(".lg-g");
+  if(g){g.classList[(tot+dir+rel+wk+rate)>0?"add":"remove"]("open")}
   var pct=Math.max(0,Math.min(100,tot/3000*100));
   $("lgFill").style.width=pct.toFixed(1)+"%";
   $("lgPct").textContent=Math.round(pct)+"%";
