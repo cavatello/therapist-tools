@@ -385,3 +385,37 @@ CLAIM (15 Aug 2026, 23:15 PT): session-A agent executing P2 "The Foundation"
 on /for/associates — family_for.py conversion + declutter per A2/A3. Other
 sessions: stay off for/associates.html, css/house-for.css, _dev/family_for.py
 until a shipped/blocked section lands below.
+
+## BLOCKED PENDING USER CONFIRMATION — 15 Aug 2026, 23:20 PT (session A)
+P2 "The Foundation" name-match FAILED; nothing was built, per the mandate
+("if P2 truly has no option by that name, render nothing and report back").
+
+Findings, checked against the files themselves:
+- P2 is ops/stage-doors.html ("Five doors, three ways each", the 16
+  mockups). Its complete option roster: Door 1 — 1A The Ladder, 1B The Two
+  Questions, 1C The Price Tag. Door 2 — 2A The Placement Desk, 2B The
+  Countdown, 2C The Rules Card. Door 3 (associates) — 3A The Desk, 3B The
+  Three Questions, 3C The Ledger. Door 4 — 4A The Front Page / The Licensed
+  Desk, 4B The Change Log. Door 5 — 5A The Control Panel, 5B The Decision
+  Tree. Sitewide band — annotated breadcrumb, next-step band, sticky rail
+  (recommendation: breadcrumb + next-step band). The string "Foundation"
+  appears NOWHERE in stage-doors.html, in any casing.
+- "The Foundation" IS a real option name — but in P10: ops/marks.html mark
+  04, three solid bars each wider than the one above, and the marks doc's
+  own first pick ("Which three to test — The Foundation, first"). The A3
+  verdict's name matches the P10 mark exactly and no P2 option even
+  approximately.
+- Most probable readings, for the user to pick from: (a) the verdict was
+  meant for the P10 marks ask (adopt The Foundation as the site mark), and
+  the P2 door answer is still open — in which case the associates door
+  rebuild proceeds on P2's own recommendation for Door 3 (3C The Ledger,
+  with 3A's six tiles as the expanded state after input and 3B's questions
+  directly below the bar), decluttered per A2; or (b) the user wants a new
+  Foundation-mark-derived direction not yet drawn in P2, which would need a
+  render-once-and-nod cycle first.
+- No repo pages, sheets, or passes were touched. The A2/A3 decisions stand
+  as recorded; the /for/associates conversion remains queued behind this
+  one-word confirmation.
+NEXT SESSION: get the user's word, then execute the P2-Foundation plan in
+this file's terms (family_for.py + css/house-for.css, mirror gate, one-call
+ship) against whichever option the user names.
