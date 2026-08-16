@@ -106,6 +106,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
 | `family_art.py` | last | &mdash; | Rollout step 5: page families go bc2, one family at a time. |
+| `family_for.py` | last | &mdash; | Rollout step 5 + P2: the /for/ stage doors go bc2 as their own family. |
 | `family_pk.py` | last | &mdash; | Rollout step 5, family 2: the pagekit research/directory pages go bc2. |
 | `family_rest.py` | last | &mdash; | Rollout step 5, family 5: every remaining skinned page goes bc2. |
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
