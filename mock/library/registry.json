@@ -1549,6 +1549,27 @@
    "leaf": true
   },
   {
+   "file": "how-to-find-a-practicum-site-california.html",
+   "title": "How to find a practicum site in California, and what to ask",
+   "topic": "licensure",
+   "format": "answer",
+   "question": "How do I actually find a practicum site?",
+   "outcome": "The search in order: the program's own model, the settings the law forbids, the four shelves of seats, and the questions that protect your hours",
+   "number": "At least six applications, one placement office's own advised floor",
+   "stale": false,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "deciding",
+    "student"
+   ],
+   "stage_note": {
+    "deciding": "Whose job the placement search is at each kind of program &mdash; worth knowing before you pick one, not after.",
+    "student": "The search in order: your program's model first, the five statutory strikes, then six-plus applications across the four shelves of seats."
+   }
+  },
+  {
    "file": "index.html",
    "title": "Free money tools for California therapists — Therapist Support",
    "topic": "practice",
@@ -2785,6 +2806,7 @@
      "name": "The practicum, and the year before you register",
      "files": [
       "practicum-california-mft-trainee.html",
+      "how-to-find-a-practicum-site-california.html",
       "practicum-sites-bay-area.html"
      ]
     },
