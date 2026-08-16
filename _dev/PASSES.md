@@ -69,6 +69,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `error_tracking.py` | structure | `/* _dev/error_tracking.py */` | See the site break, instead of hearing about it. |
 | `footer_band.py` | structure | `<!-- _dev/footer_band.py -->` | Put the signup band at the top of the footer, on every page. |
 | `footer_fix.py` | structure | `/* _dev/footer_fix.py */` | The site footer was legible on some pages and not on others. |
+| `footer_index.py` | structure | &mdash; | The footer index is generated from the registry, and the doors are in it. |
 | `footer_order.py` | structure | `/* _dev/footer_order.py */` | The signup band belongs against the footer. Put it there, on every page. |
 | `form_inline.py` | structure | `// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt` | The signup band answers on the page. On all 158 pages, not on five. |
 | `headline_figures.py` | structure | `<!-- _dev/headline_figures.py -->` | Change a page's headline figure when its builder no longer exists. |

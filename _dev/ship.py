@@ -282,6 +282,10 @@ STRUCTURE = [
      "the ask-a-question surface - the question box on the home page "
      "and inside each stage door, posting to the disclosed Formspree "
      "endpoint with the asking page named"),
+    ("_dev/footer_index.py",
+     "the footer index generated from the registry - the four doors and "
+     "the five topics with live counts, plus the guard that fails the "
+     "build when an indexable page is unreachable from the index"),
     ("_dev/affiliate.py",
      "the affiliate disclosure in every footer, a visible tag beside every\n      affiliate link, and rel=sponsored on each. Never wired, which is why\n      nobody noticed its footer anchor had gone stale and it was leaving the\n      disclosure on 4 pages of 177. AFTER the footer passes, whose sentence\n      it appends to"),
     ("_dev/analytics.py",
