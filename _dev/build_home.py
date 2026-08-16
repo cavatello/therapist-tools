@@ -172,13 +172,13 @@ def run():
     before = s.count("<style")
     s = re.sub(r"[ \t]*<style>[\s\S]*?</style>\n?", "", s)
 
-    # ---- house.css must load for the bc2 components; before the skin,
-    #      which stays last (house_swap guards that)
+    # ---- house.css must load for the bc2 components. Two eras: before
+    #      family_rest the page carried the skin (insert before it); after,
+    #      the family pass owns the sheet links and re-adds them each run.
     if "css/house.css" not in s:
         i = s.find('<link rel="stylesheet" href="css/house-skin.css">')
-        if i < 0:
-            sys.exit("build_home: skin link missing - run house_swap first")
-        s = s[:i] + '<link rel="stylesheet" href="css/house.css">\n' + s[i:]
+        if i >= 0:
+            s = s[:i] + '<link rel="stylesheet" href="css/house.css">\n' + s[i:]
 
     open(PAGE, "w", encoding="utf-8").write(s)
 
@@ -186,7 +186,8 @@ def run():
     out = open(PAGE, encoding="utf-8").read()
     assert out.count("<main") == 1, "main count"
     assert out.count('class="slab"') == 1, "one slab per page"
-    assert "house-skin.css" in out and "css/house.css" in out
+    assert ("house-skin.css" in out or 'bcz' in out) and \
+        "css/house.css" in out
     print("  index.html rebuilt to option A + waterfall "
           "(%d inline style(s) removed, %d bytes)"
           % (before, len(out)))

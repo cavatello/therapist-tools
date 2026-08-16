@@ -376,6 +376,20 @@ LAST = [
      "(article.pk-wrap) carry house/house-chrome/house-pk and no legacy "
      "CSS; runs after house_swap (it un-skins these pages) and after "
      "family_art (whose sweep skips body.bcp by name)"),
+    # Family 4: the tools keep their app CSS and shed only the chrome
+    # that house-chrome replicates - see the pass docstring. Runs last of
+    # the families so house_swap's re-skin is always undone.
+    ("_dev/family_tool.py",
+     "rollout step 5, family 4 - the interactive tools carry the three "
+     "named house sheets plus their own app CSS, and no replicated "
+     "chrome; the family sheet is the skin's tool rules, ported"),
+    # Family 5: everything the skin still covered - the whole remainder
+    # converts by the same subtraction, with the skin itself ported as
+    # the family sheet. After this pass NOTHING links house-skin.css.
+    ("_dev/family_rest.py",
+     "rollout step 5, family 5 - every remaining skinned page carries "
+     "house/house-chrome/house-rest and its own page CSS; the skin is "
+     "fully ported and retired"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
