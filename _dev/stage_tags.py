@@ -50,9 +50,14 @@ STAGES = ("deciding", "student", "associate", "licensed", "owner")
 # file -> {stage: the one line saying what this page tells THAT reader}
 TAGS = {
     "amft-3000-hours-california.html": {
+        "student": "Up to 1,300 pre-degree hours can bank toward the 3,000 "
+                   "- what your practicum pace is worth after you graduate.",
         "associate": "What date you finish, at the hours you are actually "
                      "logging - and which of the four sub-totals is behind."},
     "getting-hired-as-a-california-associate.html": {
+        "student": "Read before your final term: which settings can legally "
+                   "bill for a pre-licensed clinician decides where "
+                   "applications land.",
         "associate": "Why half your applications get no reply: it is a "
                      "billing rule, not your hour count."},
     "associate-therapist-pay-los-angeles-bay-area.html": {
@@ -65,6 +70,8 @@ TAGS = {
         "associate": "Whether hours you gain from another state count. The "
                      "Board has answered five times and nobody links it."},
     "associate-hours-trackers-compared.html": {
+        "student": "Log like the Board reads logs from week one - five "
+                   "trackers compared, and what counts as a signature.",
         "associate": "Five hour-tracking products compared, and what the "
                      "Board actually accepts as a supervisor signature."},
     "prelicensed-job-sites-california.html": {
@@ -90,6 +97,8 @@ TAGS = {
         "associate": "What the law and ethics exam actually passes at, "
                      "first-time, across seven quarters."},
     "bbs-processing-times-california.html": {
+        "student": "How long the Board takes on a new associate application "
+                   "- worth knowing before your final term, not after.",
         "associate": "How long the Board is taking right now, so a renewal or "
                      "an application is filed with room to spare."},
     "bbs-90-day-rule-california.html": {
@@ -99,6 +108,8 @@ TAGS = {
                      "whether those hours exist &mdash; and the documents "
                      "that decide it."},
     "bbs-fees-california-2026.html": {
+        "student": "What registering will cost when you file - the "
+                   "application fees halved in July 2026, and revert in 2030.",
         "associate": "What your renewal costs since July 2026, and what it "
                      "goes back to in 2030."},
     "out-of-state-to-california-licensure.html": {
@@ -147,6 +158,10 @@ TAGS = {
     "continuing-education-california-lmft.html": {
         "associate": "Not yet - but the law and ethics course inside your "
                      "first renewal period is, and it is easy to miss."},
+    "become-an-mft-california.html": {
+        "student": "Every requirement between today and the license, each "
+                   "with its code section - the map your program does not "
+                   "hand you."},
     "therapist-discipline-cases-california.html": {
         "associate": "What the Board actually acts on. Several of these begin "
                      "with an hours form or a supervisor signature."},

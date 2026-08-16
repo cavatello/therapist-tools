@@ -65,9 +65,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "student",
     "associate"
    ],
    "stage_note": {
+    "student": "Up to 1,300 pre-degree hours can bank toward the 3,000 - what your practicum pace is worth after you graduate.",
     "associate": "What date you finish, at the hours you are actually logging - and which of the four sub-totals is behind."
    }
   },
@@ -148,9 +150,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "student",
     "associate"
    ],
    "stage_note": {
+    "student": "Log like the Board reads logs from week one - five trackers compared, and what counts as a signature.",
     "associate": "Five hour-tracking products compared, and what the Board actually accepts as a supervisor signature."
    }
   },
@@ -290,9 +294,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "student",
     "associate"
    ],
    "stage_note": {
+    "student": "What registering will cost when you file - the application fees halved in July 2026, and revert in 2030.",
     "associate": "What your renewal costs since July 2026, and what it goes back to in 2030."
    }
   },
@@ -309,9 +315,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "student",
     "associate"
    ],
    "stage_note": {
+    "student": "How long the Board takes on a new associate application - worth knowing before your final term, not after.",
     "associate": "How long the Board is taking right now, so a renewal or an application is filed with room to spare."
    }
   },
@@ -326,7 +334,13 @@
    "stale": true,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "student"
+   ],
+   "stage_note": {
+    "student": "Every requirement between today and the license, each with its code section - the map your program does not hand you."
+   }
   },
   {
    "file": "becoming-a-therapist-california-career-change.html",
@@ -1421,6 +1435,19 @@
    "leaf": false
   },
   {
+   "file": "for/students.html",
+   "title": "For California MFT students: the practicum, and what comes after",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What do I need while I am an MFT student in California?",
+   "outcome": "The practicum search, the trainee rules, the Bay Area seats by name, and the two deadlines that start before the degree",
+   "number": "Up to 1,300 pre-degree hours can bank toward the 3,000",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "fresno-pacific-university-mft.html",
    "title": "Fresno Pacific University — MFT program in California",
    "topic": "licensure",
@@ -1459,9 +1486,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "student",
     "associate"
    ],
    "stage_note": {
+    "student": "Read before your final term: which settings can legally bill for a pre-licensed clinician decides where applications land.",
     "associate": "Why half your applications get no reply: it is a billing rule, not your hour count."
    }
   },
@@ -2877,7 +2906,8 @@
     {
      "name": "Doors by stage",
      "files": [
-      "for/associates.html"
+      "for/associates.html",
+      "for/students.html"
      ]
     }
    ]

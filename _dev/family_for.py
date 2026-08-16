@@ -161,7 +161,9 @@ def check_page(rel, s):
         for anchor in re.findall(r'href="#([^"]+)"', chips):
             if ('id="%s"' % anchor) not in s:
                 bad.append("hero jump #%s has no target" % anchor)
-    if 'class="lg-g req"' not in s:
+    # The ledger is the associates door's widget, not the family's: only
+    # the page that carries a ledger section is held to its hooks.
+    if 'id="ledger"' in s and 'class="lg-g req"' not in s:
         bad.append("the ledger's expanded-state hook (.lg-g) is missing")
     body = s[s.find("<body"):]
     static = re.sub(r"<(script|style)\b[\s\S]*?</\1>", " ", body)

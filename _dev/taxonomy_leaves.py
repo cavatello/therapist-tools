@@ -68,7 +68,8 @@ NEW_CLUSTERS = [
     # get a cluster of their own rather than sitting among the pages they
     # point at.
     ("licensure", "Doors by stage",
-     ["for/associates.html"]),
+     ["for/associates.html",
+      "for/students.html"]),
     ("licensure", "The practicum, and the year before you register",
      ["practicum-california-mft-trainee.html",
       "how-to-find-a-practicum-site-california.html",

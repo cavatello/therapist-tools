@@ -183,6 +183,10 @@ BUILD = [
     ("_dev/build_forassociates.py",
      "/for/associates - the whole 3,000-hour requirement in one bar, and "
      "every page written for somebody counting them"),
+    ("_dev/build_forstudents.py",
+     "the second stage door - /for/students to the associates pattern: "
+     "cold-arrival hero, the four starting questions, and the shelf "
+     "built from hand-written student stage notes"),
     ("_dev/build_atlas.py",
      "all 165,000 California licensees counted by county, with the "
      "associate-per-supervisor ratio and the delinquency rates"),
