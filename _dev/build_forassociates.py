@@ -61,6 +61,31 @@ Each page below is annotated with what it tells THIS reader, at THIS stage,
 read from the registry field written by _dev/stage_tags.py. That is the whole
 difference between a stage hub and a re-listed topic hub, and a guard here
 refuses to print a page that has no note.
+
+REBUILT 15 AUG 2026 TO 3C "THE LEDGER", DECLUTTERED TO THE A2 VERDICT
+
+The user's A2 ruling: the door CONCEPT is right, the execution was "messy,
+cluttered, so much going on". So this page now renders P2's own
+recommendation for door 3 - 3C The Ledger, with 3A's tiles as the EXPANDED
+state after input and 3B's questions directly below the bar - held to the
+A2 standard: ONE dark band (the hero), white cards on paper, one accent
+(gold, on the requirement people miss), generous space, fewer simultaneous
+elements per viewport. Concretely, against the first build:
+
+  - the hero lost the four-figure stat grid (each figure survives in the
+    body: the guide count heads the shelf, the 58 counties and 165,000
+    licensees are on their shelf cards, free/no-account joined the privacy
+    line). Per 3C, the privacy line sits IN the hero, not with the tool.
+  - the ledger comes first - the bar is the page, per the mockup - and its
+    four requirement tiles are hidden until a figure is typed, so the
+    empty state is one quiet bar instead of four dashes (3A's own critique).
+  - the requirements panel and the four start doors are white cards now,
+    not extra dark blocks; the hero is the page's only dark band.
+  - the shelf annotations (hand-written, per stage) kept, with room.
+
+This page carries NO inline CSS of its own: body.bcf + css/house-for.css
+own the whole design (_dev/family_for.py converts and guards it, running
+LAST in ship.py). This page is the TEMPLATE the other three doors copy.
 """
 import json, os, re, sys
 
@@ -94,9 +119,9 @@ STAGE = "associate"
 # to a file that exists.
 UP = "../"
 
-JUMPS = [("start", "Start here"),
-         ("ledger", "Where you are"),
+JUMPS = [("ledger", "Where you are"),
          ("asking", "What this room asks"),
+         ("start", "Start here"),
          ("shelf", "All %d guides"),
          ("sources", "The rules behind it")]
 
