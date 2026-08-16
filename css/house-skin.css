@@ -425,3 +425,28 @@ body.house .dc-hero .tsshort .tsk{color:var(--hs-dim) !important}
    the skin with a pk hero (excluded from family 2: it embeds the job
    advisor app); retires when the tool family converts at step 5. */
 body.house .pk-hero .hk{color:#79A08F !important}
+
+/* --- nav promo card: the two gold-pill spans ------------------------- */
+/* .np-all ("THE HUB") and the CTA span carry their own gold ground from
+   the chrome sheet; the sage text above is for the deep card body only.
+   On gold, the type is ink, full strength. */
+body.house .np-promo .np-all, body.house .np-promo span:last-child{
+  color:#16211B !important; opacity:1 !important}
+
+/* --- practice-simulator: the income-source drawer -------------------- */
+/* The drawer was designed for a dark slab (translucent-black panel, gold
+   labels, gold ghost buttons). Under the house design its section cards
+   are white, so the panel read as flat gray and every gold label sank
+   into it. On light ground it is a sink card with ink type. */
+body.house .drawer{
+  background:var(--hs-sink) !important;
+  border:1px solid var(--line) !important; border-radius:8px}
+body.house .dh h5{color:var(--pine) !important}
+body.house .drawer .tog span{color:#49544D !important}
+body.house .dbtn{
+  background:#FFFFFF !important; border:1px solid var(--line) !important;
+  color:var(--ink) !important}
+body.house .dbtn:hover{background:var(--hs-wash) !important}
+body.house .dbtn.gold{
+  background:var(--gold) !important; border:1px solid #B98F1F !important;
+  color:#16211B !important}
