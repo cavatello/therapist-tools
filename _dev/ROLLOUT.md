@@ -419,3 +419,12 @@ Findings, checked against the files themselves:
 NEXT SESSION: get the user's word, then execute the P2-Foundation plan in
 this file's terms (family_for.py + css/house-for.css, mirror gate, one-call
 ship) against whichever option the user names.
+
+## CLAIM (15 Aug 2026, ~23:30 PT): session-B agent executing P3 EBCAMFT
+practicum directory — new builder _dev/build_bayarea_practicum.py + page
+east-bay-practicum-site-directory.html (the curated 21-entry EB CAMFT
+directory banked 14 Aug; the settings-universe pair shipped 13 Aug already).
+Touches: the new builder, ship.py BUILD, taxonomy_leaves.py, stage_tags.py,
+the new page + regenerated hubs/sitemap. Stays OFF for/associates.html,
+family_for.py, house-for.css (session A's claim above). A shipped/blocked
+section lands below when done.
