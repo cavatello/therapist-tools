@@ -500,3 +500,10 @@ claude/leads-verification-dead-bucket-warning.md).
   door 3 — 3C The Ledger — decluttered per the A2 verdict (one dark band,
   white cards, one accent, room). /for/associates converts first, user
   nods, then the remaining doors copy it.
+
+## CLAIM (15 Aug 2026, ~23:50 PT): session-C agent executing the /for/associates
+rebuild per the resolved A2+A3 decisions — P2 door 3 option 3C "The Ledger"
+(3A tiles as expanded state, 3B questions below the bar), decluttered to the A2
+standard. Touches: for/associates.html, css/house-for.css (new), _dev/family_for.py
+(new), ship.py LAST wiring. Other sessions: stay off these files until a
+shipped/blocked section lands below.
