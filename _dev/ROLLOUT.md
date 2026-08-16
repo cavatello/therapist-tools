@@ -491,3 +491,12 @@ pre-licensed job-sites page (queue 6) — note for it: the 28-entry "dead"
 bucket in leads-verified-2026-08-15.json is mostly bot-blocker false
 negatives, browser-check before excluding (see
 claude/leads-verification-dead-bucket-warning.md).
+
+## USER DECISION — 15 Aug 2026: "Foundation = the mark" (A3 resolved)
+- THE MARK: P10 mark 04 "The Foundation" (three solid bars, each wider than
+  the one above — ops/marks.html, that doc's own first recommendation) is
+  the CHOSEN mark/icon. Gold bearing, ink borne, per the system rule.
+- THE DOORS: proceed on P2's (ops/stage-doors.html) OWN recommendation for
+  door 3 — 3C The Ledger — decluttered per the A2 verdict (one dark band,
+  white cards, one accent, room). /for/associates converts first, user
+  nods, then the remaining doors copy it.
