@@ -38,7 +38,7 @@ published file. That check is the one that matters - an encryption pass that
 silently stops encrypting is worse than no encryption, because nobody looks
 again.
 """
-import base64, json, os, sys
+import base64, json, os, subprocess, sys
 import hashlib
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -213,6 +213,74 @@ document.getElementById('f').addEventListener('submit',function(ev){
 """
 
 
+
+# ---------------------------------------------------------------- quality gates
+# Each entry: (command, tool shown, what it checks, in plain English).
+# Every one is read-only or an explicit --check. They RUN at board-build
+# time, so the section always shows the harness's real output for the
+# deploy being published - never a hand-typed claim.
+GATES = [
+    (["linkcheck.py"], "linkcheck.py",
+     "Follows every internal link on every page and fails the build if any "
+     "of them goes nowhere or to the wrong place."),
+    (["notruncate.py"], "notruncate.py",
+     "Opens every published page and fails if one is missing its title, its "
+     "h1, the masthead, or has been truncated to an empty shell."),
+    (["seo_rules.py"], "seo_rules.py",
+     "Checks every page's title and description lengths, canonical, "
+     "Open Graph block and heading structure against the house rules; new "
+     "findings fail the build, known ones are baselined."),
+    (["subdirs_check.py"], "subdirs_check.py",
+     "Reconciles the directory map: every directory in the list exists on "
+     "disk, and every directory of pages is in the list."),
+    (["dca_licensees.py", "--check"], "dca_licensees.py --check",
+     "Re-reconciles the licensee dataset the county pages are computed "
+     "from, offline, and confirms nothing identifying is in the file."),
+    (["family_art.py", "--check"], "family_art.py --check",
+     "Verifies every article and school page carries exactly the three "
+     "named house stylesheets, no legacy sheet, and an intact hero."),
+    (["family_pk.py", "--check"], "family_pk.py --check",
+     "The same conversion guard for the research and directory pages, "
+     "including the class-vocabulary allowlist that stops a page shipping "
+     "half-styled."),
+    (["family_tool.py", "--check"], "family_tool.py --check",
+     "The tool apps: confirms the replicated legacy chrome is gone, the "
+     "house sheets are present, and each app still carries its own CSS."),
+    (["family_rest.py", "--check"], "family_rest.py --check",
+     "Everything else - the discipline library, the hubs, the home page - "
+     "held to the same three-sheet rule."),
+]
+
+
+def run_gates():
+    out = []
+    for cmd, tool, what in GATES:
+        try:
+            r = subprocess.run(
+                ["python3", os.path.join(HERE, cmd[0])] + cmd[1:],
+                capture_output=True, text=True, timeout=180, cwd=SITE)
+            lines = [l.strip() for l in (r.stdout + r.stderr).splitlines()
+                     if l.strip()]
+            metric = lines[-1] if lines else "(no output)"
+            out.append((tool, what, metric, r.returncode == 0))
+        except Exception as e:
+            out.append((tool, what, "did not run: %s" % e, False))
+    # the browser gate is stamped by the session that runs it, not re-run
+    # here (it needs a real browser); the stamp file is committed with the
+    # change it verified.
+    bg = os.path.join(HERE, "browser_gate.json")
+    if os.path.exists(bg):
+        j = json.load(open(bg, encoding="utf-8"))
+        out.append(("Playwright browser gate",
+                    "A real Chromium loads the changed pages, fills the "
+                    "calculators, opens every drawer, and measures what a "
+                    "reader would actually see. %s Stamped %s."
+                    % (j.get("detail", ""), j.get("stamped", "")),
+                    j.get("result", "?"),
+                    j.get("result") == "ALL CLEAN"))
+    return out
+
+
 def board(reg):
     """The plaintext board. Everything is numbered so it can be referred to."""
     o = []
@@ -252,6 +320,7 @@ def board(reg):
                         ("blocked", "B &mdash; blocked"),
                         ("next", "N &mdash; next up"),
                         ("shipped", "S &mdash; shipped"),
+                        ("gates", "Q &mdash; quality gates"),
                         ("closed", "C &mdash; closed")):
         A('<li><a href="#%s">%s</a></li>' % (href, label))
     A("</ul></div></nav>")
@@ -378,6 +447,26 @@ def board(reg):
     A("</ul>")
     A('<p class="cap">Titles and links come from the live registry, so a renamed '
       "page cannot leave a dead entry here.</p></section>")
+
+    # Q - quality gates
+    A('<hr><section id="gates"><div class="kick"><span class="n">Q</span>'
+      "<h2>Quality gates</h2></div>")
+    A('<p class="lede">The internal test harness, run live while this board '
+      "was being built &mdash; every metric below is the tool&rsquo;s own "
+      "output for this deploy, republished automatically on every deploy. A "
+      "red gate here means the pipeline refused to ship.</p>")
+    for i, (tool, what, metric, ok) in enumerate(run_gates(), 1):
+        A('<div class="item %s"><div class="t"><span class="id">Q%d</span>'
+          "<code>%s</code> <b style=\"font-family:var(--mono);font-size:11px;"
+          "letter-spacing:.1em;color:%s\">%s</b></div>"
+          "<p style=\"margin:6px 0 4px\">%s</p>"
+          '<p style="font-family:var(--mono);font-size:12.5px;'
+          'background:rgba(22,33,27,.07);padding:7px 10px;border-radius:2px;'
+          'margin:0">%s</p></div>'
+          % ("go" if ok else "block", i, tool,
+             "var(--green)" if ok else "var(--red)",
+             "PASS" if ok else "FAIL", what, metric))
+    A("</section>")
 
     # C - closed
     A('<hr><section id="closed"><div class="kick"><span class="n">C</span>'

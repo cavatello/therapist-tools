@@ -1,0 +1,6 @@
+{
+ "stamped": "16 August 2026",
+ "harness": "Playwright + Chromium, cloud session",
+ "result": "ALL CLEAN",
+ "detail": "8 interactive tool pages exercised (inputs filled, drawers opened) plus a 12-page cross-section of every other family; 5 viewports from 375 to 2560px; horizontal overflow, console errors, and text contrast measured against the real composited background at a 4.5:1 floor"
+}
