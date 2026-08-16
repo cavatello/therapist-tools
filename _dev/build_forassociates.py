@@ -520,7 +520,6 @@ def main():
         ("the family wrapper family_for keys on", 'class="fd-wrap"'),
         ("the privacy line in the hero (the 3C rule)",
          "computed in this browser and never stored or sent"),
-        ("no double-escaped entity on the shelf", "&amp;mdash;", False),
     ], [j[0] for j in JUMPS])
 
     s = open(p, encoding="utf-8").read()
@@ -551,6 +550,12 @@ def main():
             print("GUARD: the ledger uses %s, and the hero promises it does "
                   "not" % why)
             bad += 1
+
+    # Registry notes arrive with entities already in them; a shelf card
+    # showing a literal "&mdash;" is the double-escape bug, again.
+    if re.search(r"&amp;(#\d+|[a-zA-Z]+);", art):
+        print("GUARD: a double-escaped entity survived on the page")
+        bad += 1
 
     for w in pk.spelling(s):
         print("GUARD: British spelling %r" % w)

@@ -545,6 +545,10 @@ def article(html):
     """
     i = html.find('<article class="pk-wrap">')
     if i < 0:
+        # The stage doors carry the same shell under their own family
+        # wrapper (body.bcf + css/house-for.css, _dev/family_for.py).
+        i = html.find('<article class="fd-wrap">')
+    if i < 0:
         return ""
     j = html.rfind("</article>")
     return html[i:j] if j > i else html[i:]
@@ -596,7 +600,8 @@ def check_page(path, must_have, jump_ids):
 
     art = article(s)
     if not art:
-        print("GUARD: the page has no <article class=\"pk-wrap\"> body")
+        print("GUARD: the page has no <article class=\"pk-wrap\"> "
+              "(or fd-wrap) body")
         bad += 1
     for wrong in spelling(art):
         print("GUARD: British spelling %r in the prose" % wrong)
