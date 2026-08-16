@@ -380,3 +380,8 @@ chosen option once and get a nod before it propagates.) This composes with
 the A2 verdict recorded above: /for/associates converts + declutters FIRST,
 to the chosen P2 direction, and only then do the remaining doors get built
 from that template.
+
+CLAIM (15 Aug 2026, 23:15 PT): session-A agent executing P2 "The Foundation"
+on /for/associates — family_for.py conversion + declutter per A2/A3. Other
+sessions: stay off for/associates.html, css/house-for.css, _dev/family_for.py
+until a shipped/blocked section lands below.
