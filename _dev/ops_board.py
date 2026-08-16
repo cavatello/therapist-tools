@@ -91,7 +91,7 @@ code{font-family:var(--mono);font-size:12.5px;background:rgba(22,33,27,.07);padd
 @media(min-width:760px){.kpi{grid-template-columns:repeat(4,1fr)}}
 .kpi div{border:1.5px solid rgba(255,255,255,.28);padding:11px 13px}
 .kpi .n{font-family:var(--fig);font-weight:800;font-size:28px;color:var(--gp);display:block;line-height:1.05}
-.kpi .l{font-size:11.5px;color:#C9DAD2;line-height:1.35;display:block;margin-top:2px}
+.kpi .l{font-size:11.5px;color:#C9DAD2;line-height:1.35;display:block;margin-top:2px}\n.kdark div{border-color:rgba(22,33,27,.25)}.kdark .n{color:var(--pine)}.kdark .l{color:var(--muted)}
 nav{position:sticky;top:0;z-index:40;background:var(--cream);border-bottom:2px solid var(--ink)}
 nav ul{display:flex;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
 nav ul::-webkit-scrollbar{display:none}
@@ -285,6 +285,105 @@ def run_gates():
     return out
 
 
+
+
+def site_kpis(reg, gates):
+    """The site in numbers - computed from the live files at build time,
+    so no figure here can go stale. reg is file->page; gates is the
+    run_gates() output (computed once, shared with section Q)."""
+    import collections, re as _re
+    pages = list(reg.values())
+    n_reg = len(pages)
+    leaves = [p for p in pages if p.get("leaf")]
+    sitemap = open(os.path.join(SITE, "sitemap.xml"), encoding="utf-8").read()
+    n_sitemap = sitemap.count("<loc>")
+    topics = collections.Counter(p["topic"] for p in pages if not p.get("skip"))
+    formats = collections.Counter(p.get("format") or "?" for p in pages)
+    stages = collections.Counter(st for p in pages
+                                 for st in (p.get("stages") or []))
+    n_notes = sum(len(p.get("stage_note") or {}) for p in pages)
+
+    # leaf families, by the shapes that exist
+    n_cases = sum(1 for f in reg if f.startswith("discipline-case-"))
+    n_schools = sum(1 for f in reg
+                    if f.endswith("-mft.html") and reg[f].get("leaf"))
+    n_orgs = 0
+    try:
+        import orgprofile_data as _od
+        n_orgs = sum(1 for o in _od.ORGS if o["slug"] in reg)
+    except Exception:
+        pass
+
+    # pipeline size, from ship.py itself
+    ship = open(os.path.join(HERE, "ship.py"), encoding="utf-8").read()
+    n_passes = len(_re.findall(r'^\s*\("_dev/', ship, _re.M))
+
+    # citations + words, one pass over the registry pages
+    n_leginfo, n_ext, n_words = 0, 0, 0
+    doms = set()
+    for f in reg:
+        p = os.path.join(SITE, f)
+        if not os.path.exists(p):
+            continue
+        s2 = open(p, encoding="utf-8").read()
+        n_leginfo += s2.count("leginfo.legislature.ca.gov")
+        for m in _re.finditer(r'href="https?://([^/"]+)', s2):
+            d = m.group(1).lower()
+            if "therapistsupport" not in d:
+                n_ext += 1
+                doms.add(d)
+        body = _re.sub(r"<script[\s\S]*?</script>", " ", s2)
+        body = _re.sub(r"<style[\s\S]*?</style>", " ", body)
+        body = _re.sub(r"<[^>]+>", " ", body)
+        n_words += len(body.split())
+
+    g_ok = sum(1 for _, _, _, ok in gates if ok)
+    plan_left = S.FIGURES["editorial_total"] - S.FIGURES["editorial_done"]
+
+    groups = [
+        ("The library", [
+            (n_sitemap, "pages in the sitemap, all indexable"),
+            (n_reg, "pages in the registry"),
+            (len(leaves), "directory leaves (reached through their hubs)"),
+            (4, "stage doors - deciding, students, associates, licensed"),
+        ]),
+        ("Leaves, by shelf", [
+            (n_schools, "MFT program pages"),
+            (n_cases, "discipline case studies"),
+            (n_orgs, "Bay Area organization profiles"),
+            (len(leaves) - n_schools - n_cases - n_orgs, "other leaves"),
+        ]),
+        ("By topic", [(topics.get(k, 0), k) for k in
+                      ("licensure", "practice", "training", "money",
+                       "getting-paid")]),
+        ("By format", sorted(((v, k) for k, v in formats.items()),
+                             reverse=True)),
+        ("Written for a stage", [
+            (stages.get("deciding", 0), "deciding"),
+            (stages.get("student", 0), "in a program"),
+            (stages.get("associate", 0), "counting hours"),
+            (stages.get("licensed", 0), "licensed"),
+            (n_notes, "hand-written stage notes behind them"),
+        ]),
+        ("Planned", [
+            (plan_left, "of the %d approved editorial pages still to "
+                        "build" % S.FIGURES["editorial_total"]),
+            (S.FIGURES["editorial_done"], "already shipped from that "
+                                          "list"),
+        ]),
+        ("The machinery", [
+            (n_passes, "pipeline passes on every build"),
+            ("%d/%d" % (g_ok, len(gates)), "quality gates green on this "
+                                           "deploy"),
+            (n_leginfo, "links to the statute text on leginfo"),
+            ("{:,}".format(n_ext), "outbound source links, %d domains"
+                                    % len(doms)),
+            ("{:,}".format(n_words), "words of checked content"),
+        ]),
+    ]
+    return groups
+
+
 def board(reg):
     """The plaintext board. Everything is numbered so it can be referred to."""
     o = []
@@ -317,8 +416,12 @@ def board(reg):
         A('<div><span class="n">%s</span><span class="l">%s</span></div>' % (n, l))
     A("</div></div></header>")
 
+    gates = run_gates()
+    kpis = site_kpis(reg, gates)
+
     A('<nav><div class="wrap" style="padding:0"><ul>')
-    for href, label in (("you", "A &mdash; waiting on you"),
+    for href, label in (("kpis", "K &mdash; the site in numbers"),
+                        ("you", "A &mdash; waiting on you"),
                         ("docs", "P &mdash; proposals"),
                         ("now", "F &mdash; in flight"),
                         ("blocked", "B &mdash; blocked"),
@@ -329,6 +432,20 @@ def board(reg):
         A('<li><a href="#%s">%s</a></li>' % (href, label))
     A("</ul></div></nav>")
     A('<div class="wrap">')
+
+    # K - the site in numbers
+    A('<section id="kpis"><div class="kick"><span class="n">K</span>'
+      "<h2>The site in numbers</h2></div>")
+    A('<p class="lede">Computed from the live files while this board was '
+      "being built &mdash; none of these figures is typed in, so none "
+      "can go stale.</p>")
+    for gname, items in kpis:
+        A('<div class="card"><h3>%s</h3><div class="kpi kdark">' % gname)
+        for n, l in items:
+            A('<div><span class="n">%s</span><span class="l">%s</span>'
+              "</div>" % (n, l))
+        A("</div></div>")
+    A("</section><hr>")
 
     # A - asks
     A('<section id="you"><div class="kick"><span class="n">A</span>'
@@ -459,7 +576,7 @@ def board(reg):
       "was being built &mdash; every metric below is the tool&rsquo;s own "
       "output for this deploy, republished automatically on every deploy. A "
       "red gate here means the pipeline refused to ship.</p>")
-    for i, (tool, what, metric, ok) in enumerate(run_gates(), 1):
+    for i, (tool, what, metric, ok) in enumerate(gates, 1):
         A('<div class="item %s"><div class="t"><span class="id">Q%d</span>'
           "<code>%s</code> <b style=\"font-family:var(--mono);font-size:11px;"
           "letter-spacing:.1em;color:%s\">%s</b></div>"

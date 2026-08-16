@@ -11,7 +11,7 @@ Keep it short. A status board nobody trusts is one that has grown into a
 second backlog.
 """
 
-UPDATED = "15 August 2026"
+UPDATED = "16 August 2026"
 
 # The passphrase that decrypts the published board. Change it here and the next
 # deploy re-encrypts under the new one. An environment variable OPS_PASSPHRASE
@@ -353,7 +353,7 @@ HIGHLIGHTS = [
 
 # Numbers the board prints that are not derivable from the repository.
 FIGURES = {
-    "editorial_done": 7,
+    "editorial_done": 9,
     "editorial_total": 28,
     "county_pay": [
         ("Positions found", "12,297", "13,041", "13,184"),
