@@ -261,3 +261,85 @@ waterfall inset + wider label column, house.css link now content-versioned.
 Audited before ship. NOTE for step 5: the tax-page "reasoning" scroller and
 floating page-toc render broken-wide at 27" — layout, not color; needs the
 family conversion, not more skin.
+
+## STEP 5, FAMILY 1 GATE RUN + FIXES (13 Aug 2026, evening, `e0daa8e5`)
+
+State found at session start: the article-family conversion had ALREADY
+LANDED under `_dev/family_art.py` (wired in ship.py LAST after house_swap;
+sheets `css/house-art.css` / `css/house-sc.css` / `css/house-chrome.css`;
+commits `dd0655a5`..`78238c7d`) — covering BOTH the .artband family (20
+pages; psyd-programs excluded by decision) and the .scband family (66
+pages), 86 pages total, each carrying `<body class="bc2 bca|bcs house">`,
+exactly the three named house sheets, zero legacy hash sheets, no skin
+link. No new `house_articles.py` was written: PASSES.md's own rule is to
+extend the pass that already owns the marker, and family_art.py is that
+pass. What was MISSING was the gate record — this section is it.
+
+Gate audits, run on a full /tmp mirror (mirror-first, fixes applied there
+before the repo was touched):
+- CONTRAST at 1440: 586 elements (h1–h4, dek, kick, tsk, labels,
+  breadcrumbs incl. separators, artmeta/scmeta) across 23 pages — 16
+  family pages + home, simulator, county directory, discipline hub,
+  newsletter, about, money/ hub. First run: 33 below 4.5:1 — all but one
+  were the breadcrumb separator "›" (var(--hair) on paper, 1.2:1) on
+  every converted page; the one other was PRE-EXISTING (proven present at
+  pre-family commit `d72a0b9a`): the discipline hub's In-short card,
+  where skin rule `body.house .dc-hero p{color:#CFE0D6}` paints the white
+  card's own labels pale green (1.37:1). After fixes: 0 below 4.5:1.
+- OVERFLOW + JS: 92 checks (23 pages x 375/768/1440/2560) — 0 failures.
+- Screenshots at 1440 (top + mid) and 375 of bbs-fees, alliant-mft,
+  therapist-llc, reviewed by eye: masthead, breadcrumb, kick, headline
+  with gold highlight, dek, dark In-short card, rail figure card, sticky
+  "On this page" toc, prose measure — all correct at both widths.
+
+Fixes shipped (one atomic run: sed edits + house_swap --all + family_art
+hash refresh + ship.py --check 5/5, inside one watcher cycle):
+1. `.bcr .sep` color var(--hair) -> var(--dim) in house-art.css AND
+   house-sc.css (the separators are arguably decorative, but the gate
+   standard is every breadcrumb element >= 4.5:1, so they comply now).
+2. house-skin.css: scoped re-ink `body.house .dc-hero .tsshort p` /
+   `.tsk` — a pre-existing live defect the gate caught; retires with the
+   dc family's conversion.
+
+Live verification (after watcher push `e0daa8e5`, tree == origin):
+three converted pages curled — bc2 bca/bcs body, 3 house sheets, 0
+legacy sheets, 0 skin links; house.css, house-art.css, house-sc.css and
+house-skin.css all byte-identical between live host and repo.
+
+Now retirable (do NOT delete yet — unconverted families still load the
+skin): every house-skin rule keyed on .artband/.scband and their family
+vocabulary (the section-13 dark-hero re-grounds for those two heroes, the
+scband heading re-asserts from the fifth pass) no longer reaches any
+page, because converted pages do not link house-skin.css at all. They
+cost nothing where they are; sweep them when the skin itself retires.
+
+Known content defect, out of scope (content is byte-preserved by
+mandate): alliant-mft's fact-card Format value is truncated IN SOURCE to
+"On-campus and fully online (synchr" — present since `88059cac` (6 Aug);
+a builder/content fix, not a conversion issue.
+
+## COORDINATION + DEFECT REPORT — 14 Aug 2026 (session A)
+
+- STEP 5 CONTINUES IN THE USER'S OTHER CHAT (currently family 3, pagekit).
+  This session stays off family conversions to avoid colliding in the same
+  working tree. It banked research + defect reports instead.
+- DEFECT (family 1, for the step-5 session): on converted school pages
+  (user screenshot: university-of-san-francisco-mft.html) the page-foot
+  metadata strip ("Last checked… / Figures current as of… / Published
+  sources only / Known gap") and the "More on this" hub cluster render as
+  UNSTYLED run-together text — those injected blocks lost their legacy
+  sheets in conversion and house-sc.css/house-art.css do not yet style
+  them. Restyle in the family sheets (bc2 vocabulary), re-gate, ship.
+- BANKED: RESEARCH/ebcamft-practicum-sites-2026-08-14.md — EB CAMFT's
+  public 2026-27 practicum directory, 22 sites, structured. User: "must
+  have directory." Slots into P3 practicum-sites (queue item 4), and its
+  three hires-associates sites feed the associate-jobs pages.
+
+## 15 Aug 2026 (session A): _dev/verify_leads.py added — the fetch half of
+directory link verification, dca_licensees-style: run on a networked machine
+(`python3 _dev/verify_leads.py`, or --limit 20 to smoke-test). Covers both
+lead files (232 statewide + 22 EBCAMFT). Writes RESEARCH/leads-verified-
+<date>.json+.md; builders ship `ok` rows only without review. Also banked
+RESEARCH/mind-foundation-apt-2026-08-15.md (full APT program facts, cohort
+dates incl. a flagged source contradiction, 12 outcomes, 7 testimonial video
+IDs) for queue item 8.

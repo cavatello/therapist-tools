@@ -363,6 +363,11 @@ LAST = [
      "rollout step 5, family 1 - the artband editorial pages carry the "
      "three named house sheets and no legacy CSS; re-applied last so a "
      "rebuilt page is re-converted and the ?v= hashes stay current"),
+    ("_dev/family_pk.py",
+     "rollout step 5, family 2 - the pagekit research/directory pages "
+     "(article.pk-wrap) carry house/house-chrome/house-pk and no legacy "
+     "CSS; runs after house_swap (it un-skins these pages) and after "
+     "family_art (whose sweep skips body.bcp by name)"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.

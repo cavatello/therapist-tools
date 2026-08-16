@@ -418,3 +418,10 @@ body.house .sell .selk, body.house .sell small{color:var(--hs-dim) !important}
    family's conversion at step 5. */
 body.house .dc-hero .tsshort p{color:var(--ink) !important}
 body.house .dc-hero .tsshort .tsk{color:var(--hs-dim) !important}
+
+/* pk-family hero eyebrow: the section-2 mono rule painted it dim on the
+   deep hero (2.33:1) — found by the step-5 family-2 gate audit, 13 Aug
+   2026. Only finding-a-clinical-supervisor-california.html still loads
+   the skin with a pk hero (excluded from family 2: it embeds the job
+   advisor app); retires when the tool family converts at step 5. */
+body.house .pk-hero .hk{color:#79A08F !important}

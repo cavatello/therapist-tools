@@ -104,6 +104,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
 | `family_art.py` | last | &mdash; | Rollout step 5: page families go bc2, one family at a time. |
+| `family_pk.py` | last | &mdash; | Rollout step 5, family 2: the pagekit research/directory pages go bc2. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
