@@ -114,6 +114,13 @@ TAGS = {
         "student": "The Bay Area settings the code lets you be placed in "
                    "&mdash; and the site-agreement question to ask your "
                    "program before contacting any of them."},
+    "east-bay-practicum-site-directory.html": {
+        "student": "The 21 sites in EB CAMFT's own 2026-27 directory "
+                   "&mdash; who was accepting at the dated read, hours, "
+                   "supervision, and the named contact to write to.",
+        "associate": "Three of the chapter's practicum sites say they "
+                     "also hire registered associates &mdash; one of "
+                     "them is associates-only."},
     "how-to-find-a-practicum-site-california.html": {
         "deciding": "Whose job the placement search is at each kind of "
                     "program &mdash; worth knowing before you pick one, not "

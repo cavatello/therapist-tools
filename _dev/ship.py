@@ -108,6 +108,13 @@ BUILD = [
      "P3 page two - the practicum-search method page: the program's "
      "placement model first, the five statutory strikes, six-plus "
      "applications across the four shelves, and the paper trail"),
+    # The curated half of P3: EB CAMFT's public practicum directory,
+    # every entry dated to its read, every site link fetched, the
+    # chapter credited as the source of the listing.
+    ("_dev/build_bayarea_practicum.py",
+     "the EB CAMFT practicum-site directory annotated - 21 dated "
+     "entries, the three hires-associates flags broken out, links "
+     "fetched before publication"),
     # The one program of the four that reaches an associate, explained in
     # full - including the 32-direct-hour obligation and the tax question
     # HCAI does not answer.
