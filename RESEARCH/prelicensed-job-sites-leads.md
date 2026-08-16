@@ -238,3 +238,14 @@ Claimed common denominator (unverified per entry): pays AMFTs and provides super
 | Sierra Meadows Behavioral Health | https://www.sierrameadowsbehavioralhealth.com/ | Multiple Locations |
 | Telemynd | https://www.telemynd.com/ | Multiple Locations |
 | Turning Point of Central California Inc | https://www.tpocc.org/ | Multiple Locations |
+
+## Human verification overrides (15 Aug 2026)
+
+- mindfulcenter.org — verify_leads said `dead`; USER CONFIRMED ALIVE in a
+  real browser 15 Aug 2026 (Center for Mindful Psychotherapy, "Join the CMP
+  Team" nav present). The site blocks scripted fetches. Treat as `ok` for
+  the directory; the 13 Aug research findings about CMP stand.
+- General rule this establishes: every `dead` verdict in
+  leads-verified-2026-08-15.md needs one browser look before exclusion —
+  bot-blockers (403s from established orgs like Felton, Star Vista,
+  All4Kids, Evolve) will be alive. Record each override here, dated.
