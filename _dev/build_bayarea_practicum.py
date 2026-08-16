@@ -694,7 +694,8 @@ def main():
     if art.count("no website published in the directory") < 2:
         bad.append("the two email-only entries must carry the no-site "
                    "finding")
-    n_details = art.count('<span class="vn">')
+    detail = art[art.find('id="details"'):art.find('id="associates"')]
+    n_details = detail.count('<span class="vn">')
     if n_details != len(SITES):
         bad.append("detail entries: %d against %d sites"
                    % (n_details, len(SITES)))
