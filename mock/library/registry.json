@@ -276,6 +276,27 @@
    }
   },
   {
+   "file": "bbs-advertising-rules-2026.html",
+   "title": "The BBS advertising rule, effective April 2026: a checklist",
+   "topic": "practice",
+   "format": "reference",
+   "question": "What must my therapist profile legally say in California?",
+   "outcome": "The required elements for licensees, associates and trainees, and the seven ways the Board's own examples show profiles failing",
+   "number": "Three required elements for licensees, five for associates",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "associate",
+    "licensed"
+   ],
+   "stage_note": {
+    "associate": "Your profile needs five elements including your employer and a supervision statement - the April 2026 rule as a checklist.",
+    "licensed": "Three things every ad must carry since April 2026 - and the seven ways the Board's own examples show profiles failing."
+   }
+  },
+  {
    "file": "bbs-exam-pass-rates-california.html",
    "title": "California LMFT, LCSW and LPCC exam pass rates, seven quarters",
    "topic": "licensure",
@@ -3427,7 +3448,8 @@
     {
      "name": "The reference shelf",
      "files": [
-      "resources.html"
+      "resources.html",
+      "bbs-advertising-rules-2026.html"
      ]
     },
     {

@@ -65,6 +65,11 @@ NEW_CLUSTERS = [
     ("practice", "When something goes wrong",
      ["therapist-discipline-cases-california.html",
       "therapy-liability-insurance-california.html"]),
+    # The advertising rule sits with the admin-floor reference material:
+    # it is a compliance checklist, not a growth page.
+    ("practice", "The reference shelf",
+     ["resources.html",
+      "bbs-advertising-rules-2026.html"]),
     ("training", "Where the doctorate comes from",
      ["psyd-programs-california.html"]),
     # The practicum page arrived with no cluster to belong to and was swept

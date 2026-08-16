@@ -116,6 +116,13 @@ BUILD = [
      "the is-therapy-financially-viable page - the whole career in "
      "arithmetic, every figure lifted from the page that computes it, "
      "ending at the simulator"),
+    # Editorial tier 2, item 5: the amended 16 CCR 1811, from the
+    # Board's own 03/2026 fact sheet and example sheets. A guard fails
+    # the build if the example sheets' fictional names leak in.
+    ("_dev/build_adrules.py",
+     "the April 2026 advertising rule as a checklist - three elements "
+     "for licensees, five for associates, five for trainees, and the "
+     "non-compliant patterns from the Board's own examples"),
     # The method page the directory and the rules page both point at:
     # whose job the search is, the statutory strikes, the four shelves,
     # and the questions that protect the hours. Invents no facts - it

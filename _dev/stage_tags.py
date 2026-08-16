@@ -190,6 +190,13 @@ TAGS = {
         "deciding": "The whole route from another career, ordered by "
                     "what you can start this month - written for the "
                     "person still deciding."},
+    "bbs-advertising-rules-2026.html": {
+        "associate": "Your profile needs five elements including your "
+                     "employer and a supervision statement - the "
+                     "April 2026 rule as a checklist.",
+        "licensed": "Three things every ad must carry since April 2026 "
+                    "- and the seven ways the Board's own examples "
+                    "show profiles failing."},
     "is-therapy-financially-viable-california.html": {
         "deciding": "The is-there-money question answered in arithmetic "
                     "- what entering costs, what the lean years pay, "

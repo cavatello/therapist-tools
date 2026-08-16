@@ -23,6 +23,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 
 | Pass | Stage | Marker in the page | What it does |
 |---|---|---|---|
+| `build_adrules.py` | build | &mdash; | The 1 April 2026 advertising rule, translated into what a profile says. |
 | `build_assocpay.py` | build | &mdash; | What associate jobs actually pay in Los Angeles and the Bay Area. |
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
 | `build_bayarea_practicum.py` | build | &mdash; | P3, the curated half: EB CAMFT's practicum-site directory, annotated. |
