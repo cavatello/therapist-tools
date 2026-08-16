@@ -366,3 +366,17 @@ Consequences, binding until the user says otherwise:
    moment to change direction" framing in the original ask.
 3. ops_state.py: mark ask A2 answered with this verdict at the next deploy
    that touches it (avoid concurrent edits; whichever session ships next).
+
+## USER DECISION — 15 Aug 2026: ops-board ask A3 (P2, door build order)
+For P2 — the doc carrying 16 rendered mockups (door alternatives + three
+sitewide-band options, each with a recommendation): the user chooses
+"THE FOUNDATION."
+
+For the executing session: match "The Foundation" against P2's own option
+names and apply it as the chosen direction. (Note: a "Foundation" also
+appears among the P10 marks in ops/marks.html — if P2's options are named
+after marks, confirm the mapping before building; if ambiguous, render the
+chosen option once and get a nod before it propagates.) This composes with
+the A2 verdict recorded above: /for/associates converts + declutters FIRST,
+to the chosen P2 direction, and only then do the remaining doors get built
+from that template.
