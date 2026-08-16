@@ -507,3 +507,110 @@ rebuild per the resolved A2+A3 decisions — P2 door 3 option 3C "The Ledger"
 standard. Touches: for/associates.html, css/house-for.css (new), _dev/family_for.py
 (new), ship.py LAST wiring. Other sessions: stay off these files until a
 shipped/blocked section lands below.
+
+## SHIPPED — /for/associates rebuilt to 3C "The Ledger" (16 Aug 2026,
+## session C, commit `d04f304c`)
+
+Executes the resolved A2+A3 decisions: P2 door 3, option 3C, with 3A's
+tiles as the EXPANDED state after input and 3B's questions directly below
+the bar, decluttered to the A2 standard. Where 3C's mockup and A2
+conflicted, A2 won. Live at
+https://therapistsupport.org/for/associates.html — page byte-identical
+live vs repo (md5 4ee61746), css/house-for.css byte-identical live vs
+repo, body `bc2 bcf house`, exactly three named sheets
+(house / house-chrome / house-for, all ?v= content-hashed), ZERO legacy
+hash sheets, zero skin link, zero inline <style>.
+
+What changed, concretely:
+- `_dev/build_forassociates.py` rewritten: article.fd-wrap; hero =
+  the page's ONE dark band (kicker, h1, In-short card, dek, privacy
+  line IN the hero per 3C's own rule, jump chips) — the four-figure
+  stat grid is GONE (every figure survives in the body; free/no-account
+  joined the privacy line); the ledger leads (the bar is the page); the
+  four requirement tiles are display:none until a figure is typed (3A's
+  empty-state critique answered); requirements panel and the four start
+  doors are WHITE cards now, not extra dark blocks; section order
+  ledger → asking → start → shelf → sources; the hand-written shelf
+  annotations kept, two-up with 16px gaps and 1.55 line-height. NO
+  inline page CSS — the design lives only in css/house-for.css.
+  Also fixed en route: the double-escape bug live on three shelf cards
+  (registry notes carry entities; pk.esc doubled them) — note_esc() +
+  a builder guard; title/meta/JSON-LD/canonical/scripts byte-preserved;
+  all 23 shelf links resolve (guarded).
+- `css/house-for.css` (new, gated on body.bcf): deep hero, white
+  hairline cards, gold as the single accent (the relational tile when
+  short, the privacy line, the requirement panel's rule), generous
+  section rhythm (72px), tsshort/tsfoot covered.
+- `_dev/family_for.py` (new, modeled byte-for-byte on family_pk):
+  marker article.fd-wrap → bc2 bcf house + the three sheets; guards:
+  exactly 3 sheets / no hash sheet / no skin / no inline style / fonts
+  present / jump anchors resolve / body classes once each / .lg-g hook
+  present / covered-class allowlist; borrowed-link sweep. Idempotent;
+  wired LAST in ship.py after family_rest. family_art FAMILY_CLASSES
+  gained "bcf" (its sweep no longer strips house-chrome off the door);
+  family_pk excludes associates.html by name; pagekit.article() now
+  also recognizes fd-wrap. ops_state.py: ask A2 marked ANSWERED with
+  the verdict, the ask is now the keep/change nod on the rebuild.
+
+GATE (full /tmp/mirror first — builder + family_for + FULL ship.py
+95/95 clean there before the repo was touched; repo ship also 95/95):
+- CONTRAST at 1440 (every h1–h4, dek, kick, labels, breadcrumbs,
+  ledger labels/readouts, shelf titles+notes, vs REAL rendered ground,
+  gradients + sr-only skipped): 293 elements across 7 pages (the
+  rebuilt door + one per family: bbs-fees/bca, usf-mft/bcs,
+  loan-forgiveness/bcp, amft-3000/tool, about/rest, home) — 0 low on
+  the door and five others; 6 low ALL on about.html, ALL proven
+  pre-existing (identical findings on a pristine git-HEAD serve):
+  the rest-family .bcr-on-dark (1.21:1, already documented 15 Aug) and
+  its tsshort re-ink (1.37:1) — for the rest-family session.
+- OVERFLOW + JS: 7 pages × 375/768/1440/2560 = 28 checks, 0 failures.
+- Screenshots at 1440 (top, ledger open, questions, shelf) and 375
+  (top, mid) reviewed by eye against the 3C mockup: one bar with the
+  1,750/3,000 markers, "1,284 / 3,000 · 43% of the way" readout, tiles
+  appearing on input with the relational gate gold, questions below,
+  single dark band, white cards. Saved in the session outputs folder.
+- Live verification after the watcher push (`d04f304c`, tree ==
+  origin): page + house-for.css byte-identical live vs repo; zero
+  legacy sheets, zero &amp;-double-escapes on the live page.
+
+NEXT: the page AWAITS THE USER'S KEEP/CHANGE NOD (the reworded A2 ask
+on the ops board). Doors 1/2/4/5 are NOT to be built until that nod;
+when it comes, they copy this page: build_*.py emits article.fd-wrap
+markup, family_for.py converts it, css/house-for.css grows only what a
+new door genuinely needs.
+
+## USER DECISION — 16 Aug 2026: /for/associates rebuild (`d04f304c`) = CHANGE
+
+The user's verdict on the shipped 3C Ledger pass, verbatim: "not at all
+basecamp 37signals. Just weird green hero, breadcrumbs, h1, then some
+white area inside green, white text, black text, gold text, so much
+happening, very messy, disorganized. Not elegant at all. and hard to
+read when get below."
+
+NEW DIRECTION, binding for this page (LIGHT, truly 37signals):
+- The dark hero band is KILLED on this page. White/paper top to bottom:
+  breadcrumb (quiet ink, small), then a HUGE ink Bricolage headline, one
+  dim standfirst paragraph, generous air. No white-card-in-dark-band
+  nesting; the "In short" answer becomes one calm line of larger quiet
+  text, not a boxed card.
+- NO gold text anywhere on this page. At most ONE accent moment: the
+  relational-gate highlight in the ledger may keep a soft gold WASH
+  background with ink text — never gold type.
+- Text colors on the whole page: ink, dim, and the pine accent for
+  links/CTAs. Three, total.
+- The chip row: gone, or reduced to a single quiet line of plain pine
+  text links.
+- The ledger bar remains the centerpiece, on the light ground; the five
+  inputs, tiles, questions, shelf all stay — with MORE whitespace
+  between sections and nothing boxed unless it needs a box (prefer
+  hairline dividers over cards). Below the fold: body ink on paper,
+  labels dim, nothing lighter than 4.5:1.
+- Content preserved exactly: every fact, figure, link, annotation,
+  title/meta/JSON-LD/scripts as the current pass carries them.
+- If approved, this LIGHT hero treatment is a CANDIDATE direction for
+  other heroes — do NOT propagate anywhere else yet.
+
+CLAIM (16 Aug 2026): session-C agent revising /for/associates to the
+light direction above. Touches: css/house-for.css, _dev/build_forassociates.py
+(comments/markup presentation only), for/associates.html. Other sessions:
+stay off these files until a shipped/blocked section lands below.

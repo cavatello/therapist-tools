@@ -67,10 +67,8 @@ REBUILT 15 AUG 2026 TO 3C "THE LEDGER", DECLUTTERED TO THE A2 VERDICT
 The user's A2 ruling: the door CONCEPT is right, the execution was "messy,
 cluttered, so much going on". So this page now renders P2's own
 recommendation for door 3 - 3C The Ledger, with 3A's tiles as the EXPANDED
-state after input and 3B's questions directly below the bar - held to the
-A2 standard: ONE dark band (the hero), white cards on paper, one accent
-(gold, on the requirement people miss), generous space, fewer simultaneous
-elements per viewport. Concretely, against the first build:
+state after input and 3B's questions directly below the bar. Concretely,
+against the first build:
 
   - the hero lost the four-figure stat grid (each figure survives in the
     body: the guide count heads the shelf, the 58 counties and 165,000
@@ -79,9 +77,26 @@ elements per viewport. Concretely, against the first build:
   - the ledger comes first - the bar is the page, per the mockup - and its
     four requirement tiles are hidden until a figure is typed, so the
     empty state is one quiet bar instead of four dashes (3A's own critique).
-  - the requirements panel and the four start doors are white cards now,
-    not extra dark blocks; the hero is the page's only dark band.
   - the shelf annotations (hand-written, per stage) kept, with room.
+
+RE-DIRECTED 16 AUG 2026: THE LIGHT PAGE (user verdict on `d04f304c`)
+
+The dark-hero rendering of the above was rejected: "not at all basecamp
+37signals... weird green hero... white area inside green, white text,
+black text, gold text, so much happening, very messy... hard to read
+when get below." The binding direction (recorded in _dev/ROLLOUT.md,
+16 Aug) is a LIGHT page, top to bottom: the hero is no longer a dark
+band at all - quiet small kicker, HUGE ink Bricolage headline, the
+"In short" answer as one calm run of larger quiet text (not a boxed
+card), one dim standfirst, the privacy line quiet, the jump chips a
+single line of plain pine text links. Three text colors on the whole
+page: ink, dim, pine for links. NO gold type anywhere; the single
+accent moment is the relational tile's soft gold WASH (ink text) in
+the ledger. Nothing boxed unless it needs a box - the ledger keeps
+its card because it is an instrument; everything else sits on hairline
+dividers. ALL of that lives in css/house-for.css; the markup below is
+byte-identical to the d04f304c pass, so every fact, figure, link and
+annotation is preserved exactly.
 
 This page carries NO inline CSS of its own: body.bcf + css/house-for.css
 own the whole design (_dev/family_for.py converts and guards it, running
