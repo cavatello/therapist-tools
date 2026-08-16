@@ -275,62 +275,72 @@ def descend(html):
     return re.sub(r'\b(href|src)="([^"]*)"', fix, html)
 
 
+def note_esc(x):
+    """pk.esc for registry text that already carries entities.
+
+    Registry titles and stage notes are written WITH entities (&mdash;,
+    &rsquo;). Plain pk.esc turns those into literal "&amp;mdash;" - the
+    double-escape bug this repo has shipped twice before, and it was live
+    on three shelf cards of the first build. Escape, then give the known
+    named entities their ampersand back.
+    """
+    s = pk.esc(x)
+    return re.sub(r"&amp;(#\d+|[a-zA-Z]+);", r"&\1;", s)
+
+
 def body(shelf):
-    o = ['<article class="pk-wrap">']
+    o = ['<article class="fd-wrap">']
 
-    o.append(pk.hero(
-        "For California associates &middot; AMFT, ASW and APCC",
-        "Everything a California associate needs, in one place.",
-        "%d guides for the years between registration and your license "
-        "&mdash; the hours and what counts toward them, why employers can or "
-        "cannot hire you, what the work pays county by county, the loan "
-        "repayment nobody mentions, and the Board&rsquo;s own numbers on "
-        "exams and waiting times. Every figure comes from a named source, and "
-        "the whole site is free."
-        % len(shelf),
-        [(str(len(shelf)), "guides for this stage"),
-         ("58", "county job portals, checked"),
-         ("165,000", "licensees in the register"),
-         ("$0", "and no account, ever")],
-        [(h, l % len(shelf) if '%d' in l else l)
-         for h, l in JUMPS]))
-
-    # ----------------------------------------------------------------- start
-    o.append('<section class="pk-sec" id="start">')
-    o.append('<p class="pk-k">Start here</p>')
-    o.append('<h2 class="pk-h">Four questions bring most people to this '
-             "page.</h2>")
-    o.append('<p class="pk-d">Written for AMFTs. Where a rule differs for an '
-             "ASW or an APCC, the page says so and links to the difference.</p>")
-    o.append('<div class="start">')
-    for href, q, sub in START:
-        o.append('<a href="%s%s"><span class="q">%s</span>'
-                 '<span class="s">%s</span></a>' % (UP, href, q, sub))
-    o.append("</div>")
+    # The hero: the page's ONE dark band. Kicker, headline, the offer in a
+    # sentence, the privacy line (3C: in the hero, in every version), jumps.
+    # The old four-figure stat grid is gone per the A2 declutter - each of
+    # its figures survives in the body of the page.
+    o.append('<section class="pk-hero">')
+    o.append('<p class="hk">For California associates &middot; AMFT, ASW '
+             "and APCC</p>")
+    o.append("<h1>Everything a California associate needs, in one place.</h1>")
+    o.append('<p class="hl">%d guides for the years between registration and '
+             "your license &mdash; the hours and what counts toward them, why "
+             "employers can or cannot hire you, what the work pays county by "
+             "county, the loan repayment nobody mentions, and the "
+             "Board&rsquo;s own numbers on exams and waiting times. Every "
+             "figure comes from a named source, and the whole site is free."
+             "</p>" % len(shelf))
+    o.append('<p class="hpriv">Free, no account &middot; every figure you '
+             "type is computed in this browser and never stored or sent</p>")
+    o.append('<p class="hj">')
+    for h, l in JUMPS:
+        o.append('<a href="#%s">%s</a>' % (h, l % len(shelf)
+                                           if "%d" in l else l))
+    o.append("</p>")
     o.append("</section>")
 
     # ---------------------------------------------------------------- ledger
+    # First, per 3C: the bar IS the page. The requirement tiles are its
+    # expanded state - hidden until a figure is typed.
     o.append('<section class="pk-sec" id="ledger">')
     o.append('<p class="pk-k">Where you are</p>')
     o.append('<h2 class="pk-h">Which requirement is actually holding you up?</h2>')
-    o.append('<p class="pk-d">Four numbers off your own log. The bar is the '
-             "3,000; the tiles are the sub-totals underneath it, and one of "
-             "them stops more people than the rest.</p>")
+    o.append('<p class="pk-d">Five numbers off your own log. The bar is the '
+             "3,000; the sub-totals appear underneath it as you type, and one "
+             "of them stops more people than the rest.</p>")
 
     o.append('<div class="lg">')
-    o.append('<p class="lg-priv">Stays in this browser &middot; nothing is sent</p>')
     o.append('<div class="lg-in">')
     for fid, lab, ph in [
         ("lgTotal", "Hours logged, total", "1284"),
         ("lgDirect", "Of those, direct clinical", "742"),
         ("lgRel", "Of those, relational", "228"),
         ("lgWeeks", "Weeks since you registered", "61"),
+        ("lgRate", "Hours in a typical week", "18"),
     ]:
         o.append('<div><label for="%s">%s</label>'
                  '<input id="%s" type="number" min="0" step="1" '
                  'inputmode="numeric" placeholder="%s"></div>' % (fid, lab, fid, ph))
     o.append("</div>")
 
+    o.append('<p class="lg-read"><b id="lgTot">&mdash;</b> '
+             '<span id="lgPct">0%</span> of the way</p>')
     o.append('<div class="lg-bar"><i id="lgFill"></i></div>')
     o.append('<div class="lg-mk"><span style="left:58.3%">1,750 direct</span>'
              '<span style="left:99%">3,000</span></div>')
@@ -341,12 +351,7 @@ def body(shelf):
                  '<span class="v">&mdash;</span>'
                  '<span class="s">&nbsp;</span></div>' % (gid, k))
     o.append("</div>")
-    o.append('<div class="lg-in" style="margin:14px 0 0;grid-template-columns:1fr">'
-             '<div><label for="lgRate">Hours you log in a typical week</label>'
-             '<input id="lgRate" type="number" min="0" step="1" '
-             'inputmode="numeric" placeholder="18"></div></div>')
-    o.append('<p class="lg-note"><b id="lgTot">&mdash;</b> &middot; '
-             '<span id="lgPct">0%</span> of the way. The relational requirement is '
+    o.append('<p class="lg-note">The relational requirement is '
              "marked because it is the one people reach 3,000 without: 500 "
              "hours with couples, families and children, inside the 1,750. "
              "Everything here is your arithmetic, not the Board&rsquo;s "
@@ -367,6 +372,7 @@ def body(shelf):
     o.append("</section>")
 
     # --------------------------------------------------------------- asking
+    # 3B's questions, directly below the bar - per the approved 3C scoping.
     o.append('<section class="pk-sec" id="asking">')
     o.append('<p class="pk-k">What this room asks</p>')
     o.append('<h2 class="pk-h">Three questions, and the pages that answer '
@@ -378,6 +384,20 @@ def body(shelf):
         o.append('<div class="ask"><q>%s</q><p class="an">%s</p><p>%s</p>'
                  '<a href="%s%s">Read it &rarr;</a></div>'
                  % (q, ans, expl, UP, href))
+    o.append("</section>")
+
+    # ----------------------------------------------------------------- start
+    o.append('<section class="pk-sec" id="start">')
+    o.append('<p class="pk-k">Start here</p>')
+    o.append('<h2 class="pk-h">Four questions bring most people to this '
+             "page.</h2>")
+    o.append('<p class="pk-d">Written for AMFTs. Where a rule differs for an '
+             "ASW or an APCC, the page says so and links to the difference.</p>")
+    o.append('<div class="start">')
+    for href, q, sub in START:
+        o.append('<a href="%s%s"><span class="q">%s</span>'
+                 '<span class="s">%s</span></a>' % (UP, href, q, sub))
+    o.append("</div>")
     o.append("</section>")
 
     # ---------------------------------------------------------------- shelf
@@ -403,7 +423,7 @@ def body(shelf):
             printed.add(f)
             o.append('<a class="card" href="%s%s"><span class="t">%s</span>'
                      '<span class="n">%s</span></a>'
-                     % (UP, f, pk.esc(title), pk.esc(note)))
+                     % (UP, f, note_esc(title), note_esc(note)))
         o.append("</div>")
 
     # Anything tagged but not placed in a group still has to appear, or the
@@ -416,7 +436,7 @@ def body(shelf):
             title, note = by_file[f]
             o.append('<a class="card" href="%s%s"><span class="t">%s</span>'
                      '<span class="n">%s</span></a>'
-                     % (UP, f, pk.esc(title), pk.esc(note)))
+                     % (UP, f, note_esc(title), note_esc(note)))
         o.append("</div>")
     o.append("</section>")
 
@@ -483,7 +503,7 @@ def main():
     links = [descend(l) for l in links]
     html_body, nsrc = body(shelf)
     html = pk.assemble(head, META, header, html_body, footer, links, scripts,
-                       extra=CSS + JS)
+                       extra=JS)
 
     os.makedirs(os.path.join(SITE, "for"), exist_ok=True)
     p = os.path.join(SITE, PAGE)
@@ -497,6 +517,10 @@ def main():
         ("the start-here block", "bring most people to this page"),
         ("the relational finding", "almost never what decides your date"),
         ("the not-the-Board caveat", "not the Board&rsquo;s count"),
+        ("the family wrapper family_for keys on", 'class="fd-wrap"'),
+        ("the privacy line in the hero (the 3C rule)",
+         "computed in this browser and never stored or sent"),
+        ("no double-escaped entity on the shelf", "&amp;mdash;", False),
     ], [j[0] for j in JUMPS])
 
     s = open(p, encoding="utf-8").read()
