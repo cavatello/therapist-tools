@@ -100,6 +100,14 @@ BUILD = [
      "P3 page one - the Bay Area practicum-sites directory: five program "
      "clinics, nine county plans, the health centers and the nonprofit "
      "clinical agencies, availability language banned by guard"),
+    # The method page the directory and the rules page both point at:
+    # whose job the search is, the statutory strikes, the four shelves,
+    # and the questions that protect the hours. Invents no facts - it
+    # sequences ones already verified on those two pages.
+    ("_dev/build_findsite.py",
+     "P3 page two - the practicum-search method page: the program's "
+     "placement model first, the five statutory strikes, six-plus "
+     "applications across the four shelves, and the paper trail"),
     # The one program of the four that reaches an associate, explained in
     # full - including the 32-direct-hour obligation and the tax question
     # HCAI does not answer.

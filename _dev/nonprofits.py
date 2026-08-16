@@ -147,7 +147,7 @@ CURATED_URLS = {
  'One Life Counseling Center': 'onelifecounselingcenter.org',
  'Family Paths Inc': 'familypaths.org',
  'Peninsula Healthcare Connection Inc': 'peninsulahcc.org',
- 'Center for Mindful Psychotherapy Inc': 'mindfulpsychotherapy.org',
+ 'Center for Mindful Psychotherapy Inc': 'mindfulcenter.org',
  'Contra Costa Crisis Center': 'crisis-center.org',
  'Translifeline': 'translifeline.org',
 }

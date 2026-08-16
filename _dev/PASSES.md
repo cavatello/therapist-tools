@@ -30,6 +30,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
+| `build_findsite.py` | build | &mdash; | The practicum-site method page - remaining P3, item two. |
 | `build_forassociates.py` | build | &mdash; | /for/associates - the first stage door, built as the Ledger. |
 | `build_forgiveness.py` | build | &mdash; | Which employers unlock loan forgiveness for a California therapist. |
 | `build_gethired.py` | build | &mdash; | 547 hours and nobody will hire you. The reason is not your hours. |
@@ -217,6 +218,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `state_workforce.py` | **untriaged** | &mdash; | The mental health workforce of every state, from BLS and the Census. |
 | `supervisor_lists.py` | **untriaged** | &mdash; | Every place a California clinical supervisor list is supposed to be, fetched. |
 | `supervisor_lists_data.py` | **untriaged** | &mdash; | Where a California supervisor list actually is. WRITTEN BY _dev/supervisor_lists.py. |
+| `verify_leads.py` | **untriaged** | &mdash; | Fetch every directory lead before it can ship as a link. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |

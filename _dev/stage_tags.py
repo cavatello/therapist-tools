@@ -114,6 +114,13 @@ TAGS = {
         "student": "The Bay Area settings the code lets you be placed in "
                    "&mdash; and the site-agreement question to ask your "
                    "program before contacting any of them."},
+    "how-to-find-a-practicum-site-california.html": {
+        "deciding": "Whose job the placement search is at each kind of "
+                    "program &mdash; worth knowing before you pick one, not "
+                    "after.",
+        "student": "The search in order: your program's model first, the "
+                   "five statutory strikes, then six-plus applications "
+                   "across the four shelves of seats."},
     "practicum-california-mft-trainee.html": {
         "associate": "What of your pre-degree hours the Board still counts, "
                      "and the 90-day rule if you are newly graduated.",

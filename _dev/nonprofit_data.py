@@ -145,7 +145,7 @@ ORGS = [
  {'name': 'West End Family Counseling Service', 'city': 'Ontario', 'county': 'San Bernardino', 'ntee': 'F32', 'bucket': 'clinical', 'revenue': 5685723, 'url': None},
  {'name': 'Mariposa Women and Family Center', 'city': 'Orange', 'county': 'Orange', 'ntee': 'F22', 'bucket': 'substance', 'revenue': 5335412, 'url': None},
  {'name': 'Jericho Project', 'city': 'Brisbane', 'county': 'San Mateo', 'ntee': 'F22', 'bucket': 'substance', 'revenue': 5319969, 'url': None},
- {'name': 'Center for Mindful Psychotherapy Inc', 'city': 'San Francisco', 'county': 'San Francisco', 'ntee': 'F30', 'bucket': 'clinical', 'revenue': 5252960, 'url': 'https://mindfulpsychotherapy.org'},
+ {'name': 'Center for Mindful Psychotherapy Inc', 'city': 'San Francisco', 'county': 'San Francisco', 'ntee': 'F30', 'bucket': 'clinical', 'revenue': 5252960, 'url': 'https://mindfulcenter.org'},
  {'name': 'Contra Costa Crisis Center', 'city': 'Walnut Creek', 'county': 'Contra Costa', 'ntee': 'F41', 'bucket': 'clinical', 'revenue': 5207996, 'url': 'https://crisis-center.org'},
  {'name': 'The Amaad Institute', 'city': 'Los Angeles', 'county': 'Los Angeles', 'ntee': 'F21', 'bucket': 'substance', 'revenue': 5129024, 'url': None},
  {'name': 'Translifeline', 'city': 'San Francisco', 'county': 'San Francisco', 'ntee': 'F99', 'bucket': 'clinical', 'revenue': 5008003, 'url': 'https://translifeline.org'},
