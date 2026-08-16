@@ -105,6 +105,7 @@ sitefoot ftcols ftcol ftlbl
 tsshort tsk tsa tsfig tsfoot tsdepth tsbadge part full tswhat
 uplink uk ud ug uc uall
 ss1 ssnext sk sn gk ga lk
+askq askform ak ad ar an aok
 fd-wrap pk-sec pk-k pk-h pk-h3 pk-d pk-fine
 pk-hero hk hl hj hpriv pk-call pk-src
 lg lg-in lg-read lg-bar lg-mk lg-g lg-note req hot done open k v s

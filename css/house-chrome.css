@@ -432,6 +432,8 @@ body.house .tsshort, body.house .pk-t{
   box-shadow:none !important}
 body.house .np-col h5{background:none !important; padding:0 !important}
 
+
+
 /* _dev/stage_shell.py */
 .ss1{background:var(--paper);border-bottom:1px solid var(--line)}
 .ss1>div{max-width:1120px;margin:0 auto;padding:9px 26px;display:flex;
@@ -471,3 +473,44 @@ body.house .np-col h5{background:none !important; padding:0 !important}
  color:#8A6516;font-weight:600;margin-right:7px}
 @media (max-width:640px){.ss1>div{padding:8px 16px}
  .ssnext{padding:0 16px}.ssnext>div{padding:16px 18px}}
+/* /stage_shell */
+
+/* _dev/ask_surface.py */
+.askq{max-width:1120px;margin:34px auto 8px;padding:0 26px}
+.askq>div{background:var(--paper);border:1px solid var(--line);
+ border-radius:14px;padding:22px 24px}
+.askq .ak{margin:0;font-family:'IBM Plex Mono',ui-monospace,monospace;
+ font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+ color:var(--pine);font-weight:600}
+.askq h2{margin:6px 0 0;font-family:Fraunces,serif;font-size:19px;
+ line-height:1.3;color:var(--ink);letter-spacing:-.01em}
+.askq .ad{margin:9px 0 0;font-size:13.5px;line-height:1.65;
+ color:var(--ink);max-width:62ch}
+.askq form{margin:14px 0 0}
+.askq textarea{display:block;width:100%;box-sizing:border-box;
+ background:#fff;border:1px solid var(--line);border-radius:10px;
+ padding:11px 13px;font:inherit;font-size:14px;color:var(--ink);
+ resize:vertical;min-height:74px}
+.askq textarea:focus{outline:2px solid var(--pine);outline-offset:1px}
+.askq .ar{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;
+ align-items:center}
+.askq input[type=email]{flex:1 1 220px;min-width:0;background:#fff;
+ border:1px solid var(--line);border-radius:10px;padding:10px 13px;
+ font:inherit;font-size:13.5px;color:var(--ink)}
+.askq input[type=email]:focus{outline:2px solid var(--pine);
+ outline-offset:1px}
+.askq button{background:var(--pine);color:#fff;border:0;
+ border-radius:10px;padding:11px 22px;font:inherit;font-size:13.5px;
+ font-weight:700;cursor:pointer}
+.askq button:hover{background:var(--deep)}
+.askq button:focus-visible{outline:2px solid var(--gold);
+ outline-offset:2px}
+.askq .an{margin:9px 0 0;font-size:11.5px;color:var(--muted);
+ line-height:1.5}
+.askq .aok{margin:12px 0 0;font-size:13.5px;color:var(--pine);
+ font-weight:600;display:none}
+.askq .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+ overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (max-width:640px){.askq{padding:0 16px}
+ .askq>div{padding:16px 18px}}
+/* /ask_surface */

@@ -274,6 +274,14 @@ STRUCTURE = [
     ("_dev/stage_shell.py",
      "the you-are-here shell - S1 stage line above the article and the "
      "S3 next-step band after it, on every stage-tagged page"),
+    # The question box home option F mocked and the options doc queued.
+    # After the door builders (it inserts into their output) and before
+    # form_inline, whose one-handler-per-page guard it is written to
+    # respect (property assignment, different form class).
+    ("_dev/ask_surface.py",
+     "the ask-a-question surface - the question box on the home page "
+     "and inside each stage door, posting to the disclosed Formspree "
+     "endpoint with the asking page named"),
     ("_dev/affiliate.py",
      "the affiliate disclosure in every footer, a visible tag beside every\n      affiliate link, and rel=sponsored on each. Never wired, which is why\n      nobody noticed its footer anchor had gone stale and it was leaving the\n      disclosure on 4 pages of 177. AFTER the footer passes, whose sentence\n      it appends to"),
     ("_dev/analytics.py",

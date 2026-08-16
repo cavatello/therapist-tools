@@ -116,6 +116,7 @@ NEXT = {
 }
 
 CSS_MARK = "/* _dev/stage_shell.py */"
+CSS_END = "/* /stage_shell */"
 CSS = CSS_MARK + """
 .ss1{background:var(--paper);border-bottom:1px solid var(--line)}
 .ss1>div{max-width:1120px;margin:0 auto;padding:9px 26px;display:flex;
@@ -155,7 +156,7 @@ CSS = CSS_MARK + """
  color:#8A6516;font-weight:600;margin-right:7px}
 @media (max-width:640px){.ss1>div{padding:8px 16px}
  .ssnext{padding:0 16px}.ssnext>div{padding:16px 18px}}
-"""
+""" + CSS_END
 
 
 def esc(x):
@@ -300,7 +301,8 @@ def main():
     # ------------------------------------------------------------- css
     cp = os.path.join(SITE, "css", "house-chrome.css")
     cs = open(cp, encoding="utf-8").read()
-    new = re.sub(re.escape(CSS_MARK) + r"[\s\S]*$", "", cs).rstrip()
+    new = re.sub(re.escape(CSS_MARK) + r"[\s\S]*?" + re.escape(CSS_END),
+                 "", cs).rstrip()
     new += "\n\n" + CSS.strip() + "\n"
     if new != cs:
         open(cp, "w", encoding="utf-8").write(new)

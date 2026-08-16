@@ -61,6 +61,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |
 | `analytics.py` | structure | &mdash; | Put ONE Google Analytics property on EVERY page, and keep it that way. |
 | `analytics_events.py` | structure | `/* _dev/analytics_events.py */` | Send GA4 events for every email signup and contact message on the site. |
+| `ask_surface.py` | structure | `<!-- _dev/ask_surface.py -->` | The ask-a-question surface. Queued since the home-page options doc. |
 | `block_removal.py` | structure | &mdash; | Remove the blocks that were asked for by name, and nothing else. |
 | `breadcrumbs.py` | structure | `/* _dev/breadcrumbs.py */` | A visible breadcrumb on every page, plus matching BreadcrumbList JSON-LD. |
 | `clarity.py` | structure | `<!-- _dev/clarity.py -->` | Microsoft Clarity, with the whole document masked from the page itself. |

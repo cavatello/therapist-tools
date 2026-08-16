@@ -92,6 +92,7 @@ bcr sep tsshort tsk tsa tsfig tsn
 tsfoot tsmeta tsrow tsv tsall tsvint tsdepth tsbadge part full tswhat tsupd
 uplink uk ud ug uc uall
 ss1 ssnext sk sn gk ga lk
+askq askform ak ad ar an aok
 consent nlform nlmeta nlok-tick ftby
 ftnl ftin ftroom ftnl-row ftnl-t nlrow ftmail ftbtn ftnote
 sitefoot ftcols ftcol ftlbl
