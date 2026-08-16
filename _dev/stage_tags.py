@@ -82,6 +82,9 @@ TAGS = {
         "associate": "Where the application form is, in all 58 counties - "
                      "including the seven whose obvious URL is somebody else."},
     "county-therapist-pay-california.html": {
+        "deciding": "What the job pays at the end, county by county, from "
+                    "employers' own returns - a 2.8x spread inside one "
+                    "state.",
         "associate": "Which county to apply to first, from what each one "
                      "actually paid rather than what it advertised."},
     "loan-forgiveness-employers-california.html": {
@@ -94,6 +97,9 @@ TAGS = {
         "associate": "The employers that can legally bill for you, by name: "
                      "57 county plans and 218 health center organizations."},
     "bbs-exam-pass-rates-california.html": {
+        "deciding": "The exams at the end of the road, and what they "
+                    "actually pass at, first-time, from the Board's own "
+                    "packets.",
         "associate": "What the law and ethics exam actually passes at, "
                      "first-time, across seven quarters."},
     "bbs-processing-times-california.html": {
@@ -108,6 +114,8 @@ TAGS = {
                      "whether those hours exist &mdash; and the documents "
                      "that decide it."},
     "bbs-fees-california-2026.html": {
+        "deciding": "What the license itself costs the state - the "
+                    "Board's whole fee schedule, halved through 2030.",
         "student": "What registering will cost when you file - the "
                    "application fees halved in July 2026, and revert in 2030.",
         "associate": "What your renewal costs since July 2026, and what it "
@@ -151,6 +159,8 @@ TAGS = {
                    "five statutory strikes, then six-plus applications "
                    "across the four shelves of seats."},
     "practicum-california-mft-trainee.html": {
+        "deciding": "The highest-variance year of the degree - read the "
+                    "78-program placement table before you pick a school.",
         "associate": "What of your pre-degree hours the Board still counts, "
                      "and the 90-day rule if you are newly graduated.",
         "student": "Who finds your practicum site at each of the 78 programs, "
@@ -159,9 +169,27 @@ TAGS = {
         "associate": "Not yet - but the law and ethics course inside your "
                      "first renewal period is, and it is easy to miss."},
     "become-an-mft-california.html": {
+        "deciding": "Every requirement, cost and year between deciding and "
+                    "the license, each with its code section.",
         "student": "Every requirement between today and the license, each "
                    "with its code section - the map your program does not "
                    "hand you."},
+    "mft-programs-california.html": {
+        "deciding": "All 78 California programs compared on the thing "
+                    "that varies most - who finds your practicum site."},
+    "psyd-programs-california.html": {
+        "deciding": "If the doctorate is on your list: every California "
+                    "PsyD, and what accreditation actually decides."},
+    "therapist-cost-of-living-california.html": {
+        "deciding": "What a month costs in the places you might "
+                    "practice, against what the work actually pays."},
+    "therapists-by-state-compared.html": {
+        "deciding": "How crowded California is against every other "
+                    "state, from the licensing registers themselves."},
+    "becoming-a-therapist-california-career-change.html": {
+        "deciding": "The whole route from another career, ordered by "
+                    "what you can start this month - written for the "
+                    "person still deciding."},
     "therapist-discipline-cases-california.html": {
         "associate": "What the Board actually acts on. Several of these begin "
                      "with an hours form or a supervisor signature."},

@@ -187,6 +187,10 @@ BUILD = [
      "the second stage door - /for/students to the associates pattern: "
      "cold-arrival hero, the four starting questions, and the shelf "
      "built from hand-written student stage notes"),
+    ("_dev/build_fordeciding.py",
+     "the third stage door - /for/deciding: the route and its cost, "
+     "county pay at the end, the 78 programs on placement, from "
+     "hand-written deciding stage notes"),
     ("_dev/build_atlas.py",
      "all 165,000 California licensees counted by county, with the "
      "associate-per-supervisor ratio and the delinquency rates"),

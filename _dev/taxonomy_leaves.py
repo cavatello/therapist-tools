@@ -69,7 +69,8 @@ NEW_CLUSTERS = [
     # point at.
     ("licensure", "Doors by stage",
      ["for/associates.html",
-      "for/students.html"]),
+      "for/students.html",
+      "for/deciding.html"]),
     ("licensure", "The practicum, and the year before you register",
      ["practicum-california-mft-trainee.html",
       "how-to-find-a-practicum-site-california.html",

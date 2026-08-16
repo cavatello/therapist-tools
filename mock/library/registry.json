@@ -275,9 +275,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "deciding",
     "associate"
    ],
    "stage_note": {
+    "deciding": "The exams at the end of the road, and what they actually pass at, first-time, from the Board's own packets.",
     "associate": "What the law and ethics exam actually passes at, first-time, across seven quarters."
    }
   },
@@ -294,10 +296,12 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "deciding",
     "student",
     "associate"
    ],
    "stage_note": {
+    "deciding": "What the license itself costs the state - the Board's whole fee schedule, halved through 2030.",
     "student": "What registering will cost when you file - the application fees halved in July 2026, and revert in 2030.",
     "associate": "What your renewal costs since July 2026, and what it goes back to in 2030."
    }
@@ -336,9 +340,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "deciding",
     "student"
    ],
    "stage_note": {
+    "deciding": "Every requirement, cost and year between deciding and the license, each with its code section.",
     "student": "Every requirement between today and the license, each with its code section - the map your program does not hand you."
    }
   },
@@ -353,7 +359,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "deciding"
+   ],
+   "stage_note": {
+    "deciding": "The whole route from another career, ordered by what you can start this month - written for the person still deciding."
+   }
   },
   {
    "file": "biola-university-mft.html",
@@ -731,9 +743,11 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "deciding",
     "associate"
    ],
    "stage_note": {
+    "deciding": "What the job pays at the end, county by county, from employers' own returns - a 2.8x spread inside one state.",
     "associate": "Which county to apply to first, from what each one actually paid rather than what it advertised."
    }
   },
@@ -1435,6 +1449,19 @@
    "leaf": false
   },
   {
+   "file": "for/deciding.html",
+   "title": "Deciding to become a California therapist: the numbers first",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Should I become a therapist in California?",
+   "outcome": "The route and its cost, county pay at the end, all 78 programs on placement, and how crowded the field actually is",
+   "number": "The same clinical job pays 2.8x more in one county than another",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "for/students.html",
    "title": "For California MFT students: the practicum, and what comes after",
    "topic": "licensure",
@@ -1791,7 +1818,13 @@
    "stale": false,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "deciding"
+   ],
+   "stage_note": {
+    "deciding": "All 78 California programs compared on the thing that varies most - who finds your practicum site."
+   }
   },
   {
    "file": "mount-saint-mary-s-university-mft.html",
@@ -1968,10 +2001,12 @@
    "skip": false,
    "leaf": false,
    "stages": [
+    "deciding",
     "student",
     "associate"
    ],
    "stage_note": {
+    "deciding": "The highest-variance year of the degree - read the 78-program placement table before you pick a school.",
     "associate": "What of your pre-degree hours the Board still counts, and the 90-day rule if you are newly graduated.",
     "student": "Who finds your practicum site at each of the 78 programs, and the seven rules that decide if a placement counts."
    }
@@ -2259,7 +2294,13 @@
    "stale": false,
    "weight": 5,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "deciding"
+   ],
+   "stage_note": {
+    "deciding": "If the doctorate is on your list: every California PsyD, and what accreditation actually decides."
+   }
   },
   {
    "file": "quarterly-estimated-taxes-california-therapist.html",
@@ -2493,7 +2534,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "deciding"
+   ],
+   "stage_note": {
+    "deciding": "What a month costs in the places you might practice, against what the work actually pays."
+   }
   },
   {
    "file": "therapist-discipline-cases-california.html",
@@ -2596,7 +2643,13 @@
    "stale": true,
    "weight": 4,
    "skip": false,
-   "leaf": false
+   "leaf": false,
+   "stages": [
+    "deciding"
+   ],
+   "stage_note": {
+    "deciding": "How crowded California is against every other state, from the licensing registers themselves."
+   }
   },
   {
    "file": "therapy-liability-insurance-california.html",
@@ -2907,7 +2960,8 @@
      "name": "Doors by stage",
      "files": [
       "for/associates.html",
-      "for/students.html"
+      "for/students.html",
+      "for/deciding.html"
      ]
     }
    ]
