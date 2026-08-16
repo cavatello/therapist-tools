@@ -2867,6 +2867,27 @@
    "leaf": false
   },
   {
+   "file": "telehealth-rules-california-therapist.html",
+   "title": "California telehealth rules for therapists: what changed in 2026",
+   "topic": "practice",
+   "format": "reference",
+   "question": "What are the telehealth rules for California therapists in 2026?",
+   "outcome": "The two subdivisions that actually changed, the decade-old duty most people think is new, and what the named Security Rule asks of a solo practice",
+   "number": "2 subdivisions changed; the rest dates to 2016",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "associate",
+    "licensed"
+   ],
+   "stage_note": {
+    "associate": "The telehealth rule as it actually reads - including the per-session duty that started in 2016, not January.",
+    "licensed": "What the 1 January 2026 amendment changed (two subdivisions) and what it did not - plus what naming the Security Rule asks of a solo practice."
+   }
+  },
+  {
    "file": "terms.html",
    "title": "Terms of Use — Therapist Support",
    "topic": "practice",
@@ -3449,7 +3470,8 @@
      "name": "The reference shelf",
      "files": [
       "resources.html",
-      "bbs-advertising-rules-2026.html"
+      "bbs-advertising-rules-2026.html",
+      "telehealth-rules-california-therapist.html"
      ]
     },
     {

@@ -52,6 +52,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_supervisor.py` | build | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
+| `build_telehealth.py` | build | &mdash; | The telehealth standard of practice, and what actually changed in 2026. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
 | `build_trainprogs.py` | build | &mdash; | P3 item three, first cut: the Bay Area published training programs. |

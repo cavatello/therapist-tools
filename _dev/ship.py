@@ -123,6 +123,16 @@ BUILD = [
      "the April 2026 advertising rule as a checklist - three elements "
      "for licensees, five for associates, five for trainees, and the "
      "non-compliant patterns from the Board's own examples"),
+    # Editorial tier 2, item 6: 16 CCR 1815.5 as amended effective
+    # 1 Jan 2026. The page is mostly SUBTRACTION - the queued research
+    # called the per-session name-and-location duty new, and it dates
+    # to 1 July 2016; so does the out-of-state subdivision. A guard
+    # fails the build if that framing is ever reintroduced.
+    ("_dev/build_telehealth.py",
+     "the telehealth standard of practice - the two subdivisions the "
+     "2026 amendment actually touched, the decade-old duty most "
+     "summaries call new, and what naming the HIPAA Security Rule "
+     "asks of a solo practice"),
     # The method page the directory and the rules page both point at:
     # whose job the search is, the statutory strikes, the four shelves,
     # and the questions that protect the hours. Invents no facts - it

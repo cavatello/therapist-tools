@@ -69,7 +69,8 @@ NEW_CLUSTERS = [
     # it is a compliance checklist, not a growth page.
     ("practice", "The reference shelf",
      ["resources.html",
-      "bbs-advertising-rules-2026.html"]),
+      "bbs-advertising-rules-2026.html",
+      "telehealth-rules-california-therapist.html"]),
     ("training", "Where the doctorate comes from",
      ["psyd-programs-california.html"]),
     # The practicum page arrived with no cluster to belong to and was swept

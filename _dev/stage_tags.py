@@ -197,6 +197,14 @@ TAGS = {
         "licensed": "Three things every ad must carry since April 2026 "
                     "- and the seven ways the Board's own examples "
                     "show profiles failing."},
+    "telehealth-rules-california-therapist.html": {
+        "associate": "The telehealth rule as it actually reads - "
+                     "including the per-session duty that started in "
+                     "2016, not January.",
+        "licensed": "What the 1 January 2026 amendment changed (two "
+                    "subdivisions) and what it did not - plus what "
+                    "naming the Security Rule asks of a solo "
+                    "practice."},
     "is-therapy-financially-viable-california.html": {
         "deciding": "The is-there-money question answered in arithmetic "
                     "- what entering costs, what the lean years pay, "
