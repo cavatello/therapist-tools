@@ -110,3 +110,22 @@ Grants are paid through reimbursement. CalVCB will reimburse approved program ex
 Grantees must use at least 75% of the total grant amount for personnel services, with at least 60% of the personnel services budget for clinicians providing direct client services. Grantees can use up to 25% of the total grant amount for operating costs.
 Status: Close
 ```
+
+## VERIFIED against HCAI's own SLRP page, 15 Aug 2026
+(hcai.ca.gov/workforce/financial-assistance/loan-repayment/slrp/ — page
+modified 16 Jul 2026)
+
+- Application cycle: OPEN. Opened 15 Jul 2026 3:00 p.m.; CLOSES 3:00 p.m.,
+  15 SEPTEMBER 2026. Apply at funding.hcai.ca.gov.
+- Authoritative links to publish: the 2026 CA-SLRP Grant Guide
+  (hcai.ca.gov/document/2026-slrp-grant-guide/), eligibility quiz
+  (hcai.ca.gov/loans-scholarships-grants/eligibility/), SLRP@hcai.ca.gov,
+  (916) 326-3700.
+- Serves "mental/behavioral health providers" in federally designated CA
+  HPSAs; HRSA-supported; PY 2024-25 awards totaled $6,228,000.
+- CAUTION: the "up to $50,000 for LMFTs" figure from CAMFT's snapshot does
+  NOT appear on this HCAI page — it lives in the Grant Guide. Verify the
+  amount against the 2026 Grant Guide PDF before publishing a dollar figure.
+- Remaining research gap for the 90-day rule page: the Board's CURRENT
+  page for AMFT registration/90-day guidance (old bbs.ca.gov/applicants/
+  amft.html is 404) — locate at build time.
