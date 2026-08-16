@@ -1,0 +1,313 @@
+/* css/house-tool.css — rollout step 5, family 4 (the tool pages).
+   Written by hand, applied by _dev/family_tool.py. Unlike the other
+   families this one KEEPS each tool's app CSS (hash sheets + inline
+   blocks) and re-grounds it: these are the house-skin rules that touched
+   tool-app vocabulary, ported verbatim with body.house -> body.bct, so
+   the pages keep their exact skinned appearance after the skin and the
+   replicated chrome sheets are unlinked. Tokens are restated here
+   because the skin's body.house{} block carried them. */
+
+body.bct{
+  --pine:#26604C; --deep:#0F3227; --carbon:#161F1B;
+  --gold:#FFD976; --pop:#FFD976; --amber:#E7F0EA;
+  --ink:#161F1B; --muted:#5B665F; --line:#DDE4DE;
+  --paper:#F4F7F4; --cream:#FFFFFF;
+  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5B665F;
+  --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --hs-body:'Inter',system-ui,sans-serif;
+  --hs-figs:'Fraunces',Georgia,serif;
+  --hs-mn:'IBM Plex Mono',ui-monospace,monospace;
+  background:var(--paper); color:var(--ink);
+  font-family:var(--hs-body); letter-spacing:-.011em;
+}
+
+/* ================================================================
+   PART 2 - recovered tool-vocabulary rules from the replicated chrome
+   sheets. house-chrome.css replicates those sheets' CHROME selectors
+   only; these are the tool-app rules (slab grounds, tiles, heroes...)
+   that also lived there and vanished with the subtraction. Extracted
+   mechanically, scoped body.bct, house-tool PART 1 above still wins
+   where both speak (it comes... later? no - CSS: last wins). So this
+   part is INSERTED BEFORE part 1's ported skin rules by the writer.
+   ============================================================== */
+body.bct .fchip.fchip{font-size:10.5px}
+body.bct .chk.chk{font-size:10.5px}
+body.bct .f em, body.bct .fgrid .f em, body.bct label.f em, body.bct .f.sm em{font-size:10.5px}
+body.bct .f .hint, body.bct .f span.hint{font-size:10.2px}
+body.bct .tile em, body.bct .tile > em{font-size:10.2px}
+body.bct .f em, body.bct .fsub{font-size:10.5px}
+body.bct .fsub{font-size:11px;letter-spacing:.1em}
+body.bct p, body.bct li, body.bct dd, body.bct dt, body.bct blockquote, body.bct figcaption, body.bct summary, body.bct .lco, body.bct .srn, body.bct .tcio, body.bct cite, body.bct q{overflow-wrap:anywhere}
+body.bct .libband.libband .in.in{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .libwrap.libwrap{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .afband.afband .in.in{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .tax.tax .in.in{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .adv.adv .in.in{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .gro.gro .in.in{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .clwrap.clwrap{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
+body.bct .tw.tw.tw, body.bct .li-tw.li-tw.li-tw, body.bct .dc-tw.dc-tw.dc-tw, body.bct .octw.octw.octw, body.bct .srn-w.srn-w.srn-w, body.bct .tblw.tblw.tblw{position:relative;
+  scrollbar-width:thin;
+  scrollbar-color:#C9C0AA transparent;
+  background:
+    linear-gradient(to right, #FBF9F3 30%, rgba(251,249,243,0)) left center,
+    linear-gradient(to right, rgba(251,249,243,0), #FBF9F3 70%) right center,
+    radial-gradient(farthest-side at 0 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) left center,
+    radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) right center;
+  background-repeat:no-repeat;
+  background-size:36px 100%, 36px 100%, 14px 100%, 14px 100%;
+  background-attachment:local, local, scroll, scroll;}
+body.bct .tw.tw.tw::-webkit-scrollbar{height:9px}
+body.bct .tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+body.bct .tw.tw.tw::-webkit-scrollbar-track{background:transparent}
+body.bct .sec.alt .card{background:#fff}
+body.bct .sec.alt{border-top:3px solid #16211B;border-bottom:3px solid #16211B}
+body.bct .btn, body.bct .clgo, body.bct .gherocta > a, body.bct .therocta > a, body.bct .aherocta > a{border:2px solid #16211B;border-radius:10px;box-shadow:3px 3px 0 #16211B}
+body.bct .btn:active, body.bct .clgo:active{transform:translate(3px,3px);box-shadow:0 0 0 #16211B}
+body.bct .pg, body.bct .uc, body.bct .lc, body.bct .rc, body.bct .fb, body.bct .how, body.bct .job, body.bct .reffold, body.bct .edge, body.bct .ig, body.bct .tcard{border:2px solid #16211B;border-radius:10px;box-shadow:2px 2px 0 #16211B}
+body.bct .pg:hover, body.bct .rc:hover, body.bct .lc:hover{box-shadow:4px 4px 0 #16211B;
+  transform:translate(-1px,-1px)}
+body.bct .rule{border-radius:10px}
+body.bct .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
+body.bct .band h1 em{font-style:normal;color:var(--pop)}
+body.bct .band .lede b{color:#fff}
+body.bct .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+body.bct p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
+body.bct .sec.alt .card{background:var(--paper)}
+body.bct .sec.alt .ref{background:var(--paper)}
+body.bct .sec.alt .fact{background:var(--cream)}
+body.bct .btn.ghost:hover{background:#EEF5F1}
+body.bct .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
+body.bct .sec.alt .issue{background:var(--cream)}
+body.bct .sec.alt .tool{background:var(--paper)}
+body.bct .sec.alt .feat{background:var(--paper)}
+body.bct .sec.alt .cform{background:var(--paper)}
+body.bct .sec.alt .cfhelp{background:var(--cream)}
+@media (max-width:1000px){
+body.bct .band .pw{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+body.bct a.tsall, body.bct a.uall, body.bct a.tcall, body.bct a.srmore, body.bct a.go, body.bct a.pdgo, body.bct button.keep{min-height:24px;display:inline-flex;align-items:center;padding-block:4px}
+body.bct .sub.sub.sub.sub{font-size:12px}
+body.bct .pr-kick.pr-kick.pr-kick.pr-kick{font-size:12px}
+body.bct .anote.anote.anote.anote{font-size:12px}
+body.bct .lab.lab.lab.lab{font-size:12px}
+body.bct .tck.tck.tck.tck{font-size:12px}
+body.bct .cnum.cnum.cnum.cnum{font-size:12px}
+body.bct .nx-f.nx-f.nx-f.nx-f{font-size:12px}
+body.bct .jobfoot.jobfoot.jobfoot.jobfoot{font-size:12px}
+body.bct .mo.mo.mo.mo{font-size:12px}
+body.bct .tbl.tbl.tbl.tbl .r.r.r.r span, body.bct .tbl.tbl.tbl.tbl .r.r.r.r b .sub.sub.sub.sub{font-size:12px}
+body.bct .libband.libband .in.in{padding-left:18px;padding-right:18px}
+body.bct .libwrap.libwrap{padding-left:18px;padding-right:18px}
+body.bct .afband.afband .in.in{padding-left:18px;padding-right:18px}
+body.bct .tax.tax .in.in{padding-left:18px;padding-right:18px}
+body.bct .adv.adv .in.in{padding-left:18px;padding-right:18px}
+body.bct .gro.gro .in.in{padding-left:18px;padding-right:18px}
+body.bct .clwrap.clwrap{padding-left:18px;padding-right:18px}
+}
+@media (min-width:1400px){
+body.bct .jobs.solo{grid-template-columns:minmax(0,1000px)}
+body.bct .fgrid[style]{max-width:820px !important}
+}
+@media (min-width:1500px){
+body.bct .libband.libband .in.in{max-width:1320px}
+body.bct .libwrap.libwrap{max-width:1320px}
+body.bct .afband.afband .in.in{max-width:1320px}
+body.bct .tax.tax .in.in{max-width:1320px}
+body.bct .adv.adv .in.in{max-width:1320px}
+body.bct .gro.gro .in.in{max-width:1320px}
+body.bct .clwrap.clwrap{max-width:1320px}
+}
+@media (min-width:1800px){
+body.bct .jobs.solo{grid-template-columns:minmax(0,1120px)}
+body.bct .fgrid[style]{max-width:920px !important}
+}
+@media (min-width:1900px){
+body.bct .libband.libband .in.in{max-width:1560px}
+body.bct .libwrap.libwrap{max-width:1560px}
+body.bct .afband.afband .in.in{max-width:1560px}
+body.bct .tax.tax .in.in{max-width:1560px}
+body.bct .adv.adv .in.in{max-width:1560px}
+body.bct .gro.gro .in.in{max-width:1560px}
+body.bct .clwrap.clwrap{max-width:1560px}
+}
+@media (min-width:900px){
+body.bct .tw.tw.tw td, body.bct .tw.tw.tw th, body.bct .li-tw.li-tw.li-tw td, body.bct .li-tw.li-tw.li-tw th, body.bct .dc-tw.dc-tw.dc-tw td, body.bct .dc-tw.dc-tw.dc-tw th, body.bct .octw.octw.octw td, body.bct .octw.octw.octw th, body.bct .srn-w.srn-w.srn-w td, body.bct .srn-w.srn-w.srn-w th, body.bct .tblw.tblw.tblw td, body.bct .tblw.tblw.tblw th{white-space:normal;overflow-wrap:break-word}
+body.bct .tw.tw.tw table, body.bct .li-tw.li-tw.li-tw table, body.bct .dc-tw.dc-tw.dc-tw table, body.bct .octw.octw.octw table, body.bct .srn-w.srn-w.srn-w table, body.bct .tblw.tblw.tblw table{width:100%;min-width:0}
+}
+
+/* PART 1 - ported skin rules (win over part 2 by order) */
+
+
+body.bct .px, body.bct .lib, body.bct .sc{--pine:#26604C; --amber:#FFD976; --ink:#161F1B; --line:#DDE4DE;
+  --mut:#5B665F;}
+body.bct .adv, body.bct main.adv{--paper:#F4F7F4; --white:#FFFFFF; --ink:#161F1B; --muted:#5B665F;
+  --line:#DDE4DE;}
+body.bct .pk-figs .n, body.bct .lhdval b, body.bct .lfig>b,
+body.bct .fact b, body.bct .lhdr b{font-family:var(--hs-figs); font-weight:700; letter-spacing:-.01em;}
+body.bct .hk, body.bct .lkick>*:first-child, body.bct .tsk,
+body.bct .uk, body.bct .tck, body.bct .grouplab, body.bct .lkind{font-family:var(--hs-mn); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--hs-dim);}
+body.bct .lcta, body.bct .tcgo, body.bct .ctarow .btn,
+body.bct .nlrow button, body.bct .aherocta a:first-child{background:var(--pine); color:#fff; font-family:var(--hs-disp);
+  font-weight:800; border-radius:8px; border:0;
+  box-shadow:0 1px 0 rgba(15,50,39,.25);}
+body.bct .lcta:hover, body.bct .tcgo:hover, body.bct .ctarow .btn:hover,
+body.bct .nlrow button:hover{background:#1A4739}
+body.bct .lghost, body.bct .ctarow .btn.ghost{background:transparent; color:var(--pine); border:1.5px solid var(--pine);
+  border-radius:8px; font-weight:700; box-shadow:none;}
+body.bct .pk-t{background:var(--hs-card); border:1px solid var(--line)}
+body.bct .pk-t th{font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--hs-dim);
+  border-bottom:2px solid var(--ink); background:var(--hs-card);}
+body.bct .pk-t td{border-color:var(--line)}
+body.bct .pk-t code{font-family:var(--hs-mn); background:var(--hs-sink);
+  border:1px solid var(--line); border-radius:4px;}
+body.bct .shelf .card .t{font-weight:600; color:var(--ink)}
+body.bct .shelf .card .n{color:var(--hs-dim)}
+body.bct label.f input, body.bct .lg-in input{background:var(--hs-card); border:1px solid var(--line); border-radius:6px;
+  color:var(--ink); font-family:var(--hs-figs);}
+body.bct label.f input:focus, body.bct .lg-in input:focus{border-color:var(--pine);}
+body.bct main.home .band{background:var(--paper) !important; color:var(--ink)}
+body.bct main.home .band.sunk{background:var(--hs-sink) !important}
+body.bct main.home .band .lede{color:var(--hs-dim) !important}
+body.bct main.home .band .fine{color:var(--hs-dim) !important}
+body.bct main.home .slab{background:var(--deep) !important; color:#E9F2EC !important}
+body.bct main.home .slab h2{color:#FFFFFF !important}
+body.bct main.home .slab p{color:#B9CFC2 !important}
+body.bct main.home .slab .eb{color:#79A08F !important}
+body.bct main.home .wf .amt{color:var(--ink) !important;
+  font-family:var(--hs-figs)}
+body.bct main.home .wf .row.net .amt{color:var(--pine) !important}
+body.bct main.home .band{padding-left:max(var(--pad, 40px), calc(50% - 620px)) !important;
+  padding-right:max(var(--pad, 40px), calc(50% - 620px)) !important;}
+body.bct .dc-hero .hj a{background:transparent !important; border:1px solid rgba(255,217,118,.55)
+  !important; color:var(--gold) !important; box-shadow:none !important;
+  border-radius:20px !important;}
+body.bct .dc-hero .hj a:hover{background:rgba(255,217,118,.14) !important; transform:none !important}
+body.bct section.hero, body.bct .adv .band, body.bct .adv .hero,
+body.bct .clband, body.bct .clhero{background:var(--deep) !important; background-image:none !important}
+body.bct section.hero h1{color:#FFFFFF !important}
+body.bct section.hero h1 em{color:var(--gold) !important}
+body.bct .slab.pine, body.bct .slab.carbon,
+body.bct .slab.brick, body.bct .slab.gold{background:var(--hs-card) !important; color:var(--ink) !important;
+  border:1px solid var(--line) !important; border-radius:12px !important;}
+body.bct .slab.pine{border-left:5px solid var(--pine) !important}
+body.bct .slab.brick{border-left:5px solid #B5483F !important}
+body.bct .slab.gold{border-left:5px solid #B0730B !important}
+body.bct .slab.carbon{border-left:5px solid #161F1B !important}
+body.bct .slab.pine :where(p,span,label,small,div,li,b,i,h2,h3,h4),
+body.bct .slab.brick :where(p,span,label,small,div,li,b,i,h2,h3,h4),
+body.bct .slab.gold :where(p,span,label,small,div,li,b,i,h2,h3,h4),
+body.bct .slab.carbon :where(p,span,label,small,div,li,b,i,h2,h3,h4){color:inherit !important}
+body.bct .slab.pine .card, body.bct .slab.brick .card,
+body.bct .slab.gold .card, body.bct .slab.carbon .card{background:var(--paper) !important; border:1px solid var(--line) !important}
+body.bct .adv .fbar i{background:var(--gold) !important}
+body.bct .adv .sell{background:rgba(255,217,118,.10) !important}
+body.bct .xptrack i,
+body.bct .mo i{background:var(--gold) !important}
+body.bct .tbar i, body.bct .gbar i{background:var(--pine) !important}
+body.bct .pk-hero h1, body.bct .pk-hero h2,
+body.bct .artband h1, body.bct .artband h2,
+body.bct .dc-hero h1, body.bct .dc-hero h2,
+body.bct .adv .hero h1, body.bct .adv .band h1{color:#FFFFFF !important}
+body.bct .dc-h, body.bct .pr-h{color:var(--ink) !important}
+body.bct .pk-call{background:var(--deep) !important}
+body.bct .pk-call h2, body.bct .pk-call h3{color:#FFFFFF !important}
+body.bct .pk-hero{background:var(--deep) !important}
+body.bct .pk-hero h1 em, body.bct .pk-hero h2 em{color:var(--gold) !important; font-style:normal}
+body.bct .bonus{background:var(--deep) !important; color:#CFE0D6 !important}
+body.bct .bonus::before{display:none !important}
+body.bct .bonus .pr-h, body.bct .bonus h2, body.bct .bonus h3{color:#FFFFFF !important}
+body.bct .btn, body.bct .card, body.bct .citeb, body.bct .dc-ask,
+body.bct .dc-chg, body.bct .dc-ex, body.bct .dc-facts, body.bct .dc-fb,
+body.bct .dc-grp, body.bct .dc-nav a, body.bct .dc-note,
+body.bct .dc-tw, body.bct .fact, body.bct .fi-ok, body.bct .hcalc,
+body.bct .hgo, body.bct .hmost a, body.bct .ig-flow .node,
+body.bct .ig-split .bar, body.bct .ig-stat .g, body.bct .ins,
+body.bct .insf, body.bct .np-hub, body.bct .np-promo, body.bct .pdc,
+body.bct .pdgone, body.bct .pdkey, body.bct .pdn, body.bct .pdwarn,
+body.bct .pg, body.bct .pk-ask, body.bct .pk-calc, body.bct .pk-q,
+body.bct .pk-src, body.bct .pk-tw, body.bct .pk-v, body.bct .ref,
+body.bct .slab, body.bct .src, body.bct .srpanel, body.bct .srtab,
+body.bct .tccoda, body.bct .tcnext, body.bct .tcgo, body.bct .tsbadge,
+body.bct .tsdepth, body.bct .tsmeta, body.bct .tsupd,
+body.bct .tsshort, body.bct .pk-t{box-shadow:none !important}
+body.bct .pdc, body.bct .pdkey, body.bct .dc-facts, body.bct .tsdepth,
+body.bct .pk-q, body.bct .pk-src, body.bct .src, body.bct .fact{border-color:var(--line) !important; border-width:1px !important;
+  border-radius:10px !important; background:var(--hs-card) !important}
+body.bct .arttool a, body.bct .hh-chip, body.bct .hgo,
+body.bct .pr-cta, body.bct .src .srk, body.bct .tccoda{border:0 !important; box-shadow:none !important; border-radius:20px !important}
+body.bct label.f, body.bct .f, body.bct .fgrid>*{background:var(--hs-card) !important; border:1px solid var(--line) !important;
+  border-radius:8px !important}
+body.bct label.f>span, body.bct .f>span{color:var(--hs-dim) !important}
+body.bct label.f input, body.bct .f input, body.bct .f select{background:transparent !important; border:0 !important; color:var(--ink) !important}
+body.bct .hcalc, body.bct .pk-calc, body.bct .srpanel, body.bct .citeb,
+body.bct .ins, body.bct .insf, body.bct .ref, body.bct .tcnext,
+body.bct .tctrack, body.bct .dc-ask, body.bct .dc-ex, body.bct .dc-grp,
+body.bct .dc-note, body.bct .dc-tw, body.bct .pk-ask, body.bct .pk-tw,
+body.bct .pk-v, body.bct .pg, body.bct .hmost a, body.bct .dc-nav a{border-color:var(--line) !important; border-width:1px !important}
+body.bct section.hero label, body.bct section.hero .hint,
+body.bct .hero .f span{color:#CFE0D6 !important}
+body.bct section.hero .f input, body.bct .hero label.f input{color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+  caret-color:var(--gold) !important}
+body.bct section.hero .fv, body.bct .hero .fv{color:#CFE0D6 !important}
+body.bct section.hero .f, body.bct .hero label.f{border-color:rgba(255,217,118,.45) !important; background:transparent !important}
+body.bct .pk-hero .hk{color:#79A08F !important}
+body.bct .drawer{background:var(--hs-sink) !important;
+  border:1px solid var(--line) !important; border-radius:8px}
+body.bct .dh h5{color:var(--pine) !important}
+body.bct .drawer .tog span{color:#49544D !important}
+body.bct .dbtn{background:#FFFFFF !important; border:1px solid var(--line) !important;
+  color:var(--ink) !important}
+body.bct .dbtn:hover{background:var(--hs-wash) !important}
+body.bct .dbtn.gold{background:var(--gold) !important; border:1px solid #B98F1F !important;
+  color:#16211B !important}
+
+/* PART 3 - fixes found by the interactive gate (win by file order) ---- */
+/* the tax page's hero and its indigo slab were grounded by a legacy
+   sheet variant house has no color for: both map to deep */
+body.bct .thero{background:var(--deep) !important}
+body.bct .slab.indigo{background:var(--deep) !important}
+/* table headers inside dark slabs */
+body.bct .slab th{color:#CFE0D6 !important}
+/* form fields: ink in light fields everywhere; the deep-band hero keeps
+   white type in its transparent fields */
+body.bct label.f input, body.bct .fv input{
+  color:var(--ink) !important; -webkit-text-fill-color:var(--ink) !important}
+body.bct section.hero .f input, body.bct .hero .fv input{
+  color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
+  caret-color:var(--gold) !important}
+body.bct .drawer label.f em{color:#3A453E !important}
+/* green delta figures on light cards: house pine, not mint */
+body.bct em.rup{color:#26604C !important}
+/* tool heroes that legacy grounded dark: map to deep */
+body.bct .ahero, body.bct .libband{background:var(--deep) !important}
+/* bold text inside dark slabs reads light; cards within stay ink */
+body.bct .slab p b, body.bct .slab figcaption b, body.bct .slab li b,
+body.bct .slab .ig b{color:#FFFFFF !important}
+body.bct .slab .card p b, body.bct .slab .card li b{color:var(--ink) !important}
+/* gold figures on light cards darken to keep 4.5:1 */
+body.bct .gpanel .gold, body.bct .clcite b{color:#8A6516 !important}
+/* light cards inside dark slabs: their accent text was mixed for the
+   slab's ground, not the card's */
+body.bct .finish em{color:#26604C !important}
+body.bct .verdict.good b{color:#26604C !important}
+body.bct .verdict b{color:#8A6516 !important}
+/* the funnel stage row lost its shrink rule with the legacy sheet */
+body.bct #funnel .stages{display:flex;flex-wrap:nowrap;max-width:100%}
+body.bct #funnel .stg{flex:1 1 0;min-width:0}
+/* tax page: segmented bar, slider field, output rows, and the app's own
+   gold token darkened inside light cards via custom-property scoping */
+body.bct .sbar .sb.on{color:#FFFFFF !important}
+body.bct .slider input{color:var(--ink) !important;
+  -webkit-text-fill-color:var(--ink) !important}
+body.bct .slab .rw b{color:#FFFFFF !important}
+body.bct .verdict, body.bct .finish, body.bct .gpanel{--gold:#8A6516}
+body.bct #corpout .side{--gold:#8A6516}
+body.bct #corpout .side b{color:#8A6516 !important}
+/* the old dark-nav pill behind the links reads as a gray blob on paper */
+body.bct .sitenav-links{background:none !important;border-radius:0 !important}
+/* row values and the salary readout sit directly on the deep slab */
+body.bct .slab .rw .v{color:#FFFFFF !important}
+body.bct .slab .slider .out{color:var(--gold) !important}
