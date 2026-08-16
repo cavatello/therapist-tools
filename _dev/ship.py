@@ -397,6 +397,14 @@ LAST = [
      "rollout step 5, family 5 - every remaining skinned page carries "
      "house/house-chrome/house-rest and its own page CSS; the skin is "
      "fully ported and retired"),
+    # The /for/ stage doors (P2 door 3, option 3C The Ledger, per the
+    # A2/A3 decisions of 15 Aug 2026). Runs at the very end so a rebuilt
+    # door is re-converted after house_swap's re-skin and after the other
+    # families' sweeps.
+    ("_dev/family_for.py",
+     "the /for/ stage doors - article.fd-wrap pages carry house/"
+     "house-chrome/house-for and no legacy CSS; /for/associates is the "
+     "first member and the template the other doors copy"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.

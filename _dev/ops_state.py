@@ -11,7 +11,7 @@ Keep it short. A status board nobody trusts is one that has grown into a
 second backlog.
 """
 
-UPDATED = "12 August 2026"
+UPDATED = "15 August 2026"
 
 # The passphrase that decrypts the published board. Change it here and the next
 # deploy re-encrypts under the new one. An environment variable OPS_PASSPHRASE
@@ -41,19 +41,24 @@ ASKS = [
          "Does telehealth delivered from a clinician&rsquo;s home count toward "
          "the 32 hours a week of direct client care, or must those hours be "
          "delivered at the eligible practice site?"]},
-    {"title": "Say whether the associates door is right before more are built",
-     "why": "The first one is live and follows the recommendation exactly. "
-            "Everything after it - the sitewide band on 200 pages, then three "
-            "more doors - is much harder to unpick, so this is the cheap "
-            "moment to change direction.",
-     "do": "Open /for/associates and say keep, change, or stop",
+    {"title": "ANSWERED 15 Aug, then rebuilt: the associates door needs one "
+              "more look",
+     "why": "The verdict was: the door CONCEPT is right, the execution was "
+            "not - messy, cluttered, not the Basecamp design. The page has "
+            "now been rebuilt to 3C The Ledger, decluttered to that verdict: "
+            "one dark band, white cards, one gold accent, the requirement "
+            "tiles hidden until a figure is typed, the shelf annotations "
+            "given room.",
+     "do": "Open /for/associates and say keep or change - the other three "
+           "doors copy this template only after the nod",
      "detail": [
-         "The ledger leads because this traffic arrives on a phone. If you "
-         "would rather it opened on the six-tile Desk or on the three "
-         "questions, that is a small change now and a large one later.",
+         "The declutter, concretely: the hero stat grid is gone (its "
+         "figures live on in the body), the privacy line moved into the "
+         "hero, the ledger leads, the requirements panel and the four "
+         "start doors are white cards instead of extra dark blocks.",
          "The shelf annotations are the part that takes the time - one line "
-         "per page per stage, written by hand. 20 are written. The next door "
-         "needs its own."]},
+         "per page per stage, written by hand. The next door needs its "
+         "own."]},
     {"title": "The door build order, for the rest",
      "why": "P2 now carries 16 rendered mockups &mdash; two or three real "
             "alternatives for every door plus three for the sitewide band, each "
