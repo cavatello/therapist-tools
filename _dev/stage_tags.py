@@ -114,6 +114,13 @@ TAGS = {
         "student": "The Bay Area settings the code lets you be placed in "
                    "&mdash; and the site-agreement question to ask your "
                    "program before contacting any of them."},
+    "training-programs-bay-area.html": {
+        "student": "Ten agencies with a training program in writing - "
+                   "supervision hours and stipends where stated, and the "
+                   "page each fact came from.",
+        "associate": "Three of these programs name registered associates "
+                     "as well as trainees - worth reading before a cold "
+                     "application round."},
     "east-bay-practicum-site-directory.html": {
         "student": "The 21 sites in EB CAMFT's own 2026-27 directory "
                    "&mdash; who was accepting at the dated read, hours, "

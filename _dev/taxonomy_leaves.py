@@ -73,6 +73,7 @@ NEW_CLUSTERS = [
      ["practicum-california-mft-trainee.html",
       "how-to-find-a-practicum-site-california.html",
       "practicum-sites-bay-area.html",
+      "training-programs-bay-area.html",
       "east-bay-practicum-site-directory.html"]),
     # The career-change page is the front door to the whole licensure topic,
     # so it belongs with the route rather than in a cluster of its own. Named

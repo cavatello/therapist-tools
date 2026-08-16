@@ -48,6 +48,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_supervisor.py` | build | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
 | `build_trackers.py` | build | &mdash; | Who is holding your licensure record? - the hours trackers, compared. |
+| `build_trainprogs.py` | build | &mdash; | P3 item three, first cut: the Bay Area published training programs. |
 | `build_unpaid.py` | build | &mdash; | You were not paid for the notes: the wage claim an associate can actually file. |
 | `payroll_ops.py` | build | &mdash; | What it costs to RUN the payroll, on the page that already prices the hire. |
 | `stage_tags.py` | build | &mdash; | Which stage of the path each page is written for, and what it says there. |

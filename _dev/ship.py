@@ -108,6 +108,10 @@ BUILD = [
      "P3 page two - the practicum-search method page: the program's "
      "placement model first, the five statutory strikes, six-plus "
      "applications across the four shelves, and the paper trail"),
+    ("_dev/build_trainprogs.py",
+     "P3 item three, first cut - the ten Bay agencies whose own sites "
+     "publish a clinical training program, each held to its own words, "
+     "availability language banned"),
     # The curated half of P3: EB CAMFT's public practicum directory,
     # every entry dated to its read, every site link fetched, the
     # chapter credited as the source of the listing.

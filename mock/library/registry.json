@@ -2603,6 +2603,27 @@
    "leaf": true
   },
   {
+   "file": "training-programs-bay-area.html",
+   "title": "Bay Area agencies with published clinical training programs",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Which Bay Area agencies publish a clinical training program?",
+   "outcome": "Ten agencies with a published trainee or associate program, the terms each one states, and the page every fact came from",
+   "number": "10 of 24 large Bay clinical agencies publish a program",
+   "stale": false,
+   "weight": 3,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "student",
+    "associate"
+   ],
+   "stage_note": {
+    "student": "Ten agencies with a training program in writing - supervision hours and stipends where stated, and the page each fact came from.",
+    "associate": "Three of these programs name registered associates as well as trainees - worth reading before a cold application round."
+   }
+  },
+  {
    "file": "university-of-la-verne-mft.html",
    "title": "University of La Verne — MFT program in California",
    "topic": "licensure",
@@ -2829,6 +2850,7 @@
       "practicum-california-mft-trainee.html",
       "how-to-find-a-practicum-site-california.html",
       "practicum-sites-bay-area.html",
+      "training-programs-bay-area.html",
       "east-bay-practicum-site-directory.html"
      ]
     },
