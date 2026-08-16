@@ -428,3 +428,66 @@ Touches: the new builder, ship.py BUILD, taxonomy_leaves.py, stage_tags.py,
 the new page + regenerated hubs/sitemap. Stays OFF for/associates.html,
 family_for.py, house-for.css (session A's claim above). A shipped/blocked
 section lands below when done.
+
+## SHIPPED — P3 EBCAMFT practicum directory (15 Aug 2026, session B,
+## commit `004390d3`)
+
+Live at https://therapistsupport.org/east-bay-practicum-site-directory.html
+— byte-identical live vs repo (md5 79160068), all three house sheets
+byte-identical live vs repo, sitemap carries it, body `bc2 bcp house`,
+zero legacy hash sheets (born pagekit from the loan-forgiveness donor,
+converted by family_pk in the same run — the shipped state is bc2-native).
+
+- `_dev/build_bayarea_practicum.py` (new, wired into ship.py BUILD after
+  build_findsite): the curated half of P3 — EB CAMFT's public Practicum
+  Site Directory 2026-27, ALL data embedded in the builder with per-entry
+  src + fetch date. 21 entries (the directory's own counter said
+  "Showing all 22 sites"; 21 carried published details at the 15 Aug
+  2026 read — the discrepancy is published on the page). Columns per the
+  research build-notes: dated acceptance status, mode, hrs/wk, days,
+  clinical experience, supervision, populations, school MOUs, BBS flag
+  as the directory states it, prerequisites, named contact + email.
+  "Not stated" renders as a finding. Chapter credited + linked as the
+  listing source throughout; curated-not-exhaustive said plainly;
+  trainee frame with §4980.43.3(b) and §4980.42(e) cited. The three
+  HIRES-ASSOCIATES sites (Bonita House, Rose MFT, Calliope Coast) broken
+  out, Calliope's associates-ONLY / not-practicum distinction published
+  as the directory frames it.
+- LINKS: verify_leads' JSON only covered the EBCAMFT directory URL
+  itself, so every site URL was re-fetched from this workspace 15 Aug
+  2026 (4-variant fallback + browser UA): 18/19 answered 200 (finals
+  recorded: husd.us, between-therapy.com, trivalleyhaven.org,
+  bonitahouse.org); cchealth.org 403s scripted fetches (bot-blocker) and
+  is carried on the link form both Bay directories have shipped since 13
+  Aug. LifePractice + Rose MFT publish no website — printed as the
+  finding. All external links target=_blank rel="noopener noreferrer"
+  (guarded).
+- Registry seed (entity-free, stale:true per the pk gotcha) +
+  taxonomy_leaves "The practicum, and the year before you register" +
+  stage_tags (student + associate). Title 55 / description 155 chars,
+  asserted in the builder; seo_rules CLEAN at 208 pages.
+- Guards in the builder: banned job-availability phrases (acceptance
+  language allowed ONLY because it is the source's dated statement, and
+  the read-date carry-through is guarded); every site name + verified
+  href present; 21 detail entries; no-site finding on both email-only
+  entries; field completeness (empty field fails the build).
+- GATE (mirror-first at /tmp/mirror, then repo): full ship.py 94/94 on
+  the mirror AND the repo; --check 5/5. Playwright over localhost:
+  7 pages (new page + one per family: bbs-fees/bca, usf-mft/bcs,
+  loan-forgiveness/bcp, amft-3000/tool, about/rest, home) × 375/768/
+  1440/2560 = 28 overflow+JS checks, 0 failures; heading/label contrast
+  at 1440 on all 7 — 0 findings on the new page and five others.
+  PRE-EXISTING defect found and NOT from this run (proven identical at
+  HEAD before shipping): about.html (family_rest) breadcrumb renders
+  ink at opacity .72 over the dark hero ground (1.21:1). For the
+  step-5 session: re-ink `.bcr` on dark grounds in the rest family
+  sheet — same class of bug family 1 fixed for its separators.
+- Screenshots (1440 top/mid, 375 top/mid) eyeballed: single dark band
+  (hero), white cards, one accent, no overflow — the A2 Basecamp-calm
+  verdict holds on this page.
+
+Remaining P3: the ~24 Bay org profiles (research banked); the statewide
+pre-licensed job-sites page (queue 6) — note for it: the 28-entry "dead"
+bucket in leads-verified-2026-08-15.json is mostly bot-blocker false
+negatives, browser-check before excluding (see
+claude/leads-verification-dead-bucket-warning.md).
