@@ -50,6 +50,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_outofstate.py` | build | &mdash; | Can you finish your hours from another state? The Board has answered, five times. |
 | `build_portals.py` | build | &mdash; | Where to apply for a county therapy job, in all 58 California counties. |
 | `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
+| `build_prep.py` | build | &mdash; | Exam prep courses compared - on price, and on what each one claims. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_supervisor.py` | build | &mdash; | Finding a clinical supervisor in California, and what the law requires. |

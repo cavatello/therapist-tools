@@ -137,6 +137,14 @@ BUILD = [
      "what licensure actually costs - about $549 paid once and $624 to "
      "$924 across the route, against a degree of $37,800 to $152,340, "
      "every figure lifted from the page that documents it"),
+    # Editorial #8: the prep market. Prices from each vendor's own page,
+    # pass-rate claims quoted and NOT compared, because they are three
+    # different kinds of statement. A guard fails the build if a tracking
+    # parameter appears in a vendor link - the owner's decision on
+    # 17 Aug 2026 was plain links for now.
+    ("_dev/build_prep.py",
+     "exam prep compared - $139 to $620, and why the advertised pass "
+     "rates cannot be ranked against each other or the Board's"),
     ("_dev/build_telehealth.py",
      "the telehealth standard of practice - the two subdivisions the "
      "2026 amendment actually touched, the decade-old duty most "

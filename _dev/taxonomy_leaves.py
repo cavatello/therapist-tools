@@ -119,6 +119,11 @@ NEW_CLUSTERS = [
       "out-of-state-to-california-licensure.html",
       "therapists-by-county-california.html",
       "therapists-by-state-compared.html"]),
+    # The prep-market page belongs with the exam, not with the fees.
+    ("licensure", "The exam, and the wait after it",
+     ["bbs-exam-pass-rates-california.html",
+      "exam-prep-courses-california-compared.html",
+      "bbs-processing-times-california.html"]),
     ("licensure", "The route, and what it costs",
      ["becoming-a-therapist-california-career-change.html",
       "become-an-mft-california.html",

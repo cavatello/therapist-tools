@@ -197,6 +197,12 @@ TAGS = {
         "licensed": "Three things every ad must carry since April 2026 "
                     "- and the seven ways the Board's own examples "
                     "show profiles failing."},
+    "exam-prep-courses-california-compared.html": {
+        "student": "What exam prep costs before you need it - and what "
+                   "the Board gives you free.",
+        "associate": "What the four prep courses cost, and why you "
+                     "cannot rank them by the pass rates they "
+                     "advertise."},
     "what-licensure-actually-costs-california.html": {
         "deciding": "Every charge on the way to a license, added up - "
                     "and why the Board fee argument is about the wrong "

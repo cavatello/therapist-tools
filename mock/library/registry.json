@@ -1561,6 +1561,27 @@
    "leaf": true
   },
   {
+   "file": "exam-prep-courses-california-compared.html",
+   "title": "California therapist exam prep compared: price and claims",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "Which California therapist exam prep course should I buy?",
+   "outcome": "Every published price and access window, and what each vendor's pass-rate claim actually measures",
+   "number": "$139 to $620, and 3 kinds of unverifiable claim",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "student",
+    "associate"
+   ],
+   "stage_note": {
+    "student": "What exam prep costs before you need it - and what the Board gives you free.",
+    "associate": "What the four prep courses cost, and why you cannot rank them by the pass rates they advertise."
+   }
+  },
+  {
    "file": "family-paths.html",
    "title": "Family Paths - Bay Area org profile",
    "topic": "licensure",
@@ -3374,6 +3395,7 @@
      "name": "The exam, and the wait after it",
      "files": [
       "bbs-exam-pass-rates-california.html",
+      "exam-prep-courses-california-compared.html",
       "bbs-processing-times-california.html"
      ]
     },
