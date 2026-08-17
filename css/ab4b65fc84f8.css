@@ -3,7 +3,7 @@
 .dc-sec{margin:34px 0}
 .dc-k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.14em;text-transform:uppercase;color:#2C6350;margin:0 0 6px}
-.dc-h{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-h{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.032em;font-size:28px;line-height:1.12;color:#1B2420;margin:0 0 9px}
 .dc-d{font-size:15px;line-height:1.68;color:#635D4E;margin:0 0 16px;max-width:68ch}
 .dc-d b{color:#1B2420}
@@ -14,7 +14,7 @@
   background:#2C6350;color:#fff;padding:30px 30px 26px;margin:0 0 26px}
 .dc-hero .hk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.15em;text-transform:uppercase;color:#FFD37A;margin:0 0 12px}
-.dc-hero h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-hero h1{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.034em;font-size:42px;line-height:1.03;color:#fff;margin:0 0 14px;
   max-width:19ch}
 .dc-hero .hl{font-size:16.5px;line-height:1.6;color:rgba(255,255,255,.9);margin:0 0 18px;
@@ -43,7 +43,7 @@
 /* --------------------------------------------------------- the name note */
 .dc-note{border:2px solid #1B2420;border-left-width:9px;border-radius:10px;
   background:#F6F8F6;padding:17px 19px;margin:0 0 26px;box-shadow:4px 4px 0 #F6C560}
-.dc-note h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-note h2{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.028em;font-size:19px;color:#1B2420;margin:0 0 7px}
 .dc-note p{font-size:15px;line-height:1.66;color:#635D4E;margin:0 0 8px;max-width:70ch}
 .dc-note p:last-child{margin:0}
@@ -52,12 +52,12 @@
 /* ----------------------------------------------------------- group index */
 .dc-grp{border:2px solid #1B2420;border-radius:10px;background:#fff;
   box-shadow:6px 6px 0 #1B2420;padding:21px 22px 8px;margin:0 0 22px}
-.dc-grp>h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-grp>h2{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.03em;font-size:23px;color:#1B2420;margin:0 0 7px}
 .dc-grp>p.gl{font-size:15px;line-height:1.66;color:#635D4E;margin:0 0 16px;max-width:70ch}
 .dc-row{display:block;text-decoration:none;border-top:2px solid #DFE4E0;padding:14px 0}
 .dc-row:hover{background:#F6F8F6}
-.dc-row .rt{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-row .rt{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.026em;font-size:16.5px;line-height:1.24;color:#1B2420;display:block;
   margin:0 0 5px}
 .dc-row .rd{font-size:13.5px;line-height:1.6;color:#635D4E;display:block;margin:0 0 8px;
@@ -66,7 +66,6 @@
 .dc-row .rm span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.07em;text-transform:uppercase;border:1.5px solid #CFC7B2;
   border-radius:999px;padding:3px 9px;color:#4A4436;background:#F6F8F6}
-.dc-row .rm span.o{background:#1B2420;color:#fff;border-color:#1B2420}
 .dc-row .rm span.c{background:#F6C560;color:#1B2420;border-color:#1B2420}
 
 /* ------------------------------------------------------------ the filter */
@@ -108,7 +107,7 @@
   margin:0 0 6px}
 .dc-disc{border:2px dashed #9CB3A6;border-radius:10px;background:#fff;
   padding:21px 23px;margin:0 0 22px}
-.dc-disc h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-disc h2{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.028em;font-size:19px;color:#1B2420;margin:0 0 4px}
 .dc-disc .sub{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
   letter-spacing:.11em;text-transform:uppercase;color:#2C6350;margin:0 0 12px}
@@ -117,7 +116,7 @@
 .dc-disc p b{color:#1B2420}
 .dc-ask{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:6px 6px 0 #2C6350;padding:20px 23px;margin:0 0 22px}
-.dc-ask h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-ask h2{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.028em;font-size:19px;color:#1B2420;margin:0 0 4px}
 .dc-ask .sub{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
   letter-spacing:.11em;text-transform:uppercase;color:#2C6350;margin:0 0 13px}
@@ -154,7 +153,7 @@
   letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px}
 .dc-crumb a{color:#2C6350;text-decoration:none;border-bottom:1.5px solid #C6DBD1}
 .dc-crumb span{color:#635D4E}
-.dc-title{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-title{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.034em;font-size:34px;line-height:1.06;color:#1B2420;margin:0 0 12px;
   max-width:20ch}
 .dc-dek{font-size:16.5px;line-height:1.58;color:#635D4E;margin:0 0 20px;max-width:60ch}
@@ -200,7 +199,7 @@
 .dc-ex{border:2px solid #1B2420;border-radius:10px;padding:19px 21px;margin:0 0 20px;
   background:#fff;box-shadow:5px 5px 0 #1B2420}
 .dc-ex.ins{background:#F4F0E6;box-shadow:5px 5px 0 #2C6350}
-.dc-ex h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-ex h2{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.028em;font-size:19px;color:#1B2420;margin:0 0 9px}
 .dc-ex p{font-size:15px;line-height:1.7;color:#635D4E;margin:0;max-width:70ch}
 .dc-ex p b{color:#1B2420}
@@ -216,7 +215,7 @@
 .dc-nav a:hover{transform:translate(1px,1px);box-shadow:3px 3px 0 #1B2420}
 .dc-nav .l{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
   letter-spacing:.11em;text-transform:uppercase;color:#2C6350;display:block;margin:0 0 5px}
-.dc-nav .t{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.dc-nav .t{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.024em;font-size:15px;line-height:1.28;color:#1B2420;display:block}
 .dc-nav a.nx{text-align:right}
 

@@ -4,6 +4,12 @@
    small caps labels, and Fraunces reserved for figures. */
 .tsmeta{border:2px solid #1B2420;border-radius:10px;box-shadow:3px 3px 0 #1B2420;
   background:#F6F8F6;padding:13px 15px 12px;margin:18px 0 0;max-width:none}
+/* The foot block is inserted as a bare sibling of the up-link and the footer,
+   so it has no container to inherit a gutter from. Match the up-link's. */
+.tsfoot{max-width:1120px;margin:30px auto 0;padding:0 26px;box-sizing:border-box}
+@media (min-width:1500px){.tsfoot{max-width:1320px}}
+@media (min-width:1900px){.tsfoot{max-width:1560px}}
+@media (max-width:560px){.tsfoot{padding:0 18px}}
 .tsmeta .tsrow{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline}
 .tsk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
   letter-spacing:.13em;text-transform:uppercase;color:#635D4E;margin-right:-12px}
@@ -18,11 +24,14 @@
 .tsvint i{display:block;font-style:normal;font-size:12px;line-height:1.5;
   color:#635D4E;max-width:62ch}
 /* 02 - the badge, inside the meta card so it can never inherit a dark band */
-.tsdepth{margin:11px 0 0;padding:10px 0 0;border-top:2px dashed #D9D0BA;
-  background:transparent}
-.tsdepth:first-child{margin:0;padding:0;border-top:none;background:#F6F8F6;
-  border:2px solid #1B2420;border-radius:10px;box-shadow:3px 3px 0 #1B2420;
-  padding:12px 15px}
+/* On its own it carries its own background: this text is a fixed colour and
+   the band behind it is not. Testing POSITION (:first-child) was the previous
+   attempt and it failed the moment a standfirst appeared above it. */
+.tsdepth{margin:14px 0 0;background:#F6F8F6;border:2px solid #1B2420;
+  border-radius:10px;box-shadow:3px 3px 0 #1B2420;padding:12px 15px}
+/* Inside the meta card it is a section of that card, not a card of its own. */
+.tsmeta .tsdepth{margin:11px 0 0;padding:10px 0 0;background:transparent;
+  border:none;border-radius:0;box-shadow:none;border-top:2px dashed #D9D0BA}
 .tsbadge{display:inline-flex;align-items:center;gap:7px;margin:0;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   font-weight:700;letter-spacing:.07em;text-transform:uppercase;
@@ -41,7 +50,7 @@
 .tsshort{border:2px solid #1B2420;border-radius:10px;box-shadow:4px 4px 0 #F6C560;
   background:#fff;padding:15px 17px 14px;margin:20px 0 0}
 .tsshort>p.tsk{margin:0 0 8px}
-.tsshort q{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,
+.tsshort q{display:block;font-family:'Fraunces',Inter,
   system-ui,sans-serif;font-weight:800;letter-spacing:-.028em;font-size:19px;
   line-height:1.2;color:#1B2420;quotes:none;margin:0 0 7px}
 .tsshort p.tsa{margin:0;font-size:13.5px;line-height:1.6;color:#3A3529;max-width:64ch}

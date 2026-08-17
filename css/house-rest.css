@@ -8,9 +8,7 @@
 body.bcz .hubnl.hubnl.hubnl h3{color:#fff}
 body.bcz .hubnl.hubnl.hubnl p{color:rgba(255,255,255,.82)}
 body.bcz .hubnl.hubnl.hubnl a{color:#1B2420}
-body.bcz .none.none b{color:#4A5A46}
-body.bcz .lp a.lcta{color:#fff}
-body.bcz .lp a.lcta.lgold, body.bcz .lp .lmid a.lcta, body.bcz .lp .lnews a.lcta{color:#1B2420}
+body.bcz .none.none b{color:#5F6A64}
 body.bcz .tsk.tsk{font-size:10.5px}
 body.bcz .tsn.tsn{font-size:10.5px}
 body.bcz .pdr.pdr span{font-size:10.5px}
@@ -124,7 +122,7 @@ body.bcz .ref b{display:block;font-size:13.5px;margin-bottom:3px}
 body.bcz .ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 body.bcz .ref i a{color:var(--pine);font-weight:600}
 body.bcz .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
- text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
+ text-transform:uppercase;color:#8A6516;background:#FBEFD5;border:1px solid #E8D5A8;
  border-radius:10px;padding:2px 8px;margin-left:4px;vertical-align:1px}
 body.bcz .sec.alt .fact{background:var(--cream)}
 body.bcz .fact em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
@@ -138,7 +136,7 @@ body.bcz .getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.5
  color:rgba(255,255,255,.84);margin-bottom:11px}
 body.bcz .getlist img{width:20px;height:20px;flex:none;margin-top:2px}
 body.bcz .getlist b{color:#fff}
-body.bcz .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
+body.bcz .nlerr{font-size:12px;line-height:1.6;color:#9C3F37;margin:10px 0 0}
 body.bcz .sec.alt .issue{background:var(--cream)}
 body.bcz .issue-h{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--line);
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
@@ -148,7 +146,6 @@ body.bcz .issue-h span{font-size:10.5px;color:var(--muted);margin-left:auto;
  font-family:'IBM Plex Mono',monospace}
 body.bcz .issue h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 8px}
 body.bcz .issue p{font-size:13.5px;line-height:1.7;color:#4E4940;margin:0 0 13px}
-body.bcz .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 body.bcz .sec.alt .tool{background:var(--paper)}
 body.bcz .feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;
  border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-top:18px}
@@ -181,7 +178,6 @@ body.bcz .cform button[type=submit]{background:var(--pine);color:#fff;font:inher
 body.bcz .cform button[type=submit]:hover{background:#2C6350}
 body.bcz .cform button[type=submit]:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(21,52,43,.35)}
 body.bcz .cform button[aria-busy=true]{opacity:.65;cursor:progress}
-body.bcz .sec.alt .cfhelp{background:var(--cream)}
 body.bcz .cf-fine{max-width:640px;margin:16px 0 0;font-size:12px;line-height:1.7;color:var(--muted)}
 body.bcz .cf-fine b{color:#B5483F;font-weight:800}
 @media (max-width:1000px){
@@ -415,7 +411,7 @@ body.bcz .issue-row b{color:var(--pine) !important;
 /* nav-panel hub card is a deep card with light type, as designed */
 body.bcz .np-promo{background:var(--deep) !important; color:#C6DBD1 !important}
 body.bcz .np-promo b, body.bcz .np-promo h4{color:#FFFFFF !important}
-body.bcz .np-promo span{color:#B9CFC2 !important}
+body.bcz .np-promo span{color:#84AC99 !important}
 body.bcz .tsshort{
   background:var(--hs-card); border:1px solid var(--line);
   border-left:4px solid var(--gold); border-radius:10px;
@@ -443,13 +439,13 @@ body.bcz .uplink .uall{color:var(--pine); font-weight:700}
 body.bcz .ftnl{background:var(--deep) !important; border-top:0}
 body.bcz .ftnl h2{color:#FFFFFF !important}
 body.bcz .ftnl h2 em{color:var(--gold) !important; font-style:normal}
-body.bcz .ftnl p{color:#B9CFC2 !important}
+body.bcz .ftnl p{color:#84AC99 !important}
 body.bcz .ftnl .nlmeta{color:#84AC99 !important}
-body.bcz .ftnl .consent span{color:#B9CFC2 !important}
+body.bcz .ftnl .consent span{color:#84AC99 !important}
 /* every piece of text in the dark band is light - wholesale, because the
    band's children keep growing new shapes */
 body.bcz .ftnl label, body.bcz .ftnl span, body.bcz .ftnl small,
-body.bcz .ftnl div, body.bcz .ftnl li{color:#B9CFC2 !important}
+body.bcz .ftnl div, body.bcz .ftnl li{color:#84AC99 !important}
 body.bcz .ftnl input, body.bcz .ftnl button, body.bcz .ftnl h2{
   color:inherit}
 body.bcz .ftnl input[type="email"]{color:var(--ink) !important}
@@ -470,7 +466,7 @@ body.bcz .sitefoot h5{
 }
 body.bcz .sitefoot a{color:#F6F8F6 !important}
 body.bcz .sitefoot a:hover{color:var(--gold) !important}
-body.bcz .sitefoot .ftby, body.bcz .sitefoot p{color:#9DB8AA !important}
+body.bcz .sitefoot .ftby, body.bcz .sitefoot p{color:#84AC99 !important}
 body.bcz .sitefoot .ftby a{color:#C6DBD1 !important; text-decoration:underline}
 body.bcz .sitefoot .ftcols>div>p{color:#84AC99 !important}
 
@@ -517,7 +513,7 @@ body.bcz main.home .toc, body.bcz main.home .toc a{
 body.bcz main.home .slab{
   background:var(--deep) !important; color:#F6F8F6 !important}
 body.bcz main.home .slab h2{color:#FFFFFF !important}
-body.bcz main.home .slab p{color:#B9CFC2 !important}
+body.bcz main.home .slab p{color:#84AC99 !important}
 body.bcz main.home .slab .eb{color:#84AC99 !important}
 body.bcz main.home .wf .amt{color:var(--ink) !important;
   font-family:var(--hs-figs)}
@@ -585,14 +581,9 @@ body.bcz .slab.gold .card, body.bcz .slab.carbon .card{
   background:var(--paper) !important; border:1px solid var(--line) !important}
 body.bcz .adv .fbar i{background:var(--gold) !important}
 body.bcz .adv .sell{background:rgba(255,217,118,.10) !important}
-/* the off-palette purple game layer joins the palette */
-body.bcz .lvchip{background:var(--pine) !important}
 body.bcz .xptrack i,
 body.bcz .mo i{background:var(--gold) !important}
 body.bcz .tbar i, body.bcz .gbar i{background:var(--pine) !important}
-body.bcz .simbtn{background:var(--pine) !important; box-shadow:none !important}
-body.bcz .simbtn.locked{background:#3F4A44 !important; box-shadow:none !important}
-body.bcz .bigcta{box-shadow:none !important; border:1.5px solid var(--pine) !important}
 
 /* dark grounds keep light headings - the global heading-ink rule must
    not reach inside a deep band */
@@ -721,7 +712,7 @@ body.bcz .dbtn{
   color:var(--ink) !important}
 body.bcz .dbtn:hover{background:var(--hs-wash) !important}
 body.bcz .dbtn.gold{
-  background:var(--gold) !important; border:1px solid #B98F1F !important;
+  background:var(--gold) !important; border:1px solid #C98B4B !important;
   color:#1B2420 !important}
 
 /* PART 3 - gate findings: hero bands that legacy grounded dark */

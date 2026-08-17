@@ -1,0 +1,20 @@
+
+.tcnum{width:26px;height:26px;border-radius:50%;background:#2C6350;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13.5px;
+  font-family:'IBM Plex Mono',ui-monospace,monospace}
+/* the per-tool hand-off */
+.tcnext{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
+  box-shadow:6px 6px 0 #1B2420;padding:17px 19px;margin:26px auto 4px;max-width:960px}
+.tcnext .tck{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:#2C6350;margin:0 0 6px}
+.tcnext h2{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
+  letter-spacing:-.03em;font-size:19px;line-height:1.18;color:#1B2420;margin:0 0 6px}
+.tcnext p{font-size:15px;line-height:1.6;color:#635D4E;margin:0 0 12px;max-width:62ch}
+.tcnext .tcgo{display:inline-block;background:#2C6350;color:#fff;font-weight:700;
+  font-size:15px;text-decoration:none;border:2px solid #1B2420;border-radius:10px;
+  padding:9px 15px;box-shadow:4px 4px 0 #1B2420}
+.tcnext .tcgo:hover{background:#2C6350}
+.tcnext .tcall{display:inline-block;margin-left:13px;font-size:13.5px;color:#2C6350}
+@media (max-width:640px){
+  .tcnum{width:22px;height:22px;font-size:12px}
+}

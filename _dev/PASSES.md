@@ -114,7 +114,6 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `one_grid.py` | floors | `/* _dev/one_grid.py */` | One grid. Every page's content starts where the logo starts. |
 | `rates_grid.py` | floors | `/* _dev/rates_grid.py */` · `body class ratespage` | rates.html joins the grid, and keeps its own voice. |
 | `sc_components.py` | floors | `/* _dev/sc_components.py */` | The 66 school pages ship two whole components with no CSS at all. |
-| `surface_fix.py` | floors | `/* _dev/surface_fix.py */` | Text coloured for one surface, sitting on the opposite one. Measured. |
 | `token_floor.py` | floors | `/* _dev/token_floor.py */` | Every text colour on the site, measured by photograph, raised to 4.5:1. |
 | `wide_measure.py` | floors | `/* _dev/wide_measure.py */` | Cap the line length on the blocks that run to 195 characters at 2560px. |
 | `seo_head.py` | seo | `<!-- _dev/seo_head.py -->` | Every published page gets a canonical and a lang, because four did not. |
@@ -125,6 +124,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
 | `build_redirect.py` | last | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. |
 | `dead_css.py` | last | &mdash; | A stylesheet no page links is retired, and cannot come back quietly. |
+| `dead_rules.py` | last | &mdash; | A quarter of the CSS styles nothing. It is removed. |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
 | `family_art.py` | last | &mdash; | Rollout step 5: page families go bc2, one family at a time. |
 | `family_for.py` | last | &mdash; | Rollout step 5 + P2: the /for/ stage doors go bc2 as their own family. |
@@ -133,10 +133,14 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
 | `flat_bands.py` | last | &mdash; | The decorative gradients become flat fills, and only those. |
 | `font_links.py` | last | &mdash; | A page that asks for a typeface must also load it. |
+| `mobile_last.py` | last | `/* _dev/mobile_last.py */` | The mobile rules, re-asserted after the passes that were dropping them. |
+| `one_display_face.py` | last | &mdash; | Two display faces become one, and 242 pages stop downloading the other. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
 | `palette_conform.py` | last | &mdash; | 113 near-misses collapse onto the twelve colours they were trying to be. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `radius_floor.py` | last | &mdash; | Twenty corner radii become two, and the pills become buttons. |
+| `semantic_palette.py` | last | &mdash; | One red, one amber, one green - instead of thirty-eight near-misses. |
+| `surface_fix.py` | last | `/* _dev/surface_fix.py */` | Text coloured for one surface, sitting on the opposite one. Measured. |
 | `type_scale.py` | last | &mdash; | Ninety-two font sizes become a scale of thirteen. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |

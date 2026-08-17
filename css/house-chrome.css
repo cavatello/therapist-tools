@@ -200,7 +200,7 @@
 .np-col b{color:#1B2420}
 .np-promo p{margin:7px 0 11px;font-size:12px;line-height:1.55;
   color:rgba(255,255,255,.72);text-align:center;max-width:none}
-.navpanel .np-promo b{letter-spacing:-.02em;font-family:'Bricolage Grotesque',
+.navpanel .np-promo b{letter-spacing:-.02em;font-family:'Fraunces',
   Fraunces,serif;font-weight:800;font-size:16.5px}
 .np-promo .np-all{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62;
@@ -216,7 +216,7 @@
 @media (min-width:1000px){.ftcols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px}}
 h1,h2,h3,[class] h1,[class] h2,[class] h3,
 .sitenav-wordmark,.np-col b,.ftcols h5{
-  font-family:'Bricolage Grotesque','Archivo',Inter,system-ui,sans-serif;
+  font-family:'Fraunces',Inter,system-ui,sans-serif;
   letter-spacing:-.032em}
 .sitenav-wordmark{font-weight:800;letter-spacing:-.03em;font-size:16.5px}
 .np-col b{letter-spacing:-.02em}
@@ -382,15 +382,15 @@ body.house .lcta:hover, body.house .tcgo:hover, body.house .ctarow .btn:hover,
 body.house .nlrow button:hover{background:#123C30}
 body.house .np-promo{background:var(--deep) !important; color:#C6DBD1 !important}
 body.house .np-promo b, body.house .np-promo h4{color:#FFFFFF !important}
-body.house .np-promo span{color:#B9CFC2 !important}
+body.house .np-promo span{color:#84AC99 !important}
 body.house .ftnl{background:var(--deep) !important; border-top:0}
 body.house .ftnl h2{color:#FFFFFF !important}
 body.house .ftnl h2 em{color:var(--gold) !important; font-style:normal}
-body.house .ftnl p{color:#B9CFC2 !important}
+body.house .ftnl p{color:#84AC99 !important}
 body.house .ftnl .nlmeta{color:#84AC99 !important}
-body.house .ftnl .consent span{color:#B9CFC2 !important}
+body.house .ftnl .consent span{color:#84AC99 !important}
 body.house .ftnl label, body.house .ftnl span, body.house .ftnl small,
-body.house .ftnl div, body.house .ftnl li{color:#B9CFC2 !important}
+body.house .ftnl div, body.house .ftnl li{color:#84AC99 !important}
 body.house .ftnl input, body.house .ftnl button, body.house .ftnl h2{
   color:inherit}
 body.house .ftnl input[type="email"]{color:var(--ink) !important}
@@ -409,7 +409,7 @@ body.house .sitefoot h5{
 }
 body.house .sitefoot a{color:#F6F8F6 !important}
 body.house .sitefoot a:hover{color:var(--gold) !important}
-body.house .sitefoot .ftby, body.house .sitefoot p{color:#9DB8AA !important}
+body.house .sitefoot .ftby, body.house .sitefoot p{color:#84AC99 !important}
 body.house .sitefoot .ftby a{color:#C6DBD1 !important; text-decoration:underline}
 body.house .sitefoot .ftcols>div>p{color:#84AC99 !important}
 body.house .adv .fbar i{background:var(--gold) !important}
@@ -534,6 +534,36 @@ body.house.house .sitenav-top{
   overflow:visible; text-overflow:clip;
 }
 /* /nav_skin_fix */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

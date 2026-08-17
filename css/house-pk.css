@@ -117,8 +117,8 @@ body.bcp .pk-t td.pk-m{font-family:var(--mn);font-size:12px;
   white-space:nowrap}
 body.bcp .pk-t td.pk-n{font-family:var(--mn);font-size:13.5px;
   white-space:nowrap;text-align:right}
-body.bcp .pk-t tr.bad td{background:#FBEDEA}
-body.bcp .pk-t tr.bad td.pk-f{color:#A8422F}
+body.bcp .pk-t tr.bad td{background:#FBEFEC}
+body.bcp .pk-t tr.bad td.pk-f{color:#9C3F37}
 body.bcp .pk-t tr.good td{background:var(--wash)}
 body.bcp .pk-t tr.hi td{background:var(--sink)}
 body.bcp .pk-t tr.mid td{background:var(--sink);color:var(--dim)}
@@ -214,8 +214,6 @@ body.bcp .pk-src b{color:var(--ink)}
    outranks it (body.bcp .lg) and takes the box back. */
 body.bcp .lg{display:block;background:var(--card);border:1px solid var(--hair);
   border-radius:10px;padding:18px 18px 20px;margin:0 0 20px}
-body.bcp .lg-priv{font-family:var(--mn);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--pine);margin:0 0 10px}
 body.bcp .lg-in{display:grid;gap:12px;margin-bottom:18px}
 @media(min-width:660px){body.bcp .lg-in{grid-template-columns:repeat(4,1fr)}}
 body.bcp .lg-in label{display:block;font-family:var(--mn);font-size:10.5px;

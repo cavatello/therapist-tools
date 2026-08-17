@@ -7,7 +7,7 @@
   letter-spacing:.12em;text-transform:uppercase;color:#635D4E;margin:0 0 6px}
 .uplink h2{font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.25;
   font-weight:600;color:#1B2420;margin:0 0 5px}
-.uplink .ud{font-size:13.5px;line-height:1.62;color:#4A5A46;margin:0 0 15px;max-width:64ch}
+.uplink .ud{font-size:13.5px;line-height:1.62;color:#5F6A64;margin:0 0 15px;max-width:64ch}
 .uplink .ug{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:10px}
 .uplink a.uc{display:block;background:#fff;border:1px solid #E7DFCC;border-radius:10px;
   padding:13px 15px;text-decoration:none;min-width:0}

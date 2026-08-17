@@ -417,7 +417,6 @@ FLOORS = [
     # in the band, and the reverse. 31 signatures over 16 pages, worst
     # 1.05:1. Per-context, so it cannot fold into contrast_pass's flat
     # single-colour list. Verify with _dev/_paths.mjs after any change.
-    ("_dev/surface_fix.py", "text on the wrong surface"),
     # The masthead still carried a dark header's pill and a three-column
     # grid from when the nav had three items. It has seven, and the
     # masthead is white. Verify with _dev/_navcheck.mjs.
@@ -531,6 +530,19 @@ LAST = [
     # and conforms to it. clamp() and vw sizes are left fluid.
     ("_dev/type_scale.py",
      "92 font sizes onto a scale of thirteen"),
+    # The families palette_conform deliberately stopped at. Eighteen reds,
+    # seven ambers and fourteen greens collapse to one each, split by
+    # whether the declaration paints letters - #B5483F clears the floor on
+    # paper by 0.46, so text takes the darker #9C3F37 and only fills take
+    # the accent.
+    ("_dev/semantic_palette.py",
+     "one red, one amber, one green instead of thirty-eight near-misses"),
+    # Two display faces doing one job. Fraunces wins on count (190 pages to
+    # 48) and on identity; the retired family also comes out of the Google
+    # Fonts URL on all 242 pages, which is a webfont request saved on every
+    # one. Reversing it is one line in the pass.
+    ("_dev/one_display_face.py",
+     "one display face, and 242 pages stop downloading the other"),
     ("_dev/discovery.py",
      "sitemap.xml and structured data, derived from the pages that exist NOW. "
      "Nothing may add or rename a page after this"),
@@ -589,8 +601,36 @@ LAST = [
     # residue, and residue in css/ is how css/house-skin.css survived a
     # rollout that had already replaced it. The skin itself is exempt and
     # the pass says why - house_swap.py hashes it on every run.
+    # MOVED here from FLOORS, and the move is the fix. surface_fix writes an
+    # inline <style> block; extract_css hoists it; and then family_art,
+    # family_pk, family_sc and family_for rewrite their pages' stylesheet
+    # list to a fixed set that does not include the hoisted sheet. Measured
+    # in a browser: the masthead CTA label was still #1B2420 on #2C6350 -
+    # 2.28:1 - on 142 pages after the fix had been written and its own
+    # guard had passed. Only body.bcz and the tool family, which port the
+    # skin rather than replace it, were keeping the rules.
+    #
+    # Running after the families means the block is injected into the page
+    # AFTER the list has been rewritten, so there is no sheet to drop.
+    ("_dev/surface_fix.py", "text on the wrong surface"),
     ("_dev/dead_css.py",
      "stylesheets no page links, retired to _to_delete/"),
+    # The fine-grained version of the same question: which RULES inside a
+    # sheet a page does load can never match anything. 173 of them, whole
+    # retired components - an old landing page, a retired directory, the
+    # pre-house nav. After the family passes, because those generate the
+    # family sheets. Everything removed is kept in _to_delete/pruned-*.css.
+    ("_dev/dead_rules.py",
+     "CSS rules whose classes appear nowhere on the site"),
+    # Dead last, and that position is the whole point. mobile_floor.py's
+    # hit-area rules were hoisted by extract_css into a stylesheet that the
+    # five family passes then stopped 240 of 242 pages loading, so the
+    # newsletter consent checkbox shipped at 22x22 and every form control
+    # at the browser's default 13.3px - under the 16px at which iOS Safari
+    # zooms on focus and does not zoom back. Re-asserted inline, after
+    # everything that could drop it.
+    ("_dev/mobile_last.py",
+     "24px hit areas and a 16.5px control size, after the family passes"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.

@@ -19,12 +19,9 @@
 .hubnl.hubnl.hubnl a{color:#1B2420}
 /* 10px bold needs more than a mid grey-green carries on white. This is the
    colour the paragraph directly beneath it already uses. */
-.none.none b{color:#4A5A46}
+.none.none b{color:#5F6A64}
 /* Same bug, home page. `.lp a{color:inherit}` is (0,1,1) and the button's own
    `.lcta{color:#fff}` is (0,1,0), so a pine CTA inherited the page's near-black
    ink and read 2.37:1. The three gold variants are re-asserted above the fix so
    raising the base does not turn THEIR text white on gold. */
 .lp a.lcta{color:#fff}
-.lp a.lcta.lgold,
-.lp .lmid a.lcta,
-.lp .lnews a.lcta{color:#1B2420}

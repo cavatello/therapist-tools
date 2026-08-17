@@ -25,5 +25,4 @@
    rates.html. Cancel it rather than trusting every template to be clean. */
 .hero-eyebrow + .bcr,.kicker + .bcr,.eyebrow + .bcr,
 p[class*=eyebrow] + .bcr,div[class*=eyebrow] + .bcr{margin-top:0}
-@media (max-width:520px){.bcr{font-size:9.5px;letter-spacing:.08em}}
-.bcrq{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin:10px 0 0}/* end bcr */
+@media (max-width:520px){.bcr{font-size:9.5px;letter-spacing:.08em}}/* end bcr */

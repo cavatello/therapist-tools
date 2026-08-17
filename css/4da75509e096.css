@@ -66,16 +66,6 @@
 /* the panel now hangs off a light bar, so it needs its own separation */
 .navpanel{top:calc(100% + 3px)}
 
-/* The page qualifier that _dev/breadcrumbs.py re-homes into the masthead
-   ("For practicum students and new associates · California") was written for
-   the dark bar: rgba(255,255,255,.74) on rgba(255,255,255,.07). On paper it is
-   invisible - it rendered as a ghost row under the wordmark, present in the DOM
-   and unreadable on screen. Every colour a dark-theme rule set has to be
-   restated when the surface flips. */
-.bcrq{color:#635D4E;background:#F6F8F6;border:2px solid #1B2420;
-  border-radius:999px;padding:4px 12px 3px;font-weight:600;
-  grid-column:1/-1;justify-self:start;margin:2px 0 0}
-
 /* Seven labels need ~670px and the three-column grid was giving the middle
    column 552px on any page carrying that qualifier, so the row wrapped and the
    masthead grew to two lines. The tagline is decorative and white-space:nowrap,
@@ -161,7 +151,7 @@
 .np-col b{color:#1B2420}
 .np-promo p{margin:7px 0 11px;font-size:12px;line-height:1.55;
   color:rgba(255,255,255,.72);text-align:center;max-width:none}
-.navpanel .np-promo b{letter-spacing:-.02em;font-family:'Bricolage Grotesque',
+.navpanel .np-promo b{letter-spacing:-.02em;font-family:'Fraunces',
   Fraunces,serif;font-weight:800;font-size:16.5px}
 .np-promo .np-all{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62;
@@ -246,7 +236,7 @@
    (0,2,1) or higher keeps its own face on purpose. */
 h1,h2,h3,[class] h1,[class] h2,[class] h3,
 .sitenav-wordmark,.np-col b,.ftcols h5{
-  font-family:'Bricolage Grotesque','Archivo',Inter,system-ui,sans-serif;
+  font-family:'Fraunces',Inter,system-ui,sans-serif;
   letter-spacing:-.032em}
 h1,h2,[class] h1,[class] h2{font-weight:800}
 h3,[class] h3{font-weight:700}

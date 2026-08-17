@@ -194,7 +194,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
- text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
+ text-transform:uppercase;color:#8A6516;background:#FBEFD5;border:1px solid #E8D5A8;
  border-radius:10px;padding:2px 8px;margin-left:4px;vertical-align:1px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
@@ -251,7 +251,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .nlok b{display:block;font-family:Fraunces,serif;font-size:16.5px;color:#fff;margin-bottom:5px}
 .nlok p{font-size:12px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
 .nlok p + p{margin-top:7px;font-size:12px;color:rgba(255,255,255,.5)}
-.nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
+.nlerr{font-size:12px;line-height:1.6;color:#9C3F37;margin:10px 0 0}
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 /* Light-background variant, for the end-of-article ask on a cream section. */
 .sec .nlok{background:rgba(63,149,119,.08);border-color:rgba(63,149,119,.3)}
@@ -340,7 +340,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:5px 12px;
  border:1px solid}
 .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
-.pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
+.pill.wip{color:#8A6516;background:#FBEFD5;border-color:#E8D5A8}
 .pill.idea{color:#635D4E;background:#F6F8F6;border-color:#DFD8C7}
 .tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;
  padding:18px 19px;display:flex;flex-direction:column}
@@ -433,8 +433,8 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 </style>
 <style>
 .cl{--paper:#F6F8F6;--white:#fff;--ink:#1B2420;--muted:#5F6A64;--line:#DFE4E0;
-  --field:#F6F8F6;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#B08430;--pop:#F6C560;
-  --pos:#3F9577;--neg:#B5483F;--indigo:#4B3B93;
+  --field:#F6F8F6;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#C98B4B;--pop:#F6C560;
+  --pos:#2C6350;--neg:#B5483F;--indigo:#4B3B93;
   background:var(--white);color:var(--ink);font-family:Inter,system-ui,sans-serif;
   -webkit-font-smoothing:antialiased}
 .cl *,.cl *::before,.cl *::after{box-sizing:border-box}
@@ -559,9 +559,9 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 
 .clverdict{border-radius:10px;padding:16px 18px;margin:16px 0 0;font-size:15px;
   line-height:1.6}
-.clverdict.ok{background:#F6F8F6;border-left:4px solid var(--pos);color:#245046}
-.clverdict.tight{background:#F6F8F6;border-left:4px solid var(--gold);color:#6B5321}
-.clverdict.short{background:#FBF1F0;border-left:4px solid var(--neg);color:#7A3A34}
+.clverdict.ok{background:#F6F8F6;border-left:4px solid var(--pos);color:#2C6350}
+.clverdict.tight{background:#F6F8F6;border-left:4px solid var(--gold);color:#8A6516}
+.clverdict.short{background:#FBEFEC;border-left:4px solid var(--neg);color:#9C3F37}
 .clverdict b{font-weight:700}
 
 .clbar{height:30px;border-radius:10px;overflow:hidden;display:flex;margin:14px 0 8px;
@@ -593,9 +593,9 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 a.clcta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;
   border-radius:6px;background:var(--pine);color:#fff;font-weight:700;font-size:15px;
   text-decoration:none}
-a.clcta:hover{background:#1F4C3C;color:#fff}
+a.clcta:hover{background:#2C6350;color:#fff}
 .cleg{grid-column:1/-1;margin:12px 0 0;font-size:12px;line-height:1.55;
-  color:#9DBFB1}
+  color:#84AC99}
 .cleg b{color:#C6DBD1;font-weight:600}
 .cleg[hidden]{display:none !important}
 .cl :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
@@ -874,12 +874,12 @@ function render(){
 
   var g = Math.max(net, be);
   bar.innerHTML =
-      '<i style="width:' + (cost / g * 100) + '%;background:#8E4B45"></i>'
-    + '<i style="width:' + (loanPay / g * 100) + '%;background:#B08430"></i>'
-    + '<i style="width:' + (Math.max(0, left) / g * 100) + '%;background:#3F9577"></i>';
-  key.innerHTML = '<s><u style="background:#8E4B45"></u>Living ' + money(cost) + '</s>'
-    + '<s><u style="background:#B08430"></u>Loan ' + money(loanPay) + '</s>'
-    + '<s><u style="background:#3F9577"></u>' + (left < 0 ? "Short " : "Left ")
+      '<i style="width:' + (cost / g * 100) + '%;background:#B5483F"></i>'
+    + '<i style="width:' + (loanPay / g * 100) + '%;background:#C98B4B"></i>'
+    + '<i style="width:' + (Math.max(0, left) / g * 100) + '%;background:#2C6350"></i>';
+  key.innerHTML = '<s><u style="background:#B5483F"></u>Living ' + money(cost) + '</s>'
+    + '<s><u style="background:#C98B4B"></u>Loan ' + money(loanPay) + '</s>'
+    + '<s><u style="background:#2C6350"></u>' + (left < 0 ? "Short " : "Left ")
     + money(Math.abs(left)) + '</s>';
 
   var months = num(S.target) || 3;

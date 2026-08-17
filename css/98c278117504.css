@@ -1,34 +1,4 @@
-/* resources.html */
-/* ---- the question index (direction C), the first section on the page.
-   Nobody arrives at this site browsing; they arrive with a question. So the
-   index is what a therapist types, and a calculator is a legitimate answer to
-   one - which is why a tool row is washed gold and says so. */
-.qx{border-top:1px solid var(--line)}
-.qx a{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
- padding:15px 2px;text-decoration:none;border-bottom:1px solid var(--line)}
-.qx a:hover h3{color:var(--pine)}
-.qx h3{font-size:16.5px;line-height:1.32;font-weight:600;margin:0;letter-spacing:0}
-.qx .tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
- letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
-.qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
-.qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
- text-transform:uppercase;color:#635D4E}
-.qx .ar{font-size:19px;color:var(--pine)}
-.qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
- margin:0 -11px;padding-left:13px;padding-right:13px}
-.qxnote{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--pine);
- border-radius:0 10px 10px 0;padding:15px 17px;margin:22px 0 0;font-size:13.5px;
- line-height:1.65;color:var(--muted)}
-/* ---- career-stage rails (direction A). Three per rail, never more: the cap is
-   the point, not a limitation. */
-.rail{margin-top:34px}
-.railh{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
- flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:15px}
-.railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
- font-weight:600;letter-spacing:-.018em}
-.railh span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;
- text-transform:uppercase;color:#635D4E}
-.railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+
 .rc{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px 17px;
  text-decoration:none;display:flex;flex-direction:column;gap:7px}
 .rc:hover{border-color:var(--pine)}
@@ -62,6 +32,5 @@
 @media (min-width:1800px){
   .pw{max-width:1460px}
   .reflist{grid-template-columns:repeat(3,1fr)}
-  .qx h3{max-width:78ch}
   .sub{max-width:88ch}
 }

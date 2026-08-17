@@ -216,6 +216,23 @@ for _olds, _new in [
     (("#7FB79B", "#8FAF9F", "#8FB3A3"), "#84AC99"),
     # -> #FFFFFF  --card.
     (("#FCFEFC", "#FFFDF6"), "#FFFFFF"),
+    # Three found LATER, by auditing the infographics rather than the
+    # palette - which is the lesson: 906 infographic elements were measured
+    # across three viewports and three colours came back off-palette that
+    # no page-level census had surfaced, because they live inside charts.
+    # All three are past the 32-unit gate this pass normally applies, so
+    # they are listed by hand with their role:
+    #   #3B4A38  40 `color:` declarations, a dark green-grey chart label.
+    #            -> --ink, which is DARKER, so the label can only get more
+    #            legible.
+    #   #4A5A46  85 `color:` and 10 `--mut:` - the muted chart label, and
+    #            one of token_floor.py's own targets. -> --dim, the token
+    #            that means exactly this. 6.43:1 becomes 5.2:1, which is
+    #            the documented value of --dim and clears the floor.
+    #   #DFD7C4  the warm tan chart track. -> --line, the hairline token.
+    (("#3B4A38",), "#1B2420"),
+    (("#4A5A46",), "#5F6A64"),
+    (("#DFD7C4",), "#DFE4E0"),
 ]:
     for _o in _olds:
         MAP[_o] = _new

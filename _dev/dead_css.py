@@ -119,10 +119,46 @@ def main():
     print("%d stylesheet(s) on disk, %d linked, %d retired"
           % (len(disk), len(live), moved))
 
+    # ----------------------------------------- the donor's stale <link>s
+    # `_dev/chrome_donor.html` is a template eight builders copy their
+    # <head> from, and nothing refreshes it. `css_dedupe.py` supersedes a
+    # sheet, `extract_css.py` re-hoists another, and the donor keeps naming
+    # files that are gone - which is not cosmetic: a builder stamps those
+    # names onto real pages, and `token_floor.py` failed a build with 1,008
+    # dangling stylesheet links exactly this way. The CSS chain reconciles
+    # the built pages afterwards, but the donor should not be handing out
+    # names to sheets that no longer exist. They are dropped here, where
+    # every rename in the pipeline has already happened.
+    disk = {f for f in os.listdir(CSSDIR) if f.endswith(".css")}
+    for t in TEMPLATES:
+        fp = os.path.join(SITE, t)
+        if not os.path.exists(fp):
+            continue
+        txt = open(fp, encoding="utf-8").read()
+        drop = [fn for fn in set(LINKED.findall(txt)) if fn not in disk]
+        if not drop:
+            continue
+        out = txt
+        for fn in drop:
+            out = re.sub(
+                r'[ \t]*<link rel="stylesheet" href="(?:\.\./)*css/'
+                + re.escape(fn) + r'(?:\?v=[0-9a-f]+)?">\n?', "", out)
+        open(fp, "w", encoding="utf-8").write(out)
+        print("  %s: dropped %d <link>(s) to sheets that are gone"
+              % (t, len(drop)))
+
     # ------------------------------------------------------------- guards
     bad = 0
     disk = {f for f in os.listdir(CSSDIR) if f.endswith(".css")}
+    # The link-exists half of the guard is for pages a reader can reach and
+    # for the donor eight builders stamp out. `mock/library/out/` is
+    # regenerated scratch whose generator stores sheet names, so it goes
+    # stale every time a content-addressed sheet is renamed - and failing a
+    # release over a name in a directory nothing links to helps nobody. The
+    # other half - is a sheet on disk unlinked - still counts every file.
     for rel, html in pages.items():
+        if rel.startswith("mock/") or rel.startswith("ops/"):
+            continue
         for fn in sorted(set(LINKED.findall(html))):
             if fn not in disk:
                 print("GUARD %s: links css/%s, which is not on disk"

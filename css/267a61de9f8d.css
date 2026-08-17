@@ -13,6 +13,8 @@ body.house.bc2 .slab>.howb li,body.house.bc2 .slab>.howb p{color:#C6DBD1 !import
 body.house.bc2 .slab .ig-cap{color:#C6DBD1 !important}
 /* the mono kicker on the affiliate band, was the light-surface grey - 8.43:1 on #123C30 */
 body.house .afband .sub,body.house .afband p.sub{color:#C6DBD1 !important}
+/* the label inside the masthead CTA, painted by a child rule the button's own !important could not reach - 6.98:1 on #2C6350 */
+body.house .sitenav.sitenav.sitenav .sitenav-cta *{color:#FFFFFF !important}
 /* gold call-to-action buttons - 8.11:1 on #F6C560 */
 body.house .acta:not([style*='color']),body.house .acta:not([style*='color']) strong,body.house .acta:not([style*='color']) span,body.house .gcta:not([style*='color']),body.house .gcta:not([style*='color']) strong,body.house .gcta:not([style*='color']) span,body.house .tcta:not([style*='color']),body.house .tcta:not([style*='color']) strong,body.house .tcta:not([style*='color']) span,body.house .clgo:not([style*='color']),body.house .rwcta:not([style*='color']),body.house .pr-cta:not([style*='color']),body.house .pr-cta:not([style*='color']) strong,body.house .pr-cta:not([style*='color']) span{color:#14372C !important}
 /* breadcrumbs on the dark band - 8.43:1 on #123C30 */

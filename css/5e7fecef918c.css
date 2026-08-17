@@ -57,7 +57,7 @@
    1/2 - the 38px column - which renders one character per line and made a
    seven-step list 4,170px tall. Both children are pinned to column 2. */
 .ig-steps li > b,.ig-steps li > span{grid-column:2}
-.ig-steps b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+.ig-steps b{display:block;font-family:'Fraunces',system-ui,sans-serif;
   font-weight:800;letter-spacing:-.02em;font-size:15px;color:#1B2420;
   margin:6px 0 3px}
 .ig-steps span{display:block;font-size:13.5px;line-height:1.6;color:#635D4E;max-width:64ch}
@@ -82,7 +82,7 @@
 .ig-flow .node{flex:1 1 150px;border:2px solid #1B2420;border-radius:10px;
   background:#F6F8F6;padding:13px 14px;box-shadow:4px 4px 0 #1B2420;min-width:0}
 .ig-flow .node.pay{background:#F6C560}
-.ig-flow .node b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+.ig-flow .node b{display:block;font-family:'Fraunces',system-ui,sans-serif;
   font-weight:800;font-size:15px;color:#1B2420;letter-spacing:-.02em}
 .ig-flow .node span{display:block;font-size:12px;line-height:1.55;color:#635D4E;
   margin-top:4px}
@@ -92,17 +92,6 @@
   font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:#2C6350;
   text-align:center;line-height:1.2}
 .ig-flow .arr i{font-style:normal;font-size:19px;color:#1B2420;line-height:1}
-
-/* ----------------------------------------------------------------- stat */
-.ig-stat .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:0;border:2px solid #1B2420;border-radius:10px;overflow:hidden;
-  box-shadow:5px 5px 0 #1B2420;background:#1B2420}
-.ig-stat .c{background:#F6F8F6;padding:14px 15px}
-.ig-stat.ig-stat .c .n{display:block;font-family:Fraunces,Georgia,serif;
-  font-weight:600;font-size:28px;line-height:1;color:#1B2420;letter-spacing:-.02em}
-.ig-stat .l{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#2C6350;
-  margin-top:7px;line-height:1.5}
 
 @media (max-width:640px){
   .ig{padding:15px 16px}

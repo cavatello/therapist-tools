@@ -76,12 +76,11 @@ body.bct .sec.alt .card{background:var(--paper)}
 body.bct .sec.alt .ref{background:var(--paper)}
 body.bct .sec.alt .fact{background:var(--cream)}
 body.bct .btn.ghost:hover{background:#F6F8F6}
-body.bct .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
+body.bct .nlerr{font-size:12px;line-height:1.6;color:#9C3F37;margin:10px 0 0}
 body.bct .sec.alt .issue{background:var(--cream)}
 body.bct .sec.alt .tool{background:var(--paper)}
 body.bct .sec.alt .feat{background:var(--paper)}
 body.bct .sec.alt .cform{background:var(--paper)}
-body.bct .sec.alt .cfhelp{background:var(--cream)}
 @media (max-width:1000px){
 body.bct .band .pw{grid-template-columns:1fr}
 }
@@ -174,7 +173,7 @@ body.bct main.home .band .lede{color:var(--hs-dim) !important}
 body.bct main.home .band .fine{color:var(--hs-dim) !important}
 body.bct main.home .slab{background:var(--deep) !important; color:#F6F8F6 !important}
 body.bct main.home .slab h2{color:#FFFFFF !important}
-body.bct main.home .slab p{color:#B9CFC2 !important}
+body.bct main.home .slab p{color:#84AC99 !important}
 body.bct main.home .slab .eb{color:#84AC99 !important}
 body.bct main.home .wf .amt{color:var(--ink) !important;
   font-family:var(--hs-figs)}
@@ -261,7 +260,7 @@ body.bct .drawer .tog span{color:#49544D !important}
 body.bct .dbtn{background:#FFFFFF !important; border:1px solid var(--line) !important;
   color:var(--ink) !important}
 body.bct .dbtn:hover{background:var(--hs-wash) !important}
-body.bct .dbtn.gold{background:var(--gold) !important; border:1px solid #B98F1F !important;
+body.bct .dbtn.gold{background:var(--gold) !important; border:1px solid #C98B4B !important;
   color:#1B2420 !important}
 
 /* PART 3 - fixes found by the interactive gate (win by file order) ---- */

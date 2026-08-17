@@ -11,14 +11,14 @@
 .srpanel{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:6px 6px 0 #1B2420;padding:16px 18px 15px}
 .srpanel+.srpanel{margin-top:14px}
-.srph{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.srph{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.028em;font-size:19px;color:#1B2420;margin:0 0 4px;line-height:1.2}
 .srps{font-size:13.5px;line-height:1.58;color:#635D4E;margin:0 0 14px;max-width:62ch}
 .srg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:11px}
 .src{display:block;background:#fff;border:2px solid #1B2420;border-radius:10px;
   padding:12px 13px 11px;text-decoration:none;box-shadow:4px 4px 0 #1B2420}
 .src:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #1B2420}
-.src b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+.src b{display:block;font-family:'Fraunces',system-ui,sans-serif;
   font-weight:800;letter-spacing:-.02em;font-size:15px;line-height:1.24;color:#1B2420}
 .src .srn{display:block;font-family:'Fraunces',Georgia,serif;font-size:15px;
   color:#2C6350;margin-top:6px;line-height:1.3}

@@ -194,7 +194,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
- text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
+ text-transform:uppercase;color:#8A6516;background:#FBEFD5;border:1px solid #E8D5A8;
  border-radius:10px;padding:2px 8px;margin-left:4px;vertical-align:1px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
@@ -251,7 +251,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .nlok b{display:block;font-family:Fraunces,serif;font-size:16.5px;color:#fff;margin-bottom:5px}
 .nlok p{font-size:12px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
 .nlok p + p{margin-top:7px;font-size:12px;color:rgba(255,255,255,.5)}
-.nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
+.nlerr{font-size:12px;line-height:1.6;color:#9C3F37;margin:10px 0 0}
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 /* Light-background variant, for the end-of-article ask on a cream section. */
 .sec .nlok{background:rgba(63,149,119,.08);border-color:rgba(63,149,119,.3)}
@@ -340,7 +340,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:5px 12px;
  border:1px solid}
 .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
-.pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
+.pill.wip{color:#8A6516;background:#FBEFD5;border-color:#E8D5A8}
 .pill.idea{color:#635D4E;background:#F6F8F6;border-color:#DFD8C7}
 .tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;
  padding:18px 19px;display:flex;flex-direction:column}
@@ -433,8 +433,8 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 </style>
 <style>
 .rw{--paper:#F6F8F6;--white:#fff;--ink:#1B2420;--muted:#5F6A64;--line:#DFE4E0;
-  --field:#F6F8F6;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#B08430;--pop:#F6C560;
-  --pos:#3F9577;--neg:#B5483F;--indigo:#4B3B93;
+  --field:#F6F8F6;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#C98B4B;--pop:#F6C560;
+  --pos:#2C6350;--neg:#B5483F;--indigo:#4B3B93;
   background:var(--white);color:var(--ink);font-family:Inter,system-ui,sans-serif;
   -webkit-font-smoothing:antialiased}
 .rw *,.rw *::before,.rw *::after{box-sizing:border-box}
@@ -456,9 +456,9 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
    the proof figures beside the copy instead of below it. */
 .rwband{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);
   gap:clamp(22px,3.4vw,52px);align-items:center}
-.rwhero{background:linear-gradient(160deg,#2C6350 0%,#1F4C3C 70%,#1A4234 100%);
+.rwhero{background:linear-gradient(160deg,#2C6350 0%,#2C6350 70%,#1A4234 100%);
   color:#F6F8F6;padding:clamp(20px,2.4vw,30px) 0 clamp(20px,2.4vw,30px)}
-.rwhero .rweyebrow{color:#9FC4B4}
+.rwhero .rweyebrow{color:#84AC99}
 .rwhero h1{font-size:clamp(24px,2.6vw,34px);color:#FFFFFF;max-width:22ch;
   margin-bottom:.28em}
 .rwhero h1 em{font-style:normal;color:var(--pop)}
@@ -474,13 +474,13 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
    and it RESTATED the headline — "The Board says yes", then a quote whose whole
    point is that the Board says yes. It is a citation, so it now looks like one. */
 .rwsrc{border-left:3px solid var(--pop);padding:2px 0 2px 12px;margin:12px 0 0;
-  max-width:60ch;font-size:12px;line-height:1.55;color:#9FC4B4}
+  max-width:60ch;font-size:12px;line-height:1.55;color:#84AC99}
 .rwsrc b{font-weight:400;font-style:italic;color:#C6DBD1}
 .rwquote{border-left:4px solid var(--pop);padding:4px 0 4px 18px;margin:0 0 26px;
   max-width:56ch}
 .rwquote b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(17px,1.6vw,21px);
   font-weight:400;font-style:italic;line-height:1.35;color:#FFFFFF;margin-bottom:8px}
-.rwquote span{display:block;font-size:13.5px;color:#9FC4B4}
+.rwquote span{display:block;font-size:13.5px;color:#84AC99}
 .rwcta{display:inline-flex;align-items:center;min-height:50px;padding:0 24px;
   border-radius:6px;background:var(--pop);color:#123C30;font-weight:700;font-size:16.5px;
   text-decoration:none}
@@ -500,7 +500,7 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
   line-height:1;color:var(--pop);white-space:nowrap;order:2}
 .rwbig > div > em{font-style:normal;font-size:12px;color:#C6DBD1;line-height:1.4;
   max-width:24ch;order:1}
-.rweg{grid-column:1/-1;margin:11px 0 0;font-size:12px;line-height:1.5;color:#9FC4B4}
+.rweg{grid-column:1/-1;margin:11px 0 0;font-size:12px;line-height:1.5;color:#84AC99}
 .rweg b{color:#C6DBD1;font-weight:600}
 
 @media (max-width:900px){
@@ -576,13 +576,13 @@ p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72
 .rwcard{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--pine);
   border-radius:10px;padding:clamp(20px,2.4vw,28px);margin:0 0 18px}
 .rwcard[data-a="gold"]{border-top-color:var(--gold)}
-.rwcard[data-a="brick"]{border-top-color:#8E4B45}
+.rwcard[data-a="brick"]{border-top-color:#B5483F}
 .rwcard h3{font-size:clamp(19px,1.9vw,24px)}
 .rwcard p{font-size:15px;line-height:1.65;color:#3A362E}
 .rwcard p:last-child{margin-bottom:0}
 .rwpull{background:#F6F8F6;border-left:4px solid var(--pos);border-radius:0 10px 10px 0;
   padding:14px 16px;margin:0 0 1em;font-size:15px;line-height:1.6}
-.rwwarn{background:#FBF1F0;border-left:4px solid var(--neg);border-radius:0 10px 10px 0;
+.rwwarn{background:#FBEFEC;border-left:4px solid var(--neg);border-radius:0 10px 10px 0;
   padding:14px 16px;margin:0 0 1em;font-size:15px;line-height:1.6}
 .rwfine{font-size:13.5px;line-height:1.6;color:var(--muted)}
 .rwcites{border-top:1px solid var(--line);padding-top:22px;margin-top:32px}

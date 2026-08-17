@@ -1,0 +1,15 @@
+/* _dev/mobile_last.py */
+/* Form controls had no authored font-size, so they took the browser default
+   of 13.3333px. Under 16px, iOS Safari zooms on focus and never zooms back.
+   16.5px is the house body step. */
+input,select,textarea,button{font-size:16.5px}
+@media (max-width:900px){
+  /* WCAG 2.5.8: 24x24 minimum. mobile_floor.py sets this too, and its rule
+     is hoisted into a stylesheet that the family passes stop the page
+     loading - see this pass's docstring. Class-doubled so it outranks the
+     explicit `width:22px` in house-chrome.css's (pointer:coarse) block. */
+  input[type="checkbox"],input[type="radio"],
+  .consent input,.consent input[type="checkbox"]{
+    min-width:24px;min-height:24px;width:24px;height:24px}
+  select,button[type="submit"]{min-height:24px}
+}

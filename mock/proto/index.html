@@ -16,8 +16,8 @@
    ========================================================================== */
 :root{
   --paper:#F6F8F6; --ink:#1B2420; --muted:#7C766A; --line:#DFE4E0;
-  --pine:#2C6350; --brick:#8E4B45; --gold:#B08430; --carbon:#1B2420; --indigo:#241A44;
-  --pop:#F6C560; --neg:#B5483F; --pos:#3F9577;
+  --pine:#2C6350; --brick:#B5483F; --gold:#C98B4B; --carbon:#1B2420; --indigo:#241A44;
+  --pop:#F6C560; --neg:#B5483F; --pos:#2C6350;
   --field:#F6F8F6; --fieldline:#E4D9BE;
 }
 *{box-sizing:border-box}
@@ -28,7 +28,7 @@ body{margin:0;background:var(--paper);color:var(--ink);
 button{font:inherit}
 
 /* ---------- prototype banner ---------- */
-.proto{background:#FBEFD5;border-bottom:1px solid #E8D5A8;color:#6B5220;font-size:12px;
+.proto{background:#FBEFD5;border-bottom:1px solid #E8D5A8;color:#8A6516;font-size:12px;
   line-height:1.55;padding:9px 20px;text-align:center}
 .proto b{color:#3D2F10}
 
@@ -126,8 +126,8 @@ button{font:inherit}
 .slab{max-width:1060px;margin:14px auto 0;border-radius:10px;padding:26px 28px 28px;
   box-shadow:0 16px 34px rgba(40,50,40,.1);scroll-margin-top:64px}
 .slab.pine{background:#123C30;color:#F6F8F6}
-.slab.brick{background:linear-gradient(135deg,#7E3630 0%,#8E4B45 55%,#A25A52 100%);color:#F7EDEB}
-.slab.gold{background:linear-gradient(135deg,#8A6320 0%,#B08430 55%,#C99C46 100%);color:#2A1F08}
+.slab.brick{background:linear-gradient(135deg,#B5483F 0%,#B5483F 55%,#B5483F 100%);color:#9C3F37}
+.slab.gold{background:linear-gradient(135deg,#8A6320 0%,#C98B4B 55%,#C98B4B 100%);color:#2A1F08}
 .slab.carbon{background:#1B2420;color:#C6DBD1}
 .ch-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .ch-h h2{font-family:Fraunces,serif;font-size:clamp(20px,2.4vw,26px);margin:0;font-weight:600;
@@ -214,7 +214,7 @@ button{font:inherit}
   text-transform:uppercase;opacity:.62;margin-bottom:5px;line-height:1.3}
 .eqi b{font-family:Fraunces,serif;font-size:clamp(20px,2.6vw,28px);line-height:1;color:#fff;
   display:block}
-.eqi b.neg{color:#E5928A} .eqi b.gold{color:var(--pop)} .eqi b.pos{color:#8FD9B6}
+.eqi b.neg{color:#E5928A} .eqi b.gold{color:var(--pop)} .eqi b.pos{color:#84AC99}
 .eqop{font-family:Fraunces,serif;font-size:19px;opacity:.42;text-align:center}
 .eqnote{font-size:12px;line-height:1.6;opacity:.6;margin:9px 2px;max-width:66ch}
 
@@ -267,7 +267,7 @@ button{font:inherit}
 .ci b{font-family:Fraunces,serif;font-size:clamp(19px,2.4vw,26px);line-height:1;color:#fff;
   display:block}
 .ci b.gold{color:var(--pop)}
-.ci.win b{color:#8FD9B6}
+.ci.win b{color:#84AC99}
 .cop{font-family:Fraunces,serif;font-size:16.5px;opacity:.4;text-align:center}
 .funded{margin-top:14px}
 .fbar{height:11px;background:rgba(0,0,0,.3);border-radius:6px;overflow:hidden}
@@ -346,7 +346,7 @@ button{font:inherit}
 .bonus .in{position:relative}
 .ribbon{display:inline-block;background:var(--pop);color:#2A1F08;font-size:9.5px;
   font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:5px 13px;
-  border-radius:6px;margin-bottom:12px;box-shadow:0 3px 0 #B08430}
+  border-radius:6px;margin-bottom:12px;box-shadow:0 3px 0 #C98B4B}
 .bonus h2{color:#fff}
 /* --- the level's own furniture: quest prompts, an XP bar, a simulate button --- */
 .bonus b{color:#fff}
@@ -355,7 +355,7 @@ button{font:inherit}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
 .qmark,.qnum{flex:none;width:30px;height:30px;border-radius:10px;background:var(--pop);
   color:#2A1F08;font-family:Fraunces,serif;font-size:16.5px;font-weight:700;display:flex;
-  align-items:center;justify-content:center;box-shadow:0 3px 0 #B08430}
+  align-items:center;justify-content:center;box-shadow:0 3px 0 #C98B4B}
 .qbody{flex:1;min-width:0}
 .qbody > b{display:block;font-family:Fraunces,serif;font-size:16.5px;margin-bottom:6px}
 .qbody > p{font-size:12px;line-height:1.65;opacity:.72;margin:0 0 13px;max-width:66ch}
@@ -452,7 +452,7 @@ button{font:inherit}
   transition:width .3s}
 .tflow{font-size:12px;line-height:1.6;opacity:.74;margin:0 0 9px}
 .tflow b{color:#fff}
-.tgain{font-size:12px;color:#9FE0C4;margin:0}
+.tgain{font-size:12px;color:#84AC99;margin:0}
 .tgain b{color:var(--pop)}
 .tfields{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:11px}
 .bscore{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
@@ -468,9 +468,9 @@ button{font:inherit}
 .gauge em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.1em;
   text-transform:uppercase;opacity:.62;margin-bottom:7px}
 .gbar{height:10px;background:rgba(0,0,0,.35);border-radius:6px;overflow:hidden}
-.gbar i{display:block;height:100%;background:linear-gradient(90deg,#8E7BE0,#3F9577);
+.gbar i{display:block;height:100%;background:linear-gradient(90deg,#8E7BE0,#2C6350);
   transition:width .3s}
-.gauge span{display:block;font-size:12px;margin-top:7px;color:#9FE0C4}
+.gauge span{display:block;font-size:12px;margin-top:7px;color:#84AC99}
 .bonus .f{border-color:rgba(142,123,224,.55)}
 .bonus .f:focus-within{border-color:var(--pop)}
 
@@ -570,12 +570,12 @@ model are approximations. Not the live site.</div>
     <div class="abar">
       <i id="a-b-exp" style="background:#B5483F;width:0%"></i>
       <i id="a-b-tax" style="background:#C98B4B;width:0%"></i>
-      <i id="a-b-net" style="background:#3F9577;width:100%"></i>
+      <i id="a-b-net" style="background:#2C6350;width:100%"></i>
     </div>
     <div class="akey">
       <span><b style="background:#B5483F"></b>Costs</span>
       <span><b style="background:#C98B4B"></b>Tax</span>
-      <span><b style="background:#3F9577"></b>Yours</span>
+      <span><b style="background:#2C6350"></b>Yours</span>
     </div>
     <p class="anote">Nothing is saved and nothing is sent &mdash; your setup lives in the link,
     which is also how you share it.</p>
@@ -844,7 +844,7 @@ model are approximations. Not the live site.</div>
         <div class="babar"><i id="ba-none" style="width:100%;background:#B5483F"></i></div>
         <b id="ba-none-v">$0</b></div>
       <div class="ba"><em>Tax if you max it</em>
-        <div class="babar"><i id="ba-max" style="width:0%;background:#3F9577"></i></div>
+        <div class="babar"><i id="ba-max" style="width:0%;background:#2C6350"></i></div>
         <b id="ba-max-v">$0</b></div>
     </div>
   </div>
@@ -986,7 +986,7 @@ model are approximations. Not the live site.</div>
     </div>
     <div style="padding:18px 20px 22px">
       <p style="background:#FBEFD5;border:1px solid #E8D5A8;border-radius:11px;padding:12px 14px;
-        font-size:12px;line-height:1.65;color:#5E4818;margin:0 0 15px">
+        font-size:12px;line-height:1.65;color:#8A6516;margin:0 0 15px">
         <b style="color:#3D2F10">This is not a revenue split &mdash; it is payroll.</b>
         In California a registered associate must be a W-2 employee (or a volunteer) and may not
         bill clients directly. Your practice bills the client, so all of it is your revenue, and
@@ -1477,13 +1477,13 @@ function drawViz(){
     el.innerHTML = '<div class="vbar">'
       + '<i style="background:#B5483F;width:' + pc(d.costs) + '%"></i>'
       + '<i style="background:#C98B4B;width:' + pc(d.tax) + '%"></i>'
-      + '<i style="background:#3F9577;width:' + pc(d.net) + '%"></i></div>'
+      + '<i style="background:#2C6350;width:' + pc(d.net) + '%"></i></div>'
       + '<div class="vkey">'
       + '<span><b style="background:#B5483F"></b>Running the practice '
       + fmt(d.costs) + ' (' + Math.round(pc(d.costs)) + '%)</span>'
       + '<span><b style="background:#C98B4B"></b>Tax ' + fmt(d.tax)
       + ' (' + Math.round(pc(d.tax)) + '%)</span>'
-      + '<span><b style="background:#3F9577"></b>Yours ' + fmt(d.net)
+      + '<span><b style="background:#2C6350"></b>Yours ' + fmt(d.net)
       + ' (' + Math.round(pc(d.net)) + '%)</span></div>';
   } else if (VIZ.mode === "hundred"){
     var nC = Math.round(pc(d.costs)), nT = Math.round(pc(d.tax));
@@ -1496,7 +1496,7 @@ function drawViz(){
       + '<div class="vkey"><span><b style="background:#B5483F"></b>' + nC
       + ' of every $100 runs the practice</span>'
       + '<span><b style="background:#C98B4B"></b>' + nT + ' go in tax</span>'
-      + '<span><b style="background:#3F9577"></b>' + (100 - nC - nT)
+      + '<span><b style="background:#2C6350"></b>' + (100 - nC - nT)
       + ' are yours to keep</span></div>';
   } else {
     var steps = [

@@ -142,7 +142,7 @@ body.house .issue-row b{color:var(--pine) !important;
 /* nav-panel hub card is a deep card with light type, as designed */
 body.house .np-promo{background:var(--deep) !important; color:#C6DBD1 !important}
 body.house .np-promo b, body.house .np-promo h4{color:#FFFFFF !important}
-body.house .np-promo span{color:#B9CFC2 !important}
+body.house .np-promo span{color:#84AC99 !important}
 body.house .tsshort{
   background:var(--hs-card); border:1px solid var(--line);
   border-left:4px solid var(--gold); border-radius:10px;
@@ -170,13 +170,13 @@ body.house .uplink .uall{color:var(--pine); font-weight:700}
 body.house .ftnl{background:var(--deep) !important; border-top:0}
 body.house .ftnl h2{color:#FFFFFF !important}
 body.house .ftnl h2 em{color:var(--gold) !important; font-style:normal}
-body.house .ftnl p{color:#B9CFC2 !important}
+body.house .ftnl p{color:#84AC99 !important}
 body.house .ftnl .nlmeta{color:#84AC99 !important}
-body.house .ftnl .consent span{color:#B9CFC2 !important}
+body.house .ftnl .consent span{color:#84AC99 !important}
 /* every piece of text in the dark band is light - wholesale, because the
    band's children keep growing new shapes */
 body.house .ftnl label, body.house .ftnl span, body.house .ftnl small,
-body.house .ftnl div, body.house .ftnl li{color:#B9CFC2 !important}
+body.house .ftnl div, body.house .ftnl li{color:#84AC99 !important}
 body.house .ftnl input, body.house .ftnl button, body.house .ftnl h2{
   color:inherit}
 body.house .ftnl input[type="email"]{color:var(--ink) !important}
@@ -197,7 +197,7 @@ body.house .sitefoot h5{
 }
 body.house .sitefoot a{color:#F6F8F6 !important}
 body.house .sitefoot a:hover{color:var(--gold) !important}
-body.house .sitefoot .ftby, body.house .sitefoot p{color:#9DB8AA !important}
+body.house .sitefoot .ftby, body.house .sitefoot p{color:#84AC99 !important}
 body.house .sitefoot .ftby a{color:#C6DBD1 !important; text-decoration:underline}
 body.house .sitefoot .ftcols>div>p{color:#84AC99 !important}
 
@@ -244,7 +244,7 @@ body.house main.home .toc, body.house main.home .toc a{
 body.house main.home .slab{
   background:var(--deep) !important; color:#F6F8F6 !important}
 body.house main.home .slab h2{color:#FFFFFF !important}
-body.house main.home .slab p{color:#B9CFC2 !important}
+body.house main.home .slab p{color:#84AC99 !important}
 body.house main.home .slab .eb{color:#84AC99 !important}
 body.house main.home .wf .amt{color:var(--ink) !important;
   font-family:var(--hs-figs)}
@@ -312,14 +312,9 @@ body.house .slab.gold .card, body.house .slab.carbon .card{
   background:var(--paper) !important; border:1px solid var(--line) !important}
 body.house .adv .fbar i{background:var(--gold) !important}
 body.house .adv .sell{background:rgba(255,217,118,.10) !important}
-/* the off-palette purple game layer joins the palette */
-body.house .lvchip{background:var(--pine) !important}
 body.house .xptrack i,
 body.house .mo i{background:var(--gold) !important}
 body.house .tbar i, body.house .gbar i{background:var(--pine) !important}
-body.house .simbtn{background:var(--pine) !important; box-shadow:none !important}
-body.house .simbtn.locked{background:#3F4A44 !important; box-shadow:none !important}
-body.house .bigcta{box-shadow:none !important; border:1.5px solid var(--pine) !important}
 
 /* dark grounds keep light headings - the global heading-ink rule must
    not reach inside a deep band */
@@ -448,5 +443,5 @@ body.house .dbtn{
   color:var(--ink) !important}
 body.house .dbtn:hover{background:var(--hs-wash) !important}
 body.house .dbtn.gold{
-  background:var(--gold) !important; border:1px solid #B98F1F !important;
+  background:var(--gold) !important; border:1px solid #C98B4B !important;
   color:#1B2420 !important}

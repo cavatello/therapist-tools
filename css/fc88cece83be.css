@@ -3,10 +3,10 @@
 .pk-sec{margin:36px 0}
 .pk-k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.14em;text-transform:uppercase;color:#2C6350;margin:0 0 6px}
-.pk-h{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.pk-h{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.032em;font-size:28px;line-height:1.12;color:#1B2420;
   margin:0 0 10px}
-.pk-h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.pk-h3{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.028em;font-size:19px;line-height:1.18;color:#1B2420;
   margin:30px 0 8px}
 .pk-d{font-size:15px;line-height:1.68;color:#635D4E;margin:0 0 16px;
@@ -20,7 +20,7 @@
   background:#2C6350;color:#fff;padding:30px 30px 26px;margin:0 0 26px}
 .pk-hero .hk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.15em;text-transform:uppercase;color:#FFD37A;margin:0 0 12px}
-.pk-hero h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.pk-hero h1{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.034em;font-size:42px;line-height:1.03;color:#fff;
   margin:0 0 14px;max-width:20ch}
 .pk-hero .hl{font-size:16.5px;line-height:1.6;color:rgba(255,255,255,.92);
@@ -61,7 +61,7 @@
 .pk-v>div:last-child{border-bottom:0}
 .pk-v .vn{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:28px;
   line-height:1;color:#2C6350;display:block;margin:0 0 7px;letter-spacing:-.02em}
-.pk-v .vt{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.pk-v .vt{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.024em;font-size:16.5px;line-height:1.25;color:#1B2420;
   display:block;margin:0 0 7px}
 .pk-v p{font-size:15px;line-height:1.66;color:#635D4E;margin:0;max-width:70ch}
@@ -85,7 +85,7 @@
   color:#1B2420;white-space:nowrap}
 .pk-t td.pk-n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px;
   color:#1B2420;white-space:nowrap;text-align:right}
-.pk-t tr.bad td{background:#FCF1EF}
+.pk-t tr.bad td{background:#FBEFEC}
 .pk-t tr.bad td.pk-f{color:#B5483F}
 .pk-t tr.good td{background:#F6F8F6}
 .pk-t tr.hi td{background:#F4F0E6}
@@ -111,7 +111,7 @@
 /* ---------------------------------------------------------- the checklist */
 .pk-ask{border:2px solid #1B2420;border-radius:10px;background:#F4F0E6;
   box-shadow:5px 5px 0 #2C6350;padding:20px 22px;margin:0 0 20px}
-.pk-ask h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.pk-ask h3{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.026em;font-size:19px;color:#1B2420;margin:0 0 10px}
 .pk-ask ul{margin:0;padding:0 0 0 19px}
 .pk-ask li{font-size:15px;line-height:1.68;color:#635D4E;margin:0 0 10px;
@@ -124,7 +124,7 @@
 .pk-calc{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:6px 6px 0 #F6C560;padding:22px 24px;margin:0 0 20px}
 .pk-cg{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:0 0 20px}
-.pk-cc h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
+.pk-cc h3{font-family:'Fraunces',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.026em;font-size:19px;color:#1B2420;margin:0 0 12px}
 .pk-fl{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#2C6350;

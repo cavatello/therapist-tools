@@ -125,6 +125,37 @@ FIXES = [
      MINT, "#123C30", 4.5,
      "the mono kicker on the affiliate band, was the light-surface grey"),
 
+    # --- "Stay updated", the masthead CTA, on 238 pages ------------------
+    # The worst finding of the whole design audit, and the one every sweep
+    # had been structurally unable to see. The button itself is correct:
+    #
+    #   body.house .sitenav-cta{background:var(--pine)!important;
+    #                           color:#fff!important}
+    #
+    # But a second rule paints its CHILDREN:
+    #
+    #   nav.sitenav.sitenav .sitenav-cta *{color:#1B2420}
+    #
+    # and the label lives in a `<span class="long">`. `!important` on the
+    # anchor does not reach a span - inheritance is not specificity - so
+    # the text of the primary call to action on every page of this site
+    # rendered as **--ink on --pine, 2.28:1**, near-black on dark green.
+    #
+    # It survived every previous pass because `_dev/_contrast_audit.mjs`
+    # excludes `header, footer, nav` - a scope decision made when the sweep
+    # was about article text, never revisited. It took a sweep that walks
+    # the chrome too (`_dev/_viewports.mjs`) to find it, at which point it
+    # was on 238 pages at every width.
+    # The element carrying `.sitenav` is a <div>, not a <nav> - the first
+    # version of this fix said `nav.sitenav...` and matched nothing at all,
+    # which the browser confirmed by not listing it among the rules that
+    # apply. The competing rule triples the class to reach (0,4,0), so this
+    # triples it too and `_scope()` adds `body.house` on top.
+    (".sitenav.sitenav.sitenav .sitenav-cta *",
+     "#FFFFFF", "#2C6350", 4.5,
+     "the label inside the masthead CTA, painted by a child rule the "
+     "button's own !important could not reach"),
+
     # --- gold CTA buttons: pine text measured 4.35, just under ----------
     # :not([style*='color']) matters. One .rwcta carries inline
     # `background:#2C6350;color:#fff` - a per-instance pine variant - and
@@ -161,12 +192,12 @@ FIXES = [
      "section group labels, gold on white"),
     (".reffold summary span,.reffold>span", GOLDINK, WHITE, 4.5,
      "the reference-fold label"),
-    (".lgwrap .bcr li span", GOLDINK, "#FBF9F3", 4.5,
+    (".lgwrap .bcr li span", GOLDINK, "#F6F8F6", 4.5,
      "the terms/privacy breadcrumb"),
-    (".lghero span", GOLDINK, "#FBF9F3", 4.5, "the terms hero label"),
-    (".slider .out.empty", GOLDINK, "#FBF9F3", 4.5,
+    (".lghero span", GOLDINK, "#F6F8F6", 4.5, "the terms hero label"),
+    (".slider .out.empty", GOLDINK, "#F6F8F6", 4.5,
      "the tax slider's empty-state line"),
-    (".promise .chg li time", MUTED, "#FBF6E9", 4.5,
+    (".promise .chg li time", MUTED, "#F6F8F6", 4.5,
      "the change-log dates"),
 
     # --- pine on pine, and the skin's grey on dark ----------------------
