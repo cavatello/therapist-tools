@@ -544,6 +544,12 @@ VERIFY = [
     ("_dev/notruncate.py",
      "a smoke alarm: no published page is empty or implausibly small. Two\n      pages have been committed at zero bytes by an interrupted pass, and\n      neither linkcheck nor seo_rules noticed, because both skip a file with\n      no links and no chrome"),
     ("_dev/linkcheck.py", "every internal link resolves"),
+    # The guard that would have caught the school pages shipping two
+    # whole components with no CSS. Static - no browser - so it runs
+    # anywhere the pipeline runs. Baseline in _dev/coverage_baseline.json;
+    # a burst of new signatures means a component lost its stylesheet.
+    ("_dev/family_coverage.py",
+     "elements whose classes have no rule in any sheet the page loads"),
     ("_dev/orphan_guard.py",
      "the reverse of linkcheck: every indexable page must have at least "
      "one inbound link - a page in the sitemap that no other page links "

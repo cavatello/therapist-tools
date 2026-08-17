@@ -130,6 +130,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
+| `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
 | `orphan_guard.py` | verify | &mdash; | No page ships unreachable: every indexable page must have an inbound link. |
