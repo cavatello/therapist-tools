@@ -30,6 +30,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_baysites.py` | build | &mdash; | P3, page one: where a Bay Area MFT trainee can actually be placed. |
 | `build_careerchange.py` | build | &mdash; | Becoming a therapist in California, for somebody arriving from another job. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
+| `build_cost.py` | build | &mdash; | What getting licensed actually costs - assembled, not invented. |
 | `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_findsite.py` | build | &mdash; | The practicum-site method page - remaining P3, item two. |
@@ -106,9 +107,12 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `fill.py` | floors | `/* _dev/fill.py */` | Narrow the reading cards to the column they actually hold. |
 | `mobile_floor.py` | floors | `/* _dev/mobile_floor.py */` | What a 390px phone gets wrong on 131 pages, found by looking at 390px. |
 | `mobile_hero.py` | floors | `/* _dev/mobile_hero.py */` | Make the heroes fit a phone. |
+| `nav_skin_fix.py` | floors | `/* _dev/nav_skin_fix.py */` | The masthead still wears a dark header's clothes. Three of them. |
 | `nav_type_floor.py` | floors | `/* _dev/nav_type_floor.py */` | One label size, not nine. A 10.5px floor for the site's small-caps labels. |
 | `one_grid.py` | floors | `/* _dev/one_grid.py */` | One grid. Every page's content starts where the logo starts. |
 | `rates_grid.py` | floors | `/* _dev/rates_grid.py */` · `body class ratespage` | rates.html joins the grid, and keeps its own voice. |
+| `sc_components.py` | floors | `/* _dev/sc_components.py */` | The 66 school pages ship two whole components with no CSS at all. |
+| `surface_fix.py` | floors | `/* _dev/surface_fix.py */` | Text coloured for one surface, sitting on the opposite one. Measured. |
 | `token_floor.py` | floors | `/* _dev/token_floor.py */` | Every text colour on the site, measured by photograph, raised to 4.5:1. |
 | `wide_measure.py` | floors | `/* _dev/wide_measure.py */` | Cap the line length on the blocks that run to 195 characters at 2560px. |
 | `seo_head.py` | seo | `<!-- _dev/seo_head.py -->` | Every published page gets a canonical and a lang, because four did not. |

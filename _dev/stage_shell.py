@@ -121,12 +121,12 @@ CSS = CSS_MARK + """
 .ss1{background:var(--paper);border-bottom:1px solid var(--line)}
 .ss1>div{max-width:1120px;margin:0 auto;padding:9px 26px;display:flex;
  flex-wrap:wrap;align-items:baseline;gap:6px 14px;min-width:0}
-.ss1 .sk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+.ss1 .ssk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
  letter-spacing:.09em;text-transform:uppercase;color:var(--pine);
  font-weight:600;white-space:nowrap}
-.ss1 .sn{font-size:12.5px;color:var(--ink);line-height:1.5;min-width:0;
+.ss1 .ssn{font-size:12.5px;color:var(--ink);line-height:1.5;min-width:0;
  overflow-wrap:anywhere}
-.ss1 .sn i{font-style:italic}
+.ss1 .ssn i{font-style:italic}
 .ss1 a{font-size:12px;font-weight:700;color:var(--pine);
  text-decoration:none;white-space:nowrap;border-bottom:1px solid
  rgba(44,99,80,.4)}
@@ -177,14 +177,14 @@ def s1_block(stages, notes, counts):
     if len(stages) == 1:
         st = stages[0]
         door, label, _ = STAGE[st]
-        o.append('<span class="sk">You are at &middot; %s</span>' % label)
-        o.append('<span class="sn">This page tells you <i>%s</i></span>'
+        o.append('<span class="ssk">You are at &middot; %s</span>' % label)
+        o.append('<span class="ssn">This page tells you <i>%s</i></span>'
                  % esc(soften(notes[st])))
         o.append('<a href="%s">All %d for this stage &rarr;</a>'
                  % (door, counts[st]))
     else:
-        o.append('<span class="sk">Written for</span>')
-        o.append('<span class="sn">')
+        o.append('<span class="ssk">Written for</span>')
+        o.append('<span class="ssn">')
         parts = []
         for st in stages:
             door, label, _ = STAGE[st]

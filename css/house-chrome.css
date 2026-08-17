@@ -95,7 +95,6 @@
 .nlok{display:flex;gap:12px;align-items:flex-start;background:rgba(246,197,96,.09);
  border:1px solid rgba(246,197,96,.34);border-radius:13px;padding:15px 17px;
  animation:nlin .28s ease-out}
-}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:var(--pop);
  color:#2A2010;font-size:15px;font-weight:800;line-height:26px;text-align:center}
 .nlok b{display:block;font-family:Fraunces,serif;font-size:16px;color:#fff;margin-bottom:5px}
@@ -482,16 +481,70 @@ body.house .np-col h5{background:none !important; padding:0 !important}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* _dev/nav_skin_fix.py */
+/* The masthead is white under body.house, but .sitenav-links still
+   carries a dark header's pill (rgba(0,0,0,.26)) and a three-column
+   grid from when there were three items. There are seven. Remove the
+   pill and let them sit in one centred row. body.bct already did the
+   background half of this for the tool pages only. */
+body.house.house .sitenav-links{
+  /* !important on the layout properties for the same reason
+     _dev/chrome_armor.py uses it: the page body ships an INLINE copy of
+     the old chrome sheet, and inline <style> beats every linked sheet on
+     order. Specificity alone was measured and was not enough. */
+  display:flex !important; flex-wrap:nowrap !important;
+  align-items:center; justify-content:flex-start; gap:2px;
+  background:none; border-radius:0; padding:2px;
+  /* fit-content + max-width:100% + auto margins is the whole trick: the
+     row is exactly as wide as its items and therefore CENTRED while it
+     fits, and clamps to the column and scrolls when it does not. No
+     breakpoint, so nothing to get wrong at 1024. */
+  width:fit-content !important; max-width:100% !important;
+  min-width:0; margin:0 auto; grid-area:auto !important;
+  overflow-x:auto; scrollbar-width:none;
+}
+body.house.house .sitenav-links::-webkit-scrollbar{display:none}
+/* Measured twice. At 1440 the seven items summed to 715px inside a 710px
+   grid column, so "About" wrapped by five pixels. Tightening the padding
+   to 8px brought the items to 688px - which STILL wrapped, because six
+   4px gaps add 24px and 712.5 > 710. Hence 7px padding and a 2px gap:
+   674px of items plus 12px of gaps inside 706px of usable column. The
+   lesson is that the gaps are part of the sum. */
+body.house.house .sitenav-top{
+  min-height:34px; padding:6px 7px; white-space:nowrap;
+  overflow:visible; text-overflow:clip;
+}
+/* /nav_skin_fix */
+
 /* _dev/stage_shell.py */
 .ss1{background:var(--paper);border-bottom:1px solid var(--line)}
 .ss1>div{max-width:1120px;margin:0 auto;padding:9px 26px;display:flex;
  flex-wrap:wrap;align-items:baseline;gap:6px 14px;min-width:0}
-.ss1 .sk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+.ss1 .ssk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
  letter-spacing:.09em;text-transform:uppercase;color:var(--pine);
  font-weight:600;white-space:nowrap}
-.ss1 .sn{font-size:12.5px;color:var(--ink);line-height:1.5;min-width:0;
+.ss1 .ssn{font-size:12.5px;color:var(--ink);line-height:1.5;min-width:0;
  overflow-wrap:anywhere}
-.ss1 .sn i{font-style:italic}
+.ss1 .ssn i{font-style:italic}
 .ss1 a{font-size:12px;font-weight:700;color:var(--pine);
  text-decoration:none;white-space:nowrap;border-bottom:1px solid
  rgba(44,99,80,.4)}

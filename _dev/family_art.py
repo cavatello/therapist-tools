@@ -91,7 +91,7 @@ np-hub-t np-hub-d npq np-all np-promo long short sr
 bcr sep tsshort tsk tsa tsfig tsn
 tsfoot tsmeta tsrow tsv tsall tsvint tsdepth tsbadge part full tswhat tsupd
 uplink uk ud ug uc uall
-ss1 ssnext sk sn gk ga lk
+ss1 ssnext ssk ssn sk sn gk ga lk
 askq askform ak ad ar an aok ftn
 consent nlform nlmeta nlok-tick ftby
 ftnl ftin ftroom ftnl-row ftnl-t nlrow ftmail ftbtn ftnote

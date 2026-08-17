@@ -122,7 +122,8 @@ NEW_CLUSTERS = [
     ("licensure", "The route, and what it costs",
      ["becoming-a-therapist-california-career-change.html",
       "become-an-mft-california.html",
-      "bbs-fees-california-2026.html"]),
+      "bbs-fees-california-2026.html",
+      "what-licensure-actually-costs-california.html"]),
 ]
 
 

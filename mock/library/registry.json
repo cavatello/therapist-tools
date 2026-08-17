@@ -3278,6 +3278,29 @@
    "leaf": true
   },
   {
+   "file": "what-licensure-actually-costs-california.html",
+   "title": "What licensure actually costs in California: the whole bill",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What does it actually cost to get licensed as a therapist in California?",
+   "outcome": "The one-time bill, the renewals, and the degree that dwarfs both - plus the four costs nobody can put a number on",
+   "number": "About $549 once; $624 to $924 across the route",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false,
+   "stages": [
+    "deciding",
+    "student",
+    "associate"
+   ],
+   "stage_note": {
+    "deciding": "Every charge on the way to a license, added up - and why the Board fee argument is about the wrong number.",
+    "student": "What the route costs after the tuition: the one-time bill, the renewals, and the four lines nobody prices.",
+    "associate": "Which renewal total you actually land on, and what starts the day you are licensed."
+   }
+  },
+  {
    "file": "wright-institute-mft.html",
    "title": "The Wright Institute — MFT program in California",
    "topic": "licensure",
@@ -3343,7 +3366,8 @@
      "files": [
       "becoming-a-therapist-california-career-change.html",
       "become-an-mft-california.html",
-      "bbs-fees-california-2026.html"
+      "bbs-fees-california-2026.html",
+      "what-licensure-actually-costs-california.html"
      ]
     },
     {

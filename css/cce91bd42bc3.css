@@ -1,0 +1,41 @@
+/* _dev/surface_fix.py */
+/* Text coloured for the opposite surface from the one it sits
+   on. Each rule names its surface; every pair is verified over
+   4.5:1 by _dev/surface_fix.py before it is emitted. Prefixed
+   body.house and marked !important to outrank the retired-but-
+   still-live house skin, which sweeps spans with
+   :where(...){color:inherit!important}. */
+/* light cards nested inside the dark slab - the 1.35:1 case - 15.62:1 on #F4F7F4 */
+body.house.bc2 .slab .rule p,body.house.bc2 .slab .flag p,body.house.bc2 .slab .how p,body.house.bc2 .slab .how .howb p,body.house.bc2 .slab .how .howb li{color:#161F1B !important}
+/* the same class sitting directly on the dark slab - 9.60:1 on #0F3227 */
+body.house.bc2 .slab>.howb li,body.house.bc2 .slab>.howb p{color:#C6DBD1 !important}
+/* figure caption on the dark slab, was pine - 9.60:1 on #0F3227 */
+body.house.bc2 .slab .ig-cap{color:#C6DBD1 !important}
+/* gold call-to-action buttons - 8.11:1 on #F6C560 */
+body.house .acta:not([style*='color']),body.house .acta:not([style*='color']) strong,body.house .acta:not([style*='color']) span,body.house .gcta:not([style*='color']),body.house .gcta:not([style*='color']) strong,body.house .gcta:not([style*='color']) span,body.house .tcta:not([style*='color']),body.house .tcta:not([style*='color']) strong,body.house .tcta:not([style*='color']) span,body.house .clgo:not([style*='color']),body.house .rwcta:not([style*='color']){color:#14372C !important}
+/* breadcrumbs on the dark band - 9.60:1 on #0F3227 */
+body.house .band .bcr a,body.house .band .bcr li,body.house .band .bcr .sep{color:#C6DBD1 !important}
+/* the 'In short' label on the white card, light pages only - 6.55:1 on #FFFFFF */
+body.house .band .pw .tsshort .tsk{color:#635D4E !important}
+/* the 'In short' answer and figure, light pages only - 16.85:1 on #FFFFFF */
+body.house .band .pw .tsshort .tsa,body.house .band .pw .tsshort .tsfig{color:#161F1B !important}
+/* section group labels, gold on white - 4.92:1 on #F4F7F4 */
+body.house .grouplab span{color:#8A6516 !important}
+/* the reference-fold label - 5.31:1 on #FFFFFF */
+body.house .reffold summary span,body.house .reffold>span{color:#8A6516 !important}
+/* the terms/privacy breadcrumb - 5.04:1 on #FBF9F3 */
+body.house .lgwrap .bcr li span{color:#8A6516 !important}
+/* the terms hero label - 5.04:1 on #FBF9F3 */
+body.house .lghero span{color:#8A6516 !important}
+/* the tax slider's empty-state line - 5.04:1 on #FBF9F3 */
+body.house .slider .out.empty{color:#8A6516 !important}
+/* the change-log dates - 6.07:1 on #FBF6E9 */
+body.house .promise .chg li time{color:#635D4E !important}
+/* an outbound link that was pine on pine at 1.05:1 - 6.98:1 on #2C6350 */
+body.house .li-card .li-go{color:#FFFFFF !important}
+/* the associate-pay hero kicker - 4.81:1 on #2C6350 */
+body.house .ap-hero .hk{color:#C6DBD1 !important}
+/* the practice simulator's own intro paragraph - 9.60:1 on #0F3227 */
+body.house .hero .in .lede{color:#C6DBD1 !important}
+/* the concept-page tags - 6.03:1 on #E6F1EB */
+body.house .cc-meta .tag{color:#2C6350 !important}

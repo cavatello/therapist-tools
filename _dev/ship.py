@@ -128,6 +128,15 @@ BUILD = [
     # called the per-session name-and-location duty new, and it dates
     # to 1 July 2016; so does the out-of-state subdivision. A guard
     # fails the build if that framing is ever reintroduced.
+    # Editorial #9: the whole entry cost, assembled. Inherits
+    # build_viable's no-new-numbers rule - a FIGURES guard asserts every
+    # amount appears on the page it is attributed to, and four costs are
+    # deliberately left unpriced rather than sourced from marketing.
+    # Must run AFTER the pages it lifts from are built.
+    ("_dev/build_cost.py",
+     "what licensure actually costs - about $549 paid once and $624 to "
+     "$924 across the route, against a degree of $37,800 to $152,340, "
+     "every figure lifted from the page that documents it"),
     ("_dev/build_telehealth.py",
      "the telehealth standard of practice - the two subdivisions the "
      "2026 amendment actually touched, the decade-old duty most "
@@ -385,6 +394,23 @@ STRUCTURE = [
 # after everything that emits markup and before the CSS is hoisted.
 FLOORS = [
     ("_dev/contrast_pass.py", "label contrast"),
+    # The second sweep: text coloured for the OPPOSITE surface from the
+    # one it sits on - dark-band rules reaching into light cards nested
+    # in the band, and the reverse. 31 signatures over 16 pages, worst
+    # 1.05:1. Per-context, so it cannot fold into contrast_pass's flat
+    # single-colour list. Verify with _dev/_paths.mjs after any change.
+    ("_dev/surface_fix.py", "text on the wrong surface"),
+    # The masthead still carried a dark header's pill and a three-column
+    # grid from when the nav had three items. It has seven, and the
+    # masthead is white. Verify with _dev/_navcheck.mjs.
+    ("_dev/nav_skin_fix.py", "the masthead's dark-header leftovers"),
+    # The sc family loads three stylesheets where every other family
+    # loads twelve-plus, and two site-wide components (the freshness
+    # block, the up-link block) were defined in none of them - so all 66
+    # school pages shipped them as unstyled markup. Copies the canonical
+    # rules from house-art.css, rewriting body.bca to body.bcs.
+    # Verify with _dev/_uncovered.mjs.
+    ("_dev/sc_components.py", "the school pages' two unstyled components"),
     ("_dev/dark_band_labels.py", "dark-band eyebrow contrast"),
     ("_dev/token_floor.py", "the hex tokens under the floor"),
     ("_dev/chrome_armor.py", "chrome that has to outrank the page body"),

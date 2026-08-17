@@ -300,3 +300,41 @@ body.bcs .vmeta{display:block;font-family:var(--mn);font-size:10.5px;
 body.bcs .scband h1{overflow-wrap:anywhere}
 body.bcs .gapl li,body.bcs .scbody li,body.bcs .tbl .r > b,
 body.bcs .prg .pr > b{overflow-wrap:anywhere}
+
+/* _dev/sc_components.py */
+/* The freshness block and the up-link block are emitted onto the
+   school pages by pixel_concepts.py and uplinks.py, and none of
+   the three sheets this family loads defined them - so they
+   shipped as unstyled markup. Copied from house-art.css at build
+   time by _dev/sc_components.py so the two cannot drift. */
+/* --- provenance (last checked / figures current) ----------------------- */
+body.bcs .tsfoot{max-width:1180px;margin:0 auto;padding:0 var(--pad) 40px}
+body.bcs .tsfoot .tsk{display:block;font-family:var(--mn);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
+body.bcs .tsrow .tsv{font-family:var(--figs);font-weight:800;font-size:18px}
+body.bcs .tsrow .tsall{display:block;font-family:var(--mn);font-size:11px;
+  color:var(--pine);margin-top:6px}
+body.bcs .tsvint b{display:block;font-size:15px;line-height:1.4;max-width:44ch}
+body.bcs .tsvint i{display:block;font-style:normal;font-size:12.5px;
+  color:var(--dim);margin-top:4px}
+body.bcs .tswhat{font-size:12.5px;color:var(--dim);margin:8px 0 0;max-width:30ch}
+/* --- More on this ------------------------------------------------------ */
+body.bcs .uplink{background:var(--sink);padding:44px var(--pad)}
+body.bcs .uplink>div{max-width:1180px;margin:0 auto}
+body.bcs .uplink .uk{font-family:var(--mn);font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--dim);margin:0 0 10px}
+body.bcs .uplink h2{font-size:28px;margin:0 0 6px}
+body.bcs .uplink .ud{color:var(--dim);margin:0 0 20px}
+body.bcs .uplink .ug{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);
+  margin-bottom:18px}
+@media(max-width:860px){body.bcs .uplink .ug{grid-template-columns:1fr}}
+body.bcs .uplink .uc{display:block;background:var(--card);border-radius:var(--r);
+  padding:16px 18px;color:var(--ink);
+  box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
+    0 0 0 1px rgba(22,31,27,.055)}
+body.bcs .uplink .uc b{display:block;font-family:var(--disp);font-weight:800;
+  font-size:17px;letter-spacing:-.016em;line-height:1.25;margin-bottom:7px}
+body.bcs .uplink .uc span{font-size:13.5px;color:var(--dim);line-height:1.45}
+body.bcs .uplink .uall{display:inline-block;font-family:var(--mn);font-size:12px;
+  color:var(--pine)}
+/* /sc_components */

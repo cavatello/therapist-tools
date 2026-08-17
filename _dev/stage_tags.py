@@ -197,6 +197,15 @@ TAGS = {
         "licensed": "Three things every ad must carry since April 2026 "
                     "- and the seven ways the Board's own examples "
                     "show profiles failing."},
+    "what-licensure-actually-costs-california.html": {
+        "deciding": "Every charge on the way to a license, added up - "
+                    "and why the Board fee argument is about the wrong "
+                    "number.",
+        "student": "What the route costs after the tuition: the "
+                   "one-time bill, the renewals, and the four lines "
+                   "nobody prices.",
+        "associate": "Which renewal total you actually land on, and "
+                     "what starts the day you are licensed."},
     "telehealth-rules-california-therapist.html": {
         "associate": "The telehealth rule as it actually reads - "
                      "including the per-session duty that started in "
