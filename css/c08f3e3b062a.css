@@ -25,21 +25,21 @@
 
    Layout is still untouched. The grid, the areas and all four breakpoints in
    the shared sheet do the arranging; this only changes colour and edge. */
-.sitenav{background:#FBF9F3;box-shadow:none;border-bottom:3px solid #16211B;
+.sitenav{background:#F6F8F6;box-shadow:none;border-bottom:3px solid #1B2420;
   padding:0}
 .sitenav-in{background:none;border:0;border-radius:0;
   -webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;
   padding:13px 26px;max-width:1180px}
 @media (min-width:1500px){.sitenav-in{max-width:1320px}}
 @media (min-width:1900px){.sitenav-in{max-width:1560px}}
-.sitenav-wordmark{color:#16211B}
-.sitenav-sub{color:#635E53}
+.sitenav-wordmark{color:#1B2420}
+.sitenav-sub{color:#635D4E}
 /* the mark becomes a tile. It is already pixel art; an edge stops it floating
    on the paper like a sticker. */
-.sitenav-fig{border:2px solid #16211B;border-radius:5px;background:#fff}
+.sitenav-fig{border:2px solid #1B2420;border-radius:5px;background:#fff}
 /* the gold outline was invisible on paper */
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible,
-.sitenav-cta:focus-visible{outline:3px solid #16211B;outline-offset:2px}
+.sitenav-cta:focus-visible{outline:3px solid #1B2420;outline-offset:2px}
 
 /* Seven buttons will not fit a three-column grid. A wrapping flex row does,
    and on a phone it becomes a single scrollable line rather than three stacked
@@ -52,16 +52,16 @@
   min-height:38px;white-space:nowrap;overflow:visible;text-overflow:clip;flex:0 0 auto;
   border:2px solid transparent;color:#4A4437;background:none}
 .sitenav-top:after{opacity:.45}
-.sitenav-top:hover{background:#F0EADA;color:#16211B}
+.sitenav-top:hover{background:#F6F8F6;color:#1B2420}
 /* the open one: solid, bordered, offset - the same three moves as every other
    raised thing on the site, so "current" reads without needing a colour rule */
-.sitenav-top.on{background:#F6C560;color:#16211B;border-color:#16211B;
-  box-shadow:2px 2px 0 #16211B}
+.sitenav-top.on{background:#F6C560;color:#1B2420;border-color:#1B2420;
+  box-shadow:2px 2px 0 #1B2420}
 .sitenav-top.on:hover{background:#FFD57A}
-.sitenav-cta{border:2px solid #16211B;border-radius:10px;
-  box-shadow:3px 3px 0 #16211B;color:#16211B}
+.sitenav-cta{border:2px solid #1B2420;border-radius:10px;
+  box-shadow:3px 3px 0 #1B2420;color:#1B2420}
 .sitenav-cta:hover{background:#FFD57A}
-.sitenav-cta:active{transform:translate(3px,3px);box-shadow:0 0 0 #16211B}
+.sitenav-cta:active{transform:translate(3px,3px);box-shadow:0 0 0 #1B2420}
 .sitenav-cta img{border:0}
 /* the panel now hangs off a light bar, so it needs its own separation */
 .navpanel{top:calc(100% + 3px)}
@@ -72,7 +72,7 @@
    invisible - it rendered as a ghost row under the wordmark, present in the DOM
    and unreadable on screen. Every colour a dark-theme rule set has to be
    restated when the surface flips. */
-.bcrq{color:#5E5A50;background:#F0EADA;border:2px solid #16211B;
+.bcrq{color:#635D4E;background:#F6F8F6;border:2px solid #1B2420;
   border-radius:999px;padding:4px 12px 3px;font-weight:600;
   grid-column:1/-1;justify-self:start;margin:2px 0 0}
 
@@ -132,33 +132,33 @@
 /* ---- the panel. One group at a time, so a menu holding 36 destinations never
    shows more than nine. The promo card is outside the groups and always on. */
 .navpanel{grid-template-columns:minmax(0,1fr) 250px;gap:20px;
-  border:3px solid #16211B;border-radius:16px;
+  border:3px solid #1B2420;border-radius:16px;
   box-shadow:8px 8px 0 rgba(22,33,27,.9);padding:18px}
 .np-col{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));
   gap:2px 14px;align-content:start}
 .np-col[hidden]{display:none}
 /* the label spans the sub-columns rather than sitting in the first of them */
 .np-col h5{grid-column:1/-1;margin:0 0 8px;font-size:9.5px;font-weight:800;
-  letter-spacing:.13em;text-transform:uppercase;color:#16211B;
-  background:#F6C560;border:2px solid #16211B;border-radius:999px;
+  letter-spacing:.13em;text-transform:uppercase;color:#1B2420;
+  background:#F6C560;border:2px solid #1B2420;border-radius:999px;
   padding:4px 10px 3px;justify-self:start}
 .np-col a{border:2px solid transparent;border-radius:10px}
-.np-col a:hover{background:#F4F0E6;border-color:#16211B}
+.np-col a:hover{background:#F4F0E6;border-color:#1B2420}
 /* the hub link that closes each topic column */
 .np-hub{grid-column:1/-1;justify-self:start;margin-top:8px;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:700;
-  letter-spacing:.04em;text-decoration:none;color:#16211B;
-  border:2px solid #16211B;border-radius:999px;padding:7px 13px;
-  box-shadow:2px 2px 0 #16211B;background:#fff}
+  letter-spacing:.04em;text-decoration:none;color:#1B2420;
+  border:2px solid #1B2420;border-radius:999px;padding:7px 13px;
+  box-shadow:2px 2px 0 #1B2420;background:#fff}
 .np-hub:hover{background:#F6C560}
-.np-promo{border:2px solid #16211B;box-shadow:4px 4px 0 #16211B}
+.np-promo{border:2px solid #1B2420;box-shadow:4px 4px 0 #1B2420}
 /* The five topic hubs carry their own stylesheet, and it styles bare `b` and
    `p`. Inside the menu that meant entry titles turned pine and the promo
    card's paragraph inherited the hub's 17px body size in a dark card - grey on
    near-black, at a size that pushed the button out of the card. The menu has
    to look identical on all 132 pages, so it restates what it needs rather than
    trusting what it inherits. */
-.np-col b{color:#16211B}
+.np-col b{color:#1B2420}
 .np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;
   color:rgba(255,255,255,.72);text-align:center;max-width:none}
 .navpanel .np-promo b{letter-spacing:-.02em;font-family:'Bricolage Grotesque',
@@ -166,7 +166,7 @@
 .np-promo .np-all{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9.6px;letter-spacing:.13em;text-transform:uppercase;opacity:.62;
   margin-bottom:7px}
-.np-promo span:last-child{border:2px solid #16211B;box-shadow:2px 2px 0 #16211B}
+.np-promo span:last-child{border:2px solid #1B2420;box-shadow:2px 2px 0 #1B2420}
 @media (max-width:820px){
   .navpanel{grid-template-columns:minmax(0,1fr)}
   .np-col{grid-template-columns:minmax(0,1fr)}
@@ -221,8 +221,8 @@
    link; what the footer now carries is the five topic hubs and the three
    indexes, which is the structure a crawler should see repeated, not the leaf
    list. Fewer, better-targeted repeated links is the stronger position. */
-.sitefoot{border-top:4px solid #16211B}
-.sitefoot h5{color:#16211B;background:#F6C560;border:2px solid #16211B;
+.sitefoot{border-top:4px solid #1B2420}
+.sitefoot h5{color:#1B2420;background:#F6C560;border:2px solid #1B2420;
   border-radius:999px;padding:4px 10px 3px;display:inline-block}
 .ftcols a{border-bottom:2px solid transparent}
 .ftcols a:hover{border-bottom-color:#F6C560}
@@ -265,27 +265,27 @@ h3,[class] h3{font-weight:700}
    everywhere else: 2px of ink, a solid offset shadow, and a square-ish radius.
    Nothing here changes a layout, a size or a colour role; a card that was white
    is still white and a band that was pine is still pine. */
-.card{border:2px solid #16211B;border-radius:12px;box-shadow:3px 3px 0 #16211B}
+.card{border:2px solid #1B2420;border-radius:12px;box-shadow:3px 3px 0 #1B2420}
 .sec.alt .card{background:#fff}
-.ref{border:2px solid #16211B;border-radius:12px;box-shadow:2px 2px 0 #16211B}
-.fact{border:2px solid #16211B;border-radius:10px;box-shadow:2px 2px 0 #16211B}
-.sec.alt{border-top:3px solid #16211B;border-bottom:3px solid #16211B}
+.ref{border:2px solid #1B2420;border-radius:12px;box-shadow:2px 2px 0 #1B2420}
+.fact{border:2px solid #1B2420;border-radius:10px;box-shadow:2px 2px 0 #1B2420}
+.sec.alt{border-top:3px solid #1B2420;border-bottom:3px solid #1B2420}
 /* the hero band. The gradient stays - it is the one place on the site that
    earns a gradient, and it carries the figures - but it gets a hard edge top
    and bottom so it reads as a block rather than a fade. */
-.band{border-bottom:3px solid #16211B}
+.band{border-bottom:3px solid #1B2420}
 .who span{border:2px solid rgba(255,255,255,.34);border-radius:999px}
 /* buttons, everywhere. .btn is the shared one; the tool pages each have their
    own name for the same object, which is why they are listed rather than
    matched by a wildcard - a selector that matches nothing looks exactly like a
    rule that works. */
 .btn,.clgo,.gherocta > a,.therocta > a,.aherocta > a{
-  border:2px solid #16211B;border-radius:10px;box-shadow:3px 3px 0 #16211B}
-.btn:active,.clgo:active{transform:translate(3px,3px);box-shadow:0 0 0 #16211B}
+  border:2px solid #1B2420;border-radius:10px;box-shadow:3px 3px 0 #1B2420}
+.btn:active,.clgo:active{transform:translate(3px,3px);box-shadow:0 0 0 #1B2420}
 .btn.ghost{background:#fff}
-.soon{border:2px solid #16211B;border-radius:999px}
+.soon{border:2px solid #1B2420;border-radius:999px}
 /* the up-link block at the foot of every article */
-.uplink{border-top:3px solid #16211B}
+.uplink{border-top:3px solid #1B2420}
 
 /* The rest of the interiors, chosen by MEASUREMENT rather than by guessing at
    class names. A headless pass over an article, the hub, the directory and a
@@ -299,10 +299,10 @@ h3,[class] h3{font-weight:700}
    Two of these carried a genuine blur - .slab.pine and .slab.carbon - which is
    the thing the direction exists to remove. */
 .pg,.uc,.lc,.rc,.fb,.how,.job,.reffold,.edge,.ig,.tcard{
-  border:2px solid #16211B;border-radius:10px;box-shadow:2px 2px 0 #16211B}
-.pg:hover,.rc:hover,.lc:hover{box-shadow:4px 4px 0 #16211B;
+  border:2px solid #1B2420;border-radius:10px;box-shadow:2px 2px 0 #1B2420}
+.pg:hover,.rc:hover,.lc:hover{box-shadow:4px 4px 0 #1B2420;
   transform:translate(-1px,-1px)}
 .slab{border-radius:14px;box-shadow:5px 5px 0 rgba(22,33,27,.55);
-  border:2px solid #16211B}
+  border:2px solid #1B2420}
 .rule{border-radius:10px}
 /* end restyle */

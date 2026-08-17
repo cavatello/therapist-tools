@@ -35,17 +35,25 @@ HTML = """<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free tools for California therapists &mdash; moved to Resources</title>
 <link rel="canonical" href="{base}/{dest}">
+<!-- ts:meta -->
+<meta name="ts:topic" content="practice">
+<meta name="ts:format" content="reference">
+<meta name="ts:question" content="Where did the tools page go?">
+<meta name="ts:outcome" content="A redirect to Resources, which now holds every calculator">
+<meta name="ts:weight" content="1">
+<meta name="ts:skip" content="true">
+<!-- /ts:meta -->
 <meta http-equiv="refresh" content="0; url={dest}">
 <meta name="description" content="The free tools for California therapists now live on one page with the rest of the practice resources.">
 <style>
 body{{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
- background:#FBF6E9;color:#17271F;font-family:Inter,system-ui,sans-serif;padding:26px}}
+ background:#F6F8F6;color:#1B2420;font-family:system-ui,sans-serif;padding:26px}}
 main{{max-width:44ch;text-align:center}}
-h1{{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:600;margin:0 0 12px;
+h1{{font-family:Georgia,serif;font-size:26px;font-weight:600;margin:0 0 12px;
  letter-spacing:-.02em}}
-p{{font-size:15px;line-height:1.7;color:#5D574C;margin:0 0 20px}}
+p{{font-size:16.5px;line-height:1.7;color:#5F6A64;margin:0 0 20px}}
 a{{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:11px;
- background:#17271F;color:#fff;font-weight:700;font-size:15px;text-decoration:none}}
+ background:#123C30;color:#fff;font-weight:700;font-size:16.5px;text-decoration:none}}
 </style>
 </head>
 <body>
@@ -74,6 +82,19 @@ def main():
     assert 'rel="canonical"' in s and DEST in s
     assert "noindex" not in s, "noindex would stop the canonical being read"
     assert s.count("<h1") == 1
+    # A ts:skip page must keep saying so, or discovery.py puts a redirect
+    # stub in the sitemap.
+    assert 'name="ts:skip" content="true"' in s
+    # No stylesheet and no webfont. This is the file that kept
+    # css/house-skin.css alive on the live site, through seventeen <link>s
+    # appended by passes that had no idea it was a stub - and it asked for
+    # Fraunces and Inter without loading either, so even its own two lines
+    # of copy rendered in a fallback. A reader is here for zero
+    # milliseconds; it earns no requests. Sanctioned colours and the house
+    # 16.5px metric, so palette_conform has nothing to correct.
+    assert '<link rel="stylesheet"' not in s
+    assert "fonts.googleapis" not in s
+    assert "Fraunces" not in s and "Inter," not in s
     print("tools.html  %d bytes  -> %s" % (len(s.encode("utf-8")), DEST))
 
 

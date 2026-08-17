@@ -23,8 +23,8 @@
    Deliberately a separate stylesheet from the simulator's: these are content
    pages and should not wait on a 700 kB bundle to render. The tokens are the
    same values the simulator uses, copied rather than imported for that reason. */
-:root{--pine:#2C6350;--deep:#15342B;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
- --amber:#FFE3B8;--ink:#26241E;--muted:#7C766A;--line:#E7E2D6;--paper:#F4F0E6;--cream:#FBF9F3;}
+:root{--pine:#2C6350;--deep:#14372C;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
+ --amber:#FFE3B8;--ink:#1B2420;--muted:#7C766A;--line:#DFE4E0;--paper:#F4F0E6;--cream:#F6F8F6;}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;
@@ -38,7 +38,7 @@ a{color:inherit}
 /* Header 06 - the bar is a green field and the chrome is a capsule floating on
    it, not a strip welded to the top. Everything inside is a GRID with equal
    columns, so nothing can push a sibling out at any width. */
-.sitenav{background:linear-gradient(150deg,#16382B 0%,#2C6350 46%,#48A382 100%);
+.sitenav{background:linear-gradient(150deg,#14372C 0%,#2C6350 46%,#48A382 100%);
  box-shadow:none;position:sticky;top:0;z-index:40;padding:14px 22px 15px}
 .sitenav-in{max-width:1180px;margin:0 auto;padding:10px 11px 10px 18px;position:relative;
  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:22px;
@@ -61,7 +61,7 @@ a{color:inherit}
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
  transition:background .15s,color .15s}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
-.sitenav-top.on{background:#fff;color:#1E4436}
+.sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
 .sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
@@ -147,8 +147,8 @@ a{color:inherit}
  font-size:11.5px;padding:9px 14px;border-radius:9px}
 
 /* ---- bands and sections */
-.band{background:linear-gradient(135deg,#1E4436 0%,#2C6350 55%,#3F9577 100%);
- color:#EFF5F2;padding:44px 0 46px}
+.band{background:linear-gradient(135deg,#123C30 0%,#2C6350 55%,#3F9577 100%);
+ color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
 .kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
@@ -167,7 +167,7 @@ a{color:inherit}
  max-width:58ch}
 .band .lede b{color:#fff}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#EFF5F2;background:rgba(255,255,255,.12);
+.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -207,9 +207,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ctarow{margin:22px 0 0}
 .btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
  padding:12px 22px;border-radius:11px;text-decoration:none}
-.btn:hover{background:#25584A}
+.btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
-.btn.ghost:hover{background:#EEF5F1}
+.btn.ghost:hover{background:#F6F8F6}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 /* ---- newsletter */
@@ -221,7 +221,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .nlform{margin:0}
 .nlrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .nlform input[type=email]{flex:1;min-width:0;padding:12px 15px;border-radius:10px;
- border:1px solid var(--line);background:#FBF6E9;font:inherit;font-size:13.5px;color:var(--ink)}
+ border:1px solid var(--line);background:#F6F8F6;font:inherit;font-size:13.5px;color:var(--ink)}
 /* min-width:220px on a flex child is a floor, not a hint: at 320px the field plus
    the button exceeded the viewport and pushed the whole page sideways. Below
    420px the row stacks instead. */
@@ -339,9 +339,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 /* ---- tools page */
 .pill{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:5px 12px;
  border:1px solid}
-.pill.live{color:#2C6350;background:#E6F1EB;border-color:#BEDDD0}
+.pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 .pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
-.pill.idea{color:#6C6558;background:#F1EDE2;border-color:#DFD8C7}
+.pill.idea{color:#635D4E;background:#F6F8F6;border-color:#DFD8C7}
 .tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:15px;
  padding:18px 19px;display:flex;flex-direction:column}
 .sec.alt .tool{background:var(--paper)}
@@ -364,7 +364,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  background:var(--pine)}
 .feat li b{color:var(--ink)}
 .featshot{border:1px solid var(--line);border-radius:14px;overflow:hidden;
- box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F1F0E8}
+ box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F6F8F6}
 .featshot img{width:100%;height:auto;display:block;image-rendering:auto}
 .featcap{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
 @media (max-width:900px){.feat{grid-template-columns:1fr;gap:22px;padding:22px}}
@@ -395,7 +395,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:14px;
  font-weight:700;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;min-height:44px;
  box-shadow:0 3px 0 rgba(21,52,43,.35)}
-.cform button[type=submit]:hover{background:#25584A}
+.cform button[type=submit]:hover{background:#2C6350}
 .cform button[type=submit]:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(21,52,43,.35)}
 .cform button[aria-busy=true]{opacity:.65;cursor:progress}
 .cf-direct{font-size:12.4px;line-height:1.6;color:var(--muted);margin:0}
@@ -404,7 +404,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    dark text back. .sec .consent span already does this - restated here because
    the contact form also appears outside .sec on narrow pages. */
 .cform .consent span{color:#4E4940}
-.cform .nlmeta{color:#6E6857}
+.cform .nlmeta{color:#635D4E}
 @media (max-width:620px){
   .cform{padding:18px 16px 20px}
   /* Two columns of 170px + 1fr is fine on a laptop and cramped on a phone: the
@@ -432,8 +432,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 </style>
 <style>
-.cl{--paper:#FBF9F3;--white:#fff;--ink:#26241E;--muted:#6E695E;--line:#E7E2D6;
-  --field:#FBF6E9;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#B08430;--pop:#F6C560;
+.cl{--paper:#F6F8F6;--white:#fff;--ink:#1B2420;--muted:#5F6A64;--line:#DFE4E0;
+  --field:#F6F8F6;--fieldline:#E4D9BE;--pine:#2C6350;--gold:#B08430;--pop:#F6C560;
   --pos:#3F9577;--neg:#B5483F;--indigo:#4B3B93;
   background:var(--white);color:var(--ink);font-family:Inter,system-ui,sans-serif;
   -webkit-font-smoothing:antialiased}
@@ -466,7 +466,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 @media (max-width:900px){.clband{grid-template-columns:minmax(0,1fr);gap:18px}}
 
 .clhero .cleyebrow{color:#F6C560;margin-bottom:8px}
-.clhero h1{font-size:clamp(24px,2.6vw,34px);color:#FFFDF6;max-width:22ch;
+.clhero h1{font-size:clamp(24px,2.6vw,34px);color:#FFFFFF;max-width:22ch;
   margin-bottom:.28em}
 .clhero h1 em{font-style:normal;color:var(--pop)}
 .cldeck{font-size:clamp(14.6px,1.05vw,16px);line-height:1.55;color:#C4BBE4;max-width:56ch;
@@ -559,13 +559,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 .clverdict{border-radius:12px;padding:16px 18px;margin:16px 0 0;font-size:15.4px;
   line-height:1.6}
-.clverdict.ok{background:#F1F7F4;border-left:4px solid var(--pos);color:#245046}
-.clverdict.tight{background:#FFFCF4;border-left:4px solid var(--gold);color:#6B5321}
+.clverdict.ok{background:#F6F8F6;border-left:4px solid var(--pos);color:#245046}
+.clverdict.tight{background:#F6F8F6;border-left:4px solid var(--gold);color:#6B5321}
 .clverdict.short{background:#FBF1F0;border-left:4px solid var(--neg);color:#7A3A34}
 .clverdict b{font-weight:700}
 
 .clbar{height:30px;border-radius:8px;overflow:hidden;display:flex;margin:14px 0 8px;
-  background:#EDEAE0}
+  background:#F6F8F6}
 .clbar i{display:block;height:100%}
 .clkey{display:flex;gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
 .clkey s{text-decoration:none;display:inline-flex;align-items:center;gap:5px}
@@ -596,7 +596,7 @@ a.clcta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;
 a.clcta:hover{background:#1F4C3C;color:#fff}
 .cleg{grid-column:1/-1;margin:12px 0 0;font-size:12.4px;line-height:1.55;
   color:#9DBFB1}
-.cleg b{color:#DCEAE3;font-weight:600}
+.cleg b{color:#C6DBD1;font-weight:600}
 .cleg[hidden]{display:none !important}
 .cl :focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
 </style>

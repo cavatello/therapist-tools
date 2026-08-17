@@ -67,8 +67,8 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style><style>
-:root{--paper:#FBF9F3;--white:#fff;--ink:#26241E;--muted:#6E695E;--line:#E7E2D6;
- --field:#FBF6E9;--fline:#E4D9BE;--pine:#2C6350;--pinedeep:#1F4C3C;--brick:#8E4B45;
+:root{--paper:#F6F8F6;--white:#fff;--ink:#1B2420;--muted:#5F6A64;--line:#DFE4E0;
+ --field:#F6F8F6;--fline:#E4D9BE;--pine:#2C6350;--pinedeep:#1F4C3C;--brick:#8E4B45;
  --gold:#B08430;--indigo:#4B3B93;--pop:#F6C560;--pos:#3F9577}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);
@@ -92,12 +92,12 @@ a{color:inherit}
 @media (max-width:520px){.w{padding:0 18px}}
 
 /* ---- document chrome (this mockup's own) ---- */
-.doc{background:#1B1A17;color:#EDE8DC;padding:42px 0 38px}
+.doc{background:#1B1A17;color:#C6DBD1;padding:42px 0 38px}
 .doc .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
  text-transform:uppercase;color:var(--pop);margin:0 0 13px}
-.doc h1{font-size:clamp(29px,3.8vw,46px);color:#FFFDF6;max-width:20ch}
+.doc h1{font-size:clamp(29px,3.8vw,46px);color:#FFFFFF;max-width:20ch}
 .doc p{font-size:15.6px;line-height:1.62;color:#B8B1A2;max-width:66ch;margin:16px 0 0}
-.doc p b{color:#EDE8DC;font-weight:600}
+.doc p b{color:#C6DBD1;font-weight:600}
 .defects{list-style:none;margin:22px 0 0;padding:0;display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px;max-width:1000px}
 .defects li{font-size:12.8px;color:#B8B1A2;line-height:1.55;padding:10px 13px;
@@ -115,7 +115,7 @@ a{color:inherit}
 
 .spec{margin:26px 0 0;border:1px solid var(--line);border-radius:20px;overflow:hidden;
  background:var(--white)}
-.spec .bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:#F4F1E7;
+.spec .bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:#F6F8F6;
  border-bottom:1px solid var(--line);padding:11px 18px;font-family:'IBM Plex Mono',monospace;
  font-size:10.6px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .spec .bar .t{background:var(--pine);color:#fff;border-radius:5px;padding:3px 8px}
@@ -150,7 +150,7 @@ a{color:inherit}
 /* the panel. THE ZERO-STATE RULE: it is pre-filled with a worked example and
    labelled as one. It never shows an em-dash, because a dash above the fold is
    an empty promise at the exact moment the reader is deciding to stay. */
-.pan{background:var(--pinedeep);border-radius:16px;padding:18px 22px 20px;color:#DCEAE3}
+.pan{background:var(--pinedeep);border-radius:16px;padding:18px 22px 20px;color:#C6DBD1}
 .panh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
  text-transform:uppercase;color:#8FBBA8;margin:0 0 4px;padding-bottom:11px;
@@ -160,7 +160,7 @@ a{color:inherit}
 .panr{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:10px 0;
  border-bottom:1px solid rgba(255,255,255,.13)}
 .panr:last-child{border-bottom:0;padding-bottom:0}
-.panr .lb{font-size:13.2px;font-weight:600;color:#F4F1E8}
+.panr .lb{font-size:13.2px;font-weight:600;color:#F6F8F6}
 .panr .vv{text-align:right}
 .panr b{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;font-size:26px;
  line-height:1;color:var(--pop);white-space:nowrap}
@@ -183,7 +183,7 @@ a{color:inherit}
 .crumb b{color:var(--gold);font-weight:600}
 /* on a dark band the same component just inverts */
 .o3 .crumb a{color:#8FBBA8}
-.o3 .crumb a:hover{color:#DCEAE3}
+.o3 .crumb a:hover{color:#C6DBD1}
 .o3 .crumb i{color:#5E7F72}
 .o3 .crumb b{color:var(--pop)}
 
@@ -224,15 +224,15 @@ a{color:inherit}
 .o2card a:hover{text-decoration:underline}
 
 /* ============ OPTION 3 — Compact band, tool first ============ */
-.o3{background:var(--pinedeep);color:#DCEAE3;padding:22px 0}
+.o3{background:var(--pinedeep);color:#C6DBD1;padding:22px 0}
 .o3g{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center}
 @media (max-width:900px){.o3g{grid-template-columns:minmax(0,1fr);gap:16px}}
 .o3 .hk{color:#8FBBA8;margin-bottom:8px}
-.o3 h1{font-size:clamp(23px,2.4vw,32px);color:#FFFDF6;margin:0 0 7px;max-width:24ch}
+.o3 h1{font-size:clamp(23px,2.4vw,32px);color:#FFFFFF;margin:0 0 7px;max-width:24ch}
 .o3 h1 em{font-style:normal;color:var(--pop);background:none}
 .o3 .hd{color:#9FC4B4;font-size:14.6px;margin:0;max-width:62ch}
 .o3 .hwho{color:#8FBBA8;margin:9px 0 0}
-.o3 .hwho b{color:#DCEAE3}
+.o3 .hwho b{color:#C6DBD1}
 .o3 .hcta{background:var(--pop);color:#173B2F;white-space:nowrap}
 .o3 .hcta:hover{background:#FFD57A}
 .o3tool{background:var(--paper);padding:26px 0 30px}
@@ -260,7 +260,7 @@ a{color:inherit}
 .wide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 0}
 @media (max-width:900px){.wide{grid-template-columns:1fr}}
 .wf{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
-.wf p.t{margin:0;padding:9px 14px;background:#F4F1E7;border-bottom:1px solid var(--line);
+.wf p.t{margin:0;padding:9px 14px;background:#F6F8F6;border-bottom:1px solid var(--line);
  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
  text-transform:uppercase;color:var(--muted)}
 .wf p.t.bad{color:#8E4B45}
@@ -272,7 +272,7 @@ a{color:inherit}
 .ill .col.txt::after{content:"";position:absolute;left:8px;right:8px;top:10px;bottom:10px;
  background:repeating-linear-gradient(180deg,#DBD5C6 0 5px,transparent 5px 13px)}
 .ill .col.acc{background:var(--pinedeep);border-color:var(--pinedeep)}
-.ill .col.rail{background:#F4F1E7}
+.ill .col.rail{background:#F6F8F6}
 .ill .empty{position:absolute;top:26px;bottom:12px;
  background:repeating-linear-gradient(45deg,transparent 0 7px,rgba(142,75,69,.14) 7px 14px)}
 .wf .note{margin:0;padding:11px 14px;font-size:12.4px;color:var(--muted);line-height:1.55;

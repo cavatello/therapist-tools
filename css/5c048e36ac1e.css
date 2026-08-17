@@ -84,8 +84,8 @@ p[class*=eyebrow] + .bcr.bcr.bcr,div[class*=eyebrow] + .bcr.bcr.bcr{
   scrollbar-width:thin;
   scrollbar-color:#C9C0AA transparent;
   background:
-    linear-gradient(to right, #FBF9F3 30%, rgba(251,249,243,0)) left center,
-    linear-gradient(to right, rgba(251,249,243,0), #FBF9F3 70%) right center,
+    linear-gradient(to right, #F6F8F6 30%, rgba(251,249,243,0)) left center,
+    linear-gradient(to right, rgba(251,249,243,0), #F6F8F6 70%) right center,
     radial-gradient(farthest-side at 0 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) left center,
     radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) right center;
   background-repeat:no-repeat;

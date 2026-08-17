@@ -5,12 +5,12 @@
 /* ===================================================================== */
 .bc2{
   /* --- surface ------------------------------------------------------- */
-  --paper:#F6F8F6; --card:#FFFFFF; --sink:#EAF0EB;
+  --paper:#F6F8F6; --card:#FFFFFF; --sink:#F6F8F6;
   /* --- ink ----------------------------------------------------------- */
   --ink:#1B2420; --dim:#5F6A64; --hair:#DFE4E0;
   /* --- accent -------------------------------------------------------- */
-  --pine:#2C6350; --pine-2:#1A4739; --deep:#123C30; --gold:#FFE7A3;
-  --wash:#E7F0EA;
+  --pine:#2C6350; --pine-2:#123C30; --deep:#123C30; --gold:#FFE7A3;
+  --wash:#F6F8F6;
   /* --- the six path hues --------------------------------------------- */
   --h1:#2F6FDB; --h2:#7A5AF8; --h3:#0E8FA8; --h4:#17864A; --h5:#B0730B;
   --h6:#BC3F86;
@@ -145,7 +145,7 @@
     0 0 0 1px rgba(22,31,27,.06)}
 .ui .top{background:var(--sink);padding:11px 16px;display:flex;gap:7px;
   align-items:center;border-bottom:1px solid var(--hair)}
-.ui .top i{width:9px;height:9px;border-radius:50%;background:#C8D2CB;
+.ui .top i{width:9px;height:9px;border-radius:50%;background:#C6DBD1;
   display:block}
 .ui .top span{font-family:var(--mn);font-size:11px;color:var(--dim);
   margin-left:8px}
@@ -156,7 +156,7 @@
   margin-bottom:6px}
 .ui .fld{border:2px solid var(--hair);border-radius:var(--rs);padding:10px 12px;
   font-family:var(--figs);font-weight:800;font-size:23px;color:var(--ink);
-  background:#FCFEFC}
+  background:#FFFFFF}
 .ui .fld.live{border-color:var(--pine);box-shadow:0 0 0 3px var(--wash)}
 .ui .out{margin-top:20px;padding-top:18px;border-top:2px solid var(--hair);
   display:flex;gap:18px;align-items:baseline;flex-wrap:wrap}

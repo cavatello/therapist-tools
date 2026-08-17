@@ -10,7 +10,7 @@
 /* Pine reads 4.35:1 on the gold chip - just under. The chip already has an ink
    that reads 10.31:1, and every other gold CTA on the site uses it. */
 .hwcta.hwcta.hwcta,
-.hwcta.hwcta.hwcta *{color:#16211B}
+.hwcta.hwcta.hwcta *{color:#1B2420}
 /* The amber and the green stay protected in the token table because they are
    real bar, border and chip colours. These are the classes that consume them
    as TEXT, named one by one so the bars keep the colour they were drawn with:
@@ -18,10 +18,10 @@
      .src/.n citation markers and references   3.22:1  */
 .yes.yes.yes{color:#2C6350}
 .src.src.src,
-.n.n.n{color:#8A6023}
+.n.n.n{color:#8A6516}
 /* `.grouplab span` is `color:var(--gold)` - the section standfirsts, 2.74:1 on
    cream. Same reason as above: the variable itself is a background elsewhere,
    so the consumer is named rather than the token swapped. */
-.grouplab.grouplab span{color:#8A6023}
+.grouplab.grouplab span{color:#8A6516}
 /* 4.40:1, ten pixels, on a pale amber pill. Under by a tenth. */
 .soon.soon.soon{color:#7A5418}

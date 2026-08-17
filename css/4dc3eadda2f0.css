@@ -23,13 +23,13 @@ body.house .band .pw .tsshort .tsa,body.house .band .pw .tsshort .tsfig{color:#1
 body.house .grouplab span{color:#8A6516 !important}
 /* the reference-fold label - 5.31:1 on #FFFFFF */
 body.house .reffold summary span,body.house .reffold>span{color:#8A6516 !important}
-/* the terms/privacy breadcrumb - 5.04:1 on #FBF9F3 */
+/* the terms/privacy breadcrumb - 5.04:1 on #F6F8F6 */
 body.house .lgwrap .bcr li span{color:#8A6516 !important}
-/* the terms hero label - 5.04:1 on #FBF9F3 */
+/* the terms hero label - 5.04:1 on #F6F8F6 */
 body.house .lghero span{color:#8A6516 !important}
-/* the tax slider's empty-state line - 5.04:1 on #FBF9F3 */
+/* the tax slider's empty-state line - 5.04:1 on #F6F8F6 */
 body.house .slider .out.empty{color:#8A6516 !important}
-/* the change-log dates - 6.07:1 on #FBF6E9 */
+/* the change-log dates - 6.07:1 on #F6F8F6 */
 body.house .promise .chg li time{color:#635D4E !important}
 /* an outbound link that was pine on pine at 1.05:1 - 6.98:1 on #2C6350 */
 body.house .li-card .li-go{color:#FFFFFF !important}

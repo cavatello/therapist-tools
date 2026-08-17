@@ -123,13 +123,17 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `css_cdo_fix.py` | css | &mdash; | Remove HTML comment markers from stylesheets, and rehash the files. |
 | `css_dedupe.py` | css | &mdash; | Remove superseded stylesheets. Every page was carrying each pass twice. |
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
+| `build_redirect.py` | last | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. |
+| `dead_css.py` | last | &mdash; | A stylesheet no page links is retired, and cannot come back quietly. |
 | `discovery.py` | last | `<!-- discovery -->` | Sitemap and structured data, derived from the pages that actually exist. |
 | `family_art.py` | last | &mdash; | Rollout step 5: page families go bc2, one family at a time. |
 | `family_for.py` | last | &mdash; | Rollout step 5 + P2: the /for/ stage doors go bc2 as their own family. |
 | `family_pk.py` | last | &mdash; | Rollout step 5, family 2: the pagekit research/directory pages go bc2. |
 | `family_rest.py` | last | &mdash; | Rollout step 5, family 5: every remaining skinned page goes bc2. |
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
+| `font_links.py` | last | &mdash; | A page that asks for a typeface must also load it. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
+| `palette_conform.py` | last | &mdash; | 113 near-misses collapse onto the twelve colours they were trying to be. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
@@ -171,7 +175,6 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `eap_rates.py` | **refuses** | `<!-- _dev/eap_rates.py -->` | Fill in the EAP rate table, which said "No usable report yet" three times. — **re-running this damaged the live site once.** It strips its own block and re-inserts it against anchors that have since moved. It now refuses to run when its block is present; regenerating means removing the block by hand first, so the destructive step is a decision |
 | `ads_state.py` | **safe** | &mdash; | The advertising sentence, derived from whether the site actually serves ads. — no-op on today's site |
 | `build_psyd.py` | **safe** | &mdash; | Build psyd-programs-california.html — the California PsyD directory. — rebuilds the PsyD directory from psyd_data.py |
-| `build_redirect.py` | **safe** | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. — the tools.html -> resources.html stub |
 | `claims.py` | **safe** | &mdash; | Retire the "no account, no sign-up, no server" claim across the site. — no-op on today's site |
 | `copy_trim.py` | **safe** | &mdash; | Retire two pieces of chrome copy that were repeated on every page. — no-op on today's site |
 | `figure_scope.py` | **safe** | &mdash; | Stop figure styling leaking onto prose in the same block. — no-op on today's site |
@@ -228,6 +231,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `ops_state.py` | **untriaged** | &mdash; | The parts of the status board only a person knows. Edit this, not the HTML. |
 | `orgprofile_data.py` | **untriaged** | &mdash; | The 24 Bay Area organization profiles - hand-written from the banked |
 | `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
+| `palette_census.py` | **untriaged** | &mdash; | Every colour actually in use, ranked, against the sanctioned palette. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |
@@ -244,6 +248,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `state_workforce.py` | **untriaged** | &mdash; | The mental health workforce of every state, from BLS and the Census. |
 | `supervisor_lists.py` | **untriaged** | &mdash; | Every place a California clinical supervisor list is supposed to be, fetched. |
 | `supervisor_lists_data.py` | **untriaged** | &mdash; | Where a California supervisor list actually is. WRITTEN BY _dev/supervisor_lists.py. |
+| `type_census.py` | **untriaged** | &mdash; | Typography, counted: every face, every size, every radius, every gradient. |
 | `verify_leads.py` | **untriaged** | &mdash; | Fetch every directory lead before it can ship as a link. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |

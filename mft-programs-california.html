@@ -15,16 +15,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/house.css?v=27a6a16a">
-<link rel="stylesheet" href="css/house-chrome.css?v=8f815376">
-<link rel="stylesheet" href="css/house-rest.css?v=7a2749ee">
+<link rel="stylesheet" href="css/house.css?v=8ae003fa">
+<link rel="stylesheet" href="css/house-chrome.css?v=e4c07a94">
+<link rel="stylesheet" href="css/house-rest.css?v=78715118">
 <style>
 /* Therapist Support — shared chrome for the static pages.
    Deliberately a separate stylesheet from the simulator's: these are content
    pages and should not wait on a 700 kB bundle to render. The tokens are the
    same values the simulator uses, copied rather than imported for that reason. */
-:root{--pine:#2C6350;--deep:#15342B;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
- --amber:#FFE3B8;--ink:#26241E;--muted:#635E53;--line:#E7E2D6;--paper:#F4F0E6;--cream:#FBF9F3;}
+:root{--pine:#2C6350;--deep:#14372C;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
+ --amber:#FFE3B8;--ink:#1B2420;--muted:#635D4E;--line:#DFE4E0;--paper:#F4F0E6;--cream:#F6F8F6;}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;
@@ -38,7 +38,7 @@ a{color:inherit}
 /* Header 06 - the bar is a green field and the chrome is a capsule floating on
    it, not a strip welded to the top. Everything inside is a GRID with equal
    columns, so nothing can push a sibling out at any width. */
-.sitenav{background:linear-gradient(150deg,#16382B 0%,#2C6350 46%,#48A382 100%);
+.sitenav{background:linear-gradient(150deg,#14372C 0%,#2C6350 46%,#48A382 100%);
  box-shadow:none;position:sticky;top:0;z-index:40;padding:14px 22px 15px}
 .sitenav-in{max-width:1180px;margin:0 auto;padding:10px 11px 10px 18px;position:relative;
  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:22px;
@@ -61,7 +61,7 @@ a{color:inherit}
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
  transition:background .15s,color .15s}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
-.sitenav-top.on{background:#fff;color:#1E4436}
+.sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
 .sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
@@ -147,8 +147,8 @@ a{color:inherit}
  font-size:11.5px;padding:9px 14px;border-radius:9px}
 
 /* ---- bands and sections */
-.band{background:linear-gradient(135deg,#1E4436 0%,#2C6350 55%,#3F9577 100%);
- color:#EFF5F2;padding:44px 0 46px}
+.band{background:linear-gradient(135deg,#123C30 0%,#2C6350 55%,#3F9577 100%);
+ color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
 .kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
@@ -167,7 +167,7 @@ a{color:inherit}
  max-width:58ch}
 .band .lede b{color:#fff}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#EFF5F2;background:rgba(255,255,255,.12);
+.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -207,9 +207,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ctarow{margin:22px 0 0}
 .btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
  padding:12px 22px;border-radius:11px;text-decoration:none}
-.btn:hover{background:#25584A}
+.btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
-.btn.ghost:hover{background:#EEF5F1}
+.btn.ghost:hover{background:#F6F8F6}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 /* ---- newsletter */
@@ -221,7 +221,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .nlform{margin:0}
 .nlrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .nlform input[type=email]{flex:1;min-width:0;padding:12px 15px;border-radius:10px;
- border:1px solid var(--line);background:#FBF6E9;font:inherit;font-size:13.5px;color:var(--ink)}
+ border:1px solid var(--line);background:#F6F8F6;font:inherit;font-size:13.5px;color:var(--ink)}
 /* min-width:220px on a flex child is a floor, not a hint: at 320px the field plus
    the button exceeded the viewport and pushed the whole page sideways. Below
    420px the row stacks instead. */
@@ -339,9 +339,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 /* ---- tools page */
 .pill{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:5px 12px;
  border:1px solid}
-.pill.live{color:#2C6350;background:#E6F1EB;border-color:#BEDDD0}
+.pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 .pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
-.pill.idea{color:#6C6558;background:#F1EDE2;border-color:#DFD8C7}
+.pill.idea{color:#635D4E;background:#F6F8F6;border-color:#DFD8C7}
 .tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:15px;
  padding:18px 19px;display:flex;flex-direction:column}
 .sec.alt .tool{background:var(--paper)}
@@ -364,7 +364,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  background:var(--pine)}
 .feat li b{color:var(--ink)}
 .featshot{border:1px solid var(--line);border-radius:14px;overflow:hidden;
- box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F1F0E8}
+ box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F6F8F6}
 .featshot img{width:100%;height:auto;display:block;image-rendering:auto}
 .featcap{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
 @media (max-width:900px){.feat{grid-template-columns:1fr;gap:22px;padding:22px}}
@@ -382,7 +382,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cf-f > span{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .cf-f > span i{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;
- color:#635E53;margin-left:5px}
+ color:#635D4E;margin-left:5px}
 .cform input[type=text],.cform input[type=email],.cform select,.cform textarea{
  width:100%;min-width:0;font:inherit;font-size:14px;color:var(--ink);min-height:44px;
  background:var(--cream);border:1.5px solid #E4D9BE;border-radius:10px;padding:11px 13px}
@@ -395,7 +395,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:14px;
  font-weight:700;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;min-height:44px;
  box-shadow:0 3px 0 rgba(21,52,43,.35)}
-.cform button[type=submit]:hover{background:#25584A}
+.cform button[type=submit]:hover{background:#2C6350}
 .cform button[type=submit]:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(21,52,43,.35)}
 .cform button[aria-busy=true]{opacity:.65;cursor:progress}
 .cf-direct{font-size:12.4px;line-height:1.6;color:var(--muted);margin:0}
@@ -404,7 +404,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    dark text back. .sec .consent span already does this - restated here because
    the contact form also appears outside .sec on narrow pages. */
 .cform .consent span{color:#4E4940}
-.cform .nlmeta{color:#6E6857}
+.cform .nlmeta{color:#635D4E}
 @media (max-width:620px){
   .cform{padding:18px 16px 20px}
   /* Two columns of 170px + 1fr is fine on a laptop and cramped on a phone: the
@@ -443,7 +443,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
 .qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
 .qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
- text-transform:uppercase;color:#635E53}
+ text-transform:uppercase;color:#635D4E}
 .qx .ar{font-size:18px;color:var(--pine)}
 .qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
  margin:0 -11px;padding-left:13px;padding-right:13px}
@@ -458,7 +458,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
  font-weight:600;letter-spacing:-.018em}
 .railh span{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.1em;
- text-transform:uppercase;color:#635E53}
+ text-transform:uppercase;color:#635D4E}
 .railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .rc{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:16px 17px;
  text-decoration:none;display:flex;flex-direction:column;gap:7px}
@@ -469,7 +469,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  text-transform:uppercase;color:var(--pine);font-weight:600;margin-top:auto;padding-top:5px}
 .rc.tool{background:linear-gradient(160deg,rgba(246,197,96,.15),var(--white) 62%)}
 /* ---- newsletter */
-.hubnl{background:linear-gradient(135deg,#1E4436,#2C6350);color:#EFF5F2;border-radius:16px;
+.hubnl{background:linear-gradient(135deg,#123C30,#2C6350);color:#F6F8F6;border-radius:16px;
  padding:26px 28px;margin:34px 0 6px;display:grid;grid-template-columns:1.25fr .75fr;
  gap:22px;align-items:center}
 .hubnl h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.2vw,23px);margin:0;color:#fff}
@@ -478,11 +478,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  border-radius:10px;background:var(--pop);color:#2A2010;font-weight:800;font-size:14px;
  text-decoration:none}
 @media(max-width:760px){.railg{grid-template-columns:1fr}.hubnl{grid-template-columns:1fr}}
-.ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#2A2620}
-.band .ref{background:#fff;color:#2A2620}
-.band .ref b{color:#17271F}
+.ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#1B2420}
+.band .ref{background:#fff;color:#1B2420}
+.band .ref b{color:#1B2420}
 .band .ref i{color:#4E4940}
-.band .ref i b{color:#17271F}
+.band .ref i b{color:#1B2420}
 .ref i a{white-space:nowrap}
 @media (max-width:700px){.reflist{grid-template-columns:1fr}}
 /* ---- very large displays. On a 27" 5K the hub used 46% of the window: a
@@ -504,16 +504,16 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   margin-bottom:7px}
 /* end nav */</style>
 <style>/* library */
-.lib{--pine:#2C6350;--amber:#F6C560;--ink:#17271F;--line:#E2DACA;--mut:#4A5A46;
+.lib{--pine:#2C6350;--amber:#F6C560;--ink:#1B2420;--line:#E2DACA;--mut:#4A5A46;
   --green:#3F9577}
-.libband{background:linear-gradient(135deg,#14261E 0%,#1B4536 48%,#2C6350 100%);
-  color:#EFF5F2;padding:32px 0 38px}
+.libband{background:linear-gradient(135deg,#1B2420 0%,#123C30 48%,#2C6350 100%);
+  color:#F6F8F6;padding:32px 0 38px}
 .libband .in{max-width:1120px;margin:0 auto;padding:0 26px}
 .libband .bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 14px;
   padding:0;list-style:none;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:10.4px;letter-spacing:.1em;text-transform:uppercase}
 .libband .bcr li{display:flex;align-items:center;gap:8px}
-.libband .bcr a{color:#EFF5F2;opacity:.66;text-decoration:none;padding:5px 0;
+.libband .bcr a{color:#F6F8F6;opacity:.66;text-decoration:none;padding:5px 0;
   min-height:26px;display:inline-flex;align-items:center;border-bottom:1px solid transparent}
 .libband .bcr a:hover{opacity:1;border-bottom-color:currentColor}
 .libband .bcr .sep{opacity:.36}
@@ -531,7 +531,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   text-transform:uppercase;color:rgba(255,255,255,.62)}
 
 .libwrap{max-width:1120px;margin:0 auto;padding:8px 26px 20px}
-.lib .sec,.lib .intro,.lib .promise{padding:30px 0 6px;border-top:1px solid #EFEADC}
+.lib .sec,.lib .intro,.lib .promise{padding:30px 0 6px;border-top:1px solid #DFE4E0}
 .lib .intro,.lib .promise{border-top:0;padding-top:28px}
 .lib h2{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);
   line-height:1.2;font-weight:600;color:var(--ink);margin:0 0 12px;scroll-margin-top:18px}
@@ -546,7 +546,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .lcg.two{grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
 .lc{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
   border-radius:12px;padding:15px 17px;text-decoration:none;min-width:0}
-.lc:hover{background:#FBFAF6;border-color:#CFC7B4}
+.lc:hover{background:#F6F8F6;border-color:#CFC7B4}
 .lch{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px}
 .lc b{font-family:Fraunces,Georgia,serif;font-size:16.5px;line-height:1.28;
   font-weight:600;color:var(--ink);margin-bottom:6px}
@@ -559,8 +559,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .f-calculator{background:#EAF3DE;color:#27500A}
 .f-guide{background:#E8EFF6;color:#2A4C6B}
 .f-answer{background:#F3EFE4;color:#7A6B4A}
-.f-directory{background:#FBF0E2;color:#8A5A22}
-.f-reference{background:#EFEDE7;color:#6B6A63}
+.f-directory{background:#FBF0E2;color:#8A6516}
+.f-reference{background:#F6F8F6;color:#5F6A64}
 .tchip{font-family:'IBM Plex Mono',monospace;font-size:9.2px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--mut)}
 .chk{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:9.2px;
@@ -570,7 +570,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .lr{display:flex;align-items:center;flex-wrap:wrap;gap:9px;background:#fff;
   border:1px solid var(--line);border-radius:9px;padding:11px 14px;text-decoration:none;
   min-width:0}
-.lr:hover{background:#FBFAF6}
+.lr:hover{background:#F6F8F6}
 .lr b{flex:1;min-width:180px;font-size:14.6px;line-height:1.4;color:var(--ink);
   font-weight:500}
 
@@ -578,7 +578,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   margin:14px 0 8px}
 .tcard{display:block;background:#fff;border:1px solid var(--line);border-radius:13px;
   padding:18px 20px;text-decoration:none;min-width:0;border-top:3px solid var(--pine)}
-.tcard:hover{background:#FBFAF6}
+.tcard:hover{background:#F6F8F6}
 .tcard.t-money{border-top-color:#3F9577}
 .tcard.t-licensure{border-top-color:#2C6350}
 .tcard.t-getting-paid{border-top-color:#C98B4B}
@@ -589,9 +589,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tcard .tt{display:block;font-size:13.6px;line-height:1.55;color:#4A5A46;margin-bottom:9px}
 .tcard .tn{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
   letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
-.tcard ul{margin:0 0 12px;padding:0;list-style:none;border-top:1px solid #F0EBDE}
-.tcard li{font-size:13px;line-height:1.5;color:#5A6A56;padding:7px 0;
-  border-bottom:1px solid #F6F3EA}
+.tcard ul{margin:0 0 12px;padding:0;list-style:none;border-top:1px solid #DFE4E0}
+.tcard li{font-size:13px;line-height:1.5;color:#5F6A64;padding:7px 0;
+  border-bottom:1px solid #F6F8F6}
 .tcard li:last-child{border-bottom:0}
 .tcard .go{font-size:13px;color:var(--pine);font-weight:500}
 
@@ -599,14 +599,14 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   margin:12px 0}
 .xt{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:13px 15px;text-decoration:none;min-width:0}
-.xt:hover{background:#FBFAF6}
+.xt:hover{background:#F6F8F6}
 .xt b{display:block;font-family:Fraunces,Georgia,serif;font-size:15.5px;color:var(--ink);
   margin-bottom:3px}
 .xt span{display:block;font-size:12.6px;line-height:1.5;color:#4A5A46}
 
 .chg{list-style:none;margin:12px 0;padding:0;display:grid;gap:8px}
 .chg li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;
-  background:#FBF6E9;border-radius:10px;padding:13px 16px;align-items:baseline}
+  background:#F6F8F6;border-radius:10px;padding:13px 16px;align-items:baseline}
 .chg time{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A7B58;
   letter-spacing:.04em}
 .chg span{font-size:14.2px;line-height:1.6;color:#3B4A38}
@@ -624,7 +624,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .reffold{border:1px solid var(--line);border-radius:11px;background:#fff;margin:12px 0}
 .reffold summary{cursor:pointer;padding:15px 18px;font-family:'IBM Plex Mono',monospace;
   font-size:10.6px;letter-spacing:.09em;text-transform:uppercase;color:var(--pine)}
-.reffold[open] summary{border-bottom:1px solid #F0EBDE}
+.reffold[open] summary{border-bottom:1px solid #DFE4E0}
 .reffold .sec{border-top:0;padding-top:12px}
 
 @media (max-width:560px){
@@ -633,17 +633,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   .chk{margin-left:0}
 }</style>
 <style>/* programmes */
-.pd{--pine:#2C6350;--amber:#F6C560;--ink:#17271F;--line:#E2DACA;--mut:#4A5A46;
+.pd{--pine:#2C6350;--amber:#F6C560;--ink:#1B2420;--line:#E2DACA;--mut:#4A5A46;
   --green:#3F9577;--red:#B5483F}
-.pdband{background:linear-gradient(135deg,#14261E 0%,#1B4536 48%,#2C6350 100%);
-  color:#EFF5F2;padding:30px 0 36px}
+.pdband{background:linear-gradient(135deg,#1B2420 0%,#123C30 48%,#2C6350 100%);
+  color:#F6F8F6;padding:30px 0 36px}
 .pdband .in{max-width:1180px;margin:0 auto;padding:0 26px;display:grid;
   grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:34px;align-items:center}
 .pdband .bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 14px;
   padding:0;list-style:none;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:10.4px;letter-spacing:.1em;text-transform:uppercase}
 .pdband .bcr li{display:flex;align-items:center;gap:8px}
-.pdband .bcr a{color:#EFF5F2;opacity:.66;text-decoration:none;padding:5px 0;min-height:26px;
+.pdband .bcr a{color:#F6F8F6;opacity:.66;text-decoration:none;padding:5px 0;min-height:26px;
   display:inline-flex;align-items:center;border-bottom:1px solid transparent}
 .pdband .bcr a:hover{opacity:1;border-bottom-color:currentColor}
 .pdband .bcr .sep{opacity:.36}
@@ -678,7 +678,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    it wraps, and a hardcoded offset is wrong on one of them by construction.
    The fallback in var() is the desktop height, so a no-script reader gets the
    bar slightly low rather than invisible. */
-.flt{position:sticky;top:var(--hh,95px);z-index:20;background:#FBF7EE;padding:14px 0 13px;
+.flt{position:sticky;top:var(--hh,95px);z-index:20;background:#F6F8F6;padding:14px 0 13px;
   border-bottom:1px solid var(--line);margin-bottom:20px}
 .fbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
 .fbar input[type=search]{flex:1;min-width:210px;font:inherit;font-size:14.4px;
@@ -705,19 +705,19 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.4px;
   letter-spacing:.08em;text-transform:uppercase;border-radius:20px;padding:3px 9px;
   margin:9px 6px 0 0}
-.badge.acc{background:#E0F0EA;color:#20614B;border:1px solid #BFE0D3}
+.badge.acc{background:#F6F8F6;color:#2C6350;border:1px solid #C6DBD1}
 .badge.lp{background:#EAF3DE;color:#27500A;border:1px solid #CFE2B8}
-.badge.lpc{background:#FBF0E2;color:#8A5B22;border:1px solid #EBD9BC}
-.badge.lpn{background:#F4F2EC;color:#6E6656;border:1px solid #DFD9C9}
+.badge.lpc{background:#FBF0E2;color:#8A6516;border:1px solid #EBD9BC}
+.badge.lpn{background:#F6F8F6;color:#635D4E;border:1px solid #DFD9C9}
 /* Placement, which is the field this directory was missing. Green where the
    school owns the problem of finding you a site, amber where it is shared,
    red-ish where it is entirely yours. Nothing is shown for "not published" -
    an absent badge and a badge saying "unknown" carry the same information and
    one of them is quieter. */
-.badge.pl-ok{background:#E0F0EA;color:#20614B;border:1px solid #BFE0D3}
-.badge.pl-mid{background:#FBF0E2;color:#8A5B22;border:1px solid #EBD9BC}
+.badge.pl-ok{background:#F6F8F6;color:#2C6350;border:1px solid #C6DBD1}
+.badge.pl-mid{background:#FBF0E2;color:#8A6516;border:1px solid #EBD9BC}
 .badge.pl-warn{background:#FBF0EF;color:#8E3A32;border:1px solid #E4B7B2}
-.badge.gren{background:#F2EEE2;color:#5B5344;border:1px solid #DFD9C9}
+.badge.gren{background:#F2EEE2;color:#635D4E;border:1px solid #DFD9C9}
 .bd .r b .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.2px;
   color:var(--mut);margin-top:2px;font-weight:400}
 /* A Board-issued Notice to Students. Red, because it is the only thing on a
@@ -727,9 +727,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .warn b{display:block;font-size:12.6px;color:#8E3A32;margin-bottom:5px}
 .warn p{font-size:12.5px;line-height:1.58;color:#5A423F;margin:0}
 .warn a{color:#8E3A32}
-.offl{margin:11px 0 0;font-size:12.4px;line-height:1.56;color:#5B5344;
+.offl{margin:11px 0 0;font-size:12.4px;line-height:1.56;color:#635D4E;
   border-left:2px solid #E4D9BE;padding-left:11px}
-.bd{margin-top:12px;border-top:1px solid #F0EBDE;padding-top:10px}
+.bd{margin-top:12px;border-top:1px solid #DFE4E0;padding-top:10px}
 .bd .r{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;padding:5px 0;font-size:13px}
 .bd .r span{color:var(--mut);font-family:'IBM Plex Mono',monospace;font-size:10.2px;
   letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
@@ -738,23 +738,23 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .np{color:#B0A896;font-style:italic}
 .yr{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut)}
 .nt{font-size:12.6px;line-height:1.58;color:#4A5A46;margin:11px 0 0;
-  border-left:2px solid #EDE7D8;padding-left:11px}
+  border-left:2px solid #DFE4E0;padding-left:11px}
 .go{display:inline-block;margin-top:13px;margin-right:16px;font-size:13px;color:var(--pine);
   text-decoration:none;border-bottom:1px solid rgba(44,99,80,.3)}
 .go.mine{font-weight:600}
 .go.ext{color:var(--mut);border-bottom-color:rgba(124,136,120,.3)}
 
 /* forum threads */
-.fx{margin-top:12px;border-top:1px dashed #E7E0D0;padding-top:10px}
+.fx{margin-top:12px;border-top:1px dashed #DFE4E0;padding-top:10px}
 .fx summary{cursor:pointer;font-size:12.8px;color:var(--pine);list-style:none;
   display:flex;align-items:center;gap:8px}
 .fx summary::-webkit-details-marker{display:none}
 .fx summary::before{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--mut)}
 .fx[open] summary::before{content:"\2212"}
-.fx .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;background:#EFEDE4;
+.fx .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;background:#F6F8F6;
   color:var(--mut);border-radius:9px;padding:1px 7px}
 .thl{display:grid;gap:8px;margin-top:11px}
-.th{display:block;background:#FBFAF6;border:1px solid #EDE7D8;border-radius:9px;
+.th{display:block;background:#F6F8F6;border:1px solid #DFE4E0;border-radius:9px;
   padding:10px 12px;text-decoration:none;min-width:0;border-left:3px solid #CFC7B4}
 .th:hover{background:#fff}
 .th.pos{border-left-color:var(--green)}
@@ -776,7 +776,7 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
 .none b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;
   text-transform:uppercase;color:var(--mut);margin-bottom:10px}
 .none p{font-size:13.4px;line-height:1.62;color:#4A5A46;margin:0 0 10px;max-width:none}
-.none span{display:inline-block;font-size:12.4px;background:#F4F1E8;border-radius:20px;
+.none span{display:inline-block;font-size:12.4px;background:#F6F8F6;border-radius:20px;
   padding:3px 10px;margin:0 5px 5px 0;color:#4A5A46}
 .meth{font-size:13.4px;line-height:1.7;color:#4A5A46;max-width:70ch}
 .meth a{color:var(--pine)}
@@ -805,9 +805,9 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
 .fbtns{display:contents}
 .fb .n{opacity:.62;margin-left:5px;font-size:10px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;
-  font-size:10.6px;background:#EFEADC;border:1px solid #E0D8C4;border-radius:20px;
+  font-size:10.6px;background:#F6F8F6;border:1px solid #E0D8C4;border-radius:20px;
   padding:3px 5px 3px 10px;color:#4A5A46}
-.chip button{border:0;background:#DED5BE;color:#5B5344;border-radius:50%;width:15px;
+.chip button{border:0;background:#DED5BE;color:#635D4E;border-radius:50%;width:15px;
   height:15px;line-height:1;font-size:11px;cursor:pointer;padding:0}
 .chip button:hover{background:#C9BE9F}
 .clr{font-family:'IBM Plex Mono',monospace;font-size:10.8px;background:none;border:0;
@@ -850,9 +850,9 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
 .keep.tk[aria-pressed=true]:after{content:"¹3";font-size:11px}
 
 /* ---- what the school does not publish, said per card */
-.gapl{font-size:12.2px;line-height:1.55;color:#6E6656;margin:10px 0 0;
-  background:#FAF7EF;border:1px dashed #E4D9BE;border-radius:8px;padding:8px 11px}
-.gapl b{color:#5B5344;font-weight:600}
+.gapl{font-size:12.2px;line-height:1.55;color:#635D4E;margin:10px 0 0;
+  background:#F6F8F6;border:1px dashed #E4D9BE;border-radius:8px;padding:8px 11px}
+.gapl b{color:#635D4E;font-weight:600}
 
 /* The computed differentiator. Set apart from the school's own description
    below it, because it is the one line on the card this site wrote - and it
@@ -873,7 +873,7 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
   border-radius:12px;background:#fff}
 .ptbl{border-collapse:collapse;width:100%;font-size:13px;min-width:1120px}
-.ptbl th,.ptbl td{text-align:left;padding:9px 11px;border-bottom:1px solid #F0EBDE;
+.ptbl th,.ptbl td{text-align:left;padding:9px 11px;border-bottom:1px solid #DFE4E0;
   vertical-align:top}
 /* NOT position:sticky, and it must not be made so again. The wrapper needs
    overflow-x for a table this wide; a box with overflow-x:auto computes
@@ -883,7 +883,7 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
    its `top` offset partway down the table and sits there over the rows. That
    is exactly what it did, and it looked like a rendering bug because it was
    one. A header that scrolls away honestly beats a header that floats. */
-.ptbl thead th{background:#F7F3E9;font-family:'IBM Plex Mono',monospace;
+.ptbl thead th{background:#F6F8F6;font-family:'IBM Plex Mono',monospace;
   font-size:9.8px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
   font-weight:500;z-index:2;border-bottom:1px solid var(--line)}
 .ptbl tbody th{font-weight:500;color:var(--ink);min-width:210px}
@@ -891,7 +891,7 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
 .ptbl .tc{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
   color:var(--mut);margin-top:2px}
 .ptbl tr.hide{display:none}
-.ptbl tbody tr:hover{background:#FCFAF4}
+.ptbl tbody tr:hover{background:#F6F8F6}
 body.tablev .grid{display:none}
 body.tablev #tbl{display:block}
 #tbl{display:none;margin-top:2px}
@@ -946,7 +946,7 @@ body.tablev #tbl{display:block}
 .ig-b{display:grid;grid-template-columns:minmax(96px,190px) minmax(0,1fr) 74px;
   gap:11px;align-items:center}
 .ig-l{font-size:12.4px;line-height:1.35;color:#3B4A38;overflow-wrap:anywhere}
-.ig-t{display:block;height:15px;background:#F4F1E7;border-radius:4px;overflow:hidden}
+.ig-t{display:block;height:15px;background:#F6F8F6;border-radius:4px;overflow:hidden}
 .ig-t i{display:block;height:100%;background:var(--pine);border-radius:4px;
   min-width:2px}
 .ig-b.cmp .ig-t i{background:repeating-linear-gradient(115deg,#2C6350 0 6px,
@@ -956,11 +956,11 @@ body.tablev #tbl{display:block}
 .ig-n{font-size:13.2px;line-height:1.68;color:#4A5A46;margin:14px 0 0;max-width:70ch}
 .ig-n b{color:var(--ink)}
 .ig-dots{display:flex;flex-wrap:wrap;gap:6px}
-.ig-d{width:15px;height:15px;border-radius:50%;background:#EDE8DA;
+.ig-d{width:15px;height:15px;border-radius:50%;background:#F6F8F6;
   border:1px solid #DFD7C4}
 .ig-d.on{background:var(--pine);border-color:var(--pine)}
 .ig-cmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:13px}
-.ig-cmp>div{background:#FBF6E9;border-radius:10px;padding:15px 17px}
+.ig-cmp>div{background:#F6F8F6;border-radius:10px;padding:15px 17px}
 .ig-cmp b{display:block;font-family:Fraunces,Georgia,serif;font-size:34px;
   line-height:1;color:var(--pine)}
 .ig-cmp span{display:block;font-size:12.8px;line-height:1.55;color:#4A5A46;margin-top:7px}
@@ -1142,6 +1142,10 @@ else is from each institution's own site. If something here is wrong,
 <section class="uplink"><div><p class="uk">More on this</p><h2>Licensure</h2><p class="ud">The route to LMFT, and how long it really takes.</p><div class="ug"><a class="uc" href="out-of-state-to-california-licensure.html"><b>Can I bring my license and my supervised hours from another state?</b><span>Which of the Board’s two routes you are on, the coursework each one costs, and how much of your licensed time converts into hours</span></a><a class="uc" href="associate-hours-telehealth-out-of-state.html"><b>Can I finish my supervised hours by telehealth from another state?</b><span>The five published Board answers, the four conditions, and the risk that is real — which is not the one people worry about</span></a><a class="uc" href="mbh-slrp-california.html"><b>How does the Medi-Cal Behavioral Health Student Loan Repayment Program actually work?</b><span>The three award tiers, the 32-hour direct-care obligation, where you have to work, and the tax question HCAI does not answer</span></a></div><a class="uall" href="licensure/">All 125 pages on licensure &rarr;</a></div></section>
 <!-- /uplinks -->
 </main>
+
+
+
+
 
 
 
@@ -1689,8 +1693,20 @@ else is from each institution's own site. If something here is wrong,
 
 
 
-<link rel="stylesheet" href="css/967d1434b320.css">
-<link rel="stylesheet" href="css/2d40f9eb0dab.css">
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/c08f3e3b062a.css">
+
+<link rel="stylesheet" href="css/25c85a0f3d4d.css">
+<link rel="stylesheet" href="css/7551624b376f.css">
+<link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/analytics_events.py */
 (function(){
   if (typeof window === 'undefined') return;
@@ -1929,11 +1945,14 @@ else is from each institution's own site. If something here is wrong,
   });
 })();
 </script>
+<link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
-<link rel="stylesheet" href="css/a2b350271684.css">
-<link rel="stylesheet" href="css/2f29aaadfa97.css">
-<link rel="stylesheet" href="css/c41f2ea90550.css">
+<link rel="stylesheet" href="css/e2ab505d9863.css">
+<link rel="stylesheet" href="css/9fb0332fa15a.css">
+<link rel="stylesheet" href="css/4dc3eadda2f0.css">
 <link rel="stylesheet" href="css/97ebf82c2256.css">
-<link rel="stylesheet" href="css/98dfe0b8d12e.css">
+<link rel="stylesheet" href="css/de5583206780.css">
+<link rel="stylesheet" href="css/c02acf6fa8a5.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
+<link rel="stylesheet" href="css/5c048e36ac1e.css">
 </body></html>

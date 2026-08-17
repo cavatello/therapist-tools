@@ -11,10 +11,10 @@
 /* --- 1 · tokens: override the old :root palette for everything inside  */
 body.house{
   --pine:#2C6350; --deep:#123C30; --carbon:#1B2420;
-  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#E7F0EA;
+  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#F6F8F6;
   --ink:#1B2420; --muted:#5F6A64; --line:#DFE4E0;
   --paper:#F6F8F6; --cream:#FFFFFF;
-  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5F6A64;
+  --hs-card:#FFFFFF; --hs-sink:#F6F8F6; --hs-wash:#F6F8F6; --hs-dim:#5F6A64;
   --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --hs-body:'Inter',system-ui,sans-serif;
   --hs-figs:'Fraunces',Georgia,serif;
@@ -90,7 +90,7 @@ body.house .sitenav-cta{
   font-family:var(--hs-disp); font-weight:800; border-radius:8px;
   border:0 !important; box-shadow:none !important;
 }
-body.house .sitenav-cta:hover{background:#1A4739 !important}
+body.house .sitenav-cta:hover{background:#123C30 !important}
 
 /* --- 4 · nav panel ---------------------------------------------------- */
 body.house .navpanel{
@@ -115,7 +115,7 @@ body.house .nlrow button, body.house .aherocta a:first-child{
   box-shadow:0 1px 0 rgba(15,50,39,.25);
 }
 body.house .lcta:hover, body.house .tcgo:hover, body.house .ctarow .btn:hover,
-body.house .nlrow button:hover{background:#1A4739}
+body.house .nlrow button:hover{background:#123C30}
 body.house .lghost, body.house .ctarow .btn.ghost{
   background:transparent; color:var(--pine); border:1.5px solid var(--pine);
   border-radius:8px; font-weight:700; box-shadow:none;
@@ -140,7 +140,7 @@ body.house .issue-row b{color:var(--pine) !important;
   font-family:var(--hs-mn); letter-spacing:.02em}
 
 /* nav-panel hub card is a deep card with light type, as designed */
-body.house .np-promo{background:var(--deep) !important; color:#CFE0D6 !important}
+body.house .np-promo{background:var(--deep) !important; color:#C6DBD1 !important}
 body.house .np-promo b, body.house .np-promo h4{color:#FFFFFF !important}
 body.house .np-promo span{color:#B9CFC2 !important}
 body.house .tsshort{
@@ -171,7 +171,7 @@ body.house .ftnl{background:var(--deep) !important; border-top:0}
 body.house .ftnl h2{color:#FFFFFF !important}
 body.house .ftnl h2 em{color:var(--gold) !important; font-style:normal}
 body.house .ftnl p{color:#B9CFC2 !important}
-body.house .ftnl .nlmeta{color:#8FAF9F !important}
+body.house .ftnl .nlmeta{color:#84AC99 !important}
 body.house .ftnl .consent span{color:#B9CFC2 !important}
 /* every piece of text in the dark band is light - wholesale, because the
    band's children keep growing new shapes */
@@ -188,18 +188,18 @@ body.house .nlform input[type="email"]{
 body.house .nlform input[type="email"]:focus{border-color:var(--gold)}
 
 /* --- 9 · footer. Same armor situation - deep ground, quiet mono h5s.   */
-body.house .sitefoot{background:var(--deep) !important; color:#CFE0D6 !important}
+body.house .sitefoot{background:var(--deep) !important; color:#C6DBD1 !important}
 body.house .sitefoot h5{
   font-family:var(--hs-mn) !important; font-size:10.5px !important;
   letter-spacing:.16em !important; text-transform:uppercase !important;
   color:#84AC99 !important; background:none !important; padding:0 !important;
   border-radius:0 !important; border:0 !important; display:block !important;
 }
-body.house .sitefoot a{color:#E9F2EC !important}
+body.house .sitefoot a{color:#F6F8F6 !important}
 body.house .sitefoot a:hover{color:var(--gold) !important}
 body.house .sitefoot .ftby, body.house .sitefoot p{color:#9DB8AA !important}
-body.house .sitefoot .ftby a{color:#CFE0D6 !important; text-decoration:underline}
-body.house .sitefoot .ftcols>div>p{color:#8FAF9F !important}
+body.house .sitefoot .ftby a{color:#C6DBD1 !important; text-decoration:underline}
+body.house .sitefoot .ftcols>div>p{color:#84AC99 !important}
 
 /* --- 10 · tables ------------------------------------------------------ */
 body.house .pk-t{background:var(--hs-card); border:1px solid var(--line)}
@@ -242,7 +242,7 @@ body.house main.home .band .fine{color:var(--hs-dim) !important}
 body.house main.home .toc, body.house main.home .toc a{
   color:var(--ink) !important}
 body.house main.home .slab{
-  background:var(--deep) !important; color:#E9F2EC !important}
+  background:var(--deep) !important; color:#F6F8F6 !important}
 body.house main.home .slab h2{color:#FFFFFF !important}
 body.house main.home .slab p{color:#B9CFC2 !important}
 body.house main.home .slab .eb{color:#84AC99 !important}
@@ -328,7 +328,7 @@ body.house .artband h1, body.house .artband h2,
 body.house .dc-hero h1, body.house .dc-hero h2,
 body.house .adv .hero h1, body.house .adv .band h1{
   color:#FFFFFF !important}
-body.house .dc-hero .dc-d, body.house .dc-hero p{color:#CFE0D6 !important}
+body.house .dc-hero .dc-d, body.house .dc-hero p{color:#C6DBD1 !important}
 body.house .dc-hero .dc-k{color:#84AC99 !important}
 /* section headings that sit on the paper ground stay ink */
 body.house .dc-h, body.house .pr-h{color:var(--ink) !important}
@@ -341,7 +341,7 @@ body.house .pk-hero h1 em, body.house .pk-hero h2 em{
   color:var(--gold) !important; font-style:normal}
 
 /* the sim's purple "bonus" band joins the palette as a deep band */
-body.house .bonus{background:var(--deep) !important; color:#CFE0D6 !important}
+body.house .bonus{background:var(--deep) !important; color:#C6DBD1 !important}
 body.house .bonus::before{display:none !important}
 body.house .bonus .pr-h, body.house .bonus h2, body.house .bonus h3{
   color:#FFFFFF !important}
@@ -395,7 +395,7 @@ body.house .pk-v, body.house .pg, body.house .hmost a, body.house .dc-nav a{
   border-color:var(--line) !important; border-width:1px !important}
 /* tool hero inputs: labels and hints legible on the deep band */
 body.house section.hero label, body.house section.hero .hint,
-body.house .hero .f span{color:#CFE0D6 !important}
+body.house .hero .f span{color:#C6DBD1 !important}
 
 /* the deep hero's field VALUES: the sitewide .f input rule above forces
    color:var(--ink), which is invisible on the deep band - and iOS paints
@@ -404,7 +404,7 @@ body.house .hero .f span{color:#CFE0D6 !important}
 body.house section.hero .f input, body.house .hero label.f input{
   color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
   caret-color:var(--gold) !important}
-body.house section.hero .fv, body.house .hero .fv{color:#CFE0D6 !important}
+body.house section.hero .fv, body.house .hero .fv{color:#C6DBD1 !important}
 body.house section.hero .f, body.house .hero label.f{
   border-color:rgba(255,217,118,.45) !important; background:transparent !important}
 /* the sim's toggle tray: sink ground, readable caption */
@@ -431,7 +431,7 @@ body.house .pk-hero .hk{color:#84AC99 !important}
    the chrome sheet; the sage text above is for the deep card body only.
    On gold, the type is ink, full strength. */
 body.house .np-promo .np-all, body.house .np-promo span:last-child{
-  color:#16211B !important; opacity:1 !important}
+  color:#1B2420 !important; opacity:1 !important}
 
 /* --- practice-simulator: the income-source drawer -------------------- */
 /* The drawer was designed for a dark slab (translucent-black panel, gold
@@ -449,4 +449,4 @@ body.house .dbtn{
 body.house .dbtn:hover{background:var(--hs-wash) !important}
 body.house .dbtn.gold{
   background:var(--gold) !important; border:1px solid #B98F1F !important;
-  color:#16211B !important}
+  color:#1B2420 !important}

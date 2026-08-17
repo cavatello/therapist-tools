@@ -3,7 +3,7 @@
    `.lib p` and `.ftnl p` are both (0,1,1), so which one paints the signup band
    was being decided by stylesheet emit order rather than by intent. */
 .sitenav.sitenav.sitenav .sitenav-cta,
-.sitenav.sitenav.sitenav .sitenav-cta *{color:#16211B}
+.sitenav.sitenav.sitenav .sitenav-cta *{color:#1B2420}
 .ftnl.ftnl.ftnl h2{color:#fff}
 .ftnl.ftnl.ftnl h2 em{color:var(--pop,#F6C560)}
 .ftnl.ftnl.ftnl p{color:rgba(255,255,255,.78)}
@@ -16,7 +16,7 @@
    sweep, not by eye, because both colours are "the site's green". */
 .hubnl.hubnl.hubnl h3{color:#fff}
 .hubnl.hubnl.hubnl p{color:rgba(255,255,255,.82)}
-.hubnl.hubnl.hubnl a{color:#16211B}
+.hubnl.hubnl.hubnl a{color:#1B2420}
 /* 10px bold needs more than a mid grey-green carries on white. This is the
    colour the paragraph directly beneath it already uses. */
 .none.none b{color:#4A5A46}
@@ -27,4 +27,4 @@
 .lp a.lcta{color:#fff}
 .lp a.lcta.lgold,
 .lp .lmid a.lcta,
-.lp .lnews a.lcta{color:#16211B}
+.lp .lnews a.lcta{color:#1B2420}

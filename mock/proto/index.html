@@ -15,10 +15,10 @@
    drawer opens, and the whole setup round-trips through the URL hash.
    ========================================================================== */
 :root{
-  --paper:#FBF9F3; --ink:#26241E; --muted:#7C766A; --line:#E7E2D6;
-  --pine:#2C6350; --brick:#8E4B45; --gold:#B08430; --carbon:#1E241C; --indigo:#241A44;
+  --paper:#F6F8F6; --ink:#1B2420; --muted:#7C766A; --line:#DFE4E0;
+  --pine:#2C6350; --brick:#8E4B45; --gold:#B08430; --carbon:#1B2420; --indigo:#241A44;
   --pop:#F6C560; --neg:#B5483F; --pos:#3F9577;
-  --field:#FBF6E9; --fieldline:#E4D9BE;
+  --field:#F6F8F6; --fieldline:#E4D9BE;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -53,7 +53,7 @@ button{font:inherit}
    Its three actions moved into the hero, next to the example button. */
 
 /* ---------- landing hero ---------- */
-.hero{background:linear-gradient(135deg,#173B2E 0%,#2C6350 52%,#3F9577 100%);color:#EFF5F2;
+.hero{background:linear-gradient(135deg,#123C30 0%,#2C6350 52%,#3F9577 100%);color:#F6F8F6;
   padding:36px 0 34px}
 .hero .in{display:grid;grid-template-columns:1.12fr .88fr;gap:30px;align-items:center}
 .kick{font-size:9.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
@@ -111,7 +111,7 @@ button{font:inherit}
 .f input::-webkit-outer-spin-button,.f input::-webkit-inner-spin-button{
   -webkit-appearance:none;margin:0}
 .f select{font-size:15px;cursor:pointer}
-.f select option{color:#26241E}
+.f select option{color:#1B2420}
 .f .fv .unit{flex:none;font-family:Inter,sans-serif;font-size:11px;font-weight:700;
   letter-spacing:.05em;text-transform:uppercase;opacity:.62;white-space:nowrap}
 .f .hint{position:absolute;right:11px;bottom:8px;font-size:8px;font-weight:700;
@@ -125,10 +125,10 @@ button{font:inherit}
 /* ---------- slabs ---------- */
 .slab{max-width:1060px;margin:14px auto 0;border-radius:22px;padding:26px 28px 28px;
   box-shadow:0 16px 34px rgba(40,50,40,.1);scroll-margin-top:64px}
-.slab.pine{background:linear-gradient(135deg,#1E4436 0%,#2C6350 55%,#3F9577 100%);color:#EFF5F2}
+.slab.pine{background:linear-gradient(135deg,#123C30 0%,#2C6350 55%,#3F9577 100%);color:#F6F8F6}
 .slab.brick{background:linear-gradient(135deg,#7E3630 0%,#8E4B45 55%,#A25A52 100%);color:#F7EDEB}
 .slab.gold{background:linear-gradient(135deg,#8A6320 0%,#B08430 55%,#C99C46 100%);color:#2A1F08}
-.slab.carbon{background:linear-gradient(135deg,#141712 0%,#1E241C 60%,#2A3327 100%);color:#E6E4DC}
+.slab.carbon{background:linear-gradient(135deg,#141712 0%,#1B2420 60%,#2A3327 100%);color:#C6DBD1}
 .ch-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
 .ch-h h2{font-family:Fraunces,serif;font-size:clamp(20px,2.4vw,26px);margin:0;font-weight:600;
   letter-spacing:-.018em}
@@ -306,13 +306,13 @@ button{font:inherit}
    in motion so the eye lands on it. */
 .bigcta{position:relative;display:flex;align-items:center;gap:16px;width:100%;
   text-align:left;margin-top:18px;overflow:hidden;
-  background:linear-gradient(180deg,#fff 0%,#F4F7F3 100%);
+  background:linear-gradient(180deg,#fff 0%,#F6F8F6 100%);
   border:2px solid #2C6350;border-radius:16px;padding:18px 22px;cursor:pointer;
-  box-shadow:0 5px 0 #1E4436, 0 14px 30px rgba(0,0,0,.32);
+  box-shadow:0 5px 0 #123C30, 0 14px 30px rgba(0,0,0,.32);
   transition:transform .12s, box-shadow .12s, background .15s}
-.bigcta:hover{background:linear-gradient(180deg,#fff 0%,#EAF2EC 100%);
-  box-shadow:0 5px 0 #1E4436, 0 18px 38px rgba(0,0,0,.38)}
-.bigcta:active{transform:translateY(4px);box-shadow:0 1px 0 #1E4436,0 6px 14px rgba(0,0,0,.3)}
+.bigcta:hover{background:linear-gradient(180deg,#fff 0%,#F6F8F6 100%);
+  box-shadow:0 5px 0 #123C30, 0 18px 38px rgba(0,0,0,.38)}
+.bigcta:active{transform:translateY(4px);box-shadow:0 1px 0 #123C30,0 6px 14px rgba(0,0,0,.3)}
 .bigcta:focus-visible{outline:3px solid var(--pop);outline-offset:3px}
 /* a slow sheen, so a static screenshot still reads as interactive */
 .bigcta:after{content:"";position:absolute;top:0;bottom:0;width:34%;left:-40%;
@@ -325,12 +325,12 @@ button{font:inherit}
 @media (prefers-reduced-motion:reduce){.bigcta:after{animation:none;display:none}}
 .bigcta span{flex:1;min-width:0}
 .bigcta b{display:block;font-family:Fraunces,serif;font-size:clamp(17px,2.2vw,22px);
-  color:#1E3B30;font-weight:600;letter-spacing:-.014em;line-height:1.2}
+  color:#123C30;font-weight:600;letter-spacing:-.014em;line-height:1.2}
 .bigcta i{display:block;font-style:normal;font-size:12.2px;color:#5B7A6C;margin-top:5px;
   font-weight:600}
 .ctaarrow{flex:none !important;width:48px;height:48px;border-radius:50%;background:#2C6350;
   color:#fff;font-size:21px;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 3px 0 #1A3A2E;transition:transform .16s}
+  box-shadow:0 3px 0 #14372C;transition:transform .16s}
 .bigcta:hover .ctaarrow{transform:translateX(4px)}
 .whatnext{margin:15px 0 0;padding:0;list-style:none;display:grid;
   grid-template-columns:1fr 1fr;gap:7px 22px}
@@ -428,7 +428,7 @@ button{font:inherit}
 .vfs{width:var(--w);margin:0 auto 6px;border-radius:8px;padding:10px 16px;display:flex;
   justify-content:space-between;align-items:baseline;
   background:linear-gradient(90deg,#6E5BC4,#8E7BE0)}
-.vfs:nth-child(3){background:linear-gradient(90deg,#2F6B57,#3F9577)}
+.vfs:nth-child(3){background:linear-gradient(90deg,#2C6350,#3F9577)}
 .vfs em{font-style:normal;font-size:11.4px;opacity:.88}
 .vfs b{font-family:Fraunces,serif;font-size:18px}
 .vfv{margin-top:11px;padding-top:11px;border-top:1px dashed rgba(255,255,255,.18);
@@ -510,7 +510,7 @@ button{font:inherit}
 .paygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
 .paycell{border:1px solid var(--line);border-radius:10px;padding:10px 12px;
   background:var(--white)}
-.paycell.next{border-color:var(--gold);background:#FFFCF4}
+.paycell.next{border-color:var(--gold);background:#F6F8F6}
 .paycell em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;
   font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .paycell b{display:block;font-family:Fraunces,Georgia,serif;font-size:17px;margin-top:3px}
@@ -978,7 +978,7 @@ model are approximations. Not the live site.</div>
   <div style="background:#fff;border-radius:18px;max-width:620px;width:100%;
     box-shadow:0 26px 70px rgba(0,0,0,.45);overflow:hidden">
     <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;
-      border-bottom:1px solid #E7E2D6;background:#FBF9F3">
+      border-bottom:1px solid #DFE4E0;background:#F6F8F6">
       <b style="font-family:Fraunces,serif;font-size:16.5px;flex:1">Employing associates
         &mdash; what you need to know</b>
       <button id="panel-x" style="background:none;border:0;font-size:22px;line-height:1;
@@ -993,14 +993,14 @@ model are approximations. Not the live site.</div>
         the &ldquo;split&rdquo; is simply how you work out their wage.</p>
       <h5 style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
         color:#C98B4B;margin:0 0 8px">What a wage costs on top of the wage</h5>
-      <div id="panel-rows" style="border:1px solid #E7E2D6;border-radius:11px;overflow:hidden;
+      <div id="panel-rows" style="border:1px solid #DFE4E0;border-radius:11px;overflow:hidden;
         margin-bottom:12px"></div>
       <h5 style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
         color:#C98B4B;margin:16px 0 8px">What the wage does not pay for</h5>
       <p style="font-size:12.6px;line-height:1.7;color:#4E4940;margin:0 0 10px">Progress notes,
       case management, client advocacy, treatment planning, no-shows and team meetings. For a
       non-exempt employee that time is still hours worked and still has to be paid &mdash; a
-      share-of-collections wage that ignores it <b style="color:#26241E">can fall below minimum
+      share-of-collections wage that ignores it <b style="color:#1B2420">can fall below minimum
       wage</b> once the real hours are counted, which is the practice&rsquo;s problem, not the
       associate&rsquo;s.</p>
       <h5 style="font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;

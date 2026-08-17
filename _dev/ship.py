@@ -479,6 +479,35 @@ CSSCHAIN = [
 ]
 
 LAST = [
+    # tools.html is a meta-refresh redirect stub, ts:skip and not in the
+    # sitemap - and this pass had never been wired, so every appending pass
+    # in the pipeline had been decorating it for months. It reached 370
+    # lines and SEVENTEEN stylesheets, one of which (css/house-skin.css)
+    # was the last thing keeping the retired skin on the live site. Runs
+    # first in this stage: after everything that appends, before anything
+    # that reads the finished page.
+    ("_dev/build_redirect.py",
+     "tools.html back down to a 44-line redirect stub with no stylesheets, "
+     "no webfonts and its ts:skip intact"),
+    # A page that names a typeface FIRST in a stack and never loads it ships
+    # in the fallback, silently. rates.html set 'Newsreader' and 'IBM Plex
+    # Mono' and loaded neither, so the whole editorial page had been
+    # rendering in Georgia and the system mono. Found by type_census.py,
+    # which is the only check that pairs what the CSS asks for with what the
+    # <link>s load. After build_redirect, so the stub is not given faces.
+    ("_dev/font_links.py",
+     "every page loads every typeface it sets at the head of a stack"),
+    # The palette. house_tokens.py conformed the eight tokens; this conforms
+    # the 113 near-misses that were quietly sitting beside them - 1,363
+    # uses, #16211B alone 430 times, twelve units from --ink. After the CSS
+    # chain so hoisted sheets are included, before discovery and linkcheck
+    # so the repointed content-addressed links are what they see. It also
+    # conforms _dev/chrome_donor.html, because eight builders stamp that
+    # file's chrome onto real pages - skipping it cost a whole pipeline run
+    # to 1,008 dangling <link>s. Verify with palette_census.py --check and
+    # _dev/_contrast_audit.mjs.
+    ("_dev/palette_conform.py",
+     "113 off-palette colours onto the twelve they were approximating"),
     ("_dev/discovery.py",
      "sitemap.xml and structured data, derived from the pages that exist NOW. "
      "Nothing may add or rename a page after this"),
@@ -531,6 +560,14 @@ LAST = [
      "the /for/ stage doors - article.fd-wrap pages carry house/"
      "house-chrome/house-for and no legacy CSS; /for/associates is the "
      "first member and the template the other doors copy"),
+    # Dead last, because the five family passes above are what un-links a
+    # sheet: they port the skin's rules into house-<family>.css and remove
+    # the <link>. Anything in css/ that nothing links after they have run is
+    # residue, and residue in css/ is how css/house-skin.css survived a
+    # rollout that had already replaced it. The skin itself is exempt and
+    # the pass says why - house_swap.py hashes it on every run.
+    ("_dev/dead_css.py",
+     "stylesheets no page links, retired to _to_delete/"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
@@ -563,6 +600,19 @@ VERIFY = [
      "one inbound link - a page in the sitemap that no other page links "
      "to fails the build"),
     ("_dev/seo_rules.py", "the SEO rules, against the recorded baseline"),
+    # The two censuses, and they are the same lesson: a check that looks for
+    # the drift it has already been shown finds only that drift. These count
+    # EVERYTHING - every hex on every published page and in every sheet
+    # those pages link, every typeface, every font size, every radius, every
+    # gradient - and fail on anything NEW against a recorded baseline. That
+    # is what stops the palette going from 21 sanctioned colours in 2,422
+    # uses back to 346 colours in 2,586.
+    ("_dev/palette_census.py --check",
+     "no colour outside the sanctioned palette that is not already in "
+     "_dev/palette_baseline.json"),
+    ("_dev/type_census.py --check",
+     "no new typeface, font size, border radius or gradient against "
+     "_dev/type_baseline.json - and no page setting a face it never loads"),
 ]
 
 STAGES = [("build", BUILD), ("structure", STRUCTURE), ("floors", FLOORS),

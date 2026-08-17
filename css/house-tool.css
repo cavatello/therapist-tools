@@ -9,10 +9,10 @@
 
 body.bct{
   --pine:#2C6350; --deep:#123C30; --carbon:#1B2420;
-  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#E7F0EA;
+  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#F6F8F6;
   --ink:#1B2420; --muted:#5F6A64; --line:#DFE4E0;
   --paper:#F6F8F6; --cream:#FFFFFF;
-  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5F6A64;
+  --hs-card:#FFFFFF; --hs-sink:#F6F8F6; --hs-wash:#F6F8F6; --hs-dim:#5F6A64;
   --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --hs-body:'Inter',system-ui,sans-serif;
   --hs-figs:'Fraunces',Georgia,serif;
@@ -49,8 +49,8 @@ body.bct .tw.tw.tw, body.bct .li-tw.li-tw.li-tw, body.bct .dc-tw.dc-tw.dc-tw, bo
   scrollbar-width:thin;
   scrollbar-color:#C9C0AA transparent;
   background:
-    linear-gradient(to right, #FBF9F3 30%, rgba(251,249,243,0)) left center,
-    linear-gradient(to right, rgba(251,249,243,0), #FBF9F3 70%) right center,
+    linear-gradient(to right, #F6F8F6 30%, rgba(251,249,243,0)) left center,
+    linear-gradient(to right, rgba(251,249,243,0), #F6F8F6 70%) right center,
     radial-gradient(farthest-side at 0 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) left center,
     radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.16), rgba(22,33,27,0)) right center;
   background-repeat:no-repeat;
@@ -60,11 +60,11 @@ body.bct .tw.tw.tw::-webkit-scrollbar{height:9px}
 body.bct .tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
 body.bct .tw.tw.tw::-webkit-scrollbar-track{background:transparent}
 body.bct .sec.alt .card{background:#fff}
-body.bct .sec.alt{border-top:3px solid #16211B;border-bottom:3px solid #16211B}
-body.bct .btn, body.bct .clgo, body.bct .gherocta > a, body.bct .therocta > a, body.bct .aherocta > a{border:2px solid #16211B;border-radius:10px;box-shadow:3px 3px 0 #16211B}
-body.bct .btn:active, body.bct .clgo:active{transform:translate(3px,3px);box-shadow:0 0 0 #16211B}
-body.bct .pg, body.bct .uc, body.bct .lc, body.bct .rc, body.bct .fb, body.bct .how, body.bct .job, body.bct .reffold, body.bct .edge, body.bct .ig, body.bct .tcard{border:2px solid #16211B;border-radius:10px;box-shadow:2px 2px 0 #16211B}
-body.bct .pg:hover, body.bct .rc:hover, body.bct .lc:hover{box-shadow:4px 4px 0 #16211B;
+body.bct .sec.alt{border-top:3px solid #1B2420;border-bottom:3px solid #1B2420}
+body.bct .btn, body.bct .clgo, body.bct .gherocta > a, body.bct .therocta > a, body.bct .aherocta > a{border:2px solid #1B2420;border-radius:10px;box-shadow:3px 3px 0 #1B2420}
+body.bct .btn:active, body.bct .clgo:active{transform:translate(3px,3px);box-shadow:0 0 0 #1B2420}
+body.bct .pg, body.bct .uc, body.bct .lc, body.bct .rc, body.bct .fb, body.bct .how, body.bct .job, body.bct .reffold, body.bct .edge, body.bct .ig, body.bct .tcard{border:2px solid #1B2420;border-radius:10px;box-shadow:2px 2px 0 #1B2420}
+body.bct .pg:hover, body.bct .rc:hover, body.bct .lc:hover{box-shadow:4px 4px 0 #1B2420;
   transform:translate(-1px,-1px)}
 body.bct .rule{border-radius:10px}
 body.bct .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
@@ -75,7 +75,7 @@ body.bct p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;m
 body.bct .sec.alt .card{background:var(--paper)}
 body.bct .sec.alt .ref{background:var(--paper)}
 body.bct .sec.alt .fact{background:var(--cream)}
-body.bct .btn.ghost:hover{background:#EEF5F1}
+body.bct .btn.ghost:hover{background:#F6F8F6}
 body.bct .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
 body.bct .sec.alt .issue{background:var(--cream)}
 body.bct .sec.alt .tool{background:var(--paper)}
@@ -153,7 +153,7 @@ body.bct .nlrow button, body.bct .aherocta a:first-child{background:var(--pine);
   font-weight:800; border-radius:8px; border:0;
   box-shadow:0 1px 0 rgba(15,50,39,.25);}
 body.bct .lcta:hover, body.bct .tcgo:hover, body.bct .ctarow .btn:hover,
-body.bct .nlrow button:hover{background:#1A4739}
+body.bct .nlrow button:hover{background:#123C30}
 body.bct .lghost, body.bct .ctarow .btn.ghost{background:transparent; color:var(--pine); border:1.5px solid var(--pine);
   border-radius:8px; font-weight:700; box-shadow:none;}
 body.bct .pk-t{background:var(--hs-card); border:1px solid var(--line)}
@@ -172,7 +172,7 @@ body.bct main.home .band{background:var(--paper) !important; color:var(--ink)}
 body.bct main.home .band.sunk{background:var(--hs-sink) !important}
 body.bct main.home .band .lede{color:var(--hs-dim) !important}
 body.bct main.home .band .fine{color:var(--hs-dim) !important}
-body.bct main.home .slab{background:var(--deep) !important; color:#E9F2EC !important}
+body.bct main.home .slab{background:var(--deep) !important; color:#F6F8F6 !important}
 body.bct main.home .slab h2{color:#FFFFFF !important}
 body.bct main.home .slab p{color:#B9CFC2 !important}
 body.bct main.home .slab .eb{color:#84AC99 !important}
@@ -216,7 +216,7 @@ body.bct .pk-call{background:var(--deep) !important}
 body.bct .pk-call h2, body.bct .pk-call h3{color:#FFFFFF !important}
 body.bct .pk-hero{background:var(--deep) !important}
 body.bct .pk-hero h1 em, body.bct .pk-hero h2 em{color:var(--gold) !important; font-style:normal}
-body.bct .bonus{background:var(--deep) !important; color:#CFE0D6 !important}
+body.bct .bonus{background:var(--deep) !important; color:#C6DBD1 !important}
 body.bct .bonus::before{display:none !important}
 body.bct .bonus .pr-h, body.bct .bonus h2, body.bct .bonus h3{color:#FFFFFF !important}
 body.bct .btn, body.bct .card, body.bct .citeb, body.bct .dc-ask,
@@ -248,10 +248,10 @@ body.bct .tctrack, body.bct .dc-ask, body.bct .dc-ex, body.bct .dc-grp,
 body.bct .dc-note, body.bct .dc-tw, body.bct .pk-ask, body.bct .pk-tw,
 body.bct .pk-v, body.bct .pg, body.bct .hmost a, body.bct .dc-nav a{border-color:var(--line) !important; border-width:1px !important}
 body.bct section.hero label, body.bct section.hero .hint,
-body.bct .hero .f span{color:#CFE0D6 !important}
+body.bct .hero .f span{color:#C6DBD1 !important}
 body.bct section.hero .f input, body.bct .hero label.f input{color:#FFFFFF !important; -webkit-text-fill-color:#FFFFFF !important;
   caret-color:var(--gold) !important}
-body.bct section.hero .fv, body.bct .hero .fv{color:#CFE0D6 !important}
+body.bct section.hero .fv, body.bct .hero .fv{color:#C6DBD1 !important}
 body.bct section.hero .f, body.bct .hero label.f{border-color:rgba(255,217,118,.45) !important; background:transparent !important}
 body.bct .pk-hero .hk{color:#84AC99 !important}
 body.bct .drawer{background:var(--hs-sink) !important;
@@ -262,7 +262,7 @@ body.bct .dbtn{background:#FFFFFF !important; border:1px solid var(--line) !impo
   color:var(--ink) !important}
 body.bct .dbtn:hover{background:var(--hs-wash) !important}
 body.bct .dbtn.gold{background:var(--gold) !important; border:1px solid #B98F1F !important;
-  color:#16211B !important}
+  color:#1B2420 !important}
 
 /* PART 3 - fixes found by the interactive gate (win by file order) ---- */
 /* the tax page's hero and its indigo slab were grounded by a legacy
@@ -270,7 +270,7 @@ body.bct .dbtn.gold{background:var(--gold) !important; border:1px solid #B98F1F 
 body.bct .thero{background:var(--deep) !important}
 body.bct .slab.indigo{background:var(--deep) !important}
 /* table headers inside dark slabs */
-body.bct .slab th{color:#CFE0D6 !important}
+body.bct .slab th{color:#C6DBD1 !important}
 /* form fields: ink in light fields everywhere; the deep-band hero keeps
    white type in its transparent fields */
 body.bct label.f input, body.bct .fv input{

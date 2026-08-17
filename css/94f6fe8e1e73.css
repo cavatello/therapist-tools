@@ -10,8 +10,8 @@
     scroll-snap-type:x proximity;
     scrollbar-width:none;
     background-image:
-      linear-gradient(to right, #FBF9F3 42%, rgba(251,249,243,0)),
-      linear-gradient(to left,  #FBF9F3 42%, rgba(251,249,243,0)),
+      linear-gradient(to right, #F6F8F6 42%, rgba(251,249,243,0)),
+      linear-gradient(to left,  #F6F8F6 42%, rgba(251,249,243,0)),
       radial-gradient(farthest-side at 0% 50%, rgba(22,33,27,.22), rgba(22,33,27,0)),
       radial-gradient(farthest-side at 100% 50%, rgba(22,33,27,.22), rgba(22,33,27,0));
     background-position:left center, right center, left center, right center;

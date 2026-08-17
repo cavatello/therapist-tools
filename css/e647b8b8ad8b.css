@@ -12,7 +12,7 @@
  letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
 .qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
 .qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
- text-transform:uppercase;color:#635E53}
+ text-transform:uppercase;color:#635D4E}
 .qx .ar{font-size:18px;color:var(--pine)}
 .qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
  margin:0 -11px;padding-left:13px;padding-right:13px}
@@ -27,7 +27,7 @@
 .railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
  font-weight:600;letter-spacing:-.018em}
 .railh span{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.1em;
- text-transform:uppercase;color:#635E53}
+ text-transform:uppercase;color:#635D4E}
 .railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .rc{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:16px 17px;
  text-decoration:none;display:flex;flex-direction:column;gap:7px}
@@ -38,7 +38,7 @@
  text-transform:uppercase;color:var(--pine);font-weight:600;margin-top:auto;padding-top:5px}
 .rc.tool{background:linear-gradient(160deg,rgba(246,197,96,.15),var(--white) 62%)}
 /* ---- newsletter */
-.hubnl{background:linear-gradient(135deg,#1E4436,#2C6350);color:#EFF5F2;border-radius:16px;
+.hubnl{background:linear-gradient(135deg,#123C30,#2C6350);color:#F6F8F6;border-radius:16px;
  padding:26px 28px;margin:34px 0 6px;display:grid;grid-template-columns:1.25fr .75fr;
  gap:22px;align-items:center}
 .hubnl h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.2vw,23px);margin:0;color:#fff}
@@ -47,11 +47,11 @@
  border-radius:10px;background:var(--pop);color:#2A2010;font-weight:800;font-size:14px;
  text-decoration:none}
 @media(max-width:760px){.railg{grid-template-columns:1fr}.hubnl{grid-template-columns:1fr}}
-.ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#2A2620}
-.band .ref{background:#fff;color:#2A2620}
-.band .ref b{color:#17271F}
+.ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#1B2420}
+.band .ref{background:#fff;color:#1B2420}
+.band .ref b{color:#1B2420}
 .band .ref i{color:#4E4940}
-.band .ref i b{color:#17271F}
+.band .ref i b{color:#1B2420}
 .ref i a{white-space:nowrap}
 @media (max-width:700px){.reflist{grid-template-columns:1fr}}
 /* ---- very large displays. On a 27" 5K the hub used 46% of the window: a

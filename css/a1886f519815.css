@@ -8,7 +8,7 @@
   color:rgba(255,255,255,.86);max-width:22ch}
 .hh-chips{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 0}
 .hh-chip{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:12px;color:#16211B;background:#F6C560;border:2px solid #16211B;
+  font-size:12px;color:#1B2420;background:#F6C560;border:2px solid #1B2420;
   border-radius:9px;padding:6px 11px;text-decoration:none}
 .hh-chip:hover{background:#FFD37A}
 .hh-chip.q{background:rgba(255,255,255,.92)}

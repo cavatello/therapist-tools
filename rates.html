@@ -18,15 +18,15 @@
 <title>The California Therapy Rate Gap</title>
 <meta name="description" content="What California therapists actually get paid by insurance panels versus private-pay clients, compiled from clinician reports and published fee schedules.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
 <style>
   :root{
     /* same tokens as the simulator */
-    --bg:#FBF9F3; --ink:#26241E; --muted:#635E53; --muted-2:#635E53; --line:#E7E2D6;
+    --bg:#F6F8F6; --ink:#1B2420; --muted:#635D4E; --muted-2:#635D4E; --line:#DFE4E0;
     --card:#FFFFFF; --pos:#2C6350; --neg:#B5483F; --amber:#C98B4B;
-    --pos-soft:#E6F1EB; --amber-soft:#FDF8EF; --neg-soft:#FBEAE8;
+    --pos-soft:#E6F1EB; --amber-soft:#F6F8F6; --neg-soft:#FBEAE8;
     /* legacy aliases so nothing goes unstyled */
-    --paper:#FBF9F3; --pine:#2C6350; --pine-soft:#E6F1EB; --brick:#B5483F;
+    --paper:#F6F8F6; --pine:#2C6350; --pine-soft:#E6F1EB; --brick:#B5483F;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -117,7 +117,7 @@
 
   /* ===== Numbered parts ===== */
   .part-head{display:flex; align-items:baseline; gap:16px; margin:54px 0 6px;}
-  .part-num{font-family:'Fraunces',serif; font-weight:700; font-size:15px; color:#8A6023; flex-shrink:0;}
+  .part-num{font-family:'Fraunces',serif; font-weight:700; font-size:15px; color:#8A6516; flex-shrink:0;}
   .part-head h2{font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:27px;
     line-height:1.15; margin:0; letter-spacing:-.015em;}
   .part-dek{font-size:14.5px; color:var(--muted); line-height:1.6; margin:0 0 28px; max-width:620px;}
@@ -140,7 +140,7 @@
   table{width:100%; border-collapse:collapse; font-size:14px;}
   thead th{text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
     color:var(--muted); font-weight:700; padding:12px 18px; border-bottom:1px solid var(--line);
-    background:#FBF9F3;}
+    background:#F6F8F6;}
   tbody td{padding:11px 18px; border-bottom:1px solid var(--line); font-size:14px;}
   tbody td:first-child{font-weight:600;}
   tbody tr:last-child td{border-bottom:none;}
@@ -212,34 +212,34 @@
   .eap-list b{color:var(--pine);}
 
   .eap-rate{margin:20px 0 22px;border:1px solid var(--line,#E0D8C4);border-radius:4px;overflow:hidden;
-    background:#FCFAF2;}
-  .eap-rate-h{padding:11px 16px;background:#EFEADC;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    background:#F6F8F6;}
+  .eap-rate-h{padding:11px 16px;background:#F6F8F6;font-family:'IBM Plex Mono',monospace;font-size:10px;
     letter-spacing:.16em;text-transform:uppercase;color:#7C7460;}
   .eap-tbl{width:100%;border-collapse:collapse;font-size:14px;}
   .eap-tbl th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
-    text-transform:uppercase;color:#6E6553;padding:12px 16px 8px;font-weight:600;}
+    text-transform:uppercase;color:#635D4E;padding:12px 16px 8px;font-weight:600;}
   .eap-tbl td{padding:13px 16px;border-top:1px solid #E7E0CE;vertical-align:top;line-height:1.55;}
   .eap-tbl td b{display:block;font-family:'Newsreader',Georgia,serif;font-size:16px;font-weight:600;}
-  .eap-tbl td span{font-size:12px;color:#67604F;}
+  .eap-tbl td span{font-size:12px;color:#635D4E;}
   .eap-tbl .rate{font-family:'Newsreader',Georgia,serif;font-size:24px;font-weight:600;color:#2C4A3B;
     white-space:nowrap;width:110px;}
-  .eap-tbl tr.empty td{color:#6E6553;}
+  .eap-tbl tr.empty td{color:#635D4E;}
   .eap-tbl tr.empty .rate{color:#BDB29A;}
   .eap-caveat{margin:0;padding:14px 16px;border-top:1px solid #E7E0CE;background:#F5EFE0;font-size:13.5px;
     line-height:1.65;}
   .eap-context{margin:0;padding:13px 16px;border-top:1px solid #E7E0CE;font-size:13.5px;line-height:1.65;
-    color:#6E6857;}
-.sitefoot-by{flex-basis:100%; margin-top:2px; padding-top:11px; border-top:1px solid var(--line,#E7E2D6);
-  font-size:12px; line-height:1.6; color:var(--muted,#635E53);}
-.sitefoot-by b{color:var(--ink,#26241E); font-weight:600;}
+    color:#635D4E;}
+.sitefoot-by{flex-basis:100%; margin-top:2px; padding-top:11px; border-top:1px solid var(--line,#DFE4E0);
+  font-size:12px; line-height:1.6; color:var(--muted,#635D4E);}
+.sitefoot-by b{color:var(--ink,#1B2420); font-weight:600;}
 
 /* ---- shared site chrome ---- */
 /* Therapist Support — shared chrome for the static pages.
    Deliberately a separate stylesheet from the simulator's: these are content
    pages and should not wait on a 700 kB bundle to render. The tokens are the
    same values the simulator uses, copied rather than imported for that reason. */
-:root{--pine:#2C6350;--deep:#15342B;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
- --amber:#FFE3B8;--ink:#26241E;--muted:#635E53;--line:#E7E2D6;--paper:#F4F0E6;--cream:#FBF9F3;}
+:root{--pine:#2C6350;--deep:#14372C;--carbon:#141712;--gold:#C98B4B;--pop:#F6C560;
+ --amber:#FFE3B8;--ink:#1B2420;--muted:#635D4E;--line:#DFE4E0;--paper:#F4F0E6;--cream:#F6F8F6;}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;
@@ -253,7 +253,7 @@ a{color:inherit}
 /* Header 06 - the bar is a green field and the chrome is a capsule floating on
    it, not a strip welded to the top. Everything inside is a GRID with equal
    columns, so nothing can push a sibling out at any width. */
-.sitenav{background:linear-gradient(150deg,#16382B 0%,#2C6350 46%,#48A382 100%);
+.sitenav{background:linear-gradient(150deg,#14372C 0%,#2C6350 46%,#48A382 100%);
  box-shadow:none;position:sticky;top:0;z-index:40;padding:14px 22px 15px}
 .sitenav-in{max-width:1180px;margin:0 auto;padding:10px 11px 10px 18px;position:relative;
  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:22px;
@@ -276,7 +276,7 @@ a{color:inherit}
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
  transition:background .15s,color .15s}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
-.sitenav-top.on{background:#fff;color:#1E4436}
+.sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
 .sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
@@ -362,8 +362,8 @@ a{color:inherit}
  font-size:11.5px;padding:9px 14px;border-radius:9px}
 
 /* ---- bands and sections */
-.band{background:linear-gradient(135deg,#1E4436 0%,#2C6350 55%,#3F9577 100%);
- color:#EFF5F2;padding:44px 0 46px}
+.band{background:linear-gradient(135deg,#123C30 0%,#2C6350 55%,#3F9577 100%);
+ color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
 .kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
@@ -380,7 +380,7 @@ a{color:inherit}
    higher specificity so no later sheet can take it away again. */
 .article .lede{color:var(--ink)}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#EFF5F2;background:rgba(255,255,255,.12);
+.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -420,9 +420,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ctarow{margin:22px 0 0}
 .btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
  padding:12px 22px;border-radius:11px;text-decoration:none}
-.btn:hover{background:#25584A}
+.btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
-.btn.ghost:hover{background:#EEF5F1}
+.btn.ghost:hover{background:#F6F8F6}
 .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 /* ---- newsletter */
@@ -436,7 +436,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 /* min-width on a flex child is a floor, not a hint: 220px here forced the
    row wider than a 320px screen. */
 .nlform input[type=email]{flex:1;min-width:0;padding:12px 15px;border-radius:10px;
- border:1px solid var(--line);background:#FBF6E9;font:inherit;font-size:13.5px;color:var(--ink)}
+ border:1px solid var(--line);background:#F6F8F6;font:inherit;font-size:13.5px;color:var(--ink)}
 .nlform button{background:var(--pop);color:#2A2010;font-weight:800;font-size:13.5px;
  padding:12px 22px;border-radius:10px;border:0;cursor:pointer;white-space:nowrap}
 .nlform button:hover{background:#FFD57A}
@@ -986,6 +986,10 @@ clinician, and says which.</p>
 
 
 
+
+
+
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Getting paid</h2><p class="ud">What a session is worth, and who actually pays it.</p><div class="ug"><a class="uc" href="headway-alma-grow-therapy-compared-california.html"><b>Headway, Alma, Grow — or my own contracts?</b><span>All four routes priced at three caseloads, with the crossover</span></a><a class="uc" href="insurance-panels-california-therapist.html"><b>How do I get on insurance panels in California?</b><span>The real sequence, the 60-day rule, and which panels are open</span></a><a class="uc" href="insurance-reimbursement-rates-california-therapist.html"><b>What does insurance actually pay per session?</b><span>Medicare and Medi-Cal computed, and the truth about commercial rates</span></a></div><a class="uall" href="getting-paid/">All 9 pages on getting paid &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -1229,23 +1233,23 @@ clinician, and says which.</p>
 
 <style>/* _dev/eap_rates.py */
 .eap-tbl td b{display:block}
-.eap-tbl td span.eap-sub{display:block;font-size:12.5px;color:#6b6455;
+.eap-tbl td span.eap-sub{display:block;font-size:12.5px;color:#635D4E;
   font-weight:400;margin-top:2px}
 .eap-badge{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
   border:1.5px solid currentColor;border-radius:999px;padding:2px 7px;
   margin:0 0 6px;vertical-align:middle}
 .eb-pub{color:#2C6350}
-.eb-rep{color:#8a6a20}
+.eb-rep{color:#8A6516}
 .eb-gap{color:#8a4038}
 .eap-tbl td.rate b{font-weight:inherit}
-.eap-why{border:2px solid #16211B;border-radius:12px;background:#FBF9F3;
+.eap-why{border:2px solid #1B2420;border-radius:12px;background:#F6F8F6;
   box-shadow:5px 5px 0 #F6C560;padding:18px 20px;margin:18px 0 0}
 .eap-why h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
-  letter-spacing:-.02em;font-size:17px;color:#16211B;margin:0 0 8px}
+  letter-spacing:-.02em;font-size:17px;color:#1B2420;margin:0 0 8px}
 .eap-why p{font-size:14.6px;line-height:1.7;color:#3A3529;margin:0 0 10px;max-width:70ch}
 .eap-why p:last-child{margin:0}
-.eap-why b{color:#16211B}
+.eap-why b{color:#1B2420}
 .eap-why a{color:#2C6350}
 </style>
 
@@ -1272,7 +1276,7 @@ clinician, and says which.</p>
 
 
 
-<link rel="stylesheet" href="css/bffbc8b79c85.css">
+<link rel="stylesheet" href="css/dfd3fa21930f.css">
 
 
 
@@ -1571,13 +1575,25 @@ clinician, and says which.</p>
 
 
 
-<link rel="stylesheet" href="css/cf7ba749a7ea.css">
 
-<link rel="stylesheet" href="css/967d1434b320.css">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/c08f3e3b062a.css">
+
+<link rel="stylesheet" href="css/25c85a0f3d4d.css">
 
 <link rel="stylesheet" href="css/ed05b2a965f6.css">
-<link rel="stylesheet" href="css/2d40f9eb0dab.css">
-<link rel="stylesheet" href="css/3f49478ba9b5.css">
+<link rel="stylesheet" href="css/7551624b376f.css">
+<link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/analytics_events.py */
 (function(){
   if (typeof window === 'undefined') return;
@@ -1744,19 +1760,19 @@ clinician, and says which.</p>
   }, true);
 })();
 </script>
-<link rel="stylesheet" href="css/f3c5f8978431.css">
+<link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
 <link rel="stylesheet" href="css/5b9864342bfc.css">
-<link rel="stylesheet" href="css/a2b350271684.css">
+<link rel="stylesheet" href="css/e2ab505d9863.css">
 <link rel="stylesheet" href="css/f75134b09224.css">
-<link rel="stylesheet" href="css/2f29aaadfa97.css">
-<link rel="stylesheet" href="css/c41f2ea90550.css">
+<link rel="stylesheet" href="css/9fb0332fa15a.css">
+<link rel="stylesheet" href="css/4dc3eadda2f0.css">
 <link rel="stylesheet" href="css/97ebf82c2256.css">
-<link rel="stylesheet" href="css/98dfe0b8d12e.css">
-<link rel="stylesheet" href="css/0bc1ae1be8e7.css">
+<link rel="stylesheet" href="css/de5583206780.css">
+<link rel="stylesheet" href="css/c02acf6fa8a5.css">
 <link rel="stylesheet" href="css/5f9da934c88f.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/7ffee9d84d9d.css">
+<link rel="stylesheet" href="css/5c048e36ac1e.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
 <link rel="stylesheet" href="css/1a54ea41ccf2.css">
 <link rel="stylesheet" href="css/7ddf0607da04.css">
