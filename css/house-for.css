@@ -24,12 +24,12 @@ body.bcf .fd-wrap{max-width:1080px;margin:0 auto;padding:46px var(--pad) 8px}
 body.bcf .pk-sec{border-top:1px solid var(--hair);padding-top:46px;
   margin:0 0 92px;scroll-margin-top:86px}
 @media(max-width:760px){body.bcf .pk-sec{padding-top:32px;margin:0 0 64px}}
-body.bcf .pk-k{font-family:var(--mn);font-size:11px;letter-spacing:.16em;
+body.bcf .pk-k{font-family:var(--mn);font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--dim);margin:0 0 10px}
-body.bcf .pk-h{font-size:31px;max-width:30ch;margin:0 0 14px;
+body.bcf .pk-h{font-size:28px;max-width:30ch;margin:0 0 14px;
   color:var(--ink)}
-@media(max-width:760px){body.bcf .pk-h{font-size:24px}}
-body.bcf .pk-h3{font-size:20px;line-height:1.18;margin:44px 0 10px;
+@media(max-width:760px){body.bcf .pk-h{font-size:23px}}
+body.bcf .pk-h3{font-size:19px;line-height:1.18;margin:44px 0 10px;
   color:var(--ink);scroll-margin-top:86px}
 body.bcf .pk-d{margin:0 0 26px;max-width:66ch;color:var(--dim)}
 body.bcf .pk-fine{font-size:13.5px;color:var(--dim);margin:22px 0 0;
@@ -40,23 +40,23 @@ body.bcf .pk-fine b{color:var(--ink)}
 body.bcf .pk-hero{background:transparent;color:var(--ink);border:0;
   border-radius:0;padding:26px 0 0;margin:0 0 78px}
 @media(max-width:760px){body.bcf .pk-hero{padding:8px 0 0;margin:0 0 54px}}
-body.bcf .pk-hero .hk{font-family:var(--mn);font-size:11px;
+body.bcf .pk-hero .hk{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
   margin:0 0 24px}
 body.bcf .pk-hero h1{font-size:clamp(38px,5.8vw,72px);line-height:1.02;
   color:var(--ink);margin:0 0 28px;max-width:20ch;letter-spacing:-.025em}
-body.bcf .pk-hero .hl{font-size:18px;line-height:1.65;color:var(--dim);
+body.bcf .pk-hero .hl{font-size:19px;line-height:1.65;color:var(--dim);
   margin:0 0 24px;max-width:64ch}
 body.bcf .pk-hero .hl b{color:var(--ink);font-weight:600}
 body.bcf .pk-hero .hl a{color:var(--pine)}
-body.bcf .pk-hero .hpriv{font-family:var(--mn);font-size:11px;
+body.bcf .pk-hero .hpriv{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
   margin:0 0 30px}
 /* the jump row: one quiet line of plain pine text links, not chips */
 body.bcf .pk-hero .hj{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0;
-  font-size:14.5px}
+  font-size:15px}
 body.bcf .pk-hero .hj a{display:inline;font-family:var(--body);
-  font-size:14.5px;letter-spacing:0;text-transform:none;border:0;
+  font-size:15px;letter-spacing:0;text-transform:none;border:0;
   border-radius:0;padding:0;background:transparent;color:var(--pine);
   text-decoration:underline;text-underline-offset:3px;
   text-decoration-color:rgba(38,96,76,.35)}
@@ -71,12 +71,12 @@ body.bcf .tsshort .tsk{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
   margin:0 0 8px}
 body.bcf .tsshort q{quotes:none;display:block;font-family:var(--disp);
-  font-weight:800;font-size:21px;letter-spacing:-.02em;line-height:1.25;
+  font-weight:800;font-size:19px;letter-spacing:-.02em;line-height:1.25;
   color:var(--ink);margin:0 0 8px}
 body.bcf .tsshort .tsa{font-size:19px;line-height:1.55;color:var(--dim);
   margin:0 0 8px}
 body.bcf .tsshort .tsfig{font-family:var(--figs);font-weight:600;
-  font-style:italic;font-size:17.5px;color:var(--ink)}
+  font-style:italic;font-size:16.5px;color:var(--ink)}
 
 /* --- the ledger: the centerpiece keeps its card — it is an instrument -- */
 /* display:block is load-bearing: house.css's .bc2 .lg is the LOGO lockup
@@ -90,12 +90,12 @@ body.bcf .lg-in label{display:block;font-family:var(--mn);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
   margin-bottom:5px}
 body.bcf .lg-in input{width:100%;box-sizing:border-box;
-  font-family:var(--figs);font-weight:800;font-size:20px;padding:8px 10px;
+  font-family:var(--figs);font-weight:800;font-size:19px;padding:8px 10px;
   background:#fff;border:1px solid var(--hair);border-radius:6px;
   color:var(--ink)}
 body.bcf .lg-in input:focus{outline:none;border-color:var(--pine);
   box-shadow:0 0 0 3px var(--wash)}
-body.bcf .lg-read{font-size:14.5px;color:var(--dim);margin:16px 0 8px}
+body.bcf .lg-read{font-size:15px;color:var(--dim);margin:16px 0 8px}
 body.bcf .lg-read b{font-family:var(--figs);font-weight:800;font-size:23px;
   color:var(--ink);font-variant-numeric:tabular-nums;margin-right:4px}
 body.bcf .lg-bar{position:relative;height:32px;background:var(--sink);
@@ -104,7 +104,7 @@ body.bcf .lg-bar i{display:block;height:100%;background:var(--pine);
   width:0;transition:width .25s}
 body.bcf .lg-mk{position:relative;height:26px;margin-bottom:6px}
 body.bcf .lg-mk span{position:absolute;top:0;font-family:var(--mn);
-  font-size:10px;color:var(--dim);white-space:nowrap;
+  font-size:9.5px;color:var(--dim);white-space:nowrap;
   transform:translateX(-50%);padding-top:3px}
 body.bcf .lg-mk span::before{content:"";position:absolute;left:50%;top:-4px;
   width:2px;height:5px;background:var(--ink)}
@@ -121,7 +121,7 @@ body.bcf .lg-g .k{font-family:var(--mn);font-size:9.5px;letter-spacing:.13em;
 body.bcf .lg-g .v{display:block;font-family:var(--figs);font-weight:800;
   font-size:23px;color:var(--ink);line-height:1.1;margin:3px 0 2px;
   font-variant-numeric:tabular-nums}
-body.bcf .lg-g .s{display:block;font-size:11.5px;color:var(--dim);
+body.bcf .lg-g .s{display:block;font-size:12px;color:var(--dim);
   line-height:1.35}
 /* THE page's one accent moment: the requirement people miss, as a soft
    gold wash under ink text — never gold type. */
@@ -129,17 +129,17 @@ body.bcf .lg-g.req div.hot{background:#FFF3D3;border-color:#EBDCA9}
 body.bcf .lg-g.req div.hot .k,body.bcf .lg-g.req div.hot .v,
 body.bcf .lg-g.req div.hot .s{color:var(--ink)}
 body.bcf .lg-g div.done{background:var(--wash);border-color:var(--wash)}
-body.bcf .lg-note{font-size:13px;color:var(--dim);margin:16px 0 0;
+body.bcf .lg-note{font-size:13.5px;color:var(--dim);margin:16px 0 0;
   max-width:74ch}
 body.bcf .lg-note b{color:var(--ink)}
 
 /* --- the requirements panel: a hairline-set aside, not a card ---------- */
 body.bcf .pk-call{background:transparent;border:0;border-radius:0;
   border-top:1px solid var(--hair);padding:26px 0 0;margin:44px 0 0}
-body.bcf .pk-call h3{font-family:var(--mn);font-size:11px;
+body.bcf .pk-call h3{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.15em;text-transform:uppercase;color:var(--dim);
   margin:0 0 10px;font-weight:500}
-body.bcf .pk-call p{font-size:16px;line-height:1.62;color:var(--dim);
+body.bcf .pk-call p{font-size:16.5px;line-height:1.62;color:var(--dim);
   margin:0 0 12px;max-width:66ch}
 body.bcf .pk-call p:last-child{margin:0}
 body.bcf .pk-call p b{color:var(--ink)}
@@ -148,13 +148,13 @@ body.bcf .pk-call p a{color:var(--pine);text-decoration:underline}
 /* --- the questions: hairline entries, directly below the bar ----------- */
 body.bcf .ask{background:transparent;border:0;border-radius:0;
   border-top:1px solid var(--hair);padding:24px 0 4px;margin:0 0 26px}
-body.bcf .ask q{display:block;font-family:var(--figs);font-size:20px;
+body.bcf .ask q{display:block;font-family:var(--figs);font-size:19px;
   font-weight:600;line-height:1.35;color:var(--ink);quotes:none}
-body.bcf .ask .an{font-family:var(--disp);font-weight:800;font-size:15.5px;
+body.bcf .ask .an{font-family:var(--disp);font-weight:800;font-size:15px;
   margin:10px 0 6px;color:var(--ink)}
 body.bcf .ask p{font-size:15px;color:var(--dim);margin:0 0 10px;
   max-width:68ch}
-body.bcf .ask a{font-family:var(--body);font-size:14px;letter-spacing:0;
+body.bcf .ask a{font-family:var(--body);font-size:13.5px;letter-spacing:0;
   text-transform:none;color:var(--pine);text-decoration:underline;
   text-underline-offset:3px}
 
@@ -168,7 +168,7 @@ body.bcf .start .q{display:block;font-family:var(--disp);font-weight:800;
   font-size:19px;line-height:1.25;margin-bottom:6px;color:var(--pine)}
 body.bcf .start a:hover .q{text-decoration:underline;
   text-underline-offset:3px}
-body.bcf .start .s{display:block;font-size:14px;color:var(--dim);
+body.bcf .start .s{display:block;font-size:13.5px;color:var(--dim);
   line-height:1.5}
 
 /* --- the shelf: hairline rows, the annotations get room to breathe ----- */
@@ -181,20 +181,20 @@ body.bcf .shelf .t{font-family:var(--disp);font-weight:800;font-size:16.5px;
   line-height:1.3;margin-bottom:6px;display:block;color:var(--pine)}
 body.bcf .shelf a.card:hover .t{text-decoration:underline;
   text-underline-offset:3px}
-body.bcf .shelf .n{font-size:14px;color:var(--dim);line-height:1.6;
+body.bcf .shelf .n{font-size:13.5px;color:var(--dim);line-height:1.6;
   display:block}
 
 /* --- sources: a hairline block, not a card ----------------------------- */
 body.bcf .pk-src{background:transparent;border:0;border-radius:0;
   border-top:1px solid var(--hair);padding:24px 0 0;margin:0 0 16px}
-body.bcf .pk-src h3{font-family:var(--mn);font-size:11px;
+body.bcf .pk-src h3{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
   margin:0 0 11px;font-weight:500}
 body.bcf .pk-src ol{margin:0;padding:0 0 0 20px}
-body.bcf .pk-src li{font-size:14px;line-height:1.55;color:var(--dim);
+body.bcf .pk-src li{font-size:13.5px;line-height:1.55;color:var(--dim);
   margin:0 0 8px}
 body.bcf .pk-src li:last-child{margin:0}
-body.bcf .pk-src li::marker{font-family:var(--mn);font-size:11px;
+body.bcf .pk-src li::marker{font-family:var(--mn);font-size:10.5px;
   color:var(--pine)}
 body.bcf .pk-src a{color:var(--pine)}
 
@@ -206,7 +206,7 @@ body.bcf .tsbadge{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:transparent;
   color:var(--dim);border:1px solid var(--hair);padding:3px 8px;
   border-radius:6px}
-body.bcf .tswhat{font-size:13px;color:var(--dim);margin:10px 0 0;
+body.bcf .tswhat{font-size:13.5px;color:var(--dim);margin:10px 0 0;
   max-width:64ch}
 
 /* --- utilities --------------------------------------------------------- */

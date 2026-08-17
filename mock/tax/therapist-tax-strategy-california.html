@@ -57,14 +57,14 @@ a{color:inherit}
 .sitenav-fig{width:28px;height:28px;flex:none;display:block}
 .sitenav-wordmark{font-family:Fraunces,serif;font-size:15px;font-weight:700;color:#fff;
  letter-spacing:-.012em;line-height:1.15}
-.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:8.5px;font-weight:700;
+.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;
  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px;
  white-space:nowrap}
 /* the segmented control: three equal columns, never a flex overflow */
 .sitenav-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;
  background:rgba(0,0,0,.26);border-radius:999px;padding:3px;justify-self:center;
  width:100%;max-width:330px}
-.sitenav-top{font:inherit;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.74);
+.sitenav-top{font:inherit;font-size:12px;font-weight:600;color:rgba(255,255,255,.74);
  background:none;border:0;padding:7px 6px;border-radius:6px;cursor:pointer;
  min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -72,12 +72,12 @@ a{color:inherit}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
 .sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
-.sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
+.sitenav-top:after{content:"\25BE";font-size:9.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 /* Newsletter ask, in the bar itself. The panel promo only appears once someone
    opens the menu; this is the one that is always on screen. */
 .sitenav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;
- background:var(--pop);color:#2A2010;font-size:12.5px;font-weight:700;
+ background:var(--pop);color:#2A2010;font-size:12px;font-weight:700;
  padding:10px 17px;border-radius:6px;text-decoration:none;white-space:nowrap;
  min-height:38px;box-shadow:0 3px 0 rgba(140,96,18,.35)}
 .sitenav-cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
@@ -96,7 +96,7 @@ a{color:inherit}
 }
 @media (max-width:860px){
  .sitenav-sub{display:none}
- .sitenav-wordmark{font-size:14px}
+ .sitenav-wordmark{font-size:13.5px}
  .sitenav-fig{width:26px;height:26px}
  .sitenav-cta .long{display:none}
  .sitenav-cta .short{display:inline}
@@ -118,7 +118,7 @@ a{color:inherit}
  .sitenav-wordmark{min-width:0;overflow:hidden;text-overflow:ellipsis}
  .sitenav-cta{grid-area:cta;justify-self:end}
  .sitenav-links{grid-area:nav;max-width:none;width:100%}
- .sitenav-top{font-size:12.5px;padding:9px 4px}
+ .sitenav-top{font-size:12px;padding:9px 4px}
  /* The tagline stays hidden here, as it is from 860px down. Restoring it was
     what pushed the lockup past the capsule in the first place, and at 390px
     there is no width for it beside the newsletter button. */
@@ -131,7 +131,7 @@ a{color:inherit}
  /* The chevron is decorative - the panel opens either way - and at this width it
     is the thing tipping each label into an ellipsis. Drop it rather than shrink
     type that is already at its floor. */
- .sitenav-top{font-size:11.5px;overflow:visible}
+ .sitenav-top{font-size:12px;overflow:visible}
  .sitenav-top:after{display:none}
 }
 .navpanel{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
@@ -144,23 +144,23 @@ a{color:inherit}
  text-decoration:none;color:var(--ink)}
 .np-col a:hover,.np-col a.on{background:var(--paper)}
 .np-col a img{width:22px;height:22px;flex:none;margin-top:1px}
-.np-col b{display:block;font-size:13px;font-weight:700}
-.np-col i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px;
+.np-col b{display:block;font-size:13.5px;font-weight:700}
+.np-col i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);margin-top:2px;
  line-height:1.45}
 .np-promo{display:block;background:var(--carbon);border-radius:10px;padding:15px;
  text-align:center;text-decoration:none}
 .np-promo img{width:76px;height:76px}
 .np-promo b{display:block;font-family:Fraunces,serif;font-size:15px;color:#fff;margin-top:7px}
-.np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.7)}
+.np-promo p{margin:7px 0 11px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.7)}
 .np-promo span{display:inline-block;background:var(--pop);color:#2A2010;font-weight:800;
- font-size:11.5px;padding:9px 14px;border-radius:10px}
+ font-size:12px;padding:9px 14px;border-radius:10px}
 
 /* ---- bands and sections */
 .band{background:#123C30;
  color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
-.kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+.kick{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
  color:var(--pop);margin:0 0 10px}
 /* SCOPED, for the same reason .lede is: rates.html appends this sheet after its
    own, so a bare h1{color:#fff} painted that article's headline white on cream.
@@ -172,11 +172,11 @@ a{color:inherit}
  rates.html - which appends page.css after its own sheet - and painted the
  article's opening paragraph 84% white on cream. Invisible, and only on the
  one page that is not generated from here. */
-.band .lede{font-size:15.5px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
+.band .lede{font-size:15px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
  max-width:58ch}
 .band .lede b{color:#fff}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
+.who span{font-size:12px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -184,23 +184,23 @@ h2{font-family:Fraunces,serif;font-size:clamp(22px,2.4vw,27px);font-weight:600;m
  letter-spacing:-.015em}
 .grouplab{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap}
 .grouplab h2{margin:0}
-.grouplab span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+.grouplab span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
  color:var(--gold)}
-p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
+p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cards.four{grid-template-columns:repeat(4,1fr)}
 .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px}
 .sec.alt .card{background:var(--paper)}
 .card img{width:32px;height:32px;margin-bottom:10px;display:block}
-.card h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 7px}
-.card p{font-size:12.8px;line-height:1.65;color:#4E4940;margin:0}
+.card h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 7px}
+.card p{font-size:13.5px;line-height:1.65;color:#4E4940;margin:0}
 .reflist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
 .ref{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
  border-radius:10px;padding:14px 16px}
 .sec.alt .ref{background:var(--paper)}
 .ref img{width:26px;height:26px;flex:none;margin-top:2px}
 .ref b{display:block;font-size:13.5px;margin-bottom:3px}
-.ref i{display:block;font-style:normal;font-size:12.3px;line-height:1.6;color:#4E4940}
+.ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
@@ -208,13 +208,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .sec.alt .fact{background:var(--cream)}
-.fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
+.fact em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .fact b{font-family:Fraunces,serif;font-size:19px;display:block}
-.fact i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:5px;
+.fact i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:5px;
  line-height:1.55}
 .ctarow{margin:22px 0 0}
-.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
+.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:13.5px;
  padding:12px 22px;border-radius:10px;text-decoration:none}
 .btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
@@ -223,7 +223,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* ---- newsletter */
 .getlist{margin:20px 0 22px;padding:0;list-style:none}
-.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.8px;line-height:1.62;
+.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.62;
  color:rgba(255,255,255,.84);margin-bottom:11px}
 .getlist img{width:20px;height:20px;flex:none;margin-top:2px}
 .getlist b{color:#fff}
@@ -245,8 +245,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  outline-offset:2px}
 .consent{display:flex;gap:9px;align-items:flex-start;margin-top:12px;max-width:62ch;cursor:pointer}
 .consent input{width:16px;height:16px;flex:none;margin:1px 0 0;accent-color:var(--pop)}
-.consent span{font-size:11.8px;line-height:1.55;color:rgba(255,255,255,.66)}
-.nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
+.consent span{font-size:12px;line-height:1.55;color:rgba(255,255,255,.66)}
+.nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
 /* ---- submitted state
    The form posts by fetch and swaps itself for this, so nobody is thrown onto
    Formspree's own thanks page. Sized to the form it replaces so the band does
@@ -257,9 +257,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 @keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:var(--pop);
  color:#2A2010;font-size:15px;font-weight:800;line-height:26px;text-align:center}
-.nlok b{display:block;font-family:Fraunces,serif;font-size:16px;color:#fff;margin-bottom:5px}
-.nlok p{font-size:12.6px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
-.nlok p + p{margin-top:7px;font-size:11.4px;color:rgba(255,255,255,.5)}
+.nlok b{display:block;font-family:Fraunces,serif;font-size:16.5px;color:#fff;margin-bottom:5px}
+.nlok p{font-size:12px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
+.nlok p + p{margin-top:7px;font-size:12px;color:rgba(255,255,255,.5)}
 .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 /* Light-background variant, for the end-of-article ask on a cream section. */
@@ -276,11 +276,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
 .issue-h img{width:26px;height:26px;flex:none}
 .issue-h b{font-family:Fraunces,serif;font-size:15px}
-.issue-h span{font-size:11px;color:var(--muted);margin-left:auto;
+.issue-h span{font-size:10.5px;color:var(--muted);margin-left:auto;
  font-family:'IBM Plex Mono',monospace}
-.issue h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 8px}
-.issue p{font-size:13px;line-height:1.7;color:#4E4940;margin:0 0 13px}
-.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12.6px;color:#4E4940;
+.issue h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 8px}
+.issue p{font-size:13.5px;line-height:1.7;color:#4E4940;margin:0 0 13px}
+.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12px;color:#4E4940;
  padding:9px 0;border-top:1px dashed var(--line);line-height:1.55}
 .issue-row b{font-family:'IBM Plex Mono',monospace;color:var(--gold);flex:none}
 
@@ -292,11 +292,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ftnl-t{flex:1;min-width:300px}
 .ftnl h2{font-family:Fraunces,serif;font-size:23px;color:#fff;margin:0 0 9px;line-height:1.24}
 .ftnl h2 em{font-style:normal;color:var(--pop)}
-.ftnl p{font-size:13.2px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.ftnl p{font-size:13.5px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
 /* .ftnl p is (0,1,1) and beat .nlmeta at (0,1,0), so the fine print rendered at
    the same size and colour as the consent line above it and read as one run-on
    paragraph. Restate it at equal weight rather than reordering the sheet. */
-.ftnl .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.44);
+.ftnl .nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.44);
  margin:12px 0 0;max-width:60ch}
 .ftnl .nlform{flex:1;min-width:min(320px,100%)}
 /* min-width:320px is wider than a 320px viewport once .ftin's 18px padding is
@@ -310,13 +310,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  border-top:1px solid rgba(255,255,255,.1);padding:24px 0 6px;margin-top:0}
 .ftcols h5{margin:0 0 12px;font-size:9.5px;font-weight:800;letter-spacing:.13em;
  text-transform:uppercase;color:var(--pop)}
-.ftcols a{display:block;font-size:12.5px;color:rgba(255,255,255,.72);text-decoration:none;
+.ftcols a{display:block;font-size:12px;color:rgba(255,255,255,.72);text-decoration:none;
  margin-bottom:9px}
 .ftcols a:hover{color:#fff;text-decoration:underline}
 .ftcols a.on{color:#fff;font-weight:600}
 .ftcols a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 .ftcols p{margin:0 0 9px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.5)}
-.ftby{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
+.ftby{font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
  padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
 .ftby b{color:rgba(255,255,255,.78)}
 
@@ -346,7 +346,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 
 /* ---- tools page */
-.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:5px 12px;
+.pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:5px 12px;
  border:1px solid}
 .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 .pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
@@ -355,19 +355,19 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding:18px 19px;display:flex;flex-direction:column}
 .sec.alt .tool{background:var(--paper)}
 .tool img{width:30px;height:30px;margin-bottom:9px}
-.tool h3{font-family:Fraunces,serif;font-size:16px;margin:0 0 6px;padding-right:74px}
-.tool p{font-size:12.6px;line-height:1.62;color:#4E4940;margin:0 0 12px}
+.tool h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 6px;padding-right:74px}
+.tool p{font-size:12px;line-height:1.62;color:#4E4940;margin:0 0 12px}
 .tool > .pill{position:absolute;top:15px;right:15px}
-.tool a{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--pine);text-decoration:none}
+.tool a{margin-top:auto;font-size:12px;font-weight:700;color:var(--pine);text-decoration:none}
 .tool a:hover{text-decoration:underline}
 /* featured slot: the tool being finished now, shown rather than described */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;
  border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-top:18px}
 .sec.alt .feat{background:var(--paper)}
 .feat h3{font-family:Fraunces,serif;font-size:23px;margin:11px 0 9px;letter-spacing:-.015em}
-.feat p{font-size:13.6px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
+.feat p{font-size:13.5px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
 .feat ul{margin:0 0 18px;padding:0;list-style:none}
-.feat li{font-size:12.9px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
+.feat li{font-size:13.5px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
  margin-bottom:8px}
 .feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:6px;
  background:var(--pine)}
@@ -375,7 +375,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .featshot{border:1px solid var(--line);border-radius:10px;overflow:hidden;
  box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F6F8F6}
 .featshot img{width:100%;height:auto;display:block;image-rendering:auto}
-.featcap{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
+.featcap{font-size:10.5px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
 @media (max-width:900px){.feat{grid-template-columns:1fr;gap:22px;padding:22px}}
 
 /* ---- contact form */
@@ -388,12 +388,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    the chevron. Sized to the content, not to a round number. */
 .cf-row{display:grid;grid-template-columns:232px minmax(0,1fr);gap:14px;margin:0 0 14px}
 .cf-f{display:block;min-width:0}
-.cf-f > span{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;
+.cf-f > span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .cf-f > span i{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;
  color:#A29A88;margin-left:5px}
 .cform input[type=text],.cform input[type=email],.cform select,.cform textarea{
- width:100%;min-width:0;font:inherit;font-size:14px;color:var(--ink);min-height:44px;
+ width:100%;min-width:0;font:inherit;font-size:13.5px;color:var(--ink);min-height:44px;
  background:var(--cream);border:1.5px solid #E4D9BE;border-radius:10px;padding:11px 13px}
 .cform select{height:44px;padding:0 11px;font-family:Fraunces,serif;font-weight:600;font-size:15px}
 .cform textarea{line-height:1.6;resize:vertical;min-height:132px}
@@ -401,13 +401,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cform input:focus-visible,.cform select:focus-visible,.cform textarea:focus-visible{
  outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
 .cf-send{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
-.cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:14px;
+.cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:13.5px;
  font-weight:700;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;min-height:44px;
  box-shadow:0 3px 0 rgba(21,52,43,.35)}
 .cform button[type=submit]:hover{background:#2C6350}
 .cform button[type=submit]:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(21,52,43,.35)}
 .cform button[aria-busy=true]{opacity:.65;cursor:progress}
-.cf-direct{font-size:12.4px;line-height:1.6;color:var(--muted);margin:0}
+.cf-direct{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
 .cf-direct a{color:var(--pine);font-weight:700}
 /* .consent is written for the dark newsletter band; on a light card it needs the
    dark text back. .sec .consent span already does this - restated here because
@@ -425,9 +425,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cfhelp{background:var(--paper);border:1px solid var(--line);border-radius:10px;
  padding:18px 20px;margin:0 0 22px;max-width:640px}
 .sec.alt .cfhelp{background:var(--cream)}
-.cfhelp h3{font-family:Fraunces,serif;font-size:15.5px;margin:0 0 11px}
+.cfhelp h3{font-family:Fraunces,serif;font-size:15px;margin:0 0 11px}
 .cfhelp ul{margin:0;padding:0;list-style:none}
-.cfhelp li{font-size:12.8px;line-height:1.62;color:#4E4940;padding-left:19px;position:relative;
+.cfhelp li{font-size:13.5px;line-height:1.62;color:#4E4940;padding-left:19px;position:relative;
  margin:0 0 9px}
 .cfhelp li:last-child{margin-bottom:0}
 .cfhelp li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
@@ -436,7 +436,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* Contact page is now the form and nothing else, so the fine print carries the
    safety signpost on its own rather than as one of a pair of cards. */
-.cf-fine{max-width:640px;margin:16px 0 0;font-size:12.4px;line-height:1.7;color:var(--muted)}
+.cf-fine{max-width:640px;margin:16px 0 0;font-size:12px;line-height:1.7;color:var(--muted)}
 .cf-fine b{color:#B5483F;font-weight:800}
 
 
@@ -461,7 +461,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .thero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(28px,3.7vw,44px);line-height:1.04;
  letter-spacing:-.024em;margin:0 0 11px;color:#fff;font-weight:600;max-width:17ch}
 .thero h1 em{font-style:normal;color:var(--pop)}
-.tlede{font-size:14.2px;line-height:1.72;color:rgba(255,255,255,.85);margin:0 0 16px;
+.tlede{font-size:13.5px;line-height:1.72;color:rgba(255,255,255,.85);margin:0 0 16px;
  max-width:58ch}
 .tlede b{color:#fff}
 .therocta{display:flex;gap:9px;flex-wrap:wrap}
@@ -474,12 +474,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding:20px 22px}
 .tpanel .pr{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.14)}
 .tpanel .pr:last-of-type{border-bottom:0}
-.tpanel .pr em{display:block;font-style:normal;font-size:10px;font-weight:800;
+.tpanel .pr em{display:block;font-style:normal;font-size:9.5px;font-weight:800;
  letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px}
 .tpanel .pr b{font-family:Fraunces,Georgia,serif;font-size:clamp(28px,3.6vw,38px);color:#fff;
  line-height:1;display:block}
 .tpanel .pr b.gold{color:var(--pop)}
-.tpanel .pn{font-size:10.6px;color:rgba(255,255,255,.5);margin:12px 0 0;line-height:1.55}
+.tpanel .pn{font-size:10.5px;color:rgba(255,255,255,.5);margin:12px 0 0;line-height:1.55}
 
 /* ---------- slabs: white cards, identity in a 3px top rule ---------- */
 .tax .slab{max-width:1060px;margin:16px auto 0;border-radius:10px;padding:28px 30px 32px;
@@ -494,16 +494,16 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .chh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px}
 .chh h2{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,28px);margin:0;
  font-weight:600;letter-spacing:-.02em;color:var(--ink)}
-.chn{font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+.chn{font-size:9.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
  color:var(--gold)}
 .slab.pine .chn{color:var(--pine)}
 .slab.brick .chn{color:var(--brick)}
 .slab.indigo .chn{color:var(--indigo)}
-.dek{font-size:13.4px;line-height:1.7;margin:0 0 18px;color:var(--muted);max-width:68ch}
+.dek{font-size:13.5px;line-height:1.7;margin:0 0 18px;color:var(--muted);max-width:68ch}
 .dek b{color:var(--ink);font-weight:600}
-.empty{font-size:13.4px;line-height:1.72;color:var(--muted);margin:0;max-width:64ch}
-.note{font-size:12.4px;line-height:1.68;color:var(--muted);margin:14px 0 0;max-width:74ch}
-.fine{font-size:11.9px;line-height:1.72;color:#8A8477;margin:16px 0 0;max-width:78ch}
+.empty{font-size:13.5px;line-height:1.72;color:var(--muted);margin:0;max-width:64ch}
+.note{font-size:12px;line-height:1.68;color:var(--muted);margin:14px 0 0;max-width:74ch}
+.fine{font-size:12px;line-height:1.72;color:#8A8477;margin:16px 0 0;max-width:78ch}
 .fine b{color:var(--muted)}
 
 /* ---------- fields: the site's editable-input pattern ---------- */
@@ -512,7 +512,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  transition:border-color .15s,box-shadow .15s}
 .f:hover{border-color:var(--gold)}
 .f:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,132,48,.16)}
-.f em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.1em;
+.f em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#7C766A;margin-bottom:3px;line-height:1.35}
 .f .fv{display:flex;align-items:baseline;gap:3px;font-family:Fraunces,Georgia,serif;
  font-weight:600;font-size:19px;color:var(--ink)}
@@ -520,19 +520,19 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  color:inherit;-moz-appearance:textfield;outline:none}
 .f input::-webkit-outer-spin-button,.f input::-webkit-inner-spin-button{
  -webkit-appearance:none;margin:0}
-.f select{font-size:14.5px;cursor:pointer}
+.f select{font-size:15px;cursor:pointer}
 .f select option{color:#1B2420}
 .f .unit{flex:none;font-family:Inter,sans-serif;font-size:10.5px;font-weight:700;
  letter-spacing:.05em;text-transform:uppercase;color:#9A9384;white-space:nowrap}
 .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
-.fsub{font-size:8.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+.fsub{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
  color:var(--gold);margin:18px 0 9px}
 
 /* ---------- equation, tiles, rows ---------- */
 .eq{display:grid;grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr) 24px minmax(0,1fr);
  gap:10px;align-items:center;background:var(--paper);border:1px solid var(--line);
  border-radius:10px;padding:18px 20px}
-.ei em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.11em;
+.ei em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:#7C766A;margin-bottom:5px;line-height:1.3}
 .ei b{font-family:Fraunces,Georgia,serif;font-size:clamp(19px,2.6vw,28px);line-height:1;
  color:var(--ink);display:block}
@@ -545,20 +545,20 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tiles > .tl.hi,.tiles > .tl.big{background:#FDF4DF;border-color:#E8D3A0}
 .tiles > .tl.good{background:#F6F8F6;border-color:#C6DBD1}
 .tiles > .tl.warn{background:#FBEFEC;border-color:#EBC7BE}
-.tiles > .tl em{display:block;font-style:normal;font-size:8.5px;font-weight:800;
+.tiles > .tl em{display:block;font-style:normal;font-size:9.5px;font-weight:800;
  letter-spacing:.11em;text-transform:uppercase;color:#7C766A;margin-bottom:5px;line-height:1.35}
-.tiles > .tl b{font-family:Fraunces,Georgia,serif;font-size:25px;display:block;line-height:1.02;
+.tiles > .tl b{font-family:Fraunces,Georgia,serif;font-size:23px;display:block;line-height:1.02;
  color:var(--ink)}
 .tiles > .tl.hi b,.tiles > .tl.big b{color:var(--gold)}
 .tiles > .tl.good b{color:var(--pos)}
 .tiles > .tl.warn b{color:var(--neg)}
-.tiles > .tl u{text-decoration:none;display:block;font-size:10.6px;color:#8A8477;margin-top:4px;
+.tiles > .tl u{text-decoration:none;display:block;font-size:10.5px;color:#8A8477;margin-top:4px;
  line-height:1.45}
 /* the reference prose ships an <ol class="tl"> task list; it must not meet the
    tile rule above, which is why every tile selector is a direct child of .tiles */
 .txb ol.tl{margin:12px 0 0;padding:0;list-style:none;counter-reset:tl}
 .txb ol.tl li{counter-increment:tl;position:relative;padding-left:30px;margin:0 0 9px;
- font-size:12.6px;line-height:1.68;color:var(--muted)}
+ font-size:12px;line-height:1.68;color:var(--muted)}
 .txb ol.tl li:before{content:counter(tl);position:absolute;left:0;top:1px;width:21px;
  height:21px;border-radius:6px;background:#F3E8CC;color:#8A6516;
  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;
@@ -567,15 +567,15 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .rw{display:grid;grid-template-columns:minmax(0,1fr) 118px;gap:12px;align-items:baseline;
  padding:11px 0;border-bottom:1px solid var(--line)}
 .rw:last-child{border-bottom:0}
-.rw b{font-size:13.2px;font-weight:600;color:var(--ink)}
-.rw i{font-style:normal;font-size:11.6px;color:var(--muted);display:block;margin-top:3px;
+.rw b{font-size:13.5px;font-weight:600;color:var(--ink)}
+.rw i{font-style:normal;font-size:12px;color:var(--muted);display:block;margin-top:3px;
  line-height:1.55}
-.rw .v{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.2px;text-align:right;
+.rw .v{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px;text-align:right;
  white-space:nowrap;color:var(--ink)}
 .rw.neg .v{color:var(--neg)}
 .rw.tot{border-top:2px solid var(--ink);border-bottom:0;margin-top:6px;padding-top:13px}
-.rw.tot b{font-family:Fraunces,Georgia,serif;font-size:16px}
-.rw.tot .v{font-family:Fraunces,Georgia,serif;font-size:20px;color:var(--gold)}
+.rw.tot b{font-family:Fraunces,Georgia,serif;font-size:16.5px}
+.rw.tot .v{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--gold)}
 
 /* ---------- the split bar ---------- */
 .bar{display:flex;height:52px;border-radius:10px;overflow:hidden;margin:0 0 9px;
@@ -585,19 +585,19 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .bar .a{background:#F6F8F6;color:#635D4E}
 .bar .b{background:#F6F8F6;color:#8A8477}
 .bar .c{background:var(--pop);color:#2A2010}
-.bar strong{font-family:Fraunces,Georgia,serif;font-size:16px;font-weight:600}
-.barn{font-size:11.8px;color:var(--muted);margin:0}
+.bar strong{font-family:Fraunces,Georgia,serif;font-size:16.5px;font-weight:600}
+.barn{font-size:12px;color:var(--muted);margin:0}
 
 /* ---------- planner ---------- */
 .cur{margin-top:15px;background:#FDF4DF;border:1px solid #E8D3A0;border-radius:10px;
  padding:15px 17px}
-.cur b{display:block;font-family:Fraunces,Georgia,serif;font-size:16px;margin-bottom:6px;
+.cur b{display:block;font-family:Fraunces,Georgia,serif;font-size:16.5px;margin-bottom:6px;
  color:var(--ink)}
-.cur span{display:block;font-size:12.6px;line-height:1.68;color:#635D4E;max-width:74ch}
+.cur span{display:block;font-size:12px;line-height:1.68;color:#635D4E;max-width:74ch}
 .cur .gap{margin-top:7px;color:#8A6516;font-weight:600}
 .cur .gap.done{color:var(--pos)}
 .maxbtn{margin-top:10px;background:var(--pop);color:#2A2010;border:0;border-radius:10px;
- padding:11px 18px;font-size:13px;font-weight:800;cursor:pointer;min-height:44px;
+ padding:11px 18px;font-size:13.5px;font-weight:800;cursor:pointer;min-height:44px;
  box-shadow:0 2px 0 rgba(140,96,18,.3)}
 .maxbtn:hover{filter:brightness(1.04)}
 
@@ -609,7 +609,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tsr > b{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
  color:#8A8477;min-width:112px}
 .sb{background:var(--white);border:1px solid var(--fieldline);color:var(--ink);
- border-radius:999px;padding:9px 15px;font-size:12.5px;font-weight:600;cursor:pointer;
+ border-radius:999px;padding:9px 15px;font-size:12px;font-weight:600;cursor:pointer;
  min-height:40px}
 .sb:hover{background:var(--field);border-color:var(--gold)}
 .sb.on{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -617,7 +617,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#8A8477}
 .sout b{display:block;font-family:Fraunces,Georgia,serif;font-size:28px;color:var(--gold);
  letter-spacing:0;text-transform:none;margin:4px 0 2px}
-.sout span{display:block;font-size:11.8px;font-weight:600;letter-spacing:0;
+.sout span{display:block;font-size:12px;font-weight:600;letter-spacing:0;
  text-transform:none;color:var(--muted)}
 .blk{border:1px solid var(--line);border-radius:10px;margin:0 0 11px;background:var(--white);
  overflow:hidden}
@@ -633,23 +633,23 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .blk.top .rank{background:var(--pos);color:#fff}
 .bt b{display:block;font-family:Fraunces,Georgia,serif;font-size:16.5px;font-weight:600;
  line-height:1.25;color:var(--ink)}
-.bt i{display:block;font-style:normal;font-size:12.2px;line-height:1.55;color:var(--muted);
+.bt i{display:block;font-style:normal;font-size:12px;line-height:1.55;color:var(--muted);
  margin-top:3px}
-.bv{font-family:Fraunces,Georgia,serif;font-size:20px;font-weight:600;white-space:nowrap;
+.bv{font-family:Fraunces,Georgia,serif;font-size:19px;font-weight:600;white-space:nowrap;
  text-align:right;color:var(--gold)}
 .blk.top .bv{color:var(--pos)}
-.bv small{display:block;font-family:Inter,sans-serif;font-size:9px;font-weight:700;
+.bv small{display:block;font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;
  letter-spacing:.09em;text-transform:uppercase;color:#9A9384;margin-top:3px}
 .blk.out{background:var(--paper);border-style:dashed}
 .blk.out .blkh{padding:12px 18px;cursor:default}
 .blk.out .bt b{font-family:Inter,sans-serif;font-size:13.5px;color:#8A8477}
-.blk.out .bt i{font-size:11.9px;color:#9A9384}
+.blk.out .bt i{font-size:12px;color:#9A9384}
 .blk.out .bv{font-family:Inter,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#A9A292}
 .blkb{padding:0 18px 17px;border-top:1px solid var(--line);padding-top:14px}
-.blkb p{font-size:12.9px;line-height:1.74;color:#4E4940;margin:0;max-width:76ch}
+.blkb p{font-size:13.5px;line-height:1.74;color:#4E4940;margin:0;max-width:76ch}
 .blkb ul{margin:11px 0 0;padding:0;list-style:none}
-.blkb li{position:relative;padding-left:18px;margin:0 0 7px;font-size:12.6px;line-height:1.68;
+.blkb li{position:relative;padding-left:18px;margin:0 0 7px;font-size:12px;line-height:1.68;
  color:var(--muted)}
 .blkb li:before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;
  border-radius:6px;background:var(--gold)}
@@ -661,27 +661,27 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .verdict.good{background:#F6F8F6;border:1.5px solid #C6DBD1}
 .verdict.bad{background:#FBEFEC;border:1.5px solid #EBC7BE}
 .verdict.flat{background:var(--paper);border:1.5px solid var(--line)}
-.verdict em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.13em;
+.verdict em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.13em;
  text-transform:uppercase;color:#7C766A;margin-bottom:7px}
 .verdict b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(24px,3.4vw,38px);
  color:var(--ink);line-height:1.05}
 .verdict.good b{color:#2C6350}
 .verdict.bad b{color:#9C3F37}
-.verdict p{font-size:13px;line-height:1.72;color:#4E4940;margin:9px 0 0;max-width:72ch}
+.verdict p{font-size:13.5px;line-height:1.72;color:#4E4940;margin:9px 0 0;max-width:72ch}
 .slider{margin-top:17px;background:var(--paper);border:1px solid var(--line);
  border-radius:10px;padding:15px 17px}
-.slider label{display:block;font-size:8.5px;font-weight:800;letter-spacing:.12em;
+.slider label{display:block;font-size:9.5px;font-weight:800;letter-spacing:.12em;
  text-transform:uppercase;color:#7C766A;margin-bottom:9px}
 .slider input[type=range]{width:100%;min-height:40px;accent-color:#B08430}
 .slider .out{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--gold);margin-top:4px}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
 .side{background:var(--paper);border:1px solid var(--line);border-radius:10px;
  padding:15px 17px;min-width:0}
-.side em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.12em;
+.side em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.12em;
  text-transform:uppercase;color:#7C766A;margin-bottom:6px}
-.side b{display:block;font-family:Fraunces,Georgia,serif;font-size:26px;color:var(--gold);
+.side b{display:block;font-family:Fraunces,Georgia,serif;font-size:28px;color:var(--gold);
  line-height:1.05;margin-bottom:7px}
-.side span{font-size:12.4px;line-height:1.68;color:#4E4940}
+.side span{font-size:12px;line-height:1.68;color:#4E4940}
 .side span b{display:inline;font-family:inherit;font-size:inherit;color:var(--gold)}
 
 /* ---------- reference blocks ---------- */
@@ -690,37 +690,37 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .txref > summary{list-style:none;cursor:pointer;padding:14px 17px;display:grid;
  grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;min-height:44px}
 .txref > summary::-webkit-details-marker{display:none}
-.txref > summary:after{content:"\25BE";color:#9A9384;font-size:11px;transition:transform .2s}
+.txref > summary:after{content:"\25BE";color:#9A9384;font-size:10.5px;transition:transform .2s}
 .txref[open] > summary:after{transform:rotate(180deg)}
 .txref[open]{background:var(--white)}
-.txref > summary b{display:block;font-family:Fraunces,Georgia,serif;font-size:15.5px;
+.txref > summary b{display:block;font-family:Fraunces,Georgia,serif;font-size:15px;
  color:var(--ink)}
-.txref > summary i{display:block;font-style:normal;font-size:11.9px;color:var(--muted);
+.txref > summary i{display:block;font-style:normal;font-size:12px;color:var(--muted);
  margin-top:3px;line-height:1.5}
 .txb{padding:2px 17px 17px;border-top:1px solid var(--line)}
-.txb p,.txb li{font-size:12.8px;line-height:1.74;color:#4E4940;max-width:78ch}
+.txb p,.txb li{font-size:13.5px;line-height:1.74;color:#4E4940;max-width:78ch}
 .txb b{color:var(--ink)}
 .txb a{color:var(--pine);font-weight:600}
 .txb .tw{overflow-x:auto;overflow-y:hidden;margin:12px 0 0}
-.txb table.cmp{width:100%;border-collapse:collapse;min-width:460px;font-size:12.4px}
+.txb table.cmp{width:100%;border-collapse:collapse;min-width:460px;font-size:12px}
 .txb table.cmp th,.txb table.cmp td{text-align:right;padding:9px 11px;
  border-bottom:1px solid var(--line)}
 .txb table.cmp thead th,.txb table.cmp tbody th{text-align:left;font-weight:600}
-.txb table.cmp thead th{font-size:8.5px;font-weight:800;letter-spacing:.11em;
+.txb table.cmp thead th{font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:#8A8477}
 /* the shared chrome defines a bare .band for its hero; the lifted prose tables
    use <tr class="band"> as a divider. Restated here, not reordered. */
 .txb table.cmp tr.band{background:none;color:inherit;padding:0}
 .txb table.cmp tr.band td{background:var(--paper);font-weight:700;text-align:left;
- font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#7C766A}
-.txb table.cmp tfoot td{font-size:11.6px;color:#8A8477;line-height:1.6;text-align:left;
+ font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#7C766A}
+.txb table.cmp tfoot td{font-size:12px;color:#8A8477;line-height:1.6;text-align:left;
  padding-top:11px}
 .txb p.flag{background:#FDF4DF;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
- padding:13px 16px;margin:14px 0 0;font-size:12.7px;line-height:1.7;color:#4E4940}
+ padding:13px 16px;margin:14px 0 0;font-size:12px;line-height:1.7;color:#4E4940}
 .txb p.flag b{color:#8A6516}
 .txb .brs{margin-top:12px}
 .txb .br{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 92px;gap:11px;
- align-items:center;padding:6px 0;font-size:12.3px}
+ align-items:center;padding:6px 0;font-size:12px}
 .txb .br > span{color:#4E4940}
 .txb .br .track{height:14px;background:var(--paper);border:1px solid var(--line);
  border-radius:6px;overflow:hidden}
@@ -729,9 +729,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .txb .br .track .neg{background:var(--neg)}
 .txb .br .track .flat{background:#D6D0C0}
 .txb .br > b{font-family:'IBM Plex Mono',ui-monospace,monospace;text-align:right;
- font-size:12.3px}
+ font-size:12px}
 .txb .br > b.pos{color:#2C6350}.txb .br > b.neg{color:#9C3F37}
-.txb .br > i{grid-column:1 / -1;font-style:normal;font-size:11.4px;color:#8A8477;margin-top:-2px}
+.txb .br > i{grid-column:1 / -1;font-style:normal;font-size:12px;color:#8A8477;margin-top:-2px}
 
 /* ---------- closing CTA ---------- */
 .tcta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
@@ -747,20 +747,20 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tcta span{font-size:clamp(12px,1.1vw,14.5px);font-weight:700;opacity:.66}
 .alist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 22px;margin:18px 0 0;
  padding:17px 0 0;border-top:1px solid var(--line)}
-.alist div{display:flex;gap:9px;font-size:12.7px;line-height:1.6;color:var(--muted)}
+.alist div{display:flex;gap:9px;font-size:12px;line-height:1.6;color:var(--muted)}
 .alist i{font-style:normal;color:var(--gold);flex:none}
 .alist b{color:var(--ink);font-weight:600}
 
 /* ---------- citations + disclaimer ---------- */
 .cites{max-width:1060px;margin:20px auto 0;padding:0 26px}
-.cites h3{font-family:Fraunces,Georgia,serif;font-size:17px;margin:0 0 10px;color:var(--ink)}
+.cites h3{font-family:Fraunces,Georgia,serif;font-size:16.5px;margin:0 0 10px;color:var(--ink)}
 .cite{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:8px 0;
- border-bottom:1px solid var(--line);font-size:12.3px;line-height:1.64;color:var(--muted)}
+ border-bottom:1px solid var(--line);font-size:12px;line-height:1.64;color:var(--muted)}
 .cite:last-of-type{border-bottom:0}
-.cite .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--gold)}
+.cite .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;color:var(--gold)}
 .cite a{color:var(--pine);font-weight:600}
 .cite b{color:var(--ink)}
-.disc{max-width:1060px;margin:6px auto 0;padding:14px 26px 40px;font-size:11.8px;
+.disc{max-width:1060px;margin:6px auto 0;padding:14px 26px 40px;font-size:12px;
  line-height:1.72;color:#8A8477}
 .disc b{color:var(--ink)}
 
@@ -772,7 +772,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 @media (max-width:700px){
  .eq{grid-template-columns:1fr;gap:12px}
- .eo{text-align:left;font-size:16px}
+ .eo{text-align:left;font-size:16.5px}
 }
 @media (max-width:640px){
  .tax .slab{border-radius:0;border-left:0;border-right:0;padding:22px 18px 26px;
@@ -793,18 +793,18 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .rrow:first-child{border-top:1px solid var(--line)}
 .rrow.rhome{background:#F6F8F6;border-radius:10px;padding-left:10px;padding-right:10px}
 .rname b{display:block;font-size:15px;font-weight:700;line-height:1.25}
-.rname b i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:10px;
+.rname b i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--pine);
   border:1px solid var(--pine);border-radius:999px;padding:2px 7px;margin-left:6px;
   vertical-align:2px}
-.rname em{display:block;font-style:normal;font-size:12.3px;line-height:1.45;
+.rname em{display:block;font-style:normal;font-size:12px;line-height:1.45;
   color:var(--muted);margin-top:3px}
 .rbar{height:26px;background:#F6F8F6;border-radius:6px;overflow:hidden}
 .rbar span{display:block;height:100%;background:var(--pine);border-radius:6px}
 .rhome .rbar span{background:var(--gold)}
 .rfig{text-align:right}
 .rfig b{display:block;font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1}
-.rfig em{display:block;font-style:normal;font-size:11.6px;margin-top:4px}
+.rfig em{display:block;font-style:normal;font-size:12px;margin-top:4px}
 .rfig .rup{color:var(--pos);font-weight:600}
 .rfig .rdn{color:var(--neg)}
 .rfig .rz{color:var(--muted)}

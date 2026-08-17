@@ -10,7 +10,7 @@
    which differs per template. */
 .bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;
   margin:clamp(-30px,-2.2vw,-14px) 0 10px;
- padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.4px;
+ padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
  letter-spacing:.1em;text-transform:uppercase;line-height:1.4}
 .bcr li{display:flex;align-items:center;gap:8px}
 .bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
@@ -25,5 +25,5 @@
    rates.html. Cancel it rather than trusting every template to be clean. */
 .hero-eyebrow + .bcr,.kicker + .bcr,.eyebrow + .bcr,
 p[class*=eyebrow] + .bcr,div[class*=eyebrow] + .bcr{margin-top:0}
-@media (max-width:520px){.bcr{font-size:9.8px;letter-spacing:.08em}}
+@media (max-width:520px){.bcr{font-size:9.5px;letter-spacing:.08em}}
 .bcrq{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.62;margin:10px 0 0}/* end bcr */

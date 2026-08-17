@@ -11,16 +11,16 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
-  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
 h1,h2,h3,h4{font-family:var(--sans);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:0}
 h1{font-size:clamp(34px,5.2vw,58px)}
 h2{font-size:clamp(26px,3.4vw,38px);margin:0 0 6px}
 h3{font-size:clamp(19px,2.1vw,23px);margin:0 0 6px}
-h4{font-size:16px;margin:0 0 4px}
+h4{font-size:16.5px;margin:0 0 4px}
 p{margin:0 0 14px;max-width:72ch}
 a{color:var(--pine);text-underline-offset:3px}
-.lab{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;
+.lab{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted)}
 .fig{font-family:var(--fig);font-weight:800;font-variant-numeric:tabular-nums}
 
@@ -29,9 +29,9 @@ a{color:var(--pine);text-underline-offset:3px}
   padding:46px 0 40px}
 .mast .lab{color:var(--gold-on-pine)}
 .mast h1{color:#fff;margin:10px 0 14px;max-width:22ch}
-.mast p{color:#DCE7E0;max-width:66ch;font-size:17px}
+.mast p{color:#DCE7E0;max-width:66ch;font-size:16.5px}
 .mast .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
-.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
   border:1.5px solid rgba(255,255,255,.34);color:#EAF3EE;padding:5px 10px;border-radius:6px}
 
 /* ---- sticky nav ---- */
@@ -41,7 +41,7 @@ nav.jump ul{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:aut
   scrollbar-width:none}
 nav.jump ul::-webkit-scrollbar{display:none}
 nav.jump a{display:block;white-space:nowrap;padding:11px 15px;font-family:var(--mono);
-  font-size:11px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
+  font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
   color:var(--muted);border-right:1px solid var(--line)}
 nav.jump a:hover{background:var(--gold);color:var(--ink)}
 
@@ -83,19 +83,19 @@ section{padding:52px 0 8px}
 .ev{border-left:5px solid var(--pine);padding:2px 0 2px 18px;margin:0 0 22px}
 .ev q{display:block;font-family:var(--fig);font-size:19px;font-weight:600;line-height:1.4;
   color:var(--deep);quotes:none;margin-bottom:8px}
-.ev .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+.ev .src{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
 
 /* ---- audit table ---- */
 .tw{overflow-x:auto;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
   background:var(--cream);margin:0 0 10px}
-table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:15px}
 th{background:var(--deep);color:#fff;font-family:var(--mono);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:11px 13px;
   font-weight:600;vertical-align:bottom}
 td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
 tbody tr:nth-child(even){background:rgba(226,218,202,.28)}
 td .fig{font-size:19px}
-.badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;
+.badge{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1.5px solid;border-radius:6px;
   white-space:nowrap}
 .b-yes{color:#1E5C46;border-color:#1E5C46;background:#E4F0EA}
@@ -107,18 +107,18 @@ td .fig{font-size:19px}
   padding:22px 20px;margin:0 0 22px}
 .ia .lab{margin-bottom:14px;display:block}
 .tier{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 6px}
-.node{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 11px;
+.node{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:7px 11px;
   border:2px solid var(--ink);background:#fff;border-radius:6px;text-align:center}
 .node.root{background:var(--ink);color:var(--gold);font-weight:600}
 .node.stage{background:var(--gold);font-weight:600}
 .node.topic{background:var(--pine);color:#fff}
 .node.leaf{background:#fff;color:var(--muted);border-color:var(--line);border-width:1.5px}
 .node.new{border-style:dashed;background:#FBEFD6}
-.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:14px}
-.ia .cap{font-size:14px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
+.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:13.5px}
+.ia .cap{font-size:13.5px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
 .pro{display:grid;gap:10px;margin-top:16px}
 @media(min-width:700px){.pro{grid-template-columns:1fr 1fr}}
-.pro div{font-size:14px;padding:10px 12px;border-left:3px solid}
+.pro div{font-size:13.5px;padding:10px 12px;border-left:3px solid}
 .pro .p{border-color:var(--green);background:#EDF5F1}
 .pro .c{border-color:var(--red);background:#F9EDEC}
 .pro b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -129,13 +129,13 @@ td .fig{font-size:19px}
   overflow:hidden;margin:0 0 12px}
 .frame .bar{background:var(--ink);padding:7px 12px;display:flex;align-items:center;gap:8px}
 .frame .dot{width:9px;height:9px;border-radius:50%;background:#4B5A52}
-.frame .url{font-family:var(--mono);font-size:11px;color:#C7D3CC;margin-left:8px;
+.frame .url{font-family:var(--mono);font-size:10.5px;color:#C7D3CC;margin-left:8px;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mk{font-size:13px;line-height:1.5}
+.mk{font-size:13.5px;line-height:1.5}
 .mk *{box-sizing:border-box}
 .mkhead{background:var(--cream);border-bottom:2px solid var(--ink);padding:9px 16px;
   display:flex;align-items:center;justify-content:space-between;gap:12px}
-.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:14px}
+.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:13.5px}
 .mkhead .nv{display:flex;gap:12px;font-family:var(--mono);font-size:9.5px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .mkbody{padding:18px 16px 22px}
@@ -144,23 +144,23 @@ td .fig{font-size:19px}
 .deskhero{background:var(--pine);color:#fff;margin:-18px -16px 16px;padding:20px 16px 18px;
   border-bottom:2px solid var(--ink)}
 .deskhero .lab{color:var(--gold-on-pine)}
-.deskhero h2{font-size:26px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
-.deskhero p{font-size:12.5px;color:#DAE8E1;margin:0;max-width:52ch}
+.deskhero h2{font-size:28px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
+.deskhero p{font-size:12px;color:#DAE8E1;margin:0;max-width:52ch}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .tile{border:2px solid var(--ink);background:var(--cream);padding:11px 12px;
   box-shadow:3px 3px 0 var(--ink)}
-.tile .lab{font-size:9px;letter-spacing:.13em}
-.tile .num{font-family:var(--fig);font-weight:800;font-size:25px;line-height:1.05;
+.tile .lab{font-size:9.5px;letter-spacing:.13em}
+.tile .num{font-family:var(--fig);font-weight:800;font-size:23px;line-height:1.05;
   color:var(--deep);margin:3px 0 2px}
-.tile .sub{font-size:11px;color:var(--muted);line-height:1.35}
+.tile .sub{font-size:10.5px;color:var(--muted);line-height:1.35}
 .tile.act{background:var(--gold)}
 .tile.act .sub{color:#5A4713}
 .qrow{border:2px solid var(--ink);background:#fff;padding:10px 12px;margin-bottom:8px;
   display:flex;gap:11px;align-items:flex-start}
-.qrow .qn{font-family:var(--mono);font-size:10px;color:var(--muted);padding-top:2px;min-width:16px}
+.qrow .qn{font-family:var(--mono);font-size:9.5px;color:var(--muted);padding-top:2px;min-width:16px}
 .qrow .qt{font-family:var(--sans);font-weight:600;font-size:13.5px;line-height:1.3}
-.qrow .qs{font-size:11.5px;color:var(--muted);margin-top:2px}
-.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+.qrow .qs{font-size:12px;color:var(--muted);margin-top:2px}
+.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
   text-transform:uppercase;background:var(--gold);border:1.5px solid var(--ink);padding:3px 7px;
   white-space:nowrap}
 
@@ -175,38 +175,38 @@ td .fig{font-size:19px}
 .rung.now::before{background:var(--gold);border-color:var(--ink);
   box-shadow:0 0 0 4px rgba(246,197,96,.35)}
 .rung h4{font-size:13.5px}
-.rung .rs{font-size:11.5px;color:var(--muted)}
+.rung .rs{font-size:12px;color:var(--muted)}
 .rung.now h4{color:var(--deep)}
-.rung .pill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.11em;
+.rung .pill{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;
   text-transform:uppercase;background:var(--ink);color:var(--gold);padding:2px 6px;
   margin-left:7px;vertical-align:2px}
 .gate{border:2px solid var(--ink);background:var(--cream);padding:10px 12px;margin-top:7px;
   box-shadow:3px 3px 0 var(--ink)}
-.gate .lab{font-size:9px}
+.gate .lab{font-size:9.5px}
 .gate .gv{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep)}
 
 /* mockup C — front page */
 .fp-mast{border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:14px}
-.fp-mast .k{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+.fp-mast .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted);display:flex;justify-content:space-between}
-.fp-mast h2{font-family:var(--fig);font-size:32px;font-weight:800;letter-spacing:-.01em;
+.fp-mast h2{font-family:var(--fig);font-size:34px;font-weight:800;letter-spacing:-.01em;
   margin:6px 0 4px;text-align:center}
 .fp-mast .dek{font-size:12px;color:var(--muted);text-align:center;font-style:italic}
 .fp-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
-.fp-lead h3{font-family:var(--fig);font-size:20px;line-height:1.18;margin-bottom:5px}
+.fp-lead h3{font-family:var(--fig);font-size:19px;line-height:1.18;margin-bottom:5px}
 .fp-lead p{font-size:12px;margin-bottom:9px;color:#33423A}
 .fp-lead .byl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);margin-bottom:7px}
 .fp-side{border-left:1px solid var(--line);padding-left:14px}
-.fp-side .lab{font-size:9px;display:block;margin-bottom:7px;
+.fp-side .lab{font-size:9.5px;display:block;margin-bottom:7px;
   border-bottom:2px solid var(--ink);padding-bottom:4px}
-.fp-side ol{margin:0;padding-left:17px;font-size:11.5px;line-height:1.4}
+.fp-side ol{margin:0;padding-left:17px;font-size:12px;line-height:1.4}
 .fp-side li{margin-bottom:7px}
 .fp-side b{font-family:var(--sans);font-weight:600;display:block;font-size:12px}
 .fp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;
   border-top:2px solid var(--ink);padding-top:11px}
 .fp-strip div{font-size:10.5px;line-height:1.32}
-.fp-strip .lab{font-size:8.5px;display:block;margin-bottom:3px}
+.fp-strip .lab{font-size:9.5px;display:block;margin-bottom:3px}
 
 /* phone */
 .phones{display:grid;gap:18px}
@@ -223,12 +223,12 @@ td .fig{font-size:19px}
 .plan>li::before{content:"S" counter(s);position:absolute;left:16px;top:14px;
   font-family:var(--mono);font-size:12px;font-weight:600;color:var(--gold);
   background:var(--ink);padding:4px 7px;border-radius:6px}
-.plan h4{margin-bottom:3px;font-size:17px}
-.plan .why{font-size:14px;color:var(--muted);margin:0 0 8px}
-.plan .out{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--deep);
+.plan h4{margin-bottom:3px;font-size:16.5px}
+.plan .why{font-size:13.5px;color:var(--muted);margin:0 0 8px}
+.plan .out{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--deep);
   background:#fff;border:1.5px solid var(--line);padding:7px 10px;display:inline-block}
 .tick{list-style:none;padding:0;margin:8px 0 0}
-.tick li{position:relative;padding-left:24px;font-size:14px;margin-bottom:5px}
+.tick li{position:relative;padding-left:24px;font-size:13.5px;margin-bottom:5px}
 .tick li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;
   border:2px solid var(--ink);background:#fff}
 .tick li.d::before{background:var(--pine);border-color:var(--pine)}
@@ -236,7 +236,7 @@ td .fig{font-size:19px}
 footer{background:var(--deep);color:#C9D8D1;margin-top:56px;padding:30px 0;
   border-top:3px solid var(--ink);font-size:13.5px}
 footer a{color:var(--gold-on-pine)}
-.src{font-size:13px;color:var(--muted)}
+.src{font-size:13.5px;color:var(--muted)}
 .src li{margin-bottom:4px}
 @media(max-width:700px){
   /* the mockups' fake desktop nav is decorative — a real page would collapse
@@ -254,13 +254,13 @@ footer a{color:var(--gold-on-pine)}
 @media(min-width:820px){.two{grid-template-columns:1fr 1fr}}
 .univ{border:2px solid var(--ink);background:var(--cream);box-shadow:4px 4px 0 var(--ink);
   padding:15px 17px}
-.univ h4{font-size:17px;margin-bottom:3px}
-.univ .n{font-family:var(--fig);font-weight:800;font-size:32px;color:var(--pine);
+.univ h4{font-size:16.5px;margin-bottom:3px}
+.univ .n{font-family:var(--fig);font-weight:800;font-size:34px;color:var(--pine);
   line-height:1;margin:6px 0 3px}
-.univ .s{font-size:12.5px;color:var(--muted);margin-bottom:8px}
-.univ p{font-size:14px;margin:0 0 6px}
+.univ .s{font-size:12px;color:var(--muted);margin-bottom:8px}
+.univ p{font-size:13.5px;margin:0 0 6px}
 .univ .tagr{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px}
-.univ .t{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+.univ .t{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
   border:1.5px solid var(--ink);padding:3px 7px}
 .univ .t.y{background:var(--pine);color:#fff;border-color:var(--pine)}
 .univ .t.n{background:var(--red);color:#fff;border-color:var(--red)}
@@ -270,24 +270,24 @@ footer a{color:var(--gold-on-pine)}
 .may div{border:2px solid var(--ink);padding:13px 15px}
 .may .ok{background:#F2F8F4;border-left:6px solid var(--green)}
 .may .no{background:#FFF6F5;border-left:6px solid var(--red)}
-.may ul{margin:7px 0 0;padding-left:19px;font-size:14px}
+.may ul{margin:7px 0 0;padding-left:19px;font-size:13.5px}
 .may li{margin-bottom:5px}
 .cols{display:grid;gap:9px;margin:10px 0}
 @media(min-width:700px){.cols{grid-template-columns:repeat(3,1fr)}}
-.cols div{border:1.5px solid var(--line);background:#fff;padding:9px 11px;font-size:12.5px}
-.cols .v{font-family:var(--fig);font-weight:800;font-size:20px;color:var(--deep);display:block}
+.cols div{border:1.5px solid var(--line);background:#fff;padding:9px 11px;font-size:12px}
+.cols .v{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep);display:block}
 .bugbox{border:2px solid var(--ink);background:var(--cream);box-shadow:4px 4px 0 var(--ink);
   padding:15px 17px;margin-bottom:14px}
-.bugbox .st{font-family:var(--mono);font-size:9px;letter-spacing:.11em;text-transform:uppercase;
+.bugbox .st{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;
   background:var(--pine);color:#fff;padding:3px 7px}
 .bugbox .st.open{background:var(--red);color:#fff}
-.bugbox h4{font-size:17px;margin:7px 0 5px}
-.bugbox pre{font-family:var(--mono);font-size:11.5px;background:#fff;overflow-x:auto;
+.bugbox h4{font-size:16.5px;margin:7px 0 5px}
+.bugbox pre{font-family:var(--mono);font-size:12px;background:#fff;overflow-x:auto;
   border:1.5px solid var(--line);padding:9px 11px;margin:8px 0 0}
 .risk{border:2px solid var(--red);background:#FFF6F5;padding:13px 15px;margin:12px 0}
-.risk h4{color:var(--red);font-size:16px}
-.risk p{font-size:14px;margin:0 0 8px}.risk p:last-child{margin:0}
-code{font-family:var(--mono);font-size:12.5px;background:#fff;border:1px solid var(--line);
+.risk h4{color:var(--red);font-size:16.5px}
+.risk p{font-size:13.5px;margin:0 0 8px}.risk p:last-child{margin:0}
+code{font-family:var(--mono);font-size:12px;background:#fff;border:1px solid var(--line);
   padding:1px 5px}
 </style></head><body><header class="mast"><div class="wrap"><span class="lab">Working document &middot; 11 August 2026 &middot; not indexed</span><h1>Yes &mdash; but it is two directories, and the statute is what splits them.</h1><p>A feasibility probe rather than a plan on paper: three public datasets were fetched and counted before any of this was written. What is reachable, what is not, what may honestly be claimed about a site, and what it costs to build.</p><div class="meta"><span class="chip">313 clinical orgs</span><span class="chip">517 health-center sites</span><span class="chip">9 counties</span><span class="chip">1 category unreachable</span></div></div></header><nav class="jump"><div class="wrap"><ul><li><a href="#answer">The answer</a></li><li><a href="#split">Two directories</a></li><li><a href="#sources">What can be sourced</a></li><li><a href="#claims">What may be claimed</a></li><li><a href="#build">What to build</a></li><li><a href="#scope">Bay Area or statewide</a></li><li><a href="#bugs">Two defects found</a></li><li><a href="#queue">Cost and order</a></li></ul></div></nav><div class="wrap"><section id="answer"><div class="kicker"><span class="n">01</span><h2>The answer</h2></div><div class="verdict"><div><ul class="vlist"><li><b>Build it &mdash; the data is there.</b> 313 Bay Area nonprofit clinical mental health organizations and 517 active health-center service-delivery sites are reachable from federal files that anybody can re-download and check. This is not a scraping project.</li><li><b>Two directories, not one.</b> A trainee cannot lawfully work in a private practice; a registered associate can. The two eligible universes are genuinely different sets and merging them would send students somewhere they cannot go.</li><li><b>Claim eligibility, never availability.</b> No public source says who takes trainees. The directory answers &ldquo;is this the kind of setting the code allows, and how do I ask?&rdquo; &mdash; which is a question it can answer completely.</li><li><b>Not 600 individual pages.</b> The coverage audit already found 36% of this library serving the quietest stage. One directory plus depth on the 22 organizations large enough to write about, and the long tail stays in the table.</li><li><b>Build the data statewide, publish the Bay Area first.</b> Both federal files are statewide already. A Bay-Area-shaped ETL would have to be rewritten the first time Los Angeles is wanted.</li></ul></div><div class="card pine"><span class="lab">The one that changes the shape</span><h3>Group private practices are unreachable.</h3><p>They are the largest employer of Bay Area associates and there is no public register of them &mdash; not by IRS status, not by license, not by anything. The associate directory can cover county, safety-net and nonprofit employers completely and the private sector not at all.</p><p style="margin:0"><b>That has to be said on the page, in the first screen.</b> A directory that looks complete and is missing the biggest category teaches people the wrong shape of the market.</p></div></div></section><hr class="rule"><section id="split"><div class="kicker"><span class="n">02</span><h2>Why it is two directories</h2></div><p class="lede">This is not an editorial preference. The two readers have different <em>legal</em> universes, one strictly inside the other.</p><div class="tw"><table><tr><th>Setting</th><th>Trainee &mdash; still in the program</th><th>Associate &mdash; registered</th><th>Authority</th></tr><tr><td>County behavioral health department</td><td>Eligible</td><td>Eligible</td><td>&sect;&thinsp;4980.43.3(b), (c)</td></tr><tr><td>Community clinic, health center, nonprofit agency</td><td>Eligible</td><td>Eligible</td><td>&sect;&thinsp;4980.43.3(b)(1)(B)</td></tr><tr><td>School district or county office of education</td><td>Eligible</td><td>Eligible</td><td>&sect;&thinsp;4980.43.3(b)</td></tr><tr class="hi"><td><b>Private practice</b></td><td><b>Not eligible &mdash; at all</b></td><td>Eligible once the registration is issued</td><td><b>&sect;&thinsp;4980.43.3(b)(1), (c)(3)</b></td></tr><tr><td><b>Professional corporation</b></td><td><b>Not eligible &mdash; at all</b></td><td>Eligible once the registration is issued</td><td>&sect;&thinsp;4980.43.3(b)(1)</td></tr><tr><td>Any of the above, as an independent contractor</td><td>Never</td><td>Never</td><td>&sect;&thinsp;4980.43.3(a)</td></tr></table></div><p class="src">Sections linked in full at the foot of this page. The trainee rules are already published on <a href="../practicum-california-mft-trainee.html">the practicum page</a>, which is where the directory would link rather than restating them.</p><div class="risk"><h4>The practical consequence</h4><p>Roughly half of what a Bay Area student is told to try &mdash; &ldquo;ask around, someone&rsquo;s supervisor has room&rdquo; &mdash; points at private practices, which are the one setting the code rules out entirely for a trainee. The trainee directory&rsquo;s single most useful function is being the list of places that are <em>not</em> that.</p></div></section><hr class="rule"><section id="sources"><div class="kicker"><span class="n">03</span><h2>What can actually be sourced</h2></div><p class="lede">Five universes. Four are reachable from public files and were counted on 11 August; the fifth is the hole.</p><div class="two"><div class="univ"><h4>Nonprofit clinical organizations</h4><div class="n">313</div><div class="s">IRS Exempt Organizations master file &middot; NTEE code F &middot; nine Bay Area counties by ZCTA</div><p>The set that actually employs trainees and associates. 55 report revenue over $1m and 22 over $5m; 171 report none, which usually means small or a non-filer rather than inactive. A further 147 substance-use organizations and 154 associations and foundations were separated out rather than mixed in.</p><div class="tagr"><span class="t y">Trainee eligible</span><span class="t y">Associate eligible</span><span class="t m">NTEE is self-reported</span></div></div><div class="univ"><h4>Health-center service-delivery sites</h4><div class="n">517</div><div class="s">HRSA Health Center Service Delivery Sites &middot; 39 organizations &middot; 269 with a published web address</div><p>Federally qualified health centers and look-alikes, at site level with name, street address, city, county and telephone. Updated federally, so it stays current without anybody maintaining it.</p><div class="tagr"><span class="t y">Trainee eligible</span><span class="t y">Associate eligible</span><span class="t m">Behavioral program not flagged</span></div></div><div class="univ"><h4>County behavioral health plans</h4><div class="n">9</div><div class="s">Already verified and published on this site</div><p>The nine Bay Area plans are part of the 57 already fetched, checked and published in the safety-net employer directory. Nothing new to source &mdash; this is a filter over work that is done.</p><div class="tagr"><span class="t y">Trainee eligible</span><span class="t y">Associate eligible</span><span class="t y">Already verified</span></div></div><div class="univ"><h4>Program training clinics</h4><div class="n">5</div><div class="s">The site's own 78-program research file</div><p>Bay Area programs that run a clinic of their own. These take trainees <em>by construction</em> &mdash; it is what the clinic is for &mdash; which makes them the only entries in the whole directory where availability is not a guess. Several take students from other schools.</p><div class="tagr"><span class="t y">Trainee eligible</span><span class="t y">Highest confidence</span></div></div><div class="univ" style="border-color:var(--red)"><h4>Group private practices</h4><div class="n" style="color:var(--red)">&mdash;</div><div class="s">No public dataset exists</div><p>Not registrable as a category. The licensee register lists people, not employers. Business registration does not record what a practice does. Directory sites are commercial listings with their own incentives and are not a source.</p><div class="tagr"><span class="t n">Trainee: never eligible</span><span class="t m">Associate: eligible, unreachable</span></div></div></div><p class="pk-k lab" style="display:block;margin-top:20px">Where the 313 are</p><div class="tw"><table><tr><th>County</th><th>Nonprofit clinical organizations</th><th>Health-center sites</th></tr><tr><td>Alameda</td><td><span class="fig">80</span></td><td><span class="fig">155</span></td></tr><tr><td>Santa Clara</td><td><span class="fig">54</span></td><td><span class="fig">92</span></td></tr><tr><td>San Francisco</td><td><span class="fig">50</span></td><td><span class="fig">81</span></td></tr><tr><td>Contra Costa</td><td><span class="fig">50</span></td><td><span class="fig">51</span></td></tr><tr><td>Marin</td><td><span class="fig">25</span></td><td><span class="fig">24</span></td></tr><tr><td>San Mateo</td><td><span class="fig">21</span></td><td><span class="fig">35</span></td></tr><tr><td>Sonoma</td><td><span class="fig">18</span></td><td><span class="fig">44</span></td></tr><tr><td>Solano</td><td><span class="fig">8</span></td><td><span class="fig">28</span></td></tr><tr><td>Napa</td><td><span class="fig">7</span></td><td><span class="fig">7</span></td></tr><tr class="hi"><td><b>Nine counties</b></td><td><b><span class="fig">313</span></b></td><td><b><span class="fig">517</span></b></td></tr></table></div><p class="src">Counted 11 August 2026. Organization counts are active registrations with an NTEE code in the F range, mapped to county from ZIP through the Census ZCTA relationship file. Health-center counts are active service-delivery sites, administrative-only locations excluded.</p><p class="lab" style="display:block;margin-top:18px">The largest twelve, by reported revenue</p><div class="tw"><table><tr><th>Organization</th><th>City</th><th>County</th><th>Reported revenue</th></tr><tr><td>Momentum for Health</td><td>San Jose</td><td>Santa Clara</td><td><span class="fig">$96.6m</span></td></tr><tr><td>John Muir Behavioral Health</td><td>Walnut Creek</td><td>Contra Costa</td><td><span class="fig">$54.2m</span></td></tr><tr><td>Caminar</td><td>San Mateo</td><td>San Mateo</td><td><span class="fig">$49.3m</span></td></tr><tr><td>Fred Finch Youth Center</td><td>Oakland</td><td>Alameda</td><td><span class="fig">$40.9m</span></td></tr><tr><td>Richmond Area Multi-Services</td><td>San Francisco</td><td>San Francisco</td><td><span class="fig">$38.6m</span></td></tr><tr><td>Asian Americans for Community Involvement</td><td>San Jose</td><td>Santa Clara</td><td><span class="fig">$37.0m</span></td></tr><tr><td>Progress Foundation</td><td>San Francisco</td><td>San Francisco</td><td><span class="fig">$34.1m</span></td></tr><tr><td>Edgewood Center for Children and Families</td><td>San Francisco</td><td>San Francisco</td><td><span class="fig">$32.2m</span></td></tr><tr><td>Lincoln</td><td>Oakland</td><td>Alameda</td><td><span class="fig">$29.6m</span></td></tr><tr><td>East Bay Agency for Children</td><td>Oakland</td><td>Alameda</td><td><span class="fig">$25.5m</span></td></tr><tr><td>WestCoast Children's Clinic</td><td>Oakland</td><td>Alameda</td><td><span class="fig">$25.2m</span></td></tr><tr><td>Buckelew Programs</td><td>Novato</td><td>Marin</td><td><span class="fig">$23.1m</span></td></tr></table></div><p class="src">These are the names that come up in Bay Area placement conversations, which is the check that the sourcing found the right set rather than a plausible-looking one. <b>Revenue is size, not relevance</b> &mdash; two organizations in the top 25 of the raw extract turned out to be a research foundation and a financing vehicle, and were removed by hand. That is the tier of checking the build needs.</p></section><hr class="rule"><section id="claims"><div class="kicker"><span class="n">04</span><h2>What may and may not be claimed</h2></div><p class="lede">This is the section that decides whether the directory is worth having. Everything reachable describes what an organization <em>is</em>. Nothing reachable describes whether it has a seat.</p><div class="may"><div class="ok"><span class="lab">May be published</span><ul><li>That the organization exists, with its registered name and the address it filed</li><li>Which of the four universes it belongs to, and what that means under &sect;&thinsp;4980.43.3</li><li>Its county, and its size band from reported revenue</li><li>Its website &mdash; <b>fetched before publication</b>, the way the 218 health centers and 57 county plans already are</li><li>Whether the county it sits in is a designated mental health shortage area, and what the county pays its own clinicians</li><li>How to ask, and what to ask &mdash; including the question about who signs the school&rsquo;s site agreement</li></ul></div><div class="no"><span class="lab">May not be published</span><ul><li>That an organization &ldquo;takes trainees&rdquo; or &ldquo;accepts associates&rdquo;</li><li>That it is hiring, or has openings</li><li>That it offers supervision, or free supervision</li><li>That it pays, or what it pays</li><li>Any named individual &mdash; a supervisor, a training director, a contact</li><li>Anything at all sourced from a program&rsquo;s private approved-site list, which sits behind a login</li></ul></div></div><div class="risk"><h4>Why the right column is strict</h4><p>A wrong &ldquo;yes&rdquo; costs a student an application cycle at the exact moment they have least slack. There are 313 organizations; nobody can verify placement availability across them and keep it verified, and a directory that is 80% right about availability is worse than one that is 100% right about eligibility.</p><p>It is also the same discipline the loan-forgiveness page already runs under, where <code>&gt;Eligible&lt;</code>, <code>&gt;You qualify&lt;</code> and <code>&gt;Qualifies&lt;</code> are banned as verdicts by a build guard. The same guard should run here.</p></div></section><hr class="rule"><section id="build"><div class="kicker"><span class="n">05</span><h2>What to build</h2></div><p class="lede">Three pages and roughly two dozen profiles &mdash; not six hundred. The argument against the long tail is the site&rsquo;s own coverage audit.</p><div class="grid g3"><div class="card"><h3>Two directory pages</h3><p class="lab" style="margin-bottom:7px"><code>practicum-sites-bay-area.html</code><br><code>associate-employers-bay-area.html</code></p><p style="margin:0">Each one filterable by county and universe, each opening with the statutory line that defines its own list, each linking every organization to a website that was fetched before it shipped. The trainee page leads with the five program clinics, because they are the only entries where availability is certain.</p></div><div class="card"><h3>One method page</h3><p class="lab" style="margin-bottom:7px"><code>how-to-find-a-practicum-site-california.html</code></p><p style="margin:0">The part that is actually scarce: what to ask, in what order, and what the school owes you. &sect;&thinsp;4980.42(e) puts the site agreement on the school, which is the single most useful sentence a student can carry into that conversation, and no directory row can say it for them.</p></div><div class="card"><h3>About 22 profiles, leaf-flagged</h3><p class="lab" style="margin-bottom:7px">the organizations over $5m</p><p style="margin:0">Where there is genuinely something to write: what they do, who they serve, which counties, how they are funded, whether they hold a county contract. Flagged <code>ts:leaf</code> like the 78 program pages and the 48 case studies, so they are reachable and indexed without burying a topic hub.</p></div></div><div class="card gold"><h3>The argument against 313 pages</h3><p style="margin:0">The visitor-stage coverage audit found that <b>36% of this library &mdash; 66 of 182 pages &mdash; served the stage with the least community engagement</b>, because program reviews were cheap to generate. Three hundred thin organization pages built from four federal fields each would be the same mistake at twice the scale, and it would dilute the internal link graph that is the site&rsquo;s whole position. Depth where there is something to say; a table everywhere else.</p></div><p class="lab" style="display:block;margin-top:18px">The ETL, if this is approved</p><div class="tw"><table><tr><th>Pass</th><th>Reads</th><th>Writes</th><th>Note</th></tr><tr><td><code>_dev/nonprofits.py</code></td><td>IRS EO master file, California extract, plus the Census ZCTA relationship file</td><td><code>_dev/nonprofit_data.py</code></td><td>Needs the network, like <code>ipeds_degrees.py</code>. The committed artifact is the data module, not the 35&nbsp;MB extract.</td></tr><tr><td><code>_dev/hrsa_sites.py</code></td><td>Already exists &mdash; currently reduces to counts</td><td>extend to emit site-level rows</td><td>The site file is already cached and already parsed. This is an extension, not a new pass.</td></tr><tr><td>domain verification</td><td>every candidate URL</td><td>a fetched flag per organization</td><td>The same routine <code>hc_orgs.py</code> runs, including <code>REACHABLE_ERRORS</code> &mdash; California nonprofits return 403 to scripts while working in a browser, and treating that as dead reported 22 false deaths last time.</td></tr><tr><td><code>_dev/build_baysites.py</code></td><td>all of the above plus <code>county_bh_data</code>, <code>county_pay_data</code>, <code>hrsa_stats</code>, <code>practicum_data</code></td><td>the three pages</td><td>Guards: the availability words are banned; every published link answered; no named individuals.</td></tr></table></div></section><hr class="rule"><section id="scope"><div class="kicker"><span class="n">06</span><h2>Bay Area, or statewide?</h2></div><p class="lede">Build the data statewide. Publish the Bay Area first. These are not in tension and getting it the other way round costs a rewrite.</p><div class="cols"><div><span class="v">$0</span>marginal cost of statewide data &mdash; both federal files are already the whole state, and the county filter is one line</div><div><span class="v">High</span>marginal cost of statewide <em>editorial</em> depth &mdash; the profiles and the method page are regional judgment, not a query</div><div><span class="v">1</span>rewrite avoided &mdash; a Bay-Area-shaped ETL has to be unpicked the first time Los Angeles is wanted</div></div><p>Los Angeles is the obvious second region and it is far larger &mdash; the health-center file alone carries <b>831 Los Angeles sites</b> against 517 for the whole Bay Area. Sacramento, San Diego and the Inland Empire follow. If the builder takes a region as a parameter from the start, each of those is a configuration entry and a week of editorial work rather than a new project.</p><p class="src">The Bay Area is the right first region anyway: nine counties, the densest concentration of programs with their own clinics, and the two counties with the highest published county pay in the state.</p></section><hr class="rule"><section id="bugs"><div class="kicker"><span class="n">07</span><h2>Two defects this probe found</h2></div><p class="lede">Both on a page that shipped this morning. Looking at Bay Area counties specifically is what surfaced them.</p><div class="bugbox"><span class="st">Fixed</span><h4>Contra Costa was ranked on six positions. It has 531.</h4><p>The county pay pass matched job titles on spelled-out keywords. <b>Contra Costa writes &ldquo;Mh Clinical Specialist&rdquo;</b>, not &ldquo;Mental Health Clinical Specialist&rdquo; &mdash; 232 people in that one title. Santa Barbara writes &ldquo;ADMHS Practitioner II&rdquo; after its old department name, and was ranked on five.</p><p>Both counties were on the published table with a median computed from a handful of rows. That is worse than the undercount the method note already admits to, because it is a wrong number wearing a county&rsquo;s name.</p><pre>Contra Costa    6 positions, $124,928  &rarr;  531 positions, $118,997
 Santa Barbara   5 positions, $109,824  &rarr;  215 positions, $101,820

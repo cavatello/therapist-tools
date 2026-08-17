@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#F4F5F6;color:#111418;font-family:'Inter',system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{background:#F4F5F6;color:#111418;font-family:'Inter',system-ui,sans-serif;font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
 h1,h2,h3{letter-spacing:-.035em;line-height:1.05;font-weight:800}
 .wrap{max-width:1520px;margin:0 auto;padding:0 32px}
 header{background:#111418;color:#fff;padding:54px 0 46px;margin-bottom:44px}
@@ -14,13 +14,13 @@ header h1{font-size:clamp(34px,4.6vw,58px);max-width:20ch;margin-bottom:16px}
 header p{color:rgba(255,255,255,.72);font-size:19px;max-width:70ch}
 header b{color:#fff}
 .legend{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
-.tag{display:inline-block;border-radius:10px;padding:7px 14px;font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.tag{display:inline-block;border-radius:10px;padding:7px 14px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
 .tag.a{background:#F6F8F6;color:#1B2420}
 .tag.b{background:#EAF0FF;color:#2C5CE6}
 .pair{margin-bottom:56px}
 .ph{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
-.pn{font-size:36px;font-weight:900;letter-spacing:-.05em;color:#CFD3D7;line-height:1}
-.ph h3{font-size:24px}
+.pn{font-size:34px;font-weight:900;letter-spacing:-.05em;color:#CFD3D7;line-height:1}
+.ph h3{font-size:23px}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
 @media(max-width:1100px){.cols{grid-template-columns:1fr}}
 .col img{width:100%;display:block;border-radius:10px;border:1px solid #DFE2E5;background:#fff;margin-top:10px;
@@ -28,15 +28,15 @@ box-shadow:0 1px 2px rgba(16,24,40,.05),0 14px 40px -18px rgba(16,24,40,.22)}
 .cap{font-size:15px;color:#4A5158;margin-top:12px;line-height:1.5;max-width:56ch}
 section.panel{background:#fff;border-radius:10px;padding:38px 40px;margin-bottom:44px;
 box-shadow:0 1px 2px rgba(16,24,40,.05),0 14px 40px -22px rgba(16,24,40,.18)}
-section.panel h2{font-size:30px;margin-bottom:8px}
+section.panel h2{font-size:28px;margin-bottom:8px}
 section.panel > p{color:#4A5158;max-width:76ch;margin-bottom:8px}
-table{width:100%;border-collapse:collapse;font-size:15.5px;margin-top:22px}
-th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8A9199;padding:0 14px 12px;border-bottom:1.5px solid #E6E8EB}
+table{width:100%;border-collapse:collapse;font-size:15px;margin-top:22px}
+th{text-align:left;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8A9199;padding:0 14px 12px;border-bottom:1.5px solid #E6E8EB}
 td{padding:13px 14px;border-bottom:1px solid #EEF0F2;vertical-align:top;color:#4A5158}
 td.k{font-weight:600;color:#111418;width:20%}
 .sw{display:inline-block;width:13px;height:13px;border-radius:6px;vertical-align:-2px;margin:0 3px;border:1px solid rgba(0,0,0,.08)}
 .verdict{background:#111418;color:#fff;border-radius:10px;padding:38px 40px;margin-bottom:44px}
-.verdict h2{font-size:30px;margin-bottom:14px}
+.verdict h2{font-size:28px;margin-bottom:14px}
 .verdict p{color:rgba(255,255,255,.76);max-width:78ch;margin-bottom:14px}
 .verdict b{color:#fff}
 .verdict em{color:#FFD84D;font-style:normal}
@@ -45,8 +45,8 @@ td.k{font-weight:600;color:#111418;width:20%}
 .frame{border:1px solid #DFE2E5;border-radius:10px;overflow:hidden;background:#fff;height:760px;position:relative}
 .fwin{position:absolute;top:34px;left:0;right:0;bottom:0;overflow:hidden}
 .frame iframe{position:absolute;top:0;left:0;width:1800px;height:1815px;border:0;transform:scale(.403);transform-origin:0 0}
-.fh{background:#fff;border-bottom:1px solid #EEF0F2;padding:10px 14px;font-size:12.5px;color:#8A9199}
-footer{padding:30px 0 60px;color:#8A9199;font-size:14px}
+.fh{background:#fff;border-bottom:1px solid #EEF0F2;padding:10px 14px;font-size:12px;color:#8A9199}
+footer{padding:30px 0 60px;color:#8A9199;font-size:13.5px}
 @media(max-width:700px){
   .wrap{padding:0 18px}
   section.panel,.verdict{padding:26px 20px;border-radius:10px}
@@ -60,11 +60,11 @@ footer{padding:30px 0 60px;color:#8A9199;font-size:14px}
 
 .xnav{position:sticky;top:0;z-index:60;background:#111418;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12)}
 .xnav .in{max-width:1680px;margin:0 auto;padding:0 30px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.xnav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-weight:600;
+.xnav a{color:rgba(255,255,255,.6);text-decoration:none;font-size:13.5px;font-weight:600;
 padding:7px 13px;border-radius:10px;font-family:'Inter',system-ui,sans-serif}
 .xnav a:hover{background:rgba(255,255,255,.1);color:#fff}
 .xnav a.here{background:#fff;color:#111418}
-.xnav .bd{color:rgba(255,255,255,.32);font-size:12.5px;margin-right:6px;font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:.08em}
+.xnav .bd{color:rgba(255,255,255,.32);font-size:12px;margin-right:6px;font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:.08em}
 </style></head><body>
 <div class="xnav"><div class="in"><span class="bd">HOURS</span><a href="./">Design document</a><a href="./compare.html" class="here">A vs B</a><a href="./screens/">All 46 screens</a></div></div>
 

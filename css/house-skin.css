@@ -75,7 +75,7 @@ body.house .sitenav-wordmark{
   letter-spacing:-.02em; color:var(--ink); line-height:1.1;
 }
 body.house .sitenav-sub{
-  font-family:var(--hs-mn); font-weight:500; font-size:8.5px;
+  font-family:var(--hs-mn); font-weight:500; font-size:9.5px;
   letter-spacing:.18em; text-transform:uppercase; color:var(--hs-dim);
 }
 body.house .sitenav-top{

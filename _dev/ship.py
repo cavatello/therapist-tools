@@ -524,6 +524,13 @@ LAST = [
     # their capsule - "no pill buttons" is a rule about buttons.
     ("_dev/radius_floor.py",
      "every corner radius onto --r 10px or --rs 6px"),
+    # And the same for type. P8 fixed the 16.5px body metric and named
+    # nothing else, so the site grew 92 distinct font sizes, 42 of them off
+    # a whole or half pixel. This writes the missing scale - thirteen steps,
+    # chosen by measuring three candidates against the real distribution -
+    # and conforms to it. clamp() and vw sizes are left fluid.
+    ("_dev/type_scale.py",
+     "92 font sizes onto a scale of thirteen"),
     ("_dev/discovery.py",
      "sitemap.xml and structured data, derived from the pages that exist NOW. "
      "Nothing may add or rename a page after this"),

@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/house.css?v=0afb37c9">
-<link rel="stylesheet" href="css/house-chrome.css?v=fa313ee2">
-<link rel="stylesheet" href="css/house-art.css?v=5fa28390">
+<link rel="stylesheet" href="css/house.css?v=05201fdd">
+<link rel="stylesheet" href="css/house-chrome.css?v=e65f9be4">
+<link rel="stylesheet" href="css/house-art.css?v=276af157">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Getting on insurance panels in California, and the arithmetic nobody runs first","description":"The mechanics in order, the clock California law actually imposes, which panels are open as of August 2026 - one large one is not - and what a panel caseload is worth once you price the unpaid hours it drags behind it.","url":"https://therapistsupport.org/insurance-panels-california-therapist.html","dateModified":"2026-08-07","isAccessibleForFree":true,"author":{"@type":"Organization","name":"Therapist Support"},"about":"Practice"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://therapistsupport.org/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://therapistsupport.org/resources.html"},{"@type":"ListItem","position":3,"name":"Getting on insurance panels in California, and the arithmetic nobody runs first","item":"https://therapistsupport.org/insurance-panels-california-therapist.html"}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJCWHH9SFG"></script>
@@ -92,6 +92,7 @@ Northern California</b> &mdash; Southern California publishes a letter-of-intent
 address, Northern California publishes nothing.</p>
 </section>
 <!-- /payer_links -->
+
 
 
 
@@ -366,6 +367,7 @@ address, Northern California publishes nothing.</p>
 
 
 
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsmeta"><div class="tsrow"><span class="tsk">Last checked</span><span class="tsv">7 August 2026</span><a class="tsall" href="changes.html">All updates &rarr;</a></div><div class="tsvint"><span class="tsk">Figures current as of</span><b>the 2026 Medicare and Medi-Cal fee schedules</b><i>CMS republishes in November for the following January.</i></div><div class="tsdepth"><a class="tsbadge full" href="about.html#how-pages-are-checked">Verified to source</a><p class="tswhat">Every figure on this page was re-checked against the statute, schedule or filing it cites.</p></div></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Getting paid</h2><p class="ud">What a session is worth, and who actually pays it.</p><div class="ug"><a class="uc" href="headway-alma-grow-therapy-compared-california.html"><b>Headway, Alma, Grow — or my own contracts?</b><span>All four routes priced at three caseloads, with the crossover</span></a><a class="uc" href="insurance-reimbursement-rates-california-therapist.html"><b>What does insurance actually pay per session?</b><span>Medicare and Medi-Cal computed, and the truth about commercial rates</span></a><a class="uc" href="rates.html"><b>What should I be charging?</b><span>Panel rates and private-pay ranges by region, and what moves yours</span></a></div><a class="uall" href="getting-paid/">All 9 pages on getting paid &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -430,7 +432,6 @@ address, Northern California publishes nothing.</p>
   });
 })();
 </script>
-
 
 
 
@@ -922,17 +923,94 @@ address, Northern California publishes nothing.</p>
 <style>/* _dev/payer_links.py */
 .pl-pub{margin:34px 0}
 .pl-pub h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
-  letter-spacing:-.03em;font-size:24px;color:#1B2420;margin:0 0 10px}
-.pl-pub>p{font-size:15.4px;line-height:1.68;color:#635D4E;margin:0 0 14px;max-width:70ch}
+  letter-spacing:-.03em;font-size:23px;color:#1B2420;margin:0 0 10px}
+.pl-pub>p{font-size:15px;line-height:1.68;color:#635D4E;margin:0 0 14px;max-width:70ch}
 .pl-dl{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:5px 5px 0 #1B2420;padding:18px 20px;margin:0 0 14px}
-.pl-dl dt{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+.pl-dl dt{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:#2C6350;margin:0 0 6px}
 .pl-dl dd{margin:0 0 16px;font-size:15px;line-height:1.7;color:#3A3529;max-width:70ch}
 .pl-dl dd:last-child{margin:0}
 .pl-dl a{color:#2C6350}
-.pl-note{font-size:13.6px;line-height:1.66;color:#635D4E;max-width:74ch;margin:0}
+.pl-note{font-size:13.5px;line-height:1.66;color:#635D4E;max-width:74ch;margin:0}
 .pl-note b{color:#1B2420}
+</style>
+<style>/* _dev/mobile_floor.py */
+/* A quoted URL is a single unbreakable token. Three pages were 15-60px wider
+   than the viewport because of one, and every future page that cites a source
+   inline would have joined them. `anywhere` and not `break-word`: break-word
+   leaves the element's min-content width intact, so a flex or grid track can
+   still be widened by the same string. */
+p, li, dd, dt, blockquote, figcaption, summary, .lco, .srn, .tcio, cite, q{overflow-wrap:anywhere}
+/* Cells break long tokens but keep their natural column widths. See PROSE. */
+td, th{overflow-wrap:break-word}
+@media (max-width:640px){
+  /* Hit area, not type size. Nothing here gets visually bigger. */
+  a.tsall,
+  a.uall,
+  a.tcall,
+  a.srmore,
+  a.go,
+  a.pdgo,
+  button.keep{min-height:24px;display:inline-flex;align-items:center;padding-block:4px}
+  summary{min-height:24px}
+  /* The rest are ordinary links that happen to be the whole of their line:
+     "The program's own page", a cost-chart bar label, "source" at the end of a
+     table cell. They come in at 11-18px because that is what a line of 13px
+     type is.
+     Vertical padding on an INLINE element does not affect the line box - it
+     grows the hit rectangle and moves nothing. That is the whole trick, and it
+     is why this is padding rather than min-height: min-height on these would
+     have pushed every line of every article apart to fix a touch target. */
+  main a, .sitefoot a{padding-block:7px}
+  .az a, a.perma{min-width:24px;min-height:24px;display:inline-flex;
+    align-items:center;justify-content:center}
+  input[type="checkbox"], input[type="radio"]{min-width:24px;min-height:24px}
+  select{min-height:26px}
+  /* A 12px floor for text that carries a sentence. Phone widths only: the
+     desktop sizes were designed for reading distance and are left alone.
+     Tripled because `.sec .nlmeta` and friends are (0,2,0) and were winning. */
+  label.consent.consent.consent.consent span,
+  label.lconsent.lconsent.lconsent.lconsent span{font-size:12px}
+  .nlmeta.nlmeta.nlmeta.nlmeta{font-size:12px}
+  .vmeta.vmeta.vmeta.vmeta{font-size:12px}
+  .cun.cun.cun.cun{font-size:12px}
+  .tm.tm.tm.tm{font-size:12px}
+  .mods.mods.mods.mods{font-size:12px}
+  .ccode.ccode.ccode.ccode{font-size:12px}
+  .tsbadge.tsbadge.tsbadge.tsbadge{font-size:12px}
+  .np.np.np.np{font-size:12px}
+  .lhdph.lhdph.lhdph.lhdph{font-size:12px}
+  .sub.sub.sub.sub{font-size:12px}
+  .kick.kick.kick.kick{font-size:12px}
+  .pr-kick.pr-kick.pr-kick.pr-kick{font-size:12px}
+  .city.city.city.city{font-size:12px}
+  .pdcity.pdcity.pdcity.pdcity{font-size:12px}
+  .anote.anote.anote.anote{font-size:12px}
+  .cx.cx.cx.cx{font-size:12px}
+  .ocl.ocl.ocl.ocl{font-size:12px}
+  .leyebrow.leyebrow.leyebrow.leyebrow{font-size:12px}
+  .lname.lname.lname.lname{font-size:12px}
+  .lab.lab.lab.lab{font-size:12px}
+  .tck.tck.tck.tck{font-size:12px}
+  .grouplab.grouplab.grouplab.grouplab span{font-size:12px}
+  .fact.fact.fact.fact i{font-size:12px}
+  .hwfact.hwfact.hwfact.hwfact i{font-size:12px}
+  .cnum.cnum.cnum.cnum{font-size:12px}
+  .nx-f.nx-f.nx-f.nx-f{font-size:12px}
+  .jobfoot.jobfoot.jobfoot.jobfoot{font-size:12px}
+  .mo.mo.mo.mo{font-size:12px}
+  .cred.cred.cred.cred{font-size:12px}
+  .ig-l.ig-l.ig-l.ig-l{font-size:12px}
+  .bcr.bcr.bcr.bcr span{font-size:12px}
+  .pdmeta.pdmeta.pdmeta.pdmeta,
+  .pdmeta.pdmeta.pdmeta.pdmeta span{font-size:12px}
+  .afmeta.afmeta.afmeta.afmeta,
+  .afmeta.afmeta.afmeta.afmeta span{font-size:12px}
+  .tbl.tbl.tbl.tbl .r.r.r.r span,
+  .tbl.tbl.tbl.tbl .r.r.r.r b .sub.sub.sub.sub{font-size:12px}
+  .pdgone.pdgone.pdgone.pdgone i{font-size:12px}
+}
 </style>
 </body>
 </html>

@@ -137,6 +137,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `palette_conform.py` | last | &mdash; | 113 near-misses collapse onto the twelve colours they were trying to be. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `radius_floor.py` | last | &mdash; | Twenty corner radii become two, and the pills become buttons. |
+| `type_scale.py` | last | &mdash; | Ninety-two font sizes become a scale of thirteen. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |

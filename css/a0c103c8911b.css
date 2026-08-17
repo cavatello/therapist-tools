@@ -6,10 +6,10 @@
 .fi-ok b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
   font-weight:800;letter-spacing:-.028em;font-size:19px;color:#1B2420;
   margin:0 0 6px}
-.fi-ok p{font-size:14.6px;line-height:1.65;color:#635D4E;margin:0;max-width:62ch}
+.fi-ok p{font-size:15px;line-height:1.65;color:#635D4E;margin:0;max-width:62ch}
 .fi-ok p a{color:#2C6350}
 .fi-err{border:2px solid #B5483F;border-radius:10px;background:#F6F8F6;
   padding:13px 16px;margin:12px 0 0}
-.fi-err p{font-size:14px;line-height:1.6;color:#8A3730;margin:0;max-width:62ch}
+.fi-err p{font-size:13.5px;line-height:1.6;color:#8A3730;margin:0;max-width:62ch}
 .fi-err a{color:#8A3730;font-weight:600}
 .fi-busy{opacity:.6;cursor:progress}

@@ -3,7 +3,7 @@
 /* 7: the masthead tagline sat at 8.5px on every page and every viewport,
    including a 27-inch 5K display, where it is the smallest type on the site.
    10px still reads as a subtitle under the wordmark. */
-.sitenav-sub{font-size:10px}
+.sitenav-sub{font-size:9.5px}
 /* 8: three more found only after the first pass cleared the noise - the
    "What it costs / stores / is not" card labels on about.html at 9px, and the
    "In progress" badge at 9.5px. Both are labels, not footnotes. */
@@ -14,12 +14,12 @@
    are compounded because a narrower existing rule was winning at equal
    specificity; the computed size is asserted below rather than assumed. */
 .f em,.fgrid .f em,label.f em,.f.sm em{font-size:10.5px}
-.f .hint,.f span.hint{font-size:10.2px}
-.tile em,.tile > em{font-size:10.2px}
-.soon{font-size:10px}
-@media (max-width:520px){.bcr{font-size:10.2px}}
+.f .hint,.f span.hint{font-size:10.5px}
+.tile em,.tile > em{font-size:10.5px}
+.soon{font-size:9.5px}
+@media (max-width:520px){.bcr{font-size:10.5px}}
 .f em,.fsub{font-size:10.5px}
-.fsub{font-size:11px;letter-spacing:.1em}
+.fsub{font-size:10.5px;letter-spacing:.1em}
 .ftcols h5{font-size:10.5px}
 
 /* ---- 4: footer tap targets. The vertical gap was margin, which cannot be

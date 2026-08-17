@@ -11,16 +11,16 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
-  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
 h1,h2,h3,h4{font-family:var(--sans);font-weight:800;line-height:1.08;letter-spacing:-.02em;margin:0}
 h1{font-size:clamp(34px,5.2vw,58px)}
 h2{font-size:clamp(26px,3.4vw,38px);margin:0 0 6px}
 h3{font-size:clamp(19px,2.1vw,23px);margin:0 0 6px}
-h4{font-size:16px;margin:0 0 4px}
+h4{font-size:16.5px;margin:0 0 4px}
 p{margin:0 0 14px;max-width:72ch}
 a{color:var(--pine);text-underline-offset:3px}
-.lab{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.16em;
+.lab{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.16em;
   text-transform:uppercase;color:var(--muted)}
 .fig{font-family:var(--fig);font-weight:800;font-variant-numeric:tabular-nums}
 
@@ -29,9 +29,9 @@ a{color:var(--pine);text-underline-offset:3px}
   padding:46px 0 40px}
 .mast .lab{color:var(--gold-on-pine)}
 .mast h1{color:#fff;margin:10px 0 14px;max-width:22ch}
-.mast p{color:#DCE7E0;max-width:66ch;font-size:17px}
+.mast p{color:#DCE7E0;max-width:66ch;font-size:16.5px}
 .mast .meta{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px}
-.chip{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
   border:1.5px solid rgba(255,255,255,.34);color:#EAF3EE;padding:5px 10px;border-radius:6px}
 
 /* ---- sticky nav ---- */
@@ -41,7 +41,7 @@ nav.jump ul{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:aut
   scrollbar-width:none}
 nav.jump ul::-webkit-scrollbar{display:none}
 nav.jump a{display:block;white-space:nowrap;padding:11px 15px;font-family:var(--mono);
-  font-size:11px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
+  font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
   color:var(--muted);border-right:1px solid var(--line)}
 nav.jump a:hover{background:var(--gold);color:var(--ink)}
 
@@ -83,19 +83,19 @@ section{padding:52px 0 8px}
 .ev{border-left:5px solid var(--pine);padding:2px 0 2px 18px;margin:0 0 22px}
 .ev q{display:block;font-family:var(--fig);font-size:19px;font-weight:600;line-height:1.4;
   color:var(--deep);quotes:none;margin-bottom:8px}
-.ev .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted)}
+.ev .src{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
 
 /* ---- audit table ---- */
 .tw{overflow-x:auto;border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);
   background:var(--cream);margin:0 0 10px}
-table{border-collapse:collapse;width:100%;min-width:660px;font-size:14.5px}
+table{border-collapse:collapse;width:100%;min-width:660px;font-size:15px}
 th{background:var(--deep);color:#fff;font-family:var(--mono);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;text-align:left;padding:11px 13px;
   font-weight:600;vertical-align:bottom}
 td{padding:11px 13px;border-top:1px solid var(--line);vertical-align:top}
 tbody tr:nth-child(even){background:rgba(226,218,202,.28)}
 td .fig{font-size:19px}
-.badge{display:inline-block;font-family:var(--mono);font-size:10px;font-weight:600;
+.badge{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border:1.5px solid;border-radius:6px;
   white-space:nowrap}
 .b-yes{color:#1E5C46;border-color:#1E5C46;background:#E4F0EA}
@@ -107,18 +107,18 @@ td .fig{font-size:19px}
   padding:22px 20px;margin:0 0 22px}
 .ia .lab{margin-bottom:14px;display:block}
 .tier{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 6px}
-.node{font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:7px 11px;
+.node{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:7px 11px;
   border:2px solid var(--ink);background:#fff;border-radius:6px;text-align:center}
 .node.root{background:var(--ink);color:var(--gold);font-weight:600}
 .node.stage{background:var(--gold);font-weight:600}
 .node.topic{background:var(--pine);color:#fff}
 .node.leaf{background:#fff;color:var(--muted);border-color:var(--line);border-width:1.5px}
 .node.new{border-style:dashed;background:#FBEFD6}
-.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:14px}
-.ia .cap{font-size:14px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
+.conn{height:16px;display:grid;place-items:center;color:var(--muted);font-size:13.5px}
+.ia .cap{font-size:13.5px;color:var(--muted);margin:14px 0 0;max-width:none;text-align:center}
 .pro{display:grid;gap:10px;margin-top:16px}
 @media(min-width:700px){.pro{grid-template-columns:1fr 1fr}}
-.pro div{font-size:14px;padding:10px 12px;border-left:3px solid}
+.pro div{font-size:13.5px;padding:10px 12px;border-left:3px solid}
 .pro .p{border-color:var(--green);background:#EDF5F1}
 .pro .c{border-color:var(--red);background:#F9EDEC}
 .pro b{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -129,13 +129,13 @@ td .fig{font-size:19px}
   overflow:hidden;margin:0 0 12px}
 .frame .bar{background:var(--ink);padding:7px 12px;display:flex;align-items:center;gap:8px}
 .frame .dot{width:9px;height:9px;border-radius:50%;background:#4B5A52}
-.frame .url{font-family:var(--mono);font-size:11px;color:#C7D3CC;margin-left:8px;
+.frame .url{font-family:var(--mono);font-size:10.5px;color:#C7D3CC;margin-left:8px;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mk{font-size:13px;line-height:1.5}
+.mk{font-size:13.5px;line-height:1.5}
 .mk *{box-sizing:border-box}
 .mkhead{background:var(--cream);border-bottom:2px solid var(--ink);padding:9px 16px;
   display:flex;align-items:center;justify-content:space-between;gap:12px}
-.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:14px}
+.mkhead .brand{font-family:var(--sans);font-weight:800;font-size:13.5px}
 .mkhead .nv{display:flex;gap:12px;font-family:var(--mono);font-size:9.5px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .mkbody{padding:18px 16px 22px}
@@ -144,23 +144,23 @@ td .fig{font-size:19px}
 .deskhero{background:var(--pine);color:#fff;margin:-18px -16px 16px;padding:20px 16px 18px;
   border-bottom:2px solid var(--ink)}
 .deskhero .lab{color:var(--gold-on-pine)}
-.deskhero h2{font-size:26px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
-.deskhero p{font-size:12.5px;color:#DAE8E1;margin:0;max-width:52ch}
+.deskhero h2{font-size:28px;color:#fff;margin:6px 0 6px;letter-spacing:-.02em}
+.deskhero p{font-size:12px;color:#DAE8E1;margin:0;max-width:52ch}
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
 .tile{border:2px solid var(--ink);background:var(--cream);padding:11px 12px;
   box-shadow:3px 3px 0 var(--ink)}
-.tile .lab{font-size:9px;letter-spacing:.13em}
-.tile .num{font-family:var(--fig);font-weight:800;font-size:25px;line-height:1.05;
+.tile .lab{font-size:9.5px;letter-spacing:.13em}
+.tile .num{font-family:var(--fig);font-weight:800;font-size:23px;line-height:1.05;
   color:var(--deep);margin:3px 0 2px}
-.tile .sub{font-size:11px;color:var(--muted);line-height:1.35}
+.tile .sub{font-size:10.5px;color:var(--muted);line-height:1.35}
 .tile.act{background:var(--gold)}
 .tile.act .sub{color:#5A4713}
 .qrow{border:2px solid var(--ink);background:#fff;padding:10px 12px;margin-bottom:8px;
   display:flex;gap:11px;align-items:flex-start}
-.qrow .qn{font-family:var(--mono);font-size:10px;color:var(--muted);padding-top:2px;min-width:16px}
+.qrow .qn{font-family:var(--mono);font-size:9.5px;color:var(--muted);padding-top:2px;min-width:16px}
 .qrow .qt{font-family:var(--sans);font-weight:600;font-size:13.5px;line-height:1.3}
-.qrow .qs{font-size:11.5px;color:var(--muted);margin-top:2px}
-.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+.qrow .qs{font-size:12px;color:var(--muted);margin-top:2px}
+.qrow .qb{margin-left:auto;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
   text-transform:uppercase;background:var(--gold);border:1.5px solid var(--ink);padding:3px 7px;
   white-space:nowrap}
 
@@ -175,38 +175,38 @@ td .fig{font-size:19px}
 .rung.now::before{background:var(--gold);border-color:var(--ink);
   box-shadow:0 0 0 4px rgba(246,197,96,.35)}
 .rung h4{font-size:13.5px}
-.rung .rs{font-size:11.5px;color:var(--muted)}
+.rung .rs{font-size:12px;color:var(--muted)}
 .rung.now h4{color:var(--deep)}
-.rung .pill{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.11em;
+.rung .pill{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;
   text-transform:uppercase;background:var(--ink);color:var(--gold);padding:2px 6px;
   margin-left:7px;vertical-align:2px}
 .gate{border:2px solid var(--ink);background:var(--cream);padding:10px 12px;margin-top:7px;
   box-shadow:3px 3px 0 var(--ink)}
-.gate .lab{font-size:9px}
+.gate .lab{font-size:9.5px}
 .gate .gv{font-family:var(--fig);font-weight:800;font-size:19px;color:var(--deep)}
 
 /* mockup C — front page */
 .fp-mast{border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:14px}
-.fp-mast .k{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;
+.fp-mast .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
   color:var(--muted);display:flex;justify-content:space-between}
-.fp-mast h2{font-family:var(--fig);font-size:32px;font-weight:800;letter-spacing:-.01em;
+.fp-mast h2{font-family:var(--fig);font-size:34px;font-weight:800;letter-spacing:-.01em;
   margin:6px 0 4px;text-align:center}
 .fp-mast .dek{font-size:12px;color:var(--muted);text-align:center;font-style:italic}
 .fp-cols{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
-.fp-lead h3{font-family:var(--fig);font-size:20px;line-height:1.18;margin-bottom:5px}
+.fp-lead h3{font-family:var(--fig);font-size:19px;line-height:1.18;margin-bottom:5px}
 .fp-lead p{font-size:12px;margin-bottom:9px;color:#33423A}
 .fp-lead .byl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted);margin-bottom:7px}
 .fp-side{border-left:1px solid var(--line);padding-left:14px}
-.fp-side .lab{font-size:9px;display:block;margin-bottom:7px;
+.fp-side .lab{font-size:9.5px;display:block;margin-bottom:7px;
   border-bottom:2px solid var(--ink);padding-bottom:4px}
-.fp-side ol{margin:0;padding-left:17px;font-size:11.5px;line-height:1.4}
+.fp-side ol{margin:0;padding-left:17px;font-size:12px;line-height:1.4}
 .fp-side li{margin-bottom:7px}
 .fp-side b{font-family:var(--sans);font-weight:600;display:block;font-size:12px}
 .fp-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px;
   border-top:2px solid var(--ink);padding-top:11px}
 .fp-strip div{font-size:10.5px;line-height:1.32}
-.fp-strip .lab{font-size:8.5px;display:block;margin-bottom:3px}
+.fp-strip .lab{font-size:9.5px;display:block;margin-bottom:3px}
 
 /* phone */
 .phones{display:grid;gap:18px}
@@ -223,12 +223,12 @@ td .fig{font-size:19px}
 .plan>li::before{content:"S" counter(s);position:absolute;left:16px;top:14px;
   font-family:var(--mono);font-size:12px;font-weight:600;color:var(--gold);
   background:var(--ink);padding:4px 7px;border-radius:6px}
-.plan h4{margin-bottom:3px;font-size:17px}
-.plan .why{font-size:14px;color:var(--muted);margin:0 0 8px}
-.plan .out{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--deep);
+.plan h4{margin-bottom:3px;font-size:16.5px}
+.plan .why{font-size:13.5px;color:var(--muted);margin:0 0 8px}
+.plan .out{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--deep);
   background:#fff;border:1.5px solid var(--line);padding:7px 10px;display:inline-block}
 .tick{list-style:none;padding:0;margin:8px 0 0}
-.tick li{position:relative;padding-left:24px;font-size:14px;margin-bottom:5px}
+.tick li{position:relative;padding-left:24px;font-size:13.5px;margin-bottom:5px}
 .tick li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;
   border:2px solid var(--ink);background:#fff}
 .tick li.d::before{background:var(--pine);border-color:var(--pine)}
@@ -236,7 +236,7 @@ td .fig{font-size:19px}
 footer{background:var(--deep);color:#C9D8D1;margin-top:56px;padding:30px 0;
   border-top:3px solid var(--ink);font-size:13.5px}
 footer a{color:var(--gold-on-pine)}
-.src{font-size:13px;color:var(--muted)}
+.src{font-size:13.5px;color:var(--muted)}
 .src li{margin-bottom:4px}
 @media(max-width:700px){
   /* the mockups' fake desktop nav is decorative — a real page would collapse
@@ -259,9 +259,9 @@ footer a{color:var(--gold-on-pine)}
   --figs:'Fraunces',Georgia,serif;
   --mn:'IBM Plex Mono',ui-monospace,monospace;
   background:var(--paper);color:var(--ink);
-  font-family:'Inter',system-ui,sans-serif;font-size:17.5px;line-height:1.62;
+  font-family:'Inter',system-ui,sans-serif;font-size:16.5px;line-height:1.62;
   letter-spacing:-.011em}
-@media(max-width:700px){.hs{--pad:20px;font-size:16px}}
+@media(max-width:700px){.hs{--pad:20px;font-size:16.5px}}
 .hs *{box-sizing:border-box}
 .hs a{text-decoration:none;color:var(--pine)}
 .hs p{margin:0 0 16px}
@@ -271,23 +271,23 @@ footer a{color:var(--gold-on-pine)}
 .hs h1,.hs h2,.hs h3,.hs h4{font-family:var(--disp);
   font-weight:800;letter-spacing:-.026em;line-height:1.03;margin:0 0 20px;
   color:var(--ink);text-wrap:balance}
-.hs h1{font-size:68px;max-width:17ch}
+.hs h1{font-size:66px;max-width:17ch}
 .hs h2{font-size:42px;max-width:22ch;letter-spacing:-.024em}
-.hs h3{font-size:25px;line-height:1.14;letter-spacing:-.02em}
+.hs h3{font-size:23px;line-height:1.14;letter-spacing:-.02em}
 .hs h4{font-size:19px;line-height:1.2;margin-bottom:6px;letter-spacing:-.018em}
-@media(max-width:920px){.hs h1{font-size:50px}.hs h2{font-size:33px}}
-@media(max-width:700px){.hs h1{font-size:34px}.hs h2{font-size:26px}
-  .hs h3{font-size:21px}}
-.hs .lede{font-size:22px;line-height:1.45;color:var(--dim);max-width:48ch;
+@media(max-width:920px){.hs h1{font-size:52px}.hs h2{font-size:34px}}
+@media(max-width:700px){.hs h1{font-size:34px}.hs h2{font-size:28px}
+  .hs h3{font-size:19px}}
+.hs .lede{font-size:23px;line-height:1.45;color:var(--dim);max-width:48ch;
   margin-bottom:26px;letter-spacing:-.012em}
-@media(max-width:700px){.hs .lede{font-size:18px}}
-.hs .eb{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
+@media(max-width:700px){.hs .lede{font-size:19px}}
+.hs .eb{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
   letter-spacing:.15em;text-transform:uppercase;color:var(--dim);display:block;
   margin-bottom:12px}
 .hs .fine{font-size:13.5px;color:var(--dim)}
 .hs .btn{display:inline-block;background:var(--pine);color:#fff;
   font-family:var(--disp);font-weight:800;letter-spacing:-.012em;
-  font-size:17px;padding:.78em 1.15em;border-radius:6px;
+  font-size:16.5px;padding:.78em 1.15em;border-radius:6px;
   box-shadow:0 1px 2px rgba(18,60,48,.14),0 4px 14px rgba(18,60,48,.08)}
 .hs .btn.o{background:var(--card);color:var(--ink);
   box-shadow:0 1px 2px rgba(27,36,32,.08),0 0 0 1px var(--line)}
@@ -312,14 +312,14 @@ footer a{color:var(--gold-on-pine)}
 .hs .slab .figs{display:grid;gap:14px;margin-top:22px}
 @media(min-width:700px){.hs .slab .figs{grid-template-columns:repeat(4,1fr)}}
 .hs .slab .figs b{display:block;font-family:var(--figs);
-  font-size:38px;color:#fff;line-height:1.05;font-weight:600}
-.hs .slab .figs span{font-size:12.5px;color:#9FBDB1;display:block;margin-top:3px}
+  font-size:34px;color:#fff;line-height:1.05;font-weight:600}
+.hs .slab .figs span{font-size:12px;color:#9FBDB1;display:block;margin-top:3px}
 
 /* --- navigation --------------------------------------------------------- */
 .hs .nb{display:flex;align-items:center;gap:20px;padding:14px var(--pad);
   background:var(--paper);border-bottom:1px solid var(--line);flex-wrap:wrap}
 .hs .nb .sp{margin-left:auto}
-.hs .nb a{font-size:14.5px;color:var(--ink);font-weight:500}
+.hs .nb a{font-size:15px;color:var(--ink);font-weight:500}
 .hs .nb a.on{color:var(--pine);font-weight:600}
 .hs .lgw{display:inline-flex;align-items:center;gap:9px}
 .hs .lgw .chip{display:inline-flex;align-items:flex-end;gap:2.5px;
@@ -329,7 +329,7 @@ footer a{color:var(--gold-on-pine)}
 .hs .lgw .wm{font-family:var(--disp);font-weight:800;font-size:19px;
   letter-spacing:-.022em;
   color:var(--ink);line-height:1.05}
-.hs .lgw .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;
+.hs .lgw .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.18em;text-transform:uppercase;color:var(--dim);font-weight:400}
 
 /* --- the six paths, Fizzy's label system -------------------------------- */
@@ -343,14 +343,14 @@ footer a{color:var(--gold-on-pine)}
 .hs .paths a.p4{border-left-color:var(--p4)}
 .hs .paths a.p5{border-left-color:var(--p5)}
 .hs .paths a.p6{border-left-color:var(--p6)}
-.hs .paths .n{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+.hs .paths .n{font-family:'IBM Plex Mono',monospace;font-size:12px;
   color:var(--dim)}
-.hs .paths .t{font-family:var(--disp);font-size:30px;font-weight:800;
+.hs .paths .t{font-family:var(--disp);font-size:28px;font-weight:800;
   letter-spacing:-.026em;
   display:block;line-height:1.15}
-.hs .paths .q{display:block;font-size:15.5px;color:var(--dim);margin-top:3px;
+.hs .paths .q{display:block;font-size:15px;color:var(--dim);margin-top:3px;
   font-weight:400;letter-spacing:0}
-.hs .paths .c{font-family:'IBM Plex Mono',monospace;font-size:11px;
+.hs .paths .c{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
   color:var(--dim);white-space:nowrap}
 .hs .dot{display:inline-block;width:10px;height:10px;border-radius:6px;
   margin-right:8px;vertical-align:middle}
@@ -359,16 +359,16 @@ footer a{color:var(--gold-on-pine)}
 
 /* --- the signature, Campfire's move ------------------------------------- */
 .hs .sign{border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
-.hs .sign .who{font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+.hs .sign .who{font-family:'IBM Plex Mono',monospace;font-size:12px;
   color:var(--dim);margin:0}
-.hs .sign p.said{max-width:52ch;font-family:var(--figs);font-size:21px;
+.hs .sign p.said{max-width:52ch;font-family:var(--figs);font-size:19px;
   line-height:1.5;letter-spacing:0;color:var(--ink);margin:0 0 14px;
   font-weight:600}
 
 /* --- shelves, tables, lists --------------------------------------------- */
 .hs .ix{display:grid;gap:20px 32px}
 @media(min-width:760px){.hs .ix{grid-template-columns:repeat(3,1fr)}}
-.hs .ix h5{font-family:'IBM Plex Mono',monospace;font-size:10px;
+.hs .ix h5{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:0 0 8px;
   padding-bottom:6px;border-bottom:1px solid var(--line)}
 .hs .ix ul{list-style:none;margin:0;padding:0}
@@ -379,11 +379,11 @@ footer a{color:var(--gold-on-pine)}
 .hs .list .nm2{font-family:var(--disp);font-size:19px;font-weight:800;
   letter-spacing:-.018em}
 .hs .list .mt{display:block;font-size:13.5px;color:var(--dim);margin-top:2px}
-.hs .list .kk{font-family:'IBM Plex Mono',monospace;font-size:11px;
+.hs .list .kk{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
   color:var(--dim);text-align:right;white-space:nowrap}
-.hs .list .kk b{display:block;font-size:24px;color:var(--ink);
+.hs .list .kk b{display:block;font-size:23px;color:var(--ink);
   font-weight:800;font-family:var(--figs)}
-.hs table{border-collapse:collapse;width:100%;font-size:14.5px;margin:0 0 16px}
+.hs table{border-collapse:collapse;width:100%;font-size:15px;margin:0 0 16px}
 .hs th{background:var(--deepp);color:#fff;font-family:'IBM Plex Mono',monospace;
   font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
   text-align:left;padding:10px 12px;font-weight:600}
@@ -392,7 +392,7 @@ footer a{color:var(--gold-on-pine)}
 .hs .tw{border-radius:10px;overflow:hidden;
   box-shadow:0 1px 2px rgba(27,36,32,.05),0 0 0 1px rgba(27,36,32,.055)}
 .hs .chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
-.hs .chips span{font-size:13px;background:var(--card);color:var(--dim);
+.hs .chips span{font-size:13.5px;background:var(--card);color:var(--dim);
   padding:6px 13px;border-radius:10px;box-shadow:0 0 0 1px var(--line)}
 .hs .chips span.on{background:var(--pine);color:#fff;box-shadow:none}
 .hs .g2{display:grid;gap:16px}
@@ -401,22 +401,22 @@ footer a{color:var(--gold-on-pine)}
 @media(min-width:760px){.hs .g3{grid-template-columns:repeat(3,1fr)}}
 .hs .split{display:grid;gap:34px}
 @media(min-width:900px){.hs .split{grid-template-columns:1fr 216px}}
-.hs .toc{font-size:14px}
-.hs .toc b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+.hs .toc{font-size:13.5px}
+.hs .toc b{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
   margin-bottom:9px}
 .hs .toc a{display:block;padding:6px 0;color:var(--dim);
   border-bottom:1px solid var(--line)}
 .hs .toc a.on{color:var(--pine);font-weight:600}
 .hs .aside{border-left:3px solid var(--goldp);padding-left:16px;margin:22px 0}
-.hs .aside p{margin:0;font-size:15.5px}
-.hs .pull{font-family:var(--disp);font-size:31px;font-weight:800;
+.hs .aside p{margin:0;font-size:15px}
+.hs .pull{font-family:var(--disp);font-size:28px;font-weight:800;
   letter-spacing:-.024em;line-height:1.2;
   border-left:4px solid var(--pine);padding-left:20px;margin:26px 0;
   max-width:40ch}
-.hs .meta{font-family:'IBM Plex Mono',monospace;font-size:11px;
+.hs .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
   letter-spacing:.08em;color:var(--dim);margin-bottom:14px}
-.hs ol.src{padding-left:1.3em;font-size:14px;color:var(--dim)}
+.hs ol.src{padding-left:1.3em;font-size:13.5px;color:var(--dim)}
 .hs ol.src li{margin-bottom:5px}
 .hs .steps{counter-reset:s;list-style:none;padding:0;margin:0}
 .hs .steps li{counter-increment:s;position:relative;padding-left:38px;
@@ -430,11 +430,11 @@ footer a{color:var(--gold-on-pine)}
 .hs .news{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
   padding:20px 0;margin:30px 0;display:flex;gap:18px;align-items:center;
   flex-wrap:wrap}
-.hs .news .t{font-family:var(--disp);font-size:25px;font-weight:800;
+.hs .news .t{font-family:var(--disp);font-size:23px;font-weight:800;
   letter-spacing:-.022em;
   flex:1 1 300px}
 .hs .news .in{flex:1 1 210px;background:var(--card);border-radius:6px;
-  padding:11px 13px;color:var(--dim);font-size:14.5px;
+  padding:11px 13px;color:var(--dim);font-size:15px;
   box-shadow:0 0 0 1px var(--line)}
 
 /* --- footer ------------------------------------------------------------- */
@@ -446,8 +446,8 @@ footer a{color:var(--gold-on-pine)}
   letter-spacing:.14em;text-transform:uppercase;color:#7FA294;margin:0 0 9px}
 .hs .ft a{display:block;padding:3px 0;color:#fff;font-size:13.5px}
 .hs .ft .wm{color:#fff;font-family:var(--disp);font-weight:800;
-  font-size:18px;letter-spacing:-.022em}
-.hs .ft .sub{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  font-size:19px;letter-spacing:-.022em}
+.hs .ft .sub{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.18em;text-transform:uppercase;color:#7FA294;display:block}
 .hs .ft .base{margin-top:26px;padding-top:16px;border-top:1px solid #24564A;
   display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#7FA294}
@@ -464,10 +464,10 @@ footer a{color:var(--gold-on-pine)}
 .huerow{display:grid;gap:8px;margin:12px 0}
 @media(min-width:700px){.huerow{grid-template-columns:repeat(6,1fr)}}
 .huerow div{border:2px solid var(--ink);padding:8px 10px}
-.huerow b{display:block;font-family:var(--mono);font-size:10px;
+.huerow b{display:block;font-family:var(--mono);font-size:9.5px;
   margin-bottom:5px}
 .huerow i{display:block;height:16px;margin-bottom:6px}
-.huerow span{font-size:11.5px;color:#39473F}
+.huerow span{font-size:12px;color:#39473F}
 .moves{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0
   var(--ink);margin:14px 0}
 .moves .row{display:grid;grid-template-columns:104px 1fr;
@@ -479,10 +479,10 @@ footer a{color:var(--gold-on-pine)}
 .moves .b{padding:11px 14px}
 .moves h4{font-size:15px;margin:0 0 3px}
 .moves p{font-size:13.5px;margin:0;color:#39473F}
-.lab2{font-family:var(--mono);font-size:10px;letter-spacing:.13em;
+.lab2{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;
   text-transform:uppercase;color:var(--muted);margin:20px 0 6px;display:block}
 .note{border-left:5px solid var(--gold);padding:2px 0 2px 16px;margin:16px 0}
-.note p{font-size:14.5px;margin:0 0 6px}
-code{font-family:var(--mono);font-size:12.5px;background:#fff;
+.note p{font-size:15px;margin:0 0 6px}
+code{font-family:var(--mono);font-size:12px;background:#fff;
   border:1px solid var(--line);padding:1px 5px}
 </style></head><body><header class="mast"><div class="wrap"><span class="lab">Working document &middot; 13 August 2026</span><h1>The fifth thing, built.</h1><p>Not one of the four products &mdash; the recommendation from P7, drawn as <b>six complete pages</b>, top to bottom, with every band a real page would carry. <b>Basecamp&rsquo;s structure and restraint</b>, <b>Fizzy&rsquo;s label system</b> on the six paths, <b>Campfire&rsquo;s signature</b> at the end of anything that makes a claim about who checked the numbers, and <b>exactly one HEY slab per page</b>, for the one claim that page is making.</p><div class="meta"><span class="chip">6 full pages</span><span class="chip">1 slab each, no exceptions</span><span class="chip">6 path hues</span><span class="chip">Ready to build</span></div></div></header><nav class="jump"><div class="wrap"><ul><li><a href="#system">The system</a></li><li><a href="#home">Home</a></li><li><a href="#assoc">Associate landing</a></li><li><a href="#article">Content page</a></li><li><a href="#dir">Directory</a></li><li><a href="#email">Email sign-up</a></li><li><a href="#about">About</a></li><li><a href="#build">How to build it</a></li></ul></div></nav><div class="wrap"><section id="system"><div class="kicker"><span class="n">01</span><h2>The system</h2></div><p class="lede">Four borrowed moves, one rule on each. The rule matters more than the move &mdash; three of these four fail if they are used more than the rule allows.</p><div class="moves"><div class="row"><div class="n">BASECAMP</div><div class="b"><h4>Restraint is the default</h4><p>Tinted paper and never pure white. One accent. Flat fills with a hairline ring and a soft shadow rather than borders. The headline carries the volume &mdash; <b>68px at 800</b> &mdash; and the body deliberately does not follow it up: <b>17.5px</b>, because these pages run six thousand words with tables in them, not four hundred words with a screenshot. Loud headline, readable body.</p></div></div><div class="row"><div class="n">FIZZY</div><div class="b"><h4>Six hues, one per path</h4><p>Used as a 10px chip and a 4px left rule. <b>Never as a background, never as body text, never on a button.</b> The job is that a reader recognizes their path in a list without reading it, and that job is done with a rule and a dot.</p></div></div><div class="row"><div class="n">CAMPFIRE</div><div class="b"><h4>A made-by band closes anything that makes a claim</h4><p>Home page, about page, and every article. Campfire ends a page with a handwritten signature; this ends it with the sentence that signature was there to support, and no name. The author does not want one on the page, so the band has to carry the job alone &mdash; who checked this, and what happens when it is wrong. That is a fair trade: the sentence was always doing more work than the signature was.</p></div></div><div class="row"><div class="n">HEY</div><div class="b"><h4>One slab per page. One.</h4><p>Deep pine, scalloped top and bottom edges, and it goes to the single claim that page is making &mdash; not to a feature list. A second slab on the same page halves the value of the first, which is why the guard on this document fails a build that ships two.</p></div></div></div><span class="lab2">Tokens</span><div class="tok"><div class="r"><div class="sw2" style="background:#F6F8F6"></div><div class="nm3">--paper</div><div class="ds">Page. Tinted, never pure white. Basecamp. &middot; <b>#F6F8F6</b></div></div><div class="r"><div class="sw2" style="background:#FFFFFF"></div><div class="nm3">--card</div><div class="ds">Raised surfaces only. &middot; <b>#FFFFFF</b></div></div><div class="r"><div class="sw2" style="background:#1B2420"></div><div class="nm3">--ink</div><div class="ds">Body text. 13.9:1 on paper. &middot; <b>#1B2420</b></div></div><div class="r"><div class="sw2" style="background:#5F6A64"></div><div class="nm3">--dim</div><div class="ds">Secondary. 5.2:1 on paper. &middot; <b>#5F6A64</b></div></div><div class="r"><div class="sw2" style="background:#DFE4E0"></div><div class="nm3">--line</div><div class="ds">Hairlines and table rules. &middot; <b>#DFE4E0</b></div></div><div class="r"><div class="sw2" style="background:#2C6350"></div><div class="nm3">--pine</div><div class="ds">The one accent. Links, buttons, the slab. &middot; <b>#2C6350</b></div></div><div class="r"><div class="sw2" style="background:#123C30"></div><div class="nm3">--deep</div><div class="ds">Slab background and footer. &middot; <b>#123C30</b></div></div><div class="r"><div class="sw2" style="background:#FFE7A3"></div><div class="nm3">--gold</div><div class="ds">The marker underline and the highlight. &middot; <b>#FFE7A3</b></div></div></div><span class="lab2">The six path hues</span><div class="huerow"><div><i style="background:#2F6FDB"></i><b>#2F6FDB</b><span>Deciding</span></div><div><i style="background:#7A5AF8"></i><b>#7A5AF8</b><span>In a program</span></div><div><i style="background:#0E8FA8"></i><b>#0E8FA8</b><span>The gap</span></div><div><i style="background:#17864A"></i><b>#17864A</b><span>Counting hours</span></div><div><i style="background:#B0730B"></i><b>#B0730B</b><span>Newly licensed</span></div><div><i style="background:#BC3F86"></i><b>#BC3F86</b><span>Running a practice</span></div></div><p class="pk-d" style="font-size:13.5px;color:#39473F">Each clears 4.5:1 against the paper, so a hue may carry a label if it ever needs to. None of them is used as a fill behind body text, which is the failure mode of every color-coded navigation ever shipped.</p><div class="note"><p><b>The typeface is not borrowed, and an earlier draft of this document got that wrong.</b> It set everything in Inter, on the reasoning that a neutral face is restraint. It is not &mdash; it is the default of every landing page on the web, and the site already owns a better answer. <b>Bricolage Grotesque 800</b> for display, <b>Fraunces</b> for figures, <b>IBM Plex Mono</b> for labels and eyebrows, Inter for body text only. That system is already on 203 pages, it is already licensed and loading, and it is the one genuinely distinctive thing about how this site looks. The layout discipline is what was worth borrowing. The voice was not.</p><p><b>What else is deliberately not borrowed.</b> No gradients, from anywhere. No 32px body text, which three of the four use and which would make a reference page unreadable. No full-page saturated canvas. No pill buttons &mdash; Basecamp&rsquo;s 6px is the right amount of soft for something clicked twenty times a session.</p></div></section><hr class="rule"><section id="home"><div class="kicker"><span class="n">02</span><h2>The home page</h2></div><p class="lede">Statement, one action, authorship, the six paths, the slab, the tools, the whole index, the newsletter, the signature. Eleven blocks became nine, and four of them are lists.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/</span></div><div class="hs"><div class="nb"><span class="lgw"><span class="chip"><i style="background:#2F6FDB;height:15px"></i><i style="background:#BC3F86;height:10px"></i><i style="background:#B0730B;height:18px"></i><i style="background:#17864A;height:12px"></i><i style="background:#0E8FA8;height:8px"></i></span><span><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span></span></span><span class="sp"></span><a class="">The six paths</a><a class="">Calculators</a><a class="">Library</a><a class="">About</a><a class="btn">Open a calculator</a></div><div class="band"><h1>Running a practice is a <span class="scribble">second job</span> nobody trained you for.</h1><p class="lede">Free calculators and checked reference for California therapists &mdash; what you keep, what you owe, what a client is worth, and what a job offer is really paying.</p><p style="margin-bottom:10px"><a class="btn">See what your practice pays you</a> <a class="btn o">Or browse all 203 pages</a></p><p class="fine">Written and checked by one licensed therapist in California. No account, no email box, nothing sold.</p></div><div class="band" style="padding-top:6px"><span class="eb">Or start where you are</span><div class="paths"><a class="p1"><span class="n">01</span><span class="t">Deciding<span class="q">&ldquo;Is this worth it?&rdquo;</span></span><span class="c">73 pages &rarr;</span></a><a class="p2"><span class="n">02</span><span class="t">In a program<span class="q">&ldquo;Nobody will take me for practicum.&rdquo;</span></span><span class="c">31 pages &rarr;</span></a><a class="p3"><span class="n">03</span><span class="t">The gap<span class="q">&ldquo;Can I work before my number arrives?&rdquo;</span></span><span class="c">4 pages &rarr;</span></a><a class="p4"><span class="n">04</span><span class="t">Counting hours<span class="q">&ldquo;547 hours and nobody will hire me.&rdquo;</span></span><span class="c">21 pages &rarr;</span></a><a class="p5"><span class="n">05</span><span class="t">Newly licensed<span class="q">&ldquo;Do I go on panels or not?&rdquo;</span></span><span class="c">19 pages &rarr;</span></a><a class="p6"><span class="n">06</span><span class="t">Running a practice<span class="q">&ldquo;How do I do this ethically?&rdquo;</span></span><span class="c">24 pages &rarr;</span></a></div></div><div class="slab"><span class="eb">Why you can use these numbers</span><h2>Every dollar here is the output of a calculation you can follow.</h2><p>Run on numbers you typed in. There are no illustrative figures and no worked examples standing in for your practice. When a threshold moves it is listed on a page rather than <span class="hl">quietly swapped in</span>.</p><div class="figs"><div><b>203</b><span>pages, California only</span></div><div><b>6</b><span>free calculators</span></div><div><b>58</b><span>county portals checked by hand</span></div><div><b>$0</b><span>and no email box</span></div></div></div><div class="band"><h2>Six tools. Each answers one question.</h2><div class="g3"><div class="card"><h4>Practice Simulator</h4><p class="fine" style="margin-bottom:8px">What does my practice actually pay me?</p><p class="fine" style="margin:0;color:var(--pine)">$138,940 take-home on a $250,000 practice</p></div><div class="card"><h4>Tax &amp; Retirement</h4><p class="fine" style="margin-bottom:8px">How much of my tax bill is optional?</p><p class="fine" style="margin:0;color:var(--pine)">$18,244 of a $69,410 bill</p></div><div class="card"><h4>Associate Job Advisor</h4><p class="fine" style="margin-bottom:8px">Is this associate job worth taking?</p><p class="fine" style="margin:0;color:var(--pine)">3,000 hours, priced in weeks</p></div><div class="card"><h4>Grow Your Practice</h4><p class="fine" style="margin-bottom:8px">Where do my next ten clients come from?</p><p class="fine" style="margin:0;color:var(--pine)">What one client is worth over their whole time with you</p></div><div class="card"><h4>3,000 Hours</h4><p class="fine" style="margin-bottom:8px">What is actually holding up my date?</p><p class="fine" style="margin:0;color:var(--pine)">104 weeks, and the requirement that usually binds</p></div><div class="card"><h4>Cost of Living</h4><p class="fine" style="margin-bottom:8px">What does a month cost, and what is left?</p><p class="fine" style="margin:0;color:var(--pine)">Eight places, one practice</p></div></div></div><div class="band" style="padding-top:8px"><h2>Everything on the site.</h2><div class="ix"><div><h5>Calculators</h5><ul><li>Practice Simulator <span>&mdash; what it pays you</span></li><li>Tax &amp; Retirement <span>&mdash; what is optional</span></li><li>Associate Job Advisor <span>&mdash; is this offer fair</span></li><li>Grow Your Practice <span>&mdash; what a client is worth</span></li><li>3,000 Hours <span>&mdash; what holds up your date</span></li><li>Cost of Living <span>&mdash; what a month costs</span></li></ul></div><div><h5>Money and tax</h5><ul><li>Sole proprietor or corporation</li><li>The S-corp payroll gap</li><li>Estimated taxes, four dates</li><li>Solo 401(k), SEP or SIMPLE</li><li>What you can deduct</li><li>The home office, both methods</li></ul></div><div><h5>Licensure</h5><ul><li>Becoming an MFT in California</li><li>Finding a clinical supervisor <span>&mdash; new</span></li><li>BBS fees, 2026</li><li>Continuing education</li><li>The practicum year</li><li>Out-of-state to California</li></ul></div><div><h5>Getting paid</h5><ul><li>The California Therapy Rate Gap</li><li>Insurance panels, and which are open</li><li>What Medicare and Medi-Cal pay</li><li>Headway, Alma or Grow, priced</li><li>Superbills and good faith estimates</li></ul></div><div><h5>Running a practice</h5><ul><li>Hiring your first associate</li><li>Liability insurance, eight programs</li><li>48 real discipline decisions</li><li>SimplePractice, priced properly</li><li>Working remotely, and the Board&rsquo;s answer</li></ul></div><div><h5>Training and jobs</h5><ul><li>78 California MFT programs</li><li>Every PsyD in the state</li><li>All 58 county job portals</li><li>What counties pay clinicians</li><li>Loan forgiveness employers</li></ul></div></div></div><div class="band" style="padding-top:0"><div class="news"><span class="t">One email when a number moves.<span class="fine" style="display:block;font-weight:400;margin-top:3px">Six last year. Each one because a rule changed.</span></span><span class="in">you@example.com</span><a class="btn">Subscribe</a></div></div><div class="band" style="padding-top:0"><div class="sign"><span class="eb">How this is made</span><p class="said">Every number on this site was needed by somebody running a California practice before it was published here, and worked out from statutes and fee schedules rather than from anybody&rsquo;s guess. When a figure turns out to be wrong it is fixed and the correction is listed, with its date, on the changes page.</p><p class="who">Written and checked by a licensed marriage and family therapist in California &middot; <a href="#">how corrections work &rarr;</a></p></div></div><div class="ft"><div class="g"><div><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span><p style="margin-top:12px;max-width:32ch">Free calculators and checked reference for California therapists. Every figure carries the date it was last checked against its source.</p></div><div><h6>The six paths</h6><a>Deciding</a><a>In a program</a><a>The gap</a><a>Counting hours</a><a>Newly licensed</a><a>Running a practice</a></div><div><h6>Tools</h6><a>Practice Simulator</a><a>Tax &amp; Retirement</a><a>Associate Job Advisor</a><a>Grow Your Practice</a><a>3,000 Hours</a><a>Cost of Living</a></div><div><h6>This site</h6><a>About</a><a>What changed</a><a>Every question</a><a>Corrections</a><a>Updates by email</a></div></div><div class="base"><span>&copy; 2026 Therapist Support</span><span>California only</span><span>Not legal, tax or career advice</span><span>No trackers, no ads, nothing sold</span></div></div></div></div></section><hr class="rule"><section id="assoc"><div class="kicker"><span class="n">03</span><h2>The associate landing page</h2></div><p class="lede">The room&rsquo;s three questions in its own words first, then the tool, then the shelf. The path hue runs down the left edge of the header and appears again on every leaf page in this stage.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/paths/counting-hours</span></div><div class="hs"><div class="nb"><span class="lgw"><span class="chip"><i style="background:#2F6FDB;height:15px"></i><i style="background:#BC3F86;height:10px"></i><i style="background:#B0730B;height:18px"></i><i style="background:#17864A;height:12px"></i><i style="background:#0E8FA8;height:8px"></i></span><span><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span></span></span><span class="sp"></span><a class="on">The six paths</a><a class="">Calculators</a><a class="">Library</a><a class="">About</a><a class="btn">Open a calculator</a></div><div class="band" style="border-left:6px solid var(--p4)"><span class="eb"><span class="dot d4"></span>Path 04 of six &middot; for AMFTs, ASWs and APCCs</span><h1>You are counting toward 3,000.</h1><p class="lede">Twenty-one pages written for this stage, every figure with a named source and a date. The job, the hours, the supervisor, the money, and the paperwork that decides your date.</p><p><a class="btn">Start with what is holding up your date</a> <a class="btn o">See all 21 pages</a></p></div><div class="band" style="padding-top:0"><h2>The three questions this room is actually asking.</h2><p class="fine" style="max-width:60ch;margin-bottom:18px">Taken from what people ask each other, in their words rather than ours.</p><div class="list"><div class="r"><div><span class="nm2">&ldquo;547 hours and nobody will hire me.&rdquo;</span><span class="mt">Where the jobs are, what they pay, and which employers can lawfully bill for a pre-licensed clinician</span></div><span class="kk">5 pages &rarr;</span></div><div class="r"><div><span class="nm2">&ldquo;How do I even find a supervisor?&rdquo;</span><span class="mt">Every list that exists, checked &mdash; and the rule that decides whether the one you find can count your hours at all</span></div><span class="kk">2 pages &rarr;</span></div><div class="r"><div><span class="nm2">&ldquo;Am I being underpaid?&rdquo;</span><span class="mt">What associates are actually paid in LA and the Bay, what unpaid work costs, and what a flat rate per clinical hour really means</span></div><span class="kk">4 pages &rarr;</span></div></div></div><div class="band" style="padding-top:22px"><div class="card"><span class="eb">The tool</span><h3>What is actually holding up your date</h3><p class="fine" style="max-width:56ch">Four requirements run at once and only one of them is usually binding. Put your hours in and it says which. <b>Nothing you type leaves your browser.</b></p><div class="tw" style="margin-top:14px"><table><tr><th>Requirement</th><th>You have</th><th>Needed</th><th>Binding?</th></tr><tr><td>Total hours</td><td>547</td><td>3,000</td><td>&mdash;</td></tr><tr><td>Supervised weeks</td><td>19</td><td>104</td><td><b>Yes &mdash; this is your date</b></td></tr><tr><td>Individual or triadic weeks</td><td>19</td><td>52</td><td>&mdash;</td></tr><tr><td>Direct client hours</td><td>402</td><td>1,750</td><td>&mdash;</td></tr></table></div><p class="fine" style="margin:12px 0 0">The 3,000 is almost never what decides your date. The weeks are.</p></div></div><div class="slab"><span class="eb">What differs by registration</span><h2>If you are an ASW, two rules apply that nobody else has.</h2><p><b>1,700 of your 3,000 hours</b> must be supervised by an LCSW, and <b>13 of your 52</b> individual or triadic weeks must be too. They are independent &mdash; meeting one does not meet the other. APCCs have no equivalent rule, and neither do AMFTs.</p></div><div class="band"><h2>Everything for this stage.</h2><div class="ix"><div><h5>Getting the job</h5><ul><li>Getting hired as a California associate <span>&mdash; what employers actually screen on</span></li><li>All 58 county job portals <span>&mdash; seven guessable URLs are wrong</span></li><li>What counties pay clinicians <span>&mdash; from the payroll file</span></li><li>Associate pay, LA and the Bay <span>&mdash; 19 employer scales</span></li><li>Loan forgiveness employers <span>&mdash; and the test each one meets</span></li></ul></div><div><h5>The hours themselves</h5><ul><li>What is holding up your 3,000 <span>&mdash; the tool above</span></li><li>Finding a clinical supervisor <span>&mdash; every list, checked</span></li><li>Unpaid associate work <span>&mdash; what it costs, and what the Labor Commissioner says</span></li><li>Hours by telehealth, out of state <span>&mdash; the Board&rsquo;s answer</span></li><li>Hours trackers compared <span>&mdash; including the ones to avoid</span></li></ul></div><div><h5>The paperwork and the risk</h5><ul><li>BBS fees, 2026 <span>&mdash; halved in July, reverting in 2030</span></li><li>Continuing education <span>&mdash; 36 hours, and the 62% that fail</span></li><li>48 real discipline decisions <span>&mdash; de-identified</span></li><li>Liability insurance <span>&mdash; eight programs priced</span></li><li>Exam pass rates <span>&mdash; from the Board&rsquo;s own statistics</span></li></ul></div></div></div><div class="band" style="padding-top:0"><div class="news"><span class="t">Told when the Board moves a rule.<span class="fine" style="display:block;font-weight:400;margin-top:3px">The BBS changes these every couple of years. One email when it does.</span></span><span class="in">you@example.com</span><a class="btn">Subscribe</a></div><div class="sign"><span class="eb">How this is made</span><p class="said">This page exists because none of it was written down in one place. If something here has gone out of date, say so &mdash; it gets fixed and the change is listed with its date rather than quietly swapped in.</p><p class="who">Written and checked by a licensed marriage and family therapist in California &middot; <a href="#">how corrections work &rarr;</a></p></div></div><div class="ft"><div class="g"><div><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span><p style="margin-top:12px;max-width:32ch">Free calculators and checked reference for California therapists. Every figure carries the date it was last checked against its source.</p></div><div><h6>The six paths</h6><a>Deciding</a><a>In a program</a><a>The gap</a><a>Counting hours</a><a>Newly licensed</a><a>Running a practice</a></div><div><h6>Tools</h6><a>Practice Simulator</a><a>Tax &amp; Retirement</a><a>Associate Job Advisor</a><a>Grow Your Practice</a><a>3,000 Hours</a><a>Cost of Living</a></div><div><h6>This site</h6><a>About</a><a>What changed</a><a>Every question</a><a>Corrections</a><a>Updates by email</a></div></div><div class="base"><span>&copy; 2026 Therapist Support</span><span>California only</span><span>Not legal, tax or career advice</span><span>No trackers, no ads, nothing sold</span></div></div></div></div></section><hr class="rule"><section id="article"><div class="kicker"><span class="n">04</span><h2>A content page</h2></div><p class="lede">A single measure with a contents rail. The slab carries the one thing to take away, which on this page is the correction the whole article exists for.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/finding-a-clinical-supervisor-california</span></div><div class="hs"><div class="nb"><span class="lgw"><span class="chip"><i style="background:#2F6FDB;height:15px"></i><i style="background:#BC3F86;height:10px"></i><i style="background:#B0730B;height:18px"></i><i style="background:#17864A;height:12px"></i><i style="background:#0E8FA8;height:8px"></i></span><span><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span></span></span><span class="sp"></span><a class="">The six paths</a><a class="">Calculators</a><a class="">Library</a><a class="">About</a><a class="btn">Open a calculator</a></div><div class="band"><div class="split"><div><p class="meta">LICENSURE &middot; CHECKED 13 AUGUST 2026 &middot; 30 SOURCES</p><h1>Finding a clinical supervisor in California.</h1><p class="lede">The Board does not certify supervisors and keeps no roster, so this is where the lists actually are &mdash; and the rule that decides whether the person you find can count your hours at all.</p><p>California licenses 165,000 people and publishes a list of exactly <span class="scribble">zero</span> supervisors. It does not approve them in advance, does not keep a register of them, and its license lookup has no supervisor field. What exists instead is nine county chapter directories, one statewide association list with no contact details on it, and two commercial products.</p><p class="pull">In a private practice, you cannot simply hire your own supervisor.</p><p>BPC &sect;4980.43.4(b)(1) requires a supervisor of an associate in a private practice to be <b>employed by, contracted by, or an owner of the associate&rsquo;s employer</b>. Those are the three permitted statuses. &ldquo;Paid by the associate&rdquo; is not one of them, and weeks under a privately retained supervisor are not creditable.</p><div class="aside"><p><b>There is a lawful route, and it needs your employer to act.</b> The employer contracts the supervisor, and a written oversight agreement is signed <b>before supervision starts</b> &mdash; not within any grace period.</p></div><h2>Where the lists actually are</h2><p>Every candidate was fetched on 13 August 2026. Nine of the twenty-three CAMFT chapters publish a supervisor list; fourteen do not, and two of the chapters that are supposed to carry one no longer exist as organizations.</p><div class="tw"><table><tr><th>List</th><th>Who runs it</th><th>Entries</th></tr><tr><td>LA-CAMFT, Supervision Offered</td><td>CAMFT chapter</td><td>314</td></tr><tr><td>CAMFT Certified Supervisors</td><td>Association</td><td>302</td></tr><tr><td>East Bay CAMFT Supervision Finder</td><td>CAMFT chapter</td><td>150</td></tr><tr><td>Marin CAMFT</td><td>CAMFT chapter</td><td>116</td></tr></table></div><p class="fine">Counts are what each source reports on its own page. Nothing from any of these directories is reproduced here &mdash; they are other people&rsquo;s membership lists.</p><h2>What it costs</h2><p>There is no fee schedule for supervision in California and no survey of what supervisors charge. What exists is one question in the Board&rsquo;s own 2024 Pathway to Licensure survey: <b>18% of 3,168 respondents paid at all</b>, and of those who did, <b>35% paid more than $300 a month</b>.</p><h3>Sources</h3><ol class="src"><li>BPC &sect;4980.03(g) &mdash; supervisor qualifications</li><li>BPC &sect;4980.43.4 &mdash; the private-practice rule and the oversight agreement</li><li>16 CCR &sect;1833 &mdash; the 60-day supervision agreement</li><li>BBS 2025 Sunset Review Report, Attachment C-1C &mdash; the cost figures</li></ol></div><div class="toc"><b>On this page</b><a class="on">Where the lists are</a><a>The private-practice trap</a><a>Whether they may supervise you</a><a>What the week looks like</a><a>What it costs</a><a>Three deadlines</a><a>What to ask</a><a>Sources</a><div class="card" style="margin-top:18px;padding:14px 15px"><span class="eb" style="margin-bottom:6px">In this stage</span><p class="fine" style="margin:0"><span class="dot d4"></span>Counting hours &mdash; 21 pages</p></div></div></div></div><div class="slab"><span class="eb">The one thing to take away</span><h2>A privately retained supervisor is not a supervisor, in a private practice.</h2><p>Somebody who spends three months paying a supervisor they found themselves, at a practice that never contracted them, has <span class="hl">bought nothing</span>. Ask the question before the first session, not at the end.</p></div><div class="band"><div class="news"><span class="t">One email when a number moves.<span class="fine" style="display:block;font-weight:400;margin-top:3px">Six last year. Each one because a rule changed.</span></span><span class="in">you@example.com</span><a class="btn">Subscribe</a></div><div class="sign"><span class="eb">How this is made</span><p class="said">Every statute on this page is linked to its own text, so none of it has to be taken on trust. People lose months to the rule above; that is why it is at the top.</p><p class="who">Written and checked by a licensed marriage and family therapist in California &middot; <a href="#">how corrections work &rarr;</a></p></div></div><div class="ft"><div class="g"><div><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span><p style="margin-top:12px;max-width:32ch">Free calculators and checked reference for California therapists. Every figure carries the date it was last checked against its source.</p></div><div><h6>The six paths</h6><a>Deciding</a><a>In a program</a><a>The gap</a><a>Counting hours</a><a>Newly licensed</a><a>Running a practice</a></div><div><h6>Tools</h6><a>Practice Simulator</a><a>Tax &amp; Retirement</a><a>Associate Job Advisor</a><a>Grow Your Practice</a><a>3,000 Hours</a><a>Cost of Living</a></div><div><h6>This site</h6><a>About</a><a>What changed</a><a>Every question</a><a>Corrections</a><a>Updates by email</a></div></div><div class="base"><span>&copy; 2026 Therapist Support</span><span>California only</span><span>Not legal, tax or career advice</span><span>No trackers, no ads, nothing sold</span></div></div></div></div></section><hr class="rule"><section id="dir"><div class="kicker"><span class="n">05</span><h2>A directory listing</h2></div><p class="lede">The shape that covers 58 county portals, 78 programs, 15 supervisor lists and 48 discipline decisions. Filters as chips, counts on the right, and the negative findings given equal weight.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/finding-a-clinical-supervisor-california#lists</span></div><div class="hs"><div class="nb"><span class="lgw"><span class="chip"><i style="background:#2F6FDB;height:15px"></i><i style="background:#BC3F86;height:10px"></i><i style="background:#B0730B;height:18px"></i><i style="background:#17864A;height:12px"></i><i style="background:#0E8FA8;height:8px"></i></span><span><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span></span></span><span class="sp"></span><a class="">The six paths</a><a class="">Calculators</a><a class="">Library</a><a class="">About</a><a class="btn">Open a calculator</a></div><div class="band"><p class="meta">DIRECTORY &middot; EVERY ENTRY FETCHED 13 AUGUST 2026</p><h1>Where a California supervisor list actually is.</h1><p class="lede">Fifteen candidates fetched and counted. Nine of the twenty-three CAMFT chapters publish one, fourteen do not, and three of the addresses people are still sent to no longer exist.</p><div class="chips"><span class="on">All 15</span><span>Free to browse</span><span>CAMFT chapters</span><span>Statewide</span><span>Shows availability</span><span>Bay Area</span><span>Southern California</span></div><div class="list"><div class="r"><div><span class="nm2">Psychology Today, clinical supervision</span><span class="mt">Statewide &middot; self-declared category &middot; has contact details</span></div><span class="kk"><b>3,875</b>entries</span></div><div class="r"><div><span class="nm2">LA-CAMFT, Supervision Offered</span><span class="mt">Los Angeles &middot; name, phone, city &middot; free</span></div><span class="kk"><b>314</b>entries</span></div><div class="r"><div><span class="nm2">CAMFT Certified Supervisors</span><span class="mt">Statewide &middot; name and city only &middot; free</span></div><span class="kk"><b>302</b>entries</span></div><div class="r"><div><span class="nm2">East Bay CAMFT Supervision Finder</span><span class="mt">East Bay &middot; supervision type and credentials</span></div><span class="kk"><b>150</b>entries</span></div><div class="r"><div><span class="nm2">Marin CAMFT Supervisor Directory</span><span class="mt">North Bay &middot; phone and supervision type</span></div><span class="kk"><b>116</b>entries</span></div><div class="r"><div><span class="nm2">Redwood Empire CAMFT</span><span class="mt">Sonoma and the North Coast</span></div><span class="kk"><b>99</b>entries</span></div><div class="r"><div><span class="nm2">Orange County CAMFT</span><span class="mt">Orange County &middot; the only real list south of LA</span></div><span class="kk"><b>63</b>entries</span></div><div class="r"><div><span class="nm2">Zencare, clinical supervision</span><span class="mt">Statewide &middot; the only source showing live availability</span></div><span class="kk"><b>49</b>entries</span></div></div></div><div class="slab"><span class="eb">The finding</span><h2>Coverage is not where the people are.</h2><p>Marin publishes 116 names and Redwood Empire 99, for a combined population under a million. <b>San Diego, Sacramento, San Francisco, Santa Clara Valley, the San Fernando Valley and Ventura publish none at all</b> &mdash; which is most of the state&rsquo;s associates.</p></div><div class="band"><div class="g2"><div><h3>Checked, and there is nothing there</h3><p class="fine">Nine places people are sent that publish no list: the Board itself, NASW California, CALPCC, CalSWEC, TherapyDen, Open Path, Alma and Headway, CounselingCalifornia, and CalMHSA &mdash; which buys supervision in bulk and sells it to counties, not to people.</p></div><div><h3>Still ranked, no longer there</h3><p class="fine"><code>rrccamft.org</code> resolves and lands on an unrelated commercial site &mdash; the domain was sold. <code>sierrafoothillscamft.com</code> and <code>supervisiondirectory.com</code> do not resolve at all. CAMFT&rsquo;s own chapter-links page still points at two of them.</p></div></div><p class="fine" style="max-width:70ch;margin-top:18px">Counts are what each source reports about itself. Nothing from any of these directories is reproduced here, and a link is an address rather than a recommendation &mdash; this site has not met these supervisors and takes nothing from anybody for a mention.</p></div><div class="band" style="padding-top:0"><div class="news"><span class="t">One email when a number moves.<span class="fine" style="display:block;font-weight:400;margin-top:3px">Six last year. Each one because a rule changed.</span></span><span class="in">you@example.com</span><a class="btn">Subscribe</a></div></div><div class="ft"><div class="g"><div><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span><p style="margin-top:12px;max-width:32ch">Free calculators and checked reference for California therapists. Every figure carries the date it was last checked against its source.</p></div><div><h6>The six paths</h6><a>Deciding</a><a>In a program</a><a>The gap</a><a>Counting hours</a><a>Newly licensed</a><a>Running a practice</a></div><div><h6>Tools</h6><a>Practice Simulator</a><a>Tax &amp; Retirement</a><a>Associate Job Advisor</a><a>Grow Your Practice</a><a>3,000 Hours</a><a>Cost of Living</a></div><div><h6>This site</h6><a>About</a><a>What changed</a><a>Every question</a><a>Corrections</a><a>Updates by email</a></div></div><div class="base"><span>&copy; 2026 Therapist Support</span><span>California only</span><span>Not legal, tax or career advice</span><span>No trackers, no ads, nothing sold</span></div></div></div></div></section><hr class="rule"><section id="email"><div class="kicker"><span class="n">06</span><h2>The email sign-up</h2></div><p class="lede">The claim is a number, and the archive is on the page above the form &mdash; you can read every past issue before giving an address.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/updates</span></div><div class="hs"><div class="nb"><span class="lgw"><span class="chip"><i style="background:#2F6FDB;height:15px"></i><i style="background:#BC3F86;height:10px"></i><i style="background:#B0730B;height:18px"></i><i style="background:#17864A;height:12px"></i><i style="background:#0E8FA8;height:8px"></i></span><span><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span></span></span><span class="sp"></span><a class="">The six paths</a><a class="">Calculators</a><a class="">Library</a><a class="">About</a><a class="btn">Open a calculator</a></div><div class="band"><div class="split"><div><h1>One email when a number <span class="scribble">moves</span>.</h1><p class="lede">The Board changes its fees, the IRS changes a threshold, a payer quietly re-prices a code. That is when this sends. Not weekly, not a digest, not a funnel.</p><div class="card"><h3>What actually gets sent</h3><ol class="steps" style="margin-top:14px"><li><b>A rule changed</b>, and what it does to your arithmetic. The change, the source, the new number, and which page moved.</li><li><b>A new calculator</b>, once, when one lands.</li><li><b>A correction</b>, when I get something wrong. These go out even when it is embarrassing.</li></ol><div class="news" style="margin:20px 0 0;border-bottom:0;padding-bottom:0"><span class="in">you@example.com</span><a class="btn">Subscribe</a></div><p class="fine" style="margin:12px 0 0">Unsubscribe link in every one. The list is never used for anything else, never sold, and never rented.</p></div><h2 style="margin-top:32px">Everything sent last year.</h2><p class="fine" style="max-width:58ch">Six emails. The claim is a number rather than an adjective, so you can check it before you subscribe.</p><div class="list"><div class="r"><div><span class="nm2">BBS fees halved &mdash; what it saves you, and the 2030 reversion</span></div><span class="kk">14 Jul 2026</span></div><div class="r"><div><span class="nm2">The 2026 federal brackets, and the one that changes S-corp math</span></div><span class="kk">02 May 2026</span></div><div class="r"><div><span class="nm2">Correction: the CIIS tuition card was wrong for six days</span></div><span class="kk">19 Mar 2026</span></div><div class="r"><div><span class="nm2">Medi-Cal rates re-priced per code</span></div><span class="kk">28 Jan 2026</span></div><div class="r"><div><span class="nm2">New: the Associate Job Advisor</span></div><span class="kk">11 Nov 2025</span></div><div class="r"><div><span class="nm2">Supervision agreement form renumbered to 37M-300</span></div><span class="kk">03 Sep 2025</span></div></div></div><div class="toc"><b>Why trust the list</b><p class="fine" style="margin:0 0 12px">No tracking pixel. The email does not know whether you opened it.</p><p class="fine" style="margin:0 0 12px">No segmentation, no drip sequence, no re-engagement campaign.</p><p class="fine" style="margin:0">Nothing is sold here, so there is nothing to sell you later.</p></div></div></div><div class="slab"><span class="eb">The promise, as a number</span><h2>Six emails in twelve months.</h2><p>Every one of them because a figure on this site changed. You can read all six above <span class="hl">before you subscribe</span>, which is not a thing most newsletters let you do.</p></div><div class="band"><div class="sign"><span class="eb">How this is made</span><p class="said">If the list ever becomes something other than this, the email that changes it will say so, and you can leave from that same email.</p><p class="who">Written and checked by a licensed marriage and family therapist in California &middot; <a href="#">how corrections work &rarr;</a></p></div></div><div class="ft"><div class="g"><div><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span><p style="margin-top:12px;max-width:32ch">Free calculators and checked reference for California therapists. Every figure carries the date it was last checked against its source.</p></div><div><h6>The six paths</h6><a>Deciding</a><a>In a program</a><a>The gap</a><a>Counting hours</a><a>Newly licensed</a><a>Running a practice</a></div><div><h6>Tools</h6><a>Practice Simulator</a><a>Tax &amp; Retirement</a><a>Associate Job Advisor</a><a>Grow Your Practice</a><a>3,000 Hours</a><a>Cost of Living</a></div><div><h6>This site</h6><a>About</a><a>What changed</a><a>Every question</a><a>Corrections</a><a>Updates by email</a></div></div><div class="base"><span>&copy; 2026 Therapist Support</span><span>California only</span><span>Not legal, tax or career advice</span><span>No trackers, no ads, nothing sold</span></div></div></div></div></section><hr class="rule"><section id="about"><div class="kicker"><span class="n">07</span><h2>About</h2></div><p class="lede">Four questions as rows, the rule everything follows from in the slab, and the signature doing the work it was borrowed for.</p><div class="frame"><div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">therapistsupport.org/about</span></div><div class="hs"><div class="nb"><span class="lgw"><span class="chip"><i style="background:#2F6FDB;height:15px"></i><i style="background:#BC3F86;height:10px"></i><i style="background:#B0730B;height:18px"></i><i style="background:#17864A;height:12px"></i><i style="background:#0E8FA8;height:8px"></i></span><span><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span></span></span><span class="sp"></span><a class="">The six paths</a><a class="">Calculators</a><a class="">Library</a><a class="on">About</a><a class="btn">Open a calculator</a></div><div class="band"><span class="eb">About</span><h1>Who made this, and what I want from you.</h1><p class="lede" style="max-width:48ch">Nothing. There is no email box on the tools, no account, no course at the end and no affiliate link on any figure that matters.</p><div class="list" style="max-width:74ch"><div class="r"><div><span class="nm2">Who made it?</span><span class="mt">One licensed marriage and family therapist in California, who needed these numbers first and could not find them.</span></div></div><div class="r"><div><span class="nm2">What do they want?</span><span class="mt">Nothing is sold here. There is a newsletter and it sends about six times a year, and you can read every past issue before you give it an address.</span></div></div><div class="r"><div><span class="nm2">Why should you believe a figure?</span><span class="mt">Because it says where it came from and when it was last checked, and because the ones that moved are listed on a page instead of being quietly replaced.</span></div></div><div class="r"><div><span class="nm2">What if it is wrong?</span><span class="mt">Tell me. It gets fixed, and the correction is listed on the changes page with the date &mdash; including the embarrassing ones, of which there have been three.</span></div></div></div></div><div class="slab"><span class="eb">The one rule everything else follows from</span><h2>It computes, it doesn&rsquo;t opine.</h2><p>Every dollar on this site is the output of a calculation you can follow, run on numbers you typed in. There are no illustrative figures, no worked examples standing in for your practice, and <span class="hl">nothing you type leaves your browser</span>.</p><div class="figs"><div><b>203</b><span>pages</span></div><div><b>6</b><span>free calculators</span></div><div><b>0</b><span>trackers</span></div><div><b>3</b><span>corrections published</span></div></div></div><div class="band"><div class="g3"><div class="card"><h4>What this is</h4><p class="fine" style="margin:0">Six calculators and 203 checked pages, for California only. Written for LMFTs, LCSWs, LPCCs, psychologists and registered associates.</p></div><div class="card"><h4>What it is not</h4><p class="fine" style="margin:0">Legal, tax or career advice. A directory that takes payment for a listing. A lead magnet for something else.</p></div><div class="card"><h4>How it is paid for</h4><p class="fine" style="margin:0">It is not. It costs very little to run, and that is the whole business model. If that ever changes it will be said here first.</p></div></div></div><div class="band" style="padding-top:0"><div class="sign"><span class="eb">How this is made</span><p class="said">The numbers a California practice runs on &mdash; a fair rate, what an associate job really pays, whether to incorporate, what insurance actually reimburses &mdash; are not published anywhere as a set. They were worked out one at a time here, from statutes and fee schedules, and every one of them shows its source.</p><p class="who">Written and checked by a licensed marriage and family therapist in California &middot; <a href="#">how corrections work &rarr;</a></p></div></div><div class="band" style="padding-top:0"><div class="news"><span class="t">One email when a number moves.<span class="fine" style="display:block;font-weight:400;margin-top:3px">Six last year. Each one because a rule changed.</span></span><span class="in">you@example.com</span><a class="btn">Subscribe</a></div></div><div class="ft"><div class="g"><div><span class="wm">Therapist Support</span><span class="sub">California &middot; free</span><p style="margin-top:12px;max-width:32ch">Free calculators and checked reference for California therapists. Every figure carries the date it was last checked against its source.</p></div><div><h6>The six paths</h6><a>Deciding</a><a>In a program</a><a>The gap</a><a>Counting hours</a><a>Newly licensed</a><a>Running a practice</a></div><div><h6>Tools</h6><a>Practice Simulator</a><a>Tax &amp; Retirement</a><a>Associate Job Advisor</a><a>Grow Your Practice</a><a>3,000 Hours</a><a>Cost of Living</a></div><div><h6>This site</h6><a>About</a><a>What changed</a><a>Every question</a><a>Corrections</a><a>Updates by email</a></div></div><div class="base"><span>&copy; 2026 Therapist Support</span><span>California only</span><span>Not legal, tax or career advice</span><span>No trackers, no ads, nothing sold</span></div></div></div></div></section><hr class="rule"><section id="build"><div class="kicker"><span class="n">08</span><h2>How to build it</h2></div><p class="lede">In an order where nothing has to be finished before anything else is useful.</p><div class="moves"><div class="row"><div class="n">STEP 1</div><div class="b"><h4>The tokens and the two type sizes</h4><p>One stylesheet. Everything above is eight color tokens, six hues, four heading sizes and one body size. It replaces the current palette rather than sitting beside it, so this is the step that cannot be half done.</p></div></div><div class="row"><div class="n">STEP 2</div><div class="b"><h4>The navigation, the footer and the signature block</h4><p>Three components on 203 pages, all three generated by existing passes. The signature is a partial with one sentence that varies per page.</p></div></div><div class="row"><div class="n">STEP 3</div><div class="b"><h4>The home page</h4><p>It is the page in section 02, and every link on it already exists. No URL moves.</p></div></div><div class="row"><div class="n">STEP 4</div><div class="b"><h4>The six path pages</h4><p>Generated from the <code>stages</code> tagging already in <code>registry.json</code>. Path 3 stays folded into path 4 until it has content of its own &mdash; four pages is not a destination.</p></div></div><div class="row"><div class="n">STEP 5</div><div class="b"><h4>The article and directory templates</h4><p>These two shapes cover roughly 190 of the 203 pages, so this is the step where the redesign is actually felt by a reader.</p></div></div><div class="row"><div class="n">STEP 6</div><div class="b"><h4>The email page, the about page, the slab audit</h4><p>Last, and the audit is the part to not skip: walk every page and confirm it carries <b>exactly one</b> slab. The rule is the design.</p></div></div></div><div class="note"><p><b>Nothing here needs a new typeface.</b> Display is Bricolage Grotesque, figures are Fraunces, labels are IBM Plex Mono &mdash; the three faces already on every page of this site. What changes is how they are set: bigger, heavier, with more air around them, and with the body left readable rather than scaled up to match. That is a stylesheet, not a purchase.</p><p><b>And still true:</b> a redesign and a move to Rails are two projects. This ships on the current static build; Rails would inherit finished templates.</p></div></section></div><footer><div class="wrap"><p style="margin:0">Working document, not linked from the site and not indexable. The six pages are drawings &mdash; no link in them goes anywhere, and the figures in them are the site&rsquo;s real ones. Written 13 August 2026.</p></div></footer></body></html>

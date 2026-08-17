@@ -33,10 +33,10 @@ body.bct{
 body.bct .fchip.fchip{font-size:10.5px}
 body.bct .chk.chk{font-size:10.5px}
 body.bct .f em, body.bct .fgrid .f em, body.bct label.f em, body.bct .f.sm em{font-size:10.5px}
-body.bct .f .hint, body.bct .f span.hint{font-size:10.2px}
-body.bct .tile em, body.bct .tile > em{font-size:10.2px}
+body.bct .f .hint, body.bct .f span.hint{font-size:10.5px}
+body.bct .tile em, body.bct .tile > em{font-size:10.5px}
 body.bct .f em, body.bct .fsub{font-size:10.5px}
-body.bct .fsub{font-size:11px;letter-spacing:.1em}
+body.bct .fsub{font-size:10.5px;letter-spacing:.1em}
 body.bct p, body.bct li, body.bct dd, body.bct dt, body.bct blockquote, body.bct figcaption, body.bct summary, body.bct .lco, body.bct .srn, body.bct .tcio, body.bct cite, body.bct q{overflow-wrap:anywhere}
 body.bct .libband.libband .in.in{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
 body.bct .libwrap.libwrap{max-width:1180px;padding-left:26px;padding-right:26px;margin-left:auto;margin-right:auto}
@@ -71,7 +71,7 @@ body.bct .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;alig
 body.bct .band h1 em{font-style:normal;color:var(--pop)}
 body.bct .band .lede b{color:#fff}
 body.bct .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-body.bct p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
+body.bct p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 body.bct .sec.alt .card{background:var(--paper)}
 body.bct .sec.alt .ref{background:var(--paper)}
 body.bct .sec.alt .fact{background:var(--cream)}

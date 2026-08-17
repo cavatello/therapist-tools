@@ -37,14 +37,14 @@ a{color:inherit}
 .sitenav-fig{width:28px;height:28px;flex:none;display:block}
 .sitenav-wordmark{font-family:Fraunces,serif;font-size:15px;font-weight:700;color:#fff;
  letter-spacing:-.012em;line-height:1.15}
-.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:8.5px;font-weight:700;
+.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;
  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px;
  white-space:nowrap}
 /* the segmented control: three equal columns, never a flex overflow */
 .sitenav-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;
  background:rgba(0,0,0,.26);border-radius:999px;padding:3px;justify-self:center;
  width:100%;max-width:330px}
-.sitenav-top{font:inherit;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.74);
+.sitenav-top{font:inherit;font-size:12px;font-weight:600;color:rgba(255,255,255,.74);
  background:none;border:0;padding:7px 6px;border-radius:6px;cursor:pointer;
  min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -52,12 +52,12 @@ a{color:inherit}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
 .sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
-.sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
+.sitenav-top:after{content:"\25BE";font-size:9.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 /* Newsletter ask, in the bar itself. The panel promo only appears once someone
    opens the menu; this is the one that is always on screen. */
 .sitenav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;
- background:var(--pop);color:#2A2010;font-size:12.5px;font-weight:700;
+ background:var(--pop);color:#2A2010;font-size:12px;font-weight:700;
  padding:10px 17px;border-radius:6px;text-decoration:none;white-space:nowrap;
  min-height:38px;box-shadow:0 3px 0 rgba(140,96,18,.35)}
 .sitenav-cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
@@ -76,7 +76,7 @@ a{color:inherit}
 }
 @media (max-width:860px){
  .sitenav-sub{display:none}
- .sitenav-wordmark{font-size:14px}
+ .sitenav-wordmark{font-size:13.5px}
  .sitenav-fig{width:26px;height:26px}
  .sitenav-cta .long{display:none}
  .sitenav-cta .short{display:inline}
@@ -98,7 +98,7 @@ a{color:inherit}
  .sitenav-wordmark{min-width:0;overflow:hidden;text-overflow:ellipsis}
  .sitenav-cta{grid-area:cta;justify-self:end}
  .sitenav-links{grid-area:nav;max-width:none;width:100%}
- .sitenav-top{font-size:12.5px;padding:9px 4px}
+ .sitenav-top{font-size:12px;padding:9px 4px}
  /* The tagline stays hidden here, as it is from 860px down. Restoring it was
     what pushed the lockup past the capsule in the first place, and at 390px
     there is no width for it beside the newsletter button. */
@@ -111,7 +111,7 @@ a{color:inherit}
  /* The chevron is decorative - the panel opens either way - and at this width it
     is the thing tipping each label into an ellipsis. Drop it rather than shrink
     type that is already at its floor. */
- .sitenav-top{font-size:11.5px;overflow:visible}
+ .sitenav-top{font-size:12px;overflow:visible}
  .sitenav-top:after{display:none}
 }
 .navpanel{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
@@ -124,23 +124,23 @@ a{color:inherit}
  text-decoration:none;color:var(--ink)}
 .np-col a:hover,.np-col a.on{background:var(--paper)}
 .np-col a img{width:22px;height:22px;flex:none;margin-top:1px}
-.np-col b{display:block;font-size:13px;font-weight:700}
-.np-col i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px;
+.np-col b{display:block;font-size:13.5px;font-weight:700}
+.np-col i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);margin-top:2px;
  line-height:1.45}
 .np-promo{display:block;background:var(--carbon);border-radius:10px;padding:15px;
  text-align:center;text-decoration:none}
 .np-promo img{width:76px;height:76px}
 .np-promo b{display:block;font-family:Fraunces,serif;font-size:15px;color:#fff;margin-top:7px}
-.np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.7)}
+.np-promo p{margin:7px 0 11px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.7)}
 .np-promo span{display:inline-block;background:var(--pop);color:#2A2010;font-weight:800;
- font-size:11.5px;padding:9px 14px;border-radius:10px}
+ font-size:12px;padding:9px 14px;border-radius:10px}
 
 /* ---- bands and sections */
 .band{background:#123C30;
  color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
-.kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+.kick{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
  color:var(--pop);margin:0 0 10px}
 /* SCOPED, for the same reason .lede is: rates.html appends this sheet after its
    own, so a bare h1{color:#fff} painted that article's headline white on cream.
@@ -152,11 +152,11 @@ a{color:inherit}
  rates.html - which appends page.css after its own sheet - and painted the
  article's opening paragraph 84% white on cream. Invisible, and only on the
  one page that is not generated from here. */
-.band .lede{font-size:15.5px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
+.band .lede{font-size:15px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
  max-width:58ch}
 .band .lede b{color:#fff}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
+.who span{font-size:12px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -164,23 +164,23 @@ h2{font-family:Fraunces,serif;font-size:clamp(22px,2.4vw,27px);font-weight:600;m
  letter-spacing:-.015em}
 .grouplab{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap}
 .grouplab h2{margin:0}
-.grouplab span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+.grouplab span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
  color:var(--gold)}
-p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
+p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cards.four{grid-template-columns:repeat(4,1fr)}
 .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px}
 .sec.alt .card{background:var(--paper)}
 .card img{width:32px;height:32px;margin-bottom:10px;display:block}
-.card h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 7px}
-.card p{font-size:12.8px;line-height:1.65;color:#4E4940;margin:0}
+.card h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 7px}
+.card p{font-size:13.5px;line-height:1.65;color:#4E4940;margin:0}
 .reflist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
 .ref{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
  border-radius:10px;padding:14px 16px}
 .sec.alt .ref{background:var(--paper)}
 .ref img{width:26px;height:26px;flex:none;margin-top:2px}
 .ref b{display:block;font-size:13.5px;margin-bottom:3px}
-.ref i{display:block;font-style:normal;font-size:12.3px;line-height:1.6;color:#4E4940}
+.ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
@@ -188,13 +188,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .sec.alt .fact{background:var(--cream)}
-.fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
+.fact em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .fact b{font-family:Fraunces,serif;font-size:19px;display:block}
-.fact i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:5px;
+.fact i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:5px;
  line-height:1.55}
 .ctarow{margin:22px 0 0}
-.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
+.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:13.5px;
  padding:12px 22px;border-radius:10px;text-decoration:none}
 .btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
@@ -203,7 +203,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* ---- newsletter */
 .getlist{margin:20px 0 22px;padding:0;list-style:none}
-.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.8px;line-height:1.62;
+.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.62;
  color:rgba(255,255,255,.84);margin-bottom:11px}
 .getlist img{width:20px;height:20px;flex:none;margin-top:2px}
 .getlist b{color:#fff}
@@ -225,8 +225,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  outline-offset:2px}
 .consent{display:flex;gap:9px;align-items:flex-start;margin-top:12px;max-width:62ch;cursor:pointer}
 .consent input{width:16px;height:16px;flex:none;margin:1px 0 0;accent-color:var(--pop)}
-.consent span{font-size:11.8px;line-height:1.55;color:rgba(255,255,255,.66)}
-.nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
+.consent span{font-size:12px;line-height:1.55;color:rgba(255,255,255,.66)}
+.nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
 /* ---- submitted state
    The form posts by fetch and swaps itself for this, so nobody is thrown onto
    Formspree's own thanks page. Sized to the form it replaces so the band does
@@ -237,9 +237,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 @keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:var(--pop);
  color:#2A2010;font-size:15px;font-weight:800;line-height:26px;text-align:center}
-.nlok b{display:block;font-family:Fraunces,serif;font-size:16px;color:#fff;margin-bottom:5px}
-.nlok p{font-size:12.6px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
-.nlok p + p{margin-top:7px;font-size:11.4px;color:rgba(255,255,255,.5)}
+.nlok b{display:block;font-family:Fraunces,serif;font-size:16.5px;color:#fff;margin-bottom:5px}
+.nlok p{font-size:12px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
+.nlok p + p{margin-top:7px;font-size:12px;color:rgba(255,255,255,.5)}
 .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 /* Light-background variant, for the end-of-article ask on a cream section. */
@@ -256,11 +256,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
 .issue-h img{width:26px;height:26px;flex:none}
 .issue-h b{font-family:Fraunces,serif;font-size:15px}
-.issue-h span{font-size:11px;color:var(--muted);margin-left:auto;
+.issue-h span{font-size:10.5px;color:var(--muted);margin-left:auto;
  font-family:'IBM Plex Mono',monospace}
-.issue h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 8px}
-.issue p{font-size:13px;line-height:1.7;color:#4E4940;margin:0 0 13px}
-.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12.6px;color:#4E4940;
+.issue h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 8px}
+.issue p{font-size:13.5px;line-height:1.7;color:#4E4940;margin:0 0 13px}
+.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12px;color:#4E4940;
  padding:9px 0;border-top:1px dashed var(--line);line-height:1.55}
 .issue-row b{font-family:'IBM Plex Mono',monospace;color:var(--gold);flex:none}
 
@@ -272,11 +272,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ftnl-t{flex:1;min-width:300px}
 .ftnl h2{font-family:Fraunces,serif;font-size:23px;color:#fff;margin:0 0 9px;line-height:1.24}
 .ftnl h2 em{font-style:normal;color:var(--pop)}
-.ftnl p{font-size:13.2px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.ftnl p{font-size:13.5px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
 /* .ftnl p is (0,1,1) and beat .nlmeta at (0,1,0), so the fine print rendered at
    the same size and colour as the consent line above it and read as one run-on
    paragraph. Restate it at equal weight rather than reordering the sheet. */
-.ftnl .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.44);
+.ftnl .nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.44);
  margin:12px 0 0;max-width:60ch}
 .ftnl .nlform{flex:1;min-width:min(320px,100%)}
 /* min-width:320px is wider than a 320px viewport once .ftin's 18px padding is
@@ -290,13 +290,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  border-top:1px solid rgba(255,255,255,.1);padding:24px 0 6px;margin-top:0}
 .ftcols h5{margin:0 0 12px;font-size:9.5px;font-weight:800;letter-spacing:.13em;
  text-transform:uppercase;color:var(--pop)}
-.ftcols a{display:block;font-size:12.5px;color:rgba(255,255,255,.72);text-decoration:none;
+.ftcols a{display:block;font-size:12px;color:rgba(255,255,255,.72);text-decoration:none;
  margin-bottom:9px}
 .ftcols a:hover{color:#fff;text-decoration:underline}
 .ftcols a.on{color:#fff;font-weight:600}
 .ftcols a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 .ftcols p{margin:0 0 9px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.5)}
-.ftby{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
+.ftby{font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
  padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
 .ftby b{color:rgba(255,255,255,.78)}
 
@@ -326,7 +326,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 
 /* ---- tools page */
-.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:5px 12px;
+.pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:5px 12px;
  border:1px solid}
 .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 .pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
@@ -335,19 +335,19 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding:18px 19px;display:flex;flex-direction:column}
 .sec.alt .tool{background:var(--paper)}
 .tool img{width:30px;height:30px;margin-bottom:9px}
-.tool h3{font-family:Fraunces,serif;font-size:16px;margin:0 0 6px;padding-right:74px}
-.tool p{font-size:12.6px;line-height:1.62;color:#4E4940;margin:0 0 12px}
+.tool h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 6px;padding-right:74px}
+.tool p{font-size:12px;line-height:1.62;color:#4E4940;margin:0 0 12px}
 .tool > .pill{position:absolute;top:15px;right:15px}
-.tool a{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--pine);text-decoration:none}
+.tool a{margin-top:auto;font-size:12px;font-weight:700;color:var(--pine);text-decoration:none}
 .tool a:hover{text-decoration:underline}
 /* featured slot: the tool being finished now, shown rather than described */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;
  border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-top:18px}
 .sec.alt .feat{background:var(--paper)}
 .feat h3{font-family:Fraunces,serif;font-size:23px;margin:11px 0 9px;letter-spacing:-.015em}
-.feat p{font-size:13.6px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
+.feat p{font-size:13.5px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
 .feat ul{margin:0 0 18px;padding:0;list-style:none}
-.feat li{font-size:12.9px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
+.feat li{font-size:13.5px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
  margin-bottom:8px}
 .feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:6px;
  background:var(--pine)}
@@ -355,7 +355,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .featshot{border:1px solid var(--line);border-radius:10px;overflow:hidden;
  box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F6F8F6}
 .featshot img{width:100%;height:auto;display:block;image-rendering:auto}
-.featcap{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
+.featcap{font-size:10.5px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
 @media (max-width:900px){.feat{grid-template-columns:1fr;gap:22px;padding:22px}}
 
 /* ---- contact form */
@@ -368,12 +368,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    the chevron. Sized to the content, not to a round number. */
 .cf-row{display:grid;grid-template-columns:232px minmax(0,1fr);gap:14px;margin:0 0 14px}
 .cf-f{display:block;min-width:0}
-.cf-f > span{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;
+.cf-f > span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .cf-f > span i{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;
  color:#A29A88;margin-left:5px}
 .cform input[type=text],.cform input[type=email],.cform select,.cform textarea{
- width:100%;min-width:0;font:inherit;font-size:14px;color:var(--ink);min-height:44px;
+ width:100%;min-width:0;font:inherit;font-size:13.5px;color:var(--ink);min-height:44px;
  background:var(--cream);border:1.5px solid #E4D9BE;border-radius:10px;padding:11px 13px}
 .cform select{height:44px;padding:0 11px;font-family:Fraunces,serif;font-weight:600;font-size:15px}
 .cform textarea{line-height:1.6;resize:vertical;min-height:132px}
@@ -381,13 +381,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cform input:focus-visible,.cform select:focus-visible,.cform textarea:focus-visible{
  outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
 .cf-send{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
-.cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:14px;
+.cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:13.5px;
  font-weight:700;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;min-height:44px;
  box-shadow:0 3px 0 rgba(21,52,43,.35)}
 .cform button[type=submit]:hover{background:#2C6350}
 .cform button[type=submit]:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(21,52,43,.35)}
 .cform button[aria-busy=true]{opacity:.65;cursor:progress}
-.cf-direct{font-size:12.4px;line-height:1.6;color:var(--muted);margin:0}
+.cf-direct{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
 .cf-direct a{color:var(--pine);font-weight:700}
 /* .consent is written for the dark newsletter band; on a light card it needs the
    dark text back. .sec .consent span already does this - restated here because
@@ -405,9 +405,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cfhelp{background:var(--paper);border:1px solid var(--line);border-radius:10px;
  padding:18px 20px;margin:0 0 22px;max-width:640px}
 .sec.alt .cfhelp{background:var(--cream)}
-.cfhelp h3{font-family:Fraunces,serif;font-size:15.5px;margin:0 0 11px}
+.cfhelp h3{font-family:Fraunces,serif;font-size:15px;margin:0 0 11px}
 .cfhelp ul{margin:0;padding:0;list-style:none}
-.cfhelp li{font-size:12.8px;line-height:1.62;color:#4E4940;padding-left:19px;position:relative;
+.cfhelp li{font-size:13.5px;line-height:1.62;color:#4E4940;padding-left:19px;position:relative;
  margin:0 0 9px}
 .cfhelp li:last-child{margin-bottom:0}
 .cfhelp li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
@@ -416,7 +416,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* Contact page is now the form and nothing else, so the fine print carries the
    safety signpost on its own rather than as one of a pair of cards. */
-.cf-fine{max-width:640px;margin:16px 0 0;font-size:12.4px;line-height:1.7;color:var(--muted)}
+.cf-fine{max-width:640px;margin:16px 0 0;font-size:12px;line-height:1.7;color:var(--muted)}
 .cf-fine b{color:#B5483F;font-weight:800}</style>
 <style>/* resources.html */
 /* ---- the question index (direction C), the first section on the page.
@@ -427,17 +427,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .qx a{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;
  padding:15px 2px;text-decoration:none;border-bottom:1px solid var(--line)}
 .qx a:hover h3{color:var(--pine)}
-.qx h3{font-size:16.6px;line-height:1.32;font-weight:600;margin:0;letter-spacing:0}
-.qx .tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.2px;
+.qx h3{font-size:16.5px;line-height:1.32;font-weight:600;margin:0;letter-spacing:0}
+.qx .tag{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
  letter-spacing:.1em;text-transform:uppercase;color:var(--pine);font-weight:600}
 .qx .m{display:flex;gap:10px;align-items:center;margin-top:4px;flex-wrap:wrap}
-.qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
+.qx .g{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
  text-transform:uppercase;color:#8A8477}
-.qx .ar{font-size:18px;color:var(--pine)}
+.qx .ar{font-size:19px;color:var(--pine)}
 .qx a.qtool{background:linear-gradient(90deg,rgba(246,197,96,.17),transparent 60%);
  margin:0 -11px;padding-left:13px;padding-right:13px}
 .qxnote{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--pine);
- border-radius:0 10px 10px 0;padding:15px 17px;margin:22px 0 0;font-size:13px;
+ border-radius:0 10px 10px 0;padding:15px 17px;margin:22px 0 0;font-size:13.5px;
  line-height:1.65;color:var(--muted)}
 /* ---- career-stage rails (direction A). Three per rail, never more: the cap is
    the point, not a limitation. */
@@ -446,15 +446,15 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:15px}
 .railh h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.1vw,23px);margin:0;
  font-weight:600;letter-spacing:-.018em}
-.railh span{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.1em;
+.railh span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;
  text-transform:uppercase;color:#8A8477}
 .railg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
 .rc{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:16px 17px;
  text-decoration:none;display:flex;flex-direction:column;gap:7px}
 .rc:hover{border-color:var(--pine)}
-.rc b{font-family:Fraunces,Georgia,serif;font-size:16px;line-height:1.26;font-weight:600}
-.rc i{font-style:normal;font-size:12.9px;line-height:1.6;color:var(--muted)}
-.rc .k{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.1em;
+.rc b{font-family:Fraunces,Georgia,serif;font-size:16.5px;line-height:1.26;font-weight:600}
+.rc i{font-style:normal;font-size:13.5px;line-height:1.6;color:var(--muted)}
+.rc .k{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;
  text-transform:uppercase;color:var(--pine);font-weight:600;margin-top:auto;padding-top:5px}
 .rc.tool{background:linear-gradient(160deg,rgba(246,197,96,.15),var(--white) 62%)}
 /* ---- newsletter */
@@ -462,9 +462,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding:26px 28px;margin:34px 0 6px;display:grid;grid-template-columns:1.25fr .75fr;
  gap:22px;align-items:center}
 .hubnl h3{font-family:Fraunces,Georgia,serif;font-size:clamp(18px,2.2vw,23px);margin:0;color:#fff}
-.hubnl p{margin:8px 0 0;font-size:13.4px;line-height:1.62;color:rgba(255,255,255,.84)}
+.hubnl p{margin:8px 0 0;font-size:13.5px;line-height:1.62;color:rgba(255,255,255,.84)}
 .hubnl a{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;
- border-radius:10px;background:var(--pop);color:#2A2010;font-weight:800;font-size:14px;
+ border-radius:10px;background:var(--pop);color:#2A2010;font-weight:800;font-size:13.5px;
  text-decoration:none}
 @media(max-width:760px){.railg{grid-template-columns:1fr}.hubnl{grid-template-columns:1fr}}
 .ref i b{display:inline;font-size:inherit;margin:0;font-weight:600;color:#1B2420}
@@ -490,7 +490,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 /* 7: the masthead tagline sat at 8.5px on every page and every viewport,
    including a 27-inch 5K display, where it is the smallest type on the site.
    10px still reads as a subtitle under the wordmark. */
-.sitenav-sub{font-size:10px}
+.sitenav-sub{font-size:9.5px}
 /* 8: three more found only after the first pass cleared the noise - the
    "What it costs / stores / is not" card labels on about.html at 9px, and the
    "In progress" badge at 9.5px. Both are labels, not footnotes. */
@@ -501,12 +501,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    are compounded because a narrower existing rule was winning at equal
    specificity; the computed size is asserted below rather than assumed. */
 .f em,.fgrid .f em,label.f em,.f.sm em{font-size:10.5px}
-.f .hint,.f span.hint{font-size:10.2px}
-.tile em,.tile > em{font-size:10.2px}
-.soon{font-size:10px}
-@media (max-width:520px){.bcr{font-size:10.2px}}
+.f .hint,.f span.hint{font-size:10.5px}
+.tile em,.tile > em{font-size:10.5px}
+.soon{font-size:9.5px}
+@media (max-width:520px){.bcr{font-size:10.5px}}
 .f em,.fsub{font-size:10.5px}
-.fsub{font-size:11px;letter-spacing:.1em}
+.fsub{font-size:10.5px;letter-spacing:.1em}
 .ftcols h5{font-size:10.5px}
 
 /* ---- 4: footer tap targets. The vertical gap was margin, which cannot be
@@ -533,7 +533,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    sized to be missed is not a disclosure. Small, but at full contrast and
    immediately beside the link it describes. */
 .afl{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9.4px;letter-spacing:.09em;text-transform:uppercase;
+  font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;
   background:#FBF0E2;color:#8A6516;border:1px solid #EBD9BC;border-radius:10px;
   padding:2px 7px;margin-left:6px;vertical-align:middle;white-space:nowrap}
 /* end afl */</style>
@@ -542,7 +542,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    because "where is everything?" is the question a menu exists to answer. */
 .navpanel .np-promo b{letter-spacing:-.01em}
 .np-promo .np-all{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:9.6px;letter-spacing:.13em;text-transform:uppercase;opacity:.62;
+  font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62;
   margin-bottom:7px}
 /* end nav */</style>
 <style>/* library */
@@ -553,23 +553,23 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .libband .in{max-width:1120px;margin:0 auto;padding:0 26px}
 .libband .bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 14px;
   padding:0;list-style:none;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:10.4px;letter-spacing:.1em;text-transform:uppercase}
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 .libband .bcr li{display:flex;align-items:center;gap:8px}
 .libband .bcr a{color:#F6F8F6;opacity:.66;text-decoration:none;padding:5px 0;
   min-height:26px;display:inline-flex;align-items:center;border-bottom:1px solid transparent}
 .libband .bcr a:hover{opacity:1;border-bottom-color:currentColor}
 .libband .bcr .sep{opacity:.36}
 .libband .bcr [aria-current]{opacity:.95;font-weight:600;color:var(--amber)}
-.libband .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.11em;
+.libband .sub{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.11em;
   text-transform:uppercase;color:var(--amber);margin:0 0 12px}
 .libband h1{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,3.6vw,41px);
   line-height:1.07;font-weight:600;letter-spacing:-.02em;color:#fff;margin:0 0 13px;
   max-width:19ch}
 .libband h1 em{font-style:normal;color:var(--amber)}
-.libband .dek{font-size:15.4px;line-height:1.72;color:rgba(255,255,255,.87);margin:0;
+.libband .dek{font-size:15px;line-height:1.72;color:rgba(255,255,255,.87);margin:0;
   max-width:62ch}
 .libmeta{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;
-  font-family:'IBM Plex Mono',monospace;font-size:10.4px;letter-spacing:.06em;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
   text-transform:uppercase;color:rgba(255,255,255,.62)}
 
 .libwrap{max-width:1120px;margin:0 auto;padding:8px 26px 20px}
@@ -579,7 +579,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   line-height:1.2;font-weight:600;color:var(--ink);margin:0 0 12px;scroll-margin-top:18px}
 .lib h2 .ct{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mut);
   margin-left:8px;vertical-align:middle}
-.lib p{font-size:15.4px;line-height:1.78;color:#3B4A38;margin:0 0 15px;max-width:68ch}
+.lib p{font-size:15px;line-height:1.78;color:#3B4A38;margin:0 0 15px;max-width:68ch}
 .lib .libwrap>p,.lib .sec>p{max-width:68ch}
 .lib a{color:var(--pine)}
 
@@ -592,20 +592,20 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .lch{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:8px}
 .lc b{font-family:Fraunces,Georgia,serif;font-size:16.5px;line-height:1.28;
   font-weight:600;color:var(--ink);margin-bottom:6px}
-.lco{font-size:13.4px;line-height:1.6;color:#4A5A46;flex:1}
+.lco{font-size:13.5px;line-height:1.6;color:#4A5A46;flex:1}
 .cnum{display:inline-block;margin-top:9px;font-family:'IBM Plex Mono',monospace;
-  font-size:11.6px;color:var(--pine);background:#EAF3DE;padding:4px 9px;border-radius:6px;
+  font-size:12px;color:var(--pine);background:#EAF3DE;padding:4px 9px;border-radius:6px;
   align-self:flex-start}
-.fchip{font-family:'IBM Plex Mono',monospace;font-size:9.2px;letter-spacing:.09em;
+.fchip{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.09em;
   text-transform:uppercase;padding:4px 8px;border-radius:6px;white-space:nowrap}
 .f-calculator{background:#EAF3DE;color:#27500A}
 .f-guide{background:#E8EFF6;color:#2A4C6B}
 .f-answer{background:#F3EFE4;color:#7A6B4A}
 .f-directory{background:#FBF0E2;color:#8A6516}
 .f-reference{background:#F6F8F6;color:#5F6A64}
-.tchip{font-family:'IBM Plex Mono',monospace;font-size:9.2px;letter-spacing:.08em;
+.tchip{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--mut)}
-.chk{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:9.2px;
+.chk{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.06em;text-transform:uppercase;color:#A79E88;white-space:nowrap}
 
 .lrg{display:grid;gap:5px;margin:12px 0 6px}
@@ -613,7 +613,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   border:1px solid var(--line);border-radius:10px;padding:11px 14px;text-decoration:none;
   min-width:0}
 .lr:hover{background:#F6F8F6}
-.lr b{flex:1;min-width:180px;font-size:14.6px;line-height:1.4;color:var(--ink);
+.lr b{flex:1;min-width:180px;font-size:15px;line-height:1.4;color:var(--ink);
   font-weight:500}
 
 .tcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:12px;
@@ -626,46 +626,46 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tcard.t-getting-paid{border-top-color:#C98B4B}
 .tcard.t-practice{border-top-color:#5B7FA6}
 .tcard.t-training{border-top-color:#8A6BA6}
-.tcard>b{display:block;font-family:Fraunces,Georgia,serif;font-size:20px;
+.tcard>b{display:block;font-family:Fraunces,Georgia,serif;font-size:19px;
   color:var(--ink);margin-bottom:5px}
-.tcard .tt{display:block;font-size:13.6px;line-height:1.55;color:#4A5A46;margin-bottom:9px}
-.tcard .tn{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
+.tcard .tt{display:block;font-size:13.5px;line-height:1.55;color:#4A5A46;margin-bottom:9px}
+.tcard .tn{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
 .tcard ul{margin:0 0 12px;padding:0;list-style:none;border-top:1px solid #DFE4E0}
-.tcard li{font-size:13px;line-height:1.5;color:#5F6A64;padding:7px 0;
+.tcard li{font-size:13.5px;line-height:1.5;color:#5F6A64;padding:7px 0;
   border-bottom:1px solid #F6F8F6}
 .tcard li:last-child{border-bottom:0}
-.tcard .go{font-size:13px;color:var(--pine);font-weight:500}
+.tcard .go{font-size:13.5px;color:var(--pine);font-weight:500}
 
 .xtg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;
   margin:12px 0}
 .xt{display:block;background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:13px 15px;text-decoration:none;min-width:0}
 .xt:hover{background:#F6F8F6}
-.xt b{display:block;font-family:Fraunces,Georgia,serif;font-size:15.5px;color:var(--ink);
+.xt b{display:block;font-family:Fraunces,Georgia,serif;font-size:15px;color:var(--ink);
   margin-bottom:3px}
-.xt span{display:block;font-size:12.6px;line-height:1.5;color:#4A5A46}
+.xt span{display:block;font-size:12px;line-height:1.5;color:#4A5A46}
 
 .chg{list-style:none;margin:12px 0;padding:0;display:grid;gap:8px}
 .chg li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;
   background:#F6F8F6;border-radius:10px;padding:13px 16px;align-items:baseline}
-.chg time{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#8A7B58;
+.chg time{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#8A7B58;
   letter-spacing:.04em}
-.chg span{font-size:14.2px;line-height:1.6;color:#3B4A38}
+.chg span{font-size:13.5px;line-height:1.6;color:#3B4A38}
 .chg a{display:block;margin-top:5px;font-family:'IBM Plex Mono',monospace;
-  font-size:9.6px;letter-spacing:.07em;text-transform:uppercase}
+  font-size:9.5px;letter-spacing:.07em;text-transform:uppercase}
 .chglog{list-style:none;margin:12px 0;padding:0;display:grid;gap:9px}
 .chglog li{display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;
   border-left:3px solid var(--amber);background:#fff;border-radius:0 10px 10px 0;
   padding:14px 17px}
-.chglog time{font-family:'IBM Plex Mono',monospace;font-size:11.4px;color:var(--mut)}
-.chglog p{margin:0 0 6px;font-size:14.6px;line-height:1.66}
-.chglog a{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.07em;
+.chglog time{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mut)}
+.chglog p{margin:0 0 6px;font-size:15px;line-height:1.66}
+.chglog a{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.07em;
   text-transform:uppercase;margin-right:10px}
 
 .reffold{border:1px solid var(--line);border-radius:10px;background:#fff;margin:12px 0}
 .reffold summary{cursor:pointer;padding:15px 18px;font-family:'IBM Plex Mono',monospace;
-  font-size:10.6px;letter-spacing:.09em;text-transform:uppercase;color:var(--pine)}
+  font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--pine)}
 .reffold[open] summary{border-bottom:1px solid #DFE4E0}
 .reffold .sec{border-top:0;padding-top:12px}
 
@@ -683,7 +683,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
   grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:34px;align-items:center}
 .pdband .bcr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin:0 0 14px;
   padding:0;list-style:none;font-family:'IBM Plex Mono',ui-monospace,monospace;
-  font-size:10.4px;letter-spacing:.1em;text-transform:uppercase}
+  font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 .pdband .bcr li{display:flex;align-items:center;gap:8px}
 .pdband .bcr a{color:#F6F8F6;opacity:.66;text-decoration:none;padding:5px 0;min-height:26px;
   display:inline-flex;align-items:center;border-bottom:1px solid transparent}
@@ -693,22 +693,22 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .pdband h1{font-family:Fraunces,Georgia,serif;font-size:clamp(27px,3.7vw,43px);
   line-height:1.06;font-weight:600;letter-spacing:-.022em;color:#fff;margin:0 0 14px;max-width:18ch}
 .pdband h1 em{font-style:normal;color:var(--amber)}
-.pdband .dek{font-size:15.4px;line-height:1.72;color:rgba(255,255,255,.87);margin:0;max-width:57ch}
+.pdband .dek{font-size:15px;line-height:1.72;color:rgba(255,255,255,.87);margin:0;max-width:57ch}
 .pdmeta{display:flex;gap:14px;flex-wrap:wrap;margin-top:17px;
-  font-family:'IBM Plex Mono',monospace;font-size:10.4px;letter-spacing:.06em;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
   text-transform:uppercase;color:rgba(255,255,255,.62)}
 .pdfig{background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.18);border-radius:10px;
   padding:20px 22px;min-width:0}
 .pdfig b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(30px,4vw,44px);
   line-height:1;color:var(--amber)}
-.pdfig span{display:block;font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.74);margin-top:9px}
+.pdfig span{display:block;font-size:12px;line-height:1.55;color:rgba(255,255,255,.74);margin-top:9px}
 .pdfig .row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;
-  border-top:1px solid rgba(255,255,255,.14);font-size:12.2px;color:rgba(255,255,255,.8)}
+  border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:rgba(255,255,255,.8)}
 .pdfig .row:first-of-type{margin-top:16px}
-.pdfig .row b{display:inline;font-size:12.4px;font-family:inherit;color:#fff}
+.pdfig .row b{display:inline;font-size:12px;font-family:inherit;color:#fff}
 
 .pdwrap{max-width:1180px;margin:0 auto;padding:30px 26px 40px}
-.pdlede{font-size:15.4px;line-height:1.78;color:#3B4A38;margin:0 0 18px;max-width:70ch}
+.pdlede{font-size:15px;line-height:1.78;color:#3B4A38;margin:0 0 18px;max-width:70ch}
 .pdlede b{color:var(--ink)}
 .pdlede a{color:var(--pine)}
 
@@ -723,28 +723,28 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .flt{position:sticky;top:var(--hh,95px);z-index:20;background:#F6F8F6;padding:14px 0 13px;
   border-bottom:1px solid var(--line);margin-bottom:20px}
 .fbar{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
-.fbar input[type=search]{flex:1;min-width:210px;font:inherit;font-size:14.4px;
+.fbar input[type=search]{flex:1;min-width:210px;font:inherit;font-size:15px;
   padding:9px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
-.fb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;
+.fb{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;
   text-transform:uppercase;background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:7px 13px;cursor:pointer;color:#4A5A46}
 .fb[aria-pressed=true]{background:var(--pine);border-color:var(--pine);color:#fff}
-.cnt{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--mut);margin-left:auto}
+.cnt{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mut);margin-left:auto}
 
 /* cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:13px}
 .pg{background:#fff;border:1px solid var(--line);border-radius:10px;padding:17px 18px;min-width:0}
 .pg.hide{display:none}
 .ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.pg h3{font-family:Fraunces,Georgia,serif;font-size:17px;line-height:1.22;margin:0;color:var(--ink)}
+.pg h3{font-family:Fraunces,Georgia,serif;font-size:16.5px;line-height:1.22;margin:0;color:var(--ink)}
 /* nowrap was right for "Northridge" and wrong for Alliant, whose city field is
    "San Diego, Irvine, Los Angeles/Alhambra, Sacramento, Online" - 400px of
    unbreakable text that pushed the page to 445px wide on a 390px phone. It is
    the only overflow on the page and it came from assuming one campus. */
-.city{font-family:'IBM Plex Mono',monospace;font-size:10.4px;letter-spacing:.05em;
+.city{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;
   text-transform:uppercase;color:var(--mut);min-width:0;overflow-wrap:anywhere;
   text-align:right}
-.badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.4px;
+.badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.08em;text-transform:uppercase;border-radius:10px;padding:3px 9px;
   margin:9px 6px 0 0}
 .badge.acc{background:#F6F8F6;color:#2C6350;border:1px solid #C6DBD1}
@@ -760,40 +760,40 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .badge.pl-mid{background:#FBF0E2;color:#8A6516;border:1px solid #EBD9BC}
 .badge.pl-warn{background:#FBF0EF;color:#8E3A32;border:1px solid #E4B7B2}
 .badge.gren{background:#F2EEE2;color:#635D4E;border:1px solid #DFD9C9}
-.bd .r b .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.2px;
+.bd .r b .sub{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
   color:var(--mut);margin-top:2px;font-weight:400}
 /* A Board-issued Notice to Students. Red, because it is the only thing on a
    card that can mean the degree does not lead to a licence at all. */
 .warn{margin:11px 0 0;border:1px solid #E4B7B2;background:#FBF0EF;border-radius:10px;
   padding:11px 13px}
-.warn b{display:block;font-size:12.6px;color:#8E3A32;margin-bottom:5px}
-.warn p{font-size:12.5px;line-height:1.58;color:#5A423F;margin:0}
+.warn b{display:block;font-size:12px;color:#8E3A32;margin-bottom:5px}
+.warn p{font-size:12px;line-height:1.58;color:#5A423F;margin:0}
 .warn a{color:#8E3A32}
-.offl{margin:11px 0 0;font-size:12.4px;line-height:1.56;color:#635D4E;
+.offl{margin:11px 0 0;font-size:12px;line-height:1.56;color:#635D4E;
   border-left:2px solid #E4D9BE;padding-left:11px}
 .bd{margin-top:12px;border-top:1px solid #DFE4E0;padding-top:10px}
-.bd .r{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;padding:5px 0;font-size:13px}
-.bd .r span{color:var(--mut);font-family:'IBM Plex Mono',monospace;font-size:10.2px;
+.bd .r{display:grid;grid-template-columns:104px minmax(0,1fr);gap:10px;padding:5px 0;font-size:13.5px}
+.bd .r span{color:var(--mut);font-family:'IBM Plex Mono',monospace;font-size:10.5px;
   letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
 .bd .r b{font-weight:500;color:#3B4A38;min-width:0;overflow-wrap:anywhere}
 .bd .r b a{color:var(--pine)}
 .np{color:#B0A896;font-style:italic}
-.yr{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut)}
-.nt{font-size:12.6px;line-height:1.58;color:#4A5A46;margin:11px 0 0;
+.yr{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--mut)}
+.nt{font-size:12px;line-height:1.58;color:#4A5A46;margin:11px 0 0;
   border-left:2px solid #DFE4E0;padding-left:11px}
-.go{display:inline-block;margin-top:13px;margin-right:16px;font-size:13px;color:var(--pine);
+.go{display:inline-block;margin-top:13px;margin-right:16px;font-size:13.5px;color:var(--pine);
   text-decoration:none;border-bottom:1px solid rgba(44,99,80,.3)}
 .go.mine{font-weight:600}
 .go.ext{color:var(--mut);border-bottom-color:rgba(124,136,120,.3)}
 
 /* forum threads */
 .fx{margin-top:12px;border-top:1px dashed #DFE4E0;padding-top:10px}
-.fx summary{cursor:pointer;font-size:12.8px;color:var(--pine);list-style:none;
+.fx summary{cursor:pointer;font-size:13.5px;color:var(--pine);list-style:none;
   display:flex;align-items:center;gap:8px}
 .fx summary::-webkit-details-marker{display:none}
 .fx summary::before{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--mut)}
 .fx[open] summary::before{content:"\2212"}
-.fx .ct{font-family:'IBM Plex Mono',monospace;font-size:10px;background:#F6F8F6;
+.fx .ct{font-family:'IBM Plex Mono',monospace;font-size:9.5px;background:#F6F8F6;
   color:var(--mut);border-radius:10px;padding:1px 7px}
 .thl{display:grid;gap:8px;margin-top:11px}
 .th{display:block;background:#F6F8F6;border:1px solid #DFE4E0;border-radius:10px;
@@ -803,11 +803,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .th.neg{border-left-color:var(--red)}
 .th.mix{border-left-color:#C98B4B}
 .th.inf{border-left-color:#8FA3C4}
-.tm{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.06em;
+.tm{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;
   text-transform:uppercase;color:var(--mut);margin-bottom:4px}
-.th b{display:block;font-size:13.4px;line-height:1.35;color:var(--ink);font-weight:600;margin-bottom:4px}
-.th i{display:block;font-style:normal;font-size:12.3px;line-height:1.5;color:#4A5A46}
-.sn{display:inline-block;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:9.2px;
+.th b{display:block;font-size:13.5px;line-height:1.35;color:var(--ink);font-weight:600;margin-bottom:4px}
+.th i{display:block;font-style:normal;font-size:12px;line-height:1.5;color:#4A5A46}
+.sn{display:inline-block;margin-top:7px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
 
 /* general + none-found */
@@ -815,14 +815,14 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
   margin:46px 0 12px;padding-top:22px;border-top:1px solid var(--line)}
 .gen{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .none{background:#fff;border:1px dashed #CFC7B4;border-radius:10px;padding:17px 19px;margin:14px 0}
-.none b{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.11em;
+.none b{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.11em;
   text-transform:uppercase;color:var(--mut);margin-bottom:10px}
-.none p{font-size:13.4px;line-height:1.62;color:#4A5A46;margin:0 0 10px;max-width:none}
-.none span{display:inline-block;font-size:12.4px;background:#F6F8F6;border-radius:10px;
+.none p{font-size:13.5px;line-height:1.62;color:#4A5A46;margin:0 0 10px;max-width:none}
+.none span{display:inline-block;font-size:12px;background:#F6F8F6;border-radius:10px;
   padding:3px 10px;margin:0 5px 5px 0;color:#4A5A46}
-.meth{font-size:13.4px;line-height:1.7;color:#4A5A46;max-width:70ch}
+.meth{font-size:13.5px;line-height:1.7;color:#4A5A46;max-width:70ch}
 .meth a{color:var(--pine)}
-.empty{display:none;padding:30px;text-align:center;color:var(--mut);font-size:14.5px}
+.empty{display:none;padding:30px;text-align:center;color:var(--mut);font-size:15px}
 
 
 /* Visually hidden, but read aloud. Defined here rather than assumed from the
@@ -845,29 +845,29 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
    verify.mjs's overflow check ignores anything inside a scrollable ancestor,
    which is what makes this safe rather than a permanent false positive. */
 .fbtns{display:contents}
-.fb .n{opacity:.62;margin-left:5px;font-size:10px}
+.fb .n{opacity:.62;margin-left:5px;font-size:9.5px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-family:'IBM Plex Mono',monospace;
-  font-size:10.6px;background:#F6F8F6;border:1px solid #E0D8C4;border-radius:10px;
+  font-size:10.5px;background:#F6F8F6;border:1px solid #E0D8C4;border-radius:10px;
   padding:3px 5px 3px 10px;color:#4A5A46}
 .chip button{border:0;background:#DED5BE;color:#635D4E;border-radius:50%;width:15px;
-  height:15px;line-height:1;font-size:11px;cursor:pointer;padding:0}
+  height:15px;line-height:1;font-size:10.5px;cursor:pointer;padding:0}
 .chip button:hover{background:#C9BE9F}
-.clr{font-family:'IBM Plex Mono',monospace;font-size:10.8px;background:none;border:0;
+.clr{font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:none;border:0;
   color:var(--pine);text-decoration:underline;cursor:pointer;padding:2px 4px}
 .vw{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.vw button{font-family:'IBM Plex Mono',monospace;font-size:11px;border:0;background:#fff;
+.vw button{font-family:'IBM Plex Mono',monospace;font-size:10.5px;border:0;background:#fff;
   color:var(--mut);padding:6px 12px;cursor:pointer}
 .vw button[aria-pressed=true]{background:var(--pine);color:#fff}
-.kpill{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid #CFE2B8;
+.kpill{font-family:'IBM Plex Mono',monospace;font-size:10.5px;border:1px solid #CFE2B8;
   background:#EAF3DE;color:#27500A;border-radius:10px;padding:6px 12px;cursor:pointer}
 .kpill[aria-pressed=true]{background:#27500A;color:#fff;border-color:#27500A}
 .kpill[disabled]{opacity:.45;cursor:default}
-.prt{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1px solid var(--line);
+.prt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;border:1px solid var(--line);
   background:#fff;color:var(--mut);border-radius:10px;padding:6px 12px;cursor:pointer}
 
 /* ---- A-Z strip. 78 cards is fifteen screens and there was no way to reach W. */
 .az{display:flex;flex-wrap:wrap;gap:2px;margin:12px 0 2px}
-.az a,.az span{font-family:'IBM Plex Mono',monospace;font-size:10.6px;min-width:18px;
+.az a,.az span{font-family:'IBM Plex Mono',monospace;font-size:10.5px;min-width:18px;
   text-align:center;padding:3px 2px;border-radius:6px;text-decoration:none}
 .az a{color:var(--pine);background:#F2EEE2}
 .az a:hover{background:var(--pine);color:#fff}
@@ -878,34 +878,34 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
    mechanism without the page expressing a preference: what you kept is yours,
    it lives in your browser, and nothing about it is sent anywhere. */
 .pgt{display:flex;align-items:center;gap:8px;margin-top:8px}
-.keep{font-family:'IBM Plex Mono',monospace;font-size:10.2px;letter-spacing:.06em;
+.keep{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.06em;
   text-transform:uppercase;border:1px solid var(--line);background:#fff;color:var(--mut);
   border-radius:10px;padding:4px 11px;cursor:pointer}
 .keep[aria-pressed=true]{background:#27500A;border-color:#27500A;color:#fff}
 .keep[aria-pressed=true] span:after{content:" ¹3"}
-.perma{color:#C6BEAA;text-decoration:none;font-size:13px}
+.perma{color:#C6BEAA;text-decoration:none;font-size:13.5px}
 .perma:hover{color:var(--pine)}
 .pg:target{box-shadow:0 0 0 3px #EAF3DE;border-color:#CFE2B8}
 /* A #s-<school> link must not land the card behind two stacked sticky bars. */
 .pg,.pgr{scroll-margin-top:var(--stick,250px)}
 .keep.tk{width:20px;height:20px;padding:0;border-radius:6px}
-.keep.tk[aria-pressed=true]:after{content:"¹3";font-size:11px}
+.keep.tk[aria-pressed=true]:after{content:"¹3";font-size:10.5px}
 
 /* ---- what the school does not publish, said per card */
-.gapl{font-size:12.2px;line-height:1.55;color:#635D4E;margin:10px 0 0;
+.gapl{font-size:12px;line-height:1.55;color:#635D4E;margin:10px 0 0;
   background:#F6F8F6;border:1px dashed #E4D9BE;border-radius:10px;padding:8px 11px}
 .gapl b{color:#635D4E;font-weight:600}
 
 /* The computed differentiator. Set apart from the school's own description
    below it, because it is the one line on the card this site wrote - and it
    only ever states a comparison drawn from the same data the card shows. */
-.edge{font-size:13.4px;line-height:1.55;color:#27500A;margin:10px 0 0;
+.edge{font-size:13.5px;line-height:1.55;color:#27500A;margin:10px 0 0;
   background:#F3F8EC;border:1px solid #DCE9CB;border-radius:10px;padding:8px 11px}
 
 /* "no page here yet" had a class and no rule, so it ran straight on from the
    link text: "Programme page -> no page here yet" as one line. It is a caveat
    about the destination, not part of the label. */
-.noown{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
+.noown{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-top:3px}
 
 /* ---- table view -------------------------------------------------------
@@ -914,7 +914,7 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
    otherwise report a layout bug on every page load, forever. */
 .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);
   border-radius:10px;background:#fff}
-.ptbl{border-collapse:collapse;width:100%;font-size:13px;min-width:1120px}
+.ptbl{border-collapse:collapse;width:100%;font-size:13.5px;min-width:1120px}
 .ptbl th,.ptbl td{text-align:left;padding:9px 11px;border-bottom:1px solid #DFE4E0;
   vertical-align:top}
 /* NOT position:sticky, and it must not be made so again. The wrapper needs
@@ -926,11 +926,11 @@ h2.sec{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,27px);color
    is exactly what it did, and it looked like a rendering bug because it was
    one. A header that scrolls away honestly beats a header that floats. */
 .ptbl thead th{background:#F6F8F6;font-family:'IBM Plex Mono',monospace;
-  font-size:9.8px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
+  font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);
   font-weight:500;z-index:2;border-bottom:1px solid var(--line)}
 .ptbl tbody th{font-weight:500;color:var(--ink);min-width:210px}
 .ptbl tbody th a{color:var(--pine)}
-.ptbl .tc{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+.ptbl .tc{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   color:var(--mut);margin-top:2px}
 .ptbl tr.hide{display:none}
 .ptbl tbody tr:hover{background:#F6F8F6}
@@ -942,13 +942,13 @@ body.tablev #tbl{display:block}
 .ask{background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px 20px 18px;
   margin:16px 0}
 .ask summary{cursor:pointer;padding:15px 0;font-family:Fraunces,Georgia,serif;
-  font-size:17.5px;color:var(--ink)}
+  font-size:16.5px;color:var(--ink)}
 .ask ol{margin:0;padding-left:20px}
-.ask li{font-size:14.2px;line-height:1.62;margin:0 0 10px;color:#3B4A38}
+.ask li{font-size:13.5px;line-height:1.62;margin:0 0 10px;color:#3B4A38}
 .ask li b{display:block;font-weight:600;color:var(--ink)}
 
 .totop{position:fixed;right:16px;bottom:16px;z-index:30;display:none;
-  font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--pine);color:#fff;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;background:var(--pine);color:#fff;
   border:0;border-radius:10px;padding:9px 14px;cursor:pointer;opacity:.92}
 .totop.on{display:block}
 
@@ -970,9 +970,9 @@ body.tablev #tbl{display:block}
   .fbtns{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;width:100%;
     -webkit-overflow-scrolling:touch;padding-bottom:2px;scrollbar-width:none}
   .fbtns::-webkit-scrollbar{display:none}
-  .fb{font-size:10.4px;padding:5px 9px;flex:0 0 auto}
+  .fb{font-size:10.5px;padding:5px 9px;flex:0 0 auto}
   #q{flex:1 0 100%}
-  .az a,.az span{min-width:16px;font-size:10px}
+  .az a,.az span{min-width:16px;font-size:9.5px}
 }
 </style><style>/* infographics */
 .igwrap{margin:26px 0 34px}
@@ -980,22 +980,22 @@ body.tablev #tbl{display:block}
 .ig-i{max-width:66ch}
 .ig{background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:20px 22px;margin:0 0 13px}
-.ig-k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.8px;
+.ig-k{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin:0 0 6px}
 .ig h3{font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.25;
   font-weight:600;color:var(--ink);margin:0 0 15px}
 .ig-bars{display:grid;gap:5px}
 .ig-b{display:grid;grid-template-columns:minmax(96px,190px) minmax(0,1fr) 74px;
   gap:11px;align-items:center}
-.ig-l{font-size:12.4px;line-height:1.35;color:#3B4A38;overflow-wrap:anywhere}
+.ig-l{font-size:12px;line-height:1.35;color:#3B4A38;overflow-wrap:anywhere}
 .ig-t{display:block;height:15px;background:#F6F8F6;border-radius:6px;overflow:hidden}
 .ig-t i{display:block;height:100%;background:var(--pine);border-radius:6px;
   min-width:2px}
 .ig-b.cmp .ig-t i{background:repeating-linear-gradient(115deg,#2C6350 0 6px,
   #6E9587 6px 12px)}
-.ig-v{font-family:'IBM Plex Mono',monospace;font-size:11.4px;color:var(--ink);
+.ig-v{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);
   text-align:right;white-space:nowrap}
-.ig-n{font-size:13.2px;line-height:1.68;color:#4A5A46;margin:14px 0 0;max-width:70ch}
+.ig-n{font-size:13.5px;line-height:1.68;color:#4A5A46;margin:14px 0 0;max-width:70ch}
 .ig-n b{color:var(--ink)}
 .ig-dots{display:flex;flex-wrap:wrap;gap:6px}
 .ig-d{width:15px;height:15px;border-radius:50%;background:#F6F8F6;
@@ -1005,7 +1005,7 @@ body.tablev #tbl{display:block}
 .ig-cmp>div{background:#F6F8F6;border-radius:10px;padding:15px 17px}
 .ig-cmp b{display:block;font-family:Fraunces,Georgia,serif;font-size:34px;
   line-height:1;color:var(--pine)}
-.ig-cmp span{display:block;font-size:12.8px;line-height:1.55;color:#4A5A46;margin-top:7px}
+.ig-cmp span{display:block;font-size:13.5px;line-height:1.55;color:#4A5A46;margin-top:7px}
 @media (max-width:640px){
   .ig-b{grid-template-columns:minmax(0,1fr) 68px;gap:4px 9px}
   .ig-l{grid-column:1/-1}

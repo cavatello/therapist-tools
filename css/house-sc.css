@@ -15,29 +15,29 @@ body.bcs .scband .in{max-width:1180px;margin:0 auto;display:grid;
 @media(max-width:980px){body.bcs .scband .in{grid-template-columns:1fr;gap:26px}}
 
 body.bcs .bcr{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 22px;
-  padding:0;font-family:var(--mn);font-size:11px;letter-spacing:.04em}
+  padding:0;font-family:var(--mn);font-size:10.5px;letter-spacing:.04em}
 body.bcs .bcr a{color:var(--dim)}
 body.bcs .bcr a:hover{color:var(--pine)}
 body.bcs .bcr .sep{color:var(--dim);margin-left:6px}
 body.bcs .bcr [aria-current]{color:var(--ink)}
 
-body.bcs .scband .sub{font-family:var(--mn);font-size:11px;letter-spacing:.16em;
+body.bcs .scband .sub{font-family:var(--mn);font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--dim);margin:0 0 14px}
 body.bcs .scband h1{margin-bottom:18px}
-body.bcs .dek{font-size:21px;line-height:1.45;color:var(--dim);max-width:56ch;
+body.bcs .dek{font-size:19px;line-height:1.45;color:var(--dim);max-width:56ch;
   margin:0 0 18px;letter-spacing:-.012em}
-@media(max-width:760px){body.bcs .dek{font-size:17.5px}}
-body.bcs .scmeta{display:flex;gap:8px;font-family:var(--mn);font-size:11px;
+@media(max-width:760px){body.bcs .dek{font-size:16.5px}}
+body.bcs .scmeta{display:flex;gap:8px;font-family:var(--mn);font-size:10.5px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 body.bcs .scmeta span+span::before{content:"\00b7";margin-right:8px;color:var(--hair)}
 
 /* the "In short" card is the page's one dark moment */
 body.bcs .tsshort{background:var(--deep);color:#fff;border-radius:var(--r);
   padding:20px 22px;margin-top:24px;max-width:520px}
-body.bcs .tsshort .tsk{font-family:var(--mn);font-size:10px;letter-spacing:.16em;
+body.bcs .tsshort .tsk{font-family:var(--mn);font-size:9.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--gold);margin:0 0 10px}
 body.bcs .tsshort .tsa{font-size:15px;color:#C6DBD1;margin:0 0 10px}
-body.bcs .tsshort .tsfig{font-family:var(--figs);font-weight:800;font-size:24px;
+body.bcs .tsshort .tsfig{font-family:var(--figs);font-weight:800;font-size:23px;
   color:var(--gold)}
 
 /* the hero stat card with its key-value rows */
@@ -45,8 +45,8 @@ body.bcs .scfig{background:var(--card);border-radius:var(--r);padding:20px 22px;
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
     0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .scfig > b{display:block;font-family:var(--figs);font-weight:800;
-  font-size:36px;line-height:1.05;color:var(--pine);margin-bottom:4px}
-body.bcs .scfig > span{font-size:14px;color:var(--dim);display:block;
+  font-size:34px;line-height:1.05;color:var(--pine);margin-bottom:4px}
+body.bcs .scfig > span{font-size:13.5px;color:var(--dim);display:block;
   margin-bottom:14px}
 body.bcs .scfig .row{display:flex;justify-content:space-between;gap:12px;
   padding:8px 0;border-top:1px solid var(--hair);font-size:13.5px}
@@ -59,9 +59,9 @@ body.bcs .scwrap{max-width:1180px;margin:0 auto;padding:8px var(--pad) 56px;
   display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:48px;
   align-items:start}
 @media(max-width:980px){body.bcs .scwrap{grid-template-columns:1fr;gap:30px}}
-body.bcs .scnav{order:2;position:sticky;top:86px;font-size:14px}
+body.bcs .scnav{order:2;position:sticky;top:86px;font-size:13.5px}
 @media(max-width:980px){body.bcs .scnav{order:0;position:static}}
-body.bcs .scnav b{display:block;font-family:var(--mn);font-size:10px;
+body.bcs .scnav b{display:block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
   font-weight:500;margin-bottom:10px}
 body.bcs .scnav a{display:flex;gap:9px;align-items:baseline;padding:7px 0;
@@ -69,14 +69,14 @@ body.bcs .scnav a{display:flex;gap:9px;align-items:baseline;padding:7px 0;
 body.bcs .scnav a:last-of-type{border-bottom:0}
 body.bcs .scnav a.on{color:var(--pine);font-weight:700}
 body.bcs .scnav .tsn{flex:none;font-family:var(--mn);font-style:normal;
-  font-size:10px;color:var(--dim);opacity:.7}
+  font-size:9.5px;color:var(--dim);opacity:.7}
 body.bcs .scnav a.on .tsn{color:var(--pine);opacity:1}
 
 body.bcs .scbody{min-width:0;max-width:76ch}
-body.bcs .scbody h2{font-size:31px;max-width:26ch;margin:44px 0 16px;
+body.bcs .scbody h2{font-size:28px;max-width:26ch;margin:44px 0 16px;
   scroll-margin-top:86px}
 body.bcs .scbody h2:first-child{margin-top:0}
-@media(max-width:760px){body.bcs .scbody h2{font-size:24px}}
+@media(max-width:760px){body.bcs .scbody h2{font-size:23px}}
 body.bcs .scbody h3{margin:0 0 8px;scroll-margin-top:86px}
 body.bcs .scbody p{margin:0 0 16px;max-width:70ch}
 body.bcs .scbody ul,body.bcs .scbody ol{margin:0 0 16px;padding-left:22px}
@@ -85,7 +85,7 @@ body.bcs .scbody li{margin-bottom:7px}
 /* the orientation line — what kind of program this is, in one labeled row */
 body.bcs .orient{background:var(--wash);border-left:5px solid var(--pine);
   border-radius:var(--rs);padding:14px 18px;margin:0 0 20px;max-width:none}
-body.bcs .orient span{display:block;font-family:var(--mn);font-size:10px;
+body.bcs .orient span{display:block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--dim);
   margin-bottom:6px}
 body.bcs .orient b{font-weight:600;line-height:1.5}
@@ -133,11 +133,11 @@ body.bcs .crs{background:var(--card);border-radius:var(--r);padding:16px 18px;
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .chd{display:flex;justify-content:space-between;gap:10px;
   margin-bottom:8px}
-body.bcs .ccode{font-family:var(--mn);font-size:11px;letter-spacing:.08em;
+body.bcs .ccode{font-family:var(--mn);font-size:10.5px;letter-spacing:.08em;
   color:var(--pine);font-weight:600}
-body.bcs .cun{font-family:var(--mn);font-size:11px;color:var(--dim)}
-body.bcs .crs h3{font-size:18px;margin:0 0 8px}
-body.bcs .cq{margin:0;font-size:14px;color:var(--dim);line-height:1.55;
+body.bcs .cun{font-family:var(--mn);font-size:10.5px;color:var(--dim)}
+body.bcs .crs h3{font-size:19px;margin:0 0 8px}
+body.bcs .cq{margin:0;font-size:13.5px;color:var(--dim);line-height:1.55;
   quotes:none}
 body.bcs .cwhy{font-size:13.5px;margin:10px 0 0;padding-top:10px;
   border-top:1px solid var(--hair);color:var(--ink)}
@@ -146,23 +146,23 @@ body.bcs .cwhy::before{content:"Why it matters";display:block;
   text-transform:uppercase;color:var(--dim);margin-bottom:4px}
 
 /* --- the curriculum, term by term -------------------------------------- */
-body.bcs .cutot{font-family:var(--figs);font-weight:800;font-size:24px;
+body.bcs .cutot{font-family:var(--figs);font-weight:800;font-size:23px;
   margin:0 0 14px}
 body.bcs .cutot b{color:var(--pine)}
 body.bcs .cutot span{display:block;font-family:var(--body);font-weight:400;
-  font-size:14px;color:var(--dim)}
+  font-size:13.5px;color:var(--dim)}
 body.bcs .trml{display:grid;gap:14px;margin:18px 0}
 @media(min-width:820px){body.bcs .trml{grid-template-columns:1fr 1fr}}
 body.bcs .trm{background:var(--card);border-radius:var(--r);padding:15px 18px;
   position:relative;box-shadow:0 1px 2px rgba(22,31,27,.05),
     0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .trm > b{display:block;font-family:var(--disp);font-weight:800;
-  font-size:15.5px;letter-spacing:-.014em;margin-bottom:9px;
+  font-size:15px;letter-spacing:-.014em;margin-bottom:9px;
   padding-right:66px}
 body.bcs .trm ol{margin:0;padding-left:18px;font-size:13.5px;color:var(--dim)}
 body.bcs .trm li{margin-bottom:4px}
 body.bcs .trm .tn{position:absolute;right:14px;top:16px;font-family:var(--mn);
-  font-size:10px;color:var(--dim);white-space:nowrap}
+  font-size:9.5px;color:var(--dim);white-space:nowrap}
 
 /* --- verdicts ---------------------------------------------------------- */
 body.bcs .verd{background:var(--card);border-left:5px solid var(--h5);
@@ -171,11 +171,11 @@ body.bcs .verd{background:var(--card);border-left:5px solid var(--h5);
 body.bcs .verd.ok,body.bcs .verd.pos{border-left-color:var(--h4)}
 body.bcs .verd.warn{border-left-color:var(--h5)}
 body.bcs .verd.neg{border-left-color:#B5483F}
-body.bcs .verd h3{font-size:18.5px;margin:0 0 8px}
+body.bcs .verd h3{font-size:19px;margin:0 0 8px}
 body.bcs .verd p{font-size:15px;margin:0 0 10px;max-width:none}
 body.bcs .verd p:last-child{margin-bottom:0}
 body.bcs .pq{margin:10px 0 0;padding:12px 15px;background:var(--sink);
-  border-radius:var(--rs);font-family:var(--figs);font-size:14.5px;
+  border-radius:var(--rs);font-family:var(--figs);font-size:15px;
   line-height:1.55;quotes:none}
 
 /* --- key-value rows: the programme table and practicum rows ------------ */
@@ -184,10 +184,10 @@ body.bcs .tbl,body.bcs .prg{background:var(--card);border-radius:var(--r);
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .tbl .r,body.bcs .prg .pr{display:grid;
   grid-template-columns:150px minmax(0,1fr);gap:16px;padding:11px 0;
-  border-top:1px solid var(--hair);font-size:14.5px}
+  border-top:1px solid var(--hair);font-size:15px}
 body.bcs .tbl .r:first-child,body.bcs .prg .pr:first-child{border-top:0}
 body.bcs .tbl .r > span,body.bcs .prg .pr > span{font-family:var(--mn);
-  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--dim);padding-top:2px}
 body.bcs .tbl .r > b,body.bcs .prg .pr > b{font-weight:500;line-height:1.5}
 @media(max-width:640px){body.bcs .tbl .r,body.bcs .prg .pr{
@@ -203,20 +203,20 @@ body.bcs .exg{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:22px 0}
 body.bcs .exb{background:var(--card);border-radius:var(--r);padding:18px 20px;
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .exb b{display:block;font-family:var(--figs);font-weight:800;
-  font-size:44px;line-height:1;color:var(--pine)}
+  font-size:42px;line-height:1;color:var(--pine)}
 body.bcs .exb.sw b{color:var(--dim)}
 body.bcs .exb em{display:block;font-style:normal;font-family:var(--disp);
-  font-weight:800;font-size:14.5px;letter-spacing:-.014em;margin:8px 0 3px}
-body.bcs .exb span{font-size:13px;color:var(--dim)}
+  font-weight:800;font-size:15px;letter-spacing:-.014em;margin:8px 0 3px}
+body.bcs .exb span{font-size:13.5px;color:var(--dim)}
 
 /* --- accreditor outcome tables ----------------------------------------- */
-body.bcs .ocl{font-family:var(--mn);font-size:11px;letter-spacing:.1em;
+body.bcs .ocl{font-family:var(--mn);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--dim);margin:18px 0 8px}
 body.bcs .octw{margin:0 0 18px;border-radius:var(--r);overflow-x:auto;
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .octbl{margin:0;min-width:480px}
 body.bcs .octbl th[scope="row"]{background:var(--card);color:var(--ink);
-  font-family:var(--body);font-size:14px;font-weight:600;text-transform:none;
+  font-family:var(--body);font-size:13.5px;font-weight:600;text-transform:none;
   letter-spacing:0;border-top:1px solid var(--hair)}
 body.bcs .octbl th[scope="row"] span{display:block;font-family:var(--mn);
   font-size:10.5px;font-weight:400;color:var(--dim);margin-top:2px}
@@ -231,14 +231,14 @@ body.bcs .vox,body.bcs .th{display:block;background:var(--card);
 body.bcs .vox.pos,body.bcs .th.pos{border-left-color:var(--h4)}
 body.bcs .vox.neg,body.bcs .th.neg{border-left-color:#B5483F}
 body.bcs .vox.mix,body.bcs .th.mix{border-left-color:var(--h5)}
-body.bcs .vox i{font-style:normal;font-size:14.5px;line-height:1.55;
+body.bcs .vox i{font-style:normal;font-size:15px;line-height:1.55;
   display:block;margin-bottom:8px}
-body.bcs .vwho,body.bcs .tm{display:block;font-family:var(--mn);font-size:11px;
+body.bcs .vwho,body.bcs .tm{display:block;font-family:var(--mn);font-size:10.5px;
   color:var(--dim)}
 body.bcs .th .tm{margin-bottom:5px}
 body.bcs .th b{display:block;font-family:var(--disp);font-weight:800;
   font-size:16.5px;letter-spacing:-.016em;line-height:1.25;margin-bottom:5px}
-body.bcs .th i{font-style:normal;font-size:14px;color:var(--dim);
+body.bcs .th i{font-style:normal;font-size:13.5px;color:var(--dim);
   display:block;line-height:1.5}
 body.bcs .sn{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--sink);
@@ -254,13 +254,13 @@ body.bcs .ask .q::before{content:counter(asks);position:absolute;left:0;
   color:var(--pine);font-family:var(--mn);font-size:12px;font-weight:600;
   display:flex;align-items:center;justify-content:center}
 body.bcs .ask .q b{display:block;font-family:var(--disp);font-weight:800;
-  font-size:17px;letter-spacing:-.016em;margin-bottom:6px}
-body.bcs .ask .q p{font-size:14.5px;color:var(--dim);margin:0}
+  font-size:16.5px;letter-spacing:-.016em;margin-bottom:6px}
+body.bcs .ask .q p{font-size:15px;color:var(--dim);margin:0}
 
 /* --- honest gaps ------------------------------------------------------- */
 body.bcs .gapl{list-style:none;padding:0;margin:18px 0;
   border-left:4px solid var(--gold)}
-body.bcs .gapl li{padding:8px 0 8px 16px;margin:0;font-size:14.5px;
+body.bcs .gapl li{padding:8px 0 8px 16px;margin:0;font-size:15px;
   color:var(--dim);border-bottom:1px solid var(--hair)}
 body.bcs .gapl li:last-child{border-bottom:0}
 body.bcs .pnote{font-size:13.5px;color:var(--dim);background:var(--sink);
@@ -275,16 +275,16 @@ body.bcs .nx{display:block;background:var(--card);border-radius:var(--r);
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
     0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .nx b{display:block;font-family:var(--disp);font-weight:800;
-  font-size:17px;letter-spacing:-.016em;margin-bottom:6px}
+  font-size:16.5px;letter-spacing:-.016em;margin-bottom:6px}
 body.bcs .nx span{font-size:13.5px;color:var(--dim);line-height:1.45}
 body.bcs .srcs{margin:26px 0 0;border-top:2px solid var(--ink);
-  padding-top:16px;font-size:14px}
+  padding-top:16px;font-size:13.5px}
 body.bcs .srcs summary{cursor:pointer;font-family:var(--mn);font-size:12px;
   color:var(--pine)}
 body.bcs .srcs ol{margin:12px 0 0;padding-left:24px}
-body.bcs .srcs li{font-size:14px;color:var(--dim);line-height:1.55;
+body.bcs .srcs li{font-size:13.5px;color:var(--dim);line-height:1.55;
   margin-bottom:8px}
-body.bcs .srcl{font-family:var(--mn);font-size:11px;margin-left:6px}
+body.bcs .srcl{font-family:var(--mn);font-size:10.5px;margin-left:6px}
 
 /* --- late additions from the coverage guard ---------------------------- */
 /* tsbadge variants in the provenance block keep the shared chip look;
@@ -309,19 +309,19 @@ body.bcs .prg .pr > b{overflow-wrap:anywhere}
    time by _dev/sc_components.py so the two cannot drift. */
 /* --- provenance (last checked / figures current) ----------------------- */
 body.bcs .tsfoot{max-width:1180px;margin:0 auto;padding:0 var(--pad) 40px}
-body.bcs .tsfoot .tsk{display:block;font-family:var(--mn);font-size:10px;
+body.bcs .tsfoot .tsk{display:block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:5px}
-body.bcs .tsrow .tsv{font-family:var(--figs);font-weight:800;font-size:18px}
-body.bcs .tsrow .tsall{display:block;font-family:var(--mn);font-size:11px;
+body.bcs .tsrow .tsv{font-family:var(--figs);font-weight:800;font-size:19px}
+body.bcs .tsrow .tsall{display:block;font-family:var(--mn);font-size:10.5px;
   color:var(--pine);margin-top:6px}
 body.bcs .tsvint b{display:block;font-size:15px;line-height:1.4;max-width:44ch}
-body.bcs .tsvint i{display:block;font-style:normal;font-size:12.5px;
+body.bcs .tsvint i{display:block;font-style:normal;font-size:12px;
   color:var(--dim);margin-top:4px}
-body.bcs .tswhat{font-size:12.5px;color:var(--dim);margin:8px 0 0;max-width:30ch}
+body.bcs .tswhat{font-size:12px;color:var(--dim);margin:8px 0 0;max-width:30ch}
 /* --- More on this ------------------------------------------------------ */
 body.bcs .uplink{background:var(--sink);padding:44px var(--pad)}
 body.bcs .uplink>div{max-width:1180px;margin:0 auto}
-body.bcs .uplink .uk{font-family:var(--mn);font-size:10px;letter-spacing:.16em;
+body.bcs .uplink .uk{font-family:var(--mn);font-size:9.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--dim);margin:0 0 10px}
 body.bcs .uplink h2{font-size:28px;margin:0 0 6px}
 body.bcs .uplink .ud{color:var(--dim);margin:0 0 20px}
@@ -333,7 +333,7 @@ body.bcs .uplink .uc{display:block;background:var(--card);border-radius:var(--r)
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 6px 20px rgba(22,31,27,.045),
     0 0 0 1px rgba(22,31,27,.055)}
 body.bcs .uplink .uc b{display:block;font-family:var(--disp);font-weight:800;
-  font-size:17px;letter-spacing:-.016em;line-height:1.25;margin-bottom:7px}
+  font-size:16.5px;letter-spacing:-.016em;line-height:1.25;margin-bottom:7px}
 body.bcs .uplink .uc span{font-size:13.5px;color:var(--dim);line-height:1.45}
 body.bcs .uplink .uall{display:inline-block;font-family:var(--mn);font-size:12px;
   color:var(--pine)}

@@ -48,14 +48,14 @@ a{color:inherit}
 .sitenav-fig{width:28px;height:28px;flex:none;display:block}
 .sitenav-wordmark{font-family:Fraunces,serif;font-size:15px;font-weight:700;color:#fff;
  letter-spacing:-.012em;line-height:1.15}
-.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:8.5px;font-weight:700;
+.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;
  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px;
  white-space:nowrap}
 /* the segmented control: three equal columns, never a flex overflow */
 .sitenav-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;
  background:rgba(0,0,0,.26);border-radius:999px;padding:3px;justify-self:center;
  width:100%;max-width:330px}
-.sitenav-top{font:inherit;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.74);
+.sitenav-top{font:inherit;font-size:12px;font-weight:600;color:rgba(255,255,255,.74);
  background:none;border:0;padding:7px 6px;border-radius:6px;cursor:pointer;
  min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -63,12 +63,12 @@ a{color:inherit}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
 .sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
-.sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
+.sitenav-top:after{content:"\25BE";font-size:9.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 /* Newsletter ask, in the bar itself. The panel promo only appears once someone
    opens the menu; this is the one that is always on screen. */
 .sitenav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;
- background:var(--pop);color:#2A2010;font-size:12.5px;font-weight:700;
+ background:var(--pop);color:#2A2010;font-size:12px;font-weight:700;
  padding:10px 17px;border-radius:6px;text-decoration:none;white-space:nowrap;
  min-height:38px;box-shadow:0 3px 0 rgba(140,96,18,.35)}
 .sitenav-cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
@@ -87,7 +87,7 @@ a{color:inherit}
 }
 @media (max-width:860px){
  .sitenav-sub{display:none}
- .sitenav-wordmark{font-size:14px}
+ .sitenav-wordmark{font-size:13.5px}
  .sitenav-fig{width:26px;height:26px}
  .sitenav-cta .long{display:none}
  .sitenav-cta .short{display:inline}
@@ -109,7 +109,7 @@ a{color:inherit}
  .sitenav-wordmark{min-width:0;overflow:hidden;text-overflow:ellipsis}
  .sitenav-cta{grid-area:cta;justify-self:end}
  .sitenav-links{grid-area:nav;max-width:none;width:100%}
- .sitenav-top{font-size:12.5px;padding:9px 4px}
+ .sitenav-top{font-size:12px;padding:9px 4px}
  /* The tagline stays hidden here, as it is from 860px down. Restoring it was
     what pushed the lockup past the capsule in the first place, and at 390px
     there is no width for it beside the newsletter button. */
@@ -122,7 +122,7 @@ a{color:inherit}
  /* The chevron is decorative - the panel opens either way - and at this width it
     is the thing tipping each label into an ellipsis. Drop it rather than shrink
     type that is already at its floor. */
- .sitenav-top{font-size:11.5px;overflow:visible}
+ .sitenav-top{font-size:12px;overflow:visible}
  .sitenav-top:after{display:none}
 }
 .navpanel{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
@@ -135,23 +135,23 @@ a{color:inherit}
  text-decoration:none;color:var(--ink)}
 .np-col a:hover,.np-col a.on{background:var(--paper)}
 .np-col a img{width:22px;height:22px;flex:none;margin-top:1px}
-.np-col b{display:block;font-size:13px;font-weight:700}
-.np-col i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px;
+.np-col b{display:block;font-size:13.5px;font-weight:700}
+.np-col i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);margin-top:2px;
  line-height:1.45}
 .np-promo{display:block;background:var(--carbon);border-radius:10px;padding:15px;
  text-align:center;text-decoration:none}
 .np-promo img{width:76px;height:76px}
 .np-promo b{display:block;font-family:Fraunces,serif;font-size:15px;color:#fff;margin-top:7px}
-.np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.7)}
+.np-promo p{margin:7px 0 11px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.7)}
 .np-promo span{display:inline-block;background:var(--pop);color:#2A2010;font-weight:800;
- font-size:11.5px;padding:9px 14px;border-radius:10px}
+ font-size:12px;padding:9px 14px;border-radius:10px}
 
 /* ---- bands and sections */
 .band{background:#123C30;
  color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
-.kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+.kick{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
  color:var(--pop);margin:0 0 10px}
 /* SCOPED, for the same reason .lede is: rates.html appends this sheet after its
    own, so a bare h1{color:#fff} painted that article's headline white on cream.
@@ -163,11 +163,11 @@ a{color:inherit}
  rates.html - which appends page.css after its own sheet - and painted the
  article's opening paragraph 84% white on cream. Invisible, and only on the
  one page that is not generated from here. */
-.band .lede{font-size:15.5px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
+.band .lede{font-size:15px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
  max-width:58ch}
 .band .lede b{color:#fff}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
+.who span{font-size:12px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -175,23 +175,23 @@ h2{font-family:Fraunces,serif;font-size:clamp(22px,2.4vw,27px);font-weight:600;m
  letter-spacing:-.015em}
 .grouplab{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap}
 .grouplab h2{margin:0}
-.grouplab span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+.grouplab span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
  color:var(--gold)}
-p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
+p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cards.four{grid-template-columns:repeat(4,1fr)}
 .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px}
 .sec.alt .card{background:var(--paper)}
 .card img{width:32px;height:32px;margin-bottom:10px;display:block}
-.card h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 7px}
-.card p{font-size:12.8px;line-height:1.65;color:#4E4940;margin:0}
+.card h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 7px}
+.card p{font-size:13.5px;line-height:1.65;color:#4E4940;margin:0}
 .reflist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
 .ref{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
  border-radius:10px;padding:14px 16px}
 .sec.alt .ref{background:var(--paper)}
 .ref img{width:26px;height:26px;flex:none;margin-top:2px}
 .ref b{display:block;font-size:13.5px;margin-bottom:3px}
-.ref i{display:block;font-style:normal;font-size:12.3px;line-height:1.6;color:#4E4940}
+.ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
@@ -199,13 +199,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .sec.alt .fact{background:var(--cream)}
-.fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
+.fact em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .fact b{font-family:Fraunces,serif;font-size:19px;display:block}
-.fact i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:5px;
+.fact i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:5px;
  line-height:1.55}
 .ctarow{margin:22px 0 0}
-.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
+.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:13.5px;
  padding:12px 22px;border-radius:10px;text-decoration:none}
 .btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
@@ -214,7 +214,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* ---- newsletter */
 .getlist{margin:20px 0 22px;padding:0;list-style:none}
-.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.8px;line-height:1.62;
+.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.62;
  color:rgba(255,255,255,.84);margin-bottom:11px}
 .getlist img{width:20px;height:20px;flex:none;margin-top:2px}
 .getlist b{color:#fff}
@@ -236,8 +236,8 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  outline-offset:2px}
 .consent{display:flex;gap:9px;align-items:flex-start;margin-top:12px;max-width:62ch;cursor:pointer}
 .consent input{width:16px;height:16px;flex:none;margin:1px 0 0;accent-color:var(--pop)}
-.consent span{font-size:11.8px;line-height:1.55;color:rgba(255,255,255,.66)}
-.nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
+.consent span{font-size:12px;line-height:1.55;color:rgba(255,255,255,.66)}
+.nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
 /* ---- submitted state
    The form posts by fetch and swaps itself for this, so nobody is thrown onto
    Formspree's own thanks page. Sized to the form it replaces so the band does
@@ -248,9 +248,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 @keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:var(--pop);
  color:#2A2010;font-size:15px;font-weight:800;line-height:26px;text-align:center}
-.nlok b{display:block;font-family:Fraunces,serif;font-size:16px;color:#fff;margin-bottom:5px}
-.nlok p{font-size:12.6px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
-.nlok p + p{margin-top:7px;font-size:11.4px;color:rgba(255,255,255,.5)}
+.nlok b{display:block;font-family:Fraunces,serif;font-size:16.5px;color:#fff;margin-bottom:5px}
+.nlok p{font-size:12px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
+.nlok p + p{margin-top:7px;font-size:12px;color:rgba(255,255,255,.5)}
 .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 /* Light-background variant, for the end-of-article ask on a cream section. */
@@ -267,11 +267,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
 .issue-h img{width:26px;height:26px;flex:none}
 .issue-h b{font-family:Fraunces,serif;font-size:15px}
-.issue-h span{font-size:11px;color:var(--muted);margin-left:auto;
+.issue-h span{font-size:10.5px;color:var(--muted);margin-left:auto;
  font-family:'IBM Plex Mono',monospace}
-.issue h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 8px}
-.issue p{font-size:13px;line-height:1.7;color:#4E4940;margin:0 0 13px}
-.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12.6px;color:#4E4940;
+.issue h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 8px}
+.issue p{font-size:13.5px;line-height:1.7;color:#4E4940;margin:0 0 13px}
+.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12px;color:#4E4940;
  padding:9px 0;border-top:1px dashed var(--line);line-height:1.55}
 .issue-row b{font-family:'IBM Plex Mono',monospace;color:var(--gold);flex:none}
 
@@ -283,11 +283,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ftnl-t{flex:1;min-width:300px}
 .ftnl h2{font-family:Fraunces,serif;font-size:23px;color:#fff;margin:0 0 9px;line-height:1.24}
 .ftnl h2 em{font-style:normal;color:var(--pop)}
-.ftnl p{font-size:13.2px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.ftnl p{font-size:13.5px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
 /* .ftnl p is (0,1,1) and beat .nlmeta at (0,1,0), so the fine print rendered at
    the same size and colour as the consent line above it and read as one run-on
    paragraph. Restate it at equal weight rather than reordering the sheet. */
-.ftnl .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.44);
+.ftnl .nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.44);
  margin:12px 0 0;max-width:60ch}
 .ftnl .nlform{flex:1;min-width:min(320px,100%)}
 /* min-width:320px is wider than a 320px viewport once .ftin's 18px padding is
@@ -301,13 +301,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  border-top:1px solid rgba(255,255,255,.1);padding:24px 0 6px;margin-top:0}
 .ftcols h5{margin:0 0 12px;font-size:9.5px;font-weight:800;letter-spacing:.13em;
  text-transform:uppercase;color:var(--pop)}
-.ftcols a{display:block;font-size:12.5px;color:rgba(255,255,255,.72);text-decoration:none;
+.ftcols a{display:block;font-size:12px;color:rgba(255,255,255,.72);text-decoration:none;
  margin-bottom:9px}
 .ftcols a:hover{color:#fff;text-decoration:underline}
 .ftcols a.on{color:#fff;font-weight:600}
 .ftcols a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 .ftcols p{margin:0 0 9px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.5)}
-.ftby{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
+.ftby{font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
  padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
 .ftby b{color:rgba(255,255,255,.78)}
 
@@ -337,7 +337,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 
 /* ---- tools page */
-.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:5px 12px;
+.pill{display:inline-block;font-size:10.5px;font-weight:700;border-radius:6px;padding:5px 12px;
  border:1px solid}
 .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 .pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
@@ -346,19 +346,19 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding:18px 19px;display:flex;flex-direction:column}
 .sec.alt .tool{background:var(--paper)}
 .tool img{width:30px;height:30px;margin-bottom:9px}
-.tool h3{font-family:Fraunces,serif;font-size:16px;margin:0 0 6px;padding-right:74px}
-.tool p{font-size:12.6px;line-height:1.62;color:#4E4940;margin:0 0 12px}
+.tool h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 6px;padding-right:74px}
+.tool p{font-size:12px;line-height:1.62;color:#4E4940;margin:0 0 12px}
 .tool > .pill{position:absolute;top:15px;right:15px}
-.tool a{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--pine);text-decoration:none}
+.tool a{margin-top:auto;font-size:12px;font-weight:700;color:var(--pine);text-decoration:none}
 .tool a:hover{text-decoration:underline}
 /* featured slot: the tool being finished now, shown rather than described */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;
  border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-top:18px}
 .sec.alt .feat{background:var(--paper)}
 .feat h3{font-family:Fraunces,serif;font-size:23px;margin:11px 0 9px;letter-spacing:-.015em}
-.feat p{font-size:13.6px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
+.feat p{font-size:13.5px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
 .feat ul{margin:0 0 18px;padding:0;list-style:none}
-.feat li{font-size:12.9px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
+.feat li{font-size:13.5px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
  margin-bottom:8px}
 .feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:6px;
  background:var(--pine)}
@@ -366,7 +366,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .featshot{border:1px solid var(--line);border-radius:10px;overflow:hidden;
  box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F6F8F6}
 .featshot img{width:100%;height:auto;display:block;image-rendering:auto}
-.featcap{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
+.featcap{font-size:10.5px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
 @media (max-width:900px){.feat{grid-template-columns:1fr;gap:22px;padding:22px}}
 
 /* ---- contact form */
@@ -379,12 +379,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    the chevron. Sized to the content, not to a round number. */
 .cf-row{display:grid;grid-template-columns:232px minmax(0,1fr);gap:14px;margin:0 0 14px}
 .cf-f{display:block;min-width:0}
-.cf-f > span{display:block;font-size:10px;font-weight:800;letter-spacing:.11em;
+.cf-f > span{display:block;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
 .cf-f > span i{font-style:normal;font-weight:600;letter-spacing:0;text-transform:none;
  color:#A29A88;margin-left:5px}
 .cform input[type=text],.cform input[type=email],.cform select,.cform textarea{
- width:100%;min-width:0;font:inherit;font-size:14px;color:var(--ink);min-height:44px;
+ width:100%;min-width:0;font:inherit;font-size:13.5px;color:var(--ink);min-height:44px;
  background:var(--cream);border:1.5px solid #E4D9BE;border-radius:10px;padding:11px 13px}
 .cform select{height:44px;padding:0 11px;font-family:Fraunces,serif;font-weight:600;font-size:15px}
 .cform textarea{line-height:1.6;resize:vertical;min-height:132px}
@@ -392,13 +392,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cform input:focus-visible,.cform select:focus-visible,.cform textarea:focus-visible{
  outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
 .cf-send{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:16px 0 0}
-.cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:14px;
+.cform button[type=submit]{background:var(--pine);color:#fff;font:inherit;font-size:13.5px;
  font-weight:700;border:0;border-radius:10px;padding:12px 22px;cursor:pointer;min-height:44px;
  box-shadow:0 3px 0 rgba(21,52,43,.35)}
 .cform button[type=submit]:hover{background:#2C6350}
 .cform button[type=submit]:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(21,52,43,.35)}
 .cform button[aria-busy=true]{opacity:.65;cursor:progress}
-.cf-direct{font-size:12.4px;line-height:1.6;color:var(--muted);margin:0}
+.cf-direct{font-size:12px;line-height:1.6;color:var(--muted);margin:0}
 .cf-direct a{color:var(--pine);font-weight:700}
 /* .consent is written for the dark newsletter band; on a light card it needs the
    dark text back. .sec .consent span already does this - restated here because
@@ -416,9 +416,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cfhelp{background:var(--paper);border:1px solid var(--line);border-radius:10px;
  padding:18px 20px;margin:0 0 22px;max-width:640px}
 .sec.alt .cfhelp{background:var(--cream)}
-.cfhelp h3{font-family:Fraunces,serif;font-size:15.5px;margin:0 0 11px}
+.cfhelp h3{font-family:Fraunces,serif;font-size:15px;margin:0 0 11px}
 .cfhelp ul{margin:0;padding:0;list-style:none}
-.cfhelp li{font-size:12.8px;line-height:1.62;color:#4E4940;padding-left:19px;position:relative;
+.cfhelp li{font-size:13.5px;line-height:1.62;color:#4E4940;padding-left:19px;position:relative;
  margin:0 0 9px}
 .cfhelp li:last-child{margin-bottom:0}
 .cfhelp li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
@@ -427,7 +427,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* Contact page is now the form and nothing else, so the fine print carries the
    safety signpost on its own rather than as one of a pair of cards. */
-.cf-fine{max-width:640px;margin:16px 0 0;font-size:12.4px;line-height:1.7;color:var(--muted)}
+.cf-fine{max-width:640px;margin:16px 0 0;font-size:12px;line-height:1.7;color:var(--muted)}
 .cf-fine b{color:#B5483F;font-weight:800}
 
 </style>
@@ -458,7 +458,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ahero h1 em{font-style:normal;color:var(--pop)}
 .atag{font-family:Fraunces,Georgia,serif;font-size:clamp(16px,1.8vw,21px);color:var(--pop);
  margin:0 0 13px}
-.alede{font-size:14.2px;line-height:1.72;color:rgba(255,255,255,.86);margin:0 0 16px;
+.alede{font-size:13.5px;line-height:1.72;color:rgba(255,255,255,.86);margin:0 0 16px;
  max-width:58ch}
 .alede b{color:#fff}
 .aherocta{display:flex;gap:9px;flex-wrap:wrap;align-items:stretch}
@@ -474,11 +474,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .apanel .arow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;
  align-items:baseline;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14)}
 .apanel .arow:last-of-type{border-bottom:0}
-.apanel .arow span{font-size:11.4px;color:rgba(255,255,255,.62);line-height:1.4}
+.apanel .arow span{font-size:12px;color:rgba(255,255,255,.62);line-height:1.4}
 .apanel .arow b{font-family:Fraunces,Georgia,serif;font-size:23px;color:#fff;line-height:1;
  white-space:nowrap}
 .apanel .arow b.gold{color:var(--pop)}
-.apanel .anote{font-size:10.6px;color:rgba(255,255,255,.5);margin:11px 0 0;line-height:1.55}
+.apanel .anote{font-size:10.5px;color:rgba(255,255,255,.5);margin:11px 0 0;line-height:1.55}
 
 /* ---------- slabs: white cards, identity in a 3px top rule ---------- */
 .adv .slab{max-width:1060px;margin:16px auto 0;border-radius:10px;padding:28px 30px 32px;
@@ -492,12 +492,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ch-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:5px}
 .ch-h h2{font-family:Fraunces,Georgia,serif;font-size:clamp(21px,2.5vw,28px);margin:0;
  font-weight:600;letter-spacing:-.02em;color:var(--ink)}
-.ch-n{font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+.ch-n{font-size:9.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
  color:var(--gold)}
 .slab.pine .ch-n{color:var(--pine)}
 .slab.brick .ch-n{color:var(--brick)}
 .slab.indigo .ch-n{color:var(--indigo)}
-.dek{font-size:13.4px;line-height:1.7;margin:0 0 18px;color:var(--muted);max-width:68ch}
+.dek{font-size:13.5px;line-height:1.7;margin:0 0 18px;color:var(--muted);max-width:68ch}
 .dek b{color:var(--ink);font-weight:600}
 
 /* ---------- the one field pattern ---------- */
@@ -506,7 +506,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  transition:border-color .15s,box-shadow .15s}
 .f:hover{border-color:var(--gold)}
 .f:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,132,48,.16)}
-.f em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.1em;
+.f em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#7C766A;margin-bottom:3px;line-height:1.35}
 .f .fv{display:flex;align-items:baseline;gap:3px;font-family:Fraunces,Georgia,serif;
  font-weight:600;font-size:19px;color:var(--ink)}
@@ -514,11 +514,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  color:inherit;-moz-appearance:textfield;outline:none}
 .f input::-webkit-outer-spin-button,.f input::-webkit-inner-spin-button{
  -webkit-appearance:none;margin:0}
-.f select{font-size:14.5px;cursor:pointer}
+.f select{font-size:15px;cursor:pointer}
 .f select option{color:#1B2420}
 .f .unit{flex:none;font-family:Inter,sans-serif;font-size:10.5px;font-weight:700;
  letter-spacing:.05em;text-transform:uppercase;color:#9A9384;white-space:nowrap}
-.f.sm .fv{font-size:16px}
+.f.sm .fv{font-size:16.5px}
 
 /* ---------- the offer columns ---------- */
 .jobs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:4px}
@@ -530,38 +530,38 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .job.b{border-style:dashed;border-color:var(--fieldline)}
 .jobhead{display:flex;align-items:center;gap:10px;margin-bottom:13px;flex-wrap:wrap}
 .jobtag{flex:none;width:26px;height:26px;border-radius:10px;background:var(--pine);color:#fff;
- font-family:Fraunces,Georgia,serif;font-size:14px;font-weight:700;display:flex;
+ font-family:Fraunces,Georgia,serif;font-size:13.5px;font-weight:700;display:flex;
  align-items:center;justify-content:center}
 .jobhead .jn{flex:1;min-width:100px}
 /* padding, not height: the name field is a bare input rather than a wrapped .f
    label, so nothing else gives it a 40px touch surface. */
 .jobhead .jn input{width:100%;background:none;border:0;border-bottom:1.5px dashed
- var(--fieldline);color:var(--ink);font-family:Fraunces,Georgia,serif;font-size:16px;
+ var(--fieldline);color:var(--ink);font-family:Fraunces,Georgia,serif;font-size:16.5px;
  font-weight:600;padding:9px 0;outline:none;min-height:40px}
 .jobhead .jn input:focus{border-bottom-color:var(--gold)}
 .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
 .fgrid .wide{grid-column:1 / -1}
-.fsub{font-size:8.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+.fsub{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
  color:var(--gold);margin:16px 0 8px}
-.jobfoot{font-size:11.9px;line-height:1.64;color:var(--muted);margin:11px 0 0}
+.jobfoot{font-size:12px;line-height:1.64;color:var(--muted);margin:11px 0 0}
 .jobfoot b{color:var(--ink)}
 .addb{display:inline-flex;align-items:center;gap:8px;background:var(--white);
  border:1.5px solid var(--fieldline);border-radius:10px;padding:9px 16px;
- font-size:12.5px;font-weight:700;color:var(--ink);cursor:pointer;min-height:44px}
+ font-size:12px;font-weight:700;color:var(--ink);cursor:pointer;min-height:44px}
 .addb:hover{background:var(--field);border-color:var(--gold)}
 
 /* ---------- receipt rows ---------- */
 .rec{display:grid;grid-template-columns:minmax(0,1fr) 108px;gap:12px;align-items:baseline;
  padding:9px 0;border-bottom:1px solid var(--line)}
 .rec:last-child{border-bottom:0}
-.rec b{font-size:13.2px;font-weight:600;color:var(--ink)}
-.rec i{font-style:normal;font-size:11.5px;color:var(--muted);display:block;margin-top:3px;
+.rec b{font-size:13.5px;font-weight:600;color:var(--ink)}
+.rec i{font-style:normal;font-size:12px;color:var(--muted);display:block;margin-top:3px;
  line-height:1.5}
-.rec .v{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.2px;text-align:right;
+.rec .v{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13.5px;text-align:right;
  white-space:nowrap;color:var(--ink)}
 .rec .v.neg{color:var(--neg)}
 .rec.tot{border-top:2px solid var(--ink);border-bottom:0;margin-top:6px;padding-top:12px}
-.rec.tot b{font-family:Fraunces,Georgia,serif;font-size:16px}
+.rec.tot b{font-family:Fraunces,Georgia,serif;font-size:16.5px}
 .rec.tot .v{font-family:Fraunces,Georgia,serif;font-size:19px;color:var(--gold)}
 
 /* ---------- stat tiles ---------- */
@@ -570,9 +570,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tile{border-radius:10px;padding:13px 15px 14px;background:var(--white);
  border:1px solid var(--line);min-width:0}
 .tile.hi{background:#FDF4DF;border-color:#E8D3A0}
-.tile em{display:block;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.11em;
+.tile em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:#7C766A;margin-bottom:5px;line-height:1.35}
-.tile b{font-family:Fraunces,Georgia,serif;font-size:24px;display:block;line-height:1.02;
+.tile b{font-family:Fraunces,Georgia,serif;font-size:23px;display:block;line-height:1.02;
  color:var(--ink)}
 .tile.hi b{color:var(--gold)}
 .tile u{text-decoration:none;display:block;font-size:10.5px;color:#8A8477;margin-top:4px;
@@ -581,7 +581,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 /* ---------- compare table ---------- */
 .cmpwrap{overflow-x:auto;overflow-y:hidden;margin-top:18px;-webkit-overflow-scrolling:touch}
 .cmp{width:100%;border-collapse:collapse;min-width:520px}
-.cmp th,.cmp td{text-align:right;padding:11px 12px;font-size:13px;
+.cmp th,.cmp td{text-align:right;padding:11px 12px;font-size:13.5px;
  border-bottom:1px solid var(--line)}
 .cmp th:first-child,.cmp td:first-child{text-align:left}
 .cmp thead th{font-family:Fraunces,Georgia,serif;font-size:15px;font-weight:600;
@@ -589,10 +589,10 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .cmp td.n{font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap;
  color:var(--ink)}
 .cmp td .lab{font-weight:600;display:block;color:var(--ink)}
-.cmp td .sub{font-size:11.2px;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
+.cmp td .sub{font-size:10.5px;color:var(--muted);display:block;margin-top:3px;line-height:1.5}
 .win{position:relative;background:#F6F8F6}
 .win:after{content:"BETTER";position:absolute;top:50%;right:8px;transform:translateY(-50%);
- font-size:7.5px;font-weight:800;letter-spacing:.1em;background:var(--pos);color:#fff;
+ font-size:9.5px;font-weight:800;letter-spacing:.1em;background:var(--pos);color:#fff;
  padding:3px 6px;border-radius:6px}
 .cmp td.win{padding-right:64px}
 .verdict{margin-top:18px;background:#FDF4DF;border:1.5px solid #E8D3A0;border-radius:10px;
@@ -600,7 +600,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .verdict h3{font-family:Fraunces,Georgia,serif;font-size:clamp(19px,2.4vw,25px);margin:0 0 9px;
  color:var(--ink);font-weight:600;letter-spacing:-.016em}
 .verdict h3 b{color:var(--gold);font-weight:600}
-.verdict p{font-size:13px;line-height:1.72;color:#4E4940;margin:0;max-width:70ch}
+.verdict p{font-size:13.5px;line-height:1.72;color:#4E4940;margin:0;max-width:70ch}
 .verdict p + p{margin-top:10px}
 
 /* ---------- the hours ladder ---------- */
@@ -610,30 +610,30 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .gate.block{border-color:#E8D3A0;background:#FDF4DF}
 .gatehead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;
  margin-bottom:9px}
-.gatehead b{font-family:Fraunces,Georgia,serif;font-size:16px;color:var(--ink)}
-.gatehead .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12.5px;
+.gatehead b{font-family:Fraunces,Georgia,serif;font-size:16.5px;color:var(--ink)}
+.gatehead .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;
  white-space:nowrap;color:var(--muted)}
 .gtrack{height:15px;background:var(--white);border:1px solid var(--line);border-radius:6px;
  overflow:hidden;position:relative}
 .gtrack i{display:block;height:100%;border-radius:6px;transition:width .35s ease;
  background:var(--pos)}
 .gate.block .gtrack i{background:var(--gold)}
-.gate p{font-size:11.7px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
+.gate p{font-size:12px;line-height:1.62;color:var(--muted);margin:9px 0 0;max-width:76ch}
 .gate .eta{font-size:12px;color:#4E4940;margin:8px 0 0;font-weight:600}
 .gate .eta b{color:var(--gold)}
 .finish{margin-top:16px;background:#FDF4DF;border:1.5px solid #E8D3A0;border-radius:10px;
  padding:19px 21px}
-.finish em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.14em;
+.finish em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.14em;
  text-transform:uppercase;color:#8A6516;margin-bottom:7px}
 .finish b{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,40px);color:var(--ink);
  display:block;line-height:1.05}
-.finish p{font-size:12.8px;line-height:1.7;color:#4E4940;margin:10px 0 0;max-width:72ch}
+.finish p{font-size:13.5px;line-height:1.7;color:#4E4940;margin:10px 0 0;max-width:72ch}
 .finish p b{display:inline;font-family:inherit;font-size:inherit;color:#8A6516}
 
 /* ---------- warnings ---------- */
 .warns{display:grid;gap:9px;margin-top:16px}
 .warn{display:flex;gap:11px;align-items:flex-start;border-radius:10px;padding:12px 15px;
- font-size:12.5px;line-height:1.64;background:#FBEFEC;border:1px solid #EBC7BE;
+ font-size:12px;line-height:1.64;background:#FBEFEC;border:1px solid #EBC7BE;
  color:#4E4940}
 .warn.ok{background:#F6F8F6;border-color:#C6DBD1}
 .warn .ic{flex:none;font-style:normal;font-weight:800;color:var(--neg)}
@@ -644,9 +644,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
 .rule{background:var(--paper);border:1px solid var(--line);border-radius:10px;
  padding:15px 17px 16px;min-width:0}
-.rule b{display:block;font-family:Fraunces,Georgia,serif;font-size:15.5px;margin-bottom:7px;
+.rule b{display:block;font-family:Fraunces,Georgia,serif;font-size:15px;margin-bottom:7px;
  color:var(--ink);line-height:1.28}
-.rule p{font-size:12.5px;line-height:1.7;color:var(--muted);margin:0}
+.rule p{font-size:12px;line-height:1.7;color:var(--muted);margin:0}
 .rule .src{display:inline-block;margin-top:9px;font-family:'IBM Plex Mono',ui-monospace,monospace;
  font-size:9.5px;letter-spacing:.04em;color:var(--gold)}
 .flags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
@@ -654,20 +654,20 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  border-radius:0 10px 10px 0;padding:13px 16px 14px;min-width:0}
 .flag b{display:block;font-family:Fraunces,Georgia,serif;font-size:15px;margin-bottom:6px;
  color:var(--ink)}
-.flag p{font-size:12.4px;line-height:1.68;color:var(--muted);margin:0}
+.flag p{font-size:12px;line-height:1.68;color:var(--muted);margin:0}
 .ribbon{display:inline-block;background:var(--indigo);color:#fff;font-size:9.5px;font-weight:800;
  letter-spacing:.16em;text-transform:uppercase;padding:5px 13px;border-radius:6px;
  margin-bottom:12px}
 
 /* ---------- pay reference + fees ---------- */
 .paytab{width:100%;border-collapse:collapse;margin-top:15px}
-.paytab th,.paytab td{text-align:left;padding:10px 12px;font-size:12.7px;
+.paytab th,.paytab td{text-align:left;padding:10px 12px;font-size:12px;
  border-bottom:1px solid var(--line);color:#4E4940}
 .paytab td:last-child,.paytab th:last-child{text-align:right;
  font-family:'IBM Plex Mono',ui-monospace,monospace;white-space:nowrap}
-.paytab thead th{font-size:8.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+.paytab thead th{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
  color:#8A8477}
-.paytab td i{font-style:normal;display:block;font-size:11.2px;color:#8A8477;margin-top:3px}
+.paytab td i{font-style:normal;display:block;font-size:10.5px;color:#8A8477;margin-top:3px}
 
 /* ---------- deep detail ---------- */
 .how{margin-top:17px;background:var(--paper);border:1px solid var(--line);border-radius:10px;
@@ -675,14 +675,14 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .how > summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;
  align-items:baseline;gap:10px;flex-wrap:wrap;min-height:44px}
 .how > summary::-webkit-details-marker{display:none}
-.how > summary:after{content:"\25BE";margin-left:auto;color:#9A9384;font-size:11px;
+.how > summary:after{content:"\25BE";margin-left:auto;color:#9A9384;font-size:10.5px;
  transition:transform .2s}
 .how[open] > summary:after{transform:rotate(180deg)}
 .how[open]{background:var(--white)}
 .how > summary b{font-family:Fraunces,Georgia,serif;font-size:15px;color:var(--ink)}
-.how > summary span{font-size:11.7px;color:var(--muted)}
+.how > summary span{font-size:12px;color:var(--muted)}
 .howb{padding:2px 17px 17px;border-top:1px solid var(--line)}
-.howb p,.howb li{font-size:12.7px;line-height:1.74;color:#4E4940;max-width:76ch}
+.howb p,.howb li{font-size:12px;line-height:1.74;color:#4E4940;max-width:76ch}
 .howb ul{margin:0;padding-left:19px}
 .howb li{margin-bottom:8px}
 .howb b{color:var(--ink)}
@@ -701,20 +701,20 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .acta span{font-size:clamp(12px,1.1vw,14.5px);font-weight:700;opacity:.66}
 .alist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 22px;margin:18px 0 0;
  padding:17px 0 0;border-top:1px solid var(--line)}
-.alist div{display:flex;gap:9px;font-size:12.6px;line-height:1.6;color:var(--muted)}
+.alist div{display:flex;gap:9px;font-size:12px;line-height:1.6;color:var(--muted)}
 .alist i{font-style:normal;color:var(--gold);flex:none}
 .alist b{color:var(--ink);font-weight:600}
 
 /* ---------- citations + footer ---------- */
 .cites{max-width:1060px;margin:20px auto 0;padding:0 26px}
-.cites h3{font-family:Fraunces,Georgia,serif;font-size:17px;margin:0 0 10px;color:var(--ink)}
+.cites h3{font-family:Fraunces,Georgia,serif;font-size:16.5px;margin:0 0 10px;color:var(--ink)}
 .cite{display:grid;grid-template-columns:34px minmax(0,1fr);gap:8px;padding:8px 0;
- border-bottom:1px solid var(--line);font-size:12.3px;line-height:1.64;color:var(--muted)}
+ border-bottom:1px solid var(--line);font-size:12px;line-height:1.64;color:var(--muted)}
 .cite:last-of-type{border-bottom:0}
-.cite .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:var(--gold)}
+.cite .n{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;color:var(--gold)}
 .cite a{color:var(--pine);font-weight:600}
 .cite b{color:var(--ink)}
-.disc{max-width:1060px;margin:6px auto 0;padding:14px 26px 40px;font-size:11.8px;
+.disc{max-width:1060px;margin:6px auto 0;padding:14px 26px 40px;font-size:12px;
  line-height:1.72;color:#8A8477}
 .disc b{color:var(--ink)}
 
@@ -736,7 +736,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* --- the Board's supervision minimum, checked against the offer.
    `supreq` rather than `req` or `note`: the chrome styles both of those. */
-.supreq{margin:10px 0 0;padding:11px 13px;border-radius:10px;font-size:13.4px;
+.supreq{margin:10px 0 0;padding:11px 13px;border-radius:10px;font-size:13.5px;
   line-height:1.55;border-left:3px solid var(--line);background:var(--paper)}
 .supreq:empty{display:none;padding:0;border:0}
 .supreq.ok{border-left-color:var(--pos);background:#F6F8F6;color:#2C6350}
@@ -756,7 +756,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    section can compute, so it is a prompt rather than an error. */
 .f.wait{border-style:dashed;border-color:var(--gold);background:#F6F8F6}
 .f.wait em{color:#8A6A2A}
-.waitnote{margin:10px 0 0;font-size:12.6px;line-height:1.55;color:#8A6A2A;
+.waitnote{margin:10px 0 0;font-size:12px;line-height:1.55;color:#8A6A2A;
   background:#F6F8F6;border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
   padding:9px 12px}
 .waitnote:empty{display:none;padding:0;border:0}
@@ -768,9 +768,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .bw{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .bw em{display:block;font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
   font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.bw b{display:block;font-family:Fraunces,Georgia,serif;font-size:20px;line-height:1;
+.bw b{display:block;font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1;
   margin:4px 0 3px}
-.bw i{display:block;font-style:normal;font-size:11px;color:var(--muted)}
+.bw i{display:block;font-style:normal;font-size:10.5px;color:var(--muted)}
 </style>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebApplication","name":"How long to 3,000 hours? An AMFT hours calculator for California","url":"https://therapistsupport.org/amft-3000-hours-california.html","applicationCategory":"FinanceApplication","operatingSystem":"Any web browser","description":"Work out your real licensure date as a California associate. The 3,000 is almost never the gate that decides it \u2014 this projects all four, including the 500 relational hours and the 104 weeks, and tells you which one you are actually waiting on.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to get 3,000 hours as an AMFT in California?","acceptedAnswer":{"@type":"Answer","text":"It depends on which of four requirements closes last. Registered associates need 3,000 hours over at least 104 weeks, of which at least 1,750 must be direct clinical counselling and at least 500 of those with couples, families or children. No more than 1,250 may be non-clinical, and no more than 40 hours count in any week. A caseload of adult individuals can complete the 3,000 without ever closing the 500."}}]}]</script>
 </head><body>
@@ -1260,7 +1260,7 @@ function drawTake(a, b){
   function block(c){
     var s = '<div class="job"><div class="jobhead"><span class="jobtag">'
       + (c === a ? 'A' : 'B') + '</span><b style="font-family:Fraunces,Georgia,serif;'
-      + 'font-size:16px">' + esc(c.label) + '</b></div>';
+      + 'font-size:16.5px">' + esc(c.label) + '</b></div>';
     s += rec("Gross pay",
              c.salaried ? "the salary, before anything comes out"
              : c.split ? Math.round(c.splitPct * 100) + "% of a " + fmt(c.fee)
@@ -1316,7 +1316,7 @@ function drawHour(a, b){
   function set(c, letter){
     var unpaidShare = c.workedHrs > 0 ? (c.workedHrs - c.paidHrs) / c.workedHrs : 0;
     var s = '<div class="job"><div class="jobhead"><span class="jobtag">' + letter
-      + '</span><b style="font-family:Fraunces,Georgia,serif;font-size:16px">'
+      + '</span><b style="font-family:Fraunces,Georgia,serif;font-size:16.5px">'
       + esc(c.label) + '</b></div><div class="tiles">';
     /* For an hourly post the advertised number is the CLINICAL rate, and it is
        not what any hour pays once admin hours at a lower rate are mixed in.

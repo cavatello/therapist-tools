@@ -21,9 +21,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/house.css?v=0afb37c9">
-<link rel="stylesheet" href="css/house-chrome.css?v=fa313ee2">
-<link rel="stylesheet" href="css/house-art.css?v=5fa28390">
+<link rel="stylesheet" href="css/house.css?v=05201fdd">
+<link rel="stylesheet" href="css/house-chrome.css?v=e65f9be4">
+<link rel="stylesheet" href="css/house-art.css?v=276af157">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to find a practicum site in California, and what to ask","description":"Whose job the search legally is, the settings a trainee can never use, where California practicum seats exist, and what to ask a site before you accept.","url":"https://therapistsupport.org/how-to-find-a-practicum-site-california.html","datePublished":"2026-08-16","dateModified":"2026-08-16","author":{"@type":"Organization","name":"Therapist Support"},"publisher":{"@type":"Organization","name":"Therapist Support","url":"https://therapistsupport.org/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Therapist Support","item":"https://therapistsupport.org/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://therapistsupport.org/resources.html"},{"@type":"ListItem","position":3,"name":"Licensure"}]}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJCWHH9SFG"></script>
@@ -85,6 +85,7 @@
 <div class="arttool"><b>Searching in the Bay Area?</b><p>The practicum-sites directory lays out the full universe for the nine counties by name &mdash; every program clinic, county plan, health-center organization and clinical nonprofit, with every listed link checked by hand.</p><a href="practicum-sites-bay-area.html">Open the directory &rarr;</a></div>
 <div class="artsrc"><h2>Sources</h2><ol><li id="s1"><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&amp;sectionNum=4980.42." target="_blank" rel="noopener noreferrer">Cal. Business and Professions Code &sect;4980.42</a> &mdash; subdivision (e): the school shall approve each site and shall have a written agreement with each site; the burden of proof for hours gained at a school other than the degree-conferring one; subdivision (c): enrollment in a practicum course, and the under-90-day gap exception</li><li id="s2"><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&amp;sectionNum=4980.43." target="_blank" rel="noopener noreferrer">Cal. Business and Professions Code &sect;4980.43</a> &mdash; subdivision (c)(4)&ndash;(5), the 1,300-hour pre-degree ceiling and the 750-hour inner cap; subdivision (c)(6), no hours before 12 semester or 18 quarter units</li><li id="s3"><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&amp;sectionNum=4980.43.2." target="_blank" rel="noopener noreferrer">Cal. Business and Professions Code &sect;4980.43.2</a> &mdash; the supervision floor: one hour of direct supervisor contact per setting per week, plus one additional hour per five hours of direct clinical counseling</li><li id="s4"><a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=BPC&amp;sectionNum=4980.43.3." target="_blank" rel="noopener noreferrer">Cal. Business and Professions Code &sect;4980.43.3</a> &mdash; subdivision (a), employee or volunteer and never independent contractor; (b), no private practice or professional corporation; (d), supervisor conflicts; (e)&ndash;(f), payment only from the employer and no proprietary interest, lease or rent</li></ol><p class="disc">The 78-program placement survey, the in-house-clinic count and the quoted placement-office advice are this site&rsquo;s own August 2026 read of each program&rsquo;s published materials, documented program by program on <a href="practicum-california-mft-trainee.html">the practicum rules page</a>. The agency counts are computed from the IRS Exempt Organizations Business Master File and shown organization by organization on <a href="practicum-sites-bay-area.html">the Bay Area directory</a>. Statutory text is quoted from the sections linked above. This is not legal advice.</p></div>
 <div class="artnext"><b>Read next</b><div class="g"><a href="practicum-california-mft-trainee.html"><i>Licensure</i><strong>The seven trainee rules, and all 78 programs compared on placement.</strong></a><a href="bbs-90-day-rule-california.html"><i>Licensure</i><strong>The 90-day rule, and the hours that vanish without it.</strong></a></div></div></div></div></article>
+
 
 
 
@@ -806,5 +807,82 @@
 })();
 </script>
 
+<style>/* _dev/mobile_floor.py */
+/* A quoted URL is a single unbreakable token. Three pages were 15-60px wider
+   than the viewport because of one, and every future page that cites a source
+   inline would have joined them. `anywhere` and not `break-word`: break-word
+   leaves the element's min-content width intact, so a flex or grid track can
+   still be widened by the same string. */
+p, li, dd, dt, blockquote, figcaption, summary, .lco, .srn, .tcio, cite, q{overflow-wrap:anywhere}
+/* Cells break long tokens but keep their natural column widths. See PROSE. */
+td, th{overflow-wrap:break-word}
+@media (max-width:640px){
+  /* Hit area, not type size. Nothing here gets visually bigger. */
+  a.tsall,
+  a.uall,
+  a.tcall,
+  a.srmore,
+  a.go,
+  a.pdgo,
+  button.keep{min-height:24px;display:inline-flex;align-items:center;padding-block:4px}
+  summary{min-height:24px}
+  /* The rest are ordinary links that happen to be the whole of their line:
+     "The program's own page", a cost-chart bar label, "source" at the end of a
+     table cell. They come in at 11-18px because that is what a line of 13px
+     type is.
+     Vertical padding on an INLINE element does not affect the line box - it
+     grows the hit rectangle and moves nothing. That is the whole trick, and it
+     is why this is padding rather than min-height: min-height on these would
+     have pushed every line of every article apart to fix a touch target. */
+  main a, .sitefoot a{padding-block:7px}
+  .az a, a.perma{min-width:24px;min-height:24px;display:inline-flex;
+    align-items:center;justify-content:center}
+  input[type="checkbox"], input[type="radio"]{min-width:24px;min-height:24px}
+  select{min-height:26px}
+  /* A 12px floor for text that carries a sentence. Phone widths only: the
+     desktop sizes were designed for reading distance and are left alone.
+     Tripled because `.sec .nlmeta` and friends are (0,2,0) and were winning. */
+  label.consent.consent.consent.consent span,
+  label.lconsent.lconsent.lconsent.lconsent span{font-size:12px}
+  .nlmeta.nlmeta.nlmeta.nlmeta{font-size:12px}
+  .vmeta.vmeta.vmeta.vmeta{font-size:12px}
+  .cun.cun.cun.cun{font-size:12px}
+  .tm.tm.tm.tm{font-size:12px}
+  .mods.mods.mods.mods{font-size:12px}
+  .ccode.ccode.ccode.ccode{font-size:12px}
+  .tsbadge.tsbadge.tsbadge.tsbadge{font-size:12px}
+  .np.np.np.np{font-size:12px}
+  .lhdph.lhdph.lhdph.lhdph{font-size:12px}
+  .sub.sub.sub.sub{font-size:12px}
+  .kick.kick.kick.kick{font-size:12px}
+  .pr-kick.pr-kick.pr-kick.pr-kick{font-size:12px}
+  .city.city.city.city{font-size:12px}
+  .pdcity.pdcity.pdcity.pdcity{font-size:12px}
+  .anote.anote.anote.anote{font-size:12px}
+  .cx.cx.cx.cx{font-size:12px}
+  .ocl.ocl.ocl.ocl{font-size:12px}
+  .leyebrow.leyebrow.leyebrow.leyebrow{font-size:12px}
+  .lname.lname.lname.lname{font-size:12px}
+  .lab.lab.lab.lab{font-size:12px}
+  .tck.tck.tck.tck{font-size:12px}
+  .grouplab.grouplab.grouplab.grouplab span{font-size:12px}
+  .fact.fact.fact.fact i{font-size:12px}
+  .hwfact.hwfact.hwfact.hwfact i{font-size:12px}
+  .cnum.cnum.cnum.cnum{font-size:12px}
+  .nx-f.nx-f.nx-f.nx-f{font-size:12px}
+  .jobfoot.jobfoot.jobfoot.jobfoot{font-size:12px}
+  .mo.mo.mo.mo{font-size:12px}
+  .cred.cred.cred.cred{font-size:12px}
+  .ig-l.ig-l.ig-l.ig-l{font-size:12px}
+  .bcr.bcr.bcr.bcr span{font-size:12px}
+  .pdmeta.pdmeta.pdmeta.pdmeta,
+  .pdmeta.pdmeta.pdmeta.pdmeta span{font-size:12px}
+  .afmeta.afmeta.afmeta.afmeta,
+  .afmeta.afmeta.afmeta.afmeta span{font-size:12px}
+  .tbl.tbl.tbl.tbl .r.r.r.r span,
+  .tbl.tbl.tbl.tbl .r.r.r.r b .sub.sub.sub.sub{font-size:12px}
+  .pdgone.pdgone.pdgone.pdgone i{font-size:12px}
+}
+</style>
 </body>
 </html>

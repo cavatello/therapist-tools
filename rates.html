@@ -44,7 +44,7 @@
     position:sticky; top:0; z-index:40;}
   .masthead-mark{display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--ink);}
   .sitenav-mono{width:22px; height:22px; border-radius:6px; background:var(--ink); color:#fff;
-    font-family:'Fraunces',serif; font-weight:700; font-size:11px; flex-shrink:0;
+    font-family:'Fraunces',serif; font-weight:700; font-size:10.5px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;}
   .sitenav-wordmark{font-family:'Fraunces',serif; font-weight:700; font-size:15px;
     letter-spacing:-.012em; color:#fff; line-height:1.15;}
@@ -52,7 +52,7 @@
   .sitenav-fig{width:28px; height:28px; flex-shrink:0; display:block; image-rendering:pixelated;}
   .sitefoot-mark .sitenav-fig{width:26px; height:26px;}
   .sitenav-sub{display:block; font-family:'Inter',system-ui,sans-serif; font-weight:700;
-    font-size:8.5px; letter-spacing:.1em; text-transform:uppercase;
+    font-size:9.5px; letter-spacing:.1em; text-transform:uppercase;
     color:rgba(255,255,255,.5); margin-top:3px; white-space:nowrap;}
   /* The `.sitenav a` rules that used to live here were removed: this page's nav
      is <button class="sitenav-top"> now, and those selectors were (0,1,1),
@@ -69,20 +69,20 @@
     border-top:1px solid rgba(255,255,255,.1); padding-top:16px; margin-top:2px;}
   .sitefoot-mark{display:flex; align-items:center; gap:9px; color:#fff;}
   .sitefoot-links{display:flex; gap:18px; flex-wrap:wrap;}
-  .sitefoot-links a{font-size:12.5px; color:rgba(255,255,255,.72); text-decoration:none;}
+  .sitefoot-links a{font-size:12px; color:rgba(255,255,255,.72); text-decoration:none;}
   .sitefoot-links a:hover{color:#fff; text-decoration:underline;}
   .sitefoot-links a:focus-visible{outline:2px solid #F6C560; outline-offset:2px;}
-  .sitefoot-meta{margin-left:auto; font-size:11px; color:rgba(255,255,255,.4);}
+  .sitefoot-meta{margin-left:auto; font-size:10.5px; color:rgba(255,255,255,.4);}
 
   /* ===== Hero ===== */
   .hero{max-width:900px; margin:0 auto; padding:30px 32px 22px;}
-  .hero-eyebrow{font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+  .hero-eyebrow{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
     color:var(--muted); margin-bottom:10px;}
   .hero h1{font-family:'Fraunces','Georgia',serif; font-weight:600;
     font-size:clamp(28px,3.6vw,42px); line-height:1.06; letter-spacing:-.02em; margin:0 0 12px;}
   .hero h1 em{font-style:normal; color:var(--neg);}
   .hero-dek{font-size:15px; line-height:1.6; color:var(--muted); max-width:640px; margin:0 0 8px;}
-  .hero-byline{font-size:11.5px; color:var(--muted-2); margin-top:20px; padding-top:14px;
+  .hero-byline{font-size:12px; color:var(--muted-2); margin-top:20px; padding-top:14px;
     border-top:1px solid var(--line); text-transform:uppercase; letter-spacing:.05em;}
 
   /* ===== Signature gap-bar, recoloured to the main palette ===== */
@@ -90,17 +90,17 @@
   .gapbar{position:relative; height:60px; border-radius:10px; overflow:hidden; display:flex;
     border:1px solid var(--line);}
   .gapbar-seg{position:relative; display:flex; align-items:center; padding:0 18px;
-    font-family:'Fraunces',serif; font-size:14px; font-weight:700; color:#fff;}
+    font-family:'Fraunces',serif; font-size:13.5px; font-weight:700; color:#fff;}
   .gapbar-ins{background:var(--pos); flex:0 0 42%;}
   .gapbar-pp{background:var(--amber); flex:1;}
   .gapbar-caption{display:flex; justify-content:space-between; margin-top:9px;
-    font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
+    font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
   .gapbar-caption .gap-mid{color:var(--neg); font-weight:700;}
 
   /* ===== Article shell ===== */
   .article{max-width:900px; margin:0 auto; padding:34px 32px 30px;}
-  .lede{font-size:17.5px; line-height:1.62; color:var(--ink); margin:0 0 8px;}
-  .lede::first-letter{font-family:'Fraunces',serif; font-size:56px; line-height:.82; float:left;
+  .lede{font-size:16.5px; line-height:1.62; color:var(--ink); margin:0 0 8px;}
+  .lede::first-letter{font-family:'Fraunces',serif; font-size:52px; line-height:.82; float:left;
     padding:5px 10px 0 0; font-weight:700; color:var(--neg);}
 
   /* ===== Quick answers ===== */
@@ -111,22 +111,22 @@
   .qa-row{display:grid; grid-template-columns:1fr 1.1fr; gap:20px; padding:12px 0;
     border-top:1px solid var(--line);}
   .qa-row:first-of-type{border-top:none;}
-  .qa-q{font-size:14px; color:var(--muted); line-height:1.5;}
-  .qa-a{font-size:14.5px; font-weight:600; line-height:1.5;}
+  .qa-q{font-size:13.5px; color:var(--muted); line-height:1.5;}
+  .qa-a{font-size:15px; font-weight:600; line-height:1.5;}
   .qa-a b{color:var(--pos);}
 
   /* ===== Numbered parts ===== */
   .part-head{display:flex; align-items:baseline; gap:16px; margin:54px 0 6px;}
   .part-num{font-family:'Fraunces',serif; font-weight:700; font-size:15px; color:#8A6516; flex-shrink:0;}
-  .part-head h2{font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:27px;
+  .part-head h2{font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:28px;
     line-height:1.15; margin:0; letter-spacing:-.015em;}
-  .part-dek{font-size:14.5px; color:var(--muted); line-height:1.6; margin:0 0 28px; max-width:620px;}
+  .part-dek{font-size:15px; color:var(--muted); line-height:1.6; margin:0 0 28px; max-width:620px;}
 
   h3{font-family:'Fraunces','Georgia',serif; font-weight:600; font-size:19px; margin:34px 0 12px;
     letter-spacing:-.01em;}
-  p{font-size:15.5px; line-height:1.7; color:var(--ink); margin:0 0 18px;}
+  p{font-size:15px; line-height:1.7; color:var(--ink); margin:0 0 18px;}
   p b, li b{color:var(--ink);}
-  ul, ol{font-size:15.5px; line-height:1.7; color:var(--ink); padding-left:22px; margin:0 0 18px;}
+  ul, ol{font-size:15px; line-height:1.7; color:var(--ink); padding-left:22px; margin:0 0 18px;}
   li{margin-bottom:6px;}
 
   /* ===== Tables ===== */
@@ -137,15 +137,15 @@
   .ledger-wrap{margin:24px 0 28px; border:1px solid var(--line); border-radius:10px;
     overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
     background:var(--card);}
-  table{width:100%; border-collapse:collapse; font-size:14px;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
   thead th{text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
     color:var(--muted); font-weight:700; padding:12px 18px; border-bottom:1px solid var(--line);
     background:#F6F8F6;}
-  tbody td{padding:11px 18px; border-bottom:1px solid var(--line); font-size:14px;}
+  tbody td{padding:11px 18px; border-bottom:1px solid var(--line); font-size:13.5px;}
   tbody td:first-child{font-weight:600;}
   tbody tr:last-child td{border-bottom:none;}
   tbody tr.hi td{background:var(--pos-soft);}
-  .tag{display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
+  .tag{display:inline-block; font-size:9.5px; font-weight:700; text-transform:uppercase;
     letter-spacing:.04em; padding:3px 8px; border-radius:10px; margin-left:8px;}
   .tag.best{background:var(--pos-soft); color:var(--pos);}
   .tag.poor{background:var(--neg-soft); color:var(--neg);}
@@ -157,40 +157,40 @@
   .statcard.amber{border-left:3px solid var(--amber);}
   .statcard-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; font-weight:700;
     color:var(--muted); margin-bottom:7px;}
-  .statcard-val{font-family:'Fraunces',serif; font-size:29px; font-weight:700; letter-spacing:-.01em;}
-  .statcard-note{font-size:12.5px; color:var(--muted); margin-top:6px; line-height:1.5;}
+  .statcard-val{font-family:'Fraunces',serif; font-size:28px; font-weight:700; letter-spacing:-.01em;}
+  .statcard-note{font-size:12px; color:var(--muted); margin-top:6px; line-height:1.5;}
 
   /* ===== Pull quote ===== */
   blockquote{margin:32px 0; padding:4px 0 4px 24px; border-left:3px solid var(--amber);}
   blockquote p{font-family:'Fraunces','Georgia',serif; font-size:19px; line-height:1.5;
     color:var(--ink); margin:0;}
-  blockquote cite{display:block; font-style:normal; font-size:11.5px; color:var(--muted);
+  blockquote cite{display:block; font-style:normal; font-size:12px; color:var(--muted);
     text-transform:uppercase; letter-spacing:.05em; margin-top:11px;}
 
   /* ===== Callouts ===== */
   .callout{background:var(--neg-soft); border-left:3px solid var(--neg); border-radius:0 10px 10px 0;
-    padding:16px 20px; margin:24px 0; font-size:14.5px; line-height:1.62; color:#7A2C27;}
+    padding:16px 20px; margin:24px 0; font-size:15px; line-height:1.62; color:#7A2C27;}
   .callout b{color:var(--neg);}
   .note{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 20px;
-    margin:24px 0; font-size:14px; line-height:1.62; color:var(--muted);}
+    margin:24px 0; font-size:13.5px; line-height:1.62; color:var(--muted);}
 
   /* ===== Geography split ===== */
   .geo-split{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0 28px;}
   .geo-card{border:1px solid var(--line); border-radius:10px; padding:20px 24px; background:var(--card);}
-  .geo-card h4{font-family:'Fraunces','Georgia',serif; font-size:17px; margin:0 0 4px; font-weight:600;}
-  .geo-card .range{font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--pos);
+  .geo-card h4{font-family:'Fraunces','Georgia',serif; font-size:16.5px; margin:0 0 4px; font-weight:600;}
+  .geo-card .range{font-family:'Fraunces',serif; font-size:23px; font-weight:700; color:var(--pos);
     margin:7px 0 11px;}
   .geo-card ul{font-size:13.5px; padding-left:18px; margin:0;}
   .geo-card li{margin-bottom:4px; color:var(--muted);}
 
   /* ===== Colophon ===== */
   .colophon{max-width:900px; margin:0 auto; padding:34px 32px 30px; border-top:1px solid var(--line);}
-  .colophon h4{font-size:11px; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+  .colophon h4{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
     color:var(--muted); margin:0 0 12px;}
-  .colophon p{font-size:13px; line-height:1.7; color:var(--muted-2); margin:0 0 14px;}
+  .colophon p{font-size:13.5px; line-height:1.7; color:var(--muted-2); margin:0 0 14px;}
   .colophon .disclaimer{font-style:italic;}
 
-  sup{font-size:10px; color:var(--pos);}
+  sup{font-size:9.5px; color:var(--pos);}
 
   @media (max-width:720px){
     .statpair, .geo-split{grid-template-columns:1fr;}
@@ -205,7 +205,7 @@
     .masthead{padding-left:20px; padding-right:20px;}
   }
 
-  .eap-h{font-family:'Newsreader',Georgia,serif; font-weight:600; font-size:22px; letter-spacing:-.01em;
+  .eap-h{font-family:'Newsreader',Georgia,serif; font-weight:600; font-size:23px; letter-spacing:-.01em;
     margin:34px 0 10px; color:var(--pine);}
   .eap-list{margin:6px 0 18px; padding-left:20px;}
   .eap-list li{margin-bottom:11px; line-height:1.65;}
@@ -213,15 +213,15 @@
 
   .eap-rate{margin:20px 0 22px;border:1px solid var(--line,#E0D8C4);border-radius:6px;overflow:hidden;
     background:#F6F8F6;}
-  .eap-rate-h{padding:11px 16px;background:#F6F8F6;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  .eap-rate-h{padding:11px 16px;background:#F6F8F6;font-family:'IBM Plex Mono',monospace;font-size:9.5px;
     letter-spacing:.16em;text-transform:uppercase;color:#7C7460;}
-  .eap-tbl{width:100%;border-collapse:collapse;font-size:14px;}
-  .eap-tbl th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;
+  .eap-tbl{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .eap-tbl th{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;
     text-transform:uppercase;color:#635D4E;padding:12px 16px 8px;font-weight:600;}
   .eap-tbl td{padding:13px 16px;border-top:1px solid #E7E0CE;vertical-align:top;line-height:1.55;}
-  .eap-tbl td b{display:block;font-family:'Newsreader',Georgia,serif;font-size:16px;font-weight:600;}
+  .eap-tbl td b{display:block;font-family:'Newsreader',Georgia,serif;font-size:16.5px;font-weight:600;}
   .eap-tbl td span{font-size:12px;color:#635D4E;}
-  .eap-tbl .rate{font-family:'Newsreader',Georgia,serif;font-size:24px;font-weight:600;color:#2C4A3B;
+  .eap-tbl .rate{font-family:'Newsreader',Georgia,serif;font-size:23px;font-weight:600;color:#2C4A3B;
     white-space:nowrap;width:110px;}
   .eap-tbl tr.empty td{color:#635D4E;}
   .eap-tbl tr.empty .rate{color:#BDB29A;}
@@ -263,14 +263,14 @@ a{color:inherit}
 .sitenav-fig{width:28px;height:28px;flex:none;display:block}
 .sitenav-wordmark{font-family:Fraunces,serif;font-size:15px;font-weight:700;color:#fff;
  letter-spacing:-.012em;line-height:1.15}
-.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:8.5px;font-weight:700;
+.sitenav-sub{display:block;font-family:Inter,sans-serif;font-size:9.5px;font-weight:700;
  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:3px;
  white-space:nowrap}
 /* the segmented control: three equal columns, never a flex overflow */
 .sitenav-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;
  background:rgba(0,0,0,.26);border-radius:999px;padding:3px;justify-self:center;
  width:100%;max-width:330px}
-.sitenav-top{font:inherit;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.74);
+.sitenav-top{font:inherit;font-size:12px;font-weight:600;color:rgba(255,255,255,.74);
  background:none;border:0;padding:7px 6px;border-radius:6px;cursor:pointer;
  min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -278,12 +278,12 @@ a{color:inherit}
 .sitenav-top:hover{background:rgba(255,255,255,.1);color:#fff}
 .sitenav-top.on{background:#fff;color:#123C30}
 .sitenav-top.on:hover{background:#fff}
-.sitenav-top:after{content:"\25BE";font-size:8.5px;margin-left:4px;opacity:.55}
+.sitenav-top:after{content:"\25BE";font-size:9.5px;margin-left:4px;opacity:.55}
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 /* Newsletter ask, in the bar itself. The panel promo only appears once someone
    opens the menu; this is the one that is always on screen. */
 .sitenav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;
- background:var(--pop);color:#2A2010;font-size:12.5px;font-weight:700;
+ background:var(--pop);color:#2A2010;font-size:12px;font-weight:700;
  padding:10px 17px;border-radius:6px;text-decoration:none;white-space:nowrap;
  min-height:38px;box-shadow:0 3px 0 rgba(140,96,18,.35)}
 .sitenav-cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
@@ -302,7 +302,7 @@ a{color:inherit}
 }
 @media (max-width:860px){
  .sitenav-sub{display:none}
- .sitenav-wordmark{font-size:14px}
+ .sitenav-wordmark{font-size:13.5px}
  .sitenav-fig{width:26px;height:26px}
  .sitenav-cta .long{display:none}
  .sitenav-cta .short{display:inline}
@@ -324,7 +324,7 @@ a{color:inherit}
  .sitenav-wordmark{min-width:0;overflow:hidden;text-overflow:ellipsis}
  .sitenav-cta{grid-area:cta;justify-self:end}
  .sitenav-links{grid-area:nav;max-width:none;width:100%}
- .sitenav-top{font-size:12.5px;padding:9px 4px}
+ .sitenav-top{font-size:12px;padding:9px 4px}
  /* The tagline stays hidden here, as it is from 860px down. Restoring it was
     what pushed the lockup past the capsule in the first place, and at 390px
     there is no width for it beside the newsletter button. */
@@ -337,7 +337,7 @@ a{color:inherit}
  /* The chevron is decorative - the panel opens either way - and at this width it
     is the thing tipping each label into an ellipsis. Drop it rather than shrink
     type that is already at its floor. */
- .sitenav-top{font-size:11.5px;overflow:visible}
+ .sitenav-top{font-size:12px;overflow:visible}
  .sitenav-top:after{display:none}
 }
 .navpanel{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
@@ -350,37 +350,37 @@ a{color:inherit}
  text-decoration:none;color:var(--ink)}
 .np-col a:hover,.np-col a.on{background:var(--paper)}
 .np-col a img{width:22px;height:22px;flex:none;margin-top:1px}
-.np-col b{display:block;font-size:13px;font-weight:700}
-.np-col i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px;
+.np-col b{display:block;font-size:13.5px;font-weight:700}
+.np-col i{display:block;font-style:normal;font-size:10.5px;color:var(--muted);margin-top:2px;
  line-height:1.45}
 .np-promo{display:block;background:var(--carbon);border-radius:10px;padding:15px;
  text-align:center;text-decoration:none}
 .np-promo img{width:76px;height:76px}
 .np-promo b{display:block;font-family:Fraunces,serif;font-size:15px;color:#fff;margin-top:7px}
-.np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.7)}
+.np-promo p{margin:7px 0 11px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.7)}
 .np-promo span{display:inline-block;background:var(--pop);color:#2A2010;font-weight:800;
- font-size:11.5px;padding:9px 14px;border-radius:10px}
+ font-size:12px;padding:9px 14px;border-radius:10px}
 
 /* ---- bands and sections */
 .band{background:#123C30;
  color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
-.kick{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+.kick{font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
  color:var(--pop);margin:0 0 10px}
 .band h1{font-family:Fraunces,serif;font-size:clamp(28px,3.4vw,40px);font-weight:600;
  letter-spacing:-.022em;line-height:1.1;margin:0 0 14px;color:#fff}
 .band h1 em{font-style:normal;color:var(--pop)}
 /* and hold this page's own headline, whatever any later sheet says */
 .hero h1{color:var(--ink)}
-.band .lede{font-size:15.5px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
+.band .lede{font-size:15px;line-height:1.72;color:rgba(255,255,255,.84);margin:0;
  max-width:58ch}
 .band .lede b{color:#fff}
 /* Belt and braces on the one hand-maintained page: restate the article lede at
    higher specificity so no later sheet can take it away again. */
 .article .lede{color:var(--ink)}
 .who{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.who span{font-size:12.5px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
+.who span{font-size:12px;font-weight:600;color:#F6F8F6;background:rgba(255,255,255,.12);
  border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 14px}
 .sec{padding:44px 0}
 .sec.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -388,23 +388,23 @@ h2{font-family:Fraunces,serif;font-size:clamp(22px,2.4vw,27px);font-weight:600;m
  letter-spacing:-.015em}
 .grouplab{display:flex;align-items:baseline;gap:12px;margin:0 0 6px;flex-wrap:wrap}
 .grouplab h2{margin:0}
-.grouplab span{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+.grouplab span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
  color:var(--gold)}
-p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
+p.sub{font-size:15px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cards.four{grid-template-columns:repeat(4,1fr)}
 .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px}
 .sec.alt .card{background:var(--paper)}
 .card img{width:32px;height:32px;margin-bottom:10px;display:block}
-.card h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 7px}
-.card p{font-size:12.8px;line-height:1.65;color:#4E4940;margin:0}
+.card h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 7px}
+.card p{font-size:13.5px;line-height:1.65;color:#4E4940;margin:0}
 .reflist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
 .ref{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
  border-radius:10px;padding:14px 16px}
 .sec.alt .ref{background:var(--paper)}
 .ref img{width:26px;height:26px;flex:none;margin-top:2px}
 .ref b{display:block;font-size:13.5px;margin-bottom:3px}
-.ref i{display:block;font-style:normal;font-size:12.3px;line-height:1.6;color:#4E4940}
+.ref i{display:block;font-style:normal;font-size:12px;line-height:1.6;color:#4E4940}
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
@@ -412,13 +412,13 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
 .fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .sec.alt .fact{background:var(--cream)}
-.fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
+.fact em{display:block;font-style:normal;font-size:9.5px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .fact b{font-family:Fraunces,serif;font-size:19px;display:block}
-.fact i{display:block;font-style:normal;font-size:11.5px;color:var(--muted);margin-top:5px;
+.fact i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:5px;
  line-height:1.55}
 .ctarow{margin:22px 0 0}
-.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
+.btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:13.5px;
  padding:12px 22px;border-radius:10px;text-decoration:none}
 .btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
@@ -427,7 +427,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 
 /* ---- newsletter */
 .getlist{margin:20px 0 22px;padding:0;list-style:none}
-.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.8px;line-height:1.62;
+.getlist li{display:flex;gap:11px;align-items:flex-start;font-size:13.5px;line-height:1.62;
  color:rgba(255,255,255,.84);margin-bottom:11px}
 .getlist img{width:20px;height:20px;flex:none;margin-top:2px}
 .getlist b{color:#fff}
@@ -448,17 +448,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  outline-offset:2px}
 .consent{display:flex;gap:9px;align-items:flex-start;margin-top:12px;max-width:62ch;cursor:pointer}
 .consent input{width:16px;height:16px;flex:none;margin:1px 0 0;accent-color:var(--pop)}
-.consent span{font-size:11.8px;line-height:1.55;color:rgba(255,255,255,.66)}
-.nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
+.consent span{font-size:12px;line-height:1.55;color:rgba(255,255,255,.66)}
+.nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
 .nlok{display:flex;gap:12px;align-items:flex-start;background:rgba(246,197,96,.09);
  border:1px solid rgba(246,197,96,.34);border-radius:10px;padding:15px 17px;
  animation:nlin .28s ease-out}
 @keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:#F6C560;
  color:#2A2010;font-size:15px;font-weight:800;line-height:26px;text-align:center}
-.nlok b{display:block;font-family:Fraunces,serif;font-size:16px;color:#fff;margin-bottom:5px}
-.nlok p{font-size:12.6px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
-.nlok p + p{margin-top:7px;font-size:11.4px;color:rgba(255,255,255,.5)}
+.nlok b{display:block;font-family:Fraunces,serif;font-size:16.5px;color:#fff;margin-bottom:5px}
+.nlok p{font-size:12px;line-height:1.62;color:rgba(255,255,255,.7);margin:0;max-width:52ch}
+.nlok p + p{margin-top:7px;font-size:12px;color:rgba(255,255,255,.5)}
 .nlerr{font-size:12px;line-height:1.6;color:#F0A79E;margin:10px 0 0}
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 
@@ -469,11 +469,11 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
 .issue-h img{width:26px;height:26px;flex:none}
 .issue-h b{font-family:Fraunces,serif;font-size:15px}
-.issue-h span{font-size:11px;color:var(--muted);margin-left:auto;
+.issue-h span{font-size:10.5px;color:var(--muted);margin-left:auto;
  font-family:'IBM Plex Mono',monospace}
-.issue h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 8px}
-.issue p{font-size:13px;line-height:1.7;color:#4E4940;margin:0 0 13px}
-.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12.6px;color:#4E4940;
+.issue h3{font-family:Fraunces,serif;font-size:16.5px;margin:0 0 8px}
+.issue p{font-size:13.5px;line-height:1.7;color:#4E4940;margin:0 0 13px}
+.issue-row{display:flex;gap:10px;align-items:baseline;font-size:12px;color:#4E4940;
  padding:9px 0;border-top:1px dashed var(--line);line-height:1.55}
 .issue-row b{font-family:'IBM Plex Mono',monospace;color:var(--gold);flex:none}
 
@@ -485,21 +485,21 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ftnl-t{flex:1;min-width:300px}
 .ftnl h2{font-family:Fraunces,serif;font-size:23px;color:#fff;margin:0 0 9px;line-height:1.24}
 .ftnl h2 em{font-style:normal;color:var(--pop)}
-.ftnl p{font-size:13.2px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
-.ftnl .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.44);margin:12px 0 0;max-width:60ch}
+.ftnl p{font-size:13.5px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
+.ftnl .nlmeta{font-size:10.5px;line-height:1.6;color:rgba(255,255,255,.44);margin:12px 0 0;max-width:60ch}
 .ftnl .nlform{flex:1;min-width:min(320px,100%)}
 .sitefoot{background:var(--carbon);padding:22px 0 26px;margin:0}
 .ftcols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
  border-top:1px solid rgba(255,255,255,.1);padding:24px 0 6px;margin-top:0}
 .ftcols h5{margin:0 0 12px;font-size:9.5px;font-weight:800;letter-spacing:.13em;
  text-transform:uppercase;color:var(--pop)}
-.ftcols a{display:block;font-size:12.5px;color:rgba(255,255,255,.72);text-decoration:none;
+.ftcols a{display:block;font-size:12px;color:rgba(255,255,255,.72);text-decoration:none;
  margin-bottom:9px}
 .ftcols a:hover{color:#fff;text-decoration:underline}
 .ftcols a.on{color:#fff;font-weight:600}
 .ftcols a:focus-visible{outline:2px solid var(--pop);outline-offset:2px}
 .ftcols p{margin:0 0 9px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.5)}
-.ftby{font-size:11.5px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
+.ftby{font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);margin:12px 0 0;
  padding-top:12px;border-top:1px solid rgba(255,255,255,.1)}
 .ftby b{color:rgba(255,255,255,.78)}
 
@@ -628,9 +628,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
     <table>
       <thead><tr><th>Source</th><th>LMFT / LCSW / LPCC</th><th>Associate</th></tr></thead>
       <tbody>
-        <tr><td>Medicare, CY2026 (90837)</td><td>$130&ndash;$149<br><span class="mono" style="font-size:11.5px">Rest of CA $129.52 &middot; LA $134.47 &middot; SF $146.29 &middot; Santa Clara $148.66</span></td><td>n/a</td></tr>
+        <tr><td>Medicare, CY2026 (90837)</td><td>$130&ndash;$149<br><span class="mono" style="font-size:12px">Rest of CA $129.52 &middot; LA $134.47 &middot; SF $146.29 &middot; Santa Clara $148.66</span></td><td>n/a</td></tr>
         <tr><td>CalVCB (per hour)</td><td>$105</td><td>$97</td></tr>
-        <tr><td>Medi-Cal fee-for-service (90837)</td><td>$38.01<br><span class="mono" style="font-size:11.5px">90834, 45 min: $67.16</span></td><td>n/a</td></tr>
+        <tr><td>Medi-Cal fee-for-service (90837)</td><td>$38.01<br><span class="mono" style="font-size:12px">90834, 45 min: $67.16</span></td><td>n/a</td></tr>
       </tbody>
     </table>
   </div>
@@ -995,6 +995,7 @@ clinician, and says which.</p>
 
 
 
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Getting paid</h2><p class="ud">What a session is worth, and who actually pays it.</p><div class="ug"><a class="uc" href="headway-alma-grow-therapy-compared-california.html"><b>Headway, Alma, Grow — or my own contracts?</b><span>All four routes priced at three caseloads, with the crossover</span></a><a class="uc" href="insurance-panels-california-therapist.html"><b>How do I get on insurance panels in California?</b><span>The real sequence, the 60-day rule, and which panels are open</span></a><a class="uc" href="insurance-reimbursement-rates-california-therapist.html"><b>What does insurance actually pay per session?</b><span>Medicare and Medi-Cal computed, and the truth about commercial rates</span></a></div><a class="uall" href="getting-paid/">All 9 pages on getting paid &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -1107,20 +1108,20 @@ clinician, and says which.</p>
 @media (min-width:1700px){.drwrap{max-width:1400px}}
 @media (max-width:1099px){.drnav,.drrail{display:none}}
 
-.drnav p.t{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.12em;
+.drnav p.t{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;
   text-transform:uppercase;opacity:.6;margin:0 0 9px}
-.drnav a{display:block;font-size:12.6px;line-height:1.34;padding:7px 0 7px 11px;
+.drnav a{display:block;font-size:12px;line-height:1.34;padding:7px 0 7px 11px;
   min-height:34px;text-decoration:none;color:inherit;opacity:.66;
   border-left:2px solid rgba(0,0,0,.1)}
 .drnav a:hover{opacity:1}
 .drnav a.on{opacity:1;font-weight:600;border-left-color:currentColor}
 .drrail .c{border:1px solid rgba(0,0,0,.11);border-radius:10px;padding:14px 16px;
   background:rgba(255,255,255,.62)}
-.drrail .c p.t{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.11em;
+.drrail .c p.t{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.11em;
   text-transform:uppercase;opacity:.7;margin:0 0 6px}
-.drrail .c b{display:block;font-size:15.5px;font-weight:700;line-height:1.2;margin:0 0 3px}
-.drrail .c span{display:block;font-size:12.2px;line-height:1.5;opacity:.72;margin:0 0 8px}
-.drrail .c a{display:flex;align-items:center;min-height:44px;font-size:12.6px;
+.drrail .c b{display:block;font-size:15px;font-weight:700;line-height:1.2;margin:0 0 3px}
+.drrail .c span{display:block;font-size:12px;line-height:1.5;opacity:.72;margin:0 0 8px}
+.drrail .c a{display:flex;align-items:center;min-height:44px;font-size:12px;
   font-weight:700;text-decoration:none;color:inherit}
 .drrail .c a:hover{text-decoration:underline}
 /* end doc */</style>
@@ -1150,7 +1151,7 @@ clinician, and says which.</p>
 <link rel="stylesheet" href="css/1460ba12ebb8.css">
 
 
-<link rel="stylesheet" href="css/7cbdacd0330d.css">
+<link rel="stylesheet" href="css/710edd85ac28.css">
 
 
 
@@ -1238,7 +1239,7 @@ clinician, and says which.</p>
 
 <style>/* _dev/eap_rates.py */
 .eap-tbl td b{display:block}
-.eap-tbl td span.eap-sub{display:block;font-size:12.5px;color:#635D4E;
+.eap-tbl td span.eap-sub{display:block;font-size:12px;color:#635D4E;
   font-weight:400;margin-top:2px}
 .eap-badge{display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
@@ -1251,8 +1252,8 @@ clinician, and says which.</p>
 .eap-why{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:5px 5px 0 #F6C560;padding:18px 20px;margin:18px 0 0}
 .eap-why h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
-  letter-spacing:-.02em;font-size:17px;color:#1B2420;margin:0 0 8px}
-.eap-why p{font-size:14.6px;line-height:1.7;color:#3A3529;margin:0 0 10px;max-width:70ch}
+  letter-spacing:-.02em;font-size:16.5px;color:#1B2420;margin:0 0 8px}
+.eap-why p{font-size:15px;line-height:1.7;color:#3A3529;margin:0 0 10px;max-width:70ch}
 .eap-why p:last-child{margin:0}
 .eap-why b{color:#1B2420}
 .eap-why a{color:#2C6350}
@@ -1281,7 +1282,7 @@ clinician, and says which.</p>
 
 
 
-<link rel="stylesheet" href="css/0c12e43eaede.css">
+<link rel="stylesheet" href="css/a0c103c8911b.css">
 
 
 
@@ -1607,12 +1608,15 @@ clinician, and says which.</p>
 
 
 
-<link rel="stylesheet" href="css/3fc66d05edba.css">
 
-<link rel="stylesheet" href="css/68e34b86ee48.css">
 
-<link rel="stylesheet" href="css/7c60ee8088ed.css">
-<link rel="stylesheet" href="css/ffec93029f4e.css">
+
+<link rel="stylesheet" href="css/8e7fc7a43188.css">
+
+<link rel="stylesheet" href="css/ac1e6eaa6bd2.css">
+
+<link rel="stylesheet" href="css/847249450a86.css">
+<link rel="stylesheet" href="css/1cd12ff06124.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/analytics_events.py */
 (function(){
@@ -1782,8 +1786,8 @@ clinician, and says which.</p>
 </script>
 <link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
-<link rel="stylesheet" href="css/5b9864342bfc.css">
-<link rel="stylesheet" href="css/6dfc217d1c02.css">
+<link rel="stylesheet" href="css/35d3aab09f90.css">
+<link rel="stylesheet" href="css/af1641027112.css">
 <link rel="stylesheet" href="css/f75134b09224.css">
 <link rel="stylesheet" href="css/9fb0332fa15a.css">
 <link rel="stylesheet" href="css/c9f1ad780540.css">
@@ -1815,6 +1819,83 @@ clinician, and says which.</p>
 @media (min-width:1500px){.ratespage.ratespage .hero,.ratespage.ratespage .gapbar-wrap,.ratespage.ratespage .colophon{max-width:1320px}}
 @media (min-width:1900px){.ratespage.ratespage .hero,.ratespage.ratespage .gapbar-wrap,.ratespage.ratespage .colophon{max-width:1560px}}
 @media (max-width:640px){.ratespage.ratespage .hero,.ratespage.ratespage .gapbar-wrap,.ratespage.ratespage .colophon{padding-left:18px;padding-right:18px}}
+</style>
+<style>/* _dev/mobile_floor.py */
+/* A quoted URL is a single unbreakable token. Three pages were 15-60px wider
+   than the viewport because of one, and every future page that cites a source
+   inline would have joined them. `anywhere` and not `break-word`: break-word
+   leaves the element's min-content width intact, so a flex or grid track can
+   still be widened by the same string. */
+p, li, dd, dt, blockquote, figcaption, summary, .lco, .srn, .tcio, cite, q{overflow-wrap:anywhere}
+/* Cells break long tokens but keep their natural column widths. See PROSE. */
+td, th{overflow-wrap:break-word}
+@media (max-width:640px){
+  /* Hit area, not type size. Nothing here gets visually bigger. */
+  a.tsall,
+  a.uall,
+  a.tcall,
+  a.srmore,
+  a.go,
+  a.pdgo,
+  button.keep{min-height:24px;display:inline-flex;align-items:center;padding-block:4px}
+  summary{min-height:24px}
+  /* The rest are ordinary links that happen to be the whole of their line:
+     "The program's own page", a cost-chart bar label, "source" at the end of a
+     table cell. They come in at 11-18px because that is what a line of 13px
+     type is.
+     Vertical padding on an INLINE element does not affect the line box - it
+     grows the hit rectangle and moves nothing. That is the whole trick, and it
+     is why this is padding rather than min-height: min-height on these would
+     have pushed every line of every article apart to fix a touch target. */
+  main a, .sitefoot a{padding-block:7px}
+  .az a, a.perma{min-width:24px;min-height:24px;display:inline-flex;
+    align-items:center;justify-content:center}
+  input[type="checkbox"], input[type="radio"]{min-width:24px;min-height:24px}
+  select{min-height:26px}
+  /* A 12px floor for text that carries a sentence. Phone widths only: the
+     desktop sizes were designed for reading distance and are left alone.
+     Tripled because `.sec .nlmeta` and friends are (0,2,0) and were winning. */
+  label.consent.consent.consent.consent span,
+  label.lconsent.lconsent.lconsent.lconsent span{font-size:12px}
+  .nlmeta.nlmeta.nlmeta.nlmeta{font-size:12px}
+  .vmeta.vmeta.vmeta.vmeta{font-size:12px}
+  .cun.cun.cun.cun{font-size:12px}
+  .tm.tm.tm.tm{font-size:12px}
+  .mods.mods.mods.mods{font-size:12px}
+  .ccode.ccode.ccode.ccode{font-size:12px}
+  .tsbadge.tsbadge.tsbadge.tsbadge{font-size:12px}
+  .np.np.np.np{font-size:12px}
+  .lhdph.lhdph.lhdph.lhdph{font-size:12px}
+  .sub.sub.sub.sub{font-size:12px}
+  .kick.kick.kick.kick{font-size:12px}
+  .pr-kick.pr-kick.pr-kick.pr-kick{font-size:12px}
+  .city.city.city.city{font-size:12px}
+  .pdcity.pdcity.pdcity.pdcity{font-size:12px}
+  .anote.anote.anote.anote{font-size:12px}
+  .cx.cx.cx.cx{font-size:12px}
+  .ocl.ocl.ocl.ocl{font-size:12px}
+  .leyebrow.leyebrow.leyebrow.leyebrow{font-size:12px}
+  .lname.lname.lname.lname{font-size:12px}
+  .lab.lab.lab.lab{font-size:12px}
+  .tck.tck.tck.tck{font-size:12px}
+  .grouplab.grouplab.grouplab.grouplab span{font-size:12px}
+  .fact.fact.fact.fact i{font-size:12px}
+  .hwfact.hwfact.hwfact.hwfact i{font-size:12px}
+  .cnum.cnum.cnum.cnum{font-size:12px}
+  .nx-f.nx-f.nx-f.nx-f{font-size:12px}
+  .jobfoot.jobfoot.jobfoot.jobfoot{font-size:12px}
+  .mo.mo.mo.mo{font-size:12px}
+  .cred.cred.cred.cred{font-size:12px}
+  .ig-l.ig-l.ig-l.ig-l{font-size:12px}
+  .bcr.bcr.bcr.bcr span{font-size:12px}
+  .pdmeta.pdmeta.pdmeta.pdmeta,
+  .pdmeta.pdmeta.pdmeta.pdmeta span{font-size:12px}
+  .afmeta.afmeta.afmeta.afmeta,
+  .afmeta.afmeta.afmeta.afmeta span{font-size:12px}
+  .tbl.tbl.tbl.tbl .r.r.r.r span,
+  .tbl.tbl.tbl.tbl .r.r.r.r b .sub.sub.sub.sub{font-size:12px}
+  .pdgone.pdgone.pdgone.pdgone i{font-size:12px}
+}
 </style>
 </body>
 </html>

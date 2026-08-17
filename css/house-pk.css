@@ -17,11 +17,11 @@
 body.bcp main{display:block}
 body.bcp .pk-wrap{max-width:1080px;margin:0 auto;padding:34px var(--pad) 8px}
 body.bcp .pk-sec{margin:0 0 46px;scroll-margin-top:86px}
-body.bcp .pk-k{font-family:var(--mn);font-size:11px;letter-spacing:.16em;
+body.bcp .pk-k{font-family:var(--mn);font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--dim);margin:0 0 8px}
-body.bcp .pk-h{font-size:30px;max-width:30ch;margin:0 0 14px}
-@media(max-width:760px){body.bcp .pk-h{font-size:24px}}
-body.bcp .pk-h3{font-size:20px;line-height:1.18;margin:28px 0 8px;
+body.bcp .pk-h{font-size:28px;max-width:30ch;margin:0 0 14px}
+@media(max-width:760px){body.bcp .pk-h{font-size:23px}}
+body.bcp .pk-h3{font-size:19px;line-height:1.18;margin:28px 0 8px;
   scroll-margin-top:86px}
 body.bcp .pk-d,body.bcp .pk-p{margin:0 0 16px;max-width:70ch}
 body.bcp .pk-fine{font-size:13.5px;color:var(--dim);margin:22px 0 0;
@@ -29,18 +29,18 @@ body.bcp .pk-fine{font-size:13.5px;color:var(--dim);margin:22px 0 0;
 body.bcp .pk-cap{font-size:13.5px;color:var(--dim);margin:0 0 26px;
   max-width:74ch}
 body.bcp .pk-cap b,body.bcp .pk-fine b{color:var(--ink)}
-body.bcp code{font-family:var(--mn);font-size:12.5px;background:var(--sink);
+body.bcp code{font-family:var(--mn);font-size:12px;background:var(--sink);
   border:1px solid var(--hair);border-radius:6px;padding:1px 5px}
 
 /* --- the hero: the page's single dark band ----------------------------- */
 body.bcp .pk-hero{background:var(--deep);color:#fff;border-radius:10px;
   padding:36px 36px 30px;margin:0 0 30px}
-body.bcp .pk-hero .hk{font-family:var(--mn);font-size:11px;
+body.bcp .pk-hero .hk{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;color:#84AC99;margin:0 0 14px}
 body.bcp .pk-hero h1{font-size:clamp(33px,4.4vw,54px);color:#fff;
   margin:0 0 16px;max-width:22ch}
 body.bcp .pk-hero h1 em{font-style:normal;color:var(--gold)}
-body.bcp .pk-hero .hl{font-size:17.5px;line-height:1.6;color:#C6DBD1;
+body.bcp .pk-hero .hl{font-size:16.5px;line-height:1.6;color:#C6DBD1;
   margin:0 0 20px;max-width:62ch}
 body.bcp .pk-hero .hl b,body.bcp .pk-hero .hl a{color:var(--gold)}
 body.bcp .pk-figs{display:grid;
@@ -48,14 +48,14 @@ body.bcp .pk-figs{display:grid;
   background:rgba(255,255,255,.16);border-radius:10px;overflow:hidden;
   margin:0 0 20px}
 body.bcp .pk-figs>div{background:var(--card);padding:14px 16px}
-body.bcp .pk-figs .n{font-family:var(--figs);font-weight:800;font-size:27px;
+body.bcp .pk-figs .n{font-family:var(--figs);font-weight:800;font-size:28px;
   line-height:1.1;color:var(--ink);display:block;letter-spacing:-.01em}
 body.bcp .pk-figs .l{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:block;
   margin:7px 0 0;line-height:1.5}
 body.bcp .pk-hero .hj{display:flex;flex-wrap:wrap;gap:9px;margin:0}
 body.bcp .pk-hero .hj a{display:inline-block;font-family:var(--mn);
-  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
   text-decoration:none;border:1px solid rgba(255,217,118,.55);
   border-radius:10px;padding:7px 13px;color:var(--gold);background:transparent}
 body.bcp .pk-hero .hj a:hover{background:rgba(255,217,118,.14)}
@@ -66,14 +66,14 @@ body.bcp .pk-hero .hj a:hover{background:rgba(255,217,118,.14)}
 body.bcp .pk-hero .tsshort{background:var(--card);color:var(--ink);
   border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;
   margin:0 0 18px;max-width:560px}
-body.bcp .tsshort .tsk{font-family:var(--mn);font-size:10px;
+body.bcp .tsshort .tsk{font-family:var(--mn);font-size:9.5px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 8px}
 body.bcp .tsshort q{quotes:none;display:block;font-family:var(--disp);
-  font-weight:800;font-size:18px;letter-spacing:-.02em;line-height:1.2;
+  font-weight:800;font-size:19px;letter-spacing:-.02em;line-height:1.2;
   color:var(--ink);margin:0 0 8px}
 body.bcp .tsshort .tsa{font-size:15px;color:var(--ink);margin:0 0 8px}
 body.bcp .tsshort .tsfig{font-family:var(--figs);font-weight:800;
-  font-size:22px;color:var(--pine)}
+  font-size:23px;color:var(--pine)}
 
 /* --- the question panel ------------------------------------------------ */
 body.bcp .pk-q{background:var(--card);border:1px solid var(--hair);
@@ -81,7 +81,7 @@ body.bcp .pk-q{background:var(--card);border:1px solid var(--hair);
   margin:0 0 24px}
 body.bcp .pk-q .ql{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
-body.bcp .pk-q p{font-size:15.5px;line-height:1.7;color:var(--ink);
+body.bcp .pk-q p{font-size:15px;line-height:1.7;color:var(--ink);
   margin:0 0 11px;max-width:68ch}
 body.bcp .pk-q p:last-child{margin:0}
 
@@ -90,9 +90,9 @@ body.bcp .pk-v{background:var(--card);border:1px solid var(--hair);
   border-radius:10px;overflow:hidden;margin:0 0 24px}
 body.bcp .pk-v>div{padding:16px 19px;border-bottom:1px solid var(--hair)}
 body.bcp .pk-v>div:last-child{border-bottom:0}
-body.bcp .pk-v .vn{font-family:var(--figs);font-weight:800;font-size:24px;
+body.bcp .pk-v .vn{font-family:var(--figs);font-weight:800;font-size:23px;
   line-height:1;color:var(--pine);display:block;margin:0 0 7px}
-body.bcp .pk-v .vt{font-family:var(--disp);font-weight:800;font-size:18px;
+body.bcp .pk-v .vt{font-family:var(--disp);font-weight:800;font-size:19px;
   letter-spacing:-.02em;line-height:1.25;color:var(--ink);display:block;
   margin:0 0 7px}
 body.bcp .pk-v p{font-size:15px;line-height:1.66;color:var(--dim);margin:0;
@@ -102,7 +102,7 @@ body.bcp .pk-v p b{color:var(--ink)}
 /* --- tables ------------------------------------------------------------ */
 body.bcp .pk-tw{border:1px solid var(--hair);border-radius:var(--r);
   background:var(--card);overflow-x:auto;margin:0 0 12px}
-body.bcp .pk-t{border-collapse:collapse;width:100%;font-size:14.5px}
+body.bcp .pk-t{border-collapse:collapse;width:100%;font-size:15px}
 body.bcp .pk-t th{background:var(--card);color:var(--dim);
   font-family:var(--mn);font-size:10.5px;letter-spacing:.12em;
   text-transform:uppercase;text-align:left;padding:11px 14px;
@@ -113,9 +113,9 @@ body.bcp .pk-t td{padding:11px 14px;border-top:1px solid var(--hair);
 body.bcp .pk-t tr:first-child td{border-top:0}
 body.bcp .pk-t td.pk-f{font-family:var(--figs);font-weight:600;
   font-size:16.5px;white-space:nowrap}
-body.bcp .pk-t td.pk-m{font-family:var(--mn);font-size:12.5px;
+body.bcp .pk-t td.pk-m{font-family:var(--mn);font-size:12px;
   white-space:nowrap}
-body.bcp .pk-t td.pk-n{font-family:var(--mn);font-size:13px;
+body.bcp .pk-t td.pk-n{font-family:var(--mn);font-size:13.5px;
   white-space:nowrap;text-align:right}
 body.bcp .pk-t tr.bad td{background:#FBEDEA}
 body.bcp .pk-t tr.bad td.pk-f{color:#A8422F}
@@ -128,12 +128,12 @@ body.bcp .pk-t tr.mid td{background:var(--sink);color:var(--dim)}
 /* --- the callout: quiet deep panel ------------------------------------- */
 body.bcp .pk-call{background:var(--deep);color:#fff;border-radius:10px;
   padding:22px 25px;margin:0 0 26px}
-body.bcp .pk-call h3{font-family:var(--mn);font-size:11px;
+body.bcp .pk-call h3{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.15em;text-transform:uppercase;color:var(--gold);
   margin:0 0 10px;font-weight:500}
 body.bcp .pk-call .big{font-family:var(--figs);font-weight:800;font-size:34px;
   color:var(--gold);display:block;line-height:1.1;margin:2px 0 6px}
-body.bcp .pk-call p{font-size:16px;line-height:1.62;color:#C6DBD1;
+body.bcp .pk-call p{font-size:16.5px;line-height:1.62;color:#C6DBD1;
   margin:0 0 12px;max-width:66ch}
 body.bcp .pk-call p:last-child{margin:0}
 body.bcp .pk-call p b,body.bcp .pk-call p a{color:var(--gold)}
@@ -154,7 +154,7 @@ body.bcp .pk-calc{background:var(--card);border:1px solid var(--hair);
   border-radius:10px;padding:22px 24px;margin:0 0 20px}
 body.bcp .pk-cg{display:grid;grid-template-columns:1fr 1fr;gap:22px;
   margin:0 0 20px}
-body.bcp .pk-cc h3{font-size:18px;margin:0 0 12px}
+body.bcp .pk-cc h3{font-size:19px;margin:0 0 12px}
 body.bcp .pk-fl{display:block;font-family:var(--mn);font-size:10.5px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0 0 5px}
 body.bcp .pk-calc input,body.bcp .pk-calc select{width:100%;
@@ -172,10 +172,10 @@ body.bcp .pk-out .r.hd{background:var(--sink)}
 body.bcp .pk-out .r.hd span{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.11em;text-transform:uppercase;color:var(--dim)}
 body.bcp .pk-out .r.tot{background:var(--wash)}
-body.bcp .pk-out .lbl{font-size:14.5px;line-height:1.5;color:var(--ink)}
-body.bcp .pk-out .va{font-family:var(--figs);font-weight:800;font-size:18px;
+body.bcp .pk-out .lbl{font-size:15px;line-height:1.5;color:var(--ink)}
+body.bcp .pk-out .va{font-family:var(--figs);font-weight:800;font-size:19px;
   color:var(--ink);text-align:right;min-width:104px}
-body.bcp .pk-out .r.tot .va{color:var(--pine);font-size:20px}
+body.bcp .pk-out .r.tot .va{color:var(--pine);font-size:19px}
 body.bcp .pk-note{font-size:13.5px;line-height:1.65;color:var(--dim);
   margin:14px 0 0;max-width:72ch}
 body.bcp .pk-note b{color:var(--ink)}
@@ -190,21 +190,21 @@ body.bcp .pk-mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;
 body.bcp .pk-mini .pk-m{background:var(--card);border:1px solid var(--hair);
   border-radius:var(--r);padding:14px 16px}
 body.bcp .pk-mini .pk-m h3{font-size:15px;line-height:1.2;margin:0 0 3px}
-body.bcp .pk-mini .soc{font-family:var(--mn);font-size:10px;
+body.bcp .pk-mini .soc{font-family:var(--mn);font-size:9.5px;
   letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
 @media(max-width:760px){body.bcp .pk-mini{grid-template-columns:1fr}}
 
 /* --- sources ----------------------------------------------------------- */
 body.bcp .pk-src{background:var(--card);border:1px solid var(--hair);
   border-radius:var(--r);padding:18px 20px;margin:0 0 16px}
-body.bcp .pk-src h3{font-family:var(--mn);font-size:11px;
+body.bcp .pk-src h3{font-family:var(--mn);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
   margin:0 0 11px;font-weight:500}
 body.bcp .pk-src ol{margin:0;padding:0 0 0 20px}
-body.bcp .pk-src li{font-size:14px;line-height:1.55;color:var(--dim);
+body.bcp .pk-src li{font-size:13.5px;line-height:1.55;color:var(--dim);
   margin:0 0 8px}
 body.bcp .pk-src li:last-child{margin:0}
-body.bcp .pk-src li::marker{font-family:var(--mn);font-size:11px;
+body.bcp .pk-src li::marker{font-family:var(--mn);font-size:10.5px;
   color:var(--pine)}
 body.bcp .pk-src b{color:var(--ink)}
 
@@ -222,7 +222,7 @@ body.bcp .lg-in label{display:block;font-family:var(--mn);font-size:10.5px;
   letter-spacing:.13em;text-transform:uppercase;color:var(--dim);
   margin-bottom:5px}
 body.bcp .lg-in input{width:100%;box-sizing:border-box;
-  font-family:var(--figs);font-weight:800;font-size:20px;padding:8px 10px;
+  font-family:var(--figs);font-weight:800;font-size:19px;padding:8px 10px;
   background:#fff;border:1px solid var(--hair);border-radius:6px;
   color:var(--ink)}
 body.bcp .lg-in input:focus{outline:none;border-color:var(--pine);
@@ -233,7 +233,7 @@ body.bcp .lg-bar i{display:block;height:100%;background:var(--pine);
   width:0;transition:width .25s}
 body.bcp .lg-mk{position:relative;height:26px;margin-bottom:14px}
 body.bcp .lg-mk span{position:absolute;top:0;font-family:var(--mn);
-  font-size:10px;color:var(--dim);white-space:nowrap;
+  font-size:9.5px;color:var(--dim);white-space:nowrap;
   transform:translateX(-50%);padding-top:3px}
 body.bcp .lg-mk span::before{content:"";position:absolute;left:50%;top:-4px;
   width:2px;height:5px;background:var(--ink)}
@@ -246,12 +246,12 @@ body.bcp .lg-g .k{font-family:var(--mn);font-size:9.5px;letter-spacing:.13em;
 body.bcp .lg-g .v{display:block;font-family:var(--figs);font-weight:800;
   font-size:23px;color:var(--ink);line-height:1.1;margin:3px 0 2px;
   font-variant-numeric:tabular-nums}
-body.bcp .lg-g .s{display:block;font-size:11.5px;color:var(--dim);
+body.bcp .lg-g .s{display:block;font-size:12px;color:var(--dim);
   line-height:1.35}
 body.bcp .lg-g.req div.hot{background:var(--gold);border-color:var(--gold)}
 body.bcp .lg-g.req div.hot .k,body.bcp .lg-g.req div.hot .s{color:var(--ink)}
 body.bcp .lg-g div.done{background:var(--wash);border-color:var(--wash)}
-body.bcp .lg-note{font-size:12.5px;color:var(--dim);margin:14px 0 0}
+body.bcp .lg-note{font-size:12px;color:var(--dim);margin:14px 0 0}
 
 /* the question cards and the two start doors on the same page */
 body.bcp .ask{background:var(--card);border:1px solid var(--hair);
@@ -261,8 +261,8 @@ body.bcp .ask q{display:block;font-family:var(--figs);font-size:19px;
   font-weight:600;line-height:1.3;color:var(--ink);quotes:none}
 body.bcp .ask .an{font-family:var(--disp);font-weight:800;font-size:15px;
   margin:9px 0 5px;color:var(--pine)}
-body.bcp .ask p{font-size:14.5px;margin:0 0 9px}
-body.bcp .ask a{font-family:var(--mn);font-size:11px;letter-spacing:.1em;
+body.bcp .ask p{font-size:15px;margin:0 0 9px}
+body.bcp .ask a{font-family:var(--mn);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--pine)}
 body.bcp .start{display:grid;gap:12px;margin:4px 0 0}
 @media(min-width:640px){body.bcp .start{grid-template-columns:1fr 1fr}}
@@ -270,7 +270,7 @@ body.bcp .start a{display:block;background:var(--pine);color:#fff;
   border-radius:var(--rs);padding:14px 16px;text-decoration:none}
 body.bcp .start a:hover{background:var(--pine-2)}
 body.bcp .start .q{display:block;font-family:var(--disp);font-weight:800;
-  font-size:18px;line-height:1.2;margin-bottom:4px;color:#fff}
+  font-size:19px;line-height:1.2;margin-bottom:4px;color:#fff}
 body.bcp .start .s{display:block;font-size:13.5px;color:#C6DBD1;
   line-height:1.4}
 body.bcp .shelf{display:grid;gap:12px}
@@ -279,7 +279,7 @@ body.bcp .shelf a.card{display:block;background:var(--card);
   border:1px solid var(--hair);border-radius:var(--r);padding:14px 16px;
   color:var(--ink);text-decoration:none}
 body.bcp .shelf a.card:hover{border-color:var(--pine)}
-body.bcp .shelf .t{font-family:var(--disp);font-weight:800;font-size:15.5px;
+body.bcp .shelf .t{font-family:var(--disp);font-weight:800;font-size:15px;
   line-height:1.25;margin-bottom:5px;display:block}
 body.bcp .shelf .n{font-size:13.5px;color:var(--dim);line-height:1.45;
   display:block}
@@ -291,13 +291,13 @@ body.bcp .tsdepth{background:var(--card);border:1px solid var(--hair);
 body.bcp .tsbadge{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--gold);
   color:var(--ink);padding:3px 8px;border-radius:6px}
-body.bcp .tswhat{font-size:13px;color:var(--dim);margin:10px 0 0;
+body.bcp .tswhat{font-size:13.5px;color:var(--dim);margin:10px 0 0;
   max-width:64ch}
 
 /* --- More on this ------------------------------------------------------ */
 body.bcp .uplink{background:var(--sink);padding:44px var(--pad)}
 body.bcp .uplink>div{max-width:1080px;margin:0 auto}
-body.bcp .uplink .uk{font-family:var(--mn);font-size:10px;
+body.bcp .uplink .uk{font-family:var(--mn);font-size:9.5px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 10px}
 body.bcp .uplink h2{font-size:28px;margin:0 0 6px}
 body.bcp .uplink .ud{color:var(--dim);margin:0 0 20px}
@@ -309,7 +309,7 @@ body.bcp .uplink .uc{display:block;background:var(--card);
   color:var(--ink)}
 body.bcp .uplink .uc:hover{border-color:var(--pine)}
 body.bcp .uplink .uc b{display:block;font-family:var(--disp);font-weight:800;
-  font-size:17px;letter-spacing:-.016em;line-height:1.25;margin-bottom:7px}
+  font-size:16.5px;letter-spacing:-.016em;line-height:1.25;margin-bottom:7px}
 body.bcp .uplink .uc span{font-size:13.5px;color:var(--dim);line-height:1.45}
 body.bcp .uplink .uall{display:inline-block;font-family:var(--mn);
   font-size:12px;color:var(--pine)}

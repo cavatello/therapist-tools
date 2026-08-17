@@ -12,7 +12,7 @@
   /* 2. secondary jump links: kept, shrunk. The primary is untouched. */
   .gherocta,.aherocta,.therocta{gap:7px}
   .gherocta .ghost,.aherocta .ghost,.therocta .ghost{
-    padding:8px 12px;font-size:12.4px;min-height:38px}
+    padding:8px 12px;font-size:12px;min-height:38px}
 
   /* 3. ORDER. On grow and tax the deck is four sentences - 195px and 220px of
      type on a phone - and it sat between the headline and everything the page
@@ -49,7 +49,7 @@
   .gpanel,.apanel,.tpanel{padding:13px 15px}
   .gpanel .pr,.tpanel .pr{padding:7px 0}
   .apanel .arow{padding:6px 0}
-  .gpanel .pr b,.tpanel .pr b{font-size:26px}
+  .gpanel .pr b,.tpanel .pr b{font-size:28px}
   .gpanel .pn,.tpanel .pn,.apanel .anote{margin-top:8px}
 }
 /* end mh */
