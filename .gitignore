@@ -37,3 +37,10 @@ __pycache__/
 # Regenerate with mock/mftguide/build_schools.py if ever needed.
 mock/landing/
 mock/mftguide/schools/
+
+# Deploy tarballs. The cloud session ships a build as a tar.gz into _dev/,
+# extracts it, and moves it to _to_delete/. On 17 Aug 2026 the watcher
+# committed one before the extract finished, putting a 7MB binary blob into
+# history for nothing. The window is real - the watcher polls on its own
+# clock - so the file must never be committable in the first place.
+_dev/*.tar.gz
