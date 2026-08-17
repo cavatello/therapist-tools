@@ -156,6 +156,45 @@ FIXES = [
      "the label inside the masthead CTA, painted by a child rule the "
      "button's own !important could not reach"),
 
+    # --- the last four real failures on the site -------------------------
+    # Found only after `_dev/_contrast_audit.mjs` stopped excluding
+    # `header, footer, nav`. Every one is a text colour on the CTA gold or
+    # on paper, sitting just under the floor, and every replacement below
+    # is a sanctioned value measured against the surface it actually sits
+    # on rather than against white.
+    (".hh-chip,a.hh-chip",
+     "#14372C", "#F6C560", 4.5,
+     "the topic-hub chips: --pine on the CTA gold is 4.35, and #14372C is "
+     "the value already documented for ink on this exact background"),
+    # The gap bar has TWO segments on TWO surfaces. Measured separately,
+    # because setting one colour for `.gapbar-seg` painted ink onto the
+    # pine segment at 2.28:1 while fixing the gold one.
+    (".gapbar-seg.gapbar-pp",
+     INK, "#FFE3B8", 4.5,
+     "the private-pay segment: white on pale gold was 1.24, the worst pair "
+     "left on a published page. Ink on the same band is 12.83",
+     ("house", "ratespage")),
+    (".gapbar-seg.gapbar-ins",
+     "#FFFFFF", "#2C6350", 4.5,
+     "the insurance segment of the same bar, which is PINE - white is "
+     "6.98 on it and the ink that fixes its neighbour would be 2.28",
+     ("house", "ratespage")),
+    (".node.pay span,.node.pay",
+     "#14372C", "#F6C560", 4.5,
+     "the payer-model label on the gold node, 4.08 as the muted grey",
+     ("house", "ratespage")),
+    (".eap-rate-h",
+     MUTED, "#F6F8F6", 4.5,
+     "the rates table head at 4.35 on paper; the muted label colour is "
+     "6.14 on the same surface",
+     ("house", "ratespage")),
+    # rates.html's masthead CTA is the CTA GOLD, not pine. Same component,
+    # different surface, so the opposite colour.
+    (".sitenav.sitenav.sitenav .sitenav-cta *",
+     "#14372C", "#F6C560", 4.5,
+     "the CTA label on rates.html, whose button is gold rather than pine",
+     ("ratespage",)),
+
     # --- gold CTA buttons: pine text measured 4.35, just under ----------
     # :not([style*='color']) matters. One .rwcta carries inline
     # `background:#2C6350;color:#fff` - a per-instance pine variant - and
@@ -241,6 +280,41 @@ def _scope(sel):
     return "body.house " + sel
 
 
+# rates.html is the one published page that is NOT under the house skin -
+# `house_swap.py` excludes it by decision so it can keep its editorial
+# voice - so its body carries `ratespage`, not `house`, and every rule
+# `_scope()` writes missed it. That is why three of the site's last four
+# contrast failures were all on that one page, and why the masthead CTA
+# fix reached 241 pages instead of 242. A pass that scopes to a body class
+# has to name every body class the site actually uses.
+BODIES = ("house", "ratespage")
+
+
+def _scope_all(sel, bodies=BODIES):
+    """Scope a selector to the named body classes.
+
+    Which bodies a rule belongs to is part of the rule, not a global. The
+    first version of this scoped EVERY fix to both bodies and immediately
+    proved why that is wrong: the masthead CTA is `--pine` under
+    `body.house` and the CTA GOLD on rates.html, so one colour cannot serve
+    both - white on gold measured 1.61:1. The same rule, applied blind,
+    also set ink on `.gapbar-seg` when the insurance segment of that bar is
+    pine and the private-pay segment is pale gold.
+
+    One class, two surfaces, for the sixth time in this repository - and
+    this time I walked into it while fixing the fifth. The lesson does not
+    get easier by being written down; it has to be applied by measuring
+    both surfaces before emitting a colour.
+    """
+    out = []
+    for body in bodies:
+        if sel.startswith(".bc2"):
+            out.append("body.%s%s" % (body, sel))
+        else:
+            out.append("body.%s %s" % (body, sel))
+    return ",".join(out)
+
+
 def block():
     o = ["<style>" + MARK]
     o.append("/* Text coloured for the opposite surface from the one it sits")
@@ -249,8 +323,11 @@ def block():
     o.append("   body.house and marked !important to outrank the retired-but-")
     o.append("   still-live house skin, which sweeps spans with")
     o.append("   :where(...){color:inherit!important}. */")
-    for sel, col, surface, floor, why in FIXES:
-        full = ",".join(_scope(s.strip()) for s in sel.split(","))
+    for rule in FIXES:
+        sel, col, surface, floor, why = rule[:5]
+        bodies = rule[5] if len(rule) > 5 else ("house",)
+        full = ",".join(_scope_all(s.strip(), bodies)
+                        for s in sel.split(","))
         o.append("/* %s - %.2f:1 on %s */" % (why, ratio(col, surface),
                                               surface))
         o.append("%s{color:%s !important}" % (full, col))
@@ -271,7 +348,8 @@ def pages():
 def main():
     bad = 0
     worst = 99.0
-    for sel, col, surface, floor, why in FIXES:
+    for rule in FIXES:
+        sel, col, surface, floor, why = rule[:5]
         r = ratio(col, surface)
         worst = min(worst, r)
         if r < floor:

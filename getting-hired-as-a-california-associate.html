@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/house.css?v=12e1c007">
-<link rel="stylesheet" href="css/house-chrome.css?v=468a80b9">
+<link rel="stylesheet" href="css/house-chrome.css?v=e368f5c2">
 <link rel="stylesheet" href="css/house-pk.css?v=7bc90e4f">
 
 <script type="text/javascript">
@@ -612,6 +612,18 @@ body.house.bc2 .slab .ig-cap{color:#C6DBD1 !important}
 body.house .afband .sub,body.house .afband p.sub{color:#C6DBD1 !important}
 /* the label inside the masthead CTA, painted by a child rule the button's own !important could not reach - 6.98:1 on #2C6350 */
 body.house .sitenav.sitenav.sitenav .sitenav-cta *{color:#FFFFFF !important}
+/* the topic-hub chips: --pine on the CTA gold is 4.35, and #14372C is the value already documented for ink on this exact background - 8.11:1 on #F6C560 */
+body.house .hh-chip,body.house a.hh-chip{color:#14372C !important}
+/* the private-pay segment: white on pale gold was 1.24, the worst pair left on a published page. Ink on the same band is 12.83 - 12.83:1 on #FFE3B8 */
+body.house .gapbar-seg.gapbar-pp,body.ratespage .gapbar-seg.gapbar-pp{color:#1B2420 !important}
+/* the insurance segment of the same bar, which is PINE - white is 6.98 on it and the ink that fixes its neighbour would be 2.28 - 6.98:1 on #2C6350 */
+body.house .gapbar-seg.gapbar-ins,body.ratespage .gapbar-seg.gapbar-ins{color:#FFFFFF !important}
+/* the payer-model label on the gold node, 4.08 as the muted grey - 8.11:1 on #F6C560 */
+body.house .node.pay span,body.ratespage .node.pay span,body.house .node.pay,body.ratespage .node.pay{color:#14372C !important}
+/* the rates table head at 4.35 on paper; the muted label colour is 6.14 on the same surface - 6.14:1 on #F6F8F6 */
+body.house .eap-rate-h,body.ratespage .eap-rate-h{color:#635D4E !important}
+/* the CTA label on rates.html, whose button is gold rather than pine - 8.11:1 on #F6C560 */
+body.ratespage .sitenav.sitenav.sitenav .sitenav-cta *{color:#14372C !important}
 /* gold call-to-action buttons - 8.11:1 on #F6C560 */
 body.house .acta:not([style*='color']),body.house .acta:not([style*='color']) strong,body.house .acta:not([style*='color']) span,body.house .gcta:not([style*='color']),body.house .gcta:not([style*='color']) strong,body.house .gcta:not([style*='color']) span,body.house .tcta:not([style*='color']),body.house .tcta:not([style*='color']) strong,body.house .tcta:not([style*='color']) span,body.house .clgo:not([style*='color']),body.house .rwcta:not([style*='color']),body.house .pr-cta:not([style*='color']),body.house .pr-cta:not([style*='color']) strong,body.house .pr-cta:not([style*='color']) span{color:#14372C !important}
 /* breadcrumbs on the dark band - 8.43:1 on #123C30 */

@@ -676,6 +676,16 @@ VERIFY = [
     ("_dev/type_census.py --check",
      "no new typeface, font size, border radius or gradient against "
      "_dev/type_baseline.json - and no page setting a face it never loads"),
+    # The guard for the bug class that no per-pass guard can see: a pass
+    # writes its rules, its own guard passes on the file it just wrote, and
+    # a later pass removes the result. That has happened three times here -
+    # the retired skin on tools.html, build_redirect's assertion, and
+    # surface_fix's overrides being hoisted into a sheet four families then
+    # stopped loading, which left the masthead CTA at 2.28:1 on 142 pages.
+    # Counts how many pages each pass's marker still reaches and fails on a
+    # DROP against the recorded number.
+    ("_dev/pass_reach.py --check",
+     "no pass has quietly lost the pages it used to reach"),
 ]
 
 STAGES = [("build", BUILD), ("structure", STRUCTURE), ("floors", FLOORS),

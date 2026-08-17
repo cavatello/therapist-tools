@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/house.css?v=12e1c007">
-<link rel="stylesheet" href="../../../css/house-chrome.css?v=468a80b9">
+<link rel="stylesheet" href="../../../css/house-chrome.css?v=e368f5c2">
 <link rel="stylesheet" href="../../../css/house-rest.css?v=4b20254e">
 <link rel="stylesheet" href="css/98c278117504.css">
 <link rel="stylesheet" href="css/877fe0ab043f.css">
@@ -19,8 +19,8 @@
 <link rel="stylesheet" href="css/06314e7b542f.css">
 <link rel="stylesheet" href="css/adc83b19e793.css">
 <link rel="stylesheet" href="css/330cd8b7bb88.css">
-<link rel="stylesheet" href="css/267a61de9f8d.css">
 <link rel="stylesheet" href="css/9882b2c3f256.css">
+<link rel="stylesheet" href="css/5a18e91d3e06.css">
 <link rel="stylesheet" href="css/eb5d1580bfa7.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <link rel="stylesheet" href="css/94f6fe8e1e73.css">
@@ -66,22 +66,6 @@
   .srg{grid-template-columns:1fr}
 }
 </style>
-<style>/* _dev/mobile_last.py */
-/* Form controls had no authored font-size, so they took the browser default
-   of 13.3333px. Under 16px, iOS Safari zooms on focus and never zooms back.
-   16.5px is the house body step. */
-input,select,textarea,button{font-size:16.5px}
-@media (max-width:900px){
-  /* WCAG 2.5.8: 24x24 minimum. mobile_floor.py sets this too, and its rule
-     is hoisted into a stylesheet that the family passes stop the page
-     loading - see this pass's docstring. Class-doubled so it outranks the
-     explicit `width:22px` in house-chrome.css's (pointer:coarse) block. */
-  input[type="checkbox"],input[type="radio"],
-  .consent input,.consent input[type="checkbox"]{
-    min-width:24px;min-height:24px;width:24px;height:24px}
-  select,button[type="submit"]{min-height:24px}
-}
-</style>
 <style>/* _dev/surface_fix.py */
 /* Text coloured for the opposite surface from the one it sits
    on. Each rule names its surface; every pair is verified over
@@ -99,6 +83,18 @@ body.house.bc2 .slab .ig-cap{color:#C6DBD1 !important}
 body.house .afband .sub,body.house .afband p.sub{color:#C6DBD1 !important}
 /* the label inside the masthead CTA, painted by a child rule the button's own !important could not reach - 6.98:1 on #2C6350 */
 body.house .sitenav.sitenav.sitenav .sitenav-cta *{color:#FFFFFF !important}
+/* the topic-hub chips: --pine on the CTA gold is 4.35, and #14372C is the value already documented for ink on this exact background - 8.11:1 on #F6C560 */
+body.house .hh-chip,body.house a.hh-chip{color:#14372C !important}
+/* the private-pay segment: white on pale gold was 1.24, the worst pair left on a published page. Ink on the same band is 12.83 - 12.83:1 on #FFE3B8 */
+body.house .gapbar-seg.gapbar-pp,body.ratespage .gapbar-seg.gapbar-pp{color:#1B2420 !important}
+/* the insurance segment of the same bar, which is PINE - white is 6.98 on it and the ink that fixes its neighbour would be 2.28 - 6.98:1 on #2C6350 */
+body.house .gapbar-seg.gapbar-ins,body.ratespage .gapbar-seg.gapbar-ins{color:#FFFFFF !important}
+/* the payer-model label on the gold node, 4.08 as the muted grey - 8.11:1 on #F6C560 */
+body.house .node.pay span,body.ratespage .node.pay span,body.house .node.pay,body.ratespage .node.pay{color:#14372C !important}
+/* the rates table head at 4.35 on paper; the muted label colour is 6.14 on the same surface - 6.14:1 on #F6F8F6 */
+body.house .eap-rate-h,body.ratespage .eap-rate-h{color:#635D4E !important}
+/* the CTA label on rates.html, whose button is gold rather than pine - 8.11:1 on #F6C560 */
+body.ratespage .sitenav.sitenav.sitenav .sitenav-cta *{color:#14372C !important}
 /* gold call-to-action buttons - 8.11:1 on #F6C560 */
 body.house .acta:not([style*='color']),body.house .acta:not([style*='color']) strong,body.house .acta:not([style*='color']) span,body.house .gcta:not([style*='color']),body.house .gcta:not([style*='color']) strong,body.house .gcta:not([style*='color']) span,body.house .tcta:not([style*='color']),body.house .tcta:not([style*='color']) strong,body.house .tcta:not([style*='color']) span,body.house .clgo:not([style*='color']),body.house .rwcta:not([style*='color']),body.house .pr-cta:not([style*='color']),body.house .pr-cta:not([style*='color']) strong,body.house .pr-cta:not([style*='color']) span{color:#14372C !important}
 /* breadcrumbs on the dark band - 8.43:1 on #123C30 */
@@ -127,6 +123,22 @@ body.house .ap-hero .hk{color:#C6DBD1 !important}
 body.house .hero .in .lede{color:#C6DBD1 !important}
 /* the concept-page tags - 6.03:1 on #E6F1EB */
 body.house .cc-meta .tag{color:#2C6350 !important}
+</style>
+<style>/* _dev/mobile_last.py */
+/* Form controls had no authored font-size, so they took the browser default
+   of 13.3333px. Under 16px, iOS Safari zooms on focus and never zooms back.
+   16.5px is the house body step. */
+input,select,textarea,button{font-size:16.5px}
+@media (max-width:900px){
+  /* WCAG 2.5.8: 24x24 minimum. mobile_floor.py sets this too, and its rule
+     is hoisted into a stylesheet that the family passes stop the page
+     loading - see this pass's docstring. Class-doubled so it outranks the
+     explicit `width:22px` in house-chrome.css's (pointer:coarse) block. */
+  input[type="checkbox"],input[type="radio"],
+  .consent input,.consent input[type="checkbox"]{
+    min-width:24px;min-height:24px;width:24px;height:24px}
+  select,button[type="submit"]{min-height:24px}
+}
 </style>
 <style>/* restyle */
 /* ---------------------------------------------------------------- the header

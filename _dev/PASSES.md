@@ -239,6 +239,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `orgprofile_data.py` | **untriaged** | &mdash; | The 24 Bay Area organization profiles - hand-written from the banked |
 | `pagekit.py` | **untriaged** | &mdash; | The shared surface for the research pages, so five builders are one design. |
 | `palette_census.py` | **untriaged** | &mdash; | Every colour actually in use, ranked, against the sanctioned palette. |
+| `pass_reach.py` | **untriaged** | &mdash; | A pass that writes CSS onto every page, and reaches only some of them. |
 | `patch_allow.py` | **untriaged** | &mdash; | Teach the name guard the vocabulary of the second collection. |
 | `patch_build_cases.py` | **untriaged** | &mdash; | Fold the second collection into build_cases.py: counts, figures, and a date |
 | `patch_cases.py` | **untriaged** | &mdash; | Fold the second collection into the case library. |

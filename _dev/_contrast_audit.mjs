@@ -24,7 +24,11 @@ for (const p of pages) {
     const nodes = await page.evaluate(() => {
       const out = [];
       document.querySelectorAll('body *').forEach(el => {
-        if (el.closest('header,footer,nav,script,style')) return;
+        // NOT header/footer/nav. That exclusion was made when this sweep
+        // was about article text, and it hid the worst finding on the site:
+        // the masthead CTA label at 2.28:1 on 238 pages. Chrome is where a
+        // reader looks first. Only non-rendering elements are skipped.
+        if (el.closest('script,style,template')) return;
         let txt = ''; el.childNodes.forEach(nd => { if (nd.nodeType === 3) txt += nd.textContent; });
         txt = txt.trim();
         if (txt.length < 8) return;

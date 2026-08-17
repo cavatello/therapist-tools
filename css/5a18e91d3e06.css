@@ -1,46 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free tools for California therapists &mdash; moved to Resources</title>
-<link rel="canonical" href="https://therapistsupport.org/resources.html">
-<!-- ts:meta -->
-<meta name="ts:topic" content="practice">
-<meta name="ts:format" content="reference">
-<meta name="ts:question" content="Where did the tools page go?">
-<meta name="ts:outcome" content="A redirect to Resources, which now holds every calculator">
-<meta name="ts:weight" content="1">
-<meta name="ts:skip" content="true">
-<!-- /ts:meta -->
-<meta http-equiv="refresh" content="0; url=resources.html">
-<meta name="description" content="The free tools for California therapists now live on one page with the rest of the practice resources.">
-<style>
-body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
- background:#F6F8F6;color:#1B2420;font-family:system-ui,sans-serif;padding:26px}
-main{max-width:44ch;text-align:center}
-h1{font-family:Georgia,serif;font-size:28px;font-weight:600;margin:0 0 12px;
- letter-spacing:-.02em}
-p{font-size:16.5px;line-height:1.7;color:#5F6A64;margin:0 0 20px}
-a{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:10px;
- background:#123C30;color:#fff;font-weight:700;font-size:16.5px;text-decoration:none}
-</style>
-</head>
-<body>
-<main>
-<h1>This page moved.</h1>
-<p>Every free tool is still here &mdash; they now sit on one page with the
-rest of the practice resources, so you can get to the calculators and the
-reference material without guessing which page holds which.</p>
-<a href="resources.html">Go to Tools &amp; resources &rarr;</a>
-</main>
-<script>/* replace() so Back does not bounce between the two pages.
-   Resolved against location.href first: a bare relative URL throws when the
-   document has no base (a test harness, a file:// copy), and a redirect stub
-   that logs an error is one someone later "fixes" by deleting the script. */
-(function(){try{location.replace(new URL("resources.html",location.href).href)}
-catch(e){}})();</script>
-<style>/* _dev/surface_fix.py */
+/* _dev/surface_fix.py */
 /* Text coloured for the opposite surface from the one it sits
    on. Each rule names its surface; every pair is verified over
    4.5:1 by _dev/surface_fix.py before it is emitted. Prefixed
@@ -97,22 +55,3 @@ body.house .ap-hero .hk{color:#C6DBD1 !important}
 body.house .hero .in .lede{color:#C6DBD1 !important}
 /* the concept-page tags - 6.03:1 on #E6F1EB */
 body.house .cc-meta .tag{color:#2C6350 !important}
-</style>
-<style>/* _dev/mobile_last.py */
-/* Form controls had no authored font-size, so they took the browser default
-   of 13.3333px. Under 16px, iOS Safari zooms on focus and never zooms back.
-   16.5px is the house body step. */
-input,select,textarea,button{font-size:16.5px}
-@media (max-width:900px){
-  /* WCAG 2.5.8: 24x24 minimum. mobile_floor.py sets this too, and its rule
-     is hoisted into a stylesheet that the family passes stop the page
-     loading - see this pass's docstring. Class-doubled so it outranks the
-     explicit `width:22px` in house-chrome.css's (pointer:coarse) block. */
-  input[type="checkbox"],input[type="radio"],
-  .consent input,.consent input[type="checkbox"]{
-    min-width:24px;min-height:24px;width:24px;height:24px}
-  select,button[type="submit"]{min-height:24px}
-}
-</style>
-</body>
-</html>

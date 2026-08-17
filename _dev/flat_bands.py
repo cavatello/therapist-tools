@@ -122,6 +122,16 @@ FLAT = {
     # the one light surface. --paper, not #fff: P8 says tinted paper, never
     # pure white.
     "linear-gradient(180deg,#fff 0%,#F6F8F6 100%)": "#F6F8F6",
+    # The blue band on therapist-working-remotely-california.html. Left out
+    # of the first pass as "semantic colour, a decision not yet made" - and
+    # the cost of leaving it turned out to be that the page was
+    # UNMEASURABLE: a contrast sweep resolves a background by walking up
+    # for a background-COLOR, a gradient ancestor returns none, and the
+    # whole hero reported as white-on-white at 1.00:1 at all five
+    # viewports. Ten findings that were neither real nor dismissible.
+    # Flattened to its own darkest stop, which keeps the blue and makes the
+    # page checkable.
+    "linear-gradient(160deg,#1F5573 0%,#173F5A 70%,#13324A 100%)": "#13324A",
 }
 
 GRAD = re.compile(r"(?:linear|radial|conic)-gradient\s*\(")
