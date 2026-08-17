@@ -39,8 +39,8 @@ it will catch the next person too:
     specificity tie.
   * The retired "house skin" is still live. Every page carries `house`
     in its body class and `body.house{...}` redefines the palette -
-    `--gold:#FFD976`, `--muted:#5B665F`, `--pine:#26604C`. Several of
-    the findings ARE that palette: #FFD976 is a light gold, and used as
+    `--gold:#FFE7A3`, `--muted:#5F6A64`, `--pine:#2C6350`. Several of
+    the findings ARE that palette: #FFE7A3 is a light gold, and used as
     a text colour on white it measures 1.36:1.
   * `house-rest.css` and `house-skin.css` carry
     `body.house .slab.pine :where(p,span,label,...){color:inherit
@@ -86,26 +86,27 @@ SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training",
 # colours, it only puts existing ones on the right surfaces.
 MINT = "#C6DBD1"     # the established on-dark body colour
 WHITE = "#FFFFFF"
-INK = "#161F1B"
+INK = "#1B2420"
 MUTED = "#635D4E"    # contrast_pass's verified muted, light surfaces only
 GOLDINK = "#8A6516"  # the established gold-on-light (stage_shell .gk)
 PINE = "#2C6350"
 DEEPINK = "#14372C"  # dark enough for the gold button
+MUTEDMINT = "#84AC99"  # the muted on-dark kicker, lifted just over 4.5
 
 # (selector, colour, the surface it lands on, floor, why)
 FIXES = [
     # --- the root cause: .bc2 .slab p reaching into light cards ---------
     (".bc2 .slab .rule p,.bc2 .slab .flag p,.bc2 .slab .how p,"
      ".bc2 .slab .how .howb p,.bc2 .slab .how .howb li",
-     INK, "#F4F7F4", 4.5,
+     INK, "#F6F8F6", 4.5,
      "light cards nested inside the dark slab - the 1.35:1 case"),
     # ...and its mirror: .howb as a DIRECT child of the slab is on dark
     # and needs the opposite colour. Disambiguated by combinator.
     (".bc2 .slab>.howb li,.bc2 .slab>.howb p",
-     MINT, "#0F3227", 4.5,
+     MINT, "#123C30", 4.5,
      "the same class sitting directly on the dark slab"),
     (".bc2 .slab .ig-cap",
-     MINT, "#0F3227", 4.5, "figure caption on the dark slab, was pine"),
+     MINT, "#123C30", 4.5, "figure caption on the dark slab, was pine"),
 
     # --- gold CTA buttons: pine text measured 4.35, just under ----------
     # :not([style*='color']) matters. One .rwcta carries inline
@@ -120,17 +121,17 @@ FIXES = [
      ".acta:not([style*='color']) span,.gcta:not([style*='color']),"
      ".gcta:not([style*='color']) strong,.gcta:not([style*='color']) span,"
      ".tcta:not([style*='color']),.tcta:not([style*='color']) strong,"
-     ".tcta:not([style*='color']) span,.clgo:not([style*='color']),.rwcta:not([style*='color'])",
+     ".tcta:not([style*='color']) span,.clgo:not([style*='color']),.rwcta:not([style*='color']),.pr-cta:not([style*='color']),.pr-cta:not([style*='color']) strong,.pr-cta:not([style*='color']) span",
      DEEPINK, "#F6C560", 4.5, "gold call-to-action buttons"),
 
     # --- ink on a dark band --------------------------------------------
     (".band .bcr a,.band .bcr li,.band .bcr .sep",
-     MINT, "#0F3227", 4.5, "breadcrumbs on the dark band"),
+     MINT, "#123C30", 4.5, "breadcrumbs on the dark band"),
 
     # --- on-dark mint on a white card ----------------------------------
     # SCOPED, and the scope is the whole point. .tsshort is on a WHITE
     # card inside section.band on about/contact/newsletter, and on the
-    # DARK #0F3227 hero (section.scband) on all 66 school pages. An
+    # DARK #123C30 hero (section.scband) on all 66 school pages. An
     # unscoped rule here fixed 3 pages and broke 89 - caught by
     # re-running the sweep, which is why the sweep is the test.
     (".band .pw .tsshort .tsk", MUTED, WHITE, 4.5,
@@ -139,7 +140,7 @@ FIXES = [
      "the 'In short' answer and figure, light pages only"),
 
     # --- the skin's light gold, used as text on light -------------------
-    (".grouplab span", GOLDINK, "#F4F7F4", 4.5,
+    (".grouplab span", GOLDINK, "#F6F8F6", 4.5,
      "section group labels, gold on white"),
     (".reffold summary span,.reffold>span", GOLDINK, WHITE, 4.5,
      "the reference-fold label"),
@@ -155,9 +156,10 @@ FIXES = [
     (".li-card .li-go", WHITE, PINE, 4.5,
      "an outbound link that was pine on pine at 1.05:1"),
     (".ap-hero .hk", MINT, PINE, 4.5, "the associate-pay hero kicker"),
-    (".hero .in .lede", MINT, "#0F3227", 4.5,
+    (".hero .in .lede", MINT, "#123C30", 4.5,
      "the practice simulator's own intro paragraph"),
     (".cc-meta .tag", PINE, "#E6F1EB", 4.5, "the concept-page tags"),
+
 ]
 
 

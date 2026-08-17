@@ -393,6 +393,16 @@ STRUCTURE = [
 # FLOORS. Colour, tap area, spacing. These read the finished markup, so they run
 # after everything that emits markup and before the CSS is hoisted.
 FLOORS = [
+    # The house style (board P8) states its tokens as exact hex. Seven of
+    # the eight were wrong on all 234 pages - close, never equal, which is
+    # how a design system dies quietly. These two conform the palette, the
+    # body metric and the decorative fills to it. Both edit or override
+    # ONLY hand-authored sheets: the content-addressed css/<hash>.css
+    # sheets must keep their bytes, because the filename IS the hash and
+    # the family passes carry hardcoded name lists.
+    # They run BEFORE the contrast floors, because they move --ink and
+    # --gold and the floors measure against whatever the palette is.
+    ("_dev/house_tokens.py", "the P8 palette and the body metric"),
     ("_dev/contrast_pass.py", "label contrast"),
     # The second sweep: text coloured for the OPPOSITE surface from the
     # one it sits on - dark-band rules reaching into light cards nested

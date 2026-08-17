@@ -5,11 +5,11 @@
 /* ===================================================================== */
 .bc2{
   /* --- surface ------------------------------------------------------- */
-  --paper:#F4F7F4; --card:#FFFFFF; --sink:#EAF0EB;
+  --paper:#F6F8F6; --card:#FFFFFF; --sink:#EAF0EB;
   /* --- ink ----------------------------------------------------------- */
-  --ink:#161F1B; --dim:#5B665F; --hair:#DDE4DE;
+  --ink:#1B2420; --dim:#5F6A64; --hair:#DFE4E0;
   /* --- accent -------------------------------------------------------- */
-  --pine:#26604C; --pine-2:#1A4739; --deep:#0F3227; --gold:#FFD976;
+  --pine:#2C6350; --pine-2:#1A4739; --deep:#123C30; --gold:#FFE7A3;
   --wash:#E7F0EA;
   /* --- the six path hues --------------------------------------------- */
   --h1:#2F6FDB; --h2:#7A5AF8; --h3:#0E8FA8; --h4:#17864A; --h5:#B0730B;
@@ -22,7 +22,7 @@
   /* --- metrics ------------------------------------------------------- */
   --pad:40px; --r:10px; --rs:6px;
   background:var(--paper); color:var(--ink); font-family:var(--body);
-  font-size:17.5px; line-height:1.6; letter-spacing:-.011em}
+  font-size:16.5px; line-height:1.6; letter-spacing:-.011em}
 @media(max-width:760px){.bc2{--pad:20px;font-size:16px}}
 .bc2 *{box-sizing:border-box}
 .bc2 a{text-decoration:none;color:var(--pine)}
@@ -292,12 +292,12 @@
 .ft .g{display:grid;gap:24px}
 @media(min-width:780px){.ft .g{grid-template-columns:1.5fr 1fr 1fr 1fr}}
 .ft h6{font-family:var(--mn);font-size:9.5px;letter-spacing:.14em;
-  text-transform:uppercase;color:#79A08F;margin:0 0 10px}
+  text-transform:uppercase;color:#84AC99;margin:0 0 10px}
 .ft a{display:block;padding:3px 0;color:#fff}
 .ft .wm{color:#fff;font-family:var(--disp);font-weight:800;font-size:19px;
   letter-spacing:-.022em}
 .ft .base{margin-top:28px;padding-top:18px;border-top:1px solid #1F4A3B;
-  display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:#79A08F}
+  display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:#84AC99}
 
 /* --- document furniture (not part of the site stylesheet) -------------- */
 .optcard{border:2px solid var(--ink);background:var(--cream);

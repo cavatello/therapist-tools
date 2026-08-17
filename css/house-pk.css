@@ -36,7 +36,7 @@ body.bcp code{font-family:var(--mn);font-size:12.5px;background:var(--sink);
 body.bcp .pk-hero{background:var(--deep);color:#fff;border-radius:14px;
   padding:36px 36px 30px;margin:0 0 30px}
 body.bcp .pk-hero .hk{font-family:var(--mn);font-size:11px;
-  letter-spacing:.16em;text-transform:uppercase;color:#79A08F;margin:0 0 14px}
+  letter-spacing:.16em;text-transform:uppercase;color:#84AC99;margin:0 0 14px}
 body.bcp .pk-hero h1{font-size:clamp(33px,4.4vw,54px);color:#fff;
   margin:0 0 16px;max-width:22ch}
 body.bcp .pk-hero h1 em{font-style:normal;color:var(--gold)}

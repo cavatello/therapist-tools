@@ -43,7 +43,7 @@ UPDATED = "13 August 2026"
 NAV = [("idea", "The idea"), ("lockups", "Ten lockups"),
        ("applied", "Applied"), ("pick", "Which one")]
 
-PINE, DEEP, GOLD, INK = "#26604C", "#0F3227", "#FFD976", "#161F1B"
+PINE, DEEP, GOLD, INK = "#2C6350", "#123C30", "#FFE7A3", "#1B2420"
 
 # key, name, idea, extra css, html builder key, verdict, note
 LOCKUPS = [
@@ -125,7 +125,7 @@ LOCKUPS = [
 
 CSS = """
 .lg2{--pine:%(pine)s;--deep:%(deep)s;--gold:%(gold)s;--ink:%(ink)s;
-  --dim:#5B665F;--paper:#F4F7F4;--hair:#DDE4DE;
+  --dim:#5F6A64;--paper:#F6F8F6;--hair:#DFE4E0;
   --disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --mn:'IBM Plex Mono',ui-monospace,monospace}
 .lg2 .wm{font-family:var(--disp);font-weight:800;letter-spacing:-.028em;
@@ -230,7 +230,7 @@ CSS = """
   box-shadow:0 1px 2px rgba(22,31,27,.14),0 6px 18px rgba(22,31,27,.12),
     0 0 0 1px rgba(22,31,27,.06)}
 .fav.pine{background:%(pine)s}
-.hdr2{background:#F4F7F4;border:1px solid #DDE4DE;border-radius:8px;
+.hdr2{background:#F6F8F6;border:1px solid #DFE4E0;border-radius:8px;
   padding:12px 15px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
   width:100%%}
 .hdr2 .sp{margin-left:auto}
@@ -245,11 +245,11 @@ CSS = """
     0 0 0 1px rgba(22,31,27,.06)}
 .card2 .t{font-family:var(--disp);font-weight:800;font-size:16px;
   letter-spacing:-.02em;margin:12px 0 4px}
-.card2 .s{font-family:'Inter',sans-serif;font-size:12px;color:#5B665F;
+.card2 .s{font-family:'Inter',sans-serif;font-size:12px;color:#5F6A64;
   margin:0 0 11px}
 .card2 .f{display:flex;gap:7px}
 .card2 .in{flex:1;border-radius:5px;padding:8px 10px;font-size:11.5px;
-  color:#5B665F;box-shadow:0 0 0 1px #DDE4DE;font-family:'Inter',sans-serif}
+  color:#5F6A64;box-shadow:0 0 0 1px #DFE4E0;font-family:'Inter',sans-serif}
 .card2 .go{font-family:var(--disp);font-weight:800;font-size:11.5px;color:#fff;
   background:%(pine)s;padding:8px 12px;border-radius:5px}
 .moves{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0

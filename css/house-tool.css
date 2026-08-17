@@ -8,11 +8,11 @@
    because the skin's body.house{} block carried them. */
 
 body.bct{
-  --pine:#26604C; --deep:#0F3227; --carbon:#161F1B;
-  --gold:#FFD976; --pop:#FFD976; --amber:#E7F0EA;
-  --ink:#161F1B; --muted:#5B665F; --line:#DDE4DE;
-  --paper:#F4F7F4; --cream:#FFFFFF;
-  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5B665F;
+  --pine:#2C6350; --deep:#123C30; --carbon:#1B2420;
+  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#E7F0EA;
+  --ink:#1B2420; --muted:#5F6A64; --line:#DFE4E0;
+  --paper:#F6F8F6; --cream:#FFFFFF;
+  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5F6A64;
   --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --hs-body:'Inter',system-ui,sans-serif;
   --hs-figs:'Fraunces',Georgia,serif;
@@ -139,10 +139,10 @@ body.bct .tw.tw.tw table, body.bct .li-tw.li-tw.li-tw table, body.bct .dc-tw.dc-
 /* PART 1 - ported skin rules (win over part 2 by order) */
 
 
-body.bct .px, body.bct .lib, body.bct .sc{--pine:#26604C; --amber:#FFD976; --ink:#161F1B; --line:#DDE4DE;
-  --mut:#5B665F;}
-body.bct .adv, body.bct main.adv{--paper:#F4F7F4; --white:#FFFFFF; --ink:#161F1B; --muted:#5B665F;
-  --line:#DDE4DE;}
+body.bct .px, body.bct .lib, body.bct .sc{--pine:#2C6350; --amber:#FFE7A3; --ink:#1B2420; --line:#DFE4E0;
+  --mut:#5F6A64;}
+body.bct .adv, body.bct main.adv{--paper:#F6F8F6; --white:#FFFFFF; --ink:#1B2420; --muted:#5F6A64;
+  --line:#DFE4E0;}
 body.bct .pk-figs .n, body.bct .lhdval b, body.bct .lfig>b,
 body.bct .fact b, body.bct .lhdr b{font-family:var(--hs-figs); font-weight:700; letter-spacing:-.01em;}
 body.bct .hk, body.bct .lkick>*:first-child, body.bct .tsk,
@@ -175,7 +175,7 @@ body.bct main.home .band .fine{color:var(--hs-dim) !important}
 body.bct main.home .slab{background:var(--deep) !important; color:#E9F2EC !important}
 body.bct main.home .slab h2{color:#FFFFFF !important}
 body.bct main.home .slab p{color:#B9CFC2 !important}
-body.bct main.home .slab .eb{color:#79A08F !important}
+body.bct main.home .slab .eb{color:#84AC99 !important}
 body.bct main.home .wf .amt{color:var(--ink) !important;
   font-family:var(--hs-figs)}
 body.bct main.home .wf .row.net .amt{color:var(--pine) !important}
@@ -195,7 +195,7 @@ body.bct .slab.brick, body.bct .slab.gold{background:var(--hs-card) !important; 
 body.bct .slab.pine{border-left:5px solid var(--pine) !important}
 body.bct .slab.brick{border-left:5px solid #B5483F !important}
 body.bct .slab.gold{border-left:5px solid #B0730B !important}
-body.bct .slab.carbon{border-left:5px solid #161F1B !important}
+body.bct .slab.carbon{border-left:5px solid #1B2420 !important}
 body.bct .slab.pine :where(p,span,label,small,div,li,b,i,h2,h3,h4),
 body.bct .slab.brick :where(p,span,label,small,div,li,b,i,h2,h3,h4),
 body.bct .slab.gold :where(p,span,label,small,div,li,b,i,h2,h3,h4),
@@ -253,7 +253,7 @@ body.bct section.hero .f input, body.bct .hero label.f input{color:#FFFFFF !impo
   caret-color:var(--gold) !important}
 body.bct section.hero .fv, body.bct .hero .fv{color:#CFE0D6 !important}
 body.bct section.hero .f, body.bct .hero label.f{border-color:rgba(255,217,118,.45) !important; background:transparent !important}
-body.bct .pk-hero .hk{color:#79A08F !important}
+body.bct .pk-hero .hk{color:#84AC99 !important}
 body.bct .drawer{background:var(--hs-sink) !important;
   border:1px solid var(--line) !important; border-radius:8px}
 body.bct .dh h5{color:var(--pine) !important}
@@ -280,7 +280,7 @@ body.bct section.hero .f input, body.bct .hero .fv input{
   caret-color:var(--gold) !important}
 body.bct .drawer label.f em{color:#3A453E !important}
 /* green delta figures on light cards: house pine, not mint */
-body.bct em.rup{color:#26604C !important}
+body.bct em.rup{color:#2C6350 !important}
 /* tool heroes that legacy grounded dark: map to deep */
 body.bct .ahero, body.bct .libband{background:var(--deep) !important}
 /* bold text inside dark slabs reads light; cards within stay ink */
@@ -291,8 +291,8 @@ body.bct .slab .card p b, body.bct .slab .card li b{color:var(--ink) !important}
 body.bct .gpanel .gold, body.bct .clcite b{color:#8A6516 !important}
 /* light cards inside dark slabs: their accent text was mixed for the
    slab's ground, not the card's */
-body.bct .finish em{color:#26604C !important}
-body.bct .verdict.good b{color:#26604C !important}
+body.bct .finish em{color:#2C6350 !important}
+body.bct .verdict.good b{color:#2C6350 !important}
 body.bct .verdict b{color:#8A6516 !important}
 /* the funnel stage row lost its shrink rule with the legacy sheet */
 body.bct #funnel .stages{display:flex;flex-wrap:nowrap;max-width:100%}

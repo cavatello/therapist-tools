@@ -10,11 +10,11 @@
 
 /* --- 1 · tokens: override the old :root palette for everything inside  */
 body.house{
-  --pine:#26604C; --deep:#0F3227; --carbon:#161F1B;
-  --gold:#FFD976; --pop:#FFD976; --amber:#E7F0EA;
-  --ink:#161F1B; --muted:#5B665F; --line:#DDE4DE;
-  --paper:#F4F7F4; --cream:#FFFFFF;
-  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5B665F;
+  --pine:#2C6350; --deep:#123C30; --carbon:#1B2420;
+  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#E7F0EA;
+  --ink:#1B2420; --muted:#5F6A64; --line:#DFE4E0;
+  --paper:#F6F8F6; --cream:#FFFFFF;
+  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5F6A64;
   --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --hs-body:'Inter',system-ui,sans-serif;
   --hs-figs:'Fraunces',Georgia,serif;
@@ -24,12 +24,12 @@ body.house{
 }
 /* the family sub-scopes define their own copies — re-map those too */
 body.house .px, body.house .lib, body.house .sc{
-  --pine:#26604C; --amber:#FFD976; --ink:#161F1B; --line:#DDE4DE;
-  --mut:#5B665F;
+  --pine:#2C6350; --amber:#FFE7A3; --ink:#1B2420; --line:#DFE4E0;
+  --mut:#5F6A64;
 }
 body.house .adv, body.house main.adv{
-  --paper:#F4F7F4; --white:#FFFFFF; --ink:#161F1B; --muted:#5B665F;
-  --line:#DDE4DE;
+  --paper:#F6F8F6; --white:#FFFFFF; --ink:#1B2420; --muted:#5F6A64;
+  --line:#DFE4E0;
 }
 body.house ::selection{background:var(--gold); color:var(--ink)}
 body.house :focus-visible{outline:2px solid var(--pine); outline-offset:2px}
@@ -192,7 +192,7 @@ body.house .sitefoot{background:var(--deep) !important; color:#CFE0D6 !important
 body.house .sitefoot h5{
   font-family:var(--hs-mn) !important; font-size:10.5px !important;
   letter-spacing:.16em !important; text-transform:uppercase !important;
-  color:#79A08F !important; background:none !important; padding:0 !important;
+  color:#84AC99 !important; background:none !important; padding:0 !important;
   border-radius:0 !important; border:0 !important; display:block !important;
 }
 body.house .sitefoot a{color:#E9F2EC !important}
@@ -245,7 +245,7 @@ body.house main.home .slab{
   background:var(--deep) !important; color:#E9F2EC !important}
 body.house main.home .slab h2{color:#FFFFFF !important}
 body.house main.home .slab p{color:#B9CFC2 !important}
-body.house main.home .slab .eb{color:#79A08F !important}
+body.house main.home .slab .eb{color:#84AC99 !important}
 body.house main.home .wf .amt{color:var(--ink) !important;
   font-family:var(--hs-figs)}
 body.house main.home .wf .row.net .amt{color:var(--pine) !important}
@@ -265,7 +265,7 @@ body.house main.home .band{
 body.house .artband{background:var(--deep) !important}
 body.house .artband h1 em, body.house .artband .bcr [aria-current]{
   color:var(--gold) !important}
-body.house .artband .kick{color:#79A08F !important}
+body.house .artband .kick{color:#84AC99 !important}
 
 /* discipline hub hero - flatten the brutalist slab */
 body.house .dc-hero{
@@ -301,7 +301,7 @@ body.house .slab.brick, body.house .slab.gold{
 body.house .slab.pine{border-left:5px solid var(--pine) !important}
 body.house .slab.brick{border-left:5px solid #B5483F !important}
 body.house .slab.gold{border-left:5px solid #B0730B !important}
-body.house .slab.carbon{border-left:5px solid #161F1B !important}
+body.house .slab.carbon{border-left:5px solid #1B2420 !important}
 body.house .slab.pine :where(p,span,label,small,div,li,b,i,h2,h3,h4),
 body.house .slab.brick :where(p,span,label,small,div,li,b,i,h2,h3,h4),
 body.house .slab.gold :where(p,span,label,small,div,li,b,i,h2,h3,h4),
@@ -329,7 +329,7 @@ body.house .dc-hero h1, body.house .dc-hero h2,
 body.house .adv .hero h1, body.house .adv .band h1{
   color:#FFFFFF !important}
 body.house .dc-hero .dc-d, body.house .dc-hero p{color:#CFE0D6 !important}
-body.house .dc-hero .dc-k{color:#79A08F !important}
+body.house .dc-hero .dc-k{color:#84AC99 !important}
 /* section headings that sit on the paper ground stay ink */
 body.house .dc-h, body.house .pr-h{color:var(--ink) !important}
 /* the pagekit call-out keeps its dark ground (its type is set light) */
@@ -424,7 +424,7 @@ body.house .dc-hero .tsshort .tsk{color:var(--hs-dim) !important}
    2026. Only finding-a-clinical-supervisor-california.html still loads
    the skin with a pk hero (excluded from family 2: it embeds the job
    advisor app); retires when the tool family converts at step 5. */
-body.house .pk-hero .hk{color:#79A08F !important}
+body.house .pk-hero .hk{color:#84AC99 !important}
 
 /* --- nav promo card: the two gold-pill spans ------------------------- */
 /* .np-all ("THE HUB") and the CTA span carry their own gold ground from

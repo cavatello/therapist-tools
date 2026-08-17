@@ -302,11 +302,11 @@ h1,h2,h3,[class] h1,[class] h2,[class] h3,
 
 /* ---------- PART 2 - the skin's chrome re-color ---------- */
 body.house{
-  --pine:#26604C; --deep:#0F3227; --carbon:#161F1B;
-  --gold:#FFD976; --pop:#FFD976; --amber:#E7F0EA;
-  --ink:#161F1B; --muted:#5B665F; --line:#DDE4DE;
-  --paper:#F4F7F4; --cream:#FFFFFF;
-  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5B665F;
+  --pine:#2C6350; --deep:#123C30; --carbon:#1B2420;
+  --gold:#FFE7A3; --pop:#FFE7A3; --amber:#E7F0EA;
+  --ink:#1B2420; --muted:#5F6A64; --line:#DFE4E0;
+  --paper:#F6F8F6; --cream:#FFFFFF;
+  --hs-card:#FFFFFF; --hs-sink:#EAF0EB; --hs-wash:#E7F0EA; --hs-dim:#5F6A64;
   --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
   --hs-body:'Inter',system-ui,sans-serif;
   --hs-figs:'Fraunces',Georgia,serif;
@@ -315,12 +315,12 @@ body.house{
   font-family:var(--hs-body); letter-spacing:-.011em;
 }
 body.house .px, body.house .lib, body.house .sc{
-  --pine:#26604C; --amber:#FFD976; --ink:#161F1B; --line:#DDE4DE;
-  --mut:#5B665F;
+  --pine:#2C6350; --amber:#FFE7A3; --ink:#1B2420; --line:#DFE4E0;
+  --mut:#5F6A64;
 }
 body.house .adv, body.house main.adv{
-  --paper:#F4F7F4; --white:#FFFFFF; --ink:#161F1B; --muted:#5B665F;
-  --line:#DDE4DE;
+  --paper:#F6F8F6; --white:#FFFFFF; --ink:#1B2420; --muted:#5F6A64;
+  --line:#DFE4E0;
 }
 body.house ::selection{background:var(--gold); color:var(--ink)}
 body.house :focus-visible{outline:2px solid var(--pine); outline-offset:2px}
@@ -404,7 +404,7 @@ body.house .sitefoot{background:var(--deep) !important; color:#CFE0D6 !important
 body.house .sitefoot h5{
   font-family:var(--hs-mn) !important; font-size:10.5px !important;
   letter-spacing:.16em !important; text-transform:uppercase !important;
-  color:#79A08F !important; background:none !important; padding:0 !important;
+  color:#84AC99 !important; background:none !important; padding:0 !important;
   border-radius:0 !important; border:0 !important; display:block !important;
 }
 body.house .sitefoot a{color:#E9F2EC !important}
@@ -534,6 +534,31 @@ body.house.house .sitenav-top{
   overflow:visible; text-overflow:clip;
 }
 /* /nav_skin_fix */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* _dev/stage_shell.py */
 .ss1{background:var(--paper);border-bottom:1px solid var(--line)}
