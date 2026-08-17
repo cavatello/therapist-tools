@@ -80,10 +80,10 @@ body.bcz .tw.tw.tw, body.bcz .li-tw.li-tw.li-tw, body.bcz .dc-tw.dc-tw.dc-tw, bo
   background-size:36px 100%, 36px 100%, 14px 100%, 14px 100%;
   background-attachment:local, local, scroll, scroll;}
 body.bcz .tw.tw.tw::-webkit-scrollbar{height:9px}
-body.bcz .tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+body.bcz .tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 body.bcz .tw.tw.tw::-webkit-scrollbar-track{background:transparent}
 body.bcz .dc-tw.dc-tw.dc-tw::-webkit-scrollbar{height:9px}
-body.bcz .dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+body.bcz .dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 body.bcz .dc-tw.dc-tw.dc-tw::-webkit-scrollbar-track{background:transparent}
 body.bcz .sec.alt .card{background:#fff}
 body.bcz .sec.alt{border-top:3px solid #1B2420;border-bottom:3px solid #1B2420}
@@ -125,7 +125,7 @@ body.bcz .ref i{display:block;font-style:normal;font-size:12.3px;line-height:1.6
 body.bcz .ref i a{color:var(--pine);font-weight:600}
 body.bcz .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
- border-radius:20px;padding:2px 8px;margin-left:4px;vertical-align:1px}
+ border-radius:10px;padding:2px 8px;margin-left:4px;vertical-align:1px}
 body.bcz .sec.alt .fact{background:var(--cream)}
 body.bcz .fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -151,14 +151,14 @@ body.bcz .issue p{font-size:13px;line-height:1.7;color:#4E4940;margin:0 0 13px}
 body.bcz .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 body.bcz .sec.alt .tool{background:var(--paper)}
 body.bcz .feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;
- border:1px solid var(--line);border-radius:18px;padding:28px 30px;margin-top:18px}
+ border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-top:18px}
 body.bcz .sec.alt .feat{background:var(--paper)}
 body.bcz .feat h3{font-family:Fraunces,serif;font-size:23px;margin:11px 0 9px;letter-spacing:-.015em}
 body.bcz .feat p{font-size:13.6px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
 body.bcz .feat ul{margin:0 0 18px;padding:0;list-style:none}
 body.bcz .feat li{font-size:12.9px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
  margin-bottom:8px}
-body.bcz .feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:2px;
+body.bcz .feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:6px;
  background:var(--pine)}
 body.bcz .feat li b{color:var(--ink)}
 body.bcz .sec.alt .cform{background:var(--paper)}
@@ -360,7 +360,7 @@ body.bcz .sitenav-top:hover, body.bcz .sitenav-top[aria-expanded="true"]{
 }
 body.bcz .sitenav-cta{
   background:var(--pine) !important; color:#fff !important;
-  font-family:var(--hs-disp); font-weight:800; border-radius:8px;
+  font-family:var(--hs-disp); font-weight:800; border-radius:10px;
   border:0 !important; box-shadow:none !important;
 }
 body.bcz .sitenav-cta:hover{background:#123C30 !important}
@@ -374,24 +374,24 @@ body.bcz .navpanel h5{
   font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--hs-dim);
 }
-body.bcz .navpanel a{color:var(--ink); border-radius:8px}
+body.bcz .navpanel a{color:var(--ink); border-radius:10px}
 body.bcz .navpanel a:hover{background:var(--hs-sink)}
 body.bcz .navpanel a b{font-weight:600}
 body.bcz .navpanel a i{color:var(--hs-dim); font-style:normal}
-body.bcz .np-promo{background:var(--hs-wash); border-radius:8px}
+body.bcz .np-promo{background:var(--hs-wash); border-radius:10px}
 
 /* --- 5 · buttons ------------------------------------------------------ */
 body.bcz .lcta, body.bcz .tcgo, body.bcz .ctarow .btn,
 body.bcz .nlrow button, body.bcz .aherocta a:first-child{
   background:var(--pine); color:#fff; font-family:var(--hs-disp);
-  font-weight:800; border-radius:8px; border:0;
+  font-weight:800; border-radius:10px; border:0;
   box-shadow:0 1px 0 rgba(15,50,39,.25);
 }
 body.bcz .lcta:hover, body.bcz .tcgo:hover, body.bcz .ctarow .btn:hover,
 body.bcz .nlrow button:hover{background:#123C30}
 body.bcz .lghost, body.bcz .ctarow .btn.ghost{
   background:transparent; color:var(--pine); border:1.5px solid var(--pine);
-  border-radius:8px; font-weight:700; box-shadow:none;
+  border-radius:10px; font-weight:700; box-shadow:none;
 }
 
 /* --- 6 · breadcrumbs, badges, In-short, provenance -------------------- */
@@ -418,12 +418,12 @@ body.bcz .np-promo b, body.bcz .np-promo h4{color:#FFFFFF !important}
 body.bcz .np-promo span{color:#B9CFC2 !important}
 body.bcz .tsshort{
   background:var(--hs-card); border:1px solid var(--line);
-  border-left:4px solid var(--gold); border-radius:8px;
+  border-left:4px solid var(--gold); border-radius:10px;
 }
 body.bcz .tsshort q{font-family:var(--hs-disp); font-weight:700; color:var(--ink)}
 body.bcz .tsbadge{
   font-family:var(--hs-mn); letter-spacing:.08em; text-transform:uppercase;
-  border-radius:5px;
+  border-radius:6px;
 }
 body.bcz .tsfoot .tswhat{color:var(--hs-dim)}
 
@@ -455,7 +455,7 @@ body.bcz .ftnl input, body.bcz .ftnl button, body.bcz .ftnl h2{
 body.bcz .ftnl input[type="email"]{color:var(--ink) !important}
 body.bcz .ftnl button{color:#fff !important}
 body.bcz .nlform input[type="email"]{
-  background:#FFFFFF; border:1px solid var(--line); border-radius:8px;
+  background:#FFFFFF; border:1px solid var(--line); border-radius:10px;
   color:var(--ink);
 }
 body.bcz .nlform input[type="email"]:focus{border-color:var(--gold)}
@@ -484,7 +484,7 @@ body.bcz .pk-t th{
 body.bcz .pk-t td{border-color:var(--line)}
 body.bcz .pk-t code{
   font-family:var(--hs-mn); background:var(--hs-sink);
-  border:1px solid var(--line); border-radius:4px;
+  border:1px solid var(--line); border-radius:6px;
 }
 
 /* --- 11 · cards and form fields --------------------------------------- */
@@ -543,12 +543,12 @@ body.bcz .artband .kick{color:#84AC99 !important}
 /* discipline hub hero - flatten the brutalist slab */
 body.bcz .dc-hero{
   background:var(--deep) !important; border:0 !important;
-  border-radius:12px !important; box-shadow:none !important;
+  border-radius:10px !important; box-shadow:none !important;
 }
 body.bcz .dc-hero .hj a{
   background:transparent !important; border:1px solid rgba(255,217,118,.55)
   !important; color:var(--gold) !important; box-shadow:none !important;
-  border-radius:20px !important;
+  border-radius:10px !important;
 }
 body.bcz .dc-hero .hj a:hover{
   background:rgba(255,217,118,.14) !important; transform:none !important}
@@ -569,7 +569,7 @@ body.bcz section.hero h1 em{color:var(--gold) !important}
 body.bcz .slab.pine, body.bcz .slab.carbon,
 body.bcz .slab.brick, body.bcz .slab.gold{
   background:var(--hs-card) !important; color:var(--ink) !important;
-  border:1px solid var(--line) !important; border-radius:12px !important;
+  border:1px solid var(--line) !important; border-radius:10px !important;
 }
 body.bcz .slab.pine{border-left:5px solid var(--pine) !important}
 body.bcz .slab.brick{border-left:5px solid #B5483F !important}
@@ -619,7 +619,7 @@ body.bcz .bonus::before{display:none !important}
 body.bcz .bonus .pr-h, body.bcz .bonus h2, body.bcz .bonus h3{
   color:#FFFFFF !important}
 /* the hub newsletter block keeps its dark ground */
-body.bcz .hubnl{background:var(--deep) !important; border-radius:12px}
+body.bcz .hubnl{background:var(--deep) !important; border-radius:10px}
 /* case-page verdict block: dark ground, light heading */
 body.bcz .dc-out h2, body.bcz .dc-out h3{color:#FFFFFF !important}
 
@@ -648,7 +648,7 @@ body.bcz .pk-q, body.bcz .pk-src, body.bcz .src, body.bcz .fact{
 /* gold chips become quiet: flat gold, no border, no shadow */
 body.bcz .arttool a, body.bcz .hh-chip, body.bcz .hgo,
 body.bcz .pr-cta, body.bcz .src .srk, body.bcz .tccoda{
-  border:0 !important; box-shadow:none !important; border-radius:20px !important}
+  border:0 !important; box-shadow:none !important; border-radius:10px !important}
 body.bcz .np-col h5{background:none !important; padding:0 !important}
 /* no heading ever carries a highlighter block */
 body.bcz h1, body.bcz h2{background:none !important; box-shadow:none !important}
@@ -656,7 +656,7 @@ body.bcz h1 span:not(.scr), body.bcz h2 span{background:none !important}
 /* the warm-cream field family joins the cool palette, everywhere */
 body.bcz label.f, body.bcz .f, body.bcz .fgrid>*{
   background:var(--hs-card) !important; border:1px solid var(--line) !important;
-  border-radius:8px !important}
+  border-radius:10px !important}
 body.bcz label.f>span, body.bcz .f>span{color:var(--hs-dim) !important}
 body.bcz label.f input, body.bcz .f input, body.bcz .f select{
   background:transparent !important; border:0 !important; color:var(--ink) !important}
@@ -713,7 +713,7 @@ body.bcz .np-promo .np-all, body.bcz .np-promo span:last-child{
    into it. On light ground it is a sink card with ink type. */
 body.bcz .drawer{
   background:var(--hs-sink) !important;
-  border:1px solid var(--line) !important; border-radius:8px}
+  border:1px solid var(--line) !important; border-radius:10px}
 body.bcz .dh h5{color:var(--pine) !important}
 body.bcz .drawer .tog span{color:#49544D !important}
 body.bcz .dbtn{

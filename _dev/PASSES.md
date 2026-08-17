@@ -131,10 +131,12 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `family_pk.py` | last | &mdash; | Rollout step 5, family 2: the pagekit research/directory pages go bc2. |
 | `family_rest.py` | last | &mdash; | Rollout step 5, family 5: every remaining skinned page goes bc2. |
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
+| `flat_bands.py` | last | &mdash; | The decorative gradients become flat fills, and only those. |
 | `font_links.py` | last | &mdash; | A page that asks for a typeface must also load it. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
 | `palette_conform.py` | last | &mdash; | 113 near-misses collapse onto the twelve colours they were trying to be. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
+| `radius_floor.py` | last | &mdash; | Twenty corner radii become two, and the pills become buttons. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |

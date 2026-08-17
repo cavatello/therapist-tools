@@ -16,14 +16,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/house.css?v=8ae003fa">
-<link rel="stylesheet" href="css/house-chrome.css?v=174bea36">
-<link rel="stylesheet" href="css/house-rest.css?v=78715118">
-<link rel="stylesheet" href="css/e647b8b8ad8b.css">
+<link rel="stylesheet" href="css/house.css?v=0afb37c9">
+<link rel="stylesheet" href="css/house-chrome.css?v=fa313ee2">
+<link rel="stylesheet" href="css/house-rest.css?v=ecf76c02">
+<link rel="stylesheet" href="css/a7d794d1d87c.css">
 <style>/* headway */
 .hw{--pine:#2C6350;--amber:#F6C560;--ink:#1B2420;--line:#E2DACA;--mut:#4A5A46;
   --red:#B5483F;--green:#3F9577}
-.hwband{background:linear-gradient(135deg,#1B2420 0%,#123C30 48%,#2C6350 100%);
+.hwband{background:#123C30;
   color:#F6F8F6;padding:30px 0 36px}
 .hwband .in{max-width:1180px;margin:0 auto;padding:0 26px;display:grid;
   grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:34px;align-items:center}
@@ -43,7 +43,7 @@
 .hwmeta{display:flex;gap:14px;flex-wrap:wrap;margin-top:17px;
   font-family:'IBM Plex Mono',monospace;font-size:10.4px;letter-spacing:.06em;
   text-transform:uppercase;color:rgba(255,255,255,.62)}
-.hwfig{background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.18);border-radius:16px;
+.hwfig{background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.18);border-radius:10px;
   padding:20px 22px;min-width:0}
 .hwfig b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(30px,4vw,44px);
   line-height:1;color:var(--amber)}
@@ -74,14 +74,14 @@
 
 /* the disqualifier */
 .stop{background:#FCF1F0;border:1px solid #EBCFCC;border-left:4px solid var(--red);
-  border-radius:12px;padding:20px 22px;margin:6px 0 20px}
+  border-radius:10px;padding:20px 22px;margin:6px 0 20px}
 .stop h3{font-family:Fraunces,Georgia,serif;font-size:20px;margin:0 0 9px;color:#7E2F28}
 .stop p{margin:0 0 12px;color:#5B3833;font-size:14.8px;max-width:none}
 .stop .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:11px;margin-top:14px}
-.stop .lic{background:#fff;border:1px solid #E7DED0;border-radius:9px;padding:12px 14px;min-width:0}
+.stop .lic{background:#fff;border:1px solid #E7DED0;border-radius:10px;padding:12px 14px;min-width:0}
 .stop .lic b{display:block;font-family:'IBM Plex Mono',monospace;font-size:9.6px;
   letter-spacing:.11em;text-transform:uppercase;color:var(--mut);margin-bottom:8px}
-.stop .lic span{display:inline-block;font-size:12.6px;background:#F2F5EF;border-radius:20px;
+.stop .lic span{display:inline-block;font-size:12.6px;background:#F2F5EF;border-radius:10px;
   padding:3px 10px;margin:0 5px 5px 0;color:#2C4227}
 .stop .lic.no span{background:#FBEDEC;color:#8A3B33;text-decoration:line-through}
 
@@ -115,8 +115,8 @@
 .pay{display:grid;gap:8px;margin:8px 0}
 .pr{display:grid;grid-template-columns:220px minmax(0,1fr) 46px;gap:12px;align-items:center;
   font-size:13.4px}
-.pr .t{height:14px;border-radius:5px;background:#F6F8F6;overflow:hidden}
-.pr .f{height:100%;background:linear-gradient(90deg,#2C6350,#3F9577)}
+.pr .t{height:14px;border-radius:6px;background:#F6F8F6;overflow:hidden}
+.pr .f{height:100%;background:#2C6350}
 .pr .n{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right;color:var(--ink)}
 
 /* comparison */
@@ -133,7 +133,7 @@ table.cmp tr.me td{background:#F6F8F6}
 
 /* fit */
 .fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:8px 0}
-.fc{background:#fff;border:1px solid var(--line);border-radius:11px;padding:17px 19px;min-width:0}
+.fc{background:#fff;border:1px solid var(--line);border-radius:10px;padding:17px 19px;min-width:0}
 .fc.y{border-top:3px solid var(--green)}
 .fc.n{border-top:3px solid var(--red)}
 .fc h3{margin:0 0 10px;font-size:17px}
@@ -142,10 +142,10 @@ table.cmp tr.me td{background:#F6F8F6}
 
 /* disclosure + cta */
 .disc2{background:#FBF0E2;border:1px solid #EBD9BC;border-left:4px solid var(--amber);
-  border-radius:11px;padding:17px 19px;margin:22px 0}
+  border-radius:10px;padding:17px 19px;margin:22px 0}
 .disc2 p{margin:0;font-size:14px;line-height:1.7;color:#4A3A1E;max-width:none}
 .hwcta{display:inline-block;background:var(--amber);color:#3A2A08;font-weight:600;
-  font-size:15px;padding:12px 22px;border-radius:30px;text-decoration:none}
+  font-size:15px;padding:12px 22px;border-radius:10px;text-decoration:none}
 .hwcta:hover{background:#F2BC4C}
 .ctarow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
 
@@ -161,7 +161,7 @@ table.cmp tr.me td{background:#F6F8F6}
   .hwwrap{grid-template-columns:minmax(0,1fr);gap:20px;padding-top:22px}
   .hwnav{position:static;display:flex;gap:7px;overflow-x:auto;padding-bottom:5px}
   .hwnav b{display:none}
-  .hwnav a{border-left:0;border:1px solid var(--line);border-radius:20px;padding:6px 12px;
+  .hwnav a{border-left:0;border:1px solid var(--line);border-radius:10px;padding:6px 12px;
     white-space:nowrap;font-size:12.3px}
   .hwnav a.on{border-color:var(--pine);background:#EAF3DE}
   .hwband .in{grid-template-columns:minmax(0,1fr);gap:22px}
@@ -227,6 +227,9 @@ associate in California.</p><!-- _dev/pixel_concepts.py --><div class="tsshort">
 <section class="uplink"><div><p class="uk">More on this</p><h2>Getting paid</h2><p class="ud">What a session is worth, and who actually pays it.</p><div class="ug"><a class="uc" href="headway-alma-grow-therapy-compared-california.html"><b>Headway, Alma, Grow — or my own contracts?</b><span>All four routes priced at three caseloads, with the crossover</span></a><a class="uc" href="insurance-panels-california-therapist.html"><b>How do I get on insurance panels in California?</b><span>The real sequence, the 60-day rule, and which panels are open</span></a><a class="uc" href="insurance-reimbursement-rates-california-therapist.html"><b>What does insurance actually pay per session?</b><span>Medicare and Medi-Cal computed, and the truth about commercial rates</span></a></div><a class="uall" href="getting-paid/">All 9 pages on getting paid &rarr;</a></div></section>
 <!-- /uplinks -->
 </main>
+
+
+
 
 
 
@@ -518,7 +521,7 @@ associate in California.</p><!-- _dev/pixel_concepts.py --><div class="tsshort">
 
 
 
-<link rel="stylesheet" href="css/dfd3fa21930f.css">
+<link rel="stylesheet" href="css/0c12e43eaede.css">
 
 
 
@@ -904,13 +907,24 @@ associate in California.</p><!-- _dev/pixel_concepts.py --><div class="tsshort">
 
 
 
-<link rel="stylesheet" href="css/c08f3e3b062a.css">
 
-<link rel="stylesheet" href="css/25c85a0f3d4d.css">
-<link rel="stylesheet" href="css/7551624b376f.css">
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/3fc66d05edba.css">
+
+<link rel="stylesheet" href="css/68e34b86ee48.css">
+<link rel="stylesheet" href="css/ffec93029f4e.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 
-<link rel="stylesheet" href="css/8ad114037ea6.css">
+<link rel="stylesheet" href="css/62b93f9422ee.css">
 <script>/* _dev/analytics_events.py */
 (function(){
   if (typeof window === 'undefined') return;
@@ -1151,12 +1165,12 @@ associate in California.</p><!-- _dev/pixel_concepts.py --><div class="tsshort">
 </script>
 <link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
-<link rel="stylesheet" href="css/e2ab505d9863.css">
+<link rel="stylesheet" href="css/6dfc217d1c02.css">
 <link rel="stylesheet" href="css/9fb0332fa15a.css">
-<link rel="stylesheet" href="css/4dc3eadda2f0.css">
+<link rel="stylesheet" href="css/c9f1ad780540.css">
 <link rel="stylesheet" href="css/97ebf82c2256.css">
 <link rel="stylesheet" href="css/de5583206780.css">
 <link rel="stylesheet" href="css/c02acf6fa8a5.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/5c048e36ac1e.css">
+<link rel="stylesheet" href="css/c94c7622c59f.css">
 </body></html>

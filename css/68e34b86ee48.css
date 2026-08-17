@@ -2,7 +2,7 @@
 /* The up-link. Quiet by default - it is the last thing on the page and it is
    for the reader who finished, not a mid-article interruption. */
 .uplink{max-width:1120px;margin:34px auto 8px;padding:0 26px}
-.uplink>div{background:#F6F8F6;border:1px solid #EFE6D2;border-radius:14px;padding:22px 24px}
+.uplink>div{background:#F6F8F6;border:1px solid #EFE6D2;border-radius:10px;padding:22px 24px}
 .uplink .uk{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.6px;
   letter-spacing:.12em;text-transform:uppercase;color:#635D4E;margin:0 0 6px}
 .uplink h2{font-family:Fraunces,Georgia,serif;font-size:20px;line-height:1.25;

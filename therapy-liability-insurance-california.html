@@ -15,9 +15,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/house.css?v=8ae003fa">
-<link rel="stylesheet" href="css/house-chrome.css?v=174bea36">
-<link rel="stylesheet" href="css/house-rest.css?v=78715118">
+<link rel="stylesheet" href="css/house.css?v=0afb37c9">
+<link rel="stylesheet" href="css/house-chrome.css?v=fa313ee2">
+<link rel="stylesheet" href="css/house-rest.css?v=ecf76c02">
 
 <script type="text/javascript">
   /* Microsoft Clarity. The whole document is masked by the
@@ -106,7 +106,7 @@
 
 /* the two-numbers panel */
 .li-two{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid #1B2420;
-  border-radius:14px;overflow:hidden;box-shadow:7px 7px 0 #1B2420;margin:0 0 10px}
+  border-radius:10px;overflow:hidden;box-shadow:7px 7px 0 #1B2420;margin:0 0 10px}
 .li-two>div{padding:19px 21px}
 .li-two>div:first-child{background:#F6F8F6;border-right:2px solid #1B2420}
 .li-two>div:last-child{background:#F6C560}
@@ -120,7 +120,7 @@
 /* filter bar */
 .li-filt{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 16px}
 .li-fb{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;
-  color:#635D4E;background:#F6F8F6;border:2px solid #1B2420;border-radius:9px;
+  color:#635D4E;background:#F6F8F6;border:2px solid #1B2420;border-radius:10px;
   padding:7px 11px;cursor:pointer;box-shadow:3px 3px 0 #1B2420;white-space:nowrap}
 .li-fb:hover{background:#F6F8F6}
 .li-fb[aria-pressed="true"]{background:#2C6350;color:#fff}
@@ -128,7 +128,7 @@
   color:#635D4E;margin:0 0 14px}
 
 /* carrier card */
-.li-card{border:2px solid #1B2420;border-radius:14px;background:#fff;
+.li-card{border:2px solid #1B2420;border-radius:10px;background:#fff;
   box-shadow:7px 7px 0 #1B2420;padding:18px 20px 16px;margin:0 0 20px}
 .li-card[hidden]{display:none}
 .li-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 3px}
@@ -150,7 +150,7 @@
 .li-verd p{font-size:14px;line-height:1.6;color:#635D4E;margin:5px 0 0;max-width:66ch}
 .li-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
   gap:9px;margin:0 0 13px}
-.li-cell{background:#F6F8F6;border:1.5px solid #E0DACA;border-radius:9px;padding:9px 11px}
+.li-cell{background:#F6F8F6;border:1.5px solid #E0DACA;border-radius:10px;padding:9px 11px}
 .li-cell .ck{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
   letter-spacing:.1em;text-transform:uppercase;color:#635D4E;display:block}
 .li-cell .cv{font-size:14px;color:#1B2420;display:block;margin-top:3px;font-weight:600}
@@ -179,9 +179,9 @@ table.li-rate td.n{font-family:'Fraunces',Georgia,serif;font-size:16px;color:#2C
   margin-right:7px}
 .li-rep .ca{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
   letter-spacing:.08em;background:#F6C560;color:#1B2420;border:1.5px solid #1B2420;
-  border-radius:4px;padding:1px 5px;margin-left:6px}
+  border-radius:6px;padding:1px 5px;margin-left:6px}
 .li-go{display:inline-block;background:#2C6350;color:#fff;font-weight:700;
-  font-size:14px;text-decoration:none;border:2px solid #1B2420;border-radius:9px;
+  font-size:14px;text-decoration:none;border:2px solid #1B2420;border-radius:10px;
   padding:8px 14px;box-shadow:4px 4px 0 #1B2420;margin-top:4px}
 .li-go:hover{background:#245244}
 
@@ -198,14 +198,14 @@ table.li-pay td.who{font-weight:600;color:#1B2420;white-space:nowrap}
 
 /* glossary */
 .li-gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:11px}
-.li-gt{border:2px solid #1B2420;border-radius:11px;background:#fff;
+.li-gt{border:2px solid #1B2420;border-radius:10px;background:#fff;
   box-shadow:4px 4px 0 #1B2420;padding:13px 15px}
 .li-gt b{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
   font-size:15px;color:#1B2420;display:block;letter-spacing:-.02em}
 .li-gt p{font-size:13.6px;line-height:1.6;color:#635D4E;margin:5px 0 0}
 
 /* cases */
-.li-case{border:2px solid #1B2420;border-radius:12px;background:#F6F8F6;
+.li-case{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:6px 6px 0 #1B2420;padding:16px 18px;margin:0 0 15px}
 .li-case h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.026em;font-size:18px;color:#1B2420;margin:0 0 2px}
@@ -213,7 +213,7 @@ table.li-pay td.who{font-weight:600;color:#1B2420;white-space:nowrap}
   letter-spacing:.08em;color:#2C6350;display:block;margin:0 0 9px}
 .li-case>p{font-size:14.2px;line-height:1.62;color:#635D4E;margin:0 0 11px;max-width:70ch}
 .li-cn{display:flex;align-items:baseline;gap:11px;background:#fff;
-  border:1.5px solid #E0DACA;border-radius:9px;padding:10px 13px;margin:0 0 10px}
+  border:1.5px solid #E0DACA;border-radius:10px;padding:10px 13px;margin:0 0 10px}
 .li-cn .n{font-family:'Fraunces',Georgia,serif;font-size:26px;color:#2C6350;line-height:1}
 .li-cn .l{font-size:12.6px;color:#635D4E}
 .li-cv{font-size:13.8px;line-height:1.62;color:#3A3529;margin:0;max-width:70ch}
@@ -227,10 +227,10 @@ table.li-pay td.who{font-weight:600;color:#1B2420;white-space:nowrap}
 .li-need p{font-size:14.2px;line-height:1.62;color:#635D4E;margin:0 0 7px;max-width:70ch}
 .li-need p b{color:#1B2420}
 .li-need .w{font-size:13.4px;color:#4A413F;background:#FBF4F3;
-  border-left:3px solid #B5483F;padding:7px 11px;border-radius:0 7px 7px 0;max-width:70ch}
+  border-left:3px solid #B5483F;padding:7px 11px;border-radius:0 6px 6px 0;max-width:70ch}
 
 /* law */
-.li-law{border:2px solid #1B2420;border-radius:12px;background:#fff;
+.li-law{border:2px solid #1B2420;border-radius:10px;background:#fff;
   box-shadow:6px 6px 0 #1B2420;padding:15px 17px;margin:0 0 13px}
 .li-law h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
   font-size:17px;color:#1B2420;margin:0 0 6px;letter-spacing:-.024em}
@@ -240,7 +240,7 @@ table.li-pay td.who{font-weight:600;color:#1B2420;white-space:nowrap}
   color:#2C6350}
 
 /* the disclosure block */
-.li-aff{border:2px solid #1B2420;border-radius:14px;background:#2C6350;color:#fff;
+.li-aff{border:2px solid #1B2420;border-radius:10px;background:#2C6350;color:#fff;
   box-shadow:7px 7px 0 #1B2420;padding:19px 21px}
 .li-aff h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.03em;font-size:24px;color:#fff;margin:0 0 8px;line-height:1.15}
@@ -387,10 +387,10 @@ table.li-pay td.who{font-weight:600;color:#1B2420;white-space:nowrap}
 })();
 </script>
 
-<link rel="stylesheet" href="css/c08f3e3b062a.css">
+<link rel="stylesheet" href="css/3fc66d05edba.css">
 
-<link rel="stylesheet" href="css/25c85a0f3d4d.css">
-<link rel="stylesheet" href="css/7551624b376f.css">
+<link rel="stylesheet" href="css/68e34b86ee48.css">
+<link rel="stylesheet" href="css/ffec93029f4e.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/analytics_events.py */
 (function(){
@@ -632,13 +632,13 @@ table.li-pay td.who{font-weight:600;color:#1B2420;white-space:nowrap}
 </script>
 <link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
-<link rel="stylesheet" href="css/e2ab505d9863.css">
+<link rel="stylesheet" href="css/6dfc217d1c02.css">
 <link rel="stylesheet" href="css/9fb0332fa15a.css">
-<link rel="stylesheet" href="css/4dc3eadda2f0.css">
+<link rel="stylesheet" href="css/c9f1ad780540.css">
 <link rel="stylesheet" href="css/97ebf82c2256.css">
 <link rel="stylesheet" href="css/de5583206780.css">
 <link rel="stylesheet" href="css/c02acf6fa8a5.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/5c048e36ac1e.css">
+<link rel="stylesheet" href="css/c94c7622c59f.css">
 </body>
 </html>

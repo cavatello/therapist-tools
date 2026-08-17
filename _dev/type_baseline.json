@@ -10,25 +10,16 @@
   "rubik": 1
  },
  "gradient_pages": [
-  "affiliate-disclosure.html",
-  "amft-3000-hours-california.html",
   "associate-mft-job-advisor.html",
-  "become-an-mft-california.html",
   "css/<content-addressed>",
   "css/house-art.css",
   "css/house-chrome.css",
   "css/house-rest.css",
   "css/house-tool.css",
   "css/house.css",
-  "finding-a-clinical-supervisor-california.html",
-  "grow-your-therapy-practice.html",
-  "headway-for-california-therapists.html",
   "mft-programs-california.html",
   "practice-simulator.html",
-  "rates.html",
-  "simplepractice-california-therapists.html",
   "therapist-cost-of-living-california.html",
-  "therapist-tax-strategy-california.html",
   "therapist-working-remotely-california.html",
   "therapy-liability-insurance-california.html",
   "tycoon.html"
@@ -299,7 +290,6 @@
   18.0,
   20.0,
   22.0,
-  30.0,
   999.0
  ],
  "sizes": [

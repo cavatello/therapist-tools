@@ -109,7 +109,7 @@ body.bcs .vbtn::after{content:"";position:absolute;left:56%;top:50%;
 body.bcs .vplay:hover .vbtn{background:var(--pine)}
 body.bcs .vkind{position:absolute;left:10px;top:10px;font-family:var(--mn);
   font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
-  background:var(--gold);color:var(--ink);padding:3px 8px;border-radius:3px}
+  background:var(--gold);color:var(--ink);padding:3px 8px;border-radius:6px}
 body.bcs .vfig figcaption{padding:12px 15px;font-size:13.5px;color:var(--dim);
   line-height:1.45}
 body.bcs .vfig figcaption b{display:block;color:var(--ink);font-weight:600;
@@ -195,7 +195,7 @@ body.bcs .tbl .r > b,body.bcs .prg .pr > b{font-weight:500;line-height:1.5}
 body.bcs .np{font-style:normal;color:var(--dim)}
 body.bcs .yr{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.1em;background:var(--sink);color:var(--dim);
-  padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:1px}
+  padding:2px 7px;border-radius:6px;margin-left:6px;vertical-align:1px}
 
 /* --- exam pass-rate figures -------------------------------------------- */
 body.bcs .exg{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin:22px 0}
@@ -242,7 +242,7 @@ body.bcs .th i{font-style:normal;font-size:14px;color:var(--dim);
   display:block;line-height:1.5}
 body.bcs .sn{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--sink);
-  color:var(--dim);padding:2px 8px;border-radius:3px;margin-top:8px}
+  color:var(--dim);padding:2px 8px;border-radius:6px;margin-top:8px}
 
 /* --- what to ask ------------------------------------------------------- */
 body.bcs .ask{margin:22px 0;counter-reset:asks}

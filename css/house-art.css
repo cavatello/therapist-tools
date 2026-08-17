@@ -119,9 +119,9 @@ body.bca .artbody .who{font-size:14.5px;font-weight:600;color:var(--ink)}
 body.bca .artbody .who i{display:block;font-style:normal;font-weight:400;
   font-size:12px;color:var(--dim)}
 body.bca .artbody .track{display:block;height:26px;background:var(--sink);
-  border-radius:4px;position:relative;overflow:hidden}
+  border-radius:6px;position:relative;overflow:hidden}
 body.bca .artbody .fill{position:absolute;left:0;top:0;bottom:0;
-  background:var(--pine);border-radius:4px}
+  background:var(--pine);border-radius:6px}
 body.bca .artbody .val{font-family:var(--figs);font-weight:800;font-size:15px;
   text-align:right;white-space:nowrap}
 @media(max-width:640px){body.bca .artbody .row{grid-template-columns:1fr 96px}
@@ -197,7 +197,7 @@ body.bca .tsvint i{display:block;font-style:normal;font-size:12.5px;
   color:var(--dim);margin-top:4px}
 body.bca .tsbadge{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--gold);
-  color:var(--ink);padding:3px 8px;border-radius:3px}
+  color:var(--ink);padding:3px 8px;border-radius:6px}
 body.bca .tswhat{font-size:12.5px;color:var(--dim);margin:8px 0 0;max-width:30ch}
 
 /* --- More on this ------------------------------------------------------ */
@@ -235,7 +235,7 @@ body.bca .cap{font-size:13.5px;color:var(--dim);margin:-14px 0 22px}
 /* affiliate marker chip */
 body.bca .afl{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--sink);
-  color:var(--dim);padding:2px 7px;border-radius:3px;vertical-align:1px}
+  color:var(--dim);padding:2px 7px;border-radius:6px;vertical-align:1px}
 /* "what changed on this page" disclosure */
 body.bca .tsupd{margin:14px 0 0;font-size:14px}
 body.bca .tsupd summary{cursor:pointer;font-family:var(--mn);font-size:12px;

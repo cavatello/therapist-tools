@@ -47,7 +47,7 @@
 .ig-steps li::before{content:counter(s,decimal-leading-zero);
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;
   display:flex;align-items:center;justify-content:center;
-  width:34px;height:34px;border:2px solid #1B2420;border-radius:9px;
+  width:34px;height:34px;border:2px solid #1B2420;border-radius:10px;
   background:#F6C560;color:#1B2420;box-shadow:2px 2px 0 #1B2420}
 /* the connector between steps, decorative only */
 .ig-steps li:not(:last-child)::after{content:"";position:absolute;
@@ -79,7 +79,7 @@
 
 /* ----------------------------------------------------------------- flow */
 .ig-flow .fr{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
-.ig-flow .node{flex:1 1 150px;border:2px solid #1B2420;border-radius:11px;
+.ig-flow .node{flex:1 1 150px;border:2px solid #1B2420;border-radius:10px;
   background:#F6F8F6;padding:13px 14px;box-shadow:4px 4px 0 #1B2420;min-width:0}
 .ig-flow .node.pay{background:#F6C560}
 .ig-flow .node b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
@@ -95,7 +95,7 @@
 
 /* ----------------------------------------------------------------- stat */
 .ig-stat .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:0;border:2px solid #1B2420;border-radius:12px;overflow:hidden;
+  gap:0;border:2px solid #1B2420;border-radius:10px;overflow:hidden;
   box-shadow:5px 5px 0 #1B2420;background:#1B2420}
 .ig-stat .c{background:#F6F8F6;padding:14px 15px}
 .ig-stat.ig-stat .c .n{display:block;font-family:Fraunces,Georgia,serif;

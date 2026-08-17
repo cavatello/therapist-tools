@@ -36,7 +36,7 @@
 .sitenav-sub{color:#635D4E}
 /* the mark becomes a tile. It is already pixel art; an edge stops it floating
    on the paper like a sticker. */
-.sitenav-fig{border:2px solid #1B2420;border-radius:5px;background:#fff}
+.sitenav-fig{border:2px solid #1B2420;border-radius:6px;background:#fff}
 /* the gold outline was invisible on paper */
 .sitenav-top:focus-visible,.sitenav-mark:focus-visible,
 .sitenav-cta:focus-visible{outline:3px solid #1B2420;outline-offset:2px}
@@ -48,7 +48,7 @@
   background:none;border:0;border-radius:0;padding:0;max-width:none}
 /* plain text, as the mockup has it - no track, no pills at rest. The menu is
    type until you touch it. */
-.sitenav-top{font-size:14px;font-weight:700;padding:8px 11px;border-radius:8px;
+.sitenav-top{font-size:14px;font-weight:700;padding:8px 11px;border-radius:10px;
   min-height:38px;white-space:nowrap;overflow:visible;text-overflow:clip;flex:0 0 auto;
   border:2px solid transparent;color:#4A4437;background:none}
 .sitenav-top:after{opacity:.45}
@@ -132,7 +132,7 @@
 /* ---- the panel. One group at a time, so a menu holding 36 destinations never
    shows more than nine. The promo card is outside the groups and always on. */
 .navpanel{grid-template-columns:minmax(0,1fr) 250px;gap:20px;
-  border:3px solid #1B2420;border-radius:16px;
+  border:3px solid #1B2420;border-radius:10px;
   box-shadow:8px 8px 0 rgba(22,33,27,.9);padding:18px}
 .np-col{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));
   gap:2px 14px;align-content:start}
@@ -148,7 +148,7 @@
 .np-hub{grid-column:1/-1;justify-self:start;margin-top:8px;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:700;
   letter-spacing:.04em;text-decoration:none;color:#1B2420;
-  border:2px solid #1B2420;border-radius:999px;padding:7px 13px;
+  border:2px solid #1B2420;border-radius:6px;padding:7px 13px;
   box-shadow:2px 2px 0 #1B2420;background:#fff}
 .np-hub:hover{background:#F6C560}
 .np-promo{border:2px solid #1B2420;box-shadow:4px 4px 0 #1B2420}
@@ -265,9 +265,9 @@ h3,[class] h3{font-weight:700}
    everywhere else: 2px of ink, a solid offset shadow, and a square-ish radius.
    Nothing here changes a layout, a size or a colour role; a card that was white
    is still white and a band that was pine is still pine. */
-.card{border:2px solid #1B2420;border-radius:12px;box-shadow:3px 3px 0 #1B2420}
+.card{border:2px solid #1B2420;border-radius:10px;box-shadow:3px 3px 0 #1B2420}
 .sec.alt .card{background:#fff}
-.ref{border:2px solid #1B2420;border-radius:12px;box-shadow:2px 2px 0 #1B2420}
+.ref{border:2px solid #1B2420;border-radius:10px;box-shadow:2px 2px 0 #1B2420}
 .fact{border:2px solid #1B2420;border-radius:10px;box-shadow:2px 2px 0 #1B2420}
 .sec.alt{border-top:3px solid #1B2420;border-bottom:3px solid #1B2420}
 /* the hero band. The gradient stays - it is the one place on the site that
@@ -302,7 +302,7 @@ h3,[class] h3{font-weight:700}
   border:2px solid #1B2420;border-radius:10px;box-shadow:2px 2px 0 #1B2420}
 .pg:hover,.rc:hover,.lc:hover{box-shadow:4px 4px 0 #1B2420;
   transform:translate(-1px,-1px)}
-.slab{border-radius:14px;box-shadow:5px 5px 0 rgba(22,33,27,.55);
+.slab{border-radius:10px;box-shadow:5px 5px 0 rgba(22,33,27,.55);
   border:2px solid #1B2420}
 .rule{border-radius:10px}
 /* end restyle */

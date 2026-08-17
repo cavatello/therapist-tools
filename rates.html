@@ -105,7 +105,7 @@
 
   /* ===== Quick answers ===== */
   .qa-box{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--amber);
-    border-radius:12px; padding:22px 26px; margin:34px 0;}
+    border-radius:10px; padding:22px 26px; margin:34px 0;}
   .qa-box-label{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
     color:#8A5A26; margin-bottom:14px;}
   .qa-row{display:grid; grid-template-columns:1fr 1.1fr; gap:20px; padding:12px 0;
@@ -134,7 +134,7 @@
      but on a phone it also clipped the rate columns clean off the right edge,
      with no way to reach them. Scroll on x, still clip on y, so the corners
      stay round and the numbers stay readable. */
-  .ledger-wrap{margin:24px 0 28px; border:1px solid var(--line); border-radius:12px;
+  .ledger-wrap{margin:24px 0 28px; border:1px solid var(--line); border-radius:10px;
     overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch;
     background:var(--card);}
   table{width:100%; border-collapse:collapse; font-size:14px;}
@@ -146,13 +146,13 @@
   tbody tr:last-child td{border-bottom:none;}
   tbody tr.hi td{background:var(--pos-soft);}
   .tag{display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase;
-    letter-spacing:.04em; padding:3px 8px; border-radius:20px; margin-left:8px;}
+    letter-spacing:.04em; padding:3px 8px; border-radius:10px; margin-left:8px;}
   .tag.best{background:var(--pos-soft); color:var(--pos);}
   .tag.poor{background:var(--neg-soft); color:var(--neg);}
 
   /* ===== Stat cards ===== */
   .statpair{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:24px 0 28px;}
-  .statcard{border:1px solid var(--line); border-radius:12px; padding:18px 22px; background:var(--card);}
+  .statcard{border:1px solid var(--line); border-radius:10px; padding:18px 22px; background:var(--card);}
   .statcard.pine{border-left:3px solid var(--pos);}
   .statcard.amber{border-left:3px solid var(--amber);}
   .statcard-label{font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; font-weight:700;
@@ -176,7 +176,7 @@
 
   /* ===== Geography split ===== */
   .geo-split{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:24px 0 28px;}
-  .geo-card{border:1px solid var(--line); border-radius:12px; padding:20px 24px; background:var(--card);}
+  .geo-card{border:1px solid var(--line); border-radius:10px; padding:20px 24px; background:var(--card);}
   .geo-card h4{font-family:'Fraunces','Georgia',serif; font-size:17px; margin:0 0 4px; font-weight:600;}
   .geo-card .range{font-family:'Fraunces',serif; font-size:24px; font-weight:700; color:var(--pos);
     margin:7px 0 11px;}
@@ -211,7 +211,7 @@
   .eap-list li{margin-bottom:11px; line-height:1.65;}
   .eap-list b{color:var(--pine);}
 
-  .eap-rate{margin:20px 0 22px;border:1px solid var(--line,#E0D8C4);border-radius:4px;overflow:hidden;
+  .eap-rate{margin:20px 0 22px;border:1px solid var(--line,#E0D8C4);border-radius:6px;overflow:hidden;
     background:#F6F8F6;}
   .eap-rate-h{padding:11px 16px;background:#F6F8F6;font-family:'IBM Plex Mono',monospace;font-size:10px;
     letter-spacing:.16em;text-transform:uppercase;color:#7C7460;}
@@ -253,10 +253,10 @@ a{color:inherit}
 /* Header 06 - the bar is a green field and the chrome is a capsule floating on
    it, not a strip welded to the top. Everything inside is a GRID with equal
    columns, so nothing can push a sibling out at any width. */
-.sitenav{background:linear-gradient(150deg,#14372C 0%,#2C6350 46%,#48A382 100%);
+.sitenav{background:#14372C;
  box-shadow:none;position:sticky;top:0;z-index:40;padding:14px 22px 15px}
 .sitenav-in{max-width:1180px;margin:0 auto;padding:10px 11px 10px 18px;position:relative;
- background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:22px;
+ background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:10px;
  backdrop-filter:blur(14px);box-shadow:0 10px 28px rgba(10,30,22,.26);
  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
 .sitenav-mark{display:flex;align-items:center;gap:11px;text-decoration:none}
@@ -271,7 +271,7 @@ a{color:inherit}
  background:rgba(0,0,0,.26);border-radius:999px;padding:3px;justify-self:center;
  width:100%;max-width:330px}
 .sitenav-top{font:inherit;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.74);
- background:none;border:0;padding:7px 6px;border-radius:999px;cursor:pointer;
+ background:none;border:0;padding:7px 6px;border-radius:6px;cursor:pointer;
  min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
  transition:background .15s,color .15s}
@@ -284,7 +284,7 @@ a{color:inherit}
    opens the menu; this is the one that is always on screen. */
 .sitenav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;
  background:var(--pop);color:#2A2010;font-size:12.5px;font-weight:700;
- padding:10px 17px;border-radius:999px;text-decoration:none;white-space:nowrap;
+ padding:10px 17px;border-radius:6px;text-decoration:none;white-space:nowrap;
  min-height:38px;box-shadow:0 3px 0 rgba(140,96,18,.35)}
 .sitenav-cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
 .sitenav-cta:hover{background:#FFD57A}
@@ -319,7 +319,7 @@ a{color:inherit}
     column stays `auto` because it must never be cut. */
  .sitenav-in{grid-template-columns:minmax(0,1fr) auto;
   grid-template-areas:"mark cta" "nav nav";
-  gap:11px;padding:11px;border-radius:20px}
+  gap:11px;padding:11px;border-radius:10px}
  .sitenav-mark{grid-area:mark;min-width:0}
  .sitenav-wordmark{min-width:0;overflow:hidden;text-overflow:ellipsis}
  .sitenav-cta{grid-area:cta;justify-self:end}
@@ -341,28 +341,28 @@ a{color:inherit}
  .sitenav-top:after{display:none}
 }
 .navpanel{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
- border:1px solid var(--line);border-radius:14px;box-shadow:0 22px 54px rgba(20,30,25,.26);
+ border:1px solid var(--line);border-radius:10px;box-shadow:0 22px 54px rgba(20,30,25,.26);
  padding:20px;z-index:50;display:grid;grid-template-columns:repeat(3,1fr) 250px;gap:18px}
 .navpanel[hidden]{display:none}
 .np-col h5{margin:0 0 10px;font-size:9.5px;font-weight:800;letter-spacing:.12em;
  text-transform:uppercase;color:var(--gold)}
-.np-col a{display:flex;gap:10px;align-items:flex-start;padding:8px 9px;border-radius:9px;
+.np-col a{display:flex;gap:10px;align-items:flex-start;padding:8px 9px;border-radius:10px;
  text-decoration:none;color:var(--ink)}
 .np-col a:hover,.np-col a.on{background:var(--paper)}
 .np-col a img{width:22px;height:22px;flex:none;margin-top:1px}
 .np-col b{display:block;font-size:13px;font-weight:700}
 .np-col i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px;
  line-height:1.45}
-.np-promo{display:block;background:var(--carbon);border-radius:12px;padding:15px;
+.np-promo{display:block;background:var(--carbon);border-radius:10px;padding:15px;
  text-align:center;text-decoration:none}
 .np-promo img{width:76px;height:76px}
 .np-promo b{display:block;font-family:Fraunces,serif;font-size:15px;color:#fff;margin-top:7px}
 .np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.7)}
 .np-promo span{display:inline-block;background:var(--pop);color:#2A2010;font-weight:800;
- font-size:11.5px;padding:9px 14px;border-radius:9px}
+ font-size:11.5px;padding:9px 14px;border-radius:10px}
 
 /* ---- bands and sections */
-.band{background:linear-gradient(135deg,#123C30 0%,#2C6350 55%,#3F9577 100%);
+.band{background:#123C30;
  color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
@@ -393,14 +393,14 @@ h2{font-family:Fraunces,serif;font-size:clamp(22px,2.4vw,27px);font-weight:600;m
 p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cards.four{grid-template-columns:repeat(4,1fr)}
-.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px}
 .sec.alt .card{background:var(--paper)}
 .card img{width:32px;height:32px;margin-bottom:10px;display:block}
 .card h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 7px}
 .card p{font-size:12.8px;line-height:1.65;color:#4E4940;margin:0}
 .reflist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
 .ref{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
- border-radius:12px;padding:14px 16px}
+ border-radius:10px;padding:14px 16px}
 .sec.alt .ref{background:var(--paper)}
 .ref img{width:26px;height:26px;flex:none;margin-top:2px}
 .ref b{display:block;font-size:13.5px;margin-bottom:3px}
@@ -408,9 +408,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
- border-radius:20px;padding:2px 8px;margin-left:4px;vertical-align:1px}
+ border-radius:10px;padding:2px 8px;margin-left:4px;vertical-align:1px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-.fact{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .sec.alt .fact{background:var(--cream)}
 .fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -419,7 +419,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  line-height:1.55}
 .ctarow{margin:22px 0 0}
 .btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
- padding:12px 22px;border-radius:11px;text-decoration:none}
+ padding:12px 22px;border-radius:10px;text-decoration:none}
 .btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
 .btn.ghost:hover{background:#F6F8F6}
@@ -451,7 +451,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .consent span{font-size:11.8px;line-height:1.55;color:rgba(255,255,255,.66)}
 .nlmeta{font-size:11px;line-height:1.6;color:rgba(255,255,255,.46);margin:11px 0 0;max-width:62ch}
 .nlok{display:flex;gap:12px;align-items:flex-start;background:rgba(246,197,96,.09);
- border:1px solid rgba(246,197,96,.34);border-radius:13px;padding:15px 17px;
+ border:1px solid rgba(246,197,96,.34);border-radius:10px;padding:15px 17px;
  animation:nlin .28s ease-out}
 @keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:#F6C560;
@@ -463,7 +463,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .nlform button[aria-busy=true]{opacity:.65;cursor:progress}
 
 /* ---- issue sample */
-.issue{background:#fff;border:1px solid var(--line);border-radius:14px;padding:19px 21px}
+.issue{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px 21px}
 .sec.alt .issue{background:var(--cream)}
 .issue-h{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--line);
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
@@ -992,6 +992,9 @@ clinician, and says which.</p>
 
 
 
+
+
+
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Getting paid</h2><p class="ud">What a session is worth, and who actually pays it.</p><div class="ug"><a class="uc" href="headway-alma-grow-therapy-compared-california.html"><b>Headway, Alma, Grow — or my own contracts?</b><span>All four routes priced at three caseloads, with the crossover</span></a><a class="uc" href="insurance-panels-california-therapist.html"><b>How do I get on insurance panels in California?</b><span>The real sequence, the 60-day rule, and which panels are open</span></a><a class="uc" href="insurance-reimbursement-rates-california-therapist.html"><b>What does insurance actually pay per session?</b><span>Medicare and Medi-Cal computed, and the truth about commercial rates</span></a></div><a class="uall" href="getting-paid/">All 9 pages on getting paid &rarr;</a></div></section>
 <!-- /uplinks -->
@@ -1111,7 +1114,7 @@ clinician, and says which.</p>
   border-left:2px solid rgba(0,0,0,.1)}
 .drnav a:hover{opacity:1}
 .drnav a.on{opacity:1;font-weight:600;border-left-color:currentColor}
-.drrail .c{border:1px solid rgba(0,0,0,.11);border-radius:14px;padding:14px 16px;
+.drrail .c{border:1px solid rgba(0,0,0,.11);border-radius:10px;padding:14px 16px;
   background:rgba(255,255,255,.62)}
 .drrail .c p.t{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.11em;
   text-transform:uppercase;opacity:.7;margin:0 0 6px}
@@ -1245,7 +1248,7 @@ clinician, and says which.</p>
 .eb-rep{color:#8A6516}
 .eb-gap{color:#8a4038}
 .eap-tbl td.rate b{font-weight:inherit}
-.eap-why{border:2px solid #1B2420;border-radius:12px;background:#F6F8F6;
+.eap-why{border:2px solid #1B2420;border-radius:10px;background:#F6F8F6;
   box-shadow:5px 5px 0 #F6C560;padding:18px 20px;margin:18px 0 0}
 .eap-why h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:800;
   letter-spacing:-.02em;font-size:17px;color:#1B2420;margin:0 0 8px}
@@ -1278,7 +1281,7 @@ clinician, and says which.</p>
 
 
 
-<link rel="stylesheet" href="css/dfd3fa21930f.css">
+<link rel="stylesheet" href="css/0c12e43eaede.css">
 
 
 
@@ -1595,12 +1598,21 @@ clinician, and says which.</p>
 
 
 
-<link rel="stylesheet" href="css/c08f3e3b062a.css">
 
-<link rel="stylesheet" href="css/25c85a0f3d4d.css">
 
-<link rel="stylesheet" href="css/ed05b2a965f6.css">
-<link rel="stylesheet" href="css/7551624b376f.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/3fc66d05edba.css">
+
+<link rel="stylesheet" href="css/68e34b86ee48.css">
+
+<link rel="stylesheet" href="css/7c60ee8088ed.css">
+<link rel="stylesheet" href="css/ffec93029f4e.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/analytics_events.py */
 (function(){
@@ -1771,16 +1783,16 @@ clinician, and says which.</p>
 <link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
 <link rel="stylesheet" href="css/5b9864342bfc.css">
-<link rel="stylesheet" href="css/e2ab505d9863.css">
+<link rel="stylesheet" href="css/6dfc217d1c02.css">
 <link rel="stylesheet" href="css/f75134b09224.css">
 <link rel="stylesheet" href="css/9fb0332fa15a.css">
-<link rel="stylesheet" href="css/4dc3eadda2f0.css">
+<link rel="stylesheet" href="css/c9f1ad780540.css">
 <link rel="stylesheet" href="css/97ebf82c2256.css">
 <link rel="stylesheet" href="css/de5583206780.css">
 <link rel="stylesheet" href="css/c02acf6fa8a5.css">
 <link rel="stylesheet" href="css/5f9da934c88f.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/5c048e36ac1e.css">
+<link rel="stylesheet" href="css/c94c7622c59f.css">
 <link rel="stylesheet" href="css/fb2cac1355b6.css">
 <link rel="stylesheet" href="css/1a54ea41ccf2.css">
 <link rel="stylesheet" href="css/7ddf0607da04.css">

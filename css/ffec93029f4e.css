@@ -2,7 +2,7 @@
 /* Concepts 01, 02 and 07. Pixel language throughout: 2px ink, a SOLID offset
    shadow and never a blur; Bricolage for the headings, IBM Plex Mono for the
    small caps labels, and Fraunces reserved for figures. */
-.tsmeta{border:2px solid #1B2420;border-radius:12px;box-shadow:3px 3px 0 #1B2420;
+.tsmeta{border:2px solid #1B2420;border-radius:10px;box-shadow:3px 3px 0 #1B2420;
   background:#F6F8F6;padding:13px 15px 12px;margin:18px 0 0;max-width:none}
 /* The foot block is inserted as a bare sibling of the up-link and the footer,
    so it has no container to inherit a gutter from. Match the up-link's. */
@@ -28,7 +28,7 @@
    the band behind it is not. Testing POSITION (:first-child) was the previous
    attempt and it failed the moment a standfirst appeared above it. */
 .tsdepth{margin:14px 0 0;background:#F6F8F6;border:2px solid #1B2420;
-  border-radius:12px;box-shadow:3px 3px 0 #1B2420;padding:12px 15px}
+  border-radius:10px;box-shadow:3px 3px 0 #1B2420;padding:12px 15px}
 /* Inside the meta card it is a section of that card, not a card of its own. */
 .tsmeta .tsdepth{margin:11px 0 0;padding:10px 0 0;background:transparent;
   border:none;border-radius:0;box-shadow:none;border-top:2px dashed #D9D0BA}
@@ -47,7 +47,7 @@
 /* The rail numbers were #635D4E on paper: 3.04:1, under the 4.5:1 floor for
    text this small. Measured, not eyeballed. */
 /* 07 - in short */
-.tsshort{border:2px solid #1B2420;border-radius:12px;box-shadow:4px 4px 0 #F6C560;
+.tsshort{border:2px solid #1B2420;border-radius:10px;box-shadow:4px 4px 0 #F6C560;
   background:#fff;padding:15px 17px 14px;margin:20px 0 0}
 .tsshort>p.tsk{margin:0 0 8px}
 .tsshort q{display:block;font-family:'Bricolage Grotesque','Archivo',Inter,
@@ -57,7 +57,7 @@
 .tsshort .tsfig{display:block;font-family:Fraunces,Georgia,serif;font-weight:600;
   font-size:21px;color:#2C6350;margin:9px 0 0;letter-spacing:-.01em}
 /* 01 - the dated update list */
-.tsupd{margin:14px 0 0;border:2px solid #1B2420;border-radius:12px;
+.tsupd{margin:14px 0 0;border:2px solid #1B2420;border-radius:10px;
   background:#F4F0E6;box-shadow:2px 2px 0 #1B2420;overflow:hidden}
 .tsupd>summary{cursor:pointer;list-style:none;padding:10px 15px;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.4px;

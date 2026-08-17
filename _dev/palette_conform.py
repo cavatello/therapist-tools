@@ -318,6 +318,18 @@ def html_files():
     return sorted(out)
 
 
+def pages():
+    """The published pages, for the guards that must not fail over
+    scratch. See the note at the link-exists guard."""
+    out = [f for f in sorted(os.listdir(SITE)) if f.endswith(".html")]
+    for d in SUBDIRS:
+        p = os.path.join(SITE, d)
+        if os.path.isdir(p):
+            out += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
+                    if f.endswith(".html")]
+    return out
+
+
 def in_scope(rel):
     return os.path.basename(rel) not in NOCOLOUR
 
@@ -441,7 +453,16 @@ def main():
                 print("GUARD css/%s: named for %s, not its own contents (%s)"
                       % (fn, fn[:-4], h))
                 bad += 1
-    for rel in html_files():
+    # The link-exists guard runs over PUBLISHED pages only, and the
+    # distinction is not laziness. `css_dedupe.py` retires a superseded
+    # sheet as `_to_delete/orphan-<hash>.css` and repoints the pages that
+    # matter; `_dev/chrome_donor.html` and the regenerated scratch under
+    # `mock/library/out/` are left naming the retired file, and the CSS
+    # chain corrects the built pages downstream anyway. Failing the build
+    # on a stale name in a scratch directory would stop a release over
+    # something no reader can reach. A stale name on a real page is a
+    # different thing, and that is what this checks.
+    for rel in pages():
         s = open(os.path.join(SITE, rel), encoding="utf-8").read()
         for _u, h in LINKED.findall(s):
             if not os.path.exists(os.path.join(CSSDIR, "%s.css" % h)):

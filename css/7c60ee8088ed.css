@@ -16,7 +16,7 @@
 .bcr a{color:inherit;opacity:.62;text-decoration:none;padding:5px 0;min-height:24px;
  display:inline-flex;align-items:center;border-bottom:1px solid transparent}
 .bcr a:hover{opacity:1;border-bottom-color:currentColor}
-.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:3px}
+.bcr a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:6px}
 .bcr .sep{opacity:.36}
 .bcr [aria-current]{opacity:.95;font-weight:600}
 /* The negative top margin above assumes the crumb is the FIRST thing in the

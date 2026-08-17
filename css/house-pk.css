@@ -30,10 +30,10 @@ body.bcp .pk-cap{font-size:13.5px;color:var(--dim);margin:0 0 26px;
   max-width:74ch}
 body.bcp .pk-cap b,body.bcp .pk-fine b{color:var(--ink)}
 body.bcp code{font-family:var(--mn);font-size:12.5px;background:var(--sink);
-  border:1px solid var(--hair);border-radius:4px;padding:1px 5px}
+  border:1px solid var(--hair);border-radius:6px;padding:1px 5px}
 
 /* --- the hero: the page's single dark band ----------------------------- */
-body.bcp .pk-hero{background:var(--deep);color:#fff;border-radius:14px;
+body.bcp .pk-hero{background:var(--deep);color:#fff;border-radius:10px;
   padding:36px 36px 30px;margin:0 0 30px}
 body.bcp .pk-hero .hk{font-family:var(--mn);font-size:11px;
   letter-spacing:.16em;text-transform:uppercase;color:#84AC99;margin:0 0 14px}
@@ -57,14 +57,14 @@ body.bcp .pk-hero .hj{display:flex;flex-wrap:wrap;gap:9px;margin:0}
 body.bcp .pk-hero .hj a{display:inline-block;font-family:var(--mn);
   font-size:11px;letter-spacing:.08em;text-transform:uppercase;
   text-decoration:none;border:1px solid rgba(255,217,118,.55);
-  border-radius:20px;padding:7px 13px;color:var(--gold);background:transparent}
+  border-radius:10px;padding:7px 13px;color:var(--gold);background:transparent}
 body.bcp .pk-hero .hj a:hover{background:rgba(255,217,118,.14)}
 @media(max-width:900px){body.bcp .pk-figs{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){body.bcp .pk-hero{padding:24px 20px 22px}}
 
 /* the In-short card is a light card on the dark hero */
 body.bcp .pk-hero .tsshort{background:var(--card);color:var(--ink);
-  border-left:4px solid var(--gold);border-radius:8px;padding:16px 18px;
+  border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;
   margin:0 0 18px;max-width:560px}
 body.bcp .tsshort .tsk{font-family:var(--mn);font-size:10px;
   letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:0 0 8px}
@@ -126,7 +126,7 @@ body.bcp .pk-t tr.mid td{background:var(--sink);color:var(--dim)}
   padding:10px 11px;font-size:13.5px}}
 
 /* --- the callout: quiet deep panel ------------------------------------- */
-body.bcp .pk-call{background:var(--deep);color:#fff;border-radius:12px;
+body.bcp .pk-call{background:var(--deep);color:#fff;border-radius:10px;
   padding:22px 25px;margin:0 0 26px}
 body.bcp .pk-call h3{font-family:var(--mn);font-size:11px;
   letter-spacing:.15em;text-transform:uppercase;color:var(--gold);
@@ -151,7 +151,7 @@ body.bcp .pk-ask li b{color:var(--ink)}
 
 /* --- the calculators (wage claim, forgiveness, out-of-state) ----------- */
 body.bcp .pk-calc{background:var(--card);border:1px solid var(--hair);
-  border-radius:12px;padding:22px 24px;margin:0 0 20px}
+  border-radius:10px;padding:22px 24px;margin:0 0 20px}
 body.bcp .pk-cg{display:grid;grid-template-columns:1fr 1fr;gap:22px;
   margin:0 0 20px}
 body.bcp .pk-cc h3{font-size:18px;margin:0 0 12px}
@@ -213,7 +213,7 @@ body.bcp .pk-src b{color:var(--ink)}
    (inline-flex) — the collision audit's 30-name problem, live. This rule
    outranks it (body.bcp .lg) and takes the box back. */
 body.bcp .lg{display:block;background:var(--card);border:1px solid var(--hair);
-  border-radius:12px;padding:18px 18px 20px;margin:0 0 20px}
+  border-radius:10px;padding:18px 18px 20px;margin:0 0 20px}
 body.bcp .lg-priv{font-family:var(--mn);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--pine);margin:0 0 10px}
 body.bcp .lg-in{display:grid;gap:12px;margin-bottom:18px}
@@ -290,7 +290,7 @@ body.bcp .tsdepth{background:var(--card);border:1px solid var(--hair);
   border-radius:var(--r);padding:16px 20px}
 body.bcp .tsbadge{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--gold);
-  color:var(--ink);padding:3px 8px;border-radius:3px}
+  color:var(--ink);padding:3px 8px;border-radius:6px}
 body.bcp .tswhat{font-size:13px;color:var(--dim);margin:10px 0 0;
   max-width:64ch}
 

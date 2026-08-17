@@ -49,7 +49,7 @@
   text-transform:uppercase;color:var(--dim);display:block;margin-bottom:14px}
 .bc2 .fine{font-size:14px;color:var(--dim)}
 .bc2 .fig{font-family:var(--figs);font-weight:800}
-.bc2 .mark{background:var(--gold);padding:0 .18em;border-radius:2px}
+.bc2 .mark{background:var(--gold);padding:0 .18em;border-radius:6px}
 .bc2 .scr{background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'><path d='M2 8 C 22 3, 44 10, 66 5 S 106 3, 118 7' fill='none' stroke='%23FFD976' stroke-width='6' stroke-linecap='round'/><path d='M6 10 C 26 6, 48 12, 70 8 S 108 6, 116 9' fill='none' stroke='%23FFD976' stroke-width='4' stroke-linecap='round' opacity='.7'/></svg>") bottom center/100% .34em no-repeat}
 
 /* --- controls -------------------------------------------------------- */
@@ -72,9 +72,9 @@
 .bc2 .nav a.on{color:var(--pine);font-weight:700}
 .bc2 .lg{display:inline-flex;align-items:center;gap:10px}
 .bc2 .lg .bars{display:inline-flex;align-items:flex-end;gap:2.5px;
-  background:var(--card);border-radius:8px;padding:6px 7px;
+  background:var(--card);border-radius:10px;padding:6px 7px;
   box-shadow:0 1px 2px rgba(22,31,27,.12),0 0 0 1px rgba(22,31,27,.06)}
-.bc2 .lg .bars i{display:block;width:4px;border-radius:3px}
+.bc2 .lg .bars i{display:block;width:4px;border-radius:6px}
 .bc2 .lg .wm{font-family:var(--disp);font-weight:800;font-size:19px;
   letter-spacing:-.022em;line-height:1.05;display:block}
 .bc2 .lg .sub{font-family:var(--mn);font-size:9px;letter-spacing:.18em;
@@ -106,9 +106,9 @@
   letter-spacing:-.016em}
 .wf .lb span{display:block;font-family:var(--body);font-weight:400;
   font-size:13px;color:var(--dim);letter-spacing:0}
-.wf .track{height:34px;background:var(--sink);border-radius:4px;
+.wf .track{height:34px;background:var(--sink);border-radius:6px;
   position:relative;overflow:hidden}
-.wf .barr{position:absolute;top:0;bottom:0;left:0;border-radius:4px}
+.wf .barr{position:absolute;top:0;bottom:0;left:0;border-radius:6px}
 .wf .amt{font-family:var(--figs);font-weight:800;font-size:21px;
   text-align:right}
 .wf .amt.neg{color:#A8422F}
@@ -135,7 +135,7 @@
 .track6 .here{position:absolute;top:0;left:50%;transform:translateX(-50%);
   font-family:var(--mn);font-size:9px;letter-spacing:.12em;
   text-transform:uppercase;background:var(--gold);color:var(--ink);
-  padding:2px 7px;border-radius:3px;white-space:nowrap}
+  padding:2px 7px;border-radius:6px;white-space:nowrap}
 @media(max-width:900px){.track6{grid-template-columns:1fr 1fr 1fr}
   .track6::before{display:none}}
 
@@ -177,10 +177,10 @@
 .bind .r{display:grid;grid-template-columns:170px 1fr 96px;gap:14px;
   align-items:center;padding:9px 0}
 .bind .n{font-size:15px;font-weight:600}
-.bind .bar{height:26px;background:var(--sink);border-radius:4px;
+.bind .bar{height:26px;background:var(--sink);border-radius:6px;
   position:relative;overflow:hidden}
 .bind .bar i{position:absolute;left:0;top:0;bottom:0;background:#B9C7BE;
-  border-radius:4px;display:block}
+  border-radius:6px;display:block}
 .bind .r.hit .bar i{background:var(--h4)}
 .bind .r.hit .n{font-weight:800;font-family:var(--disp)}
 .bind .v{font-family:var(--mn);font-size:12px;color:var(--dim);
@@ -188,7 +188,7 @@
 .bind .r.hit .v{color:var(--h4);font-weight:600}
 .bind .flag{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:var(--gold);
-  padding:2px 7px;border-radius:3px;margin-left:8px}
+  padding:2px 7px;border-radius:6px;margin-left:8px}
 @media(max-width:760px){.bind .r{grid-template-columns:1fr 76px}
   .bind .bar{display:none}}
 
@@ -254,7 +254,7 @@
   color:var(--ink);font-weight:800}
 .chips{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 20px}
 .chips span{font-size:14px;background:var(--card);color:var(--dim);
-  padding:7px 14px;border-radius:20px;box-shadow:0 0 0 1px var(--hair)}
+  padding:7px 14px;border-radius:10px;box-shadow:0 0 0 1px var(--hair)}
 .chips span.on{background:var(--pine);color:#fff;box-shadow:none}
 .tbl{border-radius:var(--r);overflow:hidden;
   box-shadow:0 1px 2px rgba(22,31,27,.05),0 0 0 1px rgba(22,31,27,.055)}

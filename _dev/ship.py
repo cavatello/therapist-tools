@@ -508,6 +508,22 @@ LAST = [
     # _dev/_contrast_audit.mjs.
     ("_dev/palette_conform.py",
      "113 off-palette colours onto the twelve they were approximating"),
+    # P8, verbatim: "Flat fills, hairline ring + soft shadow" and "No
+    # gradients from anywhere." The rendered audit found gradients on 32
+    # pages. This flattens the 73 that are DECORATION and leaves the 52
+    # that are not - the scroll fades, the shadow affordances, the
+    # scalloped slab masks P8 actually specifies, and the gold highlighter
+    # rule under the home headline. Every replacement is one of the
+    # gradient's own stops, which is what the reverted flat_fills.py got
+    # wrong. After palette_conform, so the stops it matches are already
+    # conformed.
+    ("_dev/flat_bands.py",
+     "decorative gradients flattened to one of their own stops"),
+    # Twenty corner radii to two, and pills to 6px on the twelve rules
+    # where a pill is a BUTTON. Progress-bar ends, circles and badges keep
+    # their capsule - "no pill buttons" is a rule about buttons.
+    ("_dev/radius_floor.py",
+     "every corner radius onto --r 10px or --rs 6px"),
     ("_dev/discovery.py",
      "sitemap.xml and structured data, derived from the pages that exist NOW. "
      "Nothing may add or rename a page after this"),

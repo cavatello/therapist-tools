@@ -108,6 +108,23 @@ FIXES = [
     (".bc2 .slab .ig-cap",
      MINT, "#123C30", 4.5, "figure caption on the dark slab, was pine"),
 
+    # --- the kicker on the affiliate/product band -----------------------
+    # `p.sub{color:#4E4940}` is the page-body sub-heading colour, correct
+    # on every light surface it was written for. `.afband` is a DARK band
+    # (#123C30) whose `.sub` is a mono kicker and never sets a colour of
+    # its own, so the global rule paints it dark-on-dark: **1.37:1, the
+    # worst pair on the site.** One class, two surfaces, for the fourth
+    # time in this repository.
+    #
+    # It had been invisible to this sweep for a reason worth recording:
+    # the audit walks up the DOM for a `background-color` and a gradient
+    # ancestor returns none, so the pair could not be measured until
+    # `flat_bands.py` replaced those gradients with flat fills. Flattening
+    # did not cause this; it made it MEASURABLE.
+    (".afband .sub,.afband p.sub",
+     MINT, "#123C30", 4.5,
+     "the mono kicker on the affiliate band, was the light-surface grey"),
+
     # --- gold CTA buttons: pine text measured 4.35, just under ----------
     # :not([style*='color']) matters. One .rwcta carries inline
     # `background:#2C6350;color:#fff` - a per-instance pine variant - and

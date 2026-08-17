@@ -38,10 +38,10 @@ a{color:inherit}
 /* Header 06 - the bar is a green field and the chrome is a capsule floating on
    it, not a strip welded to the top. Everything inside is a GRID with equal
    columns, so nothing can push a sibling out at any width. */
-.sitenav{background:linear-gradient(150deg,#14372C 0%,#2C6350 46%,#48A382 100%);
+.sitenav{background:#14372C;
  box-shadow:none;position:sticky;top:0;z-index:40;padding:14px 22px 15px}
 .sitenav-in{max-width:1180px;margin:0 auto;padding:10px 11px 10px 18px;position:relative;
- background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:22px;
+ background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);border-radius:10px;
  backdrop-filter:blur(14px);box-shadow:0 10px 28px rgba(10,30,22,.26);
  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px}
 .sitenav-mark{display:flex;align-items:center;gap:11px;text-decoration:none}
@@ -56,7 +56,7 @@ a{color:inherit}
  background:rgba(0,0,0,.26);border-radius:999px;padding:3px;justify-self:center;
  width:100%;max-width:330px}
 .sitenav-top{font:inherit;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.74);
- background:none;border:0;padding:7px 6px;border-radius:999px;cursor:pointer;
+ background:none;border:0;padding:7px 6px;border-radius:6px;cursor:pointer;
  min-height:38px;display:flex;align-items:center;justify-content:center;text-align:center;
  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
  transition:background .15s,color .15s}
@@ -69,7 +69,7 @@ a{color:inherit}
    opens the menu; this is the one that is always on screen. */
 .sitenav-cta{display:inline-flex;align-items:center;justify-content:center;gap:7px;
  background:var(--pop);color:#2A2010;font-size:12.5px;font-weight:700;
- padding:10px 17px;border-radius:999px;text-decoration:none;white-space:nowrap;
+ padding:10px 17px;border-radius:6px;text-decoration:none;white-space:nowrap;
  min-height:38px;box-shadow:0 3px 0 rgba(140,96,18,.35)}
 .sitenav-cta:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(140,96,18,.35)}
 .sitenav-cta:hover{background:#FFD57A}
@@ -104,7 +104,7 @@ a{color:inherit}
     column stays `auto` because it must never be cut. */
  .sitenav-in{grid-template-columns:minmax(0,1fr) auto;
   grid-template-areas:"mark cta" "nav nav";
-  gap:11px;padding:11px;border-radius:20px}
+  gap:11px;padding:11px;border-radius:10px}
  .sitenav-mark{grid-area:mark;min-width:0}
  .sitenav-wordmark{min-width:0;overflow:hidden;text-overflow:ellipsis}
  .sitenav-cta{grid-area:cta;justify-self:end}
@@ -126,28 +126,28 @@ a{color:inherit}
  .sitenav-top:after{display:none}
 }
 .navpanel{position:absolute;top:calc(100% + 10px);left:0;right:0;background:#fff;
- border:1px solid var(--line);border-radius:14px;box-shadow:0 22px 54px rgba(20,30,25,.26);
+ border:1px solid var(--line);border-radius:10px;box-shadow:0 22px 54px rgba(20,30,25,.26);
  padding:20px;z-index:50;display:grid;grid-template-columns:repeat(3,1fr) 250px;gap:18px}
 .navpanel[hidden]{display:none}
 .np-col h5{margin:0 0 10px;font-size:9.5px;font-weight:800;letter-spacing:.12em;
  text-transform:uppercase;color:var(--gold)}
-.np-col a{display:flex;gap:10px;align-items:flex-start;padding:8px 9px;border-radius:9px;
+.np-col a{display:flex;gap:10px;align-items:flex-start;padding:8px 9px;border-radius:10px;
  text-decoration:none;color:var(--ink)}
 .np-col a:hover,.np-col a.on{background:var(--paper)}
 .np-col a img{width:22px;height:22px;flex:none;margin-top:1px}
 .np-col b{display:block;font-size:13px;font-weight:700}
 .np-col i{display:block;font-style:normal;font-size:11px;color:var(--muted);margin-top:2px;
  line-height:1.45}
-.np-promo{display:block;background:var(--carbon);border-radius:12px;padding:15px;
+.np-promo{display:block;background:var(--carbon);border-radius:10px;padding:15px;
  text-align:center;text-decoration:none}
 .np-promo img{width:76px;height:76px}
 .np-promo b{display:block;font-family:Fraunces,serif;font-size:15px;color:#fff;margin-top:7px}
 .np-promo p{margin:7px 0 11px;font-size:11.5px;line-height:1.55;color:rgba(255,255,255,.7)}
 .np-promo span{display:inline-block;background:var(--pop);color:#2A2010;font-weight:800;
- font-size:11.5px;padding:9px 14px;border-radius:9px}
+ font-size:11.5px;padding:9px 14px;border-radius:10px}
 
 /* ---- bands and sections */
-.band{background:linear-gradient(135deg,#123C30 0%,#2C6350 55%,#3F9577 100%);
+.band{background:#123C30;
  color:#F6F8F6;padding:44px 0 46px}
 .band .pw{display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center}
 .bandart img{width:100%;height:auto;display:block;border-radius:10px}
@@ -180,14 +180,14 @@ h2{font-family:Fraunces,serif;font-size:clamp(22px,2.4vw,27px);font-weight:600;m
 p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:72ch}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cards.four{grid-template-columns:repeat(4,1fr)}
-.card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:19px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px}
 .sec.alt .card{background:var(--paper)}
 .card img{width:32px;height:32px;margin-bottom:10px;display:block}
 .card h3{font-family:Fraunces,serif;font-size:17px;margin:0 0 7px}
 .card p{font-size:12.8px;line-height:1.65;color:#4E4940;margin:0}
 .reflist{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
 .ref{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);
- border-radius:12px;padding:14px 16px}
+ border-radius:10px;padding:14px 16px}
 .sec.alt .ref{background:var(--paper)}
 .ref img{width:26px;height:26px;flex:none;margin-top:2px}
 .ref b{display:block;font-size:13.5px;margin-bottom:3px}
@@ -195,9 +195,9 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .ref i a{color:var(--pine);font-weight:600}
 .soon{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.1em;
  text-transform:uppercase;color:#8A6A2E;background:#FBEFD5;border:1px solid #E8D5A8;
- border-radius:20px;padding:2px 8px;margin-left:4px;vertical-align:1px}
+ border-radius:10px;padding:2px 8px;margin-left:4px;vertical-align:1px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-.fact{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:15px 17px}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .sec.alt .fact{background:var(--cream)}
 .fact em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.11em;
  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
@@ -206,7 +206,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  line-height:1.55}
 .ctarow{margin:22px 0 0}
 .btn{display:inline-block;background:var(--pine);color:#fff;font-weight:700;font-size:14px;
- padding:12px 22px;border-radius:11px;text-decoration:none}
+ padding:12px 22px;border-radius:10px;text-decoration:none}
 .btn:hover{background:#2C6350}
 .btn.ghost{background:none;color:var(--pine);border:1.5px solid var(--pine)}
 .btn.ghost:hover{background:#F6F8F6}
@@ -243,7 +243,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    Formspree's own thanks page. Sized to the form it replaces so the band does
    not jump when it appears. */
 .nlok{display:flex;gap:12px;align-items:flex-start;background:rgba(246,197,96,.09);
- border:1px solid rgba(246,197,96,.34);border-radius:13px;padding:15px 17px;
+ border:1px solid rgba(246,197,96,.34);border-radius:10px;padding:15px 17px;
  animation:nlin .28s ease-out}
 @keyframes nlin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .nlok-tick{width:26px;height:26px;flex:none;border-radius:50%;background:var(--pop);
@@ -261,7 +261,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .sec .consent span,.sec .nlmeta{color:#4E4940}
 
 /* ---- issue sample */
-.issue{background:#fff;border:1px solid var(--line);border-radius:14px;padding:19px 21px}
+.issue{background:#fff;border:1px solid var(--line);border-radius:10px;padding:19px 21px}
 .sec.alt .issue{background:var(--cream)}
 .issue-h{display:flex;gap:10px;align-items:center;border-bottom:1px solid var(--line);
  padding-bottom:12px;margin-bottom:13px;flex-wrap:wrap}
@@ -337,12 +337,12 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 
 /* ---- tools page */
-.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:5px 12px;
+.pill{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:5px 12px;
  border:1px solid}
 .pill.live{color:#2C6350;background:#E6F1EB;border-color:#C6DBD1}
 .pill.wip{color:#8A6A2E;background:#FBEFD5;border-color:#E8D5A8}
 .pill.idea{color:#635D4E;background:#F6F8F6;border-color:#DFD8C7}
-.tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:15px;
+.tool{position:relative;background:#fff;border:1px solid var(--line);border-radius:10px;
  padding:18px 19px;display:flex;flex-direction:column}
 .sec.alt .tool{background:var(--paper)}
 .tool img{width:30px;height:30px;margin-bottom:9px}
@@ -353,17 +353,17 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .tool a:hover{text-decoration:underline}
 /* featured slot: the tool being finished now, shown rather than described */
 .feat{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;
- border:1px solid var(--line);border-radius:18px;padding:28px 30px;margin-top:18px}
+ border:1px solid var(--line);border-radius:10px;padding:28px 30px;margin-top:18px}
 .sec.alt .feat{background:var(--paper)}
 .feat h3{font-family:Fraunces,serif;font-size:23px;margin:11px 0 9px;letter-spacing:-.015em}
 .feat p{font-size:13.6px;line-height:1.72;color:#4E4940;margin:0 0 14px;max-width:52ch}
 .feat ul{margin:0 0 18px;padding:0;list-style:none}
 .feat li{font-size:12.9px;line-height:1.6;color:#4E4940;padding-left:19px;position:relative;
  margin-bottom:8px}
-.feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:2px;
+.feat li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;border-radius:6px;
  background:var(--pine)}
 .feat li b{color:var(--ink)}
-.featshot{border:1px solid var(--line);border-radius:14px;overflow:hidden;
+.featshot{border:1px solid var(--line);border-radius:10px;overflow:hidden;
  box-shadow:0 18px 44px rgba(20,30,25,.13);background:#F6F8F6}
 .featshot img{width:100%;height:auto;display:block;image-rendering:auto}
 .featcap{font-size:11px;color:var(--muted);margin:9px 0 0;line-height:1.5;text-align:center}
@@ -372,7 +372,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 /* ---- contact form */
 /* The one form on the site that is not a single email field, so it gets its own
    controls rather than borrowing .nlform's. Same tokens, same focus ring. */
-.cform{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px 24px;
+.cform{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 24px 24px;
  max-width:640px}
 .sec.alt .cform{background:var(--paper)}
 /* 170px clipped the longest option ("Something is broken") mid-word behind
@@ -413,7 +413,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 }
 
 /* ---- what makes a report easy to act on */
-.cfhelp{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+.cfhelp{background:var(--paper);border:1px solid var(--line);border-radius:10px;
  padding:18px 20px;margin:0 0 22px;max-width:640px}
 .sec.alt .cfhelp{background:var(--cream)}
 .cfhelp h3{font-family:Fraunces,serif;font-size:15.5px;margin:0 0 11px}
@@ -422,7 +422,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
  margin:0 0 9px}
 .cfhelp li:last-child{margin-bottom:0}
 .cfhelp li:before{content:"";position:absolute;left:0;top:6px;width:8px;height:8px;
- border-radius:2px;background:var(--gold)}
+ border-radius:6px;background:var(--gold)}
 .cfhelp li b{color:var(--ink)}
 
 /* Contact page is now the form and nothing else, so the fine print carries the
@@ -481,7 +481,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .clwho b{color:#DCD4F2;font-weight:600}
 /* the figures move OUT of the flow and into the second column */
 .clbig{display:grid;gap:2px 0;margin:0;padding:16px 20px;border-top:0;
-  background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);border-radius:14px}
+  background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14);border-radius:10px}
 .clbig div{min-width:0}
 .clbig{min-width:0}
 .clbig > div{display:flex;align-items:baseline;justify-content:space-between;gap:14px;min-width:0;
@@ -522,7 +522,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .clgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:11px;
   margin:0 0 16px}
 .clf{display:block;background:var(--field);border:1.5px solid var(--fieldline);
-  border-radius:12px;padding:9px 13px 11px;min-height:60px}
+  border-radius:10px;padding:9px 13px 11px;min-height:60px}
 .clf:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,132,48,.16)}
 .clf em{display:block;font-style:normal;font-size:9px;font-weight:800;letter-spacing:.1em;
   text-transform:uppercase;color:#7C766A;margin-bottom:3px}
@@ -550,26 +550,26 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .clrow .pos{color:var(--pos)}
 
 .clcard{background:var(--white);border:1px solid var(--line);border-top:3px solid var(--pine);
-  border-radius:14px;padding:clamp(19px,2.2vw,26px);margin:0 0 16px}
+  border-radius:10px;padding:clamp(19px,2.2vw,26px);margin:0 0 16px}
 .clcard[data-a="gold"]{border-top-color:var(--gold)}
 .clcard[data-a="indigo"]{border-top-color:var(--indigo)}
 .clcard h3{font-size:clamp(18px,1.8vw,22px)}
 .clcard p{font-size:15.4px;line-height:1.64;color:#3A362E}
 .clcard p:last-child{margin-bottom:0}
 
-.clverdict{border-radius:12px;padding:16px 18px;margin:16px 0 0;font-size:15.4px;
+.clverdict{border-radius:10px;padding:16px 18px;margin:16px 0 0;font-size:15.4px;
   line-height:1.6}
 .clverdict.ok{background:#F6F8F6;border-left:4px solid var(--pos);color:#245046}
 .clverdict.tight{background:#F6F8F6;border-left:4px solid var(--gold);color:#6B5321}
 .clverdict.short{background:#FBF1F0;border-left:4px solid var(--neg);color:#7A3A34}
 .clverdict b{font-weight:700}
 
-.clbar{height:30px;border-radius:8px;overflow:hidden;display:flex;margin:14px 0 8px;
+.clbar{height:30px;border-radius:10px;overflow:hidden;display:flex;margin:14px 0 8px;
   background:#F6F8F6}
 .clbar i{display:block;height:100%}
 .clkey{display:flex;gap:14px;flex-wrap:wrap;font-size:12.4px;color:var(--muted)}
 .clkey s{text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-.clkey u{text-decoration:none;width:10px;height:10px;border-radius:3px;display:inline-block}
+.clkey u{text-decoration:none;width:10px;height:10px;border-radius:6px;display:inline-block}
 
 .clsteps{list-style:none;margin:0;padding:0}
 .clsteps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;
@@ -580,7 +580,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
 .clsteps i{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;
   font-weight:600;color:var(--gold);padding-top:3px}
 .clnote{background:var(--paper);border-left:4px solid var(--fieldline);
-  border-radius:0 12px 12px 0;padding:16px 18px;margin:20px 0 0;font-size:14.6px;
+  border-radius:0 10px 10px 0;padding:16px 18px;margin:20px 0 0;font-size:14.6px;
   line-height:1.65;color:#3A362E}
 .clfine{font-size:13.3px;line-height:1.6;color:var(--muted)}
 .clcites{border-top:1px solid var(--line);padding-top:20px;margin-top:26px}
@@ -591,7 +591,7 @@ p.sub{font-size:14.5px;line-height:1.72;color:#4E4940;margin:0 0 20px;max-width:
    specificity 0,2,0 and was beating this rule's 0,1,0 - so the CTA rendered
    pine-on-pine and was completely invisible. Caught by _dev/audit.mjs. */
 a.clcta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;
-  border-radius:999px;background:var(--pine);color:#fff;font-weight:700;font-size:15.5px;
+  border-radius:6px;background:var(--pine);color:#fff;font-weight:700;font-size:15.5px;
   text-decoration:none}
 a.clcta:hover{background:#1F4C3C;color:#fff}
 .cleg{grid-column:1/-1;margin:12px 0 0;font-size:12.4px;line-height:1.55;

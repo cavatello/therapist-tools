@@ -82,7 +82,7 @@ body.bcf .tsshort .tsfig{font-family:var(--figs);font-weight:600;
 /* display:block is load-bearing: house.css's .bc2 .lg is the LOGO lockup
    (inline-flex); this rule outranks it and takes the box back. */
 body.bcf .lg{display:block;background:var(--card);border:1px solid var(--hair);
-  border-radius:14px;padding:26px 26px 24px;margin:0 0 24px}
+  border-radius:10px;padding:26px 26px 24px;margin:0 0 24px}
 @media(max-width:760px){body.bcf .lg{padding:18px 16px 16px}}
 body.bcf .lg-in{display:grid;gap:14px;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:8px}
@@ -205,7 +205,7 @@ body.bcf .tsdepth{background:transparent;border:0;border-radius:0;
 body.bcf .tsbadge{display:inline-block;font-family:var(--mn);font-size:9.5px;
   letter-spacing:.12em;text-transform:uppercase;background:transparent;
   color:var(--dim);border:1px solid var(--hair);padding:3px 8px;
-  border-radius:3px}
+  border-radius:6px}
 body.bcf .tswhat{font-size:13px;color:var(--dim);margin:10px 0 0;
   max-width:64ch}
 

@@ -16,16 +16,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/house.css?v=8ae003fa">
-<link rel="stylesheet" href="css/house-chrome.css?v=174bea36">
-<link rel="stylesheet" href="css/house-rest.css?v=78715118">
-<link rel="stylesheet" href="css/e647b8b8ad8b.css">
+<link rel="stylesheet" href="css/house.css?v=0afb37c9">
+<link rel="stylesheet" href="css/house-chrome.css?v=fa313ee2">
+<link rel="stylesheet" href="css/house-rest.css?v=ecf76c02">
+<link rel="stylesheet" href="css/a7d794d1d87c.css">
 <style>/* mft guide */
 .mg{--pine:#2C6350;--deep:#123C30;--amber:#F6C560;--ink:#1B2420;--line:#E2DACA;
   --paper:#F6F8F6;--mut:#4A5A46}
 .mg .cx{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.6px;
   letter-spacing:.03em;color:var(--mut);white-space:nowrap}
-.mgband{background:linear-gradient(135deg,#1B2420 0%,#123C30 48%,#2C6350 100%);
+.mgband{background:#123C30;
   color:#F6F8F6;padding:30px 0 36px}
 .mgband .in{max-width:1180px;margin:0 auto;padding:0 26px;display:grid;
   grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);gap:34px;align-items:center}
@@ -45,7 +45,7 @@
 .mgmeta{display:flex;gap:14px;flex-wrap:wrap;margin-top:17px;
   font-family:'IBM Plex Mono',monospace;font-size:10.4px;letter-spacing:.06em;
   text-transform:uppercase;color:rgba(255,255,255,.62)}
-.mgfig{background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.18);border-radius:16px;
+.mgfig{background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.18);border-radius:10px;
   padding:20px 22px;min-width:0}
 .mgfig b{display:block;font-family:Fraunces,Georgia,serif;font-size:clamp(31px,4.2vw,46px);
   line-height:1;color:var(--amber)}
@@ -90,12 +90,12 @@
 .hstack{display:flex;height:74px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
 .hseg{position:relative;display:flex;flex-direction:column;justify-content:center;
   padding:0 16px;min-width:0;color:#fff}
-.hseg.a{background:linear-gradient(150deg,#2C6350,#1F4C3C)}
+.hseg.a{background:#123C30}
 .hseg.b{background:#F6F8F6;color:#3B4A38}
 .hseg b{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1}
 .hseg span{font-size:11.5px;line-height:1.35;margin-top:4px;opacity:.9}
 .hsub{display:flex;margin-top:7px}
-.hsub .in500{background:var(--amber);color:#3A2A08;border-radius:8px;padding:9px 14px;
+.hsub .in500{background:var(--amber);color:#3A2A08;border-radius:10px;padding:9px 14px;
   min-width:0}
 .hsub .in500 b{font-family:Fraunces,Georgia,serif;font-size:17px}
 .hsub .in500 span{font-size:11.4px;display:block;margin-top:2px}
@@ -109,11 +109,11 @@
 .sp h4{font-family:Fraunces,Georgia,serif;font-size:15.5px;margin:0;color:var(--ink)}
 .sp .v{font-family:Fraunces,Georgia,serif;font-size:21px;color:var(--pine)}
 .sp .track{height:9px;border-radius:6px;background:#F6F8F6;margin:9px 0 8px;overflow:hidden}
-.sp .fill{height:100%;background:linear-gradient(90deg,#2C6350,#3F9577)}
-.sp .fill.cap{background:linear-gradient(90deg,#B5843F,#D8AC63)}
+.sp .fill{height:100%;background:#2C6350}
+.sp .fill.cap{background:#F6C560}
 .sp p{font-size:12.9px;line-height:1.6;color:#4A5A46;margin:0;max-width:none}
 .tagcap,.tagfloor{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.09em;
-  text-transform:uppercase;padding:2px 7px;border-radius:20px}
+  text-transform:uppercase;padding:2px 7px;border-radius:10px}
 .tagcap{background:#FBF0E2;color:#8A6516}
 .tagfloor{background:#E7F0DC;color:#27500A}
 
@@ -135,8 +135,8 @@
 .prow{display:grid;grid-template-columns:118px minmax(0,1fr) 50px;gap:11px;align-items:center;
   font-size:12.6px}
 .prow .lab{color:#4A5A46}
-.prow .tr{height:15px;border-radius:5px;background:#F6F8F6;overflow:hidden}
-.prow .fi{height:100%;background:linear-gradient(90deg,#2C6350,#3F9577)}
+.prow .tr{height:15px;border-radius:6px;background:#F6F8F6;overflow:hidden}
+.prow .fi{height:100%;background:#2C6350}
 .prow .pc{font-family:Fraunces,Georgia,serif;font-size:16px;color:var(--pine);text-align:right}
 
 /* fees */
@@ -164,7 +164,7 @@ table.fee tr.tot td.now{font-size:20px}
 .pc2 h4{font-family:Fraunces,Georgia,serif;font-size:15.5px;margin:0 0 10px;color:var(--ink)}
 .pc2 .bar{display:flex;align-items:center;gap:9px;margin-bottom:7px;font-size:12.4px}
 .pc2 .bar span:first-child{width:62px;color:#4A5A46}
-.pc2 .bar .t{flex:1;height:13px;border-radius:5px;background:#F6F8F6;overflow:hidden;min-width:0}
+.pc2 .bar .t{flex:1;height:13px;border-radius:6px;background:#F6F8F6;overflow:hidden;min-width:0}
 .pc2 .bar .f{height:100%}
 .pc2 .bar .f.ok{background:#3F9577}
 .pc2 .bar .f.bad{background:#C98B4B}
@@ -175,7 +175,7 @@ table.fee tr.tot td.now{font-size:20px}
   border-radius:10px;padding:16px 18px;margin:16px 0;min-width:0}
 .call p{margin:0;font-size:14px;line-height:1.7;color:#4A3A1E;max-width:none}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 18px}
-.chip2{font-size:12.4px;background:#fff;border:1px solid var(--line);border-radius:20px;
+.chip2{font-size:12.4px;background:#fff;border:1px solid var(--line);border-radius:10px;
   padding:5px 12px;color:#3B4A38}
 .mgsrc{margin-top:46px;padding-top:22px;border-top:1px solid var(--line)}
 .mgsrc h2{margin-top:0}
@@ -192,7 +192,7 @@ table.fee tr.tot td.now{font-size:20px}
   .mgnav{position:static;display:flex;gap:7px;overflow-x:auto;padding-bottom:5px;
     -webkit-overflow-scrolling:touch}
   .mgnav b{display:none}
-  .mgnav a{border-left:0;border:1px solid var(--line);border-radius:20px;padding:6px 12px;
+  .mgnav a{border-left:0;border:1px solid var(--line);border-radius:10px;padding:6px 12px;
     white-space:nowrap;font-size:12.3px}
   .mgnav a.on{border-color:var(--pine);background:#EAF3DE}
   .mgband .in{grid-template-columns:minmax(0,1fr);gap:22px}
@@ -259,6 +259,9 @@ says so rather than guessing.</p><!-- _dev/pixel_concepts.py --><div class="tssh
 <section class="uplink"><div><p class="uk">More on this</p><h2>Licensure</h2><p class="ud">The route to LMFT, and how long it really takes.</p><div class="ug"><a class="uc" href="out-of-state-to-california-licensure.html"><b>Can I bring my license and my supervised hours from another state?</b><span>Which of the Board’s two routes you are on, the coursework each one costs, and how much of your licensed time converts into hours</span></a><a class="uc" href="associate-hours-telehealth-out-of-state.html"><b>Can I finish my supervised hours by telehealth from another state?</b><span>The five published Board answers, the four conditions, and the risk that is real — which is not the one people worry about</span></a><a class="uc" href="mbh-slrp-california.html"><b>How does the Medi-Cal Behavioral Health Student Loan Repayment Program actually work?</b><span>The three award tiers, the 32-hour direct-care obligation, where you have to work, and the tax question HCAI does not answer</span></a></div><a class="uall" href="licensure/">All 125 pages on licensure &rarr;</a></div></section>
 <!-- /uplinks -->
 </main>
+
+
+
 
 
 
@@ -549,7 +552,7 @@ says so rather than guessing.</p><!-- _dev/pixel_concepts.py --><div class="tssh
 
 
 
-<link rel="stylesheet" href="css/dfd3fa21930f.css">
+<link rel="stylesheet" href="css/0c12e43eaede.css">
 
 
 
@@ -874,19 +877,27 @@ says so rather than guessing.</p><!-- _dev/pixel_concepts.py --><div class="tssh
 
 
 
-<link rel="stylesheet" href="css/c08f3e3b062a.css">
 
-<link rel="stylesheet" href="css/25c85a0f3d4d.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="css/3fc66d05edba.css">
+
+<link rel="stylesheet" href="css/68e34b86ee48.css">
 <style><!-- _dev/link_sinks.py -->
 /* One sentence, not a module. Marked as an aside so it reads as the author
    pointing somewhere rather than as an advertisement, and sized below body
    copy so it never competes with the section it follows. */
 .tsnext{margin:14px 0 22px;padding:11px 15px;border-left:3px solid #2C6350;
   background:#F6F8F6;font-size:14.6px;line-height:1.65;color:#3A3529;
-  max-width:70ch;border-radius:0 8px 8px 0}
+  max-width:70ch;border-radius:0 10px 10px 0}
 .tsnext a{color:#2C6350;font-weight:600}
 </style>
-<link rel="stylesheet" href="css/7551624b376f.css">
+<link rel="stylesheet" href="css/ffec93029f4e.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/analytics_events.py */
 (function(){
@@ -1128,12 +1139,12 @@ says so rather than guessing.</p><!-- _dev/pixel_concepts.py --><div class="tssh
 </script>
 <link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
-<link rel="stylesheet" href="css/e2ab505d9863.css">
+<link rel="stylesheet" href="css/6dfc217d1c02.css">
 <link rel="stylesheet" href="css/9fb0332fa15a.css">
-<link rel="stylesheet" href="css/4dc3eadda2f0.css">
+<link rel="stylesheet" href="css/c9f1ad780540.css">
 <link rel="stylesheet" href="css/97ebf82c2256.css">
 <link rel="stylesheet" href="css/de5583206780.css">
 <link rel="stylesheet" href="css/c02acf6fa8a5.css">
 <link rel="stylesheet" href="css/4f4b2f50fe5a.css">
-<link rel="stylesheet" href="css/5c048e36ac1e.css">
+<link rel="stylesheet" href="css/c94c7622c59f.css">
 </body></html>

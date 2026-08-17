@@ -113,12 +113,12 @@ a{color:inherit}
 .sec h2{font-size:clamp(23px,2.8vw,34px);max-width:26ch}
 .sec .d{font-size:15px;color:var(--muted);max-width:70ch;margin:12px 0 0}
 
-.spec{margin:26px 0 0;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+.spec{margin:26px 0 0;border:1px solid var(--line);border-radius:10px;overflow:hidden;
  background:var(--white)}
 .spec .bar{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:#F6F8F6;
  border-bottom:1px solid var(--line);padding:11px 18px;font-family:'IBM Plex Mono',monospace;
  font-size:10.6px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.spec .bar .t{background:var(--pine);color:#fff;border-radius:5px;padding:3px 8px}
+.spec .bar .t{background:var(--pine);color:#fff;border-radius:6px;padding:3px 8px}
 .spec .bar b{color:var(--ink)}
 .spec .stage{padding:0;background:var(--paper)}
 .spec .why{border-top:1px solid var(--line);padding:17px 22px 19px;display:grid;
@@ -150,13 +150,13 @@ a{color:inherit}
 /* the panel. THE ZERO-STATE RULE: it is pre-filled with a worked example and
    labelled as one. It never shows an em-dash, because a dash above the fold is
    an empty promise at the exact moment the reader is deciding to stay. */
-.pan{background:var(--pinedeep);border-radius:16px;padding:18px 22px 20px;color:#C6DBD1}
+.pan{background:var(--pinedeep);border-radius:10px;padding:18px 22px 20px;color:#C6DBD1}
 .panh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
  text-transform:uppercase;color:#8FBBA8;margin:0 0 4px;padding-bottom:11px;
  border-bottom:1px solid rgba(255,255,255,.16)}
 .panh i{font-style:normal;color:var(--pop);border:1px solid rgba(246,197,96,.45);
- border-radius:5px;padding:2px 7px;white-space:nowrap}
+ border-radius:6px;padding:2px 7px;white-space:nowrap}
 .panr{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:10px 0;
  border-bottom:1px solid rgba(255,255,255,.13)}
 .panr:last-child{border-bottom:0;padding-bottom:0}
@@ -210,7 +210,7 @@ a{color:inherit}
 .o2body .hd{max-width:66ch}
 .o2body p.pr{font-size:15.4px;line-height:1.72;color:#3A362E;max-width:66ch;margin:0 0 1em}
 .o2rail{position:sticky;top:20px;display:grid;gap:12px}
-.o2card{background:var(--white);border:1px solid var(--line);border-radius:14px;
+.o2card{background:var(--white);border:1px solid var(--line);border-radius:10px;
  padding:15px 17px}
 .o2card p:first-child{font-family:'IBM Plex Mono',monospace;font-size:9.8px;
  letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin:0 0 7px}
@@ -238,7 +238,7 @@ a{color:inherit}
 .o3tool{background:var(--paper);padding:26px 0 30px}
 .o3lv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 @media (max-width:900px){.o3lv{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.o3f{background:var(--field);border:1.5px solid var(--fline);border-radius:12px;
+.o3f{background:var(--field);border:1.5px solid var(--fline);border-radius:10px;
  padding:11px 13px}
 .o3f p{font-family:'IBM Plex Mono',monospace;font-size:9.6px;letter-spacing:.1em;
  text-transform:uppercase;color:var(--muted);margin:0 0 5px}
@@ -246,7 +246,7 @@ a{color:inherit}
 .o3f span{font-size:12px;color:var(--muted);margin-left:5px}
 .o3out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0 0}
 @media (max-width:900px){.o3out{grid-template-columns:1fr}}
-.o3o{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:15px 17px;
+.o3o{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:15px 17px;
  border-top:3px solid var(--pine)}
 .o3o:nth-child(2){border-top-color:var(--gold)}
 .o3o:nth-child(3){border-top-color:var(--pos)}
@@ -259,7 +259,7 @@ a{color:inherit}
 /* ---- the 5K comparison ---- */
 .wide{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0 0}
 @media (max-width:900px){.wide{grid-template-columns:1fr}}
-.wf{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
+.wf{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white)}
 .wf p.t{margin:0;padding:9px 14px;background:#F6F8F6;border-bottom:1px solid var(--line);
  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
  text-transform:uppercase;color:var(--muted)}
@@ -268,7 +268,7 @@ a{color:inherit}
 .ill{height:190px;background:var(--paper);position:relative;padding:12px}
 .ill .band{position:absolute;left:0;right:0;top:0;height:16px;background:var(--pine);opacity:.85}
 .ill .col{position:absolute;top:26px;bottom:12px;background:var(--white);
- border:1px solid var(--line);border-radius:5px}
+ border:1px solid var(--line);border-radius:6px}
 .ill .col.txt::after{content:"";position:absolute;left:8px;right:8px;top:10px;bottom:10px;
  background:repeating-linear-gradient(180deg,#DBD5C6 0 5px,transparent 5px 13px)}
 .ill .col.acc{background:var(--pinedeep);border-color:var(--pinedeep)}
@@ -281,11 +281,11 @@ a{color:inherit}
 .rules{list-style:none;margin:22px 0 0;padding:0;display:grid;
  grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}
 @media (max-width:900px){.rules{grid-template-columns:1fr}}
-.rules li{background:var(--white);border:1px solid var(--line);border-radius:13px;
+.rules li{background:var(--white);border:1px solid var(--line);border-radius:10px;
  padding:15px 17px;font-size:13.2px;color:var(--muted);line-height:1.6}
 .rules li b{display:block;color:var(--ink);font-size:13.6px;margin:0 0 4px}
 .mx{width:100%;border-collapse:collapse;margin:22px 0 0;font-size:12.8px;background:var(--white);
- border:1px solid var(--line);border-radius:14px;overflow:hidden}
+ border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .mx th,.mx td{padding:9px 11px;border-bottom:1px solid var(--line);text-align:left}
 .mx th{font-family:'IBM Plex Mono',monospace;font-size:9.8px;letter-spacing:.07em;
  text-transform:uppercase;color:var(--muted);font-weight:600}

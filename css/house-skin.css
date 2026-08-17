@@ -87,7 +87,7 @@ body.house .sitenav-top:hover, body.house .sitenav-top[aria-expanded="true"]{
 }
 body.house .sitenav-cta{
   background:var(--pine) !important; color:#fff !important;
-  font-family:var(--hs-disp); font-weight:800; border-radius:8px;
+  font-family:var(--hs-disp); font-weight:800; border-radius:10px;
   border:0 !important; box-shadow:none !important;
 }
 body.house .sitenav-cta:hover{background:#123C30 !important}
@@ -101,24 +101,24 @@ body.house .navpanel h5{
   font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.16em;
   text-transform:uppercase; color:var(--hs-dim);
 }
-body.house .navpanel a{color:var(--ink); border-radius:8px}
+body.house .navpanel a{color:var(--ink); border-radius:10px}
 body.house .navpanel a:hover{background:var(--hs-sink)}
 body.house .navpanel a b{font-weight:600}
 body.house .navpanel a i{color:var(--hs-dim); font-style:normal}
-body.house .np-promo{background:var(--hs-wash); border-radius:8px}
+body.house .np-promo{background:var(--hs-wash); border-radius:10px}
 
 /* --- 5 · buttons ------------------------------------------------------ */
 body.house .lcta, body.house .tcgo, body.house .ctarow .btn,
 body.house .nlrow button, body.house .aherocta a:first-child{
   background:var(--pine); color:#fff; font-family:var(--hs-disp);
-  font-weight:800; border-radius:8px; border:0;
+  font-weight:800; border-radius:10px; border:0;
   box-shadow:0 1px 0 rgba(15,50,39,.25);
 }
 body.house .lcta:hover, body.house .tcgo:hover, body.house .ctarow .btn:hover,
 body.house .nlrow button:hover{background:#123C30}
 body.house .lghost, body.house .ctarow .btn.ghost{
   background:transparent; color:var(--pine); border:1.5px solid var(--pine);
-  border-radius:8px; font-weight:700; box-shadow:none;
+  border-radius:10px; font-weight:700; box-shadow:none;
 }
 
 /* --- 6 · breadcrumbs, badges, In-short, provenance -------------------- */
@@ -145,12 +145,12 @@ body.house .np-promo b, body.house .np-promo h4{color:#FFFFFF !important}
 body.house .np-promo span{color:#B9CFC2 !important}
 body.house .tsshort{
   background:var(--hs-card); border:1px solid var(--line);
-  border-left:4px solid var(--gold); border-radius:8px;
+  border-left:4px solid var(--gold); border-radius:10px;
 }
 body.house .tsshort q{font-family:var(--hs-disp); font-weight:700; color:var(--ink)}
 body.house .tsbadge{
   font-family:var(--hs-mn); letter-spacing:.08em; text-transform:uppercase;
-  border-radius:5px;
+  border-radius:6px;
 }
 body.house .tsfoot .tswhat{color:var(--hs-dim)}
 
@@ -182,7 +182,7 @@ body.house .ftnl input, body.house .ftnl button, body.house .ftnl h2{
 body.house .ftnl input[type="email"]{color:var(--ink) !important}
 body.house .ftnl button{color:#fff !important}
 body.house .nlform input[type="email"]{
-  background:#FFFFFF; border:1px solid var(--line); border-radius:8px;
+  background:#FFFFFF; border:1px solid var(--line); border-radius:10px;
   color:var(--ink);
 }
 body.house .nlform input[type="email"]:focus{border-color:var(--gold)}
@@ -211,7 +211,7 @@ body.house .pk-t th{
 body.house .pk-t td{border-color:var(--line)}
 body.house .pk-t code{
   font-family:var(--hs-mn); background:var(--hs-sink);
-  border:1px solid var(--line); border-radius:4px;
+  border:1px solid var(--line); border-radius:6px;
 }
 
 /* --- 11 · cards and form fields --------------------------------------- */
@@ -270,12 +270,12 @@ body.house .artband .kick{color:#84AC99 !important}
 /* discipline hub hero - flatten the brutalist slab */
 body.house .dc-hero{
   background:var(--deep) !important; border:0 !important;
-  border-radius:12px !important; box-shadow:none !important;
+  border-radius:10px !important; box-shadow:none !important;
 }
 body.house .dc-hero .hj a{
   background:transparent !important; border:1px solid rgba(255,217,118,.55)
   !important; color:var(--gold) !important; box-shadow:none !important;
-  border-radius:20px !important;
+  border-radius:10px !important;
 }
 body.house .dc-hero .hj a:hover{
   background:rgba(255,217,118,.14) !important; transform:none !important}
@@ -296,7 +296,7 @@ body.house section.hero h1 em{color:var(--gold) !important}
 body.house .slab.pine, body.house .slab.carbon,
 body.house .slab.brick, body.house .slab.gold{
   background:var(--hs-card) !important; color:var(--ink) !important;
-  border:1px solid var(--line) !important; border-radius:12px !important;
+  border:1px solid var(--line) !important; border-radius:10px !important;
 }
 body.house .slab.pine{border-left:5px solid var(--pine) !important}
 body.house .slab.brick{border-left:5px solid #B5483F !important}
@@ -346,7 +346,7 @@ body.house .bonus::before{display:none !important}
 body.house .bonus .pr-h, body.house .bonus h2, body.house .bonus h3{
   color:#FFFFFF !important}
 /* the hub newsletter block keeps its dark ground */
-body.house .hubnl{background:var(--deep) !important; border-radius:12px}
+body.house .hubnl{background:var(--deep) !important; border-radius:10px}
 /* case-page verdict block: dark ground, light heading */
 body.house .dc-out h2, body.house .dc-out h3{color:#FFFFFF !important}
 
@@ -375,7 +375,7 @@ body.house .pk-q, body.house .pk-src, body.house .src, body.house .fact{
 /* gold chips become quiet: flat gold, no border, no shadow */
 body.house .arttool a, body.house .hh-chip, body.house .hgo,
 body.house .pr-cta, body.house .src .srk, body.house .tccoda{
-  border:0 !important; box-shadow:none !important; border-radius:20px !important}
+  border:0 !important; box-shadow:none !important; border-radius:10px !important}
 body.house .np-col h5{background:none !important; padding:0 !important}
 /* no heading ever carries a highlighter block */
 body.house h1, body.house h2{background:none !important; box-shadow:none !important}
@@ -383,7 +383,7 @@ body.house h1 span:not(.scr), body.house h2 span{background:none !important}
 /* the warm-cream field family joins the cool palette, everywhere */
 body.house label.f, body.house .f, body.house .fgrid>*{
   background:var(--hs-card) !important; border:1px solid var(--line) !important;
-  border-radius:8px !important}
+  border-radius:10px !important}
 body.house label.f>span, body.house .f>span{color:var(--hs-dim) !important}
 body.house label.f input, body.house .f input, body.house .f select{
   background:transparent !important; border:0 !important; color:var(--ink) !important}
@@ -440,7 +440,7 @@ body.house .np-promo .np-all, body.house .np-promo span:last-child{
    into it. On light ground it is a sink card with ink type. */
 body.house .drawer{
   background:var(--hs-sink) !important;
-  border:1px solid var(--line) !important; border-radius:8px}
+  border:1px solid var(--line) !important; border-radius:10px}
 body.house .dh h5{color:var(--pine) !important}
 body.house .drawer .tog span{color:#49544D !important}
 body.house .dbtn{

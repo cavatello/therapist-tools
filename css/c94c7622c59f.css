@@ -93,20 +93,20 @@ p[class*=eyebrow] + .bcr.bcr.bcr,div[class*=eyebrow] + .bcr.bcr.bcr{
   background-attachment:local, local, scroll, scroll;
 }
 .tw.tw.tw::-webkit-scrollbar{height:9px}
-.tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 .tw.tw.tw::-webkit-scrollbar-track{background:transparent}
 .li-tw.li-tw.li-tw::-webkit-scrollbar{height:9px}
-.li-tw.li-tw.li-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.li-tw.li-tw.li-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 .li-tw.li-tw.li-tw::-webkit-scrollbar-track{background:transparent}
 .dc-tw.dc-tw.dc-tw::-webkit-scrollbar{height:9px}
-.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.dc-tw.dc-tw.dc-tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 .dc-tw.dc-tw.dc-tw::-webkit-scrollbar-track{background:transparent}
 .octw.octw.octw::-webkit-scrollbar{height:9px}
-.octw.octw.octw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.octw.octw.octw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 .octw.octw.octw::-webkit-scrollbar-track{background:transparent}
 .srn-w.srn-w.srn-w::-webkit-scrollbar{height:9px}
-.srn-w.srn-w.srn-w::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.srn-w.srn-w.srn-w::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 .srn-w.srn-w.srn-w::-webkit-scrollbar-track{background:transparent}
 .tblw.tblw.tblw::-webkit-scrollbar{height:9px}
-.tblw.tblw.tblw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+.tblw.tblw.tblw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 .tblw.tblw.tblw::-webkit-scrollbar-track{background:transparent}

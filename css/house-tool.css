@@ -57,7 +57,7 @@ body.bct .tw.tw.tw, body.bct .li-tw.li-tw.li-tw, body.bct .dc-tw.dc-tw.dc-tw, bo
   background-size:36px 100%, 36px 100%, 14px 100%, 14px 100%;
   background-attachment:local, local, scroll, scroll;}
 body.bct .tw.tw.tw::-webkit-scrollbar{height:9px}
-body.bct .tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:9px}
+body.bct .tw.tw.tw::-webkit-scrollbar-thumb{background:#C9C0AA;border-radius:10px}
 body.bct .tw.tw.tw::-webkit-scrollbar-track{background:transparent}
 body.bct .sec.alt .card{background:#fff}
 body.bct .sec.alt{border-top:3px solid #1B2420;border-bottom:3px solid #1B2420}
@@ -150,19 +150,19 @@ body.bct .uk, body.bct .tck, body.bct .grouplab, body.bct .lkind{font-family:var
   color:var(--hs-dim);}
 body.bct .lcta, body.bct .tcgo, body.bct .ctarow .btn,
 body.bct .nlrow button, body.bct .aherocta a:first-child{background:var(--pine); color:#fff; font-family:var(--hs-disp);
-  font-weight:800; border-radius:8px; border:0;
+  font-weight:800; border-radius:10px; border:0;
   box-shadow:0 1px 0 rgba(15,50,39,.25);}
 body.bct .lcta:hover, body.bct .tcgo:hover, body.bct .ctarow .btn:hover,
 body.bct .nlrow button:hover{background:#123C30}
 body.bct .lghost, body.bct .ctarow .btn.ghost{background:transparent; color:var(--pine); border:1.5px solid var(--pine);
-  border-radius:8px; font-weight:700; box-shadow:none;}
+  border-radius:10px; font-weight:700; box-shadow:none;}
 body.bct .pk-t{background:var(--hs-card); border:1px solid var(--line)}
 body.bct .pk-t th{font-family:var(--hs-mn); font-size:10.5px; letter-spacing:.12em;
   text-transform:uppercase; color:var(--hs-dim);
   border-bottom:2px solid var(--ink); background:var(--hs-card);}
 body.bct .pk-t td{border-color:var(--line)}
 body.bct .pk-t code{font-family:var(--hs-mn); background:var(--hs-sink);
-  border:1px solid var(--line); border-radius:4px;}
+  border:1px solid var(--line); border-radius:6px;}
 body.bct .shelf .card .t{font-weight:600; color:var(--ink)}
 body.bct .shelf .card .n{color:var(--hs-dim)}
 body.bct label.f input, body.bct .lg-in input{background:var(--hs-card); border:1px solid var(--line); border-radius:6px;
@@ -183,7 +183,7 @@ body.bct main.home .band{padding-left:max(var(--pad, 40px), calc(50% - 620px)) !
   padding-right:max(var(--pad, 40px), calc(50% - 620px)) !important;}
 body.bct .dc-hero .hj a{background:transparent !important; border:1px solid rgba(255,217,118,.55)
   !important; color:var(--gold) !important; box-shadow:none !important;
-  border-radius:20px !important;}
+  border-radius:10px !important;}
 body.bct .dc-hero .hj a:hover{background:rgba(255,217,118,.14) !important; transform:none !important}
 body.bct section.hero, body.bct .adv .band, body.bct .adv .hero,
 body.bct .clband, body.bct .clhero{background:var(--deep) !important; background-image:none !important}
@@ -191,7 +191,7 @@ body.bct section.hero h1{color:#FFFFFF !important}
 body.bct section.hero h1 em{color:var(--gold) !important}
 body.bct .slab.pine, body.bct .slab.carbon,
 body.bct .slab.brick, body.bct .slab.gold{background:var(--hs-card) !important; color:var(--ink) !important;
-  border:1px solid var(--line) !important; border-radius:12px !important;}
+  border:1px solid var(--line) !important; border-radius:10px !important;}
 body.bct .slab.pine{border-left:5px solid var(--pine) !important}
 body.bct .slab.brick{border-left:5px solid #B5483F !important}
 body.bct .slab.gold{border-left:5px solid #B0730B !important}
@@ -237,9 +237,9 @@ body.bct .pdc, body.bct .pdkey, body.bct .dc-facts, body.bct .tsdepth,
 body.bct .pk-q, body.bct .pk-src, body.bct .src, body.bct .fact{border-color:var(--line) !important; border-width:1px !important;
   border-radius:10px !important; background:var(--hs-card) !important}
 body.bct .arttool a, body.bct .hh-chip, body.bct .hgo,
-body.bct .pr-cta, body.bct .src .srk, body.bct .tccoda{border:0 !important; box-shadow:none !important; border-radius:20px !important}
+body.bct .pr-cta, body.bct .src .srk, body.bct .tccoda{border:0 !important; box-shadow:none !important; border-radius:10px !important}
 body.bct label.f, body.bct .f, body.bct .fgrid>*{background:var(--hs-card) !important; border:1px solid var(--line) !important;
-  border-radius:8px !important}
+  border-radius:10px !important}
 body.bct label.f>span, body.bct .f>span{color:var(--hs-dim) !important}
 body.bct label.f input, body.bct .f input, body.bct .f select{background:transparent !important; border:0 !important; color:var(--ink) !important}
 body.bct .hcalc, body.bct .pk-calc, body.bct .srpanel, body.bct .citeb,
@@ -255,7 +255,7 @@ body.bct section.hero .fv, body.bct .hero .fv{color:#C6DBD1 !important}
 body.bct section.hero .f, body.bct .hero label.f{border-color:rgba(255,217,118,.45) !important; background:transparent !important}
 body.bct .pk-hero .hk{color:#84AC99 !important}
 body.bct .drawer{background:var(--hs-sink) !important;
-  border:1px solid var(--line) !important; border-radius:8px}
+  border:1px solid var(--line) !important; border-radius:10px}
 body.bct .dh h5{color:var(--pine) !important}
 body.bct .drawer .tog span{color:#49544D !important}
 body.bct .dbtn{background:#FFFFFF !important; border:1px solid var(--line) !important;
