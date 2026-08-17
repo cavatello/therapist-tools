@@ -136,6 +136,22 @@ def main():
             print("GUARD css/%s is a build intermediate and is missing - "
                   "house_swap.py cannot hash it" % fn)
             bad += 1
+    # And the specific way this went wrong once. `build_redirect.py` writes
+    # tools.html with no stylesheets and asserts it - correctly, on the file
+    # it has just written. Then `house_swap.py --all` ran at the end of the
+    # build and put css/house-skin.css back, and because no family pass
+    # claims a ts:skip page, nothing ever took it off again. So a redirect
+    # stub shipped the retired skin to the live site through a green build
+    # and a passing assertion. This pass runs AFTER house_swap and the five
+    # families, which is the only place the check means anything.
+    for rel, html in pages.items():
+        if not re.search(r'<meta http-equiv="refresh"', html, re.I):
+            continue
+        links = re.findall(r'<link rel="stylesheet"[^>]*>', html)
+        if links:
+            print("GUARD %s is a redirect stub and carries %d stylesheet(s): "
+                  "%s" % (rel, len(links), links[0][:70]))
+            bad += 1
     if bad:
         sys.exit("%d problem(s)" % bad)
     print("guard clean - every sheet on disk is linked, every link resolves")

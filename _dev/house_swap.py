@@ -50,6 +50,13 @@ GATE = [
 # Never converted: tycoon.html is a static design mockup, and rates.html
 # keeps its own editorial voice by decision (see _dev/rates_grid.py).
 EXCLUDE = {"tycoon.html", "rates.html"}
+# And never a redirect stub. tools.html is a zero-delay meta refresh to
+# resources.html - a reader is on it for no measurable time - and this pass
+# was the LAST thing linking css/house-skin.css anywhere on the live site,
+# because no family pass claims a ts:skip page, so nothing ever un-skinned
+# it. Detected by the refresh rather than by name: any redirect stub is a
+# page with no reader to style.
+REFRESH = re.compile(r'<meta http-equiv="refresh"', re.I)
 
 BODY = re.compile(r"<body([^>]*)>")
 SKIN = re.compile(
@@ -72,7 +79,15 @@ def pages_all():
         if os.path.isdir(p):
             out += ["%s/%s" % (d, f) for f in sorted(os.listdir(p))
                     if f.endswith(".html")]
-    return [r for r in out if r not in EXCLUDE]
+    keep = []
+    for r in out:
+        if r in EXCLUDE:
+            continue
+        if REFRESH.search(open(os.path.join(SITE, r), encoding="utf-8").read()):
+            print("  skip %s - a redirect stub has no reader to style" % r)
+            continue
+        keep.append(r)
+    return keep
 
 
 def convert(rel, revert=False):
