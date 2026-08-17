@@ -1449,9 +1449,9 @@ function render(){
   ].map(function(r, i, all){
     var last = i === all.length - 1;
     return '<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 12px;'
-      + 'border-bottom:' + (last ? "0" : "1px solid #EFEADC") + ';font-size:12.2px;'
-      + 'color:' + (last ? "#26241E" : "#4E4940") + ';font-weight:' + (last ? "700" : "400")
-      + ';background:' + (last ? "#FBF9F3" : "transparent") + '">'
+      + 'border-bottom:' + (last ? "0" : "1px solid #F6F8F6") + ';font-size:12.2px;'
+      + 'color:' + (last ? "#1B2420" : "#4E4940") + ';font-weight:' + (last ? "700" : "400")
+      + ';background:' + (last ? "#F6F8F6" : "transparent") + '">'
       + '<span>' + r[0] + '</span><span style="font-family:\'IBM Plex Mono\',monospace;'
       + 'text-align:right">' + (r[2] != null ? fmt(r[2]) : r[1]) + '</span></div>';
   }).join("");

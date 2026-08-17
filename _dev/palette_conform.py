@@ -69,6 +69,28 @@ one that gets missed:
                         fewer than four pages shared them
   style="..."          80 uses, invisible to anything that only reads
                         stylesheets
+  SVG attributes        `fill=`, `stroke=`, `stop-color=` and friends. 85
+                        uses on three pages, and the first run of this pass
+                        MISSED THEM - the guard was clean, the census was
+                        clean, and `amft-3000-hours-california.html` still
+                        served four `#FBF9F3` icons, because a presentation
+                        attribute is neither a <style> block nor a
+                        `style="..."` attribute. Found by grepping the
+                        shipped page for the old palette rather than
+                        trusting the pass that had just declared itself
+                        clean, which is the only reason it was found at
+                        all.
+  <script> strings      CSS assembled at runtime.
+                        `practice-simulator.html` builds a table row with
+                        `'color:' + (last ? "#26241E" : "#4E4940")`, so
+                        three of the old colours were in JavaScript string
+                        literals - the sixth and last place a colour can
+                        hide, found the same way as the fifth: by grepping
+                        the shipped page rather than believing the pass.
+                        Only hexes inside a quoted string are touched, and
+                        only inside a <script>; the map holds 113 specific
+                        old-palette values, so a false positive would have
+                        to be a string that is exactly one of them.
 
 THE TEMPLATE THAT IS NOT A PAGE
 
@@ -227,6 +249,13 @@ TEXT = re.compile(r"^color$|^(ink|dim|mut|muted|txt|text|fg)$")
 # boundary. A stylesheet declaration ends at `;` or `}`; one inside a
 # `style="..."` attribute ends at `;` or the quote.
 PROP = re.compile(r"\s*(--)?([-a-zA-Z]+)\s*:[^:]*$")
+# SVG presentation attributes. A colour here is in neither a <style> block
+# nor a `style="..."` attribute, which is exactly why the first run of this
+# pass left 85 of them in place and still reported clean.
+SVGATTR = re.compile(r'\b(fill|stroke|stop-color|flood-color|lighting-color)'
+                     r'="([^"]*)"')
+SCRIPT = re.compile(r"(<script\b[^>]*>)([\s\S]*?)(</script>)")
+JSSTR = re.compile(r"""(['"])((?:[^'"\\]|\\.)*?)\1""")
 
 
 def _role_at(text, i):
@@ -355,6 +384,24 @@ def main():
                 return 'style="%s"' % fixed
             s = re.sub(r'style="([^"]*)"', attr, s)
 
+            def svg(m):
+                nonlocal inline
+                fixed, n = conform(m.group(2))
+                inline += n
+                return '%s="%s"' % (m.group(1), fixed)
+            s = SVGATTR.sub(svg, s)
+
+            def script(m):
+                nonlocal inline
+
+                def lit(q):
+                    nonlocal inline
+                    fixed, n = conform(q.group(2))
+                    inline += n
+                    return q.group(1) + fixed + q.group(1)
+                return m.group(1) + JSSTR.sub(lit, m.group(2)) + m.group(3)
+            s = SCRIPT.sub(script, s)
+
         if s != orig:
             open(p, "w", encoding="utf-8").write(s)
             touched += 1
@@ -417,6 +464,21 @@ def main():
                       % (rel, m.group(1)[:60]))
                 bad += 1
                 break
+        for m in SVGATTR.finditer(s):
+            _f, n = conform(m.group(2))
+            if n:
+                print("GUARD %s: %s=%r kept a mapped colour"
+                      % (rel, m.group(1), m.group(2)[:40]))
+                bad += 1
+                break
+        for m in SCRIPT.finditer(s):
+            for q in JSSTR.finditer(m.group(2)):
+                _f, n = conform(q.group(2))
+                if n:
+                    print("GUARD %s: a script string kept a mapped colour: %r"
+                          % (rel, q.group(2)[:50]))
+                    bad += 1
+                    break
 
     if bad:
         sys.exit("\n%d problem(s)" % bad)
