@@ -250,6 +250,15 @@ BUILD = [
      "what it costs to RUN the payroll - the EDD registration trigger, "
      "published prices for one employee, and the workers' compensation class "
      "code, onto the page that already prices the hire"),
+    # Editorial #7 (paying-your-associates) resolved as a SECTION, not a
+    # page: three live pages already carry the $70,304 floor, LAB 226.2 and
+    # the published scales, and a fourth URL would compete with all of
+    # them. What was missing is that the employer-side page carried none of
+    # it. Must run AFTER payroll_ops - both rebuild the same authored rail.
+    ("_dev/wage_floor_ops.py",
+     "how an associate may lawfully be paid - the $70,304 exempt floor with "
+     "its arithmetic, the closed list of exempt professions, and per-session "
+     "pay as piece rate under LAB 226.2, onto the employer-side page"),
 ]
 
 # STRUCTURE. Chrome, navigation, cross-links, the blocks that carry meaning.

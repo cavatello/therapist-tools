@@ -60,6 +60,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_viable.py` | build | &mdash; | 'Why do people say there's no money in therapy?' - answered in numbers. |
 | `payroll_ops.py` | build | &mdash; | What it costs to RUN the payroll, on the page that already prices the hire. |
 | `stage_tags.py` | build | &mdash; | Which stage of the path each page is written for, and what it says there. |
+| `wage_floor_ops.py` | build | &mdash; | How you may lawfully pay an associate, on the page that already hires one. |
 | `affiliate.py` | structure | `/* _dev/affiliate.py */` | Make the site's own claims true again, now that it carries affiliate links. |
 | `american.py` | structure | &mdash; | Convert the site from British to American spelling. |
 | `american_js.py` | structure | &mdash; | The British spellings that `american.py` could not see: the ones inside JavaScript. |
