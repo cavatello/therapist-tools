@@ -127,6 +127,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `css_cdo_fix.py` | css | &mdash; | Remove HTML comment markers from stylesheets, and rehash the files. |
 | `css_dedupe.py` | css | &mdash; | Remove superseded stylesheets. Every page was carrying each pass twice. |
 | `extract_css.py` | css | &mdash; | Lift the stylesheets that every page carries a private copy of into shared |
+| `narrow_floor.py` | css | &mdash; | Two hand-edits in house-chrome.css are the whole reason no page scrolls |
 | `build_redirect.py` | last | &mdash; | tools.html -> resources.html, on a host with no server-side redirects. |
 | `dead_css.py` | last | &mdash; | A stylesheet no page links is retired, and cannot come back quietly. |
 | `dead_rules.py` | last | &mdash; | A quarter of the CSS styles nothing. It is removed. |

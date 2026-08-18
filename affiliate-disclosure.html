@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/house.css?v=82f3484c">
-<link rel="stylesheet" href="css/house-chrome.css?v=05d117dc">
+<link rel="stylesheet" href="css/house-chrome.css?v=cdc1e6a4">
 <link rel="stylesheet" href="css/house-rest.css?v=90a85723">
 <link rel="stylesheet" href="css/98c278117504.css">
 <style>/* mft guide */
@@ -409,7 +409,40 @@ table.fee tr.tot td.now{font-size:19px}
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <!-- /social_cards -->
-<style>/* _dev/masthead_mark.py */
+<style>/* _dev/slab_rollout.py */
+/* ON THE PAGE GRID, like everything else.
+   The slab shipped full-bleed: 1904px at a 1920 viewport, against a masthead
+   of 1560 and content wraps of 948-1180. It was the widest thing on every page
+   it landed on, by up to 970px, and it read - correctly - as broken. The home
+   page's hand-written slab had always done this; the rollout put it on forty
+   more pages, which is what made it obvious.
+   1180 / 1320 / 1560 with 26px of padding are one_grid.py's CANON and STEPS,
+   which are the same numbers widen.py gives the masthead. The guard in
+   one_grid.py checks those two agree; this follows them. */
+.p8slab{max-width:1180px;margin-left:auto;margin-right:auto;
+padding-left:26px;padding-right:26px;box-sizing:border-box}
+@media (min-width:1500px){.p8slab{max-width:1320px}}
+@media (min-width:1900px){.p8slab{max-width:1560px}}
+/* index.html's slab is hand-written and has no wrapper of its own, so it takes
+   the same measure directly - the grid width less the 26px of padding either
+   side, so its edge lands where the wordmark starts rather than where the
+   masthead's box does. Both slabs then begin at the same x. */
+main.home>.slab{max-width:1128px;margin-left:auto;margin-right:auto}
+@media (min-width:1500px){main.home>.slab{max-width:1268px}}
+@media (min-width:1900px){main.home>.slab{max-width:1508px}}
+.p8slab .slab{background:#123C30 !important;color:#FFFFFF !important;
+-webkit-mask:radial-gradient(9px at 50% 0,transparent 98%,#000) repeat-x 0 0/30px 10px,
+radial-gradient(9px at 50% 100%,transparent 98%,#000) repeat-x 0 100%/30px 10px,
+linear-gradient(#000,#000) no-repeat 0 10px/100% calc(100% - 20px);
+mask:radial-gradient(9px at 50% 0,transparent 98%,#000) repeat-x 0 0/30px 10px,
+radial-gradient(9px at 50% 100%,transparent 98%,#000) repeat-x 0 100%/30px 10px,
+linear-gradient(#000,#000) no-repeat 0 10px/100% calc(100% - 20px)}
+.p8slab .slab h2{color:#FFFFFF !important}
+.p8slab .slab p{color:#C6DBD1 !important;max-width:56ch}
+.p8slab .slab .eb{color:#FFE7A3 !important}
+.p8slab .slab .mark{background:#FFE7A3 !important;color:#123C30 !important}
+.p8slab .slab p b,.p8slab .slab p strong{color:#FFFFFF !important}
+/* /_dev/slab_rollout.py */</style><style>/* _dev/masthead_mark.py */
 body.house.house .sitenav-fig,body.bcz.bcz .sitenav-fig,
 body.house.house.bcz .sitenav-fig{display:block !important;
 width:28px !important;height:28px !important;flex:0 0 auto !important}
@@ -469,7 +502,7 @@ any of it.</p>
 <!-- _dev/pixel_concepts.py --><div class="tsfoot"><div class="tsmeta"><div class="tsrow"><span class="tsk">Last checked</span><span class="tsv">7 August 2026</span><a class="tsall" href="changes.html">All updates &rarr;</a></div><div class="tsdepth"><a class="tsbadge part" href="about.html#how-pages-are-checked">Figures checked, narrative not re-read</a><p class="tswhat">The numbers are current. The argument around them has not been reviewed since it was written.</p></div></div></div><!-- /pixel_concepts --><!-- _dev/uplinks.py -->
 <section class="uplink"><div><p class="uk">More on this</p><h2>Practice</h2><p class="ud">Filling the week, and running the admin behind it.</p><div class="ug"><a class="uc" href="subpoena-california-therapist.html"><b>A subpoena arrived for my client&#x27;s records. What do I do?</b><span>Do not produce, call the attorney line on your policy, and assert the privilege the Evidence Code requires you to assert</span></a><a class="uc" href="hiring-first-associate-california-therapist.html"><b>Should I hire an associate?</b><span>The loaded cost, the break-even caseload, and the classification rule</span></a><a class="uc" href="therapist-working-remotely-california.html"><b>Can I see California clients from abroad?</b><span>The Board&#x27;s own answer, then the same practice priced in eight places</span></a></div><a class="uall" href="practice/">All 67 pages on practice &rarr;</a></div></section>
 <!-- /uplinks -->
-</main>
+<!-- _dev/slab_rollout.py --><div class="p8slab"><div class="slab"><span class="eb">Every paid link, listed</span><h2>Two arrangements earn money on this site. Neither costs you anything, and neither changes a single figure.</h2><p>Both listed in full, with what each one pays. Plus <span class="mark">what was looked for and not found</span>, and what is not done here at all.</p></div></div><!-- /_dev/slab_rollout.py --></main>
 <footer class="sitefoot"><div class="ftin"><div class="ftcols"><div><h5>Tools</h5><a href="practice-simulator.html">Practice Simulator</a><a href="therapist-tax-strategy-california.html">Tax &amp; Retirement</a><a href="grow-your-therapy-practice.html">Grow Your Practice</a><a href="associate-mft-job-advisor.html">Associate Job Advisor</a><a href="amft-3000-hours-california.html">3,000 Hours</a><a href="therapist-cost-of-living-california.html">Cost of Living</a></div><div><h5>By stage</h5><a href="for/deciding.html">Thinking about it</a><a href="for/students.html">In a program</a><a href="for/associates.html">Counting hours</a><a href="for/licensed.html">Licensed</a></div><div><h5>Topics</h5><a href="money/">Money<span class="ftn">14</span></a><a href="licensure/">Licensure<span class="ftn">126</span></a><a href="getting-paid/">Getting paid<span class="ftn">9</span></a><a href="practice/">Practice<span class="ftn">67</span></a><a href="training/">Training<span class="ftn">19</span></a></div><div><h5>Browse</h5><a href="resources.html">Everything</a><a href="questions.html">Every question</a><a href="calculators.html">All the calculators</a><a href="changes.html">What changed</a></div><div><h5>About</h5><a href="about.html">What this is</a><a href="newsletter.html">Stay updated</a><a href="contact.html">Contact</a><a href="affiliate-disclosure.html">Affiliate disclosure</a></div><div><h5>The small print</h5><a href="terms.html">Terms of Use</a><a href="privacy.html">Privacy</a><a href="contact.html">Report a wrong figure</a><p>Figures are 2026 federal and California rates, each carrying the date it was last checked.</p></div></div><p class="ftby"><b>Built by Cavatello.</b> Nothing here is legal, tax, financial or clinical advice, and using this site does not create a professional relationship &mdash; see the <a href="terms.html">Terms of Use</a>.</p></div></footer>
 <script>
 (function(){

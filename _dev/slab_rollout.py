@@ -284,10 +284,16 @@ def shape_problems(page, rec):
             bad.append("%s: mark phrase is not in the support line" % page)
         if "before" in rec and not rec["before"].strip():
             bad.append("%s: before is present but empty" % page)
-        # the standing legal constraint, in the one place it would be worst
-        if re.search(r"\bLLC\b", rec["claim"] + rec["support"]):
-            bad.append("%s: claim or support says LLC - Cal. Corp. Code "
-                       "17701.04(e) blocks it for this audience" % page)
+        # the standing legal constraint, in the one place it would be worst.
+        # LLC may appear only where the sentence is saying you cannot have one -
+        # that is the correct use, and the only one.
+        text = rec["claim"] + " " + rec["support"]
+        if re.search(r"\bLLC\b", text) and not re.search(
+                r"cannot\s+(?:form|use|have|own)\s+an\s+LLC"
+                r"|no\s+LLC|not\s+an\s+LLC|an\s+LLC\s+is\s+(?:not|forbidden)",
+                text, re.I):
+            bad.append("%s: claim or support offers LLC as a choice - Cal. Corp. "
+                       "Code 17701.04(e) blocks it for this audience" % page)
     return bad
 
 

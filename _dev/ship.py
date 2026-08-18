@@ -525,6 +525,13 @@ CSSCHAIN = [
     # until the sheet carried runs of 253 blank lines. Six invisible bytes
     # change the sheet's hash, which repoints `?v=` on every page, which is
     # why a deploy touched 250 files instead of 40.
+    # First, because it repairs the sheet the rest of the chain then hashes.
+    # Both rules are hand-edits in a hand-authored file, and both have been
+    # reverted once by a working copy written back from an older revision -
+    # 189 pages started overflowing at 320px and nothing failed. Asserting
+    # them every build is cheaper than finding it in a browser again.
+    ("_dev/narrow_floor.py",
+     "the two rules house-chrome.css needs to hold the 320px floor"),
     ("_dev/whitespace.py --css",
      "blank-line runs in the hand-authored sheets, before they are hashed"),
     ("_dev/extract_css.py", "hoist blocks shared by 4+ pages into css/"),
@@ -840,6 +847,8 @@ VERIFY = [
      "every page with a topic row still carries the wrapping rule"),
     ("_dev/masthead_mark.py --check",
      "the masthead mark is still un-hidden on every page that carries one"),
+    ("_dev/narrow_floor.py --check",
+     "house-chrome.css still carries both rules the 320px floor rests on"),
     ("_dev/whitespace.py --check",
      "no file carries a run of blank lines, so a sheet's hash moves only "
      "when its rules do"),

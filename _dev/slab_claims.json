@@ -9,7 +9,9 @@
     "tycoon.html": "a static visual-direction mockup, and its body carries no class to scope the slab to",
     "rates.html": "body class is ratespage and its editorial voice is excluded from the house passes by decision",
     "discipline-case-a-forty-year-license-surrendered.html": "a single de-identified case; the claim belongs to the library hub, not the write-up",
-    "discipline-case-from-dui-to-surrender.html": "a single de-identified case; the claim belongs to the library hub, not the write-up"
+    "discipline-case-from-dui-to-surrender.html": "a single de-identified case; the claim belongs to the library hub, not the write-up",
+    "questions.html": "a complete index of the site's questions; every figure it shows belongs to another page",
+    "resources.html": "the start-here index; every number on it is a headline borrowed from the page it links to"
   },
   "claims": {
     "amft-3000-hours-california.html": {
@@ -300,6 +302,587 @@
       "anchor": "$0",
       "before": "<section class=\"ssnext\"",
       "why_before": "the default slot is directly above the deep-pine newsletter band, where the slab's bottom scallop disappears into an identical green"
+    },
+    "aaci-san-jose.html": {
+      "eyebrow": "What its own site says",
+      "claim": "AACI publishes an APA-accredited psychology internship at $26 an hour. It says nothing about MFT placement.",
+      "support": "Read off the organization's own pages on a dated read, with the three questions that decide whether hours worked there will actually count.",
+      "anchor": "$26.00 an hour",
+      "mark": "the three questions"
+    },
+    "about.html": {
+      "eyebrow": "Who checked these numbers",
+      "claim": "Built by a therapist, for California MFTs, LCSWs, LPCCs and psychologists. Free, and nothing on it is sold.",
+      "support": "Calculators, rate research and plain-English notes on the parts of the job nobody trained you for. What is checked, how it is checked, and what is not sold here.",
+      "anchor": "Built by a therapist",
+      "mark": "the parts of the job nobody trained you for"
+    },
+    "affiliate-disclosure.html": {
+      "eyebrow": "Every paid link, listed",
+      "claim": "Two arrangements earn money on this site. Neither costs you anything, and neither changes a single figure.",
+      "support": "Both listed in full, with what each one pays. Plus what was looked for and not found, and what is not done here at all.",
+      "anchor": "2 arrangements",
+      "mark": "what was looked for and not found"
+    },
+    "alma-for-california-therapists.html": {
+      "eyebrow": "What the flat fee buys",
+      "claim": "Alma's $1,140 a year is not the price of being on Alma. Here is the arithmetic on a real caseload.",
+      "support": "A flat fee against a percentage, at 230, 460 and 690 sessions. The three payers you are required to join, and the Aetna cut that landed on 15 August 2026.",
+      "anchor": "$1,140 a year",
+      "mark": "the Aetna cut"
+    },
+    "backdoor-roth-pro-rata-therapist.html": {
+      "eyebrow": "The rule that reaches back",
+      "claim": "The backdoor Roth is two easy steps. One old IRA balance makes most of the conversion taxable.",
+      "support": "It measures every traditional, SEP and SIMPLE IRA you own, on a date you will not think about. Worked on real numbers, with the escape hatch and its deadline.",
+      "anchor": "Form 8606",
+      "mark": "on a date you will not think about"
+    },
+    "bbs-fees-california-2026.html": {
+      "eyebrow": "Halved, and reverting",
+      "claim": "Every Board fee halved on 1 July 2026. The whole route now costs between $575 and $875.",
+      "support": "What the headline number leaves out is how many years you spend as an associate. Priced year by year, with the reversion date that ends it.",
+      "anchor": "$575",
+      "mark": "the reversion date that ends it"
+    },
+    "becoming-a-clinical-supervisor-california.html": {
+      "eyebrow": "Two decisions, one coat",
+      "claim": "Supervising for a fee and employing an associate are not the same decision, and the economics are different.",
+      "support": "Two separate two-year eligibility tests, and almost everybody checks only the first. Then fifteen training hours, six more each renewal, and clinical work that becomes yours to answer for.",
+      "anchor": "15 hours",
+      "mark": "almost everybody checks only the first"
+    },
+    "buckelew-programs.html": {
+      "eyebrow": "One passing mention",
+      "claim": "Buckelew publishes no program page. One passing mention of internships, an AMFT on staff, and a benefits page.",
+      "support": "The North Bay's largest nonprofit mental health provider since 1970, and that is everything its site says about training. The three questions that protect your hours are here.",
+      "anchor": "since 1970",
+      "mark": "The three questions that protect your hours"
+    },
+    "california-therapy-bills-2026.html": {
+      "eyebrow": "Both decided by 31 August",
+      "claim": "Two bills would change what California associates and therapists have to do. Neither one is law yet.",
+      "support": "AB 1598 would stop associates retaking the Law and Ethics exam every year. SB 903 writes the first rules on using AI in a practice, with a $10,000 penalty behind them.",
+      "anchor": "31 Aug",
+      "mark": "$10,000"
+    },
+    "caminar.html": {
+      "eyebrow": "A published practicum",
+      "claim": "Caminar's careers page describes school-based work at 20 to 40 paid clinical hours a week.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether those hours will count toward your 3,000.",
+      "anchor": "20 to 40 hours of paid clinical work per week",
+      "mark": "whether those hours will count"
+    },
+    "center-for-mindful-psychotherapy.html": {
+      "eyebrow": "The collective is the associates",
+      "claim": "Roughly 125 associate MFTs, and the collective is the associates rather than a program standing beside them.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours you work there will count.",
+      "anchor": "125",
+      "mark": "the three questions"
+    },
+    "changes.html": {
+      "eyebrow": "The proof of the claim",
+      "claim": "Every figure on this site that has moved, with the date it moved and the source it came from.",
+      "support": "Not a list of pages published. A log of numbers that changed — fees, limits, rates, panel status, accreditation. On a site whose claim is that the figures are checked, this is the proof.",
+      "anchor": "13 entries",
+      "mark": "this is the proof"
+    },
+    "client-records-california-therapist.html": {
+      "eyebrow": "Four numbers, one statute",
+      "claim": "Seven years from termination, inspection in five working days, copies in fifteen, at 25 cents a page.",
+      "support": "The clock starts when therapy ends, not when the file was opened. Plus the summary option, and the three duties that attach the moment you decline.",
+      "anchor": "25 cents a page",
+      "mark": "the three duties that attach"
+    },
+    "contra-costa-crisis-center.html": {
+      "eyebrow": "Not a clinical practicum",
+      "claim": "What the Contra Costa Crisis Center publishes is a 54-hour volunteer track with a year-long shift commitment.",
+      "support": "Which is not the same thing as a clinical practicum, and will not bank hours toward your 3,000. Read off its own site, dated.",
+      "anchor": "54-hour volunteer training",
+      "mark": "will not bank hours"
+    },
+    "cost-of-incorporating-california-therapist.html": {
+      "eyebrow": "Before you see a client",
+      "claim": "The corporation costs $800 whether or not you made anything, and the first-year rule is usually stated backwards.",
+      "support": "Everyone quotes the self-employment tax an S election saves. Far fewer quote the floor that arrives regardless, or the profit at which 1.5% overtakes it.",
+      "anchor": "$800",
+      "mark": "the floor that arrives regardless"
+    },
+    "crisis-support-services-alameda.html": {
+      "eyebrow": "Interns, in its own words",
+      "claim": "Its site describes interns obtaining hours for licensure, and supervision of both trainees and associates.",
+      "support": "A 24-hour crisis line running since 1966. Read off its own pages on a dated read, with the three questions that decide whether the hours count.",
+      "anchor": "1966",
+      "mark": "the three questions"
+    },
+    "east-bay-agency-for-children.html": {
+      "eyebrow": "MSW, not MFT",
+      "claim": "EBAC publishes a grief-focused MSW practicum. Its pages do not address MFT placement at all.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours would count toward your 3,000.",
+      "anchor": "grief-focused",
+      "mark": "the three questions"
+    },
+    "eden-housing-resident-services.html": {
+      "eyebrow": "Zero clinical pages",
+      "claim": "A housing organization whose IRS code lands near mental health, and whose site carries no clinical content.",
+      "support": "That code is why it turns up in behavioral health datasets at all. Its own pages carry nothing about training. Read on a dated read.",
+      "anchor": "160+ housing communities",
+      "mark": "why it turns up in behavioral health datasets"
+    },
+    "edgewood-center.html": {
+      "eyebrow": "A search returning nothing",
+      "claim": "A site search for internship returns nothing, so this question has to go to Edgewood directly.",
+      "support": "More than 15 programs across six Bay Area locations, and nothing published about training toward a license. The three questions that protect your hours are here.",
+      "anchor": "6 Bay Area locations",
+      "mark": "The three questions that protect your hours"
+    },
+    "family-paths.html": {
+      "eyebrow": "A pause, published",
+      "claim": "Family Paths runs an intern program, and its own site announces that the program pauses at the end of August 2026.",
+      "support": "Which is exactly the kind of thing a directory will not tell you. Read off its own site, dated, with the three questions that decide whether hours count.",
+      "anchor": "Program pause announced for the end of August 2026",
+      "mark": "the three questions"
+    },
+    "fred-finch-youth-center.html": {
+      "eyebrow": "Not a licensure track",
+      "claim": "Fred Finch's Training Institute is continuing education for licensed clinicians, not a route to a license.",
+      "support": "Serving youth and families since 1891, and the training it publishes is for people who already have a license. Read off its own site, dated.",
+      "anchor": "1891",
+      "mark": "already have a license"
+    },
+    "grow-therapy-for-california-therapists.html": {
+      "eyebrow": "The percentage nobody names",
+      "claim": "Grow publishes exactly one fee, and it is not the one that decides what you earn.",
+      "support": "It is the fastest of the three to credential you and the only one carrying Medi-Cal managed care. What each 1% of your billings costs is priced here, because Grow will not name its own.",
+      "anchor": "14 Medi-Cal plans",
+      "mark": "What each 1% of your billings costs"
+    },
+    "grow-your-therapy-practice.html": {
+      "eyebrow": "What one client is worth",
+      "claim": "A client who stays twenty-four sessions is worth $4,800. Change how many stay, and a whole year moves.",
+      "support": "Six numbers, most of which you can estimate from memory: what a client is worth, where they come from, and how many enquiries a month it takes just to stand still.",
+      "anchor": "$4,800",
+      "mark": "just to stand still"
+    },
+    "headway-for-california-therapists.html": {
+      "eyebrow": "The share it never names",
+      "claim": "Headway charges $0 a month and keeps an undisclosed share of every reimbursement. You cannot see the rate until you are credentialed.",
+      "support": "Checked line by line against Headway's own help center, including the license list that rules out every associate in California.",
+      "anchor": "$0 a month",
+      "mark": "rules out every associate"
+    },
+    "home-office-deduction-california-therapist.html": {
+      "eyebrow": "Most of it is mileage",
+      "claim": "The room is worth less than most therapists hope. Qualifying for it turns every drive afterwards from commute into deduction.",
+      "support": "Both methods run on stated numbers, actual expenses against the simplified $5 a square foot, plus three traps, each with a citation.",
+      "anchor": "$5 a square foot",
+      "mark": "each with a citation"
+    },
+    "how-to-find-a-practicum-site-california.html": {
+      "eyebrow": "Nobody owns the finding",
+      "claim": "At 29 of California's 78 MFT programs, nobody says whose job it is to find your practicum site.",
+      "support": "What your program owes you by law, the settings the law rules out, the four places seats actually exist, and the questions to ask before you accept one.",
+      "anchor": "29 of 78",
+      "mark": "before you accept one"
+    },
+    "is-therapy-financially-viable-california.html": {
+      "eyebrow": "The career, in numbers",
+      "claim": "A $70,304 associate floor, and $138,940 net from a full private caseload. Both are real, and years apart.",
+      "support": "The degree is the whole price of admission; everything after it is cheap. Walked county by county, gross to bank account, with every figure computed on the page.",
+      "anchor": "$70,304",
+      "mark": "gross to bank account"
+    },
+    "jfcs-east-bay.html": {
+      "eyebrow": "Nothing published about training",
+      "claim": "JFCS East Bay publishes no practicum or trainee page. What it does publish is an employer profile.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether hours worked there would count toward your 3,000.",
+      "anchor": "Read on 16 August 2026",
+      "mark": "the three questions"
+    },
+    "john-muir-behavioral-health.html": {
+      "eyebrow": "Physicians and pharmacists only",
+      "claim": "The only residencies John Muir publishes are physician and pharmacy tracks. Neither one banks hours toward an MFT license.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether hours worked there would count toward your 3,000.",
+      "anchor": "Physician and pharmacy residencies only",
+      "mark": "the three questions"
+    },
+    "lincoln-families.html": {
+      "eyebrow": "A practicum, itemized",
+      "claim": "Lincoln Families publishes a practicum page with the supervision hours itemized and a $4,000 first-year educational reimbursement.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours you work there will count.",
+      "anchor": "$4,000",
+      "mark": "the three questions"
+    },
+    "medi-cal-safety-net-employers-california.html": {
+      "eyebrow": "Every one, by name",
+      "claim": "218 health center organizations across 3,038 sites, plus the 57 agencies that run Medi-Cal specialty mental health.",
+      "support": "Every link on the state's own page was checked before publication, and four things this list is not are stated before the list starts.",
+      "anchor": "3,038",
+      "mark": "four things this list is not"
+    },
+    "momentum-for-health.html": {
+      "eyebrow": "A paid field placement",
+      "claim": "Momentum for Health publishes a practicum and field placement page, described as paid, across outpatient, residential and PHP settings.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours will count toward your 3,000.",
+      "anchor": "4,500+",
+      "mark": "the three questions"
+    },
+    "newsletter.html": {
+      "eyebrow": "One email a month",
+      "claim": "One email a month, when a fee, rate or limit on this site moves. Nothing else.",
+      "support": "What is new here and what changed in the numbers, plus better ways to run the money side. A past issue is shown in full before you decide.",
+      "anchor": "one email a month",
+      "mark": "shown in full"
+    },
+    "one-life-counseling-center.html": {
+      "eyebrow": "Paid, and in Spanish",
+      "claim": "One Life describes paid trainee and associate roles, six supervision groups, and explicit Spanish-language capacity.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours you work there will count.",
+      "anchor": "Six active supervision groups",
+      "mark": "the three questions"
+    },
+    "peninsula-healthcare-connection.html": {
+      "eyebrow": "A licensed-level team",
+      "claim": "No training page was found. The behavioral health team Peninsula Healthcare Connection describes is licensed-level.",
+      "support": "Fifteen years of street-level healthcare in Palo Alto, and nothing published about training toward a license. Read dated, with the three questions that protect your hours.",
+      "anchor": "15+ years",
+      "mark": "the three questions"
+    },
+    "practicum-california-mft-trainee.html": {
+      "eyebrow": "The part nobody owns",
+      "claim": "29 of 78 California MFT programs publish nothing about placement, and only one license lets you bank the 1,300 hours.",
+      "support": "Seven trainee rules with the code section behind each one, all 78 programs compared on who finds your site, and the 12 that needed a judgment call.",
+      "anchor": "1,300",
+      "mark": "needed a judgment"
+    },
+    "practicum-sites-bay-area.html": {
+      "eyebrow": "Where a trainee can go",
+      "claim": "Five program clinics, nine county plans, 39 organizations running health-center sites, and 318 nonprofit clinical organizations across nine counties.",
+      "support": "Named from the public files, with the code sections that decide whether a setting can hold a trainee at all, and the order to ask in.",
+      "anchor": "39 organizations",
+      "mark": "the order to ask in"
+    },
+    "prc-baker-places.html": {
+      "eyebrow": "A bare careers portal",
+      "claim": "No training page was found. Baker Places has had no site of its own since the 2016 merger.",
+      "support": "More than 5,000 clients a year, and nothing published about placement. Read off its own site on a dated read, with the three questions that protect your hours.",
+      "anchor": "5,000+ clients a year",
+      "mark": "the three questions"
+    },
+    "prelicensed-job-sites-california.html": {
+      "eyebrow": "Said in writing, or not",
+      "claim": "Of 198 reachable California employer sites, 61 state in writing that they take pre-licensed clinicians.",
+      "support": "Two hundred sites read in one day for a single sentence. Each of the 61 is listed with the page that says so and the date it was read.",
+      "anchor": "61 of 198",
+      "mark": "the date it was read"
+    },
+    "privacy.html": {
+      "eyebrow": "The calculators store nothing",
+      "claim": "Nothing you type into a calculator on this site is stored, sent, or seen. It stays in your browser.",
+      "support": "What analytics does collect is named, along with how to switch it off, what you give voluntarily, and your California privacy rights.",
+      "anchor": "Google Analytics 4",
+      "mark": "how to switch it off"
+    },
+    "progress-foundation.html": {
+      "eyebrow": "Benefits, not a program",
+      "claim": "Progress Foundation publishes no program page. What it publishes is promotion from within and 100% employer-paid medical, dental and vision.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether hours worked there would count toward your 3,000.",
+      "anchor": "100% employer-paid",
+      "mark": "the three questions"
+    },
+    "quarterly-estimated-taxes-california-therapist.html": {
+      "eyebrow": "Not four equal quarters",
+      "claim": "California asks for 30, 40, 0 and 30. It has already taken 70% of the year by 15 June.",
+      "support": "Two schedules, not one, and the shape matters more than the dates. Plus the safe harbour, which is the part that actually protects you.",
+      "anchor": "30, 40, 0 and 30",
+      "mark": "the safe harbour"
+    },
+    "questions-to-ask-a-cpa-california-therapist.html": {
+      "eyebrow": "Before you buy the hour",
+      "claim": "Only three credentials can represent you in an audit, and not everyone who prepares returns for money holds one.",
+      "support": "Nine things this site already answers, so you are not buying them by the hour, then the questions worth an accountant's time and four answers that should end the interview.",
+      "anchor": "3 credentials",
+      "mark": "four answers that should end the interview"
+    },
+    "rams-san-francisco.html": {
+      "eyebrow": "A named Training Institute",
+      "claim": "RAMS publishes MFT, PCC and MSW practicums plus a doctoral internship, in a Training Institute dating to 1979.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours you work there will count.",
+      "anchor": "1979",
+      "mark": "the three questions"
+    },
+    "s-corp-salary-social-security-therapist.html": {
+      "eyebrow": "The side never priced",
+      "claim": "A low S-corp salary saves tax now and costs $1,041 a month in Social Security, for the rest of your life.",
+      "support": "How the check is actually worked out, three versions of the same practice, and the four things that make it worse than the table says.",
+      "anchor": "$1,041",
+      "mark": "worse than the table says"
+    },
+    "s-corp-sdi-california-therapist.html": {
+      "eyebrow": "What you become on payday",
+      "claim": "The day your corporation first pays you a wage you become an employer, and California charges $1,248 for it.",
+      "support": "SDI at 1.3% with no wage cap since 2024, plus the employer unemployment line. Priced at five salaries, with the escape and what it costs.",
+      "anchor": "$1,248",
+      "mark": "no wage cap"
+    },
+    "side-by-side-youth.html": {
+      "eyebrow": "Supervision hours, stated",
+      "claim": "Side by Side publishes community counseling internships with one hour of individual and two of group supervision a week.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours you work there will count.",
+      "anchor": "1 hour individual plus 2 hours group supervision a week",
+      "mark": "the three questions"
+    },
+    "simplepractice-california-therapists.html": {
+      "eyebrow": "The part nobody compares",
+      "claim": "The subscription is $49 to $99 a month. The 3.15% taken from every card payment is the part nobody compares.",
+      "support": "Priced all in, with supervisor co-signature locked to the $99 Plus plan, and the cheaper paths named.",
+      "anchor": "3.15%",
+      "mark": "the cheaper paths named"
+    },
+    "subpoena-california-therapist.html": {
+      "eyebrow": "Court paper, not a judge",
+      "claim": "A subpoena is not a court order, and Evidence Code section 1015 does not leave claiming the privilege up to you.",
+      "support": "Three things to do today, in order, and why the deadlines built into the procedure exist to give your client time to object.",
+      "anchor": "section 1015",
+      "mark": "in order"
+    },
+    "superbills-good-faith-estimate-california-therapist.html": {
+      "eyebrow": "Two documents, one optional",
+      "claim": "You never send a claim and still owe two documents. One of them decides whether your client sees $1,656 of it back.",
+      "support": "The good faith estimate is federal, with a dispute process attached. The superbill is taken apart field by field, including the $400 rule and when it actually triggers.",
+      "anchor": "$1,656",
+      "mark": "the $400 rule"
+    },
+    "telehealth-rules-california-therapist.html": {
+      "eyebrow": "One word, one duty",
+      "claim": "The 2026 amendment touched two subdivisions. The duty most people think is new has been law since 1 July 2016.",
+      "support": "What actually changed, what did not, and what naming the Security Rule asks of a solo practice. A client outside California is the other state's question.",
+      "anchor": "1 Jul 2016",
+      "mark": "the other state's question"
+    },
+    "terms.html": {
+      "eyebrow": "What a calculator is not",
+      "claim": "Every calculation here is an illustration. None of it is legal, tax or clinical advice, and none starts a professional relationship.",
+      "support": "The limits stated plainly, before you rely on one: what the figures are, how current they are, and what remains your responsibility.",
+      "anchor": "Calculations are illustrations",
+      "mark": "before you rely on one"
+    },
+    "therapist-cost-of-living-california.html": {
+      "eyebrow": "The person, not the practice",
+      "claim": "Every other tool here prices the practice. This one prices the person running it, and lands on $4,851 a month.",
+      "support": "Housing, transport, food and medical by county, plus the student loan under RAP, IBR and PSLF as the rules stand after 1 July 2026.",
+      "anchor": "$4,851",
+      "mark": "by county"
+    },
+    "therapist-llc-california.html": {
+      "eyebrow": "One sentence locks the door",
+      "claim": "You cannot form an LLC for a licensed practice in California. Cal. Corp. Code 17701.04(e) is the sentence that says so.",
+      "support": "So we go and read the sentence, then the two structures actually left to you, who is allowed to own one, and how the name is constrained.",
+      "anchor": "17701.04(e)",
+      "mark": "the two structures actually left to you"
+    },
+    "therapist-working-remotely-california.html": {
+      "eyebrow": "The Board already said yes",
+      "claim": "Your license is not the obstacle. The same practice, same clients, same profit is worth $18,700 more in the best of eight.",
+      "support": "The Board's own telehealth answer, quoted, then eight places priced on your own numbers, and why the tax follows the passport rather than the address.",
+      "anchor": "+$18,700",
+      "mark": "the tax follows the passport"
+    },
+    "therapists-by-state-compared.html": {
+      "eyebrow": "Seventeen names, one clinician",
+      "claim": "California has 59,706 licensed LMFTs and 34,970 MFT jobs. A therapist map measures statutes, not supply.",
+      "support": "All four professions ranked per 100,000 people, on the comparison that survives seventeen different license titles.",
+      "anchor": "59,706",
+      "mark": "per 100,000 people"
+    },
+    "therapynotes-vs-simplepractice-california.html": {
+      "eyebrow": "Fifteen, priced properly",
+      "claim": "Fifteen systems, from free to $99 a month for one clinician, and one that publishes no price at all.",
+      "support": "Then the two most California therapists choose between, on what a feature grid never covers: supervisor co-signature, Good Faith Estimates, and how to get your records out.",
+      "anchor": "Fifteen systems",
+      "mark": "how to get your records out"
+    },
+    "training-programs-bay-area.html": {
+      "eyebrow": "Ten put it in writing",
+      "claim": "Of the 24 largest Bay Area clinical nonprofits, ten publish a real training program. Four of those say what it pays.",
+      "support": "Each one held to its own words, with the supervision it states, who it is for, and the page every fact came from.",
+      "anchor": "10 of 24",
+      "mark": "the page every fact came from"
+    },
+    "translifeline.html": {
+      "eyebrow": "Case by case, in writing",
+      "claim": "Trans Lifeline's site says credit may be possible case by case. That is not the same as hours that count.",
+      "support": "A trans-led peer line that has answered more than 150,000 calls. Get the answer from your program in writing first, using the three questions here.",
+      "anchor": "150,000+ calls",
+      "mark": "in writing first"
+    },
+    "westcoast-childrens-clinic.html": {
+      "eyebrow": "Compensated, and named",
+      "claim": "WestCoast publishes an eight-month compensated MSW and MFT program with its partner schools named, plus doctoral tracks.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether the hours you work there will count.",
+      "anchor": "8-month compensated",
+      "mark": "the three questions"
+    },
+    "westside-community-mental-health.html": {
+      "eyebrow": "Sixty years, nothing published",
+      "claim": "Roughly sixty years serving San Francisco, and nothing published about clinical training. This one is a direct question, not a shelf.",
+      "support": "Read off its own site on a dated read, with the three questions that decide whether hours worked there would count toward your 3,000.",
+      "anchor": "Roughly 60 years",
+      "mark": "the three questions"
+    },
+    "what-licensure-actually-costs-california.html": {
+      "eyebrow": "The license is cheap",
+      "claim": "About $549 once, and $624 to $924 across the whole route. The degree costs 40 to 165 times that.",
+      "support": "Five of the six lines are the Board's own. Then the renewals, what starts the day you are licensed, and four costs this page will not put a number on.",
+      "anchor": "$549",
+      "mark": "four costs this page will not put a number on"
+    },
+    "money/index.html": {
+      "eyebrow": "Four decisions underneath",
+      "claim": "What to charge, sole proprietor or corporation, how much to defer, and what to send quarterly. Everything else follows those four.",
+      "support": "Seven calculators and fourteen guides, including the $18,244 that is optional on a $217,350 profit and the twelve expense categories most therapists forget.",
+      "anchor": "$18,244",
+      "mark": "the twelve expense categories"
+    },
+    "licensure/index.html": {
+      "eyebrow": "Five gates, no discretion",
+      "claim": "3,000 supervised hours over at least 104 weeks is the requirement that sets the calendar. The other four close faster.",
+      "support": "126 pages and a directory of all 78 California programs, priced and dated, with what the Board charges now that fees have halved to $875.",
+      "anchor": "3,000 hours over at least 104 weeks",
+      "mark": "fees have halved"
+    },
+    "getting-paid/index.html": {
+      "eyebrow": "The gap is the decision",
+      "claim": "Insurance pays $106 to $132 a session where Bay Area private pay runs $180 to $350. That gap decides everything else.",
+      "support": "Nine guides on what each code actually reimburses, what the platforms keep, how long a panel takes to open, and the paperwork a private-pay client is owed.",
+      "anchor": "$115.77",
+      "mark": "the paperwork a private-pay client is owed"
+    },
+    "practice/index.html": {
+      "eyebrow": "A funnel, not a mystery",
+      "claim": "Six numbers you can mostly estimate from memory tell you what one client is worth. Here it is $4,800 over 24 sessions.",
+      "support": "Then what the software really costs once the fees are counted, what a first associate costs loaded, and every liability program you can buy.",
+      "anchor": "$4,800 per client over 24 sessions",
+      "mark": "what a first associate costs loaded"
+    },
+    "training/index.html": {
+      "eyebrow": "One fact governs all",
+      "claim": "Sixteen psychedelic-assisted therapy trainings, from $1,047 to fifteen thousand euros. Not one of them changes your license or your scope of practice.",
+      "support": "Plus 25 doctorates in psychology grouped by what accreditation actually decides, and the 36 continuing education hours you owe every two years.",
+      "anchor": "$1,047",
+      "mark": "what accreditation actually decides"
+    },
+    "psychedelic-training-ciis-psychedelic-assisted-therapies.html": {
+      "eyebrow": "A year, then ketamine only",
+      "claim": "Twelve months and about $9,000 that teaches you psilocybin and MDMA, and still leaves you legally limited to ketamine.",
+      "support": "The oldest and largest university-based psychedelic training in the country, priced and dated, with what the certificate actually permits in California.",
+      "anchor": "$8,900",
+      "mark": "what the certificate actually permits"
+    },
+    "psychedelic-training-ciis-psychedelic-studies-bs.html": {
+      "eyebrow": "An undergraduate degree",
+      "claim": "This is a bachelor's degree completion, not a facilitator training. If you already hold a clinical license it is the wrong purchase.",
+      "support": "Three semesters at $1,028 a unit, the first undergraduate psychedelics degree in the country, and why it is the wrong purchase for a licensee.",
+      "anchor": "not a facilitator training",
+      "mark": "the wrong purchase"
+    },
+    "psychedelic-training-embody-lab-somatic-psychedelic.html": {
+      "eyebrow": "Open to anyone",
+      "claim": "A $1,047 self-paced certificate in somatic preparation, sitting and integration. It changes no one's scope of practice.",
+      "support": "Thirty-six hours across three modules, open to licensed and unlicensed alike. Priced, dated, and held to what it says about itself.",
+      "anchor": "$1,047, self-paced",
+      "mark": "what it says about itself"
+    },
+    "psychedelic-training-fluence-training.html": {
+      "eyebrow": "Three tracks, one regulator",
+      "claim": "Three certificates at $5,500 to $7,000, all requiring a psychotherapy license. Only the Colorado psilocybin pathway leads to state standing.",
+      "support": "Built explicitly for licensed clinicians working inside current law, with APA continuing education on all three and what each one actually permits.",
+      "anchor": "Colorado psilocybin pathway",
+      "mark": "what each one actually permits"
+    },
+    "psychedelic-training-innertrek.html": {
+      "eyebrow": "Attached to a real regulator",
+      "claim": "The only certificate in this directory a regulator recognizes. The license it leads to stops at the Oregon state line.",
+      "support": "On the Oregon Health Authority's approved-curriculum list, with the forty-hour practicum, the price, and the service center closure of June 2026.",
+      "anchor": "1 of 3 Oregon-approved programs here",
+      "mark": "the service center closure"
+    },
+    "psychedelic-training-integrative-psychiatry-institute.html": {
+      "eyebrow": "Online, then Eugene",
+      "claim": "140 online hours that state plainly they are not approved for Oregon or Colorado licensure, until you add the Eugene practicum.",
+      "support": "The separate $3,000 psilocybin practicum is what puts the combined program on Oregon's approved list. Priced and dated, with what each part carries.",
+      "anchor": "140 hours over four months",
+      "mark": "what each part carries"
+    },
+    "psychedelic-training-mind-foundation-apt.html": {
+      "eyebrow": "Rigorous, and worth nothing here",
+      "claim": "Fifteen months and three residential weeks in Berlin, and it confers nothing legally in the United States.",
+      "support": "Explicitly anti-underground and demanding, with a supervised personal-experience component that is lawful there and not here. Priced and dated.",
+      "anchor": "15 months",
+      "mark": "lawful there and not here"
+    },
+    "psychedelic-training-naropa-psilocybin-facilitator.html": {
+      "eyebrow": "Naropa no longer runs it",
+      "claim": "One of the rare trainings that can end in a state license. Another organization runs it now, Colorado only.",
+      "support": "Who runs it now, which state still takes it, which state it dropped, and the 150 hours Colorado's rules require it to cover. It publishes no price.",
+      "anchor": "Colorado-approved only",
+      "mark": "publishes no price"
+    },
+    "psychedelic-training-pacifica-psychedelic.html": {
+      "eyebrow": "Lectures, not a training",
+      "claim": "Two $1,095 online continuing education series through a depth-psychology lens. No practicum, and no state approval anywhere.",
+      "support": "A strong faculty roster and a real subject, sold as a certificate series. What it is, what it is not, priced and dated.",
+      "anchor": "$1,095 per level",
+      "mark": "what it is not"
+    },
+    "psychedelic-training-polaris-insight-kap.html": {
+      "eyebrow": "Start for $375",
+      "claim": "Modular ketamine training from a San Francisco clinic working since 2018. A usable foundation costs $1,950, and the certificate is optional.",
+      "support": "Priced module by module, so you can see what the cheapest real entry into this work actually costs before committing to a year.",
+      "anchor": "$375 entry, $1,950 foundation",
+      "mark": "the cheapest real entry"
+    },
+    "psychedelic-training-prati.html": {
+      "eyebrow": "Two sessions, on you",
+      "claim": "Four residential days in Colorado whose main draw is two physician-supervised ketamine sessions for the trainees themselves.",
+      "support": "$3,000 for non-physicians, no continuing education credit, and no state facilitator standing. Priced and dated, with what that leaves you holding.",
+      "anchor": "$3,000 for non-physicians",
+      "mark": "what that leaves you holding"
+    },
+    "psychedelic-training-psychedelic-coalition-for-health.html": {
+      "eyebrow": "CE that counts, program dormant",
+      "claim": "APA-sponsored continuing education that counts for a California LMFT, from a program that has stopped taking applications.",
+      "support": "A residential Los Angeles training built around taking ketamine yourself and sitting for a peer. $5,000, and apparently dormant as of August 2026.",
+      "anchor": "$5,000 for mental health professionals",
+      "mark": "apparently dormant"
+    },
+    "psychedelic-training-soundmind-institute.html": {
+      "eyebrow": "Colorado intact, Oregon gone",
+      "claim": "Twelve months mostly online, still on Colorado's approved list, and no longer on Oregon's despite being one of the first three approved.",
+      "support": "So the Colorado track leads somewhere real and the Oregon one does not. Priced from $5,800, dated, with what the change means for you.",
+      "anchor": "$5,800",
+      "mark": "what the change means for you"
+    },
+    "psychedelic-training-spiral-process-training.html": {
+      "eyebrow": "Two sessions in the fee",
+      "claim": "Six days in Santa Cruz, run by one LMFT, with two ketamine sessions for you as a student included in the $1,950.",
+      "support": "Small, in person, and specific about what it covers. Priced and dated, with what it does and does not confer.",
+      "anchor": "$1,950 over six days",
+      "mark": "does not confer"
+    },
+    "psychedelic-training-uc-berkeley-bcsp.html": {
+      "eyebrow": "Closed since 2025",
+      "claim": "Nine months and $14,000 from a major public university, Oregon-approved, and not admitting anyone since 2025.",
+      "support": "Chaplaincy-flavored and genuinely distinctive, with no announced restart. The pause statement and the fee are both quoted from Berkeley's own page.",
+      "anchor": "$14,000, enrollment paused",
+      "mark": "no announced restart"
+    },
+    "psychedelic-training-vital-psychedelics-today.html": {
+      "eyebrow": "A network, not a license",
+      "claim": "$10,500 for twelve remote months, no clinical degree required, and a certificate with no legal force anywhere.",
+      "support": "Which leaves the network and the education as the whole of what you are buying. Priced and dated, with the separate mentorship add-on named.",
+      "anchor": "$10,500 over 12 months",
+      "mark": "the whole of what you are buying"
     }
   }
 }
