@@ -188,6 +188,28 @@ FIXES = [
      "the rates table head at 4.35 on paper; the muted label colour is "
      "6.14 on the same surface",
      ("house", "ratespage")),
+    # --- `.n` inside a table on the dark band --------------------------
+    # The seventh one-class-two-surfaces case, and the first caused by a
+    # FIX: `override_relink.py` restored token_floor's `.n.n.n{color:
+    # #8A6516}` to 43 pages that had lost it, which is correct - #8A6516
+    # is the gold-on-light text colour and `.n` is a numeric table head.
+    # On `how-to-find-a-practicum-site-california.html` one such table sits
+    # inside `.artband`, which is `--deep`. Gold-on-light on deep pine
+    # measures **2.31:1**.
+    #
+    # Restoring a rule is a change like any other, and it has to be swept
+    # like one. This was found by re-running the contrast audit after the
+    # relink, not by reasoning about it.
+    # The dark surface is on the CELL, not on an ancestor band - the first
+    # attempt scoped this to `.artband .n` and matched nothing, because
+    # `th.n` paints its own background. Read the chain in a browser before
+    # writing the selector; the audit reports the surface a colour lands
+    # on, not where that surface is set.
+    ("th.n,.tbl thead .n,.tbl th.n",
+     MINT, "#123C30", 4.5,
+     "the numeric table head, which carries the deep band as its OWN "
+     "background; the gold-on-light colour token_floor gives it is for a "
+     "light surface and measures 2.31:1 here"),
     # rates.html's masthead CTA is the CTA GOLD, not pine. Same component,
     # different surface, so the opposite colour.
     (".sitenav.sitenav.sitenav .sitenav-cta *",

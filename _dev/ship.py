@@ -601,6 +601,15 @@ LAST = [
     # residue, and residue in css/ is how css/house-skin.css survived a
     # rollout that had already replaced it. The skin itself is exempt and
     # the pass says why - house_swap.py hashes it on every run.
+    # The other half of the same bug. Four family passes strip every
+    # content-addressed <link>, and seven FLOORS passes have their override
+    # blocks hoisted into exactly those sheets - so `.bcr` spacing was
+    # unreachable on 89 of the 134 pages that carry a breadcrumb, and
+    # `.artwrap` on 23 of 24. Re-links each sheet, but only on pages that
+    # carry a class it styles. Before surface_fix and mobile_last, so those
+    # two keep the last word.
+    ("_dev/override_relink.py",
+     "the override sheets the family passes strip, put back"),
     # MOVED here from FLOORS, and the move is the fix. surface_fix writes an
     # inline <style> block; extract_css hoists it; and then family_art,
     # family_pk, family_sc and family_for rewrite their pages' stylesheet

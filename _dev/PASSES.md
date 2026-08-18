@@ -136,6 +136,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `mobile_last.py` | last | `/* _dev/mobile_last.py */` | The mobile rules, re-asserted after the passes that were dropping them. |
 | `one_display_face.py` | last | &mdash; | Two display faces become one, and 242 pages stop downloading the other. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
+| `override_relink.py` | last | &mdash; | The override sheets the family passes strip, put back where they belong. |
 | `palette_conform.py` | last | &mdash; | 113 near-misses collapse onto the twelve colours they were trying to be. |
 | `passes_index.py` | last | &mdash; | Generate `_dev/PASSES.md` - what each pass injects, and how to find it. |
 | `radius_floor.py` | last | &mdash; | Twenty corner radii become two, and the pills become buttons. |
