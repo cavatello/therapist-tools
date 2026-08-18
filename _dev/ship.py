@@ -686,6 +686,15 @@ VERIFY = [
     # DROP against the recorded number.
     ("_dev/pass_reach.py --check",
      "no pass has quietly lost the pages it used to reach"),
+    # The guard P8 claims to have and never had. It could not have been
+    # written before now: `.slab` names both the HEY panel and a
+    # colour-modified section band, so counting the class reported five
+    # pages in flagrant violation when none of them carry a P8 slab at all.
+    # Reads the modifier instead, and also proves the slab still has the
+    # mask that gives it its scalloped edge - the thing flat_bands.py has
+    # to keep distinguishing from decoration.
+    ("_dev/slab_guard.py",
+     "one slab per page at most, and the scallop is still on it"),
 ]
 
 STAGES = [("build", BUILD), ("structure", STRUCTURE), ("floors", FLOORS),
