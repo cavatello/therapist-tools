@@ -81,10 +81,12 @@ STATE = "pending"                    # pending -> passed -> resolved
 PASS_DEADLINE = date(2026, 8, 31)    # last day for each house to pass bills
 SIGN_DEADLINE = date(2026, 9, 30)    # last day for the Governor to act
 
-# The other build of this page. If it is ever wired in, the site ships two
-# near-identical pages about the same two bills, which is the one outcome
-# neither of us wants. Named here so a build stops rather than a reader
-# finding both.
+# The other build of this page. Its builder is now RETIRED - see
+# `_dev/build_billtracker.py`, which is a stub recording what was merged
+# out of it into this file on 18 August 2026 - and its page was never
+# published. The guard stays anyway: a retired stub is one `git revert`
+# away from being a builder again, and the cost of keeping the check is
+# one `os.path.exists` per run.
 OTHER = "california-therapist-bills-2026.html"
 
 # leginfo blocks automated fetches; these are linked, not read from.
@@ -100,7 +102,13 @@ CAL = ("https://clerk.assembly.ca.gov/sites/clerk.assembly.ca.gov/files/"
        "2026-01/2026-calendar.pdf")
 SCAN1598 = "https://legiscan.com/CA/bill/AB1598/2025"
 SCAN903 = "https://legiscan.com/CA/bill/SB903/2025"
-TEXT903 = "https://legiscan.com/CA/text/SB903/id/3327547"
+# The VERSION LIST, not a version. The first draft of this file linked
+# `text/SB903/id/3327547`, which is the bill AS INTRODUCED on 21 January
+# 2026 - three amendments out of date, and the one document guaranteed not
+# to contain the provisions described below. A version list cannot go stale
+# the same way.
+TEXT1598 = "https://legiscan.com/CA/text/AB1598/2025"
+TEXT903 = "https://legiscan.com/CA/text/SB903/2025"
 CONST = ("https://leginfo.legislature.ca.gov/faces/codes_displaySection."
          "xhtml?sectionNum=SEC.%208.&article=IV&lawCode=CONS")
 
@@ -149,7 +157,13 @@ def body():
              "Governor.</p>")
     o.append(pk.table(
         ["", "AB 1598", "SB 903"],
-        [["Author", "Quirk-Silva", "Padilla"],
+        # NO AUTHOR NAMES. The site's standing rule is no personal names,
+        # and it applies to legislators as much as to anyone else - the
+        # bill number is the durable identifier, an author is not, and a
+        # reader checking status on leginfo needs the number anyway. The
+        # first version of this table carried both names; this row is
+        # what replaced them, and it is more useful besides.
+        [["House of origin", "Assembly", "Senate"],
          ["Sponsor", "The Board of Behavioral Sciences",
           "Author-sponsored"],
          ["Subject", "Behavioral sciences licensing",
@@ -168,14 +182,18 @@ def body():
 
     # ------------------------------------------------------------ ab1598
     o.append('<section class="pk-sec" id="ab1598">')
-    o.append('<p class="pk-k">AB 1598 &middot; Quirk-Silva</p>')
+    o.append('<p class="pk-k">AB 1598 &middot; Behavioral '
+             "sciences</p>")
     o.append('<h2 class="pk-h">The Board is asking to stop making '
              "associates retake the Law and Ethics exam every year.</h2>")
     o.append('<p class="pk-p">This is the Board&rsquo;s own bill, and '
              "almost all of it lands on people who are not licensed yet. "
              "It would amend thirty sections of the Business and "
-             "Professions Code and repeal three. These are the changes "
-             "the Board&rsquo;s April 2026 analysis describes.</p>")
+             "Professions Code and repeal three. The first seven "
+             "changes below are the ones the Board&rsquo;s April 2026 "
+             "analysis describes; the last two are from the version in "
+             "print as amended 10 June 2026, in the Senate, after that "
+             "analysis was written.</p>")
     o.append(pk.numbered([
         ("1", "The annual Law and Ethics exam for associates would go.",
          "As things stand an associate has to pass the California Law "
@@ -204,12 +222,24 @@ def body():
          "Matching the Law and Ethics change above."),
         ("7", "The $20 exam rescoring fee would be removed.",
          "Small, and the only fee change in the bill."),
-        ("8", "The exemption for counseling in a religious context "
-         "would be clarified.",
-         "The bill restates who is exempt when counseling is provided "
-         "&ldquo;in a religious or spiritual context&rdquo;, and keeps "
-         "the condition that an exempt person must not claim to be "
-         "licensed or use a restricted title."),
+        ("8", "The religious-counseling exemption would be widened, "
+         "not just clarified.",
+         "The version in print adds <b>imam</b> to the priests, rabbis "
+         "and ministers already exempt, for faith-based counseling "
+         "delivered through a recognized faith-based entity. The limits "
+         "are the part worth reading: the service still has to sit "
+         "&ldquo;in a religious or spiritual context&rdquo;, it does not "
+         "reach the diagnosis or treatment of mental illness, and an "
+         "exempt person must not claim to be licensed or use a "
+         "restricted title."),
+        ("9", "An unlicensed registrant would have to name their "
+         "employer to clients.",
+         "Today an associate or trainee has to tell clients they are "
+         "unlicensed and working under supervision. The bill adds one "
+         "item to that disclosure: <b>the name of the employer</b>, or, "
+         "where the work is unpaid, the name of the entity being "
+         "volunteered for. A small sentence that makes the arrangement "
+         "behind the therapy visible to the client."),
     ]))
     o.append(pk.callout(
         "If you are counting hours",
@@ -224,7 +254,8 @@ def body():
 
     # ------------------------------------------------------------- sb903
     o.append('<section class="pk-sec" id="sb903">')
-    o.append('<p class="pk-k">SB 903 &middot; Padilla</p>')
+    o.append('<p class="pk-k">SB 903 &middot; Mental health '
+             "professionals: artificial intelligence</p>")
     o.append('<h2 class="pk-h">The first rules on using AI in a therapy '
              "practice, and a $10,000 penalty behind them.</h2>")
     o.append('<p class="pk-p">SB 903 would create the Wellness and '
@@ -272,7 +303,24 @@ def body():
         ("2", "The penalty is civil, and it is per violation.",
          "Up to $10,000 for each violation, assessed on the severity of "
          "the harm and the circumstances."),
-        ("3", "The Board asked for changes before supporting it.",
+        ("3", "Advertising a chatbot as therapy would be prohibited "
+         "outright.",
+         "Separately from the licensing sentence quoted above, the "
+         "version in print says a provider shall &ldquo;not advertise "
+         "or otherwise purport to offer psychotherapy services when the "
+         "services are provided through the use of companion "
+         "chatbots&rdquo;. That sentence is aimed at the chatbot market "
+         "rather than at clinicians, and it is the one a therapist is "
+         "most likely to see quoted without its context."),
+        ("4", "A vendor could not train its models on what it hears.",
+         "&ldquo;A company or entity shall not share, sell, store, or "
+         "train their models on any data obtained from "
+         "psychotherapy&rdquo; in a manner inconsistent with applicable "
+         "law - and in California the Confidentiality of Medical "
+         "Information Act sits on top of everything else here. If you "
+         "run a practice, this is the clause to hold your own vendor "
+         "contract against, whatever happens to the bill."),
+        ("5", "The Board asked for changes before supporting it.",
          "The Board&rsquo;s recommended position was SUPPORT IF AMENDED. "
          "Its analysis asked for consent to be written rather than "
          "verbal, for a clearer line between permitted and prohibited "
@@ -366,14 +414,18 @@ def body():
             ("AB 1598 on the Legislature&rsquo;s own site - the place to "
              "read the bill and check its current status", LEG1598),
             ("SB 903 on the Legislature&rsquo;s own site", LEG903),
-            ("The text of SB 903, including the proposed sections "
-             "4989.80 to 4989.87 quoted above", TEXT903),
+            ("AB 1598 - every version in print, including the "
+             "10 June 2026 Senate amendments, which are where the imam "
+             "addition and the employer disclosure appear", TEXT1598),
+            ("SB 903 - every version in print, including the 2 July "
+             "2026 Assembly amendments; the proposed sections 4989.80 "
+             "to 4989.87 quoted above are in the current one", TEXT903),
         ]),
         ("What the bills do - the Board of Behavioral Sciences&rsquo; "
          "own analyzes, read " + READ, [
             ("The Board&rsquo;s April 2026 analysis of AB 1598, which "
-             "it sponsors - the source for every provision listed on "
-             "this page", BBS1598),
+             "it sponsors - the source for the first seven provisions "
+             "listed on this page", BBS1598),
             ("The Board&rsquo;s May 2026 analysis of SB 903, its "
              "SUPPORT IF AMENDED position, and the amendments it asked "
              "for", BBS903),
@@ -471,11 +523,49 @@ def main():
         ("the proposed AI chapter", "4989.8"),
         ("the link to the hours page", HOURS),
         ("the link to the telehealth page", TELE),
+        # The provisions merged in from the second build of this page,
+        # each keyed on the fact rather than on a heading - a heading
+        # can survive while the sentence under it is rewritten away.
+        # Keyed on the SENTENCE, not the word: "imam" also appears in a
+        # source description below, so a bare word check passed even with
+        # the whole provision deleted. Second time this exact trap has
+        # been hit on this page's guards.
+        ("the imam addition", "adds <b>imam</b> to the priests"),
+        ("the limit on the religious exemption",
+         "religious or spiritual context"),
+        ("the diagnosis limit", "diagnosis or treatment of mental"),
+        ("the employer disclosure", "name of the employer"),
+        ("the companion-chatbot advertising ban", "companion "),
+        ("the model-training clause", "train their models"),
+        ("the confidentiality overlay",
+         "Confidentiality of Medical Information Act"),
+        ("both version lists", "legiscan.com/CA/text/AB1598/2025"),
     ], [h for h, _ in JUMPS])
 
     s = open(p, encoding="utf-8").read()
     art = re.search(r'<article class="pk-wrap[\s\S]*?</article>', s).group(0)
     flat = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", art)).lower()
+
+    bad = 0
+    # NO PERSONAL NAMES, INCLUDING LEGISLATORS. The first version of this
+    # page put both authors in the status table and in two section
+    # kickers. The site's standing rule is no personal names, it does not
+    # carve out public figures, and a bill number is the durable
+    # identifier anyway. Named here so the names cannot drift back in
+    # from a copied pattern the next time this page is rewritten.
+    for name in ("quirk-silva", "padilla"):
+        if name in flat:
+            print("GUARD: the author name \"" + name + "\" is back on the "
+                  "page. This site does not print personal names; use the "
+                  "bill number and the house of origin.")
+            bad += 1
+    # The introduced version of SB 903 is three amendments out of date and
+    # does not contain the provisions described above.
+    if "id/3327547" in art:
+        print("GUARD: the page links the version of SB 903 AS INTRODUCED, "
+              "which predates the provisions it describes. Link the "
+              "version list instead.")
+        bad += 1
 
     # THE GUARD THIS PAGE EXISTS FOR. A tracker that forecasts is a
     # tracker that will be wrong in public. Neither bill is law, and the
@@ -513,8 +603,8 @@ def main():
             print("GUARD: banned phrase %r in the article" % banned)
             n += 1
 
-    if n:
-        sys.exit(str(n) + " check failure(s)")
+    if n or bad:
+        sys.exit(str(n + bad) + " check failure(s)")
     print("  checks passed - 2 bills dated and sourced, no forecast, "
           "13 others listed from the Board's own tracker")
 

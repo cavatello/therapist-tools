@@ -693,6 +693,14 @@ VERIFY = [
      "one inbound link - a page in the sitemap that no other page links "
      "to fails the build"),
     ("_dev/seo_rules.py", "the SEO rules, against the recorded baseline"),
+    # The guard that would have caught 107 pages loading the analytics tag
+    # twice for weeks. clarity.py is idempotent about the tags it can SEE,
+    # and pagekit's marker-stripper made one invisible to it. Neither pass
+    # was wrong about its own output; the check had to be on the shipped
+    # page, which is what this is.
+    ("_dev/analytics_once.py",
+     "no published page carries two analytics loaders, an orphaned tag "
+     "marker, or a loader without the masking attribute"),
     # The two censuses, and they are the same lesson: a check that looks for
     # the drift it has already been shown finds only that drift. These count
     # EVERYTHING - every hex on every published page and in every sheet

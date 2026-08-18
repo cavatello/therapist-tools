@@ -146,6 +146,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `semantic_palette.py` | last | &mdash; | One red, one amber, one green - instead of thirty-eight near-misses. |
 | `surface_fix.py` | last | `/* _dev/surface_fix.py */` | Text coloured for one surface, sitting on the opposite one. Measured. |
 | `type_scale.py` | last | &mdash; | Ninety-two font sizes become a scale of thirteen. |
+| `analytics_once.py` | verify | &mdash; | One analytics loader per page. Never two, never a marker with no tag. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
@@ -210,6 +211,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `bbs_stats.py` | **untriaged** | &mdash; | Seven quarters of the Board's own numbers, transcribed once. |
 | `build_bayarea.py` | **untriaged** | &mdash; | Can a Bay Area practicum-site and associate-site directory be built honestly? |
 | `build_bcopts.py` | **untriaged** | &mdash; | Three Basecamp-flavored home pages, and the five pages behind each. |
+| `build_billtracker.py` | **untriaged** | &mdash; | RETIRED. The second build of the bill tracker, merged into build_bills.py. |
 | `build_home_options.py` | **untriaged** | &mdash; | Six ways the home page could open, drawn in the 37signals discipline. |
 | `build_housestyle.py` | **untriaged** | &mdash; | The house style - the fifth thing - drawn as six complete pages. |
 | `build_ia.py` | **untriaged** | &mdash; | The information architecture, and a mockup of every door - revised. |
