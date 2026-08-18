@@ -107,6 +107,17 @@ def chrome_parts(donor_filename):
                        chrome)
     tail = chrome[chrome.index("</footer>", foot_start) + len("</footer>"):]
     scripts = re.findall(r"<script(?![^>]*\bsrc=)[^>]*>[\s\S]*?</script>", tail)
+    # ANALYTICS ARE NOT SHARED CHROME. Every analytics pass writes its own tag
+    # onto every page later in the build, so copying the donor's gives the new
+    # page two - and the copy arrives WITHOUT the `<!-- _dev/x.py -->` marker
+    # that sits outside the element, so neither that pass's strip nor its
+    # count-the-marker guard can see it. 106 published pages loaded Microsoft
+    # Clarity twice this way while `clarity.py` reported exactly one tag on
+    # each of them. The donor's nav script is genuinely shared; its trackers
+    # are not.
+    scripts = [x for x in scripts
+               if not re.search(r"clarity\.ms|googletagmanager|gtag\(|"
+                                r"google-analytics", x)]
     if not scripts:
         sys.exit("pagekit: %s yielded no inline scripts, so the nav panel on "
                  "any page built from it would not open" % donor_filename)

@@ -99,45 +99,25 @@ def body_tag(s):
         re.compile(r"<body([^>]*)>", re.I).search(s, h)
 
 
-# The loader's own signature. Matching the CODE rather than the markers is
-# the point: see the note in strip().
-LOADER = r"\(function\(c,l,a,r,i,t,y\)"
+# An inline Clarity script that carries no MARK. `pagekit.chrome_parts`
+# copies a donor page's inline scripts into a page being built, and it
+# collects `<script>...</script>` only - so it takes the tag BODY and leaves
+# the MARK comment behind, because the mark sits outside the element. The
+# copy is therefore invisible to a strip that keys on the mark, and invisible
+# to a guard that COUNTS the mark. 106 published pages were loading the
+# tracker twice, and `clarity.py` reported one tag on every one of them.
+#
+# The eleventh instance of this repository's signature bug: a marker-based
+# guard, and a copy that lost the marker.
+UNMARKED = re.compile(
+    r'[ \t]*<script(?![^>]*\bsrc=)[^>]*>(?:(?!</script>)[\s\S])*?'
+    r'clarity\.ms(?:(?!</script>)[\s\S])*?</script>\n?')
 
 
 def strip(s):
-    """Remove EVERY Clarity loader on the page, not only the ones we marked.
-
-    The first version matched only `MARK ... END`, which is idempotent right
-    up until something removes a marker. `pagekit.chrome_parts` did exactly
-    that: it strips `_dev/` pass markers out of borrowed chrome with a
-    non-greedy pattern, which ate the OPENING marker of the donor's clarity
-    block and left the script behind. This pass could then no longer see that
-    loader, so it added a second one - on 107 published pages, each firing the
-    tracker twice, with every guard reporting clean. The fingerprint on an
-    affected page is one opening marker against two closing ones.
-
-    So removal is keyed on the loader's own code. A tag this pass cannot
-    recognize is a tag it cannot remove, and an unremovable tag is a duplicate
-    waiting to happen.
-
-    THE FIX IS DELIBERATELY HERE AND NOT IN PAGEKIT. Making `chrome_parts`
-    strip the analytics block as well was tried first, and it works, but it
-    changes the head of every builder page enough that `token_floor.py`
-    re-injects its style block, `extract_css` hoists it under a new content
-    hash, and 72 pages are left pointing at a stylesheet name that no longer
-    exists - the hashed-sheet hazard the handoff warns about, for a bug that
-    can be fixed entirely on this side. One pass owns the tag; one pass
-    removes it; a page damaged before the fix repairs itself on the next run.
-    """
-    # The marked pair first, so its comments go with it.
     s = re.sub(re.escape(MARK) + r"[\s\S]*?" + re.escape(END) + r"\n?", "", s)
-    # Then any surviving loader, marked or not, with a trailing orphan marker.
-    s = re.sub(r"[ \t]*<script[^>]*>(?:(?!</script>)[\s\S])*?" + LOADER
-               + r"[\s\S]*?</script>[ \t]*\n?"
-               r"(?:[ \t]*" + re.escape(END) + r"[ \t]*\n?)?", "", s)
-    # And a marker left with nothing to close.
-    s = re.sub(r"[ \t]*" + re.escape(END) + r"[ \t]*\n?", "", s)
-    s = re.sub(r"[ \t]*" + re.escape(MARK) + r"[ \t]*\n?", "", s)
+    # Any surviving tag is one of the unmarked copies described above.
+    s = UNMARKED.sub("", s)
     return re.sub(r"\s*" + re.escape(MASK), "", s)
 
 
@@ -211,6 +191,14 @@ def main():
         checked += 1
         if s.count(MARK) != 1:
             print("GUARD %s: %d Clarity tags" % (rel, s.count(MARK)))
+            bad += 1
+        # Count the TAG, not the comment above it. A marker can be lost in a
+        # copy; the thing that actually loads the tracker cannot. This is the
+        # check that would have caught the duplication on 106 pages.
+        if s.count("clarity.ms") != 1:
+            print("GUARD %s: the Clarity endpoint appears %d time(s); the "
+                  "page would load the tracker more than once"
+                  % (rel, s.count("clarity.ms")))
             bad += 1
         body = body_tag(s)
         if not body or MASK not in body.group(0):
