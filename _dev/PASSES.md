@@ -28,10 +28,12 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
 | `build_bayarea_practicum.py` | build | &mdash; | P3, the curated half: EB CAMFT's practicum-site directory, annotated. |
 | `build_baysites.py` | build | &mdash; | P3, page one: where a Bay Area MFT trainee can actually be placed. |
+| `build_bills.py` | build | &mdash; | The two 2026 bills that reach this site's readers, and the date that decides them. |
 | `build_careerchange.py` | build | &mdash; | Becoming a therapist in California, for somebody arriving from another job. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_cost.py` | build | &mdash; | What getting licensed actually costs - assembled, not invented. |
 | `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
+| `build_cpa.py` | build | &mdash; | The accountant meeting: what to settle first, and what to ask. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_findsite.py` | build | &mdash; | The practicum-site method page - remaining P3, item two. |
 | `build_forassociates.py` | build | &mdash; | /for/associates - the first stage door, built as the Ledger. |
@@ -51,8 +53,11 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_portals.py` | build | &mdash; | Where to apply for a county therapy job, in all 58 California counties. |
 | `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
 | `build_prep.py` | build | &mdash; | Exam prep courses compared - on price, and on what each one claims. |
+| `build_records.py` | build | &mdash; | Client records: how long to keep them, and what a client is entitled to. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
+| `build_subpoena.py` | build | &mdash; | A subpoena arrived. It is not a court order, and you must claim the privilege. |
+| `build_supeconomics.py` | build | &mdash; | What it costs and pays to BE a supervisor, which is two different questions. |
 | `build_supervisor.py` | build | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
 | `build_telehealth.py` | build | &mdash; | The telehealth standard of practice, and what actually changed in 2026. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
@@ -149,6 +154,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `surface_fix.py` | last | `/* _dev/surface_fix.py */` | Text coloured for one surface, sitting on the opposite one. Measured. |
 | `tool_surface.py` | last | `<!-- _dev/tool_surface.py -->` | The contrast nobody could see, because it does not exist until you use it. |
 | `type_scale.py` | last | &mdash; | Ninety-two font sizes become a scale of thirteen. |
+| `analytics_once.py` | verify | &mdash; | One analytics loader per page. Never two, never a marker with no tag. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |
@@ -209,25 +215,19 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `tool_chain.py` | **safe** | `<!-- _dev/tool_chain.py -->` | Concept 03, second half: the seven calculators as a sequence, not a pile. |
 | `urlfix.py` | **safe** | &mdash; | Repoint citations whose sources have moved, and name the ones that died. — no-op on today's site |
 | `widen.py` | **safe** | `/* _dev/widen.py */` | Global width pass — stop every page dead-ending at ~1120px on a wide display. — the two large-display width steps that one_grid.py and rates_grid.py both mirror |
-| `analytics_once.py` | **untriaged** | &mdash; | One analytics loader per page. Never two, never a marker with no tag. |
 | `bbs_redact.py` | **untriaged** | &mdash; | Strip the licensee out of a BBS decision before anything else reads it. |
 | `bbs_stats.py` | **untriaged** | &mdash; | Seven quarters of the Board's own numbers, transcribed once. |
 | `build_bayarea.py` | **untriaged** | &mdash; | Can a Bay Area practicum-site and associate-site directory be built honestly? |
 | `build_bcopts.py` | **untriaged** | &mdash; | Three Basecamp-flavored home pages, and the five pages behind each. |
-| `build_bills.py` | **untriaged** | &mdash; | The two 2026 bills that reach this site's readers, and the date that decides them. |
 | `build_billtracker.py` | **untriaged** | &mdash; | RETIRED. The second build of the bill tracker, merged into build_bills.py. |
-| `build_cpa.py` | **untriaged** | &mdash; | The accountant meeting: what to settle first, and what to ask. |
 | `build_home_options.py` | **untriaged** | &mdash; | Six ways the home page could open, drawn in the 37signals discipline. |
 | `build_housestyle.py` | **untriaged** | &mdash; | The house style - the fifth thing - drawn as six complete pages. |
 | `build_ia.py` | **untriaged** | &mdash; | The information architecture, and a mockup of every door - revised. |
 | `build_logo.py` | **untriaged** | &mdash; | Ten logo lockups - the wordmark itself carrying the support idea. |
 | `build_marks.py` | **untriaged** | &mdash; | Ten marks for Therapist Support, all built on the same idea: bearing weight. |
 | `build_products.py` | **untriaged** | &mdash; | The site drawn four times, once in each 37signals product's own language. |
-| `build_records.py` | **untriaged** | &mdash; | Client records: how long to keep them, and what a client is entitled to. |
 | `build_redesign.py` | **untriaged** | &mdash; | A whole-site redesign in the 37signals house style, drawn three ways. |
 | `build_stagedoors.py` | **untriaged** | &mdash; | Five doors, three ways each - the expanded stage-hub mockup set. |
-| `build_subpoena.py` | **untriaged** | &mdash; | A subpoena arrived. It is not a court order, and you must claim the privilege. |
-| `build_supeconomics.py` | **untriaged** | &mdash; | What it costs and pays to BE a supervisor, which is two different questions. |
 | `case_data_more.py` | **untriaged** | &mdash; | Eighteen more California BBS discipline cases, from a second collection. |
 | `case_depth_more.py` | **untriaged** | &mdash; | The discussion layer for `case_data_more.py`. |
 | `counts.py` | **untriaged** | &mdash; | The site's counts, derived once, for every pass that wants to print one. |

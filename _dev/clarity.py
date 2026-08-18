@@ -118,6 +118,19 @@ def strip(s):
     s = re.sub(re.escape(MARK) + r"[\s\S]*?" + re.escape(END) + r"\n?", "", s)
     # Any surviving tag is one of the unmarked copies described above.
     s = UNMARKED.sub("", s)
+    # AND THE CLOSING MARKER IT LEFT BEHIND. The unmarked copy arrives without
+    # its opening mark but WITH the closing one, because `chrome_parts` strips
+    # `<!-- _dev/... -->` comments and that pattern matches only the opening
+    # form. So removing the script alone leaves `<!-- /clarity -->` orphaned -
+    # it did, on 109 pages, each then reporting one opening marker against
+    # two closing. Nothing was tracked twice, but a marker that does not match
+    # its pair is exactly what made the original duplication invisible, and
+    # leaving half of one behind rebuilds the same trap for the next reader.
+    # `_dev/analytics_once.py` fails the build on the mismatch.
+    #
+    # Safe to run unconditionally: the marked pair is removed by the first
+    # substitution above, so any END still standing here is an orphan.
+    s = re.sub(r"[ \t]*" + re.escape(END) + r"[ \t]*\n?", "", s)
     return re.sub(r"\s*" + re.escape(MASK), "", s)
 
 

@@ -150,6 +150,43 @@ BUILD = [
      "2026 amendment actually touched, the decade-old duty most "
      "summaries call new, and what naming the HIPAA Security Rule "
      "asks of a solo practice"),
+    # ------------------------------------------------------------------
+    # TIER 3 EDITORIAL. These five were dropped from this list once
+    # already, when a parallel session added its own passes to an older
+    # copy of this file and wrote the whole thing back. Nothing broke
+    # visibly - the five pages still EXISTED, they simply stopped being
+    # rebuilt - which is the quietest possible failure and the reason
+    # they are grouped and labelled here rather than scattered.
+    #
+    # The one that matters most is build_bills: its freshness lock is
+    # what stops the whole pipeline in September if the tracker has not
+    # been updated. Unwired, the lock never fires, the page goes on
+    # saying "pending" about bills that are decided, and the two
+    # scheduled tasks that exist to clear it arrive to find nothing
+    # blocking. An unwired builder is worse than a missing one.
+    ("_dev/build_bills.py",
+     "AB 1598 and SB 903 - what each would change, where each stood, and "
+     "the two dates that decide them. CARRIES THE FRESHNESS LOCK"),
+    ("_dev/build_subpoena.py",
+     "a subpoena is not a court order, and Evidence Code 1015 makes "
+     "claiming the client's privilege mandatory rather than optional - "
+     "plus the 1985.3 notice clock and the insurer helpline the reader "
+     "has already paid for"),
+    ("_dev/build_records.py",
+     "client records - seven years from termination across four license "
+     "types, inspection in five working days, copies in fifteen at 25 "
+     "cents a page, the summary option, the mental health exception, "
+     "and the question the statute never answers"),
+    ("_dev/build_supeconomics.py",
+     "becoming a clinical supervisor - the two separate two-year "
+     "eligibility tests, fifteen training hours then six a renewal, the "
+     "liability, and why supervising for a fee is not the same decision "
+     "as employing an associate"),
+    ("_dev/build_cpa.py",
+     "what to know before meeting an accountant and what to ask - the "
+     "credential most people never check, the nine things this site "
+     "already answers, and the four answers that end an interview"),
+    # ------------------------------------------------------------------
     # The method page the directory and the rules page both point at:
     # whose job the search is, the statutory strikes, the four shelves,
     # and the questions that protect the hours. Invents no facts - it
@@ -729,6 +766,14 @@ VERIFY = [
      "one inbound link - a page in the sitemap that no other page links "
      "to fails the build"),
     ("_dev/seo_rules.py", "the SEO rules, against the recorded baseline"),
+    # Dropped from VERIFY by the same overwrite that dropped the five
+    # builders above. It is the only check that reads the SHIPPED page
+    # for analytics duplication, and it earned its place by catching a
+    # real defect the moment it was restored - 109 pages carrying an
+    # orphaned tag marker.
+    ("_dev/analytics_once.py",
+     "no published page carries two analytics loaders, an orphaned tag "
+     "marker, or a loader without the masking attribute"),
     # The two censuses, and they are the same lesson: a check that looks for
     # the drift it has already been shown finds only that drift. These count
     # EVERYTHING - every hex on every published page and in every sheet
