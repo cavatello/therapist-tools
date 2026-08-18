@@ -53,6 +53,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_portals.py` | build | &mdash; | Where to apply for a county therapy job, in all 58 California counties. |
 | `build_practicum.py` | build | &mdash; | The practicum year: the rules, and how each of the 78 programs places you. |
 | `build_prep.py` | build | &mdash; | Exam prep courses compared - on price, and on what each one claims. |
+| `build_records.py` | build | &mdash; | Client records: how long to keep them, and what a client is entitled to. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
 | `build_subpoena.py` | build | &mdash; | A subpoena arrived. It is not a court order, and you must claim the privilege. |

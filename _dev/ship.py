@@ -239,6 +239,16 @@ BUILD = [
      "claiming the client's privilege mandatory rather than optional - "
      "plus the 1985.3 notice clock and the insurer helpline the reader "
      "has already paid for"),
+    # Tier 3 #1d, the reference companion to the subpoena page. Two
+    # pages rather than one was a decision made before either was
+    # written - the reasoning is in this builder's docstring. Runs after
+    # build_subpoena because it links to that page and its guard checks
+    # the link is there.
+    ("_dev/build_records.py",
+     "client records - seven years from termination across four license "
+     "types, inspection in five working days, copies in fifteen at 25 "
+     "cents a page, the summary option, the mental health exception, "
+     "and the question the statute never answers"),
     ("_dev/build_cpa.py",
      "what to know before meeting an accountant and what to ask - the "
      "credential most people never check, the nine things this site "

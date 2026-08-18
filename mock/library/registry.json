@@ -740,6 +740,19 @@
    "leaf": true
   },
   {
+   "file": "client-records-california-therapist.html",
+   "title": "Client records: California therapist retention and access",
+   "topic": "practice",
+   "format": "reference",
+   "question": "How long do I keep client records, and what can a client demand?",
+   "outcome": "Seven years from termination or from a minor's 18th birthday, with statutory deadlines and a capped fee for access",
+   "number": "7 years, 5 working days, 15 days, 25 cents a page",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "concordia-university-irvine-mft.html",
    "title": "Concordia University Irvine (Townsend Institute)",
    "topic": "licensure",
@@ -3587,7 +3600,8 @@
      "files": [
       "therapist-discipline-cases-california.html",
       "therapy-liability-insurance-california.html",
-      "subpoena-california-therapist.html"
+      "subpoena-california-therapist.html",
+      "client-records-california-therapist.html"
      ]
     }
    ]

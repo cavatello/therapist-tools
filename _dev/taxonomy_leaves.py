@@ -81,7 +81,8 @@ NEW_CLUSTERS = [
     ("practice", "When something goes wrong",
      ["therapist-discipline-cases-california.html",
       "therapy-liability-insurance-california.html",
-      "subpoena-california-therapist.html"]),
+      "subpoena-california-therapist.html",
+      "client-records-california-therapist.html"]),
     # The advertising rule sits with the admin-floor reference material:
     # it is a compliance checklist, not a growth page.
     ("practice", "The reference shelf",
