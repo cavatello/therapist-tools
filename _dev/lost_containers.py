@@ -103,6 +103,23 @@ color:var(--dim) !important;margin-top:6px;line-height:1.55}
 .issue-row{grid-template-columns:1fr;gap:2px}}
 """
 
+# THE VISIBLE SCREEN-READER LABEL.
+#
+# `.sr` is the visually-hidden class. The generic rule that hides it lives
+# only in an extracted sheet most pages do not load; `house-chrome.css`
+# carries just `.askq .sr`, scoped to the ask-a-question form. So on every
+# page whose only `.sr` is the newsletter field's label, the word "Email"
+# renders on screen beside the input - measured on 107 pages.
+#
+# It reads as a stray label, which is what "forms look awful" was pointing
+# at, and it is also an accessibility defect in its own right: a duplicate
+# visible label for a field that already shows a placeholder.
+SR_CSS = """
+.sr{position:absolute !important;width:1px !important;height:1px !important;
+padding:0 !important;margin:-1px !important;overflow:hidden !important;
+clip:rect(0 0 0 0);white-space:nowrap;border:0 !important}
+"""
+
 FORM_CSS = """
 .nlform input[type=email]{font-size:16px !important;min-height:52px !important}
 .nlform button{font-size:15px !important;min-height:52px !important}
@@ -126,6 +143,7 @@ FORM_CSS = """
 ATTR = re.compile(r'class="([^"]*)"')
 BOX_NAMES = {"issue", "issue-h", "issue-row", "facts", "fact"}
 FORM_NAMES = {"nlform"}
+SR_NAMES = {"sr"}
 
 
 def _tokens(t):
@@ -151,7 +169,7 @@ def strip(t):
 
 def main():
     check = "--check" in sys.argv
-    boxes = forms = 0
+    boxes = forms = srs = 0
     bad = []
     for rel in pages():
         p = os.path.join(SITE, rel)
@@ -160,19 +178,23 @@ def main():
         bare = strip(t)
         tok = _tokens(bare)
         nb, nf = bool(tok & BOX_NAMES), bool(tok & FORM_NAMES)
-        block = OPEN + (BOX_CSS if nb else "") + (FORM_CSS if nf else "") + SHUT
+        ns = bool(tok & SR_NAMES)
+        block = (OPEN + (BOX_CSS if nb else "") + (FORM_CSS if nf else "")
+                 + (SR_CSS if ns else "") + SHUT)
         if nb:
             boxes += 1
         if nf:
             forms += 1
+        if ns:
+            srs += 1
         if check:
-            if (nb or nf) and OPEN not in t:
+            if (nb or nf or ns) and OPEN not in t:
                 bad.append("%s renders the component and carries no CSS for it" % rel)
-            if OPEN in t and not (nb or nf):
+            if OPEN in t and not (nb or nf or ns):
                 bad.append("%s carries the CSS and renders no component" % rel)
             continue
         new = bare
-        if nb or nf:
+        if nb or nf or ns:
             i = new.rfind("</head>")
             if i < 0:
                 bad.append("%s has no </head>" % rel)
@@ -189,10 +211,10 @@ def main():
                 print("    " + b)
             return 1
         print("  guards clean - the issue block has a box on %d page(s), the "
-              "signup form on %d" % (boxes, forms))
+              "signup form on %d, the hidden label on %d" % (boxes, forms, srs))
         return 0
     print("  container rules restored: issue block on %d page(s), signup form "
-          "on %d" % (boxes, forms))
+          "on %d, visually-hidden label on %d" % (boxes, forms, srs))
     return 0
 
 
