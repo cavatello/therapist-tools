@@ -425,8 +425,16 @@ PLACEMENTS = [
             "Both edges bind, in opposite directions. You cannot finish with "
             "fewer than 1,750 clinical hours, and hours 1,251 onward of notes, "
             "meetings and training simply stop counting. <b>500 of the 1,750 "
+            # "gate" was removed from this site's prose in 309 replacements
+            # across 199 pages - it was jargon, and it asserted something the
+            # site's own page disproves. This string is the one that kept
+            # coming back: plain_gates.py runs at 384 in ship.py and correctly
+            # rewrote the rendered page, then this pass ran at 397 and put it
+            # straight back from source. A fixer downstream of a generator
+            # cannot win. Corrected here, at the source, to the mapping
+            # claude/plain-words-and-the-cold-arrival.md records.
             "have to be with couples, families or children</b> &mdash; the "
-            "gate an all-adult caseload never closes."),
+            "one an all-adult caseload never produces."),
     ),
 
     # ---------------------------------------------------- discipline cases

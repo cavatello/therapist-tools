@@ -1,0 +1,13 @@
+/* _dev/tool_surface.py */
+/* D - quieter than white, and above the floor. .50 was 4.32, .42 was 3.49 */
+.apanel .anote,.tpanel .pr em,.thero .pr em,.pr-num u,
+.tpanel .pn,.tpanel .pn b,.apanel .pn,.apanel .pn b{
+color:rgba(255,255,255,.62) !important}
+/* C - a light card nested in a dark band keeps its own text colour.
+   .verdict is light in all three of its variants - good, bad and flat. */
+.verdict p,.verdict li{color:#4E4940 !important}     /* 7.94 on #FBEFEC */
+/* the indigo band is the one band modifier that is actually dark. Scoped to
+   the ledger row, NOT to the band: a bare `.slab.indigo i` also matched an
+   italic inside a white table cell sitting in the same band. */
+.slab.indigo .rw i{color:#C6DBD1 !important}         /* 8.43 on #123C30 */
+/* /_dev/tool_surface.py */

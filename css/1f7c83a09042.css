@@ -1,0 +1,18 @@
+/* _dev/nav_wrap.py */
+@media (max-width:640px){
+body.house.house.house .sitenav-links{
+grid-column:1/-1 !important;width:100% !important;max-width:100% !important;
+flex-wrap:wrap !important;overflow-x:visible !important;
+-webkit-mask-image:none !important;mask-image:none !important;
+background-image:none !important;justify-content:flex-start !important;
+row-gap:1px !important;padding-right:0 !important}
+body.house.house.house .sitenav-links .sitenav-top{
+font-size:10.5px !important;padding:5px 5px !important}}
+@media (min-width:641px) and (max-width:900px){
+body.house.house.house .sitenav-links{
+width:100% !important;max-width:100% !important;
+flex-wrap:wrap !important;overflow-x:visible !important;
+-webkit-mask-image:none !important;mask-image:none !important;
+background-image:none !important;justify-content:flex-start !important;
+row-gap:1px !important;padding-right:0 !important}}
+/* /_dev/nav_wrap.py */

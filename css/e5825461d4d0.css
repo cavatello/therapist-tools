@@ -1,0 +1,8 @@
+/* _dev/masthead_mark.py */
+body.house.house .sitenav-fig,body.bcz.bcz .sitenav-fig,
+body.house.house.bcz .sitenav-fig{display:block !important;
+width:28px !important;height:28px !important;flex:0 0 auto !important}
+@media (max-width:860px){body.house.house .sitenav-fig,
+body.bcz.bcz .sitenav-fig,body.house.house.bcz .sitenav-fig{
+width:26px !important;height:26px !important}}
+/* /_dev/masthead_mark.py */

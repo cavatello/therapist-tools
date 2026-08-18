@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../css/house.css?v=12e1c007">
-<link rel="stylesheet" href="../../../css/house-chrome.css?v=591581ff">
+<link rel="stylesheet" href="../../../css/house-chrome.css?v=628bec57">
 <link rel="stylesheet" href="../../../css/house-rest.css?v=4b20254e">
 <link rel="stylesheet" href="css/98c278117504.css">
 <link rel="stylesheet" href="css/877fe0ab043f.css">
@@ -33,6 +33,34 @@
 <link rel="stylesheet" href="css/15f3899a673d.css">
 <link rel="stylesheet" href="css/3cdb931d4f5e.css">
 <link rel="stylesheet" href="css/cc63adb6f6f0.css">
+<link rel="stylesheet" href="css/76e7e0da7d86.css">
+<link rel="stylesheet" href="css/88f6a971a5b9.css">
+<style>/* _dev/masthead_mark.py */
+body.house.house .sitenav-fig,body.bcz.bcz .sitenav-fig,
+body.house.house.bcz .sitenav-fig{display:block !important;
+width:28px !important;height:28px !important;flex:0 0 auto !important}
+@media (max-width:860px){body.house.house .sitenav-fig,
+body.bcz.bcz .sitenav-fig,body.house.house.bcz .sitenav-fig{
+width:26px !important;height:26px !important}}
+/* /_dev/masthead_mark.py */</style>
+<style>/* _dev/nav_wrap.py */
+@media (max-width:640px){
+body.house.house.house .sitenav-links{
+grid-column:1/-1 !important;width:100% !important;max-width:100% !important;
+flex-wrap:wrap !important;overflow-x:visible !important;
+-webkit-mask-image:none !important;mask-image:none !important;
+background-image:none !important;justify-content:flex-start !important;
+row-gap:1px !important;padding-right:0 !important}
+body.house.house.house .sitenav-links .sitenav-top{
+font-size:10.5px !important;padding:5px 5px !important}}
+@media (min-width:641px) and (max-width:900px){
+body.house.house.house .sitenav-links{
+width:100% !important;max-width:100% !important;
+flex-wrap:wrap !important;overflow-x:visible !important;
+-webkit-mask-image:none !important;mask-image:none !important;
+background-image:none !important;justify-content:flex-start !important;
+row-gap:1px !important;padding-right:0 !important}}
+/* /_dev/nav_wrap.py */</style>
 <style>/* _dev/stage_router.py */
 .srtabs{display:flex;gap:7px;overflow-x:auto;padding:2px 2px 9px;margin:0 0 14px;
   scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
@@ -65,6 +93,322 @@
 @media (max-width:640px){
   .srpanel{padding:14px 14px 13px}
   .srg{grid-template-columns:1fr}
+}
+</style>
+<style>/* _dev/surface_fix.py */
+/* Text coloured for the opposite surface from the one it sits
+   on. Each rule names its surface; every pair is verified over
+   4.5:1 by _dev/surface_fix.py before it is emitted. Prefixed
+   body.house and marked !important to outrank the retired-but-
+   still-live house skin, which sweeps spans with
+   :where(...){color:inherit!important}. */
+/* light cards nested inside the dark slab - the 1.35:1 case - 14.91:1 on #F6F8F6 */
+body.house.bc2 .slab .rule p,body.house.bc2 .slab .flag p,body.house.bc2 .slab .how p,body.house.bc2 .slab .how .howb p,body.house.bc2 .slab .how .howb li{color:#1B2420 !important}
+/* the same class sitting directly on the dark slab - 8.43:1 on #123C30 */
+body.house.bc2 .slab>.howb li,body.house.bc2 .slab>.howb p{color:#C6DBD1 !important}
+/* figure caption on the dark slab, was pine - 8.43:1 on #123C30 */
+body.house.bc2 .slab .ig-cap{color:#C6DBD1 !important}
+/* the mono kicker on the affiliate band, was the light-surface grey - 8.43:1 on #123C30 */
+body.house .afband .sub,body.house .afband p.sub{color:#C6DBD1 !important}
+/* the label inside the masthead CTA, painted by a child rule the button's own !important could not reach - 6.98:1 on #2C6350 */
+body.house .sitenav.sitenav.sitenav .sitenav-cta *{color:#FFFFFF !important}
+/* the topic-hub chips: --pine on the CTA gold is 4.35, and #14372C is the value already documented for ink on this exact background - 8.11:1 on #F6C560 */
+body.house .hh-chip,body.house a.hh-chip{color:#14372C !important}
+/* the private-pay segment: white on pale gold was 1.24, the worst pair left on a published page. Ink on the same band is 12.83 - 12.83:1 on #FFE3B8 */
+body.house .gapbar-seg.gapbar-pp,body.ratespage .gapbar-seg.gapbar-pp{color:#1B2420 !important}
+/* the insurance segment of the same bar, which is PINE - white is 6.98 on it and the ink that fixes its neighbour would be 2.28 - 6.98:1 on #2C6350 */
+body.house .gapbar-seg.gapbar-ins,body.ratespage .gapbar-seg.gapbar-ins{color:#FFFFFF !important}
+/* the payer-model label on the gold node, 4.08 as the muted grey - 8.11:1 on #F6C560 */
+body.house .node.pay span,body.ratespage .node.pay span,body.house .node.pay,body.ratespage .node.pay{color:#14372C !important}
+/* the rates table head at 4.35 on paper; the muted label colour is 6.14 on the same surface - 6.14:1 on #F6F8F6 */
+body.house .eap-rate-h,body.ratespage .eap-rate-h{color:#635D4E !important}
+/* the numeric table head, which carries the deep band as its OWN background; the gold-on-light colour token_floor gives it is for a light surface and measures 2.31:1 here - 8.43:1 on #123C30 */
+body.house th.n,body.house .tbl thead .n,body.house .tbl th.n{color:#C6DBD1 !important}
+/* the CTA label on rates.html, whose button is gold rather than pine - 8.11:1 on #F6C560 */
+body.ratespage .sitenav.sitenav.sitenav .sitenav-cta *{color:#14372C !important}
+/* gold call-to-action buttons - 8.11:1 on #F6C560 */
+body.house .acta:not([style*='color']),body.house .acta:not([style*='color']) strong,body.house .acta:not([style*='color']) span,body.house .gcta:not([style*='color']),body.house .gcta:not([style*='color']) strong,body.house .gcta:not([style*='color']) span,body.house .tcta:not([style*='color']),body.house .tcta:not([style*='color']) strong,body.house .tcta:not([style*='color']) span,body.house .clgo:not([style*='color']),body.house .rwcta:not([style*='color']),body.house .pr-cta:not([style*='color']),body.house .pr-cta:not([style*='color']) strong,body.house .pr-cta:not([style*='color']) span{color:#14372C !important}
+/* breadcrumbs on the dark band - 8.43:1 on #123C30 */
+body.house .band .bcr a,body.house .band .bcr li,body.house .band .bcr .sep{color:#C6DBD1 !important}
+/* the 'In short' label on the white card, light pages only - 6.55:1 on #FFFFFF */
+body.house .band .pw .tsshort .tsk{color:#635D4E !important}
+/* the 'In short' answer and figure, light pages only - 15.91:1 on #FFFFFF */
+body.house .band .pw .tsshort .tsa,body.house .band .pw .tsshort .tsfig{color:#1B2420 !important}
+/* section group labels, gold on white - 4.98:1 on #F6F8F6 */
+body.house .grouplab span{color:#8A6516 !important}
+/* the reference-fold label - 5.31:1 on #FFFFFF */
+body.house .reffold summary span,body.house .reffold>span{color:#8A6516 !important}
+/* the terms/privacy breadcrumb - 4.98:1 on #F6F8F6 */
+body.house .lgwrap .bcr li span{color:#8A6516 !important}
+/* the terms hero label - 4.98:1 on #F6F8F6 */
+body.house .lghero span{color:#8A6516 !important}
+/* the tax slider's empty-state line - 4.98:1 on #F6F8F6 */
+body.house .slider .out.empty{color:#8A6516 !important}
+/* the change-log dates - 6.14:1 on #F6F8F6 */
+body.house .promise .chg li time{color:#635D4E !important}
+/* an outbound link that was pine on pine at 1.05:1 - 6.98:1 on #2C6350 */
+body.house .li-card .li-go{color:#FFFFFF !important}
+/* the associate-pay hero kicker - 4.81:1 on #2C6350 */
+body.house .ap-hero .hk{color:#C6DBD1 !important}
+/* the practice simulator's own intro paragraph - 8.43:1 on #123C30 */
+body.house .hero .in .lede{color:#C6DBD1 !important}
+/* the concept-page tags - 6.03:1 on #E6F1EB */
+body.house .cc-meta .tag{color:#2C6350 !important}
+</style>
+<style>/* _dev/mobile_last.py */
+/* Form controls had no authored font-size, so they took the browser default
+   of 13.3333px. Under 16px, iOS Safari zooms on focus and never zooms back.
+   16.5px is the house body step. */
+input,select,textarea,button{font-size:16.5px}
+@media (max-width:900px){
+  /* WCAG 2.5.8: 24x24 minimum. mobile_floor.py sets this too, and its rule
+     is hoisted into a stylesheet that the family passes stop the page
+     loading - see this pass's docstring. Class-doubled so it outranks the
+     explicit `width:22px` in house-chrome.css's (pointer:coarse) block. */
+  input[type="checkbox"],input[type="radio"],
+  .consent input,.consent input[type="checkbox"]{
+    min-width:24px;min-height:24px;width:24px;height:24px}
+  select,button[type="submit"]{min-height:24px}
+}
+</style>
+<style>/* _dev/mobile_reassert.py */
+/* WCAG 2.5.8 asks for 24x24 from any pointer, not from a touch pointer, so
+   none of this sits behind a width query. See this pass's docstring. */
+a.tsall,
+  a.uall,
+  a.tcall,
+  a.srmore,
+  a.go,
+  a.pdgo,
+  button.keep,
+  a.tsbadge,
+  a.srcl,
+  a.ga,
+  a.perma{min-height:24px;display:inline-flex;align-items:center;
+  padding-block:4px}
+summary{min-height:24px}
+/* `mobile_last.py` gives checkboxes and radios their 24x24 inside
+   `@media (max-width:900px)`, because it was written to fix a phone. The
+   consent box therefore computes 20x20 on a laptop and a desktop - 228 pages,
+   found by the five-viewport sweep, which is the whole argument for measuring
+   at more than one width. 2.5.8 does not care what kind of pointer it is. */
+input[type="checkbox"],input[type="radio"],
+.consent input,.consent input[type="checkbox"]{
+  min-width:24px;min-height:24px;width:24px;height:24px}
+select,button[type="submit"]{min-height:24px}
+/* Vertical padding on an inline box grows the hit rectangle and moves
+   nothing. Only links inside text elements - a card link is block-level and
+   would grow its grid row by 14px. */
+p > a,
+  li > a,
+  dd > a,
+  dt > a,
+  td > a,
+  th > a,
+  blockquote > a,
+  figcaption > a,
+  cite > a,
+  sup > a,
+  small > a,
+  i > a,
+  b > a,
+  em > a,
+  strong > a,
+  span > a{padding-block:6px}
+/* The breadcrumb sits outside <main>, which is why `main a` never reached it
+   and it measured 115x12 on 23 pages at every one of the five widths. */
+.bcr li a{padding-block:6px}
+/* Three links that are the only child of a bare, classless DIV and so are
+   reached by neither list above: the stage index ("All 28 for this stage"), the in-article
+   tool link, and the source-list numerals. Named rather than generalised to
+   `div > a`, which would catch every card link and grow its grid row. */
+.ss1 a,.arttool > a{padding-block:6px}
+/* A source numeral is 8px WIDE - the one target that is short in the other
+   direction too, and the reason this is inline-block: min-width does nothing
+   to an inline box. Scoped to the sources block so no prose list changes. */
+.srcs li > a{display:inline-block;min-width:24px;padding-inline:3px}
+/* The last four, each on one page, each found only because the sweep runs at
+   five widths: the change-log entries, the comparison cards, the /for/ ask
+   block. Named, because a rule general enough to catch `li > div > a` would
+   also catch a card link. */
+.chglog li > div > a,.alts .alt > a,.ask > a{padding-block:7px}
+/* Two targets that are short across, not down: the A-Z index letter (16px)
+   and the section permalink (7px). `min-height` alone never touches either.
+   `mobile_floor.py` has this rule at 640px and below; 2.5.8 is not a phone
+   criterion, so it belongs outside the query. */
+.az a,a.perma{min-width:24px;min-height:24px;display:inline-flex;
+  align-items:center;justify-content:center}
+/* A footnote marker is 18x12: it is the one target that is short in BOTH
+   directions, so it needs the inline padding as well. */
+sup a{padding-inline:4px}
+@media (max-width:640px){
+  /* A 12px floor for text that CARRIES A SENTENCE. The 9.5 and 10.5 steps
+     stay where they are on labels and eyebrows - those are a house device,
+     not an accident. This is mobile_floor's own curated list, imported.
+     Quadrupled because `.sec .nlmeta` is (0,2,0) and was winning. */
+  label.consent.consent.consent.consent span,
+  label.lconsent.lconsent.lconsent.lconsent span{font-size:12px}
+  .nlmeta.nlmeta.nlmeta.nlmeta{font-size:12px}
+  .vmeta.vmeta.vmeta.vmeta{font-size:12px}
+  .cun.cun.cun.cun{font-size:12px}
+  .tm.tm.tm.tm{font-size:12px}
+  .mods.mods.mods.mods{font-size:12px}
+  .ccode.ccode.ccode.ccode{font-size:12px}
+  .tsbadge.tsbadge.tsbadge.tsbadge{font-size:12px}
+  .np.np.np.np{font-size:12px}
+  .lhdph.lhdph.lhdph.lhdph{font-size:12px}
+  .sub.sub.sub.sub{font-size:12px}
+  .kick.kick.kick.kick{font-size:12px}
+  .pr-kick.pr-kick.pr-kick.pr-kick{font-size:12px}
+  .city.city.city.city{font-size:12px}
+  .pdcity.pdcity.pdcity.pdcity{font-size:12px}
+  .anote.anote.anote.anote{font-size:12px}
+  .cx.cx.cx.cx{font-size:12px}
+  .ocl.ocl.ocl.ocl{font-size:12px}
+  .leyebrow.leyebrow.leyebrow.leyebrow{font-size:12px}
+  .lname.lname.lname.lname{font-size:12px}
+  .lab.lab.lab.lab{font-size:12px}
+  .tck.tck.tck.tck{font-size:12px}
+  .grouplab.grouplab.grouplab.grouplab span{font-size:12px}
+  .fact.fact.fact.fact i{font-size:12px}
+  .hwfact.hwfact.hwfact.hwfact i{font-size:12px}
+  .cnum.cnum.cnum.cnum{font-size:12px}
+  .nx-f.nx-f.nx-f.nx-f{font-size:12px}
+  .jobfoot.jobfoot.jobfoot.jobfoot{font-size:12px}
+  .mo.mo.mo.mo{font-size:12px}
+  .cred.cred.cred.cred{font-size:12px}
+  .ig-l.ig-l.ig-l.ig-l{font-size:12px}
+  .bcr.bcr.bcr.bcr span{font-size:12px}
+  .pdmeta.pdmeta.pdmeta.pdmeta,
+  .pdmeta.pdmeta.pdmeta.pdmeta span{font-size:12px}
+  .afmeta.afmeta.afmeta.afmeta,
+  .afmeta.afmeta.afmeta.afmeta span{font-size:12px}
+  .tbl.tbl.tbl.tbl .r.r.r.r span,
+  .tbl.tbl.tbl.tbl .r.r.r.r b .sub.sub.sub.sub{font-size:12px}
+  .pdgone.pdgone.pdgone.pdgone i{font-size:12px}
+  .vwho.vwho.vwho.vwho{font-size:12px}
+  .hk.hk.hk.hk{font-size:12px}
+}
+</style>
+<style>/* _dev/infographics.py */
+/* A visual vocabulary. Five shapes, all CSS, all reflowing at 390px, all
+   carrying their figures as real text so a screen reader gets the number and
+   not just a coloured box. */
+
+.ig{margin:26px 0;font-family:Inter,system-ui,sans-serif;
+  /* Padding, because something else on this site gives `figure` a 2px border
+     and these blocks had none of their own - so every caption, label and note
+     started two pixels from the frame. Reported as "text too close to
+     borders", and it was: measured at x=158 inside a box whose edge is 156. */
+  padding:20px 22px;
+  /* The aggressive break value used by the table rules is inherited in here
+     and is counted in min-content width, so a narrow flex or grid item breaks
+     one character per line instead of pushing its track wider. `break-word`
+     is not counted, which is the whole difference. */
+  overflow-wrap:break-word;word-break:normal}
+.ig-cap{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:#2C6350;margin:0 0 9px}
+.ig-note{font-size:13.5px;line-height:1.6;color:#635D4E;margin:10px 0 0;max-width:72ch}
+.ig-note b{color:#1B2420}
+
+/* ---------------------------------------------------------------- split */
+.ig-split .bar{display:flex;border:2px solid #1B2420;border-radius:10px;
+  overflow:hidden;box-shadow:4px 4px 0 #1B2420;min-height:56px}
+.ig-split .seg{display:flex;flex-direction:column;justify-content:center;
+  padding:9px 13px;min-width:0}
+.ig-split .seg.a{background:#2C6350;color:#fff}
+.ig-split .seg.b{background:#F6F8F6;color:#1B2420;border-left:2px solid #1B2420}
+.ig-split .n{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:23px;
+  line-height:1}
+.ig-split .l{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:9.5px;
+  letter-spacing:.09em;text-transform:uppercase;margin-top:5px;line-height:1.4}
+.ig-split .seg.a .l{color:rgba(255,255,255,.86)}
+.ig-split .seg.b .l{color:#635D4E}
+/* `.n` is a name several older stylesheets on this site already use for a
+   figure, and one of them paints it gold. Gold on pine failed contrast in the
+   first shipped version of this pass. Doubled selector so the shape's own
+   colour outranks whatever the page brought with it. */
+.ig-split.ig-split .seg.a .n{color:#fff}
+.ig-split.ig-split .seg.b .n{color:#1B2420}
+
+/* ---------------------------------------------------------------- steps */
+.ig-steps ol{list-style:none;margin:0;padding:0;counter-reset:s}
+.ig-steps li{counter-increment:s;position:relative;display:grid;
+  grid-template-columns:38px 1fr;gap:13px;align-items:start;
+  padding:0 0 16px;margin:0}
+.ig-steps li::before{content:counter(s,decimal-leading-zero);
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border:2px solid #1B2420;border-radius:10px;
+  background:#F6C560;color:#1B2420;box-shadow:2px 2px 0 #1B2420}
+/* the connector between steps, decorative only */
+.ig-steps li:not(:last-child)::after{content:"";position:absolute;
+  left:17px;top:38px;bottom:4px;width:2px;background:#D9D0BA}
+/* `li::before` IS a grid item. Without an explicit column the auto-flow puts
+   the number in 1/1, the title in 2/1 and then wraps the description back to
+   1/2 - the 38px column - which renders one character per line and made a
+   seven-step list 4,170px tall. Both children are pinned to column 2. */
+.ig-steps li > b,.ig-steps li > span{grid-column:2}
+.ig-steps b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-weight:800;letter-spacing:-.02em;font-size:15px;color:#1B2420;
+  margin:6px 0 3px}
+.ig-steps span{display:block;font-size:13.5px;line-height:1.6;color:#635D4E;max-width:64ch}
+
+/* ----------------------------------------------------------------- bars */
+.ig-bars .row{display:grid;grid-template-columns:150px 1fr auto;gap:12px;
+  align-items:center;padding:7px 0;border-bottom:1.5px solid #DFE4E0}
+.ig-bars .row:last-child{border-bottom:0}
+.ig-bars .who{font-size:13.5px;line-height:1.35;color:#1B2420;font-weight:600}
+.ig-bars.ig-bars .who i{display:block;font-style:normal;font-size:12px;
+  color:#635D4E;font-weight:400}
+.ig-bars .track{background:#F4F0E6;border:1.5px solid #D9D0BA;border-radius:999px;
+  height:19px;position:relative;overflow:hidden}
+.ig-bars .fill{position:absolute;left:0;top:0;bottom:0;background:#2C6350;
+  border-radius:999px}
+.ig-bars .fill.lo{background:#84AC99}
+.ig-bars.ig-bars .val{font-family:Fraunces,Georgia,serif;font-weight:600;
+  font-size:15px;color:#1B2420;white-space:nowrap}
+
+/* ----------------------------------------------------------------- flow */
+.ig-flow .fr{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.ig-flow .node{flex:1 1 150px;border:2px solid #1B2420;border-radius:10px;
+  background:#F6F8F6;padding:13px 14px;box-shadow:4px 4px 0 #1B2420;min-width:0}
+.ig-flow .node.pay{background:#F6C560}
+.ig-flow .node b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-weight:800;font-size:15px;color:#1B2420;letter-spacing:-.02em}
+.ig-flow .node span{display:block;font-size:12px;line-height:1.55;color:#635D4E;
+  margin-top:4px}
+.ig-flow .arr{flex:0 0 42px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;padding:0 4px}
+.ig-flow .arr em{font-style:normal;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:#2C6350;
+  text-align:center;line-height:1.2}
+.ig-flow .arr i{font-style:normal;font-size:19px;color:#1B2420;line-height:1}
+
+/* ----------------------------------------------------------------- stat */
+.ig-stat .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:0;border:2px solid #1B2420;border-radius:10px;overflow:hidden;
+  box-shadow:5px 5px 0 #1B2420;background:#1B2420}
+.ig-stat .c{background:#F6F8F6;padding:14px 15px}
+.ig-stat.ig-stat .c .n{display:block;font-family:Fraunces,Georgia,serif;
+  font-weight:600;font-size:28px;line-height:1;color:#1B2420;letter-spacing:-.02em}
+.ig-stat .l{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#2C6350;
+  margin-top:7px;line-height:1.5}
+
+@media (max-width:640px){
+  .ig{padding:15px 16px}
+  .ig-bars .row{grid-template-columns:1fr auto;gap:6px 10px}
+  .ig-bars .track{grid-column:1 / -1;order:3}
+  /* Rotating the whole arrow cell turned its LABEL on its side too, which
+     read as a vertical strip of letters beside the flow. Only the glyph
+     turns; the label stays horizontal next to it. */
+  .ig-flow .arr{flex-basis:100%;height:auto;flex-direction:row;gap:9px;
+    justify-content:flex-start;padding:9px 4px}
+  .ig-flow .arr i{transform:rotate(90deg);display:block}
+  .ig-flow .arr em{text-align:left}
+  .ig-split .bar{flex-direction:column}
+  .ig-split .seg.b{border-left:0;border-top:2px solid #1B2420}
 }
 </style>
 <style>/* restyle */
