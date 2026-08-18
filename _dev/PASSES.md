@@ -139,6 +139,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
 | `flat_bands.py` | last | &mdash; | The decorative gradients become flat fills, and only those. |
 | `font_links.py` | last | &mdash; | A page that asks for a typeface must also load it. |
+| `lost_containers.py` | last | `/* _dev/lost_containers.py */` | The container rule was lost and its own children's overrides survived. |
 | `masthead_mark.py` | last | &mdash; | The mark was never removed. It was hidden, and nobody wrote down why. |
 | `mobile_last.py` | last | `/* _dev/mobile_last.py */` | The mobile rules, re-asserted after the passes that were dropping them. |
 | `mobile_reassert.py` | last | `/* _dev/mobile_reassert.py */` | mobile_floor.py's decisions, re-asserted where nothing can drop them. |

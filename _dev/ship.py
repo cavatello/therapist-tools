@@ -754,6 +754,10 @@ LAST = [
     # and style blocks are held out: extract_css.py matches them exactly and
     # css_dedupe.py collapses byte-identical copies, so reformatting one
     # would defeat both.
+    # After the family sheets and the palette passes, because it re-asserts
+    # boxes those sheets' surviving descendant rules already assume.
+    ("_dev/lost_containers.py",
+     "the container rules whose children's overrides outlived them"),
     ("_dev/whitespace.py --html",
      "blank-line runs in the pages, after everything has finished writing"),
 ]
@@ -847,6 +851,8 @@ VERIFY = [
      "every page with a topic row still carries the wrapping rule"),
     ("_dev/masthead_mark.py --check",
      "the masthead mark is still un-hidden on every page that carries one"),
+    ("_dev/lost_containers.py --check",
+     "no page renders the issue block or the signup form without a box"),
     ("_dev/narrow_floor.py --check",
      "house-chrome.css still carries both rules the 320px floor rests on"),
     ("_dev/whitespace.py --check",

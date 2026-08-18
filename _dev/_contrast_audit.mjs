@@ -45,7 +45,40 @@ for (const p of pages) {
         n.style.setProperty('position', 'static', 'important');
       });
     });
-    await page.waitForTimeout(60);
+    // LET TRANSITIONS SETTLE BEFORE MEASURING.
+    //
+    // This waited 60ms, and 60ms is inside a CSS transition. tycoon.html's
+    // speed buttons carry `transition:.12s`, so at 60ms the gold background
+    // is roughly half faded in and composites to #886741 - the ink label
+    // measured 3.08:1 against a colour that exists for about a tenth of a
+    // second and is never the resting state. The settled pair is ink on
+    // solid gold, which passes comfortably.
+    //
+    // The false positive is the harmless direction. The dangerous one is
+    // the same bug in reverse: a pair that FAILS when settled can be
+    // sampled mid-fade against a colour that happens to pass, and this
+    // sweep would report nothing. So the wait is the longest transition or
+    // animation the page actually declares, not a guess - capped, because
+    // an infinite animation never settles and must be sampled somewhere.
+    const settle = await page.evaluate(() => {
+      let ms = 0;
+      for (const el of document.querySelectorAll('body *')) {
+        const cs = getComputedStyle(el);
+        for (const [dur, del] of [[cs.transitionDuration, cs.transitionDelay],
+                                  [cs.animationDuration, cs.animationDelay]]) {
+          const d = String(dur).split(',');
+          const y = String(del).split(',');
+          for (let i = 0; i < d.length; i++) {
+            const s = parseFloat(d[i]) || 0;
+            const t = parseFloat(y[i] || y[0]) || 0;
+            if (String(d[i]).includes('ms')) ms = Math.max(ms, s + t);
+            else ms = Math.max(ms, (s + t) * 1000);
+          }
+        }
+      }
+      return ms;
+    });
+    await page.waitForTimeout(Math.min(Math.max(settle + 40, 60), 600));
     const nodes = await page.evaluate(() => {
       const out = [];
       document.querySelectorAll('body *').forEach(el => {
