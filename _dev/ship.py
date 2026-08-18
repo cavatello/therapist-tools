@@ -756,6 +756,10 @@ LAST = [
     # would defeat both.
     # After the family sheets and the palette passes, because it re-asserts
     # boxes those sheets' surviving descendant rules already assume.
+    # After one_display_face.py, whose custom-property arm leaves the body
+    # face at the head of the display token. See this pass's docstring.
+    ("_dev/heading_face.py",
+     "headings name the display face instead of inheriting the body one"),
     ("_dev/lost_containers.py",
      "the container rules whose children's overrides outlived them"),
     ("_dev/whitespace.py --html",
@@ -851,6 +855,8 @@ VERIFY = [
      "every page with a topic row still carries the wrapping rule"),
     ("_dev/masthead_mark.py --check",
      "the masthead mark is still un-hidden on every page that carries one"),
+    ("_dev/heading_face.py --check",
+     "no page that loads the display face leaves its headings on the body one"),
     ("_dev/lost_containers.py --check",
      "no page renders the issue block or the signup form without a box"),
     ("_dev/narrow_floor.py --check",
