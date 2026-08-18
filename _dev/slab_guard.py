@@ -73,6 +73,17 @@ SUBDIRS = ("money", "licensure", "getting-paid", "practice", "training", "for")
 
 BARE = re.compile(r'class="slab"')
 MODIFIED = re.compile(r'class="slab\s+([a-z-]+)"')
+# The positive identification the rollout added. Before it existed, a P8 slab
+# could only be recognised NEGATIVELY - by not carrying a colour modifier -
+# and on a page that used both components that inference was too weak to
+# trust, so this guard refused to judge such a page at all. That refusal was
+# correct when no page did both and wrong the moment the rollout started: four
+# of the five band pages are among the most important on the site, and
+# "cannot be checked" would have quietly meant "cannot have a claim".
+# `slab_rollout.py` wraps every slab it places, so on a mixed page the
+# question becomes answerable rather than avoided: every bare slab must be one
+# this pass put there.
+P8WRAP = re.compile(r'class="p8slab"\s*>\s*<div class="slab"')
 # The scalloped edge, however a pass chooses to spell the property.
 SCALLOP = re.compile(r"(?:-webkit-)?mask(?:-image)?\s*:[^;}]*radial-gradient")
 
@@ -118,10 +129,14 @@ def main():
             none += 1
         # the two components must stay tellable apart
         if n and mods:
-            print("GUARD %s mixes a bare slab with %d colour-modified "
-                  "band(s); the rule cannot be checked on a page that does "
-                  "both" % (rel, len(mods)))
-            bad += 1
+            wrapped = len(P8WRAP.findall(html))
+            if wrapped != n:
+                print("GUARD %s mixes %d bare slab(s) with %d colour-"
+                      "modified band(s), and only %d of the slabs is inside "
+                      "the rollout's wrapper - so the two components are no "
+                      "longer tellable apart on this page"
+                      % (rel, n, len(mods), wrapped))
+                bad += 1
 
     print("%d page(s) carry exactly one P8 slab, %d carry none."
           % (len(one), none))

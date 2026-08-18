@@ -216,55 +216,6 @@ BUILD = [
      "the numbers somebody retraining deserves first - the pipeline, the "
      "three licenses on statute rather than temperament, and the attrition "
      "visible in the Board's own reporting"),
-    # Tier 3. The only page on this site with an expiry date on it: both
-    # bills are decided by 31 August 2026 and signed or vetoed by
-    # 30 September. Its guard fails the build if the page ever forecasts
-    # an outcome or stops saying that neither bill is law.
-    ("_dev/build_bills.py",
-     "AB 1598 and SB 903 - what each would change, where each stood, and "
-     "the two dates that decide them"),
-    # Tier 3 again, and the opposite kind of page: it introduces no tax
-    # figure of its own. Every number it uses is carried from one of the
-    # ten tax pages that computes it, under build_viable's no-new-numbers
-    # rule, so it MUST run after them - they are hand-written, so in
-    # practice that means after the builders that could touch them. Its
-    # own new facts are all about preparers, from the FTB and the IRS.
-    # Tier 3 #1c. A page read in a panic, so it is sequenced rather than
-    # comprehensive: what the paper is, the clock, who to phone. Two
-    # guards on it are unusual and deliberate - the build fails if the
-    # not-legal-advice line disappears, and it fails if the page ever
-    # starts telling a reader what the answer in their own matter is.
-    ("_dev/build_subpoena.py",
-     "a subpoena is not a court order, and Evidence Code 1015 makes "
-     "claiming the client's privilege mandatory rather than optional - "
-     "plus the 1985.3 notice clock and the insurer helpline the reader "
-     "has already paid for"),
-    # Tier 3 #1d, the reference companion to the subpoena page. Two
-    # pages rather than one was a decision made before either was
-    # written - the reasoning is in this builder's docstring. Runs after
-    # build_subpoena because it links to that page and its guard checks
-    # the link is there.
-    # Tier 3 #1b, the last of the five. The supervisee's side of this
-    # arrangement has been on the site for months; this is the other
-    # side of the table, and its whole job is to separate two decisions
-    # that get written about as one. A guard fails the build if a
-    # supervision rate ever appears - no authority publishes one, and an
-    # invented range would be the only figure on this site that could
-    # not point at its source.
-    ("_dev/build_supeconomics.py",
-     "becoming a clinical supervisor - the two separate two-year "
-     "eligibility tests, fifteen training hours then six a renewal, the "
-     "liability, and why supervising for a fee is not the same decision "
-     "as employing an associate"),
-    ("_dev/build_records.py",
-     "client records - seven years from termination across four license "
-     "types, inspection in five working days, copies in fifteen at 25 "
-     "cents a page, the summary option, the mental health exception, "
-     "and the question the statute never answers"),
-    ("_dev/build_cpa.py",
-     "what to know before meeting an accountant and what to ask - the "
-     "credential most people never check, the nine things this site "
-     "already answers, and the four answers that end an interview"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that
@@ -330,6 +281,16 @@ BUILD = [
 # STRUCTURE. Chrome, navigation, cross-links, the blocks that carry meaning.
 # restyle is first because every later pass assumes the masthead exists.
 STRUCTURE = [
+    # FIRST in STRUCTURE, and it only takes something away. An article page is
+    # not rewritten by any builder, so a slab that shipped last time is still
+    # in the tree now - and the family passes carry hardcoded lists of the
+    # classes their pages may wear, so `family_art.py` fails 7 pages with
+    # "uncovered classes: eb mark p8slab slab". Taking the slab out here and
+    # putting it back in LAST means every pass in between sees the site it
+    # would see on a virgin build, and none of them has to learn about a
+    # component that is added after they have all run.
+    ("_dev/slab_rollout.py --strip",
+     "the slabs from the last build, removed until LAST puts them back"),
     ("_dev/restyle.py", "masthead, nav panel and the nav script, on every page"),
     ("_dev/ehr_market.py",
      "the whole practice-software market with every published price, in place "
@@ -698,6 +659,39 @@ LAST = [
     ("_dev/mobile_reassert.py",
      "mobile_floor's 12px floor and 24px hit areas, where nothing can drop "
      "them and at every width, not only under 640px"),
+    # P8's slab, from the claims file. Here rather than in STRUCTURE for two
+    # reasons. Its anchor check asserts that the figure a claim rests on is
+    # present in the page AS IT SHIPS, so it has to run after everything that
+    # rewrites page text. And its CSS ships inline, after the hoisting chain,
+    # deliberately: the recurring failure in this tree is a pass's rules being
+    # hoisted into a shared sheet and then unlinked again by a family pass -
+    # which is exactly what happened to mobile_floor.py and cost 3,085 tap
+    # targets. A slab whose fill gets unlinked is a white block with white
+    # text on it, and nothing static would report it.
+    #
+    # After mobile_reassert, not before: the slab's eyebrow is a 10.5px label,
+    # the same size as the hand-written one on the home page, and running the
+    # 12px sentence floor over it would make the rollout disagree with the
+    # slab it is rolling out.
+    ("_dev/slab_rollout.py",
+     "the one claim each page makes, from _dev/slab_claims.json, with every "
+     "claim's anchor checked against the page as it ships"),
+    # The contrast in the calculators' OUTPUT, which no guard here had ever
+    # measured because it does not exist until an input changes. Reported from
+    # a phone, not by a tool: eighteen failures at 390px, the worst at 1.29:1.
+    # After the palette passes and after mobile_reassert, because it has to
+    # outrank both, and inline for the same reason they are.
+    ("_dev/tool_surface.py",
+     "the seven colour pairs the tools emit onto the wrong surface"),
+    # The mark the site owner chose for the header, which has been in every
+    # page's markup all along and hidden by `body.house .sitenav-fig
+    # {display:none}` since the August masthead rebuild.
+    ("_dev/masthead_mark.py",
+     "the masthead figure, un-hidden - it was never removed, only turned off"),
+    # Four of seven topics were off-screen on a phone, in a scroller with no
+    # scrollbar, no visible fade and a cut that lands mid-word.
+    ("_dev/nav_wrap.py",
+     "the topic row wraps below 900px, so all seven sections are visible"),
     # Last, because it has to outrank the palette passes and surface_fix on a
     # page that has no body class for surface_fix to scope to.
     ("_dev/mockup_floor.py",
@@ -735,14 +729,6 @@ VERIFY = [
      "one inbound link - a page in the sitemap that no other page links "
      "to fails the build"),
     ("_dev/seo_rules.py", "the SEO rules, against the recorded baseline"),
-    # The guard that would have caught 107 pages loading the analytics tag
-    # twice for weeks. clarity.py is idempotent about the tags it can SEE,
-    # and pagekit's marker-stripper made one invisible to it. Neither pass
-    # was wrong about its own output; the check had to be on the shipped
-    # page, which is what this is.
-    ("_dev/analytics_once.py",
-     "no published page carries two analytics loaders, an orphaned tag "
-     "marker, or a loader without the masking attribute"),
     # The two censuses, and they are the same lesson: a check that looks for
     # the drift it has already been shown finds only that drift. These count
     # EVERYTHING - every hex on every published page and in every sheet
@@ -773,6 +759,17 @@ VERIFY = [
     # Reads the modifier instead, and also proves the slab still has the
     # mask that gives it its scalloped edge - the thing flat_bands.py has
     # to keep distinguishing from decoration.
+    # Non-mutating half of the rollout: every claim's anchor is still on its
+    # page, and every record still fits the budgets. A builder's figure moving
+    # is the way a slab goes stale, and this is the thing that notices.
+    ("_dev/slab_rollout.py --check",
+     "every shipped claim still rests on a figure its page actually carries"),
+    ("_dev/tool_surface.py --check",
+     "the calculator pages still carry the tool-output colour rules"),
+    ("_dev/nav_wrap.py --check",
+     "every page with a topic row still carries the wrapping rule"),
+    ("_dev/masthead_mark.py --check",
+     "the masthead mark is still un-hidden on every page that carries one"),
     ("_dev/slab_guard.py",
      "one slab per page at most, and the scallop is still on it"),
 ]

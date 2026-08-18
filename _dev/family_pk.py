@@ -120,6 +120,12 @@ pk-calc pk-cg pk-cc pk-fl pk-out r hd tot lbl va pk-note
 pk-src pk-chart pk-mini soc
 lg lg-priv lg-in lg-bar lg-mk lg-g lg-note req hot done k v s
 ask an q start t shelf card
+
+# The ts* timeline component. It was only ever defined in house-art.css,
+# so the five pages added on 18 August carrying it rendered unstyled - this
+# guard is what caught that. The rules are now in house-pk.css too, scoped
+# to body.bcp, so these names are genuinely covered rather than excused.
+tsall tsmeta tsrow tsv tsvint
 """.split())
 
 

@@ -1,0 +1,305 @@
+{
+  "_note": "One record per published page. eyebrow/claim/support are the P8 slab's three parts; anchor is the exact string the claim rests on and must be present in the page as it ships. See claude/slab-claim-voice-and-rules.md.",
+  "exempt": {
+    "index.html": "carries the original P8 slab, written by hand and not owned by this pass",
+    "tools.html": "55 words; a link list with no figure of its own to anchor a claim to",
+    "calculators.html": "an index of the tools; every figure it shows belongs to another page",
+    "concepts.html": "a design-concept index, not a page that makes a claim to a reader",
+    "contact.html": "a form; no figure, and a claim here would read as availability language",
+    "tycoon.html": "a static visual-direction mockup, and its body carries no class to scope the slab to",
+    "rates.html": "body class is ratespage and its editorial voice is excluded from the house passes by decision",
+    "discipline-case-a-forty-year-license-surrendered.html": "a single de-identified case; the claim belongs to the library hub, not the write-up",
+    "discipline-case-from-dui-to-surrender.html": "a single de-identified case; the claim belongs to the library hub, not the write-up"
+  },
+  "claims": {
+    "amft-3000-hours-california.html": {
+      "eyebrow": "What actually holds people up",
+      "claim": "Almost nobody is waiting on the 3,000. An all-adult caseload is waiting on 500 relational hours.",
+      "support": "Four requirements, closing at different speeds. This projects all four from the week you actually work, and names the one you are waiting on. Not the total.",
+      "anchor": "500 of the 1,750",
+      "mark": "the one you are waiting on"
+    },
+    "associate-hours-telehealth-out-of-state.html": {
+      "eyebrow": "The belief and the record",
+      "claim": "Associate groups say you cannot finish your hours from another state. The Board has published the opposite five times.",
+      "support": "Five published answers. Four conditions, all of them ordinary. And one real risk, which is not the one people are worried about.",
+      "anchor": "The Board has published the opposite answer 5 times",
+      "mark": "not the one people are worried about"
+    },
+    "associate-mft-job-advisor.html": {
+      "eyebrow": "What the offer letter omits",
+      "claim": "The salary is the one number an offer letter gives you, and it is not the number that decides.",
+      "support": "What you take home after tax. What an hour is really worth once notes and supervision are counted. And how fast this placement closes your 3,000 hours.",
+      "anchor": "$58,000",
+      "mark": "how fast this placement closes your 3,000 hours"
+    },
+    "associate-therapist-pay-los-angeles-bay-area.html": {
+      "eyebrow": "Before you compare two offers",
+      "claim": "A $70,000 associate salary sits $304 below the floor California law sets for a salaried-exempt job.",
+      "support": "Three floors an offer has to clear, and the salary is only the first. Underneath are published pay scales from named employers, so you can check an offer against what the work actually pays.",
+      "anchor": "$70,304",
+      "mark": "named employers"
+    },
+    "associate-unpaid-hours-california.html": {
+      "eyebrow": "When the notes went unpaid",
+      "claim": "The Board does not regulate what your supervisor pays you. Somebody else does, and filing costs nothing.",
+      "support": "Five separate things you can be owed, one of which the law may double. Three years to file. No fee, and no cost to the hours you have already banked.",
+      "anchor": "$0 to file, 3 years to do it",
+      "mark": "one of which the law may double"
+    },
+    "bbs-exam-pass-rates-california.html": {
+      "eyebrow": "Two rates, one exam",
+      "claim": "The California clinical exam passes 84% of people. It also passes 65%. Both figures are the Board's own.",
+      "support": "One counts first-time candidates and the other counts every attempt, and almost nobody quoting a rate says which. Seven quarters of both, for all seven exams.",
+      "anchor": "The pass rate is 84%. It is also 65%.",
+      "mark": "almost nobody quoting a rate says which"
+    },
+    "bbs-processing-times-california.html": {
+      "eyebrow": "The wait after you pass",
+      "claim": "Getting registered got faster this year. Getting licensed got much slower, from 54 days to 96.",
+      "support": "The Board publishes this every quarter and nobody reads it. Both directions, quarter by quarter, and what one missing document adds to the wait.",
+      "anchor": "54 days to 96",
+      "mark": "nobody reads it"
+    },
+    "become-an-mft-california.html": {
+      "eyebrow": "Every requirement, with its section",
+      "claim": "Nothing here is somebody's summary of the rule. Every requirement is tied to the section that imposes it.",
+      "support": "The degree, the practicum, the 3,000 hours, supervision, both exams, and every fee at the rates that took effect on 1 July 2026. Where the Board publishes nothing, this page says so.",
+      "anchor": "4980.36",
+      "mark": "Where the Board publishes nothing, this page says so"
+    },
+    "continuing-education-california-lmft.html": {
+      "eyebrow": "The audit most people fail",
+      "claim": "The Board restarted audits in 2024, and 62% of the people it checked could not prove they had complied.",
+      "support": "Thirty-six hours every two years is the easy part. Proving you did them, two years later, is what people lose. The whole requirement, and the cheapest compliant way through it.",
+      "anchor": "62%",
+      "mark": "Proving you did them, two years later"
+    },
+    "for/associates.html": {
+      "eyebrow": "Which requirement is holding you",
+      "claim": "The 3,000 is almost never what decides your date, and which requirement does changes what job you should take.",
+      "support": "Twenty-eight guides for the years between registration and the license. The hours, the hiring, the pay county by county, the loan repayment nobody mentions. Every figure from a named source.",
+      "anchor": "The 3,000 is almost never what decides your date",
+      "mark": "the loan repayment nobody mentions"
+    },
+    "for/deciding.html": {
+      "eyebrow": "Before you commit to this",
+      "claim": "The same clinical job pays 2.8 times more in one California county than in another.",
+      "support": "Twelve guides for the decision itself. What the whole route costs and how long it really takes, how all 78 programs differ, and how crowded the field already is.",
+      "anchor": "2.8",
+      "mark": "how crowded the field already is"
+    },
+    "for/licensed.html": {
+      "eyebrow": "After the license number",
+      "claim": "Thirty-six CE hours every renewal, and an audit most people fail on paperwork rather than on hours.",
+      "support": "Thirteen guides for the years the license actually pays. What your rate and caseload leave in the bank, what each panel reimburses per code, and whether the corporation beats the sole proprietorship on your numbers.",
+      "anchor": "36 CE hours per renewal",
+      "mark": "whether the corporation beats the sole proprietorship"
+    },
+    "for/students.html": {
+      "eyebrow": "Hours that start before graduation",
+      "claim": "Up to 1,300 of your pre-degree hours can bank toward the 3,000, and most students never count them.",
+      "support": "Fourteen guides for the years between enrolling and your associate number. How the practicum actually works, who finds your site, and the two pieces of paperwork that start before you graduate.",
+      "anchor": "1,300",
+      "mark": "the two pieces of paperwork that start before you graduate"
+    },
+    "getting-hired-as-a-california-associate.html": {
+      "eyebrow": "Why applications get no reply",
+      "claim": "The bar is not your hour count. It is whether the setting is legally able to bill for your work.",
+      "support": "Two markets, and only one of them can hire you. That market also carries up to $180,000 of loan repayment that almost nobody mentions.",
+      "anchor": "$180,000",
+      "mark": "up to $180,000 of loan repayment"
+    },
+    "headway-alma-grow-therapy-compared-california.html": {
+      "eyebrow": "What a network must beat",
+      "claim": "At twenty sessions a week, a network has to pay you $1.24 a session more than your own contracts do.",
+      "support": "None of the three publishes a California rate, so the decision is arithmetic you can do yourself. All four routes priced at ten, twenty and thirty sessions a week, with the crossover named.",
+      "anchor": "$1.24",
+      "mark": "arithmetic you can do yourself"
+    },
+    "hiring-first-associate-california-therapist.html": {
+      "eyebrow": "Before you place the advert",
+      "claim": "An associate costs about 1.10 times their salary, and starts paying for themselves at 14 sessions a week.",
+      "support": "Payroll loading, plus one hour a week of your own billable time, which is the cost everybody forgets. And one classification question that has exactly one lawful answer.",
+      "anchor": "14 sessions a week",
+      "mark": "the cost everybody forgets"
+    },
+    "insurance-panels-california-therapist.html": {
+      "eyebrow": "The arithmetic nobody runs first",
+      "claim": "Eleven and a half hours of private pay beats twenty hours on a panel.",
+      "support": "Once you price the unpaid hours a panel caseload drags behind it, the comparison changes. The sequence in order, the clock California law imposes, and which panels were open in August 2026.",
+      "anchor": "11.5 hours",
+      "mark": "the unpaid hours a panel caseload drags behind it"
+    },
+    "insurance-reimbursement-rates-california-therapist.html": {
+      "eyebrow": "What is actually published",
+      "claim": "Medicare and Medi-Cal publish their rates to the cent. Commercial payers and the networks publish nothing.",
+      "support": "So this page carries every figure a primary source establishes, the arithmetic that turns it into a year of income, and a plain list of what nobody can tell you.",
+      "anchor": "$134.47",
+      "mark": "a plain list of what nobody can tell you"
+    },
+    "loan-forgiveness-employers-california.html": {
+      "eyebrow": "Four programs, three questions",
+      "claim": "Two of the four loan repayment programs reach a registered associate, and the employer you take decides which.",
+      "support": "One of them does not care what your license says. Another names associates outright. The job you accept opens and closes these before you have thought about them.",
+      "anchor": "2 of 4",
+      "mark": "before you have thought about them"
+    },
+    "mbh-slrp-california.html": {
+      "eyebrow": "The largest award California offers",
+      "claim": "California will repay up to $180,000 of an associate's loans, and asks 32 hours a week of direct care.",
+      "support": "The three tiers, the obligation, and the tax question HCAI does not answer. In the first cycle, eligible demand was about 3.7 times the money available.",
+      "anchor": "$180,000",
+      "mark": "the tax question HCAI does not answer"
+    },
+    "mft-programs-california.html": {
+      "eyebrow": "No rankings, no estimates",
+      "claim": "The same license costs $37,800 at one California program and $152,340 at another.",
+      "support": "Seventy-eight institutions, on published facts only. Degree, units, length, format, accreditation and cost, next to what students and graduates actually say in public.",
+      "anchor": "$152,340",
+      "mark": "on published facts only"
+    },
+    "out-of-state-to-california-licensure.html": {
+      "eyebrow": "Two routes, and one letter",
+      "claim": "Your license travels. Your transcript does not, and licensed time converts into hours only up to 1,200.",
+      "support": "Two routes in, and the deficiency letter does not say which one you are on. One asks for four courses. The other reopens your graduate degree.",
+      "anchor": "1,200",
+      "mark": "The other reopens your graduate degree"
+    },
+    "psychedelic-therapy-training-california.html": {
+      "eyebrow": "What the certificate permits",
+      "claim": "Sixteen trainings, from $1,047 to €15,000, and not one of them leads with what you may legally do afterwards.",
+      "support": "So this page leads with it. What each costs, what you would study, and exactly what the certificate lets you do as a therapist licensed in California.",
+      "anchor": "$1,047",
+      "mark": "So this page leads with it"
+    },
+    "psyd-programs-california.html": {
+      "eyebrow": "What accreditation actually decides",
+      "claim": "California will license you without APA accreditation. The internship year very largely will not.",
+      "support": "Twenty-five doctorates in the state, grouped by the one fact that changes what the degree is worth. Twenty are APA-accredited. Five are not.",
+      "anchor": "20 of 25 are APA-accredited",
+      "mark": "Five are not"
+    },
+    "solo-401k-sep-simple-california-therapist.html": {
+      "eyebrow": "Three plans, one decision",
+      "claim": "At the same profit, a solo 401(k) shelters $24,500 a year more than a SEP does.",
+      "support": "Two facts decide this, not seven. How much the practice makes, and whether you employ anyone. Worked at $80,000, $150,000 and $250,000 of profit, with the 20% rule derived rather than asserted.",
+      "anchor": "$24,500",
+      "mark": "derived rather than asserted"
+    },
+    "therapist-discipline-cases-california.html": {
+      "eyebrow": "What it actually costs",
+      "claim": "Discipline does not usually start with a client, and cost recovery is the number therapists most underestimate.",
+      "support": "Forty-eight real Board decisions, de-identified. What happened, the exact subdivision it was charged under, and what each one cost the licensee.",
+      "anchor": "$33,704",
+      "mark": "what each one cost the licensee"
+    },
+    "therapist-tax-deductions-california.html": {
+      "eyebrow": "What a deduction is worth",
+      "claim": "A real deduction saves 39 cents on the dollar. Four of the popular ones save nothing at all.",
+      "support": "A genuine expense comes off self-employment tax, federal income tax and California's rate at the same time, which is why $22,000 of expenses is worth $8,608 at $140,000 of gross.",
+      "anchor": "39 cents on the dollar",
+      "mark": "$8,608"
+    },
+    "therapist-tax-strategy-california.html": {
+      "eyebrow": "How much is optional",
+      "claim": "On a $217,350 profit, $18,244 of the tax bill is optional. Not a loophole. Ordinary accounts.",
+      "support": "Each account's saving is measured by running the whole tax engine twice, not estimated from a bracket table. The only question is whether that money goes to the IRS or into an account with your name on it.",
+      "anchor": "$18,244",
+      "mark": "running the whole tax engine twice"
+    },
+    "therapists-by-county-california.html": {
+      "eyebrow": "The register nobody reads",
+      "claim": "California publishes all 165,235 people on its register every month, to anyone who asks.",
+      "support": "Counted by county and by license type, with the associate-per-supervisor ratio that shows where the competition for supervision actually is, and the delinquency rates nobody publishes.",
+      "anchor": "165,235",
+      "mark": "the delinquency rates nobody publishes"
+    },
+    "therapy-liability-insurance-california.html": {
+      "eyebrow": "Nobody requires it. Everybody does.",
+      "claim": "The Board does not condition your license on liability insurance. Every payer and your landlord do.",
+      "support": "Eight programs a California MFT can buy, what each publishes, and what practitioners actually report paying. A $320 published premium against $110 to $600 reported.",
+      "anchor": "$320",
+      "mark": "what practitioners actually report paying"
+    },
+    "associate-employers-bay-area.html": {
+      "eyebrow": "The category that is missing",
+      "claim": "The largest category of Bay Area associate employers is not on this page, because no public dataset names it.",
+      "support": "What is here is every employer that can be enumerated. Nine county behavioral health plans, 39 health-center organizations, 318 nonprofit agencies. Every one named, every link checked.",
+      "anchor": "318",
+      "mark": "Every one named, every link checked"
+    },
+    "associate-hours-trackers-compared.html": {
+      "eyebrow": "Who holds your licensure record",
+      "claim": "Three of the five hours trackers registered their domain this year, and four publish no named human being.",
+      "support": "The price is between $25 and $100 a year, and the price is not the decision. You are choosing a custodian for the only record of your 3,000 hours.",
+      "anchor": "3 of 5",
+      "mark": "choosing a custodian"
+    },
+    "bbs-90-day-rule-california.html": {
+      "eyebrow": "The default, and the trap",
+      "claim": "Miss the 90-day rule and 360 supervised hours you actually worked stop counting toward your 3,000.",
+      "support": "The default is that hours between your degree date and your associate number do not count. An application deadline and a fingerprint form change that, and both are settled before you start.",
+      "anchor": "360 supervised hours",
+      "mark": "both are settled before you start"
+    },
+    "bbs-advertising-rules-2026.html": {
+      "eyebrow": "Your website is an advertisement",
+      "claim": "Since April 2026 an associate's profile has to carry five elements, including an employer name and a supervision statement.",
+      "support": "A licensee's ad carries three, an associate's five, a trainee's five including the supervisor's license number. And advertisement means your website and your directory bio too.",
+      "anchor": "1 April 2026",
+      "mark": "your website and your directory bio too"
+    },
+    "becoming-a-therapist-california-career-change.html": {
+      "eyebrow": "How crowded it already is",
+      "claim": "California graduates 5,309 people a year into this, up 66% since 2015 while all master's degrees grew 14%.",
+      "support": "Not encouragement and not a warning. The pipeline, the three licenses compared on statute rather than temperament, an honest clock, and the three places the Board can see people leaving.",
+      "anchor": "5,309",
+      "mark": "Not encouragement and not a warning"
+    },
+    "county-job-portals-california.html": {
+      "eyebrow": "The URL you would guess",
+      "claim": "For seven California counties the job portal you would guess belongs to a city or a court, not the county.",
+      "support": "All 58, with the wording on each destination that proves whose it is. And 48 of the 58 share one system, which is worth knowing before you make 58 accounts.",
+      "anchor": "7 of 58",
+      "mark": "the wording on each destination that proves whose it is"
+    },
+    "county-therapist-pay-california.html": {
+      "eyebrow": "The same work, different county",
+      "claim": "The same clinical job pays $50,855 in one California county and $140,483 in another.",
+      "support": "Not a survey and not a job advert. This is what every county told the state it paid, for every position, three years running. 13,184 positions across 55 counties.",
+      "anchor": "$140,483",
+      "mark": "what every county told the state it paid"
+    },
+    "east-bay-practicum-site-directory.html": {
+      "eyebrow": "Dated, because it will drift",
+      "claim": "Twenty-one East Bay practicum sites, three of which hire registered associates, every claim carrying its read date.",
+      "support": "The per-site facts no state or federal file holds. Who was accepting students, hours, supervision, populations, school agreements, prerequisites, and a named contact for every site.",
+      "anchor": "21 sites, 3 hire associates",
+      "mark": "no state or federal file holds"
+    },
+    "exam-prep-courses-california-compared.html": {
+      "eyebrow": "The claims cannot be compared",
+      "claim": "Prep costs more than the exam, and three vendors' pass-rate claims are three different kinds of sentence.",
+      "support": "The Board's exam fees are $75 and $125, and the test vendor charges you nothing. Prep runs $139 to $620. Only one of the three claims is the shape the Board's own number is.",
+      "anchor": "$139",
+      "mark": "the test vendor charges you nothing"
+    },
+    "finding-a-clinical-supervisor-california.html": {
+      "eyebrow": "No roster, and no rate",
+      "claim": "The Board certifies no supervisors and keeps no roster, and only 9 of the 23 CAMFT chapters publish a list.",
+      "support": "So this is where the lists actually are, each one fetched and counted. Plus the rule that decides whether the person you find can lawfully supervise you at all.",
+      "anchor": "9 of 23",
+      "mark": "each one fetched and counted"
+    },
+    "practice-simulator.html": {
+      "eyebrow": "Where the numbers come from",
+      "claim": "Your rate and caseload are not your income. This works out what is actually left.",
+      "support": "Running costs, federal, state and self-employment tax, and the structure you trade under. Nothing starts at a figure somebody made up. It starts at zero, and at your rate.",
+      "mark": "It starts at zero, and at your rate",
+      "anchor": "$0",
+      "before": "<section class=\"ssnext\"",
+      "why_before": "the default slot is directly above the deep-pine newsletter band, where the slab's bottom scallop disappears into an identical green"
+    }
+  }
+}

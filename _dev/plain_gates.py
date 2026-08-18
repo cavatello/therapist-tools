@@ -136,7 +136,89 @@ PATTERNS = [
 ]
 
 # The only survivors. Proper nouns.
-ALLOW = re.compile(r"golden gate|gateway|gatekeep", re.I)
+#
+# `golden[-\s]gate` rather than `golden gate`: the hyphenated form is how the
+# name appears in a slug, and the space-only version is what let this pass
+# rewrite a URL. See the note below.
+ALLOW = re.compile(r"golden[-\s]gate|gateway|gatekeep", re.I)
+
+# ---------------------------------------------------------------------------
+# THE BUG THIS SECTION EXISTS TO CLOSE
+#
+# Run on its own, this pass used to rewrite
+#
+#     https://therapistsupport.org/golden-gate-university-mft.html
+#  -> https://therapistsupport.org/golden-checkpoint-university-mft.html
+#
+# inside the JSON-LD on that page - a canonical and a breadcrumb pointing at a
+# page that does not exist - and then its own guard reported clean.
+#
+# Two separate mistakes, and the second is the one worth remembering.
+#
+# 1. The rewriter split the document on tags, which leaves the CONTENTS of a
+#    script element sitting in the "prose" half. JSON-LD is text between tags,
+#    not text inside one.
+# 2. The guard strips `<script>` and `<style>` before it looks. So the fixer
+#    was editing a region the guard was blind to. **A guard and its fixer must
+#    measure the same thing** - already written down in this repository after
+#    seo_meta.py and seo_rules.py disagreed about the width of an em dash, and
+#    true again here.
+#
+# It was survivable only by luck of ordering: discovery.py runs later in
+# ship.py and regenerates that block, so a full build repaired the damage
+# before anyone saw it. Running this pass alone, or resuming with `--from`
+# past discovery, would have shipped it.
+#
+# So: script and style contents are protected outright, and inside prose any
+# token that looks like a URL, a path or a hyphenated compound is masked out
+# before the patterns run and put back afterwards.
+PROTECT = re.compile(r"<(script|style)\b[\s\S]*?</\1>", re.I)
+# A URL or a filename, and NOTHING ELSE.
+#
+# The first version of this read "any non-space run containing a slash", which
+# also matches `up</i></span></a><a` - a closing tag carries a slash. Run over
+# the whole pipeline it reported 239 pages as having their URLs rewritten when
+# not one had: the tokens that changed were markup adjacent to the prose being
+# corrected. That is the same mistake this file's own note is about, made one
+# layer up - a guard measuring something other than the thing it names. Caught
+# because a full build went red, which is the point of running one.
+#
+# So: an explicit scheme, or a token ending in a real file extension, and in
+# both cases nothing containing a bracket, a quote or whitespace.
+#
+# A bare directory link (`/money/`) is deliberately NOT matched. "gate" cannot
+# become a different directory without also being part of a hyphenated slug,
+# and SLUGGY masks those.
+# The filename branch spells its character class out rather than using
+# "anything that is not a bracket or a quote". Same 377 matches on the largest
+# page here; 0.05s instead of 2.17s. Negated classes backtrack badly against a
+# half-megabyte of markup, and this runs twice per page over 242 pages - the
+# lazy version took the guard from seconds to a quarter of an hour.
+URLISH = re.compile(
+    r"""https?://[^\s"'<>]+"""
+    r"""|[A-Za-z0-9_~./-]+\.(?:html?|php|css|js|json|xml|pdf|png|jpe?g|svg|webp|ico|txt|md)\b""",
+    re.I)
+# A hyphenated compound containing the word, e.g. a slug fragment.
+SLUGGY = re.compile(r"\b\w*(?:-\w+)*-?gates?(?:-\w+)+\b|\b\w+-gates?\b", re.I)
+
+
+def mask(seg):
+    """Hide anything a rewrite must not reach, and hand back a restorer."""
+    store = []
+
+    def keep(m):
+        store.append(m.group(0))
+        return "\x00%d\x00" % (len(store) - 1)
+
+    seg = URLISH.sub(keep, seg)
+    seg = SLUGGY.sub(keep, seg)
+    return seg, store
+
+
+def unmask(seg, store):
+    for i, v in enumerate(store):
+        seg = seg.replace("\x00%d\x00" % i, v)
+    return seg
 
 
 def pages():
@@ -151,11 +233,25 @@ def pages():
 
 def main():
     print("plain words: requirement, not gate")
-    changed, hits = 0, 0
+    changed, hits, urlbad = 0, 0, 0
     for rel in pages():
         p = os.path.join(SITE, rel)
         s = open(p, encoding="utf-8").read()
         before = s
+
+        # Script and style bodies are text between tags, so a plain tag split
+        # would treat JSON-LD as prose. Lift them out before ANY rewriting -
+        # including the literal swaps - and put them back untouched. These are
+        # the same regions this pass's own guard excludes, which is the whole
+        # point: a fixer and its guard have to look at the same document.
+        held = []
+
+        def hold(m):
+            held.append(m.group(0))
+            return "\x01%d\x01" % (len(held) - 1)
+
+        s = PROTECT.sub(hold, s)
+
         for old, new in SWAPS:
             if old in s:
                 hits += s.count(old)
@@ -177,25 +273,49 @@ def main():
             seg = parts[i]
             if not re.search(r"\bgates?\b", seg, re.I):
                 continue
-            if re.search(r"golden gate|gateway|gatekeep", seg, re.I):
+            masked, store = mask(seg)
+            if ALLOW.search(masked):
                 # rewrite around the proper noun rather than through it
-                keep = re.split(r"(Golden Gate|Gateway|gateway|Gatekeep)", seg)
+                keep = re.split(r"(Golden Gate|Gateway|gateway|Gatekeep)",
+                                masked)
                 for j in range(0, len(keep), 2):
                     for pat, rep in PATTERNS:
                         keep[j] = re.sub(pat, rep, keep[j])
                 seg2 = "".join(keep)
             else:
-                seg2 = seg
+                seg2 = masked
                 for pat, rep in PATTERNS:
                     seg2 = re.sub(pat, rep, seg2)
+            seg2 = unmask(seg2, store)
             if seg2 != seg:
                 hits += 1
                 parts[i] = seg2
         s = "".join(parts)
+        for i, v in enumerate(held):
+            s = s.replace("\x01%d\x01" % i, v)
+
+        # The guard for the bug described at the top of this file, stated as
+        # the invariant it actually is: THIS PASS MAY NEVER CHANGE A URL. It
+        # rewrites prose. Comparing the page's URL-ish tokens before and after
+        # catches a rewrite that reached into a link, a canonical, a slug or a
+        # JSON-LD block, whichever new spelling of the mistake arrives - and
+        # unlike the prose guard below, it looks inside script elements,
+        # because that is where the damage happened.
+        was, now = sorted(URLISH.findall(before)), sorted(URLISH.findall(s))
+        if was != now:
+            moved = [x for x in now if x not in was][:4]
+            print("GUARD %s: this pass changed %d URL-ish token(s), e.g. %r"
+                  % (rel, len(now) - len([x for x in now if x in was]), moved))
+            urlbad += 1
+            s = before
+
         if s != before:
             open(p, "w", encoding="utf-8").write(s)
             changed += 1
     print("  %d replacement(s) across %d page(s)" % (hits, changed))
+    if urlbad:
+        sys.exit("\n%d page(s) had a URL rewritten. Refused, and left "
+                 "unchanged. See the note at the top of this file." % urlbad)
 
     # ----------------------------------------------------------------- guard
     bad = 0

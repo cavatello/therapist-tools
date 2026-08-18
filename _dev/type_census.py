@@ -103,6 +103,20 @@ FACE = re.compile(r"font-family\s*:\s*([^;}]+)")
 SIZE = re.compile(r"font-size\s*:\s*([0-9.]+)px")
 RAD = re.compile(r"border-radius\s*:\s*([0-9.]+)px")
 GRAD = re.compile(r"(?:linear|radial|conic)-gradient\s*\(")
+
+# A mask is not a decoration. P8 asks for exactly one gradient-shaped thing on
+# this site - the scalloped edge of the HEY slab, which is a mask built from
+# radial gradients - and `slab_guard.py` exists to stop a future pass squaring
+# it off. Counting it as "a new gradient" turns the house rule "no gradients"
+# against the one gradient the house style specifies, which is the shape of
+# mistake this codebase has already written down once: a prohibition read
+# literally destroying what the spec asks for. So mask values are taken out
+# before the count, and only decoration is counted.
+MASKVAL = re.compile(r"(?:-webkit-)?mask(?:-image)?\s*:[^;}]*")
+
+
+def demask(css):
+    return MASKVAL.sub("", css)
 GFONT = re.compile(r"fonts\.googleapis\.com/css2\?([^\"']+)")
 FAMPARAM = re.compile(r"family=([^&:]+)")
 
@@ -190,7 +204,7 @@ def main():
             sizes[float(m.group(1))] += 1
         for m in RAD.finditer(body):
             radii[float(m.group(1))] += 1
-        for _m in GRAD.finditer(body):
+        for _m in GRAD.finditer(demask(body)):
             # Content-addressed sheets are RENAMED whenever their bytes
             # change - palette_conform.py rewrites one and its filename
             # becomes the sha1 of the new contents - so keying a baseline on
@@ -213,7 +227,7 @@ def main():
             sizes[float(m.group(1))] += 1
         for m in RAD.finditer(own):
             radii[float(m.group(1))] += 1
-        for _m in GRAD.finditer(own):
+        for _m in GRAD.finditer(demask(own)):
             grads[rel] += 1
         links = [n for n in re.findall(r'href="(?:\.\./)?css/([^"?]+\.css)',
                                        html)]

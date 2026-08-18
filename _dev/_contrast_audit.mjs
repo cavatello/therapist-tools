@@ -5,12 +5,26 @@ import { readFileSync, writeFileSync } from 'fs';
 const BASE = 'http://127.0.0.1:8077';
 const pages = readFileSync('/tmp/allpages.txt', 'utf8').trim().split('\n');
 
+// The width to measure at. This audit ran at 1440 and ONLY at 1440 for its
+// whole life, and reported "0 findings across 242 pages" while eight pairs
+// were failing at 390 - including text at 1.29:1. A contrast failure is a
+// property of a rendered layout, and this site has a different layout below
+// 900px. Pass a width, or get both:
+//
+//     node _dev/_contrast_audit.mjs            1440, as before
+//     node _dev/_contrast_audit.mjs 390        the phone layout
+//
+// See _dev/_tool_audit.mjs for the other half of what this misses: the seven
+// calculator pages write most of their content with JavaScript, and none of
+// it exists at the moment this audit measures.
+const WIDTH = Number(process.argv[2]) || 1440;
+
 function lum(c){const s=c.map(v=>{v/=255;return v<=0.03928?v/12.92:Math.pow((v+0.055)/1.055,2.4)});return 0.2126*s[0]+0.7152*s[1]+0.0722*s[2]}
 function ratio(a,b){const l1=lum(a),l2=lum(b);return (Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05)}
 function parse(c){const m=String(c).match(/rgba?\(([^)]+)\)/);if(!m)return null;const p=m[1].split(',').map(Number);if(p.length>3&&p[3]<0.9)return null;return [p[0],p[1],p[2]]}
 
 const browser = await chromium.launch();
-const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const ctx = await browser.newContext({ viewport: { width: WIDTH, height: 900 } });
 const page = await ctx.newPage();
 for (const pat of ['**googletagmanager**','**fonts.googleapis**','**fonts.gstatic**','**clarity.ms**','**ahrefs.com**'])
   await page.route(pat, r => r.abort());
