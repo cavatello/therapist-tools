@@ -383,6 +383,19 @@
    }
   },
   {
+   "file": "becoming-a-clinical-supervisor-california.html",
+   "title": "Becoming a clinical supervisor in California: the real cost",
+   "topic": "practice",
+   "format": "guide",
+   "question": "What does it cost, and pay, to be a clinical supervisor?",
+   "outcome": "Two different decisions with different economics: an hourly fee with a training bill and real liability, or a hiring decision",
+   "number": "15 hours of training, then 6 every renewal period",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "becoming-a-therapist-california-career-change.html",
    "title": "Becoming a therapist in California: the numbers before you decide",
    "topic": "licensure",
@@ -3560,7 +3573,8 @@
      "name": "Filling the week",
      "files": [
       "grow-your-therapy-practice.html",
-      "hiring-first-associate-california-therapist.html"
+      "hiring-first-associate-california-therapist.html",
+      "becoming-a-clinical-supervisor-california.html"
      ]
     },
     {

@@ -244,6 +244,18 @@ BUILD = [
     # written - the reasoning is in this builder's docstring. Runs after
     # build_subpoena because it links to that page and its guard checks
     # the link is there.
+    # Tier 3 #1b, the last of the five. The supervisee's side of this
+    # arrangement has been on the site for months; this is the other
+    # side of the table, and its whole job is to separate two decisions
+    # that get written about as one. A guard fails the build if a
+    # supervision rate ever appears - no authority publishes one, and an
+    # invented range would be the only figure on this site that could
+    # not point at its source.
+    ("_dev/build_supeconomics.py",
+     "becoming a clinical supervisor - the two separate two-year "
+     "eligibility tests, fifteen training hours then six a renewal, the "
+     "liability, and why supervising for a fee is not the same decision "
+     "as employing an associate"),
     ("_dev/build_records.py",
      "client records - seven years from termination across four license "
      "types, inspection in five working days, copies in fifteen at 25 "

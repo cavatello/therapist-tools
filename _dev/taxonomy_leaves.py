@@ -78,6 +78,17 @@ NEW_CLUSTERS = [
     # because that is the shelf a reader in trouble looks on - and
     # because the insurance page is the one it sends people to. Named in
     # full: this list replaces a cluster's files rather than appending.
+    # The supervisor-economics page sits beside the hiring page, because
+    # they are the two halves of the same decision - one prices taking
+    # somebody on, the other prices supervising them - and the pages
+    # hand the reader to each other. Its ts:topic is "practice", so it
+    # has to be filed under a PRACTICE cluster: a page filed under a
+    # cluster belonging to a different topic stays in its own topic's
+    # catch-all and the guard below fails, which is how this was caught.
+    ("practice", "Filling the week",
+     ["grow-your-therapy-practice.html",
+      "hiring-first-associate-california-therapist.html",
+      "becoming-a-clinical-supervisor-california.html"]),
     ("practice", "When something goes wrong",
      ["therapist-discipline-cases-california.html",
       "therapy-liability-insurance-california.html",
