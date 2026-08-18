@@ -19,11 +19,19 @@ that removed the OPENING marker and left the script. clarity.py could no
 longer see that loader, so it prepended a second, marked copy. Every guard
 stayed clean, because each guard checked its own pass.
 
-Both halves are fixed - pagekit removes the block whole, and clarity.py now
-keys its removal on the loader's own code rather than on a marker that
-something else can eat. This pass is the third thing, and the one that would
-have caught it: **a check on the page as it ships, not on the moment of
-writing.** That is rule one in the handoff, learned again.
+The fix is in `clarity.py` alone, which now keys its removal on the loader's
+own code rather than on a marker that something else can eat. Fixing the
+pagekit side as well was tried and DELIBERATELY REVERTED: stripping the
+analytics block there changes the head of every builder page enough that
+`token_floor.py` re-injects its style block, `extract_css` hoists it under a
+new content hash, and 72 pages are left pointing at a stylesheet that no
+longer exists. That is the hashed-sheet hazard, incurred for a bug that is
+fixable entirely on the clarity.py side. So pagekit is untouched, and a page
+damaged before the fix repairs itself on the next pipeline run.
+
+This pass is the third thing, and the one that would have caught it: **a
+check on the page as it ships, not on the moment of writing.** That is rule
+one in the handoff, learned again.
 
 WHAT IT CHECKS
 

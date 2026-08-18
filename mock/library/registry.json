@@ -2674,6 +2674,19 @@
    "leaf": false
   },
   {
+   "file": "questions-to-ask-a-cpa-california-therapist.html",
+   "title": "Questions to ask a CPA: California therapists",
+   "topic": "money",
+   "format": "guide",
+   "question": "What should I ask an accountant, and what should I already know?",
+   "outcome": "Nine things to settle before the meeting, the questions worth the hour, and four answers that should end the interview",
+   "number": "3 credentials that can represent you in an audit",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "rams-san-francisco.html",
    "title": "RAMS - Bay Area org profile",
    "topic": "licensure",
@@ -3383,6 +3396,12 @@
       "solo-401k-sep-simple-california-therapist.html",
       "therapist-tax-deductions-california.html",
       "home-office-deduction-california-therapist.html"
+     ]
+    },
+    {
+     "name": "Before you talk to an accountant",
+     "files": [
+      "questions-to-ask-a-cpa-california-therapist.html"
      ]
     }
    ]

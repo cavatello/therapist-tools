@@ -33,6 +33,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_cost.py` | build | &mdash; | What getting licensed actually costs - assembled, not invented. |
 | `build_countypay.py` | build | &mdash; | What a California county job actually pays, from the employers' own returns. |
+| `build_cpa.py` | build | &mdash; | The accountant meeting: what to settle first, and what to ask. |
 | `build_exams.py` | build | &mdash; | The pass rate is 84%. It is also 65%. Both are the same exam, same quarter. |
 | `build_findsite.py` | build | &mdash; | The practicum-site method page - remaining P3, item two. |
 | `build_forassociates.py` | build | &mdash; | /for/associates - the first stage door, built as the Ledger. |

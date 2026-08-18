@@ -223,6 +223,16 @@ BUILD = [
     ("_dev/build_bills.py",
      "AB 1598 and SB 903 - what each would change, where each stood, and "
      "the two dates that decide them"),
+    # Tier 3 again, and the opposite kind of page: it introduces no tax
+    # figure of its own. Every number it uses is carried from one of the
+    # ten tax pages that computes it, under build_viable's no-new-numbers
+    # rule, so it MUST run after them - they are hand-written, so in
+    # practice that means after the builders that could touch them. Its
+    # own new facts are all about preparers, from the FTB and the IRS.
+    ("_dev/build_cpa.py",
+     "what to know before meeting an accountant and what to ask - the "
+     "credential most people never check, the nine things this site "
+     "already answers, and the four answers that end an interview"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that

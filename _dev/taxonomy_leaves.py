@@ -62,6 +62,18 @@ NEW_CLUSTERS = [
      ["practice-simulator.html",
       "is-therapy-financially-viable-california.html",
       "therapist-cost-of-living-california.html"]),
+    # The accountant-meeting page belongs to BOTH of the other money
+    # clusters and therefore to neither: it is about the entity question
+    # and the deferral question and the estimated-tax question at once,
+    # because a first meeting is. Filing it under "Sole proprietor, or a
+    # corporation" would hide the half of it that is about retirement,
+    # and the reverse is equally wrong. So it gets its own name, which is
+    # also the moment a reader is looking for it - the same reasoning as
+    # "Where the doctorate comes from" and "What the Legislature is
+    # changing", both of which are one page and both of which are easier
+    # to find for it.
+    ("money", "Before you talk to an accountant",
+     ["questions-to-ask-a-cpa-california-therapist.html"]),
     ("practice", "When something goes wrong",
      ["therapist-discipline-cases-california.html",
       "therapy-liability-insurance-california.html"]),
