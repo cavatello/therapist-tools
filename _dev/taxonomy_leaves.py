@@ -129,6 +129,13 @@ NEW_CLUSTERS = [
       "become-an-mft-california.html",
       "bbs-fees-california-2026.html",
       "what-licensure-actually-costs-california.html"]),
+    # The bill tracker is the only page on the site whose facts have an
+    # expiry date, and it does not belong in any cluster of pages that
+    # describe rules IN FORCE - a reader skimming "The route" should not
+    # find a proposal sitting among the requirements. Its own cluster,
+    # named so the distinction is visible from the hub card.
+    ("licensure", "What the Legislature is changing",
+     ["california-therapy-bills-2026.html"]),
 ]
 
 

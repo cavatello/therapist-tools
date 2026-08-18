@@ -28,6 +28,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_atlas.py` | build | &mdash; | Where California's therapists are, from the state's own file of all 165,235. |
 | `build_bayarea_practicum.py` | build | &mdash; | P3, the curated half: EB CAMFT's practicum-site directory, annotated. |
 | `build_baysites.py` | build | &mdash; | P3, page one: where a Bay Area MFT trainee can actually be placed. |
+| `build_bills.py` | build | &mdash; | The two 2026 bills that reach this site's readers, and the date that decides them. |
 | `build_careerchange.py` | build | &mdash; | Becoming a therapist in California, for somebody arriving from another job. |
 | `build_cases.py` | build | &mdash; | Build the discipline case library: one hub plus thirty case pages. |
 | `build_cost.py` | build | &mdash; | What getting licensed actually costs - assembled, not invented. |

@@ -662,6 +662,19 @@
    "leaf": true
   },
   {
+   "file": "california-therapy-bills-2026.html",
+   "title": "California therapy bills 2026: AB 1598, SB 903, and the 31 August deadline",
+   "topic": "licensure",
+   "format": "reference",
+   "question": "What California therapy bills are moving in 2026?",
+   "outcome": "What AB 1598 and SB 903 would change, where each one stood on 18 August 2026, and the two dates that decide them",
+   "number": "2 bills at third reading; 31 August to pass",
+   "stale": true,
+   "weight": 4,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "caminar.html",
    "title": "Caminar - Bay Area org profile",
    "topic": "licensure",
@@ -3446,6 +3459,12 @@
       "for/students.html",
       "for/deciding.html",
       "for/licensed.html"
+     ]
+    },
+    {
+     "name": "What the Legislature is changing",
+     "files": [
+      "california-therapy-bills-2026.html"
      ]
     }
    ]

@@ -216,6 +216,13 @@ BUILD = [
      "the numbers somebody retraining deserves first - the pipeline, the "
      "three licenses on statute rather than temperament, and the attrition "
      "visible in the Board's own reporting"),
+    # Tier 3. The only page on this site with an expiry date on it: both
+    # bills are decided by 31 August 2026 and signed or vetoed by
+    # 30 September. Its guard fails the build if the page ever forecasts
+    # an outcome or stops saying that neither bill is law.
+    ("_dev/build_bills.py",
+     "AB 1598 and SB 903 - what each would change, where each stood, and "
+     "the two dates that decide them"),
     # Not a builder: it inserts one section into a hand-written page. It sits
     # in BUILD anyway, because the section nav on that page is generated in
     # STRUCTURE from the headings that exist - a content edit made after that
