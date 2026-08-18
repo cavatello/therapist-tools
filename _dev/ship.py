@@ -229,6 +229,16 @@ BUILD = [
     # rule, so it MUST run after them - they are hand-written, so in
     # practice that means after the builders that could touch them. Its
     # own new facts are all about preparers, from the FTB and the IRS.
+    # Tier 3 #1c. A page read in a panic, so it is sequenced rather than
+    # comprehensive: what the paper is, the clock, who to phone. Two
+    # guards on it are unusual and deliberate - the build fails if the
+    # not-legal-advice line disappears, and it fails if the page ever
+    # starts telling a reader what the answer in their own matter is.
+    ("_dev/build_subpoena.py",
+     "a subpoena is not a court order, and Evidence Code 1015 makes "
+     "claiming the client's privilege mandatory rather than optional - "
+     "plus the 1985.3 notice clock and the insurer helpline the reader "
+     "has already paid for"),
     ("_dev/build_cpa.py",
      "what to know before meeting an accountant and what to ask - the "
      "credential most people never check, the nine things this site "

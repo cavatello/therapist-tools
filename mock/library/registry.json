@@ -2901,6 +2901,19 @@
    "leaf": true
   },
   {
+   "file": "subpoena-california-therapist.html",
+   "title": "Subpoenaed as a California therapist: what to do first",
+   "topic": "practice",
+   "format": "guide",
+   "question": "A subpoena arrived for my client's records. What do I do?",
+   "outcome": "Do not produce, call the attorney line on your policy, and assert the privilege the Evidence Code requires you to assert",
+   "number": "0 judges have read it before it reaches you",
+   "stale": true,
+   "weight": 5,
+   "skip": false,
+   "leaf": false
+  },
+  {
    "file": "superbills-good-faith-estimate-california-therapist.html",
    "title": "The two documents a private-pay California therapist must get right",
    "topic": "getting-paid",
@@ -3573,7 +3586,8 @@
      "name": "When something goes wrong",
      "files": [
       "therapist-discipline-cases-california.html",
-      "therapy-liability-insurance-california.html"
+      "therapy-liability-insurance-california.html",
+      "subpoena-california-therapist.html"
      ]
     }
    ]

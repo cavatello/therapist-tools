@@ -74,9 +74,14 @@ NEW_CLUSTERS = [
     # to find for it.
     ("money", "Before you talk to an accountant",
      ["questions-to-ask-a-cpa-california-therapist.html"]),
+    # The subpoena page joins the two pages about things going wrong,
+    # because that is the shelf a reader in trouble looks on - and
+    # because the insurance page is the one it sends people to. Named in
+    # full: this list replaces a cluster's files rather than appending.
     ("practice", "When something goes wrong",
      ["therapist-discipline-cases-california.html",
-      "therapy-liability-insurance-california.html"]),
+      "therapy-liability-insurance-california.html",
+      "subpoena-california-therapist.html"]),
     # The advertising rule sits with the admin-floor reference material:
     # it is a compliance checklist, not a growth page.
     ("practice", "The reference shelf",

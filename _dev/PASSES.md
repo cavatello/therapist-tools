@@ -55,6 +55,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `build_prep.py` | build | &mdash; | Exam prep courses compared - on price, and on what each one claims. |
 | `build_safetynet.py` | build | &mdash; | The named employers behind the safety-net category, with checked links. |
 | `build_states.py` | build | &mdash; | What "a licensed therapist" means in each state, and how many there are. |
+| `build_subpoena.py` | build | &mdash; | A subpoena arrived. It is not a court order, and you must claim the privilege. |
 | `build_supervisor.py` | build | &mdash; | Finding a clinical supervisor in California, and what the law requires. |
 | `build_telehealth.py` | build | &mdash; | The telehealth standard of practice, and what actually changed in 2026. |
 | `build_times.py` | build | &mdash; | You passed. Now how long? - the Board's own processing times, as a series. |
