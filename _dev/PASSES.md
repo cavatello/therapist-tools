@@ -155,6 +155,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `tool_surface.py` | last | `<!-- _dev/tool_surface.py -->` | The contrast nobody could see, because it does not exist until you use it. |
 | `type_scale.py` | last | &mdash; | Ninety-two font sizes become a scale of thirteen. |
 | `analytics_once.py` | verify | &mdash; | One analytics loader per page. Never two, never a marker with no tag. |
+| `builder_wired.py` | verify | &mdash; | Every builder that owns a published page is still wired into ship.py. |
 | `family_coverage.py` | verify | &mdash; | A class used in the body with no rule in any sheet the page loads. |
 | `linkcheck.py` | verify | &mdash; | Every internal link on the site, checked against what actually exists. |
 | `notruncate.py` | verify | &mdash; | No published page may be implausibly small. Twice is a pattern. |

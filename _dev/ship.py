@@ -744,6 +744,16 @@ VERIFY = [
     ("_dev/subdirs_check.py",
      "every pass agrees which directories the site has, and every directory "
      "of pages is in the list"),
+    # Second, and for the same reason: a structural check on the pipeline
+    # itself rather than on a page. Five builders and a verify pass left
+    # this list on 18 Aug 2026 when a parallel session rewrote it from an
+    # older base, and NOTHING NOTICED - the five pages still existed, they
+    # had just stopped being rebuilt, and the bill tracker's freshness
+    # lock could no longer fire. Derives its expectation from the builders
+    # every run, so unlike a baseline it cannot be rewritten away.
+    ("_dev/builder_wired.py",
+     "every builder that owns a published page is still wired into this "
+     "file, and every builder this file wires is still on disk"),
     # The DCA licensee counts. `--check` only: it re-reads the committed
     # `_dev/dca_stats.py` and reconciles it. The refresh half of that
     # pass downloads 35MB from the state and CANNOT run here - this
