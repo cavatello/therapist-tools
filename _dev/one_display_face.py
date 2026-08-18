@@ -78,10 +78,37 @@ RETIRED_KEY = "bricolage grotesque"
 # The `family=` fragment to strip from every Google Fonts URL.
 RETIRED_URL = re.compile(r"&?family=Bricolage\+Grotesque(?::[^&\"']*)?")
 
+# A FONT STACK IS NOT ALWAYS BEHIND `font-family:`.
+#
+# This matched `font-family:` only, and the site keeps its display stack in
+# CUSTOM PROPERTIES - `--disp` in house.css, `--hs-disp` in house-chrome.css
+# and house-rest.css - each of them still reading
+# `'Bricolage Grotesque','Inter',system-ui,sans-serif`. So the retired face
+# stayed at the head of the stack that the masthead CTA and 24 other
+# elements use, this pass's own guard passed (it only looked at
+# `font-family:`), and `type_census.py` recorded `used_but_not_loaded: {}`
+# for the same reason. The face is not loaded, so those elements have been
+# silently rendering in the SECOND name in the stack.
+#
+# The custom-property arm is deliberately narrow: a property whose value
+# contains a quoted family name or a known generic. `--gap:12px` is not a
+# font stack and must not be rewritten.
 FACE = re.compile(r"(font-family\s*:\s*)([^;}]+)")
+VARFACE = re.compile(
+    r"(--[a-z0-9-]*(?:disp|font|face|type)[a-z0-9-]*\s*:\s*)"
+    r"([^;}]*(?:'[^']+'|\"[^\"]+\"|system-ui|sans-serif|serif|monospace)"
+    r"[^;}]*)")
 # A named face that is never loaded and is not a system fallback. See
 # point 3 above.
 ORPHAN_FACE = re.compile(r"\s*,\s*['\"]?Archivo['\"]?(?=\s*[,;}]|$)")
+# The retired face at the HEAD of a custom-property stack. `ORPHAN_FACE`
+# only removes a face that follows a comma, and Bricolage leads, so it needs
+# its own pattern: drop the name and the comma after it, leaving whatever
+# was second to lead. Used only by the custom-property arm - a `font-family:`
+# stack that leads with the retired face is PROMOTED to the display face by
+# `one()`, which is the documented behaviour and is left alone.
+RETIRED_HEAD = re.compile(
+    r"^\s*['\"]?Bricolage Grotesque['\"]?\s*,\s*", re.I)
 GENERIC = {"system-ui", "sans-serif", "serif", "monospace", "ui-monospace",
            "ui-sans-serif", "ui-serif", "cursive", "fantasy", "inherit",
            "initial", "unset"}
@@ -118,6 +145,16 @@ def rewrite(text):
             break
         return m.group(1) + ",".join(parts)
     out = FACE.sub(one, text)
+    # DELIBERATELY NOT `VARFACE.sub(one, ...)`.
+    #
+    # The custom-property arm only STRIPS the dead face; it does not promote
+    # the display face into its place. Removing a family the site never
+    # loads changes nothing a reader sees - those elements were already
+    # rendering in the second name in the stack. Promoting Fraunces into the
+    # masthead CTA and 24 other chrome elements WOULD change what a reader
+    # sees, on every page, and that is a design decision about whether the
+    # chrome is a serif - not a defect to be fixed by a guard. The stack is
+    # made honest here; what leads it is left to be chosen.
 
     def strip(m):
         nonlocal n
@@ -126,7 +163,16 @@ def rewrite(text):
         if cleaned != stack:
             n += 1
         return m.group(1) + cleaned
-    return FACE.sub(strip, out), n
+
+    def strip_var(m):
+        nonlocal n
+        stack = m.group(2)
+        cleaned = ORPHAN_FACE.sub("", RETIRED_HEAD.sub("", stack))
+        if cleaned != stack:
+            n += 1
+        return m.group(1) + cleaned
+    out = FACE.sub(strip, out)
+    return VARFACE.sub(strip_var, out), n
 
 
 def pages():

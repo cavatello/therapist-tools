@@ -1,8 +1,8 @@
 {
  "faces": {
-  "fraunces": 241,
-  "ibm plex mono": 241,
-  "inter": 241,
+  "fraunces": 246,
+  "ibm plex mono": 246,
+  "inter": 246,
   "newsreader": 1,
   "press start 2p": 1,
   "rubik": 1
@@ -15,6 +15,7 @@
   "css/house-rest.css",
   "css/house-tool.css",
   "css/house.css",
+  "index.html",
   "mft-programs-california.html",
   "practice-simulator.html",
   "therapist-cost-of-living-california.html",

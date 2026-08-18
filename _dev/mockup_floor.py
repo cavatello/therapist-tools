@@ -93,6 +93,23 @@ TYCOON_CSS = """<style>%s
 .sched-legend.sched-legend{color:#F6F8F6}
 /* The standing note under the board. 2.98:1 on #3A1E5C. */
 .footnote.footnote{color:#A093C1}
+/* The speed control's label. 1.01:1 - a muted mauve on a dark amber, which
+   is as close to invisible as a colour pair gets. It was found only after
+   the contrast sweep learned to OPEN collapsed and hidden UI: `.spd .w` is
+   `display:none` at some widths, so a rect-based sweep never measured it. */
+/* FOUR surfaces, not one. `.spd` is a speed button with states: `.on` and
+   `.nudge` paint it the bright gold, hover paints a translucent white over
+   the panel, and an idle button is just the dark panel. So no single colour
+   works - ink is 10:1 on the gold and 1.07:1 on the panel. Coloured by
+   state, which is what the states are for. */
+.spd .w.w{color:#F6F8F6}
+.spd.on .w.w,.spd.nudge .w.w{color:#1B2420}
+/* A FIFTH surface, found the same way: `.spd:hover` lays
+   `rgba(255,255,255,.08)` over whatever is underneath, so hovering an
+   already-gold button composites to #886741 and the ink label drops to
+   3.08:1. The hover tint is there to light up an IDLE button; on a
+   selected one it only muddies the gold. Held solid instead. */
+.spd.on:hover,.spd.nudge:hover{background:var(--gold)}
 </style>
 """ % MARK
 

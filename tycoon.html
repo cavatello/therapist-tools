@@ -3045,7 +3045,7 @@ function renderCaseload(){
   });
 }
 </script>
-<link rel="stylesheet" href="css/f54ab5f660f5.css">
+<link rel="stylesheet" href="css/f56a574308d6.css">
 <link rel="stylesheet" href="css/6eba8e5ed77d.css">
 <script>/* _dev/error_tracking.py */
 (function(){
@@ -3205,6 +3205,20 @@ body.house .ap-hero .hk{color:#C6DBD1 !important}
 body.house .hero .in .lede{color:#C6DBD1 !important}
 /* the concept-page tags - 6.03:1 on #E6F1EB */
 body.house .cc-meta .tag{color:#2C6350 !important}
+/* 'The hub' chip and the 'Tools & resources' button - the two GOLD elements inside the dark promo, both painted the on-dark mint by body.house .np-promo span, both 2.06:1, on 149 pages - 13.04:1 on #FFE7A3 */
+body.house .np-all.np-all,body.house .np-promo span:last-child{color:#1B2420 !important}
+/* chapter numerals on the indigo slab - a path-hue purple on deep green, 1.37:1, the worst pair left on the site - 8.43:1 on #123C30 */
+body.house .slab.indigo .ch-h .ch-n,body.house .slab.indigo .chh .chn{color:#C6DBD1 !important}
+/* the job-advisor letter tags, ink on pine at 2.28:1 - 4.81:1 on #2C6350 */
+body.house .jobtag.jobtag.jobtag{color:#C6DBD1 !important}
+/* the simulator's bonus-panel captions, 3.04:1 and 4.06:1 - 6.37:1 on the bonus panel, composited */
+body.house .bonus i,body.house .bonus u{color:#C6DBD1 !important}
+/* the letters in the A-Z index that have no entry - a pale tan on paper, 1.73:1 - 6.14:1 on #F6F8F6 */
+body.house .az span{color:#635D4E !important}
+/* the cost-of-living section numerals - the decision-impact amber used as text, 2.89:1. That amber is a BORDER colour in the design system and has never been legible as type - 5.31:1 on #FFFFFF */
+body.house .clh span,body.house .clsteps li i{color:#8A6516 !important}
+/* the footnote markers on the remote-work page, the same amber at 2.89:1 - 5.31:1 on #FFFFFF */
+body.house .rwcites .rwcite b{color:#8A6516 !important}
 </style>
 <style>/* _dev/mockup_floor.py */
 /* One muted purple for every dark surface on the page, replacing a value that
@@ -3220,6 +3234,23 @@ body.house .cc-meta .tag{color:#2C6350 !important}
 .sched-legend.sched-legend{color:#F6F8F6}
 /* The standing note under the board. 2.98:1 on #3A1E5C. */
 .footnote.footnote{color:#A093C1}
+/* The speed control's label. 1.01:1 - a muted mauve on a dark amber, which
+   is as close to invisible as a colour pair gets. It was found only after
+   the contrast sweep learned to OPEN collapsed and hidden UI: `.spd .w` is
+   `display:none` at some widths, so a rect-based sweep never measured it. */
+/* FOUR surfaces, not one. `.spd` is a speed button with states: `.on` and
+   `.nudge` paint it the bright gold, hover paints a translucent white over
+   the panel, and an idle button is just the dark panel. So no single colour
+   works - ink is 10:1 on the gold and 1.07:1 on the panel. Coloured by
+   state, which is what the states are for. */
+.spd .w.w{color:#F6F8F6}
+.spd.on .w.w,.spd.nudge .w.w{color:#1B2420}
+/* A FIFTH surface, found the same way: `.spd:hover` lays
+   `rgba(255,255,255,.08)` over whatever is underneath, so hovering an
+   already-gold button composites to #886741 and the ink label drops to
+   3.08:1. The hover tint is there to light up an IDLE button; on a
+   selected one it only muddies the gold. Held solid instead. */
+.spd.on:hover,.spd.nudge:hover{background:var(--gold)}
 </style>
 </body>
 </html>

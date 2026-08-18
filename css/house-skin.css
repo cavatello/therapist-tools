@@ -15,7 +15,7 @@ body.house{
   --ink:#1B2420; --muted:#5F6A64; --line:#DFE4E0;
   --paper:#F6F8F6; --cream:#FFFFFF;
   --hs-card:#FFFFFF; --hs-sink:#F6F8F6; --hs-wash:#F6F8F6; --hs-dim:#5F6A64;
-  --hs-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --hs-disp:'Inter',system-ui,sans-serif;
   --hs-body:'Inter',system-ui,sans-serif;
   --hs-figs:'Fraunces',Georgia,serif;
   --hs-mn:'IBM Plex Mono',ui-monospace,monospace;

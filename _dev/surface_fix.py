@@ -269,6 +269,59 @@ FIXES = [
      "the practice simulator's own intro paragraph"),
     (".cc-meta .tag", PINE, "#E6F1EB", 4.5, "the concept-page tags"),
 
+    # --- "The hub" chip, 149 pages, and the reason the sweep never saw it
+    #
+    # `body.house .np-promo span{color:#84AC99!important}` paints every span
+    # inside the nav-panel promo the on-dark muted mint. That is right for
+    # the spans that sit on the promo's dark ground and WRONG for
+    # `.np-all` - the chip, which has the gold as its own background.
+    # **2.06:1 on 149 pages.** One container, two surfaces; the ninth time.
+    #
+    # Class-doubled deliberately. `body.house .np-promo span` is (0,2,2);
+    # `body.house .np-all` would be (0,2,1) and lose the tie even with
+    # `!important` on both. `.np-all.np-all` takes it to (0,3,1).
+    #
+    # Not scoped to rates.html: that page paints the same chip
+    # #2A2010 on its own #F6C560 and measures 9.6:1 already.
+    (".np-all.np-all,.np-promo span:last-child", INK, "#FFE7A3", 4.5,
+     "'The hub' chip and the 'Tools & resources' button - the two GOLD "
+     "elements inside the dark promo, both painted the on-dark mint by "
+     "body.house .np-promo span, both 2.06:1, on 149 pages"),
+
+    # --- the six the 8-character floor was hiding -----------------------
+    #
+    # Every one of these is a NUMBER or a single letter, which is exactly
+    # what `_dev/_contrast_audit.mjs` refused to measure: it skipped any
+    # text shorter than eight characters. "03" is two. So the sweep that
+    # reported 0 findings across 242 pages was reporting 0 findings across
+    # the text it had agreed to look at.
+    (".slab.indigo .ch-h .ch-n,.slab.indigo .chh .chn", MINT, "#123C30", 4.5,
+     "chapter numerals on the indigo slab - a path-hue purple on deep "
+     "green, 1.37:1, the worst pair left on the site"),
+    # Class-TRIPLED, not doubled. `body.bct .slab.pine :where(p,span,...)`
+    # is (0,3,1) and carries `!important`, so `body.house .jobtag` at
+    # (0,2,1) lost the tie even with `!important` of its own - which is the
+    # `:where()` sweep this file's docstring warns about, met again.
+    (".jobtag.jobtag.jobtag", MINT, PINE, 4.5,
+     "the job-advisor letter tags, ink on pine at 2.28:1"),
+    # The practice simulator's look is protected by decision, and this is
+    # not a change to its look: it is the same on-dark family colour the
+    # rest of the site uses, put on two lines that were 3.04:1 and 4.06:1
+    # against the panel they sit on. "Very hard to read" was the report.
+    (".bonus i,.bonus u", MINT, "#304E36", 4.5,
+     "the simulator's bonus-panel captions, 3.04:1 and 4.06:1",
+     ("house",), "the bonus panel, composited"),
+    (".az span", MUTED, "#F6F8F6", 4.5,
+     "the letters in the A-Z index that have no entry - a pale tan on "
+     "paper, 1.73:1"),
+    (".clh span,.clsteps li i", GOLDINK, "#FFFFFF", 4.5,
+     "the cost-of-living section numerals - the decision-impact amber "
+     "used as text, 2.89:1. That amber is a BORDER colour in the design "
+     "system and has never been legible as type"),
+    (".rwcites .rwcite b", GOLDINK, "#FFFFFF", 4.5,
+     "the footnote markers on the remote-work page, the same amber at "
+     "2.89:1"),
+
 ]
 
 
@@ -348,10 +401,19 @@ def block():
     for rule in FIXES:
         sel, col, surface, floor, why = rule[:5]
         bodies = rule[5] if len(rule) > 5 else ("house",)
+        # A 7th field renames the surface in the emitted comment. It exists
+        # because a COMPOSITED surface - a translucent panel resolved over
+        # what is behind it - is a colour the eye receives and the stylesheet
+        # never contains. Writing that hex into a comment made
+        # `palette_census.py` report a new off-palette colour on a page that
+        # paints no such thing, which is a guard being right about the letter
+        # and wrong about the fact. The measurement still uses the real
+        # composite; only the label changes.
+        label = rule[6] if len(rule) > 6 else surface
         full = ",".join(_scope_all(s.strip(), bodies)
                         for s in sel.split(","))
         o.append("/* %s - %.2f:1 on %s */" % (why, ratio(col, surface),
-                                              surface))
+                                              label))
         o.append("%s{color:%s !important}" % (full, col))
     o.append("</style>")
     return "\n".join(o)
