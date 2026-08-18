@@ -33,6 +33,13 @@ outranked, hence the third `.house` here. That is a specificity fight, and it
 is the honest way to win it without editing a pass that is right about the
 desktop case.
 
+`rates.html` carries `body.ratespage` and no `house` class, because it is
+excluded from the house passes by decision - so the first version of this pass
+shipped its stylesheet to that page and then matched nothing on it, leaving
+four of seven topics cut there and nowhere else. Its own class is doubled for
+the same specificity reason. This is chrome, not the page's editorial voice,
+which is what the exclusion protects.
+
 WHAT IT DOES, AND WHAT IT COSTS
 
 Two breakpoints, because the header is not one layout.
@@ -79,16 +86,17 @@ STYLE_SHUT = CSS_END + "</style>"
 # nav_skin_fix.py's own !important without editing that pass.
 CSS = """
 @media (max-width:640px){
-body.house.house.house .sitenav-links{
+body.house.house.house .sitenav-links,body.ratespage.ratespage .sitenav-links{
 grid-column:1/-1 !important;width:100% !important;max-width:100% !important;
 flex-wrap:wrap !important;overflow-x:visible !important;
 -webkit-mask-image:none !important;mask-image:none !important;
 background-image:none !important;justify-content:flex-start !important;
 row-gap:1px !important;padding-right:0 !important}
-body.house.house.house .sitenav-links .sitenav-top{
+body.house.house.house .sitenav-links .sitenav-top,
+body.ratespage.ratespage .sitenav-links .sitenav-top{
 font-size:11px !important;padding:5px 5px !important}}
 @media (min-width:641px) and (max-width:900px){
-body.house.house.house .sitenav-links{
+body.house.house.house .sitenav-links,body.ratespage.ratespage .sitenav-links{
 width:100% !important;max-width:100% !important;
 flex-wrap:wrap !important;overflow-x:visible !important;
 -webkit-mask-image:none !important;mask-image:none !important;

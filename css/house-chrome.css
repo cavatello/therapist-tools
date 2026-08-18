@@ -110,7 +110,10 @@
 .ftin{max-width:1180px;margin:0 auto;padding:0 30px}
 .ftroom{display:block;width:100%;max-width:440px;height:auto;margin:0 auto 22px}
 .ftnl-row{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
-.ftnl-t{flex:1;min-width:300px}
+/* min() rather than a bare 300px: at a 320px viewport this box sits in a
+   268px parent, so a hard 300px floor put it 6px past the edge and the
+   whole page scrolled sideways. Identical wherever 300px actually fits. */
+.ftnl-t{flex:1;min-width:min(300px,100%)}
 .ftnl h2{font-family:Fraunces,serif;font-size:23px;color:#fff;margin:0 0 9px;line-height:1.24}
 .ftnl h2 em{font-style:normal;color:var(--pop)}
 .ftnl p{font-size:13.5px;line-height:1.66;color:rgba(255,255,255,.72);margin:0;max-width:52ch}
@@ -431,75 +434,6 @@ body.house .tsshort, body.house .pk-t{
   box-shadow:none !important}
 body.house .np-col h5{background:none !important; padding:0 !important}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* _dev/nav_skin_fix.py */
 /* The masthead is white under body.house, but .sitenav-links still
    carries a dark header's pill (rgba(0,0,0,.26)) and a three-column
@@ -535,276 +469,23 @@ body.house.house .sitenav-top{
 }
 /* /nav_skin_fix */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* The grid `min-width:auto` blowout, at the one width it still bit.
+   A grid item defaults to min-width:auto, so it refuses to shrink below its
+   content's min-content width and pushes the whole page sideways. Measured at
+   320px: `.pdc` wanted 320 in a 252px track, `.crs` 310 in 264, `.th` 300 in
+   268 - three components, one cause, and the same cause the overflow audit
+   note in the handoff already names.
+   Scoped to 360px and below so it cannot touch any layout at a width where
+   these grids already work.
+   These pages link up to twenty-four sheets after this one, several of which
+   re-declare the same grids, so the declarations carry importance rather than
+   relying on order. Sofia's `.crsl` was fixed without it; the two directory
+   pages were not, which is how the need was found. */
+@media (max-width:360px){
+.pdgrid>*,.crsl>*,.thl>*,.pdgrid article,.crsl article,.thl a{
+min-width:0 !important}
+.pdgrid,.crsl,.thl{grid-template-columns:1fr !important}
+}
 
 /* _dev/stage_shell.py */
 .ss1{background:var(--paper);border-bottom:1px solid var(--line)}

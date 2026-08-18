@@ -274,6 +274,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `supervisor_lists_data.py` | **untriaged** | &mdash; | Where a California supervisor list actually is. WRITTEN BY _dev/supervisor_lists.py. |
 | `type_census.py` | **untriaged** | &mdash; | Typography, counted: every face, every size, every radius, every gradient. |
 | `verify_leads.py` | **untriaged** | &mdash; | Fetch every directory lead before it can ship as a link. |
+| `whitespace.py` | **untriaged** | &mdash; | Every build leaked blank lines, and that is why a deploy touched 250 files. |
 | `case_data.py` | **module** | &mdash; | Thirty California MFT discipline cases, de-identified, 2024-2026. — imported by build_cases.py |
 | `case_depth.py` | **module** | &mdash; | The discussion layer for the case library. Analysis, kept apart from record. — imported by build_cases.py |
 | `insurance_data.py` | **module** | &mdash; | Data for therapy-liability-insurance-california.html. — imported by build_insurance.py |

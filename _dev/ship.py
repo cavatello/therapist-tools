@@ -519,6 +519,14 @@ SEO = [
 
 # CSS. Hoisting comes after every <style> block exists, and nowhere else.
 CSSCHAIN = [
+    # Before anything computes a sha1. Three passes maintain a block in
+    # house-chrome.css by cutting their old one out and appending a new one,
+    # which leaves the newlines that surrounded it - a few more every build,
+    # until the sheet carried runs of 253 blank lines. Six invisible bytes
+    # change the sheet's hash, which repoints `?v=` on every page, which is
+    # why a deploy touched 250 files instead of 40.
+    ("_dev/whitespace.py --css",
+     "blank-line runs in the hand-authored sheets, before they are hashed"),
     ("_dev/extract_css.py", "hoist blocks shared by 4+ pages into css/"),
     ("_dev/css_cdo_fix.py", "HTML comments that break a stylesheet. After extract"),
     ("_dev/css_dedupe.py", "superseded links. After extract"),
@@ -734,6 +742,13 @@ LAST = [
     ("_dev/mockup_floor.py",
      "the two mockups are noindex, not unpublished: the last 26 contrast "
      "pairs and the last overflowing table on the site"),
+    # Dead last of everything that writes a page. Same leak as the sheets,
+    # on the pages themselves - 66 KB of blank lines had accumulated. Script
+    # and style blocks are held out: extract_css.py matches them exactly and
+    # css_dedupe.py collapses byte-identical copies, so reformatting one
+    # would defeat both.
+    ("_dev/whitespace.py --html",
+     "blank-line runs in the pages, after everything has finished writing"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
@@ -825,6 +840,9 @@ VERIFY = [
      "every page with a topic row still carries the wrapping rule"),
     ("_dev/masthead_mark.py --check",
      "the masthead mark is still un-hidden on every page that carries one"),
+    ("_dev/whitespace.py --check",
+     "no file carries a run of blank lines, so a sheet's hash moves only "
+     "when its rules do"),
     ("_dev/slab_guard.py",
      "one slab per page at most, and the scallop is still on it"),
 ]
