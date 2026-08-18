@@ -8,8 +8,6 @@
     "contact.html": "a form; no figure, and a claim here would read as availability language",
     "tycoon.html": "a static visual-direction mockup, and its body carries no class to scope the slab to",
     "rates.html": "body class is ratespage and its editorial voice is excluded from the house passes by decision",
-    "discipline-case-a-forty-year-license-surrendered.html": "a single de-identified case; the claim belongs to the library hub, not the write-up",
-    "discipline-case-from-dui-to-surrender.html": "a single de-identified case; the claim belongs to the library hub, not the write-up",
     "questions.html": "a complete index of the site's questions; every figure it shows belongs to another page",
     "resources.html": "the start-here index; every number on it is a headline borrowed from the page it links to"
   },
@@ -883,6 +881,804 @@
       "support": "Which leaves the network and the education as the whole of what you are buying. Priced and dated, with the separate mentorship add-on named.",
       "anchor": "$10,500 over 12 months",
       "mark": "the whole of what you are buying"
+    },
+    "discipline-case-a-battery-conviction-and-a-default.html": {
+      "eyebrow": "Nothing to do with clients",
+      "claim": "A battery conviction outside working hours ended a registration. Not answering the accusation was a second decision, with its own deadline.",
+      "support": "Report any arrest or charge to the Board in writing within 30 days, and keep your address of record current: service there is effective whether you read it or not.",
+      "anchor": "16 CCR &sect;1812",
+      "mark": "whether you read it or not"
+    },
+    "discipline-case-a-decade-of-employer-warnings.html": {
+      "eyebrow": "Eleven years, one accusation",
+      "claim": "Four employers acted on him before the Board ever did. Eleven years of it arrived in a single accusation.",
+      "support": "Registration surrendered, no reinstatement, and $33,704 in cost recovery. Write your contact rules into the intake and put every text into the record.",
+      "anchor": "$33,704",
+      "mark": "$33,704 in cost recovery"
+    },
+    "discipline-case-a-felony-assault-and-a-default.html": {
+      "eyebrow": "Fifteen days, then nothing",
+      "claim": "A revocation that turned as much on a missed 15-day deadline as on the felony conviction behind it.",
+      "support": "The Board's jurisdiction survives an expired registration, and service to your address of record is effective whether or not you read it. Costs came to $4,551.25.",
+      "anchor": "$4,551.25",
+      "mark": "survives an expired registration"
+    },
+    "discipline-case-a-forty-year-license-surrendered.html": {
+      "eyebrow": "One DUI, forty years",
+      "claim": "Licensed since the 1980s, surrendered after one DUI. Surrender ends the proceeding and usually forecloses reinstatement.",
+      "support": "At that stage of a career the choice between fighting and surrendering is an economic one, and the $2,090 in costs is the smallest number in it.",
+      "anchor": "$2,090",
+      "mark": "an economic one"
+    },
+    "discipline-case-a-mandated-report-never-filed.html": {
+      "eyebrow": "A year of disclosures",
+      "claim": "A year of abuse disclosures and no report filed. The duty is yours personally, and suspicion triggers it, not certainty.",
+      "support": "Never route a suspected abuse report through a physician, a school, or the non-offending parent. Discipline on one healing arts license travels to the other.",
+      "anchor": "$3,854.00",
+      "mark": "travels to the other"
+    },
+    "discipline-case-almost-forty-years-of-rehabilitation.html": {
+      "eyebrow": "The door is not closed",
+      "claim": "A 1985 murder conviction, and a 2024 registration granted on probation. The applicant carries the burden, and met it.",
+      "support": "What the Board weighed, and how to assemble a record that maps onto the regulation: sentence completed, parole clean, and the whole history disclosed first.",
+      "anchor": "16 CCR &sect;1813",
+      "mark": "disclosed first"
+    },
+    "discipline-case-asking-a-client-where-to-buy-drugs.html": {
+      "eyebrow": "One text message thread",
+      "claim": "Fifty-four sessions of ordinary work create no store of credit. The record is one text message thread.",
+      "support": "Asking a client not to report you is not damage control, it is an additional charge. Registration surrendered, with $8,107 in costs.",
+      "anchor": "$8,107",
+      "mark": "an additional charge"
+    },
+    "discipline-case-billed-for-sessions-that-never-happened.html": {
+      "eyebrow": "Five subdivisions at once",
+      "claim": "Twenty-two sessions billed for a patient seen twice, charged under five subdivisions at once, plus a records-destruction count.",
+      "support": "Reconcile every claim against your calendar and your notes before it goes out. The seven-year clock runs from termination of therapy, not from settlement.",
+      "anchor": "$32,956",
+      "mark": "not from settlement"
+    },
+    "discipline-case-cannabis-with-a-client.html": {
+      "eyebrow": "His own words",
+      "claim": "He smoked with a client, drove her home impaired, and offered her Xanax. A refused offer is still cause for discipline.",
+      "support": "He used the phrase not therapy himself to describe the outings. It appears in the accusation as an admission, and his own words did most of the Board's work.",
+      "anchor": "$5,000",
+      "mark": "as an admission"
+    },
+    "discipline-case-charged-without-a-conviction.html": {
+      "eyebrow": "No conviction required",
+      "claim": "Charged for conduct that was never prosecuted, and disciplined for it anyway. Do not assume a charge that goes away goes away.",
+      "support": "Tell your criminal defense attorney you hold a license at the first meeting, and get a licensing attorney involved before any plea.",
+      "anchor": "$5,083",
+      "mark": "before any plea"
+    },
+    "discipline-case-denied-it-then-admitted-it.html": {
+      "eyebrow": "Proved, not settled",
+      "claim": "She denied it to her employer and admitted it two days later. Those two days are why this went to a hearing.",
+      "support": "One of the very few cases in this library proved at a full hearing by clear and convincing evidence, so it shows what the standard actually looks like.",
+      "anchor": "clear and convincing",
+      "mark": "what the standard actually looks like"
+    },
+    "discipline-case-discipline-follows-your-other-license.html": {
+      "eyebrow": "One board, then the other",
+      "claim": "The psychology board acted and the MFT license followed. The facts settled in the first proceeding became conclusive in the second.",
+      "support": "Dual-licensed clinicians consistently underestimate this, and it is not a re-hearing. A stipulation in another state is not a private arrangement.",
+      "anchor": "$3,000",
+      "mark": "not a re-hearing"
+    },
+    "discipline-case-disciplined-for-emails.html": {
+      "eyebrow": "Nothing physical happened",
+      "claim": "No meetings, no money, no sex. An email correspondence alone drew three years of probation and $7,644 in costs.",
+      "support": "Two habits are chargeable on this record: terms of endearment, and directive instructions about how a client should spend an evening. Both feel like care.",
+      "anchor": "$7,644",
+      "mark": "Both feel like care"
+    },
+    "discipline-case-drinking-at-lunch.html": {
+      "eyebrow": "One afternoon, four years",
+      "claim": "No client complaint, no harm alleged, no pattern. Alcohol at lunch, then a session and a group, and four years of probation.",
+      "support": "The sessions he went ahead and held are the misconduct, not the drink at lunch. If you are impaired at work, cancel the schedule and tell someone who can cover.",
+      "anchor": "$5,190.00",
+      "mark": "not the drink at lunch"
+    },
+    "discipline-case-eight-weeks-without-a-therapist.html": {
+      "eyebrow": "Paperwork, not clinical work",
+      "claim": "Eight weeks without a Board-approved therapist, and a year added to a four-year probation.",
+      "support": "Probation is usually lost to administrative slippage rather than misconduct, and the slippage costs real time. The requirement does not pause while you look for someone new.",
+      "anchor": "$15,298.40",
+      "mark": "does not pause"
+    },
+    "discipline-case-eight-years-of-escalation.html": {
+      "eyebrow": "No first bad act",
+      "claim": "Eight years with one client through three levels of licensure, ending in four sessions on MDMA. Nobody ever saw the work.",
+      "support": "The controlled-substance provision has no clinical-context exception, which matters to anyone working near psychedelic-assisted practice. Look for the first unusual act, not the first bad one.",
+      "anchor": "$7,826",
+      "mark": "no clinical-context exception"
+    },
+    "discipline-case-embezzlement-outside-the-practice.html": {
+      "eyebrow": "No client, no session",
+      "claim": "62 checks written at a bookkeeping job, and a registration revoked. No connection to therapy at all.",
+      "support": "The test is the relationship test in the regulation, not whether it happened at work. The Board learns about convictions automatically, through the Department of Justice.",
+      "anchor": "$183,200",
+      "mark": "not whether it happened at work"
+    },
+    "discipline-case-failing-to-report-your-own-conviction.html": {
+      "eyebrow": "Six charges, one conviction",
+      "claim": "A reckless driving conviction charged six times over, including one cause for not reporting it within 30 days.",
+      "support": "The reportable event is the conviction, not the arrest. If you hold a second registration, notify both: there is no shared record between the two files.",
+      "anchor": "$2,578",
+      "mark": "no shared record"
+    },
+    "discipline-case-falsified-course-certificates-end-a-probation.html": {
+      "eyebrow": "Survivable, then not",
+      "claim": "A probation that was substantively survivable and collapsed over paperwork, payments, and how the respondent handled being caught.",
+      "support": "On the day you sign your orientation notes, put every proposal date, coursework date, quarterly report and payment into the calendar you use for clients.",
+      "anchor": "$5,111.88",
+      "mark": "the calendar you use for clients"
+    },
+    "discipline-case-felony-child-endangerment-never-reported.html": {
+      "eyebrow": "Silence read as agreement",
+      "claim": "The Board took every allegation as true without hearing a word from the respondent. Not answering is itself the losing move.",
+      "support": "Calendar 30 days from any plea or verdict, even when the charge is a wobbler that will be reduced later and your criminal lawyer treats the matter as closed.",
+      "anchor": "16 CCR &sect;1881",
+      "mark": "even when the charge is a wobbler"
+    },
+    "discipline-case-forged-supervisor-signature.html": {
+      "eyebrow": "There was a lawful route",
+      "claim": "The supervisor had died, and the hours still needed signing. A regulation exists for exactly that situation.",
+      "support": "If a supervisor dies, leaves, or refuses to sign, there is a documented alternative route to proving your hours. Start the paperwork the week it happens.",
+      "anchor": "16 CCR &sect;1815",
+      "mark": "the week it happens"
+    },
+    "discipline-case-four-ways-to-violate-probation.html": {
+      "eyebrow": "One of them is money",
+      "claim": "Four ways to violate probation, and one of them is simply not paying the bill from the first order.",
+      "support": "Negotiate a payment schedule into the order at the settlement stage. And file the quarterly reports even in quarters where nothing happened.",
+      "anchor": "$4,530",
+      "mark": "even in quarters where nothing happened"
+    },
+    "discipline-case-from-dui-to-surrender.html": {
+      "eyebrow": "The whole arc",
+      "claim": "Conviction, five years of probation, then surrender seven months in. Roughly one probation in five fails.",
+      "support": "In the Board's own figures, 18 to 28 probations are revoked each year against 74 to 132 probationers. Take the terms as a five-year operating constraint, not paperwork.",
+      "anchor": "18 to 28",
+      "mark": "not paperwork"
+    },
+    "discipline-case-ignoring-an-order-to-be-examined.html": {
+      "eyebrow": "An order, not a request",
+      "claim": "Comply with the order and fight the conclusion. Those are two different things, and only the first has a 30-day deadline.",
+      "support": "Three cases in one, and in the first the accusation contains no clinical charge of any kind. Call a licensing attorney the day the order arrives, not the week it expires.",
+      "anchor": "&sect;820",
+      "mark": "not the week it expires"
+    },
+    "discipline-case-letting-a-registration-lapse-on-probation.html": {
+      "eyebrow": "Reopened, and lengthened",
+      "claim": "Her registration lapsed while she was on probation for it, and the probation was reimposed for 42 months on expanded terms.",
+      "support": "A probation can be reopened and lengthened with no new clinical misconduct at all. Renew on time even while suspended, between jobs, or not practicing.",
+      "anchor": "42 months",
+      "mark": "no new clinical misconduct"
+    },
+    "discipline-case-out-of-state-discipline.html": {
+      "eyebrow": "A license left dormant",
+      "claim": "Disciplined in Arizona, surrendered in California. No California client was required for any of it.",
+      "support": "An inactive out-of-state license still generates discipline you must report here, and a renewal you forget is a lapse that can itself be charged.",
+      "anchor": "$2,345",
+      "mark": "can itself be charged"
+    },
+    "discipline-case-probation-traded-for-surrender.html": {
+      "eyebrow": "Two missed 30-day deadlines",
+      "claim": "A 0.15 breath test, a below-guideline probation earned by a real rehabilitation record, and the true price of surrendering mid-probation.",
+      "support": "Report a conviction within 30 days of the plea even when the Department of Justice has already told them, and answer a Board letter inside the window it states.",
+      "anchor": "$4,373.75",
+      "mark": "inside the window it states"
+    },
+    "discipline-case-pseudonyms-and-sleepovers.html": {
+      "eyebrow": "Code names are the tell",
+      "claim": "Choosing pseudonyms for clients is an act of concealment, and concealment is the reliable signal that the person already knows.",
+      "support": "Eight causes for discipline, and the clearest statement of the California dual-relationship standard anywhere in this library. It is auditable against your own practice.",
+      "anchor": "Eight causes",
+      "mark": "auditable against your own practice"
+    },
+    "discipline-case-psychology-probation-reaches-a-second-license.html": {
+      "eyebrow": "One set of facts, twice",
+      "claim": "One set of clinical facts produced discipline on two licenses, plus a separate charge for saying nothing about the first.",
+      "support": "If you hold a second license or registration, report to every board that licenses you on the day discipline becomes effective, and send it with proof of delivery.",
+      "anchor": "$2,000.00",
+      "mark": "with proof of delivery"
+    },
+    "discipline-case-road-rage-and-a-default-revocation.html": {
+      "eyebrow": "Silence made it a revocation",
+      "claim": "Two misdemeanors from a parking-lot argument would have been a contested case. The silence turned it into a revocation with no hearing.",
+      "support": "Report any conviction in writing within 30 days without waiting for sentencing, expungement, or your criminal lawyer to finish.",
+      "anchor": "$2,597.50",
+      "mark": "without waiting for sentencing"
+    },
+    "discipline-case-serious-felonies-ignore-the-seven-year-rule.html": {
+      "eyebrow": "Where the lookback stops",
+      "claim": "A 2008 conviction still reached a 2024 application, because a serious felony does not age out of the seven-year window.",
+      "support": "Check Penal Code section 1192.7 before you rely on that window. It includes any felony involving personal use of a weapon.",
+      "anchor": "1192.7",
+      "mark": "personal use of a weapon"
+    },
+    "discipline-case-seven-business-practice-failures.html": {
+      "eyebrow": "No clinical allegation at all",
+      "claim": "An outright revocation, no stay and no probation, and not one clinical allegation in the whole accusation.",
+      "support": "Six sessions on a lapsed license turned an ordinary billing dispute into this. The failure-to-cooperate count is available in every case, at the same penalty range.",
+      "anchor": "$1,365",
+      "mark": "available in every case"
+    },
+    "discipline-case-seven-years-under-supervision.html": {
+      "eyebrow": "Model the probation",
+      "claim": "Seven years on probation and counting. When you price a disciplinary matter, price the probation, not the hearing.",
+      "support": "Roughly $1,200 a year in monitoring, coursework that does not count toward continuing education, and telling every employer. Tolling stops the clock and moves the end date.",
+      "anchor": "$3,432",
+      "mark": "moves the end date"
+    },
+    "discipline-case-sex-with-a-residential-client.html": {
+      "eyebrow": "This is the ceiling",
+      "claim": "The clinical director who slept with an inpatient, then asked him for $5 million. Every other case here sits below it.",
+      "support": "Seven years of probation, the maximum the guidelines set, and the largest cost recovery in three years of California discipline. The detail to carry away is the $14,500.",
+      "anchor": "$15,883",
+      "mark": "the largest cost recovery"
+    },
+    "discipline-case-signed-her-supervisors-name.html": {
+      "eyebrow": "A supervised path back",
+      "claim": "She wrote her supervisor's name on the hours forms, admitted it, and was still given a supervised route back into practice.",
+      "support": "The rare case where the Board rejected its own judge's proposed decision and decided the matter itself. Never supply another person's name on a Board document.",
+      "anchor": "$3,000.00",
+      "mark": "decided the matter itself"
+    },
+    "discipline-case-the-address-of-record.html": {
+      "eyebrow": "The shortest case here",
+      "claim": "An address the Board could not reach is the structural reason so many other cases carry a failure-to-cooperate count.",
+      "support": "Update it within 30 days of moving, in BreEZe, separately from your public practice address. Do the same with your carrier and your supervisor of record.",
+      "anchor": "16 CCR &sect;1804",
+      "mark": "separately from your public practice address"
+    },
+    "discipline-case-the-custody-letter.html": {
+      "eyebrow": "Three rules, one letter",
+      "claim": "A letter written about a client for someone who was not the client. Three separate rules break in one case.",
+      "support": "Each is a rule ordinary therapists get asked to break every year. If you amend a record, amend it visibly: date it, mark it, and keep the original.",
+      "anchor": "$12,242",
+      "mark": "keep the original"
+    },
+    "discipline-case-the-only-public-reproval.html": {
+      "eyebrow": "The floor of the ladder",
+      "claim": "The mildest formal discipline available, and the only one issued to an MFT in three years of data.",
+      "support": "The distance between a reproval and probation is usually the quality of the response, not the gravity of the conduct. Which is what a licensing attorney is for.",
+      "anchor": "Public Reproval",
+      "mark": "not the gravity of the conduct"
+    },
+    "discipline-case-the-slow-boil.html": {
+      "eyebrow": "No step is the step",
+      "claim": "Three years of small decisions, each defensible against the one before it and indefensible against the first.",
+      "support": "The tell available at any point was structural, not moral: sessions running for hours, at night, with daily texting between them.",
+      "anchor": "$8,039",
+      "mark": "structural, not moral"
+    },
+    "discipline-case-the-two-year-rule-is-not-a-loophole.html": {
+      "eyebrow": "The most misread sentence",
+      "claim": "We could date if we ended therapy. This case is what that misunderstanding costs.",
+      "support": "A client's disclosure of romantic feelings is clinical material. Naming it, keeping it in the room and documenting it was the obvious and cheap alternative.",
+      "anchor": "$12,515",
+      "mark": "the obvious and cheap alternative"
+    },
+    "discipline-case-thirty-days-to-report-discipline.html": {
+      "eyebrow": "The most missed duty",
+      "claim": "The reporting duty is the single most frequently missed obligation in this entire library, and it made everything else worse.",
+      "support": "Put a 30-day reminder in your calendar the day anything reportable happens, and report in writing so you have proof of the date. Report even when you think they know.",
+      "anchor": "$1,859",
+      "mark": "proof of the date"
+    },
+    "discipline-case-thirty-four-year-sentence-then-registration.html": {
+      "eyebrow": "A conditional yes",
+      "claim": "A 34-year sentence, then a social work application, and a registration issued on probation rather than a permanent no.",
+      "support": "The seven-year window runs from release rather than conviction. The Board fingerprints every applicant, so what you control is whether your account arrives with the record.",
+      "anchor": "16 CCR &sect;1813",
+      "mark": "runs from release"
+    },
+    "discipline-case-three-days-after-the-last-session.html": {
+      "eyebrow": "For fear of being fired",
+      "claim": "Coffee three days after the final session. The reason he gave for not consulting his supervisor is the usual one.",
+      "support": "Every supervision relationship should survive the disclosure that a supervisee is having a reaction to a client. If yours cannot, that is a fact about the placement.",
+      "anchor": "$4,254",
+      "mark": "a fact about the placement"
+    },
+    "discipline-case-twenty-three-sessions-in-one-day.html": {
+      "eyebrow": "Arithmetically impossible",
+      "claim": "23 sessions billed in a single day, plus a separate count for not reporting the conviction behind it.",
+      "support": "The claim goes out under your number whoever pressed the button. Reconcile what your billing service submits against your own calendar, quarterly.",
+      "anchor": "16 CCR &sect;1845",
+      "mark": "whoever pressed the button"
+    },
+    "discipline-case-two-duis-five-years-probation.html": {
+      "eyebrow": "The modal case",
+      "claim": "Two DUIs and five years of probation. This is the most common California MFT discipline case, and almost nobody expects it.",
+      "support": "Reporting it yourself within 30 days is the difference between two counts and three. Understand what probation involves before you decide whether to fight.",
+      "anchor": "$2,201",
+      "mark": "two counts and three"
+    },
+    "discipline-case-two-nursing-actions-before-registration.html": {
+      "eyebrow": "Conditions, not a closed door",
+      "claim": "Two nursing board actions in under three years became the entire substance of a behavioral sciences application case.",
+      "support": "The Board obtains certified copies regardless, and a certified copy is conclusive proof. Disclose every action yourself and attach the decisions.",
+      "anchor": "16 CCR &sect;1813",
+      "mark": "conclusive proof"
+    },
+    "discipline-case-underground-psychedelics-and-two-clients.html": {
+      "eyebrow": "The drug charge stands alone",
+      "claim": "He dosed two clients and slept with one. The controlled-substance charge stands entirely on its own, independent of that.",
+      "support": "Do not take on anyone you already hold authority over. Keep sessions to a scheduled length and end them in the office: rides home and shared meals are the observable markers.",
+      "anchor": "$14,486",
+      "mark": "the observable markers"
+    },
+    "discipline-case-when-the-judge-cuts-the-bill.html": {
+      "eyebrow": "Cost recovery is contestable",
+      "claim": "The Board asked for $10,778. The judge ordered $4,000. This is the part respondents most often concede without argument.",
+      "support": "Ask for the certified cost statement and read it. It itemizes investigator and Attorney General time, and the reasonableness of each line is the thing in issue.",
+      "anchor": "$10,778",
+      "mark": "the thing in issue"
+    },
+    "alliant-international-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "472 of 547 first-time candidates from this school passed the Board's clinical exam, 86% against 80% statewide.",
+      "support": "$1,463 a unit on the published figure, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "472 of 547 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "antioch-university-los-angeles-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "846 of 975 first-time candidates from this school passed the Board's clinical exam, 87% against 80% statewide.",
+      "support": "$956 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "846 of 975 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "antioch-university-santa-barbara-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "160 of 205 first-time candidates from this school passed the Board's clinical exam, 78% against 80% statewide.",
+      "support": "90 quarter units minimum to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "160 of 205 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "azusa-pacific-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "400 of 471 first-time candidates from this school passed the Board's clinical exam, 85% against 80% statewide.",
+      "support": "$865 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "400 of 471 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "cal-poly-humboldt-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "41 of 46 first-time candidates from this school passed the Board's clinical exam, 89% against 80% statewide.",
+      "support": "60 units (16 of them fieldwork) to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "41 of 46 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "cal-poly-pomona-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "66 of 71 first-time candidates from this school passed the Board's clinical exam, 93% against 80% statewide.",
+      "support": "60 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "66 of 71 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "cal-poly-san-luis-obispo-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "94 of 97 first-time candidates from this school passed the Board's clinical exam, 97% against 80% statewide.",
+      "support": "69 semester units (73 with thesis) to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "94 of 97 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-baptist-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "389 of 578 first-time candidates from this school passed the Board's clinical exam, 67% against 80% statewide.",
+      "support": "$864 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "389 of 578 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-institute-of-integral-studies-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "635 of 687 first-time candidates from this school passed the Board's clinical exam, 92% against 80% statewide.",
+      "support": "$1,449 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "635 of 687 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-lutheran-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "167 of 192 first-time candidates from this school passed the Board's clinical exam, 87% against 80% statewide.",
+      "support": "$940 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "167 of 192 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-bakersfield-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "78 of 93 first-time candidates from this school passed the Board's clinical exam, 84% against 80% statewide.",
+      "support": "66 semester units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "78 of 93 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-chico-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "95 of 103 first-time candidates from this school passed the Board's clinical exam, 92% against 80% statewide.",
+      "support": "60 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "95 of 103 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-dominguez-hills-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "122 of 173 first-time candidates from this school passed the Board's clinical exam, 71% against 80% statewide.",
+      "support": "64 credits to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "122 of 173 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-east-bay-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "155 of 180 first-time candidates from this school passed the Board's clinical exam, 86% against 80% statewide.",
+      "support": "Not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "155 of 180 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-fresno-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "231 of 295 first-time candidates from this school passed the Board's clinical exam, 78% against 80% statewide.",
+      "support": "60 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "231 of 295 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-fullerton-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "343 of 390 first-time candidates from this school passed the Board's clinical exam, 88% against 80% statewide.",
+      "support": "$675 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "343 of 390 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-long-beach-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "167 of 179 first-time candidates from this school passed the Board's clinical exam, 93% against 80% statewide.",
+      "support": "65 units min to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "167 of 179 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-los-angeles-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "104 of 122 first-time candidates from this school passed the Board's clinical exam, 85% against 80% statewide.",
+      "support": "73–77 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "104 of 122 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-northridge-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "264 of 335 first-time candidates from this school passed the Board's clinical exam, 79% against 80% statewide.",
+      "support": "72 semester units to finish, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "264 of 335 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-sacramento-mft.html": {
+      "eyebrow": "Level with the state",
+      "claim": "109 of 137 first-time candidates from this school passed the Board's clinical exam, matching the 80% statewide rate.",
+      "support": "60 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "109 of 137 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-san-bernardino-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "55 of 61 first-time candidates from this school passed the Board's clinical exam, 90% against 80% statewide.",
+      "support": "60–68 semester units (varies by culminating option) to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "55 of 61 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "california-state-university-stanislaus-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "61 of 62 first-time candidates from this school passed the Board's clinical exam, 98% against 80% statewide.",
+      "support": "60 units min (36 core + 24 track) to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "61 of 62 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "campbellsville-university-los-angeles-education-center-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "281 of 384 first-time candidates from this school passed the Board's clinical exam, 73% against 80% statewide.",
+      "support": "$66,495 total on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "281 of 384 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "chapman-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "136 of 162 first-time candidates from this school passed the Board's clinical exam, 84% against 80% statewide.",
+      "support": "COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "136 of 162 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "chicago-school-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "199 of 255 first-time candidates from this school passed the Board's clinical exam, 78% against 80% statewide.",
+      "support": "COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "199 of 255 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "dominican-university-of-california-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "84 of 94 first-time candidates from this school passed the Board's clinical exam, 89% against 80% statewide.",
+      "support": "$83,882 total on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "84 of 94 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "fresno-pacific-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "61 of 68 first-time candidates from this school passed the Board's clinical exam, 90% against 80% statewide.",
+      "support": "$610 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "61 of 68 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "fuller-theological-seminary-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "179 of 193 first-time candidates from this school passed the Board's clinical exam, 93% against 80% statewide.",
+      "support": "$540 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "179 of 193 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "golden-gate-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "42 of 66 first-time candidates from this school passed the Board's clinical exam, 64% against 80% statewide.",
+      "support": "$1,090 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "42 of 66 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "hope-international-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "178 of 235 first-time candidates from this school passed the Board's clinical exam, 76% against 80% statewide.",
+      "support": "MA: 60 units to finish, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "178 of 235 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "loma-linda-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "78 of 99 first-time candidates from this school passed the Board's clinical exam, 79% against 80% statewide.",
+      "support": "Quarter system; totals not published on the pages checked to finish, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "78 of 99 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "loyola-marymount-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "111 of 121 first-time candidates from this school passed the Board's clinical exam, 92% against 80% statewide.",
+      "support": "$1,814 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "111 of 121 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "mount-saint-mary-s-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "158 of 223 first-time candidates from this school passed the Board's clinical exam, 71% against 80% statewide.",
+      "support": "$1,210 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "158 of 223 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "national-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "569 of 846 first-time candidates from this school passed the Board's clinical exam, 67% against 80% statewide.",
+      "support": "MAMFT: minimum 45 semester credit hours, up to 60 for licensure requirements in some states to finish, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "569 of 846 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "notre-dame-de-namur-university-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "193 of 251 first-time candidates from this school passed the Board's clinical exam, 77% against 80% statewide.",
+      "support": "60 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "193 of 251 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "pacific-oaks-college-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "206 of 336 first-time candidates from this school passed the Board's clinical exam, 61% against 80% statewide.",
+      "support": "60 credits (LPCC specialization adds 5 credits) to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "206 of 336 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "pacifica-graduate-institute-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "296 of 341 first-time candidates from this school passed the Board's clinical exam, 87% against 80% statewide.",
+      "support": "93 quarter units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "296 of 341 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "palo-alto-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "248 of 297 first-time candidates from this school passed the Board's clinical exam, 84% against 80% statewide.",
+      "support": "Quarter system; 4.5 quarter units per course; total not stated to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "248 of 297 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "pepperdine-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "937 of 1,095 first-time candidates from this school passed the Board's clinical exam, 86% against 80% statewide.",
+      "support": "$140,080 total on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "937 of 1,095 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "point-loma-nazarene-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "67 of 71 first-time candidates from this school passed the Board's clinical exam, 94% against 80% statewide.",
+      "support": "$848 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "67 of 71 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "saint-mary-s-college-of-california-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "136 of 157 first-time candidates from this school passed the Board's clinical exam, 87% against 80% statewide.",
+      "support": "$1,180 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "136 of 157 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "san-diego-state-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "138 of 163 first-time candidates from this school passed the Board's clinical exam, 85% against 80% statewide.",
+      "support": "60 semester units to finish, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "138 of 163 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "san-francisco-state-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "139 of 158 first-time candidates from this school passed the Board's clinical exam, 88% against 80% statewide.",
+      "support": "60 units min to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "139 of 158 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "san-jose-state-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "45 of 50 first-time candidates from this school passed the Board's clinical exam, 90% against 80% statewide.",
+      "support": "60 semester units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "45 of 50 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "santa-clara-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "377 of 401 first-time candidates from this school passed the Board's clinical exam, 94% against 80% statewide.",
+      "support": "$726 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "377 of 401 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "sofia-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "51 of 56 first-time candidates from this school passed the Board's clinical exam, 91% against 80% statewide.",
+      "support": "$663 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "51 of 56 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "sonoma-state-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "105 of 110 first-time candidates from this school passed the Board's clinical exam, 95% against 80% statewide.",
+      "support": "60 units to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "105 of 110 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "touro-university-worldwide-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "131 of 170 first-time candidates from this school passed the Board's clinical exam, 77% against 80% statewide.",
+      "support": "$37,800 total on the published figure, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "131 of 170 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-la-verne-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "98 of 116 first-time candidates from this school passed the Board's clinical exam, 84% against 80% statewide.",
+      "support": "$990 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "98 of 116 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-massachusetts-global-mft.html": {
+      "eyebrow": "Below the state average",
+      "claim": "472 of 694 first-time candidates from this school passed the Board's clinical exam, 68% against 80% statewide.",
+      "support": "69 credits to finish, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "472 of 694 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-san-diego-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "162 of 169 first-time candidates from this school passed the Board's clinical exam, 96% against 80% statewide.",
+      "support": "$105,060 total on the published figure, and COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "162 of 169 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-san-francisco-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "374 of 453 first-time candidates from this school passed the Board's clinical exam, 83% against 80% statewide.",
+      "support": "$81,000 total on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "374 of 453 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-southern-california-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "244 of 253 first-time candidates from this school passed the Board's clinical exam, 96% against 80% statewide.",
+      "support": "$152,340 total on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "244 of 253 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "vanguard-university-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "102 of 120 first-time candidates from this school passed the Board's clinical exam, 85% against 80% statewide.",
+      "support": "$855 a unit on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "102 of 120 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "wright-institute-mft.html": {
+      "eyebrow": "Above the state average",
+      "claim": "262 of 278 first-time candidates from this school passed the Board's clinical exam, 94% against 80% statewide.",
+      "support": "$78,600 total on the published figure, and not COAMFTE accredited. Plus what the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "262 of 278 candidates",
+      "mark": "what its accreditation decides"
+    },
+    "biola-university-mft.html": {
+      "eyebrow": "A checkpoint mid-degree",
+      "claim": "Party listings still say three years. Add the Practicum Qualifying Exam, offered only each Fall, and four looks like the honest figure.",
+      "support": "67 credits, not COAMFTE accredited, and a real fee layer on top of tuition. Failing that exam twice means dismissal, and failing once can cost a year.",
+      "anchor": "Practicum Qualifying Exam",
+      "mark": "failing once can cost a year"
+    },
+    "concordia-university-irvine-mft.html": {
+      "eyebrow": "Online, with one exception",
+      "claim": "Coursework online at $695 a unit, and one required four-day residency you have to travel for.",
+      "support": "Not COAMFTE accredited, and too few first-time candidates for the Board to publish a pass rate. What the program publishes, what its accreditation decides, and what students say.",
+      "anchor": "four-day residency",
+      "mark": "what its accreditation decides"
+    },
+    "daybreak-university-mft.html": {
+      "eyebrow": "Accredited, and over Zoom",
+      "claim": "A ninety-unit degree taught mostly over Zoom, and it is genuinely COAMFTE accredited.",
+      "support": "Which is rarer than the format suggests. The Board recorded no first-time candidates yet, so there is no pass rate. What it publishes, and what its accreditation decides.",
+      "anchor": "90 units",
+      "mark": "what its accreditation decides"
+    },
+    "kaiser-permanente-school-of-allied-health-sciences-mft.html": {
+      "eyebrow": "The program places you",
+      "claim": "90 quarter credits at $38,970 published, and the program finds your practicum site rather than leaving it to you.",
+      "support": "Which is the single largest difference between programs. Not COAMFTE accredited, so the question of whether the degree travels out of state is answered here.",
+      "anchor": "$38,970",
+      "mark": "whether the degree travels"
+    },
+    "la-sierra-university-mft.html": {
+      "eyebrow": "Too few to rank",
+      "claim": "$730 a unit in Riverside, and too few first-time candidates for the Board's pass rate to mean anything.",
+      "support": "On a handful of candidates a single result moves the figure by double digits, so this page prints none. What it publishes, and what its accreditation decides.",
+      "anchor": "$730 a unit",
+      "mark": "what its accreditation decides"
+    },
+    "meridian-university-mft.html": {
+      "eyebrow": "Too few to rank",
+      "claim": "$676 a unit in Petaluma, and too few first-time candidates for the Board's pass rate to carry weight.",
+      "support": "Not COAMFTE accredited. What the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "$676 a unit",
+      "mark": "what its accreditation decides"
+    },
+    "northwestern-university-the-family-institute-mft.html": {
+      "eyebrow": "Accredited, and out of state",
+      "claim": "A COAMFTE-accredited program in Evanston, Illinois, which puts the California question first rather than last.",
+      "support": "What the degree has to satisfy to register you here, what the program publishes about itself, and what students and graduates say in public.",
+      "anchor": "Evanston",
+      "mark": "to register you here"
+    },
+    "sentio-university-mft.html": {
+      "eyebrow": "Read the Board notice first",
+      "claim": "The Board has issued a Notice to Students about this school. A graduate cannot sit the clinical exam yet.",
+      "support": "If accreditation is not achieved by July 2028, associates registered on this degree are disqualified and their supervised hours will not be accepted. Read the notice itself.",
+      "anchor": "Notice to Students",
+      "mark": "will not be accepted"
+    },
+    "university-of-redlands-mft.html": {
+      "eyebrow": "A zero-unit line that bites",
+      "claim": "The CPCE is carried at zero units, and failing it is one of seven events that can trigger a reassessment.",
+      "support": "$932 a unit in Redlands, not COAMFTE accredited. What the program publishes about itself, what its accreditation decides, and what students say in public.",
+      "anchor": "CPCE",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-the-pacific-mft.html": {
+      "eyebrow": "Too few to rank",
+      "claim": "$1,244 a unit in Stockton, and a single first-time candidate on record, which is no basis for a pass rate.",
+      "support": "So this page prints none rather than a number that would move by double digits on one result. What it publishes, and what its accreditation decides.",
+      "anchor": "$1,244 a unit",
+      "mark": "what its accreditation decides"
+    },
+    "university-of-the-west-mft.html": {
+      "eyebrow": "Too few to rank",
+      "claim": "$765 a unit in Rosemead, and too few first-time candidates for the Board's pass rate to carry weight.",
+      "support": "Not COAMFTE accredited. What the program publishes about itself, what its accreditation decides, and what students and graduates say in public.",
+      "anchor": "$765 a unit",
+      "mark": "what its accreditation decides"
     }
   }
 }
