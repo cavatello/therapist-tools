@@ -260,6 +260,35 @@ def main():
                           % (c["name"], f))
                     bad += 1
 
+    # ---- SPELLING, IN THE ONE PLACE THE SPELLING GUARD CANNOT SEE
+    #
+    # `pagekit.spelling` is scoped to the `pk-wrap` article, deliberately -
+    # a guard that fires on a JavaScript identifier or a nav label gets
+    # switched off, which is worse than a guard that misses a word. But
+    # cluster names, topic names and topic intros are PROSE, they render
+    # on every hub, and no pass was checking them. Two had drifted:
+    # "Practising from somewhere else" on the Practice hub, and
+    # "recognises" in the Training intro. Both had been live for weeks
+    # with every guard on the site reporting clean.
+    #
+    # This pass owns clusters, so this pass guards their words. It reuses
+    # pagekit's derivation rather than restating the list, so there is
+    # still exactly one place where a British spelling is defined - and,
+    # as pagekit's own note explains, no British string exists as a
+    # literal anywhere in either file.
+    sys.path.insert(0, HERE)
+    import pagekit as pk
+    for key, T in reg["topics"].items():
+        prose = [("topic name", T.get("name", "")),
+                 ("tagline", T.get("tagline", ""))]
+        prose += [("intro", x) for x in T.get("intro", [])]
+        prose += [("cluster name", c["name"]) for c in T["clusters"]]
+        for what, text in prose:
+            for wrong in pk.spelling("<p>" + text + "</p>"):
+                print("GUARD: British spelling %r in the %s hub's %s: %r"
+                      % (wrong, key, what, text[:60]))
+                bad += 1
+
     # A leaf must still be reachable, or this pass has created 48 orphans.
     hub = open(os.path.join(SITE, "therapist-discipline-cases-california.html"),
                encoding="utf-8").read()
