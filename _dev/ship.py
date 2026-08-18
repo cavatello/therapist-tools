@@ -649,6 +649,11 @@ LAST = [
     ("_dev/mobile_reassert.py",
      "mobile_floor's 12px floor and 24px hit areas, where nothing can drop "
      "them and at every width, not only under 640px"),
+    # Last, because it has to outrank the palette passes and surface_fix on a
+    # page that has no body class for surface_fix to scope to.
+    ("_dev/mockup_floor.py",
+     "the two mockups are noindex, not unpublished: the last 26 contrast "
+     "pairs and the last overflowing table on the site"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.

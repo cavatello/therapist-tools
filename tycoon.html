@@ -3206,5 +3206,20 @@ body.house .hero .in .lede{color:#C6DBD1 !important}
 /* the concept-page tags - 6.03:1 on #E6F1EB */
 body.house .cc-meta .tag{color:#2C6350 !important}
 </style>
+<style>/* _dev/mockup_floor.py */
+/* One muted purple for every dark surface on the page, replacing a value that
+   ran 2.98-3.67:1 depending on which card it landed on. Declared on :root
+   after the page's own :root, which is the whole override. */
+:root{--dimmer:#A093C1}
+/* `.n.n.n` in a site stylesheet paints this the light-surface amber. Four
+   tokens to outrank three. See this pass's docstring. */
+.n.n.n.n{color:#F6C560}
+/* The schedule strip: pale mint on #2E7D4F was 3.96 and 4.35. --paper is
+   4.73 and is a colour the site already owns. */
+.sc-time.sc-time{color:#F6F8F6}
+.sched-legend.sched-legend{color:#F6F8F6}
+/* The standing note under the board. 2.98:1 on #3A1E5C. */
+.footnote.footnote{color:#A093C1}
+</style>
 </body>
 </html>
