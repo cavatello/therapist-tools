@@ -48,6 +48,7 @@ leginfo is still LINKED, per house rule, as the place to read the bill -
 it is just not the place these facts were read from, and the page says so.
 """
 import os, re, sys
+from datetime import date
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -58,6 +59,33 @@ PAGE = "california-therapy-bills-2026.html"
 DONOR = "telehealth-rules-california-therapist.html"
 
 READ = "18 August 2026"
+
+# ------------------------------------------------------------- the lock
+# Adopted from `_dev/build_billtracker.py`, a second, independent build of
+# this same page that arrived in commit 217d952 while this one was being
+# written. That builder is not wired into ship.py and its page does not
+# exist - see the collision guard at the bottom of this file - but its
+# freshness lock is a better idea than the prose reminder this page
+# shipped with, and it is taken here with the credit recorded.
+#
+# While STATE reads "pending" this builder REFUSES TO RUN after the date
+# the houses must pass bills. That turns "somebody should remember to
+# update the tracker" into a build failure nobody can ignore, which is the
+# only version of that promise this project has ever kept.
+#
+# To clear it: re-read both bills at the sources below, rewrite the status
+# table and the hero, move READ on, and set STATE to "passed" once the
+# houses have voted, then "resolved" once the Governor has acted. The lock
+# re-arms itself at the next checkpoint.
+STATE = "pending"                    # pending -> passed -> resolved
+PASS_DEADLINE = date(2026, 8, 31)    # last day for each house to pass bills
+SIGN_DEADLINE = date(2026, 9, 30)    # last day for the Governor to act
+
+# The other build of this page. If it is ever wired in, the site ships two
+# near-identical pages about the same two bills, which is the one outcome
+# neither of us wants. Named here so a build stops rather than a reader
+# finding both.
+OTHER = "california-therapist-bills-2026.html"
 
 # leginfo blocks automated fetches; these are linked, not read from.
 LEG1598 = ("https://leginfo.legislature.ca.gov/faces/billStatusClient."
@@ -389,8 +417,37 @@ META = pk.meta_block(
     weight=4)
 
 
+def stale():
+    """Has the page outlived the status it claims? Returns a message or ''."""
+    today = date.today()
+    if STATE == "pending" and today > PASS_DEADLINE:
+        return ("this page still says both bills are at third reading, and "
+                "the last day for each house to pass bills was "
+                + PASS_DEADLINE.isoformat() + ". Re-check both bills, "
+                "rewrite the status table, and set STATE to 'passed' (or "
+                "record that a bill died).")
+    if STATE == "passed" and today > SIGN_DEADLINE:
+        return ("this page still says the bills are awaiting the Governor, "
+                "and the last day to sign or veto was "
+                + SIGN_DEADLINE.isoformat() + ". Record what happened and "
+                "set STATE to 'resolved'.")
+    return ""
+
+
 def main():
     print("the 2026 bill tracker")
+
+    # The collision guard. A second builder for this same page exists in
+    # this repository; see OTHER above.
+    if os.path.exists(os.path.join(SITE, OTHER)):
+        sys.exit("GUARD: " + OTHER + " exists as well as " + PAGE + ". Two "
+                 "near-identical pages about the same two bills would ship. "
+                 "Pick one, retire the other's builder, and remove its page "
+                 "before building.")
+
+    warn = stale()
+    if warn:
+        sys.exit("GUARD: " + warn)
     html_body, nsrc = body()
     head, header, footer, links, scripts = pk.chrome_parts(DONOR)
     html = pk.assemble(head, META, header, html_body, footer, links,
