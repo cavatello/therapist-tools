@@ -134,6 +134,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `flat_bands.py` | last | &mdash; | The decorative gradients become flat fills, and only those. |
 | `font_links.py` | last | &mdash; | A page that asks for a typeface must also load it. |
 | `mobile_last.py` | last | `/* _dev/mobile_last.py */` | The mobile rules, re-asserted after the passes that were dropping them. |
+| `mobile_reassert.py` | last | `/* _dev/mobile_reassert.py */` | mobile_floor.py's decisions, re-asserted where nothing can drop them. |
 | `one_display_face.py` | last | &mdash; | Two display faces become one, and 242 pages stop downloading the other. |
 | `ops_board.py` | last | &mdash; | The status board: generated like every other page, and encrypted at rest. |
 | `override_relink.py` | last | &mdash; | The override sheets the family passes strip, put back where they belong. |

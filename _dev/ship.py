@@ -640,6 +640,15 @@ LAST = [
     # everything that could drop it.
     ("_dev/mobile_last.py",
      "24px hit areas and a 16.5px control size, after the family passes"),
+    # mobile_last re-asserted the form-control half of mobile_floor.py and
+    # said so. The other two halves - the 12px sentence floor and the hit
+    # area on everything that is not a form control - went the same way and
+    # nobody re-asserted them: mobile_floor reaches 2 pages of 242, and the
+    # sweep measured 1,281 targets under 24px and 8,786 nodes of sub-12px
+    # sentence text. This puts both back, inline, at every width.
+    ("_dev/mobile_reassert.py",
+     "mobile_floor's 12px floor and 24px hit areas, where nothing can drop "
+     "them and at every width, not only under 640px"),
 ]
 
 # VERIFY. Read-only. Never writes, so it is safe to run at any time.
