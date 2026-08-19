@@ -139,6 +139,7 @@ In `_dev/ship.py` order of stages, alphabetical within a stage.
 | `family_tool.py` | last | &mdash; | Rollout step 5, family 4: the tool pages go bc2 - keeping their apps. |
 | `flat_bands.py` | last | &mdash; | The decorative gradients become flat fills, and only those. |
 | `font_links.py` | last | &mdash; | A page that asks for a typeface must also load it. |
+| `font_weights.py` | last | &mdash; | 8,126 elements render at a weight the page never downloaded. |
 | `heading_face.py` | last | `/* _dev/heading_face.py */` | 1,209 headings on 91 pages render in the body face. |
 | `lost_containers.py` | last | `/* _dev/lost_containers.py */` | The container rule was lost and its own children's overrides survived. |
 | `masthead_mark.py` | last | &mdash; | The mark was never removed. It was hidden, and nobody wrote down why. |

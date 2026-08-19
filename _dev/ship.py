@@ -558,6 +558,11 @@ LAST = [
     # <link>s load. After build_redirect, so the stub is not given faces.
     ("_dev/font_links.py",
      "every page loads every typeface it sets at the head of a stack"),
+    # Immediately after font_links, which may ADD a family to a link. This
+    # then makes sure every family on that link carries the weights the CSS
+    # renders it at - the same rule one level down. See its docstring.
+    ("_dev/font_weights.py",
+     "every house face loads the weights the site actually asks it for"),
     # The palette. house_tokens.py conformed the eight tokens; this conforms
     # the 113 near-misses that were quietly sitting beside them - 1,363
     # uses, #16211B alone 430 times, twelve units from --ink. After the CSS
@@ -855,6 +860,8 @@ VERIFY = [
      "every page with a topic row still carries the wrapping rule"),
     ("_dev/masthead_mark.py --check",
      "the masthead mark is still un-hidden on every page that carries one"),
+    ("_dev/font_weights.py --check",
+     "no page renders a face at a weight it did not download"),
     ("_dev/heading_face.py --check",
      "no page that loads the display face leaves its headings on the body one"),
     ("_dev/lost_containers.py --check",
