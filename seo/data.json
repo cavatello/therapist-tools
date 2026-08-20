@@ -5,11 +5,15 @@
     "clicks": 17,
     "impressions": 1845,
     "ctr": 0.0092140921,
-    "position": 26.3799
+    "position": 26.3799,
+    "priorityIndexed": 5
   },
   "ga4": {
     "window": "Aug 1–19, 2026",
     "keyEvents": 0,
+    "configuredKeyEvents": [
+      "newsletter_signup"
+    ],
     "organic": {
       "sessions": 56,
       "engagedSessions": 37,
@@ -213,8 +217,14 @@
     {
       "date": "Aug 20, 2026",
       "title": "Measurement diagnosis completed",
-      "detail": "Organic traffic is healthy relative to noisy Direct traffic. Newsletter and lead events fire but are not configured as GA4 key events.",
-      "measure": "key-event count and visitor-to-subscriber rate after GA4 configuration"
+      "detail": "Organic traffic is healthy relative to noisy Direct traffic. newsletter_signup is confirmed as a configured GA4 key event; generate_lead is not currently promoted.",
+      "measure": "reported key-event count and visitor-to-subscriber rate"
+    },
+    {
+      "date": "Aug 20, 2026",
+      "title": "Indexing and search-intent recommendations implemented",
+      "detail": "Five priority URLs passed Search Console inspection. The California LMFT continuing-education page received a query-aligned description, refreshed metadata, and visible FAQ answers with matching structured data.",
+      "measure": "page impressions, CTR, position, organic sessions, and FAQ enhancement eligibility after recrawl"
     },
     {
       "date": "Aug 18, 2026",
