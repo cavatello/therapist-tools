@@ -122,6 +122,9 @@ The responsive heuristic still emits noisy flags that require human interpretati
 - Connected fresh GA4 and Google Search Console reporting for search KPIs, daily traffic, organic landing-page engagement, and event status.
 - Added a California term/competitor watch based on a live result-set check, plus a dated work-to-impact ledger for future before/after comparisons.
 - Diagnosed severe bot-like pollution in Direct traffic and explicitly excluded it from editorial-impact conclusions; Organic Search remains highly engaged.
+- Inspected five priority URLs in Google Search Console. All five passed indexing, mobile crawl, canonical, fetch, and breadcrumb checks.
+- Confirmed `newsletter_signup` is already configured as a GA4 key event and corrected the SEO dashboard's earlier configuration warning.
+- Strengthened the California LMFT continuing-education page with a query-aligned description, current freshness metadata, and visible-answer-backed FAQ structured data.
 
 ## Key project files
 

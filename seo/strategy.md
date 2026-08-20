@@ -33,7 +33,7 @@ Each cluster needs one decision-oriented pillar, supporting answers to narrow qu
 ### Weeks 1–2: foundations and quick wins
 
 - Correct the GA4 web-stream default URL (`therapsitsupport.org` → `therapistsupport.org`).
-- Mark `newsletter_signup` and `contact_message` as GA4 key events; add outbound-source and calculator-completion events.
+- `newsletter_signup` is confirmed as a GA4 key event. Consider promoting `generate_lead` as well; add outbound-source and calculator-completion events.
 - Inspect the homepage, sitemap leaders, and several zero-click pages in Search Console. Reconcile the 244 submitted / 0 indexed sitemap report.
 - Improve snippets on the BBS fees, rates, psychedelic training, insurance reimbursement, and 3,000-hours pages.
 - Add internal links from relevant hub pages to the five highest-impression pages.
