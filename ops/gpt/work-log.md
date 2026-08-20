@@ -118,6 +118,10 @@ The responsive heuristic still emits noisy flags that require human interpretati
   - California AMFT 3,000-hours calculator and timeline
 - Repaired two meta descriptions that previously ended mid-sentence: the psychedelic-training guide and AMFT hours calculator.
 - Updated the SEO strategy to record the Cloudflare migration and post-cutover verification as complete rather than blocked.
+- Rebuilt `/seo/` as a data-backed SEO command center using a versioned `seo/data.json` snapshot.
+- Connected fresh GA4 and Google Search Console reporting for search KPIs, daily traffic, organic landing-page engagement, and event status.
+- Added a California term/competitor watch based on a live result-set check, plus a dated work-to-impact ledger for future before/after comparisons.
+- Diagnosed severe bot-like pollution in Direct traffic and explicitly excluded it from editorial-impact conclusions; Organic Search remains highly engaged.
 
 ## Key project files
 
