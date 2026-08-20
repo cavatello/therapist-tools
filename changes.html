@@ -520,6 +520,39 @@ input,select,textarea,button{font-size:16.5px}
 }
 </style>
 <style>/* _dev/mobile_reassert.py */
+/* Global responsive resilience. This block is deliberately last in every
+   public document so all page families receive the same floor. */
+html{max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%}
+body{min-width:0;max-width:100%;overflow-x:clip}
+img,video,canvas{max-width:100%;height:auto}
+main,section,article,header,footer,nav,
+main>*,section>*,article>*,.in,.wrap,.libwrap,.artwrap,.pk-wrap{
+  min-width:0}
+:where(h1,h2,h3,h4,p,li,dd,dt,blockquote,figcaption){overflow-wrap:anywhere}
+:where(input,select,textarea,button){max-width:100%}
+:where(a,button,input,select,textarea,summary):focus-visible{
+  outline:3px solid #B0730B!important;outline-offset:3px!important}
+.sitenav-top,.sitenav-cta,.sitenav-mark{min-height:44px!important}
+.sitenav-top{display:inline-flex!important;align-items:center;justify-content:center}
+.navpanel a{min-height:44px}
+.tbl,.tw,.pk-tw,.dc-tw,.li-tw,.octw,.srn-w,.tblw{
+  max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:900px){
+  .sitenav{position:relative}
+  .sitenav-links{max-width:100%!important}
+  .ui .strip{grid-template-columns:1fr}
+  .ui .strip div{border-left:0;border-top:1px solid var(--hair,#DFE4E0)}
+  .ui .strip div:first-child{border-top:0}
+}
+@media (max-width:640px){
+  .band,.sec,.libband,.artband,.pk-hero{max-width:100%}
+  .pull{font-size:clamp(21px,7vw,28px)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;
+    animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important}
+}
 /* WCAG 2.5.8 asks for 24x24 from any pointer, not from a touch pointer, so
    none of this sits behind a width query. See this pass's docstring. */
 a.tsall,

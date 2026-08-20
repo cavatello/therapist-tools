@@ -281,8 +281,17 @@ const ORDER = ['LOAD', 'JSERROR', 'INVISIBLE', 'EMPTY', 'CHROME', 'FOLD', 'OVERF
 findings.sort((a, c) => ORDER.indexOf(a.kind) - ORDER.indexOf(c.kind) ||
                         a.page.localeCompare(c.page));
 let last = '';
+const SUMMARY = process.argv.includes('--summary');
+const shown = new Map();
 for (const f of findings) {
+  if (SUMMARY && (shown.get(f.kind) || 0) >= 8) continue;
   if (f.kind !== last) { console.log(`\n=== ${f.kind} ===`); last = f.kind; }
   console.log(`  ${f.page.padEnd(44)} ${f.view.padEnd(7)} ${f.detail}`);
+  shown.set(f.kind, (shown.get(f.kind) || 0) + 1);
+}
+if (SUMMARY && findings.length) {
+  const counts = {};
+  findings.forEach(f => counts[f.kind] = (counts[f.kind] || 0) + 1);
+  console.log(`\nCounts: ${Object.entries(counts).map(([k,v]) => `${k}=${v}`).join(', ')}`);
 }
 console.log(`\n${findings.length} findings across ${PAGES.length} pages × ${RUN.length} viewport(s)`);
