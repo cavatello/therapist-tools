@@ -1,1 +1,226 @@
-{"generatedAt":"August 20, 2026 at 3:34 PM PT","searchConsole":{"window":"Finalized GSC: Aug 1–17, 2026","clicks":17,"impressions":1845,"ctr":0.0092140921,"position":26.3799},"ga4":{"window":"Aug 1–19, 2026","keyEvents":0,"organic":{"sessions":56,"engagedSessions":37,"engagementRate":0.6607143},"daily":[{"date":"Aug 7","sessions":31},{"date":"Aug 8","sessions":141},{"date":"Aug 9","sessions":135},{"date":"Aug 10","sessions":133},{"date":"Aug 11","sessions":28},{"date":"Aug 12","sessions":28},{"date":"Aug 13","sessions":34},{"date":"Aug 14","sessions":21},{"date":"Aug 15","sessions":12},{"date":"Aug 16","sessions":368},{"date":"Aug 17","sessions":20},{"date":"Aug 18","sessions":25},{"date":"Aug 19","sessions":28}],"organicLandingPages":[{"path":"/","sessions":14,"engagementRate":0.8571,"avgSessionSeconds":1055,"note":"Highest organic volume and strong engagement."},{"path":"/rates.html","sessions":5,"engagementRate":0.8,"avgSessionSeconds":456,"note":"Page-one opportunity; title updated Aug 20."},{"path":"/bbs-fees-california-2026.html","sessions":3,"engagementRate":0.6667,"avgSessionSeconds":832,"note":"Already near page one; monitor CTR."},{"path":"/practice-simulator.html","sessions":3,"engagementRate":1,"avgSessionSeconds":1234,"note":"Small volume, exceptional depth."},{"path":"/insurance-reimbursement-rates-california-therapist.html","sessions":2,"engagementRate":1,"avgSessionSeconds":150,"note":"Title updated Aug 20; watch impressions and position."},{"path":"/psychedelic-therapy-training-california.html","sessions":2,"engagementRate":1,"avgSessionSeconds":1774,"note":"Very high depth; title and description updated Aug 20."},{"path":"/continuing-education-california-lmft.html","sessions":2,"engagementRate":0.5,"avgSessionSeconds":184,"note":"High-impression page with intent gap to improve."}]},"competitorWatch":[{"term":"California MFT programs","ourStatus":"Visible in the current result set with the 78-school comparison.","competitors":[{"name":"CounselingPsychology.org","url":"https://www.counselingpsychology.org/counseling/degrees/mft/california/"},{"name":"CaliforniaMFT.org","url":"https://californiamft.org/mft-programs/"},{"name":"Sentio","url":"https://sentio.org/mft-programs-in-california"}],"level":"Defend","move":"Differentiate with original tuition/outcome data and freshness.","checked":"Aug 20"},{"term":"California BBS fees 2026","ourStatus":"141 impressions, 3 clicks, average position 8.9 in the earlier page snapshot.","competitors":[{"name":"California BBS","url":"https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"}],"level":"Defend","move":"Improve CTR while preserving primary-source authority.","checked":"Aug 20"},{"term":"Psychedelic therapy training California","ourStatus":"Organic sessions show exceptional depth; snippet refreshed Aug 20.","competitors":[{"name":"CIIS","url":"https://www.ciis.edu/continuing-education/center-for-psychedelic-therapies-and-research"},{"name":"UC Berkeley BCSP","url":"https://psychedelics.berkeley.edu/facilitation-certificate-program/"},{"name":"Spiral Process","url":"https://spiralprocess.com/training/psychedelic-process-training/"}],"level":"Grow","move":"Own comparison intent rather than one-program enrollment intent.","checked":"Aug 20"},{"term":"California therapist rates / reimbursement","ourStatus":"Rates page leads current GSC pages: 185 impressions, 4 clicks, position 11.4.","competitors":[{"name":"California BBS workforce study","url":"https://www.bbs.ca.gov/pdf/agen_notice/2026/20260115_wd_mm_6.pdf"}],"level":"Grow","move":"Add query-led internal links and preserve transparent calculations.","checked":"Aug 20"}],"changes":[{"date":"Aug 20, 2026","title":"Cloudflare migration completed","detail":"Apex and www moved to Cloudflare Pages; permanent canonical redirect and clean DNS verified.","measure":"crawl errors, canonical selection, indexed pages, organic continuity"},{"date":"Aug 20, 2026","title":"Global responsive layer shipped","detail":"244 pages received overflow, media, table, focus, touch-target, and reduced-motion protections.","measure":"mobile engagement, landing-page exits, Core Web Vitals trend"},{"date":"Aug 20, 2026","title":"Priority snippets rewritten","detail":"Titles improved for rates, reimbursement, psychedelic training, and AMFT hours; two truncated descriptions repaired.","measure":"page-level impressions, CTR, average position after recrawl"},{"date":"Aug 20, 2026","title":"Measurement diagnosis completed","detail":"Organic traffic is healthy relative to noisy Direct traffic. Newsletter and lead events fire but are not configured as GA4 key events.","measure":"key-event count and visitor-to-subscriber rate after GA4 configuration"},{"date":"Aug 18, 2026","title":"Organic baseline captured","detail":"Initial GSC/GA4 benchmark and 90-day strategy recorded before the infrastructure and snippet changes.","measure":"all later page and cluster deltas against a dated baseline"}]}
+{
+  "generatedAt": "August 20, 2026 at 3:34 PM PT",
+  "searchConsole": {
+    "window": "Finalized GSC: Aug 1–17, 2026",
+    "clicks": 17,
+    "impressions": 1845,
+    "ctr": 0.0092140921,
+    "position": 26.3799
+  },
+  "ga4": {
+    "window": "Aug 1–19, 2026",
+    "keyEvents": 0,
+    "organic": {
+      "sessions": 56,
+      "engagedSessions": 37,
+      "engagementRate": 0.6607143
+    },
+    "daily": [
+      {
+        "date": "Aug 7",
+        "sessions": 31
+      },
+      {
+        "date": "Aug 8",
+        "sessions": 141
+      },
+      {
+        "date": "Aug 9",
+        "sessions": 135
+      },
+      {
+        "date": "Aug 10",
+        "sessions": 133
+      },
+      {
+        "date": "Aug 11",
+        "sessions": 28
+      },
+      {
+        "date": "Aug 12",
+        "sessions": 28
+      },
+      {
+        "date": "Aug 13",
+        "sessions": 34
+      },
+      {
+        "date": "Aug 14",
+        "sessions": 21
+      },
+      {
+        "date": "Aug 15",
+        "sessions": 12
+      },
+      {
+        "date": "Aug 16",
+        "sessions": 368
+      },
+      {
+        "date": "Aug 17",
+        "sessions": 20
+      },
+      {
+        "date": "Aug 18",
+        "sessions": 25
+      },
+      {
+        "date": "Aug 19",
+        "sessions": 28
+      }
+    ],
+    "organicLandingPages": [
+      {
+        "path": "/",
+        "sessions": 14,
+        "engagementRate": 0.8571,
+        "avgSessionSeconds": 1055,
+        "note": "Highest organic volume and strong engagement."
+      },
+      {
+        "path": "/rates.html",
+        "sessions": 5,
+        "engagementRate": 0.8,
+        "avgSessionSeconds": 456,
+        "note": "Page-one opportunity; title updated Aug 20."
+      },
+      {
+        "path": "/bbs-fees-california-2026.html",
+        "sessions": 3,
+        "engagementRate": 0.6667,
+        "avgSessionSeconds": 832,
+        "note": "Already near page one; monitor CTR."
+      },
+      {
+        "path": "/practice-simulator.html",
+        "sessions": 3,
+        "engagementRate": 1,
+        "avgSessionSeconds": 1234,
+        "note": "Small volume, exceptional depth."
+      },
+      {
+        "path": "/insurance-reimbursement-rates-california-therapist.html",
+        "sessions": 2,
+        "engagementRate": 1,
+        "avgSessionSeconds": 150,
+        "note": "Title updated Aug 20; watch impressions and position."
+      },
+      {
+        "path": "/psychedelic-therapy-training-california.html",
+        "sessions": 2,
+        "engagementRate": 1,
+        "avgSessionSeconds": 1774,
+        "note": "Very high depth; title and description updated Aug 20."
+      },
+      {
+        "path": "/continuing-education-california-lmft.html",
+        "sessions": 2,
+        "engagementRate": 0.5,
+        "avgSessionSeconds": 184,
+        "note": "High-impression page with intent gap to improve."
+      }
+    ]
+  },
+  "competitorWatch": [
+    {
+      "term": "California MFT programs",
+      "ourStatus": "Visible in the current result set with the 78-school comparison.",
+      "competitors": [
+        {
+          "name": "CounselingPsychology.org",
+          "url": "https://www.counselingpsychology.org/counseling/degrees/mft/california/"
+        },
+        {
+          "name": "CaliforniaMFT.org",
+          "url": "https://californiamft.org/mft-programs/"
+        },
+        {
+          "name": "Sentio",
+          "url": "https://sentio.org/mft-programs-in-california"
+        }
+      ],
+      "level": "Defend",
+      "move": "Differentiate with original tuition/outcome data and freshness.",
+      "checked": "Aug 20"
+    },
+    {
+      "term": "California BBS fees 2026",
+      "ourStatus": "141 impressions, 3 clicks, average position 8.9 in the earlier page snapshot.",
+      "competitors": [
+        {
+          "name": "California BBS",
+          "url": "https://www.bbs.ca.gov/pdf/publications/fee_reduction_faqs.pdf"
+        }
+      ],
+      "level": "Defend",
+      "move": "Improve CTR while preserving primary-source authority.",
+      "checked": "Aug 20"
+    },
+    {
+      "term": "Psychedelic therapy training California",
+      "ourStatus": "Organic sessions show exceptional depth; snippet refreshed Aug 20.",
+      "competitors": [
+        {
+          "name": "CIIS",
+          "url": "https://www.ciis.edu/continuing-education/center-for-psychedelic-therapies-and-research"
+        },
+        {
+          "name": "UC Berkeley BCSP",
+          "url": "https://psychedelics.berkeley.edu/facilitation-certificate-program/"
+        },
+        {
+          "name": "Spiral Process",
+          "url": "https://spiralprocess.com/training/psychedelic-process-training/"
+        }
+      ],
+      "level": "Grow",
+      "move": "Own comparison intent rather than one-program enrollment intent.",
+      "checked": "Aug 20"
+    },
+    {
+      "term": "California therapist rates / reimbursement",
+      "ourStatus": "Rates page leads current GSC pages: 185 impressions, 4 clicks, position 11.4.",
+      "competitors": [
+        {
+          "name": "California BBS workforce study",
+          "url": "https://www.bbs.ca.gov/pdf/agen_notice/2026/20260115_wd_mm_6.pdf"
+        }
+      ],
+      "level": "Grow",
+      "move": "Add query-led internal links and preserve transparent calculations.",
+      "checked": "Aug 20"
+    }
+  ],
+  "changes": [
+    {
+      "date": "Aug 20, 2026",
+      "title": "Cloudflare migration completed",
+      "detail": "Apex and www moved to Cloudflare Pages; permanent canonical redirect and clean DNS verified.",
+      "measure": "crawl errors, canonical selection, indexed pages, organic continuity"
+    },
+    {
+      "date": "Aug 20, 2026",
+      "title": "Global responsive layer shipped",
+      "detail": "244 pages received overflow, media, table, focus, touch-target, and reduced-motion protections.",
+      "measure": "mobile engagement, landing-page exits, Core Web Vitals trend"
+    },
+    {
+      "date": "Aug 20, 2026",
+      "title": "Priority snippets rewritten",
+      "detail": "Titles improved for rates, reimbursement, psychedelic training, and AMFT hours; two truncated descriptions repaired.",
+      "measure": "page-level impressions, CTR, average position after recrawl"
+    },
+    {
+      "date": "Aug 20, 2026",
+      "title": "Measurement diagnosis completed",
+      "detail": "Organic traffic is healthy relative to noisy Direct traffic. Newsletter and lead events fire but are not configured as GA4 key events.",
+      "measure": "key-event count and visitor-to-subscriber rate after GA4 configuration"
+    },
+    {
+      "date": "Aug 18, 2026",
+      "title": "Organic baseline captured",
+      "detail": "Initial GSC/GA4 benchmark and 90-day strategy recorded before the infrastructure and snippet changes.",
+      "measure": "all later page and cluster deltas against a dated baseline"
+    }
+  ]
+}
