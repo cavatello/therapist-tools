@@ -12,7 +12,8 @@
     "window": "Aug 1–19, 2026",
     "keyEvents": 0,
     "configuredKeyEvents": [
-      "newsletter_signup"
+      "newsletter_signup",
+      "generate_lead"
     ],
     "organic": {
       "sessions": 56,
@@ -217,7 +218,7 @@
     {
       "date": "Aug 20, 2026",
       "title": "Measurement diagnosis completed",
-      "detail": "Organic traffic is healthy relative to noisy Direct traffic. newsletter_signup is confirmed as a configured GA4 key event; generate_lead is not currently promoted.",
+      "detail": "Organic traffic is healthy relative to noisy Direct traffic. newsletter_signup and generate_lead are configured as GA4 key events with once-per-event counting.",
       "measure": "reported key-event count and visitor-to-subscriber rate"
     },
     {
