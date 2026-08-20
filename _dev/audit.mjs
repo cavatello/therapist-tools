@@ -21,19 +21,26 @@
  * Run:  node _dev/audit.mjs [port]
  * It serves nothing - point it at a local static server for this directory.
  */
-import { chromium } from '/home/claude/.npm-global/lib/node_modules/playwright/index.mjs';
+import { chromium } from '../node_modules/playwright/index.mjs';
 import { readdirSync } from 'fs';
 
 const PORT = process.argv[2] || '8140';
 const BASE = `http://localhost:${PORT}/`;
 
 const SKIP = new Set(['tycoon.html', 'concepts.html', 'local.html']);
-const PAGES = readdirSync('.').filter(f => f.endsWith('.html') && !SKIP.has(f)).sort();
+const PUBLIC_DIRS = ['', 'for', 'getting-paid', 'licensure', 'money', 'practice', 'training'];
+const PAGES = PUBLIC_DIRS.flatMap(dir => {
+  const base = dir || '.';
+  return readdirSync(base)
+    .filter(f => f.endsWith('.html') && !SKIP.has(f))
+    .map(f => dir ? `${dir}/${f}` : f);
+}).sort();
 
 /* Real usable heights: browser chrome subtracted, not the raw device size. */
 const VIEWS = [
   { name: '5k',      w: 2560, h: 1300 },
   { name: 'laptop',  w: 1440, h: 780  },
+  { name: 'tablet',  w: 768,  h: 920  },
   { name: 'phone',   w: 390,  h: 700  },
 ];
 
