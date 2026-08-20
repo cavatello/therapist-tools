@@ -11,6 +11,7 @@ Disallow: /tycoon.html
 # The internal control panel and the proposals published alongside it.
 # Reachable by anyone with the URL, deliberately not in search.
 Disallow: /ops/
+Disallow: /seo/
 
 # The hours design document, the A/B comparison and the screen gallery.
 # Same rule as /ops/ - internal design work, reachable by URL, not indexed.
