@@ -63,5 +63,5 @@ Weekly: clicks, impressions, page-one CTR, new indexed pages, top query/page mov
 ## Known blockers
 
 - Ahrefs Site Explorer API: connected, but the plan returns `Insufficient plan`; competitor overlap and backlink metrics remain pending.
-- Cloudflare: the zone and Pages project are connected. Authoritative nameservers were moved to Cloudflare on August 20, 2026; custom-domain activation and post-cutover verification remain required.
+- Cloudflare migration completed August 20, 2026: the apex domain is active on Pages, `www` permanently redirects to the apex, and post-cutover production checks pass.
 - Search history starts around August 8, 2026, so month-over-month comparisons are not meaningful yet.

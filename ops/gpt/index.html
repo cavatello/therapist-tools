@@ -50,7 +50,7 @@
       <article class="card"><span class="status">Complete</span><h3>DNS migration</h3><p>Nameservers moved to Cloudflare. Legacy origin records were removed and both live hostnames point to the Pages project.</p></article>
       <article class="card"><span class="status">Complete</span><h3>Publishing workflow</h3><p>The release script regenerates discovery assets, runs strict SEO checks, builds a clean public bundle, and deploys through Cloudflare.</p></article>
       <article class="card"><span class="status">Complete</span><h3>Legacy cleanup</h3><p>Old hosting-provider references and obsolete configuration files were removed from project content. Publishing no longer depends on the previous host.</p></article>
-      <article class="card"><span class="status">Complete</span><h3>Technical SEO</h3><p>Sitemap and structured data were regenerated, internal areas are excluded from search, and the strict local SEO rules pass cleanly.</p></article>
+      <article class="card"><span class="status">Complete</span><h3>Technical SEO</h3><p>Sitemap and structured data were regenerated, internal areas are excluded from search, strict local rules pass cleanly, and priority search snippets were rewritten around query intent.</p></article>
       <article class="card"><span class="status">Complete</span><h3>Global responsive CSS</h3><p>A last-loaded resilience layer now protects layouts, media, tables, focus states, touch targets, and reduced-motion behavior across the site.</p></article>
     </div>
   </section>
@@ -59,7 +59,7 @@
     <div class="notice">
       <div><div class="eyebrow">Honest handoff</div><h3 id="next-title">Items future work should verify</h3></div>
       <ul>
-        <li>Correct the apparent typo in the GA4 web-stream URL and confirm live event collection.</li>
+        <li>Correct the apparent typo in the GA4 property’s web-stream URL and confirm live event collection. The typo is not present in site code.</li>
         <li>Investigate the Search Console indexing discrepancy: submitted URLs versus URLs already earning impressions.</li>
         <li>Consolidate older page-family CSS and override layers; the rendered design is stable, but the stylesheet architecture still carries debt.</li>
         <li>Manually review the remaining automated audit flags, especially transparent-color contrast and card-link classifications.</li>

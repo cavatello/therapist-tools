@@ -108,6 +108,17 @@ The responsive heuristic still emits noisy flags that require human interpretati
 5. Confirm the legacy local auto-publish launch agent is disabled if automatic commits are no longer desired.
 6. Continue the planned competitor, inbound-marketing, and content-production work; that larger editorial program was requested but was not executed as part of this infrastructure/CSS pass.
 
+## Continued SEO work — August 20, 2026
+
+- Confirmed the misspelled analytics domain is not present in production source; it must be corrected in the GA4 web-stream configuration.
+- Rewrote four priority title tags to better match California-specific search intent:
+  - California therapist rates: insurance versus private pay
+  - Psychedelic therapy training in California
+  - California therapist insurance reimbursement rates
+  - California AMFT 3,000-hours calculator and timeline
+- Repaired two meta descriptions that previously ended mid-sentence: the psychedelic-training guide and AMFT hours calculator.
+- Updated the SEO strategy to record the Cloudflare migration and post-cutover verification as complete rather than blocked.
+
 ## Key project files
 
 - `README.md` — Cloudflare-oriented project handoff
