@@ -148,9 +148,9 @@ main>*,section>*,article>*,.in,.wrap,.libwrap,.artwrap,.pk-wrap{
 }
 /* WCAG 2.5.8 asks for 24x24 from any pointer, not from a touch pointer, so
    none of this sits behind a width query. See this pass's docstring. */
-%(taps)s{min-height:24px;display:inline-flex;align-items:center;
+%(taps)s{min-height:44px;display:inline-flex;align-items:center;
   padding-block:4px}
-summary{min-height:24px}
+summary{min-height:44px;display:flex;align-items:center}
 /* `mobile_last.py` gives checkboxes and radios their 24x24 inside
    `@media (max-width:900px)`, because it was written to fix a phone. The
    consent box therefore computes 20x20 on a laptop and a desktop - 228 pages,
@@ -159,7 +159,9 @@ summary{min-height:24px}
 input[type="checkbox"],input[type="radio"],
 .consent input,.consent input[type="checkbox"]{
   min-width:24px;min-height:24px;width:24px;height:24px}
-select,button[type="submit"]{min-height:24px}
+select,button[type="submit"]{min-height:44px}
+.consent{min-height:44px;align-items:center!important}
+.toc a{min-height:44px;display:flex;align-items:center}
 /* Vertical padding on an inline box grows the hit rectangle and moves
    nothing. Only links inside text elements - a card link is block-level and
    would grow its grid row by 14px. */
