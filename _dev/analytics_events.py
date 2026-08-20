@@ -25,7 +25,7 @@ letting the browser navigate to Formspree's dead-end thank-you page, so there is
 no unload race here and no need for `transport_type: 'beacon'` gymnastics -
 the page is still alive when the event goes out.
 
-`generate_lead` is ALSO fired on a confirmed signup. It is one of GA4's
+`generate_lead` is ALSO fired on a confirmed signup or contact message. It is one of GA4's
 recommended events, which means it appears in the standard reports and in
 Google Ads conversion setup without anyone having to register a custom
 definition first. The custom names are for readable reports; the recommended
@@ -105,9 +105,13 @@ JS = """<script>%s
       f = node.parentElement && node.parentElement.querySelector
           ? node.parentElement.querySelector('form') : null;
     }
-    var kind = f ? kindOf(f) : 'newsletter';
+    var kind = f ? kindOf(f) : (node.dataset.kind || 'newsletter');
     var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
-    if (kind === 'contact') { send('contact_sent', p); return; }
+    if (kind === 'contact') {
+      send('contact_sent', p);
+      send('generate_lead', p);
+      return;
+    }
     send('newsletter_signup', p);
     send('generate_lead', p);   // GA4's own recommended name, for the standard reports
   }

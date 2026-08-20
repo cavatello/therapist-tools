@@ -176,87 +176,7 @@ clip:rect(0 0 0 0);white-space:nowrap;border:0 !important}
 
 <link rel="stylesheet" href="css/4da75509e096.css">
 <link rel="stylesheet" href="css/eb5d1580bfa7.css">
-<link rel="stylesheet" href="css/6eba8e5ed77d.css">
-<script>/* _dev/analytics_events.py */
-(function(){
-  if (typeof window === 'undefined') return;
-  // gtag may not have loaded yet, or may be blocked. Queue into dataLayer the
-  // way the snippet itself does, so a blocked loader costs the event and not
-  // the page.
-  function send(name, params){
-    try {
-      window.dataLayer = window.dataLayer || [];
-      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
-      else { window.dataLayer.push(['event', name, params]); }
-    } catch (e) {}
-  }
-
-  // Where on the page the form sat. Two signup forms on one page are the same
-  // event with different placements, and the placement is the thing worth
-  // knowing: a footer form and a hero form convert nothing like each other.
-  function place(form){
-    if (form.classList.contains('hero')) return 'hero';
-    var s = form.closest('footer, .sitefoot, .lnews, .nlband, section, main');
-    if (!s) return 'unknown';
-    if (s.tagName === 'FOOTER' || s.classList.contains('sitefoot')) return 'footer';
-    return s.id || (s.className || '').split(/\s+/)[0] || 'body';
-  }
-
-  function kindOf(form){
-    return form.dataset.kind === 'contact' ? 'contact' : 'newsletter';
-  }
-
-  function base(form){
-    var c = form.querySelector('input[type=checkbox][name=consent]');
-    return {
-      form_location: place(form),
-      form_id: form.className || 'form',
-      consent_given: c ? !!c.checked : null,
-      page_path: location.pathname
-    };
-  }
-
-  document.addEventListener('submit', function(e){
-    var f = e.target;
-    if (!f || f.tagName !== 'FORM') return;
-    if (!f.querySelector('input[type=email]')) return;
-    var kind = kindOf(f);
-    f.dataset.tsSent = '1';
-    send(kind === 'contact' ? 'contact_submit' : 'newsletter_submit', base(f));
-  }, true);
-
-  // The confirmation the page's own handler writes on a successful POST. Only
-  // this fires the conversion.
-  function confirmed(node){
-    var f = node.closest ? node.closest('form') : null;
-    if (!f) {
-      // The handler replaces the form with the notice on some templates, so
-      // fall back to the nearest form-ish ancestor's own dataset.
-      f = node.parentElement && node.parentElement.querySelector
-          ? node.parentElement.querySelector('form') : null;
-    }
-    var kind = f ? kindOf(f) : 'newsletter';
-    var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
-    if (kind === 'contact') { send('contact_sent', p); return; }
-    send('newsletter_signup', p);
-    send('generate_lead', p);   // GA4's own recommended name, for the standard reports
-  }
-
-  new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      Array.prototype.forEach.call(m.addedNodes || [], function(n){
-        if (n.nodeType !== 1) return;
-        if (n.classList && n.classList.contains('nlok')) confirmed(n);
-        else if (n.querySelector) {
-          var hit = n.querySelector('.nlok');
-          if (hit) confirmed(hit);
-        }
-      });
-    });
-  }).observe(document.documentElement, {childList: true, subtree: true});
-})();
-</script>
-<script>/* _dev/error_tracking.py */
+<link rel="stylesheet" href="css/6eba8e5ed77d.css"><script>/* _dev/error_tracking.py */
 (function(){
   var CAP = 5, sent = 0;
 
@@ -342,80 +262,7 @@ clip:rect(0 0 0 0);white-space:nowrap;border:0 !important}
     }
   }, true);
 })();
-</script>
-<script>// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt
-(function(){
-  // Post the signup in the background instead of letting the browser navigate.
-  // Formspree's own "Thanks! The form was submitted successfully. Go back" page
-  // is a dead end - it throws the reader off the site mid-thought and gives them
-  // a back button as the only way home. Same request, same endpoint, but the
-  // answer lands where they were standing.
-  function esc(s){ return String(s).replace(/[<>&"]/g, ''); }
-  function ok(f){
-    var email = (f.querySelector('input[type=email]') || {}).value || '';
-    var d = document.createElement('div');
-    d.className = 'nlok';
-    d.setAttribute('role', 'status');
-    // Two kinds of form share this handler. A message and a mailing-list
-    // signup are not the same event and must not get the same answer - being
-    // told "you're on the list" after reporting a bug reads as though the
-    // report went nowhere.
-    if (f.dataset.kind === 'contact'){
-      d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
-        + '<b>Message sent.</b>'
-        + '<p>It is read by a person, usually within a day or two'
-        + (email ? ', and any reply goes to <b style="display:inline;font-family:inherit;'
-            + 'font-size:inherit">' + esc(email) + '</b>' : '')
-        + '. If it is a bug, the fix and the date it landed go on the page it affects.</p>'
-        + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
-        + 'with a link to it, or just describe what looked wrong.</p></div>';
-      f.parentNode.replaceChild(d, f);
-      if (window.gtag) gtag('event', 'contact_message');
-      return;
-    }
-    d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
-      + '<b>You\u2019re on the list.</b>'
-      + '<p><b style="display:inline;font-family:inherit;font-size:inherit">'
-      + esc(email) + '</b> is on it. The next issue goes out at the start of '
-      + 'the month \u2014 a free tool or two, what colleagues are charging, and whatever caught '
-      + 'someone out.</p>'
-      + '<p>Nothing else happens in the meantime. One click leaves, any time.</p></div>';
-    f.parentNode.replaceChild(d, f);
-    if (window.gtag) gtag('event', 'newsletter_signup');
-  }
-  function fail(f){
-    var e = f.querySelector('.nlerr');
-    if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
-    e.textContent = f.dataset.kind === 'contact'
-      ? 'That did not go through, and nothing was sent. Copy your message somewhere safe and '
-        + 'try again in a few minutes.'
-      : 'That did not go through, and nothing was sent. Check the address and try again.';
-  }
-  // Both form kinds, or the contact page silently falls back to a native
-  // POST and navigates to Formspree's dead-end thanks page - the exact
-  // behaviour this handler exists to prevent.
-  document.querySelectorAll('form.nlform, form.cform').forEach(function(f){
-    f.addEventListener('submit', function(ev){
-      ev.preventDefault();
-      var btn = f.querySelector('button[type=submit]'), label = btn ? btn.textContent : '';
-      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
-                 btn.textContent = 'Sending\u2026'; }
-      fetch(f.action, {method: 'POST', body: new FormData(f),
-                       headers: {'Accept': 'application/json'}})
-        .then(function(r){
-          if (r.ok) { ok(f); return; }
-          throw new Error('http ' + r.status);
-        })
-        .catch(function(){
-          fail(f);
-          if (btn) { btn.removeAttribute('aria-busy'); btn.disabled = false;
-                     btn.textContent = label; }
-        });
-    });
-  });
-})();
-</script>
-<link rel="stylesheet" href="css/94f6fe8e1e73.css">
+</script><link rel="stylesheet" href="css/94f6fe8e1e73.css">
 
 <link rel="stylesheet" href="css/35d3aab09f90.css">
 <link rel="stylesheet" href="css/5e7fecef918c.css">
@@ -673,4 +520,161 @@ sup a{padding-inline:4px}
   .hk.hk.hk.hk{font-size:12px}
 }
 </style>
+<script>// _dev/form_inline.py - lifted from mock/amft/_chrome_js.txt
+(function(){
+  // Post the signup in the background instead of letting the browser navigate.
+  // Formspree's own "Thanks! The form was submitted successfully. Go back" page
+  // is a dead end - it throws the reader off the site mid-thought and gives them
+  // a back button as the only way home. Same request, same endpoint, but the
+  // answer lands where they were standing.
+  function esc(s){ return String(s).replace(/[<>&"]/g, ''); }
+  function ok(f){
+    var email = (f.querySelector('input[type=email]') || {}).value || '';
+    var d = document.createElement('div');
+    d.className = 'nlok';
+    // Preserve the form type after replaceChild so the analytics success
+    // observer can distinguish a contact lead from a newsletter signup.
+    d.dataset.kind = f.dataset.kind || 'newsletter';
+    d.setAttribute('role', 'status');
+    // Two kinds of form share this handler. A message and a mailing-list
+    // signup are not the same event and must not get the same answer - being
+    // told "you're on the list" after reporting a bug reads as though the
+    // report went nowhere.
+    if (f.dataset.kind === 'contact'){
+      d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+        + '<b>Message sent.</b>'
+        + '<p>It is read by a person, usually within a day or two'
+        + (email ? ', and any reply goes to <b style="display:inline;font-family:inherit;'
+            + 'font-size:inherit">' + esc(email) + '</b>' : '')
+        + '. If it is a bug, the fix and the date it landed go on the page it affects.</p>'
+        + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
+        + 'with a link to it, or just describe what looked wrong.</p></div>';
+      f.parentNode.replaceChild(d, f);
+      return;
+    }
+    d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'
+      + '<b>You\u2019re on the list.</b>'
+      + '<p><b style="display:inline;font-family:inherit;font-size:inherit">'
+      + esc(email) + '</b> is on it. The next issue goes out at the start of '
+      + 'the month \u2014 a free tool or two, what colleagues are charging, and whatever caught '
+      + 'someone out.</p>'
+      + '<p>Nothing else happens in the meantime. One click leaves, any time.</p></div>';
+    f.parentNode.replaceChild(d, f);
+    if (window.gtag) gtag('event', 'newsletter_signup');
+  }
+  function fail(f){
+    var e = f.querySelector('.nlerr');
+    if (!e) { e = document.createElement('p'); e.className = 'nlerr'; f.appendChild(e); }
+    e.textContent = f.dataset.kind === 'contact'
+      ? 'That did not go through, and nothing was sent. Copy your message somewhere safe and '
+        + 'try again in a few minutes.'
+      : 'That did not go through, and nothing was sent. Check the address and try again.';
+  }
+  // Both form kinds, or the contact page silently falls back to a native
+  // POST and navigates to Formspree's dead-end thanks page - the exact
+  // behaviour this handler exists to prevent.
+  document.querySelectorAll('form.nlform, form.cform').forEach(function(f){
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var btn = f.querySelector('button[type=submit]'), label = btn ? btn.textContent : '';
+      if (btn) { btn.setAttribute('aria-busy', 'true'); btn.disabled = true;
+                 btn.textContent = 'Sending\u2026'; }
+      fetch(f.action, {method: 'POST', body: new FormData(f),
+                       headers: {'Accept': 'application/json'}})
+        .then(function(r){
+          if (r.ok) { ok(f); return; }
+          throw new Error('http ' + r.status);
+        })
+        .catch(function(){
+          fail(f);
+          if (btn) { btn.removeAttribute('aria-busy'); btn.disabled = false;
+                     btn.textContent = label; }
+        });
+    });
+  });
+})();
+</script>
+<script>/* _dev/analytics_events.py */
+(function(){
+  if (typeof window === 'undefined') return;
+  // gtag may not have loaded yet, or may be blocked. Queue into dataLayer the
+  // way the snippet itself does, so a blocked loader costs the event and not
+  // the page.
+  function send(name, params){
+    try {
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { window.dataLayer.push(['event', name, params]); }
+    } catch (e) {}
+  }
+
+  // Where on the page the form sat. Two signup forms on one page are the same
+  // event with different placements, and the placement is the thing worth
+  // knowing: a footer form and a hero form convert nothing like each other.
+  function place(form){
+    if (form.classList.contains('hero')) return 'hero';
+    var s = form.closest('footer, .sitefoot, .lnews, .nlband, section, main');
+    if (!s) return 'unknown';
+    if (s.tagName === 'FOOTER' || s.classList.contains('sitefoot')) return 'footer';
+    return s.id || (s.className || '').split(/\s+/)[0] || 'body';
+  }
+
+  function kindOf(form){
+    return form.dataset.kind === 'contact' ? 'contact' : 'newsletter';
+  }
+
+  function base(form){
+    var c = form.querySelector('input[type=checkbox][name=consent]');
+    return {
+      form_location: place(form),
+      form_id: form.className || 'form',
+      consent_given: c ? !!c.checked : null,
+      page_path: location.pathname
+    };
+  }
+
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    if (!f.querySelector('input[type=email]')) return;
+    var kind = kindOf(f);
+    f.dataset.tsSent = '1';
+    send(kind === 'contact' ? 'contact_submit' : 'newsletter_submit', base(f));
+  }, true);
+
+  // The confirmation the page's own handler writes on a successful POST. Only
+  // this fires the conversion.
+  function confirmed(node){
+    var f = node.closest ? node.closest('form') : null;
+    if (!f) {
+      // The handler replaces the form with the notice on some templates, so
+      // fall back to the nearest form-ish ancestor's own dataset.
+      f = node.parentElement && node.parentElement.querySelector
+          ? node.parentElement.querySelector('form') : null;
+    }
+    var kind = f ? kindOf(f) : (node.dataset.kind || 'newsletter');
+    var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
+    if (kind === 'contact') {
+      send('contact_sent', p);
+      send('generate_lead', p);
+      return;
+    }
+    send('newsletter_signup', p);
+    send('generate_lead', p);   // GA4's own recommended name, for the standard reports
+  }
+
+  new MutationObserver(function(muts){
+    muts.forEach(function(m){
+      Array.prototype.forEach.call(m.addedNodes || [], function(n){
+        if (n.nodeType !== 1) return;
+        if (n.classList && n.classList.contains('nlok')) confirmed(n);
+        else if (n.querySelector) {
+          var hit = n.querySelector('.nlok');
+          if (hit) confirmed(hit);
+        }
+      });
+    });
+  }).observe(document.documentElement, {childList: true, subtree: true});
+})();
+</script>
 </body></html>

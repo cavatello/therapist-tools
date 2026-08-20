@@ -33,6 +33,9 @@
     var email = (f.querySelector('input[type=email]') || {}).value || '';
     var d = document.createElement('div');
     d.className = 'nlok';
+    // Preserve the form type after replaceChild so the analytics success
+    // observer can distinguish a contact lead from a newsletter signup.
+    d.dataset.kind = f.dataset.kind || 'newsletter';
     d.setAttribute('role', 'status');
     // Two kinds of form share this handler. A message and a mailing-list
     // signup are not the same event and must not get the same answer - being
@@ -48,7 +51,6 @@
         + '<p>Got a screenshot? This form cannot carry a file \u2014 send a second message '
         + 'with a link to it, or just describe what looked wrong.</p></div>';
       f.parentNode.replaceChild(d, f);
-      if (window.gtag) gtag('event', 'contact_message');
       return;
     }
     d.innerHTML = '<span class="nlok-tick" aria-hidden="true">&#10003;</span><div>'

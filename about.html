@@ -301,87 +301,7 @@ a.card h3{text-decoration:none}
 
 <link rel="stylesheet" href="css/344435dbcb69.css">
 <link rel="stylesheet" href="css/eb5d1580bfa7.css">
-<link rel="stylesheet" href="css/6eba8e5ed77d.css">
-<script>/* _dev/analytics_events.py */
-(function(){
-  if (typeof window === 'undefined') return;
-  // gtag may not have loaded yet, or may be blocked. Queue into dataLayer the
-  // way the snippet itself does, so a blocked loader costs the event and not
-  // the page.
-  function send(name, params){
-    try {
-      window.dataLayer = window.dataLayer || [];
-      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
-      else { window.dataLayer.push(['event', name, params]); }
-    } catch (e) {}
-  }
-
-  // Where on the page the form sat. Two signup forms on one page are the same
-  // event with different placements, and the placement is the thing worth
-  // knowing: a footer form and a hero form convert nothing like each other.
-  function place(form){
-    if (form.classList.contains('hero')) return 'hero';
-    var s = form.closest('footer, .sitefoot, .lnews, .nlband, section, main');
-    if (!s) return 'unknown';
-    if (s.tagName === 'FOOTER' || s.classList.contains('sitefoot')) return 'footer';
-    return s.id || (s.className || '').split(/\s+/)[0] || 'body';
-  }
-
-  function kindOf(form){
-    return form.dataset.kind === 'contact' ? 'contact' : 'newsletter';
-  }
-
-  function base(form){
-    var c = form.querySelector('input[type=checkbox][name=consent]');
-    return {
-      form_location: place(form),
-      form_id: form.className || 'form',
-      consent_given: c ? !!c.checked : null,
-      page_path: location.pathname
-    };
-  }
-
-  document.addEventListener('submit', function(e){
-    var f = e.target;
-    if (!f || f.tagName !== 'FORM') return;
-    if (!f.querySelector('input[type=email]')) return;
-    var kind = kindOf(f);
-    f.dataset.tsSent = '1';
-    send(kind === 'contact' ? 'contact_submit' : 'newsletter_submit', base(f));
-  }, true);
-
-  // The confirmation the page's own handler writes on a successful POST. Only
-  // this fires the conversion.
-  function confirmed(node){
-    var f = node.closest ? node.closest('form') : null;
-    if (!f) {
-      // The handler replaces the form with the notice on some templates, so
-      // fall back to the nearest form-ish ancestor's own dataset.
-      f = node.parentElement && node.parentElement.querySelector
-          ? node.parentElement.querySelector('form') : null;
-    }
-    var kind = f ? kindOf(f) : 'newsletter';
-    var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
-    if (kind === 'contact') { send('contact_sent', p); return; }
-    send('newsletter_signup', p);
-    send('generate_lead', p);   // GA4's own recommended name, for the standard reports
-  }
-
-  new MutationObserver(function(muts){
-    muts.forEach(function(m){
-      Array.prototype.forEach.call(m.addedNodes || [], function(n){
-        if (n.nodeType !== 1) return;
-        if (n.classList && n.classList.contains('nlok')) confirmed(n);
-        else if (n.querySelector) {
-          var hit = n.querySelector('.nlok');
-          if (hit) confirmed(hit);
-        }
-      });
-    });
-  }).observe(document.documentElement, {childList: true, subtree: true});
-})();
-</script>
-<script>/* _dev/error_tracking.py */
+<link rel="stylesheet" href="css/6eba8e5ed77d.css"><script>/* _dev/error_tracking.py */
 (function(){
   var CAP = 5, sent = 0;
 
@@ -726,5 +646,88 @@ sup a{padding-inline:4px}
   .hk.hk.hk.hk{font-size:12px}
 }
 </style>
+<script>/* _dev/analytics_events.py */
+(function(){
+  if (typeof window === 'undefined') return;
+  // gtag may not have loaded yet, or may be blocked. Queue into dataLayer the
+  // way the snippet itself does, so a blocked loader costs the event and not
+  // the page.
+  function send(name, params){
+    try {
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { window.dataLayer.push(['event', name, params]); }
+    } catch (e) {}
+  }
+
+  // Where on the page the form sat. Two signup forms on one page are the same
+  // event with different placements, and the placement is the thing worth
+  // knowing: a footer form and a hero form convert nothing like each other.
+  function place(form){
+    if (form.classList.contains('hero')) return 'hero';
+    var s = form.closest('footer, .sitefoot, .lnews, .nlband, section, main');
+    if (!s) return 'unknown';
+    if (s.tagName === 'FOOTER' || s.classList.contains('sitefoot')) return 'footer';
+    return s.id || (s.className || '').split(/\s+/)[0] || 'body';
+  }
+
+  function kindOf(form){
+    return form.dataset.kind === 'contact' ? 'contact' : 'newsletter';
+  }
+
+  function base(form){
+    var c = form.querySelector('input[type=checkbox][name=consent]');
+    return {
+      form_location: place(form),
+      form_id: form.className || 'form',
+      consent_given: c ? !!c.checked : null,
+      page_path: location.pathname
+    };
+  }
+
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    if (!f.querySelector('input[type=email]')) return;
+    var kind = kindOf(f);
+    f.dataset.tsSent = '1';
+    send(kind === 'contact' ? 'contact_submit' : 'newsletter_submit', base(f));
+  }, true);
+
+  // The confirmation the page's own handler writes on a successful POST. Only
+  // this fires the conversion.
+  function confirmed(node){
+    var f = node.closest ? node.closest('form') : null;
+    if (!f) {
+      // The handler replaces the form with the notice on some templates, so
+      // fall back to the nearest form-ish ancestor's own dataset.
+      f = node.parentElement && node.parentElement.querySelector
+          ? node.parentElement.querySelector('form') : null;
+    }
+    var kind = f ? kindOf(f) : (node.dataset.kind || 'newsletter');
+    var p = f ? base(f) : {form_location: 'unknown', page_path: location.pathname};
+    if (kind === 'contact') {
+      send('contact_sent', p);
+      send('generate_lead', p);
+      return;
+    }
+    send('newsletter_signup', p);
+    send('generate_lead', p);   // GA4's own recommended name, for the standard reports
+  }
+
+  new MutationObserver(function(muts){
+    muts.forEach(function(m){
+      Array.prototype.forEach.call(m.addedNodes || [], function(n){
+        if (n.nodeType !== 1) return;
+        if (n.classList && n.classList.contains('nlok')) confirmed(n);
+        else if (n.querySelector) {
+          var hit = n.querySelector('.nlok');
+          if (hit) confirmed(hit);
+        }
+      });
+    });
+  }).observe(document.documentElement, {childList: true, subtree: true});
+})();
+</script>
 </body>
 </html>
