@@ -36,7 +36,7 @@ SITE = os.path.dirname(HERE)
 # Directories that hold no published pages at all: build inputs, research,
 # stylesheets, this folder.
 IGNORE = {"mock", "css", "js", "node_modules", "RESEARCH", "_to_delete",
-          "_dev", "_ops", "img", "assets"}
+          "_dev", "_ops", "_publish", "img", "assets"}
 
 # `ops/` and `hours/` hold working documents, not published pages, and the
 # passes are right to skip them. That exemption is NOT a list of names, and it
