@@ -214,10 +214,18 @@ for (const page of PAGES) {
   since++;
   for (const v of RUN) {
     const p = await b.newPage({ viewport: { width: v.w, height: v.h } });
+    /* The responsive audit exercises local markup/CSS/JS. Third-party fonts,
+       analytics and form endpoints are irrelevant to layout correctness and
+       can each hold `load` open for 20 seconds when offline. */
+    await p.route('**/*', route => {
+      const u = new URL(route.request().url());
+      if (u.hostname === 'localhost' || u.hostname === '127.0.0.1') route.continue();
+      else route.abort();
+    });
     const errs = [];
     p.on('pageerror', e => errs.push(e.message));
     try {
-      await p.goto(BASE + page, { waitUntil: 'load', timeout: 20000 });
+      await p.goto(BASE + page, { waitUntil: 'domcontentloaded', timeout: 10000 });
     } catch (e) { add(page, v.name, 'LOAD', e.message.slice(0, 60)); await p.close(); continue; }
     await p.waitForTimeout(300);
     /* One page with a few thousand nodes made the contrast walk take minutes and
