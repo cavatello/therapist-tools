@@ -1,5 +1,5 @@
 #!/bin/bash
-# Publish the site folder to GitHub, which republishes the GitHub Pages site.
+# Publish the site folder to Cloudflare, which republishes the Cloudflare Pages site.
 #
 #   ./_dev/publish.sh setup     one time - wire this folder up to the repo
 #   ./_dev/publish.sh           commit and push whatever has changed
@@ -23,7 +23,7 @@
 set -u
 cd "$(dirname "$0")/.." || exit 1
 ROOT="$(pwd)"
-REMOTE="https://github.com/cavatello/therapist-tools.git"
+REMOTE="https://dash.cloudflare.com/"
 SITE="https://therapistsupport.org/"
 WATCH_EXT="js html css txt md"
 BEAT="$ROOT/_dev/.watch-heartbeat"
@@ -61,7 +61,7 @@ do_setup() {
     git remote add origin "$REMOTE"
   fi
 
-  say "Fetching what is already on GitHub..."
+  say "Fetching what is already on Cloudflare..."
   if ! git fetch -q origin main 2>/dev/null; then
     fail "Could not reach the repo. If it asked for a password, see AUTH below."
   fi
@@ -136,7 +136,7 @@ do_publish() {
     printf '%s  push failed\n' "$(date '+%Y-%m-%d %H:%M:%S')" > "$ERRF"
     echo
     say "Push failed - almost always authentication."
-    say "AUTH: easiest fix is the GitHub CLI -"
+    say "AUTH: easiest fix is the Cloudflare CLI -"
     say "   brew install gh && gh auth login"
     say "Then run this script again. (Your account password will not work;"
     say "git needs a token, which gh sets up for you.)"

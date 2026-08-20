@@ -16,7 +16,7 @@ gets out of the way. A new one is loud.
 
 WHAT IT CHECKS, AND WHY EACH ONE EARNED ITS PLACE
 
-  canonical off-host   The migration bug. A canonical naming cavatello.github.io
+  canonical off-host   The migration bug. A canonical naming cavatello.cloudflare.io
                        took the whole site out of the index and nothing else
                        mattered until it was fixed. Cheap to check, catastrophic
                        to miss.

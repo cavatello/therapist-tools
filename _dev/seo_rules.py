@@ -57,7 +57,7 @@ them is a general-purpose SEO checklist item included because a blog said so.
                         cut mid-sentence.
   description unique    Same reason as the title.
   canonical present     Four real pages shipped without one.
-  canonical on-host     THE migration bug. A canonical naming the old GitHub
+  canonical on-host     THE migration bug. A canonical naming the old Cloudflare
                         host took the entire site out of the index, and nothing
                         else mattered until it was found.
   canonical self        A canonical naming a DIFFERENT page silently deindexes

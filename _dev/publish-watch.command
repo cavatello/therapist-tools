@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.." || exit 1
 rm -f .git/index.lock 2>/dev/null
 
 if [ ! -d .git ] || ! git rev-parse --abbrev-ref --symbolic-full-name @{u} >/dev/null 2>&1; then
-  echo "First run - setting up the connection to GitHub..."
+  echo "First run - setting up the connection to Cloudflare..."
   echo
   ./_dev/publish.sh setup || { echo; echo "Setup did not finish. Fix the problem above, then try again."; exit 1; }
   echo

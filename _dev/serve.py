@@ -7,7 +7,7 @@ whenever a source file changes on disk.
 
 The reload snippet is injected into HTML *as it is served* -- your real
 index.html / rates.html / concepts.html files are never modified, so nothing
-dev-only can ever leak into a Netlify deploy.
+dev-only can ever leak into a Cloudflare deploy.
 
 Usage:   python3 _dev/serve.py [port] [lan]
 Default port 8080, bound to this machine only.  Ctrl-C to stop.

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """tools.html -> resources.html, on a host with no server-side redirects.
 
-GitHub Pages cannot issue a 301, so this is the next best thing and the
+Cloudflare Pages cannot issue a 301, so this is the next best thing and the
 combination matters:
 
   rel=canonical      tells search engines resources.html is the real page and

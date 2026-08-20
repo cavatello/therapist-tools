@@ -222,7 +222,7 @@ FOOT = [
                ("affiliate-disclosure.html", "Affiliate disclosure"),
                ("newsletter.html", "Stay updated"),
                ("contact.html", "Contact"),
-               ("https://cavatello.github.io/therapist-tycoon/tycoon.html", "Tycoon")]),
+               ("https://therapistsupport.org/tycoon.html", "Tycoon")]),
 ]
 
 CSS = """

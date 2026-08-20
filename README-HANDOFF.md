@@ -6,7 +6,7 @@ to the repo before doing anything else.**
 
 ## Why this exists
 
-`github.com/cavatello/therapist-tools` holds **only generated HTML**. There is no
+`cloudflare.com/cavatello/therapist-tools` holds **only generated HTML**. There is no
 `mock/` directory in it — never committed, and not gitignored either. Cloud
 containers are ephemeral. So every session's build source has lived only on the
 Mac, and anything a cloud session builds evaporates unless it is committed back

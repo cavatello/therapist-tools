@@ -299,7 +299,7 @@ In `_dev/` but not in `ship.py`. **Verdicts come from running each one twice aga
 | `fix_pass.py` | **one-shot** | &mdash; | One pass over the published set for four live defects. — a migration that has already happened |
 | `fix_resources_order.py` | **one-shot** | &mdash; | The toolkit page opens with a changelog. Move it, and say who it is for. — a migration that has already happened |
 | `fix_touro_notice.py` | **one-shot** | &mdash; | Two defects in the Touro show-cause notice, found on the live page. — a migration that has already happened |
-| `rebase_domain.py` | **one-shot** | &mdash; | Move the site from cavatello.github.io/therapist-tools to its own domain. — a migration that has already happened |
+| `rebase_domain.py` | **one-shot** | &mdash; | Move the site from cavatello.cloudflare.io/therapist-tools to its own domain. — a migration that has already happened |
 | `relink_hub.py` | **one-shot** | &mdash; | Stop routing the whole site through a redirect stub. — a migration that has already happened |
 | `rename_newsletter_cta.py` | **one-shot** | &mdash; | Newsletter -> "Stay updated", everywhere, and repoint the copy at what it is — a migration that has already happened |
 | `hero_action.py` | **retired** | `/* _dev/hero_action.py */` | Every tool hero gets one thing to press. — superseded by hub_hero; no output left |

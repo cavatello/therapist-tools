@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Terms of Use and Privacy for therapistsupport / cavatello.github.io.
+"""Terms of Use and Privacy for therapistsupport / cavatello.cloudflare.io.
 
 Written from an audit of what the site ACTUALLY does, not from a template:
 
@@ -8,7 +8,7 @@ Written from an audit of what the site ACTUALLY does, not from a template:
   Formspree           /f/xzdnyabp    about, contact, newsletter, rates, tools
   Google Fonts        fonts.googleapis.com / fonts.gstatic.com   every page
   unpkg CDN           React, on practice-simulator.html
-  GitHub Pages        hosting
+  Cloudflare Pages        hosting
 
 A privacy policy that claims "we collect nothing" while running GA4 and AdSense
 is worse than no policy at all - it is a false statement about data practices to
@@ -190,7 +190,7 @@ PRIVACY = [
    "and forwards it by email.",
    "<b>Google Fonts</b> serves the typefaces, which involves a request to Google "
    "carrying your IP address.",
-   "<b>GitHub Pages</b> hosts the Site and, like any web host, processes request logs.",
+   "<b>Cloudflare Pages</b> hosts the Site and, like any web host, processes request logs.",
    "<b>unpkg</b> serves a JavaScript library on the full simulator page."]),
 
  ("What you give voluntarily",

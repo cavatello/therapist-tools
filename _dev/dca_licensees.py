@@ -19,7 +19,7 @@ THE PRIVACY RULE, WHICH IS THE MOST IMPORTANT THING IN THIS FILE
 
 The raw file contains ADDRESSES. For a solo practitioner the address of record
 is, very often, the address they sleep at. This repository is published to
-GitHub Pages: anything committed here is on the public internet within two
+Cloudflare Pages: anything committed here is on the public internet within two
 minutes.
 
 So:
@@ -172,7 +172,7 @@ def issuance_by_year(*_args, **_kw):
 def refuse_if_tracked():
     """Stop before downloading if the cache would be committed.
 
-    This repository publishes to GitHub Pages. The raw file contains home
+    This repository publishes to Cloudflare Pages. The raw file contains home
     addresses. A gitignore line is one careless edit away from being deleted,
     so the check is made here as well, every run, before any bytes land.
     """

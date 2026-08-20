@@ -21,7 +21,7 @@ say "  $ROOT"
 echo
 
 command -v git >/dev/null 2>&1 || fail "git is not installed. Run: xcode-select --install"
-[ -d "$ROOT/.git" ] || fail "This folder is not connected to GitHub yet. Run ./_dev/publish.sh setup first."
+[ -d "$ROOT/.git" ] || fail "This folder is not connected to Cloudflare yet. Run ./_dev/publish.sh setup first."
 [ -f "$ROOT/_dev/$LABEL.plist" ] || fail "Missing _dev/$LABEL.plist — re-sync the _dev folder."
 
 # Confirm a push actually works before handing the job to a background service.
@@ -29,12 +29,12 @@ command -v git >/dev/null 2>&1 || fail "git is not installed. Run: xcode-select 
 say "Testing that a push works before installing..."
 if ! git ls-remote origin >/dev/null 2>&1; then
   echo
-  say "Could not reach GitHub with your saved credentials."
+  say "Could not reach Cloudflare with your saved credentials."
   say "Fix that first, then run this again:"
   say "   brew install gh && gh auth login"
   fail "Not installed."
 fi
-say "GitHub reachable."
+say "Cloudflare reachable."
 echo
 
 mkdir -p "$HOME/Library/LaunchAgents" || fail "Could not create ~/Library/LaunchAgents"

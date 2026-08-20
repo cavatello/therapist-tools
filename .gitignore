@@ -14,7 +14,7 @@ _dev/*.log
 # The DCA licensee cache. `_dev/dca_licensees.py` downloads California's
 # monthly file of every BBS licensee here - 35MB, 165,000 records, and it
 # carries ADDRESSES. For a solo practitioner the address of record is usually
-# their home. This repository publishes to GitHub Pages, so a tracked copy is a
+# their home. This repository publishes to Cloudflare Pages, so a tracked copy is a
 # public copy within two minutes.
 #
 # The pass checks this line exists and refuses to download without it. Do not

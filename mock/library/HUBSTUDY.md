@@ -2,7 +2,7 @@
 
 Research date: 6 August 2026. Every claim below was checked by fetching the page on that date, not from memory. Where a widely-repeated claim about one of these sites is no longer true, it is flagged **[CHANGED]**.
 
-Subject site: `https://cavatello.github.io/therapist-tools/` — hub at `/resources.html`, ~80 pages today, several hundred planned across financial calculators, CA licensure, 65 MFT graduate programmes, 16 psychedelic-assisted therapy trainings, insurance/payers, practice growth, and a long tail of SEO articles.
+Subject site: `https://therapistsupport.org/` — hub at `/resources.html`, ~80 pages today, several hundred planned across financial calculators, CA licensure, 65 MFT graduate programmes, 16 psychedelic-assisted therapy trainings, insurance/payers, practice growth, and a long tail of SEO articles.
 
 ---
 
@@ -139,7 +139,7 @@ Articles have moved to `articles.helpscout.com`. Verified:
 
 `https://www.helpscout.com/blog/` still resolves and is the blog front page, but every article card on it links to `articles.helpscout.com`. The in-body editorial links inside articles are still written as `www.helpscout.com/blog/…` and **do 302 across to the subdomain** (checked three: `/blog/committed-to-dei/`, `/performance-management-at-help-scout/`, `/blog/rome-retreat/` — all end at `articles.helpscout.com` with a 200). It works, but it means every internal link in their back catalogue now takes a cross-host hop.
 
-The lesson for us is a negative one: **splitting a content library across hostnames costs you a redirect on every legacy internal link forever.** We are on GitHub Pages with no server-side redirects; we cannot afford this move even if we wanted it.
+The lesson for us is a negative one: **splitting a content library across hostnames costs you a redirect on every legacy internal link forever.** We are on Cloudflare Pages with no server-side redirects; we cannot afford this move even if we wanted it.
 
 ---
 
@@ -495,7 +495,7 @@ Ship breadcrumbs anyway, both visible and as `BreadcrumbList`. Our reasons are t
 
 Every one of them uses **directories, not a flat namespace**. We currently do not: `become-an-mft-california.html`, `mft-programs-california.html`, `s-corp-sdi-california-therapist.html` all sit at the root, and the 65 school pages are queued to land at the root too (`alliant-international-university-mft.html`, `azusa-pacific-university-mft.html`, … — from `school_slugs.json`). **Fix this before generating them**, not after. Once 65 school pages are indexed at the root, moving them costs 65 redirect stubs on a host that cannot issue a 301.
 
-Proposed shape (GitHub Pages serves subfolders fine — verified, `/css/…` resolves 200):
+Proposed shape (Cloudflare Pages serves subfolders fine — verified, `/css/…` resolves 200):
 
 ```
 /                                  home
@@ -716,4 +716,4 @@ One extension worth taking from Help Scout: their comparison pages open with the
 | `https://www.intercom.com/resources` | **302 → `/why-choose-intercom`** | Resources hub retired |
 | `https://www.investopedia.com/` | **402** | Blocked — no claims made |
 | `https://www.niche.com/graduate-schools/…` | **403** | Blocked — no claims made |
-| `https://cavatello.github.io/therapist-tools/resources.html` | 200 | Current hub: 24 question rows, 72 reference links, 10 topic pills, 37 internal links, flat root URLs |
+| `https://therapistsupport.org/resources.html` | 200 | Current hub: 24 question rows, 72 reference links, 10 topic pills, 37 internal links, flat root URLs |

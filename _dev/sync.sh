@@ -22,7 +22,7 @@ set -u
 cd "$(dirname "$0")/.." || exit 1
 SITE="https://therapistsupport.org"
 
-# Everything GitHub Pages actually serves. _dev/, _to_delete/ and node_modules/
+# Everything Cloudflare Pages actually serves. _dev/, _to_delete/ and node_modules/
 # are gitignored or unpublished and are deliberately absent.
 # Verified against the live host: every name below returns 200.
 FILES="index.html practice-simulator.html therapist-working-remotely-california.html therapist-cost-of-living-california.html rates.html tools.html about.html newsletter.html contact.html privacy.html terms.html associate-mft-job-advisor.html amft-3000-hours-california.html therapist-tax-strategy-california.html grow-your-therapy-practice.html tycoon.html concepts.html robots.txt README.md package.json package-lock.json og-image.png tools-booking.png sitemap.xml"

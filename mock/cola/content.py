@@ -13,7 +13,7 @@ single number for "cost of living in California" is exactly the illustrative
 figure this site refuses to print.
 """
 
-SITE = "https://cavatello.github.io/therapist-tools"
+SITE = "https://therapistsupport.org"
 SLUG = "therapist-cost-of-living-california.html"
 TITLE = ("Cost of Living for California Therapists — what you need to earn, "
          "and what is left")

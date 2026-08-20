@@ -59,9 +59,9 @@ RETIRED_IDS = ["G-BHXXEN4P0X"]
 #                 account  palo-alto-therapist.com (392417713)
 #                 stream   "Therapist Support" (15401186123)
 #
-# There is a SEPARATE property called "Github Therapy Tools" (547356777) under
+# There is a SEPARATE property called "Cloudflare Therapy Tools" (547356777) under
 # the "Google Ads Account" (372904968) whose stream carries the RETIRED id
-# above and still points at https://cavatello.github.io/therapist-tools/. It
+# above and still points at https://therapistsupport.org/. It
 # is not this site. Custom dimensions created there are invisible to these
 # pages, which is exactly the mistake that was made once.
 LIVE_PROPERTY = "a392417713p549050855"

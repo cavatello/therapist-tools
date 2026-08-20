@@ -11,7 +11,7 @@ the most linked pages on the site.
 
 A missing canonical is not a small thing here. This site has already been
 deindexed once by a canonical problem - during the domain move, pages carried a
-canonical pointing at the old GitHub host, and nothing else about the site
+canonical pointing at the old Cloudflare host, and nothing else about the site
 mattered until that was found. A page with no canonical at all is the milder
 version of the same failure: any URL variant that reaches it (a tracking
 parameter, a trailing slash, an http link, a syndicated copy) can be treated as

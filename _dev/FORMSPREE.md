@@ -48,8 +48,8 @@ nobody can write to is worth less than an inbox that fills up.
 | **Formspree** | 50/mo | dashboard + CSV | yes | no |
 | **Apps Script** | effectively unlimited | Google Sheet | yes | yes — and it is the one that just failed |
 | **Web3Forms** | 250/mo | dashboard | yes | no |
-| **GitHub Issues** via a form-to-issue action | unlimited | the repo's issues | GitHub notifies you | no |
+| **Cloudflare Issues** via a form-to-issue action | unlimited | the repo's issues | Cloudflare notifies you | no |
 
-The GitHub Issues route is worth a thought given everything already lives in a GitHub
+The Cloudflare Issues route is worth a thought given everything already lives in a Cloudflare
 repo — each piece of feedback becomes an issue you can label and close. It is a little
 more setup than Formspree and makes the feedback public unless the repo is private.

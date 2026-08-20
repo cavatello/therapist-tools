@@ -2,10 +2,10 @@
 
 **This folder is the source of truth.**
 
-**Live site: https://therapistsupport.org/** (GitHub Pages, free)
+**Live site: https://therapistsupport.org/** (Cloudflare Pages, free)
 
-`practice-income-planner.netlify.app` is **no longer a website** — as of 25 July 2026
-it holds nothing but a `_redirects` file that 301s every path to GitHub Pages. Do not
+`practice-income-planner.cloudflare.app` is **no longer a website** — as of 25 July 2026
+it holds nothing but a `_redirects` file that 301s every path to Cloudflare Pages. Do not
 deploy the site there again unless you mean to undo that.
 
 
@@ -13,7 +13,7 @@ deploy the site there again unless you mean to undo that.
 
 ## Previewing locally (free — no deploy needed)
 
-Every deploy costs Netlify build credit, so develop against the local server and
+Every deploy costs Cloudflare build credit, so develop against the local server and
 deploy once when you're happy with a batch of changes.
 
 ```bash
@@ -53,7 +53,7 @@ Layout variants: `?v=01` … `?v=04` — same engine, different first screen.
 
 ### `_dev/` must not be deployed
 
-Keep `_dev/` and `_to_delete/` out of any folder you deploy from. A Netlify deploy
+Keep `_dev/` and `_to_delete/` out of any folder you deploy from. A Cloudflare deploy
 uploads everything it is given.
 
 ---
@@ -65,16 +65,16 @@ deleted from the live site.
 
 ```bash
 # 1. always re-download tycoon.html first — see below
-curl -s https://practice-income-planner.netlify.app/tycoon.html -o tycoon.html
+curl -s https://therapistsupport.org/tycoon.html -o tycoon.html
 
 # 2. deploy (fetch a fresh token immediately before; they expire fast)
-npx -y @netlify/mcp@latest \
+npx -y @cloudflare/mcp@latest \
   --site-id a98d0381-c701-48a2-af30-404118b3c8a6 \
   --proxy-path "<fresh token>"
 ```
 
 **Gotcha:** the token URL comes back containing a doubled slash
-(`netlify-mcp.netlify.app//proxy/…`). Passed as-is it fails with a bare
+(`cloudflare-mcp.cloudflare.app//proxy/…`). Passed as-is it fails with a bare
 `404 Not Found` that looks like an auth or billing problem. Collapse it to a single
 slash and it works.
 
@@ -118,12 +118,12 @@ read-write but not delete-capable). Safe to drag to the Trash.
 
 ---
 
-## Publishing to GitHub Pages (free, for phone review)
+## Publishing to Cloudflare Pages (free, for phone review)
 
 Public preview: **https://therapistsupport.org/**
-Repo: https://github.com/cavatello/therapist-tools
+Repo: https://dash.cloudflare.com/
 
-This is separate from Netlify and costs nothing. Use it to look at the site on a
+This is separate from Cloudflare and costs nothing. Use it to look at the site on a
 phone or send it to someone.
 
 ```bash
@@ -138,13 +138,13 @@ phone or send it to someone.
 ```
 
 `watch` polls every 5s and pushes once edits have stopped for 15 seconds, so a burst
-of changes becomes one commit rather than twenty. GitHub Pages rebuilds about a
+of changes becomes one commit rather than twenty. Cloudflare Pages rebuilds about a
 minute after each push.
 
 `_dev/` and `_to_delete/` are gitignored, so the dev server and scratch files never
 reach the repo.
 
-**Authentication.** `git push` over HTTPS will not accept your GitHub account
+**Authentication.** `git push` over HTTPS will not accept your Cloudflare account
 password. The simplest fix, once:
 
 ```bash
@@ -155,11 +155,11 @@ Alternatively create a fine-grained Personal Access Token with Contents: Read an
 write, and paste it when git asks for a password.
 
 **The repo is public** — required for free Pages — so `app.js` is readable, including
-the mailto address in the feedback form. Same exposure as the Netlify site.
+the mailto address in the feedback form. Same exposure as the Cloudflare site.
 
 ### Which one to use
 
-| | Local server | GitHub Pages | Netlify |
+| | Local server | Cloudflare Pages | Cloudflare |
 |---|---|---|---|
 | Cost | free | free | build credit |
 | Live reload | yes | no | no |
@@ -168,9 +168,9 @@ the mailto address in the feedback form. Same exposure as the Netlify site.
 
 ---
 
-## The Netlify redirect (25 July 2026)
+## The Cloudflare redirect (25 July 2026)
 
-The Netlify site now contains exactly one file, `_redirects`:
+The Cloudflare site now contains exactly one file, `_redirects`:
 
 ```
 /index.html     .../index.html     301!
@@ -184,13 +184,13 @@ Known pages keep their deep links; anything else lands on the simulator. Query
 strings (`?v=01`) and hash fragments (`#sim`, and `#s=` share links) survive a 301,
 so old links still work.
 
-**Why `301!` and not `301`.** Netlify serves an existing file in preference to a
+**Why `301!` and not `301`.** Cloudflare serves an existing file in preference to a
 redirect rule. The `!` forces the redirect regardless. It does not matter while
 `_redirects` is the only file, but it will the moment anything else is added.
 
-**Caution.** A Netlify deploy replaces the *entire* file set. On 25 July a deploy
+**Caution.** A Cloudflare deploy replaces the *entire* file set. On 25 July a deploy
 containing only a hand-written redirect `index.html` deleted `app.js`, `rates.html`,
 `concepts.html` and `tycoon.html` from the live site. Nothing was lost — every file
-existed on GitHub Pages and in this folder, and `tycoon.html` was verified
+existed on Cloudflare Pages and in this folder, and `tycoon.html` was verified
 byte-identical (`abb342744a732277b04044cbdbc71552`) — but that is the failure mode to
-watch for. That page also pointed at `https://github.io`, which is not a site.
+watch for. That page also pointed at `https://therapistsupport.org`, which is not a site.

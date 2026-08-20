@@ -21,7 +21,7 @@ So:
    and means the hub finally has a top-nav entry, which it shipped without.
 
 2. tools.html itself becomes a redirect stub, written by build_redirect.py.
-   GitHub Pages has no server-side redirects, so it is a zero-delay meta
+   Cloudflare Pages has no server-side redirects, so it is a zero-delay meta
    refresh plus rel=canonical - which Google treats as a redirect - plus a
    real visible link for anyone whose browser ignores both.
 

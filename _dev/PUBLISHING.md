@@ -78,7 +78,7 @@ something. Never run it to make a red build go green.
 | title present, 15–68 chars, unique | 93 titles were over 68; the truncated part was the part that identified the page |
 | description present, 70–168 chars, unique | 104 were over; same failure |
 | canonical present | Four real pages had none |
-| canonical on-host | The migration bug — a canonical naming the old GitHub host took the whole site out of the index |
+| canonical on-host | The migration bug — a canonical naming the old Cloudflare host took the whole site out of the index |
 | canonical names itself | A canonical naming a *different* page silently deindexes the page carrying it. `practice-simulator.html` was pointing at the homepage |
 | `<html lang>` | One attribute; it is what says this is English |
 | every internal link resolves | — |
