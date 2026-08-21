@@ -69,9 +69,9 @@ Every figure in that list is already stated in the page's own prose or table.
 Nothing here introduces a number, which is deliberate: a graphic that is the
 only place a figure appears is a figure nobody has checked.
 
-The CSS ships on every page even where no graphic is placed yet, so the next
-placement is one tuple, and so `extract_css.py` hoists one shared file rather
-than inlining a copy per page.
+The CSS ships only on pages that contain a graphic. A new placement remains one
+tuple and one generator run, without making every non-graphic page download or
+declare a component it never renders.
 
 Idempotent, guarded. Run in the STRUCTURE stage, before extract_css.
 """
@@ -160,7 +160,7 @@ CSS = """<style>%(mark)s
    1/2 - the 38px column - which renders one character per line and made a
    seven-step list 4,170px tall. Both children are pinned to column 2. */
 .ig-steps li > b,.ig-steps li > span{grid-column:2}
-.ig-steps b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+.ig-steps b{display:block;font-family:Inter,system-ui,sans-serif;
   font-weight:800;letter-spacing:-.02em;font-size:15.5px;color:%(ink)s;
   margin:6px 0 3px}
 .ig-steps span{display:block;font-size:14px;line-height:1.6;color:%(muted)s;max-width:64ch}
@@ -185,7 +185,7 @@ CSS = """<style>%(mark)s
 .ig-flow .node{flex:1 1 150px;border:2px solid %(ink)s;border-radius:11px;
   background:%(cream)s;padding:13px 14px;box-shadow:4px 4px 0 %(ink)s;min-width:0}
 .ig-flow .node.pay{background:%(gold)s}
-.ig-flow .node b{display:block;font-family:'Bricolage Grotesque',system-ui,sans-serif;
+.ig-flow .node b{display:block;font-family:Inter,system-ui,sans-serif;
   font-weight:800;font-size:14.5px;color:%(ink)s;letter-spacing:-.02em}
 .ig-flow .node span{display:block;font-size:12.6px;line-height:1.55;color:%(muted)s;
   margin-top:4px}
@@ -518,7 +518,7 @@ def main():
             print("  ok       %-44s ig-%s" % (rel[:44], kind))
 
         e = s.lower().rfind("</body>")
-        if e > 0:
+        if e > 0 and BLOCK in s:
             s = s[:e] + css + "\n" + s[e:]
             styled += 1
 
@@ -550,10 +550,13 @@ def main():
             print("GUARD %s: a decorative bar is not aria-hidden" % page)
             bad += 1
 
+    placed_pages = {page for page, _anchor, _build in PLACEMENTS}
     for rel in pages():
         s = open(os.path.join(SITE, rel), encoding="utf-8").read()
-        if "sitenav" in s and s.count(MARK) != 1:
-            print("GUARD %s: %d stylesheets" % (rel, s.count(MARK)))
+        expected = 1 if rel in placed_pages else 0
+        if s.count(MARK) != expected:
+            print("GUARD %s: %d infographic stylesheets, expected %d"
+                  % (rel, s.count(MARK), expected))
             bad += 1
 
     if bad:
