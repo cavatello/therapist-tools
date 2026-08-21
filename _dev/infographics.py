@@ -94,12 +94,12 @@ MARK = "/* _dev/infographics.py */"
 BLOCK = "<!-- _dev/infographics.py -->"
 END = "<!-- /infographics -->"
 
-INK = "#16211B"
+INK = "#1B2420"
 PINE = "#2C6350"
-GOLD = "#F6C560"
-CREAM = "#FBF9F3"
+GOLD = "#FFE7A3"
+CREAM = "#F6F8F6"
 PAPER = "#F4F0E6"
-MUTED = "#635E53"
+MUTED = "#5F6A64"
 
 CSS = """<style>%(mark)s
 /* A visual vocabulary. Five shapes, all CSS, all reflowing at 390px, all
@@ -167,7 +167,7 @@ CSS = """<style>%(mark)s
 
 /* ----------------------------------------------------------------- bars */
 .ig-bars .row{display:grid;grid-template-columns:150px 1fr auto;gap:12px;
-  align-items:center;padding:7px 0;border-bottom:1.5px solid #E6E0D2}
+  align-items:center;padding:7px 0;border-bottom:1.5px solid #DFE4E0}
 .ig-bars .row:last-child{border-bottom:0}
 .ig-bars .who{font-size:13.6px;line-height:1.35;color:%(ink)s;font-weight:600}
 .ig-bars.ig-bars .who i{display:block;font-style:normal;font-size:11.5px;
@@ -176,7 +176,7 @@ CSS = """<style>%(mark)s
   height:19px;position:relative;overflow:hidden}
 .ig-bars .fill{position:absolute;left:0;top:0;bottom:0;background:%(pine)s;
   border-radius:999px}
-.ig-bars .fill.lo{background:#8FB3A3}
+.ig-bars .fill.lo{background:#DFE4E0}
 .ig-bars.ig-bars .val{font-family:Fraunces,Georgia,serif;font-weight:600;
   font-size:15px;color:%(ink)s;white-space:nowrap}
 
