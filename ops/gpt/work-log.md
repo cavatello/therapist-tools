@@ -127,6 +127,7 @@ The responsive heuristic still emits noisy flags that require human interpretati
 - Strengthened the California LMFT continuing-education page with a query-aligned description, current freshness metadata, and visible-answer-backed FAQ structured data.
 - Corrected the shared form-success observer so contact submissions cannot be misclassified as newsletter signups. A contact attempt emits `contact_submit`; only a confirmed Formspree success emits `contact_sent` and `generate_lead`. No email address or message content is sent to GA4.
 - Marked `generate_lead` as a key event in the Therapistsupport GA4 property and verified it through the Analytics Admin API with once-per-event counting.
+- Added the first infographic-led SEO enhancement to the California LMFT continuing-education guide: a responsive, accessible four-number compliance snapshot using only figures already verified and cited in the article. Added the release to the SEO impact ledger for page-level tracking.
 
 ## Key project files
 

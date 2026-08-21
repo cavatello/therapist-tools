@@ -63,6 +63,7 @@ WHERE THEY ARE USED, AS OF THIS PASS
   therapy-liability-insurance         ig-bars    CPH's published rate ladder
   therapist-discipline-cases          ig-bars    thirty cases by what went wrong
   rates                               ig-flow    who actually pays for an EAP hour
+  continuing-education-california     ig-stat    the renewal cycle at a glance
 
 Every figure in that list is already stated in the page's own prose or table.
 Nothing here introduces a number, which is deliberate: a graphic that is the
@@ -297,6 +298,26 @@ def stat(cap, cells, note=None):
 # ------------------------------------------------------ where they are used
 # (page, anchor regex to insert AFTER, html builder)
 PLACEMENTS = [
+    # --------------------------------------------------------- continuing ed
+    # This is the page's complete recurring obligation and its audit stakes in
+    # one scan. Every figure comes from the cited BBS requirements and audit
+    # notice already explained in the article; the graphic introduces no new
+    # claim. It follows the dek so search visitors get the answer immediately.
+    (
+        "continuing-education-california-lmft.html",
+        r'<p class="dek">Thirty-six hours every two years,[\s\S]{0,500}?</p>',
+        lambda: stat(
+            "California LMFT renewal, in four numbers",
+            [("36", "CE hours per renewal"),
+             ("6", "law &amp; ethics hours"),
+             ("2 years", "one renewal cycle"),
+             ("62%", "could not prove compliance in the Board audit")],
+            "The first three figures are the recurring license-renewal rule. "
+            "The audit figure is <b>118 of 190 licensees</b> reviewed after "
+            "the Board restarted audits in March 2024. Keep completion "
+            "certificates for at least two years after renewal."),
+    ),
+
     # ---------------------------------------------------------------- PsyD
     # Placed after the legal explanation and before the tier lists, because
     # the bar IS the grouping the rest of the page uses. Anchored on the
